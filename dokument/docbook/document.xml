@@ -132,21 +132,37 @@
       </para>
     </listitem>
   </itemizedlist>
-  <para>
-    Eigenschaften der einzelnen Objekttypen sind, wenn nicht anders
-    angegeben, verpflichtend. Optionale Eigenschaften sind entsprechend
-    gekennzeichnet.
-  </para>
-  <para>
-    Bei Beschreibung der Beziehungen zwischen Objekten wird zu diesem
-    Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei
-    Objekten A und B am Objekt A oder am Objekt B definiert wird. So
-    spielt es bislang keine Rolle, ob einem Gremium mehrere Personen
-    zugeordnet werden oder einer Person mehrere Gremien zugewiesen
-    werden. Das Augenmerkt liegt hier nur auf der Tatsache, welche
-    Beziehung existieren können und was diese Beziehungen aussagen
-    sollen.
-  </para>
+  <sect2 id="zu-den-eigenschaften">
+    <title>Zu den Eigenschaften</title>
+    <para>
+      Eigenschaften der einzelnen Objekttypen sind, wenn nicht anders
+      angegeben, verpflichtend. Optionale Eigenschaften sind
+      entsprechend gekennzeichnet.
+    </para>
+    <para>
+      Durch die aktuelle Detailtiefe der Beschreibungen soll vor allem
+      die Frage &quot;Was soll/kann gespeichert bzw. ausgedrückt
+      werden?&quot; geklärt werden.
+    </para>
+    <para>
+      Detailliertere Anforderungen an die Eigenschaften (&quot;Wie genau
+      soll eine Information gespeichert werden?&quot;) werden zu einem
+      späteren Zeitpunkt erörtert.
+    </para>
+  </sect2>
+  <sect2 id="zu-den-beziehungen">
+    <title>Zu den Beziehungen</title>
+    <para>
+      Bei Beschreibung der Beziehungen zwischen Objekten wird zu diesem
+      Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei
+      Objekten A und B am Objekt A oder am Objekt B definiert wird. So
+      spielt es bislang keine Rolle, ob einem Gremium mehrere Personen
+      zugeordnet werden oder einer Person mehrere Gremien zugewiesen
+      werden. Das Augenmerkt liegt hier nur auf der Tatsache, welche
+      Beziehung existieren können und was diese Beziehungen aussagen
+      sollen.
+    </para>
+  </sect2>
   <sect2 id="gebietskörperschaft">
     <title>Gebietskörperschaft</title>
     <para>
@@ -501,13 +517,61 @@
     </para>
     <sect3 id="eigenschaften-3">
       <title>Eigenschaften</title>
-      <para>
-      </para>
+      <variablelist>
+        <varlistentry>
+          <term>
+            Kennung
+          </term>
+          <listitem>
+            <para>
+              Zur eundeitigen Kennzeichnung einer Organisation innerhalb
+              einer Gebietskörperschaft
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Name
+          </term>
+          <listitem>
+            <para>
+              Der gebräuchliche Name der Organisation, z.B.
+              &quot;SPD&quot; oder &quot;DIE LINKE&quot;.
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <sect4 id="anmerkungen-2">
+        <title>Anmerkungen</title>
+        <itemizedlist>
+          <listitem>
+            <para>
+              Unklar ist bislang, ob Organisationen in der Praxis eher
+              Fraktionen (&quot;SPD-Fraktion im Kölner Rat&quot;,
+              &quot;SPD-Fraktion in Köln-Innenstadt&quot;) abbilden oder
+              ob eher Ortsverbände von Parteien (&quot;SPD Köln&quot;)
+              gemeint sein werden. Einblicke, wie gängige Systeme dies
+              handhaben, sollten gesammelt und berücksichtigt werden.
+            </para>
+          </listitem>
+        </itemizedlist>
+      </sect4>
     </sect3>
     <sect3 id="beziehungen-3">
       <title>Beziehungen</title>
-      <para>
-      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Jede Organisationen gehört zu einer Gebietskörperschaft.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Personen können Organisationen angehören
+            (<emphasis>datiert</emphasis>).
+          </para>
+        </listitem>
+      </itemizedlist>
     </sect3>
   </sect2>
   <sect2 id="sitzung">
@@ -515,7 +579,6 @@
     <para>
       Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums zu
       einem bestimmten Zeitpunkt. Sitzungen können eine laufende Nummer
-      haben., üblicherweise beginnend bei 1 zu Beginn einer Wahlperiode,
       haben.
     </para>
     <para>
@@ -526,13 +589,113 @@
     </para>
     <sect3 id="eigenschaften-4">
       <title>Eigenschaften</title>
-      <para>
-      </para>
+      <variablelist>
+        <varlistentry>
+          <term>
+            Kennung
+          </term>
+          <listitem>
+            <para>
+              Zur eindeutigen Identifizierung der Sitzung innerhalb
+              einer Gebietskörperschaft. In der Praxis wird eine solche
+              Kennzeichnung entweder durch eine laufende Nummer
+              gebildet, oder durch Kombination mehrerer Merkmale wie dem
+              Kürzel des Gremiums, der laufenden Nummer der Sitzung in
+              einem Jahr und der Jahreszahl (z.B.
+              &quot;BV1/0034/2012&quot;).
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Nummer
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Laufende Nummer der
+              Sitzung, üblicherweise innerhalb der Wahlperiode mit 1
+              beginnend. In der Praxis wird dadurch z.B. die &quot;2.
+              Sitzung des Rats&quot; gekennzeichnet.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Anfang
+          </term>
+          <listitem>
+            <para>
+              Datum und Uhrzeit des Anfangs der Sitzung
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Ende
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Datum und Uhrzeit vom Ende
+              der Sitzung
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <sect4 id="anmerkung">
+        <title>Anmerkung</title>
+        <itemizedlist>
+          <listitem>
+            <para>
+              Unklar ist, ob der Anfangszeitpunkt besser durch zwei
+              getrennte Felder kodiert werden sollte: Anfangs-Datum (als
+              Pflichtfeld) und Anfangs-Uhrzeit als optionales Feld.
+              Dadurch könnten zukünftige Sitzungen, deren Uhrzeit noch
+              nicht feststeht, korrekt abgebildet werden. Es müsste
+              geprüft werden, ob dies in der Praxis relevant ist.
+            </para>
+          </listitem>
+        </itemizedlist>
+      </sect4>
     </sect3>
     <sect3 id="beziehungen-4">
       <title>Beziehungen</title>
-      <para>
-      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Sitzungen sind grundsätzlich genau einem Gremium zugeordnet.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Personen sind Sitzungen zugeordnet, um die Teilnahme an der
+            Sitzung auszudrücken.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Drucksachen werden vom Typ &quot;Sitzung&quot;
+            <emphasis>optional</emphasis> zu mehreren zwecken
+            referenziert:
+          </para>
+          <itemizedlist>
+            <listitem>
+              <para>
+                Zum Verweis auf die Einladung zur Sitzung
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Zum Verweis auf das Ergebnisprotokoll zur Sitzung
+              </para>
+            </listitem>
+            <listitem>
+              <para>
+                Zum Verweis auf das Wortprotokoll zur Sitzung
+              </para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+      </itemizedlist>
     </sect3>
   </sect2>
   <sect2 id="tagesordnungspunkt">
@@ -548,15 +711,110 @@
       ist, kann es durch mehrere referenzierende Stimmabgaben
       festgehalten werden.
     </para>
+    <para>
+      In der Praxis werden die meisten Sitzungen mehrere
+      Tagesordnungspunkte haben.
+    </para>
     <sect3 id="eigenschaften-5">
       <title>Eigenschaften</title>
-      <para>
-      </para>
+      <variablelist>
+        <varlistentry>
+          <term>
+            Nummer
+          </term>
+          <listitem>
+            <para>
+              Beispiel: &quot;1.2.3&quot;. Diese Nummer gibt an, in
+              welcher Reihenfolge die Tagesordnungspunkte einer Sitzung
+              behandelt werden. Im Kontext einer Sitzung ist diese
+              Nummer eindeutig.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Öffentlich
+          </term>
+          <listitem>
+            <para>
+              ja/nein. Kennzeichnet, ob der Tagesordnungspunkt in
+              öffentlicher Sitzung behandelt wird.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Titel
+          </term>
+          <listitem>
+            <para>
+              Das Thema des Tagesordnungspunktes
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Ergebnis
+          </term>
+          <listitem>
+            <para>
+              Eines aus einer Liste definierter Ergebnisse. Möglich
+              sind: &quot;Unverändert beschlossen&quot;, &quot;Geändert
+              beschlossen&quot;, &quot;Endgültig abgelehnt&quot;,
+              &quot;Zur Kenntnis genommen&quot;, &quot;Ohne Votum in
+              nachfolgende Gremien überwiesen&quot;
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Beschlusstext
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Falls in diesem
+              Tagesordnungspunkt ein Beschluss gefasst wurde, kann der
+              Text hier hinterlegt werden. Das ist besonders dann in de
+              Praxis relevant, wenn der gefasste Beschluss (z.B. durch
+              Änderungsantrag) von der Beschlussvorlage abweicht.
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <sect4 id="anmerkungen-3">
+        <title>Anmerkungen</title>
+        <itemizedlist>
+          <listitem>
+            <para>
+              Einige Systeme vergeben zu Tagesordnungspunkten intern
+              unveränderliche, numerische IDs. Es ist unklar, ob es
+              zusätzlichen Nutzen bringt, derartige IDs, neben den
+              Nummern, in den Standard zu übernehmen. Dies würde
+              vermutlich nur Sinn ergeben, wenn es als Pflichtfeld
+              gelten kann.
+            </para>
+          </listitem>
+        </itemizedlist>
+      </sect4>
     </sect3>
     <sect3 id="beziehungen-5">
       <title>Beziehungen</title>
-      <para>
-      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Es können mehrere Objekte vom Typ &quot;Stimmabgabe&quot;
+            referenziert werden, um das Abstimmungsverhalten von
+            Fraktionen oder Einzelpersonen zu dokumentieren.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Es können Personen referenziert werden, die während der
+            Abstimmung zu diesem Tagesordnungspunkt
+            <emphasis>nicht</emphasis> anwesend waren.
+          </para>
+        </listitem>
+      </itemizedlist>
     </sect3>
   </sect2>
   <sect2 id="stimmabgabe">
@@ -574,13 +832,49 @@
     </para>
     <sect3 id="eigenschaften-6">
       <title>Eigenschaften</title>
-      <para>
-      </para>
+      <variablelist>
+        <varlistentry>
+          <term>
+            Anzahl der Stimmen
+          </term>
+          <listitem>
+            <para>
+              Gehört die Stimmabgabe zu einer Person, ist der Wert immer
+              1. Gehört sie jedoch zu einer Organisation (=Fraktion),
+              kann der Wert hier größer als 1 sein.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Votum
+          </term>
+          <listitem>
+            <para>
+              Einer der drei Werte &quot;ja&quot; (gleichbedeutend mit
+              &quot;dafür&quot;), &quot;nein&quot; (&quot;dagegen&quot;)
+              oder &quot;Enthaltung&quot;.
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
     </sect3>
     <sect3 id="beziehungen-6">
       <title>Beziehungen</title>
-      <para>
-      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Jede Stimmabgabe gehört zu genau einem Tagesordnungspunkt.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Es wird entweder genau eine Person oder genau eine
+            Organisation (Fraktion) referenziert, die die Stimme(n)
+            abgegeben hat.
+          </para>
+        </listitem>
+      </itemizedlist>
     </sect3>
   </sect2>
   <sect2 id="drucksache">
@@ -644,7 +938,8 @@
       <listitem>
         <para>
           Angaben von Personen zu Tätigkeiten (z.B. Auskunft nach § 17
-          Korruptionsbekämpfungsgesetz)
+          Korruptionsbekämpfungsgesetz). Diese werden von mehreren
+          Systemen geführt und ausgegeben.
         </para>
       </listitem>
     </itemizedlist>

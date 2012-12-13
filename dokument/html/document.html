@@ -42,7 +42,11 @@
 <li>Stadt Rösrath [6] - Plattform der Firma PROVOX [7]</li>
 <li>Stadt Euskirchen [8] - Plattform: SD.NET RIM 4 [9]</li>
 </ul>
+<h3 id="zu-den-eigenschaften"><span class="header-section-number">2.0.1</span> Zu den Eigenschaften</h3>
 <p>Eigenschaften der einzelnen Objekttypen sind, wenn nicht anders angegeben, verpflichtend. Optionale Eigenschaften sind entsprechend gekennzeichnet.</p>
+<p>Durch die aktuelle Detailtiefe der Beschreibungen soll vor allem die Frage &quot;Was soll/kann gespeichert bzw. ausgedrückt werden?&quot; geklärt werden.</p>
+<p>Detailliertere Anforderungen an die Eigenschaften (&quot;Wie genau soll eine Information gespeichert werden?&quot;) werden zu einem späteren Zeitpunkt erörtert.</p>
+<h3 id="zu-den-beziehungen"><span class="header-section-number">2.0.2</span> Zu den Beziehungen</h3>
 <p>Bei Beschreibung der Beziehungen zwischen Objekten wird zu diesem Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei Objekten A und B am Objekt A oder am Objekt B definiert wird. So spielt es bislang keine Rolle, ob einem Gremium mehrere Personen zugeordnet werden oder einer Person mehrere Gremien zugewiesen werden. Das Augenmerkt liegt hier nur auf der Tatsache, welche Beziehung existieren können und was diese Beziehungen aussagen sollen.</p>
 <h2 id="gebietskörperschaft"><span class="header-section-number">2.1</span> Gebietskörperschaft</h2>
 <p>Die Gebietskörperschaft erlaubt es, Körperschaften wie einen bestimmten Landkreis, eine bestimmte Gemeinde oder einen bestimmten Stadtbezirk in Form eines Datenobjekts abzubilden.</p>
@@ -142,20 +146,102 @@
 <h2 id="organisation"><span class="header-section-number">2.4</span> Organisation</h2>
 <p>Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die Personen angehören können.</p>
 <h3 id="eigenschaften-3"><span class="header-section-number">2.4.1</span> Eigenschaften</h3>
+<dl>
+<dt>Kennung</dt>
+<dd>Zur eundeitigen Kennzeichnung einer Organisation innerhalb einer Gebietskörperschaft
+</dd>
+<dt>Name</dt>
+<dd>Der gebräuchliche Name der Organisation, z.B. &quot;SPD&quot; oder &quot;DIE LINKE&quot;.
+</dd>
+</dl>
+<h4 id="anmerkungen-2"><span class="header-section-number">2.4.1.1</span> Anmerkungen</h4>
+<ul>
+<li>Unklar ist bislang, ob Organisationen in der Praxis eher Fraktionen (&quot;SPD-Fraktion im Kölner Rat&quot;, &quot;SPD-Fraktion in Köln-Innenstadt&quot;) abbilden oder ob eher Ortsverbände von Parteien (&quot;SPD Köln&quot;) gemeint sein werden. Einblicke, wie gängige Systeme dies handhaben, sollten gesammelt und berücksichtigt werden.</li>
+</ul>
 <h3 id="beziehungen-3"><span class="header-section-number">2.4.2</span> Beziehungen</h3>
+<ul>
+<li>Jede Organisationen gehört zu einer Gebietskörperschaft.</li>
+<li>Personen können Organisationen angehören (<em>datiert</em>).</li>
+</ul>
 <h2 id="sitzung"><span class="header-section-number">2.5</span> Sitzung</h2>
-<p>Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums zu einem bestimmten Zeitpunkt. Sitzungen können eine laufende Nummer haben., üblicherweise beginnend bei 1 zu Beginn einer Wahlperiode, haben.</p>
+<p>Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums zu einem bestimmten Zeitpunkt. Sitzungen können eine laufende Nummer haben.</p>
 <p>Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in entsprechender Form referenziert. Verschiedene Drucksachen (Einladung, Ergebnis- und Wortprotokoll) werden ebenfalls referenziert.</p>
 <h3 id="eigenschaften-4"><span class="header-section-number">2.5.1</span> Eigenschaften</h3>
+<dl>
+<dt>Kennung</dt>
+<dd>Zur eindeutigen Identifizierung der Sitzung innerhalb einer Gebietskörperschaft. In der Praxis wird eine solche Kennzeichnung entweder durch eine laufende Nummer gebildet, oder durch Kombination mehrerer Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung in einem Jahr und der Jahreszahl (z.B. &quot;BV1/0034/2012&quot;).
+</dd>
+<dt>Nummer</dt>
+<dd><em>Optional</em>. Laufende Nummer der Sitzung, üblicherweise innerhalb der Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die &quot;2. Sitzung des Rats&quot; gekennzeichnet.
+</dd>
+<dt>Anfang</dt>
+<dd>Datum und Uhrzeit des Anfangs der Sitzung
+</dd>
+<dt>Ende</dt>
+<dd><em>Optional</em>. Datum und Uhrzeit vom Ende der Sitzung
+</dd>
+</dl>
+<h4 id="anmerkung"><span class="header-section-number">2.5.1.1</span> Anmerkung</h4>
+<ul>
+<li>Unklar ist, ob der Anfangszeitpunkt besser durch zwei getrennte Felder kodiert werden sollte: Anfangs-Datum (als Pflichtfeld) und Anfangs-Uhrzeit als optionales Feld. Dadurch könnten zukünftige Sitzungen, deren Uhrzeit noch nicht feststeht, korrekt abgebildet werden. Es müsste geprüft werden, ob dies in der Praxis relevant ist.</li>
+</ul>
 <h3 id="beziehungen-4"><span class="header-section-number">2.5.2</span> Beziehungen</h3>
+<ul>
+<li>Sitzungen sind grundsätzlich genau einem Gremium zugeordnet.</li>
+<li>Personen sind Sitzungen zugeordnet, um die Teilnahme an der Sitzung auszudrücken.</li>
+<li>Drucksachen werden vom Typ &quot;Sitzung&quot; <em>optional</em> zu mehreren zwecken referenziert:
+<ul>
+<li>Zum Verweis auf die Einladung zur Sitzung</li>
+<li>Zum Verweis auf das Ergebnisprotokoll zur Sitzung</li>
+<li>Zum Verweis auf das Wortprotokoll zur Sitzung</li>
+</ul></li>
+</ul>
 <h2 id="tagesordnungspunkt"><span class="header-section-number">2.6</span> Tagesordnungspunkt</h2>
 <p>Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. Falls abweichend von der ursprünglichen Beschlussvorlage (z.B. durch Berücksichtigung eines Änderungsantrags) kann ein bestimmter Beschlusstext zu Protokoll gegeben werden. Sofern das Abstimmungsergebnis nicht einstimmig ist, kann es durch mehrere referenzierende Stimmabgaben festgehalten werden.</p>
+<p>In der Praxis werden die meisten Sitzungen mehrere Tagesordnungspunkte haben.</p>
 <h3 id="eigenschaften-5"><span class="header-section-number">2.6.1</span> Eigenschaften</h3>
+<dl>
+<dt>Nummer</dt>
+<dd>Beispiel: &quot;1.2.3&quot;. Diese Nummer gibt an, in welcher Reihenfolge die Tagesordnungspunkte einer Sitzung behandelt werden. Im Kontext einer Sitzung ist diese Nummer eindeutig.
+</dd>
+<dt>Öffentlich</dt>
+<dd>ja/nein. Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher Sitzung behandelt wird.
+</dd>
+<dt>Titel</dt>
+<dd>Das Thema des Tagesordnungspunktes
+</dd>
+<dt>Ergebnis</dt>
+<dd>Eines aus einer Liste definierter Ergebnisse. Möglich sind: &quot;Unverändert beschlossen&quot;, &quot;Geändert beschlossen&quot;, &quot;Endgültig abgelehnt&quot;, &quot;Zur Kenntnis genommen&quot;, &quot;Ohne Votum in nachfolgende Gremien überwiesen&quot;
+</dd>
+<dt>Beschlusstext</dt>
+<dd><em>Optional</em>. Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in de Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) von der Beschlussvorlage abweicht.
+</dd>
+</dl>
+<h4 id="anmerkungen-3"><span class="header-section-number">2.6.1.1</span> Anmerkungen</h4>
+<ul>
+<li>Einige Systeme vergeben zu Tagesordnungspunkten intern unveränderliche, numerische IDs. Es ist unklar, ob es zusätzlichen Nutzen bringt, derartige IDs, neben den Nummern, in den Standard zu übernehmen. Dies würde vermutlich nur Sinn ergeben, wenn es als Pflichtfeld gelten kann.</li>
+</ul>
 <h3 id="beziehungen-5"><span class="header-section-number">2.6.2</span> Beziehungen</h3>
+<ul>
+<li>Es können mehrere Objekte vom Typ &quot;Stimmabgabe&quot; referenziert werden, um das Abstimmungsverhalten von Fraktionen oder Einzelpersonen zu dokumentieren.</li>
+<li>Es können Personen referenziert werden, die während der Abstimmung zu diesem Tagesordnungspunkt <em>nicht</em> anwesend waren.</li>
+</ul>
 <h2 id="stimmabgabe"><span class="header-section-number">2.7</span> Stimmabgabe</h2>
 <p>Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt abgestimmt hat, wird durch eine Stimmabgabe festgehalten. Ganze Abstimmungsergebnisse bestehen überlicherweise aus mehreren Stimmabgaben. Jede Stimmabgabe gibt entweder die (einzelne) Stimme einer Peson wieder, in diesem Fall ist die Anzahl der Stimmen zwingend 1. Oder eine Stimmabgabe gibt das Abstimmungsverhalten einer ganzen Gruppe von Personen wieder. Dann ist die Anzahl der Stimmen anzugeben und statt einer Person eine Organisation (in der Regel die Fraktion) zu referenzieren.</p>
 <h3 id="eigenschaften-6"><span class="header-section-number">2.7.1</span> Eigenschaften</h3>
+<dl>
+<dt>Anzahl der Stimmen</dt>
+<dd>Gehört die Stimmabgabe zu einer Person, ist der Wert immer 1. Gehört sie jedoch zu einer Organisation (=Fraktion), kann der Wert hier größer als 1 sein.
+</dd>
+<dt>Votum</dt>
+<dd>Einer der drei Werte &quot;ja&quot; (gleichbedeutend mit &quot;dafür&quot;), &quot;nein&quot; (&quot;dagegen&quot;) oder &quot;Enthaltung&quot;.
+</dd>
+</dl>
 <h3 id="beziehungen-6"><span class="header-section-number">2.7.2</span> Beziehungen</h3>
+<ul>
+<li>Jede Stimmabgabe gehört zu genau einem Tagesordnungspunkt.</li>
+<li>Es wird entweder genau eine Person oder genau eine Organisation (Fraktion) referenziert, die die Stimme(n) abgegeben hat.</li>
+</ul>
 <h2 id="drucksache"><span class="header-section-number">2.8</span> Drucksache</h2>
 <p>Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen, Beschlussvorlagen, Anfragen und Anträge ab. Jede Drucksache erhält eine eindeutige Kennung. Das Datum gibt an, wann die Drucksache erzeugt bzw. veröffentlicht wurde.</p>
 <p>Die Drucksache verweist auf genau ein Hauptdokument. Darüber hinaus können beliebig viele Dokumente als Anhang referenziert werden.</p>
@@ -169,7 +255,7 @@
 <p>Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen (beispielsweise der Name einer Straße/eines Platzes oder eine genaue Adresse) oder aus einer Geo-Koordinatenangabe aus Längen- und Breitengrad.</p>
 <h2 id="noch-nicht-abgedeckt"><span class="header-section-number">2.11</span> Noch nicht abgedeckt</h2>
 <ul>
-<li>Angaben von Personen zu Tätigkeiten (z.B. Auskunft nach § 17 Korruptionsbekämpfungsgesetz)</li>
+<li>Angaben von Personen zu Tätigkeiten (z.B. Auskunft nach § 17 Korruptionsbekämpfungsgesetz). Diese werden von mehreren Systemen geführt und ausgegeben.</li>
 </ul>
 <h1 id="glossar"><span class="header-section-number">3</span> Glossar</h1>
 <dl>

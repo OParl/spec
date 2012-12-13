@@ -12,7 +12,15 @@ Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen beziehen sic
 * Stadt Rösrath [6] - Plattform der Firma PROVOX [7]
 * Stadt Euskirchen [8] - Plattform: SD.NET RIM 4 [9]
 
+### Zu den Eigenschaften ###
+
 Eigenschaften der einzelnen Objekttypen sind, wenn nicht anders angegeben, verpflichtend. Optionale Eigenschaften sind entsprechend gekennzeichnet.
+
+Durch die aktuelle Detailtiefe der Beschreibungen soll vor allem die Frage "Was soll/kann gespeichert bzw. ausgedrückt werden?" geklärt werden.
+
+Detailliertere Anforderungen an die Eigenschaften ("Wie genau soll eine Information gespeichert werden?") werden zu einem späteren Zeitpunkt erörtert.
+
+### Zu den Beziehungen ###
 
 Bei Beschreibung der Beziehungen zwischen Objekten wird zu diesem Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei Objekten A und B am Objekt A oder am Objekt B definiert wird. So spielt es bislang keine Rolle, ob einem Gremium mehrere Personen zugeordnet werden oder einer Person mehrere Gremien zugewiesen werden. Das Augenmerkt liegt hier nur auf der Tatsache, welche Beziehung existieren können und was diese Beziehungen aussagen sollen.
 
@@ -129,20 +137,54 @@ Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die Personen 
 
 ### Eigenschaften ###
 
+Kennung
+:   Zur eundeitigen Kennzeichnung einer Organisation innerhalb einer Gebietskörperschaft
+Name
+:   Der gebräuchliche Name der Organisation, z.B. "SPD" oder "DIE LINKE".
+
+#### Anmerkungen ####
+
+* Unklar ist bislang, ob Organisationen in der Praxis eher Fraktionen ("SPD-Fraktion im Kölner Rat", "SPD-Fraktion in Köln-Innenstadt") abbilden oder ob eher Ortsverbände von Parteien ("SPD Köln") gemeint sein werden. Einblicke, wie gängige Systeme dies handhaben, sollten gesammelt und berücksichtigt werden.
+
 ### Beziehungen ###
+
+* Jede Organisationen gehört zu einer Gebietskörperschaft.
+* Personen können Organisationen angehören (*datiert*).
 
 
 Sitzung
 -------
 
-Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums zu einem bestimmten Zeitpunkt. Sitzungen können eine laufende Nummer haben., üblicherweise beginnend bei 1 zu Beginn einer Wahlperiode, haben.
+Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums zu einem bestimmten Zeitpunkt. Sitzungen können eine laufende Nummer haben.
 
 Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in entsprechender Form referenziert. Verschiedene Drucksachen (Einladung, Ergebnis- und Wortprotokoll) werden ebenfalls referenziert.
 
 
 ### Eigenschaften ###
 
+Kennung
+:   Zur eindeutigen Identifizierung der Sitzung innerhalb einer Gebietskörperschaft. In der Praxis wird eine solche Kennzeichnung entweder durch eine laufende Nummer gebildet, oder durch Kombination mehrerer Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung in einem Jahr und der Jahreszahl (z.B. "BV1/0034/2012").
+Nummer
+:   _Optional_. Laufende Nummer der Sitzung, üblicherweise innerhalb der Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die "2. Sitzung des Rats" gekennzeichnet.
+Anfang
+:   Datum und Uhrzeit des Anfangs der Sitzung
+Ende
+:   _Optional_. Datum und Uhrzeit vom Ende der Sitzung
+
+
+#### Anmerkung ####
+
+* Unklar ist, ob der Anfangszeitpunkt besser durch zwei getrennte Felder kodiert werden sollte: Anfangs-Datum (als Pflichtfeld) und Anfangs-Uhrzeit als optionales Feld. Dadurch könnten zukünftige Sitzungen, deren Uhrzeit noch nicht feststeht, korrekt abgebildet werden. Es müsste geprüft werden, ob dies in der Praxis relevant ist.
+
+
 ### Beziehungen ###
+
+* Sitzungen sind grundsätzlich genau einem Gremium zugeordnet.
+* Personen sind Sitzungen zugeordnet, um die Teilnahme an der Sitzung auszudrücken.
+* Drucksachen werden vom Typ "Sitzung" _optional_ zu mehreren zwecken referenziert:
+    * Zum Verweis auf die Einladung zur Sitzung
+    * Zum Verweis auf das Ergebnisprotokoll zur Sitzung
+    * Zum Verweis auf das Wortprotokoll zur Sitzung
 
 
 Tagesordnungspunkt
@@ -150,11 +192,30 @@ Tagesordnungspunkt
 
 Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. Falls abweichend von der ursprünglichen Beschlussvorlage (z.B. durch Berücksichtigung eines Änderungsantrags) kann ein bestimmter Beschlusstext zu Protokoll gegeben werden. Sofern das Abstimmungsergebnis nicht einstimmig ist, kann es durch mehrere referenzierende Stimmabgaben festgehalten werden.
 
+In der Praxis werden die meisten Sitzungen mehrere Tagesordnungspunkte haben.
+
 
 ### Eigenschaften ###
 
+Nummer
+:   Beispiel: "1.2.3". Diese Nummer gibt an, in welcher Reihenfolge die Tagesordnungspunkte einer Sitzung behandelt werden. Im Kontext einer Sitzung ist diese Nummer eindeutig.
+Öffentlich
+:   ja/nein. Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher Sitzung behandelt wird.
+Titel
+:   Das Thema des Tagesordnungspunktes
+Ergebnis
+:   Eines aus einer Liste definierter Ergebnisse. Möglich sind: "Unverändert beschlossen", "Geändert beschlossen", "Endgültig abgelehnt", "Zur Kenntnis genommen", "Ohne Votum in nachfolgende Gremien überwiesen"
+Beschlusstext
+:   _Optional_. Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in de Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) von der Beschlussvorlage abweicht.
+
+#### Anmerkungen ####
+
+* Einige Systeme vergeben zu Tagesordnungspunkten intern unveränderliche, numerische IDs. Es ist unklar, ob es zusätzlichen Nutzen bringt, derartige IDs, neben den Nummern, in den Standard zu übernehmen. Dies würde vermutlich nur Sinn ergeben, wenn es als Pflichtfeld gelten kann.
+
 ### Beziehungen ###
 
+* Es können mehrere Objekte vom Typ "Stimmabgabe" referenziert werden, um das Abstimmungsverhalten von Fraktionen oder Einzelpersonen zu dokumentieren.
+* Es können Personen referenziert werden, die während der Abstimmung zu diesem Tagesordnungspunkt *nicht* anwesend waren.
 
 Stimmabgabe
 -----------
@@ -164,7 +225,15 @@ Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt abgestimmt hat, w
 
 ### Eigenschaften ###
 
+Anzahl der Stimmen
+:   Gehört die Stimmabgabe zu einer Person, ist der Wert immer 1. Gehört sie jedoch zu einer Organisation (=Fraktion), kann der Wert hier größer als 1 sein.
+Votum
+:   Einer der drei Werte "ja" (gleichbedeutend mit "dafür"), "nein" ("dagegen") oder "Enthaltung".
+
 ### Beziehungen ###
+
+* Jede Stimmabgabe gehört zu genau einem Tagesordnungspunkt.
+* Es wird entweder genau eine Person oder genau eine Organisation (Fraktion) referenziert, die die Stimme(n) abgegeben hat.
 
 
 Drucksache
@@ -200,5 +269,5 @@ Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal abzubilden.
 Noch nicht abgedeckt
 --------------------
 
-* Angaben von Personen zu Tätigkeiten (z.B. Auskunft nach § 17 Korruptionsbekämpfungsgesetz)
+* Angaben von Personen zu Tätigkeiten (z.B. Auskunft nach § 17 Korruptionsbekämpfungsgesetz). Diese werden von mehreren Systemen geführt und ausgegeben.
 

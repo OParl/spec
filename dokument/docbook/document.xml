@@ -1,0 +1,319 @@
+<para>
+  Lizenz: Creative Commons CC-BY-SA
+</para>
+<sect1 id="einleitung">
+  <title>Einleitung</title>
+  <sect2 id="ziel-dieses-dokuments">
+    <title>Ziel dieses Dokuments</title>
+    <para>
+      Ziel dieses Dokuments ist es, einen Diskurs über einen offenen
+      Standard zum Datenabruf aus Ratsinformationssystemen in Gang zu
+      bringen.
+    </para>
+    <para>
+      Ratsinformationssysteme (RIS) werden von vielen Körperschaften wie
+      Kommunen, Landkreisen und Regierungsbezirken eingesetzt, um die
+      anfallende Gremienarbeit (Ratssitzungen, Ausschüsse, Vertretungen)
+      zu organisieren. Da ein großer Teil der schriftlichen Arbeit der
+      Lokalpolitik über derartige Systeme verwaltet wird, sind die RIS –
+      dort wo vorhanden – ein wichtiger Zugriffspunkt für alle, die sich
+      für politischen Geschehnisse interessieren.
+    </para>
+    <para>
+      Eine wichtige Maßnahme von Körperschaften, die im Zuge von
+      Open-Data- und Open-Government-Initiativen ihre Politik
+      transparenter machen wollen, wird auch sein, die Daten in den RIS
+      im Sinne des Open-Data-Begriffs zugänglich zu machen. Hierdurch
+      können die Kommunen selbst, aber auch dritte, Anwendungen
+      entwickeln, die Inhalte auf verschiedene Art und Weise auswerten,
+      abrufbar und nutzbar machen, sei es für die Allgemeinheit oder für
+      bestimmte Nutzerkreise.
+    </para>
+    <para>
+      In Deutschland gibt es über 10.000 Kommunen, außerdem hunderte
+      weitere Körperschaften, die über RIS-ähnliche Systeme verfügen.
+      Sollten diese beginnen, ihre RIS zu öffnen, werden sie sämtlich
+      vor der Frage stehen, wie Daten zu modellieren und Schnittstellen
+      (APIs) zu spezifizieren sind.
+    </para>
+    <para>
+      Sowohl die Anbieter der Daten, als auch die Abnehmer (die
+      Anwendungsentwickler) werden von einer Standardisierung der
+      Schnittstellen und Datenmodelle profitieren. So wird die
+      Kompatibilität von Software und die breite Einsetzbarkeit
+      ermöglicht.
+    </para>
+    <para>
+      Dieses Dokument soll die Erarbeitung eines solchen Standards
+      ermöglichen und als Diskussionsgrundlage dienen.
+    </para>
+  </sect2>
+  <sect2 id="status">
+    <title>Status</title>
+    <para>
+      Dieser Entwurf gibt aktuell einen Vorschlag des Autors wieder.
+      Bisher ist noch kein Feedback eingeflossen.
+    </para>
+  </sect2>
+  <sect2 id="überblick">
+    <title>Überblick</title>
+    <para>
+      Der Entwurf umfasst im ersten Schritt die abstrakte Beschreibung
+      eines Datenmodells.
+    </para>
+  </sect2>
+  <sect2 id="nächste-schritte">
+    <title>Nächste Schritte</title>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Bis Ende Januar 2012: Einsammeln von Feedback zum Entwurf des
+          Datenmodells Anpassen des Entwurfs anhand von Feedback
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Erarbeitung eines Entwurfs für eine REST-Schnittstelle
+        </para>
+      </listitem>
+    </itemizedlist>
+  </sect2>
+  <sect2 id="adresse-für-feedback">
+    <title>Adresse für Feedback</title>
+    <para>
+      Feedback kann gerne per Mail an marian@sendung.de übermittelt
+      werden. Wer Feedback übersendet, wird als Mitwirkender in
+      zukünftigen Versionen des Dokuments namentlich erwähnt. Wer dies
+      nicht möchte, sollte dies bitte in seiner Mail bitte explizit
+      erwähnen.
+    </para>
+  </sect2>
+</sect1>
+<sect1 id="datenmodell">
+  <title>Datenmodell</title>
+  <para>
+    Das Datenmodell soll die Bausteine für die später zu entwerfende
+    Schnittstelle definieren. Im folgenden werden sozusagen die
+    Objekttypen bzw. die Klassen beschrieben, auf die über eine spätere
+    API zugegriffen werden kann.
+  </para>
+  <para>
+    Einige Objekte werden eine eindeutige Identifizierung (ID)
+    benötigen, wobei „eindeutig“ auch eine Frage des Kontextes ist. In
+    den wenigsten Fällen wird es notwendig sein, eine Objekt-Kennung
+    weltweit eindeutig zu machen. Darüber hinaus wird zu entscheiden
+    sein, ob IDs unveränderlich oder veränderlich sein sollen.
+  </para>
+  <sect2 id="gebietskörperschaft">
+    <title>Gebietskörperschaft</title>
+    <para>
+      Die Gebietskörperschaft erlaubt es, Körperschaften wie einen
+      bestimmten Landkreis, eine bestimmte Gemeinde oder einen
+      bestimmten Stadtbezirk in Form eines Datenobjekts abzubilden.
+    </para>
+    <para>
+      Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“.
+      Denkbar ist aber auch, dass Systeme für einen Verbund von mehreren
+      Körperschaften betrieben werden.
+    </para>
+    <figure>
+      <title>Abbildung: Gebietskörperschaft</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/01.png" />
+        </imageobject>
+        <textobject><phrase>Abbildung:
+        Gebietskörperschaft</phrase></textobject>
+      </mediaobject>
+    </figure>
+    <sect3 id="eindeutige-identifizierung">
+      <title>Eindeutige Identifizierung</title>
+      <para>
+        Zur Identifizierung des Objekts kann der Amtliche
+        Gemeindeschlüssel (AGS[1]) verwendet werden, der für Deutschland
+        alle Gemeinden, Landkreise, kreisfreien Städte etc. eindeutig
+        erfasst.
+      </para>
+      <para>
+        Vorteil der Verwendung des AGS:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Kompakte, einfache und einheitliche Schreibweise für jede
+            Körperschaft.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Der AGS wird von Behörden genutzt, ist anerkannt und auch in
+            anderen Medien, z.B. der Wikipedia, verbreitet.
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para>
+        Nachteil des AGS:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Führende Nullen machen den Schlüssel fehleranfällig.
+            Bestimmte Systeme wie z.B. Excel könnten den Inhalt als
+            Zahlenwert erkennen und die führenden Nullen automatisch
+            verwerfen.
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
+    <sect3 id="attribute">
+      <title>Attribute</title>
+      <variablelist>
+        <varlistentry>
+          <term>
+            Name
+          </term>
+          <listitem>
+            <para>
+              Der Name der Gebietskörperschaft, z.B. &quot;Köln&quot;
+              oder &quot;Stadt Köln&quot;.
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </sect3>
+  </sect2>
+  <sect2 id="gremium">
+    <title>Gremium</title>
+    <para>
+      Das Gremium ist ein Personenkreis, üblicherweise von gewählten
+      und/oder ernannten Mitgliedern. Beispiele hierfür sind der
+      Stadtrat, Kreisrat, Gemeinderat, Ausschüsse und
+      Bezirksvertretungen. Gremien halten Sitzungen ab, zu denen die
+      Gremien-Mitglieder eingeladen werden.
+    </para>
+  </sect2>
+  <sect2 id="person">
+    <title>Person</title>
+    <para>
+      Jede natürliche Person, die Mitglied eines Gremiums ist, ist als
+      Person im Datenmodell eindeutig identifizierbar.
+    </para>
+  </sect2>
+  <sect2 id="organisation">
+    <title>Organisation</title>
+    <para>
+      Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen
+      die Personen angehören können.
+    </para>
+  </sect2>
+  <sect2 id="sitzung">
+    <title>Sitzung</title>
+    <para>
+      Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums zu
+      einem bestimmten Zeitpunkt. Sitzungen können eine laufende Nummer
+      haben., üblicherweise beginnend bei 1 zu Beginn einer Wahlperiode,
+      haben.
+    </para>
+    <para>
+      Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in
+      entsprechender Form referenziert. Verschiedene Drucksachen
+      (Einladung, Ergebnis- und Wortprotokoll) werden ebenfalls
+      referenziert.
+    </para>
+  </sect2>
+  <sect2 id="tagesordnungspunkt">
+    <title>Tagesordnungspunkt</title>
+    <para>
+      Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt,
+      erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen
+      Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt
+      außerdem ein Ergebnis angehängt. Falls abweichend von der
+      ursprünglichen Beschlussvorlage (z.B. durch Berücksichtigung eines
+      Änderungsantrags) kann ein bestimmter Beschlusstext zu Protokoll
+      gegeben werden. Sofern das Abstimmungsergebnis nicht einstimmig
+      ist, kann es durch mehrere referenzierende Stimmabgaben
+      festgehalten werden.
+    </para>
+  </sect2>
+  <sect2 id="stimmabgabe">
+    <title>Stimmabgabe</title>
+    <para>
+      Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt
+      abgestimmt hat, wird durch eine Stimmabgabe festgehalten. Ganze
+      Abstimmungsergebnisse bestehen überlicherweise aus mehreren
+      Stimmabgaben. Jede Stimmabgabe gibt entweder die (einzelne) Stimme
+      einer Peson wieder, in diesem Fall ist die Anzahl der Stimmen
+      zwingend 1. Oder eine Stimmabgabe gibt das Abstimmungsverhalten
+      einer ganzen Gruppe von Personen wieder. Dann ist die Anzahl der
+      Stimmen anzugeben und statt einer Person eine Organisation (in der
+      Regel die Fraktion) zu referenzieren.
+    </para>
+  </sect2>
+  <sect2 id="drucksache">
+    <title>Drucksache</title>
+    <para>
+      Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen,
+      Beschlussvorlagen, Anfragen und Anträge ab. Jede Drucksache erhält
+      eine eindeutige Kennung. Das Datum gibt an, wann die Drucksache
+      erzeugt bzw. veröffentlicht wurde.
+    </para>
+    <para>
+      Die Drucksache verweist auf genau ein Hauptdokument. Darüber
+      hinaus können beliebig viele Dokumente als Anhang referenziert
+      werden.
+    </para>
+  </sect2>
+  <sect2 id="dokument">
+    <title>Dokument</title>
+    <para>
+      Ein Dokument hält die Daten und Metadaten einer Datei vor,
+      beispielsweise einer PDF-Datei, eines RTF- oder Word-Dokuments.
+      Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist
+      diese Ableitung ebenfalls ein Dokument, das jedoch nicht als
+      Master gekennzeichnet wird, sondern auf den entsprechenden Master
+      verweist.
+    </para>
+  </sect2>
+  <sect2 id="ort">
+    <title>Ort</title>
+    <para>
+      Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache
+      formal abzubilden. Ortsangaben können sowohl aus Textinformationen
+      bestehen (beispielsweise der Name einer Straße/eines Platzes oder
+      eine genaue Adresse) oder aus einer Geo-Koordinatenangabe aus
+      Längen- und Breitengrad.
+    </para>
+  </sect2>
+</sect1>
+<sect1 id="glossar">
+  <title>Glossar</title>
+  <variablelist>
+    <varlistentry>
+      <term>
+        AGS
+      </term>
+      <listitem>
+        <para>
+          Amtlicher Gemeindeschlüssel
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>
+        RIS
+      </term>
+      <listitem>
+        <para>
+          Ratsinformationssystem
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</sect1>
+<sect1 id="fußnoten">
+  <title>Fußnoten</title>
+  <para>
+    [1]: Siehe
+    <ulink url="https://www.destatis.de/DE/Methoden/Klassifikationen/Bevoelkerung/StaatsangehoerigkeitGebietsschluessel.html">www.destatis.de/...</ulink>
+  </para>
+</sect1>

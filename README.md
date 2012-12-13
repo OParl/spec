@@ -1,6 +1,7 @@
 In diesem Repository werden die Inhalte eines Dokuments verwaltet.
 
-== Original: Editieren, Änderungen nachvollziehen
+Original: Editieren, Änderungen nachvollziehen
+----------------------------------------------
 
 Wenn Du Dich für die Quellen des Dokuments sowie für das Nachvollziehen von Änderungen an den Quellen interessierst, findest Du dies im Ordner:
 
@@ -10,7 +11,8 @@ Die Quelldateien sind reine Textdateien (Zeichensatz: UTF-8) mit Markdown-Format
 
 Änderungswünsche am Dokument können in Form von Pull Requests beigesteuert werden. Dazu erzeugst Du zunächst einen Fork dieses Repositories. Dann committest Du Änderungen an Deinem Fork. Danach kannst Du am einzelnen Commit die Funktion "Send Pull Request" auslösen.
 
-== Derivate: Bequemes Lesen auf verschiedenen Geräten
+Derivate: Bequemes Lesen auf verschiedenen Geräten
+--------------------------------------------------
 
 Es stehen Exporte des Dokuments in verschiedensten Formaten zur Verfügung:
 

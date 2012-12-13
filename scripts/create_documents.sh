@@ -6,6 +6,7 @@
 SOURCE="*.md"
 DOC_FOLDER=".."
 PWD=`pwd`
+PDFLATEX="/usr/local/texlive/2012basic/bin/universal-darwin/pdflatex"
 
 cd dokument/master
 
@@ -35,6 +36,9 @@ pandoc -t docx -o $DOC_FOLDER/docx/document.docx $SOURCE
 
 # plain text
 pandoc -t plain -o $DOC_FOLDER/plain/document.txt $SOURCE
+
+# PDF
+pandoc --latex-engine=$PDFLATEX -N -o $DOC_FOLDER/pdf/document.pdf $SOURCE
 
 
 cd $PWD

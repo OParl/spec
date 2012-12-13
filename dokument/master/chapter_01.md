@@ -29,9 +29,9 @@ Der Entwurf umfasst im ersten Schritt die abstrakte Beschreibung eines Datenmode
 Nächste Schritte
 ----------------
 
-* Bis Ende Januar 2012: Einsammeln von Feedback zum Entwurf des Datenmodells
-Anpassen des Entwurfs anhand von Feedback
-* Erarbeitung eines Entwurfs für eine REST-Schnittstelle
+1. Bis Ende Januar 2012: Einsammeln von Feedback zum Entwurf des Datenmodells
+2. Anpassen des Entwurfs anhand von Feedback
+3. Erarbeitung eines Entwurfs für eine REST-Schnittstelle
 
 Adresse für Feedback
 --------------------

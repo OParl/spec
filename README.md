@@ -19,7 +19,7 @@ Derivate: Bequemes Lesen auf verschiedenen Geräten
 
 Es stehen Exporte des Dokuments in verschiedensten Formaten zur Verfügung:
 
-* HTML
+* [PDF](https://github.com/marians/open-ris-specs/blob/master/dokument/pdf/document.pdf?raw=true)
 * [Word .docx](https://github.com/marians/open-ris-specs/blob/master/dokument/docx/document.docx?raw=true)
 * [OpenOffice .odt](https://github.com/marians/open-ris-specs/blob/master/dokument/docx/document.docx?raw=true)
 

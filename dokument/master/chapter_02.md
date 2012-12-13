@@ -32,11 +32,11 @@ Die Gebietskörperschaft erlaubt es, Körperschaften wie einen bestimmten Landkr
 
 Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“. Denkbar ist aber auch, dass Systeme für einen Verbund von mehreren Körperschaften betrieben werden.
 
-![Abbildung: Gebietskörperschaft](images/01.png)
+![Gebietskörperschaft](images/01.png)
 
 ### Eindeutige Identifizierung ###
 
-Zur Identifizierung des Objekts kann der Amtliche Gemeindeschlüssel (AGS[1]) verwendet werden, der für Deutschland alle Gemeinden, Landkreise, kreisfreien Städte etc. eindeutig erfasst.
+Zur Identifizierung des Objekts kann der Amtliche Gemeindeschlüssel (AGS[1]) verwendet werden, der alle deutschen Gemeinden, Landkreise, kreisfreien Städte etc. eindeutig erfasst.
 
 Vorteil der Verwendung des AGS:
 
@@ -46,7 +46,7 @@ Vorteil der Verwendung des AGS:
 Nachteil des AGS:
 
 * Führende Nullen machen den Schlüssel fehleranfällig. Bestimmte Systeme wie z.B. Excel könnten den Inhalt als Zahlenwert erkennen und die führenden Nullen automatisch verwerfen.
-
+* Für Gebietsgliederungen unterhalb der selbstständigen Gemeinde, beispielsweise einen einzelnen Stadtbezirk, gibt es keinen eigenen Gemeindeschlüssel. Dies müssten durch eine nicht-amtliche Erweiterung des Systems ausgeglichen werden.
 
 ### Eigenschaften ###
 

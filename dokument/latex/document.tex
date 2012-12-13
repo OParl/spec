@@ -77,6 +77,34 @@ Fällen wird es notwendig sein, eine Objekt-Kennung weltweit eindeutig zu
 machen. Darüber hinaus wird zu entscheiden sein, ob IDs unveränderlich
 oder veränderlich sein sollen.
 
+Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen
+beziehen sich auf nach außen, bei Nutzung der Weboverfläche,
+feststellbare Eigenschaften. Es wird auf die folgenden Systeme Bezug
+genommen:
+
+\begin{itemize}
+\item
+  Stadt Köln {[}2{]} - Plattform: Somacos SessionNet {[}3{]}
+\item
+  Bezirksverwaltung Berlin Mitte {[}4{]} - Plattform: ALLRIS {[}5{]}
+\item
+  Stadt Rösrath {[}6{]} - Plattform der Firma PROVOX {[}7{]}
+\item
+  Stadt Euskirchen {[}8{]} - Plattform: SD.NET RIM 4 {[}9{]}
+\end{itemize}
+
+Eigenschaften der einzelnen Objekttypen sind, wenn nicht anders
+angegeben, verpflichtend. Optionale Eigenschaften sind entsprechend
+gekennzeichnet.
+
+Bei Beschreibung der Beziehungen zwischen Objekten wird zu diesem
+Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei Objekten
+A und B am Objekt A oder am Objekt B definiert wird. So spielt es
+bislang keine Rolle, ob einem Gremium mehrere Personen zugeordnet werden
+oder einer Person mehrere Gremien zugewiesen werden. Das Augenmerkt
+liegt hier nur auf der Tatsache, welche Beziehung existieren können und
+was diese Beziehungen aussagen sollen.
+
 \subsection{Gebietskörperschaft}
 
 Die Gebietskörperschaft erlaubt es, Körperschaften wie einen bestimmten
@@ -119,12 +147,26 @@ Nachteil des AGS:
   führenden Nullen automatisch verwerfen.
 \end{itemize}
 
-\subsubsection{Attribute}
+\subsubsection{Eigenschaften}
 
 \begin{description}
 \item[Name]
 Der Name der Gebietskörperschaft, z.B. ``Köln'' oder ``Stadt Köln''.
 \end{description}
+
+\subsubsection{Beziehungen}
+
+\begin{itemize}
+\item
+  Objekte vom Typ ``Organisation'' sind zwingend genau einer
+  Gebietskörperschaft zugeordnet. So wird beispielseise eine SPD in Köln
+  von einer SPD in Leverkusen unterschieden.
+\item
+  Objekte vom Typ ``Gremium'' sind zwingend einer genau einer
+  Gebietskörperschaft zugeordnet. Damit wird der ``Rat'' einer
+  bestimmten Kommune von den gleichnamigen Gremien anderer Kommunen
+  abgegrenzt.
+\end{itemize}
 
 \subsection{Gremium}
 
@@ -133,15 +175,114 @@ ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat,
 Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten
 Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
+\subsubsection{Eigenschaften}
+
+\begin{description}
+\item[Kennung]
+Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten
+Gebietskörperschaft. Die Stadt Köln verwendet beispielswiese das Kürzel
+``STA'' für den Stadtentwicklungsausschuss oder ``BA'' für den Ausschuss
+für Anregungen und Beschwerden. Andere Kommunen verwenden z.B. rein
+numerische Kennungen.
+\item[Name]
+Der Name des Gremiums. Beispiele: ``Rat'', ``Hauptausschuss'',
+``Bezirksvertretung 1 (Innenstadt)''
+\end{description}
+
+\paragraph{Anmerkungen}
+
+Beim Rösrather RIS {[}6{]} wird für jedes Gremium ein Kurz- und ein
+Langname angegeben. Beispielsweise wird beim ``Stadtentwicklungs-,
+Planungs- und Verkehrsausschuss'' die kurze Form ``Stadtentwicklung''
+hinterlegt. Bei 5 von 12 Gremien sind jedoch Kurz- und Langnamen
+identisch.
+
+Sofern nicht Beispiele aus weiteren Systemen vorliegen, wird dieser
+Einzelfall nicht im Entwurf abgebildet.
+
+\subsubsection{Beziehungen}
+
+\begin{itemize}
+\item
+  Objekte vom Typ ``Person'' referenzieren auf Gremien, um die
+  Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu
+  kennzeichnen.
+\item
+  Objekte vom Typ ``Drucksache'' können einem Gremium zugeordnet sein.
+  Beispielsweise wird eine Anfrage oder ein Antrag dem Rat oder einer
+  bestimmten Bezirksvertretung zugeordnet.
+\end{itemize}
+
 \subsection{Person}
 
 Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person
 im Datenmodell eindeutig identifizierbar.
 
+\subsubsection{Eigenschaften}
+
+\begin{description}
+\item[Kennung]
+Zur eindeutigen Identifizierung sollte jede Person eine Kennung
+besitzen, die keinen Änderungen unterworfen ist und aus diesem Grund
+nicht mit dem Namen in Verbindung stehen sollte. Viele RIS nutzen rein
+numerische Kennungen.
+\item[Vorname]
+Der Vorname der Person.
+\item[Nachname]
+Der Nachname der Person.
+\item[Titel]
+\emph{Optional}. Akademische Titel wie ``Dr.'' und ``Prof.~Dr.''
+\item[Geschlecht]
+\emph{Optional}. Männlich/Weblich
+\item[Berufsbezeichnung]
+\emph{Optional}. Z.B. ``Rechtsanwalt''
+\item[Partei]
+\emph{Optional}. Z.B. ``Bündnis 90/Grüne''
+\item[E-Mail-Adresse]
+\emph{Optional}.
+\item[Telefon]
+\emph{Optional}.
+\item[Fax]
+\emph{Optional}.
+\item[Anschrift]
+\emph{Optional}. Straße und Hausnummer, Postleitzahl und Ort
+\end{description}
+
+\paragraph{Anmerkungen}
+
+\begin{itemize}
+\item
+  Das System von Euskirchen scheint Vor- und Nachname (evtl. einschl.
+  Titel) in einem gemeinsamen Feld ``Name'' zu führen. Ob das System
+  hier technisch differenziert, ist unklar. Falls einzelne Systeme den
+  angezeigten Namen nur als ganzes Speichern, sollte dies für den
+  Standard übernommen werden, da es für die meisten Anwendungen
+  ausreichen sollte.
+\item
+  Das Rösrather System kennzeichnet, ob Anschriften privat oder
+  geschäftlich sind.
+\end{itemize}
+
+\subsubsection{Beziehungen}
+
+\begin{itemize}
+\item
+  Objekte vom Typ ``Person'' können einer Organisation, z.B. einer
+  Fraktion, zugeornet werden. Diese Beziehung ist datiert.
+\item
+  Objekte vom Typ ``Person'' können einem oder mehreren Gremien
+  zugewiesen werden, um die Mitgliedschaft in diesem Gremium
+  darzustellen. Diese Beziehungen sind ebenfalls datiert.
+\end{itemize}
+
 \subsection{Organisation}
 
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die
 Personen angehören können.
+
+\subsubsection{Eigenschaften}
+
+\subsubsection{Beziehungen}
 
 \subsection{Sitzung}
 
@@ -153,6 +294,10 @@ Die geladenen Teilnehmer der Sitzung sind jeweils als „Person`` in
 entsprechender Form referenziert. Verschiedene Drucksachen (Einladung,
 Ergebnis- und Wortprotokoll) werden ebenfalls referenziert.
 
+\subsubsection{Eigenschaften}
+
+\subsubsection{Beziehungen}
+
 \subsection{Tagesordnungspunkt}
 
 Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält
@@ -163,6 +308,10 @@ Beschlussvorlage (z.B. durch Berücksichtigung eines Änderungsantrags)
 kann ein bestimmter Beschlusstext zu Protokoll gegeben werden. Sofern
 das Abstimmungsergebnis nicht einstimmig ist, kann es durch mehrere
 referenzierende Stimmabgaben festgehalten werden.
+
+\subsubsection{Eigenschaften}
+
+\subsubsection{Beziehungen}
 
 \subsection{Stimmabgabe}
 
@@ -176,6 +325,10 @@ Personen wieder. Dann ist die Anzahl der Stimmen anzugeben und statt
 einer Person eine Organisation (in der Regel die Fraktion) zu
 referenzieren.
 
+\subsubsection{Eigenschaften}
+
+\subsubsection{Beziehungen}
+
 \subsection{Drucksache}
 
 Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen,
@@ -186,6 +339,10 @@ veröffentlicht wurde.
 Die Drucksache verweist auf genau ein Hauptdokument. Darüber hinaus
 können beliebig viele Dokumente als Anhang referenziert werden.
 
+\subsubsection{Eigenschaften}
+
+\subsubsection{Beziehungen}
+
 \subsection{Dokument}
 
 Ein Dokument hält die Daten und Metadaten einer Datei vor,
@@ -194,6 +351,10 @@ einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese Ableitung
 ebenfalls ein Dokument, das jedoch nicht als Master gekennzeichnet wird,
 sondern auf den entsprechenden Master verweist.
 
+\subsubsection{Eigenschaften}
+
+\subsubsection{Beziehungen}
+
 \subsection{Ort}
 
 Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal
@@ -201,6 +362,14 @@ abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen
 (beispielsweise der Name einer Straße/eines Platzes oder eine genaue
 Adresse) oder aus einer Geo-Koordinatenangabe aus Längen- und
 Breitengrad.
+
+\subsection{Noch nicht abgedeckt}
+
+\begin{itemize}
+\item
+  Angaben von Personen zu Tätigkeiten (z.B. Auskunft nach § 17
+  Korruptionsbekämpfungsgesetz)
+\end{itemize}
 
 \section{Glossar}
 
@@ -215,3 +384,28 @@ Ratsinformationssystem
 
 {[}1{]}: Siehe
 \href{https://www.destatis.de/DE/Methoden/Klassifikationen/Bevoelkerung/StaatsangehoerigkeitGebietsschluessel.html}{www.destatis.de/\ldots{}}
+
+{[}2{]}: Ratsinformationssystem der Stadt Köln,
+\href{http://ratsinformation.stadt-koeln.de/}{http://ratsinformation.stadt-koeln.de/}
+
+{[}3{]}: Firma Somacos,
+\href{http://www.somacos.de/de/sitzungsdienst/ratsinfo.html}{SessionNet
+Produktinformation}
+
+{[}4{]}: Ratsinformationssystem der Bezirksverwaltugn Berlin Mitte,
+\href{http://www.berlin.de/ba-mitte/bvv-online/allris.net.asp}{http://www.berlin.de/ba-mitte/\ldots{}}
+
+{[}5{]}: CC e-gov GmbH, \href{http://www.cc-egov.de/allris.htm}{ALLRIS
+Produktionformationen}
+
+{[}6{]}: Ratsinformationssystem der Stadt Rösrath,
+\href{http://212.227.97.55/ratsinfo/roesrath}{http://212.227.97.55/ratsinfo/\ldots{}}
+
+{[}7{]}: \href{http://www.provox.de/}{Firma PROVOX}
+
+{[}8{]}: Ratsinformationssystem der Stadt Euskirchen,
+\href{https://sitzungsdienst.euskirchen.de/}{https://sitzungsdienst.euskirchen.de/}
+
+{[}9{]}: Firma Sternberg,
+\href{http://www.sitzungsdienst.net/produkte/ratsinformationsmanagement}{SD.NET
+RIM Produktionformationen}

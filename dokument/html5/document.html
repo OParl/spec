@@ -37,6 +37,15 @@
 <h1 id="datenmodell"><span class="header-section-number">2</span> Datenmodell</h1>
 <p>Das Datenmodell soll die Bausteine für die später zu entwerfende Schnittstelle definieren. Im folgenden werden sozusagen die Objekttypen bzw. die Klassen beschrieben, auf die über eine spätere API zugegriffen werden kann.</p>
 <p>Einige Objekte werden eine eindeutige Identifizierung (ID) benötigen, wobei „eindeutig“ auch eine Frage des Kontextes ist. In den wenigsten Fällen wird es notwendig sein, eine Objekt-Kennung weltweit eindeutig zu machen. Darüber hinaus wird zu entscheiden sein, ob IDs unveränderlich oder veränderlich sein sollen.</p>
+<p>Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen beziehen sich auf nach außen, bei Nutzung der Weboverfläche, feststellbare Eigenschaften. Es wird auf die folgenden Systeme Bezug genommen:</p>
+<ul>
+<li>Stadt Köln [2] - Plattform: Somacos SessionNet [3]</li>
+<li>Bezirksverwaltung Berlin Mitte [4] - Plattform: ALLRIS [5]</li>
+<li>Stadt Rösrath [6] - Plattform der Firma PROVOX [7]</li>
+<li>Stadt Euskirchen [8] - Plattform: SD.NET RIM 4 [9]</li>
+</ul>
+<p>Eigenschaften der einzelnen Objekttypen sind, wenn nicht anders angegeben, verpflichtend. Optionale Eigenschaften sind entsprechend gekennzeichnet.</p>
+<p>Bei Beschreibung der Beziehungen zwischen Objekten wird zu diesem Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei Objekten A und B am Objekt A oder am Objekt B definiert wird. So spielt es bislang keine Rolle, ob einem Gremium mehrere Personen zugeordnet werden oder einer Person mehrere Gremien zugewiesen werden. Das Augenmerkt liegt hier nur auf der Tatsache, welche Beziehung existieren können und was diese Beziehungen aussagen sollen.</p>
 <h2 id="gebietskörperschaft"><span class="header-section-number">2.1</span> Gebietskörperschaft</h2>
 <p>Die Gebietskörperschaft erlaubt es, Körperschaften wie einen bestimmten Landkreis, eine bestimmte Gemeinde oder einen bestimmten Stadtbezirk in Form eines Datenobjekts abzubilden.</p>
 <p>Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“. Denkbar ist aber auch, dass Systeme für einen Verbund von mehreren Körperschaften betrieben werden.</p>
@@ -54,32 +63,116 @@
 <ul>
 <li>Führende Nullen machen den Schlüssel fehleranfällig. Bestimmte Systeme wie z.B. Excel könnten den Inhalt als Zahlenwert erkennen und die führenden Nullen automatisch verwerfen.</li>
 </ul>
-<h3 id="attribute"><span class="header-section-number">2.1.2</span> Attribute</h3>
+<h3 id="eigenschaften"><span class="header-section-number">2.1.2</span> Eigenschaften</h3>
 <dl>
 <dt>Name</dt>
 <dd>Der Name der Gebietskörperschaft, z.B. &quot;Köln&quot; oder &quot;Stadt Köln&quot;.
 </dd>
 </dl>
+<h3 id="beziehungen"><span class="header-section-number">2.1.3</span> Beziehungen</h3>
+<ul>
+<li>Objekte vom Typ &quot;Organisation&quot; sind zwingend genau einer Gebietskörperschaft zugeordnet. So wird beispielseise eine SPD in Köln von einer SPD in Leverkusen unterschieden.</li>
+<li>Objekte vom Typ &quot;Gremium&quot; sind zwingend einer genau einer Gebietskörperschaft zugeordnet. Damit wird der &quot;Rat&quot; einer bestimmten Kommune von den gleichnamigen Gremien anderer Kommunen abgegrenzt.</li>
+</ul>
 <h2 id="gremium"><span class="header-section-number">2.2</span> Gremium</h2>
 <p>Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat, Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.</p>
+<h3 id="eigenschaften-1"><span class="header-section-number">2.2.1</span> Eigenschaften</h3>
+<dl>
+<dt>Kennung</dt>
+<dd>Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten Gebietskörperschaft. Die Stadt Köln verwendet beispielswiese das Kürzel &quot;STA&quot; für den Stadtentwicklungsausschuss oder &quot;BA&quot; für den Ausschuss für Anregungen und Beschwerden. Andere Kommunen verwenden z.B. rein numerische Kennungen.
+</dd>
+<dt>Name</dt>
+<dd>Der Name des Gremiums. Beispiele: &quot;Rat&quot;, &quot;Hauptausschuss&quot;, &quot;Bezirksvertretung 1 (Innenstadt)&quot;
+</dd>
+</dl>
+<h4 id="anmerkungen"><span class="header-section-number">2.2.1.1</span> Anmerkungen</h4>
+<p>Beim Rösrather RIS [6] wird für jedes Gremium ein Kurz- und ein Langname angegeben. Beispielsweise wird beim &quot;Stadtentwicklungs-, Planungs- und Verkehrsausschuss&quot; die kurze Form &quot;Stadtentwicklung&quot; hinterlegt. Bei 5 von 12 Gremien sind jedoch Kurz- und Langnamen identisch.</p>
+<p>Sofern nicht Beispiele aus weiteren Systemen vorliegen, wird dieser Einzelfall nicht im Entwurf abgebildet.</p>
+<h3 id="beziehungen-1"><span class="header-section-number">2.2.2</span> Beziehungen</h3>
+<ul>
+<li>Objekte vom Typ &quot;Person&quot; referenzieren auf Gremien, um die Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu kennzeichnen.</li>
+<li>Objekte vom Typ &quot;Drucksache&quot; können einem Gremium zugeordnet sein. Beispielsweise wird eine Anfrage oder ein Antrag dem Rat oder einer bestimmten Bezirksvertretung zugeordnet.</li>
+</ul>
 <h2 id="person"><span class="header-section-number">2.3</span> Person</h2>
 <p>Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person im Datenmodell eindeutig identifizierbar.</p>
+<h3 id="eigenschaften-2"><span class="header-section-number">2.3.1</span> Eigenschaften</h3>
+<dl>
+<dt>Kennung</dt>
+<dd>Zur eindeutigen Identifizierung sollte jede Person eine Kennung besitzen, die keinen Änderungen unterworfen ist und aus diesem Grund nicht mit dem Namen in Verbindung stehen sollte. Viele RIS nutzen rein numerische Kennungen.
+</dd>
+<dt>Vorname</dt>
+<dd>Der Vorname der Person.
+</dd>
+<dt>Nachname</dt>
+<dd>Der Nachname der Person.
+</dd>
+<dt>Titel</dt>
+<dd><em>Optional</em>. Akademische Titel wie &quot;Dr.&quot; und &quot;Prof. Dr.&quot;
+</dd>
+<dt>Geschlecht</dt>
+<dd><em>Optional</em>. Männlich/Weblich
+</dd>
+<dt>Berufsbezeichnung</dt>
+<dd><em>Optional</em>. Z.B. &quot;Rechtsanwalt&quot;
+</dd>
+<dt>Partei</dt>
+<dd><em>Optional</em>. Z.B. &quot;Bündnis 90/Grüne&quot;
+</dd>
+<dt>E-Mail-Adresse</dt>
+<dd><em>Optional</em>.
+</dd>
+<dt>Telefon</dt>
+<dd><em>Optional</em>.
+</dd>
+<dt>Fax</dt>
+<dd><em>Optional</em>.
+</dd>
+<dt>Anschrift</dt>
+<dd><em>Optional</em>. Straße und Hausnummer, Postleitzahl und Ort
+</dd>
+</dl>
+<h4 id="anmerkungen-1"><span class="header-section-number">2.3.1.1</span> Anmerkungen</h4>
+<ul>
+<li>Das System von Euskirchen scheint Vor- und Nachname (evtl. einschl. Titel) in einem gemeinsamen Feld &quot;Name&quot; zu führen. Ob das System hier technisch differenziert, ist unklar. Falls einzelne Systeme den angezeigten Namen nur als ganzes Speichern, sollte dies für den Standard übernommen werden, da es für die meisten Anwendungen ausreichen sollte.</li>
+<li>Das Rösrather System kennzeichnet, ob Anschriften privat oder geschäftlich sind.</li>
+</ul>
+<h3 id="beziehungen-2"><span class="header-section-number">2.3.2</span> Beziehungen</h3>
+<ul>
+<li>Objekte vom Typ &quot;Person&quot; können einer Organisation, z.B. einer Fraktion, zugeornet werden. Diese Beziehung ist datiert.</li>
+<li>Objekte vom Typ &quot;Person&quot; können einem oder mehreren Gremien zugewiesen werden, um die Mitgliedschaft in diesem Gremium darzustellen. Diese Beziehungen sind ebenfalls datiert.</li>
+</ul>
 <h2 id="organisation"><span class="header-section-number">2.4</span> Organisation</h2>
 <p>Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die Personen angehören können.</p>
+<h3 id="eigenschaften-3"><span class="header-section-number">2.4.1</span> Eigenschaften</h3>
+<h3 id="beziehungen-3"><span class="header-section-number">2.4.2</span> Beziehungen</h3>
 <h2 id="sitzung"><span class="header-section-number">2.5</span> Sitzung</h2>
 <p>Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums zu einem bestimmten Zeitpunkt. Sitzungen können eine laufende Nummer haben., üblicherweise beginnend bei 1 zu Beginn einer Wahlperiode, haben.</p>
 <p>Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in entsprechender Form referenziert. Verschiedene Drucksachen (Einladung, Ergebnis- und Wortprotokoll) werden ebenfalls referenziert.</p>
+<h3 id="eigenschaften-4"><span class="header-section-number">2.5.1</span> Eigenschaften</h3>
+<h3 id="beziehungen-4"><span class="header-section-number">2.5.2</span> Beziehungen</h3>
 <h2 id="tagesordnungspunkt"><span class="header-section-number">2.6</span> Tagesordnungspunkt</h2>
 <p>Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. Falls abweichend von der ursprünglichen Beschlussvorlage (z.B. durch Berücksichtigung eines Änderungsantrags) kann ein bestimmter Beschlusstext zu Protokoll gegeben werden. Sofern das Abstimmungsergebnis nicht einstimmig ist, kann es durch mehrere referenzierende Stimmabgaben festgehalten werden.</p>
+<h3 id="eigenschaften-5"><span class="header-section-number">2.6.1</span> Eigenschaften</h3>
+<h3 id="beziehungen-5"><span class="header-section-number">2.6.2</span> Beziehungen</h3>
 <h2 id="stimmabgabe"><span class="header-section-number">2.7</span> Stimmabgabe</h2>
 <p>Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt abgestimmt hat, wird durch eine Stimmabgabe festgehalten. Ganze Abstimmungsergebnisse bestehen überlicherweise aus mehreren Stimmabgaben. Jede Stimmabgabe gibt entweder die (einzelne) Stimme einer Peson wieder, in diesem Fall ist die Anzahl der Stimmen zwingend 1. Oder eine Stimmabgabe gibt das Abstimmungsverhalten einer ganzen Gruppe von Personen wieder. Dann ist die Anzahl der Stimmen anzugeben und statt einer Person eine Organisation (in der Regel die Fraktion) zu referenzieren.</p>
+<h3 id="eigenschaften-6"><span class="header-section-number">2.7.1</span> Eigenschaften</h3>
+<h3 id="beziehungen-6"><span class="header-section-number">2.7.2</span> Beziehungen</h3>
 <h2 id="drucksache"><span class="header-section-number">2.8</span> Drucksache</h2>
 <p>Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen, Beschlussvorlagen, Anfragen und Anträge ab. Jede Drucksache erhält eine eindeutige Kennung. Das Datum gibt an, wann die Drucksache erzeugt bzw. veröffentlicht wurde.</p>
 <p>Die Drucksache verweist auf genau ein Hauptdokument. Darüber hinaus können beliebig viele Dokumente als Anhang referenziert werden.</p>
+<h3 id="eigenschaften-7"><span class="header-section-number">2.8.1</span> Eigenschaften</h3>
+<h3 id="beziehungen-7"><span class="header-section-number">2.8.2</span> Beziehungen</h3>
 <h2 id="dokument"><span class="header-section-number">2.9</span> Dokument</h2>
 <p>Ein Dokument hält die Daten und Metadaten einer Datei vor, beispielsweise einer PDF-Datei, eines RTF- oder Word-Dokuments. Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls ein Dokument, das jedoch nicht als Master gekennzeichnet wird, sondern auf den entsprechenden Master verweist.</p>
+<h3 id="eigenschaften-8"><span class="header-section-number">2.9.1</span> Eigenschaften</h3>
+<h3 id="beziehungen-8"><span class="header-section-number">2.9.2</span> Beziehungen</h3>
 <h2 id="ort"><span class="header-section-number">2.10</span> Ort</h2>
 <p>Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen (beispielsweise der Name einer Straße/eines Platzes oder eine genaue Adresse) oder aus einer Geo-Koordinatenangabe aus Längen- und Breitengrad.</p>
+<h2 id="noch-nicht-abgedeckt"><span class="header-section-number">2.11</span> Noch nicht abgedeckt</h2>
+<ul>
+<li>Angaben von Personen zu Tätigkeiten (z.B. Auskunft nach § 17 Korruptionsbekämpfungsgesetz)</li>
+</ul>
 <h1 id="glossar"><span class="header-section-number">3</span> Glossar</h1>
 <dl>
 <dt>AGS</dt>
@@ -91,5 +184,13 @@
 </dl>
 <h1 id="fußnoten"><span class="header-section-number">4</span> Fußnoten</h1>
 <p>[1]: Siehe <a href="https://www.destatis.de/DE/Methoden/Klassifikationen/Bevoelkerung/StaatsangehoerigkeitGebietsschluessel.html">www.destatis.de/...</a></p>
+<p>[2]: Ratsinformationssystem der Stadt Köln, <a href="http://ratsinformation.stadt-koeln.de/">http://ratsinformation.stadt-koeln.de/</a></p>
+<p>[3]: Firma Somacos, <a href="http://www.somacos.de/de/sitzungsdienst/ratsinfo.html">SessionNet Produktinformation</a></p>
+<p>[4]: Ratsinformationssystem der Bezirksverwaltugn Berlin Mitte, <a href="http://www.berlin.de/ba-mitte/bvv-online/allris.net.asp">http://www.berlin.de/ba-mitte/...</a></p>
+<p>[5]: CC e-gov GmbH, <a href="http://www.cc-egov.de/allris.htm">ALLRIS Produktionformationen</a></p>
+<p>[6]: Ratsinformationssystem der Stadt Rösrath, <a href="http://212.227.97.55/ratsinfo/roesrath">http://212.227.97.55/ratsinfo/...</a></p>
+<p>[7]: <a href="http://www.provox.de/">Firma PROVOX</a></p>
+<p>[8]: Ratsinformationssystem der Stadt Euskirchen, <a href="https://sitzungsdienst.euskirchen.de/">https://sitzungsdienst.euskirchen.de/</a></p>
+<p>[9]: Firma Sternberg, <a href="http://www.sitzungsdienst.net/produkte/ratsinformationsmanagement">SD.NET RIM Produktionformationen</a></p>
 </body>
 </html>

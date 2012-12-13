@@ -104,6 +104,49 @@
     weltweit eindeutig zu machen. Darüber hinaus wird zu entscheiden
     sein, ob IDs unveränderlich oder veränderlich sein sollen.
   </para>
+  <para>
+    Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen
+    beziehen sich auf nach außen, bei Nutzung der Weboverfläche,
+    feststellbare Eigenschaften. Es wird auf die folgenden Systeme Bezug
+    genommen:
+  </para>
+  <itemizedlist>
+    <listitem>
+      <para>
+        Stadt Köln [2] - Plattform: Somacos SessionNet [3]
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Bezirksverwaltung Berlin Mitte [4] - Plattform: ALLRIS [5]
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Stadt Rösrath [6] - Plattform der Firma PROVOX [7]
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Stadt Euskirchen [8] - Plattform: SD.NET RIM 4 [9]
+      </para>
+    </listitem>
+  </itemizedlist>
+  <para>
+    Eigenschaften der einzelnen Objekttypen sind, wenn nicht anders
+    angegeben, verpflichtend. Optionale Eigenschaften sind entsprechend
+    gekennzeichnet.
+  </para>
+  <para>
+    Bei Beschreibung der Beziehungen zwischen Objekten wird zu diesem
+    Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei
+    Objekten A und B am Objekt A oder am Objekt B definiert wird. So
+    spielt es bislang keine Rolle, ob einem Gremium mehrere Personen
+    zugeordnet werden oder einer Person mehrere Gremien zugewiesen
+    werden. Das Augenmerkt liegt hier nur auf der Tatsache, welche
+    Beziehung existieren können und was diese Beziehungen aussagen
+    sollen.
+  </para>
   <sect2 id="gebietskörperschaft">
     <title>Gebietskörperschaft</title>
     <para>
@@ -165,8 +208,8 @@
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="attribute">
-      <title>Attribute</title>
+    <sect3 id="eigenschaften">
+      <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
           <term>
@@ -181,6 +224,26 @@
         </varlistentry>
       </variablelist>
     </sect3>
+    <sect3 id="beziehungen">
+      <title>Beziehungen</title>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Objekte vom Typ &quot;Organisation&quot; sind zwingend genau
+            einer Gebietskörperschaft zugeordnet. So wird beispielseise
+            eine SPD in Köln von einer SPD in Leverkusen unterschieden.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Objekte vom Typ &quot;Gremium&quot; sind zwingend einer
+            genau einer Gebietskörperschaft zugeordnet. Damit wird der
+            &quot;Rat&quot; einer bestimmten Kommune von den
+            gleichnamigen Gremien anderer Kommunen abgegrenzt.
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
   </sect2>
   <sect2 id="gremium">
     <title>Gremium</title>
@@ -191,6 +254,73 @@
       Bezirksvertretungen. Gremien halten Sitzungen ab, zu denen die
       Gremien-Mitglieder eingeladen werden.
     </para>
+    <sect3 id="eigenschaften-1">
+      <title>Eigenschaften</title>
+      <variablelist>
+        <varlistentry>
+          <term>
+            Kennung
+          </term>
+          <listitem>
+            <para>
+              Zur eindeutigen Identifizierung des Gremiums im Kontext
+              einer bestimmten Gebietskörperschaft. Die Stadt Köln
+              verwendet beispielswiese das Kürzel &quot;STA&quot; für
+              den Stadtentwicklungsausschuss oder &quot;BA&quot; für den
+              Ausschuss für Anregungen und Beschwerden. Andere Kommunen
+              verwenden z.B. rein numerische Kennungen.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Name
+          </term>
+          <listitem>
+            <para>
+              Der Name des Gremiums. Beispiele: &quot;Rat&quot;,
+              &quot;Hauptausschuss&quot;, &quot;Bezirksvertretung 1
+              (Innenstadt)&quot;
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <sect4 id="anmerkungen">
+        <title>Anmerkungen</title>
+        <para>
+          Beim Rösrather RIS [6] wird für jedes Gremium ein Kurz- und
+          ein Langname angegeben. Beispielsweise wird beim
+          &quot;Stadtentwicklungs-, Planungs- und
+          Verkehrsausschuss&quot; die kurze Form
+          &quot;Stadtentwicklung&quot; hinterlegt. Bei 5 von 12 Gremien
+          sind jedoch Kurz- und Langnamen identisch.
+        </para>
+        <para>
+          Sofern nicht Beispiele aus weiteren Systemen vorliegen, wird
+          dieser Einzelfall nicht im Entwurf abgebildet.
+        </para>
+      </sect4>
+    </sect3>
+    <sect3 id="beziehungen-1">
+      <title>Beziehungen</title>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Objekte vom Typ &quot;Person&quot; referenzieren auf
+            Gremien, um die Mitgliedschaft/Zugehörigkeit einer Person
+            im/zum Gremium zu kennzeichnen.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Objekte vom Typ &quot;Drucksache&quot; können einem Gremium
+            zugeordnet sein. Beispielsweise wird eine Anfrage oder ein
+            Antrag dem Rat oder einer bestimmten Bezirksvertretung
+            zugeordnet.
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
   </sect2>
   <sect2 id="person">
     <title>Person</title>
@@ -198,6 +328,170 @@
       Jede natürliche Person, die Mitglied eines Gremiums ist, ist als
       Person im Datenmodell eindeutig identifizierbar.
     </para>
+    <sect3 id="eigenschaften-2">
+      <title>Eigenschaften</title>
+      <variablelist>
+        <varlistentry>
+          <term>
+            Kennung
+          </term>
+          <listitem>
+            <para>
+              Zur eindeutigen Identifizierung sollte jede Person eine
+              Kennung besitzen, die keinen Änderungen unterworfen ist
+              und aus diesem Grund nicht mit dem Namen in Verbindung
+              stehen sollte. Viele RIS nutzen rein numerische Kennungen.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Vorname
+          </term>
+          <listitem>
+            <para>
+              Der Vorname der Person.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Nachname
+          </term>
+          <listitem>
+            <para>
+              Der Nachname der Person.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Titel
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Akademische Titel wie
+              &quot;Dr.&quot; und &quot;Prof. Dr.&quot;
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Geschlecht
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Männlich/Weblich
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Berufsbezeichnung
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Z.B.
+              &quot;Rechtsanwalt&quot;
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Partei
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Z.B. &quot;Bündnis
+              90/Grüne&quot;
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            E-Mail-Adresse
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Telefon
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Fax
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Anschrift
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Straße und Hausnummer,
+              Postleitzahl und Ort
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <sect4 id="anmerkungen-1">
+        <title>Anmerkungen</title>
+        <itemizedlist>
+          <listitem>
+            <para>
+              Das System von Euskirchen scheint Vor- und Nachname (evtl.
+              einschl. Titel) in einem gemeinsamen Feld &quot;Name&quot;
+              zu führen. Ob das System hier technisch differenziert, ist
+              unklar. Falls einzelne Systeme den angezeigten Namen nur
+              als ganzes Speichern, sollte dies für den Standard
+              übernommen werden, da es für die meisten Anwendungen
+              ausreichen sollte.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Das Rösrather System kennzeichnet, ob Anschriften privat
+              oder geschäftlich sind.
+            </para>
+          </listitem>
+        </itemizedlist>
+      </sect4>
+    </sect3>
+    <sect3 id="beziehungen-2">
+      <title>Beziehungen</title>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Objekte vom Typ &quot;Person&quot; können einer
+            Organisation, z.B. einer Fraktion, zugeornet werden. Diese
+            Beziehung ist datiert.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Objekte vom Typ &quot;Person&quot; können einem oder
+            mehreren Gremien zugewiesen werden, um die Mitgliedschaft in
+            diesem Gremium darzustellen. Diese Beziehungen sind
+            ebenfalls datiert.
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
   </sect2>
   <sect2 id="organisation">
     <title>Organisation</title>
@@ -205,6 +499,16 @@
       Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen
       die Personen angehören können.
     </para>
+    <sect3 id="eigenschaften-3">
+      <title>Eigenschaften</title>
+      <para>
+      </para>
+    </sect3>
+    <sect3 id="beziehungen-3">
+      <title>Beziehungen</title>
+      <para>
+      </para>
+    </sect3>
   </sect2>
   <sect2 id="sitzung">
     <title>Sitzung</title>
@@ -220,6 +524,16 @@
       (Einladung, Ergebnis- und Wortprotokoll) werden ebenfalls
       referenziert.
     </para>
+    <sect3 id="eigenschaften-4">
+      <title>Eigenschaften</title>
+      <para>
+      </para>
+    </sect3>
+    <sect3 id="beziehungen-4">
+      <title>Beziehungen</title>
+      <para>
+      </para>
+    </sect3>
   </sect2>
   <sect2 id="tagesordnungspunkt">
     <title>Tagesordnungspunkt</title>
@@ -234,6 +548,16 @@
       ist, kann es durch mehrere referenzierende Stimmabgaben
       festgehalten werden.
     </para>
+    <sect3 id="eigenschaften-5">
+      <title>Eigenschaften</title>
+      <para>
+      </para>
+    </sect3>
+    <sect3 id="beziehungen-5">
+      <title>Beziehungen</title>
+      <para>
+      </para>
+    </sect3>
   </sect2>
   <sect2 id="stimmabgabe">
     <title>Stimmabgabe</title>
@@ -248,6 +572,16 @@
       Stimmen anzugeben und statt einer Person eine Organisation (in der
       Regel die Fraktion) zu referenzieren.
     </para>
+    <sect3 id="eigenschaften-6">
+      <title>Eigenschaften</title>
+      <para>
+      </para>
+    </sect3>
+    <sect3 id="beziehungen-6">
+      <title>Beziehungen</title>
+      <para>
+      </para>
+    </sect3>
   </sect2>
   <sect2 id="drucksache">
     <title>Drucksache</title>
@@ -262,6 +596,16 @@
       hinaus können beliebig viele Dokumente als Anhang referenziert
       werden.
     </para>
+    <sect3 id="eigenschaften-7">
+      <title>Eigenschaften</title>
+      <para>
+      </para>
+    </sect3>
+    <sect3 id="beziehungen-7">
+      <title>Beziehungen</title>
+      <para>
+      </para>
+    </sect3>
   </sect2>
   <sect2 id="dokument">
     <title>Dokument</title>
@@ -273,6 +617,16 @@
       Master gekennzeichnet wird, sondern auf den entsprechenden Master
       verweist.
     </para>
+    <sect3 id="eigenschaften-8">
+      <title>Eigenschaften</title>
+      <para>
+      </para>
+    </sect3>
+    <sect3 id="beziehungen-8">
+      <title>Beziehungen</title>
+      <para>
+      </para>
+    </sect3>
   </sect2>
   <sect2 id="ort">
     <title>Ort</title>
@@ -283,6 +637,17 @@
       eine genaue Adresse) oder aus einer Geo-Koordinatenangabe aus
       Längen- und Breitengrad.
     </para>
+  </sect2>
+  <sect2 id="noch-nicht-abgedeckt">
+    <title>Noch nicht abgedeckt</title>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Angaben von Personen zu Tätigkeiten (z.B. Auskunft nach § 17
+          Korruptionsbekämpfungsgesetz)
+        </para>
+      </listitem>
+    </itemizedlist>
   </sect2>
 </sect1>
 <sect1 id="glossar">
@@ -315,5 +680,39 @@
   <para>
     [1]: Siehe
     <ulink url="https://www.destatis.de/DE/Methoden/Klassifikationen/Bevoelkerung/StaatsangehoerigkeitGebietsschluessel.html">www.destatis.de/...</ulink>
+  </para>
+  <para>
+    [2]: Ratsinformationssystem der Stadt Köln,
+    <ulink url="http://ratsinformation.stadt-koeln.de/">http://ratsinformation.stadt-koeln.de/</ulink>
+  </para>
+  <para>
+    [3]: Firma Somacos,
+    <ulink url="http://www.somacos.de/de/sitzungsdienst/ratsinfo.html">SessionNet
+    Produktinformation</ulink>
+  </para>
+  <para>
+    [4]: Ratsinformationssystem der Bezirksverwaltugn Berlin Mitte,
+    <ulink url="http://www.berlin.de/ba-mitte/bvv-online/allris.net.asp">http://www.berlin.de/ba-mitte/...</ulink>
+  </para>
+  <para>
+    [5]: CC e-gov GmbH,
+    <ulink url="http://www.cc-egov.de/allris.htm">ALLRIS
+    Produktionformationen</ulink>
+  </para>
+  <para>
+    [6]: Ratsinformationssystem der Stadt Rösrath,
+    <ulink url="http://212.227.97.55/ratsinfo/roesrath">http://212.227.97.55/ratsinfo/...</ulink>
+  </para>
+  <para>
+    [7]: <ulink url="http://www.provox.de/">Firma PROVOX</ulink>
+  </para>
+  <para>
+    [8]: Ratsinformationssystem der Stadt Euskirchen,
+    <ulink url="https://sitzungsdienst.euskirchen.de/">https://sitzungsdienst.euskirchen.de/</ulink>
+  </para>
+  <para>
+    [9]: Firma Sternberg,
+    <ulink url="http://www.sitzungsdienst.net/produkte/ratsinformationsmanagement">SD.NET
+    RIM Produktionformationen</ulink>
   </para>
 </sect1>

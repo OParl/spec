@@ -35,7 +35,8 @@ Name
 
 ### Beziehungen ###
 
-* Organisationen sind zwingend einer Gebietskörperschaft zugeordnet. So wird beispielseise eine SPD Köln von einer SPD in Leverkusen unterschieden.
+* Objekte vom Typ "Organisation" sind zwingend genau einer Gebietskörperschaft zugeordnet. So wird beispielseise eine SPD in Köln von einer SPD in Leverkusen unterschieden.
+* Objekte vom Typ "Gremium" sind zwingend einer genau einer Gebietskörperschaft zugeordnet. Damit wird der "Rat" einer bestimmten Kommune von den gleichnamigen Gremien anderer Kommunen abgegrenzt.
 
 Gremium
 -------

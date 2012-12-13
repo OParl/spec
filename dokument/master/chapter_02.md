@@ -5,6 +5,17 @@ Das Datenmodell soll die Bausteine für die später zu entwerfende Schnittstelle
 
 Einige Objekte werden eine eindeutige Identifizierung (ID) benötigen, wobei „eindeutig“ auch eine Frage des Kontextes ist. In den wenigsten Fällen wird es notwendig sein, eine Objekt-Kennung weltweit eindeutig zu machen. Darüber hinaus wird zu entscheiden sein, ob IDs unveränderlich oder veränderlich sein sollen.
 
+Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen beziehen sich auf nach außen, bei Nutzung der Weboverfläche, feststellbare Eigenschaften. Es wird auf die folgenden Systeme Bezug genommen:
+
+* Stadt Köln [2] - Plattform: Somacos SessionNet [3]
+* Bezirksverwaltung Berlin Mitte [4] - Plattform: ALLRIS [5]
+* Stadt Rösrath [6] - Plattform der Firma PROVOX [7]
+* Stadt Euskirchen [8] - Plattform: SD.NET RIM 4 [9]
+
+Eigenschaften der einzelnen Objekttypen sind, wenn nicht anders angegeben, verpflichtend. Optionale Eigenschaften sind entsprechend gekennzeichnet.
+
+Bei Beschreibung der Beziehungen zwischen Objekten wird zu diesem Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei Objekten A und B am Objekt A oder am Objekt B definiert wird. So spielt es bislang keine Rolle, ob einem Gremium mehrere Personen zugeordnet werden oder einer Person mehrere Gremien zugewiesen werden. Das Augenmerkt liegt hier nur auf der Tatsache, welche Beziehung existieren können und was diese Beziehungen aussagen sollen.
+
 
 Gebietskörperschaft
 -------------------
@@ -28,24 +39,44 @@ Nachteil des AGS:
 
 * Führende Nullen machen den Schlüssel fehleranfällig. Bestimmte Systeme wie z.B. Excel könnten den Inhalt als Zahlenwert erkennen und die führenden Nullen automatisch verwerfen.
 
+
 ### Eigenschaften ###
 
 Name
 :   Der Name der Gebietskörperschaft, z.B. "Köln" oder "Stadt Köln".
+
 
 ### Beziehungen ###
 
 * Objekte vom Typ "Organisation" sind zwingend genau einer Gebietskörperschaft zugeordnet. So wird beispielseise eine SPD in Köln von einer SPD in Leverkusen unterschieden.
 * Objekte vom Typ "Gremium" sind zwingend einer genau einer Gebietskörperschaft zugeordnet. Damit wird der "Rat" einer bestimmten Kommune von den gleichnamigen Gremien anderer Kommunen abgegrenzt.
 
+
 Gremium
 -------
 
 Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat, Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
+
 ### Eigenschaften ###
 
+Kennung
+:   Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten Gebietskörperschaft. Die Stadt Köln verwendet beispielswiese das Kürzel "STA" für den Stadtentwicklungsausschuss oder "BA" für den Ausschuss für Anregungen und Beschwerden. Andere Kommunen verwenden z.B. rein numerische Kennungen.
+Name
+:   Der Name des Gremiums. Beispiele: "Rat", "Hauptausschuss", "Bezirksvertretung 1 (Innenstadt)"
+
+
+#### Anmerkungen ####
+
+Beim Rösrather RIS [6] wird für jedes Gremium ein Kurz- und ein Langname angegeben. Beispielsweise wird beim "Stadtentwicklungs-, Planungs- und Verkehrsausschuss" die kurze Form "Stadtentwicklung" hinterlegt. Bei 5 von 12 Gremien sind jedoch Kurz- und Langnamen identisch.
+
+Sofern nicht Beispiele aus weiteren Systemen vorliegen, wird dieser Einzelfall nicht im Entwurf abgebildet.
+
+
 ### Beziehungen ###
+
+* Objekte vom Typ "Person" referenzieren auf Gremien, um die Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu kennzeichnen.
+* Objekte vom Typ "Drucksache" können einem Gremium zugeordnet sein. Beispielsweise wird eine Anfrage oder ein Antrag dem Rat oder einer bestimmten Bezirksvertretung zugeordnet.
 
 
 Person
@@ -55,7 +86,40 @@ Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person im Date
 
 ### Eigenschaften ###
 
+Kennung
+:   Zur eindeutigen Identifizierung sollte jede Person eine Kennung besitzen, die keinen Änderungen unterworfen ist und aus diesem Grund nicht mit dem Namen in Verbindung stehen sollte. Viele RIS nutzen rein numerische Kennungen.
+Vorname
+:   Der Vorname der Person.
+Nachname
+:   Der Nachname der Person.
+Titel
+:   _Optional_. Akademische Titel wie "Dr." und "Prof. Dr."
+Geschlecht
+:   _Optional_. Männlich/Weblich
+Berufsbezeichnung
+:   _Optional_. Z.B. "Rechtsanwalt"
+Partei
+:   _Optional_. Z.B. "Bündnis 90/Grüne"
+E-Mail-Adresse
+:   _Optional_.
+Telefon
+:   _Optional_.
+Fax
+:   _Optional_.
+Anschrift
+:   _Optional_. Straße und Hausnummer, Postleitzahl und Ort
+
+
+#### Anmerkungen ####
+
+* Das System von Euskirchen scheint Vor- und Nachname (evtl. einschl. Titel) in einem gemeinsamen Feld "Name" zu führen. Ob das System hier technisch differenziert, ist unklar. Falls einzelne Systeme den angezeigten Namen nur als ganzes Speichern, sollte dies für den Standard übernommen werden, da es für die meisten Anwendungen ausreichen sollte.
+* Das Rösrather System kennzeichnet, ob Anschriften privat oder geschäftlich sind.
+
+
 ### Beziehungen ###
+
+* Objekte vom Typ "Person" können einer Organisation, z.B. einer Fraktion, zugeornet werden. Diese Beziehung ist datiert.
+* Objekte vom Typ "Person" können einem oder mehreren Gremien zugewiesen werden, um die Mitgliedschaft in diesem Gremium darzustellen. Diese Beziehungen sind ebenfalls datiert.
 
 
 Organisation
@@ -131,3 +195,10 @@ Ort
 ---
 
 Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen (beispielsweise der Name einer Straße/eines Platzes oder eine genaue Adresse) oder aus einer Geo-Koordinatenangabe aus Längen- und Breitengrad.
+
+
+Noch nicht abgedeckt
+--------------------
+
+* Angaben von Personen zu Tätigkeiten (z.B. Auskunft nach § 17 Korruptionsbekämpfungsgesetz)
+

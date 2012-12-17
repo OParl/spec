@@ -18,3 +18,7 @@ Fußnoten
 [8]: Ratsinformationssystem der Stadt Euskirchen, [https://sitzungsdienst.euskirchen.de/](https://sitzungsdienst.euskirchen.de/)
 
 [9]: Firma Sternberg, [SD.NET RIM Produktionformationen](http://www.sitzungsdienst.net/produkte/ratsinformationsmanagement)
+
+[10]: BoRis, Ratsinformationssystem der Stadt Bonn (Eigenentwicklung). [http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp](http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp)
+
+[11]: World Geodetic System 1984 (EPSG:4326), wird unter anderem auch vom Global Positioning System (GPS) verwendet.

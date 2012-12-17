@@ -56,12 +56,15 @@ Datenmodells.
 \item
   Anpassen des Entwurfs anhand von Feedback
 \item
-  Erarbeitung eines Entwurfs für eine REST-Schnittstelle
+  Erarbeitung eines Entwurfs für eine REST-Schnittstelle. Darin soll
+  beschrieben werden, wie über HTTP die zuvor beschriebenen Daten
+  abgerufen werden sollen.
 \end{enumerate}
 
 \subsection{Adresse für Feedback}
 
 Feedback kann gerne per Mail an marian@sendung.de übermittelt werden.
+
 Wer Feedback übersendet, wird als Mitwirkender in zukünftigen Versionen
 des Dokuments namentlich erwähnt. Wer dies nicht möchte, sollte dies
 bitte in seiner Mail bitte explizit erwähnen.
@@ -93,6 +96,8 @@ genommen:
   Stadt Rösrath {[}6{]} - Plattform der Firma PROVOX {[}7{]}
 \item
   Stadt Euskirchen {[}8{]} - Plattform: SD.NET RIM 4 {[}9{]}
+\item
+  Stadt Bonn - BoRis {[}10{]}
 \end{itemize}
 
 \subsubsection{Zu den Eigenschaften}
@@ -132,14 +137,14 @@ Körperschaften betrieben werden.
 \begin{figure}[htbp]
 \centering
 \includegraphics{images/01.png}
-\caption{Abbildung: Gebietskörperschaft}
+\caption{Gebietskörperschaft}
 \end{figure}
 
 \subsubsection{Eindeutige Identifizierung}
 
 Zur Identifizierung des Objekts kann der Amtliche Gemeindeschlüssel
-(AGS{[}1{]}) verwendet werden, der für Deutschland alle Gemeinden,
-Landkreise, kreisfreien Städte etc. eindeutig erfasst.
+(AGS{[}1{]}) verwendet werden, der alle deutschen Gemeinden, Landkreise,
+kreisfreien Städte etc. eindeutig erfasst.
 
 Vorteil der Verwendung des AGS:
 
@@ -159,6 +164,11 @@ Nachteil des AGS:
   Führende Nullen machen den Schlüssel fehleranfällig. Bestimmte Systeme
   wie z.B. Excel könnten den Inhalt als Zahlenwert erkennen und die
   führenden Nullen automatisch verwerfen.
+\item
+  Für Gebietsgliederungen unterhalb der selbstständigen Gemeinde,
+  beispielsweise einen einzelnen Stadtbezirk, gibt es keinen eigenen
+  Gemeindeschlüssel. Dies müssten durch eine nicht-amtliche Erweiterung
+  des Systems ausgeglichen werden.
 \end{itemize}
 
 \subsubsection{Eigenschaften}
@@ -485,15 +495,91 @@ Einer der drei Werte ``ja'' (gleichbedeutend mit ``dafür''), ``nein''
 
 Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen,
 Beschlussvorlagen, Anfragen und Anträge ab. Jede Drucksache erhält eine
-eindeutige Kennung. Das Datum gibt an, wann die Drucksache erzeugt bzw.
-veröffentlicht wurde.
+eindeutige Kennung.
 
-Die Drucksache verweist auf genau ein Hauptdokument. Darüber hinaus
-können beliebig viele Dokumente als Anhang referenziert werden.
+Die Drucksache hat im Informationsmodell eine hervorgehobene Bedeutung.
+Im Fall eines Antrags kann mit einer einzigen Drucksache ein über Monate
+oder Jahre dauernder politischer Entscheidungsprozess verbunden sein. In
+dem Zusammenhang entstehen üblicherweise weitere Drucksachen.
+
+Drucksachen spielen in der schriftlichen wie mündlichen Kommunikation
+eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen
+Bezug genommen wird. Hierbei kommen in Ratsinformationssystemen
+unveränderliche Kennungen der Drucksachen zum Einsatz.
+
+Jede Drucksache ist über die Eigenschaft ``Typ'' als eine der folgenden
+Arten von Drucksachen gekennzeichnet:
+
+\begin{itemize}
+\item
+  \textbf{Beschlussvorlage}: Entscheidungsvorschlag der Verwaltung
+\item
+  \textbf{Antrag}: Entscheidungsvorschlag einer Fraktionen bzw. mehrerer
+  Fraktionen oder einer/mehrerer Einzelperson/en
+\item
+  \textbf{Anfrage}: Frage(n) einer oder mehrerer Fraktion oder
+  Einzelpersonen an die Verwaltung
+\item
+  \textbf{Mitteilung/Stellungnahme der Verwaltung}: Eine Information der
+  Verwaltung an einzelne oder mehrere Gremien. Darunter fallen nicht
+  Beantwortungen von Anfragen.
+\item
+  \textbf{Beantwortung einer Anfrage}: Antwort der Verwaltung auf
+  (mündliche oder schriftliche) Anfragen
+\end{itemize}
 
 \subsubsection{Eigenschaften}
 
+\begin{description}
+\item[Kennung]
+Die Kennung einer Drucksache muss für die jeweilige Gebietskörperschaft
+eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben enthalten.
+Einige Systeme (z.B. Köln) verwenden besondere Trennzeichen wie ``/'',
+um eine Jahreszahl von einer laufenden Nummer abzutrennen. Weiterhin
+werden mancherorts führende Nullen verwendet.
+\item[Datum]
+Datum der Veröffentlichung
+\item[Typ]
+Art der Drucksache (Erläuterung siehe oben)
+\end{description}
+
 \subsubsection{Beziehungen}
+
+\begin{itemize}
+\item
+  Es muss genau ein \textbf{Hauptdokument} (Objekttyp ``Dokument'')
+  referenziert werden.
+\item
+  Es können beliebig viele weitere Dokumente referenziert werden, die
+  als nachgeordnete \textbf{Anlagen} zur Drucksache verstanden werden.
+\item
+  Es kann ein \textbf{Gremium} genannt werden, dem die Drucksache
+  zuzuordnen ist. Hier ist zu klären, inwiefern dies für einzelne Typen
+  von Drucksachen verpflichten sein sollte. So sollte beispielsweise
+  eine Anfrage grundsätzlich aus einem Gremium (z.B. Gemeinderat)
+  stammen.
+\item
+  Drucksachen können \textbf{Urhebern} zugewiesen werden. Im Fall von
+  Mitteilungen der Verwaltung ist dies oft der Oberbürgermeister. Bei
+  Anträgen oder Anfragen können Organisationen oder Einzelpersonen
+  referenziert werden. Es können stets mehrere Ihrheber verknüpft
+  werden.
+\item
+  Es können beliebig viele \textbf{Orte} (siehe Objekttyp ``Ort'')
+  referenziert werden, die im Inhalt der Drucksache behandelt werden.
+  Beispiel: Beschlussvorlage zur Freigabe von Mitteln für die Sanierung
+  eines Sportplatzes, wobei der Ort die Lage des Sportplatzes genau
+  beschreibt.
+\item
+  Beim Drucksachen-Typ ``Beantwortung einer Anfrage'' ist die Drucksache
+  zu referenzieren, die die ursprüngliche \textbf{Anfrage} beinhaltet.
+\item
+  Drucksachen können zu beliebig vielen Tagesordnungspunkten in
+  Beziehung stehen, um die \textbf{Beratungsfolge} einer Drucksache
+  abzubilden. Hierbei kann die Beziehung jeweils mit einer
+  Rollenbezeichnung versehen sein, die noch näher zu bestimmen ist
+  (TODO).
+\end{itemize}
 
 \subsection{Dokument}
 
@@ -503,9 +589,44 @@ einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese Ableitung
 ebenfalls ein Dokument, das jedoch nicht als Master gekennzeichnet wird,
 sondern auf den entsprechenden Master verweist.
 
+Im Unterschied zur Drucksache benötigt das Dokument keine
+nutzerfreundliche Kennung.
+
 \subsubsection{Eigenschaften}
 
+\begin{description}
+\item[Kennung]
+Unveränderliche Kennung
+\item[Titel]
+Nutzerfreundliche Bezeichnung des Dokuments
+\item[Dateityp]
+Mime-Typ des Inhalts, z.B. ``application/x-pdf''
+\item[Veröffentlichungsdatum]
+Datum des Tages, an dem das Dokument ins System eingestellt wurde
+\item[Änderungsdatum und -uhrzeit]
+Datum und Uhrzeit der letzten Änderung des Dokuments
+\item[Prüfsumme]
+SHA1-Prüfsumme des Dokumenteninhalts
+\item[Daten]
+Der eigentliche (Binär-)Inhalt des Dokuments
+\item[Nur-Text-Version]
+Reine Text-Wiedergabe des Dokumenteninhalts, sofern es sich um ein
+Textdokument handelt.
+\end{description}
+
 \subsubsection{Beziehungen}
+
+\begin{itemize}
+\item
+  Dokumente gehören zwingend zu einer \textbf{Drucksache}, optional auch
+  zu mehreren. Ein Dokument kann entweder als Hauptdokument einer
+  Drucksache oder als Anlage eingestuft sein.
+\item
+  Ein Dokument kann auf ein anderes Dokument referenzieren, wenn es von
+  dem anderen Dokument abstammt. So ist es möglich, von einem
+  abgeleiteten Dokument zu seinem Dokumenten-Master zu gelangen
+  (Beispiel: von einem PDF-Dokument zum OpenOffice-Original).
+\end{itemize}
 
 \subsection{Ort}
 
@@ -515,6 +636,26 @@ abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen
 Adresse) oder aus einer Geo-Koordinatenangabe aus Längen- und
 Breitengrad.
 
+Bislang finden sich nur beim Bonner System Beispiele für Ortsangaben.
+
+\subsubsection{Eigenschaften}
+
+\begin{description}
+\item[Textanabe]
+\emph{Optional.} Textliche Beschreibung eines Orts, z.B. in Form einer
+Adresse
+\item[Längen- und Breitenangabe]
+\emph{Optional.} Längen- und Breitenangabe des Orts im WGS-84-System
+{[}11{]}
+\end{description}
+
+\subsubsection{Eigenschaften}
+
+\begin{itemize}
+\item
+  Orte können mit Drucksachen in Verbindung stehen.
+\end{itemize}
+
 \subsection{Noch nicht abgedeckt}
 
 \begin{itemize}
@@ -522,6 +663,12 @@ Breitengrad.
   Angaben von Personen zu Tätigkeiten (z.B. Auskunft nach § 17
   Korruptionsbekämpfungsgesetz). Diese werden von mehreren Systemen
   geführt und ausgegeben.
+\item
+  Änderungsdatum (bei allen Objekttypen relevant)
+\item
+  Unterscheidung von Rollen bzw. Zuständigkeiten zwischen Drucksachen
+  und Tagesordnungspunkten (z.B. federführende Beratung, konsultierende
+  Beratung etc.)
 \end{itemize}
 
 \section{Glossar}
@@ -531,6 +678,9 @@ Breitengrad.
 Amtlicher Gemeindeschlüssel
 \item[RIS]
 Ratsinformationssystem
+\item[WGS 84]
+World Geodetic System 1984. Ein weltweites Referenzsystem für die
+Interpretation von Geokoordinaten-Angaben.
 \end{description}
 
 \section{Fußnoten}
@@ -562,3 +712,10 @@ Produktionformationen}
 {[}9{]}: Firma Sternberg,
 \href{http://www.sitzungsdienst.net/produkte/ratsinformationsmanagement}{SD.NET
 RIM Produktionformationen}
+
+{[}10{]}: BoRis, Ratsinformationssystem der Stadt Bonn
+(Eigenentwicklung).
+\href{http://www2.bonn.de/bo\_ris/ris\_sql/agm\_index.asp}{http://www2.bonn.de/bo\_ris/ris\_sql/agm\_index.asp}
+
+{[}11{]}: World Geodetic System 1984 (EPSG:4326), wird unter anderem
+auch vom Global Positioning System (GPS) verwendet.

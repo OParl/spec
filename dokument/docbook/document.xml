@@ -78,7 +78,9 @@
       </listitem>
       <listitem>
         <para>
-          Erarbeitung eines Entwurfs für eine REST-Schnittstelle
+          Erarbeitung eines Entwurfs für eine REST-Schnittstelle. Darin
+          soll beschrieben werden, wie über HTTP die zuvor beschriebenen
+          Daten abgerufen werden sollen.
         </para>
       </listitem>
     </orderedlist>
@@ -87,10 +89,12 @@
     <title>Adresse für Feedback</title>
     <para>
       Feedback kann gerne per Mail an marian@sendung.de übermittelt
-      werden. Wer Feedback übersendet, wird als Mitwirkender in
-      zukünftigen Versionen des Dokuments namentlich erwähnt. Wer dies
-      nicht möchte, sollte dies bitte in seiner Mail bitte explizit
-      erwähnen.
+      werden.
+    </para>
+    <para>
+      Wer Feedback übersendet, wird als Mitwirkender in zukünftigen
+      Versionen des Dokuments namentlich erwähnt. Wer dies nicht möchte,
+      sollte dies bitte in seiner Mail bitte explizit erwähnen.
     </para>
   </sect2>
 </sect1>
@@ -134,6 +138,11 @@
     <listitem>
       <para>
         Stadt Euskirchen [8] - Plattform: SD.NET RIM 4 [9]
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Stadt Bonn - BoRis [10]
       </para>
     </listitem>
   </itemizedlist>
@@ -181,21 +190,20 @@
       Körperschaften betrieben werden.
     </para>
     <figure>
-      <title>Abbildung: Gebietskörperschaft</title>
+      <title>Gebietskörperschaft</title>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/01.png" />
         </imageobject>
-        <textobject><phrase>Abbildung:
-        Gebietskörperschaft</phrase></textobject>
+        <textobject><phrase>Gebietskörperschaft</phrase></textobject>
       </mediaobject>
     </figure>
     <sect3 id="eindeutige-identifizierung">
       <title>Eindeutige Identifizierung</title>
       <para>
         Zur Identifizierung des Objekts kann der Amtliche
-        Gemeindeschlüssel (AGS[1]) verwendet werden, der für Deutschland
-        alle Gemeinden, Landkreise, kreisfreien Städte etc. eindeutig
+        Gemeindeschlüssel (AGS[1]) verwendet werden, der alle deutschen
+        Gemeinden, Landkreise, kreisfreien Städte etc. eindeutig
         erfasst.
       </para>
       <para>
@@ -225,6 +233,14 @@
             Bestimmte Systeme wie z.B. Excel könnten den Inhalt als
             Zahlenwert erkennen und die führenden Nullen automatisch
             verwerfen.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Für Gebietsgliederungen unterhalb der selbstständigen
+            Gemeinde, beispielsweise einen einzelnen Stadtbezirk, gibt
+            es keinen eigenen Gemeindeschlüssel. Dies müssten durch eine
+            nicht-amtliche Erweiterung des Systems ausgeglichen werden.
           </para>
         </listitem>
       </itemizedlist>
@@ -887,23 +903,169 @@
     <para>
       Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen,
       Beschlussvorlagen, Anfragen und Anträge ab. Jede Drucksache erhält
-      eine eindeutige Kennung. Das Datum gibt an, wann die Drucksache
-      erzeugt bzw. veröffentlicht wurde.
+      eine eindeutige Kennung.
     </para>
     <para>
-      Die Drucksache verweist auf genau ein Hauptdokument. Darüber
-      hinaus können beliebig viele Dokumente als Anhang referenziert
-      werden.
+      Die Drucksache hat im Informationsmodell eine hervorgehobene
+      Bedeutung. Im Fall eines Antrags kann mit einer einzigen
+      Drucksache ein über Monate oder Jahre dauernder politischer
+      Entscheidungsprozess verbunden sein. In dem Zusammenhang entstehen
+      üblicherweise weitere Drucksachen.
     </para>
+    <para>
+      Drucksachen spielen in der schriftlichen wie mündlichen
+      Kommunikation eine besondere Rolle, da in vielen Texten auf
+      bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in
+      Ratsinformationssystemen unveränderliche Kennungen der Drucksachen
+      zum Einsatz.
+    </para>
+    <para>
+      Jede Drucksache ist über die Eigenschaft &quot;Typ&quot; als eine
+      der folgenden Arten von Drucksachen gekennzeichnet:
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          <emphasis role="strong">Beschlussvorlage</emphasis>:
+          Entscheidungsvorschlag der Verwaltung
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="strong">Antrag</emphasis>:
+          Entscheidungsvorschlag einer Fraktionen bzw. mehrerer
+          Fraktionen oder einer/mehrerer Einzelperson/en
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="strong">Anfrage</emphasis>: Frage(n) einer
+          oder mehrerer Fraktion oder Einzelpersonen an die Verwaltung
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="strong">Mitteilung/Stellungnahme der
+          Verwaltung</emphasis>: Eine Information der Verwaltung an
+          einzelne oder mehrere Gremien. Darunter fallen nicht
+          Beantwortungen von Anfragen.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis role="strong">Beantwortung einer Anfrage</emphasis>:
+          Antwort der Verwaltung auf (mündliche oder schriftliche)
+          Anfragen
+        </para>
+      </listitem>
+    </itemizedlist>
     <sect3 id="eigenschaften-7">
       <title>Eigenschaften</title>
-      <para>
-      </para>
+      <variablelist>
+        <varlistentry>
+          <term>
+            Kennung
+          </term>
+          <listitem>
+            <para>
+              Die Kennung einer Drucksache muss für die jeweilige
+              Gebietskörperschaft eindeutig sein. Sie kann sowohl
+              Ziffern als auch Buchstaben enthalten. Einige Systeme
+              (z.B. Köln) verwenden besondere Trennzeichen wie
+              &quot;/&quot;, um eine Jahreszahl von einer laufenden
+              Nummer abzutrennen. Weiterhin werden mancherorts führende
+              Nullen verwendet.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Datum
+          </term>
+          <listitem>
+            <para>
+              Datum der Veröffentlichung
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Typ
+          </term>
+          <listitem>
+            <para>
+              Art der Drucksache (Erläuterung siehe oben)
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
     </sect3>
     <sect3 id="beziehungen-7">
       <title>Beziehungen</title>
-      <para>
-      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Es muss genau ein
+            <emphasis role="strong">Hauptdokument</emphasis> (Objekttyp
+            &quot;Dokument&quot;) referenziert werden.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Es können beliebig viele weitere Dokumente referenziert
+            werden, die als nachgeordnete
+            <emphasis role="strong">Anlagen</emphasis> zur Drucksache
+            verstanden werden.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Es kann ein <emphasis role="strong">Gremium</emphasis>
+            genannt werden, dem die Drucksache zuzuordnen ist. Hier ist
+            zu klären, inwiefern dies für einzelne Typen von Drucksachen
+            verpflichten sein sollte. So sollte beispielsweise eine
+            Anfrage grundsätzlich aus einem Gremium (z.B. Gemeinderat)
+            stammen.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Drucksachen können
+            <emphasis role="strong">Urhebern</emphasis> zugewiesen
+            werden. Im Fall von Mitteilungen der Verwaltung ist dies oft
+            der Oberbürgermeister. Bei Anträgen oder Anfragen können
+            Organisationen oder Einzelpersonen referenziert werden. Es
+            können stets mehrere Ihrheber verknüpft werden.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Es können beliebig viele
+            <emphasis role="strong">Orte</emphasis> (siehe Objekttyp
+            &quot;Ort&quot;) referenziert werden, die im Inhalt der
+            Drucksache behandelt werden. Beispiel: Beschlussvorlage zur
+            Freigabe von Mitteln für die Sanierung eines Sportplatzes,
+            wobei der Ort die Lage des Sportplatzes genau beschreibt.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Beim Drucksachen-Typ &quot;Beantwortung einer Anfrage&quot;
+            ist die Drucksache zu referenzieren, die die ursprüngliche
+            <emphasis role="strong">Anfrage</emphasis> beinhaltet.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Drucksachen können zu beliebig vielen Tagesordnungspunkten
+            in Beziehung stehen, um die
+            <emphasis role="strong">Beratungsfolge</emphasis> einer
+            Drucksache abzubilden. Hierbei kann die Beziehung jeweils
+            mit einer Rollenbezeichnung versehen sein, die noch näher zu
+            bestimmen ist (TODO).
+          </para>
+        </listitem>
+      </itemizedlist>
     </sect3>
   </sect2>
   <sect2 id="dokument">
@@ -916,15 +1078,118 @@
       Master gekennzeichnet wird, sondern auf den entsprechenden Master
       verweist.
     </para>
+    <para>
+      Im Unterschied zur Drucksache benötigt das Dokument keine
+      nutzerfreundliche Kennung.
+    </para>
     <sect3 id="eigenschaften-8">
       <title>Eigenschaften</title>
-      <para>
-      </para>
+      <variablelist>
+        <varlistentry>
+          <term>
+            Kennung
+          </term>
+          <listitem>
+            <para>
+              Unveränderliche Kennung
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Titel
+          </term>
+          <listitem>
+            <para>
+              Nutzerfreundliche Bezeichnung des Dokuments
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Dateityp
+          </term>
+          <listitem>
+            <para>
+              Mime-Typ des Inhalts, z.B. &quot;application/x-pdf&quot;
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Veröffentlichungsdatum
+          </term>
+          <listitem>
+            <para>
+              Datum des Tages, an dem das Dokument ins System
+              eingestellt wurde
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Änderungsdatum und -uhrzeit
+          </term>
+          <listitem>
+            <para>
+              Datum und Uhrzeit der letzten Änderung des Dokuments
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Prüfsumme
+          </term>
+          <listitem>
+            <para>
+              SHA1-Prüfsumme des Dokumenteninhalts
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Daten
+          </term>
+          <listitem>
+            <para>
+              Der eigentliche (Binär-)Inhalt des Dokuments
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Nur-Text-Version
+          </term>
+          <listitem>
+            <para>
+              Reine Text-Wiedergabe des Dokumenteninhalts, sofern es
+              sich um ein Textdokument handelt.
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
     </sect3>
     <sect3 id="beziehungen-8">
       <title>Beziehungen</title>
-      <para>
-      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Dokumente gehören zwingend zu einer
+            <emphasis role="strong">Drucksache</emphasis>, optional auch
+            zu mehreren. Ein Dokument kann entweder als Hauptdokument
+            einer Drucksache oder als Anlage eingestuft sein.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Ein Dokument kann auf ein anderes Dokument referenzieren,
+            wenn es von dem anderen Dokument abstammt. So ist es
+            möglich, von einem abgeleiteten Dokument zu seinem
+            Dokumenten-Master zu gelangen (Beispiel: von einem
+            PDF-Dokument zum OpenOffice-Original).
+          </para>
+        </listitem>
+      </itemizedlist>
     </sect3>
   </sect2>
   <sect2 id="ort">
@@ -936,6 +1201,47 @@
       eine genaue Adresse) oder aus einer Geo-Koordinatenangabe aus
       Längen- und Breitengrad.
     </para>
+    <para>
+      Bislang finden sich nur beim Bonner System Beispiele für
+      Ortsangaben.
+    </para>
+    <sect3 id="eigenschaften-9">
+      <title>Eigenschaften</title>
+      <variablelist>
+        <varlistentry>
+          <term>
+            Textanabe
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional.</emphasis> Textliche Beschreibung
+              eines Orts, z.B. in Form einer Adresse
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Längen- und Breitenangabe
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional.</emphasis> Längen- und Breitenangabe
+              des Orts im WGS-84-System [11]
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </sect3>
+    <sect3 id="eigenschaften-10">
+      <title>Eigenschaften</title>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Orte können mit Drucksachen in Verbindung stehen.
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
   </sect2>
   <sect2 id="noch-nicht-abgedeckt">
     <title>Noch nicht abgedeckt</title>
@@ -945,6 +1251,18 @@
           Angaben von Personen zu Tätigkeiten (z.B. Auskunft nach § 17
           Korruptionsbekämpfungsgesetz). Diese werden von mehreren
           Systemen geführt und ausgegeben.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Änderungsdatum (bei allen Objekttypen relevant)
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Unterscheidung von Rollen bzw. Zuständigkeiten zwischen
+          Drucksachen und Tagesordnungspunkten (z.B. federführende
+          Beratung, konsultierende Beratung etc.)
         </para>
       </listitem>
     </itemizedlist>
@@ -970,6 +1288,17 @@
       <listitem>
         <para>
           Ratsinformationssystem
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>
+        WGS 84
+      </term>
+      <listitem>
+        <para>
+          World Geodetic System 1984. Ein weltweites Referenzsystem für
+          die Interpretation von Geokoordinaten-Angaben.
         </para>
       </listitem>
     </varlistentry>
@@ -1014,5 +1343,14 @@
     [9]: Firma Sternberg,
     <ulink url="http://www.sitzungsdienst.net/produkte/ratsinformationsmanagement">SD.NET
     RIM Produktionformationen</ulink>
+  </para>
+  <para>
+    [10]: BoRis, Ratsinformationssystem der Stadt Bonn
+    (Eigenentwicklung).
+    <ulink url="http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp">http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp</ulink>
+  </para>
+  <para>
+    [11]: World Geodetic System 1984 (EPSG:4326), wird unter anderem
+    auch vom Global Positioning System (GPS) verwendet.
   </para>
 </sect1>

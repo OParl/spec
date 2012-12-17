@@ -11,6 +11,7 @@ Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen beziehen sic
 * Bezirksverwaltung Berlin Mitte [4] - Plattform: ALLRIS [5]
 * Stadt Rösrath [6] - Plattform der Firma PROVOX [7]
 * Stadt Euskirchen [8] - Plattform: SD.NET RIM 4 [9]
+* Stadt Bonn - BoRis [10]
 
 ### Zu den Eigenschaften ###
 
@@ -239,14 +240,39 @@ Votum
 Drucksache
 ----------
 
-Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen, Beschlussvorlagen, Anfragen und Anträge ab. Jede Drucksache erhält eine eindeutige Kennung. Das Datum gibt an, wann die Drucksache erzeugt bzw. veröffentlicht wurde.
+Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen, Beschlussvorlagen, Anfragen und Anträge ab. Jede Drucksache erhält eine eindeutige Kennung.
 
-Die Drucksache verweist auf genau ein Hauptdokument. Darüber hinaus können beliebig viele Dokumente als Anhang referenziert werden.
+Die Drucksache hat im Informationsmodell eine hervorgehobene Bedeutung. Im Fall eines Antrags kann mit einer einzigen Drucksache ein über Monate oder Jahre dauernder politischer Entscheidungsprozess verbunden sein. In dem Zusammenhang entstehen üblicherweise weitere Drucksachen.
+
+Drucksachen spielen in der schriftlichen wie mündlichen Kommunikation eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in Ratsinformationssystemen unveränderliche Kennungen der Drucksachen zum Einsatz.
+
+Jede Drucksache ist über die Eigenschaft "Typ" als eine der folgenden Arten von Drucksachen gekennzeichnet:
+
+* **Beschlussvorlage**: Entscheidungsvorschlag der Verwaltung
+* **Antrag**: Entscheidungsvorschlag einer Fraktionen bzw. mehrerer Fraktionen oder einer/mehrerer Einzelperson/en
+* **Anfrage**: Frage(n) einer oder mehrerer Fraktion oder Einzelpersonen an die Verwaltung
+* **Mitteilung/Stellungnahme der Verwaltung**: Eine Information der Verwaltung an einzelne oder mehrere Gremien. Darunter fallen nicht Beantwortungen von Anfragen.
+* **Beantwortung einer Anfrage**: Antwort der Verwaltung auf (mündliche oder schriftliche) Anfragen
 
 
 ### Eigenschaften ###
 
+Kennung
+:   Die Kennung einer Drucksache muss für die jeweilige Gebietskörperschaft eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben enthalten. Einige Systeme (z.B. Köln) verwenden besondere Trennzeichen wie "/", um eine Jahreszahl von einer laufenden Nummer abzutrennen. Weiterhin werden mancherorts führende Nullen verwendet.
+Datum
+:   Datum der Veröffentlichung
+Typ
+:   Art der Drucksache (Erläuterung siehe oben)
+
+
 ### Beziehungen ###
+* Es muss genau ein **Hauptdokument** (Objekttyp "Dokument") referenziert werden.
+* Es können beliebig viele weitere Dokumente referenziert werden, die als nachgeordnete **Anlagen** zur Drucksache verstanden werden.
+* Es kann ein **Gremium** genannt werden, dem die Drucksache zuzuordnen ist. Hier ist zu klären, inwiefern dies für einzelne Typen von Drucksachen verpflichten sein sollte. So sollte beispielsweise eine Anfrage grundsätzlich aus einem Gremium (z.B. Gemeinderat) stammen.
+* Drucksachen können **Urhebern** zugewiesen werden. Im Fall von Mitteilungen der Verwaltung ist dies oft der Oberbürgermeister. Bei Anträgen oder Anfragen können Organisationen oder Einzelpersonen referenziert werden. Es können stets mehrere Ihrheber verknüpft werden.
+* Es können beliebig viele **Orte** (siehe Objekttyp "Ort") referenziert werden, die im Inhalt der Drucksache behandelt werden. Beispiel: Beschlussvorlage zur Freigabe von Mitteln für die Sanierung eines Sportplatzes, wobei der Ort die Lage des Sportplatzes genau beschreibt.
+* Beim Drucksachen-Typ "Beantwortung einer Anfrage" ist die Drucksache zu referenzieren, die die ursprüngliche **Anfrage** beinhaltet.
+* Drucksachen können zu beliebig vielen Tagesordnungspunkten in Beziehung stehen, um die **Beratungsfolge** einer Drucksache abzubilden. Hierbei kann die Beziehung jeweils mit einer Rollenbezeichnung versehen sein, die noch näher zu bestimmen ist (TODO).
 
 
 Dokument
@@ -254,10 +280,32 @@ Dokument
 
 Ein Dokument hält die Daten und Metadaten einer Datei vor, beispielsweise einer PDF-Datei, eines RTF- oder Word-Dokuments. Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls ein Dokument, das jedoch nicht als Master gekennzeichnet wird, sondern auf den entsprechenden Master verweist.
 
+Im Unterschied zur Drucksache benötigt das Dokument keine nutzerfreundliche Kennung.
+
 
 ### Eigenschaften ###
+Kennung
+:   Unveränderliche Kennung
+Titel
+:   Nutzerfreundliche Bezeichnung des Dokuments
+Dateityp
+:   Mime-Typ des Inhalts, z.B. "application/x-pdf"
+Veröffentlichungsdatum
+:   Datum des Tages, an dem das Dokument ins System eingestellt wurde
+Änderungsdatum und -uhrzeit
+:   Datum und Uhrzeit der letzten Änderung des Dokuments
+Prüfsumme
+:   SHA1-Prüfsumme des Dokumenteninhalts
+Daten
+:   Der eigentliche (Binär-)Inhalt des Dokuments
+Nur-Text-Version
+:   Reine Text-Wiedergabe des Dokumenteninhalts, sofern es sich um ein Textdokument handelt.
+
 
 ### Beziehungen ###
+
+* Dokumente gehören zwingend zu einer **Drucksache**, optional auch zu mehreren. Ein Dokument kann entweder als Hauptdokument einer Drucksache oder als Anlage eingestuft sein.
+* Ein Dokument kann auf ein anderes Dokument referenzieren, wenn es von dem anderen Dokument abstammt. So ist es möglich, von einem abgeleiteten Dokument zu seinem Dokumenten-Master zu gelangen (Beispiel: von einem PDF-Dokument zum OpenOffice-Original).
 
 
 Ort
@@ -265,9 +313,24 @@ Ort
 
 Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen (beispielsweise der Name einer Straße/eines Platzes oder eine genaue Adresse) oder aus einer Geo-Koordinatenangabe aus Längen- und Breitengrad.
 
+Bislang finden sich nur beim Bonner System Beispiele für Ortsangaben.
+
+
+### Eigenschaften ###
+
+Textanabe
+:   _Optional._ Textliche Beschreibung eines Orts, z.B. in Form einer Adresse
+Längen- und Breitenangabe
+:   _Optional._ Längen- und Breitenangabe des Orts im WGS-84-System [11]
+
+
+### Eigenschaften ###
+* Orte können mit Drucksachen in Verbindung stehen.
+
 
 Noch nicht abgedeckt
 --------------------
 
 * Angaben von Personen zu Tätigkeiten (z.B. Auskunft nach § 17 Korruptionsbekämpfungsgesetz). Diese werden von mehreren Systemen geführt und ausgegeben.
-
+* Änderungsdatum (bei allen Objekttypen relevant)
+* Unterscheidung von Rollen bzw. Zuständigkeiten zwischen Drucksachen und Tagesordnungspunkten (z.B. federführende Beratung, konsultierende Beratung etc.)

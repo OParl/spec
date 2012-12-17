@@ -31,11 +31,12 @@ Nächste Schritte
 
 1. Bis Ende Januar 2012: Einsammeln von Feedback zum Entwurf des Datenmodells
 2. Anpassen des Entwurfs anhand von Feedback
-3. Erarbeitung eines Entwurfs für eine REST-Schnittstelle
+3. Erarbeitung eines Entwurfs für eine REST-Schnittstelle. Darin soll beschrieben werden, wie über HTTP die zuvor beschriebenen Daten abgerufen werden sollen.
 
 Adresse für Feedback
 --------------------
 
 Feedback kann gerne per Mail an marian@sendung.de übermittelt werden.
+
 Wer Feedback übersendet, wird als Mitwirkender in zukünftigen Versionen des Dokuments namentlich erwähnt. Wer dies nicht möchte, sollte dies bitte in seiner Mail bitte explizit erwähnen.
 

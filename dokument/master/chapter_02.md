@@ -327,10 +327,3 @@ Längen- und Breitenangabe
 ### Eigenschaften ###
 * Orte können mit Drucksachen in Verbindung stehen.
 
-
-Noch nicht abgedeckt
---------------------
-
-* Angaben von Personen zu Tätigkeiten (z.B. Auskunft nach § 17 Korruptionsbekämpfungsgesetz). Diese werden von mehreren Systemen geführt und ausgegeben.
-* Änderungsdatum (bei allen Objekttypen relevant)
-* Unterscheidung von Rollen bzw. Zuständigkeiten zwischen Drucksachen und Tagesordnungspunkten (z.B. federführende Beratung, konsultierende Beratung etc.)

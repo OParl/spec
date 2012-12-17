@@ -21,10 +21,20 @@ Status
 
 Dieser Entwurf gibt aktuell einen Vorschlag des Autors wieder. Bisher ist noch kein Feedback eingeflossen.
 
+Der Entwurf ist noch unvollständig.
+
+
 Überblick
 ---------
 
 Der Entwurf umfasst im ersten Schritt die abstrakte Beschreibung eines Datenmodells.
+
+### Noch nicht abgedeckt: ###
+
+* Angaben von Personen zu Tätigkeiten (z.B. Auskunft nach § 17 Korruptionsbekämpfungsgesetz). Diese werden von mehreren Systemen geführt und ausgegeben.
+* Änderungsdatum (bei allen Objekttypen relevant)
+* Unterscheidung von Rollen bzw. Zuständigkeiten zwischen Drucksachen und Tagesordnungspunkten (z.B. federführende Beratung, konsultierende Beratung etc.)
+
 
 Nächste Schritte
 ----------------
@@ -32,6 +42,7 @@ Nächste Schritte
 1. Bis Ende Januar 2012: Einsammeln von Feedback zum Entwurf des Datenmodells
 2. Anpassen des Entwurfs anhand von Feedback
 3. Erarbeitung eines Entwurfs für eine REST-Schnittstelle. Darin soll beschrieben werden, wie über HTTP die zuvor beschriebenen Daten abgerufen werden sollen.
+
 
 Adresse für Feedback
 --------------------

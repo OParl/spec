@@ -21,8 +21,6 @@ Status
 
 Dieser Entwurf gibt aktuell einen Vorschlag des Autors wieder. Bisher ist noch kein Feedback eingeflossen.
 
-Der Entwurf ist noch unvollständig.
-
 
 Überblick
 ---------
@@ -44,10 +42,47 @@ Nächste Schritte
 3. Erarbeitung eines Entwurfs für eine REST-Schnittstelle. Darin soll beschrieben werden, wie über HTTP die zuvor beschriebenen Daten abgerufen werden sollen.
 
 
-Adresse für Feedback
---------------------
+Feedback
+--------
 
-Feedback kann gerne per Mail an marian@sendung.de übermittelt werden.
+Feedback wird dringend benötigt und ist daher herzlichst willkommen. Feedback kann auf den folgenden Wegen eingereicht werden:
 
-Wer Feedback übersendet, wird als Mitwirkender in zukünftigen Versionen des Dokuments namentlich erwähnt. Wer dies nicht möchte, sollte dies bitte in seiner Mail bitte explizit erwähnen.
+* Als Pull Requests über Github, direkt am Quelltext
+* Über Issues auf Github
+* Per E-Mail
+
+### Pull Requests über Github ###
+
+Dieses Dokument wird in folgendem Github-Repository gepflegt:
+
+[https://github.com/marians/open-ris-specs](https://github.com/marians/open-ris-specs)
+
+
+Der bevorzugte Feedback-Kanal für erfahrene Git- bzw. Github-Nutzer ist entsprechend die Mitwirkung direkt am Quelltext in Form von Pull-Requests. So können **Ergänzungen und Korrekturen** direkt in den Quelltext eingespielt werden.
+
+Ausführliche Anleitungen zur Arbeit mit Git/Github finden sich auf der Plattform selbst sowie an vielen Orten im Netz. Der allgemeine Ablauf ist wie folgt:
+
+1. Erzeugen Sie sich, sofern noch nicht geschehen, ein Benutzerkonto auf Github.
+2. Duplizieren (_forken_) Sie das oben genannte Repository
+3. Nehmen Sie die gewünschten Änderungen an Ihrem Repository vor. Committen Sie diese Änderungen möglichst kleinteilig.
+4. Senden Sie die gewünschten Commits als Pull Requests.
+
+Als Autor werde ich entscheiden, welche Pull Requests ich übernehme. Sie werden als Mitwirkender in diesem Dokument genannt. Wenn Sie mit einen Klarnamen unggf. Unternehmenszugehörigkeit genannt werden wollen, teilen Sie mir dies bitte per Mail an marian@sendung.de mit.
+
+
+### Issues auf Github ###
+
+Wer nicht über Github am Quelltext mitwirken möchte, aber einen Github-Account sein eigen nennt (oder zu diesem Zweck anlegen möchte) und **öffentlich kommentieren** möchte, der sollte das öffentliche Issue-Tracking-System unter
+
+[https://github.com/marians/open-ris-specs/issues](https://github.com/marians/open-ris-specs/issues)
+
+verwenden. Vorteil daran ist, dass auch andere die Einträge lesen und wiederum durch Kommentare ergänzen können. Zudem lässt sich der Bearbeitungsstatus eines Issue-Eintrags (offen, geschlossen) nachhalten.
+
+Bitte achten Sie auf diesem Weg darauf, Ihre Kommentare in möglichst kleine thematische Einheiten herunter zu brechen.
+
+### Feedback per E-Mail ###
+
+Sollten Sie keinen der oben beschriebenen Wege beschreiten wollen, können Sie Anmerkungen zum Dokument per E-Mail an marian@sendung.de einsenden. Bitte verwenden Sie dabei den Begriff "open-ris-specs" im Betreff.
+
+Sollten Sie auf diesem Wege Anmerkungen direkt am/im Dokumententext übersenden wollen, nutzen Sie bitte falls möglich die Word- oder OpenOffice-Version dieses Dokuments und ändern Sie das Dokument so, dass Änderungen aufgezeichnet werden (OpenOffice: Bearbeiten > Änderungen > Aufzeichnen; Word: Ribbon "Überprüfen" > Nachverfolgung > Änderungen nachverfolgen).
 

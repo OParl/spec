@@ -33,7 +33,7 @@ Die Gebietskörperschaft erlaubt es, Körperschaften wie einen bestimmten Landkr
 
 Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“. Denkbar ist aber auch, dass Systeme für einen Verbund von mehreren Körperschaften betrieben werden.
 
-![Gebietskörperschaft](images/01.png)
+![Objekttyp Gebietskörperschaft](images/datenmodell_gebietskoerperschaft.pdf)
 
 ### Eindeutige Identifizierung ###
 
@@ -66,6 +66,8 @@ Gremium
 
 Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat, Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
+![Objekttyp Gremium](images/datenmodell_gremium.pdf)
+
 
 ### Eigenschaften ###
 
@@ -92,6 +94,8 @@ Person
 ------
 
 Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person im Datenmodell eindeutig identifizierbar.
+
+![Objekttyp Person](images/datenmodell_person.pdf)
 
 ### Eigenschaften ###
 
@@ -136,6 +140,8 @@ Organisation
 
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die Personen angehören können.
 
+![Objekttyp Organisation](images/datenmodell_organisation.pdf)
+
 ### Eigenschaften ###
 
 Kennung
@@ -160,6 +166,7 @@ Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums zu einem bestimmt
 
 Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in entsprechender Form referenziert. Verschiedene Drucksachen (Einladung, Ergebnis- und Wortprotokoll) werden ebenfalls referenziert.
 
+![Objekttyp Sitzung](images/datenmodell_sitzung.pdf)
 
 ### Eigenschaften ###
 
@@ -182,7 +189,7 @@ Ende
 
 * Sitzungen sind grundsätzlich genau einem Gremium zugeordnet.
 * Personen sind Sitzungen zugeordnet, um die Teilnahme an der Sitzung auszudrücken.
-* Drucksachen werden vom Typ "Sitzung" _optional_ zu mehreren zwecken referenziert:
+* Drucksachen werden vom Typ "Sitzung" _optional_ zu mehreren Zwecken referenziert:
     * Zum Verweis auf die Einladung zur Sitzung
     * Zum Verweis auf das Ergebnisprotokoll zur Sitzung
     * Zum Verweis auf das Wortprotokoll zur Sitzung
@@ -195,6 +202,7 @@ Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine (
 
 In der Praxis werden die meisten Sitzungen mehrere Tagesordnungspunkte haben.
 
+![Objekttyp Tagesordnungspunkt](images/datenmodell_tagesordnungspunkt.pdf)
 
 ### Eigenschaften ###
 
@@ -218,11 +226,13 @@ Beschlusstext
 * Es können mehrere Objekte vom Typ "Stimmabgabe" referenziert werden, um das Abstimmungsverhalten von Fraktionen oder Einzelpersonen zu dokumentieren.
 * Es können Personen referenziert werden, die während der Abstimmung zu diesem Tagesordnungspunkt *nicht* anwesend waren.
 
+
 Stimmabgabe
 -----------
 
 Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt abgestimmt hat, wird durch eine Stimmabgabe festgehalten. Ganze Abstimmungsergebnisse bestehen überlicherweise aus mehreren Stimmabgaben. Jede Stimmabgabe gibt entweder die (einzelne) Stimme einer Peson wieder, in diesem Fall ist die Anzahl der Stimmen zwingend 1. Oder eine Stimmabgabe gibt das Abstimmungsverhalten einer ganzen Gruppe von Personen wieder. Dann ist die Anzahl der Stimmen anzugeben und statt einer Person eine Organisation (in der Regel die Fraktion) zu referenzieren.
 
+![Objekttyp Stimmabgabe](images/datenmodell_stimmabgabe.pdf)
 
 ### Eigenschaften ###
 
@@ -245,6 +255,8 @@ Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen, Beschlussvorlagen, 
 Die Drucksache hat im Informationsmodell eine hervorgehobene Bedeutung. Im Fall eines Antrags kann mit einer einzigen Drucksache ein über Monate oder Jahre dauernder politischer Entscheidungsprozess verbunden sein. In dem Zusammenhang entstehen üblicherweise weitere Drucksachen.
 
 Drucksachen spielen in der schriftlichen wie mündlichen Kommunikation eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in Ratsinformationssystemen unveränderliche Kennungen der Drucksachen zum Einsatz.
+
+![Objekttyp Drucksache](images/datenmodell_drucksache.pdf)
 
 Jede Drucksache ist über die Eigenschaft "Typ" als eine der folgenden Arten von Drucksachen gekennzeichnet:
 
@@ -282,6 +294,7 @@ Ein Dokument hält die Daten und Metadaten einer Datei vor, beispielsweise einer
 
 Im Unterschied zur Drucksache benötigt das Dokument keine nutzerfreundliche Kennung.
 
+![Objekttyp Dokument](images/datenmodell_dokument.pdf)
 
 ### Eigenschaften ###
 Kennung
@@ -315,15 +328,16 @@ Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal abzubilden.
 
 Bislang finden sich nur beim Bonner System Beispiele für Ortsangaben.
 
+![Objekttyp Ort](images/datenmodell_ort.pdf)
 
 ### Eigenschaften ###
 
 Textanabe
 :   _Optional._ Textliche Beschreibung eines Orts, z.B. in Form einer Adresse
-Längen- und Breitenangabe
+Koordinaten
 :   _Optional._ Längen- und Breitenangabe des Orts im WGS-84-System [11]
 
 
-### Eigenschaften ###
+### Beziehungen ###
 * Orte können mit Drucksachen in Verbindung stehen.
 

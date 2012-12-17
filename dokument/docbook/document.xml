@@ -54,9 +54,6 @@
       Dieser Entwurf gibt aktuell einen Vorschlag des Autors wieder.
       Bisher ist noch kein Feedback eingeflossen.
     </para>
-    <para>
-      Der Entwurf ist noch unvollständig.
-    </para>
   </sect2>
   <sect2 id="überblick">
     <title>Überblick</title>
@@ -112,17 +109,124 @@
       </listitem>
     </orderedlist>
   </sect2>
-  <sect2 id="adresse-für-feedback">
-    <title>Adresse für Feedback</title>
+  <sect2 id="feedback">
+    <title>Feedback</title>
     <para>
-      Feedback kann gerne per Mail an marian@sendung.de übermittelt
-      werden.
+      Feedback wird dringend benötigt und ist daher herzlichst
+      willkommen. Feedback kann auf den folgenden Wegen eingereicht
+      werden:
     </para>
-    <para>
-      Wer Feedback übersendet, wird als Mitwirkender in zukünftigen
-      Versionen des Dokuments namentlich erwähnt. Wer dies nicht möchte,
-      sollte dies bitte in seiner Mail bitte explizit erwähnen.
-    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Als Pull Requests über Github, direkt am Quelltext
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Über Issues auf Github
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Per E-Mail
+        </para>
+      </listitem>
+    </itemizedlist>
+    <sect3 id="pull-requests-über-github">
+      <title>Pull Requests über Github</title>
+      <para>
+        Dieses Dokument wird in folgendem Github-Repository gepflegt:
+      </para>
+      <para>
+        <ulink url="https://github.com/marians/open-ris-specs">https://github.com/marians/open-ris-specs</ulink>
+      </para>
+      <para>
+        Der bevorzugte Feedback-Kanal für erfahrene Git- bzw.
+        Github-Nutzer ist entsprechend die Mitwirkung direkt am
+        Quelltext in Form von Pull-Requests. So können
+        <emphasis role="strong">Ergänzungen und Korrekturen</emphasis>
+        direkt in den Quelltext eingespielt werden.
+      </para>
+      <para>
+        Ausführliche Anleitungen zur Arbeit mit Git/Github finden sich
+        auf der Plattform selbst sowie an vielen Orten im Netz. Der
+        allgemeine Ablauf ist wie folgt:
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem>
+          <para>
+            Erzeugen Sie sich, sofern noch nicht geschehen, ein
+            Benutzerkonto auf Github.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Duplizieren (<emphasis>forken</emphasis>) Sie das oben
+            genannte Repository
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Nehmen Sie die gewünschten Änderungen an Ihrem Repository
+            vor. Committen Sie diese Änderungen möglichst kleinteilig.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Senden Sie die gewünschten Commits als Pull Requests.
+          </para>
+        </listitem>
+      </orderedlist>
+      <para>
+        Als Autor werde ich entscheiden, welche Pull Requests ich
+        übernehme. Sie werden als Mitwirkender in diesem Dokument
+        genannt. Wenn Sie mit einen Klarnamen unggf.
+        Unternehmenszugehörigkeit genannt werden wollen, teilen Sie mir
+        dies bitte per Mail an marian@sendung.de mit.
+      </para>
+    </sect3>
+    <sect3 id="issues-auf-github">
+      <title>Issues auf Github</title>
+      <para>
+        Wer nicht über Github am Quelltext mitwirken möchte, aber einen
+        Github-Account sein eigen nennt (oder zu diesem Zweck anlegen
+        möchte) und <emphasis role="strong">öffentlich
+        kommentieren</emphasis> möchte, der sollte das öffentliche
+        Issue-Tracking-System unter
+      </para>
+      <para>
+        <ulink url="https://github.com/marians/open-ris-specs/issues">https://github.com/marians/open-ris-specs/issues</ulink>
+      </para>
+      <para>
+        verwenden. Vorteil daran ist, dass auch andere die Einträge
+        lesen und wiederum durch Kommentare ergänzen können. Zudem lässt
+        sich der Bearbeitungsstatus eines Issue-Eintrags (offen,
+        geschlossen) nachhalten.
+      </para>
+      <para>
+        Bitte achten Sie auf diesem Weg darauf, Ihre Kommentare in
+        möglichst kleine thematische Einheiten herunter zu brechen.
+      </para>
+    </sect3>
+    <sect3 id="feedback-per-e-mail">
+      <title>Feedback per E-Mail</title>
+      <para>
+        Sollten Sie keinen der oben beschriebenen Wege beschreiten
+        wollen, können Sie Anmerkungen zum Dokument per E-Mail an
+        marian@sendung.de einsenden. Bitte verwenden Sie dabei den
+        Begriff &quot;open-ris-specs&quot; im Betreff.
+      </para>
+      <para>
+        Sollten Sie auf diesem Wege Anmerkungen direkt am/im
+        Dokumententext übersenden wollen, nutzen Sie bitte falls möglich
+        die Word- oder OpenOffice-Version dieses Dokuments und ändern
+        Sie das Dokument so, dass Änderungen aufgezeichnet werden
+        (OpenOffice: Bearbeiten &gt; Änderungen &gt; Aufzeichnen; Word:
+        Ribbon &quot;Überprüfen&quot; &gt; Nachverfolgung &gt;
+        Änderungen nachverfolgen).
+      </para>
+    </sect3>
   </sect2>
 </sect1>
 <sect1 id="datenmodell">
@@ -217,12 +321,13 @@
       Körperschaften betrieben werden.
     </para>
     <figure>
-      <title>Gebietskörperschaft</title>
+      <title>Objekttyp Gebietskörperschaft</title>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/01.png" />
+          <imagedata fileref="images/datenmodell_gebietskoerperschaft.pdf" />
         </imageobject>
-        <textobject><phrase>Gebietskörperschaft</phrase></textobject>
+        <textobject><phrase>Objekttyp
+        Gebietskörperschaft</phrase></textobject>
       </mediaobject>
     </figure>
     <sect3 id="eindeutige-identifizierung">
@@ -318,6 +423,15 @@
       Bezirksvertretungen. Gremien halten Sitzungen ab, zu denen die
       Gremien-Mitglieder eingeladen werden.
     </para>
+    <figure>
+      <title>Objekttyp Gremium</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/datenmodell_gremium.pdf" />
+        </imageobject>
+        <textobject><phrase>Objekttyp Gremium</phrase></textobject>
+      </mediaobject>
+    </figure>
     <sect3 id="eigenschaften-1">
       <title>Eigenschaften</title>
       <variablelist>
@@ -392,6 +506,15 @@
       Jede natürliche Person, die Mitglied eines Gremiums ist, ist als
       Person im Datenmodell eindeutig identifizierbar.
     </para>
+    <figure>
+      <title>Objekttyp Person</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/datenmodell_person.pdf" />
+        </imageobject>
+        <textobject><phrase>Objekttyp Person</phrase></textobject>
+      </mediaobject>
+    </figure>
     <sect3 id="eigenschaften-2">
       <title>Eigenschaften</title>
       <variablelist>
@@ -563,6 +686,15 @@
       Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen
       die Personen angehören können.
     </para>
+    <figure>
+      <title>Objekttyp Organisation</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/datenmodell_organisation.pdf" />
+        </imageobject>
+        <textobject><phrase>Objekttyp Organisation</phrase></textobject>
+      </mediaobject>
+    </figure>
     <sect3 id="eigenschaften-3">
       <title>Eigenschaften</title>
       <variablelist>
@@ -635,6 +767,15 @@
       (Einladung, Ergebnis- und Wortprotokoll) werden ebenfalls
       referenziert.
     </para>
+    <figure>
+      <title>Objekttyp Sitzung</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/datenmodell_sitzung.pdf" />
+        </imageobject>
+        <textobject><phrase>Objekttyp Sitzung</phrase></textobject>
+      </mediaobject>
+    </figure>
     <sect3 id="eigenschaften-4">
       <title>Eigenschaften</title>
       <variablelist>
@@ -722,7 +863,7 @@
         <listitem>
           <para>
             Drucksachen werden vom Typ &quot;Sitzung&quot;
-            <emphasis>optional</emphasis> zu mehreren zwecken
+            <emphasis>optional</emphasis> zu mehreren Zwecken
             referenziert:
           </para>
           <itemizedlist>
@@ -763,6 +904,16 @@
       In der Praxis werden die meisten Sitzungen mehrere
       Tagesordnungspunkte haben.
     </para>
+    <figure>
+      <title>Objekttyp Tagesordnungspunkt</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/datenmodell_tagesordnungspunkt.pdf" />
+        </imageobject>
+        <textobject><phrase>Objekttyp
+        Tagesordnungspunkt</phrase></textobject>
+      </mediaobject>
+    </figure>
     <sect3 id="eigenschaften-5">
       <title>Eigenschaften</title>
       <variablelist>
@@ -878,6 +1029,15 @@
       Stimmen anzugeben und statt einer Person eine Organisation (in der
       Regel die Fraktion) zu referenzieren.
     </para>
+    <figure>
+      <title>Objekttyp Stimmabgabe</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/datenmodell_stimmabgabe.pdf" />
+        </imageobject>
+        <textobject><phrase>Objekttyp Stimmabgabe</phrase></textobject>
+      </mediaobject>
+    </figure>
     <sect3 id="eigenschaften-6">
       <title>Eigenschaften</title>
       <variablelist>
@@ -946,6 +1106,15 @@
       Ratsinformationssystemen unveränderliche Kennungen der Drucksachen
       zum Einsatz.
     </para>
+    <figure>
+      <title>Objekttyp Drucksache</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/datenmodell_drucksache.pdf" />
+        </imageobject>
+        <textobject><phrase>Objekttyp Drucksache</phrase></textobject>
+      </mediaobject>
+    </figure>
     <para>
       Jede Drucksache ist über die Eigenschaft &quot;Typ&quot; als eine
       der folgenden Arten von Drucksachen gekennzeichnet:
@@ -1109,6 +1278,15 @@
       Im Unterschied zur Drucksache benötigt das Dokument keine
       nutzerfreundliche Kennung.
     </para>
+    <figure>
+      <title>Objekttyp Dokument</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/datenmodell_dokument.pdf" />
+        </imageobject>
+        <textobject><phrase>Objekttyp Dokument</phrase></textobject>
+      </mediaobject>
+    </figure>
     <sect3 id="eigenschaften-8">
       <title>Eigenschaften</title>
       <variablelist>
@@ -1232,6 +1410,15 @@
       Bislang finden sich nur beim Bonner System Beispiele für
       Ortsangaben.
     </para>
+    <figure>
+      <title>Objekttyp Ort</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/datenmodell_ort.pdf" />
+        </imageobject>
+        <textobject><phrase>Objekttyp Ort</phrase></textobject>
+      </mediaobject>
+    </figure>
     <sect3 id="eigenschaften-9">
       <title>Eigenschaften</title>
       <variablelist>
@@ -1248,7 +1435,7 @@
         </varlistentry>
         <varlistentry>
           <term>
-            Längen- und Breitenangabe
+            Koordinaten
           </term>
           <listitem>
             <para>
@@ -1259,8 +1446,8 @@
         </varlistentry>
       </variablelist>
     </sect3>
-    <sect3 id="eigenschaften-10">
-      <title>Eigenschaften</title>
+    <sect3 id="beziehungen-9">
+      <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
           <para>
@@ -1324,7 +1511,7 @@
   </para>
   <para>
     [4]: Ratsinformationssystem der Bezirksverwaltugn Berlin Mitte,
-    <ulink url="http://www.berlin.de/ba-mitte/bvv-online/allris.net.asp">http://www.berlin.de/ba-mitte/...</ulink>
+    <ulink url="http://www.berlin.de/ba-mitte/bvv-online/allris.net.asp">http://www.berlin.de/...</ulink>
   </para>
   <para>
     [5]: CC e-gov GmbH,
@@ -1333,7 +1520,7 @@
   </para>
   <para>
     [6]: Ratsinformationssystem der Stadt Rösrath,
-    <ulink url="http://212.227.97.55/ratsinfo/roesrath">http://212.227.97.55/ratsinfo/...</ulink>
+    <ulink url="http://212.227.97.55/ratsinfo/roesrath">http://212.227.97.55/...</ulink>
   </para>
   <para>
     [7]: <ulink url="http://www.provox.de/">Firma PROVOX</ulink>
@@ -1350,7 +1537,7 @@
   <para>
     [10]: BoRis, Ratsinformationssystem der Stadt Bonn
     (Eigenentwicklung).
-    <ulink url="http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp">http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp</ulink>
+    <ulink url="http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp">http://www2.bonn.de/...</ulink>
   </para>
   <para>
     [11]: World Geodetic System 1984 (EPSG:4326), wird unter anderem

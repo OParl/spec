@@ -1,3 +1,69 @@
+\documentclass[,a4paper]{article}
+\usepackage{geometry}
+\geometry{a4paper,left=35mm,right=35mm, top=25mm, bottom=25mm}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \usepackage{fontspec}
+  \ifxetex
+    \usepackage{xltxtra,xunicode}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% Redefine labelwidth for lists; otherwise, the enumerate package will cause
+% markers to extend beyond the left margin.
+\makeatletter\AtBeginDocument{%
+  \renewcommand{\@listi}
+    {\setlength{\labelwidth}{4em}}
+}\makeatother
+\usepackage{enumerate}
+\usepackage{graphicx}
+% We will generate all images so they have a width \maxwidth. This means
+% that they will get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+\else\Gin@nat@width\fi}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Marian Steinbach marian@sendung.de},
+            pdftitle={Entwurf eines Standards für Datenmodell und Zugriffs-Protokoll für offene Ratsinformationssysteme},
+            colorlinks=true,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+\title{Entwurf eines Standards für Datenmodell und Zugriffs-Protokoll für
+       offene Ratsinformationssysteme}
+\author{Marian Steinbach
+                \href{mailto:marian@sendung.de}{\texttt{marian@sendung.de}}}
+\date{}
+
+\begin{document}
+\maketitle
+
 Lizenz: Creative Commons CC-BY-SA
 
 \section{Einleitung}
@@ -42,8 +108,6 @@ und als Diskussionsgrundlage dienen.
 Dieser Entwurf gibt aktuell einen Vorschlag des Autors wieder. Bisher
 ist noch kein Feedback eingeflossen.
 
-Der Entwurf ist noch unvollständig.
-
 \subsection{Überblick}
 
 Der Entwurf umfasst im ersten Schritt die abstrakte Beschreibung eines
@@ -78,13 +142,82 @@ Datenmodells.
   abgerufen werden sollen.
 \end{enumerate}
 
-\subsection{Adresse für Feedback}
+\subsection{Feedback}
 
-Feedback kann gerne per Mail an marian@sendung.de übermittelt werden.
+Feedback wird dringend benötigt und ist daher herzlichst willkommen.
+Feedback kann auf den folgenden Wegen eingereicht werden:
 
-Wer Feedback übersendet, wird als Mitwirkender in zukünftigen Versionen
-des Dokuments namentlich erwähnt. Wer dies nicht möchte, sollte dies
-bitte in seiner Mail bitte explizit erwähnen.
+\begin{itemize}
+\item
+  Als Pull Requests über Github, direkt am Quelltext
+\item
+  Über Issues auf Github
+\item
+  Per E-Mail
+\end{itemize}
+
+\subsubsection{Pull Requests über Github}
+
+Dieses Dokument wird in folgendem Github-Repository gepflegt:
+
+\href{https://github.com/marians/open-ris-specs}{https://github.com/marians/open-ris-specs}
+
+Der bevorzugte Feedback-Kanal für erfahrene Git- bzw. Github-Nutzer ist
+entsprechend die Mitwirkung direkt am Quelltext in Form von
+Pull-Requests. So können \textbf{Ergänzungen und Korrekturen} direkt in
+den Quelltext eingespielt werden.
+
+Ausführliche Anleitungen zur Arbeit mit Git/Github finden sich auf der
+Plattform selbst sowie an vielen Orten im Netz. Der allgemeine Ablauf
+ist wie folgt:
+
+\begin{enumerate}[1.]
+\item
+  Erzeugen Sie sich, sofern noch nicht geschehen, ein Benutzerkonto auf
+  Github.
+\item
+  Duplizieren (\emph{forken}) Sie das oben genannte Repository
+\item
+  Nehmen Sie die gewünschten Änderungen an Ihrem Repository vor.
+  Committen Sie diese Änderungen möglichst kleinteilig.
+\item
+  Senden Sie die gewünschten Commits als Pull Requests.
+\end{enumerate}
+
+Als Autor werde ich entscheiden, welche Pull Requests ich übernehme. Sie
+werden als Mitwirkender in diesem Dokument genannt. Wenn Sie mit einen
+Klarnamen unggf. Unternehmenszugehörigkeit genannt werden wollen, teilen
+Sie mir dies bitte per Mail an marian@sendung.de mit.
+
+\subsubsection{Issues auf Github}
+
+Wer nicht über Github am Quelltext mitwirken möchte, aber einen
+Github-Account sein eigen nennt (oder zu diesem Zweck anlegen möchte)
+und \textbf{öffentlich kommentieren} möchte, der sollte das öffentliche
+Issue-Tracking-System unter
+
+\href{https://github.com/marians/open-ris-specs/issues}{https://github.com/marians/open-ris-specs/issues}
+
+verwenden. Vorteil daran ist, dass auch andere die Einträge lesen und
+wiederum durch Kommentare ergänzen können. Zudem lässt sich der
+Bearbeitungsstatus eines Issue-Eintrags (offen, geschlossen) nachhalten.
+
+Bitte achten Sie auf diesem Weg darauf, Ihre Kommentare in möglichst
+kleine thematische Einheiten herunter zu brechen.
+
+\subsubsection{Feedback per E-Mail}
+
+Sollten Sie keinen der oben beschriebenen Wege beschreiten wollen,
+können Sie Anmerkungen zum Dokument per E-Mail an marian@sendung.de
+einsenden. Bitte verwenden Sie dabei den Begriff ``open-ris-specs'' im
+Betreff.
+
+Sollten Sie auf diesem Wege Anmerkungen direkt am/im Dokumententext
+übersenden wollen, nutzen Sie bitte falls möglich die Word- oder
+OpenOffice-Version dieses Dokuments und ändern Sie das Dokument so, dass
+Änderungen aufgezeichnet werden (OpenOffice: Bearbeiten \textgreater{}
+Änderungen \textgreater{} Aufzeichnen; Word: Ribbon ``Überprüfen''
+\textgreater{} Nachverfolgung \textgreater{} Änderungen nachverfolgen).
 
 \section{Datenmodell}
 
@@ -153,8 +286,8 @@ Körperschaften betrieben werden.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{images/01.png}
-\caption{Gebietskörperschaft}
+\includegraphics{images/datenmodell_gebietskoerperschaft.pdf}
+\caption{Objekttyp Gebietskörperschaft}
 \end{figure}
 
 \subsubsection{Eindeutige Identifizierung}
@@ -216,6 +349,12 @@ ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat,
 Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten
 Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics{images/datenmodell_gremium.pdf}
+\caption{Objekttyp Gremium}
+\end{figure}
+
 \subsubsection{Eigenschaften}
 
 \begin{description}
@@ -258,6 +397,12 @@ Einzelfall nicht im Entwurf abgebildet.
 
 Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person
 im Datenmodell eindeutig identifizierbar.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{images/datenmodell_person.pdf}
+\caption{Objekttyp Person}
+\end{figure}
 
 \subsubsection{Eigenschaften}
 
@@ -321,6 +466,12 @@ Der Nachname der Person.
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die
 Personen angehören können.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics{images/datenmodell_organisation.pdf}
+\caption{Objekttyp Organisation}
+\end{figure}
+
 \subsubsection{Eigenschaften}
 
 \begin{description}
@@ -360,6 +511,12 @@ bestimmten Zeitpunkt. Sitzungen können eine laufende Nummer haben.
 Die geladenen Teilnehmer der Sitzung sind jeweils als „Person`` in
 entsprechender Form referenziert. Verschiedene Drucksachen (Einladung,
 Ergebnis- und Wortprotokoll) werden ebenfalls referenziert.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{images/datenmodell_sitzung.pdf}
+\caption{Objekttyp Sitzung}
+\end{figure}
 
 \subsubsection{Eigenschaften}
 
@@ -401,7 +558,7 @@ Datum und Uhrzeit des Anfangs der Sitzung
   auszudrücken.
 \item
   Drucksachen werden vom Typ ``Sitzung'' \emph{optional} zu mehreren
-  zwecken referenziert:
+  Zwecken referenziert:
 
   \begin{itemize}
   \item
@@ -426,6 +583,12 @@ referenzierende Stimmabgaben festgehalten werden.
 
 In der Praxis werden die meisten Sitzungen mehrere Tagesordnungspunkte
 haben.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{images/datenmodell_tagesordnungspunkt.pdf}
+\caption{Objekttyp Tagesordnungspunkt}
+\end{figure}
 
 \subsubsection{Eigenschaften}
 
@@ -486,6 +649,12 @@ Personen wieder. Dann ist die Anzahl der Stimmen anzugeben und statt
 einer Person eine Organisation (in der Regel die Fraktion) zu
 referenzieren.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics{images/datenmodell_stimmabgabe.pdf}
+\caption{Objekttyp Stimmabgabe}
+\end{figure}
+
 \subsubsection{Eigenschaften}
 
 \begin{description}
@@ -523,6 +692,12 @@ Drucksachen spielen in der schriftlichen wie mündlichen Kommunikation
 eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen
 Bezug genommen wird. Hierbei kommen in Ratsinformationssystemen
 unveränderliche Kennungen der Drucksachen zum Einsatz.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{images/datenmodell_drucksache.pdf}
+\caption{Objekttyp Drucksache}
+\end{figure}
 
 Jede Drucksache ist über die Eigenschaft ``Typ'' als eine der folgenden
 Arten von Drucksachen gekennzeichnet:
@@ -609,6 +784,12 @@ sondern auf den entsprechenden Master verweist.
 Im Unterschied zur Drucksache benötigt das Dokument keine
 nutzerfreundliche Kennung.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics{images/datenmodell_dokument.pdf}
+\caption{Objekttyp Dokument}
+\end{figure}
+
 \subsubsection{Eigenschaften}
 
 \begin{description}
@@ -655,18 +836,24 @@ Breitengrad.
 
 Bislang finden sich nur beim Bonner System Beispiele für Ortsangaben.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics{images/datenmodell_ort.pdf}
+\caption{Objekttyp Ort}
+\end{figure}
+
 \subsubsection{Eigenschaften}
 
 \begin{description}
 \item[Textanabe]
 \emph{Optional.} Textliche Beschreibung eines Orts, z.B. in Form einer
 Adresse
-\item[Längen- und Breitenangabe]
+\item[Koordinaten]
 \emph{Optional.} Längen- und Breitenangabe des Orts im WGS-84-System
 {[}11{]}
 \end{description}
 
-\subsubsection{Eigenschaften}
+\subsubsection{Beziehungen}
 
 \begin{itemize}
 \item
@@ -698,13 +885,13 @@ Interpretation von Geokoordinaten-Angaben.
 Produktinformation}
 
 {[}4{]}: Ratsinformationssystem der Bezirksverwaltugn Berlin Mitte,
-\href{http://www.berlin.de/ba-mitte/bvv-online/allris.net.asp}{http://www.berlin.de/ba-mitte/\ldots{}}
+\href{http://www.berlin.de/ba-mitte/bvv-online/allris.net.asp}{http://www.berlin.de/\ldots{}}
 
 {[}5{]}: CC e-gov GmbH, \href{http://www.cc-egov.de/allris.htm}{ALLRIS
 Produktionformationen}
 
 {[}6{]}: Ratsinformationssystem der Stadt Rösrath,
-\href{http://212.227.97.55/ratsinfo/roesrath}{http://212.227.97.55/ratsinfo/\ldots{}}
+\href{http://212.227.97.55/ratsinfo/roesrath}{http://212.227.97.55/\ldots{}}
 
 {[}7{]}: \href{http://www.provox.de/}{Firma PROVOX}
 
@@ -717,7 +904,9 @@ RIM Produktionformationen}
 
 {[}10{]}: BoRis, Ratsinformationssystem der Stadt Bonn
 (Eigenentwicklung).
-\href{http://www2.bonn.de/bo\_ris/ris\_sql/agm\_index.asp}{http://www2.bonn.de/bo\_ris/ris\_sql/agm\_index.asp}
+\href{http://www2.bonn.de/bo\_ris/ris\_sql/agm\_index.asp}{http://www2.bonn.de/\ldots{}}
 
 {[}11{]}: World Geodetic System 1984 (EPSG:4326), wird unter anderem
 auch vom Global Positioning System (GPS) verwendet.
+
+\end{document}

@@ -45,8 +45,6 @@ Status
 Dieser Entwurf gibt aktuell einen Vorschlag des Autors wieder. Bisher
 ist noch kein Feedback eingeflossen.
 
-Der Entwurf ist noch unvollständig.
-
 Überblick
 ---------
 
@@ -73,14 +71,72 @@ Nächste Schritte
     beschrieben werden, wie über HTTP die zuvor beschriebenen Daten
     abgerufen werden sollen.
 
-Adresse für Feedback
---------------------
+Feedback
+--------
 
-Feedback kann gerne per Mail an marian@sendung.de übermittelt werden.
+Feedback wird dringend benötigt und ist daher herzlichst willkommen.
+Feedback kann auf den folgenden Wegen eingereicht werden:
 
-Wer Feedback übersendet, wird als Mitwirkender in zukünftigen Versionen
-des Dokuments namentlich erwähnt. Wer dies nicht möchte, sollte dies
-bitte in seiner Mail bitte explizit erwähnen.
+-   Als Pull Requests über Github, direkt am Quelltext
+-   Über Issues auf Github
+-   Per E-Mail
+
+Pull Requests über Github
+
+Dieses Dokument wird in folgendem Github-Repository gepflegt:
+
+https://github.com/marians/open-ris-specs
+
+Der bevorzugte Feedback-Kanal für erfahrene Git- bzw. Github-Nutzer ist
+entsprechend die Mitwirkung direkt am Quelltext in Form von
+Pull-Requests. So können Ergänzungen und Korrekturen direkt in den
+Quelltext eingespielt werden.
+
+Ausführliche Anleitungen zur Arbeit mit Git/Github finden sich auf der
+Plattform selbst sowie an vielen Orten im Netz. Der allgemeine Ablauf
+ist wie folgt:
+
+1.  Erzeugen Sie sich, sofern noch nicht geschehen, ein Benutzerkonto
+    auf Github.
+2.  Duplizieren (forken) Sie das oben genannte Repository
+3.  Nehmen Sie die gewünschten Änderungen an Ihrem Repository vor.
+    Committen Sie diese Änderungen möglichst kleinteilig.
+4.  Senden Sie die gewünschten Commits als Pull Requests.
+
+Als Autor werde ich entscheiden, welche Pull Requests ich übernehme. Sie
+werden als Mitwirkender in diesem Dokument genannt. Wenn Sie mit einen
+Klarnamen unggf. Unternehmenszugehörigkeit genannt werden wollen, teilen
+Sie mir dies bitte per Mail an marian@sendung.de mit.
+
+Issues auf Github
+
+Wer nicht über Github am Quelltext mitwirken möchte, aber einen
+Github-Account sein eigen nennt (oder zu diesem Zweck anlegen möchte)
+und öffentlich kommentieren möchte, der sollte das öffentliche
+Issue-Tracking-System unter
+
+https://github.com/marians/open-ris-specs/issues
+
+verwenden. Vorteil daran ist, dass auch andere die Einträge lesen und
+wiederum durch Kommentare ergänzen können. Zudem lässt sich der
+Bearbeitungsstatus eines Issue-Eintrags (offen, geschlossen) nachhalten.
+
+Bitte achten Sie auf diesem Weg darauf, Ihre Kommentare in möglichst
+kleine thematische Einheiten herunter zu brechen.
+
+Feedback per E-Mail
+
+Sollten Sie keinen der oben beschriebenen Wege beschreiten wollen,
+können Sie Anmerkungen zum Dokument per E-Mail an marian@sendung.de
+einsenden. Bitte verwenden Sie dabei den Begriff "open-ris-specs" im
+Betreff.
+
+Sollten Sie auf diesem Wege Anmerkungen direkt am/im Dokumententext
+übersenden wollen, nutzen Sie bitte falls möglich die Word- oder
+OpenOffice-Version dieses Dokuments und ändern Sie das Dokument so, dass
+Änderungen aufgezeichnet werden (OpenOffice: Bearbeiten > Änderungen >
+Aufzeichnen; Word: Ribbon "Überprüfen" > Nachverfolgung > Änderungen
+nachverfolgen).
 
 Datenmodell
 ===========
@@ -142,7 +198,7 @@ Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“.
 Denkbar ist aber auch, dass Systeme für einen Verbund von mehreren
 Körperschaften betrieben werden.
 
-[Gebietskörperschaft]
+[Objekttyp Gebietskörperschaft]
 
 Eindeutige Identifizierung
 
@@ -190,6 +246,8 @@ ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat,
 Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten
 Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
+[Objekttyp Gremium]
+
 Eigenschaften
 
 Kennung
@@ -226,6 +284,8 @@ Person
 
 Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person
 im Datenmodell eindeutig identifizierbar.
+
+[Objekttyp Person]
 
 Eigenschaften
 
@@ -280,6 +340,8 @@ Organisation
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die
 Personen angehören können.
 
+[Objekttyp Organisation]
+
 Eigenschaften
 
 Kennung
@@ -312,6 +374,8 @@ Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in
 entsprechender Form referenziert. Verschiedene Drucksachen (Einladung,
 Ergebnis- und Wortprotokoll) werden ebenfalls referenziert.
 
+[Objekttyp Sitzung]
+
 Eigenschaften
 
 Kennung
@@ -343,7 +407,7 @@ Beziehungen
 -   Sitzungen sind grundsätzlich genau einem Gremium zugeordnet.
 -   Personen sind Sitzungen zugeordnet, um die Teilnahme an der Sitzung
     auszudrücken.
--   Drucksachen werden vom Typ "Sitzung" optional zu mehreren zwecken
+-   Drucksachen werden vom Typ "Sitzung" optional zu mehreren Zwecken
     referenziert:
     -   Zum Verweis auf die Einladung zur Sitzung
     -   Zum Verweis auf das Ergebnisprotokoll zur Sitzung
@@ -363,6 +427,8 @@ referenzierende Stimmabgaben festgehalten werden.
 
 In der Praxis werden die meisten Sitzungen mehrere Tagesordnungspunkte
 haben.
+
+[Objekttyp Tagesordnungspunkt]
 
 Eigenschaften
 
@@ -415,6 +481,8 @@ Personen wieder. Dann ist die Anzahl der Stimmen anzugeben und statt
 einer Person eine Organisation (in der Regel die Fraktion) zu
 referenzieren.
 
+[Objekttyp Stimmabgabe]
+
 Eigenschaften
 
 Anzahl der Stimmen
@@ -447,6 +515,8 @@ Drucksachen spielen in der schriftlichen wie mündlichen Kommunikation
 eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen
 Bezug genommen wird. Hierbei kommen in Ratsinformationssystemen
 unveränderliche Kennungen der Drucksachen zum Einsatz.
+
+[Objekttyp Drucksache]
 
 Jede Drucksache ist über die Eigenschaft "Typ" als eine der folgenden
 Arten von Drucksachen gekennzeichnet:
@@ -514,6 +584,8 @@ sondern auf den entsprechenden Master verweist.
 Im Unterschied zur Drucksache benötigt das Dokument keine
 nutzerfreundliche Kennung.
 
+[Objekttyp Dokument]
+
 Eigenschaften
 
 Kennung
@@ -555,15 +627,17 @@ Breitengrad.
 
 Bislang finden sich nur beim Bonner System Beispiele für Ortsangaben.
 
+[Objekttyp Ort]
+
 Eigenschaften
 
 Textanabe
     Optional. Textliche Beschreibung eines Orts, z.B. in Form einer
     Adresse
-Längen- und Breitenangabe
+Koordinaten
     Optional. Längen- und Breitenangabe des Orts im WGS-84-System [11]
 
-Eigenschaften
+Beziehungen
 
 -   Orte können mit Drucksachen in Verbindung stehen.
 
@@ -591,12 +665,11 @@ http://ratsinformation.stadt-koeln.de/
 [3]: Firma Somacos, SessionNet Produktinformation
 
 [4]: Ratsinformationssystem der Bezirksverwaltugn Berlin Mitte,
-http://www.berlin.de/ba-mitte/...
+http://www.berlin.de/...
 
 [5]: CC e-gov GmbH, ALLRIS Produktionformationen
 
-[6]: Ratsinformationssystem der Stadt Rösrath,
-http://212.227.97.55/ratsinfo/...
+[6]: Ratsinformationssystem der Stadt Rösrath, http://212.227.97.55/...
 
 [7]: Firma PROVOX
 
@@ -606,7 +679,7 @@ https://sitzungsdienst.euskirchen.de/
 [9]: Firma Sternberg, SD.NET RIM Produktionformationen
 
 [10]: BoRis, Ratsinformationssystem der Stadt Bonn (Eigenentwicklung).
-http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp
+http://www2.bonn.de/...
 
 [11]: World Geodetic System 1984 (EPSG:4326), wird unter anderem auch
 vom Global Positioning System (GPS) verwendet.

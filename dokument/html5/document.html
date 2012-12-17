@@ -30,7 +30,6 @@
 <p>Dieses Dokument soll die Erarbeitung eines solchen Standards ermöglichen und als Diskussionsgrundlage dienen.</p>
 <h2 id="status"><span class="header-section-number">1.2</span> Status</h2>
 <p>Dieser Entwurf gibt aktuell einen Vorschlag des Autors wieder. Bisher ist noch kein Feedback eingeflossen.</p>
-<p>Der Entwurf ist noch unvollständig.</p>
 <h2 id="überblick"><span class="header-section-number">1.3</span> Überblick</h2>
 <p>Der Entwurf umfasst im ersten Schritt die abstrakte Beschreibung eines Datenmodells.</p>
 <h3 id="noch-nicht-abgedeckt"><span class="header-section-number">1.3.1</span> Noch nicht abgedeckt:</h3>
@@ -45,9 +44,33 @@
 <li>Anpassen des Entwurfs anhand von Feedback</li>
 <li>Erarbeitung eines Entwurfs für eine REST-Schnittstelle. Darin soll beschrieben werden, wie über HTTP die zuvor beschriebenen Daten abgerufen werden sollen.</li>
 </ol>
-<h2 id="adresse-für-feedback"><span class="header-section-number">1.5</span> Adresse für Feedback</h2>
-<p>Feedback kann gerne per Mail an marian@sendung.de übermittelt werden.</p>
-<p>Wer Feedback übersendet, wird als Mitwirkender in zukünftigen Versionen des Dokuments namentlich erwähnt. Wer dies nicht möchte, sollte dies bitte in seiner Mail bitte explizit erwähnen.</p>
+<h2 id="feedback"><span class="header-section-number">1.5</span> Feedback</h2>
+<p>Feedback wird dringend benötigt und ist daher herzlichst willkommen. Feedback kann auf den folgenden Wegen eingereicht werden:</p>
+<ul>
+<li>Als Pull Requests über Github, direkt am Quelltext</li>
+<li>Über Issues auf Github</li>
+<li>Per E-Mail</li>
+</ul>
+<h3 id="pull-requests-über-github"><span class="header-section-number">1.5.1</span> Pull Requests über Github</h3>
+<p>Dieses Dokument wird in folgendem Github-Repository gepflegt:</p>
+<p><a href="https://github.com/marians/open-ris-specs">https://github.com/marians/open-ris-specs</a></p>
+<p>Der bevorzugte Feedback-Kanal für erfahrene Git- bzw. Github-Nutzer ist entsprechend die Mitwirkung direkt am Quelltext in Form von Pull-Requests. So können <strong>Ergänzungen und Korrekturen</strong> direkt in den Quelltext eingespielt werden.</p>
+<p>Ausführliche Anleitungen zur Arbeit mit Git/Github finden sich auf der Plattform selbst sowie an vielen Orten im Netz. Der allgemeine Ablauf ist wie folgt:</p>
+<ol type="1">
+<li>Erzeugen Sie sich, sofern noch nicht geschehen, ein Benutzerkonto auf Github.</li>
+<li>Duplizieren (<em>forken</em>) Sie das oben genannte Repository</li>
+<li>Nehmen Sie die gewünschten Änderungen an Ihrem Repository vor. Committen Sie diese Änderungen möglichst kleinteilig.</li>
+<li>Senden Sie die gewünschten Commits als Pull Requests.</li>
+</ol>
+<p>Als Autor werde ich entscheiden, welche Pull Requests ich übernehme. Sie werden als Mitwirkender in diesem Dokument genannt. Wenn Sie mit einen Klarnamen unggf. Unternehmenszugehörigkeit genannt werden wollen, teilen Sie mir dies bitte per Mail an marian@sendung.de mit.</p>
+<h3 id="issues-auf-github"><span class="header-section-number">1.5.2</span> Issues auf Github</h3>
+<p>Wer nicht über Github am Quelltext mitwirken möchte, aber einen Github-Account sein eigen nennt (oder zu diesem Zweck anlegen möchte) und <strong>öffentlich kommentieren</strong> möchte, der sollte das öffentliche Issue-Tracking-System unter</p>
+<p><a href="https://github.com/marians/open-ris-specs/issues">https://github.com/marians/open-ris-specs/issues</a></p>
+<p>verwenden. Vorteil daran ist, dass auch andere die Einträge lesen und wiederum durch Kommentare ergänzen können. Zudem lässt sich der Bearbeitungsstatus eines Issue-Eintrags (offen, geschlossen) nachhalten.</p>
+<p>Bitte achten Sie auf diesem Weg darauf, Ihre Kommentare in möglichst kleine thematische Einheiten herunter zu brechen.</p>
+<h3 id="feedback-per-e-mail"><span class="header-section-number">1.5.3</span> Feedback per E-Mail</h3>
+<p>Sollten Sie keinen der oben beschriebenen Wege beschreiten wollen, können Sie Anmerkungen zum Dokument per E-Mail an marian@sendung.de einsenden. Bitte verwenden Sie dabei den Begriff &quot;open-ris-specs&quot; im Betreff.</p>
+<p>Sollten Sie auf diesem Wege Anmerkungen direkt am/im Dokumententext übersenden wollen, nutzen Sie bitte falls möglich die Word- oder OpenOffice-Version dieses Dokuments und ändern Sie das Dokument so, dass Änderungen aufgezeichnet werden (OpenOffice: Bearbeiten &gt; Änderungen &gt; Aufzeichnen; Word: Ribbon &quot;Überprüfen&quot; &gt; Nachverfolgung &gt; Änderungen nachverfolgen).</p>
 <h1 id="datenmodell"><span class="header-section-number">2</span> Datenmodell</h1>
 <p>Das Datenmodell soll die Bausteine für die später zu entwerfende Schnittstelle definieren. Im folgenden werden sozusagen die Objekttypen bzw. die Klassen beschrieben, auf die über eine spätere API zugegriffen werden kann.</p>
 <p>Einige Objekte werden eine eindeutige Identifizierung (ID) benötigen, wobei „eindeutig“ auch eine Frage des Kontextes ist. In den wenigsten Fällen wird es notwendig sein, eine Objekt-Kennung weltweit eindeutig zu machen. Darüber hinaus wird zu entscheiden sein, ob IDs unveränderlich oder veränderlich sein sollen.</p>
@@ -69,7 +92,7 @@
 <p>Die Gebietskörperschaft erlaubt es, Körperschaften wie einen bestimmten Landkreis, eine bestimmte Gemeinde oder einen bestimmten Stadtbezirk in Form eines Datenobjekts abzubilden.</p>
 <p>Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“. Denkbar ist aber auch, dass Systeme für einen Verbund von mehreren Körperschaften betrieben werden.</p>
 <figure>
-<img src="images/01.png" alt="Gebietskörperschaft"><figcaption>Gebietskörperschaft</figcaption>
+<embed src="images/datenmodell_gebietskoerperschaft.pdf"><figcaption>Objekttyp Gebietskörperschaft</figcaption>
 </figure>
 <h3 id="eindeutige-identifizierung"><span class="header-section-number">2.1.1</span> Eindeutige Identifizierung</h3>
 <p>Zur Identifizierung des Objekts kann der Amtliche Gemeindeschlüssel (AGS[1]) verwendet werden, der alle deutschen Gemeinden, Landkreise, kreisfreien Städte etc. eindeutig erfasst.</p>
@@ -96,6 +119,9 @@
 </ul>
 <h2 id="gremium"><span class="header-section-number">2.2</span> Gremium</h2>
 <p>Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat, Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.</p>
+<figure>
+<embed src="images/datenmodell_gremium.pdf"><figcaption>Objekttyp Gremium</figcaption>
+</figure>
 <h3 id="eigenschaften-1"><span class="header-section-number">2.2.1</span> Eigenschaften</h3>
 <dl>
 <dt>Kennung</dt>
@@ -115,6 +141,9 @@
 </ul>
 <h2 id="person"><span class="header-section-number">2.3</span> Person</h2>
 <p>Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person im Datenmodell eindeutig identifizierbar.</p>
+<figure>
+<embed src="images/datenmodell_person.pdf"><figcaption>Objekttyp Person</figcaption>
+</figure>
 <h3 id="eigenschaften-2"><span class="header-section-number">2.3.1</span> Eigenschaften</h3>
 <dl>
 <dt>Kennung</dt>
@@ -163,6 +192,9 @@
 </ul>
 <h2 id="organisation"><span class="header-section-number">2.4</span> Organisation</h2>
 <p>Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die Personen angehören können.</p>
+<figure>
+<embed src="images/datenmodell_organisation.pdf"><figcaption>Objekttyp Organisation</figcaption>
+</figure>
 <h3 id="eigenschaften-3"><span class="header-section-number">2.4.1</span> Eigenschaften</h3>
 <dl>
 <dt>Kennung</dt>
@@ -184,6 +216,9 @@
 <h2 id="sitzung"><span class="header-section-number">2.5</span> Sitzung</h2>
 <p>Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums zu einem bestimmten Zeitpunkt. Sitzungen können eine laufende Nummer haben.</p>
 <p>Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in entsprechender Form referenziert. Verschiedene Drucksachen (Einladung, Ergebnis- und Wortprotokoll) werden ebenfalls referenziert.</p>
+<figure>
+<embed src="images/datenmodell_sitzung.pdf"><figcaption>Objekttyp Sitzung</figcaption>
+</figure>
 <h3 id="eigenschaften-4"><span class="header-section-number">2.5.1</span> Eigenschaften</h3>
 <dl>
 <dt>Kennung</dt>
@@ -207,7 +242,7 @@
 <ul>
 <li>Sitzungen sind grundsätzlich genau einem Gremium zugeordnet.</li>
 <li>Personen sind Sitzungen zugeordnet, um die Teilnahme an der Sitzung auszudrücken.</li>
-<li>Drucksachen werden vom Typ &quot;Sitzung&quot; <em>optional</em> zu mehreren zwecken referenziert:
+<li>Drucksachen werden vom Typ &quot;Sitzung&quot; <em>optional</em> zu mehreren Zwecken referenziert:
 <ul>
 <li>Zum Verweis auf die Einladung zur Sitzung</li>
 <li>Zum Verweis auf das Ergebnisprotokoll zur Sitzung</li>
@@ -217,6 +252,9 @@
 <h2 id="tagesordnungspunkt"><span class="header-section-number">2.6</span> Tagesordnungspunkt</h2>
 <p>Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. Falls abweichend von der ursprünglichen Beschlussvorlage (z.B. durch Berücksichtigung eines Änderungsantrags) kann ein bestimmter Beschlusstext zu Protokoll gegeben werden. Sofern das Abstimmungsergebnis nicht einstimmig ist, kann es durch mehrere referenzierende Stimmabgaben festgehalten werden.</p>
 <p>In der Praxis werden die meisten Sitzungen mehrere Tagesordnungspunkte haben.</p>
+<figure>
+<embed src="images/datenmodell_tagesordnungspunkt.pdf"><figcaption>Objekttyp Tagesordnungspunkt</figcaption>
+</figure>
 <h3 id="eigenschaften-5"><span class="header-section-number">2.6.1</span> Eigenschaften</h3>
 <dl>
 <dt>Nummer</dt>
@@ -246,6 +284,9 @@
 </ul>
 <h2 id="stimmabgabe"><span class="header-section-number">2.7</span> Stimmabgabe</h2>
 <p>Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt abgestimmt hat, wird durch eine Stimmabgabe festgehalten. Ganze Abstimmungsergebnisse bestehen überlicherweise aus mehreren Stimmabgaben. Jede Stimmabgabe gibt entweder die (einzelne) Stimme einer Peson wieder, in diesem Fall ist die Anzahl der Stimmen zwingend 1. Oder eine Stimmabgabe gibt das Abstimmungsverhalten einer ganzen Gruppe von Personen wieder. Dann ist die Anzahl der Stimmen anzugeben und statt einer Person eine Organisation (in der Regel die Fraktion) zu referenzieren.</p>
+<figure>
+<embed src="images/datenmodell_stimmabgabe.pdf"><figcaption>Objekttyp Stimmabgabe</figcaption>
+</figure>
 <h3 id="eigenschaften-6"><span class="header-section-number">2.7.1</span> Eigenschaften</h3>
 <dl>
 <dt>Anzahl der Stimmen</dt>
@@ -264,6 +305,9 @@
 <p>Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen, Beschlussvorlagen, Anfragen und Anträge ab. Jede Drucksache erhält eine eindeutige Kennung.</p>
 <p>Die Drucksache hat im Informationsmodell eine hervorgehobene Bedeutung. Im Fall eines Antrags kann mit einer einzigen Drucksache ein über Monate oder Jahre dauernder politischer Entscheidungsprozess verbunden sein. In dem Zusammenhang entstehen üblicherweise weitere Drucksachen.</p>
 <p>Drucksachen spielen in der schriftlichen wie mündlichen Kommunikation eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in Ratsinformationssystemen unveränderliche Kennungen der Drucksachen zum Einsatz.</p>
+<figure>
+<embed src="images/datenmodell_drucksache.pdf"><figcaption>Objekttyp Drucksache</figcaption>
+</figure>
 <p>Jede Drucksache ist über die Eigenschaft &quot;Typ&quot; als eine der folgenden Arten von Drucksachen gekennzeichnet:</p>
 <ul>
 <li><strong>Beschlussvorlage</strong>: Entscheidungsvorschlag der Verwaltung</li>
@@ -297,6 +341,9 @@
 <h2 id="dokument"><span class="header-section-number">2.9</span> Dokument</h2>
 <p>Ein Dokument hält die Daten und Metadaten einer Datei vor, beispielsweise einer PDF-Datei, eines RTF- oder Word-Dokuments. Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls ein Dokument, das jedoch nicht als Master gekennzeichnet wird, sondern auf den entsprechenden Master verweist.</p>
 <p>Im Unterschied zur Drucksache benötigt das Dokument keine nutzerfreundliche Kennung.</p>
+<figure>
+<embed src="images/datenmodell_dokument.pdf"><figcaption>Objekttyp Dokument</figcaption>
+</figure>
 <h3 id="eigenschaften-8"><span class="header-section-number">2.9.1</span> Eigenschaften</h3>
 <dl>
 <dt>Kennung</dt>
@@ -332,16 +379,19 @@
 <h2 id="ort"><span class="header-section-number">2.10</span> Ort</h2>
 <p>Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen (beispielsweise der Name einer Straße/eines Platzes oder eine genaue Adresse) oder aus einer Geo-Koordinatenangabe aus Längen- und Breitengrad.</p>
 <p>Bislang finden sich nur beim Bonner System Beispiele für Ortsangaben.</p>
+<figure>
+<embed src="images/datenmodell_ort.pdf"><figcaption>Objekttyp Ort</figcaption>
+</figure>
 <h3 id="eigenschaften-9"><span class="header-section-number">2.10.1</span> Eigenschaften</h3>
 <dl>
 <dt>Textanabe</dt>
 <dd><em>Optional.</em> Textliche Beschreibung eines Orts, z.B. in Form einer Adresse
 </dd>
-<dt>Längen- und Breitenangabe</dt>
+<dt>Koordinaten</dt>
 <dd><em>Optional.</em> Längen- und Breitenangabe des Orts im WGS-84-System [11]
 </dd>
 </dl>
-<h3 id="eigenschaften-10"><span class="header-section-number">2.10.2</span> Eigenschaften</h3>
+<h3 id="beziehungen-9"><span class="header-section-number">2.10.2</span> Beziehungen</h3>
 <ul>
 <li>Orte können mit Drucksachen in Verbindung stehen.</li>
 </ul>
@@ -361,13 +411,13 @@
 <p>[1]: Siehe <a href="https://www.destatis.de/DE/Methoden/Klassifikationen/Bevoelkerung/StaatsangehoerigkeitGebietsschluessel.html">www.destatis.de/...</a></p>
 <p>[2]: Ratsinformationssystem der Stadt Köln, <a href="http://ratsinformation.stadt-koeln.de/">http://ratsinformation.stadt-koeln.de/</a></p>
 <p>[3]: Firma Somacos, <a href="http://www.somacos.de/de/sitzungsdienst/ratsinfo.html">SessionNet Produktinformation</a></p>
-<p>[4]: Ratsinformationssystem der Bezirksverwaltugn Berlin Mitte, <a href="http://www.berlin.de/ba-mitte/bvv-online/allris.net.asp">http://www.berlin.de/ba-mitte/...</a></p>
+<p>[4]: Ratsinformationssystem der Bezirksverwaltugn Berlin Mitte, <a href="http://www.berlin.de/ba-mitte/bvv-online/allris.net.asp">http://www.berlin.de/...</a></p>
 <p>[5]: CC e-gov GmbH, <a href="http://www.cc-egov.de/allris.htm">ALLRIS Produktionformationen</a></p>
-<p>[6]: Ratsinformationssystem der Stadt Rösrath, <a href="http://212.227.97.55/ratsinfo/roesrath">http://212.227.97.55/ratsinfo/...</a></p>
+<p>[6]: Ratsinformationssystem der Stadt Rösrath, <a href="http://212.227.97.55/ratsinfo/roesrath">http://212.227.97.55/...</a></p>
 <p>[7]: <a href="http://www.provox.de/">Firma PROVOX</a></p>
 <p>[8]: Ratsinformationssystem der Stadt Euskirchen, <a href="https://sitzungsdienst.euskirchen.de/">https://sitzungsdienst.euskirchen.de/</a></p>
 <p>[9]: Firma Sternberg, <a href="http://www.sitzungsdienst.net/produkte/ratsinformationsmanagement">SD.NET RIM Produktionformationen</a></p>
-<p>[10]: BoRis, Ratsinformationssystem der Stadt Bonn (Eigenentwicklung). <a href="http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp">http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp</a></p>
+<p>[10]: BoRis, Ratsinformationssystem der Stadt Bonn (Eigenentwicklung). <a href="http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp">http://www2.bonn.de/...</a></p>
 <p>[11]: World Geodetic System 1984 (EPSG:4326), wird unter anderem auch vom Global Positioning System (GPS) verwendet.</p>
 </body>
 </html>

@@ -141,7 +141,10 @@ nachverfolgen).
 Mitwirkende
 -----------
 
-Felix Ebert Datenmodell ===========
+Felix Ebert
+
+Datenmodell
+===========
 
 Das Datenmodell soll die Bausteine für die später zu entwerfende
 Schnittstelle definieren. Im folgenden werden sozusagen die Objekttypen

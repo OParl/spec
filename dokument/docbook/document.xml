@@ -228,85 +228,88 @@
       </para>
     </sect3>
   </sect2>
-</sect1>
-<sect1 id="datenmodell">
-  <title>Datenmodell</title>
-  <para>
-    Das Datenmodell soll die Bausteine für die später zu entwerfende
-    Schnittstelle definieren. Im folgenden werden sozusagen die
-    Objekttypen bzw. die Klassen beschrieben, auf die über eine spätere
-    API zugegriffen werden kann.
-  </para>
-  <para>
-    Einige Objekte werden eine eindeutige Identifizierung (ID)
-    benötigen, wobei „eindeutig“ auch eine Frage des Kontextes ist. In
-    den wenigsten Fällen wird es notwendig sein, eine Objekt-Kennung
-    weltweit eindeutig zu machen. Darüber hinaus wird zu entscheiden
-    sein, ob IDs unveränderlich oder veränderlich sein sollen.
-  </para>
-  <para>
-    Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen
-    beziehen sich auf nach außen, bei Nutzung der Weboverfläche,
-    feststellbare Eigenschaften. Es wird auf die folgenden Systeme Bezug
-    genommen:
-  </para>
-  <itemizedlist>
-    <listitem>
-      <para>
-        Stadt Köln [2] - Plattform: Somacos SessionNet [3]
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Bezirksverwaltung Berlin Mitte [4] - Plattform: ALLRIS [5]
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Stadt Rösrath [6] - Plattform der Firma PROVOX [7]
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Stadt Euskirchen [8] - Plattform: SD.NET RIM 4 [9]
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Stadt Bonn - BoRis [10]
-      </para>
-    </listitem>
-  </itemizedlist>
-  <sect2 id="zu-den-eigenschaften">
-    <title>Zu den Eigenschaften</title>
+  <sect2 id="mitwirkende">
+    <title>Mitwirkende</title>
     <para>
-      Eigenschaften der einzelnen Objekttypen sind, wenn nicht anders
-      angegeben, verpflichtend. Optionale Eigenschaften sind
-      entsprechend gekennzeichnet.
+      Felix Ebert Datenmodell ===========
     </para>
     <para>
-      Durch die aktuelle Detailtiefe der Beschreibungen soll vor allem
-      die Frage &quot;Was soll/kann gespeichert bzw. ausgedrückt
-      werden?&quot; geklärt werden.
+      Das Datenmodell soll die Bausteine für die später zu entwerfende
+      Schnittstelle definieren. Im folgenden werden sozusagen die
+      Objekttypen bzw. die Klassen beschrieben, auf die über eine
+      spätere API zugegriffen werden kann.
     </para>
     <para>
-      Detailliertere Anforderungen an die Eigenschaften (&quot;Wie genau
-      soll eine Information gespeichert werden?&quot;) werden zu einem
-      späteren Zeitpunkt erörtert.
+      Einige Objekte werden eine eindeutige Identifizierung (ID)
+      benötigen, wobei „eindeutig“ auch eine Frage des Kontextes ist. In
+      den wenigsten Fällen wird es notwendig sein, eine Objekt-Kennung
+      weltweit eindeutig zu machen. Darüber hinaus wird zu entscheiden
+      sein, ob IDs unveränderlich oder veränderlich sein sollen.
     </para>
-  </sect2>
-  <sect2 id="zu-den-beziehungen">
-    <title>Zu den Beziehungen</title>
     <para>
-      Bei Beschreibung der Beziehungen zwischen Objekten wird zu diesem
-      Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei
-      Objekten A und B am Objekt A oder am Objekt B definiert wird. So
-      spielt es bislang keine Rolle, ob einem Gremium mehrere Personen
-      zugeordnet werden oder einer Person mehrere Gremien zugewiesen
-      werden. Das Augenmerkt liegt hier nur auf der Tatsache, welche
-      Beziehung existieren können und was diese Beziehungen aussagen
-      sollen.
+      Die Hinweise auf die Praxis in bestehenden
+      Ratsinformationssystemen beziehen sich auf nach außen, bei Nutzung
+      der Weboverfläche, feststellbare Eigenschaften. Es wird auf die
+      folgenden Systeme Bezug genommen:
     </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Stadt Köln [2] - Plattform: Somacos SessionNet [3]
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Bezirksverwaltung Berlin Mitte [4] - Plattform: ALLRIS [5]
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Stadt Rösrath [6] - Plattform der Firma PROVOX [7]
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Stadt Euskirchen [8] - Plattform: SD.NET RIM 4 [9]
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Stadt Bonn - BoRis [10]
+        </para>
+      </listitem>
+    </itemizedlist>
+    <sect3 id="zu-den-eigenschaften">
+      <title>Zu den Eigenschaften</title>
+      <para>
+        Eigenschaften der einzelnen Objekttypen sind, wenn nicht anders
+        angegeben, verpflichtend. Optionale Eigenschaften sind
+        entsprechend gekennzeichnet.
+      </para>
+      <para>
+        Durch die aktuelle Detailtiefe der Beschreibungen soll vor allem
+        die Frage &quot;Was soll/kann gespeichert bzw. ausgedrückt
+        werden?&quot; geklärt werden.
+      </para>
+      <para>
+        Detailliertere Anforderungen an die Eigenschaften (&quot;Wie
+        genau soll eine Information gespeichert werden?&quot;) werden zu
+        einem späteren Zeitpunkt erörtert.
+      </para>
+    </sect3>
+    <sect3 id="zu-den-beziehungen">
+      <title>Zu den Beziehungen</title>
+      <para>
+        Bei Beschreibung der Beziehungen zwischen Objekten wird zu
+        diesem Zeitpunkt nicht berücksichtigt, ob eine Beziehung
+        zwischen zwei Objekten A und B am Objekt A oder am Objekt B
+        definiert wird. So spielt es bislang keine Rolle, ob einem
+        Gremium mehrere Personen zugeordnet werden oder einer Person
+        mehrere Gremien zugewiesen werden. Das Augenmerkt liegt hier nur
+        auf der Tatsache, welche Beziehung existieren können und was
+        diese Beziehungen aussagen sollen.
+      </para>
+    </sect3>
   </sect2>
   <sect2 id="gebietskörperschaft">
     <title>Gebietskörperschaft</title>
@@ -574,7 +577,7 @@
         </varlistentry>
         <varlistentry>
           <term>
-            Berufsbezeichnung
+            Beruf
           </term>
           <listitem>
             <para>
@@ -999,6 +1002,11 @@
     <sect3 id="beziehungen-5">
       <title>Beziehungen</title>
       <itemizedlist>
+        <listitem>
+          <para>
+            Jeder Tagesordnungspunkt gehört zu einer Sitzung.
+          </para>
+        </listitem>
         <listitem>
           <para>
             Es können mehrere Objekte vom Typ &quot;Stimmabgabe&quot;

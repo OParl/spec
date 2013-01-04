@@ -86,3 +86,8 @@ Sollten Sie keinen der oben beschriebenen Wege beschreiten wollen, können Sie A
 
 Sollten Sie auf diesem Wege Anmerkungen direkt am/im Dokumententext übersenden wollen, nutzen Sie bitte falls möglich die Word- oder OpenOffice-Version dieses Dokuments und ändern Sie das Dokument so, dass Änderungen aufgezeichnet werden (OpenOffice: Bearbeiten > Änderungen > Aufzeichnen; Word: Ribbon "Überprüfen" > Nachverfolgung > Änderungen nachverfolgen).
 
+
+Mitwirkende
+-----------
+
+Felix Ebert

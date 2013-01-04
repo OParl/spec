@@ -69,7 +69,8 @@
 <h3 id="feedback-per-e-mail"><span class="header-section-number">1.5.3</span> Feedback per E-Mail</h3>
 <p>Sollten Sie keinen der oben beschriebenen Wege beschreiten wollen, können Sie Anmerkungen zum Dokument per E-Mail an marian@sendung.de einsenden. Bitte verwenden Sie dabei den Begriff &quot;open-ris-specs&quot; im Betreff.</p>
 <p>Sollten Sie auf diesem Wege Anmerkungen direkt am/im Dokumententext übersenden wollen, nutzen Sie bitte falls möglich die Word- oder OpenOffice-Version dieses Dokuments und ändern Sie das Dokument so, dass Änderungen aufgezeichnet werden (OpenOffice: Bearbeiten &gt; Änderungen &gt; Aufzeichnen; Word: Ribbon &quot;Überprüfen&quot; &gt; Nachverfolgung &gt; Änderungen nachverfolgen).</p>
-<h1 id="datenmodell"><span class="header-section-number">2</span> Datenmodell</h1>
+<h2 id="mitwirkende"><span class="header-section-number">1.6</span> Mitwirkende</h2>
+<p>Felix Ebert Datenmodell ===========</p>
 <p>Das Datenmodell soll die Bausteine für die später zu entwerfende Schnittstelle definieren. Im folgenden werden sozusagen die Objekttypen bzw. die Klassen beschrieben, auf die über eine spätere API zugegriffen werden kann.</p>
 <p>Einige Objekte werden eine eindeutige Identifizierung (ID) benötigen, wobei „eindeutig“ auch eine Frage des Kontextes ist. In den wenigsten Fällen wird es notwendig sein, eine Objekt-Kennung weltweit eindeutig zu machen. Darüber hinaus wird zu entscheiden sein, ob IDs unveränderlich oder veränderlich sein sollen.</p>
 <p>Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen beziehen sich auf nach außen, bei Nutzung der Weboverfläche, feststellbare Eigenschaften. Es wird auf die folgenden Systeme Bezug genommen:</p>
@@ -80,19 +81,19 @@
 <li>Stadt Euskirchen [8] - Plattform: SD.NET RIM 4 [9]</li>
 <li>Stadt Bonn - BoRis [10]</li>
 </ul>
-<h3 id="zu-den-eigenschaften"><span class="header-section-number">2.0.1</span> Zu den Eigenschaften</h3>
+<h3 id="zu-den-eigenschaften"><span class="header-section-number">1.6.1</span> Zu den Eigenschaften</h3>
 <p>Eigenschaften der einzelnen Objekttypen sind, wenn nicht anders angegeben, verpflichtend. Optionale Eigenschaften sind entsprechend gekennzeichnet.</p>
 <p>Durch die aktuelle Detailtiefe der Beschreibungen soll vor allem die Frage &quot;Was soll/kann gespeichert bzw. ausgedrückt werden?&quot; geklärt werden.</p>
 <p>Detailliertere Anforderungen an die Eigenschaften (&quot;Wie genau soll eine Information gespeichert werden?&quot;) werden zu einem späteren Zeitpunkt erörtert.</p>
-<h3 id="zu-den-beziehungen"><span class="header-section-number">2.0.2</span> Zu den Beziehungen</h3>
+<h3 id="zu-den-beziehungen"><span class="header-section-number">1.6.2</span> Zu den Beziehungen</h3>
 <p>Bei Beschreibung der Beziehungen zwischen Objekten wird zu diesem Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei Objekten A und B am Objekt A oder am Objekt B definiert wird. So spielt es bislang keine Rolle, ob einem Gremium mehrere Personen zugeordnet werden oder einer Person mehrere Gremien zugewiesen werden. Das Augenmerkt liegt hier nur auf der Tatsache, welche Beziehung existieren können und was diese Beziehungen aussagen sollen.</p>
-<h2 id="gebietskörperschaft"><span class="header-section-number">2.1</span> Gebietskörperschaft</h2>
+<h2 id="gebietskörperschaft"><span class="header-section-number">1.7</span> Gebietskörperschaft</h2>
 <p>Die Gebietskörperschaft erlaubt es, Körperschaften wie einen bestimmten Landkreis, eine bestimmte Gemeinde oder einen bestimmten Stadtbezirk in Form eines Datenobjekts abzubilden.</p>
 <p>Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“. Denkbar ist aber auch, dass Systeme für einen Verbund von mehreren Körperschaften betrieben werden.</p>
 <div class="figure">
 <embed src="images/datenmodell_gebietskoerperschaft.pdf"><p class="caption">Objekttyp Gebietskörperschaft</p>
 </div>
-<h3 id="eindeutige-identifizierung"><span class="header-section-number">2.1.1</span> Eindeutige Identifizierung</h3>
+<h3 id="eindeutige-identifizierung"><span class="header-section-number">1.7.1</span> Eindeutige Identifizierung</h3>
 <p>Zur Identifizierung des Objekts kann der Amtliche Gemeindeschlüssel (AGS[1]) verwendet werden, der alle deutschen Gemeinden, Landkreise, kreisfreien Städte etc. eindeutig erfasst.</p>
 <p>Vorteil der Verwendung des AGS:</p>
 <ul>
@@ -104,23 +105,23 @@
 <li>Führende Nullen machen den Schlüssel fehleranfällig. Bestimmte Systeme wie z.B. Excel könnten den Inhalt als Zahlenwert erkennen und die führenden Nullen automatisch verwerfen.</li>
 <li>Für Gebietsgliederungen unterhalb der selbstständigen Gemeinde, beispielsweise einen einzelnen Stadtbezirk, gibt es keinen eigenen Gemeindeschlüssel. Dies müssten durch eine nicht-amtliche Erweiterung des Systems ausgeglichen werden.</li>
 </ul>
-<h3 id="eigenschaften"><span class="header-section-number">2.1.2</span> Eigenschaften</h3>
+<h3 id="eigenschaften"><span class="header-section-number">1.7.2</span> Eigenschaften</h3>
 <dl>
 <dt>Name</dt>
 <dd>Der Name der Gebietskörperschaft, z.B. &quot;Köln&quot; oder &quot;Stadt Köln&quot;.
 </dd>
 </dl>
-<h3 id="beziehungen"><span class="header-section-number">2.1.3</span> Beziehungen</h3>
+<h3 id="beziehungen"><span class="header-section-number">1.7.3</span> Beziehungen</h3>
 <ul>
 <li>Objekte vom Typ &quot;Organisation&quot; sind zwingend genau einer Gebietskörperschaft zugeordnet. So wird beispielseise eine SPD in Köln von einer SPD in Leverkusen unterschieden.</li>
 <li>Objekte vom Typ &quot;Gremium&quot; sind zwingend einer genau einer Gebietskörperschaft zugeordnet. Damit wird der &quot;Rat&quot; einer bestimmten Kommune von den gleichnamigen Gremien anderer Kommunen abgegrenzt.</li>
 </ul>
-<h2 id="gremium"><span class="header-section-number">2.2</span> Gremium</h2>
+<h2 id="gremium"><span class="header-section-number">1.8</span> Gremium</h2>
 <p>Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat, Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.</p>
 <div class="figure">
 <embed src="images/datenmodell_gremium.pdf"><p class="caption">Objekttyp Gremium</p>
 </div>
-<h3 id="eigenschaften-1"><span class="header-section-number">2.2.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-1"><span class="header-section-number">1.8.1</span> Eigenschaften</h3>
 <dl>
 <dt>Kennung</dt>
 <dd>Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten Gebietskörperschaft. Die Stadt Köln verwendet beispielswiese das Kürzel &quot;STA&quot; für den Stadtentwicklungsausschuss oder &quot;BA&quot; für den Ausschuss für Anregungen und Beschwerden. Andere Kommunen verwenden z.B. rein numerische Kennungen.
@@ -129,20 +130,20 @@
 <dd>Der Name des Gremiums. Beispiele: &quot;Rat&quot;, &quot;Hauptausschuss&quot;, &quot;Bezirksvertretung 1 (Innenstadt)&quot;
 </dd>
 </dl>
-<h4 id="anmerkungen"><span class="header-section-number">2.2.1.1</span> Anmerkungen</h4>
+<h4 id="anmerkungen"><span class="header-section-number">1.8.1.1</span> Anmerkungen</h4>
 <p>Beim Rösrather RIS [6] wird für jedes Gremium ein Kurz- und ein Langname angegeben. Beispielsweise wird beim &quot;Stadtentwicklungs-, Planungs- und Verkehrsausschuss&quot; die kurze Form &quot;Stadtentwicklung&quot; hinterlegt. Bei 5 von 12 Gremien sind jedoch Kurz- und Langnamen identisch.</p>
 <p>Sofern nicht Beispiele aus weiteren Systemen vorliegen, wird dieser Einzelfall nicht im Entwurf abgebildet.</p>
-<h3 id="beziehungen-1"><span class="header-section-number">2.2.2</span> Beziehungen</h3>
+<h3 id="beziehungen-1"><span class="header-section-number">1.8.2</span> Beziehungen</h3>
 <ul>
 <li>Objekte vom Typ &quot;Person&quot; referenzieren auf Gremien, um die Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu kennzeichnen.</li>
 <li>Objekte vom Typ &quot;Drucksache&quot; können einem Gremium zugeordnet sein. Beispielsweise wird eine Anfrage oder ein Antrag dem Rat oder einer bestimmten Bezirksvertretung zugeordnet.</li>
 </ul>
-<h2 id="person"><span class="header-section-number">2.3</span> Person</h2>
+<h2 id="person"><span class="header-section-number">1.9</span> Person</h2>
 <p>Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person im Datenmodell eindeutig identifizierbar.</p>
 <div class="figure">
 <embed src="images/datenmodell_person.pdf"><p class="caption">Objekttyp Person</p>
 </div>
-<h3 id="eigenschaften-2"><span class="header-section-number">2.3.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-2"><span class="header-section-number">1.9.1</span> Eigenschaften</h3>
 <dl>
 <dt>Kennung</dt>
 <dd>Zur eindeutigen Identifizierung sollte jede Person eine Kennung besitzen, die keinen Änderungen unterworfen ist und aus diesem Grund nicht mit dem Namen in Verbindung stehen sollte. Viele RIS nutzen rein numerische Kennungen.
@@ -159,7 +160,7 @@
 <dt>Geschlecht</dt>
 <dd><em>Optional</em>. Männlich/Weblich
 </dd>
-<dt>Berufsbezeichnung</dt>
+<dt>Beruf</dt>
 <dd><em>Optional</em>. Z.B. &quot;Rechtsanwalt&quot;
 </dd>
 <dt>Partei</dt>
@@ -178,22 +179,22 @@
 <dd><em>Optional</em>. Straße und Hausnummer, Postleitzahl und Ort
 </dd>
 </dl>
-<h4 id="anmerkungen-1"><span class="header-section-number">2.3.1.1</span> Anmerkungen</h4>
+<h4 id="anmerkungen-1"><span class="header-section-number">1.9.1.1</span> Anmerkungen</h4>
 <ul>
 <li>Das System von Euskirchen scheint Vor- und Nachname (evtl. einschl. Titel) in einem gemeinsamen Feld &quot;Name&quot; zu führen. Ob das System hier technisch differenziert, ist unklar. Falls einzelne Systeme den angezeigten Namen nur als ganzes Speichern, sollte dies für den Standard übernommen werden, da es für die meisten Anwendungen ausreichen sollte.</li>
 <li>Das Rösrather System kennzeichnet, ob Anschriften privat oder geschäftlich sind.</li>
 </ul>
-<h3 id="beziehungen-2"><span class="header-section-number">2.3.2</span> Beziehungen</h3>
+<h3 id="beziehungen-2"><span class="header-section-number">1.9.2</span> Beziehungen</h3>
 <ul>
 <li>Objekte vom Typ &quot;Person&quot; können einer Organisation, z.B. einer Fraktion, zugeornet werden. Diese Beziehung ist datiert.</li>
 <li>Objekte vom Typ &quot;Person&quot; können einem oder mehreren Gremien zugewiesen werden, um die Mitgliedschaft in diesem Gremium darzustellen. Diese Beziehungen sind ebenfalls datiert.</li>
 </ul>
-<h2 id="organisation"><span class="header-section-number">2.4</span> Organisation</h2>
+<h2 id="organisation"><span class="header-section-number">1.10</span> Organisation</h2>
 <p>Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die Personen angehören können.</p>
 <div class="figure">
 <embed src="images/datenmodell_organisation.pdf"><p class="caption">Objekttyp Organisation</p>
 </div>
-<h3 id="eigenschaften-3"><span class="header-section-number">2.4.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-3"><span class="header-section-number">1.10.1</span> Eigenschaften</h3>
 <dl>
 <dt>Kennung</dt>
 <dd>Zur eundeitigen Kennzeichnung einer Organisation innerhalb einer Gebietskörperschaft
@@ -202,22 +203,22 @@
 <dd>Der gebräuchliche Name der Organisation, z.B. &quot;SPD&quot; oder &quot;DIE LINKE&quot;.
 </dd>
 </dl>
-<h4 id="anmerkungen-2"><span class="header-section-number">2.4.1.1</span> Anmerkungen</h4>
+<h4 id="anmerkungen-2"><span class="header-section-number">1.10.1.1</span> Anmerkungen</h4>
 <ul>
 <li>Unklar ist bislang, ob Organisationen in der Praxis eher Fraktionen (&quot;SPD-Fraktion im Kölner Rat&quot;, &quot;SPD-Fraktion in Köln-Innenstadt&quot;) abbilden oder ob eher Ortsverbände von Parteien (&quot;SPD Köln&quot;) gemeint sein werden. Einblicke, wie gängige Systeme dies handhaben, sollten gesammelt und berücksichtigt werden.</li>
 </ul>
-<h3 id="beziehungen-3"><span class="header-section-number">2.4.2</span> Beziehungen</h3>
+<h3 id="beziehungen-3"><span class="header-section-number">1.10.2</span> Beziehungen</h3>
 <ul>
 <li>Jede Organisationen gehört zu einer Gebietskörperschaft.</li>
 <li>Personen können Organisationen angehören (<em>datiert</em>).</li>
 </ul>
-<h2 id="sitzung"><span class="header-section-number">2.5</span> Sitzung</h2>
+<h2 id="sitzung"><span class="header-section-number">1.11</span> Sitzung</h2>
 <p>Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums zu einem bestimmten Zeitpunkt. Sitzungen können eine laufende Nummer haben.</p>
 <p>Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in entsprechender Form referenziert. Verschiedene Drucksachen (Einladung, Ergebnis- und Wortprotokoll) werden ebenfalls referenziert.</p>
 <div class="figure">
 <embed src="images/datenmodell_sitzung.pdf"><p class="caption">Objekttyp Sitzung</p>
 </div>
-<h3 id="eigenschaften-4"><span class="header-section-number">2.5.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-4"><span class="header-section-number">1.11.1</span> Eigenschaften</h3>
 <dl>
 <dt>Kennung</dt>
 <dd>Zur eindeutigen Identifizierung der Sitzung innerhalb einer Gebietskörperschaft. In der Praxis wird eine solche Kennzeichnung entweder durch eine laufende Nummer gebildet, oder durch Kombination mehrerer Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung in einem Jahr und der Jahreszahl (z.B. &quot;BV1/0034/2012&quot;).
@@ -232,11 +233,11 @@
 <dd><em>Optional</em>. Datum und Uhrzeit vom Ende der Sitzung
 </dd>
 </dl>
-<h4 id="anmerkung"><span class="header-section-number">2.5.1.1</span> Anmerkung</h4>
+<h4 id="anmerkung"><span class="header-section-number">1.11.1.1</span> Anmerkung</h4>
 <ul>
 <li>Unklar ist, ob der Anfangszeitpunkt besser durch zwei getrennte Felder kodiert werden sollte: Anfangs-Datum (als Pflichtfeld) und Anfangs-Uhrzeit als optionales Feld. Dadurch könnten zukünftige Sitzungen, deren Uhrzeit noch nicht feststeht, korrekt abgebildet werden. Es müsste geprüft werden, ob dies in der Praxis relevant ist.</li>
 </ul>
-<h3 id="beziehungen-4"><span class="header-section-number">2.5.2</span> Beziehungen</h3>
+<h3 id="beziehungen-4"><span class="header-section-number">1.11.2</span> Beziehungen</h3>
 <ul>
 <li>Sitzungen sind grundsätzlich genau einem Gremium zugeordnet.</li>
 <li>Personen sind Sitzungen zugeordnet, um die Teilnahme an der Sitzung auszudrücken.</li>
@@ -247,13 +248,13 @@
 <li>Zum Verweis auf das Wortprotokoll zur Sitzung</li>
 </ul></li>
 </ul>
-<h2 id="tagesordnungspunkt"><span class="header-section-number">2.6</span> Tagesordnungspunkt</h2>
+<h2 id="tagesordnungspunkt"><span class="header-section-number">1.12</span> Tagesordnungspunkt</h2>
 <p>Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. Falls abweichend von der ursprünglichen Beschlussvorlage (z.B. durch Berücksichtigung eines Änderungsantrags) kann ein bestimmter Beschlusstext zu Protokoll gegeben werden. Sofern das Abstimmungsergebnis nicht einstimmig ist, kann es durch mehrere referenzierende Stimmabgaben festgehalten werden.</p>
 <p>In der Praxis werden die meisten Sitzungen mehrere Tagesordnungspunkte haben.</p>
 <div class="figure">
 <embed src="images/datenmodell_tagesordnungspunkt.pdf"><p class="caption">Objekttyp Tagesordnungspunkt</p>
 </div>
-<h3 id="eigenschaften-5"><span class="header-section-number">2.6.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-5"><span class="header-section-number">1.12.1</span> Eigenschaften</h3>
 <dl>
 <dt>Nummer</dt>
 <dd>Beispiel: &quot;1.2.3&quot;. Diese Nummer gibt an, in welcher Reihenfolge die Tagesordnungspunkte einer Sitzung behandelt werden. Im Kontext einer Sitzung ist diese Nummer eindeutig.
@@ -271,21 +272,22 @@
 <dd><em>Optional</em>. Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in de Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) von der Beschlussvorlage abweicht.
 </dd>
 </dl>
-<h4 id="anmerkungen-3"><span class="header-section-number">2.6.1.1</span> Anmerkungen</h4>
+<h4 id="anmerkungen-3"><span class="header-section-number">1.12.1.1</span> Anmerkungen</h4>
 <ul>
 <li>Einige Systeme vergeben zu Tagesordnungspunkten intern unveränderliche, numerische IDs. Es ist unklar, ob es zusätzlichen Nutzen bringt, derartige IDs, neben den Nummern, in den Standard zu übernehmen. Dies würde vermutlich nur Sinn ergeben, wenn es als Pflichtfeld gelten kann.</li>
 </ul>
-<h3 id="beziehungen-5"><span class="header-section-number">2.6.2</span> Beziehungen</h3>
+<h3 id="beziehungen-5"><span class="header-section-number">1.12.2</span> Beziehungen</h3>
 <ul>
+<li>Jeder Tagesordnungspunkt gehört zu einer Sitzung.</li>
 <li>Es können mehrere Objekte vom Typ &quot;Stimmabgabe&quot; referenziert werden, um das Abstimmungsverhalten von Fraktionen oder Einzelpersonen zu dokumentieren.</li>
 <li>Es können Personen referenziert werden, die während der Abstimmung zu diesem Tagesordnungspunkt <em>nicht</em> anwesend waren.</li>
 </ul>
-<h2 id="stimmabgabe"><span class="header-section-number">2.7</span> Stimmabgabe</h2>
+<h2 id="stimmabgabe"><span class="header-section-number">1.13</span> Stimmabgabe</h2>
 <p>Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt abgestimmt hat, wird durch eine Stimmabgabe festgehalten. Ganze Abstimmungsergebnisse bestehen überlicherweise aus mehreren Stimmabgaben. Jede Stimmabgabe gibt entweder die (einzelne) Stimme einer Peson wieder, in diesem Fall ist die Anzahl der Stimmen zwingend 1. Oder eine Stimmabgabe gibt das Abstimmungsverhalten einer ganzen Gruppe von Personen wieder. Dann ist die Anzahl der Stimmen anzugeben und statt einer Person eine Organisation (in der Regel die Fraktion) zu referenzieren.</p>
 <div class="figure">
 <embed src="images/datenmodell_stimmabgabe.pdf"><p class="caption">Objekttyp Stimmabgabe</p>
 </div>
-<h3 id="eigenschaften-6"><span class="header-section-number">2.7.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-6"><span class="header-section-number">1.13.1</span> Eigenschaften</h3>
 <dl>
 <dt>Anzahl der Stimmen</dt>
 <dd>Gehört die Stimmabgabe zu einer Person, ist der Wert immer 1. Gehört sie jedoch zu einer Organisation (=Fraktion), kann der Wert hier größer als 1 sein.
@@ -294,12 +296,12 @@
 <dd>Einer der drei Werte &quot;ja&quot; (gleichbedeutend mit &quot;dafür&quot;), &quot;nein&quot; (&quot;dagegen&quot;) oder &quot;Enthaltung&quot;.
 </dd>
 </dl>
-<h3 id="beziehungen-6"><span class="header-section-number">2.7.2</span> Beziehungen</h3>
+<h3 id="beziehungen-6"><span class="header-section-number">1.13.2</span> Beziehungen</h3>
 <ul>
 <li>Jede Stimmabgabe gehört zu genau einem Tagesordnungspunkt.</li>
 <li>Es wird entweder genau eine Person oder genau eine Organisation (Fraktion) referenziert, die die Stimme(n) abgegeben hat.</li>
 </ul>
-<h2 id="drucksache"><span class="header-section-number">2.8</span> Drucksache</h2>
+<h2 id="drucksache"><span class="header-section-number">1.14</span> Drucksache</h2>
 <p>Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen, Beschlussvorlagen, Anfragen und Anträge ab. Jede Drucksache erhält eine eindeutige Kennung.</p>
 <p>Die Drucksache hat im Informationsmodell eine hervorgehobene Bedeutung. Im Fall eines Antrags kann mit einer einzigen Drucksache ein über Monate oder Jahre dauernder politischer Entscheidungsprozess verbunden sein. In dem Zusammenhang entstehen üblicherweise weitere Drucksachen.</p>
 <p>Drucksachen spielen in der schriftlichen wie mündlichen Kommunikation eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in Ratsinformationssystemen unveränderliche Kennungen der Drucksachen zum Einsatz.</p>
@@ -314,7 +316,7 @@
 <li><strong>Mitteilung/Stellungnahme der Verwaltung</strong>: Eine Information der Verwaltung an einzelne oder mehrere Gremien. Darunter fallen nicht Beantwortungen von Anfragen.</li>
 <li><strong>Beantwortung einer Anfrage</strong>: Antwort der Verwaltung auf (mündliche oder schriftliche) Anfragen</li>
 </ul>
-<h3 id="eigenschaften-7"><span class="header-section-number">2.8.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-7"><span class="header-section-number">1.14.1</span> Eigenschaften</h3>
 <dl>
 <dt>Kennung</dt>
 <dd>Die Kennung einer Drucksache muss für die jeweilige Gebietskörperschaft eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben enthalten. Einige Systeme (z.B. Köln) verwenden besondere Trennzeichen wie &quot;/&quot;, um eine Jahreszahl von einer laufenden Nummer abzutrennen. Weiterhin werden mancherorts führende Nullen verwendet.
@@ -326,7 +328,7 @@
 <dd>Art der Drucksache (Erläuterung siehe oben)
 </dd>
 </dl>
-<h3 id="beziehungen-7"><span class="header-section-number">2.8.2</span> Beziehungen</h3>
+<h3 id="beziehungen-7"><span class="header-section-number">1.14.2</span> Beziehungen</h3>
 <ul>
 <li>Es muss genau ein <strong>Hauptdokument</strong> (Objekttyp &quot;Dokument&quot;) referenziert werden.</li>
 <li>Es können beliebig viele weitere Dokumente referenziert werden, die als nachgeordnete <strong>Anlagen</strong> zur Drucksache verstanden werden.</li>
@@ -336,13 +338,13 @@
 <li>Beim Drucksachen-Typ &quot;Beantwortung einer Anfrage&quot; ist die Drucksache zu referenzieren, die die ursprüngliche <strong>Anfrage</strong> beinhaltet.</li>
 <li>Drucksachen können zu beliebig vielen Tagesordnungspunkten in Beziehung stehen, um die <strong>Beratungsfolge</strong> einer Drucksache abzubilden. Hierbei kann die Beziehung jeweils mit einer Rollenbezeichnung versehen sein, die noch näher zu bestimmen ist (TODO).</li>
 </ul>
-<h2 id="dokument"><span class="header-section-number">2.9</span> Dokument</h2>
+<h2 id="dokument"><span class="header-section-number">1.15</span> Dokument</h2>
 <p>Ein Dokument hält die Daten und Metadaten einer Datei vor, beispielsweise einer PDF-Datei, eines RTF- oder Word-Dokuments. Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls ein Dokument, das jedoch nicht als Master gekennzeichnet wird, sondern auf den entsprechenden Master verweist.</p>
 <p>Im Unterschied zur Drucksache benötigt das Dokument keine nutzerfreundliche Kennung.</p>
 <div class="figure">
 <embed src="images/datenmodell_dokument.pdf"><p class="caption">Objekttyp Dokument</p>
 </div>
-<h3 id="eigenschaften-8"><span class="header-section-number">2.9.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-8"><span class="header-section-number">1.15.1</span> Eigenschaften</h3>
 <dl>
 <dt>Kennung</dt>
 <dd>Unveränderliche Kennung
@@ -369,18 +371,18 @@
 <dd>Reine Text-Wiedergabe des Dokumenteninhalts, sofern es sich um ein Textdokument handelt.
 </dd>
 </dl>
-<h3 id="beziehungen-8"><span class="header-section-number">2.9.2</span> Beziehungen</h3>
+<h3 id="beziehungen-8"><span class="header-section-number">1.15.2</span> Beziehungen</h3>
 <ul>
 <li>Dokumente gehören zwingend zu einer <strong>Drucksache</strong>, optional auch zu mehreren. Ein Dokument kann entweder als Hauptdokument einer Drucksache oder als Anlage eingestuft sein.</li>
 <li>Ein Dokument kann auf ein anderes Dokument referenzieren, wenn es von dem anderen Dokument abstammt. So ist es möglich, von einem abgeleiteten Dokument zu seinem Dokumenten-Master zu gelangen (Beispiel: von einem PDF-Dokument zum OpenOffice-Original).</li>
 </ul>
-<h2 id="ort"><span class="header-section-number">2.10</span> Ort</h2>
+<h2 id="ort"><span class="header-section-number">1.16</span> Ort</h2>
 <p>Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen (beispielsweise der Name einer Straße/eines Platzes oder eine genaue Adresse) oder aus einer Geo-Koordinatenangabe aus Längen- und Breitengrad.</p>
 <p>Bislang finden sich nur beim Bonner System Beispiele für Ortsangaben.</p>
 <div class="figure">
 <embed src="images/datenmodell_ort.pdf"><p class="caption">Objekttyp Ort</p>
 </div>
-<h3 id="eigenschaften-9"><span class="header-section-number">2.10.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-9"><span class="header-section-number">1.16.1</span> Eigenschaften</h3>
 <dl>
 <dt>Textanabe</dt>
 <dd><em>Optional.</em> Textliche Beschreibung eines Orts, z.B. in Form einer Adresse
@@ -389,11 +391,11 @@
 <dd><em>Optional.</em> Längen- und Breitenangabe des Orts im WGS-84-System [11]
 </dd>
 </dl>
-<h3 id="beziehungen-9"><span class="header-section-number">2.10.2</span> Beziehungen</h3>
+<h3 id="beziehungen-9"><span class="header-section-number">1.16.2</span> Beziehungen</h3>
 <ul>
 <li>Orte können mit Drucksachen in Verbindung stehen.</li>
 </ul>
-<h1 id="glossar"><span class="header-section-number">3</span> Glossar</h1>
+<h1 id="glossar"><span class="header-section-number">2</span> Glossar</h1>
 <dl>
 <dt>AGS</dt>
 <dd><p>Amtlicher Gemeindeschlüssel</p>
@@ -405,7 +407,7 @@
 <dd>World Geodetic System 1984. Ein weltweites Referenzsystem für die Interpretation von Geokoordinaten-Angaben.
 </dd>
 </dl>
-<h1 id="fußnoten"><span class="header-section-number">4</span> Fußnoten</h1>
+<h1 id="fußnoten"><span class="header-section-number">3</span> Fußnoten</h1>
 <p>[1]: Siehe <a href="https://www.destatis.de/DE/Methoden/Klassifikationen/Bevoelkerung/StaatsangehoerigkeitGebietsschluessel.html">www.destatis.de/...</a></p>
 <p>[2]: Ratsinformationssystem der Stadt Köln, <a href="http://ratsinformation.stadt-koeln.de/">http://ratsinformation.stadt-koeln.de/</a></p>
 <p>[3]: Firma Somacos, <a href="http://www.somacos.de/de/sitzungsdienst/ratsinfo.html">SessionNet Produktinformation</a></p>

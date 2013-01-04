@@ -109,7 +109,7 @@ Titel
 :   _Optional_. Akademische Titel wie "Dr." und "Prof. Dr."
 Geschlecht
 :   _Optional_. Männlich/Weblich
-Berufsbezeichnung
+Beruf
 :   _Optional_. Z.B. "Rechtsanwalt"
 Partei
 :   _Optional_. Z.B. "Bündnis 90/Grüne"
@@ -223,6 +223,7 @@ Beschlusstext
 
 ### Beziehungen ###
 
+* Jeder Tagesordnungspunkt gehört zu einer Sitzung.
 * Es können mehrere Objekte vom Typ "Stimmabgabe" referenziert werden, um das Abstimmungsverhalten von Fraktionen oder Einzelpersonen zu dokumentieren.
 * Es können Personen referenziert werden, die während der Abstimmung zu diesem Tagesordnungspunkt *nicht* anwesend waren.
 

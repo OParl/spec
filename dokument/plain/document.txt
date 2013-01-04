@@ -138,8 +138,10 @@ OpenOffice-Version dieses Dokuments und ändern Sie das Dokument so, dass
 Aufzeichnen; Word: Ribbon "Überprüfen" > Nachverfolgung > Änderungen
 nachverfolgen).
 
-Datenmodell
-===========
+Mitwirkende
+-----------
+
+Felix Ebert Datenmodell ===========
 
 Das Datenmodell soll die Bausteine für die später zu entwerfende
 Schnittstelle definieren. Im folgenden werden sozusagen die Objekttypen
@@ -302,7 +304,7 @@ Titel
     Optional. Akademische Titel wie "Dr." und "Prof. Dr."
 Geschlecht
     Optional. Männlich/Weblich
-Berufsbezeichnung
+Beruf
     Optional. Z.B. "Rechtsanwalt"
 Partei
     Optional. Z.B. "Bündnis 90/Grüne"
@@ -462,6 +464,7 @@ Anmerkungen
 
 Beziehungen
 
+-   Jeder Tagesordnungspunkt gehört zu einer Sitzung.
 -   Es können mehrere Objekte vom Typ "Stimmabgabe" referenziert werden,
     um das Abstimmungsverhalten von Fraktionen oder Einzelpersonen zu
     dokumentieren.

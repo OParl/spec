@@ -1,0 +1,24 @@
+﻿{
+    "id": "05315000",
+    "name": "Stadt Köln",
+    "gremien": [
+        {
+            "id": "STA",
+            "name": "Stadtentwicklungsausschuss"
+        },
+        {
+            "id": "BA",
+            "name": "Ausschuss für Anregungen und Beschwerden"
+        }
+    ],
+    "organisationen": [
+        {
+            "id": "2000",
+            "name": "SPD"
+        },
+        {
+            "id": "2001",
+            "name": "CDU"
+        }
+    ]
+}

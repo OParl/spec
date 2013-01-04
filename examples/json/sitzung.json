@@ -1,0 +1,14 @@
+﻿{
+    "id": "BV1/0034/2012",
+    "anfang": "2013-01-04T08:00:00+01:00",
+    "ende": "2013-01-04T12:00:00+01:00",
+    "nummer": 1,
+    "gremium": "STA",
+    "personen": [
+        "1000",
+        "1001"
+    ],
+    "einladung": "0001/2013",
+    "ergebnisprotokoll": "0002/2013",
+    "wortprotokoll": "0003/2013"
+}

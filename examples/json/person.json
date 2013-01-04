@@ -1,0 +1,22 @@
+﻿{
+    "id": "1000",
+    "vorname": "Max",
+    "nachname": "Mustermann",
+    "titel": "Dr.",
+    "geschlecht": "m",
+    "berufsbezeichnung": "Rechtsanwalt",
+    "email": "max@mustermann.de",
+    "telefon": "+4977777",
+    "fax": "+4988888",
+    "anschrift": "Musterstraße 5, 11111 Musterort",
+    "partei": {
+        "id": "2000",
+        "datum": "01.01.2013"
+    },
+    "gremien": [
+        {
+            "id": "STA",
+            "datum": "01.01.2013"
+        }
+    ]
+}

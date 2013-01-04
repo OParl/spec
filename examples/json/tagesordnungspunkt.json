@@ -1,0 +1,29 @@
+﻿{
+    "nummer": "3.1.2",
+    "oeffentlich": true,
+    "titel": "Gemeinschaftsgrundschule Hornschaftsstraße/Höhenhaus. Hier: Anfrage von Herrn Philippi",
+    "ergebnis": "geändert beschlossen",
+    "beschlusstext": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
+    "sitzung": "BV1/0034/2012",
+    "abwesendePersonen": [
+        "1002",
+        "1003"
+    ],
+    "stimmabgaben": [
+        {
+            "anzahlPersonen": 2,
+            "votum": "Ja",
+            "organisation": "2000"
+        },
+        {
+            "anzahlPersonen": 1,
+            "votum": "Enthaltung",
+            "person": "1000"
+        },
+        {
+            "anzahlPersonen": 1,
+            "votum": "Nein",
+            "person": "1001"
+        }
+    ]
+}

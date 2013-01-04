@@ -1,0 +1,33 @@
+﻿{
+    "id": "1234/2012",
+    "datum": "2013-01-04",
+    "typ": "Beantwortung einer Anfrage",
+    "anfrage": "3001.pdf",
+    "hauptdokument": "3000.pdf",
+    "anlagen": [
+        "3002.pdf",
+        "3003.pdf"
+    ],
+    "ort": {
+        "textangabe": "Theodor-Heuss-Ring 1",
+        "lat": 7.148,
+        "lon": 50.023
+    },
+    "gremium": "STA",
+    "urheber": [
+        {
+            "typ": "Organisation",
+            "id": "2000"
+        },
+        {
+            "typ": "Person",
+            "id": "1000"
+        }
+    ],
+    "beratungsfolge": [
+        {
+            "tagesordnungspunkt": "3.1.2",
+            "rolle": "noch genauer zu definieren (TODO)"
+        }
+    ]
+}

@@ -5,7 +5,7 @@ Das Datenmodell soll die Bausteine für die später zu entwerfende Schnittstelle
 
 Einige Objekte werden eine eindeutige Identifizierung (ID) benötigen, wobei „eindeutig“ auch eine Frage des Kontextes ist. In den wenigsten Fällen wird es notwendig sein, eine Objekt-Kennung weltweit eindeutig zu machen. Darüber hinaus wird zu entscheiden sein, ob IDs unveränderlich oder veränderlich sein sollen.
 
-Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen beziehen sich auf nach außen, bei Nutzung der Weboverfläche, feststellbare Eigenschaften. Es wird auf die folgenden Systeme Bezug genommen:
+Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen beziehen sich auf nach außen, bei Nutzung der jeweiligen Weboberflächen, feststellbare Eigenschaften. Dabei wird vereinzelt und beispielhaft auf die folgenden Systeme Bezug genommen:
 
 * Stadt Köln [2] - Plattform: Somacos SessionNet [3]
 * Bezirksverwaltung Berlin Mitte [4] - Plattform: ALLRIS [5]
@@ -21,6 +21,8 @@ Durch die aktuelle Detailtiefe der Beschreibungen soll vor allem die Frage "Was 
 
 Detailliertere Anforderungen an die Eigenschaften ("Wie genau soll eine Information gespeichert werden?") werden zu einem späteren Zeitpunkt erörtert.
 
+Eigenschaften werden aktuell deutschsprachig benannt. Es wird beabsichtigt, die Benennungen zu einem späteren Zeitpunkt im Entwurfsprozess gegen Eenglischsprachige Begriffe auszutauschen.
+
 ### Zu den Beziehungen ###
 
 Bei Beschreibung der Beziehungen zwischen Objekten wird zu diesem Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei Objekten A und B am Objekt A oder am Objekt B definiert wird. So spielt es bislang keine Rolle, ob einem Gremium mehrere Personen zugeordnet werden oder einer Person mehrere Gremien zugewiesen werden. Das Augenmerkt liegt hier nur auf der Tatsache, welche Beziehung existieren können und was diese Beziehungen aussagen sollen.
@@ -31,7 +33,7 @@ Gebietskörperschaft
 
 Die Gebietskörperschaft erlaubt es, Körperschaften wie einen bestimmten Landkreis, eine bestimmte Gemeinde oder einen bestimmten Stadtbezirk in Form eines Datenobjekts abzubilden.
 
-Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“. Denkbar ist aber auch, dass Systeme für einen Verbund von mehreren Körperschaften betrieben werden.
+Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“. Einige Systeme werden jedoch für mehrere Mandanten betrieben, wobei die Mandanten verschiedene Gebietskörperschaften repräsentieren (z.B. "Verbandsgemeinde Ulmen" und "Stadt Ulmen".)
 
 ![Objekttyp Gebietskörperschaft](images/datenmodell_gebietskoerperschaft.pdf)
 
@@ -58,7 +60,7 @@ Name
 ### Beziehungen ###
 
 * Objekte vom Typ "Organisation" sind zwingend genau einer Gebietskörperschaft zugeordnet. So wird beispielseise eine SPD in Köln von einer SPD in Leverkusen unterschieden.
-* Objekte vom Typ "Gremium" sind zwingend einer genau einer Gebietskörperschaft zugeordnet. Damit wird der "Rat" einer bestimmten Kommune von den gleichnamigen Gremien anderer Kommunen abgegrenzt.
+* Objekte vom Typ "Gremium" sind zwingend genau einer Gebietskörperschaft zugeordnet. Damit wird der "Rat" einer bestimmten Kommune von den gleichnamigen Gremien anderer Kommunen abgegrenzt.
 
 
 Gremium
@@ -125,8 +127,8 @@ Anschrift
 
 #### Anmerkungen ####
 
-* Das System von Euskirchen scheint Vor- und Nachname (evtl. einschl. Titel) in einem gemeinsamen Feld "Name" zu führen. Ob das System hier technisch differenziert, ist unklar. Falls einzelne Systeme den angezeigten Namen nur als ganzes Speichern, sollte dies für den Standard übernommen werden, da es für die meisten Anwendungen ausreichen sollte.
-* Das Rösrather System kennzeichnet, ob Anschriften privat oder geschäftlich sind.
+* Das System von Euskirchen scheint Vor- und Nachname (evtl. einschl. Titel) in einem gemeinsamen Feld "Name" zu führen. Ob das System hier technisch differenziert, ist unklar. Falls einzelne Systeme den angezeigten Namen nur als ganzes speichern, sollte dies für den Standard übernommen werden, da es für die meisten Anwendungen ausreichen sollte.
+* Das System PROVOX unterscheidet zwischen privaten und geschäftlichen Anschriften.
 
 
 ### Beziehungen ###
@@ -145,13 +147,13 @@ Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die Personen 
 ### Eigenschaften ###
 
 Kennung
-:   Zur eundeitigen Kennzeichnung einer Organisation innerhalb einer Gebietskörperschaft
+:   Zur eindeutigen Kennzeichnung einer Organisation innerhalb einer Gebietskörperschaft
 Name
 :   Der gebräuchliche Name der Organisation, z.B. "SPD" oder "DIE LINKE".
 
 #### Anmerkungen ####
 
-* Unklar ist bislang, ob Organisationen in der Praxis eher Fraktionen ("SPD-Fraktion im Kölner Rat", "SPD-Fraktion in Köln-Innenstadt") abbilden oder ob eher Ortsverbände von Parteien ("SPD Köln") gemeint sein werden. Einblicke, wie gängige Systeme dies handhaben, sollten gesammelt und berücksichtigt werden.
+* Unklar ist bislang, ob Organisationen in der Praxis eher Fraktionen ("SPD-Fraktion im Kölner Rat", "SPD-Fraktion in Köln-Innenstadt") abbilden oder ob eher Ortsverbände von Parteien ("SPD Köln") gemeint sein werden. Einblicke, wie gängige Systeme dies handhaben, sollten evtl. gesammelt und berücksichtigt werden.
 
 ### Beziehungen ###
 
@@ -170,19 +172,14 @@ Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in entspreche
 
 ### Eigenschaften ###
 
-Kennung
+Eindeutige Kennung
 :   Zur eindeutigen Identifizierung der Sitzung innerhalb einer Gebietskörperschaft. In der Praxis wird eine solche Kennzeichnung entweder durch eine laufende Nummer gebildet, oder durch Kombination mehrerer Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung in einem Jahr und der Jahreszahl (z.B. "BV1/0034/2012").
 Nummer
 :   _Optional_. Laufende Nummer der Sitzung, üblicherweise innerhalb der Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die "2. Sitzung des Rats" gekennzeichnet.
 Anfang
-:   Datum und Uhrzeit des Anfangs der Sitzung
+:   Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung
 Ende
 :   _Optional_. Datum und Uhrzeit vom Ende der Sitzung
-
-
-#### Anmerkung ####
-
-* Unklar ist, ob der Anfangszeitpunkt besser durch zwei getrennte Felder kodiert werden sollte: Anfangs-Datum (als Pflichtfeld) und Anfangs-Uhrzeit als optionales Feld. Dadurch könnten zukünftige Sitzungen, deren Uhrzeit noch nicht feststeht, korrekt abgebildet werden. Es müsste geprüft werden, ob dies in der Praxis relevant ist.
 
 
 ### Beziehungen ###

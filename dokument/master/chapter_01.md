@@ -39,7 +39,7 @@ Nächste Schritte
 
 1. Bis Ende Mai 2012: Einsammeln von Feedback zum Entwurf des Datenmodells
 2. Anpassen des Entwurfs anhand von Feedback
-3. Erarbeitung eines Entwurfs für eine HTTP-basierte Schnittstelle. Darin soll beschrieben werden, wie über HTTP die zuvor beschriebenen Daten abgerufen werden sollen.
+3. Erarbeitung eines Entwurfs für eine HTTP-basierte Schnittstelle zum lesenden Zugriff auf Daten. Darin soll beschrieben werden, wie über HTTP die zuvor beschriebenen Daten abgerufen werden sollen.
 
 
 Feedback

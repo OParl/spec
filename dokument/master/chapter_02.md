@@ -186,11 +186,11 @@ Ende
 
 * Sitzungen sind grundsätzlich genau einem Gremium zugeordnet.
 * Personen sind Sitzungen zugeordnet, um die Teilnahme an der Sitzung auszudrücken.
-* Drucksachen werden vom Typ "Sitzung" _optional_ zu mehreren Zwecken referenziert:
+* Dokumente können vom Typ "Sitzung" _optional_ zu mehreren Zwecken referenziert werden:
     * Zum Verweis auf die Einladung zur Sitzung
     * Zum Verweis auf das Ergebnisprotokoll zur Sitzung
     * Zum Verweis auf das Wortprotokoll zur Sitzung
-
+* Weiterhin können Sitzungen beliebige weitere Dokumente, die keine eigenständigen Drucksachen sind, referenzieren.
 
 Tagesordnungspunkt
 ------------------

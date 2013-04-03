@@ -13,6 +13,7 @@ Die Quelldateien sind reine Textdateien (Zeichensatz: UTF-8) mit Markdown-Format
 
 **Übrigens:** [prose.io](http://prose.io/) ist ein fantastischer Web-basierter Editor, mit dem Du die Markdown-Dateien in Deinem eigenen Repository spielend im Browser bearbeiten kannst.
 
+Änderungsinfos können übrigens in Form eines [Atom Feeds](https://github.com/marians/open-ris-specs/commits/master.atom) abonniert werden.
 
 Derivate: Bequemes Lesen auf verschiedenen Geräten
 --------------------------------------------------

@@ -31,10 +31,10 @@
     </para>
     <para>
       In Deutschland gibt es über 10.000 Kommunen, außerdem hunderte
-      weitere Körperschaften, die über RIS-ähnliche Systeme verfügen.
-      Sollten diese beginnen, ihre RIS zu öffnen, werden sie sämtlich
-      vor der Frage stehen, wie Daten zu modellieren und Schnittstellen
-      (APIs) zu spezifizieren sind.
+      weitere Körperschaften, die potenziell über RIS-ähnliche Systeme
+      verfügen. Sollten diese beginnen, ihre RIS zu öffnen, werden sie
+      sämtlich vor der Frage stehen, wie Daten zu modellieren und
+      Schnittstellen (APIs) zu spezifizieren sind.
     </para>
     <para>
       Sowohl die Anbieter der Daten, als auch die Abnehmer (die
@@ -51,8 +51,9 @@
   <sect2 id="status">
     <title>Status</title>
     <para>
-      Dieser Entwurf gibt aktuell einen Vorschlag des Autors wieder.
-      Bisher ist noch kein Feedback eingeflossen.
+      Dieser Entwurf gibt aktuell einen ersten Vorschlag des Autors
+      wieder. Es ist vereinzelt Feedback eingeflossen (siehe
+      &quot;Mitwirkende&quot;).
     </para>
   </sect2>
   <sect2 id="überblick">
@@ -91,7 +92,7 @@
     <orderedlist numeration="arabic">
       <listitem>
         <para>
-          Bis Ende Januar 2012: Einsammeln von Feedback zum Entwurf des
+          Bis Ende Mai 2012: Einsammeln von Feedback zum Entwurf des
           Datenmodells
         </para>
       </listitem>
@@ -102,8 +103,9 @@
       </listitem>
       <listitem>
         <para>
-          Erarbeitung eines Entwurfs für eine REST-Schnittstelle. Darin
-          soll beschrieben werden, wie über HTTP die zuvor beschriebenen
+          Erarbeitung eines Entwurfs für eine HTTP-basierte
+          Schnittstelle zum lesenden Zugriff auf Daten. Darin soll
+          beschrieben werden, wie über HTTP die zuvor beschriebenen
           Daten abgerufen werden sollen.
         </para>
       </listitem>
@@ -231,7 +233,7 @@
   <sect2 id="mitwirkende">
     <title>Mitwirkende</title>
     <para>
-      Felix Ebert
+      Felix Ebert, Jan Erhardt
     </para>
   </sect2>
 </sect1>
@@ -252,9 +254,9 @@
   </para>
   <para>
     Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen
-    beziehen sich auf nach außen, bei Nutzung der Weboverfläche,
-    feststellbare Eigenschaften. Es wird auf die folgenden Systeme Bezug
-    genommen:
+    beziehen sich auf nach außen, bei Nutzung der jeweiligen
+    Weboberflächen, feststellbare Eigenschaften. Dabei wird vereinzelt
+    und beispielhaft auf die folgenden Systeme Bezug genommen:
   </para>
   <itemizedlist>
     <listitem>
@@ -300,6 +302,11 @@
       soll eine Information gespeichert werden?&quot;) werden zu einem
       späteren Zeitpunkt erörtert.
     </para>
+    <para>
+      Eigenschaften werden aktuell deutschsprachig benannt. Es wird
+      beabsichtigt, die Benennungen zu einem späteren Zeitpunkt im
+      Entwurfsprozess gegen Eenglischsprachige Begriffe auszutauschen.
+    </para>
   </sect2>
   <sect2 id="zu-den-beziehungen">
     <title>Zu den Beziehungen</title>
@@ -323,8 +330,10 @@
     </para>
     <para>
       Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“.
-      Denkbar ist aber auch, dass Systeme für einen Verbund von mehreren
-      Körperschaften betrieben werden.
+      Einige Systeme werden jedoch für mehrere Mandanten betrieben,
+      wobei die Mandanten verschiedene Gebietskörperschaften
+      repräsentieren (z.B. &quot;Verbandsgemeinde Ulmen&quot; und
+      &quot;Stadt Ulmen&quot;.)
     </para>
     <figure>
       <title>Objekttyp Gebietskörperschaft</title>
@@ -411,8 +420,8 @@
         </listitem>
         <listitem>
           <para>
-            Objekte vom Typ &quot;Gremium&quot; sind zwingend einer
-            genau einer Gebietskörperschaft zugeordnet. Damit wird der
+            Objekte vom Typ &quot;Gremium&quot; sind zwingend genau
+            einer Gebietskörperschaft zugeordnet. Damit wird der
             &quot;Rat&quot; einer bestimmten Kommune von den
             gleichnamigen Gremien anderer Kommunen abgegrenzt.
           </para>
@@ -651,15 +660,15 @@
               einschl. Titel) in einem gemeinsamen Feld &quot;Name&quot;
               zu führen. Ob das System hier technisch differenziert, ist
               unklar. Falls einzelne Systeme den angezeigten Namen nur
-              als ganzes Speichern, sollte dies für den Standard
+              als ganzes speichern, sollte dies für den Standard
               übernommen werden, da es für die meisten Anwendungen
               ausreichen sollte.
             </para>
           </listitem>
           <listitem>
             <para>
-              Das Rösrather System kennzeichnet, ob Anschriften privat
-              oder geschäftlich sind.
+              Das System PROVOX unterscheidet zwischen privaten und
+              geschäftlichen Anschriften.
             </para>
           </listitem>
         </itemizedlist>
@@ -710,7 +719,7 @@
           </term>
           <listitem>
             <para>
-              Zur eundeitigen Kennzeichnung einer Organisation innerhalb
+              Zur eindeutigen Kennzeichnung einer Organisation innerhalb
               einer Gebietskörperschaft
             </para>
           </listitem>
@@ -737,7 +746,8 @@
               &quot;SPD-Fraktion in Köln-Innenstadt&quot;) abbilden oder
               ob eher Ortsverbände von Parteien (&quot;SPD Köln&quot;)
               gemeint sein werden. Einblicke, wie gängige Systeme dies
-              handhaben, sollten gesammelt und berücksichtigt werden.
+              handhaben, sollten evtl. gesammelt und berücksichtigt
+              werden.
             </para>
           </listitem>
         </itemizedlist>
@@ -787,7 +797,7 @@
       <variablelist>
         <varlistentry>
           <term>
-            Kennung
+            Eindeutige Kennung
           </term>
           <listitem>
             <para>
@@ -820,7 +830,7 @@
           </term>
           <listitem>
             <para>
-              Datum und Uhrzeit des Anfangs der Sitzung
+              Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung
             </para>
           </listitem>
         </varlistentry>
@@ -836,21 +846,6 @@
           </listitem>
         </varlistentry>
       </variablelist>
-      <sect4 id="anmerkung">
-        <title>Anmerkung</title>
-        <itemizedlist>
-          <listitem>
-            <para>
-              Unklar ist, ob der Anfangszeitpunkt besser durch zwei
-              getrennte Felder kodiert werden sollte: Anfangs-Datum (als
-              Pflichtfeld) und Anfangs-Uhrzeit als optionales Feld.
-              Dadurch könnten zukünftige Sitzungen, deren Uhrzeit noch
-              nicht feststeht, korrekt abgebildet werden. Es müsste
-              geprüft werden, ob dies in der Praxis relevant ist.
-            </para>
-          </listitem>
-        </itemizedlist>
-      </sect4>
     </sect3>
     <sect3 id="beziehungen-4">
       <title>Beziehungen</title>
@@ -868,9 +863,9 @@
         </listitem>
         <listitem>
           <para>
-            Drucksachen werden vom Typ &quot;Sitzung&quot;
+            Dokumente können vom Typ &quot;Sitzung&quot;
             <emphasis>optional</emphasis> zu mehreren Zwecken
-            referenziert:
+            referenziert werden:
           </para>
           <itemizedlist>
             <listitem>
@@ -889,6 +884,12 @@
               </para>
             </listitem>
           </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>
+            Weiterhin können Sitzungen beliebige weitere Dokumente, die
+            keine eigenständigen Drucksachen sind, referenzieren.
+          </para>
         </listitem>
       </itemizedlist>
     </sect3>

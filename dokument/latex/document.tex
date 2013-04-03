@@ -90,10 +90,10 @@ verschiedene Art und Weise auswerten, abrufbar und nutzbar machen, sei
 es für die Allgemeinheit oder für bestimmte Nutzerkreise.
 
 In Deutschland gibt es über 10.000 Kommunen, außerdem hunderte weitere
-Körperschaften, die über RIS-ähnliche Systeme verfügen. Sollten diese
-beginnen, ihre RIS zu öffnen, werden sie sämtlich vor der Frage stehen,
-wie Daten zu modellieren und Schnittstellen (APIs) zu spezifizieren
-sind.
+Körperschaften, die potenziell über RIS-ähnliche Systeme verfügen.
+Sollten diese beginnen, ihre RIS zu öffnen, werden sie sämtlich vor der
+Frage stehen, wie Daten zu modellieren und Schnittstellen (APIs) zu
+spezifizieren sind.
 
 Sowohl die Anbieter der Daten, als auch die Abnehmer (die
 Anwendungsentwickler) werden von einer Standardisierung der
@@ -105,8 +105,8 @@ und als Diskussionsgrundlage dienen.
 
 \subsection{Status}
 
-Dieser Entwurf gibt aktuell einen Vorschlag des Autors wieder. Bisher
-ist noch kein Feedback eingeflossen.
+Dieser Entwurf gibt aktuell einen ersten Vorschlag des Autors wieder. Es
+ist vereinzelt Feedback eingeflossen (siehe ``Mitwirkende'').
 
 \subsection{Überblick}
 
@@ -132,14 +132,14 @@ Datenmodells.
 
 \begin{enumerate}[1.]
 \item
-  Bis Ende Januar 2012: Einsammeln von Feedback zum Entwurf des
+  Bis Ende Mai 2012: Einsammeln von Feedback zum Entwurf des
   Datenmodells
 \item
   Anpassen des Entwurfs anhand von Feedback
 \item
-  Erarbeitung eines Entwurfs für eine REST-Schnittstelle. Darin soll
-  beschrieben werden, wie über HTTP die zuvor beschriebenen Daten
-  abgerufen werden sollen.
+  Erarbeitung eines Entwurfs für eine HTTP-basierte Schnittstelle zum
+  lesenden Zugriff auf Daten. Darin soll beschrieben werden, wie über
+  HTTP die zuvor beschriebenen Daten abgerufen werden sollen.
 \end{enumerate}
 
 \subsection{Feedback}
@@ -221,7 +221,7 @@ OpenOffice-Version dieses Dokuments und ändern Sie das Dokument so, dass
 
 \subsection{Mitwirkende}
 
-Felix Ebert
+Felix Ebert, Jan Erhardt
 
 \section{Datenmodell}
 
@@ -237,9 +237,9 @@ machen. Darüber hinaus wird zu entscheiden sein, ob IDs unveränderlich
 oder veränderlich sein sollen.
 
 Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen
-beziehen sich auf nach außen, bei Nutzung der Weboverfläche,
-feststellbare Eigenschaften. Es wird auf die folgenden Systeme Bezug
-genommen:
+beziehen sich auf nach außen, bei Nutzung der jeweiligen Weboberflächen,
+feststellbare Eigenschaften. Dabei wird vereinzelt und beispielhaft auf
+die folgenden Systeme Bezug genommen:
 
 \begin{itemize}
 \item
@@ -268,6 +268,10 @@ Detailliertere Anforderungen an die Eigenschaften (``Wie genau soll eine
 Information gespeichert werden?'') werden zu einem späteren Zeitpunkt
 erörtert.
 
+Eigenschaften werden aktuell deutschsprachig benannt. Es wird
+beabsichtigt, die Benennungen zu einem späteren Zeitpunkt im
+Entwurfsprozess gegen Eenglischsprachige Begriffe auszutauschen.
+
 \subsubsection{Zu den Beziehungen}
 
 Bei Beschreibung der Beziehungen zwischen Objekten wird zu diesem
@@ -285,8 +289,9 @@ Landkreis, eine bestimmte Gemeinde oder einen bestimmten Stadtbezirk in
 Form eines Datenobjekts abzubilden.
 
 Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen``.
-Denkbar ist aber auch, dass Systeme für einen Verbund von mehreren
-Körperschaften betrieben werden.
+Einige Systeme werden jedoch für mehrere Mandanten betrieben, wobei die
+Mandanten verschiedene Gebietskörperschaften repräsentieren
+(z.B.''Verbandsgemeinde Ulmen" und ``Stadt Ulmen''.)
 
 \begin{figure}[htbp]
 \centering
@@ -340,7 +345,7 @@ Der Name der Gebietskörperschaft, z.B. ``Köln'' oder ``Stadt Köln''.
   Gebietskörperschaft zugeordnet. So wird beispielseise eine SPD in Köln
   von einer SPD in Leverkusen unterschieden.
 \item
-  Objekte vom Typ ``Gremium'' sind zwingend einer genau einer
+  Objekte vom Typ ``Gremium'' sind zwingend genau einer
   Gebietskörperschaft zugeordnet. Damit wird der ``Rat'' einer
   bestimmten Kommune von den gleichnamigen Gremien anderer Kommunen
   abgegrenzt.
@@ -445,12 +450,12 @@ Der Nachname der Person.
   Das System von Euskirchen scheint Vor- und Nachname (evtl. einschl.
   Titel) in einem gemeinsamen Feld ``Name'' zu führen. Ob das System
   hier technisch differenziert, ist unklar. Falls einzelne Systeme den
-  angezeigten Namen nur als ganzes Speichern, sollte dies für den
+  angezeigten Namen nur als ganzes speichern, sollte dies für den
   Standard übernommen werden, da es für die meisten Anwendungen
   ausreichen sollte.
 \item
-  Das Rösrather System kennzeichnet, ob Anschriften privat oder
-  geschäftlich sind.
+  Das System PROVOX unterscheidet zwischen privaten und geschäftlichen
+  Anschriften.
 \end{itemize}
 
 \subsubsection{Beziehungen}
@@ -480,7 +485,7 @@ Personen angehören können.
 
 \begin{description}
 \item[Kennung]
-Zur eundeitigen Kennzeichnung einer Organisation innerhalb einer
+Zur eindeutigen Kennzeichnung einer Organisation innerhalb einer
 Gebietskörperschaft
 \item[Name]
 Der gebräuchliche Name der Organisation, z.B. ``SPD'' oder ``DIE
@@ -495,7 +500,7 @@ LINKE''.
   (``SPD-Fraktion im Kölner Rat'', ``SPD-Fraktion in Köln-Innenstadt'')
   abbilden oder ob eher Ortsverbände von Parteien (``SPD Köln'') gemeint
   sein werden. Einblicke, wie gängige Systeme dies handhaben, sollten
-  gesammelt und berücksichtigt werden.
+  evtl. gesammelt und berücksichtigt werden.
 \end{itemize}
 
 \subsubsection{Beziehungen}
@@ -525,7 +530,7 @@ Ergebnis- und Wortprotokoll) werden ebenfalls referenziert.
 \subsubsection{Eigenschaften}
 
 \begin{description}
-\item[Kennung]
+\item[Eindeutige Kennung]
 Zur eindeutigen Identifizierung der Sitzung innerhalb einer
 Gebietskörperschaft. In der Praxis wird eine solche Kennzeichnung
 entweder durch eine laufende Nummer gebildet, oder durch Kombination
@@ -536,21 +541,10 @@ Sitzung in einem Jahr und der Jahreszahl (z.B. ``BV1/0034/2012'').
 der Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die
 ``2. Sitzung des Rats'' gekennzeichnet.
 \item[Anfang]
-Datum und Uhrzeit des Anfangs der Sitzung
+Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung
 \item[Ende]
 \emph{Optional}. Datum und Uhrzeit vom Ende der Sitzung
 \end{description}
-
-\paragraph{Anmerkung}
-
-\begin{itemize}
-\item
-  Unklar ist, ob der Anfangszeitpunkt besser durch zwei getrennte Felder
-  kodiert werden sollte: Anfangs-Datum (als Pflichtfeld) und
-  Anfangs-Uhrzeit als optionales Feld. Dadurch könnten zukünftige
-  Sitzungen, deren Uhrzeit noch nicht feststeht, korrekt abgebildet
-  werden. Es müsste geprüft werden, ob dies in der Praxis relevant ist.
-\end{itemize}
 
 \subsubsection{Beziehungen}
 
@@ -561,8 +555,8 @@ Datum und Uhrzeit des Anfangs der Sitzung
   Personen sind Sitzungen zugeordnet, um die Teilnahme an der Sitzung
   auszudrücken.
 \item
-  Drucksachen werden vom Typ ``Sitzung'' \emph{optional} zu mehreren
-  Zwecken referenziert:
+  Dokumente können vom Typ ``Sitzung'' \emph{optional} zu mehreren
+  Zwecken referenziert werden:
 
   \begin{itemize}
   \item
@@ -572,6 +566,9 @@ Datum und Uhrzeit des Anfangs der Sitzung
   \item
     Zum Verweis auf das Wortprotokoll zur Sitzung
   \end{itemize}
+\item
+  Weiterhin können Sitzungen beliebige weitere Dokumente, die keine
+  eigenständigen Drucksachen sind, referenzieren.
 \end{itemize}
 
 \subsection{Tagesordnungspunkt}

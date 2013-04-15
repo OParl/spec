@@ -22,7 +22,7 @@ Es stehen Exporte des Dokuments in verschiedensten Formaten zur Verfügung:
 
 * [PDF](https://github.com/marians/open-ris-specs/blob/master/dokument/pdf/document.pdf?raw=true)
 * [Word .docx](https://github.com/marians/open-ris-specs/blob/master/dokument/docx/document.docx?raw=true)
-* [OpenOffice .odt](https://github.com/marians/open-ris-specs/blob/master/dokument/docx/document.docx?raw=true)
+* [OpenOffice .odt](https://github.com/marians/open-ris-specs/blob/master/dokument/odt/document.odt?raw=true)
 
 und andere. Du findest alle Formate im Ordner 'dokument/'.
 

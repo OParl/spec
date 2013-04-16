@@ -1258,9 +1258,16 @@
         </listitem>
         <listitem>
           <para>
+            Drucksachen können auf andere Drucksachen referenzieren.
+            Diese Verweise können verschiedene semantische Beziehungen
+            ausdrücken. So kann eine Drucksache auf eine übergeordnete
+            oder eine oder mehrere untergeordnete Drucksachen verweisen.
             Beim Drucksachen-Typ &quot;Beantwortung einer Anfrage&quot;
             ist die Drucksache zu referenzieren, die die ursprüngliche
             <emphasis role="strong">Anfrage</emphasis> beinhaltet.
+            Denkbar sind auch Verweise auf frühere Drucksachen zum
+            selben Thema. Zu klären ist, wie die verschiedenen möglichen
+            Beziehungen formell ausgedrückt werden.
           </para>
         </listitem>
         <listitem>

@@ -1,29 +1,32 @@
 ﻿{
-    "nummer": "3.1.2",
-    "oeffentlich": true,
-    "titel": "Gemeinschaftsgrundschule Hornschaftsstraße/Höhenhaus. Hier: Anfrage von Herrn Philippi",
-    "ergebnis": "geändert beschlossen",
-    "beschlusstext": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
-    "sitzung": "BV1/0034/2012",
-    "abwesendePersonen": [
-        "1002",
-        "1003"
-    ],
-    "stimmabgaben": [
+    id: "48856",
+    label: "3.1.2",
+    public: true,
+    title: "Gemeinschaftsgrundschule Hornschaftsstraße/Höhenhaus. Hier: Anfrage von Herrn Philippi",
+    result: "BESCHLOSSEN_GEAENDERT",
+    resulttext: "Der Beschluss weicht wie folgt vom Antrag ab: ...",
+    session: {
+        id: "3271"
+    },
+    peopleabsent: ["1002", "1003"],
+    votings: [
         {
-            "anzahlPersonen": 2,
-            "votum": "Ja",
-            "organisation": "2000"
+            sum: 2,
+            vote: "DAFUER",
+            organisations: ["24"],
+            people: []
         },
         {
-            "anzahlPersonen": 1,
-            "votum": "Enthaltung",
-            "person": "1000"
+            sum: 1,
+            vote: "ENTHALTUNG",
+            organisations: [],
+            people: ["1000"]
         },
         {
-            "anzahlPersonen": 1,
-            "votum": "Nein",
-            "person": "1001"
+            sum: 1,
+            vote: "DAGEGEN",
+            organisations: [],
+            people: ["1001"]
         }
     ]
 }

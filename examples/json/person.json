@@ -1,22 +1,29 @@
 ﻿{
-    "id": "1000",
-    "vorname": "Max",
-    "nachname": "Mustermann",
-    "titel": "Dr.",
-    "geschlecht": "m",
-    "berufsbezeichnung": "Rechtsanwalt",
-    "email": "max@mustermann.de",
-    "telefon": "+4977777",
-    "fax": "+4988888",
-    "anschrift": "Musterstraße 5, 11111 Musterort",
-    "partei": {
-        "id": "2000",
-        "datum": "01.01.2013"
-    },
-    "gremien": [
+    id: "1000",
+    first_name: "Max",
+    last_name: "Mustermann",
+    academic_title: "Dr.",
+    sex: "M",
+    profession: "Rechtsanwalt",
+    email: "max@mustermann.de",
+    phone: "+4977777",
+    fax: "+4988888",
+    address: "Musterstraße 5, 11111 Musterort",
+    organisations: [
         {
-            "id": "STA",
-            "datum": "01.01.2013"
+            id: "2000",
+            start: "2011-03-01",
+            end: "2013-02-28"
+        },
+        {
+            id: "2001",
+            start: "2013-03-01"
+        }
+    ],
+    committees: [
+        {
+            id: "STA",
+            start: "2013-01-01"
         }
     ]
 }

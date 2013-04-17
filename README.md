@@ -13,16 +13,14 @@ Die Quelldateien sind reine Textdateien (Zeichensatz: UTF-8) mit Markdown-Format
 
 **Übrigens:** [prose.io](http://prose.io/) ist ein fantastischer Web-basierter Editor, mit dem Du die Markdown-Dateien in Deinem eigenen Repository spielend im Browser bearbeiten kannst.
 
-Änderungsinfos können übrigens in Form eines [Atom Feeds](https://github.com/marians/open-ris-specs/commits/master.atom) abonniert werden.
+Änderungsinfos können übrigens in Form eines [Atom Feeds](https://github.com/OParl/specs/commits/master.atom) abonniert werden.
 
 Derivate: Bequemes Lesen auf verschiedenen Geräten
 --------------------------------------------------
 
 Es stehen Exporte des Dokuments in verschiedensten Formaten zur Verfügung:
 
-* [PDF](https://github.com/marians/open-ris-specs/blob/master/dokument/pdf/document.pdf?raw=true)
-* [Word .docx](https://github.com/marians/open-ris-specs/blob/master/dokument/docx/document.docx?raw=true)
-* [OpenOffice .odt](https://github.com/marians/open-ris-specs/blob/master/dokument/odt/document.odt?raw=true)
+* [PDF](https://github.com/OParl/specs/blob/master/dokument/pdf/document.pdf?raw=true)
 
 und andere. Du findest alle Formate im Ordner 'dokument/'.
 

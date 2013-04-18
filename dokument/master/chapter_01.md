@@ -1,49 +1,55 @@
 Einleitung
 ==========
 
-Ziel dieses Dokuments
----------------------
+Dieses Dokument wird bei seiner Fertigstellung die Spezifikation des OParl Schnittstellen-Standards für parlamentarische Informationssysteme (Ratsinformationssysteme, RIS) darstellen. Es dient damit als Grundlage für die Implementierung von OParl-konformen Server- und Clientanwendungen.
 
-Ziel dieses Dokuments ist es, einen Diskurs über einen offenen Standard zum Datenabruf aus Ratsinformationssystemen in Gang zu bringen.
 
-Ratsinformationssysteme (RIS) werden von vielen Körperschaften wie Kommunen, Landkreisen und Regierungsbezirken eingesetzt, um die anfallende Gremienarbeit (Ratssitzungen, Ausschüsse, Vertretungen) zu organisieren. Da ein großer Teil der schriftlichen Arbeit der Lokalpolitik über derartige Systeme verwaltet wird, sind die RIS – dort wo vorhanden – ein wichtiger Zugriffspunkt für alle, die sich für politischen Geschehnisse interessieren.
+Parlamentarische Informationssysteme
+------------------------------------
 
-Eine wichtige Maßnahme von Körperschaften, die im Zuge von Open-Data- und Open-Government-Initiativen ihre Politik transparenter machen wollen, wird auch sein, die Daten in den RIS im Sinne des Open-Data-Begriffs zugänglich zu machen. Hierdurch können die Kommunen selbst, aber auch dritte, Anwendungen entwickeln, die Inhalte auf verschiedene Art und Weise auswerten, abrufbar und nutzbar machen, sei es für die Allgemeinheit oder für bestimmte Nutzerkreise.
+Parlamentarische Informationssysteme (oft Ratsinformationssystem, RIS oder Bürgerinformationssystem genannt) werden von vielen Körperschaften wie Kommunen, Landkreisen und Regierungsbezirken eingesetzt, um die anfallende Gremienarbeit (Ratssitzungen, Ausschüsse, Vertretungen) zu organisieren. Da ein großer Teil der schriftlichen Arbeit in der Lokalpolitik über derartige Systeme verwaltet wird, sind diese Systeme – dort wo vorhanden – ein wichtiger Zugriffspunkt für alle, die sich für politischen Geschehnisse interessieren.
 
-In Deutschland gibt es über 10.000 Kommunen, außerdem hunderte weitere Körperschaften, die potenziell über RIS-ähnliche Systeme verfügen. Sollten diese beginnen, ihre RIS  zu öffnen, werden sie sämtlich vor der Frage stehen, wie Daten zu modellieren und Schnittstellen (APIs) zu spezifizieren sind.
 
-Sowohl die Anbieter der Daten, als auch die Abnehmer (die Anwendungsentwickler) werden von einer Standardisierung der Schnittstellen und Datenmodelle profitieren. So wird die Kompatibilität von Software und die breite Einsetzbarkeit ermöglicht.
+Gründe für den standardisierten Datenzugriff
+--------------------------------------------
 
-Dieses Dokument soll die Erarbeitung eines solchen Standards ermöglichen und als Diskussionsgrundlage dienen.
+Eine wichtige Maßnahme von Körperschaften, die im Zuge von Open-Data- und Open-Government-Initiativen ihre Politik transparenter machen wollen, wird auch sein, die Daten in den parlamentarischen Informationssystemen im Sinne des Open-Data-Begriffs zugänglich zu machen. Hierdurch können die Kommunen selbst, aber auch dritte, Anwendungen entwickeln, die Inhalte auf verschiedene Art und Weise auswerten, abrufbar und nutzbar machen, sei es für die Allgemeinheit oder für bestimmte Nutzerkreise.
+
+Darüber hinaus sollen parlamentarische Informationssysteme in verschiedenste Prozesse und Systemlandschaften integriert werden. Durch eine einheitliche Schnittstelle bieten sich effiziente Möglichkeiten zur Integration der Daten in anderen Systemen, wie beispielsweise Web-Portalen.
+
+
+Funktionsumfang der OParl-Schnittstelle
+---------------------------------------
+
+Die vorliegende Spezifikation soll eine Webservice-Schnittstelle definieren, die den anonymen und lesenden Zugriff auf öffentliche Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP). Daten werden als JSON, JSONP oder optional als XML ausgeliefert.
+
+Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher zwischen den Implementierungen variieren.
+
 
 Status
 ------
 
-Dieser Entwurf gibt aktuell einen ersten Vorschlag des Autors wieder. Es ist vereinzelt Feedback eingeflossen (siehe "Mitwirkende").
+Die Spezifikation befindet sich in Arbeit. Das Dokument enthält entsprechend viele Ungenauigkeiten und Hinweise auf offene Fragestellungen.
 
 
 Überblick
 ---------
 
-Der Entwurf umfasst im ersten Schritt die abstrakte Beschreibung eines Datenmodells.
-
-### Noch nicht abgedeckt: ###
-
-* Angaben von Personen zu Tätigkeiten (z.B. Auskunft nach § 17 Korruptionsbekämpfungsgesetz). Diese werden von mehreren Systemen geführt und ausgegeben.
-* Änderungsdatum (bei allen Objekttypen relevant)
-* Unterscheidung von Rollen bzw. Zuständigkeiten zwischen Drucksachen und Tagesordnungspunkten (z.B. federführende Beratung, konsultierende Beratung etc.)
+Der Entwurf umfasst aktuell die Beschreibung eines Datenmodells. 
 
 
 Nächste Schritte
 ----------------
 
-1. Bis Ende Mai 2012: Einsammeln von Feedback zum Entwurf des Datenmodells
-2. Anpassen des Entwurfs anhand von Feedback
-3. Erarbeitung eines Entwurfs für eine HTTP-basierte Schnittstelle zum lesenden Zugriff auf Daten. Darin soll beschrieben werden, wie über HTTP die zuvor beschriebenen Daten abgerufen werden sollen.
+Bis Ende Juni 2013: Fertigstellung von Version 1.0. Bis dahin ist zu erledigen:
+
+* Fertigstellung Datenmodell
+* Beschreibung von Methoden und URL-Parametern
+* HTTP Status-Codes und besondere Anforderungen an Verwendung bestimmter HTTP-Header
 
 
-Feedback
---------
+Feedback und Mitwirkung
+-----------------------
 
 Feedback wird dringend benötigt und ist daher herzlichst willkommen. Feedback kann auf den folgenden Wegen eingereicht werden:
 
@@ -55,7 +61,7 @@ Feedback wird dringend benötigt und ist daher herzlichst willkommen. Feedback k
 
 Dieses Dokument wird in folgendem Github-Repository gepflegt:
 
-[https://github.com/marians/open-ris-specs](https://github.com/marians/open-ris-specs)
+[https://github.com/OParl/specs](https://github.com/OParl/specs)
 
 
 Der bevorzugte Feedback-Kanal für erfahrene Git- bzw. Github-Nutzer ist entsprechend die Mitwirkung direkt am Quelltext in Form von Pull-Requests. So können **Ergänzungen und Korrekturen** direkt in den Quelltext eingespielt werden.
@@ -74,7 +80,7 @@ Als Autor werde ich entscheiden, welche Pull Requests ich übernehme. Sie werden
 
 Wer nicht über Github am Quelltext mitwirken möchte, aber einen Github-Account sein eigen nennt (oder zu diesem Zweck anlegen möchte) und **öffentlich kommentieren** möchte, der sollte das öffentliche Issue-Tracking-System unter
 
-[https://github.com/marians/open-ris-specs/issues](https://github.com/marians/open-ris-specs/issues)
+[https://github.com/OParl/specs/issues](https://github.com/OParl/specs/issues)
 
 verwenden. Vorteil daran ist, dass auch andere die Einträge lesen und wiederum durch Kommentare ergänzen können. Zudem lässt sich der Bearbeitungsstatus eines Issue-Eintrags (offen, geschlossen) nachhalten.
 

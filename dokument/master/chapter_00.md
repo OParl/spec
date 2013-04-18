@@ -1,4 +1,4 @@
-% Entwurf eines Standards für Datenmodell und Zugriffs-Protokoll für offene Ratsinformationssysteme
+% OParl Schnittstellen-Spezifikation (Entwurf)
 % Marian Steinbach <marian@sendung.de>
 
 

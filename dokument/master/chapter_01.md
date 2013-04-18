@@ -88,7 +88,7 @@ Bitte achten Sie auf diesem Weg darauf, Ihre Kommentare in möglichst kleine the
 
 ### Feedback per E-Mail ###
 
-Sollten Sie keinen der oben beschriebenen Wege beschreiten wollen, können Sie Anmerkungen zum Dokument per E-Mail an marian@sendung.de einsenden. Bitte verwenden Sie dabei den Begriff "open-ris-specs" im Betreff.
+Sollten Sie keinen der oben beschriebenen Wege beschreiten wollen, können Sie Anmerkungen zum Dokument per E-Mail an marian@sendung.de einsenden. Bitte verwenden Sie dabei den Begriff "oparl-specs" im Betreff.
 
 Sollten Sie auf diesem Wege Anmerkungen direkt am/im Dokumententext übersenden wollen, nutzen Sie bitte falls möglich die Word- oder OpenOffice-Version dieses Dokuments und ändern Sie das Dokument so, dass Änderungen aufgezeichnet werden (OpenOffice: Bearbeiten > Änderungen > Aufzeichnen; Word: Ribbon "Überprüfen" > Nachverfolgung > Änderungen nachverfolgen).
 

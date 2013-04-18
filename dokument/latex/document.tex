@@ -45,7 +45,7 @@
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={Marian Steinbach marian@sendung.de},
-            pdftitle={Entwurf eines Standards für Datenmodell und Zugriffs-Protokoll für offene Ratsinformationssysteme},
+            pdftitle={OParl Schnittstellen-Spezifikation (Entwurf)},
             colorlinks=true,
             urlcolor=blue,
             linkcolor=magenta,
@@ -55,8 +55,7 @@
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \setcounter{secnumdepth}{0}
 
-\title{Entwurf eines Standards für Datenmodell und Zugriffs-Protokoll für
-       offene Ratsinformationssysteme}
+\title{OParl Schnittstellen-Spezifikation (Entwurf)}
 \author{Marian Steinbach
                 \href{mailto:marian@sendung.de}{\texttt{marian@sendung.de}}}
 \date{}
@@ -68,81 +67,78 @@ Lizenz: Creative Commons CC-BY-SA
 
 \section{Einleitung}
 
-\subsection{Ziel dieses Dokuments}
+Dieses Dokument wird bei seiner Fertigstellung die Spezifikation des
+OParl Schnittstellen-Standards für parlamentarische Informationssysteme
+(Ratsinformationssysteme, RIS) darstellen. Es dient damit als Grundlage
+für die Implementierung von OParl-konformen Server- und
+Clientanwendungen.
 
-Ziel dieses Dokuments ist es, einen Diskurs über einen offenen Standard
-zum Datenabruf aus Ratsinformationssystemen in Gang zu bringen.
+\subsection{Parlamentarische Informationssysteme}
 
-Ratsinformationssysteme (RIS) werden von vielen Körperschaften wie
-Kommunen, Landkreisen und Regierungsbezirken eingesetzt, um die
+Parlamentarische Informationssysteme (oft Ratsinformationssystem, RIS
+oder Bürgerinformationssystem genannt) werden von vielen Körperschaften
+wie Kommunen, Landkreisen und Regierungsbezirken eingesetzt, um die
 anfallende Gremienarbeit (Ratssitzungen, Ausschüsse, Vertretungen) zu
-organisieren. Da ein großer Teil der schriftlichen Arbeit der
-Lokalpolitik über derartige Systeme verwaltet wird, sind die RIS -- dort
-wo vorhanden -- ein wichtiger Zugriffspunkt für alle, die sich für
-politischen Geschehnisse interessieren.
+organisieren. Da ein großer Teil der schriftlichen Arbeit in der
+Lokalpolitik über derartige Systeme verwaltet wird, sind diese Systeme
+-- dort wo vorhanden -- ein wichtiger Zugriffspunkt für alle, die sich
+für politischen Geschehnisse interessieren.
+
+\subsection{Gründe für den standardisierten Datenzugriff}
 
 Eine wichtige Maßnahme von Körperschaften, die im Zuge von Open-Data-
 und Open-Government-Initiativen ihre Politik transparenter machen
-wollen, wird auch sein, die Daten in den RIS im Sinne des
-Open-Data-Begriffs zugänglich zu machen. Hierdurch können die Kommunen
-selbst, aber auch dritte, Anwendungen entwickeln, die Inhalte auf
-verschiedene Art und Weise auswerten, abrufbar und nutzbar machen, sei
-es für die Allgemeinheit oder für bestimmte Nutzerkreise.
+wollen, wird auch sein, die Daten in den parlamentarischen
+Informationssystemen im Sinne des Open-Data-Begriffs zugänglich zu
+machen. Hierdurch können die Kommunen selbst, aber auch dritte,
+Anwendungen entwickeln, die Inhalte auf verschiedene Art und Weise
+auswerten, abrufbar und nutzbar machen, sei es für die Allgemeinheit
+oder für bestimmte Nutzerkreise.
 
-In Deutschland gibt es über 10.000 Kommunen, außerdem hunderte weitere
-Körperschaften, die potenziell über RIS-ähnliche Systeme verfügen.
-Sollten diese beginnen, ihre RIS zu öffnen, werden sie sämtlich vor der
-Frage stehen, wie Daten zu modellieren und Schnittstellen (APIs) zu
-spezifizieren sind.
+Darüber hinaus sollen parlamentarische Informationssysteme in
+verschiedenste Prozesse und Systemlandschaften integriert werden. Durch
+eine einheitliche Schnittstelle bieten sich effiziente Möglichkeiten zur
+Integration der Daten in anderen Systemen, wie beispielsweise
+Web-Portalen.
 
-Sowohl die Anbieter der Daten, als auch die Abnehmer (die
-Anwendungsentwickler) werden von einer Standardisierung der
-Schnittstellen und Datenmodelle profitieren. So wird die Kompatibilität
-von Software und die breite Einsetzbarkeit ermöglicht.
+\subsection{Funktionsumfang der OParl-Schnittstelle}
 
-Dieses Dokument soll die Erarbeitung eines solchen Standards ermöglichen
-und als Diskussionsgrundlage dienen.
+Die vorliegende Spezifikation soll eine Webservice-Schnittstelle
+definieren, die den anonymen und lesenden Zugriff auf öffentliche
+Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die
+Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP). Daten
+werden als JSON, JSONP oder optional als XML ausgeliefert.
+
+Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale
+Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher
+zwischen den Implementierungen variieren.
 
 \subsection{Status}
 
-Dieser Entwurf gibt aktuell einen ersten Vorschlag des Autors wieder. Es
-ist vereinzelt Feedback eingeflossen (siehe ``Mitwirkende'').
+Die Spezifikation befindet sich in Arbeit. Das Dokument enthält
+entsprechend viele Ungenauigkeiten und Hinweise auf offene
+Fragestellungen.
 
 \subsection{Überblick}
 
-Der Entwurf umfasst im ersten Schritt die abstrakte Beschreibung eines
-Datenmodells.
-
-\subsubsection{Noch nicht abgedeckt:}
-
-\begin{itemize}
-\item
-  Angaben von Personen zu Tätigkeiten (z.B. Auskunft nach § 17
-  Korruptionsbekämpfungsgesetz). Diese werden von mehreren Systemen
-  geführt und ausgegeben.
-\item
-  Änderungsdatum (bei allen Objekttypen relevant)
-\item
-  Unterscheidung von Rollen bzw. Zuständigkeiten zwischen Drucksachen
-  und Tagesordnungspunkten (z.B. federführende Beratung, konsultierende
-  Beratung etc.)
-\end{itemize}
+Der Entwurf umfasst aktuell die Beschreibung eines Datenmodells.
 
 \subsection{Nächste Schritte}
 
-\begin{enumerate}[1.]
-\item
-  Bis Ende Mai 2012: Einsammeln von Feedback zum Entwurf des
-  Datenmodells
-\item
-  Anpassen des Entwurfs anhand von Feedback
-\item
-  Erarbeitung eines Entwurfs für eine HTTP-basierte Schnittstelle zum
-  lesenden Zugriff auf Daten. Darin soll beschrieben werden, wie über
-  HTTP die zuvor beschriebenen Daten abgerufen werden sollen.
-\end{enumerate}
+Bis Ende Juni 2013: Fertigstellung von Version 1.0. Bis dahin ist zu
+erledigen:
 
-\subsection{Feedback}
+\begin{itemize}
+\item
+  Fertigstellung Datenmodell
+\item
+  Beschreibung von Methoden und URL-Parametern
+\item
+  HTTP Status-Codes und besondere Anforderungen an Verwendung bestimmter
+  HTTP-Header
+\end{itemize}
+
+\subsection{Feedback und Mitwirkung}
 
 Feedback wird dringend benötigt und ist daher herzlichst willkommen.
 Feedback kann auf den folgenden Wegen eingereicht werden:
@@ -160,7 +156,7 @@ Feedback kann auf den folgenden Wegen eingereicht werden:
 
 Dieses Dokument wird in folgendem Github-Repository gepflegt:
 
-\href{https://github.com/marians/open-ris-specs}{https://github.com/marians/open-ris-specs}
+\href{https://github.com/OParl/specs}{https://github.com/OParl/specs}
 
 Der bevorzugte Feedback-Kanal für erfahrene Git- bzw. Github-Nutzer ist
 entsprechend die Mitwirkung direkt am Quelltext in Form von
@@ -196,7 +192,7 @@ Github-Account sein eigen nennt (oder zu diesem Zweck anlegen möchte)
 und \textbf{öffentlich kommentieren} möchte, der sollte das öffentliche
 Issue-Tracking-System unter
 
-\href{https://github.com/marians/open-ris-specs/issues}{https://github.com/marians/open-ris-specs/issues}
+\href{https://github.com/OParl/specs/issues}{https://github.com/OParl/specs/issues}
 
 verwenden. Vorteil daran ist, dass auch andere die Einträge lesen und
 wiederum durch Kommentare ergänzen können. Zudem lässt sich der
@@ -225,16 +221,8 @@ Felix Ebert, Jan Erhardt
 
 \section{Datenmodell}
 
-Das Datenmodell soll die Bausteine für die später zu entwerfende
-Schnittstelle definieren. Im folgenden werden sozusagen die Objekttypen
-bzw. die Klassen beschrieben, auf die über eine spätere API zugegriffen
-werden kann.
-
-Einige Objekte werden eine eindeutige Identifizierung (ID) benötigen,
-wobei „eindeutig`` auch eine Frage des Kontextes ist. In den wenigsten
-Fällen wird es notwendig sein, eine Objekt-Kennung weltweit eindeutig zu
-machen. Darüber hinaus wird zu entscheiden sein, ob IDs unveränderlich
-oder veränderlich sein sollen.
+Das Datenmodell definiert die Objekttypen bzw. die Klassen, auf die über
+die Schnittstelle zugegriffen werden kann.
 
 Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen
 beziehen sich auf nach außen, bei Nutzung der jeweiligen Weboberflächen,
@@ -254,27 +242,50 @@ die folgenden Systeme Bezug genommen:
   Stadt Bonn - BoRis {[}10{]}
 \end{itemize}
 
-\subsubsection{Zu den Eigenschaften}
+\subsection{Übergreifende Aspekte}
 
-Eigenschaften der einzelnen Objekttypen sind, wenn nicht anders
-angegeben, verpflichtend. Optionale Eigenschaften sind entsprechend
-gekennzeichnet.
+\subsubsection{Eindeutige Identifizierung von Objekten}
 
-Durch die aktuelle Detailtiefe der Beschreibungen soll vor allem die
-Frage ``Was soll/kann gespeichert bzw. ausgedrückt werden?'' geklärt
-werden.
+Sämtliche Objekte, die über die Schnittstelle geladen werden können,
+sollen anhand einer einzigen Objekteigenschaft eindeutig identifizierbar
+sein. Die Objekteigenschaft, mit der dies erreicht wird, wird hier im
+folgenden - unabhängig vom tatsächlichen Namen der Eigenschaft - als
+``Schlüssel'' bezeichnet.
 
-Detailliertere Anforderungen an die Eigenschaften (``Wie genau soll eine
-Information gespeichert werden?'') werden zu einem späteren Zeitpunkt
-erörtert.
+Eindeutigkeit meint hier eine Einzigartigkeit innerhalb des
+Informationssystems und für den jeweiligen Objekttyp. Das bedeutet: zwei
+von einander unabhängige Ratsinformationssysteme für verschiedene
+Gebietskörperschaften dürfen sich überlappende Schlüssel nutzen.
+Innerhalb eines Systems dürfen zwei Objekte unterschiedlichen Typs
+(beispielsweise eine Person ud ein Gremium) den selben Schlüssel nutzen.
+Jedoch MÜSSEN zwei Objekte des selben Typs innerhalb des selben Systems
+grundsätzlich verschiedene Schlüssel haben.
 
-Eigenschaften werden aktuell deutschsprachig benannt. Es wird
-beabsichtigt, die Benennungen zu einem späteren Zeitpunkt im
-Entwurfsprozess gegen Eenglischsprachige Begriffe auszutauschen.
+Schlüssel-Eigenschaften werden grundsätzlich als String mit
+Unicode-Zeichenumfang übergeben. Sie können daher gleichermaßen aus
+numerischen wie alphanumerischen Werten befüllt werden.
+
+Es wird grundsätzlich vorausgesetzt, dass Schlüssel unveränderlich sind.
+Ändert sich der Schlüssel eines Objekts nach der Erzeugung, werden
+Nutzer der Schnittstelle annehmen, dass es sich nicht mehr um das selbe
+Objekt handelt.
+
+\subsubsection{Objekteigenschaften}
+
+Die nachfolgend beschriebenen Eigenschaften der Objekttypen sind, wenn
+nicht anders angegeben, verpflichtend. Das bedeutet: Bei jedem von der
+Schnittstelle ausgelieferten Objekt muss diese Eigenschaften definiert
+sein. Optionale Eigenschaften sind entsprechend gekennzeichnet.
+
+Eigenschaften werden deutschsprachig und englischsprachig benannt. Die
+deutschsprachige Benennung dient der bestmöglichen Verständlichkeit im
+Kontext dieses Dokuments, während die Schnittstelle aus Gründen der
+Zugänglichkeit für möglichst viele Entwickler mit englischsprachigen
+Begriffen arbeiten soll.
 
 \subsubsection{Zu den Beziehungen}
 
-Bei Beschreibung der Beziehungen zwischen Objekten wird zu diesem
+Bei der Beschreibung von Beziehungen zwischen Objekten wird zu diesem
 Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei Objekten
 A und B am Objekt A oder am Objekt B definiert wird. So spielt es
 bislang keine Rolle, ob einem Gremium mehrere Personen zugeordnet werden

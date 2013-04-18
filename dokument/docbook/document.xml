@@ -3,116 +3,105 @@
 </para>
 <sect1 id="einleitung">
   <title>Einleitung</title>
-  <sect2 id="ziel-dieses-dokuments">
-    <title>Ziel dieses Dokuments</title>
+  <para>
+    Dieses Dokument wird bei seiner Fertigstellung die Spezifikation des
+    OParl Schnittstellen-Standards für parlamentarische
+    Informationssysteme (Ratsinformationssysteme, RIS) darstellen. Es
+    dient damit als Grundlage für die Implementierung von
+    OParl-konformen Server- und Clientanwendungen.
+  </para>
+  <sect2 id="parlamentarische-informationssysteme">
+    <title>Parlamentarische Informationssysteme</title>
     <para>
-      Ziel dieses Dokuments ist es, einen Diskurs über einen offenen
-      Standard zum Datenabruf aus Ratsinformationssystemen in Gang zu
-      bringen.
+      Parlamentarische Informationssysteme (oft Ratsinformationssystem,
+      RIS oder Bürgerinformationssystem genannt) werden von vielen
+      Körperschaften wie Kommunen, Landkreisen und Regierungsbezirken
+      eingesetzt, um die anfallende Gremienarbeit (Ratssitzungen,
+      Ausschüsse, Vertretungen) zu organisieren. Da ein großer Teil der
+      schriftlichen Arbeit in der Lokalpolitik über derartige Systeme
+      verwaltet wird, sind diese Systeme – dort wo vorhanden – ein
+      wichtiger Zugriffspunkt für alle, die sich für politischen
+      Geschehnisse interessieren.
     </para>
-    <para>
-      Ratsinformationssysteme (RIS) werden von vielen Körperschaften wie
-      Kommunen, Landkreisen und Regierungsbezirken eingesetzt, um die
-      anfallende Gremienarbeit (Ratssitzungen, Ausschüsse, Vertretungen)
-      zu organisieren. Da ein großer Teil der schriftlichen Arbeit der
-      Lokalpolitik über derartige Systeme verwaltet wird, sind die RIS –
-      dort wo vorhanden – ein wichtiger Zugriffspunkt für alle, die sich
-      für politischen Geschehnisse interessieren.
-    </para>
+  </sect2>
+  <sect2 id="gründe-für-den-standardisierten-datenzugriff">
+    <title>Gründe für den standardisierten Datenzugriff</title>
     <para>
       Eine wichtige Maßnahme von Körperschaften, die im Zuge von
       Open-Data- und Open-Government-Initiativen ihre Politik
-      transparenter machen wollen, wird auch sein, die Daten in den RIS
-      im Sinne des Open-Data-Begriffs zugänglich zu machen. Hierdurch
-      können die Kommunen selbst, aber auch dritte, Anwendungen
-      entwickeln, die Inhalte auf verschiedene Art und Weise auswerten,
-      abrufbar und nutzbar machen, sei es für die Allgemeinheit oder für
-      bestimmte Nutzerkreise.
+      transparenter machen wollen, wird auch sein, die Daten in den
+      parlamentarischen Informationssystemen im Sinne des
+      Open-Data-Begriffs zugänglich zu machen. Hierdurch können die
+      Kommunen selbst, aber auch dritte, Anwendungen entwickeln, die
+      Inhalte auf verschiedene Art und Weise auswerten, abrufbar und
+      nutzbar machen, sei es für die Allgemeinheit oder für bestimmte
+      Nutzerkreise.
     </para>
     <para>
-      In Deutschland gibt es über 10.000 Kommunen, außerdem hunderte
-      weitere Körperschaften, die potenziell über RIS-ähnliche Systeme
-      verfügen. Sollten diese beginnen, ihre RIS zu öffnen, werden sie
-      sämtlich vor der Frage stehen, wie Daten zu modellieren und
-      Schnittstellen (APIs) zu spezifizieren sind.
+      Darüber hinaus sollen parlamentarische Informationssysteme in
+      verschiedenste Prozesse und Systemlandschaften integriert werden.
+      Durch eine einheitliche Schnittstelle bieten sich effiziente
+      Möglichkeiten zur Integration der Daten in anderen Systemen, wie
+      beispielsweise Web-Portalen.
+    </para>
+  </sect2>
+  <sect2 id="funktionsumfang-der-oparl-schnittstelle">
+    <title>Funktionsumfang der OParl-Schnittstelle</title>
+    <para>
+      Die vorliegende Spezifikation soll eine Webservice-Schnittstelle
+      definieren, die den anonymen und lesenden Zugriff auf öffentliche
+      Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die
+      Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP).
+      Daten werden als JSON, JSONP oder optional als XML ausgeliefert.
     </para>
     <para>
-      Sowohl die Anbieter der Daten, als auch die Abnehmer (die
-      Anwendungsentwickler) werden von einer Standardisierung der
-      Schnittstellen und Datenmodelle profitieren. So wird die
-      Kompatibilität von Software und die breite Einsetzbarkeit
-      ermöglicht.
-    </para>
-    <para>
-      Dieses Dokument soll die Erarbeitung eines solchen Standards
-      ermöglichen und als Diskussionsgrundlage dienen.
+      Die Spezifikation wird obligatorische Bestandteile (MUSS) und
+      optionale Bestandteile (KANN) haben. Der tatsächliche
+      Funktionsumfang kann daher zwischen den Implementierungen
+      variieren.
     </para>
   </sect2>
   <sect2 id="status">
     <title>Status</title>
     <para>
-      Dieser Entwurf gibt aktuell einen ersten Vorschlag des Autors
-      wieder. Es ist vereinzelt Feedback eingeflossen (siehe
-      &quot;Mitwirkende&quot;).
+      Die Spezifikation befindet sich in Arbeit. Das Dokument enthält
+      entsprechend viele Ungenauigkeiten und Hinweise auf offene
+      Fragestellungen.
     </para>
   </sect2>
   <sect2 id="überblick">
     <title>Überblick</title>
     <para>
-      Der Entwurf umfasst im ersten Schritt die abstrakte Beschreibung
-      eines Datenmodells.
+      Der Entwurf umfasst aktuell die Beschreibung eines Datenmodells.
     </para>
-    <sect3 id="noch-nicht-abgedeckt">
-      <title>Noch nicht abgedeckt:</title>
-      <itemizedlist>
-        <listitem>
-          <para>
-            Angaben von Personen zu Tätigkeiten (z.B. Auskunft nach § 17
-            Korruptionsbekämpfungsgesetz). Diese werden von mehreren
-            Systemen geführt und ausgegeben.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Änderungsdatum (bei allen Objekttypen relevant)
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Unterscheidung von Rollen bzw. Zuständigkeiten zwischen
-            Drucksachen und Tagesordnungspunkten (z.B. federführende
-            Beratung, konsultierende Beratung etc.)
-          </para>
-        </listitem>
-      </itemizedlist>
-    </sect3>
   </sect2>
   <sect2 id="nächste-schritte">
     <title>Nächste Schritte</title>
-    <orderedlist numeration="arabic">
+    <para>
+      Bis Ende Juni 2013: Fertigstellung von Version 1.0. Bis dahin ist
+      zu erledigen:
+    </para>
+    <itemizedlist>
       <listitem>
         <para>
-          Bis Ende Mai 2012: Einsammeln von Feedback zum Entwurf des
-          Datenmodells
+          Fertigstellung Datenmodell
         </para>
       </listitem>
       <listitem>
         <para>
-          Anpassen des Entwurfs anhand von Feedback
+          Beschreibung von Methoden und URL-Parametern
         </para>
       </listitem>
       <listitem>
         <para>
-          Erarbeitung eines Entwurfs für eine HTTP-basierte
-          Schnittstelle zum lesenden Zugriff auf Daten. Darin soll
-          beschrieben werden, wie über HTTP die zuvor beschriebenen
-          Daten abgerufen werden sollen.
+          HTTP Status-Codes und besondere Anforderungen an Verwendung
+          bestimmter HTTP-Header
         </para>
       </listitem>
-    </orderedlist>
+    </itemizedlist>
   </sect2>
-  <sect2 id="feedback">
-    <title>Feedback</title>
+  <sect2 id="feedback-und-mitwirkung">
+    <title>Feedback und Mitwirkung</title>
     <para>
       Feedback wird dringend benötigt und ist daher herzlichst
       willkommen. Feedback kann auf den folgenden Wegen eingereicht
@@ -141,7 +130,7 @@
         Dieses Dokument wird in folgendem Github-Repository gepflegt:
       </para>
       <para>
-        <ulink url="https://github.com/marians/open-ris-specs">https://github.com/marians/open-ris-specs</ulink>
+        <ulink url="https://github.com/OParl/specs">https://github.com/OParl/specs</ulink>
       </para>
       <para>
         Der bevorzugte Feedback-Kanal für erfahrene Git- bzw.
@@ -198,7 +187,7 @@
         Issue-Tracking-System unter
       </para>
       <para>
-        <ulink url="https://github.com/marians/open-ris-specs/issues">https://github.com/marians/open-ris-specs/issues</ulink>
+        <ulink url="https://github.com/OParl/specs/issues">https://github.com/OParl/specs/issues</ulink>
       </para>
       <para>
         verwenden. Vorteil daran ist, dass auch andere die Einträge
@@ -240,17 +229,8 @@
 <sect1 id="datenmodell">
   <title>Datenmodell</title>
   <para>
-    Das Datenmodell soll die Bausteine für die später zu entwerfende
-    Schnittstelle definieren. Im folgenden werden sozusagen die
-    Objekttypen bzw. die Klassen beschrieben, auf die über eine spätere
-    API zugegriffen werden kann.
-  </para>
-  <para>
-    Einige Objekte werden eine eindeutige Identifizierung (ID)
-    benötigen, wobei „eindeutig“ auch eine Frage des Kontextes ist. In
-    den wenigsten Fällen wird es notwendig sein, eine Objekt-Kennung
-    weltweit eindeutig zu machen. Darüber hinaus wird zu entscheiden
-    sein, ob IDs unveränderlich oder veränderlich sein sollen.
+    Das Datenmodell definiert die Objekttypen bzw. die Klassen, auf die
+    über die Schnittstelle zugegriffen werden kann.
   </para>
   <para>
     Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen
@@ -285,41 +265,71 @@
       </para>
     </listitem>
   </itemizedlist>
-  <sect2 id="zu-den-eigenschaften">
-    <title>Zu den Eigenschaften</title>
-    <para>
-      Eigenschaften der einzelnen Objekttypen sind, wenn nicht anders
-      angegeben, verpflichtend. Optionale Eigenschaften sind
-      entsprechend gekennzeichnet.
-    </para>
-    <para>
-      Durch die aktuelle Detailtiefe der Beschreibungen soll vor allem
-      die Frage &quot;Was soll/kann gespeichert bzw. ausgedrückt
-      werden?&quot; geklärt werden.
-    </para>
-    <para>
-      Detailliertere Anforderungen an die Eigenschaften (&quot;Wie genau
-      soll eine Information gespeichert werden?&quot;) werden zu einem
-      späteren Zeitpunkt erörtert.
-    </para>
-    <para>
-      Eigenschaften werden aktuell deutschsprachig benannt. Es wird
-      beabsichtigt, die Benennungen zu einem späteren Zeitpunkt im
-      Entwurfsprozess gegen Eenglischsprachige Begriffe auszutauschen.
-    </para>
-  </sect2>
-  <sect2 id="zu-den-beziehungen">
-    <title>Zu den Beziehungen</title>
-    <para>
-      Bei Beschreibung der Beziehungen zwischen Objekten wird zu diesem
-      Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei
-      Objekten A und B am Objekt A oder am Objekt B definiert wird. So
-      spielt es bislang keine Rolle, ob einem Gremium mehrere Personen
-      zugeordnet werden oder einer Person mehrere Gremien zugewiesen
-      werden. Das Augenmerkt liegt hier nur auf der Tatsache, welche
-      Beziehung existieren können und was diese Beziehungen aussagen
-      sollen.
-    </para>
+  <sect2 id="übergreifende-aspekte">
+    <title>Übergreifende Aspekte</title>
+    <sect3 id="eindeutige-identifizierung-von-objekten">
+      <title>Eindeutige Identifizierung von Objekten</title>
+      <para>
+        Sämtliche Objekte, die über die Schnittstelle geladen werden
+        können, sollen anhand einer einzigen Objekteigenschaft eindeutig
+        identifizierbar sein. Die Objekteigenschaft, mit der dies
+        erreicht wird, wird hier im folgenden - unabhängig vom
+        tatsächlichen Namen der Eigenschaft - als &quot;Schlüssel&quot;
+        bezeichnet.
+      </para>
+      <para>
+        Eindeutigkeit meint hier eine Einzigartigkeit innerhalb des
+        Informationssystems und für den jeweiligen Objekttyp. Das
+        bedeutet: zwei von einander unabhängige Ratsinformationssysteme
+        für verschiedene Gebietskörperschaften dürfen sich überlappende
+        Schlüssel nutzen. Innerhalb eines Systems dürfen zwei Objekte
+        unterschiedlichen Typs (beispielsweise eine Person ud ein
+        Gremium) den selben Schlüssel nutzen. Jedoch MÜSSEN zwei Objekte
+        des selben Typs innerhalb des selben Systems grundsätzlich
+        verschiedene Schlüssel haben.
+      </para>
+      <para>
+        Schlüssel-Eigenschaften werden grundsätzlich als String mit
+        Unicode-Zeichenumfang übergeben. Sie können daher gleichermaßen
+        aus numerischen wie alphanumerischen Werten befüllt werden.
+      </para>
+      <para>
+        Es wird grundsätzlich vorausgesetzt, dass Schlüssel
+        unveränderlich sind. Ändert sich der Schlüssel eines Objekts
+        nach der Erzeugung, werden Nutzer der Schnittstelle annehmen,
+        dass es sich nicht mehr um das selbe Objekt handelt.
+      </para>
+    </sect3>
+    <sect3 id="objekteigenschaften">
+      <title>Objekteigenschaften</title>
+      <para>
+        Die nachfolgend beschriebenen Eigenschaften der Objekttypen
+        sind, wenn nicht anders angegeben, verpflichtend. Das bedeutet:
+        Bei jedem von der Schnittstelle ausgelieferten Objekt muss diese
+        Eigenschaften definiert sein. Optionale Eigenschaften sind
+        entsprechend gekennzeichnet.
+      </para>
+      <para>
+        Eigenschaften werden deutschsprachig und englischsprachig
+        benannt. Die deutschsprachige Benennung dient der bestmöglichen
+        Verständlichkeit im Kontext dieses Dokuments, während die
+        Schnittstelle aus Gründen der Zugänglichkeit für möglichst viele
+        Entwickler mit englischsprachigen Begriffen arbeiten soll.
+      </para>
+    </sect3>
+    <sect3 id="zu-den-beziehungen">
+      <title>Zu den Beziehungen</title>
+      <para>
+        Bei der Beschreibung von Beziehungen zwischen Objekten wird zu
+        diesem Zeitpunkt nicht berücksichtigt, ob eine Beziehung
+        zwischen zwei Objekten A und B am Objekt A oder am Objekt B
+        definiert wird. So spielt es bislang keine Rolle, ob einem
+        Gremium mehrere Personen zugeordnet werden oder einer Person
+        mehrere Gremien zugewiesen werden. Das Augenmerkt liegt hier nur
+        auf der Tatsache, welche Beziehung existieren können und was
+        diese Beziehungen aussagen sollen.
+      </para>
+    </sect3>
   </sect2>
   <sect2 id="gebietskörperschaft">
     <title>Gebietskörperschaft</title>

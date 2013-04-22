@@ -2,6 +2,7 @@
     "@context":
     {
         "foaf": "http://xmlns.com/foaf/0.1/",
+        "v": "http://www.w3.org/2006/vcard/ns#",
         "oparl": "http://oparl.de/oparl/0.1/",
         "first_name": "foaf:firstName",
         "last_name": "foaf:lastName",
@@ -10,8 +11,10 @@
         "profession": "undefined",
         "email": "foaf:mbox",
         "phone": "foaf:phone",
-        "fax": "undefined",
-        "address": "foaf:address"
+        "fax": "v:fax",
+        "address": "v:adr",
+        "organisations": "undefined",
+        "committees": "undefined"
         },
     "@id": "_:1000",
     "@type": "oparl:person",

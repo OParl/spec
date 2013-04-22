@@ -1,4 +1,18 @@
 ﻿{
+    "@context":
+    {
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "oparl": "http://oparl.de/oparl/0.1/",
+        "first_name": "foaf:firstName",
+        "last_name": "foaf:lastName",
+        "academic_title": "foaf:title",
+        "sex": "foaf:gender",
+        "profession": "undefined",
+        "email": "foaf:mbox",
+        "phone": "foaf:phone",
+        "fax": "undefined",
+        "address": "foaf:address"
+        },
     "@id": "_:1000",
     "@type": "oparl:person",
     "first_name": "Max",

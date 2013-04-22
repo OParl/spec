@@ -1,12 +1,12 @@
 ﻿{
-    id: "3271",
-    identifier: "STA/0034/2012",
-    start: "2013-01-04T08:00:00+01:00",
-    end: "2013-01-04T12:00:00+01:00",
-    number: 1,
-    committee: "STA",
-    people: ["1000", "1001"],
-    invitation: "0001/2013",
-    result_minutes: "0002/2013",
-    verbatim_minutes: "0003/2013"
+    "id": "3271",
+    "identifier": "STA/0034/2012",
+    "start": "2013-01-04T08:00:00+01:00",
+    "end": "2013-01-04T12:00:00+01:00",
+    "number": 1,
+    "committee": "STA",
+    "people": ["1000", "1001"],
+    "invitation": "0001/2013",
+    "result_minutes": "0002/2013",
+    "verbatim_minutes": "0003/2013"
 }

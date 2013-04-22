@@ -1,5 +1,6 @@
 ﻿{
-    "id": "05315000",
+    "@id": "_:05315000",
+    "@type": "oparl:gebietskoerperschaft",
     "name": "Stadt Köln",
     "gremien": [
         {

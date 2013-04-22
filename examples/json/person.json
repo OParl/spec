@@ -14,7 +14,8 @@
         "fax": "v:fax",
         "address": "v:adr",
         "organisations": "undefined",
-        "committees": "undefined"
+        "committees": "undefined",
+        // todo: move strt and end to membership in organisation and committee
         "start": "http://purl.org/dc/terms/available",
         "end": "http://purl.org/dc/terms/date"
         },

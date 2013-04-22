@@ -29,18 +29,18 @@
     "address": "Musterstraße 5, 11111 Musterort",
     "organisations": [
         {
-            "id": "2000",
+            "@id": "_:2000",
             "start": "2011-03-01",
             "end": "2013-02-28"
         },
         {
-            "id": "2001",
+            "@id": "_:2001",
             "start": "2013-03-01"
         }
     ],
     "committees": [
         {
-            "id": "STA",
+            "@id": "_:STA",
             "start": "2013-01-01"
         }
     ]

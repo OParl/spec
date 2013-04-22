@@ -1,5 +1,6 @@
 ﻿{
-    "id": "1000",
+    "@id": "_:1000",
+    "@type": "oparl:person",
     "first_name": "Max",
     "last_name": "Mustermann",
     "academic_title": "Dr.",

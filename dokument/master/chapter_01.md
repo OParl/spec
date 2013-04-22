@@ -96,4 +96,4 @@ Sollten Sie auf diesem Wege Anmerkungen direkt am/im Dokumententext übersenden 
 Mitwirkende
 -----------
 
-Felix Ebert, Jan Erhardt
+Felix Ebert, Jan Erhardt, Andreas Kuckartz

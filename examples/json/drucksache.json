@@ -1,5 +1,6 @@
 ﻿{
-    "id": "1234/2012",
+    "@id": "_:1234/2012",
+    "@type": "oparl:drucksache",
     "datum": "2013-01-04",
     "typ": "Beantwortung einer Anfrage",
     "anfrage": "3001.pdf",

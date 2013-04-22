@@ -1,5 +1,6 @@
 ﻿{
-    "id": "3000.pdf",
+    "@id": "_:3000.pdf",
+    "@type": "oparl:dokument",
     "titel": "Anlage 1: Übersichtsplan",
     "dateityp": "application/x-pdf",
     "geaendert_am": "2013-01-04T07:54:13+01:00",

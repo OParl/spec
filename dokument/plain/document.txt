@@ -74,6 +74,8 @@ erledigen:
 -   Beschreibung von Methoden und URL-Parametern
 -   HTTP Status-Codes und besondere Anforderungen an Verwendung
     bestimmter HTTP-Header
+-   Klärung einer gemeinsamen Nomenklatur für Inhalte, beispielsweise
+    für Arten von Drucksachen
 
 Feedback und Mitwirkung
 -----------------------
@@ -383,12 +385,13 @@ Beziehungen
 Sitzung
 -------
 
-Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums zu einem
-bestimmten Zeitpunkt. Sitzungen können eine laufende Nummer haben.
+Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder
+mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.
 
 Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in
-entsprechender Form referenziert. Verschiedene Drucksachen (Einladung,
-Ergebnis- und Wortprotokoll) werden ebenfalls referenziert.
+entsprechender Form referenziert. Verschiedene Dokumente (Einladung,
+Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert
+werden.
 
 [Objekttyp Sitzung]
 
@@ -405,13 +408,14 @@ Sitzung in einem Jahr und der Jahreszahl (z.B. "BV1/0034/2012"). Nummer
 Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die "2.
 Sitzung des Rats" gekennzeichnet. Anfang : Datum und ggf. Uhrzeit des
 Anfangszeitpunkts der Sitzung Ende : Optional. Datum und Uhrzeit vom
-Ende der Sitzung
+Ende der Sitzung Ort : Optional. Textliche Information zum Ort der
+Sitzung, z.B. "Rathaus, Raum 136".
 
 Beziehungen
 
--   Sitzungen sind grundsätzlich genau einem Gremium zugeordnet.
--   Personen sind Sitzungen zugeordnet, um die Teilnahme an der Sitzung
-    auszudrücken.
+-   Sitzungen sind mindestens einem Gremium zugeordnet
+-   Einer Sitzung sind Personen zugeordnet, um die Teilnahme an der
+    Sitzung auszudrücken.
 -   Dokumente können vom Typ "Sitzung" optional zu mehreren Zwecken
     referenziert werden:
     -   Zum Verweis auf die Einladung zur Sitzung
@@ -419,7 +423,8 @@ Beziehungen
     -   Zum Verweis auf das Wortprotokoll zur Sitzung
 
 -   Weiterhin können Sitzungen beliebige weitere Dokumente, die keine
-    eigenständigen Drucksachen sind, referenzieren.
+    eigenständigen Drucksachen sind, referenzieren. Dabei handelt es
+    sich dann um nicht weiter spezifizierte Anlagen.
 
 Tagesordnungspunkt
 ------------------

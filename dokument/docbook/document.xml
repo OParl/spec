@@ -98,6 +98,12 @@
           bestimmter HTTP-Header
         </para>
       </listitem>
+      <listitem>
+        <para>
+          Klärung einer gemeinsamen Nomenklatur für Inhalte,
+          beispielsweise für Arten von Drucksachen
+        </para>
+      </listitem>
     </itemizedlist>
   </sect2>
   <sect2 id="feedback-und-mitwirkung">
@@ -679,15 +685,15 @@
   <sect2 id="sitzung">
     <title>Sitzung</title>
     <para>
-      Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums zu
-      einem bestimmten Zeitpunkt. Sitzungen können eine laufende Nummer
-      haben.
+      Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums
+      oder mehrerer Gremien zu einem bestimmten Zeitpunkt an einem
+      bestimmten Ort.
     </para>
     <para>
       Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in
-      entsprechender Form referenziert. Verschiedene Drucksachen
-      (Einladung, Ergebnis- und Wortprotokoll) werden ebenfalls
-      referenziert.
+      entsprechender Form referenziert. Verschiedene Dokumente
+      (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können
+      referenziert werden.
     </para>
     <figure>
       <title>Objekttyp Sitzung</title>
@@ -725,7 +731,9 @@
         gekennzeichnet. Anfang : Datum und ggf. Uhrzeit des
         Anfangszeitpunkts der Sitzung Ende :
         <emphasis>Optional</emphasis>. Datum und Uhrzeit vom Ende der
-        Sitzung
+        Sitzung Ort : <emphasis>Optional</emphasis>. Textliche
+        Information zum Ort der Sitzung, z.B. &quot;Rathaus, Raum
+        136&quot;.
       </para>
     </sect3>
     <sect3 id="beziehungen-4">
@@ -733,13 +741,13 @@
       <itemizedlist>
         <listitem>
           <para>
-            Sitzungen sind grundsätzlich genau einem Gremium zugeordnet.
+            Sitzungen sind mindestens einem Gremium zugeordnet
           </para>
         </listitem>
         <listitem>
           <para>
-            Personen sind Sitzungen zugeordnet, um die Teilnahme an der
-            Sitzung auszudrücken.
+            Einer Sitzung sind Personen zugeordnet, um die Teilnahme an
+            der Sitzung auszudrücken.
           </para>
         </listitem>
         <listitem>
@@ -769,7 +777,8 @@
         <listitem>
           <para>
             Weiterhin können Sitzungen beliebige weitere Dokumente, die
-            keine eigenständigen Drucksachen sind, referenzieren.
+            keine eigenständigen Drucksachen sind, referenzieren. Dabei
+            handelt es sich dann um nicht weiter spezifizierte Anlagen.
           </para>
         </listitem>
       </itemizedlist>

@@ -136,6 +136,9 @@ erledigen:
 \item
   HTTP Status-Codes und besondere Anforderungen an Verwendung bestimmter
   HTTP-Header
+\item
+  Klärung einer gemeinsamen Nomenklatur für Inhalte, beispielsweise für
+  Arten von Drucksachen
 \end{itemize}
 
 \subsection{Feedback und Mitwirkung}
@@ -511,12 +514,13 @@ Gebietskörperschaft Name : Der gebräuchliche Name der Organisation, z.B.
 
 \subsection{Sitzung}
 
-Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums zu einem
-bestimmten Zeitpunkt. Sitzungen können eine laufende Nummer haben.
+Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder
+mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.
 
 Die geladenen Teilnehmer der Sitzung sind jeweils als „Person`` in
-entsprechender Form referenziert. Verschiedene Drucksachen (Einladung,
-Ergebnis- und Wortprotokoll) werden ebenfalls referenziert.
+entsprechender Form referenziert. Verschiedene Dokumente (Einladung,
+Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert
+werden.
 
 \begin{figure}[htbp]
 \centering
@@ -539,16 +543,17 @@ Nummer : \emph{Optional}. Laufende Nummer der Sitzung, üblicherweise
 innerhalb der Wahlperiode mit 1 beginnend. In der Praxis wird dadurch
 z.B. die ``2. Sitzung des Rats'' gekennzeichnet. Anfang : Datum und ggf.
 Uhrzeit des Anfangszeitpunkts der Sitzung Ende : \emph{Optional}. Datum
-und Uhrzeit vom Ende der Sitzung
+und Uhrzeit vom Ende der Sitzung Ort : \emph{Optional}. Textliche
+Information zum Ort der Sitzung, z.B. ``Rathaus, Raum 136''.
 
 \subsubsection{Beziehungen}
 
 \begin{itemize}
 \item
-  Sitzungen sind grundsätzlich genau einem Gremium zugeordnet.
+  Sitzungen sind mindestens einem Gremium zugeordnet
 \item
-  Personen sind Sitzungen zugeordnet, um die Teilnahme an der Sitzung
-  auszudrücken.
+  Einer Sitzung sind Personen zugeordnet, um die Teilnahme an der
+  Sitzung auszudrücken.
 \item
   Dokumente können vom Typ ``Sitzung'' \emph{optional} zu mehreren
   Zwecken referenziert werden:
@@ -563,7 +568,8 @@ und Uhrzeit vom Ende der Sitzung
   \end{itemize}
 \item
   Weiterhin können Sitzungen beliebige weitere Dokumente, die keine
-  eigenständigen Drucksachen sind, referenzieren.
+  eigenständigen Drucksachen sind, referenzieren. Dabei handelt es sich
+  dann um nicht weiter spezifizierte Anlagen.
 \end{itemize}
 
 \subsection{Tagesordnungspunkt}

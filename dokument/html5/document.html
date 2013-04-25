@@ -40,6 +40,7 @@
 <li>Fertigstellung Datenmodell</li>
 <li>Beschreibung von Methoden und URL-Parametern</li>
 <li>HTTP Status-Codes und besondere Anforderungen an Verwendung bestimmter HTTP-Header</li>
+<li>Klärung einer gemeinsamen Nomenklatur für Inhalte, beispielsweise für Arten von Drucksachen</li>
 </ul>
 <h2 id="feedback-und-mitwirkung"><span class="header-section-number">1.7</span> Feedback und Mitwirkung</h2>
 <p>Feedback wird dringend benötigt und ist daher herzlichst willkommen. Feedback kann auf den folgenden Wegen eingereicht werden:</p>
@@ -184,8 +185,8 @@
 <li>Personen können Organisationen angehören (<em>datiert</em>).</li>
 </ul>
 <h2 id="sitzung"><span class="header-section-number">2.6</span> Sitzung</h2>
-<p>Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums zu einem bestimmten Zeitpunkt. Sitzungen können eine laufende Nummer haben.</p>
-<p>Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in entsprechender Form referenziert. Verschiedene Drucksachen (Einladung, Ergebnis- und Wortprotokoll) werden ebenfalls referenziert.</p>
+<p>Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.</p>
+<p>Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in entsprechender Form referenziert. Verschiedene Dokumente (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.</p>
 <figure>
 <embed src="images/datenmodell_sitzung.pdf"><figcaption>Objekttyp Sitzung</figcaption>
 </figure>
@@ -195,18 +196,18 @@
 <dd>Zur eindeutigen Identifizierung der Sitzung innerhalb einer
 </dd>
 </dl>
-<p>Gebietskörperschaft. In der Praxis wird eine solche Kennzeichnung entweder durch eine laufende Nummer gebildet, oder durch Kombination mehrerer Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung in einem Jahr und der Jahreszahl (z.B. &quot;BV1/0034/2012&quot;). Nummer : <em>Optional</em>. Laufende Nummer der Sitzung, üblicherweise innerhalb der Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die &quot;2. Sitzung des Rats&quot; gekennzeichnet. Anfang : Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung Ende : <em>Optional</em>. Datum und Uhrzeit vom Ende der Sitzung</p>
+<p>Gebietskörperschaft. In der Praxis wird eine solche Kennzeichnung entweder durch eine laufende Nummer gebildet, oder durch Kombination mehrerer Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung in einem Jahr und der Jahreszahl (z.B. &quot;BV1/0034/2012&quot;). Nummer : <em>Optional</em>. Laufende Nummer der Sitzung, üblicherweise innerhalb der Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die &quot;2. Sitzung des Rats&quot; gekennzeichnet. Anfang : Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung Ende : <em>Optional</em>. Datum und Uhrzeit vom Ende der Sitzung Ort : <em>Optional</em>. Textliche Information zum Ort der Sitzung, z.B. &quot;Rathaus, Raum 136&quot;.</p>
 <h3 id="beziehungen-4"><span class="header-section-number">2.6.2</span> Beziehungen</h3>
 <ul>
-<li>Sitzungen sind grundsätzlich genau einem Gremium zugeordnet.</li>
-<li>Personen sind Sitzungen zugeordnet, um die Teilnahme an der Sitzung auszudrücken.</li>
+<li>Sitzungen sind mindestens einem Gremium zugeordnet</li>
+<li>Einer Sitzung sind Personen zugeordnet, um die Teilnahme an der Sitzung auszudrücken.</li>
 <li>Dokumente können vom Typ &quot;Sitzung&quot; <em>optional</em> zu mehreren Zwecken referenziert werden:
 <ul>
 <li>Zum Verweis auf die Einladung zur Sitzung</li>
 <li>Zum Verweis auf das Ergebnisprotokoll zur Sitzung</li>
 <li>Zum Verweis auf das Wortprotokoll zur Sitzung</li>
 </ul></li>
-<li>Weiterhin können Sitzungen beliebige weitere Dokumente, die keine eigenständigen Drucksachen sind, referenzieren.</li>
+<li>Weiterhin können Sitzungen beliebige weitere Dokumente, die keine eigenständigen Drucksachen sind, referenzieren. Dabei handelt es sich dann um nicht weiter spezifizierte Anlagen.</li>
 </ul>
 <h2 id="tagesordnungspunkt"><span class="header-section-number">2.7</span> Tagesordnungspunkt</h2>
 <p>Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. Falls abweichend von der ursprünglichen Beschlussvorlage (z.B. durch Berücksichtigung eines Änderungsantrags) kann ein bestimmter Beschlusstext zu Protokoll gegeben werden. Sofern das Abstimmungsergebnis nicht einstimmig ist, kann es durch mehrere referenzierende Stimmabgaben festgehalten werden.</p>

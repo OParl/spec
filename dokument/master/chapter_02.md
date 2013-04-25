@@ -148,24 +148,15 @@ Kurzname
 :   _Optional_. Eine zur Anzeige bestimmte, kürzere Form des Namens.
 
 
-#### Anmerkungen ####
-
-Beim Rösrather RIS [6] wird für jedes Gremium ein Kurz- und ein Langname 
-angegeben. Beispielsweise wird beim "Stadtentwicklungs-, Planungs- und 
-Verkehrsausschuss" die kurze Form "Stadtentwicklung" hinterlegt. Bei 5 von 
-12 Gremien sind jedoch Kurz- und Langnamen identisch.
-
-Sofern nicht Beispiele aus weiteren Systemen vorliegen, wird dieser 
-Einzelfall nicht im Entwurf abgebildet.
-
-
 ### Beziehungen ###
 
 * Objekte vom Typ "Person" referenzieren auf Gremien, um die 
 Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu kennzeichnen.
-* Objekte vom Typ "Drucksache" können einem Gremium zugeordnet sein. 
-Beispielsweise wird eine Anfrage oder ein Antrag dem Rat oder einer 
-bestimmten Bezirksvertretung zugeordnet.
+Diese Beziehung ist datiert. Das bedeutet, sie hat einen Anfangszeitpunkt und
+ggf. einen Endzeitpunkt.
+* Objekte vom Typ "Drucksache" verweisen auf Gremien. Beispielsweise wird 
+eine Anfrage oder ein Antrag dem Rat und/oder einer bestimmten Bezirksvertretung 
+zugeordnet. Details zu dieser Beziehung werden unter "Drucksache" erläutert.
 
 
 Person

@@ -297,12 +297,11 @@ Tagesordnungspunkt
 Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine 
 (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach 
 der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. 
-Falls abweichend von der ursprünglichen Beschlussvorlage (z.B. durch 
-Berücksichtigung eines Änderungsantrags) kann ein bestimmter Beschlusstext 
-zu Protokoll gegeben werden. Sofern das Abstimmungsergebnis nicht einstimmig 
-ist, kann es durch mehrere referenzierende Stimmabgaben festgehalten werden.
+Unter Umständen kann dem Tagesordnungspunkt ein bestimmter Beschlusstext 
+beigefügt sein. Sofern das Abstimmungsergebnis nicht einstimmig 
+ist, kann es durch mehrere referenzierende "Stimmabgaben" festgehalten werden.
 
-In der Praxis werden die meisten Sitzungen mehrere Tagesordnungspunkte haben.
+Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
 
 ![Objekttyp Tagesordnungspunkt](images/datenmodell_tagesordnungspunkt.pdf)
 
@@ -310,8 +309,8 @@ In der Praxis werden die meisten Sitzungen mehrere Tagesordnungspunkte haben.
 
 Nummer
 :   Beispiel: "1.2.3". Diese Nummer gibt an, in welcher Reihenfolge die 
-Tagesordnungspunkte einer Sitzung behandelt werden. Im Kontext einer Sitzung 
-ist diese Nummer eindeutig.
+Tagesordnungspunkte einer Sitzung normalerweise behandelt werden. Im Kontext 
+einer Sitzung ist diese Nummer eindeutig.
 Öffentlich
 :   ja/nein. Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher Sitzung 
 behandelt wird.
@@ -336,7 +335,9 @@ nur Sinn ergeben, wenn es als Pflichtfeld gelten kann.
 
 ### Beziehungen ###
 
-* Jeder Tagesordnungspunkt gehört zu einer Sitzung.
+* Jeder Tagesordnungspunkt gehört zu genau einer Sitzung.
+* Der Tagesordnungspunkt kann auf eine Drucksache verweisen, die im Rahmen
+dieses Tagesordnungspunkt beraten werden soll.
 * Es können mehrere Objekte vom Typ "Stimmabgabe" referenziert werden, um 
 das Abstimmungsverhalten von Fraktionen oder Einzelpersonen zu dokumentieren.
 * Es können Personen referenziert werden, die während der Abstimmung zu 

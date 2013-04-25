@@ -280,12 +280,14 @@ Anfang
 :   Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung
 Ende
 :   _Optional_. Datum und Uhrzeit vom Ende der Sitzung
+Ort
+:   _Optional_. Textliche Information zum Ort der Sitzung, z.B. "Rathaus, Raum 136".
 
 
 ### Beziehungen ###
 
-* Sitzungen sind grundsätzlich genau einem Gremium zugeordnet.
-* Personen sind Sitzungen zugeordnet, um die Teilnahme an der Sitzung 
+* Sitzungen sind mindestens einem Gremium zugeordnet
+* Einer Sitzung sind Personen zugeordnet, um die Teilnahme an der Sitzung 
 auszudrücken.
 * Dokumente können vom Typ "Sitzung" _optional_ zu mehreren Zwecken 
 referenziert werden:
@@ -293,7 +295,8 @@ referenziert werden:
     * Zum Verweis auf das Ergebnisprotokoll zur Sitzung
     * Zum Verweis auf das Wortprotokoll zur Sitzung
 * Weiterhin können Sitzungen beliebige weitere Dokumente, die keine 
-eigenständigen Drucksachen sind, referenzieren.
+eigenständigen Drucksachen sind, referenzieren. Dabei handelt es sich dann 
+um nicht weiter spezifizierte Anlagen.
 
 Tagesordnungspunkt
 ------------------

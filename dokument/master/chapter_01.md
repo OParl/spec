@@ -74,6 +74,8 @@ erledigen:
 * Beschreibung von Methoden und URL-Parametern
 * HTTP Status-Codes und besondere Anforderungen an Verwendung bestimmter 
 HTTP-Header
+* Klärung einer gemeinsamen Nomenklatur für Inhalte, beispielsweise für Arten 
+von Drucksachen
 
 
 Feedback und Mitwirkung

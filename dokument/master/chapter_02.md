@@ -255,12 +255,12 @@ berücksichtigt werden.
 Sitzung
 -------
 
-Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums zu einem 
-bestimmten Zeitpunkt. Sitzungen können eine laufende Nummer haben.
+Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder mehrerer
+Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.
 
 Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in 
-entsprechender Form referenziert. Verschiedene Drucksachen (Einladung, 
-Ergebnis- und Wortprotokoll) werden ebenfalls referenziert.
+entsprechender Form referenziert. Verschiedene Dokumente (Einladung, 
+Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.
 
 ![Objekttyp Sitzung](images/datenmodell_sitzung.pdf)
 

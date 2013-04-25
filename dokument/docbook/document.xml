@@ -479,29 +479,15 @@
         </varlistentry>
       </variablelist>
       <para>
-        Gebietskörperschaft. Die Stadt Köln verwendet beispielswiese das
-        Kürzel &quot;STA&quot; für den Stadtentwicklungsausschuss oder
-        &quot;BA&quot; für den Ausschuss für Anregungen und Beschwerden.
-        Andere Kommunen verwenden z.B. rein numerische Kennungen. Name :
-        Der Name des Gremiums. Beispiele: &quot;Rat&quot;,
-        &quot;Hauptausschuss&quot;, &quot;Bezirksvertretung 1
-        (Innenstadt)&quot;
+        Gebietskörperschaft. In der Praxis kommen sowohl numerische IDs
+        als auch Namenskürzel (Beispiel: &quot;STA&quot; für den
+        Stadtentwicklungsausschuss) vor. Beides sollte hier Verwendung
+        finden können. Name : Der Name des Gremiums. Beispiele:
+        &quot;Rat&quot;, &quot;Hauptausschuss&quot;,
+        &quot;Bezirksvertretung 1 (Innenstadt)&quot; Kurzname :
+        <emphasis>Optional</emphasis>. Eine zur Anzeige bestimmte,
+        kürzere Form des Namens.
       </para>
-      <sect4 id="anmerkungen">
-        <title>Anmerkungen</title>
-        <para>
-          Beim Rösrather RIS [6] wird für jedes Gremium ein Kurz- und
-          ein Langname angegeben. Beispielsweise wird beim
-          &quot;Stadtentwicklungs-, Planungs- und
-          Verkehrsausschuss&quot; die kurze Form
-          &quot;Stadtentwicklung&quot; hinterlegt. Bei 5 von 12 Gremien
-          sind jedoch Kurz- und Langnamen identisch.
-        </para>
-        <para>
-          Sofern nicht Beispiele aus weiteren Systemen vorliegen, wird
-          dieser Einzelfall nicht im Entwurf abgebildet.
-        </para>
-      </sect4>
     </sect3>
     <sect3 id="beziehungen-1">
       <title>Beziehungen</title>
@@ -510,15 +496,18 @@
           <para>
             Objekte vom Typ &quot;Person&quot; referenzieren auf
             Gremien, um die Mitgliedschaft/Zugehörigkeit einer Person
-            im/zum Gremium zu kennzeichnen.
+            im/zum Gremium zu kennzeichnen. Diese Beziehung ist datiert.
+            Das bedeutet, sie hat einen Anfangszeitpunkt und ggf. einen
+            Endzeitpunkt.
           </para>
         </listitem>
         <listitem>
           <para>
-            Objekte vom Typ &quot;Drucksache&quot; können einem Gremium
-            zugeordnet sein. Beispielsweise wird eine Anfrage oder ein
-            Antrag dem Rat oder einer bestimmten Bezirksvertretung
-            zugeordnet.
+            Objekte vom Typ &quot;Drucksache&quot; verweisen auf
+            Gremien. Beispielsweise wird eine Anfrage oder ein Antrag
+            dem Rat und/oder einer bestimmten Bezirksvertretung
+            zugeordnet. Details zu dieser Beziehung werden unter
+            &quot;Drucksache&quot; erläutert.
           </para>
         </listitem>
       </itemizedlist>
@@ -570,7 +559,7 @@
         <emphasis>Optional</emphasis>. Straße und Hausnummer,
         Postleitzahl und Ort
       </para>
-      <sect4 id="anmerkungen-1">
+      <sect4 id="anmerkungen">
         <title>Anmerkungen</title>
         <itemizedlist>
           <listitem>
@@ -648,7 +637,7 @@
         Gebietskörperschaft Name : Der gebräuchliche Name der
         Organisation, z.B. &quot;SPD&quot; oder &quot;DIE LINKE&quot;.
       </para>
-      <sect4 id="anmerkungen-2">
+      <sect4 id="anmerkungen-1">
         <title>Anmerkungen</title>
         <itemizedlist>
           <listitem>
@@ -790,16 +779,14 @@
       Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt,
       erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen
       Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt
-      außerdem ein Ergebnis angehängt. Falls abweichend von der
-      ursprünglichen Beschlussvorlage (z.B. durch Berücksichtigung eines
-      Änderungsantrags) kann ein bestimmter Beschlusstext zu Protokoll
-      gegeben werden. Sofern das Abstimmungsergebnis nicht einstimmig
-      ist, kann es durch mehrere referenzierende Stimmabgaben
-      festgehalten werden.
+      außerdem ein Ergebnis angehängt. Unter Umständen kann dem
+      Tagesordnungspunkt ein bestimmter Beschlusstext beigefügt sein.
+      Sofern das Abstimmungsergebnis nicht einstimmig ist, kann es durch
+      mehrere referenzierende &quot;Stimmabgaben&quot; festgehalten
+      werden.
     </para>
     <para>
-      In der Praxis werden die meisten Sitzungen mehrere
-      Tagesordnungspunkte haben.
+      Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
     </para>
     <figure>
       <title>Objekttyp Tagesordnungspunkt</title>
@@ -827,22 +814,22 @@
         </varlistentry>
       </variablelist>
       <para>
-        Tagesordnungspunkte einer Sitzung behandelt werden. Im Kontext
-        einer Sitzung ist diese Nummer eindeutig. Öffentlich : ja/nein.
-        Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher Sitzung
-        behandelt wird. Titel : Das Thema des Tagesordnungspunktes
-        Ergebnis : Eines aus einer Liste definierter Ergebnisse. Möglich
-        sind: &quot;Unverändert beschlossen&quot;, &quot;Geändert
-        beschlossen&quot;, &quot;Endgültig abgelehnt&quot;, &quot;Zur
-        Kenntnis genommen&quot;, &quot;Ohne Votum in nachfolgende
-        Gremien überwiesen&quot; Beschlusstext :
-        <emphasis>Optional</emphasis>. Falls in diesem
-        Tagesordnungspunkt ein Beschluss gefasst wurde, kann der Text
-        hier hinterlegt werden. Das ist besonders dann in der Praxis
-        relevant, wenn der gefasste Beschluss (z.B. durch
+        Tagesordnungspunkte einer Sitzung normalerweise behandelt
+        werden. Im Kontext einer Sitzung ist diese Nummer eindeutig.
+        Öffentlich : ja/nein. Kennzeichnet, ob der Tagesordnungspunkt in
+        öffentlicher Sitzung behandelt wird. Titel : Das Thema des
+        Tagesordnungspunktes Ergebnis : Eines aus einer Liste
+        definierter Ergebnisse. Möglich sind: &quot;Unverändert
+        beschlossen&quot;, &quot;Geändert beschlossen&quot;,
+        &quot;Endgültig abgelehnt&quot;, &quot;Zur Kenntnis
+        genommen&quot;, &quot;Ohne Votum in nachfolgende Gremien
+        überwiesen&quot; Beschlusstext : <emphasis>Optional</emphasis>.
+        Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde,
+        kann der Text hier hinterlegt werden. Das ist besonders dann in
+        der Praxis relevant, wenn der gefasste Beschluss (z.B. durch
         Änderungsantrag) von der Beschlussvorlage abweicht.
       </para>
-      <sect4 id="anmerkungen-3">
+      <sect4 id="anmerkungen-2">
         <title>Anmerkungen</title>
         <itemizedlist>
           <listitem>
@@ -863,7 +850,13 @@
       <itemizedlist>
         <listitem>
           <para>
-            Jeder Tagesordnungspunkt gehört zu einer Sitzung.
+            Jeder Tagesordnungspunkt gehört zu genau einer Sitzung.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Der Tagesordnungspunkt kann auf eine Drucksache verweisen,
+            die im Rahmen dieses Tagesordnungspunkt beraten werden soll.
           </para>
         </listitem>
         <listitem>
@@ -1059,12 +1052,8 @@
         </listitem>
         <listitem>
           <para>
-            Es kann ein <emphasis role="strong">Gremium</emphasis>
-            genannt werden, dem die Drucksache zuzuordnen ist. Hier ist
-            zu klären, inwiefern dies für einzelne Typen von Drucksachen
-            verpflichten sein sollte. So sollte beispielsweise eine
-            Anfrage grundsätzlich aus einem Gremium (z.B. Gemeinderat)
-            stammen.
+            Die Drucksache ist beliebig vielen Gremien zuzuordnen, in
+            denen diese beraten wird.
           </para>
         </listitem>
         <listitem>
@@ -1074,7 +1063,7 @@
             werden. Im Fall von Mitteilungen der Verwaltung ist dies oft
             der Oberbürgermeister. Bei Anträgen oder Anfragen können
             Organisationen oder Einzelpersonen referenziert werden. Es
-            können stets mehrere Ihrheber verknüpft werden.
+            können stets mehrere Uhrheber verknüpft werden.
           </para>
         </listitem>
         <listitem>
@@ -1107,7 +1096,7 @@
             in Beziehung stehen, um die
             <emphasis role="strong">Beratungsfolge</emphasis> einer
             Drucksache abzubilden. Hierbei kann die Beziehung jeweils
-            mit einer Rollenbezeichnung versehen sein, die noch näher zu
+            mit einer Zuständigkeit versehen sein, die noch näher zu
             bestimmen ist (TODO).
           </para>
         </listitem>

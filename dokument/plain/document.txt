@@ -286,30 +286,23 @@ Kennung
     Zur eindeutigen Identifizierung des Gremiums im Kontext einer
     bestimmten
 
-Gebietskörperschaft. Die Stadt Köln verwendet beispielswiese das Kürzel
-"STA" für den Stadtentwicklungsausschuss oder "BA" für den Ausschuss für
-Anregungen und Beschwerden. Andere Kommunen verwenden z.B. rein
-numerische Kennungen. Name : Der Name des Gremiums. Beispiele: "Rat",
-"Hauptausschuss", "Bezirksvertretung 1 (Innenstadt)"
-
-Anmerkungen
-
-Beim Rösrather RIS [6] wird für jedes Gremium ein Kurz- und ein Langname
-angegeben. Beispielsweise wird beim "Stadtentwicklungs-, Planungs- und
-Verkehrsausschuss" die kurze Form "Stadtentwicklung" hinterlegt. Bei 5
-von 12 Gremien sind jedoch Kurz- und Langnamen identisch.
-
-Sofern nicht Beispiele aus weiteren Systemen vorliegen, wird dieser
-Einzelfall nicht im Entwurf abgebildet.
+Gebietskörperschaft. In der Praxis kommen sowohl numerische IDs als auch
+Namenskürzel (Beispiel: "STA" für den Stadtentwicklungsausschuss) vor.
+Beides sollte hier Verwendung finden können. Name : Der Name des
+Gremiums. Beispiele: "Rat", "Hauptausschuss", "Bezirksvertretung 1
+(Innenstadt)" Kurzname : Optional. Eine zur Anzeige bestimmte, kürzere
+Form des Namens.
 
 Beziehungen
 
 -   Objekte vom Typ "Person" referenzieren auf Gremien, um die
     Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu
-    kennzeichnen.
--   Objekte vom Typ "Drucksache" können einem Gremium zugeordnet sein.
-    Beispielsweise wird eine Anfrage oder ein Antrag dem Rat oder einer
-    bestimmten Bezirksvertretung zugeordnet.
+    kennzeichnen. Diese Beziehung ist datiert. Das bedeutet, sie hat
+    einen Anfangszeitpunkt und ggf. einen Endzeitpunkt.
+-   Objekte vom Typ "Drucksache" verweisen auf Gremien. Beispielsweise
+    wird eine Anfrage oder ein Antrag dem Rat und/oder einer bestimmten
+    Bezirksvertretung zugeordnet. Details zu dieser Beziehung werden
+    unter "Drucksache" erläutert.
 
 Person
 ------
@@ -432,14 +425,12 @@ Tagesordnungspunkt
 Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält
 eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel
 (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein
-Ergebnis angehängt. Falls abweichend von der ursprünglichen
-Beschlussvorlage (z.B. durch Berücksichtigung eines Änderungsantrags)
-kann ein bestimmter Beschlusstext zu Protokoll gegeben werden. Sofern
-das Abstimmungsergebnis nicht einstimmig ist, kann es durch mehrere
-referenzierende Stimmabgaben festgehalten werden.
+Ergebnis angehängt. Unter Umständen kann dem Tagesordnungspunkt ein
+bestimmter Beschlusstext beigefügt sein. Sofern das Abstimmungsergebnis
+nicht einstimmig ist, kann es durch mehrere referenzierende
+"Stimmabgaben" festgehalten werden.
 
-In der Praxis werden die meisten Sitzungen mehrere Tagesordnungspunkte
-haben.
+Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
 
 [Objekttyp Tagesordnungspunkt]
 
@@ -448,17 +439,17 @@ Eigenschaften
 Nummer
     Beispiel: "1.2.3". Diese Nummer gibt an, in welcher Reihenfolge die
 
-Tagesordnungspunkte einer Sitzung behandelt werden. Im Kontext einer
-Sitzung ist diese Nummer eindeutig. Öffentlich : ja/nein. Kennzeichnet,
-ob der Tagesordnungspunkt in öffentlicher Sitzung behandelt wird. Titel
-: Das Thema des Tagesordnungspunktes Ergebnis : Eines aus einer Liste
-definierter Ergebnisse. Möglich sind: "Unverändert beschlossen",
-"Geändert beschlossen", "Endgültig abgelehnt", "Zur Kenntnis genommen",
-"Ohne Votum in nachfolgende Gremien überwiesen" Beschlusstext :
-Optional. Falls in diesem Tagesordnungspunkt ein Beschluss gefasst
-wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in
-der Praxis relevant, wenn der gefasste Beschluss (z.B. durch
-Änderungsantrag) von der Beschlussvorlage abweicht.
+Tagesordnungspunkte einer Sitzung normalerweise behandelt werden. Im
+Kontext einer Sitzung ist diese Nummer eindeutig. Öffentlich : ja/nein.
+Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher Sitzung
+behandelt wird. Titel : Das Thema des Tagesordnungspunktes Ergebnis :
+Eines aus einer Liste definierter Ergebnisse. Möglich sind: "Unverändert
+beschlossen", "Geändert beschlossen", "Endgültig abgelehnt", "Zur
+Kenntnis genommen", "Ohne Votum in nachfolgende Gremien überwiesen"
+Beschlusstext : Optional. Falls in diesem Tagesordnungspunkt ein
+Beschluss gefasst wurde, kann der Text hier hinterlegt werden. Das ist
+besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z.B.
+durch Änderungsantrag) von der Beschlussvorlage abweicht.
 
 Anmerkungen
 
@@ -470,7 +461,9 @@ Anmerkungen
 
 Beziehungen
 
--   Jeder Tagesordnungspunkt gehört zu einer Sitzung.
+-   Jeder Tagesordnungspunkt gehört zu genau einer Sitzung.
+-   Der Tagesordnungspunkt kann auf eine Drucksache verweisen, die im
+    Rahmen dieses Tagesordnungspunkt beraten werden soll.
 -   Es können mehrere Objekte vom Typ "Stimmabgabe" referenziert werden,
     um das Abstimmungsverhalten von Fraktionen oder Einzelpersonen zu
     dokumentieren.
@@ -559,14 +552,12 @@ Beziehungen
     werden.
 -   Es können beliebig viele weitere Dokumente referenziert werden, die
     als nachgeordnete Anlagen zur Drucksache verstanden werden.
--   Es kann ein Gremium genannt werden, dem die Drucksache zuzuordnen
-    ist. Hier ist zu klären, inwiefern dies für einzelne Typen von
-    Drucksachen verpflichten sein sollte. So sollte beispielsweise eine
-    Anfrage grundsätzlich aus einem Gremium (z.B. Gemeinderat) stammen.
+-   Die Drucksache ist beliebig vielen Gremien zuzuordnen, in denen
+    diese beraten wird.
 -   Drucksachen können Urhebern zugewiesen werden. Im Fall von
     Mitteilungen der Verwaltung ist dies oft der Oberbürgermeister. Bei
     Anträgen oder Anfragen können Organisationen oder Einzelpersonen
-    referenziert werden. Es können stets mehrere Ihrheber verknüpft
+    referenziert werden. Es können stets mehrere Uhrheber verknüpft
     werden.
 -   Es können beliebig viele Orte (siehe Objekttyp "Ort") referenziert
     werden, die im Inhalt der Drucksache behandelt werden. Beispiel:
@@ -583,8 +574,8 @@ Beziehungen
     verschiedenen möglichen Beziehungen formell ausgedrückt werden.
 -   Drucksachen können zu beliebig vielen Tagesordnungspunkten in
     Beziehung stehen, um die Beratungsfolge einer Drucksache abzubilden.
-    Hierbei kann die Beziehung jeweils mit einer Rollenbezeichnung
-    versehen sein, die noch näher zu bestimmen ist (TODO).
+    Hierbei kann die Beziehung jeweils mit einer Zuständigkeit versehen
+    sein, die noch näher zu bestimmen ist (TODO).
 
 Dokument
 --------

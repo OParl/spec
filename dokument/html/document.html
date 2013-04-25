@@ -130,14 +130,11 @@
 <dd>Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten
 </dd>
 </dl>
-<p>Gebietskörperschaft. Die Stadt Köln verwendet beispielswiese das Kürzel &quot;STA&quot; für den Stadtentwicklungsausschuss oder &quot;BA&quot; für den Ausschuss für Anregungen und Beschwerden. Andere Kommunen verwenden z.B. rein numerische Kennungen. Name : Der Name des Gremiums. Beispiele: &quot;Rat&quot;, &quot;Hauptausschuss&quot;, &quot;Bezirksvertretung 1 (Innenstadt)&quot;</p>
-<h4 id="anmerkungen"><span class="header-section-number">2.3.1.1</span> Anmerkungen</h4>
-<p>Beim Rösrather RIS [6] wird für jedes Gremium ein Kurz- und ein Langname angegeben. Beispielsweise wird beim &quot;Stadtentwicklungs-, Planungs- und Verkehrsausschuss&quot; die kurze Form &quot;Stadtentwicklung&quot; hinterlegt. Bei 5 von 12 Gremien sind jedoch Kurz- und Langnamen identisch.</p>
-<p>Sofern nicht Beispiele aus weiteren Systemen vorliegen, wird dieser Einzelfall nicht im Entwurf abgebildet.</p>
+<p>Gebietskörperschaft. In der Praxis kommen sowohl numerische IDs als auch Namenskürzel (Beispiel: &quot;STA&quot; für den Stadtentwicklungsausschuss) vor. Beides sollte hier Verwendung finden können. Name : Der Name des Gremiums. Beispiele: &quot;Rat&quot;, &quot;Hauptausschuss&quot;, &quot;Bezirksvertretung 1 (Innenstadt)&quot; Kurzname : <em>Optional</em>. Eine zur Anzeige bestimmte, kürzere Form des Namens.</p>
 <h3 id="beziehungen-1"><span class="header-section-number">2.3.2</span> Beziehungen</h3>
 <ul>
-<li>Objekte vom Typ &quot;Person&quot; referenzieren auf Gremien, um die Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu kennzeichnen.</li>
-<li>Objekte vom Typ &quot;Drucksache&quot; können einem Gremium zugeordnet sein. Beispielsweise wird eine Anfrage oder ein Antrag dem Rat oder einer bestimmten Bezirksvertretung zugeordnet.</li>
+<li>Objekte vom Typ &quot;Person&quot; referenzieren auf Gremien, um die Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu kennzeichnen. Diese Beziehung ist datiert. Das bedeutet, sie hat einen Anfangszeitpunkt und ggf. einen Endzeitpunkt.</li>
+<li>Objekte vom Typ &quot;Drucksache&quot; verweisen auf Gremien. Beispielsweise wird eine Anfrage oder ein Antrag dem Rat und/oder einer bestimmten Bezirksvertretung zugeordnet. Details zu dieser Beziehung werden unter &quot;Drucksache&quot; erläutert.</li>
 </ul>
 <h2 id="person"><span class="header-section-number">2.4</span> Person</h2>
 <p>Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person im Datenmodell eindeutig identifizierbar.</p>
@@ -151,7 +148,7 @@
 </dd>
 </dl>
 <p>die keinen Änderungen unterworfen ist und aus diesem Grund nicht mit dem Namen in Verbindung stehen sollte. Viele RIS nutzen rein numerische Kennungen. Vorname : Der Vorname der Person. Nachname : Der Nachname der Person. Titel : <em>Optional</em>. Akademische Titel wie &quot;Dr.&quot; und &quot;Prof. Dr.&quot; Geschlecht : <em>Optional</em>. Männlich/Weblich Beruf : <em>Optional</em>. Z.B. &quot;Rechtsanwalt&quot; Partei : <em>Optional</em>. Z.B. &quot;Bündnis 90/Grüne&quot; E-Mail-Adresse : <em>Optional</em>. Telefon : <em>Optional</em>. Fax : <em>Optional</em>. Anschrift : <em>Optional</em>. Straße und Hausnummer, Postleitzahl und Ort</p>
-<h4 id="anmerkungen-1"><span class="header-section-number">2.4.1.1</span> Anmerkungen</h4>
+<h4 id="anmerkungen"><span class="header-section-number">2.4.1.1</span> Anmerkungen</h4>
 <ul>
 <li>Das System von Euskirchen scheint Vor- und Nachname (evtl. einschl. Titel) in einem gemeinsamen Feld &quot;Name&quot; zu führen. Ob das System hier technisch differenziert, ist unklar. Falls einzelne Systeme den angezeigten Namen nur als ganzes speichern, sollte dies für den Standard übernommen werden, da es für die meisten Anwendungen ausreichen sollte.</li>
 <li>Das System PROVOX unterscheidet zwischen privaten und geschäftlichen Anschriften.</li>
@@ -173,7 +170,7 @@
 </dd>
 </dl>
 <p>Gebietskörperschaft Name : Der gebräuchliche Name der Organisation, z.B. &quot;SPD&quot; oder &quot;DIE LINKE&quot;.</p>
-<h4 id="anmerkungen-2"><span class="header-section-number">2.5.1.1</span> Anmerkungen</h4>
+<h4 id="anmerkungen-1"><span class="header-section-number">2.5.1.1</span> Anmerkungen</h4>
 <ul>
 <li>Unklar ist bislang, ob Organisationen in der Praxis eher Fraktionen (&quot;SPD-Fraktion im Kölner Rat&quot;, &quot;SPD-Fraktion in Köln-Innenstadt&quot;) abbilden oder ob eher Ortsverbände von Parteien (&quot;SPD Köln&quot;) gemeint sein werden. Einblicke, wie gängige Systeme dies handhaben, sollten evtl. gesammelt und berücksichtigt werden.</li>
 </ul>
@@ -208,8 +205,8 @@
 <li>Weiterhin können Sitzungen beliebige weitere Dokumente, die keine eigenständigen Drucksachen sind, referenzieren. Dabei handelt es sich dann um nicht weiter spezifizierte Anlagen.</li>
 </ul>
 <h2 id="tagesordnungspunkt"><span class="header-section-number">2.7</span> Tagesordnungspunkt</h2>
-<p>Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. Falls abweichend von der ursprünglichen Beschlussvorlage (z.B. durch Berücksichtigung eines Änderungsantrags) kann ein bestimmter Beschlusstext zu Protokoll gegeben werden. Sofern das Abstimmungsergebnis nicht einstimmig ist, kann es durch mehrere referenzierende Stimmabgaben festgehalten werden.</p>
-<p>In der Praxis werden die meisten Sitzungen mehrere Tagesordnungspunkte haben.</p>
+<p>Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. Unter Umständen kann dem Tagesordnungspunkt ein bestimmter Beschlusstext beigefügt sein. Sofern das Abstimmungsergebnis nicht einstimmig ist, kann es durch mehrere referenzierende &quot;Stimmabgaben&quot; festgehalten werden.</p>
+<p>Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.</p>
 <div class="figure">
 <embed src="images/datenmodell_tagesordnungspunkt.pdf"><p class="caption">Objekttyp Tagesordnungspunkt</p>
 </div>
@@ -219,14 +216,15 @@
 <dd>Beispiel: &quot;1.2.3&quot;. Diese Nummer gibt an, in welcher Reihenfolge die
 </dd>
 </dl>
-<p>Tagesordnungspunkte einer Sitzung behandelt werden. Im Kontext einer Sitzung ist diese Nummer eindeutig. Öffentlich : ja/nein. Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher Sitzung behandelt wird. Titel : Das Thema des Tagesordnungspunktes Ergebnis : Eines aus einer Liste definierter Ergebnisse. Möglich sind: &quot;Unverändert beschlossen&quot;, &quot;Geändert beschlossen&quot;, &quot;Endgültig abgelehnt&quot;, &quot;Zur Kenntnis genommen&quot;, &quot;Ohne Votum in nachfolgende Gremien überwiesen&quot; Beschlusstext : <em>Optional</em>. Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) von der Beschlussvorlage abweicht.</p>
-<h4 id="anmerkungen-3"><span class="header-section-number">2.7.1.1</span> Anmerkungen</h4>
+<p>Tagesordnungspunkte einer Sitzung normalerweise behandelt werden. Im Kontext einer Sitzung ist diese Nummer eindeutig. Öffentlich : ja/nein. Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher Sitzung behandelt wird. Titel : Das Thema des Tagesordnungspunktes Ergebnis : Eines aus einer Liste definierter Ergebnisse. Möglich sind: &quot;Unverändert beschlossen&quot;, &quot;Geändert beschlossen&quot;, &quot;Endgültig abgelehnt&quot;, &quot;Zur Kenntnis genommen&quot;, &quot;Ohne Votum in nachfolgende Gremien überwiesen&quot; Beschlusstext : <em>Optional</em>. Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) von der Beschlussvorlage abweicht.</p>
+<h4 id="anmerkungen-2"><span class="header-section-number">2.7.1.1</span> Anmerkungen</h4>
 <ul>
 <li>Einige Systeme vergeben zu Tagesordnungspunkten intern unveränderliche, numerische IDs. Es ist unklar, ob es zusätzlichen Nutzen bringt, derartige IDs, neben den Nummern, in den Standard zu übernehmen. Dies würde vermutlich nur Sinn ergeben, wenn es als Pflichtfeld gelten kann.</li>
 </ul>
 <h3 id="beziehungen-5"><span class="header-section-number">2.7.2</span> Beziehungen</h3>
 <ul>
-<li>Jeder Tagesordnungspunkt gehört zu einer Sitzung.</li>
+<li>Jeder Tagesordnungspunkt gehört zu genau einer Sitzung.</li>
+<li>Der Tagesordnungspunkt kann auf eine Drucksache verweisen, die im Rahmen dieses Tagesordnungspunkt beraten werden soll.</li>
 <li>Es können mehrere Objekte vom Typ &quot;Stimmabgabe&quot; referenziert werden, um das Abstimmungsverhalten von Fraktionen oder Einzelpersonen zu dokumentieren.</li>
 <li>Es können Personen referenziert werden, die während der Abstimmung zu diesem Tagesordnungspunkt <em>nicht</em> anwesend waren.</li>
 </ul>
@@ -273,11 +271,11 @@
 <ul>
 <li>Es muss genau ein <strong>Hauptdokument</strong> (Objekttyp &quot;Dokument&quot;) referenziert werden.</li>
 <li>Es können beliebig viele weitere Dokumente referenziert werden, die als nachgeordnete <strong>Anlagen</strong> zur Drucksache verstanden werden.</li>
-<li>Es kann ein <strong>Gremium</strong> genannt werden, dem die Drucksache zuzuordnen ist. Hier ist zu klären, inwiefern dies für einzelne Typen von Drucksachen verpflichten sein sollte. So sollte beispielsweise eine Anfrage grundsätzlich aus einem Gremium (z.B. Gemeinderat) stammen.</li>
-<li>Drucksachen können <strong>Urhebern</strong> zugewiesen werden. Im Fall von Mitteilungen der Verwaltung ist dies oft der Oberbürgermeister. Bei Anträgen oder Anfragen können Organisationen oder Einzelpersonen referenziert werden. Es können stets mehrere Ihrheber verknüpft werden.</li>
+<li>Die Drucksache ist beliebig vielen Gremien zuzuordnen, in denen diese beraten wird.</li>
+<li>Drucksachen können <strong>Urhebern</strong> zugewiesen werden. Im Fall von Mitteilungen der Verwaltung ist dies oft der Oberbürgermeister. Bei Anträgen oder Anfragen können Organisationen oder Einzelpersonen referenziert werden. Es können stets mehrere Uhrheber verknüpft werden.</li>
 <li>Es können beliebig viele <strong>Orte</strong> (siehe Objekttyp &quot;Ort&quot;) referenziert werden, die im Inhalt der Drucksache behandelt werden. Beispiel: Beschlussvorlage zur Freigabe von Mitteln für die Sanierung eines Sportplatzes, wobei der Ort die Lage des Sportplatzes genau beschreibt.</li>
 <li>Drucksachen können auf andere Drucksachen referenzieren. Diese Verweise können verschiedene semantische Beziehungen ausdrücken. So kann eine Drucksache auf eine übergeordnete oder eine oder mehrere untergeordnete Drucksachen verweisen. Beim Drucksachen-Typ &quot;Beantwortung einer Anfrage&quot; ist die Drucksache zu referenzieren, die die ursprüngliche <strong>Anfrage</strong> beinhaltet. Denkbar sind auch Verweise auf frühere Drucksachen zum selben Thema. Zu klären ist, wie die verschiedenen möglichen Beziehungen formell ausgedrückt werden.</li>
-<li>Drucksachen können zu beliebig vielen Tagesordnungspunkten in Beziehung stehen, um die <strong>Beratungsfolge</strong> einer Drucksache abzubilden. Hierbei kann die Beziehung jeweils mit einer Rollenbezeichnung versehen sein, die noch näher zu bestimmen ist (TODO).</li>
+<li>Drucksachen können zu beliebig vielen Tagesordnungspunkten in Beziehung stehen, um die <strong>Beratungsfolge</strong> einer Drucksache abzubilden. Hierbei kann die Beziehung jeweils mit einer Zuständigkeit versehen sein, die noch näher zu bestimmen ist (TODO).</li>
 </ul>
 <h2 id="dokument"><span class="header-section-number">2.10</span> Dokument</h2>
 <p>Ein Dokument hält die Daten und Metadaten einer Datei vor, beispielsweise einer PDF-Datei, eines RTF- oder Word-Dokuments. Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls ein Dokument, das jedoch nicht als Master gekennzeichnet wird, sondern auf den entsprechenden Master verweist.</p>

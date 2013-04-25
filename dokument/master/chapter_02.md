@@ -428,14 +428,12 @@ Typ
 werden.
 * Es können beliebig viele weitere Dokumente referenziert werden, die als 
 nachgeordnete **Anlagen** zur Drucksache verstanden werden.
-* Es kann ein **Gremium** genannt werden, dem die Drucksache zuzuordnen ist. 
-Hier ist zu klären, inwiefern dies für einzelne Typen von Drucksachen 
-verpflichten sein sollte. So sollte beispielsweise eine Anfrage grundsätzlich 
-aus einem Gremium (z.B. Gemeinderat) stammen.
+* Die Drucksache ist beliebig vielen Gremien zuzuordnen, in denen diese
+beraten wird.
 * Drucksachen können **Urhebern** zugewiesen werden. Im Fall von Mitteilungen 
 der Verwaltung ist dies oft der Oberbürgermeister. Bei Anträgen oder Anfragen 
 können Organisationen oder Einzelpersonen referenziert werden. Es können 
-stets mehrere Ihrheber verknüpft werden.
+stets mehrere Uhrheber verknüpft werden.
 * Es können beliebig viele **Orte** (siehe Objekttyp "Ort") referenziert 
 werden, die im Inhalt der Drucksache behandelt werden. Beispiel: 
 Beschlussvorlage zur Freigabe von Mitteln für die Sanierung eines 
@@ -450,7 +448,7 @@ Thema. Zu klären ist, wie die verschiedenen möglichen Beziehungen formell
 ausgedrückt werden.
 * Drucksachen können zu beliebig vielen Tagesordnungspunkten in Beziehung 
 stehen, um die **Beratungsfolge** einer Drucksache abzubilden. Hierbei kann 
-die Beziehung jeweils mit einer Rollenbezeichnung versehen sein, die noch 
+die Beziehung jeweils mit einer Zuständigkeit versehen sein, die noch 
 näher zu bestimmen ist (TODO).
 
 

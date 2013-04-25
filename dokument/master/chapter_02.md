@@ -138,12 +138,14 @@ ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
 Kennung
 :   Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten 
-Gebietskörperschaft. Die Stadt Köln verwendet beispielswiese das Kürzel "STA" 
-für den Stadtentwicklungsausschuss oder "BA" für den Ausschuss für Anregungen 
-und Beschwerden. Andere Kommunen verwenden z.B. rein numerische Kennungen.
+Gebietskörperschaft. In der Praxis kommen sowohl numerische IDs als auch 
+Namenskürzel (Beispiel: "STA" für den Stadtentwicklungsausschuss) vor. Beides 
+sollte hier Verwendung finden können.
 Name
 :   Der Name des Gremiums. Beispiele: "Rat", "Hauptausschuss", 
 "Bezirksvertretung 1 (Innenstadt)"
+Kurzname
+:   _Optional_. Eine zur Anzeige bestimmte, kürzere Form des Namens.
 
 
 #### Anmerkungen ####

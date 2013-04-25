@@ -206,7 +206,7 @@
         Sollten Sie keinen der oben beschriebenen Wege beschreiten
         wollen, können Sie Anmerkungen zum Dokument per E-Mail an
         marian@sendung.de einsenden. Bitte verwenden Sie dabei den
-        Begriff &quot;open-ris-specs&quot; im Betreff.
+        Begriff &quot;oparl-specs&quot; im Betreff.
       </para>
       <para>
         Sollten Sie auf diesem Wege Anmerkungen direkt am/im
@@ -222,7 +222,7 @@
   <sect2 id="mitwirkende">
     <title>Mitwirkende</title>
     <para>
-      Felix Ebert, Jan Erhardt
+      Felix Ebert, Jan Erhardt, Andreas Kuckartz, Babett Schalitz
     </para>
   </sect2>
 </sect1>
@@ -467,27 +467,20 @@
           <listitem>
             <para>
               Zur eindeutigen Identifizierung des Gremiums im Kontext
-              einer bestimmten Gebietskörperschaft. Die Stadt Köln
-              verwendet beispielswiese das Kürzel &quot;STA&quot; für
-              den Stadtentwicklungsausschuss oder &quot;BA&quot; für den
-              Ausschuss für Anregungen und Beschwerden. Andere Kommunen
-              verwenden z.B. rein numerische Kennungen.
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Name
-          </term>
-          <listitem>
-            <para>
-              Der Name des Gremiums. Beispiele: &quot;Rat&quot;,
-              &quot;Hauptausschuss&quot;, &quot;Bezirksvertretung 1
-              (Innenstadt)&quot;
+              einer bestimmten
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
+      <para>
+        Gebietskörperschaft. Die Stadt Köln verwendet beispielswiese das
+        Kürzel &quot;STA&quot; für den Stadtentwicklungsausschuss oder
+        &quot;BA&quot; für den Ausschuss für Anregungen und Beschwerden.
+        Andere Kommunen verwenden z.B. rein numerische Kennungen. Name :
+        Der Name des Gremiums. Beispiele: &quot;Rat&quot;,
+        &quot;Hauptausschuss&quot;, &quot;Bezirksvertretung 1
+        (Innenstadt)&quot;
+      </para>
       <sect4 id="anmerkungen">
         <title>Anmerkungen</title>
         <para>
@@ -550,117 +543,27 @@
           <listitem>
             <para>
               Zur eindeutigen Identifizierung sollte jede Person eine
-              Kennung besitzen, die keinen Änderungen unterworfen ist
-              und aus diesem Grund nicht mit dem Namen in Verbindung
-              stehen sollte. Viele RIS nutzen rein numerische Kennungen.
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Vorname
-          </term>
-          <listitem>
-            <para>
-              Der Vorname der Person.
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Nachname
-          </term>
-          <listitem>
-            <para>
-              Der Nachname der Person.
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Titel
-          </term>
-          <listitem>
-            <para>
-              <emphasis>Optional</emphasis>. Akademische Titel wie
-              &quot;Dr.&quot; und &quot;Prof. Dr.&quot;
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Geschlecht
-          </term>
-          <listitem>
-            <para>
-              <emphasis>Optional</emphasis>. Männlich/Weblich
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Beruf
-          </term>
-          <listitem>
-            <para>
-              <emphasis>Optional</emphasis>. Z.B.
-              &quot;Rechtsanwalt&quot;
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Partei
-          </term>
-          <listitem>
-            <para>
-              <emphasis>Optional</emphasis>. Z.B. &quot;Bündnis
-              90/Grüne&quot;
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            E-Mail-Adresse
-          </term>
-          <listitem>
-            <para>
-              <emphasis>Optional</emphasis>.
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Telefon
-          </term>
-          <listitem>
-            <para>
-              <emphasis>Optional</emphasis>.
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Fax
-          </term>
-          <listitem>
-            <para>
-              <emphasis>Optional</emphasis>.
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Anschrift
-          </term>
-          <listitem>
-            <para>
-              <emphasis>Optional</emphasis>. Straße und Hausnummer,
-              Postleitzahl und Ort
+              Kennung besitzen,
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
+      <para>
+        die keinen Änderungen unterworfen ist und aus diesem Grund nicht
+        mit dem Namen in Verbindung stehen sollte. Viele RIS nutzen rein
+        numerische Kennungen. Vorname : Der Vorname der Person. Nachname
+        : Der Nachname der Person. Titel :
+        <emphasis>Optional</emphasis>. Akademische Titel wie
+        &quot;Dr.&quot; und &quot;Prof. Dr.&quot; Geschlecht :
+        <emphasis>Optional</emphasis>. Männlich/Weblich Beruf :
+        <emphasis>Optional</emphasis>. Z.B. &quot;Rechtsanwalt&quot;
+        Partei : <emphasis>Optional</emphasis>. Z.B. &quot;Bündnis
+        90/Grüne&quot; E-Mail-Adresse : <emphasis>Optional</emphasis>.
+        Telefon : <emphasis>Optional</emphasis>. Fax :
+        <emphasis>Optional</emphasis>. Anschrift :
+        <emphasis>Optional</emphasis>. Straße und Hausnummer,
+        Postleitzahl und Ort
+      </para>
       <sect4 id="anmerkungen-1">
         <title>Anmerkungen</title>
         <itemizedlist>
@@ -730,22 +633,15 @@
           <listitem>
             <para>
               Zur eindeutigen Kennzeichnung einer Organisation innerhalb
-              einer Gebietskörperschaft
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Name
-          </term>
-          <listitem>
-            <para>
-              Der gebräuchliche Name der Organisation, z.B.
-              &quot;SPD&quot; oder &quot;DIE LINKE&quot;.
+              einer
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
+      <para>
+        Gebietskörperschaft Name : Der gebräuchliche Name der
+        Organisation, z.B. &quot;SPD&quot; oder &quot;DIE LINKE&quot;.
+      </para>
       <sect4 id="anmerkungen-2">
         <title>Anmerkungen</title>
         <itemizedlist>
@@ -812,50 +708,25 @@
           <listitem>
             <para>
               Zur eindeutigen Identifizierung der Sitzung innerhalb
-              einer Gebietskörperschaft. In der Praxis wird eine solche
-              Kennzeichnung entweder durch eine laufende Nummer
-              gebildet, oder durch Kombination mehrerer Merkmale wie dem
-              Kürzel des Gremiums, der laufenden Nummer der Sitzung in
-              einem Jahr und der Jahreszahl (z.B.
-              &quot;BV1/0034/2012&quot;).
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Nummer
-          </term>
-          <listitem>
-            <para>
-              <emphasis>Optional</emphasis>. Laufende Nummer der
-              Sitzung, üblicherweise innerhalb der Wahlperiode mit 1
-              beginnend. In der Praxis wird dadurch z.B. die &quot;2.
-              Sitzung des Rats&quot; gekennzeichnet.
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Anfang
-          </term>
-          <listitem>
-            <para>
-              Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Ende
-          </term>
-          <listitem>
-            <para>
-              <emphasis>Optional</emphasis>. Datum und Uhrzeit vom Ende
-              der Sitzung
+              einer
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
+      <para>
+        Gebietskörperschaft. In der Praxis wird eine solche
+        Kennzeichnung entweder durch eine laufende Nummer gebildet, oder
+        durch Kombination mehrerer Merkmale wie dem Kürzel des Gremiums,
+        der laufenden Nummer der Sitzung in einem Jahr und der
+        Jahreszahl (z.B. &quot;BV1/0034/2012&quot;). Nummer :
+        <emphasis>Optional</emphasis>. Laufende Nummer der Sitzung,
+        üblicherweise innerhalb der Wahlperiode mit 1 beginnend. In der
+        Praxis wird dadurch z.B. die &quot;2. Sitzung des Rats&quot;
+        gekennzeichnet. Anfang : Datum und ggf. Uhrzeit des
+        Anfangszeitpunkts der Sitzung Ende :
+        <emphasis>Optional</emphasis>. Datum und Uhrzeit vom Ende der
+        Sitzung
+      </para>
     </sect3>
     <sect3 id="beziehungen-4">
       <title>Beziehungen</title>
@@ -941,62 +812,27 @@
           <listitem>
             <para>
               Beispiel: &quot;1.2.3&quot;. Diese Nummer gibt an, in
-              welcher Reihenfolge die Tagesordnungspunkte einer Sitzung
-              behandelt werden. Im Kontext einer Sitzung ist diese
-              Nummer eindeutig.
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Öffentlich
-          </term>
-          <listitem>
-            <para>
-              ja/nein. Kennzeichnet, ob der Tagesordnungspunkt in
-              öffentlicher Sitzung behandelt wird.
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Titel
-          </term>
-          <listitem>
-            <para>
-              Das Thema des Tagesordnungspunktes
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Ergebnis
-          </term>
-          <listitem>
-            <para>
-              Eines aus einer Liste definierter Ergebnisse. Möglich
-              sind: &quot;Unverändert beschlossen&quot;, &quot;Geändert
-              beschlossen&quot;, &quot;Endgültig abgelehnt&quot;,
-              &quot;Zur Kenntnis genommen&quot;, &quot;Ohne Votum in
-              nachfolgende Gremien überwiesen&quot;
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Beschlusstext
-          </term>
-          <listitem>
-            <para>
-              <emphasis>Optional</emphasis>. Falls in diesem
-              Tagesordnungspunkt ein Beschluss gefasst wurde, kann der
-              Text hier hinterlegt werden. Das ist besonders dann in de
-              Praxis relevant, wenn der gefasste Beschluss (z.B. durch
-              Änderungsantrag) von der Beschlussvorlage abweicht.
+              welcher Reihenfolge die
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
+      <para>
+        Tagesordnungspunkte einer Sitzung behandelt werden. Im Kontext
+        einer Sitzung ist diese Nummer eindeutig. Öffentlich : ja/nein.
+        Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher Sitzung
+        behandelt wird. Titel : Das Thema des Tagesordnungspunktes
+        Ergebnis : Eines aus einer Liste definierter Ergebnisse. Möglich
+        sind: &quot;Unverändert beschlossen&quot;, &quot;Geändert
+        beschlossen&quot;, &quot;Endgültig abgelehnt&quot;, &quot;Zur
+        Kenntnis genommen&quot;, &quot;Ohne Votum in nachfolgende
+        Gremien überwiesen&quot; Beschlusstext :
+        <emphasis>Optional</emphasis>. Falls in diesem
+        Tagesordnungspunkt ein Beschluss gefasst wurde, kann der Text
+        hier hinterlegt werden. Das ist besonders dann in der Praxis
+        relevant, wenn der gefasste Beschluss (z.B. durch
+        Änderungsantrag) von der Beschlussvorlage abweicht.
+      </para>
       <sect4 id="anmerkungen-3">
         <title>Anmerkungen</title>
         <itemizedlist>
@@ -1070,24 +906,17 @@
           <listitem>
             <para>
               Gehört die Stimmabgabe zu einer Person, ist der Wert immer
-              1. Gehört sie jedoch zu einer Organisation (=Fraktion),
-              kann der Wert hier größer als 1 sein.
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Votum
-          </term>
-          <listitem>
-            <para>
-              Einer der drei Werte &quot;ja&quot; (gleichbedeutend mit
-              &quot;dafür&quot;), &quot;nein&quot; (&quot;dagegen&quot;)
-              oder &quot;Enthaltung&quot;.
+              1. Gehört sie
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
+      <para>
+        jedoch zu einer Organisation (=Fraktion), kann der Wert hier
+        größer als 1 sein. Votum : Einer der drei Werte &quot;ja&quot;
+        (gleichbedeutend mit &quot;dafür&quot;), &quot;nein&quot;
+        (&quot;dagegen&quot;) oder &quot;Enthaltung&quot;.
+      </para>
     </sect3>
     <sect3 id="beziehungen-6">
       <title>Beziehungen</title>
@@ -1187,36 +1016,19 @@
           <listitem>
             <para>
               Die Kennung einer Drucksache muss für die jeweilige
-              Gebietskörperschaft eindeutig sein. Sie kann sowohl
-              Ziffern als auch Buchstaben enthalten. Einige Systeme
-              (z.B. Köln) verwenden besondere Trennzeichen wie
-              &quot;/&quot;, um eine Jahreszahl von einer laufenden
-              Nummer abzutrennen. Weiterhin werden mancherorts führende
-              Nullen verwendet.
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Datum
-          </term>
-          <listitem>
-            <para>
-              Datum der Veröffentlichung
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Typ
-          </term>
-          <listitem>
-            <para>
-              Art der Drucksache (Erläuterung siehe oben)
+              Gebietskörperschaft
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
+      <para>
+        eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben
+        enthalten. Einige Systeme (z.B. Köln) verwenden besondere
+        Trennzeichen wie &quot;/&quot;, um eine Jahreszahl von einer
+        laufenden Nummer abzutrennen. Weiterhin werden mancherorts
+        führende Nullen verwendet. Datum : Datum der Veröffentlichung
+        Typ : Art der Drucksache (Erläuterung siehe oben)
+      </para>
     </sect3>
     <sect3 id="beziehungen-7">
       <title>Beziehungen</title>
@@ -1397,11 +1209,14 @@
           <listitem>
             <para>
               Reine Text-Wiedergabe des Dokumenteninhalts, sofern es
-              sich um ein Textdokument handelt.
+              sich um ein
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
+      <para>
+        Textdokument handelt.
+      </para>
     </sect3>
     <sect3 id="beziehungen-8">
       <title>Beziehungen</title>
@@ -1487,8 +1302,50 @@
     </sect3>
   </sect2>
 </sect1>
-<sect1 id="glossar">
-  <title>Glossar</title>
+<sect1 id="zugriffsmethoden">
+  <title>Zugriffsmethoden</title>
+  <para>
+    In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen
+    Schnittstelle beschrieben.
+  </para>
+  <para>
+    Stichpunkte:
+  </para>
+  <itemizedlist>
+    <listitem>
+      <para>
+        Grundlage für den Zugriff auf die Schnittstelle ist das
+        Hypertext Transfer Protocol (HTTP).
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Ausschließlich HTTP GET Methode
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Optional gzip Encoding und andere Kodierungen, wenn Client und
+        Server dies unterstützen
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        HTTP Last-Modified Header sowie Conditional GET sind bei
+        Dateiabruf (Laden von Anhängen) zu unterstützen
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Das Protkoll ist zustandslos
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Authentifizierung wird nicht benötigt. Glossar =======
+      </para>
+    </listitem>
+  </itemizedlist>
   <variablelist>
     <varlistentry>
       <term>

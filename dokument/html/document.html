@@ -64,10 +64,10 @@
 <p>verwenden. Vorteil daran ist, dass auch andere die Einträge lesen und wiederum durch Kommentare ergänzen können. Zudem lässt sich der Bearbeitungsstatus eines Issue-Eintrags (offen, geschlossen) nachhalten.</p>
 <p>Bitte achten Sie auf diesem Weg darauf, Ihre Kommentare in möglichst kleine thematische Einheiten herunter zu brechen.</p>
 <h3 id="feedback-per-e-mail"><span class="header-section-number">1.7.3</span> Feedback per E-Mail</h3>
-<p>Sollten Sie keinen der oben beschriebenen Wege beschreiten wollen, können Sie Anmerkungen zum Dokument per E-Mail an marian@sendung.de einsenden. Bitte verwenden Sie dabei den Begriff &quot;open-ris-specs&quot; im Betreff.</p>
+<p>Sollten Sie keinen der oben beschriebenen Wege beschreiten wollen, können Sie Anmerkungen zum Dokument per E-Mail an marian@sendung.de einsenden. Bitte verwenden Sie dabei den Begriff &quot;oparl-specs&quot; im Betreff.</p>
 <p>Sollten Sie auf diesem Wege Anmerkungen direkt am/im Dokumententext übersenden wollen, nutzen Sie bitte falls möglich die Word- oder OpenOffice-Version dieses Dokuments und ändern Sie das Dokument so, dass Änderungen aufgezeichnet werden (OpenOffice: Bearbeiten &gt; Änderungen &gt; Aufzeichnen; Word: Ribbon &quot;Überprüfen&quot; &gt; Nachverfolgung &gt; Änderungen nachverfolgen).</p>
 <h2 id="mitwirkende"><span class="header-section-number">1.8</span> Mitwirkende</h2>
-<p>Felix Ebert, Jan Erhardt</p>
+<p>Felix Ebert, Jan Erhardt, Andreas Kuckartz, Babett Schalitz</p>
 <h1 id="datenmodell"><span class="header-section-number">2</span> Datenmodell</h1>
 <p>Das Datenmodell definiert die Objekttypen bzw. die Klassen, auf die über die Schnittstelle zugegriffen werden kann.</p>
 <p>Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen beziehen sich auf nach außen, bei Nutzung der jeweiligen Weboberflächen, feststellbare Eigenschaften. Dabei wird vereinzelt und beispielhaft auf die folgenden Systeme Bezug genommen:</p>
@@ -126,12 +126,10 @@
 <h3 id="eigenschaften-1"><span class="header-section-number">2.3.1</span> Eigenschaften</h3>
 <dl>
 <dt>Kennung</dt>
-<dd>Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten Gebietskörperschaft. Die Stadt Köln verwendet beispielswiese das Kürzel &quot;STA&quot; für den Stadtentwicklungsausschuss oder &quot;BA&quot; für den Ausschuss für Anregungen und Beschwerden. Andere Kommunen verwenden z.B. rein numerische Kennungen.
-</dd>
-<dt>Name</dt>
-<dd>Der Name des Gremiums. Beispiele: &quot;Rat&quot;, &quot;Hauptausschuss&quot;, &quot;Bezirksvertretung 1 (Innenstadt)&quot;
+<dd>Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten
 </dd>
 </dl>
+<p>Gebietskörperschaft. Die Stadt Köln verwendet beispielswiese das Kürzel &quot;STA&quot; für den Stadtentwicklungsausschuss oder &quot;BA&quot; für den Ausschuss für Anregungen und Beschwerden. Andere Kommunen verwenden z.B. rein numerische Kennungen. Name : Der Name des Gremiums. Beispiele: &quot;Rat&quot;, &quot;Hauptausschuss&quot;, &quot;Bezirksvertretung 1 (Innenstadt)&quot;</p>
 <h4 id="anmerkungen"><span class="header-section-number">2.3.1.1</span> Anmerkungen</h4>
 <p>Beim Rösrather RIS [6] wird für jedes Gremium ein Kurz- und ein Langname angegeben. Beispielsweise wird beim &quot;Stadtentwicklungs-, Planungs- und Verkehrsausschuss&quot; die kurze Form &quot;Stadtentwicklung&quot; hinterlegt. Bei 5 von 12 Gremien sind jedoch Kurz- und Langnamen identisch.</p>
 <p>Sofern nicht Beispiele aus weiteren Systemen vorliegen, wird dieser Einzelfall nicht im Entwurf abgebildet.</p>
@@ -148,39 +146,10 @@
 <h3 id="eigenschaften-2"><span class="header-section-number">2.4.1</span> Eigenschaften</h3>
 <dl>
 <dt>Kennung</dt>
-<dd>Zur eindeutigen Identifizierung sollte jede Person eine Kennung besitzen, die keinen Änderungen unterworfen ist und aus diesem Grund nicht mit dem Namen in Verbindung stehen sollte. Viele RIS nutzen rein numerische Kennungen.
-</dd>
-<dt>Vorname</dt>
-<dd>Der Vorname der Person.
-</dd>
-<dt>Nachname</dt>
-<dd>Der Nachname der Person.
-</dd>
-<dt>Titel</dt>
-<dd><em>Optional</em>. Akademische Titel wie &quot;Dr.&quot; und &quot;Prof. Dr.&quot;
-</dd>
-<dt>Geschlecht</dt>
-<dd><em>Optional</em>. Männlich/Weblich
-</dd>
-<dt>Beruf</dt>
-<dd><em>Optional</em>. Z.B. &quot;Rechtsanwalt&quot;
-</dd>
-<dt>Partei</dt>
-<dd><em>Optional</em>. Z.B. &quot;Bündnis 90/Grüne&quot;
-</dd>
-<dt>E-Mail-Adresse</dt>
-<dd><em>Optional</em>.
-</dd>
-<dt>Telefon</dt>
-<dd><em>Optional</em>.
-</dd>
-<dt>Fax</dt>
-<dd><em>Optional</em>.
-</dd>
-<dt>Anschrift</dt>
-<dd><em>Optional</em>. Straße und Hausnummer, Postleitzahl und Ort
+<dd>Zur eindeutigen Identifizierung sollte jede Person eine Kennung besitzen,
 </dd>
 </dl>
+<p>die keinen Änderungen unterworfen ist und aus diesem Grund nicht mit dem Namen in Verbindung stehen sollte. Viele RIS nutzen rein numerische Kennungen. Vorname : Der Vorname der Person. Nachname : Der Nachname der Person. Titel : <em>Optional</em>. Akademische Titel wie &quot;Dr.&quot; und &quot;Prof. Dr.&quot; Geschlecht : <em>Optional</em>. Männlich/Weblich Beruf : <em>Optional</em>. Z.B. &quot;Rechtsanwalt&quot; Partei : <em>Optional</em>. Z.B. &quot;Bündnis 90/Grüne&quot; E-Mail-Adresse : <em>Optional</em>. Telefon : <em>Optional</em>. Fax : <em>Optional</em>. Anschrift : <em>Optional</em>. Straße und Hausnummer, Postleitzahl und Ort</p>
 <h4 id="anmerkungen-1"><span class="header-section-number">2.4.1.1</span> Anmerkungen</h4>
 <ul>
 <li>Das System von Euskirchen scheint Vor- und Nachname (evtl. einschl. Titel) in einem gemeinsamen Feld &quot;Name&quot; zu führen. Ob das System hier technisch differenziert, ist unklar. Falls einzelne Systeme den angezeigten Namen nur als ganzes speichern, sollte dies für den Standard übernommen werden, da es für die meisten Anwendungen ausreichen sollte.</li>
@@ -199,12 +168,10 @@
 <h3 id="eigenschaften-3"><span class="header-section-number">2.5.1</span> Eigenschaften</h3>
 <dl>
 <dt>Kennung</dt>
-<dd>Zur eindeutigen Kennzeichnung einer Organisation innerhalb einer Gebietskörperschaft
-</dd>
-<dt>Name</dt>
-<dd>Der gebräuchliche Name der Organisation, z.B. &quot;SPD&quot; oder &quot;DIE LINKE&quot;.
+<dd>Zur eindeutigen Kennzeichnung einer Organisation innerhalb einer
 </dd>
 </dl>
+<p>Gebietskörperschaft Name : Der gebräuchliche Name der Organisation, z.B. &quot;SPD&quot; oder &quot;DIE LINKE&quot;.</p>
 <h4 id="anmerkungen-2"><span class="header-section-number">2.5.1.1</span> Anmerkungen</h4>
 <ul>
 <li>Unklar ist bislang, ob Organisationen in der Praxis eher Fraktionen (&quot;SPD-Fraktion im Kölner Rat&quot;, &quot;SPD-Fraktion in Köln-Innenstadt&quot;) abbilden oder ob eher Ortsverbände von Parteien (&quot;SPD Köln&quot;) gemeint sein werden. Einblicke, wie gängige Systeme dies handhaben, sollten evtl. gesammelt und berücksichtigt werden.</li>
@@ -223,18 +190,10 @@
 <h3 id="eigenschaften-4"><span class="header-section-number">2.6.1</span> Eigenschaften</h3>
 <dl>
 <dt>Eindeutige Kennung</dt>
-<dd>Zur eindeutigen Identifizierung der Sitzung innerhalb einer Gebietskörperschaft. In der Praxis wird eine solche Kennzeichnung entweder durch eine laufende Nummer gebildet, oder durch Kombination mehrerer Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung in einem Jahr und der Jahreszahl (z.B. &quot;BV1/0034/2012&quot;).
-</dd>
-<dt>Nummer</dt>
-<dd><em>Optional</em>. Laufende Nummer der Sitzung, üblicherweise innerhalb der Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die &quot;2. Sitzung des Rats&quot; gekennzeichnet.
-</dd>
-<dt>Anfang</dt>
-<dd>Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung
-</dd>
-<dt>Ende</dt>
-<dd><em>Optional</em>. Datum und Uhrzeit vom Ende der Sitzung
+<dd>Zur eindeutigen Identifizierung der Sitzung innerhalb einer
 </dd>
 </dl>
+<p>Gebietskörperschaft. In der Praxis wird eine solche Kennzeichnung entweder durch eine laufende Nummer gebildet, oder durch Kombination mehrerer Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung in einem Jahr und der Jahreszahl (z.B. &quot;BV1/0034/2012&quot;). Nummer : <em>Optional</em>. Laufende Nummer der Sitzung, üblicherweise innerhalb der Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die &quot;2. Sitzung des Rats&quot; gekennzeichnet. Anfang : Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung Ende : <em>Optional</em>. Datum und Uhrzeit vom Ende der Sitzung</p>
 <h3 id="beziehungen-4"><span class="header-section-number">2.6.2</span> Beziehungen</h3>
 <ul>
 <li>Sitzungen sind grundsätzlich genau einem Gremium zugeordnet.</li>
@@ -256,21 +215,10 @@
 <h3 id="eigenschaften-5"><span class="header-section-number">2.7.1</span> Eigenschaften</h3>
 <dl>
 <dt>Nummer</dt>
-<dd>Beispiel: &quot;1.2.3&quot;. Diese Nummer gibt an, in welcher Reihenfolge die Tagesordnungspunkte einer Sitzung behandelt werden. Im Kontext einer Sitzung ist diese Nummer eindeutig.
-</dd>
-<dt>Öffentlich</dt>
-<dd>ja/nein. Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher Sitzung behandelt wird.
-</dd>
-<dt>Titel</dt>
-<dd>Das Thema des Tagesordnungspunktes
-</dd>
-<dt>Ergebnis</dt>
-<dd>Eines aus einer Liste definierter Ergebnisse. Möglich sind: &quot;Unverändert beschlossen&quot;, &quot;Geändert beschlossen&quot;, &quot;Endgültig abgelehnt&quot;, &quot;Zur Kenntnis genommen&quot;, &quot;Ohne Votum in nachfolgende Gremien überwiesen&quot;
-</dd>
-<dt>Beschlusstext</dt>
-<dd><em>Optional</em>. Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in de Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) von der Beschlussvorlage abweicht.
+<dd>Beispiel: &quot;1.2.3&quot;. Diese Nummer gibt an, in welcher Reihenfolge die
 </dd>
 </dl>
+<p>Tagesordnungspunkte einer Sitzung behandelt werden. Im Kontext einer Sitzung ist diese Nummer eindeutig. Öffentlich : ja/nein. Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher Sitzung behandelt wird. Titel : Das Thema des Tagesordnungspunktes Ergebnis : Eines aus einer Liste definierter Ergebnisse. Möglich sind: &quot;Unverändert beschlossen&quot;, &quot;Geändert beschlossen&quot;, &quot;Endgültig abgelehnt&quot;, &quot;Zur Kenntnis genommen&quot;, &quot;Ohne Votum in nachfolgende Gremien überwiesen&quot; Beschlusstext : <em>Optional</em>. Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) von der Beschlussvorlage abweicht.</p>
 <h4 id="anmerkungen-3"><span class="header-section-number">2.7.1.1</span> Anmerkungen</h4>
 <ul>
 <li>Einige Systeme vergeben zu Tagesordnungspunkten intern unveränderliche, numerische IDs. Es ist unklar, ob es zusätzlichen Nutzen bringt, derartige IDs, neben den Nummern, in den Standard zu übernehmen. Dies würde vermutlich nur Sinn ergeben, wenn es als Pflichtfeld gelten kann.</li>
@@ -289,12 +237,10 @@
 <h3 id="eigenschaften-6"><span class="header-section-number">2.8.1</span> Eigenschaften</h3>
 <dl>
 <dt>Anzahl der Stimmen</dt>
-<dd>Gehört die Stimmabgabe zu einer Person, ist der Wert immer 1. Gehört sie jedoch zu einer Organisation (=Fraktion), kann der Wert hier größer als 1 sein.
-</dd>
-<dt>Votum</dt>
-<dd>Einer der drei Werte &quot;ja&quot; (gleichbedeutend mit &quot;dafür&quot;), &quot;nein&quot; (&quot;dagegen&quot;) oder &quot;Enthaltung&quot;.
+<dd>Gehört die Stimmabgabe zu einer Person, ist der Wert immer 1. Gehört sie
 </dd>
 </dl>
+<p>jedoch zu einer Organisation (=Fraktion), kann der Wert hier größer als 1 sein. Votum : Einer der drei Werte &quot;ja&quot; (gleichbedeutend mit &quot;dafür&quot;), &quot;nein&quot; (&quot;dagegen&quot;) oder &quot;Enthaltung&quot;.</p>
 <h3 id="beziehungen-6"><span class="header-section-number">2.8.2</span> Beziehungen</h3>
 <ul>
 <li>Jede Stimmabgabe gehört zu genau einem Tagesordnungspunkt.</li>
@@ -318,15 +264,10 @@
 <h3 id="eigenschaften-7"><span class="header-section-number">2.9.1</span> Eigenschaften</h3>
 <dl>
 <dt>Kennung</dt>
-<dd>Die Kennung einer Drucksache muss für die jeweilige Gebietskörperschaft eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben enthalten. Einige Systeme (z.B. Köln) verwenden besondere Trennzeichen wie &quot;/&quot;, um eine Jahreszahl von einer laufenden Nummer abzutrennen. Weiterhin werden mancherorts führende Nullen verwendet.
-</dd>
-<dt>Datum</dt>
-<dd>Datum der Veröffentlichung
-</dd>
-<dt>Typ</dt>
-<dd>Art der Drucksache (Erläuterung siehe oben)
+<dd>Die Kennung einer Drucksache muss für die jeweilige Gebietskörperschaft
 </dd>
 </dl>
+<p>eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben enthalten. Einige Systeme (z.B. Köln) verwenden besondere Trennzeichen wie &quot;/&quot;, um eine Jahreszahl von einer laufenden Nummer abzutrennen. Weiterhin werden mancherorts führende Nullen verwendet. Datum : Datum der Veröffentlichung Typ : Art der Drucksache (Erläuterung siehe oben)</p>
 <h3 id="beziehungen-7"><span class="header-section-number">2.9.2</span> Beziehungen</h3>
 <ul>
 <li>Es muss genau ein <strong>Hauptdokument</strong> (Objekttyp &quot;Dokument&quot;) referenziert werden.</li>
@@ -367,9 +308,10 @@
 <dd>Der eigentliche (Binär-)Inhalt des Dokuments
 </dd>
 <dt>Nur-Text-Version</dt>
-<dd>Reine Text-Wiedergabe des Dokumenteninhalts, sofern es sich um ein Textdokument handelt.
+<dd>Reine Text-Wiedergabe des Dokumenteninhalts, sofern es sich um ein
 </dd>
 </dl>
+<p>Textdokument handelt.</p>
 <h3 id="beziehungen-8"><span class="header-section-number">2.10.2</span> Beziehungen</h3>
 <ul>
 <li>Dokumente gehören zwingend zu einer <strong>Drucksache</strong>, optional auch zu mehreren. Ein Dokument kann entweder als Hauptdokument einer Drucksache oder als Anlage eingestuft sein.</li>
@@ -394,7 +336,17 @@
 <ul>
 <li>Orte können mit Drucksachen in Verbindung stehen.</li>
 </ul>
-<h1 id="glossar"><span class="header-section-number">3</span> Glossar</h1>
+<h1 id="zugriffsmethoden"><span class="header-section-number">3</span> Zugriffsmethoden</h1>
+<p>In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen Schnittstelle beschrieben.</p>
+<p>Stichpunkte:</p>
+<ul>
+<li>Grundlage für den Zugriff auf die Schnittstelle ist das Hypertext Transfer Protocol (HTTP).</li>
+<li>Ausschließlich HTTP GET Methode</li>
+<li>Optional gzip Encoding und andere Kodierungen, wenn Client und Server dies unterstützen</li>
+<li>HTTP Last-Modified Header sowie Conditional GET sind bei Dateiabruf (Laden von Anhängen) zu unterstützen</li>
+<li>Das Protkoll ist zustandslos</li>
+<li>Authentifizierung wird nicht benötigt. Glossar =======</li>
+</ul>
 <dl>
 <dt>AGS</dt>
 <dd><p>Amtlicher Gemeindeschlüssel</p>

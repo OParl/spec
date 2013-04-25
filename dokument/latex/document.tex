@@ -205,7 +205,7 @@ kleine thematische Einheiten herunter zu brechen.
 
 Sollten Sie keinen der oben beschriebenen Wege beschreiten wollen,
 können Sie Anmerkungen zum Dokument per E-Mail an marian@sendung.de
-einsenden. Bitte verwenden Sie dabei den Begriff ``open-ris-specs'' im
+einsenden. Bitte verwenden Sie dabei den Begriff ``oparl-specs'' im
 Betreff.
 
 Sollten Sie auf diesem Wege Anmerkungen direkt am/im Dokumententext
@@ -217,7 +217,7 @@ OpenOffice-Version dieses Dokuments und ändern Sie das Dokument so, dass
 
 \subsection{Mitwirkende}
 
-Felix Ebert, Jan Erhardt
+Felix Ebert, Jan Erhardt, Andreas Kuckartz, Babett Schalitz
 
 \section{Datenmodell}
 
@@ -380,14 +380,13 @@ Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
 \begin{description}
 \item[Kennung]
 Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten
+\end{description}
+
 Gebietskörperschaft. Die Stadt Köln verwendet beispielswiese das Kürzel
 ``STA'' für den Stadtentwicklungsausschuss oder ``BA'' für den Ausschuss
 für Anregungen und Beschwerden. Andere Kommunen verwenden z.B. rein
-numerische Kennungen.
-\item[Name]
-Der Name des Gremiums. Beispiele: ``Rat'', ``Hauptausschuss'',
-``Bezirksvertretung 1 (Innenstadt)''
-\end{description}
+numerische Kennungen. Name : Der Name des Gremiums. Beispiele: ``Rat'',
+``Hauptausschuss'', ``Bezirksvertretung 1 (Innenstadt)''
 
 \paragraph{Anmerkungen}
 
@@ -429,30 +428,18 @@ im Datenmodell eindeutig identifizierbar.
 \begin{description}
 \item[Kennung]
 Zur eindeutigen Identifizierung sollte jede Person eine Kennung
-besitzen, die keinen Änderungen unterworfen ist und aus diesem Grund
-nicht mit dem Namen in Verbindung stehen sollte. Viele RIS nutzen rein
-numerische Kennungen.
-\item[Vorname]
-Der Vorname der Person.
-\item[Nachname]
-Der Nachname der Person.
-\item[Titel]
-\emph{Optional}. Akademische Titel wie ``Dr.'' und ``Prof.~Dr.''
-\item[Geschlecht]
-\emph{Optional}. Männlich/Weblich
-\item[Beruf]
-\emph{Optional}. Z.B. ``Rechtsanwalt''
-\item[Partei]
-\emph{Optional}. Z.B. ``Bündnis 90/Grüne''
-\item[E-Mail-Adresse]
-\emph{Optional}.
-\item[Telefon]
-\emph{Optional}.
-\item[Fax]
-\emph{Optional}.
-\item[Anschrift]
-\emph{Optional}. Straße und Hausnummer, Postleitzahl und Ort
+besitzen,
 \end{description}
+
+die keinen Änderungen unterworfen ist und aus diesem Grund nicht mit dem
+Namen in Verbindung stehen sollte. Viele RIS nutzen rein numerische
+Kennungen. Vorname : Der Vorname der Person. Nachname : Der Nachname der
+Person. Titel : \emph{Optional}. Akademische Titel wie ``Dr.'' und
+``Prof.~Dr.'' Geschlecht : \emph{Optional}. Männlich/Weblich Beruf :
+\emph{Optional}. Z.B. ``Rechtsanwalt'' Partei : \emph{Optional}. Z.B.
+``Bündnis 90/Grüne'' E-Mail-Adresse : \emph{Optional}. Telefon :
+\emph{Optional}. Fax : \emph{Optional}. Anschrift : \emph{Optional}.
+Straße und Hausnummer, Postleitzahl und Ort
 
 \paragraph{Anmerkungen}
 
@@ -497,11 +484,10 @@ Personen angehören können.
 \begin{description}
 \item[Kennung]
 Zur eindeutigen Kennzeichnung einer Organisation innerhalb einer
-Gebietskörperschaft
-\item[Name]
-Der gebräuchliche Name der Organisation, z.B. ``SPD'' oder ``DIE
-LINKE''.
 \end{description}
+
+Gebietskörperschaft Name : Der gebräuchliche Name der Organisation, z.B.
+``SPD'' oder ``DIE LINKE''.
 
 \paragraph{Anmerkungen}
 
@@ -543,19 +529,17 @@ Ergebnis- und Wortprotokoll) werden ebenfalls referenziert.
 \begin{description}
 \item[Eindeutige Kennung]
 Zur eindeutigen Identifizierung der Sitzung innerhalb einer
+\end{description}
+
 Gebietskörperschaft. In der Praxis wird eine solche Kennzeichnung
 entweder durch eine laufende Nummer gebildet, oder durch Kombination
 mehrerer Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der
 Sitzung in einem Jahr und der Jahreszahl (z.B. ``BV1/0034/2012'').
-\item[Nummer]
-\emph{Optional}. Laufende Nummer der Sitzung, üblicherweise innerhalb
-der Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die
-``2. Sitzung des Rats'' gekennzeichnet.
-\item[Anfang]
-Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung
-\item[Ende]
-\emph{Optional}. Datum und Uhrzeit vom Ende der Sitzung
-\end{description}
+Nummer : \emph{Optional}. Laufende Nummer der Sitzung, üblicherweise
+innerhalb der Wahlperiode mit 1 beginnend. In der Praxis wird dadurch
+z.B. die ``2. Sitzung des Rats'' gekennzeichnet. Anfang : Datum und ggf.
+Uhrzeit des Anfangszeitpunkts der Sitzung Ende : \emph{Optional}. Datum
+und Uhrzeit vom Ende der Sitzung
 
 \subsubsection{Beziehungen}
 
@@ -607,24 +591,19 @@ haben.
 \begin{description}
 \item[Nummer]
 Beispiel: ``1.2.3''. Diese Nummer gibt an, in welcher Reihenfolge die
-Tagesordnungspunkte einer Sitzung behandelt werden. Im Kontext einer
-Sitzung ist diese Nummer eindeutig.
-\item[Öffentlich]
-ja/nein. Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher Sitzung
-behandelt wird.
-\item[Titel]
-Das Thema des Tagesordnungspunktes
-\item[Ergebnis]
-Eines aus einer Liste definierter Ergebnisse. Möglich sind:
-``Unverändert beschlossen'', ``Geändert beschlossen'', ``Endgültig
-abgelehnt'', ``Zur Kenntnis genommen'', ``Ohne Votum in nachfolgende
-Gremien überwiesen''
-\item[Beschlusstext]
-\emph{Optional}. Falls in diesem Tagesordnungspunkt ein Beschluss
-gefasst wurde, kann der Text hier hinterlegt werden. Das ist besonders
-dann in de Praxis relevant, wenn der gefasste Beschluss (z.B. durch
-Änderungsantrag) von der Beschlussvorlage abweicht.
 \end{description}
+
+Tagesordnungspunkte einer Sitzung behandelt werden. Im Kontext einer
+Sitzung ist diese Nummer eindeutig. Öffentlich : ja/nein. Kennzeichnet,
+ob der Tagesordnungspunkt in öffentlicher Sitzung behandelt wird. Titel
+: Das Thema des Tagesordnungspunktes Ergebnis : Eines aus einer Liste
+definierter Ergebnisse. Möglich sind: ``Unverändert beschlossen'',
+``Geändert beschlossen'', ``Endgültig abgelehnt'', ``Zur Kenntnis
+genommen'', ``Ohne Votum in nachfolgende Gremien überwiesen''
+Beschlusstext : \emph{Optional}. Falls in diesem Tagesordnungspunkt ein
+Beschluss gefasst wurde, kann der Text hier hinterlegt werden. Das ist
+besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z.B.
+durch Änderungsantrag) von der Beschlussvorlage abweicht.
 
 \paragraph{Anmerkungen}
 
@@ -674,12 +653,11 @@ referenzieren.
 \begin{description}
 \item[Anzahl der Stimmen]
 Gehört die Stimmabgabe zu einer Person, ist der Wert immer 1. Gehört sie
-jedoch zu einer Organisation (=Fraktion), kann der Wert hier größer als
-1 sein.
-\item[Votum]
-Einer der drei Werte ``ja'' (gleichbedeutend mit ``dafür''), ``nein''
-(``dagegen'') oder ``Enthaltung''.
 \end{description}
+
+jedoch zu einer Organisation (=Fraktion), kann der Wert hier größer als
+1 sein. Votum : Einer der drei Werte ``ja'' (gleichbedeutend mit
+``dafür''), ``nein'' (``dagegen'') oder ``Enthaltung''.
 
 \subsubsection{Beziehungen}
 
@@ -739,15 +717,13 @@ Arten von Drucksachen gekennzeichnet:
 \begin{description}
 \item[Kennung]
 Die Kennung einer Drucksache muss für die jeweilige Gebietskörperschaft
+\end{description}
+
 eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben enthalten.
 Einige Systeme (z.B. Köln) verwenden besondere Trennzeichen wie ``/'',
 um eine Jahreszahl von einer laufenden Nummer abzutrennen. Weiterhin
-werden mancherorts führende Nullen verwendet.
-\item[Datum]
-Datum der Veröffentlichung
-\item[Typ]
-Art der Drucksache (Erläuterung siehe oben)
-\end{description}
+werden mancherorts führende Nullen verwendet. Datum : Datum der
+Veröffentlichung Typ : Art der Drucksache (Erläuterung siehe oben)
 
 \subsubsection{Beziehungen}
 
@@ -829,8 +805,9 @@ SHA1-Prüfsumme des Dokumenteninhalts
 Der eigentliche (Binär-)Inhalt des Dokuments
 \item[Nur-Text-Version]
 Reine Text-Wiedergabe des Dokumenteninhalts, sofern es sich um ein
-Textdokument handelt.
 \end{description}
+
+Textdokument handelt.
 
 \subsubsection{Beziehungen}
 
@@ -880,7 +857,30 @@ Adresse
   Orte können mit Drucksachen in Verbindung stehen.
 \end{itemize}
 
-\section{Glossar}
+\section{Zugriffsmethoden}
+
+In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen
+Schnittstelle beschrieben.
+
+Stichpunkte:
+
+\begin{itemize}
+\item
+  Grundlage für den Zugriff auf die Schnittstelle ist das Hypertext
+  Transfer Protocol (HTTP).
+\item
+  Ausschließlich HTTP GET Methode
+\item
+  Optional gzip Encoding und andere Kodierungen, wenn Client und Server
+  dies unterstützen
+\item
+  HTTP Last-Modified Header sowie Conditional GET sind bei Dateiabruf
+  (Laden von Anhängen) zu unterstützen
+\item
+  Das Protkoll ist zustandslos
+\item
+  Authentifizierung wird nicht benötigt. Glossar =======
+\end{itemize}
 
 \begin{description}
 \item[AGS]

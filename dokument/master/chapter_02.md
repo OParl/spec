@@ -84,7 +84,7 @@ Systeme werden jedoch für mehrere Mandanten betrieben, wobei die Mandanten
 verschiedene Körperschaften repräsentieren (z.B. "Verbandsgemeinde 
 Ulmen" und "Stadt Ulmen".)
 
-![Objekttyp Körperschaft](images/datenmodell_gebietskoerperschaft.pdf)
+![Objekttyp Körperschaft](images/datenmodell_koerperschaft.pdf)
 
 ### Eindeutige Identifizierung ###
 

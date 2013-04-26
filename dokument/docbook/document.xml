@@ -364,61 +364,93 @@
     <sect3 id="eindeutige-identifizierung">
       <title>Eindeutige Identifizierung</title>
       <para>
-        Zur Identifizierung des Objekts kann der Amtliche
-        Gemeindeschlüssel (AGS[1]) verwendet werden, der alle deutschen
-        Gemeinden, Landkreise, kreisfreien Städte etc. eindeutig
-        erfasst.
+        Handelt es sich beim Betreiber des Systems um eine
+        Gebietskörperschaft (Landkreis, Kommune etc.), soll für die
+        eindeutige Identifizierung der Regionalschlüssel[1] verwendet
+        werden.
       </para>
       <para>
-        Vorteil der Verwendung des AGS:
+        Darüber hinaus soll zusätzlich, sofern vorhanden, die eindeutige
+        Kennung der Körperschaft aus der GND[12] verwendet werden.
       </para>
-      <itemizedlist>
-        <listitem>
-          <para>
-            Kompakte, einfache und einheitliche Schreibweise für jede
-            Körperschaft.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Der AGS wird von Behörden genutzt, ist anerkannt und auch in
-            anderen Medien, z.B. der Wikipedia, verbreitet.
-          </para>
-        </listitem>
-      </itemizedlist>
       <para>
-        Nachteil des AGS:
+        Als dritte Möglichkeit, die Körperschaft zu identifizieren, kann
+        eine aussagekräftigen URL, unter der weitere Informationen zur
+        Körperschaft zu finden sind, genannt werden.
       </para>
-      <itemizedlist>
-        <listitem>
-          <para>
-            Führende Nullen machen den Schlüssel fehleranfällig.
-            Bestimmte Systeme wie z.B. Excel könnten den Inhalt als
-            Zahlenwert erkennen und die führenden Nullen automatisch
-            verwerfen.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Für Gebietsgliederungen unterhalb der selbstständigen
-            Gemeinde, beispielsweise einen einzelnen Stadtbezirk, gibt
-            es keinen eigenen Gemeindeschlüssel. Dies müssten durch eine
-            nicht-amtliche Erweiterung des Systems ausgeglichen werden.
-          </para>
-        </listitem>
-      </itemizedlist>
+      <para>
+        Sämtliche hier genannten Methoden zur Identifizierung können
+        kombiniert werden.
+      </para>
     </sect3>
     <sect3 id="eigenschaften">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
           <term>
-            Name
+            Name (<emphasis>name</emphasis>)
           </term>
           <listitem>
             <para>
-              Der Name der Körperschaft, z.B. &quot;Köln&quot; oder
-              &quot;Stadt Köln&quot;.
+              Der Name der Körperschaft, z.B. &quot;Stadt Köln&quot;
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Regionalschlüssel (<emphasis>regionalschluessel</emphasis>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Regionalschlüssel der
+              Gebietskörperschaft, z.B. &quot;053150000000&quot;. Muss
+              grundsätzlich 12-stellig angegeben werden.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            GND URL (<emphasis>gnd_url</emphasis>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. URL des Eintrags in der
+              GND, z.B. &quot;http://d-nb.info/gnd/2015732-0&quot;
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            URL (<emphasis>url</emphasis>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. URL zu Informationen über
+              die Körperschaft, z.B.
+              &quot;http://www.stadt-koeln.de/&quot;
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Lizenz (<emphasis>license_url</emphasis>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. URL der Lizenz, unter der
+              die Daten, die über die API abgerufen werden können,
+              stehen.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Betreiber-Kontakt (<emphasis>operator_contact</emphasis>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Kontaktinformationen für
+              die direkte Kontaktaufnahme zum Betreiber der API.
             </para>
           </listitem>
         </varlistentry>
@@ -443,6 +475,18 @@
           </para>
         </listitem>
       </itemizedlist>
+    </sect3>
+    <sect3 id="beispiel">
+      <title>Beispiel</title>
+      <programlisting language="json">
+{
+    &quot;name&quot;: &quot;Stadt Köln&quot;,
+    &quot;regionalschluessel&quot;: &quot;053150000000&quot;,
+    &quot;gnd_url&quot;: &quot;http://d-nb.info/gnd/2015732-0&quot;,
+    &quot;url&quot;: &quot;http://www.stadt-koeln.de/&quot;,
+    &quot;operator_contact&quot;: &quot;Tel. +49 221-221-5432, E-Mail: ris-api@stadt-koeln.de&quot;
+}
+</programlisting>
     </sect3>
   </sect2>
   <sect2 id="gremium-committee">
@@ -1382,7 +1426,7 @@
   <title>Fußnoten</title>
   <para>
     [1]: Siehe
-    <ulink url="https://www.destatis.de/DE/Methoden/Klassifikationen/Bevoelkerung/StaatsangehoerigkeitGebietsschluessel.html">www.destatis.de/...</ulink>
+    <ulink url="http://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel">de.wikipedia.org/wiki/Amtlicher_Gemeindeschlüssel</ulink>
   </para>
   <para>
     [2]: Ratsinformationssystem der Stadt Köln,
@@ -1426,5 +1470,9 @@
   <para>
     [11]: World Geodetic System 1984 (EPSG:4326), wird unter anderem
     auch vom Global Positioning System (GPS) verwendet.
+  </para>
+  <para>
+    [12]: Gemeinsame Normdatei:
+    <ulink url="http://de.wikipedia.org/wiki/Gemeinsame_Normdatei">de.wikipedia.org/wiki/Gemeinsame_Normdatei</ulink>
   </para>
 </sect1>

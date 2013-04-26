@@ -18,6 +18,26 @@
   \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
   \newcommand{\euro}{€}
 \fi
+\usepackage{color}
+\usepackage{fancyvrb}
+\DefineShortVerb[commandchars=\\\{\}]{\|}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
 % Redefine labelwidth for lists; otherwise, the enumerate package will cause
 % markers to extend beyond the left margin.
 \makeatletter\AtBeginDocument{%
@@ -316,40 +336,40 @@ Mandanten verschiedene Körperschaften repräsentieren
 
 \subsubsection{Eindeutige Identifizierung}
 
-Zur Identifizierung des Objekts kann der Amtliche Gemeindeschlüssel
-(AGS{[}1{]}) verwendet werden, der alle deutschen Gemeinden, Landkreise,
-kreisfreien Städte etc. eindeutig erfasst.
+Handelt es sich beim Betreiber des Systems um eine Gebietskörperschaft
+(Landkreis, Kommune etc.), soll für die eindeutige Identifizierung der
+Regionalschlüssel{[}1{]} verwendet werden.
 
-Vorteil der Verwendung des AGS:
+Darüber hinaus soll zusätzlich, sofern vorhanden, die eindeutige Kennung
+der Körperschaft aus der GND{[}12{]} verwendet werden.
 
-\begin{itemize}
-\item
-  Kompakte, einfache und einheitliche Schreibweise für jede
-  Körperschaft.
-\item
-  Der AGS wird von Behörden genutzt, ist anerkannt und auch in anderen
-  Medien, z.B. der Wikipedia, verbreitet.
-\end{itemize}
+Als dritte Möglichkeit, die Körperschaft zu identifizieren, kann eine
+aussagekräftigen URL, unter der weitere Informationen zur Körperschaft
+zu finden sind, genannt werden.
 
-Nachteil des AGS:
-
-\begin{itemize}
-\item
-  Führende Nullen machen den Schlüssel fehleranfällig. Bestimmte Systeme
-  wie z.B. Excel könnten den Inhalt als Zahlenwert erkennen und die
-  führenden Nullen automatisch verwerfen.
-\item
-  Für Gebietsgliederungen unterhalb der selbstständigen Gemeinde,
-  beispielsweise einen einzelnen Stadtbezirk, gibt es keinen eigenen
-  Gemeindeschlüssel. Dies müssten durch eine nicht-amtliche Erweiterung
-  des Systems ausgeglichen werden.
-\end{itemize}
+Sämtliche hier genannten Methoden zur Identifizierung können kombiniert
+werden.
 
 \subsubsection{Eigenschaften}
 
 \begin{description}
-\item[Name]
-Der Name der Körperschaft, z.B. ``Köln'' oder ``Stadt Köln''.
+\item[Name (\emph{name})]
+Der Name der Körperschaft, z.B. ``Stadt Köln''
+\item[Regionalschlüssel (\emph{regionalschluessel})]
+\emph{Optional}. Regionalschlüssel der Gebietskörperschaft, z.B.
+``053150000000''. Muss grundsätzlich 12-stellig angegeben werden.
+\item[GND URL (\emph{gnd\_url})]
+\emph{Optional}. URL des Eintrags in der GND, z.B.
+``http://d-nb.info/gnd/2015732-0''
+\item[URL (\emph{url})]
+\emph{Optional}. URL zu Informationen über die Körperschaft, z.B.
+``http://www.stadt-koeln.de/''
+\item[Lizenz (\emph{license\_url})]
+\emph{Optional}. URL der Lizenz, unter der die Daten, die über die API
+abgerufen werden können, stehen.
+\item[Betreiber-Kontakt (\emph{operator\_contact})]
+\emph{Optional}. Kontaktinformationen für die direkte Kontaktaufnahme
+zum Betreiber der API.
 \end{description}
 
 \subsubsection{Beziehungen}
@@ -364,6 +384,20 @@ Der Name der Körperschaft, z.B. ``Köln'' oder ``Stadt Köln''.
   zugeordnet. Damit wird der ``Rat'' einer bestimmten Kommune von den
   gleichnamigen Gremien anderer Kommunen abgegrenzt.
 \end{itemize}
+
+\subsubsection{Beispiel}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Stadt Köln"}\NormalTok{,}
+    \DataTypeTok{"regionalschluessel"}\NormalTok{: }\StringTok{"053150000000"}\NormalTok{,}
+    \DataTypeTok{"gnd_url"}\NormalTok{: }\StringTok{"http://d-nb.info/gnd/2015732-0"}\NormalTok{,}
+    \DataTypeTok{"url"}\NormalTok{: }\StringTok{"http://www.stadt-koeln.de/"}\NormalTok{,}
+    \DataTypeTok{"operator_contact"}\NormalTok{: }\StringTok{"Tel. +49 221-221-5432, E-Mail: ris-api@stadt-koeln.de"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 \subsection{Gremium (\emph{committee})}
 
@@ -891,7 +925,7 @@ Interpretation von Geokoordinaten-Angaben.
 \section{Fußnoten}
 
 {[}1{]}: Siehe
-\href{https://www.destatis.de/DE/Methoden/Klassifikationen/Bevoelkerung/StaatsangehoerigkeitGebietsschluessel.html}{www.destatis.de/\ldots{}}
+\href{http://de.wikipedia.org/wiki/Amtlicher\_Gemeindeschl\%C3\%BCssel}{de.wikipedia.org/wiki/Amtlicher\_Gemeindeschlüssel}
 
 {[}2{]}: Ratsinformationssystem der Stadt Köln,
 \href{http://ratsinformation.stadt-koeln.de/}{http://ratsinformation.stadt-koeln.de/}
@@ -924,5 +958,8 @@ RIM Produktionformationen}
 
 {[}11{]}: World Geodetic System 1984 (EPSG:4326), wird unter anderem
 auch vom Global Positioning System (GPS) verwendet.
+
+{[}12{]}: Gemeinsame Normdatei:
+\href{http://de.wikipedia.org/wiki/Gemeinsame\_Normdatei}{de.wikipedia.org/wiki/Gemeinsame\_Normdatei}
 
 \end{document}

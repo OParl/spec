@@ -88,31 +88,39 @@ Ulmen" und "Stadt Ulmen".)
 
 ### Eindeutige Identifizierung ###
 
-Zur Identifizierung des Objekts kann der Amtliche Gemeindeschlüssel (AGS[1]) 
-verwendet werden, der alle deutschen Gemeinden, Landkreise, kreisfreien 
-Städte etc. eindeutig erfasst.
+Handelt es sich beim Betreiber des Systems um eine Gebietskörperschaft
+(Landkreis, Kommune etc.), soll für die eindeutige Identifizierung der 
+Regionalschlüssel[1] verwendet werden.
 
-Vorteil der Verwendung des AGS:
+Darüber hinaus soll zusätzlich, sofern vorhanden, die eindeutige Kennung
+der Körperschaft aus der GND[12] verwendet werden.
 
-* Kompakte, einfache und einheitliche Schreibweise für jede Körperschaft.
-* Der AGS wird von Behörden genutzt, ist anerkannt und auch in anderen 
-Medien, z.B. der Wikipedia, verbreitet.
+Als dritte Möglichkeit, die Körperschaft zu identifizieren, kann eine 
+aussagekräftigen URL, unter der weitere Informationen zur Körperschaft zu 
+finden sind, genannt werden.
 
-Nachteil des AGS:
-
-* Führende Nullen machen den Schlüssel fehleranfällig. Bestimmte Systeme 
-wie z.B. Excel könnten den Inhalt als Zahlenwert erkennen und die führenden 
-Nullen automatisch verwerfen.
-* Für Gebietsgliederungen unterhalb der selbstständigen Gemeinde, 
-beispielsweise einen einzelnen Stadtbezirk, gibt es keinen eigenen 
-Gemeindeschlüssel. Dies müssten durch eine nicht-amtliche Erweiterung des 
-Systems ausgeglichen werden.
+Sämtliche hier genannten Methoden zur Identifizierung können kombiniert
+werden.
 
 ### Eigenschaften ###
 
-Name
-:   Der Name der Körperschaft, z.B. "Köln" oder "Stadt Köln".
-
+Name (*name*)
+:   Der Name der Körperschaft, z.B. "Stadt Köln"
+Regionalschlüssel (*regionalschluessel*)
+:   _Optional_. Regionalschlüssel der Gebietskörperschaft, z.B. 
+    "053150000000". Muss grundsätzlich 12-stellig angegeben werden.
+GND URL (*gnd_url*)
+:   _Optional_. URL des Eintrags in der GND, z.B.
+    "http://d-nb.info/gnd/2015732-0"
+URL (*url*)
+:   _Optional_. URL zu Informationen über die Körperschaft, z.B.
+    "http://www.stadt-koeln.de/"
+Lizenz (*license_url*)
+:   _Optional_. URL der Lizenz, unter der die Daten, die über die API
+    abgerufen werden können, stehen.
+Betreiber-Kontakt (*operator_contact*)
+:   _Optional_. Kontaktinformationen für die direkte Kontaktaufnahme zum
+    Betreiber der API.
 
 ### Beziehungen ###
 
@@ -123,6 +131,18 @@ einer SPD in Leverkusen unterschieden.
 zugeordnet. Damit wird der "Rat" einer bestimmten Kommune von den 
 gleichnamigen Gremien anderer Kommunen abgegrenzt.
 
+
+### Beispiel ###
+
+~~~~~  {#body_ex1 .json}
+{
+    "name": "Stadt Köln",
+    "regionalschluessel": "053150000000",
+    "gnd_url": "http://d-nb.info/gnd/2015732-0",
+    "url": "http://www.stadt-koeln.de/",
+    "operator_contact": "Tel. +49 221-221-5432, E-Mail: ris-api@stadt-koeln.de"
+}
+~~~~~
 
 Gremium (*committee*)
 ---------------------

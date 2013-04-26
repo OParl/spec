@@ -1,7 +1,7 @@
 Fußnoten
 ========
 
-[1]: Siehe [www.destatis.de/...](https://www.destatis.de/DE/Methoden/Klassifikationen/Bevoelkerung/StaatsangehoerigkeitGebietsschluessel.html)
+[1]: Siehe [de.wikipedia.org/wiki/Amtlicher_Gemeindeschlüssel](http://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel)
 
 [2]: Ratsinformationssystem der Stadt Köln, [http://ratsinformation.stadt-koeln.de/](http://ratsinformation.stadt-koeln.de/)
 
@@ -22,3 +22,5 @@ Fußnoten
 [10]: BoRis, Ratsinformationssystem der Stadt Bonn (Eigenentwicklung). [http://www2.bonn.de/...](http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp)
 
 [11]: World Geodetic System 1984 (EPSG:4326), wird unter anderem auch vom Global Positioning System (GPS) verwendet.
+
+[12]: Gemeinsame Normdatei: [de.wikipedia.org/wiki/Gemeinsame_Normdatei](http://de.wikipedia.org/wiki/Gemeinsame_Normdatei)

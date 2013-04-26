@@ -8,6 +8,25 @@
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
 </head>
 <body>
 <header>
@@ -99,21 +118,29 @@
 <embed src="images/datenmodell_koerperschaft.pdf"><figcaption>Objekttyp Körperschaft</figcaption>
 </figure>
 <h3 id="eindeutige-identifizierung"><span class="header-section-number">2.2.1</span> Eindeutige Identifizierung</h3>
-<p>Zur Identifizierung des Objekts kann der Amtliche Gemeindeschlüssel (AGS[1]) verwendet werden, der alle deutschen Gemeinden, Landkreise, kreisfreien Städte etc. eindeutig erfasst.</p>
-<p>Vorteil der Verwendung des AGS:</p>
-<ul>
-<li>Kompakte, einfache und einheitliche Schreibweise für jede Körperschaft.</li>
-<li>Der AGS wird von Behörden genutzt, ist anerkannt und auch in anderen Medien, z.B. der Wikipedia, verbreitet.</li>
-</ul>
-<p>Nachteil des AGS:</p>
-<ul>
-<li>Führende Nullen machen den Schlüssel fehleranfällig. Bestimmte Systeme wie z.B. Excel könnten den Inhalt als Zahlenwert erkennen und die führenden Nullen automatisch verwerfen.</li>
-<li>Für Gebietsgliederungen unterhalb der selbstständigen Gemeinde, beispielsweise einen einzelnen Stadtbezirk, gibt es keinen eigenen Gemeindeschlüssel. Dies müssten durch eine nicht-amtliche Erweiterung des Systems ausgeglichen werden.</li>
-</ul>
+<p>Handelt es sich beim Betreiber des Systems um eine Gebietskörperschaft (Landkreis, Kommune etc.), soll für die eindeutige Identifizierung der Regionalschlüssel[1] verwendet werden.</p>
+<p>Darüber hinaus soll zusätzlich, sofern vorhanden, die eindeutige Kennung der Körperschaft aus der GND[12] verwendet werden.</p>
+<p>Als dritte Möglichkeit, die Körperschaft zu identifizieren, kann eine aussagekräftigen URL, unter der weitere Informationen zur Körperschaft zu finden sind, genannt werden.</p>
+<p>Sämtliche hier genannten Methoden zur Identifizierung können kombiniert werden.</p>
 <h3 id="eigenschaften"><span class="header-section-number">2.2.2</span> Eigenschaften</h3>
 <dl>
-<dt>Name</dt>
-<dd>Der Name der Körperschaft, z.B. &quot;Köln&quot; oder &quot;Stadt Köln&quot;.
+<dt>Name (<em>name</em>)</dt>
+<dd>Der Name der Körperschaft, z.B. &quot;Stadt Köln&quot;
+</dd>
+<dt>Regionalschlüssel (<em>regionalschluessel</em>)</dt>
+<dd><em>Optional</em>. Regionalschlüssel der Gebietskörperschaft, z.B. &quot;053150000000&quot;. Muss grundsätzlich 12-stellig angegeben werden.
+</dd>
+<dt>GND URL (<em>gnd_url</em>)</dt>
+<dd><em>Optional</em>. URL des Eintrags in der GND, z.B. &quot;http://d-nb.info/gnd/2015732-0&quot;
+</dd>
+<dt>URL (<em>url</em>)</dt>
+<dd><em>Optional</em>. URL zu Informationen über die Körperschaft, z.B. &quot;http://www.stadt-koeln.de/&quot;
+</dd>
+<dt>Lizenz (<em>license_url</em>)</dt>
+<dd><em>Optional</em>. URL der Lizenz, unter der die Daten, die über die API abgerufen werden können, stehen.
+</dd>
+<dt>Betreiber-Kontakt (<em>operator_contact</em>)</dt>
+<dd><em>Optional</em>. Kontaktinformationen für die direkte Kontaktaufnahme zum Betreiber der API.
 </dd>
 </dl>
 <h3 id="beziehungen"><span class="header-section-number">2.2.3</span> Beziehungen</h3>
@@ -121,6 +148,14 @@
 <li>Objekte vom Typ &quot;Organisation&quot; sind zwingend genau einer Körperschaft zugeordnet. So wird beispielseise eine SPD in Köln von einer SPD in Leverkusen unterschieden.</li>
 <li>Objekte vom Typ &quot;Gremium&quot; sind zwingend genau einer Körperschaft zugeordnet. Damit wird der &quot;Rat&quot; einer bestimmten Kommune von den gleichnamigen Gremien anderer Kommunen abgegrenzt.</li>
 </ul>
+<h3 id="beispiel"><span class="header-section-number">2.2.4</span> Beispiel</h3>
+<pre class="sourceCode json" id="body_ex1"><code class="sourceCode json">{
+    <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Stadt Köln&quot;</span>,
+    <span class="dt">&quot;regionalschluessel&quot;</span>: <span class="st">&quot;053150000000&quot;</span>,
+    <span class="dt">&quot;gnd_url&quot;</span>: <span class="st">&quot;http://d-nb.info/gnd/2015732-0&quot;</span>,
+    <span class="dt">&quot;url&quot;</span>: <span class="st">&quot;http://www.stadt-koeln.de/&quot;</span>,
+    <span class="dt">&quot;operator_contact&quot;</span>: <span class="st">&quot;Tel. +49 221-221-5432, E-Mail: ris-api@stadt-koeln.de&quot;</span>
+}</code></pre>
 <h2 id="gremium-committee"><span class="header-section-number">2.3</span> Gremium (<em>committee</em>)</h2>
 <p>Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat, Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.</p>
 <figure>
@@ -360,7 +395,7 @@
 </dd>
 </dl>
 <h1 id="fußnoten"><span class="header-section-number">4</span> Fußnoten</h1>
-<p>[1]: Siehe <a href="https://www.destatis.de/DE/Methoden/Klassifikationen/Bevoelkerung/StaatsangehoerigkeitGebietsschluessel.html">www.destatis.de/...</a></p>
+<p>[1]: Siehe <a href="http://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel">de.wikipedia.org/wiki/Amtlicher_Gemeindeschlüssel</a></p>
 <p>[2]: Ratsinformationssystem der Stadt Köln, <a href="http://ratsinformation.stadt-koeln.de/">http://ratsinformation.stadt-koeln.de/</a></p>
 <p>[3]: Firma Somacos, <a href="http://www.somacos.de/de/sitzungsdienst/ratsinfo.html">SessionNet Produktinformation</a></p>
 <p>[4]: Ratsinformationssystem der Bezirksverwaltugn Berlin Mitte, <a href="http://www.berlin.de/ba-mitte/bvv-online/allris.net.asp">http://www.berlin.de/...</a></p>
@@ -371,5 +406,6 @@
 <p>[9]: Firma Sternberg, <a href="http://www.sitzungsdienst.net/produkte/ratsinformationsmanagement">SD.NET RIM Produktionformationen</a></p>
 <p>[10]: BoRis, Ratsinformationssystem der Stadt Bonn (Eigenentwicklung). <a href="http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp">http://www2.bonn.de/...</a></p>
 <p>[11]: World Geodetic System 1984 (EPSG:4326), wird unter anderem auch vom Global Positioning System (GPS) verwendet.</p>
+<p>[12]: Gemeinsame Normdatei: <a href="http://de.wikipedia.org/wiki/Gemeinsame_Normdatei">de.wikipedia.org/wiki/Gemeinsame_Normdatei</a></p>
 </body>
 </html>

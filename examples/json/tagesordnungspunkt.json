@@ -4,11 +4,11 @@
     "public": true,
     "title": "Gemeinschaftsgrundschule Hornschaftsstraße/Höhenhaus. Hier: Anfrage von Herrn Philippi",
     "result": "BESCHLOSSEN_GEAENDERT",
-    "resulttext": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
-    "session": {
+    "result_text": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
+    "meeting": {
         "id": "3271"
     },
-    "peopleabsent": ["1002", "1003"],
+    "people_absent": ["1002", "1003"],
     "votings": [
         {
             "sum": 2,

@@ -82,7 +82,7 @@
 <h2 id="übergreifende-aspekte"><span class="header-section-number">2.1</span> Übergreifende Aspekte</h2>
 <h3 id="eindeutige-identifizierung-von-objekten"><span class="header-section-number">2.1.1</span> Eindeutige Identifizierung von Objekten</h3>
 <p>Sämtliche Objekte, die über die Schnittstelle geladen werden können, sollen anhand einer einzigen Objekteigenschaft eindeutig identifizierbar sein. Die Objekteigenschaft, mit der dies erreicht wird, wird hier im folgenden - unabhängig vom tatsächlichen Namen der Eigenschaft - als &quot;Schlüssel&quot; bezeichnet.</p>
-<p>Eindeutigkeit meint hier eine Einzigartigkeit innerhalb des Informationssystems und für den jeweiligen Objekttyp. Das bedeutet: zwei von einander unabhängige Ratsinformationssysteme für verschiedene Gebietskörperschaften dürfen sich überlappende Schlüssel nutzen. Innerhalb eines Systems dürfen zwei Objekte unterschiedlichen Typs (beispielsweise eine Person ud ein Gremium) den selben Schlüssel nutzen. Jedoch MÜSSEN zwei Objekte des selben Typs innerhalb des selben Systems grundsätzlich verschiedene Schlüssel haben.</p>
+<p>Eindeutigkeit meint hier eine Einzigartigkeit innerhalb des Informationssystems und für den jeweiligen Objekttyp. Das bedeutet: zwei von einander unabhängige Ratsinformationssysteme für verschiedene Körperschaften dürfen sich überlappende Schlüssel nutzen. Innerhalb eines Systems dürfen zwei Objekte unterschiedlichen Typs (beispielsweise eine Person ud ein Gremium) den selben Schlüssel nutzen. Jedoch MÜSSEN zwei Objekte des selben Typs innerhalb des selben Systems grundsätzlich verschiedene Schlüssel haben.</p>
 <p>Schlüssel-Eigenschaften werden grundsätzlich als String mit Unicode-Zeichenumfang übergeben. Sie können daher gleichermaßen aus numerischen wie alphanumerischen Werten befüllt werden.</p>
 <p>Es wird grundsätzlich vorausgesetzt, dass Schlüssel unveränderlich sind. Ändert sich der Schlüssel eines Objekts nach der Erzeugung, werden Nutzer der Schnittstelle annehmen, dass es sich nicht mehr um das selbe Objekt handelt.</p>
 <h3 id="objekteigenschaften"><span class="header-section-number">2.1.2</span> Objekteigenschaften</h3>
@@ -90,11 +90,11 @@
 <p>Eigenschaften werden deutschsprachig und englischsprachig benannt. Die deutschsprachige Benennung dient der bestmöglichen Verständlichkeit im Kontext dieses Dokuments, während die Schnittstelle aus Gründen der Zugänglichkeit für möglichst viele Entwickler mit englischsprachigen Begriffen arbeiten soll.</p>
 <h3 id="zu-den-beziehungen"><span class="header-section-number">2.1.3</span> Zu den Beziehungen</h3>
 <p>Bei der Beschreibung von Beziehungen zwischen Objekten wird zu diesem Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei Objekten A und B am Objekt A oder am Objekt B definiert wird. So spielt es bislang keine Rolle, ob einem Gremium mehrere Personen zugeordnet werden oder einer Person mehrere Gremien zugewiesen werden. Das Augenmerkt liegt hier nur auf der Tatsache, welche Beziehung existieren können und was diese Beziehungen aussagen sollen.</p>
-<h2 id="gebietskörperschaft"><span class="header-section-number">2.2</span> Gebietskörperschaft</h2>
-<p>Die Gebietskörperschaft erlaubt es, Körperschaften wie einen bestimmten Landkreis, eine bestimmte Gemeinde oder einen bestimmten Stadtbezirk in Form eines Datenobjekts abzubilden.</p>
-<p>Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“. Einige Systeme werden jedoch für mehrere Mandanten betrieben, wobei die Mandanten verschiedene Gebietskörperschaften repräsentieren (z.B. &quot;Verbandsgemeinde Ulmen&quot; und &quot;Stadt Ulmen&quot;.)</p>
+<h2 id="körperschaft"><span class="header-section-number">2.2</span> Körperschaft</h2>
+<p>Die Körperschaft erlaubt es, den Betreiber bzw. Eigentümer des Informationssystems wie zum Beispiel einen Landkreis, eine bestimmte Gemeinde oder einen bestimmten Stadtbezirk in Form eines Datenobjekts abzubilden.</p>
+<p>Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“. Einige Systeme werden jedoch für mehrere Mandanten betrieben, wobei die Mandanten verschiedene Körperschaften repräsentieren (z.B. &quot;Verbandsgemeinde Ulmen&quot; und &quot;Stadt Ulmen&quot;.)</p>
 <div class="figure">
-<embed src="images/datenmodell_gebietskoerperschaft.pdf"><p class="caption">Objekttyp Gebietskörperschaft</p>
+<embed src="images/datenmodell_koerperschaft.pdf"><p class="caption">Objekttyp Körperschaft</p>
 </div>
 <h3 id="eindeutige-identifizierung"><span class="header-section-number">2.2.1</span> Eindeutige Identifizierung</h3>
 <p>Zur Identifizierung des Objekts kann der Amtliche Gemeindeschlüssel (AGS[1]) verwendet werden, der alle deutschen Gemeinden, Landkreise, kreisfreien Städte etc. eindeutig erfasst.</p>
@@ -111,13 +111,13 @@
 <h3 id="eigenschaften"><span class="header-section-number">2.2.2</span> Eigenschaften</h3>
 <dl>
 <dt>Name</dt>
-<dd>Der Name der Gebietskörperschaft, z.B. &quot;Köln&quot; oder &quot;Stadt Köln&quot;.
+<dd>Der Name der Körperschaft, z.B. &quot;Köln&quot; oder &quot;Stadt Köln&quot;.
 </dd>
 </dl>
 <h3 id="beziehungen"><span class="header-section-number">2.2.3</span> Beziehungen</h3>
 <ul>
-<li>Objekte vom Typ &quot;Organisation&quot; sind zwingend genau einer Gebietskörperschaft zugeordnet. So wird beispielseise eine SPD in Köln von einer SPD in Leverkusen unterschieden.</li>
-<li>Objekte vom Typ &quot;Gremium&quot; sind zwingend genau einer Gebietskörperschaft zugeordnet. Damit wird der &quot;Rat&quot; einer bestimmten Kommune von den gleichnamigen Gremien anderer Kommunen abgegrenzt.</li>
+<li>Objekte vom Typ &quot;Organisation&quot; sind zwingend genau einer Körperschaft zugeordnet. So wird beispielseise eine SPD in Köln von einer SPD in Leverkusen unterschieden.</li>
+<li>Objekte vom Typ &quot;Gremium&quot; sind zwingend genau einer Körperschaft zugeordnet. Damit wird der &quot;Rat&quot; einer bestimmten Kommune von den gleichnamigen Gremien anderer Kommunen abgegrenzt.</li>
 </ul>
 <h2 id="gremium"><span class="header-section-number">2.3</span> Gremium</h2>
 <p>Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat, Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.</p>
@@ -130,7 +130,7 @@
 <dd>Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten
 </dd>
 </dl>
-<p>Gebietskörperschaft. In der Praxis kommen sowohl numerische IDs als auch Namenskürzel (Beispiel: &quot;STA&quot; für den Stadtentwicklungsausschuss) vor. Beides sollte hier Verwendung finden können. Name : Der Name des Gremiums. Beispiele: &quot;Rat&quot;, &quot;Hauptausschuss&quot;, &quot;Bezirksvertretung 1 (Innenstadt)&quot; Kurzname : <em>Optional</em>. Eine zur Anzeige bestimmte, kürzere Form des Namens.</p>
+<p>Körperschaft. In der Praxis kommen sowohl numerische IDs als auch Namenskürzel (Beispiel: &quot;STA&quot; für den Stadtentwicklungsausschuss) vor. Beides sollte hier Verwendung finden können. Name : Der Name des Gremiums. Beispiele: &quot;Rat&quot;, &quot;Hauptausschuss&quot;, &quot;Bezirksvertretung 1 (Innenstadt)&quot; Kurzname : <em>Optional</em>. Eine zur Anzeige bestimmte, kürzere Form des Namens.</p>
 <h3 id="beziehungen-1"><span class="header-section-number">2.3.2</span> Beziehungen</h3>
 <ul>
 <li>Objekte vom Typ &quot;Person&quot; referenzieren auf Gremien, um die Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu kennzeichnen. Diese Beziehung ist datiert. Das bedeutet, sie hat einen Anfangszeitpunkt und ggf. einen Endzeitpunkt.</li>
@@ -169,14 +169,14 @@
 <dd>Zur eindeutigen Kennzeichnung einer Organisation innerhalb einer
 </dd>
 </dl>
-<p>Gebietskörperschaft Name : Der gebräuchliche Name der Organisation, z.B. &quot;SPD&quot; oder &quot;DIE LINKE&quot;.</p>
+<p>Körperschaft Name : Der gebräuchliche Name der Organisation, z.B. &quot;SPD&quot; oder &quot;DIE LINKE&quot;.</p>
 <h4 id="anmerkungen-1"><span class="header-section-number">2.5.1.1</span> Anmerkungen</h4>
 <ul>
 <li>Unklar ist bislang, ob Organisationen in der Praxis eher Fraktionen (&quot;SPD-Fraktion im Kölner Rat&quot;, &quot;SPD-Fraktion in Köln-Innenstadt&quot;) abbilden oder ob eher Ortsverbände von Parteien (&quot;SPD Köln&quot;) gemeint sein werden. Einblicke, wie gängige Systeme dies handhaben, sollten evtl. gesammelt und berücksichtigt werden.</li>
 </ul>
 <h3 id="beziehungen-3"><span class="header-section-number">2.5.2</span> Beziehungen</h3>
 <ul>
-<li>Jede Organisationen gehört zu einer Gebietskörperschaft.</li>
+<li>Jede Organisationen gehört zu einer Körperschaft.</li>
 <li>Personen können Organisationen angehören (<em>datiert</em>).</li>
 </ul>
 <h2 id="sitzung"><span class="header-section-number">2.6</span> Sitzung</h2>
@@ -191,7 +191,7 @@
 <dd>Zur eindeutigen Identifizierung der Sitzung innerhalb einer
 </dd>
 </dl>
-<p>Gebietskörperschaft. In der Praxis wird eine solche Kennzeichnung entweder durch eine laufende Nummer gebildet, oder durch Kombination mehrerer Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung in einem Jahr und der Jahreszahl (z.B. &quot;BV1/0034/2012&quot;). Nummer : <em>Optional</em>. Laufende Nummer der Sitzung, üblicherweise innerhalb der Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die &quot;2. Sitzung des Rats&quot; gekennzeichnet. Anfang : Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung Ende : <em>Optional</em>. Datum und Uhrzeit vom Ende der Sitzung Ort : <em>Optional</em>. Textliche Information zum Ort der Sitzung, z.B. &quot;Rathaus, Raum 136&quot;.</p>
+<p>Körperschaft. In der Praxis wird eine solche Kennzeichnung entweder durch eine laufende Nummer gebildet, oder durch Kombination mehrerer Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung in einem Jahr und der Jahreszahl (z.B. &quot;BV1/0034/2012&quot;). Nummer : <em>Optional</em>. Laufende Nummer der Sitzung, üblicherweise innerhalb der Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die &quot;2. Sitzung des Rats&quot; gekennzeichnet. Anfang : Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung Ende : <em>Optional</em>. Datum und Uhrzeit vom Ende der Sitzung Ort : <em>Optional</em>. Textliche Information zum Ort der Sitzung, z.B. &quot;Rathaus, Raum 136&quot;.</p>
 <h3 id="beziehungen-4"><span class="header-section-number">2.6.2</span> Beziehungen</h3>
 <ul>
 <li>Sitzungen sind mindestens einem Gremium zugeordnet</li>
@@ -263,7 +263,7 @@
 <h3 id="eigenschaften-7"><span class="header-section-number">2.9.1</span> Eigenschaften</h3>
 <dl>
 <dt>Kennung</dt>
-<dd>Die Kennung einer Drucksache muss für die jeweilige Gebietskörperschaft
+<dd>Die Kennung einer Drucksache muss für die jeweilige Körperschaft
 </dd>
 </dl>
 <p>eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben enthalten. Einige Systeme (z.B. Köln) verwenden besondere Trennzeichen wie &quot;/&quot;, um eine Jahreszahl von einer laufenden Nummer abzutrennen. Weiterhin werden mancherorts führende Nullen verwendet. Datum : Datum der Veröffentlichung Typ : Art der Drucksache (Erläuterung siehe oben)</p>

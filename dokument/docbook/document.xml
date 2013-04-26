@@ -287,7 +287,7 @@
         Eindeutigkeit meint hier eine Einzigartigkeit innerhalb des
         Informationssystems und für den jeweiligen Objekttyp. Das
         bedeutet: zwei von einander unabhängige Ratsinformationssysteme
-        für verschiedene Gebietskörperschaften dürfen sich überlappende
+        für verschiedene Körperschaften dürfen sich überlappende
         Schlüssel nutzen. Innerhalb eines Systems dürfen zwei Objekte
         unterschiedlichen Typs (beispielsweise eine Person ud ein
         Gremium) den selben Schlüssel nutzen. Jedoch MÜSSEN zwei Objekte
@@ -337,28 +337,28 @@
       </para>
     </sect3>
   </sect2>
-  <sect2 id="gebietskörperschaft">
-    <title>Gebietskörperschaft</title>
+  <sect2 id="körperschaft">
+    <title>Körperschaft</title>
     <para>
-      Die Gebietskörperschaft erlaubt es, Körperschaften wie einen
-      bestimmten Landkreis, eine bestimmte Gemeinde oder einen
-      bestimmten Stadtbezirk in Form eines Datenobjekts abzubilden.
+      Die Körperschaft erlaubt es, den Betreiber bzw. Eigentümer des
+      Informationssystems wie zum Beispiel einen Landkreis, eine
+      bestimmte Gemeinde oder einen bestimmten Stadtbezirk in Form eines
+      Datenobjekts abzubilden.
     </para>
     <para>
       Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“.
       Einige Systeme werden jedoch für mehrere Mandanten betrieben,
-      wobei die Mandanten verschiedene Gebietskörperschaften
-      repräsentieren (z.B. &quot;Verbandsgemeinde Ulmen&quot; und
-      &quot;Stadt Ulmen&quot;.)
+      wobei die Mandanten verschiedene Körperschaften repräsentieren
+      (z.B. &quot;Verbandsgemeinde Ulmen&quot; und &quot;Stadt
+      Ulmen&quot;.)
     </para>
     <figure>
-      <title>Objekttyp Gebietskörperschaft</title>
+      <title>Objekttyp Körperschaft</title>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/datenmodell_gebietskoerperschaft.pdf" />
+          <imagedata fileref="images/datenmodell_koerperschaft.pdf" />
         </imageobject>
-        <textobject><phrase>Objekttyp
-        Gebietskörperschaft</phrase></textobject>
+        <textobject><phrase>Objekttyp Körperschaft</phrase></textobject>
       </mediaobject>
     </figure>
     <sect3 id="eindeutige-identifizierung">
@@ -417,8 +417,8 @@
           </term>
           <listitem>
             <para>
-              Der Name der Gebietskörperschaft, z.B. &quot;Köln&quot;
-              oder &quot;Stadt Köln&quot;.
+              Der Name der Körperschaft, z.B. &quot;Köln&quot; oder
+              &quot;Stadt Köln&quot;.
             </para>
           </listitem>
         </varlistentry>
@@ -430,14 +430,14 @@
         <listitem>
           <para>
             Objekte vom Typ &quot;Organisation&quot; sind zwingend genau
-            einer Gebietskörperschaft zugeordnet. So wird beispielseise
-            eine SPD in Köln von einer SPD in Leverkusen unterschieden.
+            einer Körperschaft zugeordnet. So wird beispielseise eine
+            SPD in Köln von einer SPD in Leverkusen unterschieden.
           </para>
         </listitem>
         <listitem>
           <para>
             Objekte vom Typ &quot;Gremium&quot; sind zwingend genau
-            einer Gebietskörperschaft zugeordnet. Damit wird der
+            einer Körperschaft zugeordnet. Damit wird der
             &quot;Rat&quot; einer bestimmten Kommune von den
             gleichnamigen Gremien anderer Kommunen abgegrenzt.
           </para>
@@ -479,8 +479,8 @@
         </varlistentry>
       </variablelist>
       <para>
-        Gebietskörperschaft. In der Praxis kommen sowohl numerische IDs
-        als auch Namenskürzel (Beispiel: &quot;STA&quot; für den
+        Körperschaft. In der Praxis kommen sowohl numerische IDs als
+        auch Namenskürzel (Beispiel: &quot;STA&quot; für den
         Stadtentwicklungsausschuss) vor. Beides sollte hier Verwendung
         finden können. Name : Der Name des Gremiums. Beispiele:
         &quot;Rat&quot;, &quot;Hauptausschuss&quot;,
@@ -634,8 +634,8 @@
         </varlistentry>
       </variablelist>
       <para>
-        Gebietskörperschaft Name : Der gebräuchliche Name der
-        Organisation, z.B. &quot;SPD&quot; oder &quot;DIE LINKE&quot;.
+        Körperschaft Name : Der gebräuchliche Name der Organisation,
+        z.B. &quot;SPD&quot; oder &quot;DIE LINKE&quot;.
       </para>
       <sect4 id="anmerkungen-1">
         <title>Anmerkungen</title>
@@ -659,7 +659,7 @@
       <itemizedlist>
         <listitem>
           <para>
-            Jede Organisationen gehört zu einer Gebietskörperschaft.
+            Jede Organisationen gehört zu einer Körperschaft.
           </para>
         </listitem>
         <listitem>
@@ -709,11 +709,11 @@
         </varlistentry>
       </variablelist>
       <para>
-        Gebietskörperschaft. In der Praxis wird eine solche
-        Kennzeichnung entweder durch eine laufende Nummer gebildet, oder
-        durch Kombination mehrerer Merkmale wie dem Kürzel des Gremiums,
-        der laufenden Nummer der Sitzung in einem Jahr und der
-        Jahreszahl (z.B. &quot;BV1/0034/2012&quot;). Nummer :
+        Körperschaft. In der Praxis wird eine solche Kennzeichnung
+        entweder durch eine laufende Nummer gebildet, oder durch
+        Kombination mehrerer Merkmale wie dem Kürzel des Gremiums, der
+        laufenden Nummer der Sitzung in einem Jahr und der Jahreszahl
+        (z.B. &quot;BV1/0034/2012&quot;). Nummer :
         <emphasis>Optional</emphasis>. Laufende Nummer der Sitzung,
         üblicherweise innerhalb der Wahlperiode mit 1 beginnend. In der
         Praxis wird dadurch z.B. die &quot;2. Sitzung des Rats&quot;
@@ -1018,7 +1018,7 @@
           <listitem>
             <para>
               Die Kennung einer Drucksache muss für die jeweilige
-              Gebietskörperschaft
+              Körperschaft
             </para>
           </listitem>
         </varlistentry>

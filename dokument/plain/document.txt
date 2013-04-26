@@ -180,11 +180,11 @@ folgenden - unabhängig vom tatsächlichen Namen der Eigenschaft - als
 Eindeutigkeit meint hier eine Einzigartigkeit innerhalb des
 Informationssystems und für den jeweiligen Objekttyp. Das bedeutet: zwei
 von einander unabhängige Ratsinformationssysteme für verschiedene
-Gebietskörperschaften dürfen sich überlappende Schlüssel nutzen.
-Innerhalb eines Systems dürfen zwei Objekte unterschiedlichen Typs
-(beispielsweise eine Person ud ein Gremium) den selben Schlüssel nutzen.
-Jedoch MÜSSEN zwei Objekte des selben Typs innerhalb des selben Systems
-grundsätzlich verschiedene Schlüssel haben.
+Körperschaften dürfen sich überlappende Schlüssel nutzen. Innerhalb
+eines Systems dürfen zwei Objekte unterschiedlichen Typs (beispielsweise
+eine Person ud ein Gremium) den selben Schlüssel nutzen. Jedoch MÜSSEN
+zwei Objekte des selben Typs innerhalb des selben Systems grundsätzlich
+verschiedene Schlüssel haben.
 
 Schlüssel-Eigenschaften werden grundsätzlich als String mit
 Unicode-Zeichenumfang übergeben. Sie können daher gleichermaßen aus
@@ -218,19 +218,20 @@ oder einer Person mehrere Gremien zugewiesen werden. Das Augenmerkt
 liegt hier nur auf der Tatsache, welche Beziehung existieren können und
 was diese Beziehungen aussagen sollen.
 
-Gebietskörperschaft
--------------------
+Körperschaft
+------------
 
-Die Gebietskörperschaft erlaubt es, Körperschaften wie einen bestimmten
-Landkreis, eine bestimmte Gemeinde oder einen bestimmten Stadtbezirk in
-Form eines Datenobjekts abzubilden.
+Die Körperschaft erlaubt es, den Betreiber bzw. Eigentümer des
+Informationssystems wie zum Beispiel einen Landkreis, eine bestimmte
+Gemeinde oder einen bestimmten Stadtbezirk in Form eines Datenobjekts
+abzubilden.
 
 Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“.
 Einige Systeme werden jedoch für mehrere Mandanten betrieben, wobei die
-Mandanten verschiedene Gebietskörperschaften repräsentieren (z.B.
+Mandanten verschiedene Körperschaften repräsentieren (z.B.
 "Verbandsgemeinde Ulmen" und "Stadt Ulmen".)
 
-[Objekttyp Gebietskörperschaft]
+[Objekttyp Körperschaft]
 
 Eindeutige Identifizierung
 
@@ -258,17 +259,16 @@ Nachteil des AGS:
 Eigenschaften
 
 Name
-    Der Name der Gebietskörperschaft, z.B. "Köln" oder "Stadt Köln".
+    Der Name der Körperschaft, z.B. "Köln" oder "Stadt Köln".
 
 Beziehungen
 
 -   Objekte vom Typ "Organisation" sind zwingend genau einer
-    Gebietskörperschaft zugeordnet. So wird beispielseise eine SPD in
-    Köln von einer SPD in Leverkusen unterschieden.
--   Objekte vom Typ "Gremium" sind zwingend genau einer
-    Gebietskörperschaft zugeordnet. Damit wird der "Rat" einer
-    bestimmten Kommune von den gleichnamigen Gremien anderer Kommunen
-    abgegrenzt.
+    Körperschaft zugeordnet. So wird beispielseise eine SPD in Köln von
+    einer SPD in Leverkusen unterschieden.
+-   Objekte vom Typ "Gremium" sind zwingend genau einer Körperschaft
+    zugeordnet. Damit wird der "Rat" einer bestimmten Kommune von den
+    gleichnamigen Gremien anderer Kommunen abgegrenzt.
 
 Gremium
 -------
@@ -286,7 +286,7 @@ Kennung
     Zur eindeutigen Identifizierung des Gremiums im Kontext einer
     bestimmten
 
-Gebietskörperschaft. In der Praxis kommen sowohl numerische IDs als auch
+Körperschaft. In der Praxis kommen sowohl numerische IDs als auch
 Namenskürzel (Beispiel: "STA" für den Stadtentwicklungsausschuss) vor.
 Beides sollte hier Verwendung finden können. Name : Der Name des
 Gremiums. Beispiele: "Rat", "Hauptausschuss", "Bezirksvertretung 1
@@ -359,8 +359,8 @@ Eigenschaften
 Kennung
     Zur eindeutigen Kennzeichnung einer Organisation innerhalb einer
 
-Gebietskörperschaft Name : Der gebräuchliche Name der Organisation, z.B.
-"SPD" oder "DIE LINKE".
+Körperschaft Name : Der gebräuchliche Name der Organisation, z.B. "SPD"
+oder "DIE LINKE".
 
 Anmerkungen
 
@@ -372,7 +372,7 @@ Anmerkungen
 
 Beziehungen
 
--   Jede Organisationen gehört zu einer Gebietskörperschaft.
+-   Jede Organisationen gehört zu einer Körperschaft.
 -   Personen können Organisationen angehören (datiert).
 
 Sitzung
@@ -393,11 +393,11 @@ Eigenschaften
 Eindeutige Kennung
     Zur eindeutigen Identifizierung der Sitzung innerhalb einer
 
-Gebietskörperschaft. In der Praxis wird eine solche Kennzeichnung
-entweder durch eine laufende Nummer gebildet, oder durch Kombination
-mehrerer Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der
-Sitzung in einem Jahr und der Jahreszahl (z.B. "BV1/0034/2012"). Nummer
-: Optional. Laufende Nummer der Sitzung, üblicherweise innerhalb der
+Körperschaft. In der Praxis wird eine solche Kennzeichnung entweder
+durch eine laufende Nummer gebildet, oder durch Kombination mehrerer
+Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung
+in einem Jahr und der Jahreszahl (z.B. "BV1/0034/2012"). Nummer :
+Optional. Laufende Nummer der Sitzung, üblicherweise innerhalb der
 Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die "2.
 Sitzung des Rats" gekennzeichnet. Anfang : Datum und ggf. Uhrzeit des
 Anfangszeitpunkts der Sitzung Ende : Optional. Datum und Uhrzeit vom
@@ -537,8 +537,7 @@ Arten von Drucksachen gekennzeichnet:
 Eigenschaften
 
 Kennung
-    Die Kennung einer Drucksache muss für die jeweilige
-    Gebietskörperschaft
+    Die Kennung einer Drucksache muss für die jeweilige Körperschaft
 
 eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben enthalten.
 Einige Systeme (z.B. Köln) verwenden besondere Trennzeichen wie "/", um

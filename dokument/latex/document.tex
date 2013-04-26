@@ -258,11 +258,11 @@ folgenden - unabhängig vom tatsächlichen Namen der Eigenschaft - als
 Eindeutigkeit meint hier eine Einzigartigkeit innerhalb des
 Informationssystems und für den jeweiligen Objekttyp. Das bedeutet: zwei
 von einander unabhängige Ratsinformationssysteme für verschiedene
-Gebietskörperschaften dürfen sich überlappende Schlüssel nutzen.
-Innerhalb eines Systems dürfen zwei Objekte unterschiedlichen Typs
-(beispielsweise eine Person ud ein Gremium) den selben Schlüssel nutzen.
-Jedoch MÜSSEN zwei Objekte des selben Typs innerhalb des selben Systems
-grundsätzlich verschiedene Schlüssel haben.
+Körperschaften dürfen sich überlappende Schlüssel nutzen. Innerhalb
+eines Systems dürfen zwei Objekte unterschiedlichen Typs (beispielsweise
+eine Person ud ein Gremium) den selben Schlüssel nutzen. Jedoch MÜSSEN
+zwei Objekte des selben Typs innerhalb des selben Systems grundsätzlich
+verschiedene Schlüssel haben.
 
 Schlüssel-Eigenschaften werden grundsätzlich als String mit
 Unicode-Zeichenumfang übergeben. Sie können daher gleichermaßen aus
@@ -296,21 +296,22 @@ oder einer Person mehrere Gremien zugewiesen werden. Das Augenmerkt
 liegt hier nur auf der Tatsache, welche Beziehung existieren können und
 was diese Beziehungen aussagen sollen.
 
-\subsection{Gebietskörperschaft}
+\subsection{Körperschaft}
 
-Die Gebietskörperschaft erlaubt es, Körperschaften wie einen bestimmten
-Landkreis, eine bestimmte Gemeinde oder einen bestimmten Stadtbezirk in
-Form eines Datenobjekts abzubilden.
+Die Körperschaft erlaubt es, den Betreiber bzw. Eigentümer des
+Informationssystems wie zum Beispiel einen Landkreis, eine bestimmte
+Gemeinde oder einen bestimmten Stadtbezirk in Form eines Datenobjekts
+abzubilden.
 
 Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen``.
 Einige Systeme werden jedoch für mehrere Mandanten betrieben, wobei die
-Mandanten verschiedene Gebietskörperschaften repräsentieren
+Mandanten verschiedene Körperschaften repräsentieren
 (z.B.''Verbandsgemeinde Ulmen" und ``Stadt Ulmen''.)
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{images/datenmodell_gebietskoerperschaft.pdf}
-\caption{Objekttyp Gebietskörperschaft}
+\includegraphics{images/datenmodell_koerperschaft.pdf}
+\caption{Objekttyp Körperschaft}
 \end{figure}
 
 \subsubsection{Eindeutige Identifizierung}
@@ -348,7 +349,7 @@ Nachteil des AGS:
 
 \begin{description}
 \item[Name]
-Der Name der Gebietskörperschaft, z.B. ``Köln'' oder ``Stadt Köln''.
+Der Name der Körperschaft, z.B. ``Köln'' oder ``Stadt Köln''.
 \end{description}
 
 \subsubsection{Beziehungen}
@@ -356,13 +357,12 @@ Der Name der Gebietskörperschaft, z.B. ``Köln'' oder ``Stadt Köln''.
 \begin{itemize}
 \item
   Objekte vom Typ ``Organisation'' sind zwingend genau einer
-  Gebietskörperschaft zugeordnet. So wird beispielseise eine SPD in Köln
-  von einer SPD in Leverkusen unterschieden.
+  Körperschaft zugeordnet. So wird beispielseise eine SPD in Köln von
+  einer SPD in Leverkusen unterschieden.
 \item
-  Objekte vom Typ ``Gremium'' sind zwingend genau einer
-  Gebietskörperschaft zugeordnet. Damit wird der ``Rat'' einer
-  bestimmten Kommune von den gleichnamigen Gremien anderer Kommunen
-  abgegrenzt.
+  Objekte vom Typ ``Gremium'' sind zwingend genau einer Körperschaft
+  zugeordnet. Damit wird der ``Rat'' einer bestimmten Kommune von den
+  gleichnamigen Gremien anderer Kommunen abgegrenzt.
 \end{itemize}
 
 \subsection{Gremium}
@@ -385,7 +385,7 @@ Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
 Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten
 \end{description}
 
-Gebietskörperschaft. In der Praxis kommen sowohl numerische IDs als auch
+Körperschaft. In der Praxis kommen sowohl numerische IDs als auch
 Namenskürzel (Beispiel: ``STA'' für den Stadtentwicklungsausschuss) vor.
 Beides sollte hier Verwendung finden können. Name : Der Name des
 Gremiums. Beispiele: ``Rat'', ``Hauptausschuss'', ``Bezirksvertretung 1
@@ -481,7 +481,7 @@ Personen angehören können.
 Zur eindeutigen Kennzeichnung einer Organisation innerhalb einer
 \end{description}
 
-Gebietskörperschaft Name : Der gebräuchliche Name der Organisation, z.B.
+Körperschaft Name : Der gebräuchliche Name der Organisation, z.B.
 ``SPD'' oder ``DIE LINKE''.
 
 \paragraph{Anmerkungen}
@@ -499,7 +499,7 @@ Gebietskörperschaft Name : Der gebräuchliche Name der Organisation, z.B.
 
 \begin{itemize}
 \item
-  Jede Organisationen gehört zu einer Gebietskörperschaft.
+  Jede Organisationen gehört zu einer Körperschaft.
 \item
   Personen können Organisationen angehören (\emph{datiert}).
 \end{itemize}
@@ -527,15 +527,15 @@ werden.
 Zur eindeutigen Identifizierung der Sitzung innerhalb einer
 \end{description}
 
-Gebietskörperschaft. In der Praxis wird eine solche Kennzeichnung
-entweder durch eine laufende Nummer gebildet, oder durch Kombination
-mehrerer Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der
-Sitzung in einem Jahr und der Jahreszahl (z.B. ``BV1/0034/2012'').
-Nummer : \emph{Optional}. Laufende Nummer der Sitzung, üblicherweise
-innerhalb der Wahlperiode mit 1 beginnend. In der Praxis wird dadurch
-z.B. die ``2. Sitzung des Rats'' gekennzeichnet. Anfang : Datum und ggf.
-Uhrzeit des Anfangszeitpunkts der Sitzung Ende : \emph{Optional}. Datum
-und Uhrzeit vom Ende der Sitzung Ort : \emph{Optional}. Textliche
+Körperschaft. In der Praxis wird eine solche Kennzeichnung entweder
+durch eine laufende Nummer gebildet, oder durch Kombination mehrerer
+Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung
+in einem Jahr und der Jahreszahl (z.B. ``BV1/0034/2012''). Nummer :
+\emph{Optional}. Laufende Nummer der Sitzung, üblicherweise innerhalb
+der Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die
+``2. Sitzung des Rats'' gekennzeichnet. Anfang : Datum und ggf. Uhrzeit
+des Anfangszeitpunkts der Sitzung Ende : \emph{Optional}. Datum und
+Uhrzeit vom Ende der Sitzung Ort : \emph{Optional}. Textliche
 Information zum Ort der Sitzung, z.B. ``Rathaus, Raum 136''.
 
 \subsubsection{Beziehungen}
@@ -716,7 +716,7 @@ Arten von Drucksachen gekennzeichnet:
 
 \begin{description}
 \item[Kennung]
-Die Kennung einer Drucksache muss für die jeweilige Gebietskörperschaft
+Die Kennung einer Drucksache muss für die jeweilige Körperschaft
 \end{description}
 
 eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben enthalten.

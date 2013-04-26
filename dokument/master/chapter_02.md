@@ -30,7 +30,7 @@ bezeichnet.
 Eindeutigkeit meint hier eine Einzigartigkeit innerhalb des 
 Informationssystems und für den jeweiligen Objekttyp. Das bedeutet: zwei von 
 einander unabhängige Ratsinformationssysteme für verschiedene 
-Gebietskörperschaften dürfen sich überlappende Schlüssel nutzen. Innerhalb 
+Körperschaften dürfen sich überlappende Schlüssel nutzen. Innerhalb 
 eines Systems dürfen zwei Objekte unterschiedlichen Typs (beispielsweise 
 eine Person ud ein Gremium) den selben Schlüssel nutzen. Jedoch MÜSSEN zwei 
 Objekte des selben Typs innerhalb des selben Systems grundsätzlich 
@@ -71,19 +71,20 @@ Tatsache, welche Beziehung existieren können und was diese Beziehungen
 aussagen sollen.
 
 
-Gebietskörperschaft
+Körperschaft
 -------------------
 
-Die Gebietskörperschaft erlaubt es, Körperschaften wie einen bestimmten 
-Landkreis, eine bestimmte Gemeinde oder einen bestimmten Stadtbezirk in 
-Form eines Datenobjekts abzubilden.
+Die Körperschaft erlaubt es, den Betreiber bzw. Eigentümer des
+Informationssystems wie zum Beispiel einen Landkreis, eine bestimmte 
+Gemeinde oder einen bestimmten Stadtbezirk in Form eines Datenobjekts 
+abzubilden.
 
 Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“. Einige 
 Systeme werden jedoch für mehrere Mandanten betrieben, wobei die Mandanten 
-verschiedene Gebietskörperschaften repräsentieren (z.B. "Verbandsgemeinde 
+verschiedene Körperschaften repräsentieren (z.B. "Verbandsgemeinde 
 Ulmen" und "Stadt Ulmen".)
 
-![Objekttyp Gebietskörperschaft](images/datenmodell_gebietskoerperschaft.pdf)
+![Objekttyp Körperschaft](images/datenmodell_gebietskoerperschaft.pdf)
 
 ### Eindeutige Identifizierung ###
 
@@ -110,15 +111,15 @@ Systems ausgeglichen werden.
 ### Eigenschaften ###
 
 Name
-:   Der Name der Gebietskörperschaft, z.B. "Köln" oder "Stadt Köln".
+:   Der Name der Körperschaft, z.B. "Köln" oder "Stadt Köln".
 
 
 ### Beziehungen ###
 
 * Objekte vom Typ "Organisation" sind zwingend genau einer 
-Gebietskörperschaft zugeordnet. So wird beispielseise eine SPD in Köln von 
+Körperschaft zugeordnet. So wird beispielseise eine SPD in Köln von 
 einer SPD in Leverkusen unterschieden.
-* Objekte vom Typ "Gremium" sind zwingend genau einer Gebietskörperschaft 
+* Objekte vom Typ "Gremium" sind zwingend genau einer Körperschaft 
 zugeordnet. Damit wird der "Rat" einer bestimmten Kommune von den 
 gleichnamigen Gremien anderer Kommunen abgegrenzt.
 
@@ -138,7 +139,7 @@ ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
 Kennung
 :   Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten 
-Gebietskörperschaft. In der Praxis kommen sowohl numerische IDs als auch 
+Körperschaft. In der Praxis kommen sowohl numerische IDs als auch 
 Namenskürzel (Beispiel: "STA" für den Stadtentwicklungsausschuss) vor. Beides 
 sollte hier Verwendung finden können.
 Name
@@ -227,7 +228,7 @@ Personen angehören können.
 
 Kennung
 :   Zur eindeutigen Kennzeichnung einer Organisation innerhalb einer 
-Gebietskörperschaft
+Körperschaft
 Name
 :   Der gebräuchliche Name der Organisation, z.B. "SPD" oder "DIE LINKE".
 
@@ -241,7 +242,7 @@ berücksichtigt werden.
 
 ### Beziehungen ###
 
-* Jede Organisationen gehört zu einer Gebietskörperschaft.
+* Jede Organisationen gehört zu einer Körperschaft.
 * Personen können Organisationen angehören (*datiert*).
 
 
@@ -261,7 +262,7 @@ Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.
 
 Eindeutige Kennung
 :   Zur eindeutigen Identifizierung der Sitzung innerhalb einer 
-Gebietskörperschaft. In der Praxis wird eine solche Kennzeichnung entweder 
+Körperschaft. In der Praxis wird eine solche Kennzeichnung entweder 
 durch eine laufende Nummer gebildet, oder durch Kombination mehrerer Merkmale 
 wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung in einem Jahr 
 und der Jahreszahl (z.B. "BV1/0034/2012").
@@ -412,7 +413,7 @@ schriftliche) Anfragen
 ### Eigenschaften ###
 
 Kennung
-:   Die Kennung einer Drucksache muss für die jeweilige Gebietskörperschaft 
+:   Die Kennung einer Drucksache muss für die jeweilige Körperschaft 
 eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben enthalten. 
 Einige Systeme (z.B. Köln) verwenden besondere Trennzeichen wie "/", um eine 
 Jahreszahl von einer laufenden Nummer abzutrennen. Weiterhin werden 

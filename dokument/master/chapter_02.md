@@ -222,8 +222,8 @@ Nachname (`last_name`)
 Titel (`academic_title`)
 :   _Optional_. Akademische Titel wie "Dr." und "Prof. Dr."
 Geschlecht (`sex`)
-:   _Optional_. Weiblich (Wert `F` für _female_) oder männlich (Wert `M`
-    für _male_)
+:   _Optional_. Weiblich (Wert `F` für _female_), männlich (Wert `M`
+    für _male_), anderes (Wert `O` für _others_)
 Beruf (`profession`)
 :   _Optional_. Z.B. "Rechtsanwalt"
 E-Mail-Adresse (`email`)

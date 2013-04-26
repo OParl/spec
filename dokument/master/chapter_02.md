@@ -71,8 +71,8 @@ Tatsache, welche Beziehung existieren können und was diese Beziehungen
 aussagen sollen.
 
 
-Körperschaft
--------------------
+Körperschaft (*body*)
+---------------------
 
 Die Körperschaft erlaubt es, den Betreiber bzw. Eigentümer des
 Informationssystems wie zum Beispiel einen Landkreis, eine bestimmte 
@@ -124,8 +124,8 @@ zugeordnet. Damit wird der "Rat" einer bestimmten Kommune von den
 gleichnamigen Gremien anderer Kommunen abgegrenzt.
 
 
-Gremium
--------
+Gremium (*committee*)
+---------------------
 
 Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder 
 ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat, 
@@ -160,8 +160,8 @@ eine Anfrage oder ein Antrag dem Rat und/oder einer bestimmten Bezirksvertretung
 zugeordnet. Details zu dieser Beziehung werden unter "Drucksache" erläutert.
 
 
-Person
-------
+Person (*person*)
+-----------------
 
 Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person im 
 Datenmodell eindeutig identifizierbar.
@@ -216,8 +216,8 @@ werden, um die Mitgliedschaft in diesem Gremium darzustellen. Diese
 Beziehungen sind ebenfalls datiert.
 
 
-Organisation
-------------
+Organisation (*organisation*)
+-----------------------------
 
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die 
 Personen angehören können.
@@ -246,8 +246,8 @@ berücksichtigt werden.
 * Personen können Organisationen angehören (*datiert*).
 
 
-Sitzung
--------
+Sitzung (*meeting*)
+-------------------
 
 Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder mehrerer
 Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.
@@ -292,8 +292,9 @@ referenziert werden:
 eigenständigen Drucksachen sind, referenzieren. Dabei handelt es sich dann 
 um nicht weiter spezifizierte Anlagen.
 
-Tagesordnungspunkt
-------------------
+
+Tagesordnungspunkt (*agendaitem*)
+---------------------------------
 
 Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine 
 (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach 
@@ -345,8 +346,8 @@ das Abstimmungsverhalten von Fraktionen oder Einzelpersonen zu dokumentieren.
 diesem Tagesordnungspunkt *nicht* anwesend waren.
 
 
-Stimmabgabe
------------
+Stimmabgabe (*vote*)
+--------------------
 
 Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt abgestimmt 
 hat, wird durch eine Stimmabgabe festgehalten. Ganze Abstimmungsergebnisse 
@@ -376,8 +377,8 @@ Votum
 referenziert, die die Stimme(n) abgegeben hat.
 
 
-Drucksache
-----------
+Drucksache (*paper*)
+--------------------
 
 Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen, 
 Beschlussvorlagen, Anfragen und Anträge ab. Jede Drucksache erhält eine 
@@ -453,8 +454,8 @@ die Beziehung jeweils mit einer Zuständigkeit versehen sein, die noch
 näher zu bestimmen ist (TODO).
 
 
-Dokument
---------
+Dokument (*document*)
+---------------------
 
 Ein Dokument hält die Daten und Metadaten einer Datei vor, beispielsweise 
 einer PDF-Datei, eines RTF- oder Word-Dokuments. Wird von einem Word-Dokument 
@@ -498,8 +499,8 @@ zu seinem Dokumenten-Master zu gelangen (Beispiel: von einem PDF-Dokument zum
 OpenOffice-Original).
 
 
-Ort
----
+Ort (*location*)
+----------------
 
 Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal 
 abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen 

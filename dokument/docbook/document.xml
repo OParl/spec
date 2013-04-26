@@ -337,8 +337,8 @@
       </para>
     </sect3>
   </sect2>
-  <sect2 id="körperschaft">
-    <title>Körperschaft</title>
+  <sect2 id="körperschaft-body">
+    <title>Körperschaft (<emphasis>body</emphasis>)</title>
     <para>
       Die Körperschaft erlaubt es, den Betreiber bzw. Eigentümer des
       Informationssystems wie zum Beispiel einen Landkreis, eine
@@ -445,8 +445,8 @@
       </itemizedlist>
     </sect3>
   </sect2>
-  <sect2 id="gremium">
-    <title>Gremium</title>
+  <sect2 id="gremium-committee">
+    <title>Gremium (<emphasis>committee</emphasis>)</title>
     <para>
       Das Gremium ist ein Personenkreis, üblicherweise von gewählten
       und/oder ernannten Mitgliedern. Beispiele hierfür sind der
@@ -513,8 +513,8 @@
       </itemizedlist>
     </sect3>
   </sect2>
-  <sect2 id="person">
-    <title>Person</title>
+  <sect2 id="person-person">
+    <title>Person (<emphasis>person</emphasis>)</title>
     <para>
       Jede natürliche Person, die Mitglied eines Gremiums ist, ist als
       Person im Datenmodell eindeutig identifizierbar.
@@ -603,8 +603,8 @@
       </itemizedlist>
     </sect3>
   </sect2>
-  <sect2 id="organisation">
-    <title>Organisation</title>
+  <sect2 id="organisation-organisation">
+    <title>Organisation (<emphasis>organisation</emphasis>)</title>
     <para>
       Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen
       die Personen angehören können.
@@ -671,8 +671,8 @@
       </itemizedlist>
     </sect3>
   </sect2>
-  <sect2 id="sitzung">
-    <title>Sitzung</title>
+  <sect2 id="sitzung-meeting">
+    <title>Sitzung (<emphasis>meeting</emphasis>)</title>
     <para>
       Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums
       oder mehrerer Gremien zu einem bestimmten Zeitpunkt an einem
@@ -773,8 +773,8 @@
       </itemizedlist>
     </sect3>
   </sect2>
-  <sect2 id="tagesordnungspunkt">
-    <title>Tagesordnungspunkt</title>
+  <sect2 id="tagesordnungspunkt-agendaitem">
+    <title>Tagesordnungspunkt (<emphasis>agendaitem</emphasis>)</title>
     <para>
       Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt,
       erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen
@@ -876,8 +876,8 @@
       </itemizedlist>
     </sect3>
   </sect2>
-  <sect2 id="stimmabgabe">
-    <title>Stimmabgabe</title>
+  <sect2 id="stimmabgabe-vote">
+    <title>Stimmabgabe (<emphasis>vote</emphasis>)</title>
     <para>
       Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt
       abgestimmt hat, wird durch eine Stimmabgabe festgehalten. Ganze
@@ -938,8 +938,8 @@
       </itemizedlist>
     </sect3>
   </sect2>
-  <sect2 id="drucksache">
-    <title>Drucksache</title>
+  <sect2 id="drucksache-paper">
+    <title>Drucksache (<emphasis>paper</emphasis>)</title>
     <para>
       Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen,
       Beschlussvorlagen, Anfragen und Anträge ab. Jede Drucksache erhält
@@ -1103,8 +1103,8 @@
       </itemizedlist>
     </sect3>
   </sect2>
-  <sect2 id="dokument">
-    <title>Dokument</title>
+  <sect2 id="dokument-document">
+    <title>Dokument (<emphasis>document</emphasis>)</title>
     <para>
       Ein Dokument hält die Daten und Metadaten einer Datei vor,
       beispielsweise einer PDF-Datei, eines RTF- oder Word-Dokuments.
@@ -1239,8 +1239,8 @@
       </itemizedlist>
     </sect3>
   </sect2>
-  <sect2 id="ort">
-    <title>Ort</title>
+  <sect2 id="ort-location">
+    <title>Ort (<emphasis>location</emphasis>)</title>
     <para>
       Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache
       formal abzubilden. Ortsangaben können sowohl aus Textinformationen

@@ -109,23 +109,23 @@ werden.
 
 ### Eigenschaften ###
 
-Schlüssel (*id*)
+Schlüssel (`id`)
 :   Zur eindeutigen Identifizierung der Körperschaft im System
-Name (*name*)
+Name (`name`)
 :   Der Name der Körperschaft, z.B. "Stadt Köln"
-Regionalschlüssel (*regionalschluessel*)
+Regionalschlüssel (`regionalschluessel`)
 :   _Optional_. Regionalschlüssel der Gebietskörperschaft, z.B. 
     "053150000000". Muss grundsätzlich 12-stellig angegeben werden.
-GND URL (*gnd_url*)
+GND URL (`gnd_url`)
 :   _Optional_. URL des Eintrags in der GND, z.B.
     "http://d-nb.info/gnd/2015732-0"
-URL (*url*)
+URL (`url`)
 :   _Optional_. URL zu Informationen über die Körperschaft, z.B.
     "http://www.stadt-koeln.de/"
-Lizenz (*license_url*)
+Lizenz (`license_url`)
 :   _Optional_. URL der Lizenz, unter der die Daten, die über die API
     abgerufen werden können, stehen.
-Betreiber-Kontakt (*operator_contact*)
+Betreiber-Kontakt (`operator_contact`)
 :   _Optional_. Kontaktinformationen für die direkte Kontaktaufnahme zum
     Betreiber der API.
 
@@ -149,7 +149,7 @@ gleichnamigen Gremien anderer Kommunen abgegrenzt.
     "gnd_url": "http://d-nb.info/gnd/2015732-0",
     "url": "http://www.stadt-koeln.de/",
     "operator_contact": "Tel. +49 221-221-5432, E-Mail: ris-api@stadt-koeln.de",
-    "license_url": "http://wiki.openstreetmap.org/wiki/DE:Open_Database_Licence_-_Licence_Text"
+    "license_url": "http://opendatacommons.org/licenses/odbl/1.0/"
 }
 ~~~~~
 
@@ -166,15 +166,15 @@ ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
 ### Eigenschaften ###
 
-Schlüssel (*id*)
+Schlüssel (`id`)
 :   Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten 
-Körperschaft. In der Praxis kommen sowohl numerische IDs als auch 
-Namenskürzel (Beispiel: "STA" für den Stadtentwicklungsausschuss) vor. Beides 
-sollte hier Verwendung finden können.
-Name (*name*)
+    Körperschaft. In der Praxis kommen sowohl numerische IDs als auch 
+    Namenskürzel (Beispiel: "STA" für den Stadtentwicklungsausschuss) vor. 
+    Beides sollte hier Verwendung finden können.
+Name (`name`)
 :   Der Name des Gremiums. Beispiele: "Rat", "Hauptausschuss", 
-"Bezirksvertretung 1 (Innenstadt)"
-Kurzname (*short_name*)
+    "Bezirksvertretung 1 (Innenstadt)"
+Kurzname (`short_name`)
 :   _Optional_. Eine zur Anzeige bestimmte, kürzere Form des Namens.
 
 
@@ -210,29 +210,29 @@ Datenmodell eindeutig identifizierbar.
 
 ### Eigenschaften ###
 
-Kennung
+Schlüssel (`id`)
 :   Zur eindeutigen Identifizierung sollte jede Person eine Kennung besitzen, 
-die keinen Änderungen unterworfen ist und aus diesem Grund nicht mit dem 
-Namen in Verbindung stehen sollte. Viele RIS nutzen rein numerische Kennungen.
-Vorname
+    die keinen Änderungen unterworfen ist und aus diesem Grund nicht mit dem 
+    Namen in Verbindung stehen sollte. Viele RIS nutzen rein numerische 
+    Kennungen.
+Vorname (`first_name`)
 :   Der Vorname der Person.
-Nachname
+Nachname (`last_name`)
 :   Der Nachname der Person.
-Titel
+Titel (`academic_title`)
 :   _Optional_. Akademische Titel wie "Dr." und "Prof. Dr."
-Geschlecht
-:   _Optional_. Männlich/Weblich
-Beruf
+Geschlecht (`sex`)
+:   _Optional_. Weiblich (Wert `F` für _female_) oder männlich (Wert `M`
+    für _male_)
+Beruf (`profession`)
 :   _Optional_. Z.B. "Rechtsanwalt"
-Partei
-:   _Optional_. Z.B. "Bündnis 90/Grüne"
-E-Mail-Adresse
+E-Mail-Adresse (`email`)
 :   _Optional_.
-Telefon
+Telefon (`phone`)
 :   _Optional_.
-Fax
+Fax (`fax`)
 :   _Optional_.
-Anschrift
+Anschrift (`address`)
 :   _Optional_. Straße und Hausnummer, Postleitzahl und Ort
 
 
@@ -255,8 +255,41 @@ zugeornet werden. Diese Beziehung ist datiert.
 werden, um die Mitgliedschaft in diesem Gremium darzustellen. Diese 
 Beziehungen sind ebenfalls datiert.
 
+### Beispiel ###
 
-Organisation (*organisation*)
+~~~~~  {#person_ex1 .json}
+{
+    "id": "1000",
+    "first_name": "Max",
+    "last_name": "Mustermann",
+    "academic_title": "Dr.",
+    "sex": "M",
+    "profession": "Rechtsanwalt",
+    "email": "max@mustermann.de",
+    "phone": "+4977777",
+    "fax": "+4988888",
+    "address": "Musterstraße 5, 11111 Musterort",
+    "organisations": [
+        {
+            "id": "2000",
+            "start": "2011-03-01",
+            "end": "2013-02-28"
+        },
+        {
+            "id": "2001",
+            "start": "2013-03-01"
+        }
+    ],
+    "committees": [
+        {
+            "id": "7",
+            "start": "2013-01-01"
+        }
+    ]
+}
+~~~~~
+
+Organisation (`organisation`)
 -----------------------------
 
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die 
@@ -266,10 +299,10 @@ Personen angehören können.
 
 ### Eigenschaften ###
 
-Kennung
-:   Zur eindeutigen Kennzeichnung einer Organisation innerhalb einer 
-Körperschaft
-Name
+Schlüssel (`id`)
+:   Zur eindeutigen Kennzeichnung einer Organisation innerhalb des 
+    Systems
+Name (`name`)
 :   Der gebräuchliche Name der Organisation, z.B. "SPD" oder "DIE LINKE".
 
 #### Anmerkungen ####
@@ -285,8 +318,17 @@ berücksichtigt werden.
 * Jede Organisationen gehört zu einer Körperschaft.
 * Personen können Organisationen angehören (*datiert*).
 
+## Beispiel ##
 
-Sitzung (*meeting*)
+~~~~~  {#organisation_ex1 .json}
+{
+    "id": "15",
+    "name": "SPD",
+    "body": "1"
+}
+~~~~~
+
+Sitzung (`meeting`)
 -------------------
 
 Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder mehrerer
@@ -300,21 +342,22 @@ Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.
 
 ### Eigenschaften ###
 
-Eindeutige Kennung
-:   Zur eindeutigen Identifizierung der Sitzung innerhalb einer 
-Körperschaft. In der Praxis wird eine solche Kennzeichnung entweder 
-durch eine laufende Nummer gebildet, oder durch Kombination mehrerer Merkmale 
-wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung in einem Jahr 
-und der Jahreszahl (z.B. "BV1/0034/2012").
-Nummer
+Schlüssel (`id`)
+:   Zur eindeutigen Identifizierung der Sitzung innerhalb des Systems. In der 
+    Praxis wird ein solcher Schlüssel entweder durch eine numerische ID gebildet 
+    oder durch Kombination mehrerer Merkmale wie dem Kürzel des Gremiums, der 
+    laufenden Nummer der Sitzung in einem Jahr und der Jahreszahl
+    (z.B. "BV1/0034/2012").
+Nummer (`sequence_number`)
 :   _Optional_. Laufende Nummer der Sitzung, üblicherweise innerhalb der 
-Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die "2. Sitzung 
-des Rats" gekennzeichnet.
-Anfang
+    Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die "2. 
+    Sitzung des Rats" gekennzeichnet. Ist dieses Feld gesetzt, MUSS ein
+    numerischer Wert enthalten sein.
+Anfang (`start`)
 :   Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung
-Ende
+Ende (`end`)
 :   _Optional_. Datum und Uhrzeit vom Ende der Sitzung
-Ort
+Ort (`address`)
 :   _Optional_. Textliche Information zum Ort der Sitzung, z.B. "Rathaus, Raum 136".
 
 
@@ -332,16 +375,38 @@ referenziert werden:
 eigenständigen Drucksachen sind, referenzieren. Dabei handelt es sich dann 
 um nicht weiter spezifizierte Anlagen.
 
+### Beispiel ###
 
-Tagesordnungspunkt (*agendaitem*)
+~~~~~  {#meeting_ex1 .json}
+{
+    "id": "3271",
+    "identifier": "STA/0034/2012",
+    "start": "2013-01-04T08:00:00+01:00",
+    "end": "2013-01-04T12:00:00+01:00",
+    "address": "Rathaus, Raum 136",
+    "sequence_number": 1,
+    "committees": ["STA"],
+    "people": ["1000", "1001"],
+    "invitation": "0001/2013",
+    "result_minutes": "0002/2013",
+    "verbatim_minutes": "0003/2013",
+    "attachments": [
+        "0004/2013",
+        "0005/2013"
+    ]
+}
+~~~~~
+
+
+Tagesordnungspunkt (`agendaitem`)
 ---------------------------------
 
 Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine 
 (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach 
 der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. 
 Unter Umständen kann dem Tagesordnungspunkt ein bestimmter Beschlusstext 
-beigefügt sein. Sofern das Abstimmungsergebnis nicht einstimmig 
-ist, kann es durch mehrere referenzierende "Stimmabgaben" festgehalten werden.
+beigefügt sein. Ein Abstimmungsergebnis kann es durch mehrere referenzierende 
+Objekte vom Typ "Stimmabgabe" festgehalten werden.
 
 Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
 
@@ -349,31 +414,39 @@ ist, kann es durch mehrere referenzierende "Stimmabgaben" festgehalten werden.
 
 ### Eigenschaften ###
 
-Nummer
+Nummer (`identifier`)
 :   Beispiel: "1.2.3". Diese Nummer gibt an, in welcher Reihenfolge die 
-Tagesordnungspunkte einer Sitzung normalerweise behandelt werden. Im Kontext 
-einer Sitzung ist diese Nummer eindeutig.
-Öffentlich
-:   ja/nein. Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher Sitzung 
-behandelt wird.
-Titel
+    Tagesordnungspunkte einer Sitzung normalerweise behandelt werden. Im 
+    Kontext einer Sitzung ist diese Nummer eindeutig.
+Öffentlich (`public`)
+:   Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher Sitzung 
+    behandelt wird. Kann die Werte `true` (öffentlich) oder `false` annehmen.
+Titel (`title`)
 :   Das Thema des Tagesordnungspunktes
-Ergebnis
-:   Eines aus einer Liste definierter Ergebnisse. Möglich sind: "Unverändert 
-beschlossen", "Geändert beschlossen", "Endgültig abgelehnt", "Zur Kenntnis 
-genommen", "Ohne Votum in nachfolgende Gremien überwiesen"
-Beschlusstext
+Ergebnis (`result`)
+:   _Optional_. Kategorische Information darüber, welches Ergebnis die Beratung des
+    Tagesordnungspunktes gebracht hat. In der Praxis sind hier Kategorien wie
+     "Unverändert beschlossen", "Geändert beschlossen", "Endgültig abgelehnt",
+     "Zur Kenntnis genommen", "Ohne Votum in nachfolgende Gremien überwiesen"
+     und weitere zu erwarten.
+Ergebnis Details (`result_details`)
+:   _Optional_. Ermöglicht die Angabe zusätzlicher Textinformationen zum 
+    Ergebnis, zum Beispiel im Fall der Verweisung an ein anderes Gremium die
+    Angabe, an welches Gremium verwiesen wurde.
+Beschlusstext (`resolution_text`)
 :   _Optional_. Falls in diesem Tagesordnungspunkt ein Beschluss gefasst 
-wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in der 
-Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) von 
-der Beschlussvorlage abweicht.
+    wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in der 
+    Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) 
+    von der Beschlussvorlage abweicht.
 
 #### Anmerkungen ####
 
 * Einige Systeme vergeben zu Tagesordnungspunkten intern unveränderliche, 
 numerische IDs. Es ist unklar, ob es zusätzlichen Nutzen bringt, derartige 
 IDs, neben den Nummern, in den Standard zu übernehmen. Dies würde vermutlich 
-nur Sinn ergeben, wenn es als Pflichtfeld gelten kann.
+nur Sinn ergeben, wenn es als Pflichtfeld gelten könnte.
+* Teil der Beratungen über einheitliche Nomenklatur im Standard sollte sein,
+eine Vereinheitlichung der Werte für die Eigenschaft `result` zu diskutieren.
 
 ### Beziehungen ###
 
@@ -385,30 +458,66 @@ das Abstimmungsverhalten von Fraktionen oder Einzelpersonen zu dokumentieren.
 * Es können Personen referenziert werden, die während der Abstimmung zu 
 diesem Tagesordnungspunkt *nicht* anwesend waren.
 
+### Beispiel ###
 
-Stimmabgabe (*vote*)
+~~~~~  {#agendaitem_ex1 .json}
+{
+    "meeting": "3271",
+    "identifier": "3.1.2",
+    "public": true,
+    "title": "Gemeinschaftsgrundschule Hornschaftsstraße/Höhenhaus. Hier: Anfrage von Herrn Philippi",
+    "result": "Geändert beschlossen",
+    "resolution_text": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
+    "people_absent": ["1002", "1003"],
+    "votings": [
+        {
+            "sum": 2,
+            "vote": "DAFUER",
+            "organisations": ["24"],
+            "people": []
+        },
+        {
+            "sum": 1,
+            "vote": "ENTHALTUNG",
+            "organisations": [],
+            "people": ["1000"]
+        },
+        {
+            "sum": 1,
+            "vote": "DAGEGEN",
+            "organisations": [],
+            "people": ["1001"]
+        }
+    ]
+}
+~~~~~
+
+Stimmabgabe (`vote`)
 --------------------
 
 Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt abgestimmt 
 hat, wird durch eine Stimmabgabe festgehalten. Ganze Abstimmungsergebnisse 
 bestehen überlicherweise aus mehreren Stimmabgaben. Jede Stimmabgabe gibt 
-entweder die (einzelne) Stimme einer Peson wieder, in diesem Fall ist die 
-Anzahl der Stimmen zwingend 1. Oder eine Stimmabgabe gibt das 
-Abstimmungsverhalten einer ganzen Gruppe von Personen wieder. Dann ist die 
-Anzahl der Stimmen anzugeben und statt einer Person eine Organisation (in der 
-Regel die Fraktion) zu referenzieren.
+entweder die (einzelne) Stimme einer Person wieder (in diesem Fall ist die 
+Anzahl der Stimmen zwingend 1) oder das einer ganzen Gruppe von Personen. 
+Dann ist die Anzahl der Stimmen anzugeben und statt einer Person eine 
+Organisation (in der Regel die Fraktion) zu referenzieren.
+
+Ist eine Abstimmung zu einem Tagesordnungspunkt einstimmig, dann genügt ein
+einziges Objekt vom Typ Stimmabgabe aus, um dies darzustellen. In allen anderen
+Fällen werden mehrere Stimmabgabe-Objekte kombiniert.
 
 ![Objekttyp Stimmabgabe](images/datenmodell_stimmabgabe.pdf)
 
 ### Eigenschaften ###
 
-Anzahl der Stimmen
+Anzahl der Stimmen (`sum`)
 :   Gehört die Stimmabgabe zu einer Person, ist der Wert immer 1. Gehört sie 
-jedoch zu einer Organisation (=Fraktion), kann der Wert hier größer als 1 
-sein.
-Votum
-:   Einer der drei Werte "ja" (gleichbedeutend mit "dafür"), "nein" 
-("dagegen") oder "Enthaltung".
+    jedoch zu einer Organisation (=Fraktion), kann der Wert hier größer als 1 
+    sein. Diese Eigenschaft MUSS einen numerischen Wert haben.
+Votum (`vote`)
+:   Einer der Werte `DAFUER` (gleichbedeutend mit "für den Antrag"), `DAGEGEN` 
+    ("gegen den Antrag") oder `ENTHALTUNG`.
 
 ### Beziehungen ###
 
@@ -416,13 +525,35 @@ Votum
 * Es wird entweder genau eine Person oder genau eine Organisation (Fraktion) 
 referenziert, die die Stimme(n) abgegeben hat.
 
+### Beispiele ###
 
-Drucksache (*paper*)
+Die gesamte siebenköpfige Fraktion (Organisation ID "18") stimmt für den
+Antrag:
+
+~~~~~  {#vote_ex1 .json}
+{
+    "sum": 7,
+    "vote": "DAFUER",
+    "organisations": ["18"]
+}
+~~~~~
+
+Drei bestimmte Personen stimmten gegen den Antrag:
+
+~~~~~  {#vote_ex2 .json}
+{
+    "sum": 3,
+    "vote": "DAGEGEN",
+    "people": ["85", "145", "67"]
+}
+~~~~~
+
+Drucksache (`paper`)
 --------------------
 
 Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen, 
-Beschlussvorlagen, Anfragen und Anträge ab. Jede Drucksache erhält eine 
-eindeutige Kennung.
+Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede Drucksache 
+erhält eine eindeutige Kennung.
 
 Die Drucksache hat im Informationsmodell eine hervorgehobene Bedeutung. Im 
 Fall eines Antrags kann mit einer einzigen Drucksache ein über Monate oder 
@@ -453,15 +584,15 @@ schriftliche) Anfragen
 
 ### Eigenschaften ###
 
-Kennung
+Schlüssel (`id`)
 :   Die Kennung einer Drucksache muss für die jeweilige Körperschaft 
-eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben enthalten. 
-Einige Systeme (z.B. Köln) verwenden besondere Trennzeichen wie "/", um eine 
-Jahreszahl von einer laufenden Nummer abzutrennen. Weiterhin werden 
-mancherorts führende Nullen verwendet.
-Datum
+    eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben enthalten. 
+    Einige Systeme (z.B. Köln) verwenden besondere Trennzeichen wie "/", um 
+    eine Jahreszahl von einer laufenden Nummer abzutrennen. Weiterhin werden 
+    mancherorts führende Nullen verwendet.
+Datum (`date`)
 :   Datum der Veröffentlichung
-Typ
+Typ (`type`)
 :   Art der Drucksache (Erläuterung siehe oben)
 
 
@@ -493,15 +624,59 @@ stehen, um die **Beratungsfolge** einer Drucksache abzubilden. Hierbei kann
 die Beziehung jeweils mit einer Zuständigkeit versehen sein, die noch 
 näher zu bestimmen ist (TODO).
 
+### Beispiel ###
 
-Dokument (*document*)
+~~~~~  {#paper_ex1 .json}
+{
+    "id": "1234/2012",
+    "date": "2013-01-04",
+    "type": "Beantwortung einer Anfrage",
+    "related_papers": [
+        "0768/2012"
+    ],
+    "main_document": "3000.pdf",
+    "attachments": [
+        "3002.pdf",
+        "3003.pdf"
+    ],
+    "locations": [
+    	{
+	        "description": "Theodor-Heuss-Ring 1",
+	        "lat": 7.148,
+	        "lon": 50.023
+    	}
+    ],
+    "committees": ["STA"],
+    "creators": [
+        {
+            "typ": "Organisation",
+            "id": "2000"
+        },
+        {
+            "typ": "Person",
+            "id": "1000"
+        }
+    ],
+    "consultations": [
+        {
+            "meeting": "3271",
+            "agendaitem": "3.1.2",
+            "role": "Federführende Beratung"
+        }
+    ]
+}
+~~~~~
+
+
+Dokument (`document`)
 ---------------------
 
-Ein Dokument hält die Daten und Metadaten einer Datei vor, beispielsweise 
-einer PDF-Datei, eines RTF- oder Word-Dokuments. Wird von einem Word-Dokument 
-eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls ein Dokument, 
-das jedoch nicht als Master gekennzeichnet wird, sondern auf den 
-entsprechenden Master verweist.
+Ein Dokument hält die Metadaten einer Datei vor, beispielsweise einer 
+PDF-Datei, eines RTF- oder Word-Dokuments.
+
+Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese 
+Ableitung ebenfalls ein Dokument. Um zu zeigen, dass es sich um eine Ableitung
+handelt, verweist dieses auf das Original als "Master".
 
 Im Unterschied zur Drucksache benötigt das Dokument keine nutzerfreundliche 
 Kennung.
@@ -509,23 +684,23 @@ Kennung.
 ![Objekttyp Dokument](images/datenmodell_dokument.pdf)
 
 ### Eigenschaften ###
-Kennung
+Schlüssel (`id`)
 :   Unveränderliche Kennung
-Titel
-:   Nutzerfreundliche Bezeichnung des Dokuments
-Dateityp
-:   Mime-Typ des Inhalts, z.B. "application/x-pdf"
-Veröffentlichungsdatum
+Name (`name`)
+:   Dateiname, z.B. "12345.pdf"
+Dateityp (`mime_type`)
+:   Mime-Typ des Inhalts, z.B. "application/pdf"
+Veröffentlichungsdatum (`date`)
 :   Datum des Tages, an dem das Dokument ins System eingestellt wurde
-Änderungsdatum und -uhrzeit
+Änderungsdatum und -uhrzeit (`last_modified`)
 :   Datum und Uhrzeit der letzten Änderung des Dokuments
-Prüfsumme
+Prüfsumme (`sha1_checksum`)
 :   SHA1-Prüfsumme des Dokumenteninhalts
-Daten
-:   Der eigentliche (Binär-)Inhalt des Dokuments
-Nur-Text-Version
-:   Reine Text-Wiedergabe des Dokumenteninhalts, sofern es sich um ein 
-Textdokument handelt.
+URL (`url`)
+:   URL zum Abruf der Daten dieses Dokuments mittels HTTP GET-Aufruf
+Nur-Text-Version (`text`)
+:   Reine Text-Wiedergabe des Dokumenteninhalts, sofern es sich nicht 
+    um eine reine Abbildung handelt.
 
 
 ### Beziehungen ###
@@ -538,8 +713,22 @@ anderen Dokument abstammt. So ist es möglich, von einem abgeleiteten Dokument
 zu seinem Dokumenten-Master zu gelangen (Beispiel: von einem PDF-Dokument zum 
 OpenOffice-Original).
 
+~~~~~  {#paper_ex1 .json}
+{
+    "id": "3000",
+    "name": "3000.pdf",
+    "mime_type": "application/pdf",
+    "date": "2013-01-04T07:54:13+01:00",
+    "last_modified": "2013-01-04T07:54:13+01:00",
+    "sha1_checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "url": "http://ris.beispielstadt.de/api/documents/3000.pdf",
+    "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
+    "master": "2099"
+}
+~~~~~
 
-Ort (*location*)
+
+Ort (`location`)
 ----------------
 
 Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal 

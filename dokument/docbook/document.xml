@@ -395,7 +395,7 @@
       <variablelist>
         <varlistentry>
           <term>
-            Schlüssel (<emphasis>id</emphasis>)
+            Schlüssel (<literal>id</literal>)
           </term>
           <listitem>
             <para>
@@ -405,7 +405,7 @@
         </varlistentry>
         <varlistentry>
           <term>
-            Name (<emphasis>name</emphasis>)
+            Name (<literal>name</literal>)
           </term>
           <listitem>
             <para>
@@ -415,7 +415,7 @@
         </varlistentry>
         <varlistentry>
           <term>
-            Regionalschlüssel (<emphasis>regionalschluessel</emphasis>)
+            Regionalschlüssel (<literal>regionalschluessel</literal>)
           </term>
           <listitem>
             <para>
@@ -427,7 +427,7 @@
         </varlistentry>
         <varlistentry>
           <term>
-            GND URL (<emphasis>gnd_url</emphasis>)
+            GND URL (<literal>gnd_url</literal>)
           </term>
           <listitem>
             <para>
@@ -438,7 +438,7 @@
         </varlistentry>
         <varlistentry>
           <term>
-            URL (<emphasis>url</emphasis>)
+            URL (<literal>url</literal>)
           </term>
           <listitem>
             <para>
@@ -450,7 +450,7 @@
         </varlistentry>
         <varlistentry>
           <term>
-            Lizenz (<emphasis>license_url</emphasis>)
+            Lizenz (<literal>license_url</literal>)
           </term>
           <listitem>
             <para>
@@ -462,7 +462,7 @@
         </varlistentry>
         <varlistentry>
           <term>
-            Betreiber-Kontakt (<emphasis>operator_contact</emphasis>)
+            Betreiber-Kontakt (<literal>operator_contact</literal>)
           </term>
           <listitem>
             <para>
@@ -503,7 +503,7 @@
     &quot;gnd_url&quot;: &quot;http://d-nb.info/gnd/2015732-0&quot;,
     &quot;url&quot;: &quot;http://www.stadt-koeln.de/&quot;,
     &quot;operator_contact&quot;: &quot;Tel. +49 221-221-5432, E-Mail: ris-api@stadt-koeln.de&quot;,
-    &quot;license_url&quot;: &quot;http://wiki.openstreetmap.org/wiki/DE:Open_Database_Licence_-_Licence_Text&quot;
+    &quot;license_url&quot;: &quot;http://opendatacommons.org/licenses/odbl/1.0/&quot;
 }
 </programlisting>
     </sect3>
@@ -531,27 +531,42 @@
       <variablelist>
         <varlistentry>
           <term>
-            Schlüssel (<emphasis>id</emphasis>)
+            Schlüssel (<literal>id</literal>)
           </term>
           <listitem>
             <para>
               Zur eindeutigen Identifizierung des Gremiums im Kontext
-              einer bestimmten
+              einer bestimmten Körperschaft. In der Praxis kommen sowohl
+              numerische IDs als auch Namenskürzel (Beispiel:
+              &quot;STA&quot; für den Stadtentwicklungsausschuss) vor.
+              Beides sollte hier Verwendung finden können.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Name (<literal>name</literal>)
+          </term>
+          <listitem>
+            <para>
+              Der Name des Gremiums. Beispiele: &quot;Rat&quot;,
+              &quot;Hauptausschuss&quot;, &quot;Bezirksvertretung 1
+              (Innenstadt)&quot;
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Kurzname (<literal>short_name</literal>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Eine zur Anzeige bestimmte,
+              kürzere Form des Namens.
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
-      <para>
-        Körperschaft. In der Praxis kommen sowohl numerische IDs als
-        auch Namenskürzel (Beispiel: &quot;STA&quot; für den
-        Stadtentwicklungsausschuss) vor. Beides sollte hier Verwendung
-        finden können. Name (<emphasis>name</emphasis>) : Der Name des
-        Gremiums. Beispiele: &quot;Rat&quot;,
-        &quot;Hauptausschuss&quot;, &quot;Bezirksvertretung 1
-        (Innenstadt)&quot; Kurzname (<emphasis>short_name</emphasis>) :
-        <emphasis>Optional</emphasis>. Eine zur Anzeige bestimmte,
-        kürzere Form des Namens.
-      </para>
     </sect3>
     <sect3 id="beziehungen-1">
       <title>Beziehungen</title>
@@ -614,32 +629,114 @@
       <variablelist>
         <varlistentry>
           <term>
-            Kennung
+            Schlüssel (<literal>id</literal>)
           </term>
           <listitem>
             <para>
               Zur eindeutigen Identifizierung sollte jede Person eine
-              Kennung besitzen,
+              Kennung besitzen, die keinen Änderungen unterworfen ist
+              und aus diesem Grund nicht mit dem Namen in Verbindung
+              stehen sollte. Viele RIS nutzen rein numerische Kennungen.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Vorname (<literal>first_name</literal>)
+          </term>
+          <listitem>
+            <para>
+              Der Vorname der Person.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Nachname (<literal>last_name</literal>)
+          </term>
+          <listitem>
+            <para>
+              Der Nachname der Person.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Titel (<literal>academic_title</literal>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Akademische Titel wie
+              &quot;Dr.&quot; und &quot;Prof. Dr.&quot;
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Geschlecht (<literal>sex</literal>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Weiblich (Wert
+              <literal>F</literal> für <emphasis>female</emphasis>) oder
+              männlich (Wert <literal>M</literal> für
+              <emphasis>male</emphasis>)
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Beruf (<literal>profession</literal>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Z.B.
+              &quot;Rechtsanwalt&quot;
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            E-Mail-Adresse (<literal>email</literal>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Telefon (<literal>phone</literal>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Fax (<literal>fax</literal>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Anschrift (<literal>address</literal>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Straße und Hausnummer,
+              Postleitzahl und Ort
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
-      <para>
-        die keinen Änderungen unterworfen ist und aus diesem Grund nicht
-        mit dem Namen in Verbindung stehen sollte. Viele RIS nutzen rein
-        numerische Kennungen. Vorname : Der Vorname der Person. Nachname
-        : Der Nachname der Person. Titel :
-        <emphasis>Optional</emphasis>. Akademische Titel wie
-        &quot;Dr.&quot; und &quot;Prof. Dr.&quot; Geschlecht :
-        <emphasis>Optional</emphasis>. Männlich/Weblich Beruf :
-        <emphasis>Optional</emphasis>. Z.B. &quot;Rechtsanwalt&quot;
-        Partei : <emphasis>Optional</emphasis>. Z.B. &quot;Bündnis
-        90/Grüne&quot; E-Mail-Adresse : <emphasis>Optional</emphasis>.
-        Telefon : <emphasis>Optional</emphasis>. Fax :
-        <emphasis>Optional</emphasis>. Anschrift :
-        <emphasis>Optional</emphasis>. Straße und Hausnummer,
-        Postleitzahl und Ort
-      </para>
       <sect4 id="anmerkungen">
         <title>Anmerkungen</title>
         <itemizedlist>
@@ -683,9 +780,43 @@
         </listitem>
       </itemizedlist>
     </sect3>
+    <sect3 id="beispiel-2">
+      <title>Beispiel</title>
+      <programlisting language="json">
+{
+    &quot;id&quot;: &quot;1000&quot;,
+    &quot;first_name&quot;: &quot;Max&quot;,
+    &quot;last_name&quot;: &quot;Mustermann&quot;,
+    &quot;academic_title&quot;: &quot;Dr.&quot;,
+    &quot;sex&quot;: &quot;M&quot;,
+    &quot;profession&quot;: &quot;Rechtsanwalt&quot;,
+    &quot;email&quot;: &quot;max@mustermann.de&quot;,
+    &quot;phone&quot;: &quot;+4977777&quot;,
+    &quot;fax&quot;: &quot;+4988888&quot;,
+    &quot;address&quot;: &quot;Musterstraße 5, 11111 Musterort&quot;,
+    &quot;organisations&quot;: [
+        {
+            &quot;id&quot;: &quot;2000&quot;,
+            &quot;start&quot;: &quot;2011-03-01&quot;,
+            &quot;end&quot;: &quot;2013-02-28&quot;
+        },
+        {
+            &quot;id&quot;: &quot;2001&quot;,
+            &quot;start&quot;: &quot;2013-03-01&quot;
+        }
+    ],
+    &quot;committees&quot;: [
+        {
+            &quot;id&quot;: &quot;7&quot;,
+            &quot;start&quot;: &quot;2013-01-01&quot;
+        }
+    ]
+}
+</programlisting>
+    </sect3>
   </sect2>
   <sect2 id="organisation-organisation">
-    <title>Organisation (<emphasis>organisation</emphasis>)</title>
+    <title>Organisation (<literal>organisation</literal>)</title>
     <para>
       Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen
       die Personen angehören können.
@@ -704,20 +835,27 @@
       <variablelist>
         <varlistentry>
           <term>
-            Kennung
+            Schlüssel (<literal>id</literal>)
           </term>
           <listitem>
             <para>
               Zur eindeutigen Kennzeichnung einer Organisation innerhalb
-              einer
+              des Systems
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Name (<literal>name</literal>)
+          </term>
+          <listitem>
+            <para>
+              Der gebräuchliche Name der Organisation, z.B.
+              &quot;SPD&quot; oder &quot;DIE LINKE&quot;.
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
-      <para>
-        Körperschaft Name : Der gebräuchliche Name der Organisation,
-        z.B. &quot;SPD&quot; oder &quot;DIE LINKE&quot;.
-      </para>
       <sect4 id="anmerkungen-1">
         <title>Anmerkungen</title>
         <itemizedlist>
@@ -752,8 +890,18 @@
       </itemizedlist>
     </sect3>
   </sect2>
+  <sect2 id="beispiel-3">
+    <title>Beispiel</title>
+    <programlisting language="json">
+{
+    &quot;id&quot;: &quot;15&quot;,
+    &quot;name&quot;: &quot;SPD&quot;,
+    &quot;body&quot;: &quot;1&quot;
+}
+</programlisting>
+  </sect2>
   <sect2 id="sitzung-meeting">
-    <title>Sitzung (<emphasis>meeting</emphasis>)</title>
+    <title>Sitzung (<literal>meeting</literal>)</title>
     <para>
       Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums
       oder mehrerer Gremien zu einem bestimmten Zeitpunkt an einem
@@ -779,32 +927,66 @@
       <variablelist>
         <varlistentry>
           <term>
-            Eindeutige Kennung
+            Schlüssel (<literal>id</literal>)
           </term>
           <listitem>
             <para>
-              Zur eindeutigen Identifizierung der Sitzung innerhalb
-              einer
+              Zur eindeutigen Identifizierung der Sitzung innerhalb des
+              Systems. In der Praxis wird ein solcher Schlüssel entweder
+              durch eine numerische ID gebildet oder durch Kombination
+              mehrerer Merkmale wie dem Kürzel des Gremiums, der
+              laufenden Nummer der Sitzung in einem Jahr und der
+              Jahreszahl (z.B. &quot;BV1/0034/2012&quot;).
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Nummer (<literal>sequence_number</literal>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Laufende Nummer der
+              Sitzung, üblicherweise innerhalb der Wahlperiode mit 1
+              beginnend. In der Praxis wird dadurch z.B. die &quot;2.
+              Sitzung des Rats&quot; gekennzeichnet. Ist dieses Feld
+              gesetzt, MUSS ein numerischer Wert enthalten sein.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Anfang (<literal>start</literal>)
+          </term>
+          <listitem>
+            <para>
+              Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Ende (<literal>end</literal>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Datum und Uhrzeit vom Ende
+              der Sitzung
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Ort (<literal>address</literal>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Textliche Information zum
+              Ort der Sitzung, z.B. &quot;Rathaus, Raum 136&quot;.
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
-      <para>
-        Körperschaft. In der Praxis wird eine solche Kennzeichnung
-        entweder durch eine laufende Nummer gebildet, oder durch
-        Kombination mehrerer Merkmale wie dem Kürzel des Gremiums, der
-        laufenden Nummer der Sitzung in einem Jahr und der Jahreszahl
-        (z.B. &quot;BV1/0034/2012&quot;). Nummer :
-        <emphasis>Optional</emphasis>. Laufende Nummer der Sitzung,
-        üblicherweise innerhalb der Wahlperiode mit 1 beginnend. In der
-        Praxis wird dadurch z.B. die &quot;2. Sitzung des Rats&quot;
-        gekennzeichnet. Anfang : Datum und ggf. Uhrzeit des
-        Anfangszeitpunkts der Sitzung Ende :
-        <emphasis>Optional</emphasis>. Datum und Uhrzeit vom Ende der
-        Sitzung Ort : <emphasis>Optional</emphasis>. Textliche
-        Information zum Ort der Sitzung, z.B. &quot;Rathaus, Raum
-        136&quot;.
-      </para>
     </sect3>
     <sect3 id="beziehungen-4">
       <title>Beziehungen</title>
@@ -853,18 +1035,39 @@
         </listitem>
       </itemizedlist>
     </sect3>
+    <sect3 id="beispiel-4">
+      <title>Beispiel</title>
+      <programlisting language="json">
+{
+    &quot;id&quot;: &quot;3271&quot;,
+    &quot;identifier&quot;: &quot;STA/0034/2012&quot;,
+    &quot;start&quot;: &quot;2013-01-04T08:00:00+01:00&quot;,
+    &quot;end&quot;: &quot;2013-01-04T12:00:00+01:00&quot;,
+    &quot;address&quot;: &quot;Rathaus, Raum 136&quot;,
+    &quot;sequence_number&quot;: 1,
+    &quot;committees&quot;: [&quot;STA&quot;],
+    &quot;people&quot;: [&quot;1000&quot;, &quot;1001&quot;],
+    &quot;invitation&quot;: &quot;0001/2013&quot;,
+    &quot;result_minutes&quot;: &quot;0002/2013&quot;,
+    &quot;verbatim_minutes&quot;: &quot;0003/2013&quot;,
+    &quot;attachments&quot;: [
+        &quot;0004/2013&quot;,
+        &quot;0005/2013&quot;
+    ]
+}
+</programlisting>
+    </sect3>
   </sect2>
   <sect2 id="tagesordnungspunkt-agendaitem">
-    <title>Tagesordnungspunkt (<emphasis>agendaitem</emphasis>)</title>
+    <title>Tagesordnungspunkt (<literal>agendaitem</literal>)</title>
     <para>
       Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt,
       erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen
       Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt
       außerdem ein Ergebnis angehängt. Unter Umständen kann dem
       Tagesordnungspunkt ein bestimmter Beschlusstext beigefügt sein.
-      Sofern das Abstimmungsergebnis nicht einstimmig ist, kann es durch
-      mehrere referenzierende &quot;Stimmabgaben&quot; festgehalten
-      werden.
+      Ein Abstimmungsergebnis kann es durch mehrere referenzierende
+      Objekte vom Typ &quot;Stimmabgabe&quot; festgehalten werden.
     </para>
     <para>
       Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
@@ -884,32 +1087,85 @@
       <variablelist>
         <varlistentry>
           <term>
-            Nummer
+            Nummer (<literal>identifier</literal>)
           </term>
           <listitem>
             <para>
               Beispiel: &quot;1.2.3&quot;. Diese Nummer gibt an, in
-              welcher Reihenfolge die
+              welcher Reihenfolge die Tagesordnungspunkte einer Sitzung
+              normalerweise behandelt werden. Im Kontext einer Sitzung
+              ist diese Nummer eindeutig.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Öffentlich (<literal>public</literal>)
+          </term>
+          <listitem>
+            <para>
+              Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher
+              Sitzung behandelt wird. Kann die Werte
+              <literal>true</literal> (öffentlich) oder
+              <literal>false</literal> annehmen.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Titel (<literal>title</literal>)
+          </term>
+          <listitem>
+            <para>
+              Das Thema des Tagesordnungspunktes
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Ergebnis (<literal>result</literal>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Kategorische Information
+              darüber, welches Ergebnis die Beratung des
+              Tagesordnungspunktes gebracht hat. In der Praxis sind hier
+              Kategorien wie &quot;Unverändert beschlossen&quot;,
+              &quot;Geändert beschlossen&quot;, &quot;Endgültig
+              abgelehnt&quot;, &quot;Zur Kenntnis genommen&quot;,
+              &quot;Ohne Votum in nachfolgende Gremien überwiesen&quot;
+              und weitere zu erwarten.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Ergebnis Details (<literal>result_details</literal>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Ermöglicht die Angabe
+              zusätzlicher Textinformationen zum Ergebnis, zum Beispiel
+              im Fall der Verweisung an ein anderes Gremium die Angabe,
+              an welches Gremium verwiesen wurde.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Beschlusstext (<literal>resolution_text</literal>)
+          </term>
+          <listitem>
+            <para>
+              <emphasis>Optional</emphasis>. Falls in diesem
+              Tagesordnungspunkt ein Beschluss gefasst wurde, kann der
+              Text hier hinterlegt werden. Das ist besonders dann in der
+              Praxis relevant, wenn der gefasste Beschluss (z.B. durch
+              Änderungsantrag) von der Beschlussvorlage abweicht.
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
-      <para>
-        Tagesordnungspunkte einer Sitzung normalerweise behandelt
-        werden. Im Kontext einer Sitzung ist diese Nummer eindeutig.
-        Öffentlich : ja/nein. Kennzeichnet, ob der Tagesordnungspunkt in
-        öffentlicher Sitzung behandelt wird. Titel : Das Thema des
-        Tagesordnungspunktes Ergebnis : Eines aus einer Liste
-        definierter Ergebnisse. Möglich sind: &quot;Unverändert
-        beschlossen&quot;, &quot;Geändert beschlossen&quot;,
-        &quot;Endgültig abgelehnt&quot;, &quot;Zur Kenntnis
-        genommen&quot;, &quot;Ohne Votum in nachfolgende Gremien
-        überwiesen&quot; Beschlusstext : <emphasis>Optional</emphasis>.
-        Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde,
-        kann der Text hier hinterlegt werden. Das ist besonders dann in
-        der Praxis relevant, wenn der gefasste Beschluss (z.B. durch
-        Änderungsantrag) von der Beschlussvorlage abweicht.
-      </para>
       <sect4 id="anmerkungen-2">
         <title>Anmerkungen</title>
         <itemizedlist>
@@ -920,7 +1176,14 @@
               zusätzlichen Nutzen bringt, derartige IDs, neben den
               Nummern, in den Standard zu übernehmen. Dies würde
               vermutlich nur Sinn ergeben, wenn es als Pflichtfeld
-              gelten kann.
+              gelten könnte.
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              Teil der Beratungen über einheitliche Nomenklatur im
+              Standard sollte sein, eine Vereinheitlichung der Werte für
+              die Eigenschaft <literal>result</literal> zu diskutieren.
             </para>
           </listitem>
         </itemizedlist>
@@ -956,19 +1219,58 @@
         </listitem>
       </itemizedlist>
     </sect3>
+    <sect3 id="beispiel-5">
+      <title>Beispiel</title>
+      <programlisting language="json">
+{
+    &quot;meeting&quot;: &quot;3271&quot;,
+    &quot;identifier&quot;: &quot;3.1.2&quot;,
+    &quot;public&quot;: true,
+    &quot;title&quot;: &quot;Gemeinschaftsgrundschule Hornschaftsstraße/Höhenhaus. Hier: Anfrage von Herrn Philippi&quot;,
+    &quot;result&quot;: &quot;Geändert beschlossen&quot;,
+    &quot;resolution_text&quot;: &quot;Der Beschluss weicht wie folgt vom Antrag ab: ...&quot;,
+    &quot;people_absent&quot;: [&quot;1002&quot;, &quot;1003&quot;],
+    &quot;votings&quot;: [
+        {
+            &quot;sum&quot;: 2,
+            &quot;vote&quot;: &quot;DAFUER&quot;,
+            &quot;organisations&quot;: [&quot;24&quot;],
+            &quot;people&quot;: []
+        },
+        {
+            &quot;sum&quot;: 1,
+            &quot;vote&quot;: &quot;ENTHALTUNG&quot;,
+            &quot;organisations&quot;: [],
+            &quot;people&quot;: [&quot;1000&quot;]
+        },
+        {
+            &quot;sum&quot;: 1,
+            &quot;vote&quot;: &quot;DAGEGEN&quot;,
+            &quot;organisations&quot;: [],
+            &quot;people&quot;: [&quot;1001&quot;]
+        }
+    ]
+}
+</programlisting>
+    </sect3>
   </sect2>
   <sect2 id="stimmabgabe-vote">
-    <title>Stimmabgabe (<emphasis>vote</emphasis>)</title>
+    <title>Stimmabgabe (<literal>vote</literal>)</title>
     <para>
       Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt
       abgestimmt hat, wird durch eine Stimmabgabe festgehalten. Ganze
       Abstimmungsergebnisse bestehen überlicherweise aus mehreren
       Stimmabgaben. Jede Stimmabgabe gibt entweder die (einzelne) Stimme
-      einer Peson wieder, in diesem Fall ist die Anzahl der Stimmen
-      zwingend 1. Oder eine Stimmabgabe gibt das Abstimmungsverhalten
-      einer ganzen Gruppe von Personen wieder. Dann ist die Anzahl der
-      Stimmen anzugeben und statt einer Person eine Organisation (in der
-      Regel die Fraktion) zu referenzieren.
+      einer Person wieder (in diesem Fall ist die Anzahl der Stimmen
+      zwingend 1) oder das einer ganzen Gruppe von Personen. Dann ist
+      die Anzahl der Stimmen anzugeben und statt einer Person eine
+      Organisation (in der Regel die Fraktion) zu referenzieren.
+    </para>
+    <para>
+      Ist eine Abstimmung zu einem Tagesordnungspunkt einstimmig, dann
+      genügt ein einziges Objekt vom Typ Stimmabgabe aus, um dies
+      darzustellen. In allen anderen Fällen werden mehrere
+      Stimmabgabe-Objekte kombiniert.
     </para>
     <figure>
       <title>Objekttyp Stimmabgabe</title>
@@ -984,22 +1286,31 @@
       <variablelist>
         <varlistentry>
           <term>
-            Anzahl der Stimmen
+            Anzahl der Stimmen (<literal>sum</literal>)
           </term>
           <listitem>
             <para>
               Gehört die Stimmabgabe zu einer Person, ist der Wert immer
-              1. Gehört sie
+              1. Gehört sie jedoch zu einer Organisation (=Fraktion),
+              kann der Wert hier größer als 1 sein. Diese Eigenschaft
+              MUSS einen numerischen Wert haben.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Votum (<literal>vote</literal>)
+          </term>
+          <listitem>
+            <para>
+              Einer der Werte <literal>DAFUER</literal> (gleichbedeutend
+              mit &quot;für den Antrag&quot;),
+              <literal>DAGEGEN</literal> (&quot;gegen den Antrag&quot;)
+              oder <literal>ENTHALTUNG</literal>.
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
-      <para>
-        jedoch zu einer Organisation (=Fraktion), kann der Wert hier
-        größer als 1 sein. Votum : Einer der drei Werte &quot;ja&quot;
-        (gleichbedeutend mit &quot;dafür&quot;), &quot;nein&quot;
-        (&quot;dagegen&quot;) oder &quot;Enthaltung&quot;.
-      </para>
     </sect3>
     <sect3 id="beziehungen-6">
       <title>Beziehungen</title>
@@ -1018,13 +1329,37 @@
         </listitem>
       </itemizedlist>
     </sect3>
+    <sect3 id="beispiele">
+      <title>Beispiele</title>
+      <para>
+        Die gesamte siebenköpfige Fraktion (Organisation ID
+        &quot;18&quot;) stimmt für den Antrag:
+      </para>
+      <programlisting language="json">
+{
+    &quot;sum&quot;: 7,
+    &quot;vote&quot;: &quot;DAFUER&quot;,
+    &quot;organisations&quot;: [&quot;18&quot;]
+}
+</programlisting>
+      <para>
+        Drei bestimmte Personen stimmten gegen den Antrag:
+      </para>
+      <programlisting language="json">
+{
+    &quot;sum&quot;: 3,
+    &quot;vote&quot;: &quot;DAGEGEN&quot;,
+    &quot;people&quot;: [&quot;85&quot;, &quot;145&quot;, &quot;67&quot;]
+}
+</programlisting>
+    </sect3>
   </sect2>
   <sect2 id="drucksache-paper">
-    <title>Drucksache (<emphasis>paper</emphasis>)</title>
+    <title>Drucksache (<literal>paper</literal>)</title>
     <para>
       Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen,
-      Beschlussvorlagen, Anfragen und Anträge ab. Jede Drucksache erhält
-      eine eindeutige Kennung.
+      Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede
+      Drucksache erhält eine eindeutige Kennung.
     </para>
     <para>
       Die Drucksache hat im Informationsmodell eine hervorgehobene
@@ -1094,24 +1429,40 @@
       <variablelist>
         <varlistentry>
           <term>
-            Kennung
+            Schlüssel (<literal>id</literal>)
           </term>
           <listitem>
             <para>
               Die Kennung einer Drucksache muss für die jeweilige
-              Körperschaft
+              Körperschaft eindeutig sein. Sie kann sowohl Ziffern als
+              auch Buchstaben enthalten. Einige Systeme (z.B. Köln)
+              verwenden besondere Trennzeichen wie &quot;/&quot;, um
+              eine Jahreszahl von einer laufenden Nummer abzutrennen.
+              Weiterhin werden mancherorts führende Nullen verwendet.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Datum (<literal>date</literal>)
+          </term>
+          <listitem>
+            <para>
+              Datum der Veröffentlichung
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Typ (<literal>type</literal>)
+          </term>
+          <listitem>
+            <para>
+              Art der Drucksache (Erläuterung siehe oben)
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
-      <para>
-        eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben
-        enthalten. Einige Systeme (z.B. Köln) verwenden besondere
-        Trennzeichen wie &quot;/&quot;, um eine Jahreszahl von einer
-        laufenden Nummer abzutrennen. Weiterhin werden mancherorts
-        führende Nullen verwendet. Datum : Datum der Veröffentlichung
-        Typ : Art der Drucksache (Erläuterung siehe oben)
-      </para>
     </sect3>
     <sect3 id="beziehungen-7">
       <title>Beziehungen</title>
@@ -1183,16 +1534,61 @@
         </listitem>
       </itemizedlist>
     </sect3>
+    <sect3 id="beispiel-6">
+      <title>Beispiel</title>
+      <programlisting language="json">
+{
+    &quot;id&quot;: &quot;1234/2012&quot;,
+    &quot;date&quot;: &quot;2013-01-04&quot;,
+    &quot;type&quot;: &quot;Beantwortung einer Anfrage&quot;,
+    &quot;related_papers&quot;: [
+        &quot;0768/2012&quot;
+    ],
+    &quot;main_document&quot;: &quot;3000.pdf&quot;,
+    &quot;attachments&quot;: [
+        &quot;3002.pdf&quot;,
+        &quot;3003.pdf&quot;
+    ],
+    &quot;locations&quot;: [
+        {
+            &quot;description&quot;: &quot;Theodor-Heuss-Ring 1&quot;,
+            &quot;lat&quot;: 7.148,
+            &quot;lon&quot;: 50.023
+        }
+    ],
+    &quot;committees&quot;: [&quot;STA&quot;],
+    &quot;creators&quot;: [
+        {
+            &quot;typ&quot;: &quot;Organisation&quot;,
+            &quot;id&quot;: &quot;2000&quot;
+        },
+        {
+            &quot;typ&quot;: &quot;Person&quot;,
+            &quot;id&quot;: &quot;1000&quot;
+        }
+    ],
+    &quot;consultations&quot;: [
+        {
+            &quot;meeting&quot;: &quot;3271&quot;,
+            &quot;agendaitem&quot;: &quot;3.1.2&quot;,
+            &quot;role&quot;: &quot;Federführende Beratung&quot;
+        }
+    ]
+}
+</programlisting>
+    </sect3>
   </sect2>
   <sect2 id="dokument-document">
-    <title>Dokument (<emphasis>document</emphasis>)</title>
+    <title>Dokument (<literal>document</literal>)</title>
     <para>
-      Ein Dokument hält die Daten und Metadaten einer Datei vor,
-      beispielsweise einer PDF-Datei, eines RTF- oder Word-Dokuments.
+      Ein Dokument hält die Metadaten einer Datei vor, beispielsweise
+      einer PDF-Datei, eines RTF- oder Word-Dokuments.
+    </para>
+    <para>
       Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist
-      diese Ableitung ebenfalls ein Dokument, das jedoch nicht als
-      Master gekennzeichnet wird, sondern auf den entsprechenden Master
-      verweist.
+      diese Ableitung ebenfalls ein Dokument. Um zu zeigen, dass es sich
+      um eine Ableitung handelt, verweist dieses auf das Original als
+      &quot;Master&quot;.
     </para>
     <para>
       Im Unterschied zur Drucksache benötigt das Dokument keine
@@ -1212,7 +1608,7 @@
       <variablelist>
         <varlistentry>
           <term>
-            Kennung
+            Schlüssel (<literal>id</literal>)
           </term>
           <listitem>
             <para>
@@ -1222,27 +1618,27 @@
         </varlistentry>
         <varlistentry>
           <term>
-            Titel
+            Name (<literal>name</literal>)
           </term>
           <listitem>
             <para>
-              Nutzerfreundliche Bezeichnung des Dokuments
+              Dateiname, z.B. &quot;12345.pdf&quot;
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Dateityp
+            Dateityp (<literal>mime_type</literal>)
           </term>
           <listitem>
             <para>
-              Mime-Typ des Inhalts, z.B. &quot;application/x-pdf&quot;
+              Mime-Typ des Inhalts, z.B. &quot;application/pdf&quot;
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Veröffentlichungsdatum
+            Veröffentlichungsdatum (<literal>date</literal>)
           </term>
           <listitem>
             <para>
@@ -1254,6 +1650,7 @@
         <varlistentry>
           <term>
             Änderungsdatum und -uhrzeit
+            (<literal>last_modified</literal>)
           </term>
           <listitem>
             <para>
@@ -1263,7 +1660,7 @@
         </varlistentry>
         <varlistentry>
           <term>
-            Prüfsumme
+            Prüfsumme (<literal>sha1_checksum</literal>)
           </term>
           <listitem>
             <para>
@@ -1273,29 +1670,27 @@
         </varlistentry>
         <varlistentry>
           <term>
-            Daten
+            URL (<literal>url</literal>)
           </term>
           <listitem>
             <para>
-              Der eigentliche (Binär-)Inhalt des Dokuments
+              URL zum Abruf der Daten dieses Dokuments mittels HTTP
+              GET-Aufruf
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Nur-Text-Version
+            Nur-Text-Version (<literal>text</literal>)
           </term>
           <listitem>
             <para>
               Reine Text-Wiedergabe des Dokumenteninhalts, sofern es
-              sich um ein
+              sich nicht um eine reine Abbildung handelt.
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
-      <para>
-        Textdokument handelt.
-      </para>
     </sect3>
     <sect3 id="beziehungen-8">
       <title>Beziehungen</title>
@@ -1318,10 +1713,23 @@
           </para>
         </listitem>
       </itemizedlist>
+      <programlisting language="json">
+{
+    &quot;id&quot;: &quot;3000&quot;,
+    &quot;name&quot;: &quot;3000.pdf&quot;,
+    &quot;mime_type&quot;: &quot;application/pdf&quot;,
+    &quot;date&quot;: &quot;2013-01-04T07:54:13+01:00&quot;,
+    &quot;last_modified&quot;: &quot;2013-01-04T07:54:13+01:00&quot;,
+    &quot;sha1_checksum&quot;: &quot;da39a3ee5e6b4b0d3255bfef95601890afd80709&quot;,
+    &quot;url&quot;: &quot;http://ris.beispielstadt.de/api/documents/3000.pdf&quot;,
+    &quot;text&quot;: &quot;Der Übersichtsplan zeigt alle Ebenen des ...&quot;,
+    &quot;master&quot;: &quot;2099&quot;
+}
+</programlisting>
     </sect3>
   </sect2>
   <sect2 id="ort-location">
-    <title>Ort (<emphasis>location</emphasis>)</title>
+    <title>Ort (<literal>location</literal>)</title>
     <para>
       Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache
       formal abzubilden. Ortsangaben können sowohl aus Textinformationen
@@ -1421,21 +1829,14 @@
     </listitem>
     <listitem>
       <para>
-        Authentifizierung wird nicht benötigt. Glossar =======
+        Authentifizierung wird nicht benötigt.
       </para>
     </listitem>
   </itemizedlist>
+</sect1>
+<sect1 id="glossar">
+  <title>Glossar</title>
   <variablelist>
-    <varlistentry>
-      <term>
-        AGS
-      </term>
-      <listitem>
-        <para>
-          Amtlicher Gemeindeschlüssel
-        </para>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>
         RIS

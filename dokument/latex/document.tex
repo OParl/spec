@@ -358,23 +358,23 @@ werden.
 \subsubsection{Eigenschaften}
 
 \begin{description}
-\item[Schlüssel (\emph{id})]
+\item[Schlüssel (\texttt{id})]
 Zur eindeutigen Identifizierung der Körperschaft im System
-\item[Name (\emph{name})]
+\item[Name (\texttt{name})]
 Der Name der Körperschaft, z.B. ``Stadt Köln''
-\item[Regionalschlüssel (\emph{regionalschluessel})]
+\item[Regionalschlüssel (\texttt{regionalschluessel})]
 \emph{Optional}. Regionalschlüssel der Gebietskörperschaft, z.B.
 ``053150000000''. Muss grundsätzlich 12-stellig angegeben werden.
-\item[GND URL (\emph{gnd\_url})]
+\item[GND URL (\texttt{gnd\_url})]
 \emph{Optional}. URL des Eintrags in der GND, z.B.
 ``http://d-nb.info/gnd/2015732-0''
-\item[URL (\emph{url})]
+\item[URL (\texttt{url})]
 \emph{Optional}. URL zu Informationen über die Körperschaft, z.B.
 ``http://www.stadt-koeln.de/''
-\item[Lizenz (\emph{license\_url})]
+\item[Lizenz (\texttt{license\_url})]
 \emph{Optional}. URL der Lizenz, unter der die Daten, die über die API
 abgerufen werden können, stehen.
-\item[Betreiber-Kontakt (\emph{operator\_contact})]
+\item[Betreiber-Kontakt (\texttt{operator\_contact})]
 \emph{Optional}. Kontaktinformationen für die direkte Kontaktaufnahme
 zum Betreiber der API.
 \end{description}
@@ -403,7 +403,7 @@ zum Betreiber der API.
     \DataTypeTok{"gnd_url"}\NormalTok{: }\StringTok{"http://d-nb.info/gnd/2015732-0"}\NormalTok{,}
     \DataTypeTok{"url"}\NormalTok{: }\StringTok{"http://www.stadt-koeln.de/"}\NormalTok{,}
     \DataTypeTok{"operator_contact"}\NormalTok{: }\StringTok{"Tel. +49 221-221-5432, E-Mail: ris-api@stadt-koeln.de"}\NormalTok{,}
-    \DataTypeTok{"license_url"}\NormalTok{: }\StringTok{"http://wiki.openstreetmap.org/wiki/DE:Open_Database_Licence_-_Licence_Text"}
+    \DataTypeTok{"license_url"}\NormalTok{: }\StringTok{"http://opendatacommons.org/licenses/odbl/1.0/"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -424,16 +424,17 @@ Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
 \subsubsection{Eigenschaften}
 
 \begin{description}
-\item[Schlüssel (\emph{id})]
+\item[Schlüssel (\texttt{id})]
 Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten
-\end{description}
-
 Körperschaft. In der Praxis kommen sowohl numerische IDs als auch
 Namenskürzel (Beispiel: ``STA'' für den Stadtentwicklungsausschuss) vor.
-Beides sollte hier Verwendung finden können. Name (\emph{name}) : Der
-Name des Gremiums. Beispiele: ``Rat'', ``Hauptausschuss'',
-``Bezirksvertretung 1 (Innenstadt)'' Kurzname (\emph{short\_name}) :
+Beides sollte hier Verwendung finden können.
+\item[Name (\texttt{name})]
+Der Name des Gremiums. Beispiele: ``Rat'', ``Hauptausschuss'',
+``Bezirksvertretung 1 (Innenstadt)''
+\item[Kurzname (\texttt{short\_name})]
 \emph{Optional}. Eine zur Anzeige bestimmte, kürzere Form des Namens.
+\end{description}
 
 \subsubsection{Beziehungen}
 
@@ -479,20 +480,31 @@ im Datenmodell eindeutig identifizierbar.
 \subsubsection{Eigenschaften}
 
 \begin{description}
-\item[Kennung]
+\item[Schlüssel (\texttt{id})]
 Zur eindeutigen Identifizierung sollte jede Person eine Kennung
-besitzen,
+besitzen, die keinen Änderungen unterworfen ist und aus diesem Grund
+nicht mit dem Namen in Verbindung stehen sollte. Viele RIS nutzen rein
+numerische Kennungen.
+\item[Vorname (\texttt{first\_name})]
+Der Vorname der Person.
+\item[Nachname (\texttt{last\_name})]
+Der Nachname der Person.
+\item[Titel (\texttt{academic\_title})]
+\emph{Optional}. Akademische Titel wie ``Dr.'' und ``Prof.~Dr.''
+\item[Geschlecht (\texttt{sex})]
+\emph{Optional}. Weiblich (Wert \texttt{F} für \emph{female}) oder
+männlich (Wert \texttt{M} für \emph{male})
+\item[Beruf (\texttt{profession})]
+\emph{Optional}. Z.B. ``Rechtsanwalt''
+\item[E-Mail-Adresse (\texttt{email})]
+\emph{Optional}.
+\item[Telefon (\texttt{phone})]
+\emph{Optional}.
+\item[Fax (\texttt{fax})]
+\emph{Optional}.
+\item[Anschrift (\texttt{address})]
+\emph{Optional}. Straße und Hausnummer, Postleitzahl und Ort
 \end{description}
-
-die keinen Änderungen unterworfen ist und aus diesem Grund nicht mit dem
-Namen in Verbindung stehen sollte. Viele RIS nutzen rein numerische
-Kennungen. Vorname : Der Vorname der Person. Nachname : Der Nachname der
-Person. Titel : \emph{Optional}. Akademische Titel wie ``Dr.'' und
-``Prof.~Dr.'' Geschlecht : \emph{Optional}. Männlich/Weblich Beruf :
-\emph{Optional}. Z.B. ``Rechtsanwalt'' Partei : \emph{Optional}. Z.B.
-``Bündnis 90/Grüne'' E-Mail-Adresse : \emph{Optional}. Telefon :
-\emph{Optional}. Fax : \emph{Optional}. Anschrift : \emph{Optional}.
-Straße und Hausnummer, Postleitzahl und Ort
 
 \paragraph{Anmerkungen}
 
@@ -521,7 +533,43 @@ Straße und Hausnummer, Postleitzahl und Ort
   darzustellen. Diese Beziehungen sind ebenfalls datiert.
 \end{itemize}
 
-\subsection{Organisation (\emph{organisation})}
+\subsubsection{Beispiel}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"id"}\NormalTok{: }\StringTok{"1000"}\NormalTok{,}
+    \DataTypeTok{"first_name"}\NormalTok{: }\StringTok{"Max"}\NormalTok{,}
+    \DataTypeTok{"last_name"}\NormalTok{: }\StringTok{"Mustermann"}\NormalTok{,}
+    \DataTypeTok{"academic_title"}\NormalTok{: }\StringTok{"Dr."}\NormalTok{,}
+    \DataTypeTok{"sex"}\NormalTok{: }\StringTok{"M"}\NormalTok{,}
+    \DataTypeTok{"profession"}\NormalTok{: }\StringTok{"Rechtsanwalt"}\NormalTok{,}
+    \DataTypeTok{"email"}\NormalTok{: }\StringTok{"max@mustermann.de"}\NormalTok{,}
+    \DataTypeTok{"phone"}\NormalTok{: }\StringTok{"+4977777"}\NormalTok{,}
+    \DataTypeTok{"fax"}\NormalTok{: }\StringTok{"+4988888"}\NormalTok{,}
+    \DataTypeTok{"address"}\NormalTok{: }\StringTok{"Musterstraße 5, 11111 Musterort"}\NormalTok{,}
+    \DataTypeTok{"organisations"}\NormalTok{: [}
+        \NormalTok{\{}
+            \DataTypeTok{"id"}\NormalTok{: }\StringTok{"2000"}\NormalTok{,}
+            \DataTypeTok{"start"}\NormalTok{: }\StringTok{"2011-03-01"}\NormalTok{,}
+            \DataTypeTok{"end"}\NormalTok{: }\StringTok{"2013-02-28"}
+        \NormalTok{\},}
+        \NormalTok{\{}
+            \DataTypeTok{"id"}\NormalTok{: }\StringTok{"2001"}\NormalTok{,}
+            \DataTypeTok{"start"}\NormalTok{: }\StringTok{"2013-03-01"}
+        \NormalTok{\}}
+    \NormalTok{],}
+    \DataTypeTok{"committees"}\NormalTok{: [}
+        \NormalTok{\{}
+            \DataTypeTok{"id"}\NormalTok{: }\StringTok{"7"}\NormalTok{,}
+            \DataTypeTok{"start"}\NormalTok{: }\StringTok{"2013-01-01"}
+        \NormalTok{\}}
+    \NormalTok{]}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Organisation (\texttt{organisation})}
 
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die
 Personen angehören können.
@@ -535,12 +583,12 @@ Personen angehören können.
 \subsubsection{Eigenschaften}
 
 \begin{description}
-\item[Kennung]
-Zur eindeutigen Kennzeichnung einer Organisation innerhalb einer
+\item[Schlüssel (\texttt{id})]
+Zur eindeutigen Kennzeichnung einer Organisation innerhalb des Systems
+\item[Name (\texttt{name})]
+Der gebräuchliche Name der Organisation, z.B. ``SPD'' oder ``DIE
+LINKE''.
 \end{description}
-
-Körperschaft Name : Der gebräuchliche Name der Organisation, z.B.
-``SPD'' oder ``DIE LINKE''.
 
 \paragraph{Anmerkungen}
 
@@ -562,7 +610,19 @@ Körperschaft Name : Der gebräuchliche Name der Organisation, z.B.
   Personen können Organisationen angehören (\emph{datiert}).
 \end{itemize}
 
-\subsection{Sitzung (\emph{meeting})}
+\subsection{Beispiel}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"id"}\NormalTok{: }\StringTok{"15"}\NormalTok{,}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"SPD"}\NormalTok{,}
+    \DataTypeTok{"body"}\NormalTok{: }\StringTok{"1"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Sitzung (\texttt{meeting})}
 
 Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder
 mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.
@@ -581,20 +641,25 @@ werden.
 \subsubsection{Eigenschaften}
 
 \begin{description}
-\item[Eindeutige Kennung]
-Zur eindeutigen Identifizierung der Sitzung innerhalb einer
-\end{description}
-
-Körperschaft. In der Praxis wird eine solche Kennzeichnung entweder
-durch eine laufende Nummer gebildet, oder durch Kombination mehrerer
-Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung
-in einem Jahr und der Jahreszahl (z.B. ``BV1/0034/2012''). Nummer :
+\item[Schlüssel (\texttt{id})]
+Zur eindeutigen Identifizierung der Sitzung innerhalb des Systems. In
+der Praxis wird ein solcher Schlüssel entweder durch eine numerische ID
+gebildet oder durch Kombination mehrerer Merkmale wie dem Kürzel des
+Gremiums, der laufenden Nummer der Sitzung in einem Jahr und der
+Jahreszahl (z.B. ``BV1/0034/2012'').
+\item[Nummer (\texttt{sequence\_number})]
 \emph{Optional}. Laufende Nummer der Sitzung, üblicherweise innerhalb
 der Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die
-``2. Sitzung des Rats'' gekennzeichnet. Anfang : Datum und ggf. Uhrzeit
-des Anfangszeitpunkts der Sitzung Ende : \emph{Optional}. Datum und
-Uhrzeit vom Ende der Sitzung Ort : \emph{Optional}. Textliche
-Information zum Ort der Sitzung, z.B. ``Rathaus, Raum 136''.
+``2. Sitzung des Rats'' gekennzeichnet. Ist dieses Feld gesetzt, MUSS
+ein numerischer Wert enthalten sein.
+\item[Anfang (\texttt{start})]
+Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung
+\item[Ende (\texttt{end})]
+\emph{Optional}. Datum und Uhrzeit vom Ende der Sitzung
+\item[Ort (\texttt{address})]
+\emph{Optional}. Textliche Information zum Ort der Sitzung, z.B.
+``Rathaus, Raum 136''.
+\end{description}
 
 \subsubsection{Beziehungen}
 
@@ -622,15 +687,39 @@ Information zum Ort der Sitzung, z.B. ``Rathaus, Raum 136''.
   dann um nicht weiter spezifizierte Anlagen.
 \end{itemize}
 
-\subsection{Tagesordnungspunkt (\emph{agendaitem})}
+\subsubsection{Beispiel}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"id"}\NormalTok{: }\StringTok{"3271"}\NormalTok{,}
+    \DataTypeTok{"identifier"}\NormalTok{: }\StringTok{"STA/0034/2012"}\NormalTok{,}
+    \DataTypeTok{"start"}\NormalTok{: }\StringTok{"2013-01-04T08:00:00+01:00"}\NormalTok{,}
+    \DataTypeTok{"end"}\NormalTok{: }\StringTok{"2013-01-04T12:00:00+01:00"}\NormalTok{,}
+    \DataTypeTok{"address"}\NormalTok{: }\StringTok{"Rathaus, Raum 136"}\NormalTok{,}
+    \DataTypeTok{"sequence_number"}\NormalTok{: }\DecValTok{1}\NormalTok{,}
+    \DataTypeTok{"committees"}\NormalTok{: [}\StringTok{"STA"}\NormalTok{],}
+    \DataTypeTok{"people"}\NormalTok{: [}\StringTok{"1000"}\NormalTok{, }\StringTok{"1001"}\NormalTok{],}
+    \DataTypeTok{"invitation"}\NormalTok{: }\StringTok{"0001/2013"}\NormalTok{,}
+    \DataTypeTok{"result_minutes"}\NormalTok{: }\StringTok{"0002/2013"}\NormalTok{,}
+    \DataTypeTok{"verbatim_minutes"}\NormalTok{: }\StringTok{"0003/2013"}\NormalTok{,}
+    \DataTypeTok{"attachments"}\NormalTok{: [}
+        \StringTok{"0004/2013"}\NormalTok{,}
+        \StringTok{"0005/2013"}
+    \NormalTok{]}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Tagesordnungspunkt (\texttt{agendaitem})}
 
 Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält
 eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel
 (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein
 Ergebnis angehängt. Unter Umständen kann dem Tagesordnungspunkt ein
-bestimmter Beschlusstext beigefügt sein. Sofern das Abstimmungsergebnis
-nicht einstimmig ist, kann es durch mehrere referenzierende
-``Stimmabgaben'' festgehalten werden.
+bestimmter Beschlusstext beigefügt sein. Ein Abstimmungsergebnis kann es
+durch mehrere referenzierende Objekte vom Typ ``Stimmabgabe''
+festgehalten werden.
 
 Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
 
@@ -643,22 +732,32 @@ nicht einstimmig ist, kann es durch mehrere referenzierende
 \subsubsection{Eigenschaften}
 
 \begin{description}
-\item[Nummer]
+\item[Nummer (\texttt{identifier})]
 Beispiel: ``1.2.3''. Diese Nummer gibt an, in welcher Reihenfolge die
-\end{description}
-
 Tagesordnungspunkte einer Sitzung normalerweise behandelt werden. Im
-Kontext einer Sitzung ist diese Nummer eindeutig. Öffentlich : ja/nein.
+Kontext einer Sitzung ist diese Nummer eindeutig.
+\item[Öffentlich (\texttt{public})]
 Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher Sitzung
-behandelt wird. Titel : Das Thema des Tagesordnungspunktes Ergebnis :
-Eines aus einer Liste definierter Ergebnisse. Möglich sind:
-``Unverändert beschlossen'', ``Geändert beschlossen'', ``Endgültig
-abgelehnt'', ``Zur Kenntnis genommen'', ``Ohne Votum in nachfolgende
-Gremien überwiesen'' Beschlusstext : \emph{Optional}. Falls in diesem
-Tagesordnungspunkt ein Beschluss gefasst wurde, kann der Text hier
-hinterlegt werden. Das ist besonders dann in der Praxis relevant, wenn
-der gefasste Beschluss (z.B. durch Änderungsantrag) von der
-Beschlussvorlage abweicht.
+behandelt wird. Kann die Werte \texttt{true} (öffentlich) oder
+\texttt{false} annehmen.
+\item[Titel (\texttt{title})]
+Das Thema des Tagesordnungspunktes
+\item[Ergebnis (\texttt{result})]
+\emph{Optional}. Kategorische Information darüber, welches Ergebnis die
+Beratung des Tagesordnungspunktes gebracht hat. In der Praxis sind hier
+Kategorien wie ``Unverändert beschlossen'', ``Geändert beschlossen'',
+``Endgültig abgelehnt'', ``Zur Kenntnis genommen'', ``Ohne Votum in
+nachfolgende Gremien überwiesen'' und weitere zu erwarten.
+\item[Ergebnis Details (\texttt{result\_details})]
+\emph{Optional}. Ermöglicht die Angabe zusätzlicher Textinformationen
+zum Ergebnis, zum Beispiel im Fall der Verweisung an ein anderes Gremium
+die Angabe, an welches Gremium verwiesen wurde.
+\item[Beschlusstext (\texttt{resolution\_text})]
+\emph{Optional}. Falls in diesem Tagesordnungspunkt ein Beschluss
+gefasst wurde, kann der Text hier hinterlegt werden. Das ist besonders
+dann in der Praxis relevant, wenn der gefasste Beschluss (z.B. durch
+Änderungsantrag) von der Beschlussvorlage abweicht.
+\end{description}
 
 \paragraph{Anmerkungen}
 
@@ -668,7 +767,11 @@ Beschlussvorlage abweicht.
   unveränderliche, numerische IDs. Es ist unklar, ob es zusätzlichen
   Nutzen bringt, derartige IDs, neben den Nummern, in den Standard zu
   übernehmen. Dies würde vermutlich nur Sinn ergeben, wenn es als
-  Pflichtfeld gelten kann.
+  Pflichtfeld gelten könnte.
+\item
+  Teil der Beratungen über einheitliche Nomenklatur im Standard sollte
+  sein, eine Vereinheitlichung der Werte für die Eigenschaft
+  \texttt{result} zu diskutieren.
 \end{itemize}
 
 \subsubsection{Beziehungen}
@@ -688,17 +791,56 @@ Beschlussvorlage abweicht.
   diesem Tagesordnungspunkt \emph{nicht} anwesend waren.
 \end{itemize}
 
-\subsection{Stimmabgabe (\emph{vote})}
+\subsubsection{Beispiel}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"meeting"}\NormalTok{: }\StringTok{"3271"}\NormalTok{,}
+    \DataTypeTok{"identifier"}\NormalTok{: }\StringTok{"3.1.2"}\NormalTok{,}
+    \DataTypeTok{"public"}\NormalTok{: }\DecValTok{true}\NormalTok{,}
+    \DataTypeTok{"title"}\NormalTok{: }\StringTok{"Gemeinschaftsgrundschule Hornschaftsstraße/Höhenhaus. Hier: Anfrage von Herrn Philippi"}\NormalTok{,}
+    \DataTypeTok{"result"}\NormalTok{: }\StringTok{"Geändert beschlossen"}\NormalTok{,}
+    \DataTypeTok{"resolution_text"}\NormalTok{: }\StringTok{"Der Beschluss weicht wie folgt vom Antrag ab: ..."}\NormalTok{,}
+    \DataTypeTok{"people_absent"}\NormalTok{: [}\StringTok{"1002"}\NormalTok{, }\StringTok{"1003"}\NormalTok{],}
+    \DataTypeTok{"votings"}\NormalTok{: [}
+        \NormalTok{\{}
+            \DataTypeTok{"sum"}\NormalTok{: }\DecValTok{2}\NormalTok{,}
+            \DataTypeTok{"vote"}\NormalTok{: }\StringTok{"DAFUER"}\NormalTok{,}
+            \DataTypeTok{"organisations"}\NormalTok{: [}\StringTok{"24"}\NormalTok{],}
+            \DataTypeTok{"people"}\NormalTok{: []}
+        \NormalTok{\},}
+        \NormalTok{\{}
+            \DataTypeTok{"sum"}\NormalTok{: }\DecValTok{1}\NormalTok{,}
+            \DataTypeTok{"vote"}\NormalTok{: }\StringTok{"ENTHALTUNG"}\NormalTok{,}
+            \DataTypeTok{"organisations"}\NormalTok{: [],}
+            \DataTypeTok{"people"}\NormalTok{: [}\StringTok{"1000"}\NormalTok{]}
+        \NormalTok{\},}
+        \NormalTok{\{}
+            \DataTypeTok{"sum"}\NormalTok{: }\DecValTok{1}\NormalTok{,}
+            \DataTypeTok{"vote"}\NormalTok{: }\StringTok{"DAGEGEN"}\NormalTok{,}
+            \DataTypeTok{"organisations"}\NormalTok{: [],}
+            \DataTypeTok{"people"}\NormalTok{: [}\StringTok{"1001"}\NormalTok{]}
+        \NormalTok{\}}
+    \NormalTok{]}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Stimmabgabe (\texttt{vote})}
 
 Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt
 abgestimmt hat, wird durch eine Stimmabgabe festgehalten. Ganze
 Abstimmungsergebnisse bestehen überlicherweise aus mehreren
 Stimmabgaben. Jede Stimmabgabe gibt entweder die (einzelne) Stimme einer
-Peson wieder, in diesem Fall ist die Anzahl der Stimmen zwingend 1. Oder
-eine Stimmabgabe gibt das Abstimmungsverhalten einer ganzen Gruppe von
-Personen wieder. Dann ist die Anzahl der Stimmen anzugeben und statt
-einer Person eine Organisation (in der Regel die Fraktion) zu
-referenzieren.
+Person wieder (in diesem Fall ist die Anzahl der Stimmen zwingend 1)
+oder das einer ganzen Gruppe von Personen. Dann ist die Anzahl der
+Stimmen anzugeben und statt einer Person eine Organisation (in der Regel
+die Fraktion) zu referenzieren.
+
+Ist eine Abstimmung zu einem Tagesordnungspunkt einstimmig, dann genügt
+ein einziges Objekt vom Typ Stimmabgabe aus, um dies darzustellen. In
+allen anderen Fällen werden mehrere Stimmabgabe-Objekte kombiniert.
 
 \begin{figure}[htbp]
 \centering
@@ -709,13 +851,15 @@ referenzieren.
 \subsubsection{Eigenschaften}
 
 \begin{description}
-\item[Anzahl der Stimmen]
+\item[Anzahl der Stimmen (\texttt{sum})]
 Gehört die Stimmabgabe zu einer Person, ist der Wert immer 1. Gehört sie
-\end{description}
-
 jedoch zu einer Organisation (=Fraktion), kann der Wert hier größer als
-1 sein. Votum : Einer der drei Werte ``ja'' (gleichbedeutend mit
-``dafür''), ``nein'' (``dagegen'') oder ``Enthaltung''.
+1 sein. Diese Eigenschaft MUSS einen numerischen Wert haben.
+\item[Votum (\texttt{vote})]
+Einer der Werte \texttt{DAFUER} (gleichbedeutend mit ``für den
+Antrag''), \texttt{DAGEGEN} (``gegen den Antrag'') oder
+\texttt{ENTHALTUNG}.
+\end{description}
 
 \subsubsection{Beziehungen}
 
@@ -727,11 +871,38 @@ jedoch zu einer Organisation (=Fraktion), kann der Wert hier größer als
   (Fraktion) referenziert, die die Stimme(n) abgegeben hat.
 \end{itemize}
 
-\subsection{Drucksache (\emph{paper})}
+\subsubsection{Beispiele}
+
+Die gesamte siebenköpfige Fraktion (Organisation ID ``18'') stimmt für
+den Antrag:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"sum"}\NormalTok{: }\DecValTok{7}\NormalTok{,}
+    \DataTypeTok{"vote"}\NormalTok{: }\StringTok{"DAFUER"}\NormalTok{,}
+    \DataTypeTok{"organisations"}\NormalTok{: [}\StringTok{"18"}\NormalTok{]}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Drei bestimmte Personen stimmten gegen den Antrag:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"sum"}\NormalTok{: }\DecValTok{3}\NormalTok{,}
+    \DataTypeTok{"vote"}\NormalTok{: }\StringTok{"DAGEGEN"}\NormalTok{,}
+    \DataTypeTok{"people"}\NormalTok{: [}\StringTok{"85"}\NormalTok{, }\StringTok{"145"}\NormalTok{, }\StringTok{"67"}\NormalTok{]}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Drucksache (\texttt{paper})}
 
 Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen,
-Beschlussvorlagen, Anfragen und Anträge ab. Jede Drucksache erhält eine
-eindeutige Kennung.
+Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede
+Drucksache erhält eine eindeutige Kennung.
 
 Die Drucksache hat im Informationsmodell eine hervorgehobene Bedeutung.
 Im Fall eines Antrags kann mit einer einzigen Drucksache ein über Monate
@@ -773,15 +944,17 @@ Arten von Drucksachen gekennzeichnet:
 \subsubsection{Eigenschaften}
 
 \begin{description}
-\item[Kennung]
+\item[Schlüssel (\texttt{id})]
 Die Kennung einer Drucksache muss für die jeweilige Körperschaft
-\end{description}
-
 eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben enthalten.
 Einige Systeme (z.B. Köln) verwenden besondere Trennzeichen wie ``/'',
 um eine Jahreszahl von einer laufenden Nummer abzutrennen. Weiterhin
-werden mancherorts führende Nullen verwendet. Datum : Datum der
-Veröffentlichung Typ : Art der Drucksache (Erläuterung siehe oben)
+werden mancherorts führende Nullen verwendet.
+\item[Datum (\texttt{date})]
+Datum der Veröffentlichung
+\item[Typ (\texttt{type})]
+Art der Drucksache (Erläuterung siehe oben)
+\end{description}
 
 \subsubsection{Beziehungen}
 
@@ -823,13 +996,59 @@ Veröffentlichung Typ : Art der Drucksache (Erläuterung siehe oben)
   versehen sein, die noch näher zu bestimmen ist (TODO).
 \end{itemize}
 
-\subsection{Dokument (\emph{document})}
+\subsubsection{Beispiel}
 
-Ein Dokument hält die Daten und Metadaten einer Datei vor,
-beispielsweise einer PDF-Datei, eines RTF- oder Word-Dokuments. Wird von
-einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese Ableitung
-ebenfalls ein Dokument, das jedoch nicht als Master gekennzeichnet wird,
-sondern auf den entsprechenden Master verweist.
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"id"}\NormalTok{: }\StringTok{"1234/2012"}\NormalTok{,}
+    \DataTypeTok{"date"}\NormalTok{: }\StringTok{"2013-01-04"}\NormalTok{,}
+    \DataTypeTok{"type"}\NormalTok{: }\StringTok{"Beantwortung einer Anfrage"}\NormalTok{,}
+    \DataTypeTok{"related_papers"}\NormalTok{: [}
+        \StringTok{"0768/2012"}
+    \NormalTok{],}
+    \DataTypeTok{"main_document"}\NormalTok{: }\StringTok{"3000.pdf"}\NormalTok{,}
+    \DataTypeTok{"attachments"}\NormalTok{: [}
+        \StringTok{"3002.pdf"}\NormalTok{,}
+        \StringTok{"3003.pdf"}
+    \NormalTok{],}
+    \DataTypeTok{"locations"}\NormalTok{: [}
+        \NormalTok{\{}
+            \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Theodor-Heuss-Ring 1"}\NormalTok{,}
+            \DataTypeTok{"lat"}\NormalTok{: }\FloatTok{7.148}\NormalTok{,}
+            \DataTypeTok{"lon"}\NormalTok{: }\FloatTok{50.023}
+        \NormalTok{\}}
+    \NormalTok{],}
+    \DataTypeTok{"committees"}\NormalTok{: [}\StringTok{"STA"}\NormalTok{],}
+    \DataTypeTok{"creators"}\NormalTok{: [}
+        \NormalTok{\{}
+            \DataTypeTok{"typ"}\NormalTok{: }\StringTok{"Organisation"}\NormalTok{,}
+            \DataTypeTok{"id"}\NormalTok{: }\StringTok{"2000"}
+        \NormalTok{\},}
+        \NormalTok{\{}
+            \DataTypeTok{"typ"}\NormalTok{: }\StringTok{"Person"}\NormalTok{,}
+            \DataTypeTok{"id"}\NormalTok{: }\StringTok{"1000"}
+        \NormalTok{\}}
+    \NormalTok{],}
+    \DataTypeTok{"consultations"}\NormalTok{: [}
+        \NormalTok{\{}
+            \DataTypeTok{"meeting"}\NormalTok{: }\StringTok{"3271"}\NormalTok{,}
+            \DataTypeTok{"agendaitem"}\NormalTok{: }\StringTok{"3.1.2"}\NormalTok{,}
+            \DataTypeTok{"role"}\NormalTok{: }\StringTok{"Federführende Beratung"}
+        \NormalTok{\}}
+    \NormalTok{]}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Dokument (\texttt{document})}
+
+Ein Dokument hält die Metadaten einer Datei vor, beispielsweise einer
+PDF-Datei, eines RTF- oder Word-Dokuments.
+
+Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese
+Ableitung ebenfalls ein Dokument. Um zu zeigen, dass es sich um eine
+Ableitung handelt, verweist dieses auf das Original als ``Master''.
 
 Im Unterschied zur Drucksache benötigt das Dokument keine
 nutzerfreundliche Kennung.
@@ -843,25 +1062,24 @@ nutzerfreundliche Kennung.
 \subsubsection{Eigenschaften}
 
 \begin{description}
-\item[Kennung]
+\item[Schlüssel (\texttt{id})]
 Unveränderliche Kennung
-\item[Titel]
-Nutzerfreundliche Bezeichnung des Dokuments
-\item[Dateityp]
-Mime-Typ des Inhalts, z.B. ``application/x-pdf''
-\item[Veröffentlichungsdatum]
+\item[Name (\texttt{name})]
+Dateiname, z.B. ``12345.pdf''
+\item[Dateityp (\texttt{mime\_type})]
+Mime-Typ des Inhalts, z.B. ``application/pdf''
+\item[Veröffentlichungsdatum (\texttt{date})]
 Datum des Tages, an dem das Dokument ins System eingestellt wurde
-\item[Änderungsdatum und -uhrzeit]
+\item[Änderungsdatum und -uhrzeit (\texttt{last\_modified})]
 Datum und Uhrzeit der letzten Änderung des Dokuments
-\item[Prüfsumme]
+\item[Prüfsumme (\texttt{sha1\_checksum})]
 SHA1-Prüfsumme des Dokumenteninhalts
-\item[Daten]
-Der eigentliche (Binär-)Inhalt des Dokuments
-\item[Nur-Text-Version]
-Reine Text-Wiedergabe des Dokumenteninhalts, sofern es sich um ein
+\item[URL (\texttt{url})]
+URL zum Abruf der Daten dieses Dokuments mittels HTTP GET-Aufruf
+\item[Nur-Text-Version (\texttt{text})]
+Reine Text-Wiedergabe des Dokumenteninhalts, sofern es sich nicht um
+eine reine Abbildung handelt.
 \end{description}
-
-Textdokument handelt.
 
 \subsubsection{Beziehungen}
 
@@ -877,7 +1095,23 @@ Textdokument handelt.
   (Beispiel: von einem PDF-Dokument zum OpenOffice-Original).
 \end{itemize}
 
-\subsection{Ort (\emph{location})}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"id"}\NormalTok{: }\StringTok{"3000"}\NormalTok{,}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"3000.pdf"}\NormalTok{,}
+    \DataTypeTok{"mime_type"}\NormalTok{: }\StringTok{"application/pdf"}\NormalTok{,}
+    \DataTypeTok{"date"}\NormalTok{: }\StringTok{"2013-01-04T07:54:13+01:00"}\NormalTok{,}
+    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2013-01-04T07:54:13+01:00"}\NormalTok{,}
+    \DataTypeTok{"sha1_checksum"}\NormalTok{: }\StringTok{"da39a3ee5e6b4b0d3255bfef95601890afd80709"}\NormalTok{,}
+    \DataTypeTok{"url"}\NormalTok{: }\StringTok{"http://ris.beispielstadt.de/api/documents/3000.pdf"}\NormalTok{,}
+    \DataTypeTok{"text"}\NormalTok{: }\StringTok{"Der Übersichtsplan zeigt alle Ebenen des ..."}\NormalTok{,}
+    \DataTypeTok{"master"}\NormalTok{: }\StringTok{"2099"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Ort (\texttt{location})}
 
 Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal
 abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen
@@ -933,12 +1167,12 @@ Stichpunkte:
 \item
   Das Protkoll ist zustandslos
 \item
-  Authentifizierung wird nicht benötigt. Glossar =======
+  Authentifizierung wird nicht benötigt.
 \end{itemize}
 
+\section{Glossar}
+
 \begin{description}
-\item[AGS]
-Amtlicher Gemeindeschlüssel
 \item[RIS]
 Ratsinformationssystem
 \item[WGS 84]

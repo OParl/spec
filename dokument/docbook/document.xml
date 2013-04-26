@@ -484,7 +484,8 @@
     &quot;regionalschluessel&quot;: &quot;053150000000&quot;,
     &quot;gnd_url&quot;: &quot;http://d-nb.info/gnd/2015732-0&quot;,
     &quot;url&quot;: &quot;http://www.stadt-koeln.de/&quot;,
-    &quot;operator_contact&quot;: &quot;Tel. +49 221-221-5432, E-Mail: ris-api@stadt-koeln.de&quot;
+    &quot;operator_contact&quot;: &quot;Tel. +49 221-221-5432, E-Mail: ris-api@stadt-koeln.de&quot;,
+    &quot;license_url&quot;: &quot;http://wiki.openstreetmap.org/wiki/DE:Open_Database_Licence_-_Licence_Text&quot;
 }
 </programlisting>
     </sect3>

@@ -336,6 +336,11 @@ Mandanten verschiedene Körperschaften repräsentieren
 
 \subsubsection{Eindeutige Identifizierung}
 
+Die Körperschaft hat eine innerhalb des Systems eindeutige ID.
+
+Darüber hinaus werden verschiedene Möglichkeiten geboten, die
+Körperschaft semantisch zu repräsentieren.
+
 Handelt es sich beim Betreiber des Systems um eine Gebietskörperschaft
 (Landkreis, Kommune etc.), soll für die eindeutige Identifizierung der
 Regionalschlüssel{[}1{]} verwendet werden.
@@ -353,6 +358,8 @@ werden.
 \subsubsection{Eigenschaften}
 
 \begin{description}
+\item[Schlüssel (\emph{id})]
+Zur eindeutigen Identifizierung der Körperschaft im System
 \item[Name (\emph{name})]
 Der Name der Körperschaft, z.B. ``Stadt Köln''
 \item[Regionalschlüssel (\emph{regionalschluessel})]
@@ -390,6 +397,7 @@ zum Betreiber der API.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
+    \DataTypeTok{"id"}\NormalTok{: }\StringTok{"1"}\NormalTok{,}
     \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Stadt Köln"}\NormalTok{,}
     \DataTypeTok{"regionalschluessel"}\NormalTok{: }\StringTok{"053150000000"}\NormalTok{,}
     \DataTypeTok{"gnd_url"}\NormalTok{: }\StringTok{"http://d-nb.info/gnd/2015732-0"}\NormalTok{,}
@@ -416,16 +424,16 @@ Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
 \subsubsection{Eigenschaften}
 
 \begin{description}
-\item[Kennung]
+\item[Schlüssel (\emph{id})]
 Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten
 \end{description}
 
 Körperschaft. In der Praxis kommen sowohl numerische IDs als auch
 Namenskürzel (Beispiel: ``STA'' für den Stadtentwicklungsausschuss) vor.
-Beides sollte hier Verwendung finden können. Name : Der Name des
-Gremiums. Beispiele: ``Rat'', ``Hauptausschuss'', ``Bezirksvertretung 1
-(Innenstadt)'' Kurzname : \emph{Optional}. Eine zur Anzeige bestimmte,
-kürzere Form des Namens.
+Beides sollte hier Verwendung finden können. Name (\emph{name}) : Der
+Name des Gremiums. Beispiele: ``Rat'', ``Hauptausschuss'',
+``Bezirksvertretung 1 (Innenstadt)'' Kurzname (\emph{short\_name}) :
+\emph{Optional}. Eine zur Anzeige bestimmte, kürzere Form des Namens.
 
 \subsubsection{Beziehungen}
 
@@ -440,7 +448,22 @@ kürzere Form des Namens.
   wird eine Anfrage oder ein Antrag dem Rat und/oder einer bestimmten
   Bezirksvertretung zugeordnet. Details zu dieser Beziehung werden unter
   ``Drucksache'' erläutert.
+\item
+  Das Gremium verweist auf die Körperschaft, zu der das Gremium gehört.
 \end{itemize}
+
+\subsubsection{Beispiel}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"id"}\NormalTok{: }\StringTok{"7"}\NormalTok{,}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Finanzausschuss"}\NormalTok{,}
+    \DataTypeTok{"short_name"}\NormalTok{: }\StringTok{"FA"}\NormalTok{,}
+    \DataTypeTok{"body"}\NormalTok{: }\StringTok{"1"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 \subsection{Person (\emph{person})}
 

@@ -88,6 +88,11 @@ Ulmen" und "Stadt Ulmen".)
 
 ### Eindeutige Identifizierung ###
 
+Die Körperschaft hat eine innerhalb des Systems eindeutige ID.
+
+Darüber hinaus werden verschiedene Möglichkeiten geboten, die Körperschaft
+semantisch zu repräsentieren.
+
 Handelt es sich beim Betreiber des Systems um eine Gebietskörperschaft
 (Landkreis, Kommune etc.), soll für die eindeutige Identifizierung der 
 Regionalschlüssel[1] verwendet werden.
@@ -104,6 +109,8 @@ werden.
 
 ### Eigenschaften ###
 
+Schlüssel (*id*)
+:   Zur eindeutigen Identifizierung der Körperschaft im System
 Name (*name*)
 :   Der Name der Körperschaft, z.B. "Stadt Köln"
 Regionalschlüssel (*regionalschluessel*)
@@ -136,6 +143,7 @@ gleichnamigen Gremien anderer Kommunen abgegrenzt.
 
 ~~~~~  {#body_ex1 .json}
 {
+    "id": "1",
     "name": "Stadt Köln",
     "regionalschluessel": "053150000000",
     "gnd_url": "http://d-nb.info/gnd/2015732-0",
@@ -158,15 +166,15 @@ ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
 ### Eigenschaften ###
 
-Kennung
+Schlüssel (*id*)
 :   Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten 
 Körperschaft. In der Praxis kommen sowohl numerische IDs als auch 
 Namenskürzel (Beispiel: "STA" für den Stadtentwicklungsausschuss) vor. Beides 
 sollte hier Verwendung finden können.
-Name
+Name (*name*)
 :   Der Name des Gremiums. Beispiele: "Rat", "Hauptausschuss", 
 "Bezirksvertretung 1 (Innenstadt)"
-Kurzname
+Kurzname (*short_name*)
 :   _Optional_. Eine zur Anzeige bestimmte, kürzere Form des Namens.
 
 
@@ -179,7 +187,18 @@ ggf. einen Endzeitpunkt.
 * Objekte vom Typ "Drucksache" verweisen auf Gremien. Beispielsweise wird 
 eine Anfrage oder ein Antrag dem Rat und/oder einer bestimmten Bezirksvertretung 
 zugeordnet. Details zu dieser Beziehung werden unter "Drucksache" erläutert.
+* Das Gremium verweist auf die Körperschaft, zu der das Gremium gehört.
 
+### Beispiel ###
+
+~~~~~  {#committee_ex1 .json}
+{
+    "id": "7",
+    "name": "Finanzausschuss",
+    "short_name": "FA",
+    "body": "1"
+}
+~~~~~
 
 Person (*person*)
 -----------------

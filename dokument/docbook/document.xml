@@ -364,6 +364,13 @@
     <sect3 id="eindeutige-identifizierung">
       <title>Eindeutige Identifizierung</title>
       <para>
+        Die Körperschaft hat eine innerhalb des Systems eindeutige ID.
+      </para>
+      <para>
+        Darüber hinaus werden verschiedene Möglichkeiten geboten, die
+        Körperschaft semantisch zu repräsentieren.
+      </para>
+      <para>
         Handelt es sich beim Betreiber des Systems um eine
         Gebietskörperschaft (Landkreis, Kommune etc.), soll für die
         eindeutige Identifizierung der Regionalschlüssel[1] verwendet
@@ -386,6 +393,16 @@
     <sect3 id="eigenschaften">
       <title>Eigenschaften</title>
       <variablelist>
+        <varlistentry>
+          <term>
+            Schlüssel (<emphasis>id</emphasis>)
+          </term>
+          <listitem>
+            <para>
+              Zur eindeutigen Identifizierung der Körperschaft im System
+            </para>
+          </listitem>
+        </varlistentry>
         <varlistentry>
           <term>
             Name (<emphasis>name</emphasis>)
@@ -480,6 +497,7 @@
       <title>Beispiel</title>
       <programlisting language="json">
 {
+    &quot;id&quot;: &quot;1&quot;,
     &quot;name&quot;: &quot;Stadt Köln&quot;,
     &quot;regionalschluessel&quot;: &quot;053150000000&quot;,
     &quot;gnd_url&quot;: &quot;http://d-nb.info/gnd/2015732-0&quot;,
@@ -513,7 +531,7 @@
       <variablelist>
         <varlistentry>
           <term>
-            Kennung
+            Schlüssel (<emphasis>id</emphasis>)
           </term>
           <listitem>
             <para>
@@ -527,9 +545,10 @@
         Körperschaft. In der Praxis kommen sowohl numerische IDs als
         auch Namenskürzel (Beispiel: &quot;STA&quot; für den
         Stadtentwicklungsausschuss) vor. Beides sollte hier Verwendung
-        finden können. Name : Der Name des Gremiums. Beispiele:
-        &quot;Rat&quot;, &quot;Hauptausschuss&quot;,
-        &quot;Bezirksvertretung 1 (Innenstadt)&quot; Kurzname :
+        finden können. Name (<emphasis>name</emphasis>) : Der Name des
+        Gremiums. Beispiele: &quot;Rat&quot;,
+        &quot;Hauptausschuss&quot;, &quot;Bezirksvertretung 1
+        (Innenstadt)&quot; Kurzname (<emphasis>short_name</emphasis>) :
         <emphasis>Optional</emphasis>. Eine zur Anzeige bestimmte,
         kürzere Form des Namens.
       </para>
@@ -555,7 +574,24 @@
             &quot;Drucksache&quot; erläutert.
           </para>
         </listitem>
+        <listitem>
+          <para>
+            Das Gremium verweist auf die Körperschaft, zu der das
+            Gremium gehört.
+          </para>
+        </listitem>
       </itemizedlist>
+    </sect3>
+    <sect3 id="beispiel-1">
+      <title>Beispiel</title>
+      <programlisting language="json">
+{
+    &quot;id&quot;: &quot;7&quot;,
+    &quot;name&quot;: &quot;Finanzausschuss&quot;,
+    &quot;short_name&quot;: &quot;FA&quot;,
+    &quot;body&quot;: &quot;1&quot;
+}
+</programlisting>
     </sect3>
   </sect2>
   <sect2 id="person-person">

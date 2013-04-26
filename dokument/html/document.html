@@ -116,12 +116,17 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <embed src="images/datenmodell_koerperschaft.pdf"><p class="caption">Objekttyp Körperschaft</p>
 </div>
 <h3 id="eindeutige-identifizierung"><span class="header-section-number">2.2.1</span> Eindeutige Identifizierung</h3>
+<p>Die Körperschaft hat eine innerhalb des Systems eindeutige ID.</p>
+<p>Darüber hinaus werden verschiedene Möglichkeiten geboten, die Körperschaft semantisch zu repräsentieren.</p>
 <p>Handelt es sich beim Betreiber des Systems um eine Gebietskörperschaft (Landkreis, Kommune etc.), soll für die eindeutige Identifizierung der Regionalschlüssel[1] verwendet werden.</p>
 <p>Darüber hinaus soll zusätzlich, sofern vorhanden, die eindeutige Kennung der Körperschaft aus der GND[12] verwendet werden.</p>
 <p>Als dritte Möglichkeit, die Körperschaft zu identifizieren, kann eine aussagekräftigen URL, unter der weitere Informationen zur Körperschaft zu finden sind, genannt werden.</p>
 <p>Sämtliche hier genannten Methoden zur Identifizierung können kombiniert werden.</p>
 <h3 id="eigenschaften"><span class="header-section-number">2.2.2</span> Eigenschaften</h3>
 <dl>
+<dt>Schlüssel (<em>id</em>)</dt>
+<dd>Zur eindeutigen Identifizierung der Körperschaft im System
+</dd>
 <dt>Name (<em>name</em>)</dt>
 <dd>Der Name der Körperschaft, z.B. &quot;Stadt Köln&quot;
 </dd>
@@ -148,6 +153,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul>
 <h3 id="beispiel"><span class="header-section-number">2.2.4</span> Beispiel</h3>
 <pre class="sourceCode json" id="body_ex1"><code class="sourceCode json">{
+    <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;1&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Stadt Köln&quot;</span>,
     <span class="dt">&quot;regionalschluessel&quot;</span>: <span class="st">&quot;053150000000&quot;</span>,
     <span class="dt">&quot;gnd_url&quot;</span>: <span class="st">&quot;http://d-nb.info/gnd/2015732-0&quot;</span>,
@@ -162,16 +168,24 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </div>
 <h3 id="eigenschaften-1"><span class="header-section-number">2.3.1</span> Eigenschaften</h3>
 <dl>
-<dt>Kennung</dt>
+<dt>Schlüssel (<em>id</em>)</dt>
 <dd>Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten
 </dd>
 </dl>
-<p>Körperschaft. In der Praxis kommen sowohl numerische IDs als auch Namenskürzel (Beispiel: &quot;STA&quot; für den Stadtentwicklungsausschuss) vor. Beides sollte hier Verwendung finden können. Name : Der Name des Gremiums. Beispiele: &quot;Rat&quot;, &quot;Hauptausschuss&quot;, &quot;Bezirksvertretung 1 (Innenstadt)&quot; Kurzname : <em>Optional</em>. Eine zur Anzeige bestimmte, kürzere Form des Namens.</p>
+<p>Körperschaft. In der Praxis kommen sowohl numerische IDs als auch Namenskürzel (Beispiel: &quot;STA&quot; für den Stadtentwicklungsausschuss) vor. Beides sollte hier Verwendung finden können. Name (<em>name</em>) : Der Name des Gremiums. Beispiele: &quot;Rat&quot;, &quot;Hauptausschuss&quot;, &quot;Bezirksvertretung 1 (Innenstadt)&quot; Kurzname (<em>short_name</em>) : <em>Optional</em>. Eine zur Anzeige bestimmte, kürzere Form des Namens.</p>
 <h3 id="beziehungen-1"><span class="header-section-number">2.3.2</span> Beziehungen</h3>
 <ul>
 <li>Objekte vom Typ &quot;Person&quot; referenzieren auf Gremien, um die Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu kennzeichnen. Diese Beziehung ist datiert. Das bedeutet, sie hat einen Anfangszeitpunkt und ggf. einen Endzeitpunkt.</li>
 <li>Objekte vom Typ &quot;Drucksache&quot; verweisen auf Gremien. Beispielsweise wird eine Anfrage oder ein Antrag dem Rat und/oder einer bestimmten Bezirksvertretung zugeordnet. Details zu dieser Beziehung werden unter &quot;Drucksache&quot; erläutert.</li>
+<li>Das Gremium verweist auf die Körperschaft, zu der das Gremium gehört.</li>
 </ul>
+<h3 id="beispiel-1"><span class="header-section-number">2.3.3</span> Beispiel</h3>
+<pre class="sourceCode json" id="committee_ex1"><code class="sourceCode json">{
+    <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;7&quot;</span>,
+    <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Finanzausschuss&quot;</span>,
+    <span class="dt">&quot;short_name&quot;</span>: <span class="st">&quot;FA&quot;</span>,
+    <span class="dt">&quot;body&quot;</span>: <span class="st">&quot;1&quot;</span>
+}</code></pre>
 <h2 id="person-person"><span class="header-section-number">2.4</span> Person (<em>person</em>)</h2>
 <p>Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person im Datenmodell eindeutig identifizierbar.</p>
 <div class="figure">

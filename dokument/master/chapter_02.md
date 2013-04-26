@@ -36,8 +36,8 @@ eine Person ud ein Gremium) den selben Schlüssel nutzen. Jedoch MÜSSEN zwei
 Objekte des selben Typs innerhalb des selben Systems grundsätzlich 
 verschiedene Schlüssel haben.
 
-Schlüssel-Eigenschaften werden grundsätzlich als String mit 
-Unicode-Zeichenumfang übergeben. Sie können daher gleichermaßen aus 
+Schlüssel-Eigenschaften werden grundsätzlich als Unicode-Zeichenkette 
+übergeben. Sie können daher gleichermaßen aus 
 numerischen wie alphanumerischen Werten befüllt werden.
 
 Es wird grundsätzlich vorausgesetzt, dass Schlüssel unveränderlich sind. 
@@ -120,8 +120,8 @@ GND URL (`gnd_url`)
 :   _Optional_. URL des Eintrags in der GND, z.B.
     "http://d-nb.info/gnd/2015732-0"
 URL (`url`)
-:   _Optional_. URL zu Informationen über die Körperschaft, z.B.
-    "http://www.stadt-koeln.de/"
+:   _Optional_. URL der Homepage oder einer vergleichbaren Seite
+    mit Informationen über die Körperschaft, z.B. "http://www.stadt-koeln.de/"
 Lizenz (`license_url`)
 :   _Optional_. URL der Lizenz, unter der die Daten, die über die API
     abgerufen werden können, stehen.

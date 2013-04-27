@@ -22,7 +22,7 @@ Es stehen Versionen des Dokuments in vielen Formaten zur Verfügung:
 
 * [PDF](https://github.com/OParl/specs/blob/master/dokument/pdf/document.pdf?raw=true)
 * [OpenOffice/LibreOffice](https://github.com/OParl/specs/blob/master/dokument/odt/document.odt?raw=true)
-* [Microsoft Word](https://github.com/OParl/specs/blob/master/dokument/docx/document.odt?raw=true)
+* [Microsoft Word](https://github.com/OParl/specs/blob/master/dokument/docx/document.docx?raw=true)
 * [LaTeX](https://github.com/OParl/specs/blob/master/dokument/latex/document.tex?raw=true)
 * [EPub](https://github.com/OParl/specs/blob/master/dokument/epub/document.epub?raw=true)
 * [Nur Text](https://github.com/OParl/specs/blob/master/dokument/plain/document.txt?raw=true)

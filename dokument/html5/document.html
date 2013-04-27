@@ -89,7 +89,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Sollten Sie keinen der oben beschriebenen Wege beschreiten wollen, können Sie Anmerkungen zum Dokument per E-Mail an marian@sendung.de einsenden. Bitte verwenden Sie dabei den Begriff &quot;oparl-specs&quot; im Betreff.</p>
 <p>Sollten Sie auf diesem Wege Anmerkungen direkt am/im Dokumententext übersenden wollen, nutzen Sie bitte falls möglich die Word- oder OpenOffice-Version dieses Dokuments und ändern Sie das Dokument so, dass Änderungen aufgezeichnet werden (OpenOffice: Bearbeiten &gt; Änderungen &gt; Aufzeichnen; Word: Ribbon &quot;Überprüfen&quot; &gt; Nachverfolgung &gt; Änderungen nachverfolgen).</p>
 <h2 id="mitwirkende"><span class="header-section-number">1.8</span> Mitwirkende</h2>
-<p>Felix Ebert, Jan Erhardt, Andreas Kuckartz, Babett Schalitz</p>
+<p>Felix Ebert, Jan Erhardt, Andreas Kuckartz, Babett Schalitz, Jakob Voss</p>
 <h1 id="datenmodell"><span class="header-section-number">2</span> Datenmodell</h1>
 <p>Das Datenmodell definiert die Objekttypen bzw. die Klassen, auf die über die Schnittstelle zugegriffen werden kann.</p>
 <p>Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen beziehen sich auf nach außen, bei Nutzung der jeweiligen Weboberflächen, feststellbare Eigenschaften. Dabei wird vereinzelt und beispielhaft auf die folgenden Systeme Bezug genommen:</p>
@@ -104,7 +104,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h3 id="eindeutige-identifizierung-von-objekten"><span class="header-section-number">2.1.1</span> Eindeutige Identifizierung von Objekten</h3>
 <p>Sämtliche Objekte, die über die Schnittstelle geladen werden können, sollen anhand einer einzigen Objekteigenschaft eindeutig identifizierbar sein. Die Objekteigenschaft, mit der dies erreicht wird, wird hier im folgenden - unabhängig vom tatsächlichen Namen der Eigenschaft - als &quot;Schlüssel&quot; bezeichnet.</p>
 <p>Eindeutigkeit meint hier eine Einzigartigkeit innerhalb des Informationssystems und für den jeweiligen Objekttyp. Das bedeutet: zwei von einander unabhängige Ratsinformationssysteme für verschiedene Körperschaften dürfen sich überlappende Schlüssel nutzen. Innerhalb eines Systems dürfen zwei Objekte unterschiedlichen Typs (beispielsweise eine Person ud ein Gremium) den selben Schlüssel nutzen. Jedoch MÜSSEN zwei Objekte des selben Typs innerhalb des selben Systems grundsätzlich verschiedene Schlüssel haben.</p>
-<p>Schlüssel-Eigenschaften werden grundsätzlich als String mit Unicode-Zeichenumfang übergeben. Sie können daher gleichermaßen aus numerischen wie alphanumerischen Werten befüllt werden.</p>
+<p>Schlüssel-Eigenschaften werden grundsätzlich als Unicode-Zeichenkette übergeben. Sie können daher gleichermaßen aus numerischen wie alphanumerischen Werten befüllt werden.</p>
 <p>Es wird grundsätzlich vorausgesetzt, dass Schlüssel unveränderlich sind. Ändert sich der Schlüssel eines Objekts nach der Erzeugung, werden Nutzer der Schnittstelle annehmen, dass es sich nicht mehr um das selbe Objekt handelt.</p>
 <h3 id="objekteigenschaften"><span class="header-section-number">2.1.2</span> Objekteigenschaften</h3>
 <p>Die nachfolgend beschriebenen Eigenschaften der Objekttypen sind, wenn nicht anders angegeben, verpflichtend. Das bedeutet: Bei jedem von der Schnittstelle ausgelieferten Objekt muss diese Eigenschaften definiert sein. Optionale Eigenschaften sind entsprechend gekennzeichnet.</p>
@@ -115,7 +115,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Die Körperschaft erlaubt es, den Betreiber bzw. Eigentümer des Informationssystems wie zum Beispiel einen Landkreis, eine bestimmte Gemeinde oder einen bestimmten Stadtbezirk in Form eines Datenobjekts abzubilden.</p>
 <p>Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“. Einige Systeme werden jedoch für mehrere Mandanten betrieben, wobei die Mandanten verschiedene Körperschaften repräsentieren (z.B. &quot;Verbandsgemeinde Ulmen&quot; und &quot;Stadt Ulmen&quot;.)</p>
 <figure>
-<embed src="images/datenmodell_koerperschaft.pdf"><figcaption>Objekttyp Körperschaft</figcaption>
+<img src="images/datenmodell_koerperschaft.png" alt="Objekttyp Körperschaft"><figcaption>Objekttyp Körperschaft</figcaption>
 </figure>
 <h3 id="eindeutige-identifizierung"><span class="header-section-number">2.2.1</span> Eindeutige Identifizierung</h3>
 <p>Die Körperschaft hat eine innerhalb des Systems eindeutige ID.</p>
@@ -139,7 +139,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd><em>Optional</em>. URL des Eintrags in der GND, z.B. &quot;http://d-nb.info/gnd/2015732-0&quot;
 </dd>
 <dt>URL (<code>url</code>)</dt>
-<dd><em>Optional</em>. URL zu Informationen über die Körperschaft, z.B. &quot;http://www.stadt-koeln.de/&quot;
+<dd><em>Optional</em>. URL der Homepage oder einer vergleichbaren Seite mit Informationen über die Körperschaft, z.B. &quot;http://www.stadt-koeln.de/&quot;
 </dd>
 <dt>Lizenz (<code>license_url</code>)</dt>
 <dd><em>Optional</em>. URL der Lizenz, unter der die Daten, die über die API abgerufen werden können, stehen.
@@ -166,7 +166,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h2 id="gremium-committee"><span class="header-section-number">2.3</span> Gremium (<em>committee</em>)</h2>
 <p>Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat, Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.</p>
 <figure>
-<embed src="images/datenmodell_gremium.pdf"><figcaption>Objekttyp Gremium</figcaption>
+<img src="images/datenmodell_gremium.png" alt="Objekttyp Gremium"><figcaption>Objekttyp Gremium</figcaption>
 </figure>
 <h3 id="eigenschaften-1"><span class="header-section-number">2.3.1</span> Eigenschaften</h3>
 <dl>
@@ -196,7 +196,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h2 id="person-person"><span class="header-section-number">2.4</span> Person (<em>person</em>)</h2>
 <p>Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person im Datenmodell eindeutig identifizierbar.</p>
 <figure>
-<embed src="images/datenmodell_person.pdf"><figcaption>Objekttyp Person</figcaption>
+<img src="images/datenmodell_person.png" alt="Objekttyp Person"><figcaption>Objekttyp Person</figcaption>
 </figure>
 <h3 id="eigenschaften-2"><span class="header-section-number">2.4.1</span> Eigenschaften</h3>
 <dl>
@@ -213,7 +213,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd><em>Optional</em>. Akademische Titel wie &quot;Dr.&quot; und &quot;Prof. Dr.&quot;
 </dd>
 <dt>Geschlecht (<code>sex</code>)</dt>
-<dd><em>Optional</em>. Weiblich (Wert <code>F</code> für <em>female</em>) oder männlich (Wert <code>M</code> für <em>male</em>)
+<dd><em>Optional</em>. Weiblich (Wert <code>F</code> für <em>female</em>), männlich (Wert <code>M</code> für <em>male</em>), anderes (Wert <code>O</code> für <em>others</em>)
 </dd>
 <dt>Beruf (<code>profession</code>)</dt>
 <dd><em>Optional</em>. Z.B. &quot;Rechtsanwalt&quot;
@@ -274,7 +274,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h2 id="organisation-organisation"><span class="header-section-number">2.5</span> Organisation (<code>organisation</code>)</h2>
 <p>Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die Personen angehören können.</p>
 <figure>
-<embed src="images/datenmodell_organisation.pdf"><figcaption>Objekttyp Organisation</figcaption>
+<img src="images/datenmodell_organisation.png" alt="Objekttyp Organisation"><figcaption>Objekttyp Organisation</figcaption>
 </figure>
 <h3 id="eigenschaften-3"><span class="header-section-number">2.5.1</span> Eigenschaften</h3>
 <dl>
@@ -304,7 +304,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.</p>
 <p>Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in entsprechender Form referenziert. Verschiedene Dokumente (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.</p>
 <figure>
-<embed src="images/datenmodell_sitzung.pdf"><figcaption>Objekttyp Sitzung</figcaption>
+<img src="images/datenmodell_sitzung.png" alt="Objekttyp Sitzung"><figcaption>Objekttyp Sitzung</figcaption>
 </figure>
 <h3 id="eigenschaften-4"><span class="header-section-number">2.7.1</span> Eigenschaften</h3>
 <dl>
@@ -358,7 +358,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. Unter Umständen kann dem Tagesordnungspunkt ein bestimmter Beschlusstext beigefügt sein. Ein Abstimmungsergebnis kann es durch mehrere referenzierende Objekte vom Typ &quot;Stimmabgabe&quot; festgehalten werden.</p>
 <p>Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.</p>
 <figure>
-<embed src="images/datenmodell_tagesordnungspunkt.pdf"><figcaption>Objekttyp Tagesordnungspunkt</figcaption>
+<img src="images/datenmodell_tagesordnungspunkt.png" alt="Objekttyp Tagesordnungspunkt"><figcaption>Objekttyp Tagesordnungspunkt</figcaption>
 </figure>
 <h3 id="eigenschaften-5"><span class="header-section-number">2.8.1</span> Eigenschaften</h3>
 <dl>
@@ -427,7 +427,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt abgestimmt hat, wird durch eine Stimmabgabe festgehalten. Ganze Abstimmungsergebnisse bestehen überlicherweise aus mehreren Stimmabgaben. Jede Stimmabgabe gibt entweder die (einzelne) Stimme einer Person wieder (in diesem Fall ist die Anzahl der Stimmen zwingend 1) oder das einer ganzen Gruppe von Personen. Dann ist die Anzahl der Stimmen anzugeben und statt einer Person eine Organisation (in der Regel die Fraktion) zu referenzieren.</p>
 <p>Ist eine Abstimmung zu einem Tagesordnungspunkt einstimmig, dann genügt ein einziges Objekt vom Typ Stimmabgabe aus, um dies darzustellen. In allen anderen Fällen werden mehrere Stimmabgabe-Objekte kombiniert.</p>
 <figure>
-<embed src="images/datenmodell_stimmabgabe.pdf"><figcaption>Objekttyp Stimmabgabe</figcaption>
+<img src="images/datenmodell_stimmabgabe.png" alt="Objekttyp Stimmabgabe"><figcaption>Objekttyp Stimmabgabe</figcaption>
 </figure>
 <h3 id="eigenschaften-6"><span class="header-section-number">2.9.1</span> Eigenschaften</h3>
 <dl>
@@ -461,7 +461,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Die Drucksache hat im Informationsmodell eine hervorgehobene Bedeutung. Im Fall eines Antrags kann mit einer einzigen Drucksache ein über Monate oder Jahre dauernder politischer Entscheidungsprozess verbunden sein. In dem Zusammenhang entstehen üblicherweise weitere Drucksachen.</p>
 <p>Drucksachen spielen in der schriftlichen wie mündlichen Kommunikation eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in Ratsinformationssystemen unveränderliche Kennungen der Drucksachen zum Einsatz.</p>
 <figure>
-<embed src="images/datenmodell_drucksache.pdf"><figcaption>Objekttyp Drucksache</figcaption>
+<img src="images/datenmodell_drucksache.png" alt="Objekttyp Drucksache"><figcaption>Objekttyp Drucksache</figcaption>
 </figure>
 <p>Jede Drucksache ist über die Eigenschaft &quot;Typ&quot; als eine der folgenden Arten von Drucksachen gekennzeichnet:</p>
 <ul>
@@ -537,7 +537,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls ein Dokument. Um zu zeigen, dass es sich um eine Ableitung handelt, verweist dieses auf das Original als &quot;Master&quot;.</p>
 <p>Im Unterschied zur Drucksache benötigt das Dokument keine nutzerfreundliche Kennung.</p>
 <figure>
-<embed src="images/datenmodell_dokument.pdf"><figcaption>Objekttyp Dokument</figcaption>
+<img src="images/datenmodell_dokument.png" alt="Objekttyp Dokument"><figcaption>Objekttyp Dokument</figcaption>
 </figure>
 <h3 id="eigenschaften-8"><span class="header-section-number">2.11.1</span> Eigenschaften</h3>
 <dl>
@@ -586,7 +586,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen (beispielsweise der Name einer Straße/eines Platzes oder eine genaue Adresse) oder aus einer Geo-Koordinatenangabe aus Längen- und Breitengrad.</p>
 <p>Bislang finden sich nur beim Bonner System Beispiele für Ortsangaben.</p>
 <figure>
-<embed src="images/datenmodell_ort.pdf"><figcaption>Objekttyp Ort</figcaption>
+<img src="images/datenmodell_ort.png" alt="Objekttyp Ort"><figcaption>Objekttyp Ort</figcaption>
 </figure>
 <h3 id="eigenschaften-9"><span class="header-section-number">2.12.1</span> Eigenschaften</h3>
 <dl>

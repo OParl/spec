@@ -240,7 +240,7 @@ OpenOffice-Version dieses Dokuments und ändern Sie das Dokument so, dass
 
 \subsection{Mitwirkende}
 
-Felix Ebert, Jan Erhardt, Andreas Kuckartz, Babett Schalitz
+Felix Ebert, Jan Erhardt, Andreas Kuckartz, Babett Schalitz, Jakob Voss
 
 \section{Datenmodell}
 
@@ -284,9 +284,9 @@ eine Person ud ein Gremium) den selben Schlüssel nutzen. Jedoch MÜSSEN
 zwei Objekte des selben Typs innerhalb des selben Systems grundsätzlich
 verschiedene Schlüssel haben.
 
-Schlüssel-Eigenschaften werden grundsätzlich als String mit
-Unicode-Zeichenumfang übergeben. Sie können daher gleichermaßen aus
-numerischen wie alphanumerischen Werten befüllt werden.
+Schlüssel-Eigenschaften werden grundsätzlich als Unicode-Zeichenkette
+übergeben. Sie können daher gleichermaßen aus numerischen wie
+alphanumerischen Werten befüllt werden.
 
 Es wird grundsätzlich vorausgesetzt, dass Schlüssel unveränderlich sind.
 Ändert sich der Schlüssel eines Objekts nach der Erzeugung, werden
@@ -330,7 +330,7 @@ Mandanten verschiedene Körperschaften repräsentieren
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{images/datenmodell_koerperschaft.pdf}
+\includegraphics{images/datenmodell_koerperschaft.png}
 \caption{Objekttyp Körperschaft}
 \end{figure}
 
@@ -369,8 +369,8 @@ Der Name der Körperschaft, z.B. ``Stadt Köln''
 \emph{Optional}. URL des Eintrags in der GND, z.B.
 ``http://d-nb.info/gnd/2015732-0''
 \item[URL (\texttt{url})]
-\emph{Optional}. URL zu Informationen über die Körperschaft, z.B.
-``http://www.stadt-koeln.de/''
+\emph{Optional}. URL der Homepage oder einer vergleichbaren Seite mit
+Informationen über die Körperschaft, z.B. ``http://www.stadt-koeln.de/''
 \item[Lizenz (\texttt{license\_url})]
 \emph{Optional}. URL der Lizenz, unter der die Daten, die über die API
 abgerufen werden können, stehen.
@@ -417,7 +417,7 @@ Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{images/datenmodell_gremium.pdf}
+\includegraphics{images/datenmodell_gremium.png}
 \caption{Objekttyp Gremium}
 \end{figure}
 
@@ -473,7 +473,7 @@ im Datenmodell eindeutig identifizierbar.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{images/datenmodell_person.pdf}
+\includegraphics{images/datenmodell_person.png}
 \caption{Objekttyp Person}
 \end{figure}
 
@@ -492,8 +492,9 @@ Der Nachname der Person.
 \item[Titel (\texttt{academic\_title})]
 \emph{Optional}. Akademische Titel wie ``Dr.'' und ``Prof.~Dr.''
 \item[Geschlecht (\texttt{sex})]
-\emph{Optional}. Weiblich (Wert \texttt{F} für \emph{female}) oder
-männlich (Wert \texttt{M} für \emph{male})
+\emph{Optional}. Weiblich (Wert \texttt{F} für \emph{female}), männlich
+(Wert \texttt{M} für \emph{male}), anderes (Wert \texttt{O} für
+\emph{others})
 \item[Beruf (\texttt{profession})]
 \emph{Optional}. Z.B. ``Rechtsanwalt''
 \item[E-Mail-Adresse (\texttt{email})]
@@ -576,7 +577,7 @@ Personen angehören können.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{images/datenmodell_organisation.pdf}
+\includegraphics{images/datenmodell_organisation.png}
 \caption{Objekttyp Organisation}
 \end{figure}
 
@@ -634,7 +635,7 @@ werden.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{images/datenmodell_sitzung.pdf}
+\includegraphics{images/datenmodell_sitzung.png}
 \caption{Objekttyp Sitzung}
 \end{figure}
 
@@ -725,7 +726,7 @@ festgehalten werden.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{images/datenmodell_tagesordnungspunkt.pdf}
+\includegraphics{images/datenmodell_tagesordnungspunkt.png}
 \caption{Objekttyp Tagesordnungspunkt}
 \end{figure}
 
@@ -844,7 +845,7 @@ allen anderen Fällen werden mehrere Stimmabgabe-Objekte kombiniert.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{images/datenmodell_stimmabgabe.pdf}
+\includegraphics{images/datenmodell_stimmabgabe.png}
 \caption{Objekttyp Stimmabgabe}
 \end{figure}
 
@@ -916,7 +917,7 @@ unveränderliche Kennungen der Drucksachen zum Einsatz.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{images/datenmodell_drucksache.pdf}
+\includegraphics{images/datenmodell_drucksache.png}
 \caption{Objekttyp Drucksache}
 \end{figure}
 
@@ -1055,7 +1056,7 @@ nutzerfreundliche Kennung.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{images/datenmodell_dokument.pdf}
+\includegraphics{images/datenmodell_dokument.png}
 \caption{Objekttyp Dokument}
 \end{figure}
 
@@ -1123,7 +1124,7 @@ Bislang finden sich nur beim Bonner System Beispiele für Ortsangaben.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{images/datenmodell_ort.pdf}
+\includegraphics{images/datenmodell_ort.png}
 \caption{Objekttyp Ort}
 \end{figure}
 

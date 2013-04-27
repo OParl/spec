@@ -84,7 +84,7 @@ Systeme werden jedoch für mehrere Mandanten betrieben, wobei die Mandanten
 verschiedene Körperschaften repräsentieren (z.B. "Verbandsgemeinde 
 Ulmen" und "Stadt Ulmen".)
 
-![Objekttyp Körperschaft](images/datenmodell_koerperschaft.pdf)
+![Objekttyp Körperschaft](images/datenmodell_koerperschaft.png)
 
 ### Eindeutige Identifizierung ###
 
@@ -161,7 +161,7 @@ ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat,
 Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten Sitzungen 
 ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
-![Objekttyp Gremium](images/datenmodell_gremium.pdf)
+![Objekttyp Gremium](images/datenmodell_gremium.png)
 
 
 ### Eigenschaften ###
@@ -206,7 +206,7 @@ Person (*person*)
 Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person im 
 Datenmodell eindeutig identifizierbar.
 
-![Objekttyp Person](images/datenmodell_person.pdf)
+![Objekttyp Person](images/datenmodell_person.png)
 
 ### Eigenschaften ###
 
@@ -295,7 +295,7 @@ Organisation (`organisation`)
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die 
 Personen angehören können.
 
-![Objekttyp Organisation](images/datenmodell_organisation.pdf)
+![Objekttyp Organisation](images/datenmodell_organisation.png)
 
 ### Eigenschaften ###
 
@@ -338,7 +338,7 @@ Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in
 entsprechender Form referenziert. Verschiedene Dokumente (Einladung, 
 Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.
 
-![Objekttyp Sitzung](images/datenmodell_sitzung.pdf)
+![Objekttyp Sitzung](images/datenmodell_sitzung.png)
 
 ### Eigenschaften ###
 
@@ -410,7 +410,7 @@ Objekte vom Typ "Stimmabgabe" festgehalten werden.
 
 Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
 
-![Objekttyp Tagesordnungspunkt](images/datenmodell_tagesordnungspunkt.pdf)
+![Objekttyp Tagesordnungspunkt](images/datenmodell_tagesordnungspunkt.png)
 
 ### Eigenschaften ###
 
@@ -507,7 +507,7 @@ Ist eine Abstimmung zu einem Tagesordnungspunkt einstimmig, dann genügt ein
 einziges Objekt vom Typ Stimmabgabe aus, um dies darzustellen. In allen anderen
 Fällen werden mehrere Stimmabgabe-Objekte kombiniert.
 
-![Objekttyp Stimmabgabe](images/datenmodell_stimmabgabe.pdf)
+![Objekttyp Stimmabgabe](images/datenmodell_stimmabgabe.png)
 
 ### Eigenschaften ###
 
@@ -565,7 +565,7 @@ besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen
 wird. Hierbei kommen in Ratsinformationssystemen unveränderliche Kennungen 
 der Drucksachen zum Einsatz.
 
-![Objekttyp Drucksache](images/datenmodell_drucksache.pdf)
+![Objekttyp Drucksache](images/datenmodell_drucksache.png)
 
 Jede Drucksache ist über die Eigenschaft "Typ" als eine der folgenden Arten 
 von Drucksachen gekennzeichnet:
@@ -681,7 +681,7 @@ handelt, verweist dieses auf das Original als "Master".
 Im Unterschied zur Drucksache benötigt das Dokument keine nutzerfreundliche 
 Kennung.
 
-![Objekttyp Dokument](images/datenmodell_dokument.pdf)
+![Objekttyp Dokument](images/datenmodell_dokument.png)
 
 ### Eigenschaften ###
 Schlüssel (`id`)
@@ -738,7 +738,7 @@ Adresse) oder aus einer Geo-Koordinatenangabe aus Längen- und Breitengrad.
 
 Bislang finden sich nur beim Bonner System Beispiele für Ortsangaben.
 
-![Objekttyp Ort](images/datenmodell_ort.pdf)
+![Objekttyp Ort](images/datenmodell_ort.png)
 
 ### Eigenschaften ###
 

@@ -228,7 +228,8 @@
   <sect2 id="mitwirkende">
     <title>Mitwirkende</title>
     <para>
-      Felix Ebert, Jan Erhardt, Andreas Kuckartz, Babett Schalitz
+      Felix Ebert, Jan Erhardt, Andreas Kuckartz, Babett Schalitz, Jakob
+      Voss
     </para>
   </sect2>
 </sect1>
@@ -295,8 +296,8 @@
         verschiedene Schlüssel haben.
       </para>
       <para>
-        Schlüssel-Eigenschaften werden grundsätzlich als String mit
-        Unicode-Zeichenumfang übergeben. Sie können daher gleichermaßen
+        Schlüssel-Eigenschaften werden grundsätzlich als
+        Unicode-Zeichenkette übergeben. Sie können daher gleichermaßen
         aus numerischen wie alphanumerischen Werten befüllt werden.
       </para>
       <para>
@@ -356,7 +357,7 @@
       <title>Objekttyp Körperschaft</title>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/datenmodell_koerperschaft.pdf" />
+          <imagedata fileref="images/datenmodell_koerperschaft.png" />
         </imageobject>
         <textobject><phrase>Objekttyp Körperschaft</phrase></textobject>
       </mediaobject>
@@ -442,9 +443,9 @@
           </term>
           <listitem>
             <para>
-              <emphasis>Optional</emphasis>. URL zu Informationen über
-              die Körperschaft, z.B.
-              &quot;http://www.stadt-koeln.de/&quot;
+              <emphasis>Optional</emphasis>. URL der Homepage oder einer
+              vergleichbaren Seite mit Informationen über die
+              Körperschaft, z.B. &quot;http://www.stadt-koeln.de/&quot;
             </para>
           </listitem>
         </varlistentry>
@@ -521,7 +522,7 @@
       <title>Objekttyp Gremium</title>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/datenmodell_gremium.pdf" />
+          <imagedata fileref="images/datenmodell_gremium.png" />
         </imageobject>
         <textobject><phrase>Objekttyp Gremium</phrase></textobject>
       </mediaobject>
@@ -619,7 +620,7 @@
       <title>Objekttyp Person</title>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/datenmodell_person.pdf" />
+          <imagedata fileref="images/datenmodell_person.png" />
         </imageobject>
         <textobject><phrase>Objekttyp Person</phrase></textobject>
       </mediaobject>
@@ -678,9 +679,10 @@
           <listitem>
             <para>
               <emphasis>Optional</emphasis>. Weiblich (Wert
-              <literal>F</literal> für <emphasis>female</emphasis>) oder
+              <literal>F</literal> für <emphasis>female</emphasis>),
               männlich (Wert <literal>M</literal> für
-              <emphasis>male</emphasis>)
+              <emphasis>male</emphasis>), anderes (Wert
+              <literal>O</literal> für <emphasis>others</emphasis>)
             </para>
           </listitem>
         </varlistentry>
@@ -825,7 +827,7 @@
       <title>Objekttyp Organisation</title>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/datenmodell_organisation.pdf" />
+          <imagedata fileref="images/datenmodell_organisation.png" />
         </imageobject>
         <textobject><phrase>Objekttyp Organisation</phrase></textobject>
       </mediaobject>
@@ -917,7 +919,7 @@
       <title>Objekttyp Sitzung</title>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/datenmodell_sitzung.pdf" />
+          <imagedata fileref="images/datenmodell_sitzung.png" />
         </imageobject>
         <textobject><phrase>Objekttyp Sitzung</phrase></textobject>
       </mediaobject>
@@ -1076,7 +1078,7 @@
       <title>Objekttyp Tagesordnungspunkt</title>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/datenmodell_tagesordnungspunkt.pdf" />
+          <imagedata fileref="images/datenmodell_tagesordnungspunkt.png" />
         </imageobject>
         <textobject><phrase>Objekttyp
         Tagesordnungspunkt</phrase></textobject>
@@ -1276,7 +1278,7 @@
       <title>Objekttyp Stimmabgabe</title>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/datenmodell_stimmabgabe.pdf" />
+          <imagedata fileref="images/datenmodell_stimmabgabe.png" />
         </imageobject>
         <textobject><phrase>Objekttyp Stimmabgabe</phrase></textobject>
       </mediaobject>
@@ -1379,7 +1381,7 @@
       <title>Objekttyp Drucksache</title>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/datenmodell_drucksache.pdf" />
+          <imagedata fileref="images/datenmodell_drucksache.png" />
         </imageobject>
         <textobject><phrase>Objekttyp Drucksache</phrase></textobject>
       </mediaobject>
@@ -1598,7 +1600,7 @@
       <title>Objekttyp Dokument</title>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/datenmodell_dokument.pdf" />
+          <imagedata fileref="images/datenmodell_dokument.png" />
         </imageobject>
         <textobject><phrase>Objekttyp Dokument</phrase></textobject>
       </mediaobject>
@@ -1745,7 +1747,7 @@
       <title>Objekttyp Ort</title>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/datenmodell_ort.pdf" />
+          <imagedata fileref="images/datenmodell_ort.png" />
         </imageobject>
         <textobject><phrase>Objekttyp Ort</phrase></textobject>
       </mediaobject>

@@ -64,7 +64,7 @@
 \fi
 \hypersetup{breaklinks=true,
             bookmarks=true,
-            pdfauthor={Marian Steinbach marian@sendung.de},
+            pdfauthor={OParl Team - http://oparl.de/},
             pdftitle={OParl Schnittstellen-Spezifikation (Entwurf)},
             colorlinks=true,
             urlcolor=blue,
@@ -76,8 +76,7 @@
 \setcounter{secnumdepth}{0}
 
 \title{OParl Schnittstellen-Spezifikation (Entwurf)}
-\author{Marian Steinbach
-                \href{mailto:marian@sendung.de}{\texttt{marian@sendung.de}}}
+\author{OParl Team - http://oparl.de/}
 \date{}
 
 \begin{document}
@@ -240,7 +239,8 @@ OpenOffice-Version dieses Dokuments und ändern Sie das Dokument so, dass
 
 \subsection{Mitwirkende}
 
-Felix Ebert, Jan Erhardt, Andreas Kuckartz, Babett Schalitz, Jakob Voss
+Marian Steinbach, Felix Ebert, Jan Erhardt, Andreas Kuckartz, Babett
+Schalitz, Jakob Voss
 
 \section{Datenmodell}
 
@@ -434,6 +434,8 @@ Der Name des Gremiums. Beispiele: ``Rat'', ``Hauptausschuss'',
 ``Bezirksvertretung 1 (Innenstadt)''
 \item[Kurzname (\texttt{short\_name})]
 \emph{Optional}. Eine zur Anzeige bestimmte, kürzere Form des Namens.
+\item[Zuletzt geändert (\texttt{last\_modified})]
+Datum und Uhrzeit der letzten Änderung
 \end{description}
 
 \subsubsection{Beziehungen}
@@ -461,7 +463,8 @@ Der Name des Gremiums. Beispiele: ``Rat'', ``Hauptausschuss'',
     \DataTypeTok{"id"}\NormalTok{: }\StringTok{"7"}\NormalTok{,}
     \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Finanzausschuss"}\NormalTok{,}
     \DataTypeTok{"short_name"}\NormalTok{: }\StringTok{"FA"}\NormalTok{,}
-    \DataTypeTok{"body"}\NormalTok{: }\StringTok{"1"}
+    \DataTypeTok{"body"}\NormalTok{: }\StringTok{"1"}\NormalTok{,}
+    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -505,6 +508,8 @@ Der Nachname der Person.
 \emph{Optional}.
 \item[Anschrift (\texttt{address})]
 \emph{Optional}. Straße und Hausnummer, Postleitzahl und Ort
+\item[Zuletzt geändert (\texttt{last\_modified})]
+Datum und Uhrzeit der letzten Änderung
 \end{description}
 
 \paragraph{Anmerkungen}
@@ -549,6 +554,7 @@ Der Nachname der Person.
     \DataTypeTok{"phone"}\NormalTok{: }\StringTok{"+4977777"}\NormalTok{,}
     \DataTypeTok{"fax"}\NormalTok{: }\StringTok{"+4988888"}\NormalTok{,}
     \DataTypeTok{"address"}\NormalTok{: }\StringTok{"Musterstraße 5, 11111 Musterort"}\NormalTok{,}
+    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}\NormalTok{,}
     \DataTypeTok{"organisations"}\NormalTok{: [}
         \NormalTok{\{}
             \DataTypeTok{"id"}\NormalTok{: }\StringTok{"2000"}\NormalTok{,}
@@ -589,6 +595,8 @@ Zur eindeutigen Kennzeichnung einer Organisation innerhalb des Systems
 \item[Name (\texttt{name})]
 Der gebräuchliche Name der Organisation, z.B. ``SPD'' oder ``DIE
 LINKE''.
+\item[Zuletzt geändert (\texttt{last\_modified})]
+Datum und Uhrzeit der letzten Änderung
 \end{description}
 
 \paragraph{Anmerkungen}
@@ -618,7 +626,8 @@ LINKE''.
 \NormalTok{\{}
     \DataTypeTok{"id"}\NormalTok{: }\StringTok{"15"}\NormalTok{,}
     \DataTypeTok{"name"}\NormalTok{: }\StringTok{"SPD"}\NormalTok{,}
-    \DataTypeTok{"body"}\NormalTok{: }\StringTok{"1"}
+    \DataTypeTok{"body"}\NormalTok{: }\StringTok{"1"}\NormalTok{,}
+    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -660,6 +669,8 @@ Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung
 \item[Ort (\texttt{address})]
 \emph{Optional}. Textliche Information zum Ort der Sitzung, z.B.
 ``Rathaus, Raum 136''.
+\item[Zuletzt geändert (\texttt{last\_modified})]
+Datum und Uhrzeit der letzten Änderung
 \end{description}
 
 \subsubsection{Beziehungen}
@@ -707,7 +718,8 @@ Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung
     \DataTypeTok{"attachments"}\NormalTok{: [}
         \StringTok{"0004/2013"}\NormalTok{,}
         \StringTok{"0005/2013"}
-    \NormalTok{]}
+    \NormalTok{],}
+    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2012-01-08T14:05:27+01:00"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -758,6 +770,8 @@ die Angabe, an welches Gremium verwiesen wurde.
 gefasst wurde, kann der Text hier hinterlegt werden. Das ist besonders
 dann in der Praxis relevant, wenn der gefasste Beschluss (z.B. durch
 Änderungsantrag) von der Beschlussvorlage abweicht.
+\item[Zuletzt geändert (\texttt{last\_modified})]
+Datum und Uhrzeit der letzten Änderung
 \end{description}
 
 \paragraph{Anmerkungen}
@@ -823,7 +837,8 @@ dann in der Praxis relevant, wenn der gefasste Beschluss (z.B. durch
             \DataTypeTok{"organisations"}\NormalTok{: [],}
             \DataTypeTok{"people"}\NormalTok{: [}\StringTok{"1001"}\NormalTok{]}
         \NormalTok{\}}
-    \NormalTok{]}
+    \NormalTok{],}
+    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -955,6 +970,8 @@ werden mancherorts führende Nullen verwendet.
 Datum der Veröffentlichung
 \item[Typ (\texttt{type})]
 Art der Drucksache (Erläuterung siehe oben)
+\item[Zuletzt geändert (\texttt{last\_modified})]
+Datum und Uhrzeit der letzten Änderung
 \end{description}
 
 \subsubsection{Beziehungen}
@@ -1037,7 +1054,8 @@ Art der Drucksache (Erläuterung siehe oben)
             \DataTypeTok{"agendaitem"}\NormalTok{: }\StringTok{"3.1.2"}\NormalTok{,}
             \DataTypeTok{"role"}\NormalTok{: }\StringTok{"Federführende Beratung"}
         \NormalTok{\}}
-    \NormalTok{]}
+    \NormalTok{],}
+    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2013-01-08T12:05:27+01:00"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -1117,10 +1135,16 @@ eine reine Abbildung handelt.
 Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal
 abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen
 (beispielsweise der Name einer Straße/eines Platzes oder eine genaue
-Adresse) oder aus einer Geo-Koordinatenangabe aus Längen- und
-Breitengrad.
+Adresse) als auch aus Geodaten.
 
-Bislang finden sich nur beim Bonner System Beispiele für Ortsangaben.
+OParl sieht die Angabe von Geodaten in Anlehnung an die
+GeoJSON-Spezifikation {[}13{]} vor. Die GeoJSON-Spezifikation erlaubt
+die Abbildung von vielen unterschiedlichen Geometrien wie Punkten,
+Pfaden und Polygonen. Während GeoJSON zu jedem Geodaten-Objekt auch die
+Speicherung zusätzlicher Metadaten ermöglicht, beschränkt sich OParl
+ledliglich auf das \texttt{geometry}-Attribut in GeoJSON. Sämtliche
+Geo-Koordinatenangaben werden in in OParl im WGS-84-System {[}11{]}
+erwartet.
 
 \begin{figure}[htbp]
 \centering
@@ -1131,12 +1155,13 @@ Bislang finden sich nur beim Bonner System Beispiele für Ortsangaben.
 \subsubsection{Eigenschaften}
 
 \begin{description}
-\item[Textanabe]
+\item[Textanabe (\texttt{description})]
 \emph{Optional.} Textliche Beschreibung eines Orts, z.B. in Form einer
 Adresse
-\item[Koordinaten]
-\emph{Optional.} Längen- und Breitenangabe des Orts im WGS-84-System
-{[}11{]}
+\item[Koordinaten (\texttt{geometry})]
+\emph{Optional.} GeoJSON geometry Objekt
+\item[Zuletzt geändert (\texttt{last\_modified})]
+Datum und Uhrzeit der letzten Änderung
 \end{description}
 
 \subsubsection{Beziehungen}
@@ -1145,6 +1170,19 @@ Adresse
 \item
   Orte können mit Drucksachen in Verbindung stehen.
 \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Honschaftsstraße 312, 51061 Köln"}\NormalTok{,}
+    \DataTypeTok{"geometry"}\NormalTok{: \{}
+        \DataTypeTok{"type"}\NormalTok{: }\StringTok{"Point"}\NormalTok{,}
+        \DataTypeTok{"coordinates"}\NormalTok{: [}\FloatTok{7.03291}\NormalTok{, }\FloatTok{50.98249}\NormalTok{]}
+    \NormalTok{\},}
+    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2013-02-14T14:05:27+01:00"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 \section{Zugriffsmethoden}
 
@@ -1220,5 +1258,7 @@ auch vom Global Positioning System (GPS) verwendet.
 
 {[}12{]}: Gemeinsame Normdatei:
 \href{http://de.wikipedia.org/wiki/Gemeinsame\_Normdatei}{de.wikipedia.org/wiki/Gemeinsame\_Normdatei}
+
+{[}13{]}: GeoJSON \href{http://www.geojson.org/}{www.geojson.org}
 
 \end{document}

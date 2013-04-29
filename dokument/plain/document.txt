@@ -147,7 +147,8 @@ nachverfolgen).
 Mitwirkende
 -----------
 
-Felix Ebert, Jan Erhardt, Andreas Kuckartz, Babett Schalitz, Jakob Voss
+Marian Steinbach, Felix Ebert, Jan Erhardt, Andreas Kuckartz, Babett
+Schalitz, Jakob Voss
 
 Datenmodell
 ===========
@@ -321,6 +322,8 @@ Name (name)
     "Bezirksvertretung 1 (Innenstadt)"
 Kurzname (short_name)
     Optional. Eine zur Anzeige bestimmte, kürzere Form des Namens.
+Zuletzt geändert (last_modified)
+    Datum und Uhrzeit der letzten Änderung
 
 Beziehungen
 
@@ -341,7 +344,8 @@ Beispiel
         "id": "7",
         "name": "Finanzausschuss",
         "short_name": "FA",
-        "body": "1"
+        "body": "1",
+        "last_modified": "2012-08-16T14:05:27+02:00"
     }
 
 Person (person)
@@ -378,6 +382,8 @@ Fax (fax)
     Optional.
 Anschrift (address)
     Optional. Straße und Hausnummer, Postleitzahl und Ort
+Zuletzt geändert (last_modified)
+    Datum und Uhrzeit der letzten Änderung
 
 Anmerkungen
 
@@ -411,6 +417,7 @@ Beispiel
         "phone": "+4977777",
         "fax": "+4988888",
         "address": "Musterstraße 5, 11111 Musterort",
+        "last_modified": "2012-08-16T14:05:27+02:00",
         "organisations": [
             {
                 "id": "2000",
@@ -446,6 +453,8 @@ Schlüssel (id)
 Name (name)
     Der gebräuchliche Name der Organisation, z.B. "SPD" oder "DIE
     LINKE".
+Zuletzt geändert (last_modified)
+    Datum und Uhrzeit der letzten Änderung
 
 Anmerkungen
 
@@ -466,7 +475,8 @@ Beispiel
     {
         "id": "15",
         "name": "SPD",
-        "body": "1"
+        "body": "1",
+        "last_modified": "2012-08-16T14:05:27+02:00"
     }
 
 Sitzung (meeting)
@@ -502,6 +512,8 @@ Ende (end)
 Ort (address)
     Optional. Textliche Information zum Ort der Sitzung, z.B. "Rathaus,
     Raum 136".
+Zuletzt geändert (last_modified)
+    Datum und Uhrzeit der letzten Änderung
 
 Beziehungen
 
@@ -535,7 +547,8 @@ Beispiel
         "attachments": [
             "0004/2013",
             "0005/2013"
-        ]
+        ],
+        "last_modified": "2012-01-08T14:05:27+01:00"
     }
 
 Tagesordnungspunkt (agendaitem)
@@ -580,6 +593,8 @@ Beschlusstext (resolution_text)
     wurde, kann der Text hier hinterlegt werden. Das ist besonders dann
     in der Praxis relevant, wenn der gefasste Beschluss (z.B. durch
     Änderungsantrag) von der Beschlussvorlage abweicht.
+Zuletzt geändert (last_modified)
+    Datum und Uhrzeit der letzten Änderung
 
 Anmerkungen
 
@@ -632,7 +647,8 @@ Beispiel
                 "organisations": [],
                 "people": ["1001"]
             }
-        ]
+        ],
+        "last_modified": "2012-08-16T14:05:27+02:00"
     }
 
 Stimmabgabe (vote)
@@ -734,6 +750,8 @@ Datum (date)
     Datum der Veröffentlichung
 Typ (type)
     Art der Drucksache (Erläuterung siehe oben)
+Zuletzt geändert (last_modified)
+    Datum und Uhrzeit der letzten Änderung
 
 Beziehungen
 
@@ -804,7 +822,8 @@ Beispiel
                 "agendaitem": "3.1.2",
                 "role": "Federführende Beratung"
             }
-        ]
+        ],
+        "last_modified": "2013-01-08T12:05:27+01:00"
     }
 
 Dokument (document)
@@ -870,24 +889,41 @@ Ort (location)
 Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal
 abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen
 (beispielsweise der Name einer Straße/eines Platzes oder eine genaue
-Adresse) oder aus einer Geo-Koordinatenangabe aus Längen- und
-Breitengrad.
+Adresse) als auch aus Geodaten.
 
-Bislang finden sich nur beim Bonner System Beispiele für Ortsangaben.
+OParl sieht die Angabe von Geodaten in Anlehnung an die
+GeoJSON-Spezifikation [13] vor. Die GeoJSON-Spezifikation erlaubt die
+Abbildung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden
+und Polygonen. Während GeoJSON zu jedem Geodaten-Objekt auch die
+Speicherung zusätzlicher Metadaten ermöglicht, beschränkt sich OParl
+ledliglich auf das geometry-Attribut in GeoJSON. Sämtliche
+Geo-Koordinatenangaben werden in in OParl im WGS-84-System [11]
+erwartet.
 
 [Objekttyp Ort]
 
 Eigenschaften
 
-Textanabe
+Textanabe (description)
     Optional. Textliche Beschreibung eines Orts, z.B. in Form einer
     Adresse
-Koordinaten
-    Optional. Längen- und Breitenangabe des Orts im WGS-84-System [11]
+Koordinaten (geometry)
+    Optional. GeoJSON geometry Objekt
+Zuletzt geändert (last_modified)
+    Datum und Uhrzeit der letzten Änderung
 
 Beziehungen
 
 -   Orte können mit Drucksachen in Verbindung stehen.
+
+    {
+        "description": "Honschaftsstraße 312, 51061 Köln",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [7.03291, 50.98249]
+        },
+        "last_modified": "2013-02-14T14:05:27+01:00"
+    }
 
 Zugriffsmethoden
 ================
@@ -948,3 +984,5 @@ http://www2.bonn.de/...
 vom Global Positioning System (GPS) verwendet.
 
 [12]: Gemeinsame Normdatei: de.wikipedia.org/wiki/Gemeinsame_Normdatei
+
+[13]: GeoJSON www.geojson.org

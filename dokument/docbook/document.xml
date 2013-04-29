@@ -228,8 +228,8 @@
   <sect2 id="mitwirkende">
     <title>Mitwirkende</title>
     <para>
-      Felix Ebert, Jan Erhardt, Andreas Kuckartz, Babett Schalitz, Jakob
-      Voss
+      Marian Steinbach, Felix Ebert, Jan Erhardt, Andreas Kuckartz,
+      Babett Schalitz, Jakob Voss
     </para>
   </sect2>
 </sect1>
@@ -567,6 +567,16 @@
             </para>
           </listitem>
         </varlistentry>
+        <varlistentry>
+          <term>
+            Zuletzt geändert (<literal>last_modified</literal>)
+          </term>
+          <listitem>
+            <para>
+              Datum und Uhrzeit der letzten Änderung
+            </para>
+          </listitem>
+        </varlistentry>
       </variablelist>
     </sect3>
     <sect3 id="beziehungen-1">
@@ -605,7 +615,8 @@
     &quot;id&quot;: &quot;7&quot;,
     &quot;name&quot;: &quot;Finanzausschuss&quot;,
     &quot;short_name&quot;: &quot;FA&quot;,
-    &quot;body&quot;: &quot;1&quot;
+    &quot;body&quot;: &quot;1&quot;,
+    &quot;last_modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
 }
 </programlisting>
     </sect3>
@@ -738,6 +749,16 @@
             </para>
           </listitem>
         </varlistentry>
+        <varlistentry>
+          <term>
+            Zuletzt geändert (<literal>last_modified</literal>)
+          </term>
+          <listitem>
+            <para>
+              Datum und Uhrzeit der letzten Änderung
+            </para>
+          </listitem>
+        </varlistentry>
       </variablelist>
       <sect4 id="anmerkungen">
         <title>Anmerkungen</title>
@@ -796,6 +817,7 @@
     &quot;phone&quot;: &quot;+4977777&quot;,
     &quot;fax&quot;: &quot;+4988888&quot;,
     &quot;address&quot;: &quot;Musterstraße 5, 11111 Musterort&quot;,
+    &quot;last_modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;,
     &quot;organisations&quot;: [
         {
             &quot;id&quot;: &quot;2000&quot;,
@@ -857,6 +879,16 @@
             </para>
           </listitem>
         </varlistentry>
+        <varlistentry>
+          <term>
+            Zuletzt geändert (<literal>last_modified</literal>)
+          </term>
+          <listitem>
+            <para>
+              Datum und Uhrzeit der letzten Änderung
+            </para>
+          </listitem>
+        </varlistentry>
       </variablelist>
       <sect4 id="anmerkungen-1">
         <title>Anmerkungen</title>
@@ -898,7 +930,8 @@
 {
     &quot;id&quot;: &quot;15&quot;,
     &quot;name&quot;: &quot;SPD&quot;,
-    &quot;body&quot;: &quot;1&quot;
+    &quot;body&quot;: &quot;1&quot;,
+    &quot;last_modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
 }
 </programlisting>
   </sect2>
@@ -988,6 +1021,16 @@
             </para>
           </listitem>
         </varlistentry>
+        <varlistentry>
+          <term>
+            Zuletzt geändert (<literal>last_modified</literal>)
+          </term>
+          <listitem>
+            <para>
+              Datum und Uhrzeit der letzten Änderung
+            </para>
+          </listitem>
+        </varlistentry>
       </variablelist>
     </sect3>
     <sect3 id="beziehungen-4">
@@ -1055,7 +1098,8 @@
     &quot;attachments&quot;: [
         &quot;0004/2013&quot;,
         &quot;0005/2013&quot;
-    ]
+    ],
+    &quot;last_modified&quot;: &quot;2012-01-08T14:05:27+01:00&quot;
 }
 </programlisting>
     </sect3>
@@ -1167,6 +1211,16 @@
             </para>
           </listitem>
         </varlistentry>
+        <varlistentry>
+          <term>
+            Zuletzt geändert (<literal>last_modified</literal>)
+          </term>
+          <listitem>
+            <para>
+              Datum und Uhrzeit der letzten Änderung
+            </para>
+          </listitem>
+        </varlistentry>
       </variablelist>
       <sect4 id="anmerkungen-2">
         <title>Anmerkungen</title>
@@ -1251,7 +1305,8 @@
             &quot;organisations&quot;: [],
             &quot;people&quot;: [&quot;1001&quot;]
         }
-    ]
+    ],
+    &quot;last_modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
 }
 </programlisting>
     </sect3>
@@ -1464,6 +1519,16 @@
             </para>
           </listitem>
         </varlistentry>
+        <varlistentry>
+          <term>
+            Zuletzt geändert (<literal>last_modified</literal>)
+          </term>
+          <listitem>
+            <para>
+              Datum und Uhrzeit der letzten Änderung
+            </para>
+          </listitem>
+        </varlistentry>
       </variablelist>
     </sect3>
     <sect3 id="beziehungen-7">
@@ -1575,7 +1640,8 @@
             &quot;agendaitem&quot;: &quot;3.1.2&quot;,
             &quot;role&quot;: &quot;Federführende Beratung&quot;
         }
-    ]
+    ],
+    &quot;last_modified&quot;: &quot;2013-01-08T12:05:27+01:00&quot;
 }
 </programlisting>
     </sect3>
@@ -1736,12 +1802,17 @@
       Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache
       formal abzubilden. Ortsangaben können sowohl aus Textinformationen
       bestehen (beispielsweise der Name einer Straße/eines Platzes oder
-      eine genaue Adresse) oder aus einer Geo-Koordinatenangabe aus
-      Längen- und Breitengrad.
+      eine genaue Adresse) als auch aus Geodaten.
     </para>
     <para>
-      Bislang finden sich nur beim Bonner System Beispiele für
-      Ortsangaben.
+      OParl sieht die Angabe von Geodaten in Anlehnung an die
+      GeoJSON-Spezifikation [13] vor. Die GeoJSON-Spezifikation erlaubt
+      die Abbildung von vielen unterschiedlichen Geometrien wie Punkten,
+      Pfaden und Polygonen. Während GeoJSON zu jedem Geodaten-Objekt
+      auch die Speicherung zusätzlicher Metadaten ermöglicht, beschränkt
+      sich OParl ledliglich auf das <literal>geometry</literal>-Attribut
+      in GeoJSON. Sämtliche Geo-Koordinatenangaben werden in in OParl im
+      WGS-84-System [11] erwartet.
     </para>
     <figure>
       <title>Objekttyp Ort</title>
@@ -1757,7 +1828,7 @@
       <variablelist>
         <varlistentry>
           <term>
-            Textanabe
+            Textanabe (<literal>description</literal>)
           </term>
           <listitem>
             <para>
@@ -1768,12 +1839,21 @@
         </varlistentry>
         <varlistentry>
           <term>
-            Koordinaten
+            Koordinaten (<literal>geometry</literal>)
           </term>
           <listitem>
             <para>
-              <emphasis>Optional.</emphasis> Längen- und Breitenangabe
-              des Orts im WGS-84-System [11]
+              <emphasis>Optional.</emphasis> GeoJSON geometry Objekt
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Zuletzt geändert (<literal>last_modified</literal>)
+          </term>
+          <listitem>
+            <para>
+              Datum und Uhrzeit der letzten Änderung
             </para>
           </listitem>
         </varlistentry>
@@ -1788,6 +1868,16 @@
           </para>
         </listitem>
       </itemizedlist>
+      <programlisting language="json">
+{
+    &quot;description&quot;: &quot;Honschaftsstraße 312, 51061 Köln&quot;,
+    &quot;geometry&quot;: {
+        &quot;type&quot;: &quot;Point&quot;,
+        &quot;coordinates&quot;: [7.03291, 50.98249]
+    },
+    &quot;last_modified&quot;: &quot;2013-02-14T14:05:27+01:00&quot;
+}
+</programlisting>
     </sect3>
   </sect2>
 </sect1>
@@ -1914,5 +2004,9 @@
   <para>
     [12]: Gemeinsame Normdatei:
     <ulink url="http://de.wikipedia.org/wiki/Gemeinsame_Normdatei">de.wikipedia.org/wiki/Gemeinsame_Normdatei</ulink>
+  </para>
+  <para>
+    [13]: GeoJSON
+    <ulink url="http://www.geojson.org/">www.geojson.org</ulink>
   </para>
 </sect1>

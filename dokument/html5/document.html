@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <meta name="author" content="Marian Steinbach marian@sendung.de">
+  <meta name="author" content="OParl Team - http://oparl.de/">
   <title>OParl Schnittstellen-Spezifikation (Entwurf)</title>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -31,12 +31,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <body>
 <header>
 <h1 class="title">OParl Schnittstellen-Spezifikation (Entwurf)</h1>
-<h2 class="author">Marian Steinbach <script type="text/javascript">
-                   <!--
-                   h='&#x73;&#x65;&#110;&#100;&#x75;&#110;&#x67;&#46;&#100;&#x65;';a='&#64;';n='&#x6d;&#x61;&#114;&#x69;&#x61;&#110;';e=n+a+h;
-                   document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'<code>'+e+'</code>'+'<\/'+'a'+'>');
-                   // -->
-                   </script><noscript>&#x6d;&#x61;&#114;&#x69;&#x61;&#110;&#32;&#x61;&#116;&#32;&#x73;&#x65;&#110;&#100;&#x75;&#110;&#x67;&#32;&#100;&#x6f;&#116;&#32;&#100;&#x65;</noscript></h2>
+<h2 class="author">OParl Team - http://oparl.de/</h2>
 </header>
 <p>Lizenz: Creative Commons CC-BY-SA</p>
 <h1 id="einleitung"><span class="header-section-number">1</span> Einleitung</h1>
@@ -89,7 +84,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Sollten Sie keinen der oben beschriebenen Wege beschreiten wollen, können Sie Anmerkungen zum Dokument per E-Mail an marian@sendung.de einsenden. Bitte verwenden Sie dabei den Begriff &quot;oparl-specs&quot; im Betreff.</p>
 <p>Sollten Sie auf diesem Wege Anmerkungen direkt am/im Dokumententext übersenden wollen, nutzen Sie bitte falls möglich die Word- oder OpenOffice-Version dieses Dokuments und ändern Sie das Dokument so, dass Änderungen aufgezeichnet werden (OpenOffice: Bearbeiten &gt; Änderungen &gt; Aufzeichnen; Word: Ribbon &quot;Überprüfen&quot; &gt; Nachverfolgung &gt; Änderungen nachverfolgen).</p>
 <h2 id="mitwirkende"><span class="header-section-number">1.8</span> Mitwirkende</h2>
-<p>Felix Ebert, Jan Erhardt, Andreas Kuckartz, Babett Schalitz, Jakob Voss</p>
+<p>Marian Steinbach, Felix Ebert, Jan Erhardt, Andreas Kuckartz, Babett Schalitz, Jakob Voss</p>
 <h1 id="datenmodell"><span class="header-section-number">2</span> Datenmodell</h1>
 <p>Das Datenmodell definiert die Objekttypen bzw. die Klassen, auf die über die Schnittstelle zugegriffen werden kann.</p>
 <p>Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen beziehen sich auf nach außen, bei Nutzung der jeweiligen Weboberflächen, feststellbare Eigenschaften. Dabei wird vereinzelt und beispielhaft auf die folgenden Systeme Bezug genommen:</p>
@@ -179,6 +174,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dt>Kurzname (<code>short_name</code>)</dt>
 <dd><em>Optional</em>. Eine zur Anzeige bestimmte, kürzere Form des Namens.
 </dd>
+<dt>Zuletzt geändert (<code>last_modified</code>)</dt>
+<dd>Datum und Uhrzeit der letzten Änderung
+</dd>
 </dl>
 <h3 id="beziehungen-1"><span class="header-section-number">2.3.2</span> Beziehungen</h3>
 <ul>
@@ -191,7 +189,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;7&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Finanzausschuss&quot;</span>,
     <span class="dt">&quot;short_name&quot;</span>: <span class="st">&quot;FA&quot;</span>,
-    <span class="dt">&quot;body&quot;</span>: <span class="st">&quot;1&quot;</span>
+    <span class="dt">&quot;body&quot;</span>: <span class="st">&quot;1&quot;</span>,
+    <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
 <h2 id="person-person"><span class="header-section-number">2.4</span> Person (<em>person</em>)</h2>
 <p>Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person im Datenmodell eindeutig identifizierbar.</p>
@@ -230,6 +229,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dt>Anschrift (<code>address</code>)</dt>
 <dd><em>Optional</em>. Straße und Hausnummer, Postleitzahl und Ort
 </dd>
+<dt>Zuletzt geändert (<code>last_modified</code>)</dt>
+<dd>Datum und Uhrzeit der letzten Änderung
+</dd>
 </dl>
 <h4 id="anmerkungen"><span class="header-section-number">2.4.1.1</span> Anmerkungen</h4>
 <ul>
@@ -253,6 +255,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
     <span class="dt">&quot;phone&quot;</span>: <span class="st">&quot;+4977777&quot;</span>,
     <span class="dt">&quot;fax&quot;</span>: <span class="st">&quot;+4988888&quot;</span>,
     <span class="dt">&quot;address&quot;</span>: <span class="st">&quot;Musterstraße 5, 11111 Musterort&quot;</span>,
+    <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>,
     <span class="dt">&quot;organisations&quot;</span>: [
         {
             <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;2000&quot;</span>,
@@ -284,6 +287,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dt>Name (<code>name</code>)</dt>
 <dd>Der gebräuchliche Name der Organisation, z.B. &quot;SPD&quot; oder &quot;DIE LINKE&quot;.
 </dd>
+<dt>Zuletzt geändert (<code>last_modified</code>)</dt>
+<dd>Datum und Uhrzeit der letzten Änderung
+</dd>
 </dl>
 <h4 id="anmerkungen-1"><span class="header-section-number">2.5.1.1</span> Anmerkungen</h4>
 <ul>
@@ -298,7 +304,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <pre class="sourceCode json" id="organisation_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;15&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;SPD&quot;</span>,
-    <span class="dt">&quot;body&quot;</span>: <span class="st">&quot;1&quot;</span>
+    <span class="dt">&quot;body&quot;</span>: <span class="st">&quot;1&quot;</span>,
+    <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
 <h2 id="sitzung-meeting"><span class="header-section-number">2.7</span> Sitzung (<code>meeting</code>)</h2>
 <p>Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.</p>
@@ -322,6 +329,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </dd>
 <dt>Ort (<code>address</code>)</dt>
 <dd><em>Optional</em>. Textliche Information zum Ort der Sitzung, z.B. &quot;Rathaus, Raum 136&quot;.
+</dd>
+<dt>Zuletzt geändert (<code>last_modified</code>)</dt>
+<dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
 <h3 id="beziehungen-4"><span class="header-section-number">2.7.2</span> Beziehungen</h3>
@@ -352,7 +362,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
     <span class="dt">&quot;attachments&quot;</span>: [
         <span class="st">&quot;0004/2013&quot;</span>,
         <span class="st">&quot;0005/2013&quot;</span>
-    ]
+    ],
+    <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-01-08T14:05:27+01:00&quot;</span>
 }</code></pre>
 <h2 id="tagesordnungspunkt-agendaitem"><span class="header-section-number">2.8</span> Tagesordnungspunkt (<code>agendaitem</code>)</h2>
 <p>Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. Unter Umständen kann dem Tagesordnungspunkt ein bestimmter Beschlusstext beigefügt sein. Ein Abstimmungsergebnis kann es durch mehrere referenzierende Objekte vom Typ &quot;Stimmabgabe&quot; festgehalten werden.</p>
@@ -379,6 +390,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </dd>
 <dt>Beschlusstext (<code>resolution_text</code>)</dt>
 <dd><em>Optional</em>. Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) von der Beschlussvorlage abweicht.
+</dd>
+<dt>Zuletzt geändert (<code>last_modified</code>)</dt>
+<dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
 <h4 id="anmerkungen-2"><span class="header-section-number">2.8.1.1</span> Anmerkungen</h4>
@@ -421,7 +435,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
             <span class="dt">&quot;organisations&quot;</span>: [],
             <span class="dt">&quot;people&quot;</span>: [<span class="st">&quot;1001&quot;</span>]
         }
-    ]
+    ],
+    <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
 <h2 id="stimmabgabe-vote"><span class="header-section-number">2.9</span> Stimmabgabe (<code>vote</code>)</h2>
 <p>Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt abgestimmt hat, wird durch eine Stimmabgabe festgehalten. Ganze Abstimmungsergebnisse bestehen überlicherweise aus mehreren Stimmabgaben. Jede Stimmabgabe gibt entweder die (einzelne) Stimme einer Person wieder (in diesem Fall ist die Anzahl der Stimmen zwingend 1) oder das einer ganzen Gruppe von Personen. Dann ist die Anzahl der Stimmen anzugeben und statt einer Person eine Organisation (in der Regel die Fraktion) zu referenzieren.</p>
@@ -482,6 +497,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dt>Typ (<code>type</code>)</dt>
 <dd>Art der Drucksache (Erläuterung siehe oben)
 </dd>
+<dt>Zuletzt geändert (<code>last_modified</code>)</dt>
+<dd>Datum und Uhrzeit der letzten Änderung
+</dd>
 </dl>
 <h3 id="beziehungen-7"><span class="header-section-number">2.10.2</span> Beziehungen</h3>
 <ul>
@@ -530,7 +548,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
             <span class="dt">&quot;agendaitem&quot;</span>: <span class="st">&quot;3.1.2&quot;</span>,
             <span class="dt">&quot;role&quot;</span>: <span class="st">&quot;Federführende Beratung&quot;</span>
         }
-    ]
+    ],
+    <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2013-01-08T12:05:27+01:00&quot;</span>
 }</code></pre>
 <h2 id="dokument-document"><span class="header-section-number">2.11</span> Dokument (<code>document</code>)</h2>
 <p>Ein Dokument hält die Metadaten einer Datei vor, beispielsweise einer PDF-Datei, eines RTF- oder Word-Dokuments.</p>
@@ -571,7 +590,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>Dokumente gehören zwingend zu einer <strong>Drucksache</strong>, optional auch zu mehreren. Ein Dokument kann entweder als Hauptdokument einer Drucksache oder als Anlage eingestuft sein.</li>
 <li>Ein Dokument kann auf ein anderes Dokument referenzieren, wenn es von dem anderen Dokument abstammt. So ist es möglich, von einem abgeleiteten Dokument zu seinem Dokumenten-Master zu gelangen (Beispiel: von einem PDF-Dokument zum OpenOffice-Original).</li>
 </ul>
-<pre class="sourceCode json" id="paper_ex1"><code class="sourceCode json">{
+<pre class="sourceCode json" id="document_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;3000&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;3000.pdf&quot;</span>,
     <span class="dt">&quot;mime_type&quot;</span>: <span class="st">&quot;application/pdf&quot;</span>,
@@ -583,24 +602,35 @@ code > span.er { color: #ff0000; font-weight: bold; }
     <span class="dt">&quot;master&quot;</span>: <span class="st">&quot;2099&quot;</span>
 }</code></pre>
 <h2 id="ort-location"><span class="header-section-number">2.12</span> Ort (<code>location</code>)</h2>
-<p>Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen (beispielsweise der Name einer Straße/eines Platzes oder eine genaue Adresse) oder aus einer Geo-Koordinatenangabe aus Längen- und Breitengrad.</p>
-<p>Bislang finden sich nur beim Bonner System Beispiele für Ortsangaben.</p>
+<p>Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen (beispielsweise der Name einer Straße/eines Platzes oder eine genaue Adresse) als auch aus Geodaten.</p>
+<p>OParl sieht die Angabe von Geodaten in Anlehnung an die GeoJSON-Spezifikation [13] vor. Die GeoJSON-Spezifikation erlaubt die Abbildung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden und Polygonen. Während GeoJSON zu jedem Geodaten-Objekt auch die Speicherung zusätzlicher Metadaten ermöglicht, beschränkt sich OParl ledliglich auf das <code>geometry</code>-Attribut in GeoJSON. Sämtliche Geo-Koordinatenangaben werden in in OParl im WGS-84-System [11] erwartet.</p>
 <figure>
 <img src="images/datenmodell_ort.png" alt="Objekttyp Ort"><figcaption>Objekttyp Ort</figcaption>
 </figure>
 <h3 id="eigenschaften-9"><span class="header-section-number">2.12.1</span> Eigenschaften</h3>
 <dl>
-<dt>Textanabe</dt>
+<dt>Textanabe (<code>description</code>)</dt>
 <dd><em>Optional.</em> Textliche Beschreibung eines Orts, z.B. in Form einer Adresse
 </dd>
-<dt>Koordinaten</dt>
-<dd><em>Optional.</em> Längen- und Breitenangabe des Orts im WGS-84-System [11]
+<dt>Koordinaten (<code>geometry</code>)</dt>
+<dd><em>Optional.</em> GeoJSON geometry Objekt
+</dd>
+<dt>Zuletzt geändert (<code>last_modified</code>)</dt>
+<dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
 <h3 id="beziehungen-9"><span class="header-section-number">2.12.2</span> Beziehungen</h3>
 <ul>
 <li>Orte können mit Drucksachen in Verbindung stehen.</li>
 </ul>
+<pre class="sourceCode json" id="location_ex1"><code class="sourceCode json">{
+    <span class="dt">&quot;description&quot;</span>: <span class="st">&quot;Honschaftsstraße 312, 51061 Köln&quot;</span>,
+    <span class="dt">&quot;geometry&quot;</span>: {
+        <span class="dt">&quot;type&quot;</span>: <span class="st">&quot;Point&quot;</span>,
+        <span class="dt">&quot;coordinates&quot;</span>: [<span class="fl">7.03291</span>, <span class="fl">50.98249</span>]
+    },
+    <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2013-02-14T14:05:27+01:00&quot;</span>
+}</code></pre>
 <h1 id="zugriffsmethoden"><span class="header-section-number">3</span> Zugriffsmethoden</h1>
 <p>In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen Schnittstelle beschrieben.</p>
 <p>Stichpunkte:</p>
@@ -634,5 +664,6 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>[10]: BoRis, Ratsinformationssystem der Stadt Bonn (Eigenentwicklung). <a href="http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp">http://www2.bonn.de/...</a></p>
 <p>[11]: World Geodetic System 1984 (EPSG:4326), wird unter anderem auch vom Global Positioning System (GPS) verwendet.</p>
 <p>[12]: Gemeinsame Normdatei: <a href="http://de.wikipedia.org/wiki/Gemeinsame_Normdatei">de.wikipedia.org/wiki/Gemeinsame_Normdatei</a></p>
+<p>[13]: GeoJSON <a href="http://www.geojson.org/">www.geojson.org</a></p>
 </body>
 </html>

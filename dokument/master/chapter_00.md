@@ -1,5 +1,5 @@
 % OParl Schnittstellen-Spezifikation (Entwurf)
-% Marian Steinbach <marian@sendung.de>
+% OParl Team - http://oparl.de/
 
 
 Lizenz: Creative Commons CC-BY-SA

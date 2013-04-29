@@ -24,3 +24,5 @@ Fußnoten
 [11]: World Geodetic System 1984 (EPSG:4326), wird unter anderem auch vom Global Positioning System (GPS) verwendet.
 
 [12]: Gemeinsame Normdatei: [de.wikipedia.org/wiki/Gemeinsame_Normdatei](http://de.wikipedia.org/wiki/Gemeinsame_Normdatei)
+
+[13]: GeoJSON [www.geojson.org](http://www.geojson.org/)

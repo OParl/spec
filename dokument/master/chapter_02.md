@@ -176,6 +176,8 @@ Name (`name`)
     "Bezirksvertretung 1 (Innenstadt)"
 Kurzname (`short_name`)
 :   _Optional_. Eine zur Anzeige bestimmte, kürzere Form des Namens.
+Zuletzt geändert (`last_modified`)
+:   Datum und Uhrzeit der letzten Änderung
 
 
 ### Beziehungen ###
@@ -196,7 +198,8 @@ zugeordnet. Details zu dieser Beziehung werden unter "Drucksache" erläutert.
     "id": "7",
     "name": "Finanzausschuss",
     "short_name": "FA",
-    "body": "1"
+    "body": "1",
+    "last_modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
 
@@ -234,6 +237,8 @@ Fax (`fax`)
 :   _Optional_.
 Anschrift (`address`)
 :   _Optional_. Straße und Hausnummer, Postleitzahl und Ort
+Zuletzt geändert (`last_modified`)
+:   Datum und Uhrzeit der letzten Änderung
 
 
 #### Anmerkungen ####
@@ -269,6 +274,7 @@ Beziehungen sind ebenfalls datiert.
     "phone": "+4977777",
     "fax": "+4988888",
     "address": "Musterstraße 5, 11111 Musterort",
+    "last_modified": "2012-08-16T14:05:27+02:00",
     "organisations": [
         {
             "id": "2000",
@@ -304,6 +310,8 @@ Schlüssel (`id`)
     Systems
 Name (`name`)
 :   Der gebräuchliche Name der Organisation, z.B. "SPD" oder "DIE LINKE".
+Zuletzt geändert (`last_modified`)
+:   Datum und Uhrzeit der letzten Änderung
 
 #### Anmerkungen ####
 
@@ -324,7 +332,8 @@ berücksichtigt werden.
 {
     "id": "15",
     "name": "SPD",
-    "body": "1"
+    "body": "1",
+    "last_modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
 
@@ -359,6 +368,8 @@ Ende (`end`)
 :   _Optional_. Datum und Uhrzeit vom Ende der Sitzung
 Ort (`address`)
 :   _Optional_. Textliche Information zum Ort der Sitzung, z.B. "Rathaus, Raum 136".
+Zuletzt geändert (`last_modified`)
+:   Datum und Uhrzeit der letzten Änderung
 
 
 ### Beziehungen ###
@@ -393,7 +404,8 @@ um nicht weiter spezifizierte Anlagen.
     "attachments": [
         "0004/2013",
         "0005/2013"
-    ]
+    ],
+    "last_modified": "2012-01-08T14:05:27+01:00"
 }
 ~~~~~
 
@@ -438,6 +450,8 @@ Beschlusstext (`resolution_text`)
     wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in der 
     Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) 
     von der Beschlussvorlage abweicht.
+Zuletzt geändert (`last_modified`)
+:   Datum und Uhrzeit der letzten Änderung
 
 #### Anmerkungen ####
 
@@ -488,7 +502,8 @@ diesem Tagesordnungspunkt *nicht* anwesend waren.
             "organisations": [],
             "people": ["1001"]
         }
-    ]
+    ],
+    "last_modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
 
@@ -594,7 +609,8 @@ Datum (`date`)
 :   Datum der Veröffentlichung
 Typ (`type`)
 :   Art der Drucksache (Erläuterung siehe oben)
-
+Zuletzt geändert (`last_modified`)
+:   Datum und Uhrzeit der letzten Änderung
 
 ### Beziehungen ###
 * Es muss genau ein **Hauptdokument** (Objekttyp "Dokument") referenziert 
@@ -663,7 +679,8 @@ näher zu bestimmen ist (TODO).
             "agendaitem": "3.1.2",
             "role": "Federführende Beratung"
         }
-    ]
+    ],
+    "last_modified": "2013-01-08T12:05:27+01:00"
 }
 ~~~~~
 
@@ -713,7 +730,7 @@ anderen Dokument abstammt. So ist es möglich, von einem abgeleiteten Dokument
 zu seinem Dokumenten-Master zu gelangen (Beispiel: von einem PDF-Dokument zum 
 OpenOffice-Original).
 
-~~~~~  {#paper_ex1 .json}
+~~~~~  {#document_ex1 .json}
 {
     "id": "3000",
     "name": "3000.pdf",
@@ -734,20 +751,38 @@ Ort (`location`)
 Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal 
 abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen 
 (beispielsweise der Name einer Straße/eines Platzes oder eine genaue 
-Adresse) oder aus einer Geo-Koordinatenangabe aus Längen- und Breitengrad.
+Adresse) als auch aus Geodaten.
 
-Bislang finden sich nur beim Bonner System Beispiele für Ortsangaben.
+OParl sieht die Angabe von Geodaten in Anlehnung an die 
+GeoJSON-Spezifikation [13] vor. Die GeoJSON-Spezifikation erlaubt die 
+Abbildung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden und 
+Polygonen. Während GeoJSON zu jedem Geodaten-Objekt auch die Speicherung
+zusätzlicher Metadaten ermöglicht, beschränkt sich OParl ledliglich auf das
+`geometry`-Attribut in GeoJSON. Sämtliche Geo-Koordinatenangaben werden in
+in OParl im WGS-84-System [11] erwartet.
 
 ![Objekttyp Ort](images/datenmodell_ort.png)
 
 ### Eigenschaften ###
 
-Textanabe
+Textanabe (`description`)
 :   _Optional._ Textliche Beschreibung eines Orts, z.B. in Form einer Adresse
-Koordinaten
-:   _Optional._ Längen- und Breitenangabe des Orts im WGS-84-System [11]
+Koordinaten (`geometry`)
+:   _Optional._ GeoJSON geometry Objekt
+Zuletzt geändert (`last_modified`)
+:   Datum und Uhrzeit der letzten Änderung
 
 
 ### Beziehungen ###
 * Orte können mit Drucksachen in Verbindung stehen.
 
+~~~~~  {#location_ex1 .json}
+{
+    "description": "Honschaftsstraße 312, 51061 Köln",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [7.03291, 50.98249]
+    },
+    "last_modified": "2013-02-14T14:05:27+01:00"
+}
+~~~~~

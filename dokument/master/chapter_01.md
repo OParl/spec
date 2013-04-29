@@ -150,4 +150,5 @@ nachverfolgen).
 Mitwirkende
 -----------
 
-Felix Ebert, Jan Erhardt, Andreas Kuckartz, Babett Schalitz, Jakob Voss
+Marian Steinbach, Felix Ebert, Jan Erhardt, Andreas Kuckartz, 
+Babett Schalitz, Jakob Voss

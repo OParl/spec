@@ -1,4 +1,11 @@
-In diesem Repository werden die Inhalte eines Dokuments verwaltet.
+In diesem Repository wird die Spezifikation zum [OParl](http://oparl.de/)-Standard erarbeitet.
+
+OParl ist eine Initiative für die Offenheit parlamentarischer Informationssysteme. Der
+OParl-Standard dient der Definition einer einheitlichen Schnittstelle zum Abruf von
+öffenltichen Informationen aus Ratsinformationssystemen. Mehr über OParl:
+
+    http://oparl.de/
+
 
 Original: Editieren, Änderungen nachvollziehen
 ----------------------------------------------

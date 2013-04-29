@@ -4,7 +4,7 @@ OParl ist eine Initiative für die Offenheit parlamentarischer Informationssyste
 OParl-Standard dient der Definition einer einheitlichen Schnittstelle zum Abruf von
 öffenltichen Informationen aus Ratsinformationssystemen. Mehr über OParl:
 
-    http://oparl.de/
+  [http://oparl.de/](http://oparl.de/)
 
 
 Original: Editieren, Änderungen nachvollziehen

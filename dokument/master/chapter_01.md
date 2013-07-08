@@ -34,7 +34,10 @@ für die Allgemeinheit oder für bestimmte Nutzerkreise.
 Darüber hinaus sollen parlamentarische Informationssysteme in verschiedenste 
 Prozesse und Systemlandschaften integriert werden. Durch eine einheitliche 
 Schnittstelle bieten sich effiziente Möglichkeiten zur Integration der Daten 
-in anderen Systemen, wie beispielsweise Web-Portalen.
+in anderen Systeme, wie beispielsweise Web-Portale.
+
+TODO: Hier könnten konkrete, beispielhafte Szenarien aus Sicht von 
+Anwendern, Herstellern und Kommunen beschrieben werden.
 
 
 Funktionsumfang der OParl-Schnittstelle
@@ -84,16 +87,14 @@ Feedback und Mitwirkung
 Feedback wird dringend benötigt und ist daher herzlichst willkommen. 
 Feedback kann auf den folgenden Wegen eingereicht werden:
 
-* Als Pull Requests über Github, direkt am Quelltext
+* In Form von Pull Requests über Github, direkt am Quelltext
 * Über Issues auf Github
-* Per E-Mail
 
 ### Pull Requests über Github ###
 
 Dieses Dokument wird in folgendem Github-Repository gepflegt:
 
 [https://github.com/OParl/specs](https://github.com/OParl/specs)
-
 
 Der bevorzugte Feedback-Kanal für erfahrene Git- bzw. Github-Nutzer ist 
 entsprechend die Mitwirkung direkt am Quelltext in Form von Pull-Requests. 
@@ -111,44 +112,41 @@ Github.
 Sie diese Änderungen möglichst kleinteilig.
 4. Senden Sie die gewünschten Commits als Pull Requests.
 
-Als Autor werde ich entscheiden, welche Pull Requests ich übernehme. Sie 
-werden als Mitwirkender in diesem Dokument genannt. Wenn Sie mit einen 
-Klarnamen unggf. Unternehmenszugehörigkeit genannt werden wollen, teilen 
-Sie mir dies bitte per Mail an marian@sendung.de mit.
+Die Entscheidung, welche Pull Requests übernommen werden, erfolgt nach 
+Abwägung durch die federführenden Autoren der Spezifikation.
+
+Es ist beabsichtigt, alle Mitwirkenden im Dokument zu nennen. Wenn Sie mit 
+einen Klarnamen und ggf. Unternehmenszugehörigkeit genannt werden wollen, 
+teilen Sie dies bitte in einem Kommentar zum Pull Request mit.
 
 
 ### Issues auf Github ###
 
-Wer nicht über Github am Quelltext mitwirken möchte, aber einen 
-Github-Account sein eigen nennt (oder zu diesem Zweck anlegen möchte) und 
-**öffentlich kommentieren** möchte, der sollte das öffentliche 
-Issue-Tracking-System unter
+Wenn Sie nicht über Github am Quelltext mitwirken möchten, aber einen 
+Github-Account Ihr eigen nennen oder zu diesem Zweck anlegen möchten, können
+Sie Sich an der **öffentlichen** Diskussion im Issue-Tracking-System unter
 
 [https://github.com/OParl/specs/issues](https://github.com/OParl/specs/issues)
 
-verwenden. Vorteil daran ist, dass auch andere die Einträge lesen und 
-wiederum durch Kommentare ergänzen können. Zudem lässt sich der 
-Bearbeitungsstatus eines Issue-Eintrags (offen, geschlossen) nachhalten.
+beteiligen. Dies hat den Vorteil, dass auch andere beteiligte die Einträge 
+wahrnehmen und durch Kommentare dazu Stellung nehmen können. Dieser Weg 
+eignet sich daher besonders zum Diskutieren von kontroversen Themen und
+dem Austausch von Argumenten.
 
 Bitte achten Sie auf diesem Weg darauf, Ihre Kommentare in möglichst kleine 
-thematische Einheiten herunter zu brechen.
-
-### Feedback per E-Mail ###
-
-Sollten Sie keinen der oben beschriebenen Wege beschreiten wollen, können 
-Sie Anmerkungen zum Dokument per E-Mail an marian@sendung.de einsenden. 
-Bitte verwenden Sie dabei den Begriff "oparl-specs" im Betreff.
-
-Sollten Sie auf diesem Wege Anmerkungen direkt am/im Dokumententext 
-übersenden wollen, nutzen Sie bitte falls möglich die Word- oder 
-OpenOffice-Version dieses Dokuments und ändern Sie das Dokument so, dass 
-Änderungen aufgezeichnet werden (OpenOffice: Bearbeiten > Änderungen > 
-Aufzeichnen; Word: Ribbon "Überprüfen" > Nachverfolgung > Änderungen 
-nachverfolgen).
+thematische Einheiten herunter zu brechen. Dadurch ermöglichen Sie, dass der
+jeweilige Eintrag dem richtigen Thema zugeordnet und der Status der 
+Diskussion (offen, erledigt) richtig gesetzt werden kann.
 
 
 Mitwirkende
 -----------
 
-Marian Steinbach, Felix Ebert, Jan Erhardt, Andreas Kuckartz, 
-Babett Schalitz, Jakob Voss
+Marian Steinbach (Offenes Köln),
+Felix Ebert,
+Jan Erhardt,
+Jens Klessmann (Fraunhofer FOKUS),
+Andreas Kuckartz,
+Babett Schalitz (CC e-gov),
+T. Tursics (TODO: Vorname eintragen), 
+Jakob Voss

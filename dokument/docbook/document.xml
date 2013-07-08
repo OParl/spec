@@ -41,8 +41,12 @@
       Darüber hinaus sollen parlamentarische Informationssysteme in
       verschiedenste Prozesse und Systemlandschaften integriert werden.
       Durch eine einheitliche Schnittstelle bieten sich effiziente
-      Möglichkeiten zur Integration der Daten in anderen Systemen, wie
-      beispielsweise Web-Portalen.
+      Möglichkeiten zur Integration der Daten in anderen Systeme, wie
+      beispielsweise Web-Portale.
+    </para>
+    <para>
+      TODO: Hier könnten konkrete, beispielhafte Szenarien aus Sicht von
+      Anwendern, Herstellern und Kommunen beschrieben werden.
     </para>
   </sect2>
   <sect2 id="funktionsumfang-der-oparl-schnittstelle">
@@ -116,17 +120,12 @@
     <itemizedlist>
       <listitem>
         <para>
-          Als Pull Requests über Github, direkt am Quelltext
+          In Form von Pull Requests über Github, direkt am Quelltext
         </para>
       </listitem>
       <listitem>
         <para>
           Über Issues auf Github
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Per E-Mail
         </para>
       </listitem>
     </itemizedlist>
@@ -176,60 +175,51 @@
         </listitem>
       </orderedlist>
       <para>
-        Als Autor werde ich entscheiden, welche Pull Requests ich
-        übernehme. Sie werden als Mitwirkender in diesem Dokument
-        genannt. Wenn Sie mit einen Klarnamen unggf.
-        Unternehmenszugehörigkeit genannt werden wollen, teilen Sie mir
-        dies bitte per Mail an marian@sendung.de mit.
+        Die Entscheidung, welche Pull Requests übernommen werden,
+        erfolgt nach Abwägung durch die federführenden Autoren der
+        Spezifikation.
+      </para>
+      <para>
+        Es ist beabsichtigt, alle Mitwirkenden im Dokument zu nennen.
+        Wenn Sie mit einen Klarnamen und ggf. Unternehmenszugehörigkeit
+        genannt werden wollen, teilen Sie dies bitte in einem Kommentar
+        zum Pull Request mit.
       </para>
     </sect3>
     <sect3 id="issues-auf-github">
       <title>Issues auf Github</title>
       <para>
-        Wer nicht über Github am Quelltext mitwirken möchte, aber einen
-        Github-Account sein eigen nennt (oder zu diesem Zweck anlegen
-        möchte) und <emphasis role="strong">öffentlich
-        kommentieren</emphasis> möchte, der sollte das öffentliche
+        Wenn Sie nicht über Github am Quelltext mitwirken möchten, aber
+        einen Github-Account Ihr eigen nennen oder zu diesem Zweck
+        anlegen möchten, können Sie Sich an der
+        <emphasis role="strong">öffentlichen</emphasis> Diskussion im
         Issue-Tracking-System unter
       </para>
       <para>
         <ulink url="https://github.com/OParl/specs/issues">https://github.com/OParl/specs/issues</ulink>
       </para>
       <para>
-        verwenden. Vorteil daran ist, dass auch andere die Einträge
-        lesen und wiederum durch Kommentare ergänzen können. Zudem lässt
-        sich der Bearbeitungsstatus eines Issue-Eintrags (offen,
-        geschlossen) nachhalten.
+        beteiligen. Dies hat den Vorteil, dass auch andere beteiligte
+        die Einträge wahrnehmen und durch Kommentare dazu Stellung
+        nehmen können. Dieser Weg eignet sich daher besonders zum
+        Diskutieren von kontroversen Themen und dem Austausch von
+        Argumenten.
       </para>
       <para>
         Bitte achten Sie auf diesem Weg darauf, Ihre Kommentare in
         möglichst kleine thematische Einheiten herunter zu brechen.
-      </para>
-    </sect3>
-    <sect3 id="feedback-per-e-mail">
-      <title>Feedback per E-Mail</title>
-      <para>
-        Sollten Sie keinen der oben beschriebenen Wege beschreiten
-        wollen, können Sie Anmerkungen zum Dokument per E-Mail an
-        marian@sendung.de einsenden. Bitte verwenden Sie dabei den
-        Begriff &quot;oparl-specs&quot; im Betreff.
-      </para>
-      <para>
-        Sollten Sie auf diesem Wege Anmerkungen direkt am/im
-        Dokumententext übersenden wollen, nutzen Sie bitte falls möglich
-        die Word- oder OpenOffice-Version dieses Dokuments und ändern
-        Sie das Dokument so, dass Änderungen aufgezeichnet werden
-        (OpenOffice: Bearbeiten &gt; Änderungen &gt; Aufzeichnen; Word:
-        Ribbon &quot;Überprüfen&quot; &gt; Nachverfolgung &gt;
-        Änderungen nachverfolgen).
+        Dadurch ermöglichen Sie, dass der jeweilige Eintrag dem
+        richtigen Thema zugeordnet und der Status der Diskussion (offen,
+        erledigt) richtig gesetzt werden kann.
       </para>
     </sect3>
   </sect2>
   <sect2 id="mitwirkende">
     <title>Mitwirkende</title>
     <para>
-      Marian Steinbach, Felix Ebert, Jan Erhardt, Andreas Kuckartz,
-      Babett Schalitz, Jakob Voss
+      Marian Steinbach (Offenes Köln), Felix Ebert, Jan Erhardt, Jens
+      Klessmann (Fraunhofer FOKUS), Andreas Kuckartz, Babett Schalitz
+      (CC e-gov), T. Tursics (TODO: Vorname eintragen), Jakob Voss
     </para>
   </sect2>
 </sect1>

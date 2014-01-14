@@ -36,10 +36,21 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Dieses Dokument wird bei seiner Fertigstellung die Spezifikation des OParl Schnittstellen-Standards für parlamentarische Informationssysteme (Ratsinformationssysteme, RIS) darstellen. Es dient damit als Grundlage für die Implementierung von OParl-konformen Server- und Clientanwendungen.</p>
 <h2 id="parlamentarische-informationssysteme"><span class="header-section-number">1.1</span> Parlamentarische Informationssysteme</h2>
 <p>Parlamentarische Informationssysteme (oft Ratsinformationssystem, RIS oder Bürgerinformationssystem genannt) werden von vielen Körperschaften wie Kommunen, Landkreisen und Regierungsbezirken eingesetzt, um die anfallende Gremienarbeit (Ratssitzungen, Ausschüsse, Vertretungen) zu organisieren. Da ein großer Teil der schriftlichen Arbeit in der Lokalpolitik über derartige Systeme verwaltet wird, sind diese Systeme – dort wo vorhanden – ein wichtiger Zugriffspunkt für alle, die sich für politischen Geschehnisse interessieren.</p>
-<h2 id="gründe-für-den-standardisierten-datenzugriff"><span class="header-section-number">1.2</span> Gründe für den standardisierten Datenzugriff</h2>
-<p>Eine wichtige Maßnahme von Körperschaften, die im Zuge von Open-Data- und Open-Government-Initiativen ihre Politik transparenter machen wollen, wird auch sein, die Daten in den parlamentarischen Informationssystemen im Sinne des Open-Data-Begriffs zugänglich zu machen. Hierdurch können die Kommunen selbst, aber auch dritte, Anwendungen entwickeln, die Inhalte auf verschiedene Art und Weise auswerten, abrufbar und nutzbar machen, sei es für die Allgemeinheit oder für bestimmte Nutzerkreise.</p>
-<p>Darüber hinaus sollen parlamentarische Informationssysteme in verschiedenste Prozesse und Systemlandschaften integriert werden. Durch eine einheitliche Schnittstelle bieten sich effiziente Möglichkeiten zur Integration der Daten in anderen Systeme, wie beispielsweise Web-Portale.</p>
-<p>TODO: Hier könnten konkrete, beispielhafte Szenarien aus Sicht von Anwendern, Herstellern und Kommunen beschrieben werden.</p>
+<h2 id="motivationen-für-den-standardisierten-datenzugriff"><span class="header-section-number">1.2</span> Motivationen für den standardisierten Datenzugriff</h2>
+<p>Die Gründe, warum Betreiber von parlamentarischen Informationssystemen den Zugriff darauf über eine standardisierte Schnittstelle ermöglichen sollten, können vielfältig sein.</p>
+<p>Ein zentrales Argument ist die Verpflichtung der Parlemente gegenüber der Bevölkerung, diese über die Fortschritte der parlamentarischen Arbeit zu informieren und auf dem Laufenden zu halten. Ein erster Schritt, der Bevölkerung Einblicke in die Arbeit und Zugriff auf Dokumente zu gewähren, ist vielerorts in den letzten Jahren durch Einführung von Ratsinformationssystemen mit anonymem, lesenden Zugriff über das World Wide Web gemacht worden.</p>
+<p>Die damit eingeschlagene Richtung konsequent weiter zu gehen, bedeutet, die Daten der parlamentarischen Informationssystemen gänzlich offen zu legen, sofern die Inhalte es erlauben. Es bedeutet, die Daten und Inhalte so universell weiterverwendbar und so barrierearm wie möglich anzubieten, dass jegliche weitere Verwendung durch Dritte technisch möglich ist. Der seit einiger Zeit etablierte Begriff für dieses Prinzip heißt &quot;Open Data&quot;.</p>
+<p>Das Interesse an parlamentarischen Informationen und an Anwendungen, die diese nutzbar und auswertbar machen, ist offensichtlich vorhanden. Die Entwickler der alternativen Ratsinformationssysteme wie Frankfurt Gestalten[14], Offenes Köln[15] oder der OpenRuhr:RIS-Instanzen[16] wissen zu berichten, wie viel Interesse den Projekten gerade aus Orten entgegen gebracht wird, in denen derartige Systeme noch nicht verfügbar sind.</p>
+<p>Die Anwendungsmöglichkeiten für parlamentarische Informationen, wenn sie über eine Schnittstelle schnell und einfach abgerufen werden können, sind vielfältig. Beispiele könnten sein:</p>
+<ul>
+<li>Apps für den Abruf auf mobilen Endgeräten</li>
+<li>Möglichkeiten zur Wiedergabe für Nutzerinnen und Nutzer mit Beeinträchtigung des Sehvermögens</li>
+<li>Alternative und erweiterte Suchmöglichkeiten in Inhalten</li>
+<li>Auswertung und Analyse von Themen, Inhalten, Sprache etc.</li>
+<li>Benachrichtigungsfunktionen beim Erscheinen bestimmte Inhalte</li>
+</ul>
+<p>Die Standardisierung dieses Zugriffs über die Grenzen einzelner Systeme hinweg erlaubt zudem, diese Entwicklungen grenzüberschreitend zu denken. Damit steigt nicht nur die potenzielle Nutzerschaft einzelner Entwicklungen. Auch das Potenzial für Kooperationen zwischen Anwendungsentwicklern wächst.</p>
+<p>Darüber hinaus sind auch Motivationen innerhalb von Organisationen und Körperschaften erkennbar. So sollen parlamentarische Informationssysteme vielerorts in verschiedenste Prozesse und heterogene Systemlandschaften integriert werden. Durch eine einheitliche Schnittstelle bieten sich effiziente Möglichkeiten zur Integration der Daten in anderen Systeme, wie beispielsweise Web-Portale.</p>
 <h2 id="funktionsumfang-der-oparl-schnittstelle"><span class="header-section-number">1.3</span> Funktionsumfang der OParl-Schnittstelle</h2>
 <p>Die vorliegende Spezifikation soll eine Webservice-Schnittstelle definieren, die den anonymen und lesenden Zugriff auf öffentliche Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP). Daten werden als JSON, JSONP oder optional als XML ausgeliefert.</p>
 <p>Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher zwischen den Implementierungen variieren.</p>
@@ -661,5 +672,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>[11]: World Geodetic System 1984 (EPSG:4326), wird unter anderem auch vom Global Positioning System (GPS) verwendet.</p>
 <p>[12]: Gemeinsame Normdatei: <a href="http://de.wikipedia.org/wiki/Gemeinsame_Normdatei">de.wikipedia.org/wiki/Gemeinsame_Normdatei</a></p>
 <p>[13]: GeoJSON <a href="http://www.geojson.org/">www.geojson.org</a></p>
+<p>[14]: Frankfurt Gestalten <a href="http://www.geojson.org/">www.geojson.org</a></p>
+<p>[15]: Offenes Köln <a href="http://offeneskoeln.de/">offeneskoeln.de</a></p>
+<p>[16]: OpenRuhr:RIS <a href="http://openruhr.de/openruhrris/">openruhr.de/openruhrris</a></p>
 </body>
 </html>

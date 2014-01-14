@@ -24,29 +24,91 @@
       Geschehnisse interessieren.
     </para>
   </sect2>
-  <sect2 id="gründe-für-den-standardisierten-datenzugriff">
-    <title>Gründe für den standardisierten Datenzugriff</title>
+  <sect2 id="motivationen-für-den-standardisierten-datenzugriff">
+    <title>Motivationen für den standardisierten Datenzugriff</title>
     <para>
-      Eine wichtige Maßnahme von Körperschaften, die im Zuge von
-      Open-Data- und Open-Government-Initiativen ihre Politik
-      transparenter machen wollen, wird auch sein, die Daten in den
-      parlamentarischen Informationssystemen im Sinne des
-      Open-Data-Begriffs zugänglich zu machen. Hierdurch können die
-      Kommunen selbst, aber auch dritte, Anwendungen entwickeln, die
-      Inhalte auf verschiedene Art und Weise auswerten, abrufbar und
-      nutzbar machen, sei es für die Allgemeinheit oder für bestimmte
-      Nutzerkreise.
+      Die Gründe, warum Betreiber von parlamentarischen
+      Informationssystemen den Zugriff darauf über eine standardisierte
+      Schnittstelle ermöglichen sollten, können vielfältig sein.
     </para>
     <para>
-      Darüber hinaus sollen parlamentarische Informationssysteme in
-      verschiedenste Prozesse und Systemlandschaften integriert werden.
-      Durch eine einheitliche Schnittstelle bieten sich effiziente
-      Möglichkeiten zur Integration der Daten in anderen Systeme, wie
-      beispielsweise Web-Portale.
+      Ein zentrales Argument ist die Verpflichtung der Parlemente
+      gegenüber der Bevölkerung, diese über die Fortschritte der
+      parlamentarischen Arbeit zu informieren und auf dem Laufenden zu
+      halten. Ein erster Schritt, der Bevölkerung Einblicke in die
+      Arbeit und Zugriff auf Dokumente zu gewähren, ist vielerorts in
+      den letzten Jahren durch Einführung von Ratsinformationssystemen
+      mit anonymem, lesenden Zugriff über das World Wide Web gemacht
+      worden.
     </para>
     <para>
-      TODO: Hier könnten konkrete, beispielhafte Szenarien aus Sicht von
-      Anwendern, Herstellern und Kommunen beschrieben werden.
+      Die damit eingeschlagene Richtung konsequent weiter zu gehen,
+      bedeutet, die Daten der parlamentarischen Informationssystemen
+      gänzlich offen zu legen, sofern die Inhalte es erlauben. Es
+      bedeutet, die Daten und Inhalte so universell weiterverwendbar und
+      so barrierearm wie möglich anzubieten, dass jegliche weitere
+      Verwendung durch Dritte technisch möglich ist. Der seit einiger
+      Zeit etablierte Begriff für dieses Prinzip heißt &quot;Open
+      Data&quot;.
+    </para>
+    <para>
+      Das Interesse an parlamentarischen Informationen und an
+      Anwendungen, die diese nutzbar und auswertbar machen, ist
+      offensichtlich vorhanden. Die Entwickler der alternativen
+      Ratsinformationssysteme wie Frankfurt Gestalten[14], Offenes
+      Köln[15] oder der OpenRuhr:RIS-Instanzen[16] wissen zu berichten,
+      wie viel Interesse den Projekten gerade aus Orten entgegen
+      gebracht wird, in denen derartige Systeme noch nicht verfügbar
+      sind.
+    </para>
+    <para>
+      Die Anwendungsmöglichkeiten für parlamentarische Informationen,
+      wenn sie über eine Schnittstelle schnell und einfach abgerufen
+      werden können, sind vielfältig. Beispiele könnten sein:
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Apps für den Abruf auf mobilen Endgeräten
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Möglichkeiten zur Wiedergabe für Nutzerinnen und Nutzer mit
+          Beeinträchtigung des Sehvermögens
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Alternative und erweiterte Suchmöglichkeiten in Inhalten
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Auswertung und Analyse von Themen, Inhalten, Sprache etc.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Benachrichtigungsfunktionen beim Erscheinen bestimmte Inhalte
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      Die Standardisierung dieses Zugriffs über die Grenzen einzelner
+      Systeme hinweg erlaubt zudem, diese Entwicklungen
+      grenzüberschreitend zu denken. Damit steigt nicht nur die
+      potenzielle Nutzerschaft einzelner Entwicklungen. Auch das
+      Potenzial für Kooperationen zwischen Anwendungsentwicklern wächst.
+    </para>
+    <para>
+      Darüber hinaus sind auch Motivationen innerhalb von Organisationen
+      und Körperschaften erkennbar. So sollen parlamentarische
+      Informationssysteme vielerorts in verschiedenste Prozesse und
+      heterogene Systemlandschaften integriert werden. Durch eine
+      einheitliche Schnittstelle bieten sich effiziente Möglichkeiten
+      zur Integration der Daten in anderen Systeme, wie beispielsweise
+      Web-Portale.
     </para>
   </sect2>
   <sect2 id="funktionsumfang-der-oparl-schnittstelle">
@@ -1998,5 +2060,17 @@
   <para>
     [13]: GeoJSON
     <ulink url="http://www.geojson.org/">www.geojson.org</ulink>
+  </para>
+  <para>
+    [14]: Frankfurt Gestalten
+    <ulink url="http://www.geojson.org/">www.geojson.org</ulink>
+  </para>
+  <para>
+    [15]: Offenes Köln
+    <ulink url="http://offeneskoeln.de/">offeneskoeln.de</ulink>
+  </para>
+  <para>
+    [16]: OpenRuhr:RIS
+    <ulink url="http://openruhr.de/openruhrris/">openruhr.de/openruhrris</ulink>
   </para>
 </sect1>

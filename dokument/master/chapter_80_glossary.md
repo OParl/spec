@@ -1,6 +1,9 @@
 Glossar
 =======
 
+JSON-LD
+
+:   JSON for Linked Data
 
 RIS
 

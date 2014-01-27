@@ -100,7 +100,7 @@ Der Entwurf umfasst aktuell die Beschreibung eines Datenmodells.
 Nächste Schritte
 ----------------
 
-Bis Ende Juni 2013: Fertigstellung von Version 1.0. Bis dahin ist zu 
+Fertigstellung von Version 1.0. Bis dahin ist zu 
 erledigen:
 
 * Fertigstellung Datenmodell

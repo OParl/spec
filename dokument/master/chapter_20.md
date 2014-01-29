@@ -417,8 +417,7 @@ Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine
 (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach 
 der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. 
 Unter Umständen kann dem Tagesordnungspunkt ein bestimmter Beschlusstext 
-beigefügt sein. Ein Abstimmungsergebnis kann es durch mehrere referenzierende 
-Objekte vom Typ "Stimmabgabe" festgehalten werden.
+beigefügt sein.
 
 Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
 
@@ -467,8 +466,6 @@ eine Vereinheitlichung der Werte für die Eigenschaft `result` zu diskutieren.
 * Jeder Tagesordnungspunkt gehört zu genau einer Sitzung.
 * Der Tagesordnungspunkt kann auf eine Drucksache verweisen, die im Rahmen
 dieses Tagesordnungspunkt beraten werden soll.
-* Es können mehrere Objekte vom Typ "Stimmabgabe" referenziert werden, um 
-das Abstimmungsverhalten von Fraktionen oder Einzelpersonen zu dokumentieren.
 * Es können Personen referenziert werden, die während der Abstimmung zu 
 diesem Tagesordnungspunkt *nicht* anwesend waren.
 
@@ -483,85 +480,10 @@ diesem Tagesordnungspunkt *nicht* anwesend waren.
     "result": "Geändert beschlossen",
     "resolution_text": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
     "people_absent": ["1002", "1003"],
-    "votings": [
-        {
-            "sum": 2,
-            "vote": "DAFUER",
-            "organisations": ["24"],
-            "people": []
-        },
-        {
-            "sum": 1,
-            "vote": "ENTHALTUNG",
-            "organisations": [],
-            "people": ["1000"]
-        },
-        {
-            "sum": 1,
-            "vote": "DAGEGEN",
-            "organisations": [],
-            "people": ["1001"]
-        }
-    ],
     "last_modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
 
-Stimmabgabe (`vote`)
---------------------
-
-Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt abgestimmt 
-hat, wird durch eine Stimmabgabe festgehalten. Ganze Abstimmungsergebnisse 
-bestehen überlicherweise aus mehreren Stimmabgaben. Jede Stimmabgabe gibt 
-entweder die (einzelne) Stimme einer Person wieder (in diesem Fall ist die 
-Anzahl der Stimmen zwingend 1) oder das einer ganzen Gruppe von Personen. 
-Dann ist die Anzahl der Stimmen anzugeben und statt einer Person eine 
-Organisation (in der Regel die Fraktion) zu referenzieren.
-
-Ist eine Abstimmung zu einem Tagesordnungspunkt einstimmig, dann genügt ein
-einziges Objekt vom Typ Stimmabgabe aus, um dies darzustellen. In allen anderen
-Fällen werden mehrere Stimmabgabe-Objekte kombiniert.
-
-![Objekttyp Stimmabgabe](images/datenmodell_stimmabgabe.png)
-
-### Eigenschaften ###
-
-Anzahl der Stimmen (`sum`)
-:   Gehört die Stimmabgabe zu einer Person, ist der Wert immer 1. Gehört sie 
-    jedoch zu einer Organisation (=Fraktion), kann der Wert hier größer als 1 
-    sein. Diese Eigenschaft MUSS einen numerischen Wert haben.
-Votum (`vote`)
-:   Einer der Werte `DAFUER` (gleichbedeutend mit "für den Antrag"), `DAGEGEN` 
-    ("gegen den Antrag") oder `ENTHALTUNG`.
-
-### Beziehungen ###
-
-* Jede Stimmabgabe gehört zu genau einem Tagesordnungspunkt.
-* Es wird entweder genau eine Person oder genau eine Organisation (Fraktion) 
-referenziert, die die Stimme(n) abgegeben hat.
-
-### Beispiele ###
-
-Die gesamte siebenköpfige Fraktion (Organisation ID "18") stimmt für den
-Antrag:
-
-~~~~~  {#vote_ex1 .json}
-{
-    "sum": 7,
-    "vote": "DAFUER",
-    "organisations": ["18"]
-}
-~~~~~
-
-Drei bestimmte Personen stimmten gegen den Antrag:
-
-~~~~~  {#vote_ex2 .json}
-{
-    "sum": 3,
-    "vote": "DAGEGEN",
-    "people": ["85", "145", "67"]
-}
-~~~~~
 
 Drucksache (`paper`)
 --------------------

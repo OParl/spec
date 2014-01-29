@@ -27,7 +27,7 @@ Die Gründe, warum Betreiber von parlamentarischen Informationssystemen den
 Zugriff darauf über eine standardisierte Schnittstelle ermöglichen sollten,
 können vielfältig sein.
 
-Ein zentrales Argument ist die Verpflichtung der Parlemente gegenüber der
+Ein zentrales Argument ist die Verpflichtung der Parlamente gegenüber der
 Bevölkerung, diese über die Fortschritte der parlamentarischen Arbeit zu
 informieren und auf dem Laufenden zu halten. Ein erster Schritt, der
 Bevölkerung Einblicke in die Arbeit und Zugriff auf Dokumente zu gewähren,

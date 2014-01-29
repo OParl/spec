@@ -326,7 +326,7 @@ berücksichtigt werden.
 * Jede Organisationen gehört zu einer Körperschaft.
 * Personen können Organisationen angehören (*datiert*).
 
-## Beispiel ##
+### Beispiel ###
 
 ~~~~~  {#organisation_ex1 .json}
 {

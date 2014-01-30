@@ -4,20 +4,22 @@ OParl Spezifikation 1.0 Gliederung
 # Version 1.0 einfach bearbeiten zu können. Die Hierarchie wird allein durch Einrückung
 # (4 Leerzeichen) gebildet. Je Eintrag nur eine Zeile. Einträge mit Spiegelstrich sind 
 # nicht als eigene Abschnitte gedacht, sondern Stichpunkte zum Inhalt. Beim Hinzufügen 
-# neuer Zeilen bitte im Commit-Kommentar genauer erläutern.
+# neuer Zeilen bitte im Commit-Kommentar genauer erläutern. Die vierstelligen Zahlen
+# stehen für die Dateinummern der Markdown-Dateien.
 
-Einleitung
-    Kurzer Text über OParl und seinen Anwendungsbereich
-    Zielsetzung von OParl
-    Werdegang von OParl 1.0
-    Nomenklatur der Spezifikation und Satzkonventionen
+0000 Deckblatt
+1000 Einleitung
+    1010 Kurzer Text über OParl und seinen Anwendungsbereich
+    1020 Zielsetzung von OParl
+    1030 Werdegang von OParl 1.0
+    1040 Nomenklatur der Spezifikation und Satzkonventionen
         - MUSS, SOLL, KANN
         - Hervorhebung englischsprachiger Begriffe
-    Initiatoren
-    Unterstützer
-    Autoren
-Architektur
-    - Architekturdiagramm
+    1050 Initiatoren
+    1060 Unterstützer
+    1070 Autoren
+2000 Architektur
+    Architekturdiagramm
     Parlamentarische Informationssysteme
     Server
     API
@@ -26,14 +28,14 @@ Architektur
     Clients
     Caches
     Nutzer
-Nutzungsszenarien
+4000 Nutzungsszenarien
     - Dient der besseren Verständlichkeit der Architektur durch Konkretisierung
-    Szenario 1: Mobile Client-Anwendung
-    Szenario 2: Integration in Web-Portal
-    Szenario 3: Meta-Suche
-    Szenario 4: Forschungsprojekt Themen- und Sprachanalyse
-Prinzipien und Funktionen der API
-    Designprinzipien
+    4010 Szenario 1: Mobile Client-Anwendung
+    4020 Szenario 2: Integration in Web-Portal
+    4030 Szenario 3: Meta-Suche
+    4040 Szenario 4: Forschungsprojekt Themen- und Sprachanalyse
+6000 Prinzipien und Funktionen der API
+    6010 Designprinzipien
         Allgemein
             - Ausgerichtet am Status Quo
             - Einige Möglichkeiten weisen in die Zukunft (z.B. Geodaten, Volltexte, Vereinheitlichung der Kategorien-Nomenklatur)
@@ -41,8 +43,8 @@ Prinzipien und Funktionen der API
         Selbstbeschreibungsfähigkeit
         Erweiterbarkeit
         Browseability/Verlinkung
-    Zukunftssicherheit
-    Serialisierung mittels JSON-LD und JSONP
+    6020 Zukunftssicherheit
+    6030 Serialisierung mittels JSON-LD und JSONP
         JSON
             - Siehe RFC4627
             - Generelle Terminologie (JSON-Objekt, Array, String, Number, true/false, null)
@@ -56,86 +58,87 @@ Prinzipien und Funktionen der API
             - Mime Type application/ld+json
         JSONP
             - JSONP: RFC finden/verlinken. (TODO!)
-    Benannte Objekte
-        - IRIs (RFC3987) als eindeutige Kennung
-    Anonyme Objekte (Blank Nodes)
-    Objektlisten
+    6040 Benannte und anonyme Objekte
+        Benannte Objekte
+            - IRIs (RFC3987) als eindeutige Kennung
+        Anonyme Objekte (Blank Nodes)
+    6050 Objektlisten
         - Ausgabe von URLs
         - Stabile Sortierung (Sets vs. Lists)
-    Feeds
+    6060 Feeds
         Neue Objekte
         Geänderte Objekte
         Entfernte Objekte
-    Dokumentenabruf
-    Reservierte URL-Parameter
+    6070 Dokumentenabruf
+    6080 Reservierte URL-Parameter
         - callback
         - (Parameter für Datums-/Zeitbereichsfilter)
-Schema
+8000 Schema
     - Überblick mit Graph-Darstellung
-    OParlSystem (System)
+    8010 OParlSystem (System)
         Bedeutung
         Eigenschaften
         Besonderheiten
             - Darf nur einmal vorkommen
         Beispiel(e)
-    OParlBody (Körperschaft)
+    8020 OParlBody (Körperschaft)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    OParlCommittee (Gremium)
+    8030 OParlCommittee (Gremium)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    OParlPerson (Person)
+    8040 OParlPerson (Person)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    OParlOrganisation (Organisation)
+    8050 OParlOrganisation (Organisation)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    OParlMeeting (Sitzung)
+    8060 OParlMeeting (Sitzung)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    OParlAgendaitem (Tagesordnungspunkt)
+    8070 OParlAgendaitem (Tagesordnungspunkt)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    OParlPaper (Drucksache)
+    8080 OParlPaper (Drucksache)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    OParlDocument (Dokument)
+    8090 OParlDocument (Dokument)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    OParlConsultation (Beratung)
+    8100 OParlConsultation (Beratung)
         Bedeutung
             - Bildet die Beratung einer Drucksache im Rahmen einer Sitzung ab
         Eigenschaften
         Besonderheiten
             - Nur als anonymes Objekt (Blank Node) vorgesehen
         Beispiel(e)
-    OParlLocation (Ort)
+    8110 OParlLocation (Ort)
         Bedeutung
         Eigenschaften
         Besonderheiten
             - Nur als anonymes Objekt (Blank Node) vorgesehen
         Beispiel(e)
-    OParlContact (Kontakt)
+    8120 OParlContact (Kontakt)
         Bedeutung
         Eigenschaften
         Besonderheiten
             - Nur als anonymes Objekt (Blank Node) vorgesehen
         Beispiel(e)
-Anhang
-    Glossar
+9000 Anhang
+    9010 Glossar

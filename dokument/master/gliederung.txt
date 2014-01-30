@@ -1,0 +1,141 @@
+OParl Spezifikation 1.0 Gliederung
+
+# Dies ist ein Entwurfsdokument, um die inhaltliche Gliederung der OParl Spezifikation
+# Version 1.0 einfach bearbeiten zu können. Die Hierarchie wird allein durch Einrückung
+# (4 Leerzeichen) gebildet. Je Eintrag nur eine Zeile. Einträge mit Spiegelstrich sind 
+# nicht als eigene Abschnitte gedacht, sondern Stichpunkte zum Inhalt. Bim Hinzufügen 
+# neuer Zeilen bitte im Commit-Kommentar genauer erläutern.
+
+Einleitung
+	Kurzer Text über OParl und seinen Anwendungsbereich
+	Zielsetzung von OParl
+	Werdegang von OParl 1.0
+	Nomenklatur der Spezifikation und Satzkonventionen
+		- MUSS, SOLL, KANN
+		- Hervorhebung englischsprachiger Begriffe
+	Initiatoren
+	Unterstützer
+	Autoren
+Architektur
+	- Architekturdiagramm
+	Parlamentarische Informationssysteme
+	Server
+	API
+		- basierend auf HTTP
+		- RESTful
+	Clients
+	Caches
+	Nutzer
+Nutzungsszenarien
+	- Dient der besseren Verständlichkeit der Architektur durch Konkretisierung
+	Szenario 1: Mobile Client-Anwendung
+	Szenario 2: Integration in Web-Portal
+	Szenario 3: Meta-Suche
+	Szenario 4: Forschungsprojekt Themen- und Sprachanalyse
+Prinzipien und Funktionen der API
+	Designprinzipien
+		Allgemein
+			- Ausgerichtet am Status Quo
+			- Einige Möglichkeiten weisen in die Zukunft (z.B. Geodaten, Volltexte, Vereinheitlichung der Kategorien-Nomenklatur)
+			- Ziel: Schnelle Implementierbarkeit in vielen bestehenden RIS
+		Selbstbeschreibungsfähigkeit
+		Erweiterbarkeit
+		Browseability
+	Zukunftssicherheit
+	Serialisierung mittels JSON-LD und JSONP
+		JSON
+			- Siehe RFC4627
+			- Generelle Terminologie (JSON-Objekt, Array, String, Number, true/false, null)
+		JSON-LD
+			- JSON-LD: http://www.w3.org/TR/json-ld/
+			- Einschränkungen von OParl gegenüber JSON-LD
+			- Schlüssel in einem JSON-LD-Objekt müssen einzigartig sein.
+			- Unterscheidung von Groß- und Kleinschreibung
+			- Benannte Objekte (URL als Schlüssel)
+			- Anonyme Objekte (Blank Nodes)
+			- Mime Type application/ld+json
+		JSONP
+			- JSONP: RFC finden/verlinken. (TODO!)
+	Benannte Objekte
+		- IRIs (RFC3987) als eindeutige Kennung
+	Anonyme Objekte (Blank Nodes)
+	Objektlisten
+		- Ausgabe von URLs
+		- Stabile Sortierung (Sets vs. Lists)
+	Feeds
+		Neue Objekte
+		Geänderte Objekte
+		Entfernte Objekte
+	Dokumentenabruf
+	Reservierte URL-Parameter
+		- callback
+		- (Parameter für Datums-/Zeitbereichsfilter)
+Schema
+	- Überblick mit Graph-Darstellung
+	OParlSystem (System)
+		Bedeutung
+		Eigenschaften
+		Besonderheiten
+			- Darf nur einmal vorkommen
+		Beispiel(e)
+	OParlBody (Körperschaft)
+		Bedeutung
+		Eigenschaften
+		Besonderheiten
+		Beispiel(e)
+	OParlCommittee (Gremium)
+		Bedeutung
+		Eigenschaften
+		Besonderheiten
+		Beispiel(e)
+	OParlPerson (Person)
+		Bedeutung
+		Eigenschaften
+		Besonderheiten
+		Beispiel(e)
+	OParlOrganisation (Organisation)
+		Bedeutung
+		Eigenschaften
+		Besonderheiten
+		Beispiel(e)
+	OParlMeeting (Sitzung)
+		Bedeutung
+		Eigenschaften
+		Besonderheiten
+		Beispiel(e)
+	OParlAgendaitem (Tagesordnungspunkt)
+		Bedeutung
+		Eigenschaften
+		Besonderheiten
+		Beispiel(e)
+	OParlPaper (Drucksache)
+		Bedeutung
+		Eigenschaften
+		Besonderheiten
+		Beispiel(e)
+	OParlDocument (Dokument)
+		Bedeutung
+		Eigenschaften
+		Besonderheiten
+		Beispiel(e)
+	OParlConsultation (Beratung)
+		Bedeutung
+			- Bildet die Beratung einer Drucksache im Rahmen einer Sitzung ab
+		Eigenschaften
+		Besonderheiten
+			- Nur als anonymes Objekt (Blank Node) vorgesehen
+		Beispiel(e)
+	OParlLocation (Ort)
+		Bedeutung
+		Eigenschaften
+		Besonderheiten
+			- Nur als anonymes Objekt (Blank Node) vorgesehen
+		Beispiel(e)
+	OParlContact (Kontakt)
+		Bedeutung
+		Eigenschaften
+		Besonderheiten
+			- Nur als anonymes Objekt (Blank Node) vorgesehen
+		Beispiel(e)
+Anhang
+	Glossar

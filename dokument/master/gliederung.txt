@@ -18,14 +18,12 @@ OParl Spezifikation 1.0 Gliederung
     1070 Unterstützer
     1080 Autoren
 2000 Architektur
-    Architekturdiagramm
-    Parlamentarische Informationssysteme
+    Überblick
+    Parlamentarisches Informationssystem
     Server
     API
-        - basierend auf HTTP
-        - RESTful
-    Clients
-    Caches
+    Client
+    Cache
     Nutzer
 4000 Nutzungsszenarien
     - Dient der besseren Verständlichkeit der Architektur durch Konkretisierung

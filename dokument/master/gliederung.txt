@@ -11,12 +11,6 @@ OParl Spezifikation 1.0 Gliederung
 1000 Einleitung
     1010 Was ist OParl?
     1020 Zielsetzung von OParl
-        - Nutzen für Kommunen, Bürger, politische Parteien
-        - Nutzen für Anbieter von RIS-Pflegesoftware
-        - Nutzen für Anbieter von RIS-Darstellungssoftware
-        - Nutzen für Open Data Initiativen
-        - Nutzen für die Wissenschaft
-        - Linked Data erwähnen
     1030 Werdegang von OParl 1.0
     1020 Zukunft von OParl
         - Verfeinerung, Lücken schliessen

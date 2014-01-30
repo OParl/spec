@@ -14,8 +14,6 @@ OParl Spezifikation 1.0 Gliederung
     1030 Werdegang von OParl 1.0
     1040 Zukunft von OParl
     1050 Nomenklatur der Spezifikation und Satzkonventionen
-        - MUSS, SOLL, KANN
-        - Hervorhebung englischsprachiger Begriffe
     1060 Initiatoren
     1070 Unterstützer
     1080 Autoren

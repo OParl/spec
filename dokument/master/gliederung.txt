@@ -9,7 +9,7 @@ OParl Spezifikation 1.0 Gliederung
 
 0000 Deckblatt
 1000 Einleitung
-    1010 Kurzer Text über OParl und seinen Anwendungsbereich
+    1010 Was ist OParl?
     1020 Zielsetzung von OParl
         - Nutzen für Kommunen, Bürger, politische Parteien
         - Nutzen für Anbieter von RIS-Pflegesoftware

@@ -91,15 +91,3 @@ Die Spezifikation befindet sich in Arbeit. Das Dokument enthält entsprechend
 viele Ungenauigkeiten und Hinweise auf offene Fragestellungen.
 
 
-
-Mitwirkende
------------
-
-Marian Steinbach (Offenes Köln),
-Felix Ebert,
-Jan Erhardt,
-Jens Klessmann (Fraunhofer FOKUS),
-Andreas Kuckartz,
-Babett Schalitz (CC e-gov),
-T. Tursics (TODO: Vorname eintragen), 
-Jakob Voss

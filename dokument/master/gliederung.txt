@@ -13,9 +13,6 @@ OParl Spezifikation 1.0 Gliederung
     1020 Zielsetzung von OParl
     1030 Werdegang von OParl 1.0
     1040 Zukunft von OParl
-        - Verfeinerung, Lücken schliessen
-        - Globalisierung
-        - Erweiterung über die kommunale Ebene hinaus (Land, Bund)
     1050 Nomenklatur der Spezifikation und Satzkonventionen
         - MUSS, SOLL, KANN
         - Hervorhebung englischsprachiger Begriffe

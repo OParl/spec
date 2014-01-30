@@ -126,19 +126,19 @@ OParl Spezifikation 1.0 Gliederung
             - Bildet die Beratung einer Drucksache im Rahmen einer Sitzung ab
         Eigenschaften
         Besonderheiten
-            - Nur als anonymes Objekt (Blank Node) vorgesehen
+            - Nur als anonymes Objekt (Blank Node) vorgesehen, SOLL aber IRI enthalten
         Beispiel(e)
     8110 OParlLocation (Ort)
         Bedeutung
         Eigenschaften
         Besonderheiten
-            - Nur als anonymes Objekt (Blank Node) vorgesehen
+            - Nur als anonymes Objekt (Blank Node) vorgesehen, SOLL aber IRI enthalten
         Beispiel(e)
     8120 OParlContact (Kontakt)
         Bedeutung
         Eigenschaften
         Besonderheiten
-            - Nur als anonymes Objekt (Blank Node) vorgesehen
+            - Nur als anonymes Objekt (Blank Node) vorgesehen, SOLL aber IRI enthalten
         Beispiel(e)
 9000 Anhang
     9010 Glossar

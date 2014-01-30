@@ -109,7 +109,7 @@ Die Gründe, warum Betreiber von parlamentarischen Informationssystemen
 den Zugriff darauf über eine standardisierte Schnittstelle ermöglichen
 sollten, können vielfältig sein.
 
-Ein zentrales Argument ist die Verpflichtung der Parlemente gegenüber
+Ein zentrales Argument ist die Verpflichtung der Parlamente gegenüber
 der Bevölkerung, diese über die Fortschritte der parlamentarischen
 Arbeit zu informieren und auf dem Laufenden zu halten. Ein erster
 Schritt, der Bevölkerung Einblicke in die Arbeit und Zugriff auf
@@ -170,7 +170,7 @@ Die vorliegende Spezifikation soll eine Webservice-Schnittstelle
 definieren, die den anonymen und lesenden Zugriff auf öffentliche
 Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die
 Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP). Daten
-werden als JSON, JSONP oder optional als XML ausgeliefert.
+werden als JSON oder als JSONP ausgeliefert.
 
 Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale
 Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher
@@ -188,8 +188,7 @@ Der Entwurf umfasst aktuell die Beschreibung eines Datenmodells.
 
 \subsection{Nächste Schritte}
 
-Bis Ende Juni 2013: Fertigstellung von Version 1.0. Bis dahin ist zu
-erledigen:
+Fertigstellung von Version 1.0. Bis dahin ist zu erledigen:
 
 \begin{itemize}
 \item
@@ -653,7 +652,7 @@ Datum und Uhrzeit der letzten Änderung
   Personen können Organisationen angehören (\emph{datiert}).
 \end{itemize}
 
-\subsection{Beispiel}
+\subsubsection{Beispiel}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -764,9 +763,7 @@ Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält
 eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel
 (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein
 Ergebnis angehängt. Unter Umständen kann dem Tagesordnungspunkt ein
-bestimmter Beschlusstext beigefügt sein. Ein Abstimmungsergebnis kann es
-durch mehrere referenzierende Objekte vom Typ ``Stimmabgabe''
-festgehalten werden.
+bestimmter Beschlusstext beigefügt sein.
 
 Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
 
@@ -832,10 +829,6 @@ Datum und Uhrzeit der letzten Änderung
   Der Tagesordnungspunkt kann auf eine Drucksache verweisen, die im
   Rahmen dieses Tagesordnungspunkt beraten werden soll.
 \item
-  Es können mehrere Objekte vom Typ ``Stimmabgabe'' referenziert werden,
-  um das Abstimmungsverhalten von Fraktionen oder Einzelpersonen zu
-  dokumentieren.
-\item
   Es können Personen referenziert werden, die während der Abstimmung zu
   diesem Tagesordnungspunkt \emph{nicht} anwesend waren.
 \end{itemize}
@@ -852,98 +845,7 @@ Datum und Uhrzeit der letzten Änderung
     \DataTypeTok{"result"}\NormalTok{: }\StringTok{"Geändert beschlossen"}\NormalTok{,}
     \DataTypeTok{"resolution_text"}\NormalTok{: }\StringTok{"Der Beschluss weicht wie folgt vom Antrag ab: ..."}\NormalTok{,}
     \DataTypeTok{"people_absent"}\NormalTok{: [}\StringTok{"1002"}\NormalTok{, }\StringTok{"1003"}\NormalTok{],}
-    \DataTypeTok{"votings"}\NormalTok{: [}
-        \NormalTok{\{}
-            \DataTypeTok{"sum"}\NormalTok{: }\DecValTok{2}\NormalTok{,}
-            \DataTypeTok{"vote"}\NormalTok{: }\StringTok{"DAFUER"}\NormalTok{,}
-            \DataTypeTok{"organisations"}\NormalTok{: [}\StringTok{"24"}\NormalTok{],}
-            \DataTypeTok{"people"}\NormalTok{: []}
-        \NormalTok{\},}
-        \NormalTok{\{}
-            \DataTypeTok{"sum"}\NormalTok{: }\DecValTok{1}\NormalTok{,}
-            \DataTypeTok{"vote"}\NormalTok{: }\StringTok{"ENTHALTUNG"}\NormalTok{,}
-            \DataTypeTok{"organisations"}\NormalTok{: [],}
-            \DataTypeTok{"people"}\NormalTok{: [}\StringTok{"1000"}\NormalTok{]}
-        \NormalTok{\},}
-        \NormalTok{\{}
-            \DataTypeTok{"sum"}\NormalTok{: }\DecValTok{1}\NormalTok{,}
-            \DataTypeTok{"vote"}\NormalTok{: }\StringTok{"DAGEGEN"}\NormalTok{,}
-            \DataTypeTok{"organisations"}\NormalTok{: [],}
-            \DataTypeTok{"people"}\NormalTok{: [}\StringTok{"1001"}\NormalTok{]}
-        \NormalTok{\}}
-    \NormalTok{],}
     \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{Stimmabgabe (\texttt{vote})}
-
-Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt
-abgestimmt hat, wird durch eine Stimmabgabe festgehalten. Ganze
-Abstimmungsergebnisse bestehen überlicherweise aus mehreren
-Stimmabgaben. Jede Stimmabgabe gibt entweder die (einzelne) Stimme einer
-Person wieder (in diesem Fall ist die Anzahl der Stimmen zwingend 1)
-oder das einer ganzen Gruppe von Personen. Dann ist die Anzahl der
-Stimmen anzugeben und statt einer Person eine Organisation (in der Regel
-die Fraktion) zu referenzieren.
-
-Ist eine Abstimmung zu einem Tagesordnungspunkt einstimmig, dann genügt
-ein einziges Objekt vom Typ Stimmabgabe aus, um dies darzustellen. In
-allen anderen Fällen werden mehrere Stimmabgabe-Objekte kombiniert.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{images/datenmodell_stimmabgabe.png}
-\caption{Objekttyp Stimmabgabe}
-\end{figure}
-
-\subsubsection{Eigenschaften}
-
-\begin{description}
-\item[Anzahl der Stimmen (\texttt{sum})]
-Gehört die Stimmabgabe zu einer Person, ist der Wert immer 1. Gehört sie
-jedoch zu einer Organisation (=Fraktion), kann der Wert hier größer als
-1 sein. Diese Eigenschaft MUSS einen numerischen Wert haben.
-\item[Votum (\texttt{vote})]
-Einer der Werte \texttt{DAFUER} (gleichbedeutend mit ``für den
-Antrag''), \texttt{DAGEGEN} (``gegen den Antrag'') oder
-\texttt{ENTHALTUNG}.
-\end{description}
-
-\subsubsection{Beziehungen}
-
-\begin{itemize}
-\item
-  Jede Stimmabgabe gehört zu genau einem Tagesordnungspunkt.
-\item
-  Es wird entweder genau eine Person oder genau eine Organisation
-  (Fraktion) referenziert, die die Stimme(n) abgegeben hat.
-\end{itemize}
-
-\subsubsection{Beispiele}
-
-Die gesamte siebenköpfige Fraktion (Organisation ID ``18'') stimmt für
-den Antrag:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"sum"}\NormalTok{: }\DecValTok{7}\NormalTok{,}
-    \DataTypeTok{"vote"}\NormalTok{: }\StringTok{"DAFUER"}\NormalTok{,}
-    \DataTypeTok{"organisations"}\NormalTok{: [}\StringTok{"18"}\NormalTok{]}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-Drei bestimmte Personen stimmten gegen den Antrag:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"sum"}\NormalTok{: }\DecValTok{3}\NormalTok{,}
-    \DataTypeTok{"vote"}\NormalTok{: }\StringTok{"DAGEGEN"}\NormalTok{,}
-    \DataTypeTok{"people"}\NormalTok{: [}\StringTok{"85"}\NormalTok{, }\StringTok{"145"}\NormalTok{, }\StringTok{"67"}\NormalTok{]}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -1246,6 +1148,8 @@ Stichpunkte:
 \section{Glossar}
 
 \begin{description}
+\item[JSON-LD]
+JSON for Linked Data
 \item[RIS]
 Ratsinformationssystem
 \item[WGS 84]

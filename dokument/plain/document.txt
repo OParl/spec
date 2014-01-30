@@ -28,7 +28,7 @@ Die Gründe, warum Betreiber von parlamentarischen Informationssystemen
 den Zugriff darauf über eine standardisierte Schnittstelle ermöglichen
 sollten, können vielfältig sein.
 
-Ein zentrales Argument ist die Verpflichtung der Parlemente gegenüber
+Ein zentrales Argument ist die Verpflichtung der Parlamente gegenüber
 der Bevölkerung, diese über die Fortschritte der parlamentarischen
 Arbeit zu informieren und auf dem Laufenden zu halten. Ein erster
 Schritt, der Bevölkerung Einblicke in die Arbeit und Zugriff auf
@@ -83,7 +83,7 @@ Die vorliegende Spezifikation soll eine Webservice-Schnittstelle
 definieren, die den anonymen und lesenden Zugriff auf öffentliche
 Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die
 Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP). Daten
-werden als JSON, JSONP oder optional als XML ausgeliefert.
+werden als JSON oder als JSONP ausgeliefert.
 
 Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale
 Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher
@@ -104,8 +104,7 @@ Der Entwurf umfasst aktuell die Beschreibung eines Datenmodells.
 Nächste Schritte
 ----------------
 
-Bis Ende Juni 2013: Fertigstellung von Version 1.0. Bis dahin ist zu
-erledigen:
+Fertigstellung von Version 1.0. Bis dahin ist zu erledigen:
 
 -   Fertigstellung Datenmodell
 -   Beschreibung von Methoden und URL-Parametern
@@ -498,7 +497,6 @@ Beziehungen
 -   Personen können Organisationen angehören (datiert).
 
 Beispiel
---------
 
     {
         "id": "15",
@@ -586,9 +584,7 @@ Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält
 eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel
 (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein
 Ergebnis angehängt. Unter Umständen kann dem Tagesordnungspunkt ein
-bestimmter Beschlusstext beigefügt sein. Ein Abstimmungsergebnis kann es
-durch mehrere referenzierende Objekte vom Typ "Stimmabgabe" festgehalten
-werden.
+bestimmter Beschlusstext beigefügt sein.
 
 Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
 
@@ -640,9 +636,6 @@ Beziehungen
 -   Jeder Tagesordnungspunkt gehört zu genau einer Sitzung.
 -   Der Tagesordnungspunkt kann auf eine Drucksache verweisen, die im
     Rahmen dieses Tagesordnungspunkt beraten werden soll.
--   Es können mehrere Objekte vom Typ "Stimmabgabe" referenziert werden,
-    um das Abstimmungsverhalten von Fraktionen oder Einzelpersonen zu
-    dokumentieren.
 -   Es können Personen referenziert werden, die während der Abstimmung
     zu diesem Tagesordnungspunkt nicht anwesend waren.
 
@@ -656,81 +649,7 @@ Beispiel
         "result": "Geändert beschlossen",
         "resolution_text": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
         "people_absent": ["1002", "1003"],
-        "votings": [
-            {
-                "sum": 2,
-                "vote": "DAFUER",
-                "organisations": ["24"],
-                "people": []
-            },
-            {
-                "sum": 1,
-                "vote": "ENTHALTUNG",
-                "organisations": [],
-                "people": ["1000"]
-            },
-            {
-                "sum": 1,
-                "vote": "DAGEGEN",
-                "organisations": [],
-                "people": ["1001"]
-            }
-        ],
         "last_modified": "2012-08-16T14:05:27+02:00"
-    }
-
-Stimmabgabe (vote)
-------------------
-
-Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt
-abgestimmt hat, wird durch eine Stimmabgabe festgehalten. Ganze
-Abstimmungsergebnisse bestehen überlicherweise aus mehreren
-Stimmabgaben. Jede Stimmabgabe gibt entweder die (einzelne) Stimme einer
-Person wieder (in diesem Fall ist die Anzahl der Stimmen zwingend 1)
-oder das einer ganzen Gruppe von Personen. Dann ist die Anzahl der
-Stimmen anzugeben und statt einer Person eine Organisation (in der Regel
-die Fraktion) zu referenzieren.
-
-Ist eine Abstimmung zu einem Tagesordnungspunkt einstimmig, dann genügt
-ein einziges Objekt vom Typ Stimmabgabe aus, um dies darzustellen. In
-allen anderen Fällen werden mehrere Stimmabgabe-Objekte kombiniert.
-
-[Objekttyp Stimmabgabe]
-
-Eigenschaften
-
-Anzahl der Stimmen (sum)
-    Gehört die Stimmabgabe zu einer Person, ist der Wert immer 1. Gehört
-    sie jedoch zu einer Organisation (=Fraktion), kann der Wert hier
-    größer als 1 sein. Diese Eigenschaft MUSS einen numerischen Wert
-    haben.
-Votum (vote)
-    Einer der Werte DAFUER (gleichbedeutend mit "für den Antrag"),
-    DAGEGEN ("gegen den Antrag") oder ENTHALTUNG.
-
-Beziehungen
-
--   Jede Stimmabgabe gehört zu genau einem Tagesordnungspunkt.
--   Es wird entweder genau eine Person oder genau eine Organisation
-    (Fraktion) referenziert, die die Stimme(n) abgegeben hat.
-
-Beispiele
-
-Die gesamte siebenköpfige Fraktion (Organisation ID "18") stimmt für den
-Antrag:
-
-    {
-        "sum": 7,
-        "vote": "DAFUER",
-        "organisations": ["18"]
-    }
-
-Drei bestimmte Personen stimmten gegen den Antrag:
-
-    {
-        "sum": 3,
-        "vote": "DAGEGEN",
-        "people": ["85", "145", "67"]
     }
 
 Drucksache (paper)
@@ -973,6 +892,9 @@ Stichpunkte:
 
 Glossar
 =======
+
+JSON-LD
+    JSON for Linked Data
 
 RIS
     Ratsinformationssystem

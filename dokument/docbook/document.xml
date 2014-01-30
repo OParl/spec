@@ -32,7 +32,7 @@
       Schnittstelle ermöglichen sollten, können vielfältig sein.
     </para>
     <para>
-      Ein zentrales Argument ist die Verpflichtung der Parlemente
+      Ein zentrales Argument ist die Verpflichtung der Parlamente
       gegenüber der Bevölkerung, diese über die Fortschritte der
       parlamentarischen Arbeit zu informieren und auf dem Laufenden zu
       halten. Ein erster Schritt, der Bevölkerung Einblicke in die
@@ -118,7 +118,7 @@
       definieren, die den anonymen und lesenden Zugriff auf öffentliche
       Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die
       Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP).
-      Daten werden als JSON, JSONP oder optional als XML ausgeliefert.
+      Daten werden als JSON oder als JSONP ausgeliefert.
     </para>
     <para>
       Die Spezifikation wird obligatorische Bestandteile (MUSS) und
@@ -144,8 +144,7 @@
   <sect2 id="nächste-schritte">
     <title>Nächste Schritte</title>
     <para>
-      Bis Ende Juni 2013: Fertigstellung von Version 1.0. Bis dahin ist
-      zu erledigen:
+      Fertigstellung von Version 1.0. Bis dahin ist zu erledigen:
     </para>
     <itemizedlist>
       <listitem>
@@ -975,10 +974,9 @@
         </listitem>
       </itemizedlist>
     </sect3>
-  </sect2>
-  <sect2 id="beispiel-3">
-    <title>Beispiel</title>
-    <programlisting language="json">
+    <sect3 id="beispiel-3">
+      <title>Beispiel</title>
+      <programlisting language="json">
 {
     &quot;id&quot;: &quot;15&quot;,
     &quot;name&quot;: &quot;SPD&quot;,
@@ -986,6 +984,7 @@
     &quot;last_modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
 }
 </programlisting>
+    </sect3>
   </sect2>
   <sect2 id="sitzung-meeting">
     <title>Sitzung (<literal>meeting</literal>)</title>
@@ -1164,8 +1163,6 @@
       Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt
       außerdem ein Ergebnis angehängt. Unter Umständen kann dem
       Tagesordnungspunkt ein bestimmter Beschlusstext beigefügt sein.
-      Ein Abstimmungsergebnis kann es durch mehrere referenzierende
-      Objekte vom Typ &quot;Stimmabgabe&quot; festgehalten werden.
     </para>
     <para>
       Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
@@ -1313,13 +1310,6 @@
         </listitem>
         <listitem>
           <para>
-            Es können mehrere Objekte vom Typ &quot;Stimmabgabe&quot;
-            referenziert werden, um das Abstimmungsverhalten von
-            Fraktionen oder Einzelpersonen zu dokumentieren.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
             Es können Personen referenziert werden, die während der
             Abstimmung zu diesem Tagesordnungspunkt
             <emphasis>nicht</emphasis> anwesend waren.
@@ -1338,127 +1328,7 @@
     &quot;result&quot;: &quot;Geändert beschlossen&quot;,
     &quot;resolution_text&quot;: &quot;Der Beschluss weicht wie folgt vom Antrag ab: ...&quot;,
     &quot;people_absent&quot;: [&quot;1002&quot;, &quot;1003&quot;],
-    &quot;votings&quot;: [
-        {
-            &quot;sum&quot;: 2,
-            &quot;vote&quot;: &quot;DAFUER&quot;,
-            &quot;organisations&quot;: [&quot;24&quot;],
-            &quot;people&quot;: []
-        },
-        {
-            &quot;sum&quot;: 1,
-            &quot;vote&quot;: &quot;ENTHALTUNG&quot;,
-            &quot;organisations&quot;: [],
-            &quot;people&quot;: [&quot;1000&quot;]
-        },
-        {
-            &quot;sum&quot;: 1,
-            &quot;vote&quot;: &quot;DAGEGEN&quot;,
-            &quot;organisations&quot;: [],
-            &quot;people&quot;: [&quot;1001&quot;]
-        }
-    ],
     &quot;last_modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
-}
-</programlisting>
-    </sect3>
-  </sect2>
-  <sect2 id="stimmabgabe-vote">
-    <title>Stimmabgabe (<literal>vote</literal>)</title>
-    <para>
-      Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt
-      abgestimmt hat, wird durch eine Stimmabgabe festgehalten. Ganze
-      Abstimmungsergebnisse bestehen überlicherweise aus mehreren
-      Stimmabgaben. Jede Stimmabgabe gibt entweder die (einzelne) Stimme
-      einer Person wieder (in diesem Fall ist die Anzahl der Stimmen
-      zwingend 1) oder das einer ganzen Gruppe von Personen. Dann ist
-      die Anzahl der Stimmen anzugeben und statt einer Person eine
-      Organisation (in der Regel die Fraktion) zu referenzieren.
-    </para>
-    <para>
-      Ist eine Abstimmung zu einem Tagesordnungspunkt einstimmig, dann
-      genügt ein einziges Objekt vom Typ Stimmabgabe aus, um dies
-      darzustellen. In allen anderen Fällen werden mehrere
-      Stimmabgabe-Objekte kombiniert.
-    </para>
-    <figure>
-      <title>Objekttyp Stimmabgabe</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/datenmodell_stimmabgabe.png" />
-        </imageobject>
-        <textobject><phrase>Objekttyp Stimmabgabe</phrase></textobject>
-      </mediaobject>
-    </figure>
-    <sect3 id="eigenschaften-6">
-      <title>Eigenschaften</title>
-      <variablelist>
-        <varlistentry>
-          <term>
-            Anzahl der Stimmen (<literal>sum</literal>)
-          </term>
-          <listitem>
-            <para>
-              Gehört die Stimmabgabe zu einer Person, ist der Wert immer
-              1. Gehört sie jedoch zu einer Organisation (=Fraktion),
-              kann der Wert hier größer als 1 sein. Diese Eigenschaft
-              MUSS einen numerischen Wert haben.
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Votum (<literal>vote</literal>)
-          </term>
-          <listitem>
-            <para>
-              Einer der Werte <literal>DAFUER</literal> (gleichbedeutend
-              mit &quot;für den Antrag&quot;),
-              <literal>DAGEGEN</literal> (&quot;gegen den Antrag&quot;)
-              oder <literal>ENTHALTUNG</literal>.
-            </para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </sect3>
-    <sect3 id="beziehungen-6">
-      <title>Beziehungen</title>
-      <itemizedlist>
-        <listitem>
-          <para>
-            Jede Stimmabgabe gehört zu genau einem Tagesordnungspunkt.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Es wird entweder genau eine Person oder genau eine
-            Organisation (Fraktion) referenziert, die die Stimme(n)
-            abgegeben hat.
-          </para>
-        </listitem>
-      </itemizedlist>
-    </sect3>
-    <sect3 id="beispiele">
-      <title>Beispiele</title>
-      <para>
-        Die gesamte siebenköpfige Fraktion (Organisation ID
-        &quot;18&quot;) stimmt für den Antrag:
-      </para>
-      <programlisting language="json">
-{
-    &quot;sum&quot;: 7,
-    &quot;vote&quot;: &quot;DAFUER&quot;,
-    &quot;organisations&quot;: [&quot;18&quot;]
-}
-</programlisting>
-      <para>
-        Drei bestimmte Personen stimmten gegen den Antrag:
-      </para>
-      <programlisting language="json">
-{
-    &quot;sum&quot;: 3,
-    &quot;vote&quot;: &quot;DAGEGEN&quot;,
-    &quot;people&quot;: [&quot;85&quot;, &quot;145&quot;, &quot;67&quot;]
 }
 </programlisting>
     </sect3>
@@ -1533,7 +1403,7 @@
         </para>
       </listitem>
     </itemizedlist>
-    <sect3 id="eigenschaften-7">
+    <sect3 id="eigenschaften-6">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -1583,7 +1453,7 @@
         </varlistentry>
       </variablelist>
     </sect3>
-    <sect3 id="beziehungen-7">
+    <sect3 id="beziehungen-6">
       <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
@@ -1723,7 +1593,7 @@
         <textobject><phrase>Objekttyp Dokument</phrase></textobject>
       </mediaobject>
     </figure>
-    <sect3 id="eigenschaften-8">
+    <sect3 id="eigenschaften-7">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -1812,7 +1682,7 @@
         </varlistentry>
       </variablelist>
     </sect3>
-    <sect3 id="beziehungen-8">
+    <sect3 id="beziehungen-7">
       <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
@@ -1875,7 +1745,7 @@
         <textobject><phrase>Objekttyp Ort</phrase></textobject>
       </mediaobject>
     </figure>
-    <sect3 id="eigenschaften-9">
+    <sect3 id="eigenschaften-8">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -1911,7 +1781,7 @@
         </varlistentry>
       </variablelist>
     </sect3>
-    <sect3 id="beziehungen-9">
+    <sect3 id="beziehungen-8">
       <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
@@ -1981,6 +1851,16 @@
 <sect1 id="glossar">
   <title>Glossar</title>
   <variablelist>
+    <varlistentry>
+      <term>
+        JSON-LD
+      </term>
+      <listitem>
+        <para>
+          JSON for Linked Data
+        </para>
+      </listitem>
+    </varlistentry>
     <varlistentry>
       <term>
         RIS

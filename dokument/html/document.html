@@ -38,7 +38,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Parlamentarische Informationssysteme (oft Ratsinformationssystem, RIS oder Bürgerinformationssystem genannt) werden von vielen Körperschaften wie Kommunen, Landkreisen und Regierungsbezirken eingesetzt, um die anfallende Gremienarbeit (Ratssitzungen, Ausschüsse, Vertretungen) zu organisieren. Da ein großer Teil der schriftlichen Arbeit in der Lokalpolitik über derartige Systeme verwaltet wird, sind diese Systeme – dort wo vorhanden – ein wichtiger Zugriffspunkt für alle, die sich für politischen Geschehnisse interessieren.</p>
 <h2 id="motivationen-für-den-standardisierten-datenzugriff"><span class="header-section-number">1.2</span> Motivationen für den standardisierten Datenzugriff</h2>
 <p>Die Gründe, warum Betreiber von parlamentarischen Informationssystemen den Zugriff darauf über eine standardisierte Schnittstelle ermöglichen sollten, können vielfältig sein.</p>
-<p>Ein zentrales Argument ist die Verpflichtung der Parlemente gegenüber der Bevölkerung, diese über die Fortschritte der parlamentarischen Arbeit zu informieren und auf dem Laufenden zu halten. Ein erster Schritt, der Bevölkerung Einblicke in die Arbeit und Zugriff auf Dokumente zu gewähren, ist vielerorts in den letzten Jahren durch Einführung von Ratsinformationssystemen mit anonymem, lesenden Zugriff über das World Wide Web gemacht worden.</p>
+<p>Ein zentrales Argument ist die Verpflichtung der Parlamente gegenüber der Bevölkerung, diese über die Fortschritte der parlamentarischen Arbeit zu informieren und auf dem Laufenden zu halten. Ein erster Schritt, der Bevölkerung Einblicke in die Arbeit und Zugriff auf Dokumente zu gewähren, ist vielerorts in den letzten Jahren durch Einführung von Ratsinformationssystemen mit anonymem, lesenden Zugriff über das World Wide Web gemacht worden.</p>
 <p>Die damit eingeschlagene Richtung konsequent weiter zu gehen, bedeutet, die Daten der parlamentarischen Informationssystemen gänzlich offen zu legen, sofern die Inhalte es erlauben. Es bedeutet, die Daten und Inhalte so universell weiterverwendbar und so barrierearm wie möglich anzubieten, dass jegliche weitere Verwendung durch Dritte technisch möglich ist. Der seit einiger Zeit etablierte Begriff für dieses Prinzip heißt &quot;Open Data&quot;.</p>
 <p>Das Interesse an parlamentarischen Informationen und an Anwendungen, die diese nutzbar und auswertbar machen, ist offensichtlich vorhanden. Die Entwickler der alternativen Ratsinformationssysteme wie Frankfurt Gestalten[14], Offenes Köln[15] oder der OpenRuhr:RIS-Instanzen[16] wissen zu berichten, wie viel Interesse den Projekten gerade aus Orten entgegen gebracht wird, in denen derartige Systeme noch nicht verfügbar sind.</p>
 <p>Die Anwendungsmöglichkeiten für parlamentarische Informationen, wenn sie über eine Schnittstelle schnell und einfach abgerufen werden können, sind vielfältig. Beispiele könnten sein:</p>
@@ -52,14 +52,14 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Die Standardisierung dieses Zugriffs über die Grenzen einzelner Systeme hinweg erlaubt zudem, diese Entwicklungen grenzüberschreitend zu denken. Damit steigt nicht nur die potenzielle Nutzerschaft einzelner Entwicklungen. Auch das Potenzial für Kooperationen zwischen Anwendungsentwicklern wächst.</p>
 <p>Darüber hinaus sind auch Motivationen innerhalb von Organisationen und Körperschaften erkennbar. So sollen parlamentarische Informationssysteme vielerorts in verschiedenste Prozesse und heterogene Systemlandschaften integriert werden. Durch eine einheitliche Schnittstelle bieten sich effiziente Möglichkeiten zur Integration der Daten in anderen Systeme, wie beispielsweise Web-Portale.</p>
 <h2 id="funktionsumfang-der-oparl-schnittstelle"><span class="header-section-number">1.3</span> Funktionsumfang der OParl-Schnittstelle</h2>
-<p>Die vorliegende Spezifikation soll eine Webservice-Schnittstelle definieren, die den anonymen und lesenden Zugriff auf öffentliche Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP). Daten werden als JSON, JSONP oder optional als XML ausgeliefert.</p>
+<p>Die vorliegende Spezifikation soll eine Webservice-Schnittstelle definieren, die den anonymen und lesenden Zugriff auf öffentliche Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP). Daten werden als JSON oder als JSONP ausgeliefert.</p>
 <p>Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher zwischen den Implementierungen variieren.</p>
 <h2 id="status"><span class="header-section-number">1.4</span> Status</h2>
 <p>Die Spezifikation befindet sich in Arbeit. Das Dokument enthält entsprechend viele Ungenauigkeiten und Hinweise auf offene Fragestellungen.</p>
 <h2 id="überblick"><span class="header-section-number">1.5</span> Überblick</h2>
 <p>Der Entwurf umfasst aktuell die Beschreibung eines Datenmodells.</p>
 <h2 id="nächste-schritte"><span class="header-section-number">1.6</span> Nächste Schritte</h2>
-<p>Bis Ende Juni 2013: Fertigstellung von Version 1.0. Bis dahin ist zu erledigen:</p>
+<p>Fertigstellung von Version 1.0. Bis dahin ist zu erledigen:</p>
 <ul>
 <li>Fertigstellung Datenmodell</li>
 <li>Beschreibung von Methoden und URL-Parametern</li>
@@ -307,20 +307,20 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>Jede Organisationen gehört zu einer Körperschaft.</li>
 <li>Personen können Organisationen angehören (<em>datiert</em>).</li>
 </ul>
-<h2 id="beispiel-3"><span class="header-section-number">2.6</span> Beispiel</h2>
+<h3 id="beispiel-3"><span class="header-section-number">2.5.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="organisation_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;15&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;SPD&quot;</span>,
     <span class="dt">&quot;body&quot;</span>: <span class="st">&quot;1&quot;</span>,
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
-<h2 id="sitzung-meeting"><span class="header-section-number">2.7</span> Sitzung (<code>meeting</code>)</h2>
+<h2 id="sitzung-meeting"><span class="header-section-number">2.6</span> Sitzung (<code>meeting</code>)</h2>
 <p>Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.</p>
 <p>Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in entsprechender Form referenziert. Verschiedene Dokumente (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.</p>
 <div class="figure">
 <img src="images/datenmodell_sitzung.png" alt="Objekttyp Sitzung" /><p class="caption">Objekttyp Sitzung</p>
 </div>
-<h3 id="eigenschaften-4"><span class="header-section-number">2.7.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-4"><span class="header-section-number">2.6.1</span> Eigenschaften</h3>
 <dl>
 <dt>Schlüssel (<code>id</code>)</dt>
 <dd>Zur eindeutigen Identifizierung der Sitzung innerhalb des Systems. In der Praxis wird ein solcher Schlüssel entweder durch eine numerische ID gebildet oder durch Kombination mehrerer Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung in einem Jahr und der Jahreszahl (z.B. &quot;BV1/0034/2012&quot;).
@@ -341,7 +341,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h3 id="beziehungen-4"><span class="header-section-number">2.7.2</span> Beziehungen</h3>
+<h3 id="beziehungen-4"><span class="header-section-number">2.6.2</span> Beziehungen</h3>
 <ul>
 <li>Sitzungen sind mindestens einem Gremium zugeordnet</li>
 <li>Einer Sitzung sind Personen zugeordnet, um die Teilnahme an der Sitzung auszudrücken.</li>
@@ -353,7 +353,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul></li>
 <li>Weiterhin können Sitzungen beliebige weitere Dokumente, die keine eigenständigen Drucksachen sind, referenzieren. Dabei handelt es sich dann um nicht weiter spezifizierte Anlagen.</li>
 </ul>
-<h3 id="beispiel-4"><span class="header-section-number">2.7.3</span> Beispiel</h3>
+<h3 id="beispiel-4"><span class="header-section-number">2.6.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="meeting_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;3271&quot;</span>,
     <span class="dt">&quot;identifier&quot;</span>: <span class="st">&quot;STA/0034/2012&quot;</span>,
@@ -372,13 +372,13 @@ code > span.er { color: #ff0000; font-weight: bold; }
     ],
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-01-08T14:05:27+01:00&quot;</span>
 }</code></pre>
-<h2 id="tagesordnungspunkt-agendaitem"><span class="header-section-number">2.8</span> Tagesordnungspunkt (<code>agendaitem</code>)</h2>
-<p>Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. Unter Umständen kann dem Tagesordnungspunkt ein bestimmter Beschlusstext beigefügt sein. Ein Abstimmungsergebnis kann es durch mehrere referenzierende Objekte vom Typ &quot;Stimmabgabe&quot; festgehalten werden.</p>
+<h2 id="tagesordnungspunkt-agendaitem"><span class="header-section-number">2.7</span> Tagesordnungspunkt (<code>agendaitem</code>)</h2>
+<p>Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. Unter Umständen kann dem Tagesordnungspunkt ein bestimmter Beschlusstext beigefügt sein.</p>
 <p>Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.</p>
 <div class="figure">
 <img src="images/datenmodell_tagesordnungspunkt.png" alt="Objekttyp Tagesordnungspunkt" /><p class="caption">Objekttyp Tagesordnungspunkt</p>
 </div>
-<h3 id="eigenschaften-5"><span class="header-section-number">2.8.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-5"><span class="header-section-number">2.7.1</span> Eigenschaften</h3>
 <dl>
 <dt>Nummer (<code>identifier</code>)</dt>
 <dd>Beispiel: &quot;1.2.3&quot;. Diese Nummer gibt an, in welcher Reihenfolge die Tagesordnungspunkte einer Sitzung normalerweise behandelt werden. Im Kontext einer Sitzung ist diese Nummer eindeutig.
@@ -402,19 +402,18 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h4 id="anmerkungen-2"><span class="header-section-number">2.8.1.1</span> Anmerkungen</h4>
+<h4 id="anmerkungen-2"><span class="header-section-number">2.7.1.1</span> Anmerkungen</h4>
 <ul>
 <li>Einige Systeme vergeben zu Tagesordnungspunkten intern unveränderliche, numerische IDs. Es ist unklar, ob es zusätzlichen Nutzen bringt, derartige IDs, neben den Nummern, in den Standard zu übernehmen. Dies würde vermutlich nur Sinn ergeben, wenn es als Pflichtfeld gelten könnte.</li>
 <li>Teil der Beratungen über einheitliche Nomenklatur im Standard sollte sein, eine Vereinheitlichung der Werte für die Eigenschaft <code>result</code> zu diskutieren.</li>
 </ul>
-<h3 id="beziehungen-5"><span class="header-section-number">2.8.2</span> Beziehungen</h3>
+<h3 id="beziehungen-5"><span class="header-section-number">2.7.2</span> Beziehungen</h3>
 <ul>
 <li>Jeder Tagesordnungspunkt gehört zu genau einer Sitzung.</li>
 <li>Der Tagesordnungspunkt kann auf eine Drucksache verweisen, die im Rahmen dieses Tagesordnungspunkt beraten werden soll.</li>
-<li>Es können mehrere Objekte vom Typ &quot;Stimmabgabe&quot; referenziert werden, um das Abstimmungsverhalten von Fraktionen oder Einzelpersonen zu dokumentieren.</li>
 <li>Es können Personen referenziert werden, die während der Abstimmung zu diesem Tagesordnungspunkt <em>nicht</em> anwesend waren.</li>
 </ul>
-<h3 id="beispiel-5"><span class="header-section-number">2.8.3</span> Beispiel</h3>
+<h3 id="beispiel-5"><span class="header-section-number">2.7.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="agendaitem_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;meeting&quot;</span>: <span class="st">&quot;3271&quot;</span>,
     <span class="dt">&quot;identifier&quot;</span>: <span class="st">&quot;3.1.2&quot;</span>,
@@ -423,62 +422,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
     <span class="dt">&quot;result&quot;</span>: <span class="st">&quot;Geändert beschlossen&quot;</span>,
     <span class="dt">&quot;resolution_text&quot;</span>: <span class="st">&quot;Der Beschluss weicht wie folgt vom Antrag ab: ...&quot;</span>,
     <span class="dt">&quot;people_absent&quot;</span>: [<span class="st">&quot;1002&quot;</span>, <span class="st">&quot;1003&quot;</span>],
-    <span class="dt">&quot;votings&quot;</span>: [
-        {
-            <span class="dt">&quot;sum&quot;</span>: <span class="dv">2</span>,
-            <span class="dt">&quot;vote&quot;</span>: <span class="st">&quot;DAFUER&quot;</span>,
-            <span class="dt">&quot;organisations&quot;</span>: [<span class="st">&quot;24&quot;</span>],
-            <span class="dt">&quot;people&quot;</span>: []
-        },
-        {
-            <span class="dt">&quot;sum&quot;</span>: <span class="dv">1</span>,
-            <span class="dt">&quot;vote&quot;</span>: <span class="st">&quot;ENTHALTUNG&quot;</span>,
-            <span class="dt">&quot;organisations&quot;</span>: [],
-            <span class="dt">&quot;people&quot;</span>: [<span class="st">&quot;1000&quot;</span>]
-        },
-        {
-            <span class="dt">&quot;sum&quot;</span>: <span class="dv">1</span>,
-            <span class="dt">&quot;vote&quot;</span>: <span class="st">&quot;DAGEGEN&quot;</span>,
-            <span class="dt">&quot;organisations&quot;</span>: [],
-            <span class="dt">&quot;people&quot;</span>: [<span class="st">&quot;1001&quot;</span>]
-        }
-    ],
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
-<h2 id="stimmabgabe-vote"><span class="header-section-number">2.9</span> Stimmabgabe (<code>vote</code>)</h2>
-<p>Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt abgestimmt hat, wird durch eine Stimmabgabe festgehalten. Ganze Abstimmungsergebnisse bestehen überlicherweise aus mehreren Stimmabgaben. Jede Stimmabgabe gibt entweder die (einzelne) Stimme einer Person wieder (in diesem Fall ist die Anzahl der Stimmen zwingend 1) oder das einer ganzen Gruppe von Personen. Dann ist die Anzahl der Stimmen anzugeben und statt einer Person eine Organisation (in der Regel die Fraktion) zu referenzieren.</p>
-<p>Ist eine Abstimmung zu einem Tagesordnungspunkt einstimmig, dann genügt ein einziges Objekt vom Typ Stimmabgabe aus, um dies darzustellen. In allen anderen Fällen werden mehrere Stimmabgabe-Objekte kombiniert.</p>
-<div class="figure">
-<img src="images/datenmodell_stimmabgabe.png" alt="Objekttyp Stimmabgabe" /><p class="caption">Objekttyp Stimmabgabe</p>
-</div>
-<h3 id="eigenschaften-6"><span class="header-section-number">2.9.1</span> Eigenschaften</h3>
-<dl>
-<dt>Anzahl der Stimmen (<code>sum</code>)</dt>
-<dd>Gehört die Stimmabgabe zu einer Person, ist der Wert immer 1. Gehört sie jedoch zu einer Organisation (=Fraktion), kann der Wert hier größer als 1 sein. Diese Eigenschaft MUSS einen numerischen Wert haben.
-</dd>
-<dt>Votum (<code>vote</code>)</dt>
-<dd>Einer der Werte <code>DAFUER</code> (gleichbedeutend mit &quot;für den Antrag&quot;), <code>DAGEGEN</code> (&quot;gegen den Antrag&quot;) oder <code>ENTHALTUNG</code>.
-</dd>
-</dl>
-<h3 id="beziehungen-6"><span class="header-section-number">2.9.2</span> Beziehungen</h3>
-<ul>
-<li>Jede Stimmabgabe gehört zu genau einem Tagesordnungspunkt.</li>
-<li>Es wird entweder genau eine Person oder genau eine Organisation (Fraktion) referenziert, die die Stimme(n) abgegeben hat.</li>
-</ul>
-<h3 id="beispiele"><span class="header-section-number">2.9.3</span> Beispiele</h3>
-<p>Die gesamte siebenköpfige Fraktion (Organisation ID &quot;18&quot;) stimmt für den Antrag:</p>
-<pre class="sourceCode json" id="vote_ex1"><code class="sourceCode json">{
-    <span class="dt">&quot;sum&quot;</span>: <span class="dv">7</span>,
-    <span class="dt">&quot;vote&quot;</span>: <span class="st">&quot;DAFUER&quot;</span>,
-    <span class="dt">&quot;organisations&quot;</span>: [<span class="st">&quot;18&quot;</span>]
-}</code></pre>
-<p>Drei bestimmte Personen stimmten gegen den Antrag:</p>
-<pre class="sourceCode json" id="vote_ex2"><code class="sourceCode json">{
-    <span class="dt">&quot;sum&quot;</span>: <span class="dv">3</span>,
-    <span class="dt">&quot;vote&quot;</span>: <span class="st">&quot;DAGEGEN&quot;</span>,
-    <span class="dt">&quot;people&quot;</span>: [<span class="st">&quot;85&quot;</span>, <span class="st">&quot;145&quot;</span>, <span class="st">&quot;67&quot;</span>]
-}</code></pre>
-<h2 id="drucksache-paper"><span class="header-section-number">2.10</span> Drucksache (<code>paper</code>)</h2>
+<h2 id="drucksache-paper"><span class="header-section-number">2.8</span> Drucksache (<code>paper</code>)</h2>
 <p>Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen, Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede Drucksache erhält eine eindeutige Kennung.</p>
 <p>Die Drucksache hat im Informationsmodell eine hervorgehobene Bedeutung. Im Fall eines Antrags kann mit einer einzigen Drucksache ein über Monate oder Jahre dauernder politischer Entscheidungsprozess verbunden sein. In dem Zusammenhang entstehen üblicherweise weitere Drucksachen.</p>
 <p>Drucksachen spielen in der schriftlichen wie mündlichen Kommunikation eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in Ratsinformationssystemen unveränderliche Kennungen der Drucksachen zum Einsatz.</p>
@@ -493,7 +439,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><strong>Mitteilung/Stellungnahme der Verwaltung</strong>: Eine Information der Verwaltung an einzelne oder mehrere Gremien. Darunter fallen nicht Beantwortungen von Anfragen.</li>
 <li><strong>Beantwortung einer Anfrage</strong>: Antwort der Verwaltung auf (mündliche oder schriftliche) Anfragen</li>
 </ul>
-<h3 id="eigenschaften-7"><span class="header-section-number">2.10.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-6"><span class="header-section-number">2.8.1</span> Eigenschaften</h3>
 <dl>
 <dt>Schlüssel (<code>id</code>)</dt>
 <dd>Die Kennung einer Drucksache muss für die jeweilige Körperschaft eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben enthalten. Einige Systeme (z.B. Köln) verwenden besondere Trennzeichen wie &quot;/&quot;, um eine Jahreszahl von einer laufenden Nummer abzutrennen. Weiterhin werden mancherorts führende Nullen verwendet.
@@ -508,7 +454,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h3 id="beziehungen-7"><span class="header-section-number">2.10.2</span> Beziehungen</h3>
+<h3 id="beziehungen-6"><span class="header-section-number">2.8.2</span> Beziehungen</h3>
 <ul>
 <li>Es muss genau ein <strong>Hauptdokument</strong> (Objekttyp &quot;Dokument&quot;) referenziert werden.</li>
 <li>Es können beliebig viele weitere Dokumente referenziert werden, die als nachgeordnete <strong>Anlagen</strong> zur Drucksache verstanden werden.</li>
@@ -518,7 +464,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>Drucksachen können auf andere Drucksachen referenzieren. Diese Verweise können verschiedene semantische Beziehungen ausdrücken. So kann eine Drucksache auf eine übergeordnete oder eine oder mehrere untergeordnete Drucksachen verweisen. Beim Drucksachen-Typ &quot;Beantwortung einer Anfrage&quot; ist die Drucksache zu referenzieren, die die ursprüngliche <strong>Anfrage</strong> beinhaltet. Denkbar sind auch Verweise auf frühere Drucksachen zum selben Thema. Zu klären ist, wie die verschiedenen möglichen Beziehungen formell ausgedrückt werden.</li>
 <li>Drucksachen können zu beliebig vielen Tagesordnungspunkten in Beziehung stehen, um die <strong>Beratungsfolge</strong> einer Drucksache abzubilden. Hierbei kann die Beziehung jeweils mit einer Zuständigkeit versehen sein, die noch näher zu bestimmen ist (TODO).</li>
 </ul>
-<h3 id="beispiel-6"><span class="header-section-number">2.10.3</span> Beispiel</h3>
+<h3 id="beispiel-6"><span class="header-section-number">2.8.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="paper_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;1234/2012&quot;</span>,
     <span class="dt">&quot;date&quot;</span>: <span class="st">&quot;2013-01-04&quot;</span>,
@@ -558,14 +504,14 @@ code > span.er { color: #ff0000; font-weight: bold; }
     ],
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2013-01-08T12:05:27+01:00&quot;</span>
 }</code></pre>
-<h2 id="dokument-document"><span class="header-section-number">2.11</span> Dokument (<code>document</code>)</h2>
+<h2 id="dokument-document"><span class="header-section-number">2.9</span> Dokument (<code>document</code>)</h2>
 <p>Ein Dokument hält die Metadaten einer Datei vor, beispielsweise einer PDF-Datei, eines RTF- oder Word-Dokuments.</p>
 <p>Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls ein Dokument. Um zu zeigen, dass es sich um eine Ableitung handelt, verweist dieses auf das Original als &quot;Master&quot;.</p>
 <p>Im Unterschied zur Drucksache benötigt das Dokument keine nutzerfreundliche Kennung.</p>
 <div class="figure">
 <img src="images/datenmodell_dokument.png" alt="Objekttyp Dokument" /><p class="caption">Objekttyp Dokument</p>
 </div>
-<h3 id="eigenschaften-8"><span class="header-section-number">2.11.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-7"><span class="header-section-number">2.9.1</span> Eigenschaften</h3>
 <dl>
 <dt>Schlüssel (<code>id</code>)</dt>
 <dd>Unveränderliche Kennung
@@ -592,7 +538,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Reine Text-Wiedergabe des Dokumenteninhalts, sofern es sich nicht um eine reine Abbildung handelt.
 </dd>
 </dl>
-<h3 id="beziehungen-8"><span class="header-section-number">2.11.2</span> Beziehungen</h3>
+<h3 id="beziehungen-7"><span class="header-section-number">2.9.2</span> Beziehungen</h3>
 <ul>
 <li>Dokumente gehören zwingend zu einer <strong>Drucksache</strong>, optional auch zu mehreren. Ein Dokument kann entweder als Hauptdokument einer Drucksache oder als Anlage eingestuft sein.</li>
 <li>Ein Dokument kann auf ein anderes Dokument referenzieren, wenn es von dem anderen Dokument abstammt. So ist es möglich, von einem abgeleiteten Dokument zu seinem Dokumenten-Master zu gelangen (Beispiel: von einem PDF-Dokument zum OpenOffice-Original).</li>
@@ -608,13 +554,13 @@ code > span.er { color: #ff0000; font-weight: bold; }
     <span class="dt">&quot;text&quot;</span>: <span class="st">&quot;Der Übersichtsplan zeigt alle Ebenen des ...&quot;</span>,
     <span class="dt">&quot;master&quot;</span>: <span class="st">&quot;2099&quot;</span>
 }</code></pre>
-<h2 id="ort-location"><span class="header-section-number">2.12</span> Ort (<code>location</code>)</h2>
+<h2 id="ort-location"><span class="header-section-number">2.10</span> Ort (<code>location</code>)</h2>
 <p>Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen (beispielsweise der Name einer Straße/eines Platzes oder eine genaue Adresse) als auch aus Geodaten.</p>
 <p>OParl sieht die Angabe von Geodaten in Anlehnung an die GeoJSON-Spezifikation [13] vor. Die GeoJSON-Spezifikation erlaubt die Abbildung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden und Polygonen. Während GeoJSON zu jedem Geodaten-Objekt auch die Speicherung zusätzlicher Metadaten ermöglicht, beschränkt sich OParl ledliglich auf das <code>geometry</code>-Attribut in GeoJSON. Sämtliche Geo-Koordinatenangaben werden in in OParl im WGS-84-System [11] erwartet.</p>
 <div class="figure">
 <img src="images/datenmodell_ort.png" alt="Objekttyp Ort" /><p class="caption">Objekttyp Ort</p>
 </div>
-<h3 id="eigenschaften-9"><span class="header-section-number">2.12.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-8"><span class="header-section-number">2.10.1</span> Eigenschaften</h3>
 <dl>
 <dt>Textanabe (<code>description</code>)</dt>
 <dd><em>Optional.</em> Textliche Beschreibung eines Orts, z.B. in Form einer Adresse
@@ -626,7 +572,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h3 id="beziehungen-9"><span class="header-section-number">2.12.2</span> Beziehungen</h3>
+<h3 id="beziehungen-8"><span class="header-section-number">2.10.2</span> Beziehungen</h3>
 <ul>
 <li>Orte können mit Drucksachen in Verbindung stehen.</li>
 </ul>
@@ -651,6 +597,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul>
 <h1 id="glossar"><span class="header-section-number">4</span> Glossar</h1>
 <dl>
+<dt>JSON-LD</dt>
+<dd><p>JSON for Linked Data</p>
+</dd>
 <dt>RIS</dt>
 <dd><p>Ratsinformationssystem</p>
 </dd>

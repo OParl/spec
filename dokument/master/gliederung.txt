@@ -12,16 +12,16 @@ OParl Spezifikation 1.0 Gliederung
     1010 Was ist OParl?
     1020 Zielsetzung von OParl
     1030 Werdegang von OParl 1.0
-    1020 Zukunft von OParl
+    1040 Zukunft von OParl
         - Verfeinerung, Lücken schliessen
         - Globalisierung
         - Erweiterung über die kommunale Ebene hinaus (Land, Bund)
-    1040 Nomenklatur der Spezifikation und Satzkonventionen
+    1050 Nomenklatur der Spezifikation und Satzkonventionen
         - MUSS, SOLL, KANN
         - Hervorhebung englischsprachiger Begriffe
-    1050 Initiatoren
-    1060 Unterstützer
-    1070 Autoren
+    1060 Initiatoren
+    1070 Unterstützer
+    1080 Autoren
 2000 Architektur
     Architekturdiagramm
     Parlamentarische Informationssysteme

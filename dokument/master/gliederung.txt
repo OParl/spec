@@ -40,7 +40,7 @@ Prinzipien und Funktionen der API
             - Ziel: Schnelle Implementierbarkeit in vielen bestehenden RIS
         Selbstbeschreibungsfähigkeit
         Erweiterbarkeit
-        Browseability
+        Browseability/Verlinkung
     Zukunftssicherheit
     Serialisierung mittels JSON-LD und JSONP
         JSON

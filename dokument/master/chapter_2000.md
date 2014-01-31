@@ -56,8 +56,10 @@ HTTP-Anfragen, die an ihn auf einem bestimmten TCP-Port gestellt werden.
 API
 ---
 
-- basierend auf HTTP
-- RESTful
+Der Begriff API steht in diesem Dokument für die Webservice-Schnittstelle, die der
+Server anbietet. Die Schnittstelle basiert auf dem HTTP-Protokoll. Mittels HTTPS
+ist wahlweise auch die verschlüsselte Nutzung der API möglich, sofern Server dies
+unterstützt.
 
 Client
 ------

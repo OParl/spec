@@ -9,5 +9,5 @@ Jens Klessmann,
 Andreas Kuckartz,
 Babett Schalitz,
 Marian Steinbach,
-T. Tursics,
+Thomas Tursics,
 Jakob Voss

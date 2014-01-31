@@ -53,6 +53,15 @@ mit dem Internet verbundenen Rechnersystem läuft. Dieser Dienst ist eine spezie
 Form eines WWW- bzw. HTTP(S)-Servers. Entsprechend beantwortet der Server
 HTTP-Anfragen, die an ihn auf einem bestimmten TCP-Port gestellt werden.
 
+Der Server ist als Bestandteil des parlamentarischen Informationssystems zu
+verstehen. Der Betrieb des Servers steht damit üblicherweise in der Verantwortung
+desjenigen, der das parlamentarischen Informationssystem betreibt.
+
+Von einem Server, der die OParl-Spezifikation erfüllt, wird erwartet, dass er
+bestimmte parlamentarische Informationen in einem bestimmten Format zur Verfügung
+stellt und auf bestimmte Anfragen von so genannten Clients über die OParl API
+entsprechend dieser Spezifikation reagiert.
+
 API
 ---
 
@@ -61,12 +70,32 @@ Server anbietet. Die Schnittstelle basiert auf dem HTTP-Protokoll. Mittels HTTPS
 ist wahlweise auch die verschlüsselte Nutzung der API möglich, sofern Server dies
 unterstützt.
 
+Die API steht im Mittelpunkt dieser Spezifikation. Server und Clients sind
+als Kommunikationspartner zu verstehen, die über das Internet als Kommunikationskanal
+mit einander kommunizieren können. Die API-Spezifikation stellt dabei die
+nötige Grammatik und das Vokabular bereit, anhand dessen eine sinnvolle Kommunikation
+erfolgen kann.
+
 Client
 ------
+
+Der Begriff "Client" steht für eine Software, die über die OParl API mit dem Server
+kommuniziert. Da die API auf dem HTTP-Protokoll aufbaut, handelt es sich bei dem
+Client um eine spezielle Form eines HTTP-Clients.
 
 Cache
 -----
 
-Nutzer
-------
+Ein Cache ist ein Speicher, der einem Client dazu dienen kann, von einem
+Server abgerufene Informationen längerfristig vorzuhalten. Dies kann beispielsweise
+dazu dienen, mehrfache Anfragen der selben Informationen zu vermeiden, wodurch
+sowohl Ressourcen auf Seite des Servers geschohnt als auch die Nutzung von
+Netzwerkbandbreite reduziert werden kann. Die Nutzung eines Cache kann auch
+zur Verbesserung der Nutzerfreundlichkeit eines Clients beitragen, indem
+Wartezeiten zur Bereitstellung einer Ressource verkürzt werden.
 
+Nutzerin oder Nutzer
+--------------------
+
+Mit einer Nutzerin oder einem Nutzer ist in diesem Fall eine natürliche Person gemeint,
+die mittels eines OParl-Clients auf parlamentarische Informationen zugreift.

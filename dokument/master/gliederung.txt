@@ -24,7 +24,7 @@ OParl Spezifikation 1.0 Gliederung
     API
     Client
     Cache
-    Nutzer
+    Nutzerin oder Nutzer
 4000 Nutzungsszenarien
     - Dient der besseren Verständlichkeit der Architektur durch Konkretisierung
     4010 Szenario 1: Mobile Client-Anwendung

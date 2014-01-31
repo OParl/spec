@@ -2,7 +2,10 @@ Architektur
 ===========
 
 In diesem Abschnitt werden grundlegenden Konzepte, die von OParl abgedeckt
-werden, erläutert.
+werden, erläutert. Die Erläuterungen sind nicht im engeren Sinne Teil der
+Spezifikation, sondern dienen dazu, die Anwendungsbereiche von OParl und die
+Funktionen einer OParl-konformen API verständlicher und konkreter beschreiben
+zu können.
 
 Überblick
 ---------
@@ -45,8 +48,10 @@ lesenden Zugriff auf derartige Informationen ermöglicht.
 Server
 ------
 
-Der Server im Sinne dieser Spezifikation ist ein mit dem Internet verbundenes
-Rechnersystem, das 
+Der Server im Sinne dieser Spezifikation ist ein Software-Dienst, der auf einem
+mit dem Internet verbundenen Rechnersystem läuft. Dieser Dienst ist eine spezielle
+Form eines WWW- bzw. HTTP(S)-Servers. Entsprechend beantwortet der Server
+HTTP-Anfragen, die an ihn auf einem bestimmten TCP-Port gestellt werden.
 
 API
 ---

@@ -41,7 +41,8 @@ OParl Spezifikation 1.0 Gliederung
         Erweiterbarkeit
         Browseability/Verlinkung
     6020 Zukunftssicherheit
-    6030 Serialisierung mittels JSON-LD und JSONP
+    6030 HTTP und HTTPs
+    6040 Serialisierung mittels JSON-LD und JSONP
         JSON
             - Siehe RFC4627
             - Generelle Terminologie (JSON-Objekt, Array, String, Number, true/false, null)
@@ -55,19 +56,19 @@ OParl Spezifikation 1.0 Gliederung
             - Mime Type application/ld+json
         JSONP
             - TODO: Spezifikation finden/verlinken. (RFC gibt es nicht)
-    6040 Benannte und anonyme Objekte
+    6050 Benannte und anonyme Objekte
         Benannte Objekte
             - IRIs (RFC3987) als eindeutige Kennung
         Anonyme Objekte (Blank Nodes)
-    6050 Objektlisten
+    6060 Objektlisten
         - Ausgabe von URLs
         - Stabile Sortierung (Sets vs. Lists)
-    6060 Feeds
+    6070 Feeds
         Neue Objekte
         Geänderte Objekte
         Entfernte Objekte
-    6070 Dokumentenabruf
-    6080 Reservierte URL-Parameter
+    6080 Dokumentenabruf
+    6090 Reservierte URL-Parameter
         - callback
         - (Parameter für Datums-/Zeitbereichsfilter)
 8000 Schema

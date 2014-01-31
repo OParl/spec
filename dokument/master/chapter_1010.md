@@ -1,2 +1,2 @@
-Was ist Oparl?
+Was ist OParl?
 --------------

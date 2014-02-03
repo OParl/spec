@@ -34,9 +34,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Lizenz: Creative Commons CC-BY-SA</p>
 <h1 id="einleitung"><span class="header-section-number">1</span> Einleitung</h1>
 <p>Dieses Dokument wird bei seiner Fertigstellung die Spezifikation des OParl Schnittstellen-Standards für parlamentarische Informationssysteme (Ratsinformationssysteme, RIS) darstellen. Es dient damit als Grundlage für die Implementierung von OParl-konformen Server- und Clientanwendungen.</p>
-<h2 id="parlamentarische-informationssysteme"><span class="header-section-number">1.1</span> Parlamentarische Informationssysteme</h2>
-<p>Parlamentarische Informationssysteme (oft Ratsinformationssystem, RIS oder Bürgerinformationssystem genannt) werden von vielen Körperschaften wie Kommunen, Landkreisen und Regierungsbezirken eingesetzt, um die anfallende Gremienarbeit (Ratssitzungen, Ausschüsse, Vertretungen) zu organisieren. Da ein großer Teil der schriftlichen Arbeit in der Lokalpolitik über derartige Systeme verwaltet wird, sind diese Systeme – dort wo vorhanden – ein wichtiger Zugriffspunkt für alle, die sich für politischen Geschehnisse interessieren.</p>
-<h2 id="motivationen-für-den-standardisierten-datenzugriff"><span class="header-section-number">1.2</span> Motivationen für den standardisierten Datenzugriff</h2>
+<h2 id="motivationen-für-den-standardisierten-datenzugriff"><span class="header-section-number">1.1</span> Motivationen für den standardisierten Datenzugriff</h2>
 <p>Die Gründe, warum Betreiber von parlamentarischen Informationssystemen den Zugriff darauf über eine standardisierte Schnittstelle ermöglichen sollten, können vielfältig sein.</p>
 <p>Ein zentrales Argument ist die Verpflichtung der Parlamente gegenüber der Bevölkerung, diese über die Fortschritte der parlamentarischen Arbeit zu informieren und auf dem Laufenden zu halten. Ein erster Schritt, der Bevölkerung Einblicke in die Arbeit und Zugriff auf Dokumente zu gewähren, ist vielerorts in den letzten Jahren durch Einführung von Ratsinformationssystemen mit anonymem, lesenden Zugriff über das World Wide Web gemacht worden.</p>
 <p>Die damit eingeschlagene Richtung konsequent weiter zu gehen, bedeutet, die Daten der parlamentarischen Informationssystemen gänzlich offen zu legen, sofern die Inhalte es erlauben. Es bedeutet, die Daten und Inhalte so universell weiterverwendbar und so barrierearm wie möglich anzubieten, dass jegliche weitere Verwendung durch Dritte technisch möglich ist. Der seit einiger Zeit etablierte Begriff für dieses Prinzip heißt &quot;Open Data&quot;.</p>
@@ -51,48 +49,218 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul>
 <p>Die Standardisierung dieses Zugriffs über die Grenzen einzelner Systeme hinweg erlaubt zudem, diese Entwicklungen grenzüberschreitend zu denken. Damit steigt nicht nur die potenzielle Nutzerschaft einzelner Entwicklungen. Auch das Potenzial für Kooperationen zwischen Anwendungsentwicklern wächst.</p>
 <p>Darüber hinaus sind auch Motivationen innerhalb von Organisationen und Körperschaften erkennbar. So sollen parlamentarische Informationssysteme vielerorts in verschiedenste Prozesse und heterogene Systemlandschaften integriert werden. Durch eine einheitliche Schnittstelle bieten sich effiziente Möglichkeiten zur Integration der Daten in anderen Systeme, wie beispielsweise Web-Portale.</p>
-<h2 id="funktionsumfang-der-oparl-schnittstelle"><span class="header-section-number">1.3</span> Funktionsumfang der OParl-Schnittstelle</h2>
+<h2 id="funktionsumfang-der-oparl-schnittstelle"><span class="header-section-number">1.2</span> Funktionsumfang der OParl-Schnittstelle</h2>
 <p>Die vorliegende Spezifikation soll eine Webservice-Schnittstelle definieren, die den anonymen und lesenden Zugriff auf öffentliche Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP). Daten werden als JSON oder als JSONP ausgeliefert.</p>
 <p>Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher zwischen den Implementierungen variieren.</p>
-<h2 id="status"><span class="header-section-number">1.4</span> Status</h2>
+<h2 id="status"><span class="header-section-number">1.3</span> Status</h2>
 <p>Die Spezifikation befindet sich in Arbeit. Das Dokument enthält entsprechend viele Ungenauigkeiten und Hinweise auf offene Fragestellungen.</p>
-<h2 id="überblick"><span class="header-section-number">1.5</span> Überblick</h2>
-<p>Der Entwurf umfasst aktuell die Beschreibung eines Datenmodells.</p>
-<h2 id="nächste-schritte"><span class="header-section-number">1.6</span> Nächste Schritte</h2>
-<p>Fertigstellung von Version 1.0. Bis dahin ist zu erledigen:</p>
+<h2 id="was-ist-oparl"><span class="header-section-number">1.4</span> Was ist OParl?</h2>
+<h2 id="zielsetzung-von-oparl"><span class="header-section-number">1.5</span> Zielsetzung von OParl</h2>
 <ul>
-<li>Fertigstellung Datenmodell</li>
-<li>Beschreibung von Methoden und URL-Parametern</li>
-<li>HTTP Status-Codes und besondere Anforderungen an Verwendung bestimmter HTTP-Header</li>
-<li>Klärung einer gemeinsamen Nomenklatur für Inhalte, beispielsweise für Arten von Drucksachen</li>
+<li>Nutzen für Kommunen, Bürger, politische Parteien</li>
+<li>Nutzen für Anbieter von RIS-Pflegesoftware</li>
+<li>Nutzen für Anbieter von RIS-Darstellungssoftware</li>
+<li>Nutzen für Open Data Initiativen</li>
+<li>Nutzen für die Wissenschaft</li>
+<li>Linked Data erwähnen</li>
 </ul>
-<h2 id="feedback-und-mitwirkung"><span class="header-section-number">1.7</span> Feedback und Mitwirkung</h2>
-<p>Feedback wird dringend benötigt und ist daher herzlichst willkommen. Feedback kann auf den folgenden Wegen eingereicht werden:</p>
+<h2 id="werdegang-von-oparl-1.0"><span class="header-section-number">1.6</span> Werdegang von OParl 1.0</h2>
+<p>Stichpunkte:</p>
 <ul>
-<li>In Form von Pull Requests über Github, direkt am Quelltext</li>
-<li>Über Issues auf Github</li>
+<li><ol start="17" style="list-style-type: decimal">
+<li>und 18. November 2012: Die Open Knowledge Foundation Deutschland veranstaltet in den Räumen der Heinrich-Böll-Stiftung in Berlin einen Workshop für Entwickler von Anwendungen, die einen gesellschaftlichen Nutzen bringen sollen. Hier ist VITAKO, die Bundes-Arbeitsgemeinschaft der Kommunalen IT-Dienstleister, als Sponsor engagiert. Die Geschäftsführerin, Dr. Marianne Wulff, ist persönlich vor Ort. Auch das Projekt Offenes Köln wird in einem Vortrag von Marian Steinbach präsentiert. Es kommt zum Austausch über die Frage, wie das Prinzip der offenen Ratsinformationen effektiv auf weitere Kommunen ausgeweitet werden könnte.</li>
+</ol></li>
+<li><ol start="6" style="list-style-type: decimal">
+<li>Dezember 2012: Anhörung im Landtag NRW in Düsseldorf zu einer Open-Data-Strategie der Landesregierung, wo Jens Klessmann und Marian Steinbach als Sachverständige gehört werden. Danach Gespräch über Möglichkeiten der Standardisierung offener Ratsinformationssysteme.</li>
+</ol></li>
+<li><p>Dezember 2012: Dr. Marianne Wulff, Jens Klessmann und Marian Steinbach beginnen mit der Abstimmung über einen Workshop mit Vertreterinnen und Vertretern von Kommunen, kommunalen IT-Dienstleistern, RIS-Anbietern und Zivilgesellschaft. Ziel: Die Bereitschaft zur Zusammenarbeit an einem gemeinsamen Standard ermitteln. Unterdessen beginnt Marian Steinbach mit der Formulierung eines Standard-Entwurfs als Diskussionsgrundlage. Der Entwurf wird von Beginn an öffentlich auf GitHub.com bereit gestellt.</p></li>
+<li><ol start="17" style="list-style-type: decimal">
+<li>April 2013: Insgesamt 30 Teilnehmer versammeln sich in Köln, um sich in einem ersten Treffen über Ziele und Chancen einer Standardisierung für offene Ratsinformationen auszutauschen. Als Ergebnis wird ein großes Interesse an der weiteren Zusammenarbeit auf Basis des vorliegenden Standardentwurfs festgestellt. Als Termin für die Fertigstellung der ersten Version der Spezifikation wird der 30. Juni 2013 festgelegt. Die Initiatoren präsentieren den Anwesenden hier erstmals den Namen &quot;OParl&quot;, der künftig als Marke für die Bemühungen der Gruppe stehen soll.</li>
+</ol></li>
+<li><ol start="22" style="list-style-type: decimal">
+<li>Januar 2014: Nachdem sich die verteilte Zusammenarbeit am Standard-Entwurf seit April 2013 als nicht zielführend erwiesen hat, laden Jens Klessmann und Marian Steinbach und VITAKO zu einem eintägigen OParl-Workshop in Bielefeld ein. Das Ziel ist, die Spezifikation so weit wie möglich voran zu treiben und eine gute Basis für die baldige Fertigstellung zu legen.</li>
+</ol></li>
 </ul>
-<h3 id="pull-requests-über-github"><span class="header-section-number">1.7.1</span> Pull Requests über Github</h3>
-<p>Dieses Dokument wird in folgendem Github-Repository gepflegt:</p>
-<p><a href="https://github.com/OParl/specs">https://github.com/OParl/specs</a></p>
-<p>Der bevorzugte Feedback-Kanal für erfahrene Git- bzw. Github-Nutzer ist entsprechend die Mitwirkung direkt am Quelltext in Form von Pull-Requests. So können <strong>Ergänzungen und Korrekturen</strong> direkt in den Quelltext eingespielt werden.</p>
-<p>Ausführliche Anleitungen zur Arbeit mit Git/Github finden sich auf der Plattform selbst sowie an vielen Orten im Netz. Der allgemeine Ablauf ist wie folgt:</p>
-<ol style="list-style-type: decimal">
-<li>Erzeugen Sie sich, sofern noch nicht geschehen, ein Benutzerkonto auf Github.</li>
-<li>Duplizieren (<em>forken</em>) Sie das oben genannte Repository</li>
-<li>Nehmen Sie die gewünschten Änderungen an Ihrem Repository vor. Committen Sie diese Änderungen möglichst kleinteilig.</li>
-<li>Senden Sie die gewünschten Commits als Pull Requests.</li>
-</ol>
-<p>Die Entscheidung, welche Pull Requests übernommen werden, erfolgt nach Abwägung durch die federführenden Autoren der Spezifikation.</p>
-<p>Es ist beabsichtigt, alle Mitwirkenden im Dokument zu nennen. Wenn Sie mit einen Klarnamen und ggf. Unternehmenszugehörigkeit genannt werden wollen, teilen Sie dies bitte in einem Kommentar zum Pull Request mit.</p>
-<h3 id="issues-auf-github"><span class="header-section-number">1.7.2</span> Issues auf Github</h3>
-<p>Wenn Sie nicht über Github am Quelltext mitwirken möchten, aber einen Github-Account Ihr eigen nennen oder zu diesem Zweck anlegen möchten, können Sie Sich an der <strong>öffentlichen</strong> Diskussion im Issue-Tracking-System unter</p>
-<p><a href="https://github.com/OParl/specs/issues">https://github.com/OParl/specs/issues</a></p>
-<p>beteiligen. Dies hat den Vorteil, dass auch andere beteiligte die Einträge wahrnehmen und durch Kommentare dazu Stellung nehmen können. Dieser Weg eignet sich daher besonders zum Diskutieren von kontroversen Themen und dem Austausch von Argumenten.</p>
-<p>Bitte achten Sie auf diesem Weg darauf, Ihre Kommentare in möglichst kleine thematische Einheiten herunter zu brechen. Dadurch ermöglichen Sie, dass der jeweilige Eintrag dem richtigen Thema zugeordnet und der Status der Diskussion (offen, erledigt) richtig gesetzt werden kann.</p>
-<h2 id="mitwirkende"><span class="header-section-number">1.8</span> Mitwirkende</h2>
-<p>Marian Steinbach (Offenes Köln), Felix Ebert, Jan Erhardt, Jens Klessmann (Fraunhofer FOKUS), Andreas Kuckartz, Babett Schalitz (CC e-gov), T. Tursics (TODO: Vorname eintragen), Jakob Voss</p>
-<h1 id="datenmodell"><span class="header-section-number">2</span> Datenmodell</h1>
+<h2 id="zukunft-von-oparl"><span class="header-section-number">1.7</span> Zukunft von OParl</h2>
+<ul>
+<li>Verfeinerung, Lücken schliessen</li>
+<li>Globalisierung</li>
+<li>Erweiterung über die kommunale Ebene hinaus (Land, Bund)</li>
+<li>Vereinheitlichung von Kategorien (Drucksachentypen, Arten von Gremien)</li>
+<li>Erweiterung von Personendaten, z.B. mit Social Media URLs</li>
+<li>Mehr Abfragekriterien</li>
+<li>Suchfunktionen (Volltextsuche)</li>
+<li>Abstimmungsverhalten und maschinenlesbare Protokolle</li>
+</ul>
+<h2 id="nomenklatur-der-spezifikation-und-satzkonventionen"><span class="header-section-number">1.8</span> Nomenklatur der Spezifikation und Satzkonventionen</h2>
+<h3 id="müssen-sollen-und-können-bzw.-zwingend-empfohlen-und-optional"><span class="header-section-number">1.8.1</span> MÜSSEN, SOLLEN und KÖNNEN bzw. ZWINGEND, EMPFOHLEN und OPTIONAL</h3>
+<p>Dieses Spezifikationsdokument nutzt die Modalverben müssen, können und sollen in einer Art und Weise, die bestimmte Anforderungen möglichst unmissverständlich in drei verschiedene Abstufung einteilen lässt. Um ihre normative Bedeutung zu unterstreichen, werden diese Wörter grundsätzlich in Großbuchstaben gesetzt.</p>
+<p>Diese Konvention ist angelehnt an die Definitionen der Begriffe MUST, SHOULD und MAY (bzw. MUST NOT, SHOULD NOT und MAY NOT) aus RFC2119<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup>.</p>
+<p>Die Bedeutung im Einzelnen:</p>
+<dl>
+<dt>MÜSSEN/MUSS bzw. ZWINGEND:</dt>
+<dd><p>Die Erfüllung einer Anforderung, die explizit vom Modalverb MÜSSEN bzw. MUSS Gebrauch macht, ist zwingend erforderlich.</p>
+<p>Die Entsprechung in RFC2119 lautet &quot;MUST&quot;, &quot;REQUIRED&quot; oder &quot;SHALL&quot;.</p>
+</dd>
+<dt>NICHT DÜRFEN/DARF NICHT:</dt>
+<dd><p>Dieses Stichwort kennzeichnet ein absolutes Verbot.</p>
+<p>Die Entsprechung in RFC2119 lautet &quot;MUST NOT&quot; oder &quot;SHALL NOT&quot;.</p>
+</dd>
+<dt>SOLLEN/SOLL bzw. EMPFOHLEN:</dt>
+<dd><p>Mit dem Wort SOLLEN bzw. SOLL sind empfohlene Anforderungen gekennzeichnet, die von jeder Implementierung erfüllt werden sollen. Eine Nichterfüllung ist als Nachteil zu verstehen, beispielsweise weil die Nutzerfreundlichkeit dadurch Einbußen erleidet, und sollte daher sorgfältig abgewogen werden.</p>
+<p>Die Entsprechung in RFC2119 lautet &quot;SHOULD&quot; oder &quot;RECOMMENDED&quot;.</p>
+</dd>
+<dt>NICHT SOLLEN/SOLL NICHT bzw. NICHT EMPFOHLEN:</dt>
+<dd><p>Diese Formulierung wird verwendet, wenn unter gewissen Umständen Gründe existieren können, die ein bestimmtes Verhalten akzeptabel oder sogar nützlich erscheinen lassen, jedoch die Auswirkung des Verhaltens vor einer entsprechenden Implementierung verstanden und abgewogen werden sollen.</p>
+<p>Die Entsprechung in RFC2119 lautet &quot;SHOULD NOT&quot; oder &quot;NOT RECOMMENDED&quot;.</p>
+</dd>
+<dt>DÜRFEN/DARF bzw. OPTIONAL:</dt>
+<dd><p>Mit dem Wort DÜRFEN bzw. DARF oder OPTIONAL sind optionale Bestandteile gekennzeichnet. Ein Anbieter könnte sich entscheiden, den entsprechenden Bestandteil aufgrund besonderer Kundenanforderungen zu unterstützen, während andere diesen Bestandteil ignorieren könnten. Implementierer von Clients oder Servern DÜRFEN in solchen Fällen NICHT davon ausgehen, dass der jeweilige Kommunikationspartner den entsprechenden, optionalen Anteil unterstützt.</p>
+<p>Die Entsprechung in RFC2119 lautet &quot;MAY&quot; oder &quot;OPTIONAL&quot;.</p>
+</dd>
+</dl>
+<h3 id="besondere-hervorhebungen-und-satzkonventionen"><span class="header-section-number">1.8.2</span> Besondere Hervorhebungen und Satzkonventionen</h3>
+<h2 id="initiatoren"><span class="header-section-number">1.9</span> Initiatoren</h2>
+<h2 id="unterstützer"><span class="header-section-number">1.10</span> Unterstützer</h2>
+<h2 id="autoren"><span class="header-section-number">1.11</span> Autoren</h2>
+<p>An diesem Dokument haben mitgewirkt:</p>
+<p>Felix Ebert, Jan Erhardt, Jens Klessmann, Andreas Kuckartz, Babett Schalitz, Marian Steinbach, Thomas Tursics, Jakob Voss</p>
+<h1 id="architektur"><span class="header-section-number">2</span> Architektur</h1>
+<p>In diesem Abschnitt werden grundlegenden Konzepte, die von OParl abgedeckt werden, erläutert. Die Erläuterungen sind nicht im engeren Sinne Teil der Spezifikation, sondern dienen dazu, die Anwendungsbereiche von OParl und die Funktionen einer OParl-konformen API verständlicher und konkreter beschreiben zu können.</p>
+<h2 id="überblick"><span class="header-section-number">2.1</span> Überblick</h2>
+<p>TODO: Architekturdiagramm einbinden</p>
+<h2 id="parlamentarisches-informationssystem"><span class="header-section-number">2.2</span> Parlamentarisches Informationssystem</h2>
+<p>Parlamentarische Informationssysteme sind Software-Systeme, die von verschiedensten Körperschaften eingesetzt werden, um die Zusammenarbeit von Parlamenten zu organisieren, zu dokumentieren und öffentlich nachvollziehbar zu machen.</p>
+<p>Im kommunalen Umfeld in Deutschland, wo das Parlament je nach Art der Kommune häufig als Stadtrat oder Gemeinderat bezeichnet wird, hat sich für diese Art von Informationssystem auch der Begriff &quot;Ratsinformationssystem&quot; (kurz &quot;RIS&quot;) etabliert.</p>
+<p>Parlamentarische Informationssysteme sind jedoch nicht auf die kommunale Ebene begrenzt. Ähnliche Systeme werden auch auf Ebene z.B. von Landkreisen, Regierungsbezirken und diversen Zweckverbänden eingesetzt.</p>
+<p>Diese Systeme unterstützen in der Regel mehrere der folgenden Funktionen:</p>
+<ul>
+<li>Das Erzeugen, Bearbeiten und Darstellen von Sitzungen und deren Tagesordnung</li>
+<li>Das Erzeugen und Abrufen von Sitzungsprotokollen</li>
+<li>Das Erzeugen, Bearbeiten und Anzeigen von Drucksachen</li>
+<li>Das Erzeugen, Bearbeiten und Anzeigen von Gremien und deren Mitgliedern</li>
+</ul>
+<p>Funktionen, die die Eingabe und Bearbeitung von Daten betreffen, sind in der Regel einem geschlossenen Nutzerkreis vorbehalten. Die Darstellung und der Abruf von Informationen und Dokumenten hingegen ist in vielen Fällen für die Öffentlichkeit freigegeben.</p>
+<p>Die OParl Spezifikation beschreibt eine Schnittstelle, die den maschinellen, lesenden Zugriff auf derartige Informationen ermöglicht.</p>
+<h2 id="server"><span class="header-section-number">2.3</span> Server</h2>
+<p>Der Server im Sinne dieser Spezifikation ist ein Software-Dienst, der auf einem mit dem Internet verbundenen Rechnersystem läuft. Dieser Dienst ist eine spezielle Form eines WWW- bzw. HTTP(S)-Servers. Entsprechend beantwortet der Server HTTP-Anfragen, die an ihn auf einem bestimmten TCP-Port gestellt werden.</p>
+<p>Der Server ist als Bestandteil des parlamentarischen Informationssystems zu verstehen. Der Betrieb des Servers steht damit üblicherweise in der Verantwortung desjenigen, der das parlamentarischen Informationssystem betreibt.</p>
+<p>Von einem Server, der die OParl-Spezifikation erfüllt, wird erwartet, dass er bestimmte parlamentarische Informationen in einem bestimmten Format zur Verfügung stellt und auf bestimmte Anfragen von so genannten Clients über die OParl API entsprechend dieser Spezifikation reagiert.</p>
+<h2 id="api"><span class="header-section-number">2.4</span> API</h2>
+<p>Der Begriff API steht in diesem Dokument für die Webservice-Schnittstelle, die der Server anbietet. Die Schnittstelle basiert auf dem HTTP-Protokoll. Mittels HTTPS ist wahlweise auch die verschlüsselte Nutzung der API möglich, sofern Server dies unterstützt.</p>
+<p>Die API steht im Mittelpunkt dieser Spezifikation. Server und Clients sind als Kommunikationspartner zu verstehen, die über das Internet als Kommunikationskanal mit einander kommunizieren können. Die API-Spezifikation stellt dabei die nötige Grammatik und das Vokabular bereit, anhand dessen eine sinnvolle Kommunikation erfolgen kann.</p>
+<h2 id="client"><span class="header-section-number">2.5</span> Client</h2>
+<p>Der Begriff &quot;Client&quot; steht für eine Software, die über die OParl API mit dem Server kommuniziert. Da die API auf dem HTTP-Protokoll aufbaut, handelt es sich bei dem Client um eine spezielle Form eines HTTP-Clients.</p>
+<h2 id="cache"><span class="header-section-number">2.6</span> Cache</h2>
+<p>Ein Cache ist ein Speicher, der einem Client dazu dienen kann, von einem Server abgerufene Informationen längerfristig vorzuhalten. Dies kann beispielsweise dazu dienen, mehrfache Anfragen der selben Informationen zu vermeiden, wodurch sowohl Ressourcen auf Seite des Servers geschohnt als auch die Nutzung von Netzwerkbandbreite reduziert werden kann. Die Nutzung eines Cache kann auch zur Verbesserung der Nutzerfreundlichkeit eines Clients beitragen, indem Wartezeiten zur Bereitstellung einer Ressource verkürzt werden.</p>
+<h2 id="nutzerin-oder-nutzer"><span class="header-section-number">2.7</span> Nutzerin oder Nutzer</h2>
+<p>Mit einer Nutzerin oder einem Nutzer ist in diesem Fall eine natürliche Person gemeint, die mittels eines OParl-Clients auf parlamentarische Informationen zugreift.</p>
+<h1 id="nutzungsszenarien"><span class="header-section-number">3</span> Nutzungsszenarien</h1>
+<h1 id="prinzipien-und-funktionen-der-api"><span class="header-section-number">4</span> Prinzipien und Funktionen der API</h1>
+<p>(In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen Schnittstelle beschrieben. Hierzu gehören alle chapter-Dateien, deren Nummerierung mit der Ziffer 6 beginnnt.)</p>
+<p>Stichpunkte:</p>
+<ul>
+<li>Grundlage für den Zugriff auf die Schnittstelle ist das Hypertext Transfer Protocol (HTTP).</li>
+<li>Optional gzip Encoding und andere Kodierungen, wenn Client und Server dies unterstützen</li>
+<li>Das Protkoll ist zustandslos</li>
+<li>Authentifizierung wird nicht benötigt.</li>
+</ul>
+<h2 id="designprinzipien"><span class="header-section-number">4.1</span> Designprinzipien</h2>
+<h3 id="allgemein"><span class="header-section-number">4.1.1</span> Allgemein</h3>
+<ul>
+<li>Ausgerichtet am Status Quo</li>
+<li>Einige Möglichkeiten weisen in die Zukunft (z.B. Geodaten, Volltexte, Vereinheitlichung der Kategorien-Nomenklatur)</li>
+<li>Ziel: Schnelle Implementierbarkeit in vielen bestehenden RIS</li>
+</ul>
+<h3 id="restful"><span class="header-section-number">4.1.2</span> RESTful</h3>
+<h3 id="selbstbeschreibungsfähigkeit"><span class="header-section-number">4.1.3</span> Selbstbeschreibungsfähigkeit</h3>
+<h3 id="erweiterbarkeit"><span class="header-section-number">4.1.4</span> Erweiterbarkeit</h3>
+<h3 id="browseabilityverlinkung"><span class="header-section-number">4.1.5</span> Browseability/Verlinkung</h3>
+<h2 id="zukunftssicherheit"><span class="header-section-number">4.2</span> Zukunftssicherheit</h2>
+<p>(In diesem Abschnitt wird die Zielsetzung beschrieben, zukünftige Versionen der OParl Spezifikation auf dieser Version aufbauen zu lassen. Damit soll nach Mögloichkeit Abwärtskompatibilität erreicht werden, so dass z.B. OParl-1.0-Clients mit einem 1.1-Server kommunizieren können.</p>
+<p>Ein Garantie wird es jedoch nicht geben.)</p>
+<h2 id="http-und-https"><span class="header-section-number">4.3</span> HTTP und HTTPS</h2>
+<p>(Hier geht es um die Verwendung von HTTP im Sinne der OParl-Spezifikation.</p>
+<ul>
+<li>HTTPS kann optional an Stelle von HTTP eingesetzt werden.</li>
+</ul>
+<p>Siehe auch https://github.com/OParl/specs/issues/90)</p>
+<h2 id="serialisierung-mittels-json-ld-und-jsonp"><span class="header-section-number">4.4</span> Serialisierung mittels JSON-LD und JSONP</h2>
+<h3 id="json"><span class="header-section-number">4.4.1</span> JSON</h3>
+<ul>
+<li>Siehe RFC4627</li>
+<li>Generelle Terminologie übernehmen (JSON-Objekt, Array, String, Number, true/false, null)</li>
+</ul>
+<h3 id="json-ld"><span class="header-section-number">4.4.2</span> JSON-LD</h3>
+<ul>
+<li>JSON-LD: http://www.w3.org/TR/json-ld/</li>
+<li>Einschränkungen von OParl gegenüber JSON-LD</li>
+<li>Schlüssel in einem JSON-LD-Objekt müssen einzigartig sein.</li>
+<li>Unterscheidung von Groß- und Kleinschreibung</li>
+<li>Benannte Objekte (URL als Schlüssel)</li>
+<li>Anonyme Objekte (Blank Nodes)</li>
+<li>Mime Type application/ld+json</li>
+<li>Verweis auf http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf?__blob=publicationFile</li>
+</ul>
+<h3 id="jsonp"><span class="header-section-number">4.4.3</span> JSONP</h3>
+<ul>
+<li>TODO: Spezifikation finden/verlinken. (RFC gibt es nicht)</li>
+<li>https://github.com/OParl/specs/issues/67</li>
+</ul>
+<h2 id="benannte-und-anonyme-objekte"><span class="header-section-number">4.5</span> Benannte und anonyme Objekte</h2>
+<h3 id="benannte-objekte"><span class="header-section-number">4.5.1</span> Benannte Objekte</h3>
+<ul>
+<li>IRIs (RFC3987) als eindeutige Kennung</li>
+</ul>
+<h3 id="anonyme-objekte-blank-nodes"><span class="header-section-number">4.5.2</span> Anonyme Objekte (Blank Nodes)</h3>
+<h3 id="empfehlungen-für-langlebige-irisurisurls"><span class="header-section-number">4.5.3</span> Empfehlungen für langlebige IRIs/URIs/URLs</h3>
+<ul>
+<li>Hinweise und evtl. Auszüge aus</li>
+<li>http://www.w3.org/Provider/Style/URI.html</li>
+<li>https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf</li>
+</ul>
+<h2 id="objektlisten"><span class="header-section-number">4.6</span> Objektlisten</h2>
+<p>(Hier geht es darum, wie Listen von Objekten ausgegeben werden.</p>
+<p>Dazu:</p>
+<ul>
+<li>https://github.com/OParl/specs/issues/66 )</li>
+</ul>
+<h2 id="feeds"><span class="header-section-number">4.7</span> Feeds</h2>
+<ul>
+<li>Warum Feeds?</li>
+<li>Möglichst ressourcenschonendes Auffinden neuer und geänderter Objekte</li>
+<li><p>Cache-Invalidierung, Entfernung von gelöschten/depublizierten Objekten</p></li>
+<li><p>https://github.com/OParl/specs/issues/19</p></li>
+</ul>
+<h3 id="neue-objekte"><span class="header-section-number">4.7.1</span> Neue Objekte</h3>
+<h3 id="geänderte-objekte"><span class="header-section-number">4.7.2</span> Geänderte Objekte</h3>
+<h3 id="entfernte-objekte"><span class="header-section-number">4.7.3</span> Entfernte Objekte</h3>
+<ul>
+<li>Liste von Objekt-URLs</li>
+</ul>
+<h2 id="dokumentenabruf"><span class="header-section-number">4.8</span> Dokumentenabruf</h2>
+<ul>
+<li>HTTP GET Methode MUSS unterstützt werden</li>
+<li>HEAD-Methode MUSS unterstützt werden</li>
+<li>HTTP Last-Modified Header sowie Conditional GET sind zu unterstützen</li>
+</ul>
+<h2 id="liste-reservierter-url-parameter"><span class="header-section-number">4.9</span> Liste reservierter URL-Parameter</h2>
+<p>Die in dieser Liste enthaltenen Zeichenketten haben eine reservierte Bedeutung und stehen bei Implementierungen eines OParl-Servers nicht mehr für die freie Verwendung in URLs zur Verfügung.</p>
+<dl>
+<dt>callback:</dt>
+<dd>Mit diesem Parameter wird die JSONP-Ausgabe aktiviert. Mehr dazu im Abschnitt <a href="#jsonp">JSONP</a>.
+</dd>
+<dt>startdate:</dt>
+<dd>Parameter für die Einschränkung einer Abfrage anhand eines Datums bzw. einer Zeitangabe.
+</dd>
+<dt>startdate:</dt>
+<dd>Parameter für die Einschränkung einer Abfrage anhand eines Datums bzw. einer Zeitangabe.
+</dd>
+</dl>
+<ul>
+<li>(Parameter für Datums-/Zeitbereichsfilter)</li>
+</ul>
+<h1 id="datenmodell"><span class="header-section-number">5</span> Datenmodell</h1>
 <p>Das Datenmodell definiert die Objekttypen bzw. die Klassen, auf die über die Schnittstelle zugegriffen werden kann.</p>
 <p>Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen beziehen sich auf nach außen, bei Nutzung der jeweiligen Weboberflächen, feststellbare Eigenschaften. Dabei wird vereinzelt und beispielhaft auf die folgenden Systeme Bezug genommen:</p>
 <ul>
@@ -102,31 +270,31 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>Stadt Euskirchen [8] - Plattform: SD.NET RIM 4 [9]</li>
 <li>Stadt Bonn - BoRis [10]</li>
 </ul>
-<h2 id="übergreifende-aspekte"><span class="header-section-number">2.1</span> Übergreifende Aspekte</h2>
-<h3 id="eindeutige-identifizierung-von-objekten"><span class="header-section-number">2.1.1</span> Eindeutige Identifizierung von Objekten</h3>
+<h2 id="übergreifende-aspekte"><span class="header-section-number">5.1</span> Übergreifende Aspekte</h2>
+<h3 id="eindeutige-identifizierung-von-objekten"><span class="header-section-number">5.1.1</span> Eindeutige Identifizierung von Objekten</h3>
 <p>Sämtliche Objekte, die über die Schnittstelle geladen werden können, sollen anhand einer einzigen Objekteigenschaft eindeutig identifizierbar sein. Die Objekteigenschaft, mit der dies erreicht wird, wird hier im folgenden - unabhängig vom tatsächlichen Namen der Eigenschaft - als &quot;Schlüssel&quot; bezeichnet.</p>
 <p>Eindeutigkeit meint hier eine Einzigartigkeit innerhalb des Informationssystems und für den jeweiligen Objekttyp. Das bedeutet: zwei von einander unabhängige Ratsinformationssysteme für verschiedene Körperschaften dürfen sich überlappende Schlüssel nutzen. Innerhalb eines Systems dürfen zwei Objekte unterschiedlichen Typs (beispielsweise eine Person ud ein Gremium) den selben Schlüssel nutzen. Jedoch MÜSSEN zwei Objekte des selben Typs innerhalb des selben Systems grundsätzlich verschiedene Schlüssel haben.</p>
 <p>Schlüssel-Eigenschaften werden grundsätzlich als Unicode-Zeichenkette übergeben. Sie können daher gleichermaßen aus numerischen wie alphanumerischen Werten befüllt werden.</p>
 <p>Es wird grundsätzlich vorausgesetzt, dass Schlüssel unveränderlich sind. Ändert sich der Schlüssel eines Objekts nach der Erzeugung, werden Nutzer der Schnittstelle annehmen, dass es sich nicht mehr um das selbe Objekt handelt.</p>
-<h3 id="objekteigenschaften"><span class="header-section-number">2.1.2</span> Objekteigenschaften</h3>
+<h3 id="objekteigenschaften"><span class="header-section-number">5.1.2</span> Objekteigenschaften</h3>
 <p>Die nachfolgend beschriebenen Eigenschaften der Objekttypen sind, wenn nicht anders angegeben, verpflichtend. Das bedeutet: Bei jedem von der Schnittstelle ausgelieferten Objekt muss diese Eigenschaften definiert sein. Optionale Eigenschaften sind entsprechend gekennzeichnet.</p>
 <p>Eigenschaften werden deutschsprachig und englischsprachig benannt. Die deutschsprachige Benennung dient der bestmöglichen Verständlichkeit im Kontext dieses Dokuments, während die Schnittstelle aus Gründen der Zugänglichkeit für möglichst viele Entwickler mit englischsprachigen Begriffen arbeiten soll.</p>
-<h3 id="zu-den-beziehungen"><span class="header-section-number">2.1.3</span> Zu den Beziehungen</h3>
+<h3 id="zu-den-beziehungen"><span class="header-section-number">5.1.3</span> Zu den Beziehungen</h3>
 <p>Bei der Beschreibung von Beziehungen zwischen Objekten wird zu diesem Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei Objekten A und B am Objekt A oder am Objekt B definiert wird. So spielt es bislang keine Rolle, ob einem Gremium mehrere Personen zugeordnet werden oder einer Person mehrere Gremien zugewiesen werden. Das Augenmerkt liegt hier nur auf der Tatsache, welche Beziehung existieren können und was diese Beziehungen aussagen sollen.</p>
-<h2 id="körperschaft-body"><span class="header-section-number">2.2</span> Körperschaft (<em>body</em>)</h2>
+<h2 id="körperschaft-body"><span class="header-section-number">5.2</span> Körperschaft (<em>body</em>)</h2>
 <p>Die Körperschaft erlaubt es, den Betreiber bzw. Eigentümer des Informationssystems wie zum Beispiel einen Landkreis, eine bestimmte Gemeinde oder einen bestimmten Stadtbezirk in Form eines Datenobjekts abzubilden.</p>
 <p>Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“. Einige Systeme werden jedoch für mehrere Mandanten betrieben, wobei die Mandanten verschiedene Körperschaften repräsentieren (z.B. &quot;Verbandsgemeinde Ulmen&quot; und &quot;Stadt Ulmen&quot;.)</p>
 <div class="figure">
 <img src="images/datenmodell_koerperschaft.png" alt="Objekttyp Körperschaft" /><p class="caption">Objekttyp Körperschaft</p>
 </div>
-<h3 id="eindeutige-identifizierung"><span class="header-section-number">2.2.1</span> Eindeutige Identifizierung</h3>
+<h3 id="eindeutige-identifizierung"><span class="header-section-number">5.2.1</span> Eindeutige Identifizierung</h3>
 <p>Die Körperschaft hat eine innerhalb des Systems eindeutige ID.</p>
 <p>Darüber hinaus werden verschiedene Möglichkeiten geboten, die Körperschaft semantisch zu repräsentieren.</p>
 <p>Handelt es sich beim Betreiber des Systems um eine Gebietskörperschaft (Landkreis, Kommune etc.), soll für die eindeutige Identifizierung der Regionalschlüssel[1] verwendet werden.</p>
 <p>Darüber hinaus soll zusätzlich, sofern vorhanden, die eindeutige Kennung der Körperschaft aus der GND[12] verwendet werden.</p>
 <p>Als dritte Möglichkeit, die Körperschaft zu identifizieren, kann eine aussagekräftigen URL, unter der weitere Informationen zur Körperschaft zu finden sind, genannt werden.</p>
 <p>Sämtliche hier genannten Methoden zur Identifizierung können kombiniert werden.</p>
-<h3 id="eigenschaften"><span class="header-section-number">2.2.2</span> Eigenschaften</h3>
+<h3 id="eigenschaften"><span class="header-section-number">5.2.2</span> Eigenschaften</h3>
 <dl>
 <dt>Schlüssel (<code>id</code>)</dt>
 <dd>Zur eindeutigen Identifizierung der Körperschaft im System
@@ -150,12 +318,12 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd><em>Optional</em>. Kontaktinformationen für die direkte Kontaktaufnahme zum Betreiber der API.
 </dd>
 </dl>
-<h3 id="beziehungen"><span class="header-section-number">2.2.3</span> Beziehungen</h3>
+<h3 id="beziehungen"><span class="header-section-number">5.2.3</span> Beziehungen</h3>
 <ul>
 <li>Objekte vom Typ &quot;Organisation&quot; sind zwingend genau einer Körperschaft zugeordnet. So wird beispielseise eine SPD in Köln von einer SPD in Leverkusen unterschieden.</li>
 <li>Objekte vom Typ &quot;Gremium&quot; sind zwingend genau einer Körperschaft zugeordnet. Damit wird der &quot;Rat&quot; einer bestimmten Kommune von den gleichnamigen Gremien anderer Kommunen abgegrenzt.</li>
 </ul>
-<h3 id="beispiel"><span class="header-section-number">2.2.4</span> Beispiel</h3>
+<h3 id="beispiel"><span class="header-section-number">5.2.4</span> Beispiel</h3>
 <pre class="sourceCode json" id="body_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;1&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Stadt Köln&quot;</span>,
@@ -165,12 +333,12 @@ code > span.er { color: #ff0000; font-weight: bold; }
     <span class="dt">&quot;operator_contact&quot;</span>: <span class="st">&quot;Tel. +49 221-221-5432, E-Mail: ris-api@stadt-koeln.de&quot;</span>,
     <span class="dt">&quot;license_url&quot;</span>: <span class="st">&quot;http://opendatacommons.org/licenses/odbl/1.0/&quot;</span>
 }</code></pre>
-<h2 id="gremium-committee"><span class="header-section-number">2.3</span> Gremium (<em>committee</em>)</h2>
+<h2 id="gremium-committee"><span class="header-section-number">5.3</span> Gremium (<em>committee</em>)</h2>
 <p>Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat, Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.</p>
 <div class="figure">
 <img src="images/datenmodell_gremium.png" alt="Objekttyp Gremium" /><p class="caption">Objekttyp Gremium</p>
 </div>
-<h3 id="eigenschaften-1"><span class="header-section-number">2.3.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-1"><span class="header-section-number">5.3.1</span> Eigenschaften</h3>
 <dl>
 <dt>Schlüssel (<code>id</code>)</dt>
 <dd>Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten Körperschaft. In der Praxis kommen sowohl numerische IDs als auch Namenskürzel (Beispiel: &quot;STA&quot; für den Stadtentwicklungsausschuss) vor. Beides sollte hier Verwendung finden können.
@@ -185,13 +353,13 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h3 id="beziehungen-1"><span class="header-section-number">2.3.2</span> Beziehungen</h3>
+<h3 id="beziehungen-1"><span class="header-section-number">5.3.2</span> Beziehungen</h3>
 <ul>
 <li>Objekte vom Typ &quot;Person&quot; referenzieren auf Gremien, um die Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu kennzeichnen. Diese Beziehung ist datiert. Das bedeutet, sie hat einen Anfangszeitpunkt und ggf. einen Endzeitpunkt.</li>
 <li>Objekte vom Typ &quot;Drucksache&quot; verweisen auf Gremien. Beispielsweise wird eine Anfrage oder ein Antrag dem Rat und/oder einer bestimmten Bezirksvertretung zugeordnet. Details zu dieser Beziehung werden unter &quot;Drucksache&quot; erläutert.</li>
 <li>Das Gremium verweist auf die Körperschaft, zu der das Gremium gehört.</li>
 </ul>
-<h3 id="beispiel-1"><span class="header-section-number">2.3.3</span> Beispiel</h3>
+<h3 id="beispiel-1"><span class="header-section-number">5.3.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="committee_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;7&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Finanzausschuss&quot;</span>,
@@ -199,12 +367,12 @@ code > span.er { color: #ff0000; font-weight: bold; }
     <span class="dt">&quot;body&quot;</span>: <span class="st">&quot;1&quot;</span>,
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
-<h2 id="person-person"><span class="header-section-number">2.4</span> Person (<em>person</em>)</h2>
+<h2 id="person-person"><span class="header-section-number">5.4</span> Person (<em>person</em>)</h2>
 <p>Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person im Datenmodell eindeutig identifizierbar.</p>
 <div class="figure">
 <img src="images/datenmodell_person.png" alt="Objekttyp Person" /><p class="caption">Objekttyp Person</p>
 </div>
-<h3 id="eigenschaften-2"><span class="header-section-number">2.4.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-2"><span class="header-section-number">5.4.1</span> Eigenschaften</h3>
 <dl>
 <dt>Schlüssel (<code>id</code>)</dt>
 <dd>Zur eindeutigen Identifizierung sollte jede Person eine Kennung besitzen, die keinen Änderungen unterworfen ist und aus diesem Grund nicht mit dem Namen in Verbindung stehen sollte. Viele RIS nutzen rein numerische Kennungen.
@@ -240,17 +408,17 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h4 id="anmerkungen"><span class="header-section-number">2.4.1.1</span> Anmerkungen</h4>
+<h4 id="anmerkungen"><span class="header-section-number">5.4.1.1</span> Anmerkungen</h4>
 <ul>
 <li>Das System von Euskirchen scheint Vor- und Nachname (evtl. einschl. Titel) in einem gemeinsamen Feld &quot;Name&quot; zu führen. Ob das System hier technisch differenziert, ist unklar. Falls einzelne Systeme den angezeigten Namen nur als ganzes speichern, sollte dies für den Standard übernommen werden, da es für die meisten Anwendungen ausreichen sollte.</li>
 <li>Das System PROVOX unterscheidet zwischen privaten und geschäftlichen Anschriften.</li>
 </ul>
-<h3 id="beziehungen-2"><span class="header-section-number">2.4.2</span> Beziehungen</h3>
+<h3 id="beziehungen-2"><span class="header-section-number">5.4.2</span> Beziehungen</h3>
 <ul>
 <li>Objekte vom Typ &quot;Person&quot; können einer Organisation, z.B. einer Fraktion, zugeornet werden. Diese Beziehung ist datiert.</li>
 <li>Objekte vom Typ &quot;Person&quot; können einem oder mehreren Gremien zugewiesen werden, um die Mitgliedschaft in diesem Gremium darzustellen. Diese Beziehungen sind ebenfalls datiert.</li>
 </ul>
-<h3 id="beispiel-2"><span class="header-section-number">2.4.3</span> Beispiel</h3>
+<h3 id="beispiel-2"><span class="header-section-number">5.4.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="person_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;1000&quot;</span>,
     <span class="dt">&quot;first_name&quot;</span>: <span class="st">&quot;Max&quot;</span>,
@@ -281,12 +449,12 @@ code > span.er { color: #ff0000; font-weight: bold; }
         }
     ]
 }</code></pre>
-<h2 id="organisation-organisation"><span class="header-section-number">2.5</span> Organisation (<code>organisation</code>)</h2>
+<h2 id="organisation-organisation"><span class="header-section-number">5.5</span> Organisation (<code>organisation</code>)</h2>
 <p>Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die Personen angehören können.</p>
 <div class="figure">
 <img src="images/datenmodell_organisation.png" alt="Objekttyp Organisation" /><p class="caption">Objekttyp Organisation</p>
 </div>
-<h3 id="eigenschaften-3"><span class="header-section-number">2.5.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-3"><span class="header-section-number">5.5.1</span> Eigenschaften</h3>
 <dl>
 <dt>Schlüssel (<code>id</code>)</dt>
 <dd>Zur eindeutigen Kennzeichnung einer Organisation innerhalb des Systems
@@ -298,29 +466,29 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h4 id="anmerkungen-1"><span class="header-section-number">2.5.1.1</span> Anmerkungen</h4>
+<h4 id="anmerkungen-1"><span class="header-section-number">5.5.1.1</span> Anmerkungen</h4>
 <ul>
 <li>Unklar ist bislang, ob Organisationen in der Praxis eher Fraktionen (&quot;SPD-Fraktion im Kölner Rat&quot;, &quot;SPD-Fraktion in Köln-Innenstadt&quot;) abbilden oder ob eher Ortsverbände von Parteien (&quot;SPD Köln&quot;) gemeint sein werden. Einblicke, wie gängige Systeme dies handhaben, sollten evtl. gesammelt und berücksichtigt werden.</li>
 </ul>
-<h3 id="beziehungen-3"><span class="header-section-number">2.5.2</span> Beziehungen</h3>
+<h3 id="beziehungen-3"><span class="header-section-number">5.5.2</span> Beziehungen</h3>
 <ul>
 <li>Jede Organisationen gehört zu einer Körperschaft.</li>
 <li>Personen können Organisationen angehören (<em>datiert</em>).</li>
 </ul>
-<h3 id="beispiel-3"><span class="header-section-number">2.5.3</span> Beispiel</h3>
+<h3 id="beispiel-3"><span class="header-section-number">5.5.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="organisation_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;15&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;SPD&quot;</span>,
     <span class="dt">&quot;body&quot;</span>: <span class="st">&quot;1&quot;</span>,
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
-<h2 id="sitzung-meeting"><span class="header-section-number">2.6</span> Sitzung (<code>meeting</code>)</h2>
+<h2 id="sitzung-meeting"><span class="header-section-number">5.6</span> Sitzung (<code>meeting</code>)</h2>
 <p>Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.</p>
 <p>Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in entsprechender Form referenziert. Verschiedene Dokumente (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.</p>
 <div class="figure">
 <img src="images/datenmodell_sitzung.png" alt="Objekttyp Sitzung" /><p class="caption">Objekttyp Sitzung</p>
 </div>
-<h3 id="eigenschaften-4"><span class="header-section-number">2.6.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-4"><span class="header-section-number">5.6.1</span> Eigenschaften</h3>
 <dl>
 <dt>Schlüssel (<code>id</code>)</dt>
 <dd>Zur eindeutigen Identifizierung der Sitzung innerhalb des Systems. In der Praxis wird ein solcher Schlüssel entweder durch eine numerische ID gebildet oder durch Kombination mehrerer Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung in einem Jahr und der Jahreszahl (z.B. &quot;BV1/0034/2012&quot;).
@@ -341,7 +509,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h3 id="beziehungen-4"><span class="header-section-number">2.6.2</span> Beziehungen</h3>
+<h3 id="beziehungen-4"><span class="header-section-number">5.6.2</span> Beziehungen</h3>
 <ul>
 <li>Sitzungen sind mindestens einem Gremium zugeordnet</li>
 <li>Einer Sitzung sind Personen zugeordnet, um die Teilnahme an der Sitzung auszudrücken.</li>
@@ -353,7 +521,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul></li>
 <li>Weiterhin können Sitzungen beliebige weitere Dokumente, die keine eigenständigen Drucksachen sind, referenzieren. Dabei handelt es sich dann um nicht weiter spezifizierte Anlagen.</li>
 </ul>
-<h3 id="beispiel-4"><span class="header-section-number">2.6.3</span> Beispiel</h3>
+<h3 id="beispiel-4"><span class="header-section-number">5.6.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="meeting_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;3271&quot;</span>,
     <span class="dt">&quot;identifier&quot;</span>: <span class="st">&quot;STA/0034/2012&quot;</span>,
@@ -372,13 +540,13 @@ code > span.er { color: #ff0000; font-weight: bold; }
     ],
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-01-08T14:05:27+01:00&quot;</span>
 }</code></pre>
-<h2 id="tagesordnungspunkt-agendaitem"><span class="header-section-number">2.7</span> Tagesordnungspunkt (<code>agendaitem</code>)</h2>
+<h2 id="tagesordnungspunkt-agendaitem"><span class="header-section-number">5.7</span> Tagesordnungspunkt (<code>agendaitem</code>)</h2>
 <p>Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. Unter Umständen kann dem Tagesordnungspunkt ein bestimmter Beschlusstext beigefügt sein.</p>
 <p>Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.</p>
 <div class="figure">
 <img src="images/datenmodell_tagesordnungspunkt.png" alt="Objekttyp Tagesordnungspunkt" /><p class="caption">Objekttyp Tagesordnungspunkt</p>
 </div>
-<h3 id="eigenschaften-5"><span class="header-section-number">2.7.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-5"><span class="header-section-number">5.7.1</span> Eigenschaften</h3>
 <dl>
 <dt>Nummer (<code>identifier</code>)</dt>
 <dd>Beispiel: &quot;1.2.3&quot;. Diese Nummer gibt an, in welcher Reihenfolge die Tagesordnungspunkte einer Sitzung normalerweise behandelt werden. Im Kontext einer Sitzung ist diese Nummer eindeutig.
@@ -402,18 +570,18 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h4 id="anmerkungen-2"><span class="header-section-number">2.7.1.1</span> Anmerkungen</h4>
+<h4 id="anmerkungen-2"><span class="header-section-number">5.7.1.1</span> Anmerkungen</h4>
 <ul>
 <li>Einige Systeme vergeben zu Tagesordnungspunkten intern unveränderliche, numerische IDs. Es ist unklar, ob es zusätzlichen Nutzen bringt, derartige IDs, neben den Nummern, in den Standard zu übernehmen. Dies würde vermutlich nur Sinn ergeben, wenn es als Pflichtfeld gelten könnte.</li>
 <li>Teil der Beratungen über einheitliche Nomenklatur im Standard sollte sein, eine Vereinheitlichung der Werte für die Eigenschaft <code>result</code> zu diskutieren.</li>
 </ul>
-<h3 id="beziehungen-5"><span class="header-section-number">2.7.2</span> Beziehungen</h3>
+<h3 id="beziehungen-5"><span class="header-section-number">5.7.2</span> Beziehungen</h3>
 <ul>
 <li>Jeder Tagesordnungspunkt gehört zu genau einer Sitzung.</li>
 <li>Der Tagesordnungspunkt kann auf eine Drucksache verweisen, die im Rahmen dieses Tagesordnungspunkt beraten werden soll.</li>
 <li>Es können Personen referenziert werden, die während der Abstimmung zu diesem Tagesordnungspunkt <em>nicht</em> anwesend waren.</li>
 </ul>
-<h3 id="beispiel-5"><span class="header-section-number">2.7.3</span> Beispiel</h3>
+<h3 id="beispiel-5"><span class="header-section-number">5.7.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="agendaitem_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;meeting&quot;</span>: <span class="st">&quot;3271&quot;</span>,
     <span class="dt">&quot;identifier&quot;</span>: <span class="st">&quot;3.1.2&quot;</span>,
@@ -424,7 +592,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
     <span class="dt">&quot;people_absent&quot;</span>: [<span class="st">&quot;1002&quot;</span>, <span class="st">&quot;1003&quot;</span>],
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
-<h2 id="drucksache-paper"><span class="header-section-number">2.8</span> Drucksache (<code>paper</code>)</h2>
+<h2 id="drucksache-paper"><span class="header-section-number">5.8</span> Drucksache (<code>paper</code>)</h2>
 <p>Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen, Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede Drucksache erhält eine eindeutige Kennung.</p>
 <p>Die Drucksache hat im Informationsmodell eine hervorgehobene Bedeutung. Im Fall eines Antrags kann mit einer einzigen Drucksache ein über Monate oder Jahre dauernder politischer Entscheidungsprozess verbunden sein. In dem Zusammenhang entstehen üblicherweise weitere Drucksachen.</p>
 <p>Drucksachen spielen in der schriftlichen wie mündlichen Kommunikation eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in Ratsinformationssystemen unveränderliche Kennungen der Drucksachen zum Einsatz.</p>
@@ -439,7 +607,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><strong>Mitteilung/Stellungnahme der Verwaltung</strong>: Eine Information der Verwaltung an einzelne oder mehrere Gremien. Darunter fallen nicht Beantwortungen von Anfragen.</li>
 <li><strong>Beantwortung einer Anfrage</strong>: Antwort der Verwaltung auf (mündliche oder schriftliche) Anfragen</li>
 </ul>
-<h3 id="eigenschaften-6"><span class="header-section-number">2.8.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-6"><span class="header-section-number">5.8.1</span> Eigenschaften</h3>
 <dl>
 <dt>Schlüssel (<code>id</code>)</dt>
 <dd>Die Kennung einer Drucksache muss für die jeweilige Körperschaft eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben enthalten. Einige Systeme (z.B. Köln) verwenden besondere Trennzeichen wie &quot;/&quot;, um eine Jahreszahl von einer laufenden Nummer abzutrennen. Weiterhin werden mancherorts führende Nullen verwendet.
@@ -454,7 +622,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h3 id="beziehungen-6"><span class="header-section-number">2.8.2</span> Beziehungen</h3>
+<h3 id="beziehungen-6"><span class="header-section-number">5.8.2</span> Beziehungen</h3>
 <ul>
 <li>Es muss genau ein <strong>Hauptdokument</strong> (Objekttyp &quot;Dokument&quot;) referenziert werden.</li>
 <li>Es können beliebig viele weitere Dokumente referenziert werden, die als nachgeordnete <strong>Anlagen</strong> zur Drucksache verstanden werden.</li>
@@ -464,7 +632,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>Drucksachen können auf andere Drucksachen referenzieren. Diese Verweise können verschiedene semantische Beziehungen ausdrücken. So kann eine Drucksache auf eine übergeordnete oder eine oder mehrere untergeordnete Drucksachen verweisen. Beim Drucksachen-Typ &quot;Beantwortung einer Anfrage&quot; ist die Drucksache zu referenzieren, die die ursprüngliche <strong>Anfrage</strong> beinhaltet. Denkbar sind auch Verweise auf frühere Drucksachen zum selben Thema. Zu klären ist, wie die verschiedenen möglichen Beziehungen formell ausgedrückt werden.</li>
 <li>Drucksachen können zu beliebig vielen Tagesordnungspunkten in Beziehung stehen, um die <strong>Beratungsfolge</strong> einer Drucksache abzubilden. Hierbei kann die Beziehung jeweils mit einer Zuständigkeit versehen sein, die noch näher zu bestimmen ist (TODO).</li>
 </ul>
-<h3 id="beispiel-6"><span class="header-section-number">2.8.3</span> Beispiel</h3>
+<h3 id="beispiel-6"><span class="header-section-number">5.8.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="paper_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;1234/2012&quot;</span>,
     <span class="dt">&quot;date&quot;</span>: <span class="st">&quot;2013-01-04&quot;</span>,
@@ -504,14 +672,14 @@ code > span.er { color: #ff0000; font-weight: bold; }
     ],
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2013-01-08T12:05:27+01:00&quot;</span>
 }</code></pre>
-<h2 id="dokument-document"><span class="header-section-number">2.9</span> Dokument (<code>document</code>)</h2>
+<h2 id="dokument-document"><span class="header-section-number">5.9</span> Dokument (<code>document</code>)</h2>
 <p>Ein Dokument hält die Metadaten einer Datei vor, beispielsweise einer PDF-Datei, eines RTF- oder Word-Dokuments.</p>
 <p>Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls ein Dokument. Um zu zeigen, dass es sich um eine Ableitung handelt, verweist dieses auf das Original als &quot;Master&quot;.</p>
 <p>Im Unterschied zur Drucksache benötigt das Dokument keine nutzerfreundliche Kennung.</p>
 <div class="figure">
 <img src="images/datenmodell_dokument.png" alt="Objekttyp Dokument" /><p class="caption">Objekttyp Dokument</p>
 </div>
-<h3 id="eigenschaften-7"><span class="header-section-number">2.9.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-7"><span class="header-section-number">5.9.1</span> Eigenschaften</h3>
 <dl>
 <dt>Schlüssel (<code>id</code>)</dt>
 <dd>Unveränderliche Kennung
@@ -538,7 +706,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Reine Text-Wiedergabe des Dokumenteninhalts, sofern es sich nicht um eine reine Abbildung handelt.
 </dd>
 </dl>
-<h3 id="beziehungen-7"><span class="header-section-number">2.9.2</span> Beziehungen</h3>
+<h3 id="beziehungen-7"><span class="header-section-number">5.9.2</span> Beziehungen</h3>
 <ul>
 <li>Dokumente gehören zwingend zu einer <strong>Drucksache</strong>, optional auch zu mehreren. Ein Dokument kann entweder als Hauptdokument einer Drucksache oder als Anlage eingestuft sein.</li>
 <li>Ein Dokument kann auf ein anderes Dokument referenzieren, wenn es von dem anderen Dokument abstammt. So ist es möglich, von einem abgeleiteten Dokument zu seinem Dokumenten-Master zu gelangen (Beispiel: von einem PDF-Dokument zum OpenOffice-Original).</li>
@@ -554,13 +722,13 @@ code > span.er { color: #ff0000; font-weight: bold; }
     <span class="dt">&quot;text&quot;</span>: <span class="st">&quot;Der Übersichtsplan zeigt alle Ebenen des ...&quot;</span>,
     <span class="dt">&quot;master&quot;</span>: <span class="st">&quot;2099&quot;</span>
 }</code></pre>
-<h2 id="ort-location"><span class="header-section-number">2.10</span> Ort (<code>location</code>)</h2>
+<h2 id="ort-location"><span class="header-section-number">5.10</span> Ort (<code>location</code>)</h2>
 <p>Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen (beispielsweise der Name einer Straße/eines Platzes oder eine genaue Adresse) als auch aus Geodaten.</p>
 <p>OParl sieht die Angabe von Geodaten in Anlehnung an die GeoJSON-Spezifikation [13] vor. Die GeoJSON-Spezifikation erlaubt die Abbildung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden und Polygonen. Während GeoJSON zu jedem Geodaten-Objekt auch die Speicherung zusätzlicher Metadaten ermöglicht, beschränkt sich OParl ledliglich auf das <code>geometry</code>-Attribut in GeoJSON. Sämtliche Geo-Koordinatenangaben werden in in OParl im WGS-84-System [11] erwartet.</p>
 <div class="figure">
 <img src="images/datenmodell_ort.png" alt="Objekttyp Ort" /><p class="caption">Objekttyp Ort</p>
 </div>
-<h3 id="eigenschaften-8"><span class="header-section-number">2.10.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-8"><span class="header-section-number">5.10.1</span> Eigenschaften</h3>
 <dl>
 <dt>Textanabe (<code>description</code>)</dt>
 <dd><em>Optional.</em> Textliche Beschreibung eines Orts, z.B. in Form einer Adresse
@@ -572,7 +740,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h3 id="beziehungen-8"><span class="header-section-number">2.10.2</span> Beziehungen</h3>
+<h3 id="beziehungen-8"><span class="header-section-number">5.10.2</span> Beziehungen</h3>
 <ul>
 <li>Orte können mit Drucksachen in Verbindung stehen.</li>
 </ul>
@@ -584,30 +752,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
     },
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2013-02-14T14:05:27+01:00&quot;</span>
 }</code></pre>
-<h1 id="zugriffsmethoden"><span class="header-section-number">3</span> Zugriffsmethoden</h1>
-<p>In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen Schnittstelle beschrieben.</p>
-<p>Stichpunkte:</p>
-<ul>
-<li>Grundlage für den Zugriff auf die Schnittstelle ist das Hypertext Transfer Protocol (HTTP).</li>
-<li>Ausschließlich HTTP GET Methode</li>
-<li>Optional gzip Encoding und andere Kodierungen, wenn Client und Server dies unterstützen</li>
-<li>HTTP Last-Modified Header sowie Conditional GET sind bei Dateiabruf (Laden von Anhängen) zu unterstützen</li>
-<li>Das Protkoll ist zustandslos</li>
-<li>Authentifizierung wird nicht benötigt.</li>
-</ul>
-<h1 id="glossar"><span class="header-section-number">4</span> Glossar</h1>
-<dl>
-<dt>JSON-LD</dt>
-<dd><p>JSON for Linked Data</p>
-</dd>
-<dt>RIS</dt>
-<dd><p>Ratsinformationssystem</p>
-</dd>
-<dt>WGS 84</dt>
-<dd><p>World Geodetic System 1984. Ein weltweites Referenzsystem für die Interpretation von Geokoordinaten-Angaben.</p>
-</dd>
-</dl>
-<h1 id="fußnoten"><span class="header-section-number">5</span> Fußnoten</h1>
+<h1 id="fußnoten"><span class="header-section-number">6</span> Fußnoten</h1>
 <p>[1]: Siehe <a href="http://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel">de.wikipedia.org/wiki/Amtlicher_Gemeindeschlüssel</a></p>
 <p>[2]: Ratsinformationssystem der Stadt Köln, <a href="http://ratsinformation.stadt-koeln.de/">http://ratsinformation.stadt-koeln.de/</a></p>
 <p>[3]: Firma Somacos, <a href="http://www.somacos.de/de/sitzungsdienst/ratsinfo.html">SessionNet Produktinformation</a></p>
@@ -624,5 +769,23 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>[14]: Frankfurt Gestalten <a href="http://www.geojson.org/">www.geojson.org</a></p>
 <p>[15]: Offenes Köln <a href="http://offeneskoeln.de/">offeneskoeln.de</a></p>
 <p>[16]: OpenRuhr:RIS <a href="http://openruhr.de/openruhrris/">openruhr.de/openruhrris</a></p>
+<h1 id="glossar"><span class="header-section-number">7</span> Glossar</h1>
+<dl>
+<dt>JSON-LD</dt>
+<dd><p>JSON for Linked Data</p>
+</dd>
+<dt>RIS</dt>
+<dd><p>Ratsinformationssystem</p>
+</dd>
+<dt>WGS 84</dt>
+<dd><p>World Geodetic System 1984. Ein weltweites Referenzsystem für die Interpretation von Geokoordinaten-Angaben.</p>
+</dd>
+</dl>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>RFC2119: <a href="http://tools.ietf.org/html/rfc2119">http://tools.ietf.org/html/rfc2119</a><a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
 </body>
 </html>

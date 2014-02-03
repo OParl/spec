@@ -92,17 +92,6 @@ OParl Schnittstellen-Standards für parlamentarische Informationssysteme
 für die Implementierung von OParl-konformen Server- und
 Clientanwendungen.
 
-\subsection{Parlamentarische Informationssysteme}
-
-Parlamentarische Informationssysteme (oft Ratsinformationssystem, RIS
-oder Bürgerinformationssystem genannt) werden von vielen Körperschaften
-wie Kommunen, Landkreisen und Regierungsbezirken eingesetzt, um die
-anfallende Gremienarbeit (Ratssitzungen, Ausschüsse, Vertretungen) zu
-organisieren. Da ein großer Teil der schriftlichen Arbeit in der
-Lokalpolitik über derartige Systeme verwaltet wird, sind diese Systeme
--- dort wo vorhanden -- ein wichtiger Zugriffspunkt für alle, die sich
-für politischen Geschehnisse interessieren.
-
 \subsection{Motivationen für den standardisierten Datenzugriff}
 
 Die Gründe, warum Betreiber von parlamentarischen Informationssystemen
@@ -182,98 +171,489 @@ Die Spezifikation befindet sich in Arbeit. Das Dokument enthält
 entsprechend viele Ungenauigkeiten und Hinweise auf offene
 Fragestellungen.
 
+\subsection{Was ist OParl?}
+
+\subsection{Zielsetzung von OParl}
+
+\begin{itemize}
+\item
+  Nutzen für Kommunen, Bürger, politische Parteien
+\item
+  Nutzen für Anbieter von RIS-Pflegesoftware
+\item
+  Nutzen für Anbieter von RIS-Darstellungssoftware
+\item
+  Nutzen für Open Data Initiativen
+\item
+  Nutzen für die Wissenschaft
+\item
+  Linked Data erwähnen
+\end{itemize}
+
+\subsection{Werdegang von OParl 1.0}
+
+Stichpunkte:
+
+\begin{itemize}
+\item
+  \begin{enumerate}[1.]
+  \setcounter{enumi}{16}
+  \item
+    und 18. November 2012: Die Open Knowledge Foundation Deutschland
+    veranstaltet in den Räumen der Heinrich-Böll-Stiftung in Berlin
+    einen Workshop für Entwickler von Anwendungen, die einen
+    gesellschaftlichen Nutzen bringen sollen. Hier ist VITAKO, die
+    Bundes-Arbeitsgemeinschaft der Kommunalen IT-Dienstleister, als
+    Sponsor engagiert. Die Geschäftsführerin, Dr.~Marianne Wulff, ist
+    persönlich vor Ort. Auch das Projekt Offenes Köln wird in einem
+    Vortrag von Marian Steinbach präsentiert. Es kommt zum Austausch
+    über die Frage, wie das Prinzip der offenen Ratsinformationen
+    effektiv auf weitere Kommunen ausgeweitet werden könnte.
+  \end{enumerate}
+\item
+  \begin{enumerate}[1.]
+  \setcounter{enumi}{5}
+  \item
+    Dezember 2012: Anhörung im Landtag NRW in Düsseldorf zu einer
+    Open-Data-Strategie der Landesregierung, wo Jens Klessmann und
+    Marian Steinbach als Sachverständige gehört werden. Danach Gespräch
+    über Möglichkeiten der Standardisierung offener
+    Ratsinformationssysteme.
+  \end{enumerate}
+\item
+  Dezember 2012: Dr.~Marianne Wulff, Jens Klessmann und Marian Steinbach
+  beginnen mit der Abstimmung über einen Workshop mit Vertreterinnen und
+  Vertretern von Kommunen, kommunalen IT-Dienstleistern, RIS-Anbietern
+  und Zivilgesellschaft. Ziel: Die Bereitschaft zur Zusammenarbeit an
+  einem gemeinsamen Standard ermitteln. Unterdessen beginnt Marian
+  Steinbach mit der Formulierung eines Standard-Entwurfs als
+  Diskussionsgrundlage. Der Entwurf wird von Beginn an öffentlich auf
+  GitHub.com bereit gestellt.
+\item
+  \begin{enumerate}[1.]
+  \setcounter{enumi}{16}
+  \item
+    April 2013: Insgesamt 30 Teilnehmer versammeln sich in Köln, um sich
+    in einem ersten Treffen über Ziele und Chancen einer
+    Standardisierung für offene Ratsinformationen auszutauschen. Als
+    Ergebnis wird ein großes Interesse an der weiteren Zusammenarbeit
+    auf Basis des vorliegenden Standardentwurfs festgestellt. Als Termin
+    für die Fertigstellung der ersten Version der Spezifikation wird der
+    30. Juni 2013 festgelegt. Die Initiatoren präsentieren den
+    Anwesenden hier erstmals den Namen ``OParl'', der künftig als Marke
+    für die Bemühungen der Gruppe stehen soll.
+  \end{enumerate}
+\item
+  \begin{enumerate}[1.]
+  \setcounter{enumi}{21}
+  \item
+    Januar 2014: Nachdem sich die verteilte Zusammenarbeit am
+    Standard-Entwurf seit April 2013 als nicht zielführend erwiesen hat,
+    laden Jens Klessmann und Marian Steinbach und VITAKO zu einem
+    eintägigen OParl-Workshop in Bielefeld ein. Das Ziel ist, die
+    Spezifikation so weit wie möglich voran zu treiben und eine gute
+    Basis für die baldige Fertigstellung zu legen.
+  \end{enumerate}
+\end{itemize}
+
+\subsection{Zukunft von OParl}
+
+\begin{itemize}
+\item
+  Verfeinerung, Lücken schliessen
+\item
+  Globalisierung
+\item
+  Erweiterung über die kommunale Ebene hinaus (Land, Bund)
+\item
+  Vereinheitlichung von Kategorien (Drucksachentypen, Arten von Gremien)
+\item
+  Erweiterung von Personendaten, z.B. mit Social Media URLs
+\item
+  Mehr Abfragekriterien
+\item
+  Suchfunktionen (Volltextsuche)
+\item
+  Abstimmungsverhalten und maschinenlesbare Protokolle
+\end{itemize}
+
+\subsection{Nomenklatur der Spezifikation und Satzkonventionen}
+
+\subsubsection{MÜSSEN, SOLLEN und KÖNNEN bzw. ZWINGEND, EMPFOHLEN und
+OPTIONAL}
+
+Dieses Spezifikationsdokument nutzt die Modalverben müssen, können und
+sollen in einer Art und Weise, die bestimmte Anforderungen möglichst
+unmissverständlich in drei verschiedene Abstufung einteilen lässt. Um
+ihre normative Bedeutung zu unterstreichen, werden diese Wörter
+grundsätzlich in Großbuchstaben gesetzt.
+
+Diese Konvention ist angelehnt an die Definitionen der Begriffe MUST,
+SHOULD und MAY (bzw. MUST NOT, SHOULD NOT und MAY NOT) aus
+RFC2119\footnote{RFC2119:
+  \href{http://tools.ietf.org/html/rfc2119}{http://tools.ietf.org/html/rfc2119}}.
+
+Die Bedeutung im Einzelnen:
+
+\begin{description}
+\item[MÜSSEN/MUSS bzw. ZWINGEND:]
+Die Erfüllung einer Anforderung, die explizit vom Modalverb MÜSSEN bzw.
+MUSS Gebrauch macht, ist zwingend erforderlich.
+
+Die Entsprechung in RFC2119 lautet ``MUST'', ``REQUIRED'' oder
+``SHALL''.
+\item[NICHT DÜRFEN/DARF NICHT:]
+Dieses Stichwort kennzeichnet ein absolutes Verbot.
+
+Die Entsprechung in RFC2119 lautet ``MUST NOT'' oder ``SHALL NOT''.
+\item[SOLLEN/SOLL bzw. EMPFOHLEN:]
+Mit dem Wort SOLLEN bzw. SOLL sind empfohlene Anforderungen
+gekennzeichnet, die von jeder Implementierung erfüllt werden sollen.
+Eine Nichterfüllung ist als Nachteil zu verstehen, beispielsweise weil
+die Nutzerfreundlichkeit dadurch Einbußen erleidet, und sollte daher
+sorgfältig abgewogen werden.
+
+Die Entsprechung in RFC2119 lautet ``SHOULD'' oder ``RECOMMENDED''.
+\item[NICHT SOLLEN/SOLL NICHT bzw. NICHT EMPFOHLEN:]
+Diese Formulierung wird verwendet, wenn unter gewissen Umständen Gründe
+existieren können, die ein bestimmtes Verhalten akzeptabel oder sogar
+nützlich erscheinen lassen, jedoch die Auswirkung des Verhaltens vor
+einer entsprechenden Implementierung verstanden und abgewogen werden
+sollen.
+
+Die Entsprechung in RFC2119 lautet ``SHOULD NOT'' oder ``NOT
+RECOMMENDED''.
+\item[DÜRFEN/DARF bzw. OPTIONAL:]
+Mit dem Wort DÜRFEN bzw. DARF oder OPTIONAL sind optionale Bestandteile
+gekennzeichnet. Ein Anbieter könnte sich entscheiden, den entsprechenden
+Bestandteil aufgrund besonderer Kundenanforderungen zu unterstützen,
+während andere diesen Bestandteil ignorieren könnten. Implementierer von
+Clients oder Servern DÜRFEN in solchen Fällen NICHT davon ausgehen, dass
+der jeweilige Kommunikationspartner den entsprechenden, optionalen
+Anteil unterstützt.
+
+Die Entsprechung in RFC2119 lautet ``MAY'' oder ``OPTIONAL''.
+\end{description}
+
+\subsubsection{Besondere Hervorhebungen und Satzkonventionen}
+
+\subsection{Initiatoren}
+
+\subsection{Unterstützer}
+
+\subsection{Autoren}
+
+An diesem Dokument haben mitgewirkt:
+
+Felix Ebert, Jan Erhardt, Jens Klessmann, Andreas Kuckartz, Babett
+Schalitz, Marian Steinbach, Thomas Tursics, Jakob Voss
+
+\section{Architektur}
+
+In diesem Abschnitt werden grundlegenden Konzepte, die von OParl
+abgedeckt werden, erläutert. Die Erläuterungen sind nicht im engeren
+Sinne Teil der Spezifikation, sondern dienen dazu, die
+Anwendungsbereiche von OParl und die Funktionen einer OParl-konformen
+API verständlicher und konkreter beschreiben zu können.
+
 \subsection{Überblick}
 
-Der Entwurf umfasst aktuell die Beschreibung eines Datenmodells.
+TODO: Architekturdiagramm einbinden
 
-\subsection{Nächste Schritte}
+\subsection{Parlamentarisches Informationssystem}
 
-Fertigstellung von Version 1.0. Bis dahin ist zu erledigen:
+Parlamentarische Informationssysteme sind Software-Systeme, die von
+verschiedensten Körperschaften eingesetzt werden, um die Zusammenarbeit
+von Parlamenten zu organisieren, zu dokumentieren und öffentlich
+nachvollziehbar zu machen.
 
-\begin{itemize}
-\item
-  Fertigstellung Datenmodell
-\item
-  Beschreibung von Methoden und URL-Parametern
-\item
-  HTTP Status-Codes und besondere Anforderungen an Verwendung bestimmter
-  HTTP-Header
-\item
-  Klärung einer gemeinsamen Nomenklatur für Inhalte, beispielsweise für
-  Arten von Drucksachen
-\end{itemize}
+Im kommunalen Umfeld in Deutschland, wo das Parlament je nach Art der
+Kommune häufig als Stadtrat oder Gemeinderat bezeichnet wird, hat sich
+für diese Art von Informationssystem auch der Begriff
+``Ratsinformationssystem'' (kurz ``RIS'') etabliert.
 
-\subsection{Feedback und Mitwirkung}
+Parlamentarische Informationssysteme sind jedoch nicht auf die kommunale
+Ebene begrenzt. Ähnliche Systeme werden auch auf Ebene z.B. von
+Landkreisen, Regierungsbezirken und diversen Zweckverbänden eingesetzt.
 
-Feedback wird dringend benötigt und ist daher herzlichst willkommen.
-Feedback kann auf den folgenden Wegen eingereicht werden:
+Diese Systeme unterstützen in der Regel mehrere der folgenden
+Funktionen:
 
 \begin{itemize}
 \item
-  In Form von Pull Requests über Github, direkt am Quelltext
+  Das Erzeugen, Bearbeiten und Darstellen von Sitzungen und deren
+  Tagesordnung
 \item
-  Über Issues auf Github
+  Das Erzeugen und Abrufen von Sitzungsprotokollen
+\item
+  Das Erzeugen, Bearbeiten und Anzeigen von Drucksachen
+\item
+  Das Erzeugen, Bearbeiten und Anzeigen von Gremien und deren
+  Mitgliedern
 \end{itemize}
 
-\subsubsection{Pull Requests über Github}
+Funktionen, die die Eingabe und Bearbeitung von Daten betreffen, sind in
+der Regel einem geschlossenen Nutzerkreis vorbehalten. Die Darstellung
+und der Abruf von Informationen und Dokumenten hingegen ist in vielen
+Fällen für die Öffentlichkeit freigegeben.
 
-Dieses Dokument wird in folgendem Github-Repository gepflegt:
+Die OParl Spezifikation beschreibt eine Schnittstelle, die den
+maschinellen, lesenden Zugriff auf derartige Informationen ermöglicht.
 
-\href{https://github.com/OParl/specs}{https://github.com/OParl/specs}
+\subsection{Server}
 
-Der bevorzugte Feedback-Kanal für erfahrene Git- bzw. Github-Nutzer ist
-entsprechend die Mitwirkung direkt am Quelltext in Form von
-Pull-Requests. So können \textbf{Ergänzungen und Korrekturen} direkt in
-den Quelltext eingespielt werden.
+Der Server im Sinne dieser Spezifikation ist ein Software-Dienst, der
+auf einem mit dem Internet verbundenen Rechnersystem läuft. Dieser
+Dienst ist eine spezielle Form eines WWW- bzw. HTTP(S)-Servers.
+Entsprechend beantwortet der Server HTTP-Anfragen, die an ihn auf einem
+bestimmten TCP-Port gestellt werden.
 
-Ausführliche Anleitungen zur Arbeit mit Git/Github finden sich auf der
-Plattform selbst sowie an vielen Orten im Netz. Der allgemeine Ablauf
-ist wie folgt:
+Der Server ist als Bestandteil des parlamentarischen Informationssystems
+zu verstehen. Der Betrieb des Servers steht damit üblicherweise in der
+Verantwortung desjenigen, der das parlamentarischen Informationssystem
+betreibt.
 
-\begin{enumerate}[1.]
+Von einem Server, der die OParl-Spezifikation erfüllt, wird erwartet,
+dass er bestimmte parlamentarische Informationen in einem bestimmten
+Format zur Verfügung stellt und auf bestimmte Anfragen von so genannten
+Clients über die OParl API entsprechend dieser Spezifikation reagiert.
+
+\subsection{API}
+
+Der Begriff API steht in diesem Dokument für die
+Webservice-Schnittstelle, die der Server anbietet. Die Schnittstelle
+basiert auf dem HTTP-Protokoll. Mittels HTTPS ist wahlweise auch die
+verschlüsselte Nutzung der API möglich, sofern Server dies unterstützt.
+
+Die API steht im Mittelpunkt dieser Spezifikation. Server und Clients
+sind als Kommunikationspartner zu verstehen, die über das Internet als
+Kommunikationskanal mit einander kommunizieren können. Die
+API-Spezifikation stellt dabei die nötige Grammatik und das Vokabular
+bereit, anhand dessen eine sinnvolle Kommunikation erfolgen kann.
+
+\subsection{Client}
+
+Der Begriff ``Client'' steht für eine Software, die über die OParl API
+mit dem Server kommuniziert. Da die API auf dem HTTP-Protokoll aufbaut,
+handelt es sich bei dem Client um eine spezielle Form eines
+HTTP-Clients.
+
+\subsection{Cache}
+
+Ein Cache ist ein Speicher, der einem Client dazu dienen kann, von einem
+Server abgerufene Informationen längerfristig vorzuhalten. Dies kann
+beispielsweise dazu dienen, mehrfache Anfragen der selben Informationen
+zu vermeiden, wodurch sowohl Ressourcen auf Seite des Servers geschohnt
+als auch die Nutzung von Netzwerkbandbreite reduziert werden kann. Die
+Nutzung eines Cache kann auch zur Verbesserung der Nutzerfreundlichkeit
+eines Clients beitragen, indem Wartezeiten zur Bereitstellung einer
+Ressource verkürzt werden.
+
+\subsection{Nutzerin oder Nutzer}
+
+Mit einer Nutzerin oder einem Nutzer ist in diesem Fall eine natürliche
+Person gemeint, die mittels eines OParl-Clients auf parlamentarische
+Informationen zugreift.
+
+\section{Nutzungsszenarien}
+
+\section{Prinzipien und Funktionen der API}
+
+(In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen
+Schnittstelle beschrieben. Hierzu gehören alle chapter-Dateien, deren
+Nummerierung mit der Ziffer 6 beginnnt.)
+
+Stichpunkte:
+
+\begin{itemize}
 \item
-  Erzeugen Sie sich, sofern noch nicht geschehen, ein Benutzerkonto auf
-  Github.
+  Grundlage für den Zugriff auf die Schnittstelle ist das Hypertext
+  Transfer Protocol (HTTP).
 \item
-  Duplizieren (\emph{forken}) Sie das oben genannte Repository
+  Optional gzip Encoding und andere Kodierungen, wenn Client und Server
+  dies unterstützen
 \item
-  Nehmen Sie die gewünschten Änderungen an Ihrem Repository vor.
-  Committen Sie diese Änderungen möglichst kleinteilig.
+  Das Protkoll ist zustandslos
 \item
-  Senden Sie die gewünschten Commits als Pull Requests.
-\end{enumerate}
+  Authentifizierung wird nicht benötigt.
+\end{itemize}
 
-Die Entscheidung, welche Pull Requests übernommen werden, erfolgt nach
-Abwägung durch die federführenden Autoren der Spezifikation.
+\subsection{Designprinzipien}
 
-Es ist beabsichtigt, alle Mitwirkenden im Dokument zu nennen. Wenn Sie
-mit einen Klarnamen und ggf. Unternehmenszugehörigkeit genannt werden
-wollen, teilen Sie dies bitte in einem Kommentar zum Pull Request mit.
+\subsubsection{Allgemein}
 
-\subsubsection{Issues auf Github}
+\begin{itemize}
+\item
+  Ausgerichtet am Status Quo
+\item
+  Einige Möglichkeiten weisen in die Zukunft (z.B. Geodaten, Volltexte,
+  Vereinheitlichung der Kategorien-Nomenklatur)
+\item
+  Ziel: Schnelle Implementierbarkeit in vielen bestehenden RIS
+\end{itemize}
 
-Wenn Sie nicht über Github am Quelltext mitwirken möchten, aber einen
-Github-Account Ihr eigen nennen oder zu diesem Zweck anlegen möchten,
-können Sie Sich an der \textbf{öffentlichen} Diskussion im
-Issue-Tracking-System unter
+\subsubsection{RESTful}
 
-\href{https://github.com/OParl/specs/issues}{https://github.com/OParl/specs/issues}
+\subsubsection{Selbstbeschreibungsfähigkeit}
 
-beteiligen. Dies hat den Vorteil, dass auch andere beteiligte die
-Einträge wahrnehmen und durch Kommentare dazu Stellung nehmen können.
-Dieser Weg eignet sich daher besonders zum Diskutieren von kontroversen
-Themen und dem Austausch von Argumenten.
+\subsubsection{Erweiterbarkeit}
 
-Bitte achten Sie auf diesem Weg darauf, Ihre Kommentare in möglichst
-kleine thematische Einheiten herunter zu brechen. Dadurch ermöglichen
-Sie, dass der jeweilige Eintrag dem richtigen Thema zugeordnet und der
-Status der Diskussion (offen, erledigt) richtig gesetzt werden kann.
+\subsubsection{Browseability/Verlinkung}
 
-\subsection{Mitwirkende}
+\subsection{Zukunftssicherheit}
 
-Marian Steinbach (Offenes Köln), Felix Ebert, Jan Erhardt, Jens
-Klessmann (Fraunhofer FOKUS), Andreas Kuckartz, Babett Schalitz (CC
-e-gov), T. Tursics (TODO: Vorname eintragen), Jakob Voss
+(In diesem Abschnitt wird die Zielsetzung beschrieben, zukünftige
+Versionen der OParl Spezifikation auf dieser Version aufbauen zu lassen.
+Damit soll nach Mögloichkeit Abwärtskompatibilität erreicht werden, so
+dass z.B. OParl-1.0-Clients mit einem 1.1-Server kommunizieren können.
+
+Ein Garantie wird es jedoch nicht geben.)
+
+\subsection{HTTP und HTTPS}
+
+(Hier geht es um die Verwendung von HTTP im Sinne der
+OParl-Spezifikation.
+
+\begin{itemize}
+\item
+  HTTPS kann optional an Stelle von HTTP eingesetzt werden.
+\end{itemize}
+
+Siehe auch https://github.com/OParl/specs/issues/90)
+
+\subsection{Serialisierung mittels JSON-LD und JSONP}
+
+\subsubsection{JSON}
+
+\begin{itemize}
+\item
+  Siehe RFC4627
+\item
+  Generelle Terminologie übernehmen (JSON-Objekt, Array, String, Number,
+  true/false, null)
+\end{itemize}
+
+\subsubsection{JSON-LD}
+
+\begin{itemize}
+\item
+  JSON-LD: http://www.w3.org/TR/json-ld/
+\item
+  Einschränkungen von OParl gegenüber JSON-LD
+\item
+  Schlüssel in einem JSON-LD-Objekt müssen einzigartig sein.
+\item
+  Unterscheidung von Groß- und Kleinschreibung
+\item
+  Benannte Objekte (URL als Schlüssel)
+\item
+  Anonyme Objekte (Blank Nodes)
+\item
+  Mime Type application/ld+json
+\item
+  Verweis auf
+  http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED\_Verwaltung/ModerneVerwaltung/opengovernment.pdf?\_\_blob=publicationFile
+\end{itemize}
+
+\hyperdef{}{jsonp}{\subsubsection{JSONP}\label{jsonp}}
+
+\begin{itemize}
+\item
+  TODO: Spezifikation finden/verlinken. (RFC gibt es nicht)
+\item
+  https://github.com/OParl/specs/issues/67
+\end{itemize}
+
+\subsection{Benannte und anonyme Objekte}
+
+\subsubsection{Benannte Objekte}
+
+\begin{itemize}
+\item
+  IRIs (RFC3987) als eindeutige Kennung
+\end{itemize}
+
+\subsubsection{Anonyme Objekte (Blank Nodes)}
+
+\subsubsection{Empfehlungen für langlebige IRIs/URIs/URLs}
+
+\begin{itemize}
+\item
+  Hinweise und evtl. Auszüge aus
+\item
+  http://www.w3.org/Provider/Style/URI.html
+\item
+  https://joinup.ec.europa.eu/sites/default/files/D7.1.3\%20-\%20Study\%20on\%20persistent\%20URIs.pdf
+\end{itemize}
+
+\subsection{Objektlisten}
+
+(Hier geht es darum, wie Listen von Objekten ausgegeben werden.
+
+Dazu:
+
+\begin{itemize}
+\item
+  https://github.com/OParl/specs/issues/66 )
+\end{itemize}
+
+\subsection{Feeds}
+
+\begin{itemize}
+\item
+  Warum Feeds?
+\item
+  Möglichst ressourcenschonendes Auffinden neuer und geänderter Objekte
+\item
+  Cache-Invalidierung, Entfernung von gelöschten/depublizierten Objekten
+\item
+  https://github.com/OParl/specs/issues/19
+\end{itemize}
+
+\subsubsection{Neue Objekte}
+
+\subsubsection{Geänderte Objekte}
+
+\subsubsection{Entfernte Objekte}
+
+\begin{itemize}
+\item
+  Liste von Objekt-URLs
+\end{itemize}
+
+\subsection{Dokumentenabruf}
+
+\begin{itemize}
+\item
+  HTTP GET Methode MUSS unterstützt werden
+\item
+  HEAD-Methode MUSS unterstützt werden
+\item
+  HTTP Last-Modified Header sowie Conditional GET sind zu unterstützen
+\end{itemize}
+
+\subsection{Liste reservierter URL-Parameter}
+
+Die in dieser Liste enthaltenen Zeichenketten haben eine reservierte
+Bedeutung und stehen bei Implementierungen eines OParl-Servers nicht
+mehr für die freie Verwendung in URLs zur Verfügung.
+
+\begin{description}
+\item[callback:]
+Mit diesem Parameter wird die JSONP-Ausgabe aktiviert. Mehr dazu im
+Abschnitt \hyperref[jsonp]{JSONP}.
+\item[startdate:]
+Parameter für die Einschränkung einer Abfrage anhand eines Datums bzw.
+einer Zeitangabe.
+\item[startdate:]
+Parameter für die Einschränkung einer Abfrage anhand eines Datums bzw.
+einer Zeitangabe.
+\end{description}
+
+\begin{itemize}
+\item
+  (Parameter für Datums-/Zeitbereichsfilter)
+\end{itemize}
 
 \section{Datenmodell}
 
@@ -1120,43 +1500,6 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\section{Zugriffsmethoden}
-
-In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen
-Schnittstelle beschrieben.
-
-Stichpunkte:
-
-\begin{itemize}
-\item
-  Grundlage für den Zugriff auf die Schnittstelle ist das Hypertext
-  Transfer Protocol (HTTP).
-\item
-  Ausschließlich HTTP GET Methode
-\item
-  Optional gzip Encoding und andere Kodierungen, wenn Client und Server
-  dies unterstützen
-\item
-  HTTP Last-Modified Header sowie Conditional GET sind bei Dateiabruf
-  (Laden von Anhängen) zu unterstützen
-\item
-  Das Protkoll ist zustandslos
-\item
-  Authentifizierung wird nicht benötigt.
-\end{itemize}
-
-\section{Glossar}
-
-\begin{description}
-\item[JSON-LD]
-JSON for Linked Data
-\item[RIS]
-Ratsinformationssystem
-\item[WGS 84]
-World Geodetic System 1984. Ein weltweites Referenzsystem für die
-Interpretation von Geokoordinaten-Angaben.
-\end{description}
-
 \section{Fußnoten}
 
 {[}1{]}: Siehe
@@ -1206,5 +1549,17 @@ auch vom Global Positioning System (GPS) verwendet.
 
 {[}16{]}: OpenRuhr:RIS
 \href{http://openruhr.de/openruhrris/}{openruhr.de/openruhrris}
+
+\section{Glossar}
+
+\begin{description}
+\item[JSON-LD]
+JSON for Linked Data
+\item[RIS]
+Ratsinformationssystem
+\item[WGS 84]
+World Geodetic System 1984. Ein weltweites Referenzsystem für die
+Interpretation von Geokoordinaten-Angaben.
+\end{description}
 
 \end{document}

@@ -10,20 +10,6 @@
     dient damit als Grundlage für die Implementierung von
     OParl-konformen Server- und Clientanwendungen.
   </para>
-  <sect2 id="parlamentarische-informationssysteme">
-    <title>Parlamentarische Informationssysteme</title>
-    <para>
-      Parlamentarische Informationssysteme (oft Ratsinformationssystem,
-      RIS oder Bürgerinformationssystem genannt) werden von vielen
-      Körperschaften wie Kommunen, Landkreisen und Regierungsbezirken
-      eingesetzt, um die anfallende Gremienarbeit (Ratssitzungen,
-      Ausschüsse, Vertretungen) zu organisieren. Da ein großer Teil der
-      schriftlichen Arbeit in der Lokalpolitik über derartige Systeme
-      verwaltet wird, sind diese Systeme – dort wo vorhanden – ein
-      wichtiger Zugriffspunkt für alle, die sich für politischen
-      Geschehnisse interessieren.
-    </para>
-  </sect2>
   <sect2 id="motivationen-für-den-standardisierten-datenzugriff">
     <title>Motivationen für den standardisierten Datenzugriff</title>
     <para>
@@ -135,153 +121,843 @@
       Fragestellungen.
     </para>
   </sect2>
+  <sect2 id="was-ist-oparl">
+    <title>Was ist OParl?</title>
+    <para>
+    </para>
+  </sect2>
+  <sect2 id="zielsetzung-von-oparl">
+    <title>Zielsetzung von OParl</title>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Nutzen für Kommunen, Bürger, politische Parteien
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Nutzen für Anbieter von RIS-Pflegesoftware
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Nutzen für Anbieter von RIS-Darstellungssoftware
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Nutzen für Open Data Initiativen
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Nutzen für die Wissenschaft
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Linked Data erwähnen
+        </para>
+      </listitem>
+    </itemizedlist>
+  </sect2>
+  <sect2 id="werdegang-von-oparl-1.0">
+    <title>Werdegang von OParl 1.0</title>
+    <para>
+      Stichpunkte:
+    </para>
+    <itemizedlist>
+      <listitem>
+        <orderedlist numeration="arabic">
+          <listitem override="17">
+            <para>
+              und 18. November 2012: Die Open Knowledge Foundation
+              Deutschland veranstaltet in den Räumen der
+              Heinrich-Böll-Stiftung in Berlin einen Workshop für
+              Entwickler von Anwendungen, die einen gesellschaftlichen
+              Nutzen bringen sollen. Hier ist VITAKO, die
+              Bundes-Arbeitsgemeinschaft der Kommunalen
+              IT-Dienstleister, als Sponsor engagiert. Die
+              Geschäftsführerin, Dr. Marianne Wulff, ist persönlich vor
+              Ort. Auch das Projekt Offenes Köln wird in einem Vortrag
+              von Marian Steinbach präsentiert. Es kommt zum Austausch
+              über die Frage, wie das Prinzip der offenen
+              Ratsinformationen effektiv auf weitere Kommunen
+              ausgeweitet werden könnte.
+            </para>
+          </listitem>
+        </orderedlist>
+      </listitem>
+      <listitem>
+        <orderedlist numeration="arabic">
+          <listitem override="6">
+            <para>
+              Dezember 2012: Anhörung im Landtag NRW in Düsseldorf zu
+              einer Open-Data-Strategie der Landesregierung, wo Jens
+              Klessmann und Marian Steinbach als Sachverständige gehört
+              werden. Danach Gespräch über Möglichkeiten der
+              Standardisierung offener Ratsinformationssysteme.
+            </para>
+          </listitem>
+        </orderedlist>
+      </listitem>
+      <listitem>
+        <para>
+          Dezember 2012: Dr. Marianne Wulff, Jens Klessmann und Marian
+          Steinbach beginnen mit der Abstimmung über einen Workshop mit
+          Vertreterinnen und Vertretern von Kommunen, kommunalen
+          IT-Dienstleistern, RIS-Anbietern und Zivilgesellschaft. Ziel:
+          Die Bereitschaft zur Zusammenarbeit an einem gemeinsamen
+          Standard ermitteln. Unterdessen beginnt Marian Steinbach mit
+          der Formulierung eines Standard-Entwurfs als
+          Diskussionsgrundlage. Der Entwurf wird von Beginn an
+          öffentlich auf GitHub.com bereit gestellt.
+        </para>
+      </listitem>
+      <listitem>
+        <orderedlist numeration="arabic">
+          <listitem override="17">
+            <para>
+              April 2013: Insgesamt 30 Teilnehmer versammeln sich in
+              Köln, um sich in einem ersten Treffen über Ziele und
+              Chancen einer Standardisierung für offene
+              Ratsinformationen auszutauschen. Als Ergebnis wird ein
+              großes Interesse an der weiteren Zusammenarbeit auf Basis
+              des vorliegenden Standardentwurfs festgestellt. Als Termin
+              für die Fertigstellung der ersten Version der
+              Spezifikation wird der 30. Juni 2013 festgelegt. Die
+              Initiatoren präsentieren den Anwesenden hier erstmals den
+              Namen &quot;OParl&quot;, der künftig als Marke für die
+              Bemühungen der Gruppe stehen soll.
+            </para>
+          </listitem>
+        </orderedlist>
+      </listitem>
+      <listitem>
+        <orderedlist numeration="arabic">
+          <listitem override="22">
+            <para>
+              Januar 2014: Nachdem sich die verteilte Zusammenarbeit am
+              Standard-Entwurf seit April 2013 als nicht zielführend
+              erwiesen hat, laden Jens Klessmann und Marian Steinbach
+              und VITAKO zu einem eintägigen OParl-Workshop in Bielefeld
+              ein. Das Ziel ist, die Spezifikation so weit wie möglich
+              voran zu treiben und eine gute Basis für die baldige
+              Fertigstellung zu legen.
+            </para>
+          </listitem>
+        </orderedlist>
+      </listitem>
+    </itemizedlist>
+  </sect2>
+  <sect2 id="zukunft-von-oparl">
+    <title>Zukunft von OParl</title>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Verfeinerung, Lücken schliessen
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Globalisierung
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Erweiterung über die kommunale Ebene hinaus (Land, Bund)
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Vereinheitlichung von Kategorien (Drucksachentypen, Arten von
+          Gremien)
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Erweiterung von Personendaten, z.B. mit Social Media URLs
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Mehr Abfragekriterien
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Suchfunktionen (Volltextsuche)
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Abstimmungsverhalten und maschinenlesbare Protokolle
+        </para>
+      </listitem>
+    </itemizedlist>
+  </sect2>
+  <sect2 id="nomenklatur-der-spezifikation-und-satzkonventionen">
+    <title>Nomenklatur der Spezifikation und Satzkonventionen</title>
+    <sect3 id="müssen-sollen-und-können-bzw.-zwingend-empfohlen-und-optional">
+      <title>MÜSSEN, SOLLEN und KÖNNEN bzw. ZWINGEND, EMPFOHLEN und
+      OPTIONAL</title>
+      <para>
+        Dieses Spezifikationsdokument nutzt die Modalverben müssen,
+        können und sollen in einer Art und Weise, die bestimmte
+        Anforderungen möglichst unmissverständlich in drei verschiedene
+        Abstufung einteilen lässt. Um ihre normative Bedeutung zu
+        unterstreichen, werden diese Wörter grundsätzlich in
+        Großbuchstaben gesetzt.
+      </para>
+      <para>
+        Diese Konvention ist angelehnt an die Definitionen der Begriffe
+        MUST, SHOULD und MAY (bzw. MUST NOT, SHOULD NOT und MAY NOT) aus
+        RFC2119<footnote>
+          <para>
+            RFC2119:
+            <ulink url="http://tools.ietf.org/html/rfc2119">http://tools.ietf.org/html/rfc2119</ulink>
+          </para>
+        </footnote>.
+      </para>
+      <para>
+        Die Bedeutung im Einzelnen:
+      </para>
+      <variablelist>
+        <varlistentry>
+          <term>
+            MÜSSEN/MUSS bzw. ZWINGEND:
+          </term>
+          <listitem>
+            <para>
+              Die Erfüllung einer Anforderung, die explizit vom
+              Modalverb MÜSSEN bzw. MUSS Gebrauch macht, ist zwingend
+              erforderlich.
+            </para>
+            <para>
+              Die Entsprechung in RFC2119 lautet &quot;MUST&quot;,
+              &quot;REQUIRED&quot; oder &quot;SHALL&quot;.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            NICHT DÜRFEN/DARF NICHT:
+          </term>
+          <listitem>
+            <para>
+              Dieses Stichwort kennzeichnet ein absolutes Verbot.
+            </para>
+            <para>
+              Die Entsprechung in RFC2119 lautet &quot;MUST NOT&quot;
+              oder &quot;SHALL NOT&quot;.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            SOLLEN/SOLL bzw. EMPFOHLEN:
+          </term>
+          <listitem>
+            <para>
+              Mit dem Wort SOLLEN bzw. SOLL sind empfohlene
+              Anforderungen gekennzeichnet, die von jeder
+              Implementierung erfüllt werden sollen. Eine Nichterfüllung
+              ist als Nachteil zu verstehen, beispielsweise weil die
+              Nutzerfreundlichkeit dadurch Einbußen erleidet, und sollte
+              daher sorgfältig abgewogen werden.
+            </para>
+            <para>
+              Die Entsprechung in RFC2119 lautet &quot;SHOULD&quot; oder
+              &quot;RECOMMENDED&quot;.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            NICHT SOLLEN/SOLL NICHT bzw. NICHT EMPFOHLEN:
+          </term>
+          <listitem>
+            <para>
+              Diese Formulierung wird verwendet, wenn unter gewissen
+              Umständen Gründe existieren können, die ein bestimmtes
+              Verhalten akzeptabel oder sogar nützlich erscheinen
+              lassen, jedoch die Auswirkung des Verhaltens vor einer
+              entsprechenden Implementierung verstanden und abgewogen
+              werden sollen.
+            </para>
+            <para>
+              Die Entsprechung in RFC2119 lautet &quot;SHOULD NOT&quot;
+              oder &quot;NOT RECOMMENDED&quot;.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            DÜRFEN/DARF bzw. OPTIONAL:
+          </term>
+          <listitem>
+            <para>
+              Mit dem Wort DÜRFEN bzw. DARF oder OPTIONAL sind optionale
+              Bestandteile gekennzeichnet. Ein Anbieter könnte sich
+              entscheiden, den entsprechenden Bestandteil aufgrund
+              besonderer Kundenanforderungen zu unterstützen, während
+              andere diesen Bestandteil ignorieren könnten.
+              Implementierer von Clients oder Servern DÜRFEN in solchen
+              Fällen NICHT davon ausgehen, dass der jeweilige
+              Kommunikationspartner den entsprechenden, optionalen
+              Anteil unterstützt.
+            </para>
+            <para>
+              Die Entsprechung in RFC2119 lautet &quot;MAY&quot; oder
+              &quot;OPTIONAL&quot;.
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </sect3>
+    <sect3 id="besondere-hervorhebungen-und-satzkonventionen">
+      <title>Besondere Hervorhebungen und Satzkonventionen</title>
+      <para>
+      </para>
+    </sect3>
+  </sect2>
+  <sect2 id="initiatoren">
+    <title>Initiatoren</title>
+    <para>
+    </para>
+  </sect2>
+  <sect2 id="unterstützer">
+    <title>Unterstützer</title>
+    <para>
+    </para>
+  </sect2>
+  <sect2 id="autoren">
+    <title>Autoren</title>
+    <para>
+      An diesem Dokument haben mitgewirkt:
+    </para>
+    <para>
+      Felix Ebert, Jan Erhardt, Jens Klessmann, Andreas Kuckartz, Babett
+      Schalitz, Marian Steinbach, Thomas Tursics, Jakob Voss
+    </para>
+  </sect2>
+</sect1>
+<sect1 id="architektur">
+  <title>Architektur</title>
+  <para>
+    In diesem Abschnitt werden grundlegenden Konzepte, die von OParl
+    abgedeckt werden, erläutert. Die Erläuterungen sind nicht im engeren
+    Sinne Teil der Spezifikation, sondern dienen dazu, die
+    Anwendungsbereiche von OParl und die Funktionen einer
+    OParl-konformen API verständlicher und konkreter beschreiben zu
+    können.
+  </para>
   <sect2 id="überblick">
     <title>Überblick</title>
     <para>
-      Der Entwurf umfasst aktuell die Beschreibung eines Datenmodells.
+      TODO: Architekturdiagramm einbinden
     </para>
   </sect2>
-  <sect2 id="nächste-schritte">
-    <title>Nächste Schritte</title>
+  <sect2 id="parlamentarisches-informationssystem">
+    <title>Parlamentarisches Informationssystem</title>
     <para>
-      Fertigstellung von Version 1.0. Bis dahin ist zu erledigen:
+      Parlamentarische Informationssysteme sind Software-Systeme, die
+      von verschiedensten Körperschaften eingesetzt werden, um die
+      Zusammenarbeit von Parlamenten zu organisieren, zu dokumentieren
+      und öffentlich nachvollziehbar zu machen.
+    </para>
+    <para>
+      Im kommunalen Umfeld in Deutschland, wo das Parlament je nach Art
+      der Kommune häufig als Stadtrat oder Gemeinderat bezeichnet wird,
+      hat sich für diese Art von Informationssystem auch der Begriff
+      &quot;Ratsinformationssystem&quot; (kurz &quot;RIS&quot;)
+      etabliert.
+    </para>
+    <para>
+      Parlamentarische Informationssysteme sind jedoch nicht auf die
+      kommunale Ebene begrenzt. Ähnliche Systeme werden auch auf Ebene
+      z.B. von Landkreisen, Regierungsbezirken und diversen
+      Zweckverbänden eingesetzt.
+    </para>
+    <para>
+      Diese Systeme unterstützen in der Regel mehrere der folgenden
+      Funktionen:
     </para>
     <itemizedlist>
       <listitem>
         <para>
-          Fertigstellung Datenmodell
+          Das Erzeugen, Bearbeiten und Darstellen von Sitzungen und
+          deren Tagesordnung
         </para>
       </listitem>
       <listitem>
         <para>
-          Beschreibung von Methoden und URL-Parametern
+          Das Erzeugen und Abrufen von Sitzungsprotokollen
         </para>
       </listitem>
       <listitem>
         <para>
-          HTTP Status-Codes und besondere Anforderungen an Verwendung
-          bestimmter HTTP-Header
+          Das Erzeugen, Bearbeiten und Anzeigen von Drucksachen
         </para>
       </listitem>
       <listitem>
         <para>
-          Klärung einer gemeinsamen Nomenklatur für Inhalte,
-          beispielsweise für Arten von Drucksachen
+          Das Erzeugen, Bearbeiten und Anzeigen von Gremien und deren
+          Mitgliedern
         </para>
       </listitem>
     </itemizedlist>
-  </sect2>
-  <sect2 id="feedback-und-mitwirkung">
-    <title>Feedback und Mitwirkung</title>
     <para>
-      Feedback wird dringend benötigt und ist daher herzlichst
-      willkommen. Feedback kann auf den folgenden Wegen eingereicht
-      werden:
+      Funktionen, die die Eingabe und Bearbeitung von Daten betreffen,
+      sind in der Regel einem geschlossenen Nutzerkreis vorbehalten. Die
+      Darstellung und der Abruf von Informationen und Dokumenten
+      hingegen ist in vielen Fällen für die Öffentlichkeit freigegeben.
+    </para>
+    <para>
+      Die OParl Spezifikation beschreibt eine Schnittstelle, die den
+      maschinellen, lesenden Zugriff auf derartige Informationen
+      ermöglicht.
+    </para>
+  </sect2>
+  <sect2 id="server">
+    <title>Server</title>
+    <para>
+      Der Server im Sinne dieser Spezifikation ist ein Software-Dienst,
+      der auf einem mit dem Internet verbundenen Rechnersystem läuft.
+      Dieser Dienst ist eine spezielle Form eines WWW- bzw.
+      HTTP(S)-Servers. Entsprechend beantwortet der Server
+      HTTP-Anfragen, die an ihn auf einem bestimmten TCP-Port gestellt
+      werden.
+    </para>
+    <para>
+      Der Server ist als Bestandteil des parlamentarischen
+      Informationssystems zu verstehen. Der Betrieb des Servers steht
+      damit üblicherweise in der Verantwortung desjenigen, der das
+      parlamentarischen Informationssystem betreibt.
+    </para>
+    <para>
+      Von einem Server, der die OParl-Spezifikation erfüllt, wird
+      erwartet, dass er bestimmte parlamentarische Informationen in
+      einem bestimmten Format zur Verfügung stellt und auf bestimmte
+      Anfragen von so genannten Clients über die OParl API entsprechend
+      dieser Spezifikation reagiert.
+    </para>
+  </sect2>
+  <sect2 id="api">
+    <title>API</title>
+    <para>
+      Der Begriff API steht in diesem Dokument für die
+      Webservice-Schnittstelle, die der Server anbietet. Die
+      Schnittstelle basiert auf dem HTTP-Protokoll. Mittels HTTPS ist
+      wahlweise auch die verschlüsselte Nutzung der API möglich, sofern
+      Server dies unterstützt.
+    </para>
+    <para>
+      Die API steht im Mittelpunkt dieser Spezifikation. Server und
+      Clients sind als Kommunikationspartner zu verstehen, die über das
+      Internet als Kommunikationskanal mit einander kommunizieren
+      können. Die API-Spezifikation stellt dabei die nötige Grammatik
+      und das Vokabular bereit, anhand dessen eine sinnvolle
+      Kommunikation erfolgen kann.
+    </para>
+  </sect2>
+  <sect2 id="client">
+    <title>Client</title>
+    <para>
+      Der Begriff &quot;Client&quot; steht für eine Software, die über
+      die OParl API mit dem Server kommuniziert. Da die API auf dem
+      HTTP-Protokoll aufbaut, handelt es sich bei dem Client um eine
+      spezielle Form eines HTTP-Clients.
+    </para>
+  </sect2>
+  <sect2 id="cache">
+    <title>Cache</title>
+    <para>
+      Ein Cache ist ein Speicher, der einem Client dazu dienen kann, von
+      einem Server abgerufene Informationen längerfristig vorzuhalten.
+      Dies kann beispielsweise dazu dienen, mehrfache Anfragen der
+      selben Informationen zu vermeiden, wodurch sowohl Ressourcen auf
+      Seite des Servers geschohnt als auch die Nutzung von
+      Netzwerkbandbreite reduziert werden kann. Die Nutzung eines Cache
+      kann auch zur Verbesserung der Nutzerfreundlichkeit eines Clients
+      beitragen, indem Wartezeiten zur Bereitstellung einer Ressource
+      verkürzt werden.
+    </para>
+  </sect2>
+  <sect2 id="nutzerin-oder-nutzer">
+    <title>Nutzerin oder Nutzer</title>
+    <para>
+      Mit einer Nutzerin oder einem Nutzer ist in diesem Fall eine
+      natürliche Person gemeint, die mittels eines OParl-Clients auf
+      parlamentarische Informationen zugreift.
+    </para>
+  </sect2>
+</sect1>
+<sect1 id="nutzungsszenarien">
+  <title>Nutzungsszenarien</title>
+  <para>
+  </para>
+</sect1>
+<sect1 id="prinzipien-und-funktionen-der-api">
+  <title>Prinzipien und Funktionen der API</title>
+  <para>
+    (In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen
+    Schnittstelle beschrieben. Hierzu gehören alle chapter-Dateien,
+    deren Nummerierung mit der Ziffer 6 beginnnt.)
+  </para>
+  <para>
+    Stichpunkte:
+  </para>
+  <itemizedlist>
+    <listitem>
+      <para>
+        Grundlage für den Zugriff auf die Schnittstelle ist das
+        Hypertext Transfer Protocol (HTTP).
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Optional gzip Encoding und andere Kodierungen, wenn Client und
+        Server dies unterstützen
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Das Protkoll ist zustandslos
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Authentifizierung wird nicht benötigt.
+      </para>
+    </listitem>
+  </itemizedlist>
+  <sect2 id="designprinzipien">
+    <title>Designprinzipien</title>
+    <sect3 id="allgemein">
+      <title>Allgemein</title>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Ausgerichtet am Status Quo
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Einige Möglichkeiten weisen in die Zukunft (z.B. Geodaten,
+            Volltexte, Vereinheitlichung der Kategorien-Nomenklatur)
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Ziel: Schnelle Implementierbarkeit in vielen bestehenden RIS
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
+    <sect3 id="restful">
+      <title>RESTful</title>
+      <para>
+      </para>
+    </sect3>
+    <sect3 id="selbstbeschreibungsfähigkeit">
+      <title>Selbstbeschreibungsfähigkeit</title>
+      <para>
+      </para>
+    </sect3>
+    <sect3 id="erweiterbarkeit">
+      <title>Erweiterbarkeit</title>
+      <para>
+      </para>
+    </sect3>
+    <sect3 id="browseabilityverlinkung">
+      <title>Browseability/Verlinkung</title>
+      <para>
+      </para>
+    </sect3>
+  </sect2>
+  <sect2 id="zukunftssicherheit">
+    <title>Zukunftssicherheit</title>
+    <para>
+      (In diesem Abschnitt wird die Zielsetzung beschrieben, zukünftige
+      Versionen der OParl Spezifikation auf dieser Version aufbauen zu
+      lassen. Damit soll nach Mögloichkeit Abwärtskompatibilität
+      erreicht werden, so dass z.B. OParl-1.0-Clients mit einem
+      1.1-Server kommunizieren können.
+    </para>
+    <para>
+      Ein Garantie wird es jedoch nicht geben.)
+    </para>
+  </sect2>
+  <sect2 id="http-und-https">
+    <title>HTTP und HTTPS</title>
+    <para>
+      (Hier geht es um die Verwendung von HTTP im Sinne der
+      OParl-Spezifikation.
     </para>
     <itemizedlist>
       <listitem>
         <para>
-          In Form von Pull Requests über Github, direkt am Quelltext
+          HTTPS kann optional an Stelle von HTTP eingesetzt werden.
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      Siehe auch https://github.com/OParl/specs/issues/90)
+    </para>
+  </sect2>
+  <sect2 id="serialisierung-mittels-json-ld-und-jsonp">
+    <title>Serialisierung mittels JSON-LD und JSONP</title>
+    <sect3 id="json">
+      <title>JSON</title>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Siehe RFC4627
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Generelle Terminologie übernehmen (JSON-Objekt, Array,
+            String, Number, true/false, null)
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
+    <sect3 id="json-ld">
+      <title>JSON-LD</title>
+      <itemizedlist>
+        <listitem>
+          <para>
+            JSON-LD: http://www.w3.org/TR/json-ld/
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Einschränkungen von OParl gegenüber JSON-LD
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Schlüssel in einem JSON-LD-Objekt müssen einzigartig sein.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Unterscheidung von Groß- und Kleinschreibung
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Benannte Objekte (URL als Schlüssel)
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Anonyme Objekte (Blank Nodes)
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Mime Type application/ld+json
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Verweis auf
+            http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf?__blob=publicationFile
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
+    <sect3 id="jsonp">
+      <title>JSONP</title>
+      <itemizedlist>
+        <listitem>
+          <para>
+            TODO: Spezifikation finden/verlinken. (RFC gibt es nicht)
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            https://github.com/OParl/specs/issues/67
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
+  </sect2>
+  <sect2 id="benannte-und-anonyme-objekte">
+    <title>Benannte und anonyme Objekte</title>
+    <sect3 id="benannte-objekte">
+      <title>Benannte Objekte</title>
+      <itemizedlist>
+        <listitem>
+          <para>
+            IRIs (RFC3987) als eindeutige Kennung
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
+    <sect3 id="anonyme-objekte-blank-nodes">
+      <title>Anonyme Objekte (Blank Nodes)</title>
+      <para>
+      </para>
+    </sect3>
+    <sect3 id="empfehlungen-für-langlebige-irisurisurls">
+      <title>Empfehlungen für langlebige IRIs/URIs/URLs</title>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Hinweise und evtl. Auszüge aus
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            http://www.w3.org/Provider/Style/URI.html
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
+  </sect2>
+  <sect2 id="objektlisten">
+    <title>Objektlisten</title>
+    <para>
+      (Hier geht es darum, wie Listen von Objekten ausgegeben werden.
+    </para>
+    <para>
+      Dazu:
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          https://github.com/OParl/specs/issues/66 )
+        </para>
+      </listitem>
+    </itemizedlist>
+  </sect2>
+  <sect2 id="feeds">
+    <title>Feeds</title>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Warum Feeds?
         </para>
       </listitem>
       <listitem>
         <para>
-          Über Issues auf Github
+          Möglichst ressourcenschonendes Auffinden neuer und geänderter
+          Objekte
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Cache-Invalidierung, Entfernung von gelöschten/depublizierten
+          Objekten
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          https://github.com/OParl/specs/issues/19
         </para>
       </listitem>
     </itemizedlist>
-    <sect3 id="pull-requests-über-github">
-      <title>Pull Requests über Github</title>
+    <sect3 id="neue-objekte">
+      <title>Neue Objekte</title>
       <para>
-        Dieses Dokument wird in folgendem Github-Repository gepflegt:
-      </para>
-      <para>
-        <ulink url="https://github.com/OParl/specs">https://github.com/OParl/specs</ulink>
-      </para>
-      <para>
-        Der bevorzugte Feedback-Kanal für erfahrene Git- bzw.
-        Github-Nutzer ist entsprechend die Mitwirkung direkt am
-        Quelltext in Form von Pull-Requests. So können
-        <emphasis role="strong">Ergänzungen und Korrekturen</emphasis>
-        direkt in den Quelltext eingespielt werden.
-      </para>
-      <para>
-        Ausführliche Anleitungen zur Arbeit mit Git/Github finden sich
-        auf der Plattform selbst sowie an vielen Orten im Netz. Der
-        allgemeine Ablauf ist wie folgt:
-      </para>
-      <orderedlist numeration="arabic">
-        <listitem>
-          <para>
-            Erzeugen Sie sich, sofern noch nicht geschehen, ein
-            Benutzerkonto auf Github.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Duplizieren (<emphasis>forken</emphasis>) Sie das oben
-            genannte Repository
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Nehmen Sie die gewünschten Änderungen an Ihrem Repository
-            vor. Committen Sie diese Änderungen möglichst kleinteilig.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Senden Sie die gewünschten Commits als Pull Requests.
-          </para>
-        </listitem>
-      </orderedlist>
-      <para>
-        Die Entscheidung, welche Pull Requests übernommen werden,
-        erfolgt nach Abwägung durch die federführenden Autoren der
-        Spezifikation.
-      </para>
-      <para>
-        Es ist beabsichtigt, alle Mitwirkenden im Dokument zu nennen.
-        Wenn Sie mit einen Klarnamen und ggf. Unternehmenszugehörigkeit
-        genannt werden wollen, teilen Sie dies bitte in einem Kommentar
-        zum Pull Request mit.
       </para>
     </sect3>
-    <sect3 id="issues-auf-github">
-      <title>Issues auf Github</title>
+    <sect3 id="geänderte-objekte">
+      <title>Geänderte Objekte</title>
       <para>
-        Wenn Sie nicht über Github am Quelltext mitwirken möchten, aber
-        einen Github-Account Ihr eigen nennen oder zu diesem Zweck
-        anlegen möchten, können Sie Sich an der
-        <emphasis role="strong">öffentlichen</emphasis> Diskussion im
-        Issue-Tracking-System unter
       </para>
-      <para>
-        <ulink url="https://github.com/OParl/specs/issues">https://github.com/OParl/specs/issues</ulink>
-      </para>
-      <para>
-        beteiligen. Dies hat den Vorteil, dass auch andere beteiligte
-        die Einträge wahrnehmen und durch Kommentare dazu Stellung
-        nehmen können. Dieser Weg eignet sich daher besonders zum
-        Diskutieren von kontroversen Themen und dem Austausch von
-        Argumenten.
-      </para>
-      <para>
-        Bitte achten Sie auf diesem Weg darauf, Ihre Kommentare in
-        möglichst kleine thematische Einheiten herunter zu brechen.
-        Dadurch ermöglichen Sie, dass der jeweilige Eintrag dem
-        richtigen Thema zugeordnet und der Status der Diskussion (offen,
-        erledigt) richtig gesetzt werden kann.
-      </para>
+    </sect3>
+    <sect3 id="entfernte-objekte">
+      <title>Entfernte Objekte</title>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Liste von Objekt-URLs
+          </para>
+        </listitem>
+      </itemizedlist>
     </sect3>
   </sect2>
-  <sect2 id="mitwirkende">
-    <title>Mitwirkende</title>
+  <sect2 id="dokumentenabruf">
+    <title>Dokumentenabruf</title>
+    <itemizedlist>
+      <listitem>
+        <para>
+          HTTP GET Methode MUSS unterstützt werden
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          HEAD-Methode MUSS unterstützt werden
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          HTTP Last-Modified Header sowie Conditional GET sind zu
+          unterstützen
+        </para>
+      </listitem>
+    </itemizedlist>
+  </sect2>
+  <sect2 id="liste-reservierter-url-parameter">
+    <title>Liste reservierter URL-Parameter</title>
     <para>
-      Marian Steinbach (Offenes Köln), Felix Ebert, Jan Erhardt, Jens
-      Klessmann (Fraunhofer FOKUS), Andreas Kuckartz, Babett Schalitz
-      (CC e-gov), T. Tursics (TODO: Vorname eintragen), Jakob Voss
+      Die in dieser Liste enthaltenen Zeichenketten haben eine
+      reservierte Bedeutung und stehen bei Implementierungen eines
+      OParl-Servers nicht mehr für die freie Verwendung in URLs zur
+      Verfügung.
     </para>
+    <variablelist>
+      <varlistentry>
+        <term>
+          callback:
+        </term>
+        <listitem>
+          <para>
+            Mit diesem Parameter wird die JSONP-Ausgabe aktiviert. Mehr
+            dazu im Abschnitt <link linkend="jsonp">JSONP</link>.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          startdate:
+        </term>
+        <listitem>
+          <para>
+            Parameter für die Einschränkung einer Abfrage anhand eines
+            Datums bzw. einer Zeitangabe.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>
+          startdate:
+        </term>
+        <listitem>
+          <para>
+            Parameter für die Einschränkung einer Abfrage anhand eines
+            Datums bzw. einer Zeitangabe.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <itemizedlist>
+      <listitem>
+        <para>
+          (Parameter für Datums-/Zeitbereichsfilter)
+        </para>
+      </listitem>
+    </itemizedlist>
   </sect2>
 </sect1>
 <sect1 id="datenmodell">
@@ -1803,87 +2479,6 @@
     </sect3>
   </sect2>
 </sect1>
-<sect1 id="zugriffsmethoden">
-  <title>Zugriffsmethoden</title>
-  <para>
-    In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen
-    Schnittstelle beschrieben.
-  </para>
-  <para>
-    Stichpunkte:
-  </para>
-  <itemizedlist>
-    <listitem>
-      <para>
-        Grundlage für den Zugriff auf die Schnittstelle ist das
-        Hypertext Transfer Protocol (HTTP).
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Ausschließlich HTTP GET Methode
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Optional gzip Encoding und andere Kodierungen, wenn Client und
-        Server dies unterstützen
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        HTTP Last-Modified Header sowie Conditional GET sind bei
-        Dateiabruf (Laden von Anhängen) zu unterstützen
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Das Protkoll ist zustandslos
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Authentifizierung wird nicht benötigt.
-      </para>
-    </listitem>
-  </itemizedlist>
-</sect1>
-<sect1 id="glossar">
-  <title>Glossar</title>
-  <variablelist>
-    <varlistentry>
-      <term>
-        JSON-LD
-      </term>
-      <listitem>
-        <para>
-          JSON for Linked Data
-        </para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>
-        RIS
-      </term>
-      <listitem>
-        <para>
-          Ratsinformationssystem
-        </para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>
-        WGS 84
-      </term>
-      <listitem>
-        <para>
-          World Geodetic System 1984. Ein weltweites Referenzsystem für
-          die Interpretation von Geokoordinaten-Angaben.
-        </para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-</sect1>
 <sect1 id="fußnoten">
   <title>Fußnoten</title>
   <para>
@@ -1953,4 +2548,40 @@
     [16]: OpenRuhr:RIS
     <ulink url="http://openruhr.de/openruhrris/">openruhr.de/openruhrris</ulink>
   </para>
+</sect1>
+<sect1 id="glossar">
+  <title>Glossar</title>
+  <variablelist>
+    <varlistentry>
+      <term>
+        JSON-LD
+      </term>
+      <listitem>
+        <para>
+          JSON for Linked Data
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>
+        RIS
+      </term>
+      <listitem>
+        <para>
+          Ratsinformationssystem
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>
+        WGS 84
+      </term>
+      <listitem>
+        <para>
+          World Geodetic System 1984. Ein weltweites Referenzsystem für
+          die Interpretation von Geokoordinaten-Angaben.
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </sect1>

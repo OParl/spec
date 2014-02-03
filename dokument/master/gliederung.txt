@@ -48,6 +48,7 @@ OParl Spezifikation 1.0 Gliederung
         Benannte Objekte
         Anonyme Objekte (Blank Nodes)
         Empfehlungen für langlebige IRIs/URIs/URLs
+        Empfehlungen für eindeutige URLs
     6060 Objektlisten
     6070 Feeds
         Neue Objekte
@@ -57,67 +58,69 @@ OParl Spezifikation 1.0 Gliederung
     6100 Ausnahmebehandlung
     6900 Reservierte URL-Parameter
 8000 Schema
-    - Überblick mit Graph-Darstellung
-    8010 OParlSystem (System)
+    8010 Überblick
+        - Überblick mit Graph-Darstellung
+    8020 Attribute mit Verwendung in mehreren Objekttypen
+    8030 OParlSystem (System)
         Bedeutung
         Eigenschaften
         Besonderheiten
             - Darf nur einmal vorkommen
         Beispiel(e)
-    8020 OParlBody (Körperschaft)
+    8040 OParlBody (Körperschaft)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    8030 OParlCommittee (Gremium)
+    8050 OParlCommittee (Gremium)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    8040 OParlPerson (Person)
+    8060 OParlPerson (Person)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    8050 OParlOrganisation (Organisation)
+    8070 OParlOrganisation (Organisation)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    8060 OParlMeeting (Sitzung)
+    8080 OParlMeeting (Sitzung)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    8070 OParlAgendaitem (Tagesordnungspunkt)
+    8090 OParlAgendaitem (Tagesordnungspunkt)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    8080 OParlPaper (Drucksache)
+    8100 OParlPaper (Drucksache)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    8090 OParlDocument (Dokument)
+    8110 OParlDocument (Dokument)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    8100 OParlConsultation (Beratung)
+    8120 OParlConsultation (Beratung)
         Bedeutung
             - Bildet die Beratung einer Drucksache im Rahmen einer Sitzung ab
         Eigenschaften
         Besonderheiten
             - Nur als anonymes Objekt (Blank Node) vorgesehen, SOLL aber IRI enthalten
         Beispiel(e)
-    8110 OParlLocation (Ort)
+    8130 OParlLocation (Ort)
         Bedeutung
         Eigenschaften
         Besonderheiten
             - Nur als anonymes Objekt (Blank Node) vorgesehen, SOLL aber IRI enthalten
         Beispiel(e)
-    8120 OParlContact (Kontakt)
+    8140 OParlContact (Kontakt)
         Bedeutung
         Eigenschaften
         Besonderheiten

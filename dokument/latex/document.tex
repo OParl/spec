@@ -553,6 +553,8 @@ Siehe auch https://github.com/OParl/specs/issues/90)
 \item
   Verweis auf
   http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED\_Verwaltung/ModerneVerwaltung/opengovernment.pdf?\_\_blob=publicationFile
+\item
+  Siehe https://github.com/OParl/specs/issues/77
 \end{itemize}
 
 \hyperdef{}{jsonp}{\subsubsection{JSONP}\label{jsonp}}
@@ -586,15 +588,45 @@ Siehe auch https://github.com/OParl/specs/issues/90)
   https://joinup.ec.europa.eu/sites/default/files/D7.1.3\%20-\%20Study\%20on\%20persistent\%20URIs.pdf
 \end{itemize}
 
+\subsubsection{Empfehlungen für eindeutige URLs}
+
+\begin{itemize}
+\item
+  Vermeidung von Duplicate Content durch Fehlkonfiguration
+\item
+  z.B.: verschiedene CNAMES mit der selben IP-Adresse
+\item
+  z.B.: Aufruf über http://www.example.com und http://example.com
+\item
+  z.B.: Direkter Aufruf über IP-Adresse http://1.2.3.4/
+\item
+  URL-Parameter in definierter Reihenfolge verwenden
+\item
+  Groß- und Kleinschreibung unterscheiden
+\end{itemize}
+
 \subsection{Objektlisten}
 
 (Hier geht es darum, wie Listen von Objekten ausgegeben werden.
+
+\begin{itemize}
+\item
+  Ausgabe von URLs
+\item
+  Stabile Sortierung (Sets vs.~Lists)
+\item
+  Paginierung
+\item
+  Einschränkung auf Datumsbereiche
+\end{itemize}
 
 Dazu:
 
 \begin{itemize}
 \item
-  https://github.com/OParl/specs/issues/66 )
+  https://github.com/OParl/specs/issues/66
+\item
+  https://github.com/OParl/specs/issues/30 )
 \end{itemize}
 
 \subsection{Feeds}
@@ -632,7 +664,10 @@ Dazu:
   HTTP Last-Modified Header sowie Conditional GET sind zu unterstützen
 \end{itemize}
 
-\subsection{Liste reservierter URL-Parameter}
+\subsection{Ausnahmebehandlung}
+
+(Diskussion hierzu unter https://github.com/OParl/specs/issues/89) Liste
+reservierter URL-Parameter --------------------------------
 
 Die in dieser Liste enthaltenen Zeichenketten haben eine reservierte
 Bedeutung und stehen bei Implementierungen eines OParl-Servers nicht
@@ -645,7 +680,7 @@ Abschnitt \hyperref[jsonp]{JSONP}.
 \item[startdate:]
 Parameter für die Einschränkung einer Abfrage anhand eines Datums bzw.
 einer Zeitangabe.
-\item[startdate:]
+\item[enddate:]
 Parameter für die Einschränkung einer Abfrage anhand eines Datums bzw.
 einer Zeitangabe.
 \end{description}

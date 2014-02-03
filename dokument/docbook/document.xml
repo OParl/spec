@@ -768,6 +768,11 @@
             http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf?__blob=publicationFile
           </para>
         </listitem>
+        <listitem>
+          <para>
+            Siehe https://github.com/OParl/specs/issues/77
+          </para>
+        </listitem>
       </itemizedlist>
     </sect3>
     <sect3 id="jsonp">
@@ -823,19 +828,82 @@
         </listitem>
       </itemizedlist>
     </sect3>
+    <sect3 id="empfehlungen-für-eindeutige-urls">
+      <title>Empfehlungen für eindeutige URLs</title>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Vermeidung von Duplicate Content durch Fehlkonfiguration
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            z.B.: verschiedene CNAMES mit der selben IP-Adresse
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            z.B.: Aufruf über http://www.example.com und
+            http://example.com
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            z.B.: Direkter Aufruf über IP-Adresse http://1.2.3.4/
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            URL-Parameter in definierter Reihenfolge verwenden
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Groß- und Kleinschreibung unterscheiden
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
   </sect2>
   <sect2 id="objektlisten">
     <title>Objektlisten</title>
     <para>
       (Hier geht es darum, wie Listen von Objekten ausgegeben werden.
     </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Ausgabe von URLs
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Stabile Sortierung (Sets vs. Lists)
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Paginierung
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Einschränkung auf Datumsbereiche
+        </para>
+      </listitem>
+    </itemizedlist>
     <para>
       Dazu:
     </para>
     <itemizedlist>
       <listitem>
         <para>
-          https://github.com/OParl/specs/issues/66 )
+          https://github.com/OParl/specs/issues/66
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          https://github.com/OParl/specs/issues/30 )
         </para>
       </listitem>
     </itemizedlist>
@@ -908,8 +976,12 @@
       </listitem>
     </itemizedlist>
   </sect2>
-  <sect2 id="liste-reservierter-url-parameter">
-    <title>Liste reservierter URL-Parameter</title>
+  <sect2 id="ausnahmebehandlung">
+    <title>Ausnahmebehandlung</title>
+    <para>
+      (Diskussion hierzu unter https://github.com/OParl/specs/issues/89)
+      Liste reservierter URL-Parameter --------------------------------
+    </para>
     <para>
       Die in dieser Liste enthaltenen Zeichenketten haben eine
       reservierte Bedeutung und stehen bei Implementierungen eines
@@ -941,7 +1013,7 @@
       </varlistentry>
       <varlistentry>
         <term>
-          startdate:
+          enddate:
         </term>
         <listitem>
           <para>

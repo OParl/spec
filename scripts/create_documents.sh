@@ -29,7 +29,7 @@ cp -r images $DOC_FOLDER/html/images
 
 # HTML5
 echo "Generiere HTML5-Dokument"
-pandoc -t html5 -s -N -o $DOC_FOLDER/html5/document.html $SOURCE
+pandoc -t html5 -s -N --section-divs -o $DOC_FOLDER/html5/document.html $SOURCE
 cp -r images $DOC_FOLDER/html5/images
 
 # TeX

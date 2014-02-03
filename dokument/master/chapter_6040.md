@@ -16,6 +16,7 @@ Serialisierung mittels JSON-LD und JSONP
 - Anonyme Objekte (Blank Nodes)
 - Mime Type application/ld+json
 - Verweis auf http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf?__blob=publicationFile
+- Siehe https://github.com/OParl/specs/issues/77
 
 ### JSONP
 

@@ -27,10 +27,10 @@ OParl Spezifikation 1.0 Gliederung
     Nutzerin oder Nutzer
 4000 Nutzungsszenarien
     - Dient der besseren Verständlichkeit der Architektur durch Konkretisierung
-    4010 Szenario 1: Mobile Client-Anwendung
-    4020 Szenario 2: Integration in Web-Portal
-    4030 Szenario 3: Meta-Suche
-    4040 Szenario 4: Forschungsprojekt Themen- und Sprachanalyse
+    Szenario 1: Mobile Client-Anwendung
+    Szenario 2: Integration in Web-Portal
+    Szenario 3: Meta-Suche
+    Szenario 4: Forschungsprojekt Themen- und Sprachanalyse
 6000 Prinzipien und Funktionen der API
     6010 Designprinzipien
         Allgemein

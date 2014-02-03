@@ -22,3 +22,4 @@ Serialisierung mittels JSON-LD und JSONP
 
 - TODO: Spezifikation finden/verlinken. (RFC gibt es nicht)
 - https://github.com/OParl/specs/issues/67
+- Zeichenvorrat für callback-Parameter beschränken auf [a-zA-Z0-9] aus Sicherheitsgründen

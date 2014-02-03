@@ -54,6 +54,7 @@ OParl Spezifikation 1.0 Gliederung
         Geänderte Objekte
         Entfernte Objekte
     6080 Dokumentenabruf
+    6100 Ausnahmebehandlung
     6900 Reservierte URL-Parameter
 8000 Schema
     - Überblick mit Graph-Darstellung

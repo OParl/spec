@@ -1,12 +1,12 @@
 ![OParl Wortmarke](https://raw2.github.com/OParl/brand/master/wortmarke/oparl-wortmarke-rgb-m.png)
 
-In diesem Repository wird die Spezifikation zum [OParl](http://oparl.de/)-Standard erarbeitet.
+In diesem Repository wird die Spezifikation zum [OParl](http://oparl.org/)-Standard erarbeitet.
 
 OParl ist eine Initiative für die Offenheit parlamentarischer Informationssysteme. Der
 OParl-Standard dient der Definition einer einheitlichen Schnittstelle zum Abruf von
 öffenltichen Informationen aus Ratsinformationssystemen. Mehr über OParl:
 
-  [http://oparl.de/](http://oparl.de/)
+  [http://oparl.org/](http://oparl.org/)
 
 
 Original: Editieren, Änderungen nachvollziehen

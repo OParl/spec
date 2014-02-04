@@ -312,12 +312,12 @@
       <para>
         Diese Konvention ist angelehnt an die Definitionen der Begriffe
         MUST, SHOULD und MAY (bzw. MUST NOT, SHOULD NOT und MAY NOT) aus
-        RFC2119<footnote>
+        RFC2119.<footnote>
           <para>
-            RFC2119:
-            <ulink url="http://tools.ietf.org/html/rfc2119">http://tools.ietf.org/html/rfc2119</ulink>
+            RFC2119
+            <ulink url="http://tools.ietf.org/html/rfc2119"><literal>http://tools.ietf.org/html/rfc2119</literal></ulink>
           </para>
-        </footnote>.
+        </footnote>
       </para>
       <para>
         Die Bedeutung im Einzelnen:
@@ -451,6 +451,16 @@
     Anwendungsbereiche von OParl und die Funktionen einer
     OParl-konformen API verständlicher und konkreter beschreiben zu
     können.
+  </para>
+  <para>
+    Da die Architektur auf der generellen Architektur des World Wide Web
+    (WWW) aufbaut, sind einzelne Konzepte direkt den Begriffen der
+    Architekturbeschreibung des W3-Konsortiums entlehnt.<footnote>
+      <para>
+        Architecture of the World Wide Web, Volume One.
+        <ulink url="http://www.w3.org/TR/webarch/"><literal>http://www.w3.org/TR/webarch/</literal></ulink>
+      </para>
+    </footnote>
   </para>
   <sect2 id="überblick">
     <title>Überblick</title>

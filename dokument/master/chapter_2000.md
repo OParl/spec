@@ -10,7 +10,8 @@ zu können.
 Überblick
 ---------
 
-TODO: Architekturdiagramm einbinden
+
+![Architekturdiagramm](images/architektur-ueberblick.png)
 
 
 Parlamentarisches Informationssystem

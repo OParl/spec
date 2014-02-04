@@ -15,8 +15,10 @@ Serialisierung mittels JSON-LD und JSONP
 - Benannte Objekte (URL als Schlüssel)
 - Anonyme Objekte (Blank Nodes)
 - Mime Type application/ld+json
+- Kompakte Form mit Verwendung externer @context-URL als SOLL-Anforderung
 - Verweis auf http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf?__blob=publicationFile
 - Siehe https://github.com/OParl/specs/issues/77
+- Siehe https://github.com/OParl/specs/issues/10
 
 ### JSONP
 

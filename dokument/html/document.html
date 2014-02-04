@@ -128,7 +128,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h1 id="architektur"><span class="header-section-number">2</span> Architektur</h1>
 <p>In diesem Abschnitt werden grundlegenden Konzepte, die von OParl abgedeckt werden, erläutert. Die Erläuterungen sind nicht im engeren Sinne Teil der Spezifikation, sondern dienen dazu, die Anwendungsbereiche von OParl und die Funktionen einer OParl-konformen API verständlicher und konkreter beschreiben zu können.</p>
 <h2 id="überblick"><span class="header-section-number">2.1</span> Überblick</h2>
-<p>TODO: Architekturdiagramm einbinden</p>
+<div class="figure">
+<img src="images/architektur-ueberblick.png" alt="Architekturdiagramm" /><p class="caption">Architekturdiagramm</p>
+</div>
 <h2 id="parlamentarisches-informationssystem"><span class="header-section-number">2.2</span> Parlamentarisches Informationssystem</h2>
 <p>Parlamentarische Informationssysteme sind Software-Systeme, die von verschiedensten Körperschaften eingesetzt werden, um die Zusammenarbeit von Parlamenten zu organisieren, zu dokumentieren und öffentlich nachvollziehbar zu machen.</p>
 <p>Im kommunalen Umfeld in Deutschland, wo das Parlament je nach Art der Kommune häufig als Stadtrat oder Gemeinderat bezeichnet wird, hat sich für diese Art von Informationssystem auch der Begriff &quot;Ratsinformationssystem&quot; (kurz &quot;RIS&quot;) etabliert.</p>
@@ -156,6 +158,24 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h2 id="nutzerin-oder-nutzer"><span class="header-section-number">2.7</span> Nutzerin oder Nutzer</h2>
 <p>Mit einer Nutzerin oder einem Nutzer ist in diesem Fall eine natürliche Person gemeint, die mittels eines OParl-Clients auf parlamentarische Informationen zugreift.</p>
 <h1 id="nutzungsszenarien"><span class="header-section-number">3</span> Nutzungsszenarien</h1>
+<p>Die nachfolgenden Nutzungsszenarien dienen dazu, die Architektur und die Anwendungsmöglichkeiten anhand konkreter Beispiele zu verdeutlichen. Sie erheben keinen Anspruch auf Vollständigkeit.</p>
+<h3 id="szenario-1-mobile-client-anwendung"><span class="header-section-number">3.0.1</span> Szenario 1: Mobile Client-Anwendung</h3>
+<p>Eine <a href="#client">Client</a>-Anwendung für mobile Endgeräte wie SmartPhones und Tablets, nachfolgend &quot;App&quot; genannt, könnte das Ziel verfolgen, Nutzern unterwegs sowie abseits vom Desktop-PC bestmöglichen Lesezugriff auf Dokumente aus Ratsinformationssystemen (RIS) zu bieten. Die möglichen Kontexte und Nutzungsmotivationen sind vielfältig:</p>
+<ul>
+<li><p>Teilnehmer einer Sitzung greifen während der Sitzung auf die Einladung dieser Sitzung und die zur Tagesordnung der Sitzung gehörenden Drucksachen zu, außerdem auf die Protokolle vorheriger Sitzungen.</p></li>
+<li><p>Eine Redakteurin der Lokalpresse geht unterwegs die Themen der nächsten Sitzungen bestimmter Gremien, für die sie sich besonders interessiert, durch.</p></li>
+<li><p>Eine Gruppe von Studierenden erkundet zusammen mit ihrem Dozenten die lokalpolitischen Aktivitäten des Viertels rund um ihre Hochschule. Dazu nutzen sie die GPS-Lokalisierung ihrer Smartphones in Verbindung mit den Geodaten, die an vielen Drucksachen des lokalen RIS zu finden sind. Direkt vor Ort an einer Baustelle öffnen sie Beschlüsse, Pläne und Eingaben aus dem Planfeststellungsverfahren, die dieser Baustelle voran gegangen sind.</p></li>
+</ul>
+<p>Zur Realisierung derartiger Szenarien können die Fähigkeiten von OParl-kompatiblen Servern mit den besonderen Eigenschaften der mobilen Endgeräte verknüpft werden.</p>
+<p>Smartphones und Tablets verfügen beispielsweise, je nach Aufenthaltsort, über sehr unterschiedlich gute Internetanbindung. In einem Büro oder zuhause können Nutzer über ein WLAN Daten mit hoher Bandbreite austauschen, in Mobilfunknetzen vor allem außerhalb der Ballungsgebiete jedoch sinken die Bandbreiten deutlich. Einige Tablets werden sogar ohne Möglichkeit zur Mobilfunk-Datenübertragung genutzt. In solchen Fällen kann ein <a href="#cache">Cache</a> auf dem Endgerät dazu dienen, Inhalte vorzuhalten, die dann auch bei langsamer oder fehlender Internetverbindung zur Verfügung stehen. Sobald dann wieder eine Verbindung mit hoher Bandbreite bereit steht, kann die App im Hintergrund, entweder über die <a href="#feeds">Feeds</a> der OParl API oder über den einzelnen Abruf von Objekten, die gecachten Inhalte aktualisieren.</p>
+<p>Eine Stärke eines mobilen Clients ist auch die Möglichkeit der Personalisierung, also der Anpassung auf die Bedürfnisse und Interessen der Nutzerin oder des Nutzers. Es wäre beispielsweise denkbar, dass eine Nutzerin die Ratsinformationssysteme, für die sie sich interessiert, dauerhaft in der App einrichtet und eine Favoritenliste der Gremien, die ihre bevorzugten Themengebiete behandeln, hinterlegt. Die App könnte aufgrund dieser Favoritenliste eigneständig über die API nach neuen Sitzungsterminen, Tagesordnungspunkten, Drucksachen und Dokumente suchen. Taucht dabei ein neues Objekt auf, wird die Nutzerin darüber benachrichtigt. Sie kann dann beispielsweise entscheiden, Dokumente direkt zu öffnen oder für den späteren Offline-Zugriff zu speichern.</p>
+<p>Einem derartigen Szenario kommt das Graph-orientierte Datenmodell der OParl API entgegen. Ausgehend von einer Sitzung eines bestimmten Gremiums beispielsweise ist es damit einfach möglich, die in Verbindung stehenden Mitglieder des Gremiums, Teilnehmer der Sitzung, Tagesordnungspunkte der Sitzung oder Drucksachen zu den Tagesordnungspunkten und letztlich Dokumente zu Drucksachen und Sitzung abzurufen.</p>
+<p>Für die Nutzer einer mobilen Client-Anwendung könnte es sich als besonders hilfreich erweisen, wenn Dokumente auf dem Server in verschiedenen Formaten zur Verfügung gestellt werden. Denn nicht jedes Endgerät mit kleinem Bildaschirm bietet eine nutzerfreundliche Möglichkeit, beispielsweise Dokumente im weit verbreiteten PDF-Format darzustellen. Hier könnte schon der Entwickler der mobilen App Mechanismen vorsehen, die, sofern vorhanden, besser geeignete Formate wie z.B. HTML abrufen.</p>
+<p>Neben dem kleinen Display kann für einige mobile Endgeräte auch die im Vergleich zu einem zeitgemäßen Desktop-PC geringere CPU-Leistung eine Einschränkung darstellen. Solchen Geräten kommt es besonders entgegen, wenn der Server zu allen Dokumenten auch den reinen Textinhalt abrufbar macht, der dann beispielsweise für eine Volltextsuche auf dem Endgerät indexiert werden kann. So wiederum kann auf dem Client eine Suchfunktion realisiert werden, welche die OParl-API selbst nicht zur Verfügung stellt.</p>
+<p>Eine solche Suchfunktion kann auch über die reine Volltxtsuche hinaus gehen und über die Suche mittels Text- oder Spracheingabe hinaus gehen. Denn ein Client könnte von einem <a href="#server">Server</a>-System, das Drucksachen mit Geoinformationen anbietet, diese abrufen und räumlich indexieren. Anhand der Position des Geräts, die mittels GPS genau bestimmt werden kann, könnte so der lokale Cache nach Objekten in der Umgebung durchsucht werden. Das Ergebnis könnte auf einer Karte dargestellt oder in einer Ergebnisliste angezeigt werden, die nach Distanz zum Objekt sortiert werden könnte.</p>
+<h3 id="szenario-2-integration-in-web-portal"><span class="header-section-number">3.0.2</span> Szenario 2: Integration in Web-Portal</h3>
+<h3 id="szenario-3-meta-suche"><span class="header-section-number">3.0.3</span> Szenario 3: Meta-Suche</h3>
+<h3 id="szenario-4-forschungsprojekt-themen--und-sprachanalyse"><span class="header-section-number">3.0.4</span> Szenario 4: Forschungsprojekt Themen- und Sprachanalyse</h3>
 <h1 id="prinzipien-und-funktionen-der-api"><span class="header-section-number">4</span> Prinzipien und Funktionen der API</h1>
 <p>(In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen Schnittstelle beschrieben. Hierzu gehören alle chapter-Dateien, deren Nummerierung mit der Ziffer 6 beginnnt.)</p>
 <p>Stichpunkte:</p>
@@ -200,13 +220,16 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>Benannte Objekte (URL als Schlüssel)</li>
 <li>Anonyme Objekte (Blank Nodes)</li>
 <li>Mime Type application/ld+json</li>
+<li>Kompakte Form mit Verwendung externer @context-URL als SOLL-Anforderung</li>
 <li>Verweis auf http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf?__blob=publicationFile</li>
 <li>Siehe https://github.com/OParl/specs/issues/77</li>
+<li>Siehe https://github.com/OParl/specs/issues/10</li>
 </ul>
 <h3 id="jsonp"><span class="header-section-number">4.4.3</span> JSONP</h3>
 <ul>
 <li>TODO: Spezifikation finden/verlinken. (RFC gibt es nicht)</li>
 <li>https://github.com/OParl/specs/issues/67</li>
+<li>Zeichenvorrat für callback-Parameter beschränken auf [a-zA-Z0-9] aus Sicherheitsgründen</li>
 </ul>
 <h2 id="benannte-und-anonyme-objekte"><span class="header-section-number">4.5</span> Benannte und anonyme Objekte</h2>
 <h3 id="benannte-objekte"><span class="header-section-number">4.5.1</span> Benannte Objekte</h3>

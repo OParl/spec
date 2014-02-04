@@ -454,9 +454,15 @@
   </para>
   <sect2 id="überblick">
     <title>Überblick</title>
-    <para>
-      TODO: Architekturdiagramm einbinden
-    </para>
+    <figure>
+      <title>Architekturdiagramm</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/architektur-ueberblick.png" />
+        </imageobject>
+        <textobject><phrase>Architekturdiagramm</phrase></textobject>
+      </mediaobject>
+    </figure>
   </sect2>
   <sect2 id="parlamentarisches-informationssystem">
     <title>Parlamentarisches Informationssystem</title>
@@ -596,7 +602,143 @@
 <sect1 id="nutzungsszenarien">
   <title>Nutzungsszenarien</title>
   <para>
+    Die nachfolgenden Nutzungsszenarien dienen dazu, die Architektur und
+    die Anwendungsmöglichkeiten anhand konkreter Beispiele zu
+    verdeutlichen. Sie erheben keinen Anspruch auf Vollständigkeit.
   </para>
+  <sect2 id="szenario-1-mobile-client-anwendung">
+    <title>Szenario 1: Mobile Client-Anwendung</title>
+    <para>
+      Eine <link linkend="client">Client</link>-Anwendung für mobile
+      Endgeräte wie SmartPhones und Tablets, nachfolgend &quot;App&quot;
+      genannt, könnte das Ziel verfolgen, Nutzern unterwegs sowie
+      abseits vom Desktop-PC bestmöglichen Lesezugriff auf Dokumente aus
+      Ratsinformationssystemen (RIS) zu bieten. Die möglichen Kontexte
+      und Nutzungsmotivationen sind vielfältig:
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Teilnehmer einer Sitzung greifen während der Sitzung auf die
+          Einladung dieser Sitzung und die zur Tagesordnung der Sitzung
+          gehörenden Drucksachen zu, außerdem auf die Protokolle
+          vorheriger Sitzungen.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Eine Redakteurin der Lokalpresse geht unterwegs die Themen der
+          nächsten Sitzungen bestimmter Gremien, für die sie sich
+          besonders interessiert, durch.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Eine Gruppe von Studierenden erkundet zusammen mit ihrem
+          Dozenten die lokalpolitischen Aktivitäten des Viertels rund um
+          ihre Hochschule. Dazu nutzen sie die GPS-Lokalisierung ihrer
+          Smartphones in Verbindung mit den Geodaten, die an vielen
+          Drucksachen des lokalen RIS zu finden sind. Direkt vor Ort an
+          einer Baustelle öffnen sie Beschlüsse, Pläne und Eingaben aus
+          dem Planfeststellungsverfahren, die dieser Baustelle voran
+          gegangen sind.
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      Zur Realisierung derartiger Szenarien können die Fähigkeiten von
+      OParl-kompatiblen Servern mit den besonderen Eigenschaften der
+      mobilen Endgeräte verknüpft werden.
+    </para>
+    <para>
+      Smartphones und Tablets verfügen beispielsweise, je nach
+      Aufenthaltsort, über sehr unterschiedlich gute Internetanbindung.
+      In einem Büro oder zuhause können Nutzer über ein WLAN Daten mit
+      hoher Bandbreite austauschen, in Mobilfunknetzen vor allem
+      außerhalb der Ballungsgebiete jedoch sinken die Bandbreiten
+      deutlich. Einige Tablets werden sogar ohne Möglichkeit zur
+      Mobilfunk-Datenübertragung genutzt. In solchen Fällen kann ein
+      <link linkend="cache">Cache</link> auf dem Endgerät dazu dienen,
+      Inhalte vorzuhalten, die dann auch bei langsamer oder fehlender
+      Internetverbindung zur Verfügung stehen. Sobald dann wieder eine
+      Verbindung mit hoher Bandbreite bereit steht, kann die App im
+      Hintergrund, entweder über die <link linkend="feeds">Feeds</link>
+      der OParl API oder über den einzelnen Abruf von Objekten, die
+      gecachten Inhalte aktualisieren.
+    </para>
+    <para>
+      Eine Stärke eines mobilen Clients ist auch die Möglichkeit der
+      Personalisierung, also der Anpassung auf die Bedürfnisse und
+      Interessen der Nutzerin oder des Nutzers. Es wäre beispielsweise
+      denkbar, dass eine Nutzerin die Ratsinformationssysteme, für die
+      sie sich interessiert, dauerhaft in der App einrichtet und eine
+      Favoritenliste der Gremien, die ihre bevorzugten Themengebiete
+      behandeln, hinterlegt. Die App könnte aufgrund dieser
+      Favoritenliste eigneständig über die API nach neuen
+      Sitzungsterminen, Tagesordnungspunkten, Drucksachen und Dokumente
+      suchen. Taucht dabei ein neues Objekt auf, wird die Nutzerin
+      darüber benachrichtigt. Sie kann dann beispielsweise entscheiden,
+      Dokumente direkt zu öffnen oder für den späteren Offline-Zugriff
+      zu speichern.
+    </para>
+    <para>
+      Einem derartigen Szenario kommt das Graph-orientierte Datenmodell
+      der OParl API entgegen. Ausgehend von einer Sitzung eines
+      bestimmten Gremiums beispielsweise ist es damit einfach möglich,
+      die in Verbindung stehenden Mitglieder des Gremiums, Teilnehmer
+      der Sitzung, Tagesordnungspunkte der Sitzung oder Drucksachen zu
+      den Tagesordnungspunkten und letztlich Dokumente zu Drucksachen
+      und Sitzung abzurufen.
+    </para>
+    <para>
+      Für die Nutzer einer mobilen Client-Anwendung könnte es sich als
+      besonders hilfreich erweisen, wenn Dokumente auf dem Server in
+      verschiedenen Formaten zur Verfügung gestellt werden. Denn nicht
+      jedes Endgerät mit kleinem Bildaschirm bietet eine
+      nutzerfreundliche Möglichkeit, beispielsweise Dokumente im weit
+      verbreiteten PDF-Format darzustellen. Hier könnte schon der
+      Entwickler der mobilen App Mechanismen vorsehen, die, sofern
+      vorhanden, besser geeignete Formate wie z.B. HTML abrufen.
+    </para>
+    <para>
+      Neben dem kleinen Display kann für einige mobile Endgeräte auch
+      die im Vergleich zu einem zeitgemäßen Desktop-PC geringere
+      CPU-Leistung eine Einschränkung darstellen. Solchen Geräten kommt
+      es besonders entgegen, wenn der Server zu allen Dokumenten auch
+      den reinen Textinhalt abrufbar macht, der dann beispielsweise für
+      eine Volltextsuche auf dem Endgerät indexiert werden kann. So
+      wiederum kann auf dem Client eine Suchfunktion realisiert werden,
+      welche die OParl-API selbst nicht zur Verfügung stellt.
+    </para>
+    <para>
+      Eine solche Suchfunktion kann auch über die reine Volltxtsuche
+      hinaus gehen und über die Suche mittels Text- oder Spracheingabe
+      hinaus gehen. Denn ein Client könnte von einem
+      <link linkend="server">Server</link>-System, das Drucksachen mit
+      Geoinformationen anbietet, diese abrufen und räumlich indexieren.
+      Anhand der Position des Geräts, die mittels GPS genau bestimmt
+      werden kann, könnte so der lokale Cache nach Objekten in der
+      Umgebung durchsucht werden. Das Ergebnis könnte auf einer Karte
+      dargestellt oder in einer Ergebnisliste angezeigt werden, die nach
+      Distanz zum Objekt sortiert werden könnte.
+    </para>
+  </sect2>
+  <sect2 id="szenario-2-integration-in-web-portal">
+    <title>Szenario 2: Integration in Web-Portal</title>
+    <para>
+    </para>
+  </sect2>
+  <sect2 id="szenario-3-meta-suche">
+    <title>Szenario 3: Meta-Suche</title>
+    <para>
+    </para>
+  </sect2>
+  <sect2 id="szenario-4-forschungsprojekt-themen--und-sprachanalyse">
+    <title>Szenario 4: Forschungsprojekt Themen- und
+    Sprachanalyse</title>
+    <para>
+    </para>
+  </sect2>
 </sect1>
 <sect1 id="prinzipien-und-funktionen-der-api">
   <title>Prinzipien und Funktionen der API</title>
@@ -764,6 +906,12 @@
         </listitem>
         <listitem>
           <para>
+            Kompakte Form mit Verwendung externer @context-URL als
+            SOLL-Anforderung
+          </para>
+        </listitem>
+        <listitem>
+          <para>
             Verweis auf
             http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf?__blob=publicationFile
           </para>
@@ -771,6 +919,11 @@
         <listitem>
           <para>
             Siehe https://github.com/OParl/specs/issues/77
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Siehe https://github.com/OParl/specs/issues/10
           </para>
         </listitem>
       </itemizedlist>
@@ -786,6 +939,12 @@
         <listitem>
           <para>
             https://github.com/OParl/specs/issues/67
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Zeichenvorrat für callback-Parameter beschränken auf
+            [a-zA-Z0-9] aus Sicherheitsgründen
           </para>
         </listitem>
       </itemizedlist>

@@ -7,6 +7,10 @@ Spezifikation, sondern dienen dazu, die Anwendungsbereiche von OParl und die
 Funktionen einer OParl-konformen API verständlicher und konkreter beschreiben
 zu können.
 
+Da die Architektur auf der generellen Architektur des World Wide Web (WWW)
+aufbaut, sind einzelne Konzepte direkt den Begriffen der
+Architekturbeschreibung des W3-Konsortiums entlehnt.^[Architecture of the World Wide Web, Volume One. <http://www.w3.org/TR/webarch/>]
+
 Überblick
 ---------
 

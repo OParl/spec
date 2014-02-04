@@ -9,7 +9,8 @@ in drei verschiedene Abstufung einteilen lässt. Um ihre normative Bedeutung
 zu unterstreichen, werden diese Wörter grundsätzlich in Großbuchstaben gesetzt.
 
 Diese Konvention ist angelehnt an die Definitionen der Begriffe MUST, SHOULD und
-MAY (bzw. MUST NOT, SHOULD NOT und MAY NOT) aus RFC2119[^1].
+MAY (bzw. MUST NOT, SHOULD NOT und MAY NOT) aus
+RFC2119.^[RFC2119 <http://tools.ietf.org/html/rfc2119>]
 
 Die Bedeutung im Einzelnen:
 
@@ -60,4 +61,3 @@ DÜRFEN/DARF bzw. OPTIONAL:
 
 ### Besondere Hervorhebungen und Satzkonventionen
 
-[^1]: RFC2119: [http://tools.ietf.org/html/rfc2119](http://tools.ietf.org/html/rfc2119)

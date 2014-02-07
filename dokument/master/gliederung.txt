@@ -9,8 +9,10 @@ OParl Spezifikation 1.0 Gliederung
 
 0000 Deckblatt
 1000 Einleitung
+    1005 Status
     1010 Was ist OParl?
     1020 Zielsetzung von OParl
+    1025 Transparenz und Beteiligung durch Open Data
     1030 Werdegang von OParl 1.0
     1040 Zukunft von OParl
     1050 Nomenklatur der Spezifikation und Satzkonventionen

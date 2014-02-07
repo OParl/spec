@@ -70,11 +70,3 @@ Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale
 Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher 
 zwischen den Implementierungen variieren.
 
-
-Status
-------
-
-Die Spezifikation befindet sich in Arbeit. Das Dokument enthält entsprechend 
-viele Ungenauigkeiten und Hinweise auf offene Fragestellungen.
-
-

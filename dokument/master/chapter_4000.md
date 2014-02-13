@@ -86,6 +86,20 @@ Objekt sortiert werden könnte.
 
 ### Szenario 2: Integration in Web-Portal
 
+Web Portale bieten Nutzern unter anderem die Möglichkeit Anwendungen, Prozesse und Dienste zu integrieren. Die OParl API stellt einen solchen Dienst dar und bereitet so den Weg zu angereicherten Portalseiten. Informationen, die über die API bezogen werden, können in Portlets organisiert und visualisiert werden. Hierbei können
+
+1. angemeldete Benutzer 
+
+die eingegrenzten Portlet Parameter für den nächsten Besuch zwischen speichern, während
+
+2. anonyme Benutzer 
+
+dies nicht können. In beiden Fällen können Portalnutzer das angezeigte Portlet nach ihren Bedürfnissen anpassen. Beispielsweise kann ein solches Portlet eine Liste der Gremien bereitstellen, aus der sich der Nutzer das interessante Gremium aussucht und aufgrund dieser Auswahl die Informationen zu den vergangenen / nächsten Sitzungsterminen im Rat, etwaiger Drucksachen oder Dokumenten erhält und geeignet visualisiert. 
+
+Durch eine solche Integration von RIS Informationen in bestehende Portalsysteme (unter Umständen die kommunale Webseite selbst), ist es möglich Nutzern zusätzliche 
+Informationen in der bereits gewohnten Umgebung zu präsentieren und den bestehenden Informationsgehalt und den Datenbestand aufzuwerten.
+
+
 ### Szenario 3: Meta-Suche
 
 ### Szenario 4: Forschungsprojekt Themen- und Sprachanalyse

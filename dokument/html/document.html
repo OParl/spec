@@ -345,85 +345,166 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <ul>
 <li>(Parameter für Datums-/Zeitbereichsfilter)</li>
 </ul>
-<h1 id="datenmodell"><span class="header-section-number">5</span> Datenmodell</h1>
-<p>Das Datenmodell definiert die Objekttypen bzw. die Klassen, auf die über die Schnittstelle zugegriffen werden kann.</p>
-<p>Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen beziehen sich auf nach außen, bei Nutzung der jeweiligen Weboberflächen, feststellbare Eigenschaften. Dabei wird vereinzelt und beispielhaft auf die folgenden Systeme Bezug genommen:</p>
-<ul>
-<li>Stadt Köln [2] - Plattform: Somacos SessionNet [3]</li>
-<li>Bezirksverwaltung Berlin Mitte [4] - Plattform: ALLRIS [5]</li>
-<li>Stadt Rösrath [6] - Plattform der Firma PROVOX [7]</li>
-<li>Stadt Euskirchen [8] - Plattform: SD.NET RIM 4 [9]</li>
-<li>Stadt Bonn - BoRis [10]</li>
-</ul>
+<h1 id="schema"><span class="header-section-number">5</span> Schema</h1>
+<p>Dieses Kapitel beschreibt das Schema von OParl. Das Schema bildet das Datzenmodell der OParl-Architektur ab. Es definiert, welche Objekttypen über eine OParl-API abgerufen werden können und welche Eigenschaften diese Objekttypen haben dürfen und müssen. Darüber hinaus ist im Schema auch festgelegt, in welcher Beziehung verschiedene Objekttypen zu einander stehen.</p>
 <h2 id="übergreifende-aspekte"><span class="header-section-number">5.1</span> Übergreifende Aspekte</h2>
-<h3 id="eindeutige-identifizierung-von-objekten"><span class="header-section-number">5.1.1</span> Eindeutige Identifizierung von Objekten</h3>
-<p>Sämtliche Objekte, die über die Schnittstelle geladen werden können, sollen anhand einer einzigen Objekteigenschaft eindeutig identifizierbar sein. Die Objekteigenschaft, mit der dies erreicht wird, wird hier im folgenden - unabhängig vom tatsächlichen Namen der Eigenschaft - als &quot;Schlüssel&quot; bezeichnet.</p>
-<p>Eindeutigkeit meint hier eine Einzigartigkeit innerhalb des Informationssystems und für den jeweiligen Objekttyp. Das bedeutet: zwei von einander unabhängige Ratsinformationssysteme für verschiedene Körperschaften dürfen sich überlappende Schlüssel nutzen. Innerhalb eines Systems dürfen zwei Objekte unterschiedlichen Typs (beispielsweise eine Person ud ein Gremium) den selben Schlüssel nutzen. Jedoch MÜSSEN zwei Objekte des selben Typs innerhalb des selben Systems grundsätzlich verschiedene Schlüssel haben.</p>
-<p>Schlüssel-Eigenschaften werden grundsätzlich als Unicode-Zeichenkette übergeben. Sie können daher gleichermaßen aus numerischen wie alphanumerischen Werten befüllt werden.</p>
-<p>Es wird grundsätzlich vorausgesetzt, dass Schlüssel unveränderlich sind. Ändert sich der Schlüssel eines Objekts nach der Erzeugung, werden Nutzer der Schnittstelle annehmen, dass es sich nicht mehr um das selbe Objekt handelt.</p>
-<h3 id="objekteigenschaften"><span class="header-section-number">5.1.2</span> Objekteigenschaften</h3>
-<p>Die nachfolgend beschriebenen Eigenschaften der Objekttypen sind, wenn nicht anders angegeben, verpflichtend. Das bedeutet: Bei jedem von der Schnittstelle ausgelieferten Objekt muss diese Eigenschaften definiert sein. Optionale Eigenschaften sind entsprechend gekennzeichnet.</p>
-<p>Eigenschaften werden deutschsprachig und englischsprachig benannt. Die deutschsprachige Benennung dient der bestmöglichen Verständlichkeit im Kontext dieses Dokuments, während die Schnittstelle aus Gründen der Zugänglichkeit für möglichst viele Entwickler mit englischsprachigen Begriffen arbeiten soll.</p>
-<h3 id="zu-den-beziehungen"><span class="header-section-number">5.1.3</span> Zu den Beziehungen</h3>
-<p>Bei der Beschreibung von Beziehungen zwischen Objekten wird zu diesem Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei Objekten A und B am Objekt A oder am Objekt B definiert wird. So spielt es bislang keine Rolle, ob einem Gremium mehrere Personen zugeordnet werden oder einer Person mehrere Gremien zugewiesen werden. Das Augenmerkt liegt hier nur auf der Tatsache, welche Beziehung existieren können und was diese Beziehungen aussagen sollen.</p>
-<h2 id="körperschaft-body"><span class="header-section-number">5.2</span> Körperschaft (<em>body</em>)</h2>
-<p>Die Körperschaft erlaubt es, den Betreiber bzw. Eigentümer des Informationssystems wie zum Beispiel einen Landkreis, eine bestimmte Gemeinde oder einen bestimmten Stadtbezirk in Form eines Datenobjekts abzubilden.</p>
-<p>Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“. Einige Systeme werden jedoch für mehrere Mandanten betrieben, wobei die Mandanten verschiedene Körperschaften repräsentieren (z.B. &quot;Verbandsgemeinde Ulmen&quot; und &quot;Stadt Ulmen&quot;.)</p>
-<div class="figure">
-<img src="images/datenmodell_koerperschaft.png" alt="Objekttyp Körperschaft" /><p class="caption">Objekttyp Körperschaft</p>
-</div>
-<h3 id="eindeutige-identifizierung"><span class="header-section-number">5.2.1</span> Eindeutige Identifizierung</h3>
-<p>Die Körperschaft hat eine innerhalb des Systems eindeutige ID.</p>
-<p>Darüber hinaus werden verschiedene Möglichkeiten geboten, die Körperschaft semantisch zu repräsentieren.</p>
-<p>Handelt es sich beim Betreiber des Systems um eine Gebietskörperschaft (Landkreis, Kommune etc.), soll für die eindeutige Identifizierung der Regionalschlüssel[1] verwendet werden.</p>
-<p>Darüber hinaus soll zusätzlich, sofern vorhanden, die eindeutige Kennung der Körperschaft aus der GND[12] verwendet werden.</p>
-<p>Als dritte Möglichkeit, die Körperschaft zu identifizieren, kann eine aussagekräftigen URL, unter der weitere Informationen zur Körperschaft zu finden sind, genannt werden.</p>
-<p>Sämtliche hier genannten Methoden zur Identifizierung können kombiniert werden.</p>
-<h3 id="eigenschaften"><span class="header-section-number">5.2.2</span> Eigenschaften</h3>
-<dl>
-<dt>Schlüssel (<code>id</code>)</dt>
-<dd>Zur eindeutigen Identifizierung der Körperschaft im System
-</dd>
-<dt>Name (<code>name</code>)</dt>
-<dd>Der Name der Körperschaft, z.B. &quot;Stadt Köln&quot;
-</dd>
-<dt>Regionalschlüssel (<code>regionalschluessel</code>)</dt>
-<dd><em>Optional</em>. Regionalschlüssel der Gebietskörperschaft, z.B. &quot;053150000000&quot;. Muss grundsätzlich 12-stellig angegeben werden.
-</dd>
-<dt>GND URL (<code>gnd_url</code>)</dt>
-<dd><em>Optional</em>. URL des Eintrags in der GND, z.B. &quot;http://d-nb.info/gnd/2015732-0&quot;
-</dd>
-<dt>URL (<code>url</code>)</dt>
-<dd><em>Optional</em>. URL der Homepage oder einer vergleichbaren Seite mit Informationen über die Körperschaft, z.B. &quot;http://www.stadt-koeln.de/&quot;
-</dd>
-<dt>Lizenz (<code>license_url</code>)</dt>
-<dd><em>Optional</em>. URL der Lizenz, unter der die Daten, die über die API abgerufen werden können, stehen.
-</dd>
-<dt>Betreiber-Kontakt (<code>operator_contact</code>)</dt>
-<dd><em>Optional</em>. Kontaktinformationen für die direkte Kontaktaufnahme zum Betreiber der API.
-</dd>
-</dl>
-<h3 id="beziehungen"><span class="header-section-number">5.2.3</span> Beziehungen</h3>
+<h3 id="typen-von-objekteigenschaften"><span class="header-section-number">5.1.1</span> Typen von Objekteigenschaften</h3>
+<p>JSON erlaubt grundsätzlich die Kodierung von Eigenschaften in den folgenden verschiedenen Typen:</p>
 <ul>
-<li>Objekte vom Typ &quot;Organisation&quot; sind zwingend genau einer Körperschaft zugeordnet. So wird beispielseise eine SPD in Köln von einer SPD in Leverkusen unterschieden.</li>
-<li>Objekte vom Typ &quot;Gremium&quot; sind zwingend genau einer Körperschaft zugeordnet. Damit wird der &quot;Rat&quot; einer bestimmten Kommune von den gleichnamigen Gremien anderer Kommunen abgegrenzt.</li>
+<li>Zeichenkette</li>
+<li>Zahle</li>
+<li>Wahrheitswert</li>
+<li>null</li>
+<li>Liste (Array)</li>
+<li>Objekt</li>
 </ul>
-<h3 id="beispiel"><span class="header-section-number">5.2.4</span> Beispiel</h3>
-<pre class="sourceCode json" id="body_ex1"><code class="sourceCode json">{
-    <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;1&quot;</span>,
-    <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Stadt Köln&quot;</span>,
-    <span class="dt">&quot;regionalschluessel&quot;</span>: <span class="st">&quot;053150000000&quot;</span>,
-    <span class="dt">&quot;gnd_url&quot;</span>: <span class="st">&quot;http://d-nb.info/gnd/2015732-0&quot;</span>,
-    <span class="dt">&quot;url&quot;</span>: <span class="st">&quot;http://www.stadt-koeln.de/&quot;</span>,
-    <span class="dt">&quot;operator_contact&quot;</span>: <span class="st">&quot;Tel. +49 221-221-5432, E-Mail: ris-api@stadt-koeln.de&quot;</span>,
-    <span class="dt">&quot;license_url&quot;</span>: <span class="st">&quot;http://opendatacommons.org/licenses/odbl/1.0/&quot;</span>
+<p>Wenn nicht anders angegeben, wird eine Eigenschaft grundsätzlich als Zeichenkette erwartet. Eventuelle Längenbeschränkungen oder Einschränkungen des Zeichenvorrats werden gesondert erwähnt.</p>
+<h3 id="null-werte"><span class="header-section-number">5.1.2</span> null-Werte</h3>
+<p>JSON erlaubt es grundsätzlich, dass Eigenschaften den Wert <code>null</code> haben können. Im Rahmen dieser Spezifikation DARF das jedoch nur bei Eigenschaften der Fall sein, die als OPTIONAL oder EMPFOHLEN gekennzeichnet sind. ZWINGENDE Eigenschaften müssen einen Wert ungleich <code>null</code> besitzen.</p>
+<h3 id="vererbung-der-lizenzbedingung"><span class="header-section-number">5.1.3</span> Vererbung der Lizenzbedingung</h3>
+<ul>
+<li>Jedes Objekt KANN die Eigenschaft &quot;license&quot; besitzen.</li>
+<li>Die genannte Lizenz bezieht sich auf das jeweilige Objekt und auf untergeordnete Objekte, sofern diese keine license-Eigenschaft besitzen.</li>
+<li>Dazu muss die Vererbungshierarchie aufgezeigt werden.</li>
+<li>Empfohlene Minimalvariante: Nur eine license-Angabe auf Ebene von OParlSystem.</li>
+<li>Auf Ebene des OParlDocument bezieht sich die Eigenschaft sowohl auf die Metadaten als auch auf das Dokument selbst.</li>
+</ul>
+<h3 id="die-eigenschaften-created-und-last_modified"><span class="header-section-number">5.1.4</span> Die Eigenschaften &quot;created&quot; und &quot;last_modified&quot;</h3>
+<h3 id="die-eigenschaften-name-und-name_long"><span class="header-section-number">5.1.5</span> Die Eigenschaften &quot;name&quot; und &quot;name_long&quot;</h3>
+<h3 id="die-eigenschaft-description"><span class="header-section-number">5.1.6</span> Die Eigenschaft &quot;description&quot;</h3>
+<h2 id="oparlsystem-system"><span class="header-section-number">5.2</span> OParlSystem (System)</h2>
+<p>Der Objekttyp <code>OParlSystem</code> bildet grundlegende Informationen zum parlamentarischen Informationssystem ab. Das Objekt repräsentiert das technische System, unabhängig von der Frage, welche Körperschaften auf diesem System vertreten sind.</p>
+<p>Auf jedem OParl Server MUSS ein Objekt vom Typ <code>OParlSystem</code> vorgehalten werden. Es DARF nur ein einziges solches Objekt je Server existieren.</p>
+<p>Für Clients ist das <code>OParlSystem</code> Objekt ein geeigneter Einstiegspunkt, um grundlegende Informationen über das Sytem zu bekommen und die URLs zum Zugriff auf andere Informationen in Erfahrung zu bringen.</p>
+<p>Die URL (IRI) des <code>OParlSystem</code> Objekts MUSS per Definition identisch mit der URL des API-Endpunkts des Servers sein.</p>
+<h3 id="eigenschaft-oparl_version"><span class="header-section-number">5.2.1</span> Eigenschaft <code>oparl_version</code></h3>
+<p>Diese Eigenschaft ist ZWINGEND.</p>
+<p>URL der Version der OParl-Spezifikation, die von diesem System unterstützt wird. So lange es nur die Version 1.0 der OParl-Spezifikation gibt, MUSS der Wert dieser Eigenschaft <code>http://oparl.org/specs/1.0/</code> sein.</p>
+<p>Sofern zukünftig weitere Versionen der Spezifikation vorliegen, können Clients damit in Erfahrung bringen, welches Schema, welche Eigenschaften und Methoden auf Seite des Servers vorausgesetzt werden können.</p>
+<h3 id="eigenschaft-bodies"><span class="header-section-number">5.2.2</span> Eigenschaft <code>bodies</code></h3>
+<p>Diese Eigenschaft ist ZWINGEND.</p>
+<p>Über diese URL sind alle OParlBody Objekte, also die im System geführten Körperschaften, als Liste abrufbar.</p>
+<p>TODO: Verweis auf OParlBody einfügen</p>
+<h3 id="eigenschaft-name"><span class="header-section-number">5.2.3</span> Eigenschaft <code>name</code></h3>
+<p>Diese Eigenschaft wird EMPFOHLEN.</p>
+<p>Diese Eigenschaft dient dazu, einen nutzerfreundlichen Namen zu kommunizieren, mit dem NutzerInnen das System wiedererkennen und von anderen unterscheiden können.</p>
+<h3 id="eigenschaft-contact"><span class="header-section-number">5.2.4</span> Eigenschaft <code>contact</code></h3>
+<p>Diese Eigenschaft wird EMPFOHLEN.</p>
+<p>Die Eigenschaft dient dazu, NutzerInnen bzw. EntwicklerInnen von Clients die Kontaktaufnahme mit dem Betreiber des Systems zu ermöglichen. Es wird EMPFOHLEN, hier die Kontaktdaten eines technischen Ansprechpartners bzw. einer allgemeinen Kontaktstelle auszugeben, über die Anfragen verschiedener Art an die richtige Kontaktperson umgeleitet werden können.</p>
+<p>Der Wert dieser Eigenschaft MUSS ein Objekt vom Typ OParlContact sein.</p>
+<p>TODO: Verweis auf OParlContact einfügen.</p>
+<h3 id="eigenschaft-license"><span class="header-section-number">5.2.5</span> Eigenschaft <code>license</code></h3>
+<p>Diese Eigenschaft wird EMPFOHLEN.</p>
+<p>Die Eigenschaft dient dazu, darüber zu informieren, unter welcher Lizenz die Daten des aktuell angezeigten Objekts stehen. Zur Vererbung dieser Eigenschaft siehe (TODO: Verweis auf Abschnitt zur Lizenz-Vererbung einfügen).</p>
+<p>Der Wert dieser Eigenschaft sollte nach Möglichkeit eine URL sein, unter der genau die entsprechende Lizenz abgerufen werden kann.</p>
+<h3 id="eigenschaft-new_objects"><span class="header-section-number">5.2.6</span> Eigenschaft <code>new_objects</code></h3>
+<p>Diese Eigenschaft ist EMPFOHLEN.</p>
+<p>Mit dieser Eigenschaft wird die URL des Feeds für neu hinzugekommene Objekte ausgegeben.</p>
+<p>TODO: Verweis auf Feeds &gt; Neue Objekte</p>
+<h3 id="eigenschaft-updated_objects"><span class="header-section-number">5.2.7</span> Eigenschaft <code>updated_objects</code></h3>
+<p>Diese Eigenschaft ist EMPFOHLEN.</p>
+<p>Mit dieser Eigenschaft wird die URL des Feeds für geänderte Objekte ausgegeben.</p>
+<p>TODO: Verweis auf Feeds &gt; Geänderte Objekte</p>
+<h3 id="eigenschaft-removed_objects"><span class="header-section-number">5.2.8</span> Eigenschaft <code>removed_objects</code></h3>
+<p>Diese Eigenschaft ist EMPFOHLEN.</p>
+<p>Mit dieser Eigenschaft wird die URL des Feeds für entfernte Objekte ausgegeben.</p>
+<p>TODO: Verweis auf Feeds &gt; Entfernte Objekte</p>
+<h3 id="eigenschaft-info_url"><span class="header-section-number">5.2.9</span> Eigenschaft <code>info_url</code></h3>
+<p>Diese Eigenschaft ist OPTIONAL.</p>
+<p>Diese Eigenschaft dient dazu, eine zusätzliche URL zu einer WWW-Seite mit zusätzlichen Informationen zum System anzubieten. So könnten NutzerInnen beispielsweise auf eine Web-Oberfläche eines parlamentarischen Informationssystems geführt werden.</p>
+<h3 id="eigenschaft-vendor_url"><span class="header-section-number">5.2.10</span> Eigenschaft <code>vendor_url</code></h3>
+<p>Diese Eigenschaft ist OPTIONAL.</p>
+<p>Diese Eigenschaft dient dazu, über eine URL den Hersteller des Server-Systems zu komunizieren. Die URL sollt nach Möglichkeit zu einer WWW-Seite mit weiteren Informationen zum Hersteller führen.</p>
+<h3 id="eigenschaft-product_url"><span class="header-section-number">5.2.11</span> Eigenschaft <code>product_url</code></h3>
+<p>Diese Eigenschaft ist OPTIONAL.</p>
+<p>Diese Eigenschaft dient dazu, über eine URL mitzuteilen, welches Softwareprodukt das Server-System bereitstellt. Die URL soll nach Möglichkeit zu einer WWW-Seite mit weiteren Informationen zum Produkt führen.</p>
+<h3 id="beispiel"><span class="header-section-number">5.2.12</span> Beispiel</h3>
+<pre class="sourceCode json" id="OParlSystem_ex1"><code class="sourceCode json">{
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/&quot;</span>,
+    <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/OParlSystem&quot;</span>,
+    <span class="dt">&quot;oparl_version&quot;</span>: <span class="st">&quot;http://oparl.org/specs/1.0/&quot;</span>,
+    <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;OParl Reference Server&quot;</span>,
+    <span class="dt">&quot;info_url&quot;</span>: <span class="st">&quot;https://github.com/OParl/reference-server&quot;</span>,
+    <span class="dt">&quot;contact&quot;</span>: {
+        <span class="dt">&quot;email&quot;</span>: <span class="st">&quot;info@oparl.org&quot;</span>,
+        <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Common OParl contact&quot;</span>
+    }, 
+    <span class="dt">&quot;vendor_url&quot;</span>: <span class="st">&quot;http://oparl.org/&quot;</span>,
+    <span class="dt">&quot;product_url&quot;</span>: <span class="st">&quot;https://github.com/OParl/reference-server&quot;</span>,
+    <span class="dt">&quot;license&quot;</span>: <span class="st">&quot;http://creativecommons.org/licenses/by/4.0/&quot;</span>,
+    <span class="dt">&quot;bodies&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/&quot;</span>,
+    <span class="dt">&quot;new_objects&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/feeds/new/&quot;</span>,
+    <span class="dt">&quot;updated_objects&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/feeds/updated/&quot;</span>,
+    <span class="dt">&quot;removed_objects&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/feeds/removed/&quot;</span>
 }</code></pre>
-<h2 id="gremium-committee"><span class="header-section-number">5.3</span> Gremium (<em>committee</em>)</h2>
+<h2 id="oparlbody-körperschaft"><span class="header-section-number">5.3</span> OParlBody (Körperschaft)</h2>
+<p>Dieser Objekttyp erlaubt es, eine Körperschaft abzbilden. Eine Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder ein Zweckverband sein.</p>
+<p>Von einem funktionsfähigen Server wird erwartet, dass er mindestens ein Objekt vom Typ <code>OParlBody</code> bereit hält. Teilen sich mehrere Körperschaften das selbe technische System, können auf demselben Server auch mehrere Objekte vom Typ <code>OParlBody</code> beherbergt werden.</p>
+<p>Über die Zuordnung zu einem bestimmten <code>OParlBody</code> Objekt zeigen andere Objekte, wie beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit zu einer bestimmten Körperschaft an.</p>
+<div class="figure">
+<img src="images/datenmodell_koerperschaft.png" alt="Objekttyp OParlBody" /><p class="caption">Objekttyp OParlBody</p>
+</div>
+<p>Es werden mehrere Eigenschaften angeboten, die dazu dienen, die real existierende Körperschaft, die von einem <code>OParlBody</code> Objekt repräsentiert wird, programmatisch auslesbar zu machen zu können. Insbesondere sind hier die Eigenschaften <code>url</code>, <code>rgs</code> und <code>gnd_url</code> zu nennen.</p>
+<h3 id="eigenschaft-system"><span class="header-section-number">5.3.1</span> Eigenschaft <code>system</code></h3>
+<p>Diese Eigenschaft ist ZWINGEND.</p>
+<p>Mit dieser Eigenschaft wird das Objekt dem übergeordneten OParlSystem Objekt zugeordnet. Wert MUSS der IRI des OParlSystem Objekts sein.</p>
+<h3 id="eigenschaft-name-1"><span class="header-section-number">5.3.2</span> Eigenschaft <code>name</code></h3>
+<p>Diese Eigenschaft ist ZWINGEND. Sie transportiert den gebräuchlichen Namen der Körperschaft.</p>
+<h3 id="eigenschaft-name_long"><span class="header-section-number">5.3.3</span> Eigenschaft <code>name_long</code></h3>
+<p>Diese Eigenschaft ist OPTIONAL und kann bei Bedarf dazu verwendet werden, eine längere Form des Namens der Körperschaft wieder zu geben, sofern dieser für die Eigenschaft <code>name</code> zu lang ist.</p>
+<h3 id="eigenschaft-url"><span class="header-section-number">5.3.4</span> Eigenschaft <code>url</code></h3>
+<p>Diese Eigenschaft ist EMPFOHLEN.</p>
+<p>Mit dieser Eigenschaft SOLL die URL der offiziellen Website der Körperschaft ausgegeben werden.</p>
+<p>TODO: Beschreibung</p>
+<h3 id="eigenschaft-rgs"><span class="header-section-number">5.3.5</span> Eigenschaft <code>rgs</code></h3>
+<p>Diese Eigenschaft ist EMPFOHLEN.</p>
+<p>Handelt es sich bei der Körperschaft um eine Gebietskörperschaft (Landkreis, Kommune etc.) in Deutschland, SOLL für die eindeutige Identifizierung der amtliche Regionalschlüssel verwendet werden.<sup><a href="#fn3" class="footnoteRef" id="fnref3">3</a></sup> Dieser ist grundsätzlich zwölfstellig.</p>
+<h3 id="eigenschaft-gnd_url"><span class="header-section-number">5.3.6</span> Eigenschaft <code>gnd_url</code></h3>
+<p>Diese Eigenschaft ist EMPFOHLEN.</p>
+<p>Sofern die Körperschaft in der GND<sup><a href="#fn4" class="footnoteRef" id="fnref4">4</a></sup> vertreten ist, SOLL diese Eigenschaft als Wert die URL des Eintrags in der GND enthalten.</p>
+<h3 id="eigenschaft-contact-1"><span class="header-section-number">5.3.7</span> Eigenschaft <code>contact</code></h3>
+<p>Diese Eigenschaft ist EMPFOHLEN.</p>
+<p>Über diese Eigenschafte SOLLEN Kontaktinformationen zu einer Stelle bereit gestellt werden, die die inhaltliche Verantwortung für sämtliche zu dieser Körperschaft gehörenden Inhalte im System trägt. Besonders wichtig ist diese Angabe, wenn auf einem System mehrere Körperschaften vertreten sind und damit auf der Ebene des OParlSystem Objekts ein rein technischer Kontakt ausgegeben wird, der nicht für inhaltliche Fragestellungen im Zuständigkeitsbereich der jeweiligen Körperschaften kontaktiert werden sollte.</p>
+<h3 id="eigenschaft-papers"><span class="header-section-number">5.3.8</span> Eigenschaft <code>papers</code></h3>
+<p>Diese Eigenschaft ist ZWINGEND.</p>
+<p>Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der Drucksachen (Objekte vom Typ OParlPaper) für diese Körperschaft.</p>
+<h3 id="eigenschaft-people"><span class="header-section-number">5.3.9</span> Eigenschaft <code>people</code></h3>
+<p>Diese Eigenschaft ist ZWINGEND.</p>
+<p>Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der Personen (Objekte vom Typ OParlPerson) für diese Körperschaft.</p>
+<h3 id="eigenschaft-meetings"><span class="header-section-number">5.3.10</span> Eigenschaft <code>meetings</code></h3>
+<p>Diese Eigenschaft ist ZWINGEND.</p>
+<p>Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der Sitzungen (Objekte vom Typ OParlMeeting) für diese Körperschaft.</p>
+<h3 id="eigenschaft-committees"><span class="header-section-number">5.3.11</span> Eigenschaft <code>committees</code></h3>
+<p>Diese Eigenschaft ist ZWINGEND.</p>
+<p>Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der Gremien (Objekte vom Typ OParlCommittee) für diese Körperschaft.</p>
+<h3 id="beispiel-1"><span class="header-section-number">5.3.12</span> Beispiel</h3>
+<pre class="sourceCode json" id="oparlbody_ex1"><code class="sourceCode json">{
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0&quot;</span>,
+    <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/OParlBody&quot;</span>,
+    <span class="dt">&quot;committees&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/committees/&quot;</span>,
+    <span class="dt">&quot;contact&quot;</span>: {
+        <span class="dt">&quot;email&quot;</span>: <span class="st">&quot;ris@stadt-koeln.de&quot;</span>,
+        <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;RIS-Betreuung&quot;</span>
+    }, 
+    <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2014-01-08T14:28:31.568+0100&quot;</span>,
+    <span class="dt">&quot;gnd_url&quot;</span>: <span class="st">&quot;http://d-nb.info/gnd/2015732-0&quot;</span>,
+    <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2014-01-08T14:28:31.568+0100&quot;</span>,
+    <span class="dt">&quot;meetings&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/meetings/&quot;</span>,
+    <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Stadt K\u00f6ln&quot;</span>,
+    <span class="dt">&quot;name_long&quot;</span>: <span class="st">&quot;Stadt K\u00f6ln, kreisfreie Stadt&quot;</span>,
+    <span class="dt">&quot;organisations&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/organisations/&quot;</span>,
+    <span class="dt">&quot;papers&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/&quot;</span>,
+    <span class="dt">&quot;people&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/people/&quot;</span>,
+    <span class="dt">&quot;rgs&quot;</span>: <span class="st">&quot;053150000000&quot;</span>,
+    <span class="dt">&quot;system&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/&quot;</span>,
+    <span class="dt">&quot;url&quot;</span>: <span class="st">&quot;http://www.stadt-koeln.de/&quot;</span>
+}</code></pre>
+<h2 id="oparlcommittee-gremium"><span class="header-section-number">5.4</span> OParlCommittee (Gremium</h2>
 <p>Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat, Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.</p>
 <div class="figure">
 <img src="images/datenmodell_gremium.png" alt="Objekttyp Gremium" /><p class="caption">Objekttyp Gremium</p>
 </div>
-<h3 id="eigenschaften-1"><span class="header-section-number">5.3.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften"><span class="header-section-number">5.4.1</span> Eigenschaften</h3>
 <dl>
 <dt>Schlüssel (<code>id</code>)</dt>
 <dd>Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten Körperschaft. In der Praxis kommen sowohl numerische IDs als auch Namenskürzel (Beispiel: &quot;STA&quot; für den Stadtentwicklungsausschuss) vor. Beides sollte hier Verwendung finden können.
@@ -438,13 +519,13 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h3 id="beziehungen-1"><span class="header-section-number">5.3.2</span> Beziehungen</h3>
+<h3 id="beziehungen"><span class="header-section-number">5.4.2</span> Beziehungen</h3>
 <ul>
 <li>Objekte vom Typ &quot;Person&quot; referenzieren auf Gremien, um die Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu kennzeichnen. Diese Beziehung ist datiert. Das bedeutet, sie hat einen Anfangszeitpunkt und ggf. einen Endzeitpunkt.</li>
 <li>Objekte vom Typ &quot;Drucksache&quot; verweisen auf Gremien. Beispielsweise wird eine Anfrage oder ein Antrag dem Rat und/oder einer bestimmten Bezirksvertretung zugeordnet. Details zu dieser Beziehung werden unter &quot;Drucksache&quot; erläutert.</li>
 <li>Das Gremium verweist auf die Körperschaft, zu der das Gremium gehört.</li>
 </ul>
-<h3 id="beispiel-1"><span class="header-section-number">5.3.3</span> Beispiel</h3>
+<h3 id="beispiel-2"><span class="header-section-number">5.4.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="committee_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;7&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Finanzausschuss&quot;</span>,
@@ -452,12 +533,12 @@ code > span.er { color: #ff0000; font-weight: bold; }
     <span class="dt">&quot;body&quot;</span>: <span class="st">&quot;1&quot;</span>,
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
-<h2 id="person-person"><span class="header-section-number">5.4</span> Person (<em>person</em>)</h2>
+<h2 id="oparlperson-person"><span class="header-section-number">5.5</span> OParlPerson (Person)</h2>
 <p>Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person im Datenmodell eindeutig identifizierbar.</p>
 <div class="figure">
 <img src="images/datenmodell_person.png" alt="Objekttyp Person" /><p class="caption">Objekttyp Person</p>
 </div>
-<h3 id="eigenschaften-2"><span class="header-section-number">5.4.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-1"><span class="header-section-number">5.5.1</span> Eigenschaften</h3>
 <dl>
 <dt>Schlüssel (<code>id</code>)</dt>
 <dd>Zur eindeutigen Identifizierung sollte jede Person eine Kennung besitzen, die keinen Änderungen unterworfen ist und aus diesem Grund nicht mit dem Namen in Verbindung stehen sollte. Viele RIS nutzen rein numerische Kennungen.
@@ -493,17 +574,17 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h4 id="anmerkungen"><span class="header-section-number">5.4.1.1</span> Anmerkungen</h4>
+<h4 id="anmerkungen"><span class="header-section-number">5.5.1.1</span> Anmerkungen</h4>
 <ul>
 <li>Das System von Euskirchen scheint Vor- und Nachname (evtl. einschl. Titel) in einem gemeinsamen Feld &quot;Name&quot; zu führen. Ob das System hier technisch differenziert, ist unklar. Falls einzelne Systeme den angezeigten Namen nur als ganzes speichern, sollte dies für den Standard übernommen werden, da es für die meisten Anwendungen ausreichen sollte.</li>
 <li>Das System PROVOX unterscheidet zwischen privaten und geschäftlichen Anschriften.</li>
 </ul>
-<h3 id="beziehungen-2"><span class="header-section-number">5.4.2</span> Beziehungen</h3>
+<h3 id="beziehungen-1"><span class="header-section-number">5.5.2</span> Beziehungen</h3>
 <ul>
 <li>Objekte vom Typ &quot;Person&quot; können einer Organisation, z.B. einer Fraktion, zugeornet werden. Diese Beziehung ist datiert.</li>
 <li>Objekte vom Typ &quot;Person&quot; können einem oder mehreren Gremien zugewiesen werden, um die Mitgliedschaft in diesem Gremium darzustellen. Diese Beziehungen sind ebenfalls datiert.</li>
 </ul>
-<h3 id="beispiel-2"><span class="header-section-number">5.4.3</span> Beispiel</h3>
+<h3 id="beispiel-3"><span class="header-section-number">5.5.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="person_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;1000&quot;</span>,
     <span class="dt">&quot;first_name&quot;</span>: <span class="st">&quot;Max&quot;</span>,
@@ -534,12 +615,12 @@ code > span.er { color: #ff0000; font-weight: bold; }
         }
     ]
 }</code></pre>
-<h2 id="organisation-organisation"><span class="header-section-number">5.5</span> Organisation (<code>organisation</code>)</h2>
+<h2 id="oparlorganisation-organisation"><span class="header-section-number">5.6</span> OParlOrganisation (Organisation)</h2>
 <p>Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die Personen angehören können.</p>
 <div class="figure">
 <img src="images/datenmodell_organisation.png" alt="Objekttyp Organisation" /><p class="caption">Objekttyp Organisation</p>
 </div>
-<h3 id="eigenschaften-3"><span class="header-section-number">5.5.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-2"><span class="header-section-number">5.6.1</span> Eigenschaften</h3>
 <dl>
 <dt>Schlüssel (<code>id</code>)</dt>
 <dd>Zur eindeutigen Kennzeichnung einer Organisation innerhalb des Systems
@@ -551,29 +632,29 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h4 id="anmerkungen-1"><span class="header-section-number">5.5.1.1</span> Anmerkungen</h4>
+<h4 id="anmerkungen-1"><span class="header-section-number">5.6.1.1</span> Anmerkungen</h4>
 <ul>
 <li>Unklar ist bislang, ob Organisationen in der Praxis eher Fraktionen (&quot;SPD-Fraktion im Kölner Rat&quot;, &quot;SPD-Fraktion in Köln-Innenstadt&quot;) abbilden oder ob eher Ortsverbände von Parteien (&quot;SPD Köln&quot;) gemeint sein werden. Einblicke, wie gängige Systeme dies handhaben, sollten evtl. gesammelt und berücksichtigt werden.</li>
 </ul>
-<h3 id="beziehungen-3"><span class="header-section-number">5.5.2</span> Beziehungen</h3>
+<h3 id="beziehungen-2"><span class="header-section-number">5.6.2</span> Beziehungen</h3>
 <ul>
 <li>Jede Organisationen gehört zu einer Körperschaft.</li>
 <li>Personen können Organisationen angehören (<em>datiert</em>).</li>
 </ul>
-<h3 id="beispiel-3"><span class="header-section-number">5.5.3</span> Beispiel</h3>
+<h3 id="beispiel-4"><span class="header-section-number">5.6.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="organisation_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;15&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;SPD&quot;</span>,
     <span class="dt">&quot;body&quot;</span>: <span class="st">&quot;1&quot;</span>,
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
-<h2 id="sitzung-meeting"><span class="header-section-number">5.6</span> Sitzung (<code>meeting</code>)</h2>
+<h2 id="oparlmeeting-sitzung"><span class="header-section-number">5.7</span> OParlMeeting (Sitzung)</h2>
 <p>Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.</p>
 <p>Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in entsprechender Form referenziert. Verschiedene Dokumente (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.</p>
 <div class="figure">
 <img src="images/datenmodell_sitzung.png" alt="Objekttyp Sitzung" /><p class="caption">Objekttyp Sitzung</p>
 </div>
-<h3 id="eigenschaften-4"><span class="header-section-number">5.6.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-3"><span class="header-section-number">5.7.1</span> Eigenschaften</h3>
 <dl>
 <dt>Schlüssel (<code>id</code>)</dt>
 <dd>Zur eindeutigen Identifizierung der Sitzung innerhalb des Systems. In der Praxis wird ein solcher Schlüssel entweder durch eine numerische ID gebildet oder durch Kombination mehrerer Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung in einem Jahr und der Jahreszahl (z.B. &quot;BV1/0034/2012&quot;).
@@ -594,7 +675,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h3 id="beziehungen-4"><span class="header-section-number">5.6.2</span> Beziehungen</h3>
+<h3 id="beziehungen-3"><span class="header-section-number">5.7.2</span> Beziehungen</h3>
 <ul>
 <li>Sitzungen sind mindestens einem Gremium zugeordnet</li>
 <li>Einer Sitzung sind Personen zugeordnet, um die Teilnahme an der Sitzung auszudrücken.</li>
@@ -606,7 +687,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul></li>
 <li>Weiterhin können Sitzungen beliebige weitere Dokumente, die keine eigenständigen Drucksachen sind, referenzieren. Dabei handelt es sich dann um nicht weiter spezifizierte Anlagen.</li>
 </ul>
-<h3 id="beispiel-4"><span class="header-section-number">5.6.3</span> Beispiel</h3>
+<h3 id="beispiel-5"><span class="header-section-number">5.7.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="meeting_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;3271&quot;</span>,
     <span class="dt">&quot;identifier&quot;</span>: <span class="st">&quot;STA/0034/2012&quot;</span>,
@@ -625,13 +706,13 @@ code > span.er { color: #ff0000; font-weight: bold; }
     ],
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-01-08T14:05:27+01:00&quot;</span>
 }</code></pre>
-<h2 id="tagesordnungspunkt-agendaitem"><span class="header-section-number">5.7</span> Tagesordnungspunkt (<code>agendaitem</code>)</h2>
+<h2 id="oparlagendaitem-tagesordnungspunkt"><span class="header-section-number">5.8</span> OParlAgendaitem (Tagesordnungspunkt)</h2>
 <p>Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. Unter Umständen kann dem Tagesordnungspunkt ein bestimmter Beschlusstext beigefügt sein.</p>
 <p>Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.</p>
 <div class="figure">
 <img src="images/datenmodell_tagesordnungspunkt.png" alt="Objekttyp Tagesordnungspunkt" /><p class="caption">Objekttyp Tagesordnungspunkt</p>
 </div>
-<h3 id="eigenschaften-5"><span class="header-section-number">5.7.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-4"><span class="header-section-number">5.8.1</span> Eigenschaften</h3>
 <dl>
 <dt>Nummer (<code>identifier</code>)</dt>
 <dd>Beispiel: &quot;1.2.3&quot;. Diese Nummer gibt an, in welcher Reihenfolge die Tagesordnungspunkte einer Sitzung normalerweise behandelt werden. Im Kontext einer Sitzung ist diese Nummer eindeutig.
@@ -655,18 +736,18 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h4 id="anmerkungen-2"><span class="header-section-number">5.7.1.1</span> Anmerkungen</h4>
+<h4 id="anmerkungen-2"><span class="header-section-number">5.8.1.1</span> Anmerkungen</h4>
 <ul>
 <li>Einige Systeme vergeben zu Tagesordnungspunkten intern unveränderliche, numerische IDs. Es ist unklar, ob es zusätzlichen Nutzen bringt, derartige IDs, neben den Nummern, in den Standard zu übernehmen. Dies würde vermutlich nur Sinn ergeben, wenn es als Pflichtfeld gelten könnte.</li>
 <li>Teil der Beratungen über einheitliche Nomenklatur im Standard sollte sein, eine Vereinheitlichung der Werte für die Eigenschaft <code>result</code> zu diskutieren.</li>
 </ul>
-<h3 id="beziehungen-5"><span class="header-section-number">5.7.2</span> Beziehungen</h3>
+<h3 id="beziehungen-4"><span class="header-section-number">5.8.2</span> Beziehungen</h3>
 <ul>
 <li>Jeder Tagesordnungspunkt gehört zu genau einer Sitzung.</li>
 <li>Der Tagesordnungspunkt kann auf eine Drucksache verweisen, die im Rahmen dieses Tagesordnungspunkt beraten werden soll.</li>
 <li>Es können Personen referenziert werden, die während der Abstimmung zu diesem Tagesordnungspunkt <em>nicht</em> anwesend waren.</li>
 </ul>
-<h3 id="beispiel-5"><span class="header-section-number">5.7.3</span> Beispiel</h3>
+<h3 id="beispiel-6"><span class="header-section-number">5.8.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="agendaitem_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;meeting&quot;</span>: <span class="st">&quot;3271&quot;</span>,
     <span class="dt">&quot;identifier&quot;</span>: <span class="st">&quot;3.1.2&quot;</span>,
@@ -677,7 +758,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
     <span class="dt">&quot;people_absent&quot;</span>: [<span class="st">&quot;1002&quot;</span>, <span class="st">&quot;1003&quot;</span>],
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
-<h2 id="drucksache-paper"><span class="header-section-number">5.8</span> Drucksache (<code>paper</code>)</h2>
+<h2 id="oparlpaper-drucksache"><span class="header-section-number">5.9</span> OParlPaper (Drucksache)</h2>
 <p>Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen, Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede Drucksache erhält eine eindeutige Kennung.</p>
 <p>Die Drucksache hat im Informationsmodell eine hervorgehobene Bedeutung. Im Fall eines Antrags kann mit einer einzigen Drucksache ein über Monate oder Jahre dauernder politischer Entscheidungsprozess verbunden sein. In dem Zusammenhang entstehen üblicherweise weitere Drucksachen.</p>
 <p>Drucksachen spielen in der schriftlichen wie mündlichen Kommunikation eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in Ratsinformationssystemen unveränderliche Kennungen der Drucksachen zum Einsatz.</p>
@@ -692,7 +773,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><strong>Mitteilung/Stellungnahme der Verwaltung</strong>: Eine Information der Verwaltung an einzelne oder mehrere Gremien. Darunter fallen nicht Beantwortungen von Anfragen.</li>
 <li><strong>Beantwortung einer Anfrage</strong>: Antwort der Verwaltung auf (mündliche oder schriftliche) Anfragen</li>
 </ul>
-<h3 id="eigenschaften-6"><span class="header-section-number">5.8.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-5"><span class="header-section-number">5.9.1</span> Eigenschaften</h3>
 <dl>
 <dt>Schlüssel (<code>id</code>)</dt>
 <dd>Die Kennung einer Drucksache muss für die jeweilige Körperschaft eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben enthalten. Einige Systeme (z.B. Köln) verwenden besondere Trennzeichen wie &quot;/&quot;, um eine Jahreszahl von einer laufenden Nummer abzutrennen. Weiterhin werden mancherorts führende Nullen verwendet.
@@ -707,7 +788,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h3 id="beziehungen-6"><span class="header-section-number">5.8.2</span> Beziehungen</h3>
+<h3 id="beziehungen-5"><span class="header-section-number">5.9.2</span> Beziehungen</h3>
 <ul>
 <li>Es muss genau ein <strong>Hauptdokument</strong> (Objekttyp &quot;Dokument&quot;) referenziert werden.</li>
 <li>Es können beliebig viele weitere Dokumente referenziert werden, die als nachgeordnete <strong>Anlagen</strong> zur Drucksache verstanden werden.</li>
@@ -717,7 +798,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>Drucksachen können auf andere Drucksachen referenzieren. Diese Verweise können verschiedene semantische Beziehungen ausdrücken. So kann eine Drucksache auf eine übergeordnete oder eine oder mehrere untergeordnete Drucksachen verweisen. Beim Drucksachen-Typ &quot;Beantwortung einer Anfrage&quot; ist die Drucksache zu referenzieren, die die ursprüngliche <strong>Anfrage</strong> beinhaltet. Denkbar sind auch Verweise auf frühere Drucksachen zum selben Thema. Zu klären ist, wie die verschiedenen möglichen Beziehungen formell ausgedrückt werden.</li>
 <li>Drucksachen können zu beliebig vielen Tagesordnungspunkten in Beziehung stehen, um die <strong>Beratungsfolge</strong> einer Drucksache abzubilden. Hierbei kann die Beziehung jeweils mit einer Zuständigkeit versehen sein, die noch näher zu bestimmen ist (TODO).</li>
 </ul>
-<h3 id="beispiel-6"><span class="header-section-number">5.8.3</span> Beispiel</h3>
+<h3 id="beispiel-7"><span class="header-section-number">5.9.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="paper_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;1234/2012&quot;</span>,
     <span class="dt">&quot;date&quot;</span>: <span class="st">&quot;2013-01-04&quot;</span>,
@@ -757,14 +838,14 @@ code > span.er { color: #ff0000; font-weight: bold; }
     ],
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2013-01-08T12:05:27+01:00&quot;</span>
 }</code></pre>
-<h2 id="dokument-document"><span class="header-section-number">5.9</span> Dokument (<code>document</code>)</h2>
+<h2 id="oparldocument-dokument"><span class="header-section-number">5.10</span> OParlDocument (Dokument)</h2>
 <p>Ein Dokument hält die Metadaten einer Datei vor, beispielsweise einer PDF-Datei, eines RTF- oder Word-Dokuments.</p>
 <p>Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls ein Dokument. Um zu zeigen, dass es sich um eine Ableitung handelt, verweist dieses auf das Original als &quot;Master&quot;.</p>
 <p>Im Unterschied zur Drucksache benötigt das Dokument keine nutzerfreundliche Kennung.</p>
 <div class="figure">
 <img src="images/datenmodell_dokument.png" alt="Objekttyp Dokument" /><p class="caption">Objekttyp Dokument</p>
 </div>
-<h3 id="eigenschaften-7"><span class="header-section-number">5.9.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-6"><span class="header-section-number">5.10.1</span> Eigenschaften</h3>
 <dl>
 <dt>Schlüssel (<code>id</code>)</dt>
 <dd>Unveränderliche Kennung
@@ -791,7 +872,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Reine Text-Wiedergabe des Dokumenteninhalts, sofern es sich nicht um eine reine Abbildung handelt.
 </dd>
 </dl>
-<h3 id="beziehungen-7"><span class="header-section-number">5.9.2</span> Beziehungen</h3>
+<h3 id="beziehungen-6"><span class="header-section-number">5.10.2</span> Beziehungen</h3>
 <ul>
 <li>Dokumente gehören zwingend zu einer <strong>Drucksache</strong>, optional auch zu mehreren. Ein Dokument kann entweder als Hauptdokument einer Drucksache oder als Anlage eingestuft sein.</li>
 <li>Ein Dokument kann auf ein anderes Dokument referenzieren, wenn es von dem anderen Dokument abstammt. So ist es möglich, von einem abgeleiteten Dokument zu seinem Dokumenten-Master zu gelangen (Beispiel: von einem PDF-Dokument zum OpenOffice-Original).</li>
@@ -807,13 +888,14 @@ code > span.er { color: #ff0000; font-weight: bold; }
     <span class="dt">&quot;text&quot;</span>: <span class="st">&quot;Der Übersichtsplan zeigt alle Ebenen des ...&quot;</span>,
     <span class="dt">&quot;master&quot;</span>: <span class="st">&quot;2099&quot;</span>
 }</code></pre>
-<h2 id="ort-location"><span class="header-section-number">5.10</span> Ort (<code>location</code>)</h2>
+<h2 id="oparlconsultation-beratung"><span class="header-section-number">5.11</span> OParlConsultation (Beratung)</h2>
+<h2 id="oparllocation-ort"><span class="header-section-number">5.12</span> OParlLocation (Ort)</h2>
 <p>Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen (beispielsweise der Name einer Straße/eines Platzes oder eine genaue Adresse) als auch aus Geodaten.</p>
 <p>OParl sieht die Angabe von Geodaten in Anlehnung an die GeoJSON-Spezifikation [13] vor. Die GeoJSON-Spezifikation erlaubt die Abbildung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden und Polygonen. Während GeoJSON zu jedem Geodaten-Objekt auch die Speicherung zusätzlicher Metadaten ermöglicht, beschränkt sich OParl ledliglich auf das <code>geometry</code>-Attribut in GeoJSON. Sämtliche Geo-Koordinatenangaben werden in in OParl im WGS-84-System [11] erwartet.</p>
 <div class="figure">
 <img src="images/datenmodell_ort.png" alt="Objekttyp Ort" /><p class="caption">Objekttyp Ort</p>
 </div>
-<h3 id="eigenschaften-8"><span class="header-section-number">5.10.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-7"><span class="header-section-number">5.12.1</span> Eigenschaften</h3>
 <dl>
 <dt>Textanabe (<code>description</code>)</dt>
 <dd><em>Optional.</em> Textliche Beschreibung eines Orts, z.B. in Form einer Adresse
@@ -825,7 +907,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h3 id="beziehungen-8"><span class="header-section-number">5.10.2</span> Beziehungen</h3>
+<h3 id="beziehungen-7"><span class="header-section-number">5.12.2</span> Beziehungen</h3>
 <ul>
 <li>Orte können mit Drucksachen in Verbindung stehen.</li>
 </ul>
@@ -837,19 +919,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
     },
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2013-02-14T14:05:27+01:00&quot;</span>
 }</code></pre>
+<h2 id="oparlcontact-kontakt"><span class="header-section-number">5.13</span> OParlContact (Kontakt)</h2>
 <h1 id="fußnoten"><span class="header-section-number">6</span> Fußnoten</h1>
-<p>[1]: Siehe <a href="http://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel">de.wikipedia.org/wiki/Amtlicher_Gemeindeschlüssel</a></p>
-<p>[2]: Ratsinformationssystem der Stadt Köln, <a href="http://ratsinformation.stadt-koeln.de/">http://ratsinformation.stadt-koeln.de/</a></p>
-<p>[3]: Firma Somacos, <a href="http://www.somacos.de/de/sitzungsdienst/ratsinfo.html">SessionNet Produktinformation</a></p>
-<p>[4]: Ratsinformationssystem der Bezirksverwaltugn Berlin Mitte, <a href="http://www.berlin.de/ba-mitte/bvv-online/allris.net.asp">http://www.berlin.de/...</a></p>
-<p>[5]: CC e-gov GmbH, <a href="http://www.cc-egov.de/allris.htm">ALLRIS Produktionformationen</a></p>
-<p>[6]: Ratsinformationssystem der Stadt Rösrath, <a href="http://212.227.97.55/ratsinfo/roesrath">http://212.227.97.55/...</a></p>
-<p>[7]: <a href="http://www.provox.de/">Firma PROVOX</a></p>
-<p>[8]: Ratsinformationssystem der Stadt Euskirchen, <a href="https://sitzungsdienst.euskirchen.de/">https://sitzungsdienst.euskirchen.de/</a></p>
-<p>[9]: Firma Sternberg, <a href="http://www.sitzungsdienst.net/produkte/ratsinformationsmanagement">SD.NET RIM Produktionformationen</a></p>
-<p>[10]: BoRis, Ratsinformationssystem der Stadt Bonn (Eigenentwicklung). <a href="http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp">http://www2.bonn.de/...</a></p>
 <p>[11]: World Geodetic System 1984 (EPSG:4326), wird unter anderem auch vom Global Positioning System (GPS) verwendet.</p>
-<p>[12]: Gemeinsame Normdatei: <a href="http://de.wikipedia.org/wiki/Gemeinsame_Normdatei">de.wikipedia.org/wiki/Gemeinsame_Normdatei</a></p>
 <p>[13]: GeoJSON <a href="http://www.geojson.org/">www.geojson.org</a></p>
 <p>[14]: Frankfurt Gestalten <a href="http://www.geojson.org/">www.geojson.org</a></p>
 <p>[15]: Offenes Köln <a href="http://offeneskoeln.de/">offeneskoeln.de</a></p>
@@ -871,6 +943,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <ol>
 <li id="fn1"><p>RFC2119 <a href="http://tools.ietf.org/html/rfc2119"><code class="url">http://tools.ietf.org/html/rfc2119</code></a><a href="#fnref1">↩</a></p></li>
 <li id="fn2"><p>Architecture of the World Wide Web, Volume One. <a href="http://www.w3.org/TR/webarch/"><code class="url">http://www.w3.org/TR/webarch/</code></a><a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd"><code class="url">http://www.dnb.de/gnd</code></a><a href="#fnref4">↩</a></p></li>
 </ol>
 </div>
 </body>

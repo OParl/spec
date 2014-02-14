@@ -926,173 +926,372 @@ einer Zeitangabe.
   (Parameter für Datums-/Zeitbereichsfilter)
 \end{itemize}
 
-\section{Datenmodell}
+\section{Schema}
 
-Das Datenmodell definiert die Objekttypen bzw. die Klassen, auf die über
-die Schnittstelle zugegriffen werden kann.
-
-Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen
-beziehen sich auf nach außen, bei Nutzung der jeweiligen Weboberflächen,
-feststellbare Eigenschaften. Dabei wird vereinzelt und beispielhaft auf
-die folgenden Systeme Bezug genommen:
-
-\begin{itemize}
-\item
-  Stadt Köln {[}2{]} - Plattform: Somacos SessionNet {[}3{]}
-\item
-  Bezirksverwaltung Berlin Mitte {[}4{]} - Plattform: ALLRIS {[}5{]}
-\item
-  Stadt Rösrath {[}6{]} - Plattform der Firma PROVOX {[}7{]}
-\item
-  Stadt Euskirchen {[}8{]} - Plattform: SD.NET RIM 4 {[}9{]}
-\item
-  Stadt Bonn - BoRis {[}10{]}
-\end{itemize}
+Dieses Kapitel beschreibt das Schema von OParl. Das Schema bildet das
+Datzenmodell der OParl-Architektur ab. Es definiert, welche Objekttypen
+über eine OParl-API abgerufen werden können und welche Eigenschaften
+diese Objekttypen haben dürfen und müssen. Darüber hinaus ist im Schema
+auch festgelegt, in welcher Beziehung verschiedene Objekttypen zu
+einander stehen.
 
 \subsection{Übergreifende Aspekte}
 
-\subsubsection{Eindeutige Identifizierung von Objekten}
+\subsubsection{Typen von Objekteigenschaften}
 
-Sämtliche Objekte, die über die Schnittstelle geladen werden können,
-sollen anhand einer einzigen Objekteigenschaft eindeutig identifizierbar
-sein. Die Objekteigenschaft, mit der dies erreicht wird, wird hier im
-folgenden - unabhängig vom tatsächlichen Namen der Eigenschaft - als
-``Schlüssel'' bezeichnet.
-
-Eindeutigkeit meint hier eine Einzigartigkeit innerhalb des
-Informationssystems und für den jeweiligen Objekttyp. Das bedeutet: zwei
-von einander unabhängige Ratsinformationssysteme für verschiedene
-Körperschaften dürfen sich überlappende Schlüssel nutzen. Innerhalb
-eines Systems dürfen zwei Objekte unterschiedlichen Typs (beispielsweise
-eine Person ud ein Gremium) den selben Schlüssel nutzen. Jedoch MÜSSEN
-zwei Objekte des selben Typs innerhalb des selben Systems grundsätzlich
-verschiedene Schlüssel haben.
-
-Schlüssel-Eigenschaften werden grundsätzlich als Unicode-Zeichenkette
-übergeben. Sie können daher gleichermaßen aus numerischen wie
-alphanumerischen Werten befüllt werden.
-
-Es wird grundsätzlich vorausgesetzt, dass Schlüssel unveränderlich sind.
-Ändert sich der Schlüssel eines Objekts nach der Erzeugung, werden
-Nutzer der Schnittstelle annehmen, dass es sich nicht mehr um das selbe
-Objekt handelt.
-
-\subsubsection{Objekteigenschaften}
-
-Die nachfolgend beschriebenen Eigenschaften der Objekttypen sind, wenn
-nicht anders angegeben, verpflichtend. Das bedeutet: Bei jedem von der
-Schnittstelle ausgelieferten Objekt muss diese Eigenschaften definiert
-sein. Optionale Eigenschaften sind entsprechend gekennzeichnet.
-
-Eigenschaften werden deutschsprachig und englischsprachig benannt. Die
-deutschsprachige Benennung dient der bestmöglichen Verständlichkeit im
-Kontext dieses Dokuments, während die Schnittstelle aus Gründen der
-Zugänglichkeit für möglichst viele Entwickler mit englischsprachigen
-Begriffen arbeiten soll.
-
-\subsubsection{Zu den Beziehungen}
-
-Bei der Beschreibung von Beziehungen zwischen Objekten wird zu diesem
-Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei Objekten
-A und B am Objekt A oder am Objekt B definiert wird. So spielt es
-bislang keine Rolle, ob einem Gremium mehrere Personen zugeordnet werden
-oder einer Person mehrere Gremien zugewiesen werden. Das Augenmerkt
-liegt hier nur auf der Tatsache, welche Beziehung existieren können und
-was diese Beziehungen aussagen sollen.
-
-\subsection{Körperschaft (\emph{body})}
-
-Die Körperschaft erlaubt es, den Betreiber bzw. Eigentümer des
-Informationssystems wie zum Beispiel einen Landkreis, eine bestimmte
-Gemeinde oder einen bestimmten Stadtbezirk in Form eines Datenobjekts
-abzubilden.
-
-Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen``.
-Einige Systeme werden jedoch für mehrere Mandanten betrieben, wobei die
-Mandanten verschiedene Körperschaften repräsentieren
-(z.B.''Verbandsgemeinde Ulmen" und ``Stadt Ulmen''.)
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{images/datenmodell_koerperschaft.png}
-\caption{Objekttyp Körperschaft}
-\end{figure}
-
-\subsubsection{Eindeutige Identifizierung}
-
-Die Körperschaft hat eine innerhalb des Systems eindeutige ID.
-
-Darüber hinaus werden verschiedene Möglichkeiten geboten, die
-Körperschaft semantisch zu repräsentieren.
-
-Handelt es sich beim Betreiber des Systems um eine Gebietskörperschaft
-(Landkreis, Kommune etc.), soll für die eindeutige Identifizierung der
-Regionalschlüssel{[}1{]} verwendet werden.
-
-Darüber hinaus soll zusätzlich, sofern vorhanden, die eindeutige Kennung
-der Körperschaft aus der GND{[}12{]} verwendet werden.
-
-Als dritte Möglichkeit, die Körperschaft zu identifizieren, kann eine
-aussagekräftigen URL, unter der weitere Informationen zur Körperschaft
-zu finden sind, genannt werden.
-
-Sämtliche hier genannten Methoden zur Identifizierung können kombiniert
-werden.
-
-\subsubsection{Eigenschaften}
-
-\begin{description}
-\item[Schlüssel (\texttt{id})]
-Zur eindeutigen Identifizierung der Körperschaft im System
-\item[Name (\texttt{name})]
-Der Name der Körperschaft, z.B. ``Stadt Köln''
-\item[Regionalschlüssel (\texttt{regionalschluessel})]
-\emph{Optional}. Regionalschlüssel der Gebietskörperschaft, z.B.
-``053150000000''. Muss grundsätzlich 12-stellig angegeben werden.
-\item[GND URL (\texttt{gnd\_url})]
-\emph{Optional}. URL des Eintrags in der GND, z.B.
-``http://d-nb.info/gnd/2015732-0''
-\item[URL (\texttt{url})]
-\emph{Optional}. URL der Homepage oder einer vergleichbaren Seite mit
-Informationen über die Körperschaft, z.B. ``http://www.stadt-koeln.de/''
-\item[Lizenz (\texttt{license\_url})]
-\emph{Optional}. URL der Lizenz, unter der die Daten, die über die API
-abgerufen werden können, stehen.
-\item[Betreiber-Kontakt (\texttt{operator\_contact})]
-\emph{Optional}. Kontaktinformationen für die direkte Kontaktaufnahme
-zum Betreiber der API.
-\end{description}
-
-\subsubsection{Beziehungen}
+JSON erlaubt grundsätzlich die Kodierung von Eigenschaften in den
+folgenden verschiedenen Typen:
 
 \begin{itemize}
 \item
-  Objekte vom Typ ``Organisation'' sind zwingend genau einer
-  Körperschaft zugeordnet. So wird beispielseise eine SPD in Köln von
-  einer SPD in Leverkusen unterschieden.
+  Zeichenkette
 \item
-  Objekte vom Typ ``Gremium'' sind zwingend genau einer Körperschaft
-  zugeordnet. Damit wird der ``Rat'' einer bestimmten Kommune von den
-  gleichnamigen Gremien anderer Kommunen abgegrenzt.
+  Zahle
+\item
+  Wahrheitswert
+\item
+  null
+\item
+  Liste (Array)
+\item
+  Objekt
 \end{itemize}
+
+Wenn nicht anders angegeben, wird eine Eigenschaft grundsätzlich als
+Zeichenkette erwartet. Eventuelle Längenbeschränkungen oder
+Einschränkungen des Zeichenvorrats werden gesondert erwähnt.
+
+\subsubsection{null-Werte}
+
+JSON erlaubt es grundsätzlich, dass Eigenschaften den Wert \texttt{null}
+haben können. Im Rahmen dieser Spezifikation DARF das jedoch nur bei
+Eigenschaften der Fall sein, die als OPTIONAL oder EMPFOHLEN
+gekennzeichnet sind. ZWINGENDE Eigenschaften müssen einen Wert ungleich
+\texttt{null} besitzen.
+
+\subsubsection{Vererbung der Lizenzbedingung}
+
+\begin{itemize}
+\item
+  Jedes Objekt KANN die Eigenschaft ``license'' besitzen.
+\item
+  Die genannte Lizenz bezieht sich auf das jeweilige Objekt und auf
+  untergeordnete Objekte, sofern diese keine license-Eigenschaft
+  besitzen.
+\item
+  Dazu muss die Vererbungshierarchie aufgezeigt werden.
+\item
+  Empfohlene Minimalvariante: Nur eine license-Angabe auf Ebene von
+  OParlSystem.
+\item
+  Auf Ebene des OParlDocument bezieht sich die Eigenschaft sowohl auf
+  die Metadaten als auch auf das Dokument selbst.
+\end{itemize}
+
+\subsubsection{Die Eigenschaften ``created'' und ``last\_modified''}
+
+\subsubsection{Die Eigenschaften ``name'' und ``name\_long''}
+
+\subsubsection{Die Eigenschaft ``description''}
+
+\subsection{OParlSystem (System)}
+
+Der Objekttyp \texttt{OParlSystem} bildet grundlegende Informationen zum
+parlamentarischen Informationssystem ab. Das Objekt repräsentiert das
+technische System, unabhängig von der Frage, welche Körperschaften auf
+diesem System vertreten sind.
+
+Auf jedem OParl Server MUSS ein Objekt vom Typ \texttt{OParlSystem}
+vorgehalten werden. Es DARF nur ein einziges solches Objekt je Server
+existieren.
+
+Für Clients ist das \texttt{OParlSystem} Objekt ein geeigneter
+Einstiegspunkt, um grundlegende Informationen über das Sytem zu bekommen
+und die URLs zum Zugriff auf andere Informationen in Erfahrung zu
+bringen.
+
+Die URL (IRI) des \texttt{OParlSystem} Objekts MUSS per Definition
+identisch mit der URL des API-Endpunkts des Servers sein.
+
+\subsubsection{Eigenschaft \texttt{oparl\_version}}
+
+Diese Eigenschaft ist ZWINGEND.
+
+URL der Version der OParl-Spezifikation, die von diesem System
+unterstützt wird. So lange es nur die Version 1.0 der
+OParl-Spezifikation gibt, MUSS der Wert dieser Eigenschaft
+\texttt{http://oparl.org/specs/1.0/} sein.
+
+Sofern zukünftig weitere Versionen der Spezifikation vorliegen, können
+Clients damit in Erfahrung bringen, welches Schema, welche Eigenschaften
+und Methoden auf Seite des Servers vorausgesetzt werden können.
+
+\subsubsection{Eigenschaft \texttt{bodies}}
+
+Diese Eigenschaft ist ZWINGEND.
+
+Über diese URL sind alle OParlBody Objekte, also die im System geführten
+Körperschaften, als Liste abrufbar.
+
+TODO: Verweis auf OParlBody einfügen
+
+\subsubsection{Eigenschaft \texttt{name}}
+
+Diese Eigenschaft wird EMPFOHLEN.
+
+Diese Eigenschaft dient dazu, einen nutzerfreundlichen Namen zu
+kommunizieren, mit dem NutzerInnen das System wiedererkennen und von
+anderen unterscheiden können.
+
+\subsubsection{Eigenschaft \texttt{contact}}
+
+Diese Eigenschaft wird EMPFOHLEN.
+
+Die Eigenschaft dient dazu, NutzerInnen bzw. EntwicklerInnen von Clients
+die Kontaktaufnahme mit dem Betreiber des Systems zu ermöglichen. Es
+wird EMPFOHLEN, hier die Kontaktdaten eines technischen Ansprechpartners
+bzw. einer allgemeinen Kontaktstelle auszugeben, über die Anfragen
+verschiedener Art an die richtige Kontaktperson umgeleitet werden
+können.
+
+Der Wert dieser Eigenschaft MUSS ein Objekt vom Typ OParlContact sein.
+
+TODO: Verweis auf OParlContact einfügen.
+
+\subsubsection{Eigenschaft \texttt{license}}
+
+Diese Eigenschaft wird EMPFOHLEN.
+
+Die Eigenschaft dient dazu, darüber zu informieren, unter welcher Lizenz
+die Daten des aktuell angezeigten Objekts stehen. Zur Vererbung dieser
+Eigenschaft siehe (TODO: Verweis auf Abschnitt zur Lizenz-Vererbung
+einfügen).
+
+Der Wert dieser Eigenschaft sollte nach Möglichkeit eine URL sein, unter
+der genau die entsprechende Lizenz abgerufen werden kann.
+
+\subsubsection{Eigenschaft \texttt{new\_objects}}
+
+Diese Eigenschaft ist EMPFOHLEN.
+
+Mit dieser Eigenschaft wird die URL des Feeds für neu hinzugekommene
+Objekte ausgegeben.
+
+TODO: Verweis auf Feeds \textgreater{} Neue Objekte
+
+\subsubsection{Eigenschaft \texttt{updated\_objects}}
+
+Diese Eigenschaft ist EMPFOHLEN.
+
+Mit dieser Eigenschaft wird die URL des Feeds für geänderte Objekte
+ausgegeben.
+
+TODO: Verweis auf Feeds \textgreater{} Geänderte Objekte
+
+\subsubsection{Eigenschaft \texttt{removed\_objects}}
+
+Diese Eigenschaft ist EMPFOHLEN.
+
+Mit dieser Eigenschaft wird die URL des Feeds für entfernte Objekte
+ausgegeben.
+
+TODO: Verweis auf Feeds \textgreater{} Entfernte Objekte
+
+\subsubsection{Eigenschaft \texttt{info\_url}}
+
+Diese Eigenschaft ist OPTIONAL.
+
+Diese Eigenschaft dient dazu, eine zusätzliche URL zu einer WWW-Seite
+mit zusätzlichen Informationen zum System anzubieten. So könnten
+NutzerInnen beispielsweise auf eine Web-Oberfläche eines
+parlamentarischen Informationssystems geführt werden.
+
+\subsubsection{Eigenschaft \texttt{vendor\_url}}
+
+Diese Eigenschaft ist OPTIONAL.
+
+Diese Eigenschaft dient dazu, über eine URL den Hersteller des
+Server-Systems zu komunizieren. Die URL sollt nach Möglichkeit zu einer
+WWW-Seite mit weiteren Informationen zum Hersteller führen.
+
+\subsubsection{Eigenschaft \texttt{product\_url}}
+
+Diese Eigenschaft ist OPTIONAL.
+
+Diese Eigenschaft dient dazu, über eine URL mitzuteilen, welches
+Softwareprodukt das Server-System bereitstellt. Die URL soll nach
+Möglichkeit zu einer WWW-Seite mit weiteren Informationen zum Produkt
+führen.
 
 \subsubsection{Beispiel}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
-    \DataTypeTok{"id"}\NormalTok{: }\StringTok{"1"}\NormalTok{,}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Stadt Köln"}\NormalTok{,}
-    \DataTypeTok{"regionalschluessel"}\NormalTok{: }\StringTok{"053150000000"}\NormalTok{,}
-    \DataTypeTok{"gnd_url"}\NormalTok{: }\StringTok{"http://d-nb.info/gnd/2015732-0"}\NormalTok{,}
-    \DataTypeTok{"url"}\NormalTok{: }\StringTok{"http://www.stadt-koeln.de/"}\NormalTok{,}
-    \DataTypeTok{"operator_contact"}\NormalTok{: }\StringTok{"Tel. +49 221-221-5432, E-Mail: ris-api@stadt-koeln.de"}\NormalTok{,}
-    \DataTypeTok{"license_url"}\NormalTok{: }\StringTok{"http://opendatacommons.org/licenses/odbl/1.0/"}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/"}\NormalTok{,}
+    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/OParlSystem"}\NormalTok{,}
+    \DataTypeTok{"oparl_version"}\NormalTok{: }\StringTok{"http://oparl.org/specs/1.0/"}\NormalTok{,}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"OParl Reference Server"}\NormalTok{,}
+    \DataTypeTok{"info_url"}\NormalTok{: }\StringTok{"https://github.com/OParl/reference-server"}\NormalTok{,}
+    \DataTypeTok{"contact"}\NormalTok{: \{}
+        \DataTypeTok{"email"}\NormalTok{: }\StringTok{"info@oparl.org"}\NormalTok{,}
+        \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Common OParl contact"}
+    \NormalTok{\}, }
+    \DataTypeTok{"vendor_url"}\NormalTok{: }\StringTok{"http://oparl.org/"}\NormalTok{,}
+    \DataTypeTok{"product_url"}\NormalTok{: }\StringTok{"https://github.com/OParl/reference-server"}\NormalTok{,}
+    \DataTypeTok{"license"}\NormalTok{: }\StringTok{"http://creativecommons.org/licenses/by/4.0/"}\NormalTok{,}
+    \DataTypeTok{"bodies"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/"}\NormalTok{,}
+    \DataTypeTok{"new_objects"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/feeds/new/"}\NormalTok{,}
+    \DataTypeTok{"updated_objects"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/feeds/updated/"}\NormalTok{,}
+    \DataTypeTok{"removed_objects"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/feeds/removed/"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Gremium (\emph{committee})}
+\subsection{OParlBody (Körperschaft)}
+
+Dieser Objekttyp erlaubt es, eine Körperschaft abzbilden. Eine
+Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder ein
+Zweckverband sein.
+
+Von einem funktionsfähigen Server wird erwartet, dass er mindestens ein
+Objekt vom Typ \texttt{OParlBody} bereit hält. Teilen sich mehrere
+Körperschaften das selbe technische System, können auf demselben Server
+auch mehrere Objekte vom Typ \texttt{OParlBody} beherbergt werden.
+
+Über die Zuordnung zu einem bestimmten \texttt{OParlBody} Objekt zeigen
+andere Objekte, wie beispielsweise Gremien oder Drucksachen, ihre
+Zugehörigkeit zu einer bestimmten Körperschaft an.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{images/datenmodell_koerperschaft.png}
+\caption{Objekttyp OParlBody}
+\end{figure}
+
+Es werden mehrere Eigenschaften angeboten, die dazu dienen, die real
+existierende Körperschaft, die von einem \texttt{OParlBody} Objekt
+repräsentiert wird, programmatisch auslesbar zu machen zu können.
+Insbesondere sind hier die Eigenschaften \texttt{url}, \texttt{rgs} und
+\texttt{gnd\_url} zu nennen.
+
+\subsubsection{Eigenschaft \texttt{system}}
+
+Diese Eigenschaft ist ZWINGEND.
+
+Mit dieser Eigenschaft wird das Objekt dem übergeordneten OParlSystem
+Objekt zugeordnet. Wert MUSS der IRI des OParlSystem Objekts sein.
+
+\subsubsection{Eigenschaft \texttt{name}}
+
+Diese Eigenschaft ist ZWINGEND. Sie transportiert den gebräuchlichen
+Namen der Körperschaft.
+
+\subsubsection{Eigenschaft \texttt{name\_long}}
+
+Diese Eigenschaft ist OPTIONAL und kann bei Bedarf dazu verwendet
+werden, eine längere Form des Namens der Körperschaft wieder zu geben,
+sofern dieser für die Eigenschaft \texttt{name} zu lang ist.
+
+\subsubsection{Eigenschaft \texttt{url}}
+
+Diese Eigenschaft ist EMPFOHLEN.
+
+Mit dieser Eigenschaft SOLL die URL der offiziellen Website der
+Körperschaft ausgegeben werden.
+
+TODO: Beschreibung
+
+\subsubsection{Eigenschaft \texttt{rgs}}
+
+Diese Eigenschaft ist EMPFOHLEN.
+
+Handelt es sich bei der Körperschaft um eine Gebietskörperschaft
+(Landkreis, Kommune etc.) in Deutschland, SOLL für die eindeutige
+Identifizierung der amtliche Regionalschlüssel verwendet
+werden.\footnote{Regionalschlüssel können im
+  \href{https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html}{Gemeindeverzeichnis
+  (GV-ISys) des Statistischen Bundesamtes} eingesehen werden} Dieser ist
+grundsätzlich zwölfstellig.
+
+\subsubsection{Eigenschaft \texttt{gnd\_url}}
+
+Diese Eigenschaft ist EMPFOHLEN.
+
+Sofern die Körperschaft in der GND\footnote{Gemeinsame Normdatei
+  \url{http://www.dnb.de/gnd}} vertreten ist, SOLL diese Eigenschaft als
+Wert die URL des Eintrags in der GND enthalten.
+
+\subsubsection{Eigenschaft \texttt{contact}}
+
+Diese Eigenschaft ist EMPFOHLEN.
+
+Über diese Eigenschafte SOLLEN Kontaktinformationen zu einer Stelle
+bereit gestellt werden, die die inhaltliche Verantwortung für sämtliche
+zu dieser Körperschaft gehörenden Inhalte im System trägt. Besonders
+wichtig ist diese Angabe, wenn auf einem System mehrere Körperschaften
+vertreten sind und damit auf der Ebene des OParlSystem Objekts ein rein
+technischer Kontakt ausgegeben wird, der nicht für inhaltliche
+Fragestellungen im Zuständigkeitsbereich der jeweiligen Körperschaften
+kontaktiert werden sollte.
+
+\subsubsection{Eigenschaft \texttt{papers}}
+
+Diese Eigenschaft ist ZWINGEND.
+
+Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
+Drucksachen (Objekte vom Typ OParlPaper) für diese Körperschaft.
+
+\subsubsection{Eigenschaft \texttt{people}}
+
+Diese Eigenschaft ist ZWINGEND.
+
+Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
+Personen (Objekte vom Typ OParlPerson) für diese Körperschaft.
+
+\subsubsection{Eigenschaft \texttt{meetings}}
+
+Diese Eigenschaft ist ZWINGEND.
+
+Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
+Sitzungen (Objekte vom Typ OParlMeeting) für diese Körperschaft.
+
+\subsubsection{Eigenschaft \texttt{committees}}
+
+Diese Eigenschaft ist ZWINGEND.
+
+Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
+Gremien (Objekte vom Typ OParlCommittee) für diese Körperschaft.
+
+\subsubsection{Beispiel}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0"}\NormalTok{,}
+    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/OParlBody"}\NormalTok{,}
+    \DataTypeTok{"committees"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/committees/"}\NormalTok{,}
+    \DataTypeTok{"contact"}\NormalTok{: \{}
+        \DataTypeTok{"email"}\NormalTok{: }\StringTok{"ris@stadt-koeln.de"}\NormalTok{,}
+        \DataTypeTok{"name"}\NormalTok{: }\StringTok{"RIS-Betreuung"}
+    \NormalTok{\}, }
+    \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2014-01-08T14:28:31.568+0100"}\NormalTok{,}
+    \DataTypeTok{"gnd_url"}\NormalTok{: }\StringTok{"http://d-nb.info/gnd/2015732-0"}\NormalTok{,}
+    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2014-01-08T14:28:31.568+0100"}\NormalTok{,}
+    \DataTypeTok{"meetings"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/meetings/"}\NormalTok{,}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Stadt K\textbackslash{}u00f6ln"}\NormalTok{,}
+    \DataTypeTok{"name_long"}\NormalTok{: }\StringTok{"Stadt K\textbackslash{}u00f6ln, kreisfreie Stadt"}\NormalTok{,}
+    \DataTypeTok{"organisations"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/organisations/"}\NormalTok{,}
+    \DataTypeTok{"papers"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/papers/"}\NormalTok{,}
+    \DataTypeTok{"people"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/people/"}\NormalTok{,}
+    \DataTypeTok{"rgs"}\NormalTok{: }\StringTok{"053150000000"}\NormalTok{,}
+    \DataTypeTok{"system"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/"}\NormalTok{,}
+    \DataTypeTok{"url"}\NormalTok{: }\StringTok{"http://www.stadt-koeln.de/"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{OParlCommittee (Gremium}
 
 Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder
 ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat,
@@ -1153,7 +1352,7 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Person (\emph{person})}
+\subsection{OParlPerson (Person)}
 
 Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person
 im Datenmodell eindeutig identifizierbar.
@@ -1260,7 +1459,7 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Organisation (\texttt{organisation})}
+\subsection{OParlOrganisation (Organisation)}
 
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die
 Personen angehören können.
@@ -1316,7 +1515,7 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Sitzung (\texttt{meeting})}
+\subsection{OParlMeeting (Sitzung)}
 
 Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder
 mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.
@@ -1408,7 +1607,7 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Tagesordnungspunkt (\texttt{agendaitem})}
+\subsection{OParlAgendaitem (Tagesordnungspunkt)}
 
 Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält
 eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel
@@ -1501,7 +1700,7 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Drucksache (\texttt{paper})}
+\subsection{OParlPaper (Drucksache)}
 
 Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen,
 Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede
@@ -1647,7 +1846,7 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Dokument (\texttt{document})}
+\subsection{OParlDocument (Dokument)}
 
 Ein Dokument hält die Metadaten einer Datei vor, beispielsweise einer
 PDF-Datei, eines RTF- oder Word-Dokuments.
@@ -1717,7 +1916,9 @@ eine reine Abbildung handelt.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Ort (\texttt{location})}
+\subsection{OParlConsultation (Beratung)}
+
+\subsection{OParlLocation (Ort)}
 
 Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal
 abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen
@@ -1771,45 +1972,12 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
+\subsection{OParlContact (Kontakt)}
+
 \section{Fußnoten}
-
-{[}1{]}: Siehe
-\href{http://de.wikipedia.org/wiki/Amtlicher\_Gemeindeschl\%C3\%BCssel}{de.wikipedia.org/wiki/Amtlicher\_Gemeindeschlüssel}
-
-{[}2{]}: Ratsinformationssystem der Stadt Köln,
-\href{http://ratsinformation.stadt-koeln.de/}{http://ratsinformation.stadt-koeln.de/}
-
-{[}3{]}: Firma Somacos,
-\href{http://www.somacos.de/de/sitzungsdienst/ratsinfo.html}{SessionNet
-Produktinformation}
-
-{[}4{]}: Ratsinformationssystem der Bezirksverwaltugn Berlin Mitte,
-\href{http://www.berlin.de/ba-mitte/bvv-online/allris.net.asp}{http://www.berlin.de/\ldots{}}
-
-{[}5{]}: CC e-gov GmbH, \href{http://www.cc-egov.de/allris.htm}{ALLRIS
-Produktionformationen}
-
-{[}6{]}: Ratsinformationssystem der Stadt Rösrath,
-\href{http://212.227.97.55/ratsinfo/roesrath}{http://212.227.97.55/\ldots{}}
-
-{[}7{]}: \href{http://www.provox.de/}{Firma PROVOX}
-
-{[}8{]}: Ratsinformationssystem der Stadt Euskirchen,
-\href{https://sitzungsdienst.euskirchen.de/}{https://sitzungsdienst.euskirchen.de/}
-
-{[}9{]}: Firma Sternberg,
-\href{http://www.sitzungsdienst.net/produkte/ratsinformationsmanagement}{SD.NET
-RIM Produktionformationen}
-
-{[}10{]}: BoRis, Ratsinformationssystem der Stadt Bonn
-(Eigenentwicklung).
-\href{http://www2.bonn.de/bo\_ris/ris\_sql/agm\_index.asp}{http://www2.bonn.de/\ldots{}}
 
 {[}11{]}: World Geodetic System 1984 (EPSG:4326), wird unter anderem
 auch vom Global Positioning System (GPS) verwendet.
-
-{[}12{]}: Gemeinsame Normdatei:
-\href{http://de.wikipedia.org/wiki/Gemeinsame\_Normdatei}{de.wikipedia.org/wiki/Gemeinsame\_Normdatei}
 
 {[}13{]}: GeoJSON \href{http://www.geojson.org/}{www.geojson.org}
 

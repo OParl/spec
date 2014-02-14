@@ -1372,284 +1372,530 @@
     </itemizedlist>
   </sect2>
 </sect1>
-<sect1 id="datenmodell">
-  <title>Datenmodell</title>
+<sect1 id="schema">
+  <title>Schema</title>
   <para>
-    Das Datenmodell definiert die Objekttypen bzw. die Klassen, auf die
-    über die Schnittstelle zugegriffen werden kann.
+    Dieses Kapitel beschreibt das Schema von OParl. Das Schema bildet
+    das Datzenmodell der OParl-Architektur ab. Es definiert, welche
+    Objekttypen über eine OParl-API abgerufen werden können und welche
+    Eigenschaften diese Objekttypen haben dürfen und müssen. Darüber
+    hinaus ist im Schema auch festgelegt, in welcher Beziehung
+    verschiedene Objekttypen zu einander stehen.
   </para>
-  <para>
-    Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen
-    beziehen sich auf nach außen, bei Nutzung der jeweiligen
-    Weboberflächen, feststellbare Eigenschaften. Dabei wird vereinzelt
-    und beispielhaft auf die folgenden Systeme Bezug genommen:
-  </para>
-  <itemizedlist>
-    <listitem>
-      <para>
-        Stadt Köln [2] - Plattform: Somacos SessionNet [3]
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Bezirksverwaltung Berlin Mitte [4] - Plattform: ALLRIS [5]
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Stadt Rösrath [6] - Plattform der Firma PROVOX [7]
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Stadt Euskirchen [8] - Plattform: SD.NET RIM 4 [9]
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Stadt Bonn - BoRis [10]
-      </para>
-    </listitem>
-  </itemizedlist>
   <sect2 id="übergreifende-aspekte">
     <title>Übergreifende Aspekte</title>
-    <sect3 id="eindeutige-identifizierung-von-objekten">
-      <title>Eindeutige Identifizierung von Objekten</title>
+    <sect3 id="typen-von-objekteigenschaften">
+      <title>Typen von Objekteigenschaften</title>
       <para>
-        Sämtliche Objekte, die über die Schnittstelle geladen werden
-        können, sollen anhand einer einzigen Objekteigenschaft eindeutig
-        identifizierbar sein. Die Objekteigenschaft, mit der dies
-        erreicht wird, wird hier im folgenden - unabhängig vom
-        tatsächlichen Namen der Eigenschaft - als &quot;Schlüssel&quot;
-        bezeichnet.
+        JSON erlaubt grundsätzlich die Kodierung von Eigenschaften in
+        den folgenden verschiedenen Typen:
       </para>
-      <para>
-        Eindeutigkeit meint hier eine Einzigartigkeit innerhalb des
-        Informationssystems und für den jeweiligen Objekttyp. Das
-        bedeutet: zwei von einander unabhängige Ratsinformationssysteme
-        für verschiedene Körperschaften dürfen sich überlappende
-        Schlüssel nutzen. Innerhalb eines Systems dürfen zwei Objekte
-        unterschiedlichen Typs (beispielsweise eine Person ud ein
-        Gremium) den selben Schlüssel nutzen. Jedoch MÜSSEN zwei Objekte
-        des selben Typs innerhalb des selben Systems grundsätzlich
-        verschiedene Schlüssel haben.
-      </para>
-      <para>
-        Schlüssel-Eigenschaften werden grundsätzlich als
-        Unicode-Zeichenkette übergeben. Sie können daher gleichermaßen
-        aus numerischen wie alphanumerischen Werten befüllt werden.
-      </para>
-      <para>
-        Es wird grundsätzlich vorausgesetzt, dass Schlüssel
-        unveränderlich sind. Ändert sich der Schlüssel eines Objekts
-        nach der Erzeugung, werden Nutzer der Schnittstelle annehmen,
-        dass es sich nicht mehr um das selbe Objekt handelt.
-      </para>
-    </sect3>
-    <sect3 id="objekteigenschaften">
-      <title>Objekteigenschaften</title>
-      <para>
-        Die nachfolgend beschriebenen Eigenschaften der Objekttypen
-        sind, wenn nicht anders angegeben, verpflichtend. Das bedeutet:
-        Bei jedem von der Schnittstelle ausgelieferten Objekt muss diese
-        Eigenschaften definiert sein. Optionale Eigenschaften sind
-        entsprechend gekennzeichnet.
-      </para>
-      <para>
-        Eigenschaften werden deutschsprachig und englischsprachig
-        benannt. Die deutschsprachige Benennung dient der bestmöglichen
-        Verständlichkeit im Kontext dieses Dokuments, während die
-        Schnittstelle aus Gründen der Zugänglichkeit für möglichst viele
-        Entwickler mit englischsprachigen Begriffen arbeiten soll.
-      </para>
-    </sect3>
-    <sect3 id="zu-den-beziehungen">
-      <title>Zu den Beziehungen</title>
-      <para>
-        Bei der Beschreibung von Beziehungen zwischen Objekten wird zu
-        diesem Zeitpunkt nicht berücksichtigt, ob eine Beziehung
-        zwischen zwei Objekten A und B am Objekt A oder am Objekt B
-        definiert wird. So spielt es bislang keine Rolle, ob einem
-        Gremium mehrere Personen zugeordnet werden oder einer Person
-        mehrere Gremien zugewiesen werden. Das Augenmerkt liegt hier nur
-        auf der Tatsache, welche Beziehung existieren können und was
-        diese Beziehungen aussagen sollen.
-      </para>
-    </sect3>
-  </sect2>
-  <sect2 id="körperschaft-body">
-    <title>Körperschaft (<emphasis>body</emphasis>)</title>
-    <para>
-      Die Körperschaft erlaubt es, den Betreiber bzw. Eigentümer des
-      Informationssystems wie zum Beispiel einen Landkreis, eine
-      bestimmte Gemeinde oder einen bestimmten Stadtbezirk in Form eines
-      Datenobjekts abzubilden.
-    </para>
-    <para>
-      Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“.
-      Einige Systeme werden jedoch für mehrere Mandanten betrieben,
-      wobei die Mandanten verschiedene Körperschaften repräsentieren
-      (z.B. &quot;Verbandsgemeinde Ulmen&quot; und &quot;Stadt
-      Ulmen&quot;.)
-    </para>
-    <figure>
-      <title>Objekttyp Körperschaft</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/datenmodell_koerperschaft.png" />
-        </imageobject>
-        <textobject><phrase>Objekttyp Körperschaft</phrase></textobject>
-      </mediaobject>
-    </figure>
-    <sect3 id="eindeutige-identifizierung">
-      <title>Eindeutige Identifizierung</title>
-      <para>
-        Die Körperschaft hat eine innerhalb des Systems eindeutige ID.
-      </para>
-      <para>
-        Darüber hinaus werden verschiedene Möglichkeiten geboten, die
-        Körperschaft semantisch zu repräsentieren.
-      </para>
-      <para>
-        Handelt es sich beim Betreiber des Systems um eine
-        Gebietskörperschaft (Landkreis, Kommune etc.), soll für die
-        eindeutige Identifizierung der Regionalschlüssel[1] verwendet
-        werden.
-      </para>
-      <para>
-        Darüber hinaus soll zusätzlich, sofern vorhanden, die eindeutige
-        Kennung der Körperschaft aus der GND[12] verwendet werden.
-      </para>
-      <para>
-        Als dritte Möglichkeit, die Körperschaft zu identifizieren, kann
-        eine aussagekräftigen URL, unter der weitere Informationen zur
-        Körperschaft zu finden sind, genannt werden.
-      </para>
-      <para>
-        Sämtliche hier genannten Methoden zur Identifizierung können
-        kombiniert werden.
-      </para>
-    </sect3>
-    <sect3 id="eigenschaften">
-      <title>Eigenschaften</title>
-      <variablelist>
-        <varlistentry>
-          <term>
-            Schlüssel (<literal>id</literal>)
-          </term>
-          <listitem>
-            <para>
-              Zur eindeutigen Identifizierung der Körperschaft im System
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Name (<literal>name</literal>)
-          </term>
-          <listitem>
-            <para>
-              Der Name der Körperschaft, z.B. &quot;Stadt Köln&quot;
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Regionalschlüssel (<literal>regionalschluessel</literal>)
-          </term>
-          <listitem>
-            <para>
-              <emphasis>Optional</emphasis>. Regionalschlüssel der
-              Gebietskörperschaft, z.B. &quot;053150000000&quot;. Muss
-              grundsätzlich 12-stellig angegeben werden.
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            GND URL (<literal>gnd_url</literal>)
-          </term>
-          <listitem>
-            <para>
-              <emphasis>Optional</emphasis>. URL des Eintrags in der
-              GND, z.B. &quot;http://d-nb.info/gnd/2015732-0&quot;
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            URL (<literal>url</literal>)
-          </term>
-          <listitem>
-            <para>
-              <emphasis>Optional</emphasis>. URL der Homepage oder einer
-              vergleichbaren Seite mit Informationen über die
-              Körperschaft, z.B. &quot;http://www.stadt-koeln.de/&quot;
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Lizenz (<literal>license_url</literal>)
-          </term>
-          <listitem>
-            <para>
-              <emphasis>Optional</emphasis>. URL der Lizenz, unter der
-              die Daten, die über die API abgerufen werden können,
-              stehen.
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Betreiber-Kontakt (<literal>operator_contact</literal>)
-          </term>
-          <listitem>
-            <para>
-              <emphasis>Optional</emphasis>. Kontaktinformationen für
-              die direkte Kontaktaufnahme zum Betreiber der API.
-            </para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </sect3>
-    <sect3 id="beziehungen">
-      <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
           <para>
-            Objekte vom Typ &quot;Organisation&quot; sind zwingend genau
-            einer Körperschaft zugeordnet. So wird beispielseise eine
-            SPD in Köln von einer SPD in Leverkusen unterschieden.
+            Zeichenkette
           </para>
         </listitem>
         <listitem>
           <para>
-            Objekte vom Typ &quot;Gremium&quot; sind zwingend genau
-            einer Körperschaft zugeordnet. Damit wird der
-            &quot;Rat&quot; einer bestimmten Kommune von den
-            gleichnamigen Gremien anderer Kommunen abgegrenzt.
+            Zahle
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Wahrheitswert
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            null
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Liste (Array)
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Objekt
           </para>
         </listitem>
       </itemizedlist>
+      <para>
+        Wenn nicht anders angegeben, wird eine Eigenschaft grundsätzlich
+        als Zeichenkette erwartet. Eventuelle Längenbeschränkungen oder
+        Einschränkungen des Zeichenvorrats werden gesondert erwähnt.
+      </para>
+    </sect3>
+    <sect3 id="null-werte">
+      <title>null-Werte</title>
+      <para>
+        JSON erlaubt es grundsätzlich, dass Eigenschaften den Wert
+        <literal>null</literal> haben können. Im Rahmen dieser
+        Spezifikation DARF das jedoch nur bei Eigenschaften der Fall
+        sein, die als OPTIONAL oder EMPFOHLEN gekennzeichnet sind.
+        ZWINGENDE Eigenschaften müssen einen Wert ungleich
+        <literal>null</literal> besitzen.
+      </para>
+    </sect3>
+    <sect3 id="vererbung-der-lizenzbedingung">
+      <title>Vererbung der Lizenzbedingung</title>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Jedes Objekt KANN die Eigenschaft &quot;license&quot;
+            besitzen.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Die genannte Lizenz bezieht sich auf das jeweilige Objekt
+            und auf untergeordnete Objekte, sofern diese keine
+            license-Eigenschaft besitzen.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Dazu muss die Vererbungshierarchie aufgezeigt werden.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Empfohlene Minimalvariante: Nur eine license-Angabe auf
+            Ebene von OParlSystem.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Auf Ebene des OParlDocument bezieht sich die Eigenschaft
+            sowohl auf die Metadaten als auch auf das Dokument selbst.
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
+    <sect3 id="die-eigenschaften-created-und-last_modified">
+      <title>Die Eigenschaften &quot;created&quot; und
+      &quot;last_modified&quot;</title>
+      <para>
+      </para>
+    </sect3>
+    <sect3 id="die-eigenschaften-name-und-name_long">
+      <title>Die Eigenschaften &quot;name&quot; und
+      &quot;name_long&quot;</title>
+      <para>
+      </para>
+    </sect3>
+    <sect3 id="die-eigenschaft-description">
+      <title>Die Eigenschaft &quot;description&quot;</title>
+      <para>
+      </para>
+    </sect3>
+  </sect2>
+  <sect2 id="oparlsystem-system">
+    <title>OParlSystem (System)</title>
+    <para>
+      Der Objekttyp <literal>OParlSystem</literal> bildet grundlegende
+      Informationen zum parlamentarischen Informationssystem ab. Das
+      Objekt repräsentiert das technische System, unabhängig von der
+      Frage, welche Körperschaften auf diesem System vertreten sind.
+    </para>
+    <para>
+      Auf jedem OParl Server MUSS ein Objekt vom Typ
+      <literal>OParlSystem</literal> vorgehalten werden. Es DARF nur ein
+      einziges solches Objekt je Server existieren.
+    </para>
+    <para>
+      Für Clients ist das <literal>OParlSystem</literal> Objekt ein
+      geeigneter Einstiegspunkt, um grundlegende Informationen über das
+      Sytem zu bekommen und die URLs zum Zugriff auf andere
+      Informationen in Erfahrung zu bringen.
+    </para>
+    <para>
+      Die URL (IRI) des <literal>OParlSystem</literal> Objekts MUSS per
+      Definition identisch mit der URL des API-Endpunkts des Servers
+      sein.
+    </para>
+    <sect3 id="eigenschaft-oparl_version">
+      <title>Eigenschaft <literal>oparl_version</literal></title>
+      <para>
+        Diese Eigenschaft ist ZWINGEND.
+      </para>
+      <para>
+        URL der Version der OParl-Spezifikation, die von diesem System
+        unterstützt wird. So lange es nur die Version 1.0 der
+        OParl-Spezifikation gibt, MUSS der Wert dieser Eigenschaft
+        <literal>http://oparl.org/specs/1.0/</literal> sein.
+      </para>
+      <para>
+        Sofern zukünftig weitere Versionen der Spezifikation vorliegen,
+        können Clients damit in Erfahrung bringen, welches Schema,
+        welche Eigenschaften und Methoden auf Seite des Servers
+        vorausgesetzt werden können.
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-bodies">
+      <title>Eigenschaft <literal>bodies</literal></title>
+      <para>
+        Diese Eigenschaft ist ZWINGEND.
+      </para>
+      <para>
+        Über diese URL sind alle OParlBody Objekte, also die im System
+        geführten Körperschaften, als Liste abrufbar.
+      </para>
+      <para>
+        TODO: Verweis auf OParlBody einfügen
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-name">
+      <title>Eigenschaft <literal>name</literal></title>
+      <para>
+        Diese Eigenschaft wird EMPFOHLEN.
+      </para>
+      <para>
+        Diese Eigenschaft dient dazu, einen nutzerfreundlichen Namen zu
+        kommunizieren, mit dem NutzerInnen das System wiedererkennen und
+        von anderen unterscheiden können.
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-contact">
+      <title>Eigenschaft <literal>contact</literal></title>
+      <para>
+        Diese Eigenschaft wird EMPFOHLEN.
+      </para>
+      <para>
+        Die Eigenschaft dient dazu, NutzerInnen bzw. EntwicklerInnen von
+        Clients die Kontaktaufnahme mit dem Betreiber des Systems zu
+        ermöglichen. Es wird EMPFOHLEN, hier die Kontaktdaten eines
+        technischen Ansprechpartners bzw. einer allgemeinen
+        Kontaktstelle auszugeben, über die Anfragen verschiedener Art an
+        die richtige Kontaktperson umgeleitet werden können.
+      </para>
+      <para>
+        Der Wert dieser Eigenschaft MUSS ein Objekt vom Typ OParlContact
+        sein.
+      </para>
+      <para>
+        TODO: Verweis auf OParlContact einfügen.
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-license">
+      <title>Eigenschaft <literal>license</literal></title>
+      <para>
+        Diese Eigenschaft wird EMPFOHLEN.
+      </para>
+      <para>
+        Die Eigenschaft dient dazu, darüber zu informieren, unter
+        welcher Lizenz die Daten des aktuell angezeigten Objekts stehen.
+        Zur Vererbung dieser Eigenschaft siehe (TODO: Verweis auf
+        Abschnitt zur Lizenz-Vererbung einfügen).
+      </para>
+      <para>
+        Der Wert dieser Eigenschaft sollte nach Möglichkeit eine URL
+        sein, unter der genau die entsprechende Lizenz abgerufen werden
+        kann.
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-new_objects">
+      <title>Eigenschaft <literal>new_objects</literal></title>
+      <para>
+        Diese Eigenschaft ist EMPFOHLEN.
+      </para>
+      <para>
+        Mit dieser Eigenschaft wird die URL des Feeds für neu
+        hinzugekommene Objekte ausgegeben.
+      </para>
+      <para>
+        TODO: Verweis auf Feeds &gt; Neue Objekte
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-updated_objects">
+      <title>Eigenschaft <literal>updated_objects</literal></title>
+      <para>
+        Diese Eigenschaft ist EMPFOHLEN.
+      </para>
+      <para>
+        Mit dieser Eigenschaft wird die URL des Feeds für geänderte
+        Objekte ausgegeben.
+      </para>
+      <para>
+        TODO: Verweis auf Feeds &gt; Geänderte Objekte
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-removed_objects">
+      <title>Eigenschaft <literal>removed_objects</literal></title>
+      <para>
+        Diese Eigenschaft ist EMPFOHLEN.
+      </para>
+      <para>
+        Mit dieser Eigenschaft wird die URL des Feeds für entfernte
+        Objekte ausgegeben.
+      </para>
+      <para>
+        TODO: Verweis auf Feeds &gt; Entfernte Objekte
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-info_url">
+      <title>Eigenschaft <literal>info_url</literal></title>
+      <para>
+        Diese Eigenschaft ist OPTIONAL.
+      </para>
+      <para>
+        Diese Eigenschaft dient dazu, eine zusätzliche URL zu einer
+        WWW-Seite mit zusätzlichen Informationen zum System anzubieten.
+        So könnten NutzerInnen beispielsweise auf eine Web-Oberfläche
+        eines parlamentarischen Informationssystems geführt werden.
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-vendor_url">
+      <title>Eigenschaft <literal>vendor_url</literal></title>
+      <para>
+        Diese Eigenschaft ist OPTIONAL.
+      </para>
+      <para>
+        Diese Eigenschaft dient dazu, über eine URL den Hersteller des
+        Server-Systems zu komunizieren. Die URL sollt nach Möglichkeit
+        zu einer WWW-Seite mit weiteren Informationen zum Hersteller
+        führen.
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-product_url">
+      <title>Eigenschaft <literal>product_url</literal></title>
+      <para>
+        Diese Eigenschaft ist OPTIONAL.
+      </para>
+      <para>
+        Diese Eigenschaft dient dazu, über eine URL mitzuteilen, welches
+        Softwareprodukt das Server-System bereitstellt. Die URL soll
+        nach Möglichkeit zu einer WWW-Seite mit weiteren Informationen
+        zum Produkt führen.
+      </para>
     </sect3>
     <sect3 id="beispiel">
       <title>Beispiel</title>
       <programlisting language="json">
 {
-    &quot;id&quot;: &quot;1&quot;,
-    &quot;name&quot;: &quot;Stadt Köln&quot;,
-    &quot;regionalschluessel&quot;: &quot;053150000000&quot;,
-    &quot;gnd_url&quot;: &quot;http://d-nb.info/gnd/2015732-0&quot;,
-    &quot;url&quot;: &quot;http://www.stadt-koeln.de/&quot;,
-    &quot;operator_contact&quot;: &quot;Tel. +49 221-221-5432, E-Mail: ris-api@stadt-koeln.de&quot;,
-    &quot;license_url&quot;: &quot;http://opendatacommons.org/licenses/odbl/1.0/&quot;
+    &quot;@id&quot;: &quot;http://refserv.oparl.org/&quot;,
+    &quot;@context&quot;: &quot;http://oparl.org/schema/1.0/OParlSystem&quot;,
+    &quot;oparl_version&quot;: &quot;http://oparl.org/specs/1.0/&quot;,
+    &quot;name&quot;: &quot;OParl Reference Server&quot;,
+    &quot;info_url&quot;: &quot;https://github.com/OParl/reference-server&quot;,
+    &quot;contact&quot;: {
+        &quot;email&quot;: &quot;info@oparl.org&quot;,
+        &quot;name&quot;: &quot;Common OParl contact&quot;
+    }, 
+    &quot;vendor_url&quot;: &quot;http://oparl.org/&quot;,
+    &quot;product_url&quot;: &quot;https://github.com/OParl/reference-server&quot;,
+    &quot;license&quot;: &quot;http://creativecommons.org/licenses/by/4.0/&quot;,
+    &quot;bodies&quot;: &quot;http://refserv.oparl.org/bodies/&quot;,
+    &quot;new_objects&quot;: &quot;http://refserv.oparl.org/feeds/new/&quot;,
+    &quot;updated_objects&quot;: &quot;http://refserv.oparl.org/feeds/updated/&quot;,
+    &quot;removed_objects&quot;: &quot;http://refserv.oparl.org/feeds/removed/&quot;
 }
 </programlisting>
     </sect3>
   </sect2>
-  <sect2 id="gremium-committee">
-    <title>Gremium (<emphasis>committee</emphasis>)</title>
+  <sect2 id="oparlbody-körperschaft">
+    <title>OParlBody (Körperschaft)</title>
+    <para>
+      Dieser Objekttyp erlaubt es, eine Körperschaft abzbilden. Eine
+      Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder
+      ein Zweckverband sein.
+    </para>
+    <para>
+      Von einem funktionsfähigen Server wird erwartet, dass er
+      mindestens ein Objekt vom Typ <literal>OParlBody</literal> bereit
+      hält. Teilen sich mehrere Körperschaften das selbe technische
+      System, können auf demselben Server auch mehrere Objekte vom Typ
+      <literal>OParlBody</literal> beherbergt werden.
+    </para>
+    <para>
+      Über die Zuordnung zu einem bestimmten
+      <literal>OParlBody</literal> Objekt zeigen andere Objekte, wie
+      beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit zu
+      einer bestimmten Körperschaft an.
+    </para>
+    <figure>
+      <title>Objekttyp OParlBody</title>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/datenmodell_koerperschaft.png" />
+        </imageobject>
+        <textobject><phrase>Objekttyp OParlBody</phrase></textobject>
+      </mediaobject>
+    </figure>
+    <para>
+      Es werden mehrere Eigenschaften angeboten, die dazu dienen, die
+      real existierende Körperschaft, die von einem
+      <literal>OParlBody</literal> Objekt repräsentiert wird,
+      programmatisch auslesbar zu machen zu können. Insbesondere sind
+      hier die Eigenschaften <literal>url</literal>,
+      <literal>rgs</literal> und <literal>gnd_url</literal> zu nennen.
+    </para>
+    <sect3 id="eigenschaft-system">
+      <title>Eigenschaft <literal>system</literal></title>
+      <para>
+        Diese Eigenschaft ist ZWINGEND.
+      </para>
+      <para>
+        Mit dieser Eigenschaft wird das Objekt dem übergeordneten
+        OParlSystem Objekt zugeordnet. Wert MUSS der IRI des OParlSystem
+        Objekts sein.
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-name-1">
+      <title>Eigenschaft <literal>name</literal></title>
+      <para>
+        Diese Eigenschaft ist ZWINGEND. Sie transportiert den
+        gebräuchlichen Namen der Körperschaft.
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-name_long">
+      <title>Eigenschaft <literal>name_long</literal></title>
+      <para>
+        Diese Eigenschaft ist OPTIONAL und kann bei Bedarf dazu
+        verwendet werden, eine längere Form des Namens der Körperschaft
+        wieder zu geben, sofern dieser für die Eigenschaft
+        <literal>name</literal> zu lang ist.
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-url">
+      <title>Eigenschaft <literal>url</literal></title>
+      <para>
+        Diese Eigenschaft ist EMPFOHLEN.
+      </para>
+      <para>
+        Mit dieser Eigenschaft SOLL die URL der offiziellen Website der
+        Körperschaft ausgegeben werden.
+      </para>
+      <para>
+        TODO: Beschreibung
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-rgs">
+      <title>Eigenschaft <literal>rgs</literal></title>
+      <para>
+        Diese Eigenschaft ist EMPFOHLEN.
+      </para>
+      <para>
+        Handelt es sich bei der Körperschaft um eine Gebietskörperschaft
+        (Landkreis, Kommune etc.) in Deutschland, SOLL für die
+        eindeutige Identifizierung der amtliche Regionalschlüssel
+        verwendet werden.<footnote>
+          <para>
+            Regionalschlüssel können im
+            <ulink url="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis
+            (GV-ISys) des Statistischen Bundesamtes</ulink> eingesehen
+            werden
+          </para>
+        </footnote> Dieser ist grundsätzlich zwölfstellig.
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-gnd_url">
+      <title>Eigenschaft <literal>gnd_url</literal></title>
+      <para>
+        Diese Eigenschaft ist EMPFOHLEN.
+      </para>
+      <para>
+        Sofern die Körperschaft in der GND<footnote>
+          <para>
+            Gemeinsame Normdatei
+            <ulink url="http://www.dnb.de/gnd"><literal>http://www.dnb.de/gnd</literal></ulink>
+          </para>
+        </footnote> vertreten ist, SOLL diese Eigenschaft als Wert die
+        URL des Eintrags in der GND enthalten.
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-contact-1">
+      <title>Eigenschaft <literal>contact</literal></title>
+      <para>
+        Diese Eigenschaft ist EMPFOHLEN.
+      </para>
+      <para>
+        Über diese Eigenschafte SOLLEN Kontaktinformationen zu einer
+        Stelle bereit gestellt werden, die die inhaltliche Verantwortung
+        für sämtliche zu dieser Körperschaft gehörenden Inhalte im
+        System trägt. Besonders wichtig ist diese Angabe, wenn auf einem
+        System mehrere Körperschaften vertreten sind und damit auf der
+        Ebene des OParlSystem Objekts ein rein technischer Kontakt
+        ausgegeben wird, der nicht für inhaltliche Fragestellungen im
+        Zuständigkeitsbereich der jeweiligen Körperschaften kontaktiert
+        werden sollte.
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-papers">
+      <title>Eigenschaft <literal>papers</literal></title>
+      <para>
+        Diese Eigenschaft ist ZWINGEND.
+      </para>
+      <para>
+        Wert dieser Eigenschaft ist die URL der API zum Aufruf einer
+        Liste der Drucksachen (Objekte vom Typ OParlPaper) für diese
+        Körperschaft.
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-people">
+      <title>Eigenschaft <literal>people</literal></title>
+      <para>
+        Diese Eigenschaft ist ZWINGEND.
+      </para>
+      <para>
+        Wert dieser Eigenschaft ist die URL der API zum Aufruf einer
+        Liste der Personen (Objekte vom Typ OParlPerson) für diese
+        Körperschaft.
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-meetings">
+      <title>Eigenschaft <literal>meetings</literal></title>
+      <para>
+        Diese Eigenschaft ist ZWINGEND.
+      </para>
+      <para>
+        Wert dieser Eigenschaft ist die URL der API zum Aufruf einer
+        Liste der Sitzungen (Objekte vom Typ OParlMeeting) für diese
+        Körperschaft.
+      </para>
+    </sect3>
+    <sect3 id="eigenschaft-committees">
+      <title>Eigenschaft <literal>committees</literal></title>
+      <para>
+        Diese Eigenschaft ist ZWINGEND.
+      </para>
+      <para>
+        Wert dieser Eigenschaft ist die URL der API zum Aufruf einer
+        Liste der Gremien (Objekte vom Typ OParlCommittee) für diese
+        Körperschaft.
+      </para>
+    </sect3>
+    <sect3 id="beispiel-1">
+      <title>Beispiel</title>
+      <programlisting language="json">
+{
+    &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0&quot;,
+    &quot;@context&quot;: &quot;http://oparl.org/schema/1.0/OParlBody&quot;,
+    &quot;committees&quot;: &quot;http://refserv.oparl.org/bodies/0/committees/&quot;,
+    &quot;contact&quot;: {
+        &quot;email&quot;: &quot;ris@stadt-koeln.de&quot;,
+        &quot;name&quot;: &quot;RIS-Betreuung&quot;
+    }, 
+    &quot;created&quot;: &quot;2014-01-08T14:28:31.568+0100&quot;,
+    &quot;gnd_url&quot;: &quot;http://d-nb.info/gnd/2015732-0&quot;,
+    &quot;last_modified&quot;: &quot;2014-01-08T14:28:31.568+0100&quot;,
+    &quot;meetings&quot;: &quot;http://refserv.oparl.org/bodies/0/meetings/&quot;,
+    &quot;name&quot;: &quot;Stadt K\u00f6ln&quot;,
+    &quot;name_long&quot;: &quot;Stadt K\u00f6ln, kreisfreie Stadt&quot;,
+    &quot;organisations&quot;: &quot;http://refserv.oparl.org/bodies/0/organisations/&quot;,
+    &quot;papers&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/&quot;,
+    &quot;people&quot;: &quot;http://refserv.oparl.org/bodies/0/people/&quot;,
+    &quot;rgs&quot;: &quot;053150000000&quot;,
+    &quot;system&quot;: &quot;http://refserv.oparl.org/&quot;,
+    &quot;url&quot;: &quot;http://www.stadt-koeln.de/&quot;
+}
+</programlisting>
+    </sect3>
+  </sect2>
+  <sect2 id="oparlcommittee-gremium">
+    <title>OParlCommittee (Gremium</title>
     <para>
       Das Gremium ist ein Personenkreis, üblicherweise von gewählten
       und/oder ernannten Mitgliedern. Beispiele hierfür sind der
@@ -1666,7 +1912,7 @@
         <textobject><phrase>Objekttyp Gremium</phrase></textobject>
       </mediaobject>
     </figure>
-    <sect3 id="eigenschaften-1">
+    <sect3 id="eigenschaften">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -1718,7 +1964,7 @@
         </varlistentry>
       </variablelist>
     </sect3>
-    <sect3 id="beziehungen-1">
+    <sect3 id="beziehungen">
       <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
@@ -1747,7 +1993,7 @@
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-1">
+    <sect3 id="beispiel-2">
       <title>Beispiel</title>
       <programlisting language="json">
 {
@@ -1760,8 +2006,8 @@
 </programlisting>
     </sect3>
   </sect2>
-  <sect2 id="person-person">
-    <title>Person (<emphasis>person</emphasis>)</title>
+  <sect2 id="oparlperson-person">
+    <title>OParlPerson (Person)</title>
     <para>
       Jede natürliche Person, die Mitglied eines Gremiums ist, ist als
       Person im Datenmodell eindeutig identifizierbar.
@@ -1775,7 +2021,7 @@
         <textobject><phrase>Objekttyp Person</phrase></textobject>
       </mediaobject>
     </figure>
-    <sect3 id="eigenschaften-2">
+    <sect3 id="eigenschaften-1">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -1922,7 +2168,7 @@
         </itemizedlist>
       </sect4>
     </sect3>
-    <sect3 id="beziehungen-2">
+    <sect3 id="beziehungen-1">
       <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
@@ -1942,7 +2188,7 @@
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-2">
+    <sect3 id="beispiel-3">
       <title>Beispiel</title>
       <programlisting language="json">
 {
@@ -1978,8 +2224,8 @@
 </programlisting>
     </sect3>
   </sect2>
-  <sect2 id="organisation-organisation">
-    <title>Organisation (<literal>organisation</literal>)</title>
+  <sect2 id="oparlorganisation-organisation">
+    <title>OParlOrganisation (Organisation)</title>
     <para>
       Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen
       die Personen angehören können.
@@ -1993,7 +2239,7 @@
         <textobject><phrase>Objekttyp Organisation</phrase></textobject>
       </mediaobject>
     </figure>
-    <sect3 id="eigenschaften-3">
+    <sect3 id="eigenschaften-2">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -2046,7 +2292,7 @@
         </itemizedlist>
       </sect4>
     </sect3>
-    <sect3 id="beziehungen-3">
+    <sect3 id="beziehungen-2">
       <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
@@ -2062,7 +2308,7 @@
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-3">
+    <sect3 id="beispiel-4">
       <title>Beispiel</title>
       <programlisting language="json">
 {
@@ -2074,8 +2320,8 @@
 </programlisting>
     </sect3>
   </sect2>
-  <sect2 id="sitzung-meeting">
-    <title>Sitzung (<literal>meeting</literal>)</title>
+  <sect2 id="oparlmeeting-sitzung">
+    <title>OParlMeeting (Sitzung)</title>
     <para>
       Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums
       oder mehrerer Gremien zu einem bestimmten Zeitpunkt an einem
@@ -2096,7 +2342,7 @@
         <textobject><phrase>Objekttyp Sitzung</phrase></textobject>
       </mediaobject>
     </figure>
-    <sect3 id="eigenschaften-4">
+    <sect3 id="eigenschaften-3">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -2172,7 +2418,7 @@
         </varlistentry>
       </variablelist>
     </sect3>
-    <sect3 id="beziehungen-4">
+    <sect3 id="beziehungen-3">
       <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
@@ -2219,7 +2465,7 @@
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-4">
+    <sect3 id="beispiel-5">
       <title>Beispiel</title>
       <programlisting language="json">
 {
@@ -2243,8 +2489,8 @@
 </programlisting>
     </sect3>
   </sect2>
-  <sect2 id="tagesordnungspunkt-agendaitem">
-    <title>Tagesordnungspunkt (<literal>agendaitem</literal>)</title>
+  <sect2 id="oparlagendaitem-tagesordnungspunkt">
+    <title>OParlAgendaitem (Tagesordnungspunkt)</title>
     <para>
       Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt,
       erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen
@@ -2265,7 +2511,7 @@
         Tagesordnungspunkt</phrase></textobject>
       </mediaobject>
     </figure>
-    <sect3 id="eigenschaften-5">
+    <sect3 id="eigenschaften-4">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -2382,7 +2628,7 @@
         </itemizedlist>
       </sect4>
     </sect3>
-    <sect3 id="beziehungen-5">
+    <sect3 id="beziehungen-4">
       <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
@@ -2405,7 +2651,7 @@
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-5">
+    <sect3 id="beispiel-6">
       <title>Beispiel</title>
       <programlisting language="json">
 {
@@ -2421,8 +2667,8 @@
 </programlisting>
     </sect3>
   </sect2>
-  <sect2 id="drucksache-paper">
-    <title>Drucksache (<literal>paper</literal>)</title>
+  <sect2 id="oparlpaper-drucksache">
+    <title>OParlPaper (Drucksache)</title>
     <para>
       Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen,
       Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede
@@ -2491,7 +2737,7 @@
         </para>
       </listitem>
     </itemizedlist>
-    <sect3 id="eigenschaften-6">
+    <sect3 id="eigenschaften-5">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -2541,7 +2787,7 @@
         </varlistentry>
       </variablelist>
     </sect3>
-    <sect3 id="beziehungen-6">
+    <sect3 id="beziehungen-5">
       <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
@@ -2611,7 +2857,7 @@
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-6">
+    <sect3 id="beispiel-7">
       <title>Beispiel</title>
       <programlisting language="json">
 {
@@ -2656,8 +2902,8 @@
 </programlisting>
     </sect3>
   </sect2>
-  <sect2 id="dokument-document">
-    <title>Dokument (<literal>document</literal>)</title>
+  <sect2 id="oparldocument-dokument">
+    <title>OParlDocument (Dokument)</title>
     <para>
       Ein Dokument hält die Metadaten einer Datei vor, beispielsweise
       einer PDF-Datei, eines RTF- oder Word-Dokuments.
@@ -2681,7 +2927,7 @@
         <textobject><phrase>Objekttyp Dokument</phrase></textobject>
       </mediaobject>
     </figure>
-    <sect3 id="eigenschaften-7">
+    <sect3 id="eigenschaften-6">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -2770,7 +3016,7 @@
         </varlistentry>
       </variablelist>
     </sect3>
-    <sect3 id="beziehungen-7">
+    <sect3 id="beziehungen-6">
       <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
@@ -2806,8 +3052,13 @@
 </programlisting>
     </sect3>
   </sect2>
-  <sect2 id="ort-location">
-    <title>Ort (<literal>location</literal>)</title>
+  <sect2 id="oparlconsultation-beratung">
+    <title>OParlConsultation (Beratung)</title>
+    <para>
+    </para>
+  </sect2>
+  <sect2 id="oparllocation-ort">
+    <title>OParlLocation (Ort)</title>
     <para>
       Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache
       formal abzubilden. Ortsangaben können sowohl aus Textinformationen
@@ -2833,7 +3084,7 @@
         <textobject><phrase>Objekttyp Ort</phrase></textobject>
       </mediaobject>
     </figure>
-    <sect3 id="eigenschaften-8">
+    <sect3 id="eigenschaften-7">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -2869,7 +3120,7 @@
         </varlistentry>
       </variablelist>
     </sect3>
-    <sect3 id="beziehungen-8">
+    <sect3 id="beziehungen-7">
       <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
@@ -2890,59 +3141,17 @@
 </programlisting>
     </sect3>
   </sect2>
+  <sect2 id="oparlcontact-kontakt">
+    <title>OParlContact (Kontakt)</title>
+    <para>
+    </para>
+  </sect2>
 </sect1>
 <sect1 id="fußnoten">
   <title>Fußnoten</title>
   <para>
-    [1]: Siehe
-    <ulink url="http://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel">de.wikipedia.org/wiki/Amtlicher_Gemeindeschlüssel</ulink>
-  </para>
-  <para>
-    [2]: Ratsinformationssystem der Stadt Köln,
-    <ulink url="http://ratsinformation.stadt-koeln.de/">http://ratsinformation.stadt-koeln.de/</ulink>
-  </para>
-  <para>
-    [3]: Firma Somacos,
-    <ulink url="http://www.somacos.de/de/sitzungsdienst/ratsinfo.html">SessionNet
-    Produktinformation</ulink>
-  </para>
-  <para>
-    [4]: Ratsinformationssystem der Bezirksverwaltugn Berlin Mitte,
-    <ulink url="http://www.berlin.de/ba-mitte/bvv-online/allris.net.asp">http://www.berlin.de/...</ulink>
-  </para>
-  <para>
-    [5]: CC e-gov GmbH,
-    <ulink url="http://www.cc-egov.de/allris.htm">ALLRIS
-    Produktionformationen</ulink>
-  </para>
-  <para>
-    [6]: Ratsinformationssystem der Stadt Rösrath,
-    <ulink url="http://212.227.97.55/ratsinfo/roesrath">http://212.227.97.55/...</ulink>
-  </para>
-  <para>
-    [7]: <ulink url="http://www.provox.de/">Firma PROVOX</ulink>
-  </para>
-  <para>
-    [8]: Ratsinformationssystem der Stadt Euskirchen,
-    <ulink url="https://sitzungsdienst.euskirchen.de/">https://sitzungsdienst.euskirchen.de/</ulink>
-  </para>
-  <para>
-    [9]: Firma Sternberg,
-    <ulink url="http://www.sitzungsdienst.net/produkte/ratsinformationsmanagement">SD.NET
-    RIM Produktionformationen</ulink>
-  </para>
-  <para>
-    [10]: BoRis, Ratsinformationssystem der Stadt Bonn
-    (Eigenentwicklung).
-    <ulink url="http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp">http://www2.bonn.de/...</ulink>
-  </para>
-  <para>
     [11]: World Geodetic System 1984 (EPSG:4326), wird unter anderem
     auch vom Global Positioning System (GPS) verwendet.
-  </para>
-  <para>
-    [12]: Gemeinsame Normdatei:
-    <ulink url="http://de.wikipedia.org/wiki/Gemeinsame_Normdatei">de.wikipedia.org/wiki/Gemeinsame_Normdatei</ulink>
   </para>
   <para>
     [13]: GeoJSON

@@ -12,55 +12,34 @@ einander stehen.
 Übergreifende Aspekte
 ---------------------
 
-### Eindeutige Identifizierung von Objekten ###
+### Typen von Objekteigenschaften
 
-Sämtliche Objekte, die über die Schnittstelle geladen werden können, sollen 
-anhand einer einzigen Objekteigenschaft eindeutig identifizierbar sein. Die 
-Objekteigenschaft, mit der dies erreicht wird, wird hier im folgenden - 
-unabhängig vom tatsächlichen Namen der Eigenschaft - als "Schlüssel" 
-bezeichnet.
+JSON erlaubt grundsätzlich die Kodierung von Eigenschaften in den folgenden
+verschiedenen Typen:
 
-Eindeutigkeit meint hier eine Einzigartigkeit innerhalb des 
-Informationssystems und für den jeweiligen Objekttyp. Das bedeutet: zwei von 
-einander unabhängige Ratsinformationssysteme für verschiedene 
-Körperschaften dürfen sich überlappende Schlüssel nutzen. Innerhalb 
-eines Systems dürfen zwei Objekte unterschiedlichen Typs (beispielsweise 
-eine Person und ein Gremium) den selben Schlüssel nutzen. Jedoch MÜSSEN zwei 
-Objekte des selben Typs innerhalb des selben Systems grundsätzlich 
-verschiedene Schlüssel haben.
+* Zeichenkette
+* Zahle
+* Wahrheitswert
+* null
+* Liste (Array)
+* Objekt
 
-Schlüssel-Eigenschaften werden grundsätzlich als Unicode-Zeichenkette 
-übergeben. Sie können daher gleichermaßen aus 
-numerischen wie alphanumerischen Werten befüllt werden.
+Wenn nicht anders angegeben, wird eine Eigenschaft grundsätzlich als Zeichenkette
+erwartet. Eventuelle Längenbeschränkungen oder Einschränkungen des Zeichenvorrats
+werden gesondert erwähnt.
 
-Es wird grundsätzlich vorausgesetzt, dass Schlüssel unveränderlich sind. 
-Ändert sich der Schlüssel eines Objekts nach der Erzeugung, werden Nutzer 
-der Schnittstelle annehmen, dass es sich nicht mehr um das selbe Objekt 
-handelt.
+### null-Werte
 
+JSON erlaubt es grundsätzlich, dass Eigenschaften den Wert `null` haben können.
+Im Rahmen dieser Spezifikation DARF das jedoch nur bei Eigenschaften der Fall sein,
+die als OPTIONAL oder EMPFOHLEN gekennzeichnet sind. ZWINGENDE Eigenschaften müssen
+einen Wert ungleich `null` besitzen.
 
-### Objekteigenschaften ###
+### Vererbung der Lizenzbedingung
 
-Die nachfolgend beschriebenen Eigenschaften der Objekttypen sind, wenn nicht 
-anders angegeben, verpflichtend. Das bedeutet: Bei jedem von der 
-Schnittstelle ausgelieferten Objekt muss diese Eigenschaften definiert sein. 
-Optionale Eigenschaften sind entsprechend gekennzeichnet.
-
-Eigenschaften werden deutschsprachig und englischsprachig benannt. Die 
-deutschsprachige Benennung dient der bestmöglichen Verständlichkeit im 
-Kontext dieses Dokuments, während die Schnittstelle aus Gründen der 
-Zugänglichkeit für möglichst viele Entwickler mit englischsprachigen 
-Begriffen arbeiten soll.
-
-
-### Zu den Beziehungen ###
-
-Bei der Beschreibung von Beziehungen zwischen Objekten wird zu diesem 
-Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei Objekten A 
-und B am Objekt A oder am Objekt B definiert wird. So spielt es bislang keine 
-Rolle, ob einem Gremium mehrere Personen zugeordnet werden oder einer Person 
-mehrere Gremien zugewiesen werden. Das Augenmerkt liegt hier nur auf der 
-Tatsache, welche Beziehung existieren können und was diese Beziehungen 
-aussagen sollen.
-
-
+- Jedes Objekt KANN die Eigenschaft "license" besitzen.
+- Die genannte Lizenz bezieht sich auf das jeweilige Objekt und auf untergeordnete 
+  Objekte, sofern diese keine license-Eigenschaft besitzen.
+- Dazu muss die Vererbungshierarchie aufgezeigt werden.
+- Empfohlene Minimalvariante: Nur eine license-Angabe auf Ebene von OParlSystem.
+- Auf Ebene des OParlDocument bezieht sich die Eigenschaft sowohl auf die Metadaten als auch auf das Dokument selbst.

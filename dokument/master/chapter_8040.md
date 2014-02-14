@@ -1,82 +1,130 @@
 OParlBody (Körperschaft)
 ------------------------
 
-Die Körperschaft erlaubt es, den Betreiber bzw. Eigentümer des
-Informationssystems wie zum Beispiel einen Landkreis, eine bestimmte 
-Gemeinde oder einen bestimmten Stadtbezirk in Form eines Datenobjekts 
-abzubilden.
+Dieser Objekttyp erlaubt es, eine Körperschaft abzbilden. Eine Körperschaft
+kann beispielsweise eine Gemeinde, ein Landkreis oder ein Zweckverband sein.
 
-Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“. Einige 
-Systeme werden jedoch für mehrere Mandanten betrieben, wobei die Mandanten 
-verschiedene Körperschaften repräsentieren (z.B. "Verbandsgemeinde 
-Ulmen" und "Stadt Ulmen".)
+Von einem funktionsfähigen Server wird erwartet, dass er mindestens
+ein Objekt vom Typ `OParlBody` bereit hält. Teilen sich mehrere Körperschaften
+das selbe technische System, können auf demselben Server auch mehrere
+Objekte vom Typ `OParlBody` beherbergt werden.
 
-![Objekttyp Körperschaft](images/datenmodell_koerperschaft.png)
+Über die Zuordnung zu einem bestimmten `OParlBody` Objekt zeigen andere
+Objekte, wie beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit
+zu einer bestimmten Körperschaft an.
 
-### Eindeutige Identifizierung ###
+![Objekttyp OParlBody](images/datenmodell_koerperschaft.png)
 
-Die Körperschaft hat eine innerhalb des Systems eindeutige ID.
+Es werden mehrere Eigenschaften angeboten, die dazu dienen, die real
+existierende Körperschaft, die von einem `OParlBody` Objekt repräsentiert
+wird, programmatisch auslesbar zu machen zu können. Insbesondere sind hier
+die Eigenschaften `url`, `rgs` und `gnd_url` zu nennen.
 
-Darüber hinaus werden verschiedene Möglichkeiten geboten, die Körperschaft
-semantisch zu repräsentieren.
+### Eigenschaft `system`
 
-Handelt es sich beim Betreiber des Systems um eine Gebietskörperschaft
-(Landkreis, Kommune etc.), soll für die eindeutige Identifizierung der 
-Regionalschlüssel[1] verwendet werden.
+Diese Eigenschaft ist ZWINGEND.
 
-Darüber hinaus soll zusätzlich, sofern vorhanden, die eindeutige Kennung
-der Körperschaft aus der GND[12] verwendet werden.
+Mit dieser Eigenschaft wird das Objekt dem übergeordneten OParlSystem Objekt zugeordnet. Wert MUSS der IRI des OParlSystem Objekts sein.
 
-Als dritte Möglichkeit, die Körperschaft zu identifizieren, kann eine 
-aussagekräftigen URL, unter der weitere Informationen zur Körperschaft zu 
-finden sind, genannt werden.
+### Eigenschaft `name`
 
-Sämtliche hier genannten Methoden zur Identifizierung können kombiniert
-werden.
+Diese Eigenschaft ist ZWINGEND. Sie transportiert den gebräuchlichen Namen der Körperschaft.
 
-### Eigenschaften ###
+### Eigenschaft `name_long`
 
-Schlüssel (`id`)
-:   Zur eindeutigen Identifizierung der Körperschaft im System
-Name (`name`)
-:   Der Name der Körperschaft, z.B. "Stadt Köln"
-Regionalschlüssel (`regionalschluessel`)
-:   _Optional_. Regionalschlüssel der Gebietskörperschaft, z.B. 
-    "053150000000". Muss grundsätzlich 12-stellig angegeben werden.
-GND URL (`gnd_url`)
-:   _Optional_. URL des Eintrags in der GND, z.B.
-    "http://d-nb.info/gnd/2015732-0"
-URL (`url`)
-:   _Optional_. URL der Homepage oder einer vergleichbaren Seite
-    mit Informationen über die Körperschaft, z.B. "http://www.stadt-koeln.de/"
-Lizenz (`license_url`)
-:   _Optional_. URL der Lizenz, unter der die Daten, die über die API
-    abgerufen werden können, stehen.
-Betreiber-Kontakt (`operator_contact`)
-:   _Optional_. Kontaktinformationen für die direkte Kontaktaufnahme zum
-    Betreiber der API.
+Diese Eigenschaft ist OPTIONAL und kann bei Bedarf dazu verwendet werden, eine längere Form
+des Namens der Körperschaft wieder zu geben, sofern dieser für die Eigenschaft `name` zu lang
+ist.
 
-### Beziehungen ###
+### Eigenschaft `url`
 
-* Objekte vom Typ "Organisation" sind zwingend genau einer 
-Körperschaft zugeordnet. So wird beispielseise eine SPD in Köln von 
-einer SPD in Leverkusen unterschieden.
-* Objekte vom Typ "Gremium" sind zwingend genau einer Körperschaft 
-zugeordnet. Damit wird der "Rat" einer bestimmten Kommune von den 
-gleichnamigen Gremien anderer Kommunen abgegrenzt.
+Diese Eigenschaft ist EMPFOHLEN.
+
+Mit dieser Eigenschaft SOLL die URL der offiziellen Website der Körperschaft
+ausgegeben werden.
+
+TODO: Beschreibung
+
+### Eigenschaft `rgs`
+
+Diese Eigenschaft ist EMPFOHLEN.
+
+Handelt es sich bei der Körperschaft um eine Gebietskörperschaft
+(Landkreis, Kommune etc.) in Deutschland, SOLL für die eindeutige
+Identifizierung der amtliche Regionalschlüssel verwendet werden.^[Regionalschlüssel können im [Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes](https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html) eingesehen werden]
+Dieser ist grundsätzlich zwölfstellig.
+
+### Eigenschaft `gnd_url`
+
+Diese Eigenschaft ist EMPFOHLEN.
+
+Sofern die Körperschaft in der GND^[Gemeinsame Normdatei <http://www.dnb.de/gnd>] vertreten ist, SOLL diese Eigenschaft
+als Wert die URL des Eintrags in der GND enthalten.
+
+### Eigenschaft `contact`
+
+Diese Eigenschaft ist EMPFOHLEN.
+
+Über diese Eigenschafte SOLLEN Kontaktinformationen zu einer Stelle bereit
+gestellt werden, die die inhaltliche Verantwortung für sämtliche zu dieser
+Körperschaft gehörenden Inhalte im System trägt. Besonders wichtig ist diese
+Angabe, wenn auf einem System mehrere Körperschaften vertreten sind und damit
+auf der Ebene des OParlSystem Objekts ein rein technischer Kontakt ausgegeben
+wird, der nicht für inhaltliche Fragestellungen im Zuständigkeitsbereich der
+jeweiligen Körperschaften kontaktiert werden sollte.
+
+### Eigenschaft `papers`
+
+Diese Eigenschaft ist ZWINGEND.
+
+Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
+Drucksachen (Objekte vom Typ OParlPaper) für diese Körperschaft.
+
+### Eigenschaft `people`
+
+Diese Eigenschaft ist ZWINGEND.
+
+Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
+Personen (Objekte vom Typ OParlPerson) für diese Körperschaft.
+
+### Eigenschaft `meetings`
+
+Diese Eigenschaft ist ZWINGEND.
+
+Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
+Sitzungen (Objekte vom Typ OParlMeeting) für diese Körperschaft.
+
+### Eigenschaft `committees`
+
+Diese Eigenschaft ist ZWINGEND.
+
+Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
+Gremien (Objekte vom Typ OParlCommittee) für diese Körperschaft.
 
 
-### Beispiel ###
+### Beispiel
 
-~~~~~  {#body_ex1 .json}
+~~~~~  {#oparlbody_ex1 .json}
 {
-    "id": "1",
-    "name": "Stadt Köln",
-    "regionalschluessel": "053150000000",
+    "@id": "http://refserv.oparl.org/bodies/0",
+    "@context": "http://oparl.org/schema/1.0/OParlBody",
+    "committees": "http://refserv.oparl.org/bodies/0/committees/",
+    "contact": {
+        "email": "ris@stadt-koeln.de",
+        "name": "RIS-Betreuung"
+    }, 
+    "created": "2014-01-08T14:28:31.568+0100",
     "gnd_url": "http://d-nb.info/gnd/2015732-0",
-    "url": "http://www.stadt-koeln.de/",
-    "operator_contact": "Tel. +49 221-221-5432, E-Mail: ris-api@stadt-koeln.de",
-    "license_url": "http://opendatacommons.org/licenses/odbl/1.0/"
+    "last_modified": "2014-01-08T14:28:31.568+0100",
+    "meetings": "http://refserv.oparl.org/bodies/0/meetings/",
+    "name": "Stadt K\u00f6ln",
+    "name_long": "Stadt K\u00f6ln, kreisfreie Stadt",
+    "organisations": "http://refserv.oparl.org/bodies/0/organisations/",
+    "papers": "http://refserv.oparl.org/bodies/0/papers/",
+    "people": "http://refserv.oparl.org/bodies/0/people/",
+    "rgs": "053150000000",
+    "system": "http://refserv.oparl.org/",
+    "url": "http://www.stadt-koeln.de/"
 }
 ~~~~~
 

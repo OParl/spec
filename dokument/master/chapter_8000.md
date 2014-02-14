@@ -43,3 +43,9 @@ einen Wert ungleich `null` besitzen.
 - Dazu muss die Vererbungshierarchie aufgezeigt werden.
 - Empfohlene Minimalvariante: Nur eine license-Angabe auf Ebene von OParlSystem.
 - Auf Ebene des OParlDocument bezieht sich die Eigenschaft sowohl auf die Metadaten als auch auf das Dokument selbst.
+
+### Die Eigenschaften "created" und "last_modified"
+
+### Die Eigenschaften "name" und "name_long"
+
+### Die Eigenschaft "description"

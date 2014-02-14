@@ -92,7 +92,48 @@ OParl Schnittstellen-Standards für parlamentarische Informationssysteme
 für die Implementierung von OParl-konformen Server- und
 Clientanwendungen.
 
-\subsection{Motivationen für den standardisierten Datenzugriff}
+\subsection{Status}
+
+Die Spezifikation befindet sich in Arbeit. Das Dokument enthält
+entsprechend viele Ungenauigkeiten und Hinweise auf offene
+Fragestellungen.
+
+\subsection{Was ist OParl?}
+
+(Nachfolgend eine Übernahme aus dem bisherigen Abschnitt
+``Funktionsumfang der OParl-Schnittstelle''. Der Text sollte deutlich
+überarbeitet und erweitert werden.)
+
+Die vorliegende Spezifikation soll eine Webservice-Schnittstelle
+definieren, die den anonymen und lesenden Zugriff auf öffentliche
+Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die
+Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP). Daten
+werden als JSON oder als JSONP ausgeliefert.
+
+Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale
+Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher
+zwischen den Implementierungen variieren.
+
+\subsection{Zielsetzung von OParl}
+
+\begin{itemize}
+\item
+  Nutzen für Kommunen, Bürger, politische Parteien
+\item
+  Nutzen für Anbieter von RIS-Pflegesoftware
+\item
+  Nutzen für Anbieter von RIS-Darstellungssoftware
+\item
+  Nutzen für Open Data Initiativen
+\item
+  Nutzen für die Wissenschaft
+\item
+  Linked Data erwähnen
+\end{itemize}
+
+(Nachstehen der bisherige Textentwurf aus dem Abschnitt ``Motivationen
+für den standardisierten Datenzugriff'', der sicherlich deutlich
+überarbeitet werden muss.)
 
 Die Gründe, warum Betreiber von parlamentarischen Informationssystemen
 den Zugriff darauf über eine standardisierte Schnittstelle ermöglichen
@@ -153,41 +194,74 @@ integriert werden. Durch eine einheitliche Schnittstelle bieten sich
 effiziente Möglichkeiten zur Integration der Daten in anderen Systeme,
 wie beispielsweise Web-Portale.
 
-\subsection{Funktionsumfang der OParl-Schnittstelle}
-
-Die vorliegende Spezifikation soll eine Webservice-Schnittstelle
-definieren, die den anonymen und lesenden Zugriff auf öffentliche
-Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die
-Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP). Daten
-werden als JSON oder als JSONP ausgeliefert.
-
-Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale
-Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher
-zwischen den Implementierungen variieren.
-
-\subsection{Status}
-
-Die Spezifikation befindet sich in Arbeit. Das Dokument enthält
-entsprechend viele Ungenauigkeiten und Hinweise auf offene
-Fragestellungen.
-
-\subsection{Was ist OParl?}
-
-\subsection{Zielsetzung von OParl}
+\subsection{Transparenz und Beteiligung durch Open Data}
 
 \begin{itemize}
 \item
-  Nutzen für Kommunen, Bürger, politische Parteien
+  Einführung zu Open Data
 \item
-  Nutzen für Anbieter von RIS-Pflegesoftware
+  ``10 Principles'' erwähnen
+  \url{https://sunlightfoundation.com/policy/documents/ten-open-data-principles/}
 \item
-  Nutzen für Anbieter von RIS-Darstellungssoftware
+  Spürbare Tendenz zu mehr Offenheit
 \item
-  Nutzen für Open Data Initiativen
+  Open Data ist (nur) zum Teil technisches Problem
 \item
-  Nutzen für die Wissenschaft
+  Vier der ``10 Principles'' haben technische Dimension:
+
+  \begin{itemize}
+  \item
+    \begin{enumerate}[1.]
+    \setcounter{enumi}{4}
+    \item
+      Machine readability
+    \end{enumerate}
+  \item
+    \begin{enumerate}[1.]
+    \setcounter{enumi}{5}
+    \item
+      Non-discrimination
+    \end{enumerate}
+  \item
+    \begin{enumerate}[1.]
+    \setcounter{enumi}{6}
+    \item
+      Use of Commonly Owned Standards
+    \end{enumerate}
+  \item
+    \begin{enumerate}[1.]
+    \setcounter{enumi}{8}
+    \item
+      Permanence
+    \end{enumerate}
+  \end{itemize}
 \item
-  Linked Data erwähnen
+  Die bloße Bereitstellung einer OParl-konformen API wird weder die
+  Einhaltung der technischen Prinzipien, noch der weiteren
+  Open-Data-Prinzipien vollständig garantieren. Für echte Transparenz
+  bedarft es mehr.
+\item
+  Viele Bestandteile der Oparl Spezifikation, die einen weitgehend
+  barrierearmen Zugang zu Informationen ermöglichen, sind optional.
+
+  \begin{itemize}
+  \item
+    Beispiel: Volltexte von Dokumenten über die API abrufbar machen
+  \end{itemize}
+\item
+  Andere Bestandteile, die von Interesse wären, sind noch gar nicht von
+  OParl abgedeckt. Beispiel: Abstimmungsergebnisse.
+\item
+  Grund dafür ist, dass sich OParl in einem frühen Stadium befindet und
+  primär am Status Quo der parlamentarischen Informationssysteme
+  ausgerichtet ist.
+\item
+  Es liegt also auch weiterhin an den Verwaltungen und Parlamentariern,
+  durch einen verantwortungsvollen Umgang mit den Systemen die maximal
+  erreichbare Transparenz zu bieten. Das fängt bei Dokumentenformaten an
+  (ein PDF mit digitalem Text weist weit weniger Barrieren auf, als ein
+  gescannter Brief, der ebenfalls als PDF gespeichert wurde) und hört
+  bei der verwendeten Sprache auf.
 \end{itemize}
 
 \subsection{Werdegang von OParl 1.0}
@@ -463,6 +537,15 @@ Mit einer Nutzerin oder einem Nutzer ist in diesem Fall eine natürliche
 Person gemeint, die mittels eines OParl-Clients auf parlamentarische
 Informationen zugreift.
 
+\subsection{Objekt}
+
+Der Server beantwortet Anfragen eines Clients im Regelfall, indem
+bestimmte Objekte ausgegeben werden. Objekte sind im Fall einer
+OParl-konformen API JSON-Objekte, die das Schema einhalten, das in der
+vorliegenden Spezifikation beaschrieben wird. Antworten des Servers
+können einzelne Objekte, Listen von Objekten oder Listen von URLs von
+Objekten enthalten.
+
 \section{Nutzungsszenarien}
 
 Die nachfolgenden Nutzungsszenarien dienen dazu, die Architektur und die
@@ -563,6 +646,39 @@ dargestellt oder in einer Ergebnisliste angezeigt werden, die nach
 Distanz zum Objekt sortiert werden könnte.
 
 \subsubsection{Szenario 2: Integration in Web-Portal}
+
+Web Portale bieten Nutzern unter anderem die Möglichkeit Anwendungen,
+Prozesse und Dienste zu integrieren. Die OParl API stellt einen solchen
+Dienst dar und bereitet so den Weg zu angereicherten Portalseiten.
+Informationen, die über die API bezogen werden, können in Portlets
+organisiert und visualisiert werden. Hierbei können
+
+\begin{enumerate}[1.]
+\item
+  angemeldete Benutzer
+\end{enumerate}
+
+die eingegrenzten Portlet Parameter für den nächsten Besuch zwischen
+speichern, während
+
+\begin{enumerate}[1.]
+\setcounter{enumi}{1}
+\item
+  anonyme Benutzer
+\end{enumerate}
+
+dies nicht können. In beiden Fällen können Portalnutzer das angezeigte
+Portlet nach ihren Bedürfnissen anpassen. Beispielsweise kann ein
+solches Portlet eine Liste der Gremien bereitstellen, aus der sich der
+Nutzer das interessante Gremium aussucht und aufgrund dieser Auswahl die
+Informationen zu den vergangenen / nächsten Sitzungsterminen im Rat,
+etwaiger Drucksachen oder Dokumenten erhält und geeignet visualisiert.
+
+Durch eine solche Integration von RIS Informationen in bestehende
+Portalsysteme (unter Umständen die kommunale Webseite selbst), ist es
+möglich Nutzern zusätzliche Informationen in der bereits gewohnten
+Umgebung zu präsentieren und den bestehenden Informationsgehalt und den
+Datenbestand aufzuwerten.
 
 \subsubsection{Szenario 3: Meta-Suche}
 
@@ -785,8 +901,9 @@ Dazu:
 
 \subsection{Ausnahmebehandlung}
 
-(Diskussion hierzu unter https://github.com/OParl/specs/issues/89) Liste
-reservierter URL-Parameter --------------------------------
+(Diskussion hierzu unter https://github.com/OParl/specs/issues/89)
+
+\subsection{Liste reservierter URL-Parameter}
 
 Die in dieser Liste enthaltenen Zeichenketten haben eine reservierte
 Bedeutung und stehen bei Implementierungen eines OParl-Servers nicht

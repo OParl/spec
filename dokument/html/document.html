@@ -34,7 +34,22 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Lizenz: Creative Commons CC-BY-SA</p>
 <h1 id="einleitung"><span class="header-section-number">1</span> Einleitung</h1>
 <p>Dieses Dokument wird bei seiner Fertigstellung die Spezifikation des OParl Schnittstellen-Standards für parlamentarische Informationssysteme (Ratsinformationssysteme, RIS) darstellen. Es dient damit als Grundlage für die Implementierung von OParl-konformen Server- und Clientanwendungen.</p>
-<h2 id="motivationen-für-den-standardisierten-datenzugriff"><span class="header-section-number">1.1</span> Motivationen für den standardisierten Datenzugriff</h2>
+<h2 id="status"><span class="header-section-number">1.1</span> Status</h2>
+<p>Die Spezifikation befindet sich in Arbeit. Das Dokument enthält entsprechend viele Ungenauigkeiten und Hinweise auf offene Fragestellungen.</p>
+<h2 id="was-ist-oparl"><span class="header-section-number">1.2</span> Was ist OParl?</h2>
+<p>(Nachfolgend eine Übernahme aus dem bisherigen Abschnitt &quot;Funktionsumfang der OParl-Schnittstelle&quot;. Der Text sollte deutlich überarbeitet und erweitert werden.)</p>
+<p>Die vorliegende Spezifikation soll eine Webservice-Schnittstelle definieren, die den anonymen und lesenden Zugriff auf öffentliche Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP). Daten werden als JSON oder als JSONP ausgeliefert.</p>
+<p>Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher zwischen den Implementierungen variieren.</p>
+<h2 id="zielsetzung-von-oparl"><span class="header-section-number">1.3</span> Zielsetzung von OParl</h2>
+<ul>
+<li>Nutzen für Kommunen, Bürger, politische Parteien</li>
+<li>Nutzen für Anbieter von RIS-Pflegesoftware</li>
+<li>Nutzen für Anbieter von RIS-Darstellungssoftware</li>
+<li>Nutzen für Open Data Initiativen</li>
+<li>Nutzen für die Wissenschaft</li>
+<li>Linked Data erwähnen</li>
+</ul>
+<p>(Nachstehen der bisherige Textentwurf aus dem Abschnitt &quot;Motivationen für den standardisierten Datenzugriff&quot;, der sicherlich deutlich überarbeitet werden muss.)</p>
 <p>Die Gründe, warum Betreiber von parlamentarischen Informationssystemen den Zugriff darauf über eine standardisierte Schnittstelle ermöglichen sollten, können vielfältig sein.</p>
 <p>Ein zentrales Argument ist die Verpflichtung der Parlamente gegenüber der Bevölkerung, diese über die Fortschritte der parlamentarischen Arbeit zu informieren und auf dem Laufenden zu halten. Ein erster Schritt, der Bevölkerung Einblicke in die Arbeit und Zugriff auf Dokumente zu gewähren, ist vielerorts in den letzten Jahren durch Einführung von Ratsinformationssystemen mit anonymem, lesenden Zugriff über das World Wide Web gemacht worden.</p>
 <p>Die damit eingeschlagene Richtung konsequent weiter zu gehen, bedeutet, die Daten der parlamentarischen Informationssystemen gänzlich offen zu legen, sofern die Inhalte es erlauben. Es bedeutet, die Daten und Inhalte so universell weiterverwendbar und so barrierearm wie möglich anzubieten, dass jegliche weitere Verwendung durch Dritte technisch möglich ist. Der seit einiger Zeit etablierte Begriff für dieses Prinzip heißt &quot;Open Data&quot;.</p>
@@ -49,22 +64,37 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul>
 <p>Die Standardisierung dieses Zugriffs über die Grenzen einzelner Systeme hinweg erlaubt zudem, diese Entwicklungen grenzüberschreitend zu denken. Damit steigt nicht nur die potenzielle Nutzerschaft einzelner Entwicklungen. Auch das Potenzial für Kooperationen zwischen Anwendungsentwicklern wächst.</p>
 <p>Darüber hinaus sind auch Motivationen innerhalb von Organisationen und Körperschaften erkennbar. So sollen parlamentarische Informationssysteme vielerorts in verschiedenste Prozesse und heterogene Systemlandschaften integriert werden. Durch eine einheitliche Schnittstelle bieten sich effiziente Möglichkeiten zur Integration der Daten in anderen Systeme, wie beispielsweise Web-Portale.</p>
-<h2 id="funktionsumfang-der-oparl-schnittstelle"><span class="header-section-number">1.2</span> Funktionsumfang der OParl-Schnittstelle</h2>
-<p>Die vorliegende Spezifikation soll eine Webservice-Schnittstelle definieren, die den anonymen und lesenden Zugriff auf öffentliche Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP). Daten werden als JSON oder als JSONP ausgeliefert.</p>
-<p>Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher zwischen den Implementierungen variieren.</p>
-<h2 id="status"><span class="header-section-number">1.3</span> Status</h2>
-<p>Die Spezifikation befindet sich in Arbeit. Das Dokument enthält entsprechend viele Ungenauigkeiten und Hinweise auf offene Fragestellungen.</p>
-<h2 id="was-ist-oparl"><span class="header-section-number">1.4</span> Was ist OParl?</h2>
-<h2 id="zielsetzung-von-oparl"><span class="header-section-number">1.5</span> Zielsetzung von OParl</h2>
+<h2 id="transparenz-und-beteiligung-durch-open-data"><span class="header-section-number">1.4</span> Transparenz und Beteiligung durch Open Data</h2>
 <ul>
-<li>Nutzen für Kommunen, Bürger, politische Parteien</li>
-<li>Nutzen für Anbieter von RIS-Pflegesoftware</li>
-<li>Nutzen für Anbieter von RIS-Darstellungssoftware</li>
-<li>Nutzen für Open Data Initiativen</li>
-<li>Nutzen für die Wissenschaft</li>
-<li>Linked Data erwähnen</li>
+<li>Einführung zu Open Data</li>
+<li>&quot;10 Principles&quot; erwähnen <a href="https://sunlightfoundation.com/policy/documents/ten-open-data-principles/"><code class="url">https://sunlightfoundation.com/policy/documents/ten-open-data-principles/</code></a></li>
+<li>Spürbare Tendenz zu mehr Offenheit</li>
+<li>Open Data ist (nur) zum Teil technisches Problem</li>
+<li>Vier der &quot;10 Principles&quot; haben technische Dimension:
+<ul>
+<li><ol start="5" style="list-style-type: decimal">
+<li>Machine readability</li>
+</ol></li>
+<li><ol start="6" style="list-style-type: decimal">
+<li>Non-discrimination</li>
+</ol></li>
+<li><ol start="7" style="list-style-type: decimal">
+<li>Use of Commonly Owned Standards</li>
+</ol></li>
+<li><ol start="9" style="list-style-type: decimal">
+<li>Permanence</li>
+</ol></li>
+</ul></li>
+<li>Die bloße Bereitstellung einer OParl-konformen API wird weder die Einhaltung der technischen Prinzipien, noch der weiteren Open-Data-Prinzipien vollständig garantieren. Für echte Transparenz bedarft es mehr.</li>
+<li>Viele Bestandteile der Oparl Spezifikation, die einen weitgehend barrierearmen Zugang zu Informationen ermöglichen, sind optional.
+<ul>
+<li>Beispiel: Volltexte von Dokumenten über die API abrufbar machen</li>
+</ul></li>
+<li>Andere Bestandteile, die von Interesse wären, sind noch gar nicht von OParl abgedeckt. Beispiel: Abstimmungsergebnisse.</li>
+<li>Grund dafür ist, dass sich OParl in einem frühen Stadium befindet und primär am Status Quo der parlamentarischen Informationssysteme ausgerichtet ist.</li>
+<li>Es liegt also auch weiterhin an den Verwaltungen und Parlamentariern, durch einen verantwortungsvollen Umgang mit den Systemen die maximal erreichbare Transparenz zu bieten. Das fängt bei Dokumentenformaten an (ein PDF mit digitalem Text weist weit weniger Barrieren auf, als ein gescannter Brief, der ebenfalls als PDF gespeichert wurde) und hört bei der verwendeten Sprache auf.</li>
 </ul>
-<h2 id="werdegang-von-oparl-1.0"><span class="header-section-number">1.6</span> Werdegang von OParl 1.0</h2>
+<h2 id="werdegang-von-oparl-1.0"><span class="header-section-number">1.5</span> Werdegang von OParl 1.0</h2>
 <p>Stichpunkte:</p>
 <ul>
 <li><ol start="17" style="list-style-type: decimal">
@@ -81,7 +111,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>Januar 2014: Nachdem sich die verteilte Zusammenarbeit am Standard-Entwurf seit April 2013 als nicht zielführend erwiesen hat, laden Jens Klessmann und Marian Steinbach und VITAKO zu einem eintägigen OParl-Workshop in Bielefeld ein. Das Ziel ist, die Spezifikation so weit wie möglich voran zu treiben und eine gute Basis für die baldige Fertigstellung zu legen.</li>
 </ol></li>
 </ul>
-<h2 id="zukunft-von-oparl"><span class="header-section-number">1.7</span> Zukunft von OParl</h2>
+<h2 id="zukunft-von-oparl"><span class="header-section-number">1.6</span> Zukunft von OParl</h2>
 <ul>
 <li>Verfeinerung, Lücken schliessen</li>
 <li>Globalisierung</li>
@@ -92,8 +122,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>Suchfunktionen (Volltextsuche)</li>
 <li>Abstimmungsverhalten und maschinenlesbare Protokolle</li>
 </ul>
-<h2 id="nomenklatur-der-spezifikation-und-satzkonventionen"><span class="header-section-number">1.8</span> Nomenklatur der Spezifikation und Satzkonventionen</h2>
-<h3 id="müssen-sollen-und-können-bzw.-zwingend-empfohlen-und-optional"><span class="header-section-number">1.8.1</span> MÜSSEN, SOLLEN und KÖNNEN bzw. ZWINGEND, EMPFOHLEN und OPTIONAL</h3>
+<h2 id="nomenklatur-der-spezifikation-und-satzkonventionen"><span class="header-section-number">1.7</span> Nomenklatur der Spezifikation und Satzkonventionen</h2>
+<h3 id="müssen-sollen-und-können-bzw.-zwingend-empfohlen-und-optional"><span class="header-section-number">1.7.1</span> MÜSSEN, SOLLEN und KÖNNEN bzw. ZWINGEND, EMPFOHLEN und OPTIONAL</h3>
 <p>Dieses Spezifikationsdokument nutzt die Modalverben müssen, können und sollen in einer Art und Weise, die bestimmte Anforderungen möglichst unmissverständlich in drei verschiedene Abstufung einteilen lässt. Um ihre normative Bedeutung zu unterstreichen, werden diese Wörter grundsätzlich in Großbuchstaben gesetzt.</p>
 <p>Diese Konvention ist angelehnt an die Definitionen der Begriffe MUST, SHOULD und MAY (bzw. MUST NOT, SHOULD NOT und MAY NOT) aus RFC2119.<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup></p>
 <p>Die Bedeutung im Einzelnen:</p>
@@ -119,10 +149,10 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Die Entsprechung in RFC2119 lautet &quot;MAY&quot; oder &quot;OPTIONAL&quot;.</p>
 </dd>
 </dl>
-<h3 id="besondere-hervorhebungen-und-satzkonventionen"><span class="header-section-number">1.8.2</span> Besondere Hervorhebungen und Satzkonventionen</h3>
-<h2 id="initiatoren"><span class="header-section-number">1.9</span> Initiatoren</h2>
-<h2 id="unterstützer"><span class="header-section-number">1.10</span> Unterstützer</h2>
-<h2 id="autoren"><span class="header-section-number">1.11</span> Autoren</h2>
+<h3 id="besondere-hervorhebungen-und-satzkonventionen"><span class="header-section-number">1.7.2</span> Besondere Hervorhebungen und Satzkonventionen</h3>
+<h2 id="initiatoren"><span class="header-section-number">1.8</span> Initiatoren</h2>
+<h2 id="unterstützer"><span class="header-section-number">1.9</span> Unterstützer</h2>
+<h2 id="autoren"><span class="header-section-number">1.10</span> Autoren</h2>
 <p>An diesem Dokument haben mitgewirkt:</p>
 <p>Felix Ebert, Jan Erhardt, Jens Klessmann, Andreas Kuckartz, Babett Schalitz, Marian Steinbach, Thomas Tursics, Jakob Voss</p>
 <h1 id="architektur"><span class="header-section-number">2</span> Architektur</h1>
@@ -158,6 +188,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Ein Cache ist ein Speicher, der einem Client dazu dienen kann, von einem Server abgerufene Informationen längerfristig vorzuhalten. Dies kann beispielsweise dazu dienen, mehrfache Anfragen der selben Informationen zu vermeiden, wodurch sowohl Ressourcen auf Seite des Servers geschohnt als auch die Nutzung von Netzwerkbandbreite reduziert werden kann. Die Nutzung eines Cache kann auch zur Verbesserung der Nutzerfreundlichkeit eines Clients beitragen, indem Wartezeiten zur Bereitstellung einer Ressource verkürzt werden.</p>
 <h2 id="nutzerin-oder-nutzer"><span class="header-section-number">2.7</span> Nutzerin oder Nutzer</h2>
 <p>Mit einer Nutzerin oder einem Nutzer ist in diesem Fall eine natürliche Person gemeint, die mittels eines OParl-Clients auf parlamentarische Informationen zugreift.</p>
+<h2 id="objekt"><span class="header-section-number">2.8</span> Objekt</h2>
+<p>Der Server beantwortet Anfragen eines Clients im Regelfall, indem bestimmte Objekte ausgegeben werden. Objekte sind im Fall einer OParl-konformen API JSON-Objekte, die das Schema einhalten, das in der vorliegenden Spezifikation beaschrieben wird. Antworten des Servers können einzelne Objekte, Listen von Objekten oder Listen von URLs von Objekten enthalten.</p>
 <h1 id="nutzungsszenarien"><span class="header-section-number">3</span> Nutzungsszenarien</h1>
 <p>Die nachfolgenden Nutzungsszenarien dienen dazu, die Architektur und die Anwendungsmöglichkeiten anhand konkreter Beispiele zu verdeutlichen. Sie erheben keinen Anspruch auf Vollständigkeit.</p>
 <h3 id="szenario-1-mobile-client-anwendung"><span class="header-section-number">3.0.1</span> Szenario 1: Mobile Client-Anwendung</h3>
@@ -175,6 +207,16 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Neben dem kleinen Display kann für einige mobile Endgeräte auch die im Vergleich zu einem zeitgemäßen Desktop-PC geringere CPU-Leistung eine Einschränkung darstellen. Solchen Geräten kommt es besonders entgegen, wenn der Server zu allen Dokumenten auch den reinen Textinhalt abrufbar macht, der dann beispielsweise für eine Volltextsuche auf dem Endgerät indexiert werden kann. So wiederum kann auf dem Client eine Suchfunktion realisiert werden, welche die OParl-API selbst nicht zur Verfügung stellt.</p>
 <p>Eine solche Suchfunktion kann auch über die reine Volltxtsuche hinaus gehen und über die Suche mittels Text- oder Spracheingabe hinaus gehen. Denn ein Client könnte von einem <a href="#server">Server</a>-System, das Drucksachen mit Geoinformationen anbietet, diese abrufen und räumlich indexieren. Anhand der Position des Geräts, die mittels GPS genau bestimmt werden kann, könnte so der lokale Cache nach Objekten in der Umgebung durchsucht werden. Das Ergebnis könnte auf einer Karte dargestellt oder in einer Ergebnisliste angezeigt werden, die nach Distanz zum Objekt sortiert werden könnte.</p>
 <h3 id="szenario-2-integration-in-web-portal"><span class="header-section-number">3.0.2</span> Szenario 2: Integration in Web-Portal</h3>
+<p>Web Portale bieten Nutzern unter anderem die Möglichkeit Anwendungen, Prozesse und Dienste zu integrieren. Die OParl API stellt einen solchen Dienst dar und bereitet so den Weg zu angereicherten Portalseiten. Informationen, die über die API bezogen werden, können in Portlets organisiert und visualisiert werden. Hierbei können</p>
+<ol style="list-style-type: decimal">
+<li>angemeldete Benutzer</li>
+</ol>
+<p>die eingegrenzten Portlet Parameter für den nächsten Besuch zwischen speichern, während</p>
+<ol start="2" style="list-style-type: decimal">
+<li>anonyme Benutzer</li>
+</ol>
+<p>dies nicht können. In beiden Fällen können Portalnutzer das angezeigte Portlet nach ihren Bedürfnissen anpassen. Beispielsweise kann ein solches Portlet eine Liste der Gremien bereitstellen, aus der sich der Nutzer das interessante Gremium aussucht und aufgrund dieser Auswahl die Informationen zu den vergangenen / nächsten Sitzungsterminen im Rat, etwaiger Drucksachen oder Dokumenten erhält und geeignet visualisiert.</p>
+<p>Durch eine solche Integration von RIS Informationen in bestehende Portalsysteme (unter Umständen die kommunale Webseite selbst), ist es möglich Nutzern zusätzliche Informationen in der bereits gewohnten Umgebung zu präsentieren und den bestehenden Informationsgehalt und den Datenbestand aufzuwerten.</p>
 <h3 id="szenario-3-meta-suche"><span class="header-section-number">3.0.3</span> Szenario 3: Meta-Suche</h3>
 <h3 id="szenario-4-forschungsprojekt-themen--und-sprachanalyse"><span class="header-section-number">3.0.4</span> Szenario 4: Forschungsprojekt Themen- und Sprachanalyse</h3>
 <h1 id="prinzipien-und-funktionen-der-api"><span class="header-section-number">4</span> Prinzipien und Funktionen der API</h1>
@@ -286,7 +328,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>HTTP Last-Modified Header sowie Conditional GET sind zu unterstützen</li>
 </ul>
 <h2 id="ausnahmebehandlung"><span class="header-section-number">4.9</span> Ausnahmebehandlung</h2>
-<p>(Diskussion hierzu unter https://github.com/OParl/specs/issues/89) Liste reservierter URL-Parameter --------------------------------</p>
+<p>(Diskussion hierzu unter https://github.com/OParl/specs/issues/89)</p>
+<h2 id="liste-reservierter-url-parameter"><span class="header-section-number">4.10</span> Liste reservierter URL-Parameter</h2>
 <p>Die in dieser Liste enthaltenen Zeichenketten haben eine reservierte Bedeutung und stehen bei Implementierungen eines OParl-Servers nicht mehr für die freie Verwendung in URLs zur Verfügung.</p>
 <dl>
 <dt>callback:</dt>

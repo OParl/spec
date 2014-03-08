@@ -1,4 +1,4 @@
-OParlOrganisation (Organisation)
+oparl:Organisation (Organisation)
 --------------------------------
 
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die 
@@ -26,7 +26,7 @@ berücksichtigt werden.
 
 ### Beziehungen ###
 
-* Jede Organisationen gehört zu einer Körperschaft.
+* Jede `oparl:Organisation` gehört zu einer Körperschaft.
 * Personen können Organisationen angehören (*datiert*).
 
 ### Beispiel ###

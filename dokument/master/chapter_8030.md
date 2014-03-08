@@ -1,19 +1,19 @@
 OParlSystem (System)
 --------------------
 
-Der Objekttyp `OParlSystem` bildet grundlegende Informationen zum
+Der Objekttyp `oparl:System` bildet grundlegende Informationen zum
 parlamentarischen Informationssystem ab. Das Objekt repräsentiert
 das technische System, unabhängig von der Frage, welche Körperschaften
 auf diesem System vertreten sind.
 
-Auf jedem OParl Server MUSS ein Objekt vom Typ `OParlSystem` vorgehalten
+Auf jedem OParl Server MUSS ein Objekt vom Typ `oparl:System` vorgehalten
 werden. Es DARF nur ein einziges solches Objekt je Server existieren.
 
-Für Clients ist das `OParlSystem` Objekt ein geeigneter Einstiegspunkt,
+Für Clients ist das `oparl:System` Objekt ein geeigneter Einstiegspunkt,
 um grundlegende Informationen über das Sytem zu bekommen und die URLs
 zum Zugriff auf andere Informationen in Erfahrung zu bringen.
 
-Die URL (IRI) des `OParlSystem` Objekts MUSS per Definition identisch mit
+Die URL (IRI) des `oparl:System` Objekts MUSS per Definition identisch mit
 der URL des API-Endpunkts des Servers sein.
 
 ### Eigenschaft `oparl_version`
@@ -32,10 +32,9 @@ Servers vorausgesetzt werden können.
 
 Diese Eigenschaft ist ZWINGEND.
 
-Über diese URL sind alle OParlBody Objekte, also die im System geführten Körperschaften,
-als Liste abrufbar.
+Über diese URL sind alle `oparl:Body` Objekte, also die im System geführten Körperschaften, als Liste abrufbar.
 
-TODO: Verweis auf OParlBody einfügen
+TODO: Verweis auf `oparl:Body` einfügen
 
 ### Eigenschaft `name`
 
@@ -53,9 +52,9 @@ mit dem Betreiber des Systems zu ermöglichen. Es wird EMPFOHLEN, hier die Konta
 eines technischen Ansprechpartners bzw. einer allgemeinen Kontaktstelle auszugeben, über die
 Anfragen verschiedener Art an die richtige Kontaktperson umgeleitet werden können.
 
-Der Wert dieser Eigenschaft MUSS ein Objekt vom Typ OParlContact sein.
+Der Wert dieser Eigenschaft MUSS ein Objekt vom Typ `oparl:Contact` sein.
 
-TODO: Verweis auf OParlContact einfügen.
+TODO: Verweis auf `oparl:Contact` einfügen.
 
 ### Eigenschaft `license`
 

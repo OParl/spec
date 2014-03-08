@@ -1,3 +1,3 @@
-OParlContact (Kontakt)
+oparl:Contact (Kontakt)
 ----------------------
 

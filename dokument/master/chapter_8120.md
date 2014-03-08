@@ -1,3 +1,3 @@
-OParlConsultation (Beratung)
+oparl:Consultation (Beratung)
 ----------------------------
 

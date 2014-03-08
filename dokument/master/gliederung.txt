@@ -1,0 +1,132 @@
+OParl Spezifikation 1.0 Gliederung
+
+# Dies ist ein Entwurfsdokument, um die inhaltliche Gliederung der OParl Spezifikation
+# Version 1.0 einfach bearbeiten zu können. Die Hierarchie wird allein durch Einrückung
+# (4 Leerzeichen) gebildet. Je Eintrag nur eine Zeile. Einträge mit Spiegelstrich sind 
+# nicht als eigene Abschnitte gedacht, sondern Stichpunkte zum Inhalt. Beim Hinzufügen 
+# neuer Zeilen bitte im Commit-Kommentar genauer erläutern. Die vierstelligen Zahlen
+# stehen für die Dateinummern der Markdown-Dateien.
+
+0000 Deckblatt
+1000 Einleitung
+    1005 Status
+    1010 Was ist OParl?
+    1020 Zielsetzung von OParl
+    1025 Transparenz und Beteiligung durch Open Data
+    1030 Werdegang von OParl 1.0
+    1040 Zukunft von OParl
+    1050 Nomenklatur der Spezifikation und Satzkonventionen
+    1060 Initiatoren
+    1070 Unterstützer
+    1080 Autoren
+2000 Architektur
+    Überblick
+    Parlamentarisches Informationssystem
+    Server
+    API
+    Client
+    Cache
+    Nutzerin oder Nutzer
+4000 Nutzungsszenarien
+    - Dient der besseren Verständlichkeit der Architektur durch Konkretisierung
+    Szenario 1: Mobile Client-Anwendung
+    Szenario 2: Integration in Web-Portal
+    Szenario 3: Meta-Suche
+    Szenario 4: Forschungsprojekt Themen- und Sprachanalyse
+6000 Prinzipien und Funktionen der API
+    6010 Designprinzipien
+        Allgemein
+        RESTful
+        Selbstbeschreibungsfähigkeit
+        Erweiterbarkeit
+        Browseability/Verlinkung
+    6020 Zukunftssicherheit
+    6030 HTTP und HTTPS
+    6040 Serialisierung mittels JSON-LD und JSONP
+        JSON
+        JSON-LD
+        JSONP
+    6050 Benannte und anonyme Objekte
+        Benannte Objekte
+        Anonyme Objekte (Blank Nodes)
+        Empfehlungen für langlebige IRIs/URIs/URLs
+        Empfehlungen für eindeutige URLs
+    6060 Objektlisten
+    6070 Feeds
+        Neue Objekte
+        Geänderte Objekte
+        Entfernte Objekte
+    6080 Dokumentenabruf
+    6100 Ausnahmebehandlung
+    6900 Reservierte URL-Parameter
+8000 Schema
+    8010 Überblick
+        - Überblick mit Graph-Darstellung
+    8020 Attribute mit Verwendung in mehreren Objekttypen
+    8030 OParlSystem (System)
+        Bedeutung
+        Eigenschaften
+        Besonderheiten
+            - Darf nur einmal vorkommen
+        Beispiel(e)
+    8040 OParlBody (Körperschaft)
+        Bedeutung
+        Eigenschaften
+        Besonderheiten
+        Beispiel(e)
+    8050 OParlCommittee (Gremium)
+        Bedeutung
+        Eigenschaften
+        Besonderheiten
+        Beispiel(e)
+    8060 OParlPerson (Person)
+        Bedeutung
+        Eigenschaften
+        Besonderheiten
+        Beispiel(e)
+    8070 OParlOrganisation (Organisation)
+        Bedeutung
+        Eigenschaften
+        Besonderheiten
+        Beispiel(e)
+    8080 OParlMeeting (Sitzung)
+        Bedeutung
+        Eigenschaften
+        Besonderheiten
+        Beispiel(e)
+    8090 OParlAgendaitem (Tagesordnungspunkt)
+        Bedeutung
+        Eigenschaften
+        Besonderheiten
+        Beispiel(e)
+    8100 OParlPaper (Drucksache)
+        Bedeutung
+        Eigenschaften
+        Besonderheiten
+        Beispiel(e)
+    8110 OParlDocument (Dokument)
+        Bedeutung
+        Eigenschaften
+        Besonderheiten
+        Beispiel(e)
+    8120 OParlConsultation (Beratung)
+        Bedeutung
+            - Bildet die Beratung einer Drucksache im Rahmen einer Sitzung ab
+        Eigenschaften
+        Besonderheiten
+            - Nur als anonymes Objekt (Blank Node) vorgesehen, SOLL aber IRI enthalten
+        Beispiel(e)
+    8130 OParlLocation (Ort)
+        Bedeutung
+        Eigenschaften
+        Besonderheiten
+            - Nur als anonymes Objekt (Blank Node) vorgesehen, SOLL aber IRI enthalten
+        Beispiel(e)
+    8140 OParlContact (Kontakt)
+        Bedeutung
+        Eigenschaften
+        Besonderheiten
+            - Nur als anonymes Objekt (Blank Node) vorgesehen, SOLL aber IRI enthalten
+        Beispiel(e)
+9000 Anhang
+    9010 Glossar

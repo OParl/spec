@@ -9,49 +9,6 @@ OParl Schnittstellen-Standards für parlamentarische Informationssysteme
 für die Implementierung von OParl-konformen Server- und
 Clientanwendungen.
 
-Parlamentarische Informationssysteme
-------------------------------------
-
-Parlamentarische Informationssysteme (oft Ratsinformationssystem, RIS
-oder Bürgerinformationssystem genannt) werden von vielen Körperschaften
-wie Kommunen, Landkreisen und Regierungsbezirken eingesetzt, um die
-anfallende Gremienarbeit (Ratssitzungen, Ausschüsse, Vertretungen) zu
-organisieren. Da ein großer Teil der schriftlichen Arbeit in der
-Lokalpolitik über derartige Systeme verwaltet wird, sind diese Systeme –
-dort wo vorhanden – ein wichtiger Zugriffspunkt für alle, die sich für
-politischen Geschehnisse interessieren.
-
-Gründe für den standardisierten Datenzugriff
---------------------------------------------
-
-Eine wichtige Maßnahme von Körperschaften, die im Zuge von Open-Data-
-und Open-Government-Initiativen ihre Politik transparenter machen
-wollen, wird auch sein, die Daten in den parlamentarischen
-Informationssystemen im Sinne des Open-Data-Begriffs zugänglich zu
-machen. Hierdurch können die Kommunen selbst, aber auch dritte,
-Anwendungen entwickeln, die Inhalte auf verschiedene Art und Weise
-auswerten, abrufbar und nutzbar machen, sei es für die Allgemeinheit
-oder für bestimmte Nutzerkreise.
-
-Darüber hinaus sollen parlamentarische Informationssysteme in
-verschiedenste Prozesse und Systemlandschaften integriert werden. Durch
-eine einheitliche Schnittstelle bieten sich effiziente Möglichkeiten zur
-Integration der Daten in anderen Systemen, wie beispielsweise
-Web-Portalen.
-
-Funktionsumfang der OParl-Schnittstelle
----------------------------------------
-
-Die vorliegende Spezifikation soll eine Webservice-Schnittstelle
-definieren, die den anonymen und lesenden Zugriff auf öffentliche
-Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die
-Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP). Daten
-werden als JSON, JSONP oder optional als XML ausgeliefert.
-
-Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale
-Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher
-zwischen den Implementierungen variieren.
-
 Status
 ------
 
@@ -59,217 +16,1028 @@ Die Spezifikation befindet sich in Arbeit. Das Dokument enthält
 entsprechend viele Ungenauigkeiten und Hinweise auf offene
 Fragestellungen.
 
+Was ist OParl?
+--------------
+
+(Nachfolgend eine Übernahme aus dem bisherigen Abschnitt
+"Funktionsumfang der OParl-Schnittstelle". Der Text sollte deutlich
+überarbeitet und erweitert werden.)
+
+Die vorliegende Spezifikation soll eine Webservice-Schnittstelle
+definieren, die den anonymen und lesenden Zugriff auf öffentliche
+Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die
+Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP). Daten
+werden als JSON oder als JSONP ausgeliefert.
+
+Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale
+Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher
+zwischen den Implementierungen variieren.
+
+Zielsetzung von OParl
+---------------------
+
+-   Nutzen für Kommunen, Bürger, politische Parteien
+-   Nutzen für Anbieter von RIS-Pflegesoftware
+-   Nutzen für Anbieter von RIS-Darstellungssoftware
+-   Nutzen für Open Data Initiativen
+-   Nutzen für die Wissenschaft
+-   Linked Data erwähnen
+
+(Nachstehen der bisherige Textentwurf aus dem Abschnitt "Motivationen
+für den standardisierten Datenzugriff", der sicherlich deutlich
+überarbeitet werden muss.)
+
+Die Gründe, warum Betreiber von parlamentarischen Informationssystemen
+den Zugriff darauf über eine standardisierte Schnittstelle ermöglichen
+sollten, können vielfältig sein.
+
+Ein zentrales Argument ist die Verpflichtung der Parlamente gegenüber
+der Bevölkerung, diese über die Fortschritte der parlamentarischen
+Arbeit zu informieren und auf dem Laufenden zu halten. Ein erster
+Schritt, der Bevölkerung Einblicke in die Arbeit und Zugriff auf
+Dokumente zu gewähren, ist vielerorts in den letzten Jahren durch
+Einführung von Ratsinformationssystemen mit anonymem, lesenden Zugriff
+über das World Wide Web gemacht worden.
+
+Die damit eingeschlagene Richtung konsequent weiter zu gehen, bedeutet,
+die Daten der parlamentarischen Informationssystemen gänzlich offen zu
+legen, sofern die Inhalte es erlauben. Es bedeutet, die Daten und
+Inhalte so universell weiterverwendbar und so barrierearm wie möglich
+anzubieten, dass jegliche weitere Verwendung durch Dritte technisch
+möglich ist. Der seit einiger Zeit etablierte Begriff für dieses Prinzip
+heißt "Open Data".
+
+Das Interesse an parlamentarischen Informationen und an Anwendungen, die
+diese nutzbar und auswertbar machen, ist offensichtlich vorhanden. Die
+Entwickler der alternativen Ratsinformationssysteme wie Frankfurt
+Gestalten[14], Offenes Köln[15] oder der OpenRuhr:RIS-Instanzen[16]
+wissen zu berichten, wie viel Interesse den Projekten gerade aus Orten
+entgegen gebracht wird, in denen derartige Systeme noch nicht verfügbar
+sind.
+
+Die Anwendungsmöglichkeiten für parlamentarische Informationen, wenn sie
+über eine Schnittstelle schnell und einfach abgerufen werden können,
+sind vielfältig. Beispiele könnten sein:
+
+-   Apps für den Abruf auf mobilen Endgeräten
+-   Möglichkeiten zur Wiedergabe für Nutzerinnen und Nutzer mit
+    Beeinträchtigung des Sehvermögens
+-   Alternative und erweiterte Suchmöglichkeiten in Inhalten
+-   Auswertung und Analyse von Themen, Inhalten, Sprache etc.
+-   Benachrichtigungsfunktionen beim Erscheinen bestimmte Inhalte
+
+Die Standardisierung dieses Zugriffs über die Grenzen einzelner Systeme
+hinweg erlaubt zudem, diese Entwicklungen grenzüberschreitend zu denken.
+Damit steigt nicht nur die potenzielle Nutzerschaft einzelner
+Entwicklungen. Auch das Potenzial für Kooperationen zwischen
+Anwendungsentwicklern wächst.
+
+Darüber hinaus sind auch Motivationen innerhalb von Organisationen und
+Körperschaften erkennbar. So sollen parlamentarische Informationssysteme
+vielerorts in verschiedenste Prozesse und heterogene Systemlandschaften
+integriert werden. Durch eine einheitliche Schnittstelle bieten sich
+effiziente Möglichkeiten zur Integration der Daten in anderen Systeme,
+wie beispielsweise Web-Portale.
+
+Transparenz und Beteiligung durch Open Data
+-------------------------------------------
+
+-   Einführung zu Open Data
+-   "10 Principles" erwähnen
+    https://sunlightfoundation.com/policy/documents/ten-open-data-principles/
+-   Spürbare Tendenz zu mehr Offenheit
+-   Open Data ist (nur) zum Teil technisches Problem
+-   Vier der "10 Principles" haben technische Dimension:
+    -   5.  Machine readability
+
+    -   6.  Non-discrimination
+
+    -   7.  Use of Commonly Owned Standards
+
+    -   9.  Permanence
+
+-   Die bloße Bereitstellung einer OParl-konformen API wird weder die
+    Einhaltung der technischen Prinzipien, noch der weiteren
+    Open-Data-Prinzipien vollständig garantieren. Für echte Transparenz
+    bedarft es mehr.
+-   Viele Bestandteile der Oparl Spezifikation, die einen weitgehend
+    barrierearmen Zugang zu Informationen ermöglichen, sind optional.
+    -   Beispiel: Volltexte von Dokumenten über die API abrufbar machen
+
+-   Andere Bestandteile, die von Interesse wären, sind noch gar nicht
+    von OParl abgedeckt. Beispiel: Abstimmungsergebnisse.
+-   Grund dafür ist, dass sich OParl in einem frühen Stadium befindet
+    und primär am Status Quo der parlamentarischen Informationssysteme
+    ausgerichtet ist.
+-   Es liegt also auch weiterhin an den Verwaltungen und
+    Parlamentariern, durch einen verantwortungsvollen Umgang mit den
+    Systemen die maximal erreichbare Transparenz zu bieten. Das fängt
+    bei Dokumentenformaten an (ein PDF mit digitalem Text weist weit
+    weniger Barrieren auf, als ein gescannter Brief, der ebenfalls als
+    PDF gespeichert wurde) und hört bei der verwendeten Sprache auf.
+
+Werdegang von OParl 1.0
+-----------------------
+
+Stichpunkte:
+
+-   17. und 18. November 2012: Die Open Knowledge Foundation Deutschland
+        veranstaltet in den Räumen der Heinrich-Böll-Stiftung in Berlin
+        einen Workshop für Entwickler von Anwendungen, die einen
+        gesellschaftlichen Nutzen bringen sollen. Hier ist VITAKO, die
+        Bundes-Arbeitsgemeinschaft der Kommunalen IT-Dienstleister, als
+        Sponsor engagiert. Die Geschäftsführerin, Dr. Marianne Wulff,
+        ist persönlich vor Ort. Auch das Projekt Offenes Köln wird in
+        einem Vortrag von Marian Steinbach präsentiert. Es kommt zum
+        Austausch über die Frage, wie das Prinzip der offenen
+        Ratsinformationen effektiv auf weitere Kommunen ausgeweitet
+        werden könnte.
+
+-   6.  Dezember 2012: Anhörung im Landtag NRW in Düsseldorf zu einer
+        Open-Data-Strategie der Landesregierung, wo Jens Klessmann und
+        Marian Steinbach als Sachverständige gehört werden. Danach
+        Gespräch über Möglichkeiten der Standardisierung offener
+        Ratsinformationssysteme.
+
+-   Dezember 2012: Dr. Marianne Wulff, Jens Klessmann und Marian
+    Steinbach beginnen mit der Abstimmung über einen Workshop mit
+    Vertreterinnen und Vertretern von Kommunen, kommunalen
+    IT-Dienstleistern, RIS-Anbietern und Zivilgesellschaft. Ziel: Die
+    Bereitschaft zur Zusammenarbeit an einem gemeinsamen Standard
+    ermitteln. Unterdessen beginnt Marian Steinbach mit der Formulierung
+    eines Standard-Entwurfs als Diskussionsgrundlage. Der Entwurf wird
+    von Beginn an öffentlich auf GitHub.com bereit gestellt.
+
+-   17. April 2013: Insgesamt 30 Teilnehmer versammeln sich in Köln, um
+        sich in einem ersten Treffen über Ziele und Chancen einer
+        Standardisierung für offene Ratsinformationen auszutauschen. Als
+        Ergebnis wird ein großes Interesse an der weiteren
+        Zusammenarbeit auf Basis des vorliegenden Standardentwurfs
+        festgestellt. Als Termin für die Fertigstellung der ersten
+        Version der Spezifikation wird der 30. Juni 2013 festgelegt. Die
+        Initiatoren präsentieren den Anwesenden hier erstmals den Namen
+        "OParl", der künftig als Marke für die Bemühungen der Gruppe
+        stehen soll.
+
+-   22. Januar 2014: Nachdem sich die verteilte Zusammenarbeit am
+        Standard-Entwurf seit April 2013 als nicht zielführend erwiesen
+        hat, laden Jens Klessmann und Marian Steinbach und VITAKO zu
+        einem eintägigen OParl-Workshop in Bielefeld ein. Das Ziel ist,
+        die Spezifikation so weit wie möglich voran zu treiben und eine
+        gute Basis für die baldige Fertigstellung zu legen.
+
+Zukunft von OParl
+-----------------
+
+-   Verfeinerung, Lücken schliessen
+-   Globalisierung
+-   Erweiterung über die kommunale Ebene hinaus (Land, Bund)
+-   Vereinheitlichung von Kategorien (Drucksachentypen, Arten von
+    Gremien)
+-   Erweiterung von Personendaten, z.B. mit Social Media URLs
+-   Mehr Abfragekriterien
+-   Suchfunktionen (Volltextsuche)
+-   Abstimmungsverhalten und maschinenlesbare Protokolle
+
+Nomenklatur der Spezifikation und Satzkonventionen
+--------------------------------------------------
+
+MÜSSEN, SOLLEN und KÖNNEN bzw. ZWINGEND, EMPFOHLEN und OPTIONAL
+
+Dieses Spezifikationsdokument nutzt die Modalverben müssen, können und
+sollen in einer Art und Weise, die bestimmte Anforderungen möglichst
+unmissverständlich in drei verschiedene Abstufung einteilen lässt. Um
+ihre normative Bedeutung zu unterstreichen, werden diese Wörter
+grundsätzlich in Großbuchstaben gesetzt.
+
+Diese Konvention ist angelehnt an die Definitionen der Begriffe MUST,
+SHOULD und MAY (bzw. MUST NOT, SHOULD NOT und MAY NOT) aus RFC2119.[^1]
+
+Die Bedeutung im Einzelnen:
+
+MÜSSEN/MUSS bzw. ZWINGEND:
+    Die Erfüllung einer Anforderung, die explizit vom Modalverb MÜSSEN
+    bzw. MUSS Gebrauch macht, ist zwingend erforderlich.
+
+    Die Entsprechung in RFC2119 lautet "MUST", "REQUIRED" oder "SHALL".
+
+NICHT DÜRFEN/DARF NICHT:
+    Dieses Stichwort kennzeichnet ein absolutes Verbot.
+
+    Die Entsprechung in RFC2119 lautet "MUST NOT" oder "SHALL NOT".
+
+SOLLEN/SOLL bzw. EMPFOHLEN:
+    Mit dem Wort SOLLEN bzw. SOLL sind empfohlene Anforderungen
+    gekennzeichnet, die von jeder Implementierung erfüllt werden sollen.
+    Eine Nichterfüllung ist als Nachteil zu verstehen, beispielsweise
+    weil die Nutzerfreundlichkeit dadurch Einbußen erleidet, und sollte
+    daher sorgfältig abgewogen werden.
+
+    Die Entsprechung in RFC2119 lautet "SHOULD" oder "RECOMMENDED".
+
+NICHT SOLLEN/SOLL NICHT bzw. NICHT EMPFOHLEN:
+    Diese Formulierung wird verwendet, wenn unter gewissen Umständen
+    Gründe existieren können, die ein bestimmtes Verhalten akzeptabel
+    oder sogar nützlich erscheinen lassen, jedoch die Auswirkung des
+    Verhaltens vor einer entsprechenden Implementierung verstanden und
+    abgewogen werden sollen.
+
+    Die Entsprechung in RFC2119 lautet "SHOULD NOT" oder "NOT
+    RECOMMENDED".
+
+DÜRFEN/DARF bzw. OPTIONAL:
+    Mit dem Wort DÜRFEN bzw. DARF oder OPTIONAL sind optionale
+    Bestandteile gekennzeichnet. Ein Anbieter könnte sich entscheiden,
+    den entsprechenden Bestandteil aufgrund besonderer
+    Kundenanforderungen zu unterstützen, während andere diesen
+    Bestandteil ignorieren könnten. Implementierer von Clients oder
+    Servern DÜRFEN in solchen Fällen NICHT davon ausgehen, dass der
+    jeweilige Kommunikationspartner den entsprechenden, optionalen
+    Anteil unterstützt.
+
+    Die Entsprechung in RFC2119 lautet "MAY" oder "OPTIONAL".
+
+Besondere Hervorhebungen und Satzkonventionen
+
+Initiatoren
+-----------
+
+Unterstützer
+------------
+
+Autoren
+-------
+
+An diesem Dokument haben mitgewirkt:
+
+Felix Ebert, Jan Erhardt, Jens Klessmann, Andreas Kuckartz, Babett
+Schalitz, Marian Steinbach, Thomas Tursics, Jakob Voss
+
+Architektur
+===========
+
+In diesem Abschnitt werden grundlegenden Konzepte, die von OParl
+abgedeckt werden, erläutert. Die Erläuterungen sind nicht im engeren
+Sinne Teil der Spezifikation, sondern dienen dazu, die
+Anwendungsbereiche von OParl und die Funktionen einer OParl-konformen
+API verständlicher und konkreter beschreiben zu können.
+
+Da die Architektur auf der generellen Architektur des World Wide Web
+(WWW) aufbaut, sind einzelne Konzepte direkt den Begriffen der
+Architekturbeschreibung des W3-Konsortiums entlehnt.[^2]
+
 Überblick
 ---------
 
-Der Entwurf umfasst aktuell die Beschreibung eines Datenmodells.
+[Architekturdiagramm]
 
-Nächste Schritte
+Parlamentarisches Informationssystem
+------------------------------------
+
+Parlamentarische Informationssysteme sind Software-Systeme, die von
+verschiedensten Körperschaften eingesetzt werden, um die Zusammenarbeit
+von Parlamenten zu organisieren, zu dokumentieren und öffentlich
+nachvollziehbar zu machen.
+
+Im kommunalen Umfeld in Deutschland, wo das Parlament je nach Art der
+Kommune häufig als Stadtrat oder Gemeinderat bezeichnet wird, hat sich
+für diese Art von Informationssystem auch der Begriff
+"Ratsinformationssystem" (kurz "RIS") etabliert.
+
+Parlamentarische Informationssysteme sind jedoch nicht auf die kommunale
+Ebene begrenzt. Ähnliche Systeme werden auch auf Ebene z.B. von
+Landkreisen, Regierungsbezirken und diversen Zweckverbänden eingesetzt.
+
+Diese Systeme unterstützen in der Regel mehrere der folgenden
+Funktionen:
+
+-   Das Erzeugen, Bearbeiten und Darstellen von Sitzungen und deren
+    Tagesordnung
+-   Das Erzeugen und Abrufen von Sitzungsprotokollen
+-   Das Erzeugen, Bearbeiten und Anzeigen von Drucksachen
+-   Das Erzeugen, Bearbeiten und Anzeigen von Gremien und deren
+    Mitgliedern
+
+Funktionen, die die Eingabe und Bearbeitung von Daten betreffen, sind in
+der Regel einem geschlossenen Nutzerkreis vorbehalten. Die Darstellung
+und der Abruf von Informationen und Dokumenten hingegen ist in vielen
+Fällen für die Öffentlichkeit freigegeben.
+
+Die OParl Spezifikation beschreibt eine Schnittstelle, die den
+maschinellen, lesenden Zugriff auf derartige Informationen ermöglicht.
+
+Server
+------
+
+Der Server im Sinne dieser Spezifikation ist ein Software-Dienst, der
+auf einem mit dem Internet verbundenen Rechnersystem läuft. Dieser
+Dienst ist eine spezielle Form eines WWW- bzw. HTTP(S)-Servers.
+Entsprechend beantwortet der Server HTTP-Anfragen, die an ihn auf einem
+bestimmten TCP-Port gestellt werden.
+
+Der Server ist als Bestandteil des parlamentarischen Informationssystems
+zu verstehen. Der Betrieb des Servers steht damit üblicherweise in der
+Verantwortung desjenigen, der das parlamentarischen Informationssystem
+betreibt.
+
+Von einem Server, der die OParl-Spezifikation erfüllt, wird erwartet,
+dass er bestimmte parlamentarische Informationen in einem bestimmten
+Format zur Verfügung stellt und auf bestimmte Anfragen von so genannten
+Clients über die OParl API entsprechend dieser Spezifikation reagiert.
+
+API
+---
+
+Der Begriff API steht in diesem Dokument für die
+Webservice-Schnittstelle, die der Server anbietet. Die Schnittstelle
+basiert auf dem HTTP-Protokoll. Mittels HTTPS ist wahlweise auch die
+verschlüsselte Nutzung der API möglich, sofern Server dies unterstützt.
+
+Die API steht im Mittelpunkt dieser Spezifikation. Server und Clients
+sind als Kommunikationspartner zu verstehen, die über das Internet als
+Kommunikationskanal mit einander kommunizieren können. Die
+API-Spezifikation stellt dabei die nötige Grammatik und das Vokabular
+bereit, anhand dessen eine sinnvolle Kommunikation erfolgen kann.
+
+Client
+------
+
+Der Begriff "Client" steht für eine Software, die über die OParl API mit
+dem Server kommuniziert. Da die API auf dem HTTP-Protokoll aufbaut,
+handelt es sich bei dem Client um eine spezielle Form eines
+HTTP-Clients.
+
+Cache
+-----
+
+Ein Cache ist ein Speicher, der einem Client dazu dienen kann, von einem
+Server abgerufene Informationen längerfristig vorzuhalten. Dies kann
+beispielsweise dazu dienen, mehrfache Anfragen der selben Informationen
+zu vermeiden, wodurch sowohl Ressourcen auf Seite des Servers geschohnt
+als auch die Nutzung von Netzwerkbandbreite reduziert werden kann. Die
+Nutzung eines Cache kann auch zur Verbesserung der Nutzerfreundlichkeit
+eines Clients beitragen, indem Wartezeiten zur Bereitstellung einer
+Ressource verkürzt werden.
+
+Nutzerin oder Nutzer
+--------------------
+
+Mit einer Nutzerin oder einem Nutzer ist in diesem Fall eine natürliche
+Person gemeint, die mittels eines OParl-Clients auf parlamentarische
+Informationen zugreift.
+
+Objekt
+------
+
+Der Server beantwortet Anfragen eines Clients im Regelfall, indem
+bestimmte Objekte ausgegeben werden. Objekte sind im Fall einer
+OParl-konformen API JSON-Objekte, die das Schema einhalten, das in der
+vorliegenden Spezifikation beaschrieben wird. Antworten des Servers
+können einzelne Objekte, Listen von Objekten oder Listen von URLs von
+Objekten enthalten.
+
+Nutzungsszenarien
+=================
+
+Die nachfolgenden Nutzungsszenarien dienen dazu, die Architektur und die
+Anwendungsmöglichkeiten anhand konkreter Beispiele zu verdeutlichen. Sie
+erheben keinen Anspruch auf Vollständigkeit.
+
+Szenario 1: Mobile Client-Anwendung
+
+Eine Client-Anwendung für mobile Endgeräte wie SmartPhones und Tablets,
+nachfolgend "App" genannt, könnte das Ziel verfolgen, Nutzern unterwegs
+sowie abseits vom Desktop-PC bestmöglichen Lesezugriff auf Dokumente aus
+Ratsinformationssystemen (RIS) zu bieten. Die möglichen Kontexte und
+Nutzungsmotivationen sind vielfältig:
+
+-   Teilnehmer einer Sitzung greifen während der Sitzung auf die
+    Einladung dieser Sitzung und die zur Tagesordnung der Sitzung
+    gehörenden Drucksachen zu, außerdem auf die Protokolle vorheriger
+    Sitzungen.
+
+-   Eine Redakteurin der Lokalpresse geht unterwegs die Themen der
+    nächsten Sitzungen bestimmter Gremien, für die sie sich besonders
+    interessiert, durch.
+
+-   Eine Gruppe von Studierenden erkundet zusammen mit ihrem Dozenten
+    die lokalpolitischen Aktivitäten des Viertels rund um ihre
+    Hochschule. Dazu nutzen sie die GPS-Lokalisierung ihrer Smartphones
+    in Verbindung mit den Geodaten, die an vielen Drucksachen des
+    lokalen RIS zu finden sind. Direkt vor Ort an einer Baustelle öffnen
+    sie Beschlüsse, Pläne und Eingaben aus dem
+    Planfeststellungsverfahren, die dieser Baustelle voran gegangen
+    sind.
+
+Zur Realisierung derartiger Szenarien können die Fähigkeiten von
+OParl-kompatiblen Servern mit den besonderen Eigenschaften der mobilen
+Endgeräte verknüpft werden.
+
+Smartphones und Tablets verfügen beispielsweise, je nach Aufenthaltsort,
+über sehr unterschiedlich gute Internetanbindung. In einem Büro oder
+zuhause können Nutzer über ein WLAN Daten mit hoher Bandbreite
+austauschen, in Mobilfunknetzen vor allem außerhalb der Ballungsgebiete
+jedoch sinken die Bandbreiten deutlich. Einige Tablets werden sogar ohne
+Möglichkeit zur Mobilfunk-Datenübertragung genutzt. In solchen Fällen
+kann ein Cache auf dem Endgerät dazu dienen, Inhalte vorzuhalten, die
+dann auch bei langsamer oder fehlender Internetverbindung zur Verfügung
+stehen. Sobald dann wieder eine Verbindung mit hoher Bandbreite bereit
+steht, kann die App im Hintergrund, entweder über die Feeds der OParl
+API oder über den einzelnen Abruf von Objekten, die gecachten Inhalte
+aktualisieren.
+
+Eine Stärke eines mobilen Clients ist auch die Möglichkeit der
+Personalisierung, also der Anpassung auf die Bedürfnisse und Interessen
+der Nutzerin oder des Nutzers. Es wäre beispielsweise denkbar, dass eine
+Nutzerin die Ratsinformationssysteme, für die sie sich interessiert,
+dauerhaft in der App einrichtet und eine Favoritenliste der Gremien, die
+ihre bevorzugten Themengebiete behandeln, hinterlegt. Die App könnte
+aufgrund dieser Favoritenliste eigneständig über die API nach neuen
+Sitzungsterminen, Tagesordnungspunkten, Drucksachen und Dokumente
+suchen. Taucht dabei ein neues Objekt auf, wird die Nutzerin darüber
+benachrichtigt. Sie kann dann beispielsweise entscheiden, Dokumente
+direkt zu öffnen oder für den späteren Offline-Zugriff zu speichern.
+
+Einem derartigen Szenario kommt das Graph-orientierte Datenmodell der
+OParl API entgegen. Ausgehend von einer Sitzung eines bestimmten
+Gremiums beispielsweise ist es damit einfach möglich, die in Verbindung
+stehenden Mitglieder des Gremiums, Teilnehmer der Sitzung,
+Tagesordnungspunkte der Sitzung oder Drucksachen zu den
+Tagesordnungspunkten und letztlich Dokumente zu Drucksachen und Sitzung
+abzurufen.
+
+Für die Nutzer einer mobilen Client-Anwendung könnte es sich als
+besonders hilfreich erweisen, wenn Dokumente auf dem Server in
+verschiedenen Formaten zur Verfügung gestellt werden. Denn nicht jedes
+Endgerät mit kleinem Bildaschirm bietet eine nutzerfreundliche
+Möglichkeit, beispielsweise Dokumente im weit verbreiteten PDF-Format
+darzustellen. Hier könnte schon der Entwickler der mobilen App
+Mechanismen vorsehen, die, sofern vorhanden, besser geeignete Formate
+wie z.B. HTML abrufen.
+
+Neben dem kleinen Display kann für einige mobile Endgeräte auch die im
+Vergleich zu einem zeitgemäßen Desktop-PC geringere CPU-Leistung eine
+Einschränkung darstellen. Solchen Geräten kommt es besonders entgegen,
+wenn der Server zu allen Dokumenten auch den reinen Textinhalt abrufbar
+macht, der dann beispielsweise für eine Volltextsuche auf dem Endgerät
+indexiert werden kann. So wiederum kann auf dem Client eine Suchfunktion
+realisiert werden, welche die OParl-API selbst nicht zur Verfügung
+stellt.
+
+Eine solche Suchfunktion kann auch über die reine Volltxtsuche hinaus
+gehen und über die Suche mittels Text- oder Spracheingabe hinaus gehen.
+Denn ein Client könnte von einem Server-System, das Drucksachen mit
+Geoinformationen anbietet, diese abrufen und räumlich indexieren. Anhand
+der Position des Geräts, die mittels GPS genau bestimmt werden kann,
+könnte so der lokale Cache nach Objekten in der Umgebung durchsucht
+werden. Das Ergebnis könnte auf einer Karte dargestellt oder in einer
+Ergebnisliste angezeigt werden, die nach Distanz zum Objekt sortiert
+werden könnte.
+
+Szenario 2: Integration in Web-Portal
+
+Web Portale bieten Nutzern unter anderem die Möglichkeit Anwendungen,
+Prozesse und Dienste zu integrieren. Die OParl API stellt einen solchen
+Dienst dar und bereitet so den Weg zu angereicherten Portalseiten.
+Informationen, die über die API bezogen werden, können in Portlets
+organisiert und visualisiert werden. Hierbei können
+
+1.  angemeldete Benutzer
+
+die eingegrenzten Portlet Parameter für den nächsten Besuch zwischen
+speichern, während
+
+2.  anonyme Benutzer
+
+dies nicht können. In beiden Fällen können Portalnutzer das angezeigte
+Portlet nach ihren Bedürfnissen anpassen. Beispielsweise kann ein
+solches Portlet eine Liste der Gremien bereitstellen, aus der sich der
+Nutzer das interessante Gremium aussucht und aufgrund dieser Auswahl die
+Informationen zu den vergangenen / nächsten Sitzungsterminen im Rat,
+etwaiger Drucksachen oder Dokumenten erhält und geeignet visualisiert.
+
+Durch eine solche Integration von RIS Informationen in bestehende
+Portalsysteme (unter Umständen die kommunale Webseite selbst), ist es
+möglich Nutzern zusätzliche Informationen in der bereits gewohnten
+Umgebung zu präsentieren und den bestehenden Informationsgehalt und den
+Datenbestand aufzuwerten.
+
+Szenario 3: Meta-Suche
+
+Szenario 4: Forschungsprojekt Themen- und Sprachanalyse
+
+Prinzipien und Funktionen der API
+=================================
+
+(In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen
+Schnittstelle beschrieben. Hierzu gehören alle chapter-Dateien, deren
+Nummerierung mit der Ziffer 6 beginnnt.)
+
+Stichpunkte:
+
+-   Grundlage für den Zugriff auf die Schnittstelle ist das Hypertext
+    Transfer Protocol (HTTP).
+-   Optional gzip Encoding und andere Kodierungen, wenn Client und
+    Server dies unterstützen
+-   Das Protkoll ist zustandslos
+-   Authentifizierung wird nicht benötigt.
+
+Designprinzipien
 ----------------
 
-Bis Ende Juni 2013: Fertigstellung von Version 1.0. Bis dahin ist zu
-erledigen:
+Allgemein
 
--   Fertigstellung Datenmodell
--   Beschreibung von Methoden und URL-Parametern
--   HTTP Status-Codes und besondere Anforderungen an Verwendung
-    bestimmter HTTP-Header
+-   Ausgerichtet am Status Quo
+-   Einige Möglichkeiten weisen in die Zukunft (z.B. Geodaten,
+    Volltexte, Vereinheitlichung der Kategorien-Nomenklatur)
+-   Ziel: Schnelle Implementierbarkeit in vielen bestehenden RIS
 
-Feedback und Mitwirkung
------------------------
+RESTful
 
-Feedback wird dringend benötigt und ist daher herzlichst willkommen.
-Feedback kann auf den folgenden Wegen eingereicht werden:
+Selbstbeschreibungsfähigkeit
 
--   Als Pull Requests über Github, direkt am Quelltext
--   Über Issues auf Github
--   Per E-Mail
+Erweiterbarkeit
 
-Pull Requests über Github
+Browseability/Verlinkung
 
-Dieses Dokument wird in folgendem Github-Repository gepflegt:
+Zukunftssicherheit
+------------------
 
-https://github.com/OParl/specs
+(In diesem Abschnitt wird die Zielsetzung beschrieben, zukünftige
+Versionen der OParl Spezifikation auf dieser Version aufbauen zu lassen.
+Damit soll nach Mögloichkeit Abwärtskompatibilität erreicht werden, so
+dass z.B. OParl-1.0-Clients mit einem 1.1-Server kommunizieren können.
 
-Der bevorzugte Feedback-Kanal für erfahrene Git- bzw. Github-Nutzer ist
-entsprechend die Mitwirkung direkt am Quelltext in Form von
-Pull-Requests. So können Ergänzungen und Korrekturen direkt in den
-Quelltext eingespielt werden.
+Ein Garantie wird es jedoch nicht geben.)
 
-Ausführliche Anleitungen zur Arbeit mit Git/Github finden sich auf der
-Plattform selbst sowie an vielen Orten im Netz. Der allgemeine Ablauf
-ist wie folgt:
+HTTP und HTTPS
+--------------
 
-1.  Erzeugen Sie sich, sofern noch nicht geschehen, ein Benutzerkonto
-    auf Github.
-2.  Duplizieren (forken) Sie das oben genannte Repository
-3.  Nehmen Sie die gewünschten Änderungen an Ihrem Repository vor.
-    Committen Sie diese Änderungen möglichst kleinteilig.
-4.  Senden Sie die gewünschten Commits als Pull Requests.
+(Hier geht es um die Verwendung von HTTP im Sinne der
+OParl-Spezifikation.
 
-Als Autor werde ich entscheiden, welche Pull Requests ich übernehme. Sie
-werden als Mitwirkender in diesem Dokument genannt. Wenn Sie mit einen
-Klarnamen unggf. Unternehmenszugehörigkeit genannt werden wollen, teilen
-Sie mir dies bitte per Mail an marian@sendung.de mit.
+-   HTTPS kann optional an Stelle von HTTP eingesetzt werden.
 
-Issues auf Github
+Siehe auch https://github.com/OParl/specs/issues/90)
 
-Wer nicht über Github am Quelltext mitwirken möchte, aber einen
-Github-Account sein eigen nennt (oder zu diesem Zweck anlegen möchte)
-und öffentlich kommentieren möchte, der sollte das öffentliche
-Issue-Tracking-System unter
+Serialisierung mittels JSON-LD und JSONP
+----------------------------------------
 
-https://github.com/OParl/specs/issues
+JSON
 
-verwenden. Vorteil daran ist, dass auch andere die Einträge lesen und
-wiederum durch Kommentare ergänzen können. Zudem lässt sich der
-Bearbeitungsstatus eines Issue-Eintrags (offen, geschlossen) nachhalten.
+-   Siehe RFC4627
+-   Generelle Terminologie übernehmen (JSON-Objekt, Array, String,
+    Number, true/false, null)
 
-Bitte achten Sie auf diesem Weg darauf, Ihre Kommentare in möglichst
-kleine thematische Einheiten herunter zu brechen.
+JSON-LD
 
-Feedback per E-Mail
+-   JSON-LD: http://www.w3.org/TR/json-ld/
+-   Einschränkungen von OParl gegenüber JSON-LD
+-   Schlüssel in einem JSON-LD-Objekt müssen einzigartig sein.
+-   Unterscheidung von Groß- und Kleinschreibung
+-   Benannte Objekte (URL als Schlüssel)
+-   Anonyme Objekte (Blank Nodes)
+-   Mime Type application/ld+json
+-   Kompakte Form mit Verwendung externer @context-URL als
+    SOLL-Anforderung
+-   Verweis auf
+    http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf?__blob=publicationFile
+-   Siehe https://github.com/OParl/specs/issues/77
+-   Siehe https://github.com/OParl/specs/issues/10
 
-Sollten Sie keinen der oben beschriebenen Wege beschreiten wollen,
-können Sie Anmerkungen zum Dokument per E-Mail an marian@sendung.de
-einsenden. Bitte verwenden Sie dabei den Begriff "open-ris-specs" im
-Betreff.
+JSONP
 
-Sollten Sie auf diesem Wege Anmerkungen direkt am/im Dokumententext
-übersenden wollen, nutzen Sie bitte falls möglich die Word- oder
-OpenOffice-Version dieses Dokuments und ändern Sie das Dokument so, dass
-Änderungen aufgezeichnet werden (OpenOffice: Bearbeiten > Änderungen >
-Aufzeichnen; Word: Ribbon "Überprüfen" > Nachverfolgung > Änderungen
-nachverfolgen).
+-   TODO: Spezifikation finden/verlinken. (RFC gibt es nicht)
+-   https://github.com/OParl/specs/issues/67
+-   Zeichenvorrat für callback-Parameter beschränken auf [a-zA-Z0-9] aus
+    Sicherheitsgründen
 
-Mitwirkende
------------
+Benannte und anonyme Objekte
+----------------------------
 
-Felix Ebert, Jan Erhardt
+Benannte Objekte
 
-Datenmodell
-===========
+-   IRIs (RFC3987) als eindeutige Kennung
 
-Das Datenmodell definiert die Objekttypen bzw. die Klassen, auf die über
-die Schnittstelle zugegriffen werden kann.
+Anonyme Objekte (Blank Nodes)
 
-Die Hinweise auf die Praxis in bestehenden Ratsinformationssystemen
-beziehen sich auf nach außen, bei Nutzung der jeweiligen Weboberflächen,
-feststellbare Eigenschaften. Dabei wird vereinzelt und beispielhaft auf
-die folgenden Systeme Bezug genommen:
+Empfehlungen für langlebige IRIs/URIs/URLs
 
--   Stadt Köln [2] - Plattform: Somacos SessionNet [3]
--   Bezirksverwaltung Berlin Mitte [4] - Plattform: ALLRIS [5]
--   Stadt Rösrath [6] - Plattform der Firma PROVOX [7]
--   Stadt Euskirchen [8] - Plattform: SD.NET RIM 4 [9]
--   Stadt Bonn - BoRis [10]
+-   Hinweise und evtl. Auszüge aus
+-   http://www.w3.org/Provider/Style/URI.html
+-   https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf
+
+Empfehlungen für eindeutige URLs
+
+-   Vermeidung von Duplicate Content durch Fehlkonfiguration
+-   z.B.: verschiedene CNAMES mit der selben IP-Adresse
+-   z.B.: Aufruf über http://www.example.com und http://example.com
+-   z.B.: Direkter Aufruf über IP-Adresse http://1.2.3.4/
+-   URL-Parameter in definierter Reihenfolge verwenden
+-   Groß- und Kleinschreibung unterscheiden
+
+Objektlisten
+------------
+
+(Hier geht es darum, wie Listen von Objekten ausgegeben werden.
+
+-   Ausgabe von URLs
+-   Stabile Sortierung (Sets vs. Lists)
+-   Paginierung
+-   Einschränkung auf Datumsbereiche
+
+Dazu:
+
+-   https://github.com/OParl/specs/issues/66
+-   https://github.com/OParl/specs/issues/30 )
+
+Feeds
+-----
+
+-   Warum Feeds?
+-   Möglichst ressourcenschonendes Auffinden neuer und geänderter
+    Objekte
+-   Cache-Invalidierung, Entfernung von gelöschten/depublizierten
+    Objekten
+
+-   https://github.com/OParl/specs/issues/19
+
+Neue Objekte
+
+Geänderte Objekte
+
+Entfernte Objekte
+
+-   Liste von Objekt-URLs
+
+Dokumentenabruf
+---------------
+
+-   HTTP GET Methode MUSS unterstützt werden
+-   HEAD-Methode MUSS unterstützt werden
+-   HTTP Last-Modified Header sowie Conditional GET sind zu unterstützen
+
+Ausnahmebehandlung
+------------------
+
+(Diskussion hierzu unter https://github.com/OParl/specs/issues/89)
+
+Liste reservierter URL-Parameter
+--------------------------------
+
+Die in dieser Liste enthaltenen Zeichenketten haben eine reservierte
+Bedeutung und stehen bei Implementierungen eines OParl-Servers nicht
+mehr für die freie Verwendung in URLs zur Verfügung.
+
+callback:
+    Mit diesem Parameter wird die JSONP-Ausgabe aktiviert. Mehr dazu im
+    Abschnitt JSONP.
+startdate:
+    Parameter für die Einschränkung einer Abfrage anhand eines Datums
+    bzw. einer Zeitangabe.
+enddate:
+    Parameter für die Einschränkung einer Abfrage anhand eines Datums
+    bzw. einer Zeitangabe.
+
+-   (Parameter für Datums-/Zeitbereichsfilter)
+
+Schema
+======
+
+Dieses Kapitel beschreibt das Schema von OParl. Das Schema bildet das
+Datzenmodell der OParl-Architektur ab. Es definiert, welche Objekttypen
+über eine OParl-API abgerufen werden können und welche Eigenschaften
+diese Objekttypen haben dürfen und müssen. Darüber hinaus ist im Schema
+auch festgelegt, in welcher Beziehung verschiedene Objekttypen zu
+einander stehen.
 
 Übergreifende Aspekte
 ---------------------
 
-Eindeutige Identifizierung von Objekten
+Typen von Objekteigenschaften
 
-Sämtliche Objekte, die über die Schnittstelle geladen werden können,
-sollen anhand einer einzigen Objekteigenschaft eindeutig identifizierbar
-sein. Die Objekteigenschaft, mit der dies erreicht wird, wird hier im
-folgenden - unabhängig vom tatsächlichen Namen der Eigenschaft - als
-"Schlüssel" bezeichnet.
+JSON erlaubt grundsätzlich die Kodierung von Eigenschaften in den
+folgenden verschiedenen Typen:
 
-Eindeutigkeit meint hier eine Einzigartigkeit innerhalb des
-Informationssystems und für den jeweiligen Objekttyp. Das bedeutet: zwei
-von einander unabhängige Ratsinformationssysteme für verschiedene
-Gebietskörperschaften dürfen sich überlappende Schlüssel nutzen.
-Innerhalb eines Systems dürfen zwei Objekte unterschiedlichen Typs
-(beispielsweise eine Person ud ein Gremium) den selben Schlüssel nutzen.
-Jedoch MÜSSEN zwei Objekte des selben Typs innerhalb des selben Systems
-grundsätzlich verschiedene Schlüssel haben.
+-   Zeichenkette
+-   Zahle
+-   Wahrheitswert
+-   null
+-   Liste (Array)
+-   Objekt
 
-Schlüssel-Eigenschaften werden grundsätzlich als String mit
-Unicode-Zeichenumfang übergeben. Sie können daher gleichermaßen aus
-numerischen wie alphanumerischen Werten befüllt werden.
+Wenn nicht anders angegeben, wird eine Eigenschaft grundsätzlich als
+Zeichenkette erwartet. Eventuelle Längenbeschränkungen oder
+Einschränkungen des Zeichenvorrats werden gesondert erwähnt.
 
-Es wird grundsätzlich vorausgesetzt, dass Schlüssel unveränderlich sind.
-Ändert sich der Schlüssel eines Objekts nach der Erzeugung, werden
-Nutzer der Schnittstelle annehmen, dass es sich nicht mehr um das selbe
-Objekt handelt.
+null-Werte
 
-Objekteigenschaften
+JSON erlaubt es grundsätzlich, dass Eigenschaften den Wert null haben
+können. Im Rahmen dieser Spezifikation DARF das jedoch nur bei
+Eigenschaften der Fall sein, die als OPTIONAL oder EMPFOHLEN
+gekennzeichnet sind. ZWINGENDE Eigenschaften müssen einen Wert ungleich
+null besitzen.
 
-Die nachfolgend beschriebenen Eigenschaften der Objekttypen sind, wenn
-nicht anders angegeben, verpflichtend. Das bedeutet: Bei jedem von der
-Schnittstelle ausgelieferten Objekt muss diese Eigenschaften definiert
-sein. Optionale Eigenschaften sind entsprechend gekennzeichnet.
+Vererbung der Lizenzbedingung
 
-Eigenschaften werden deutschsprachig und englischsprachig benannt. Die
-deutschsprachige Benennung dient der bestmöglichen Verständlichkeit im
-Kontext dieses Dokuments, während die Schnittstelle aus Gründen der
-Zugänglichkeit für möglichst viele Entwickler mit englischsprachigen
-Begriffen arbeiten soll.
+-   Jedes Objekt KANN die Eigenschaft "license" besitzen.
+-   Die genannte Lizenz bezieht sich auf das jeweilige Objekt und auf
+    untergeordnete Objekte, sofern diese keine license-Eigenschaft
+    besitzen.
+-   Dazu muss die Vererbungshierarchie aufgezeigt werden.
+-   Empfohlene Minimalvariante: Nur eine license-Angabe auf Ebene von
+    OParlSystem.
+-   Auf Ebene des OParlDocument bezieht sich die Eigenschaft sowohl auf
+    die Metadaten als auch auf das Dokument selbst.
 
-Zu den Beziehungen
+Die Eigenschaften "created" und "last_modified"
 
-Bei der Beschreibung von Beziehungen zwischen Objekten wird zu diesem
-Zeitpunkt nicht berücksichtigt, ob eine Beziehung zwischen zwei Objekten
-A und B am Objekt A oder am Objekt B definiert wird. So spielt es
-bislang keine Rolle, ob einem Gremium mehrere Personen zugeordnet werden
-oder einer Person mehrere Gremien zugewiesen werden. Das Augenmerkt
-liegt hier nur auf der Tatsache, welche Beziehung existieren können und
-was diese Beziehungen aussagen sollen.
+Die Eigenschaften "name" und "name_long"
 
-Gebietskörperschaft
--------------------
+Die Eigenschaft "description"
 
-Die Gebietskörperschaft erlaubt es, Körperschaften wie einen bestimmten
-Landkreis, eine bestimmte Gemeinde oder einen bestimmten Stadtbezirk in
-Form eines Datenobjekts abzubilden.
+OParlSystem (System)
+--------------------
 
-Viele RIS werden nur genau eine Instanz dieses Typs „beherbergen“.
-Einige Systeme werden jedoch für mehrere Mandanten betrieben, wobei die
-Mandanten verschiedene Gebietskörperschaften repräsentieren (z.B.
-"Verbandsgemeinde Ulmen" und "Stadt Ulmen".)
+Der Objekttyp OParlSystem bildet grundlegende Informationen zum
+parlamentarischen Informationssystem ab. Das Objekt repräsentiert das
+technische System, unabhängig von der Frage, welche Körperschaften auf
+diesem System vertreten sind.
 
-[Objekttyp Gebietskörperschaft]
+Auf jedem OParl Server MUSS ein Objekt vom Typ OParlSystem vorgehalten
+werden. Es DARF nur ein einziges solches Objekt je Server existieren.
 
-Eindeutige Identifizierung
+Für Clients ist das OParlSystem Objekt ein geeigneter Einstiegspunkt, um
+grundlegende Informationen über das Sytem zu bekommen und die URLs zum
+Zugriff auf andere Informationen in Erfahrung zu bringen.
 
-Zur Identifizierung des Objekts kann der Amtliche Gemeindeschlüssel
-(AGS[1]) verwendet werden, der alle deutschen Gemeinden, Landkreise,
-kreisfreien Städte etc. eindeutig erfasst.
+Die URL (IRI) des OParlSystem Objekts MUSS per Definition identisch mit
+der URL des API-Endpunkts des Servers sein.
 
-Vorteil der Verwendung des AGS:
+Eigenschaft oparl_version
 
--   Kompakte, einfache und einheitliche Schreibweise für jede
-    Körperschaft.
--   Der AGS wird von Behörden genutzt, ist anerkannt und auch in anderen
-    Medien, z.B. der Wikipedia, verbreitet.
+Diese Eigenschaft ist ZWINGEND.
 
-Nachteil des AGS:
+URL der Version der OParl-Spezifikation, die von diesem System
+unterstützt wird. So lange es nur die Version 1.0 der
+OParl-Spezifikation gibt, MUSS der Wert dieser Eigenschaft
+http://oparl.org/specs/1.0/ sein.
 
--   Führende Nullen machen den Schlüssel fehleranfällig. Bestimmte
-    Systeme wie z.B. Excel könnten den Inhalt als Zahlenwert erkennen
-    und die führenden Nullen automatisch verwerfen.
--   Für Gebietsgliederungen unterhalb der selbstständigen Gemeinde,
-    beispielsweise einen einzelnen Stadtbezirk, gibt es keinen eigenen
-    Gemeindeschlüssel. Dies müssten durch eine nicht-amtliche
-    Erweiterung des Systems ausgeglichen werden.
+Sofern zukünftig weitere Versionen der Spezifikation vorliegen, können
+Clients damit in Erfahrung bringen, welches Schema, welche Eigenschaften
+und Methoden auf Seite des Servers vorausgesetzt werden können.
 
-Eigenschaften
+Eigenschaft bodies
 
-Name
-    Der Name der Gebietskörperschaft, z.B. "Köln" oder "Stadt Köln".
+Diese Eigenschaft ist ZWINGEND.
 
-Beziehungen
+Über diese URL sind alle OParlBody Objekte, also die im System geführten
+Körperschaften, als Liste abrufbar.
 
--   Objekte vom Typ "Organisation" sind zwingend genau einer
-    Gebietskörperschaft zugeordnet. So wird beispielseise eine SPD in
-    Köln von einer SPD in Leverkusen unterschieden.
--   Objekte vom Typ "Gremium" sind zwingend genau einer
-    Gebietskörperschaft zugeordnet. Damit wird der "Rat" einer
-    bestimmten Kommune von den gleichnamigen Gremien anderer Kommunen
-    abgegrenzt.
+TODO: Verweis auf OParlBody einfügen
 
-Gremium
--------
+Eigenschaft name
+
+Diese Eigenschaft wird EMPFOHLEN.
+
+Diese Eigenschaft dient dazu, einen nutzerfreundlichen Namen zu
+kommunizieren, mit dem NutzerInnen das System wiedererkennen und von
+anderen unterscheiden können.
+
+Eigenschaft contact
+
+Diese Eigenschaft wird EMPFOHLEN.
+
+Die Eigenschaft dient dazu, NutzerInnen bzw. EntwicklerInnen von Clients
+die Kontaktaufnahme mit dem Betreiber des Systems zu ermöglichen. Es
+wird EMPFOHLEN, hier die Kontaktdaten eines technischen Ansprechpartners
+bzw. einer allgemeinen Kontaktstelle auszugeben, über die Anfragen
+verschiedener Art an die richtige Kontaktperson umgeleitet werden
+können.
+
+Der Wert dieser Eigenschaft MUSS ein Objekt vom Typ OParlContact sein.
+
+TODO: Verweis auf OParlContact einfügen.
+
+Eigenschaft license
+
+Diese Eigenschaft wird EMPFOHLEN.
+
+Die Eigenschaft dient dazu, darüber zu informieren, unter welcher Lizenz
+die Daten des aktuell angezeigten Objekts stehen. Zur Vererbung dieser
+Eigenschaft siehe (TODO: Verweis auf Abschnitt zur Lizenz-Vererbung
+einfügen).
+
+Der Wert dieser Eigenschaft sollte nach Möglichkeit eine URL sein, unter
+der genau die entsprechende Lizenz abgerufen werden kann.
+
+Eigenschaft new_objects
+
+Diese Eigenschaft ist EMPFOHLEN.
+
+Mit dieser Eigenschaft wird die URL des Feeds für neu hinzugekommene
+Objekte ausgegeben.
+
+TODO: Verweis auf Feeds > Neue Objekte
+
+Eigenschaft updated_objects
+
+Diese Eigenschaft ist EMPFOHLEN.
+
+Mit dieser Eigenschaft wird die URL des Feeds für geänderte Objekte
+ausgegeben.
+
+TODO: Verweis auf Feeds > Geänderte Objekte
+
+Eigenschaft removed_objects
+
+Diese Eigenschaft ist EMPFOHLEN.
+
+Mit dieser Eigenschaft wird die URL des Feeds für entfernte Objekte
+ausgegeben.
+
+TODO: Verweis auf Feeds > Entfernte Objekte
+
+Eigenschaft info_url
+
+Diese Eigenschaft ist OPTIONAL.
+
+Diese Eigenschaft dient dazu, eine zusätzliche URL zu einer WWW-Seite
+mit zusätzlichen Informationen zum System anzubieten. So könnten
+NutzerInnen beispielsweise auf eine Web-Oberfläche eines
+parlamentarischen Informationssystems geführt werden.
+
+Eigenschaft vendor_url
+
+Diese Eigenschaft ist OPTIONAL.
+
+Diese Eigenschaft dient dazu, über eine URL den Hersteller des
+Server-Systems zu komunizieren. Die URL sollt nach Möglichkeit zu einer
+WWW-Seite mit weiteren Informationen zum Hersteller führen.
+
+Eigenschaft product_url
+
+Diese Eigenschaft ist OPTIONAL.
+
+Diese Eigenschaft dient dazu, über eine URL mitzuteilen, welches
+Softwareprodukt das Server-System bereitstellt. Die URL soll nach
+Möglichkeit zu einer WWW-Seite mit weiteren Informationen zum Produkt
+führen.
+
+Beispiel
+
+    {
+        "@id": "http://refserv.oparl.org/",
+        "@context": "http://oparl.org/schema/1.0/OParlSystem",
+        "oparl_version": "http://oparl.org/specs/1.0/",
+        "name": "OParl Reference Server",
+        "info_url": "https://github.com/OParl/reference-server",
+        "contact": {
+            "email": "info@oparl.org",
+            "name": "Common OParl contact"
+        }, 
+        "vendor_url": "http://oparl.org/",
+        "product_url": "https://github.com/OParl/reference-server",
+        "license": "http://creativecommons.org/licenses/by/4.0/",
+        "bodies": "http://refserv.oparl.org/bodies/",
+        "new_objects": "http://refserv.oparl.org/feeds/new/",
+        "updated_objects": "http://refserv.oparl.org/feeds/updated/",
+        "removed_objects": "http://refserv.oparl.org/feeds/removed/"
+    }
+
+OParlBody (Körperschaft)
+------------------------
+
+Dieser Objekttyp erlaubt es, eine Körperschaft abzbilden. Eine
+Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder ein
+Zweckverband sein.
+
+Von einem funktionsfähigen Server wird erwartet, dass er mindestens ein
+Objekt vom Typ OParlBody bereit hält. Teilen sich mehrere Körperschaften
+das selbe technische System, können auf demselben Server auch mehrere
+Objekte vom Typ OParlBody beherbergt werden.
+
+Über die Zuordnung zu einem bestimmten OParlBody Objekt zeigen andere
+Objekte, wie beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit
+zu einer bestimmten Körperschaft an.
+
+[Objekttyp OParlBody]
+
+Es werden mehrere Eigenschaften angeboten, die dazu dienen, die real
+existierende Körperschaft, die von einem OParlBody Objekt repräsentiert
+wird, programmatisch auslesbar zu machen zu können. Insbesondere sind
+hier die Eigenschaften url, rgs und gnd_url zu nennen.
+
+Eigenschaft system
+
+Diese Eigenschaft ist ZWINGEND.
+
+Mit dieser Eigenschaft wird das Objekt dem übergeordneten OParlSystem
+Objekt zugeordnet. Wert MUSS der IRI des OParlSystem Objekts sein.
+
+Eigenschaft name
+
+Diese Eigenschaft ist ZWINGEND. Sie transportiert den gebräuchlichen
+Namen der Körperschaft.
+
+Eigenschaft name_long
+
+Diese Eigenschaft ist OPTIONAL und kann bei Bedarf dazu verwendet
+werden, eine längere Form des Namens der Körperschaft wieder zu geben,
+sofern dieser für die Eigenschaft name zu lang ist.
+
+Eigenschaft url
+
+Diese Eigenschaft ist EMPFOHLEN.
+
+Mit dieser Eigenschaft SOLL die URL der offiziellen Website der
+Körperschaft ausgegeben werden.
+
+TODO: Beschreibung
+
+Eigenschaft rgs
+
+Diese Eigenschaft ist EMPFOHLEN.
+
+Handelt es sich bei der Körperschaft um eine Gebietskörperschaft
+(Landkreis, Kommune etc.) in Deutschland, SOLL für die eindeutige
+Identifizierung der amtliche Regionalschlüssel verwendet werden.[^3]
+Dieser ist grundsätzlich zwölfstellig.
+
+Eigenschaft gnd_url
+
+Diese Eigenschaft ist EMPFOHLEN.
+
+Sofern die Körperschaft in der GND[^4] vertreten ist, SOLL diese
+Eigenschaft als Wert die URL des Eintrags in der GND enthalten.
+
+Eigenschaft contact
+
+Diese Eigenschaft ist EMPFOHLEN.
+
+Über diese Eigenschafte SOLLEN Kontaktinformationen zu einer Stelle
+bereit gestellt werden, die die inhaltliche Verantwortung für sämtliche
+zu dieser Körperschaft gehörenden Inhalte im System trägt. Besonders
+wichtig ist diese Angabe, wenn auf einem System mehrere Körperschaften
+vertreten sind und damit auf der Ebene des OParlSystem Objekts ein rein
+technischer Kontakt ausgegeben wird, der nicht für inhaltliche
+Fragestellungen im Zuständigkeitsbereich der jeweiligen Körperschaften
+kontaktiert werden sollte.
+
+Eigenschaft papers
+
+Diese Eigenschaft ist ZWINGEND.
+
+Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
+Drucksachen (Objekte vom Typ OParlPaper) für diese Körperschaft.
+
+Eigenschaft people
+
+Diese Eigenschaft ist ZWINGEND.
+
+Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
+Personen (Objekte vom Typ OParlPerson) für diese Körperschaft.
+
+Eigenschaft meetings
+
+Diese Eigenschaft ist ZWINGEND.
+
+Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
+Sitzungen (Objekte vom Typ OParlMeeting) für diese Körperschaft.
+
+Eigenschaft committees
+
+Diese Eigenschaft ist ZWINGEND.
+
+Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
+Gremien (Objekte vom Typ OParlCommittee) für diese Körperschaft.
+
+Beispiel
+
+    {
+        "@id": "http://refserv.oparl.org/bodies/0",
+        "@context": "http://oparl.org/schema/1.0/OParlBody",
+        "committees": "http://refserv.oparl.org/bodies/0/committees/",
+        "contact": {
+            "email": "ris@stadt-koeln.de",
+            "name": "RIS-Betreuung"
+        }, 
+        "created": "2014-01-08T14:28:31.568+0100",
+        "gnd_url": "http://d-nb.info/gnd/2015732-0",
+        "last_modified": "2014-01-08T14:28:31.568+0100",
+        "meetings": "http://refserv.oparl.org/bodies/0/meetings/",
+        "name": "Stadt K\u00f6ln",
+        "name_long": "Stadt K\u00f6ln, kreisfreie Stadt",
+        "organisations": "http://refserv.oparl.org/bodies/0/organisations/",
+        "papers": "http://refserv.oparl.org/bodies/0/papers/",
+        "people": "http://refserv.oparl.org/bodies/0/people/",
+        "rgs": "053150000000",
+        "system": "http://refserv.oparl.org/",
+        "url": "http://www.stadt-koeln.de/"
+    }
+
+OParlCommittee (Gremium
+-----------------------
 
 Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder
 ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat,
@@ -280,37 +1048,45 @@ Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
 Eigenschaften
 
-Kennung
+Schlüssel (id)
     Zur eindeutigen Identifizierung des Gremiums im Kontext einer
-    bestimmten Gebietskörperschaft. Die Stadt Köln verwendet
-    beispielswiese das Kürzel "STA" für den Stadtentwicklungsausschuss
-    oder "BA" für den Ausschuss für Anregungen und Beschwerden. Andere
-    Kommunen verwenden z.B. rein numerische Kennungen.
-Name
+    bestimmten Körperschaft. In der Praxis kommen sowohl numerische IDs
+    als auch Namenskürzel (Beispiel: "STA" für den
+    Stadtentwicklungsausschuss) vor. Beides sollte hier Verwendung
+    finden können.
+Name (name)
     Der Name des Gremiums. Beispiele: "Rat", "Hauptausschuss",
     "Bezirksvertretung 1 (Innenstadt)"
-
-Anmerkungen
-
-Beim Rösrather RIS [6] wird für jedes Gremium ein Kurz- und ein Langname
-angegeben. Beispielsweise wird beim "Stadtentwicklungs-, Planungs- und
-Verkehrsausschuss" die kurze Form "Stadtentwicklung" hinterlegt. Bei 5
-von 12 Gremien sind jedoch Kurz- und Langnamen identisch.
-
-Sofern nicht Beispiele aus weiteren Systemen vorliegen, wird dieser
-Einzelfall nicht im Entwurf abgebildet.
+Kurzname (short_name)
+    Optional. Eine zur Anzeige bestimmte, kürzere Form des Namens.
+Zuletzt geändert (last_modified)
+    Datum und Uhrzeit der letzten Änderung
 
 Beziehungen
 
 -   Objekte vom Typ "Person" referenzieren auf Gremien, um die
     Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu
-    kennzeichnen.
--   Objekte vom Typ "Drucksache" können einem Gremium zugeordnet sein.
-    Beispielsweise wird eine Anfrage oder ein Antrag dem Rat oder einer
-    bestimmten Bezirksvertretung zugeordnet.
+    kennzeichnen. Diese Beziehung ist datiert. Das bedeutet, sie hat
+    einen Anfangszeitpunkt und ggf. einen Endzeitpunkt.
+-   Objekte vom Typ "Drucksache" verweisen auf Gremien. Beispielsweise
+    wird eine Anfrage oder ein Antrag dem Rat und/oder einer bestimmten
+    Bezirksvertretung zugeordnet. Details zu dieser Beziehung werden
+    unter "Drucksache" erläutert.
+-   Das Gremium verweist auf die Körperschaft, zu der das Gremium
+    gehört.
 
-Person
-------
+Beispiel
+
+    {
+        "id": "7",
+        "name": "Finanzausschuss",
+        "short_name": "FA",
+        "body": "1",
+        "last_modified": "2012-08-16T14:05:27+02:00"
+    }
+
+OParlPerson (Person)
+--------------------
 
 Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person
 im Datenmodell eindeutig identifizierbar.
@@ -319,31 +1095,32 @@ im Datenmodell eindeutig identifizierbar.
 
 Eigenschaften
 
-Kennung
+Schlüssel (id)
     Zur eindeutigen Identifizierung sollte jede Person eine Kennung
     besitzen, die keinen Änderungen unterworfen ist und aus diesem Grund
     nicht mit dem Namen in Verbindung stehen sollte. Viele RIS nutzen
     rein numerische Kennungen.
-Vorname
+Vorname (first_name)
     Der Vorname der Person.
-Nachname
+Nachname (last_name)
     Der Nachname der Person.
-Titel
+Titel (academic_title)
     Optional. Akademische Titel wie "Dr." und "Prof. Dr."
-Geschlecht
-    Optional. Männlich/Weblich
-Beruf
+Geschlecht (sex)
+    Optional. Weiblich (Wert F für female), männlich (Wert M für male),
+    anderes (Wert O für others)
+Beruf (profession)
     Optional. Z.B. "Rechtsanwalt"
-Partei
-    Optional. Z.B. "Bündnis 90/Grüne"
-E-Mail-Adresse
+E-Mail-Adresse (email)
     Optional.
-Telefon
+Telefon (phone)
     Optional.
-Fax
+Fax (fax)
     Optional.
-Anschrift
+Anschrift (address)
     Optional. Straße und Hausnummer, Postleitzahl und Ort
+Zuletzt geändert (last_modified)
+    Datum und Uhrzeit der letzten Änderung
 
 Anmerkungen
 
@@ -364,8 +1141,41 @@ Beziehungen
     zugewiesen werden, um die Mitgliedschaft in diesem Gremium
     darzustellen. Diese Beziehungen sind ebenfalls datiert.
 
-Organisation
-------------
+Beispiel
+
+    {
+        "id": "1000",
+        "first_name": "Max",
+        "last_name": "Mustermann",
+        "academic_title": "Dr.",
+        "sex": "M",
+        "profession": "Rechtsanwalt",
+        "email": "max@mustermann.de",
+        "phone": "+4977777",
+        "fax": "+4988888",
+        "address": "Musterstraße 5, 11111 Musterort",
+        "last_modified": "2012-08-16T14:05:27+02:00",
+        "organisations": [
+            {
+                "id": "2000",
+                "start": "2011-03-01",
+                "end": "2013-02-28"
+            },
+            {
+                "id": "2001",
+                "start": "2013-03-01"
+            }
+        ],
+        "committees": [
+            {
+                "id": "7",
+                "start": "2013-01-01"
+            }
+        ]
+    }
+
+OParlOrganisation (Organisation)
+--------------------------------
 
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die
 Personen angehören können.
@@ -374,12 +1184,14 @@ Personen angehören können.
 
 Eigenschaften
 
-Kennung
-    Zur eindeutigen Kennzeichnung einer Organisation innerhalb einer
-    Gebietskörperschaft
-Name
+Schlüssel (id)
+    Zur eindeutigen Kennzeichnung einer Organisation innerhalb des
+    Systems
+Name (name)
     Der gebräuchliche Name der Organisation, z.B. "SPD" oder "DIE
     LINKE".
+Zuletzt geändert (last_modified)
+    Datum und Uhrzeit der letzten Änderung
 
 Anmerkungen
 
@@ -391,43 +1203,59 @@ Anmerkungen
 
 Beziehungen
 
--   Jede Organisationen gehört zu einer Gebietskörperschaft.
+-   Jede Organisationen gehört zu einer Körperschaft.
 -   Personen können Organisationen angehören (datiert).
 
-Sitzung
--------
+Beispiel
 
-Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums zu einem
-bestimmten Zeitpunkt. Sitzungen können eine laufende Nummer haben.
+    {
+        "id": "15",
+        "name": "SPD",
+        "body": "1",
+        "last_modified": "2012-08-16T14:05:27+02:00"
+    }
+
+OParlMeeting (Sitzung)
+----------------------
+
+Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder
+mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.
 
 Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in
-entsprechender Form referenziert. Verschiedene Drucksachen (Einladung,
-Ergebnis- und Wortprotokoll) werden ebenfalls referenziert.
+entsprechender Form referenziert. Verschiedene Dokumente (Einladung,
+Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert
+werden.
 
 [Objekttyp Sitzung]
 
 Eigenschaften
 
-Eindeutige Kennung
-    Zur eindeutigen Identifizierung der Sitzung innerhalb einer
-    Gebietskörperschaft. In der Praxis wird eine solche Kennzeichnung
-    entweder durch eine laufende Nummer gebildet, oder durch Kombination
-    mehrerer Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer
-    der Sitzung in einem Jahr und der Jahreszahl (z.B. "BV1/0034/2012").
-Nummer
+Schlüssel (id)
+    Zur eindeutigen Identifizierung der Sitzung innerhalb des Systems.
+    In der Praxis wird ein solcher Schlüssel entweder durch eine
+    numerische ID gebildet oder durch Kombination mehrerer Merkmale wie
+    dem Kürzel des Gremiums, der laufenden Nummer der Sitzung in einem
+    Jahr und der Jahreszahl (z.B. "BV1/0034/2012").
+Nummer (sequence_number)
     Optional. Laufende Nummer der Sitzung, üblicherweise innerhalb der
     Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die "2.
-    Sitzung des Rats" gekennzeichnet.
-Anfang
+    Sitzung des Rats" gekennzeichnet. Ist dieses Feld gesetzt, MUSS ein
+    numerischer Wert enthalten sein.
+Anfang (start)
     Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung
-Ende
+Ende (end)
     Optional. Datum und Uhrzeit vom Ende der Sitzung
+Ort (address)
+    Optional. Textliche Information zum Ort der Sitzung, z.B. "Rathaus,
+    Raum 136".
+Zuletzt geändert (last_modified)
+    Datum und Uhrzeit der letzten Änderung
 
 Beziehungen
 
--   Sitzungen sind grundsätzlich genau einem Gremium zugeordnet.
--   Personen sind Sitzungen zugeordnet, um die Teilnahme an der Sitzung
-    auszudrücken.
+-   Sitzungen sind mindestens einem Gremium zugeordnet
+-   Einer Sitzung sind Personen zugeordnet, um die Teilnahme an der
+    Sitzung auszudrücken.
 -   Dokumente können vom Typ "Sitzung" optional zu mehreren Zwecken
     referenziert werden:
     -   Zum Verweis auf die Einladung zur Sitzung
@@ -435,46 +1263,72 @@ Beziehungen
     -   Zum Verweis auf das Wortprotokoll zur Sitzung
 
 -   Weiterhin können Sitzungen beliebige weitere Dokumente, die keine
-    eigenständigen Drucksachen sind, referenzieren.
+    eigenständigen Drucksachen sind, referenzieren. Dabei handelt es
+    sich dann um nicht weiter spezifizierte Anlagen.
 
-Tagesordnungspunkt
-------------------
+Beispiel
+
+    {
+        "id": "3271",
+        "identifier": "STA/0034/2012",
+        "start": "2013-01-04T08:00:00+01:00",
+        "end": "2013-01-04T12:00:00+01:00",
+        "address": "Rathaus, Raum 136",
+        "sequence_number": 1,
+        "committees": ["STA"],
+        "people": ["1000", "1001"],
+        "invitation": "0001/2013",
+        "result_minutes": "0002/2013",
+        "verbatim_minutes": "0003/2013",
+        "attachments": [
+            "0004/2013",
+            "0005/2013"
+        ],
+        "last_modified": "2012-01-08T14:05:27+01:00"
+    }
+
+OParlAgendaitem (Tagesordnungspunkt)
+------------------------------------
 
 Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält
 eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel
 (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein
-Ergebnis angehängt. Falls abweichend von der ursprünglichen
-Beschlussvorlage (z.B. durch Berücksichtigung eines Änderungsantrags)
-kann ein bestimmter Beschlusstext zu Protokoll gegeben werden. Sofern
-das Abstimmungsergebnis nicht einstimmig ist, kann es durch mehrere
-referenzierende Stimmabgaben festgehalten werden.
+Ergebnis angehängt. Unter Umständen kann dem Tagesordnungspunkt ein
+bestimmter Beschlusstext beigefügt sein.
 
-In der Praxis werden die meisten Sitzungen mehrere Tagesordnungspunkte
-haben.
+Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
 
 [Objekttyp Tagesordnungspunkt]
 
 Eigenschaften
 
-Nummer
+Nummer (identifier)
     Beispiel: "1.2.3". Diese Nummer gibt an, in welcher Reihenfolge die
-    Tagesordnungspunkte einer Sitzung behandelt werden. Im Kontext einer
-    Sitzung ist diese Nummer eindeutig.
-Öffentlich
-    ja/nein. Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher
-    Sitzung behandelt wird.
-Titel
+    Tagesordnungspunkte einer Sitzung normalerweise behandelt werden. Im
+    Kontext einer Sitzung ist diese Nummer eindeutig.
+Öffentlich (public)
+    Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher Sitzung
+    behandelt wird. Kann die Werte true (öffentlich) oder false
+    annehmen.
+Titel (title)
     Das Thema des Tagesordnungspunktes
-Ergebnis
-    Eines aus einer Liste definierter Ergebnisse. Möglich sind:
-    "Unverändert beschlossen", "Geändert beschlossen", "Endgültig
-    abgelehnt", "Zur Kenntnis genommen", "Ohne Votum in nachfolgende
-    Gremien überwiesen"
-Beschlusstext
+Ergebnis (result)
+    Optional. Kategorische Information darüber, welches Ergebnis die
+    Beratung des Tagesordnungspunktes gebracht hat. In der Praxis sind
+    hier Kategorien wie "Unverändert beschlossen", "Geändert
+    beschlossen", "Endgültig abgelehnt", "Zur Kenntnis genommen", "Ohne
+    Votum in nachfolgende Gremien überwiesen" und weitere zu erwarten.
+Ergebnis Details (result_details)
+    Optional. Ermöglicht die Angabe zusätzlicher Textinformationen zum
+    Ergebnis, zum Beispiel im Fall der Verweisung an ein anderes Gremium
+    die Angabe, an welches Gremium verwiesen wurde.
+Beschlusstext (resolution_text)
     Optional. Falls in diesem Tagesordnungspunkt ein Beschluss gefasst
     wurde, kann der Text hier hinterlegt werden. Das ist besonders dann
-    in de Praxis relevant, wenn der gefasste Beschluss (z.B. durch
+    in der Praxis relevant, wenn der gefasste Beschluss (z.B. durch
     Änderungsantrag) von der Beschlussvorlage abweicht.
+Zuletzt geändert (last_modified)
+    Datum und Uhrzeit der letzten Änderung
 
 Anmerkungen
 
@@ -482,54 +1336,38 @@ Anmerkungen
     unveränderliche, numerische IDs. Es ist unklar, ob es zusätzlichen
     Nutzen bringt, derartige IDs, neben den Nummern, in den Standard zu
     übernehmen. Dies würde vermutlich nur Sinn ergeben, wenn es als
-    Pflichtfeld gelten kann.
+    Pflichtfeld gelten könnte.
+-   Teil der Beratungen über einheitliche Nomenklatur im Standard sollte
+    sein, eine Vereinheitlichung der Werte für die Eigenschaft result zu
+    diskutieren.
 
 Beziehungen
 
--   Jeder Tagesordnungspunkt gehört zu einer Sitzung.
--   Es können mehrere Objekte vom Typ "Stimmabgabe" referenziert werden,
-    um das Abstimmungsverhalten von Fraktionen oder Einzelpersonen zu
-    dokumentieren.
+-   Jeder Tagesordnungspunkt gehört zu genau einer Sitzung.
+-   Der Tagesordnungspunkt kann auf eine Drucksache verweisen, die im
+    Rahmen dieses Tagesordnungspunkt beraten werden soll.
 -   Es können Personen referenziert werden, die während der Abstimmung
     zu diesem Tagesordnungspunkt nicht anwesend waren.
 
-Stimmabgabe
------------
+Beispiel
 
-Wie eine Person bzw. eine Fraktion zu einem Tagesordnungspunkt
-abgestimmt hat, wird durch eine Stimmabgabe festgehalten. Ganze
-Abstimmungsergebnisse bestehen überlicherweise aus mehreren
-Stimmabgaben. Jede Stimmabgabe gibt entweder die (einzelne) Stimme einer
-Peson wieder, in diesem Fall ist die Anzahl der Stimmen zwingend 1. Oder
-eine Stimmabgabe gibt das Abstimmungsverhalten einer ganzen Gruppe von
-Personen wieder. Dann ist die Anzahl der Stimmen anzugeben und statt
-einer Person eine Organisation (in der Regel die Fraktion) zu
-referenzieren.
+    {
+        "meeting": "3271",
+        "identifier": "3.1.2",
+        "public": true,
+        "title": "Gemeinschaftsgrundschule Hornschaftsstraße/Höhenhaus. Hier: Anfrage von Herrn Philippi",
+        "result": "Geändert beschlossen",
+        "resolution_text": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
+        "people_absent": ["1002", "1003"],
+        "last_modified": "2012-08-16T14:05:27+02:00"
+    }
 
-[Objekttyp Stimmabgabe]
-
-Eigenschaften
-
-Anzahl der Stimmen
-    Gehört die Stimmabgabe zu einer Person, ist der Wert immer 1. Gehört
-    sie jedoch zu einer Organisation (=Fraktion), kann der Wert hier
-    größer als 1 sein.
-Votum
-    Einer der drei Werte "ja" (gleichbedeutend mit "dafür"), "nein"
-    ("dagegen") oder "Enthaltung".
-
-Beziehungen
-
--   Jede Stimmabgabe gehört zu genau einem Tagesordnungspunkt.
--   Es wird entweder genau eine Person oder genau eine Organisation
-    (Fraktion) referenziert, die die Stimme(n) abgegeben hat.
-
-Drucksache
-----------
+OParlPaper (Drucksache)
+-----------------------
 
 Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen,
-Beschlussvorlagen, Anfragen und Anträge ab. Jede Drucksache erhält eine
-eindeutige Kennung.
+Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede
+Drucksache erhält eine eindeutige Kennung.
 
 Die Drucksache hat im Informationsmodell eine hervorgehobene Bedeutung.
 Im Fall eines Antrags kann mit einer einzigen Drucksache ein über Monate
@@ -559,16 +1397,18 @@ Arten von Drucksachen gekennzeichnet:
 
 Eigenschaften
 
-Kennung
-    Die Kennung einer Drucksache muss für die jeweilige
-    Gebietskörperschaft eindeutig sein. Sie kann sowohl Ziffern als auch
-    Buchstaben enthalten. Einige Systeme (z.B. Köln) verwenden besondere
+Schlüssel (id)
+    Die Kennung einer Drucksache muss für die jeweilige Körperschaft
+    eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben
+    enthalten. Einige Systeme (z.B. Köln) verwenden besondere
     Trennzeichen wie "/", um eine Jahreszahl von einer laufenden Nummer
     abzutrennen. Weiterhin werden mancherorts führende Nullen verwendet.
-Datum
+Datum (date)
     Datum der Veröffentlichung
-Typ
+Typ (type)
     Art der Drucksache (Erläuterung siehe oben)
+Zuletzt geändert (last_modified)
+    Datum und Uhrzeit der letzten Änderung
 
 Beziehungen
 
@@ -576,14 +1416,12 @@ Beziehungen
     werden.
 -   Es können beliebig viele weitere Dokumente referenziert werden, die
     als nachgeordnete Anlagen zur Drucksache verstanden werden.
--   Es kann ein Gremium genannt werden, dem die Drucksache zuzuordnen
-    ist. Hier ist zu klären, inwiefern dies für einzelne Typen von
-    Drucksachen verpflichten sein sollte. So sollte beispielsweise eine
-    Anfrage grundsätzlich aus einem Gremium (z.B. Gemeinderat) stammen.
+-   Die Drucksache ist beliebig vielen Gremien zuzuordnen, in denen
+    diese beraten wird.
 -   Drucksachen können Urhebern zugewiesen werden. Im Fall von
     Mitteilungen der Verwaltung ist dies oft der Oberbürgermeister. Bei
     Anträgen oder Anfragen können Organisationen oder Einzelpersonen
-    referenziert werden. Es können stets mehrere Ihrheber verknüpft
+    referenziert werden. Es können stets mehrere Uhrheber verknüpft
     werden.
 -   Es können beliebig viele Orte (siehe Objekttyp "Ort") referenziert
     werden, die im Inhalt der Drucksache behandelt werden. Beispiel:
@@ -600,17 +1438,60 @@ Beziehungen
     verschiedenen möglichen Beziehungen formell ausgedrückt werden.
 -   Drucksachen können zu beliebig vielen Tagesordnungspunkten in
     Beziehung stehen, um die Beratungsfolge einer Drucksache abzubilden.
-    Hierbei kann die Beziehung jeweils mit einer Rollenbezeichnung
-    versehen sein, die noch näher zu bestimmen ist (TODO).
+    Hierbei kann die Beziehung jeweils mit einer Zuständigkeit versehen
+    sein, die noch näher zu bestimmen ist (TODO).
 
-Dokument
---------
+Beispiel
 
-Ein Dokument hält die Daten und Metadaten einer Datei vor,
-beispielsweise einer PDF-Datei, eines RTF- oder Word-Dokuments. Wird von
-einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese Ableitung
-ebenfalls ein Dokument, das jedoch nicht als Master gekennzeichnet wird,
-sondern auf den entsprechenden Master verweist.
+    {
+        "id": "1234/2012",
+        "date": "2013-01-04",
+        "type": "Beantwortung einer Anfrage",
+        "related_papers": [
+            "0768/2012"
+        ],
+        "main_document": "3000.pdf",
+        "attachments": [
+            "3002.pdf",
+            "3003.pdf"
+        ],
+        "locations": [
+            {
+                "description": "Theodor-Heuss-Ring 1",
+                "lat": 7.148,
+                "lon": 50.023
+            }
+        ],
+        "committees": ["STA"],
+        "creators": [
+            {
+                "typ": "Organisation",
+                "id": "2000"
+            },
+            {
+                "typ": "Person",
+                "id": "1000"
+            }
+        ],
+        "consultations": [
+            {
+                "meeting": "3271",
+                "agendaitem": "3.1.2",
+                "role": "Federführende Beratung"
+            }
+        ],
+        "last_modified": "2013-01-08T12:05:27+01:00"
+    }
+
+OParlDocument (Dokument)
+------------------------
+
+Ein Dokument hält die Metadaten einer Datei vor, beispielsweise einer
+PDF-Datei, eines RTF- oder Word-Dokuments.
+
+Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese
+Ableitung ebenfalls ein Dokument. Um zu zeigen, dass es sich um eine
+Ableitung handelt, verweist dieses auf das Original als "Master".
 
 Im Unterschied zur Drucksache benötigt das Dokument keine
 nutzerfreundliche Kennung.
@@ -619,23 +1500,23 @@ nutzerfreundliche Kennung.
 
 Eigenschaften
 
-Kennung
+Schlüssel (id)
     Unveränderliche Kennung
-Titel
-    Nutzerfreundliche Bezeichnung des Dokuments
-Dateityp
-    Mime-Typ des Inhalts, z.B. "application/x-pdf"
-Veröffentlichungsdatum
+Name (name)
+    Dateiname, z.B. "12345.pdf"
+Dateityp (mime_type)
+    Mime-Typ des Inhalts, z.B. "application/pdf"
+Veröffentlichungsdatum (date)
     Datum des Tages, an dem das Dokument ins System eingestellt wurde
-Änderungsdatum und -uhrzeit
+Änderungsdatum und -uhrzeit (last_modified)
     Datum und Uhrzeit der letzten Änderung des Dokuments
-Prüfsumme
+Prüfsumme (sha1_checksum)
     SHA1-Prüfsumme des Dokumenteninhalts
-Daten
-    Der eigentliche (Binär-)Inhalt des Dokuments
-Nur-Text-Version
-    Reine Text-Wiedergabe des Dokumenteninhalts, sofern es sich um ein
-    Textdokument handelt.
+URL (url)
+    URL zum Abruf der Daten dieses Dokuments mittels HTTP GET-Aufruf
+Nur-Text-Version (text)
+    Reine Text-Wiedergabe des Dokumenteninhalts, sofern es sich nicht um
+    eine reine Abbildung handelt.
 
 Beziehungen
 
@@ -647,36 +1528,85 @@ Beziehungen
     abgeleiteten Dokument zu seinem Dokumenten-Master zu gelangen
     (Beispiel: von einem PDF-Dokument zum OpenOffice-Original).
 
-Ort
----
+    {
+        "id": "3000",
+        "name": "3000.pdf",
+        "mime_type": "application/pdf",
+        "date": "2013-01-04T07:54:13+01:00",
+        "last_modified": "2013-01-04T07:54:13+01:00",
+        "sha1_checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+        "url": "http://ris.beispielstadt.de/api/documents/3000.pdf",
+        "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
+        "master": "2099"
+    }
+
+OParlConsultation (Beratung)
+----------------------------
+
+OParlLocation (Ort)
+-------------------
 
 Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal
 abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen
 (beispielsweise der Name einer Straße/eines Platzes oder eine genaue
-Adresse) oder aus einer Geo-Koordinatenangabe aus Längen- und
-Breitengrad.
+Adresse) als auch aus Geodaten.
 
-Bislang finden sich nur beim Bonner System Beispiele für Ortsangaben.
+OParl sieht die Angabe von Geodaten in Anlehnung an die
+GeoJSON-Spezifikation [13] vor. Die GeoJSON-Spezifikation erlaubt die
+Abbildung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden
+und Polygonen. Während GeoJSON zu jedem Geodaten-Objekt auch die
+Speicherung zusätzlicher Metadaten ermöglicht, beschränkt sich OParl
+ledliglich auf das geometry-Attribut in GeoJSON. Sämtliche
+Geo-Koordinatenangaben werden in in OParl im WGS-84-System [11]
+erwartet.
 
 [Objekttyp Ort]
 
 Eigenschaften
 
-Textanabe
+Textanabe (description)
     Optional. Textliche Beschreibung eines Orts, z.B. in Form einer
     Adresse
-Koordinaten
-    Optional. Längen- und Breitenangabe des Orts im WGS-84-System [11]
+Koordinaten (geometry)
+    Optional. GeoJSON geometry Objekt
+Zuletzt geändert (last_modified)
+    Datum und Uhrzeit der letzten Änderung
 
 Beziehungen
 
 -   Orte können mit Drucksachen in Verbindung stehen.
 
+    {
+        "description": "Honschaftsstraße 312, 51061 Köln",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [7.03291, 50.98249]
+        },
+        "last_modified": "2013-02-14T14:05:27+01:00"
+    }
+
+OParlContact (Kontakt)
+----------------------
+
+Fußnoten
+========
+
+[11]: World Geodetic System 1984 (EPSG:4326), wird unter anderem auch
+vom Global Positioning System (GPS) verwendet.
+
+[13]: GeoJSON www.geojson.org
+
+[14]: Frankfurt Gestalten www.geojson.org
+
+[15]: Offenes Köln offeneskoeln.de
+
+[16]: OpenRuhr:RIS openruhr.de/openruhrris
+
 Glossar
 =======
 
-AGS
-    Amtlicher Gemeindeschlüssel
+JSON-LD
+    JSON for Linked Data
 
 RIS
     Ratsinformationssystem
@@ -685,32 +1615,12 @@ WGS 84
     World Geodetic System 1984. Ein weltweites Referenzsystem für die
     Interpretation von Geokoordinaten-Angaben.
 
-Fußnoten
-========
+[^1]: RFC2119 http://tools.ietf.org/html/rfc2119
 
-[1]: Siehe www.destatis.de/...
+[^2]: Architecture of the World Wide Web, Volume One.
+    http://www.w3.org/TR/webarch/
 
-[2]: Ratsinformationssystem der Stadt Köln,
-http://ratsinformation.stadt-koeln.de/
+[^3]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
+    Statistischen Bundesamtes eingesehen werden
 
-[3]: Firma Somacos, SessionNet Produktinformation
-
-[4]: Ratsinformationssystem der Bezirksverwaltugn Berlin Mitte,
-http://www.berlin.de/...
-
-[5]: CC e-gov GmbH, ALLRIS Produktionformationen
-
-[6]: Ratsinformationssystem der Stadt Rösrath, http://212.227.97.55/...
-
-[7]: Firma PROVOX
-
-[8]: Ratsinformationssystem der Stadt Euskirchen,
-https://sitzungsdienst.euskirchen.de/
-
-[9]: Firma Sternberg, SD.NET RIM Produktionformationen
-
-[10]: BoRis, Ratsinformationssystem der Stadt Bonn (Eigenentwicklung).
-http://www2.bonn.de/...
-
-[11]: World Geodetic System 1984 (EPSG:4326), wird unter anderem auch
-vom Global Positioning System (GPS) verwendet.
+[^4]: Gemeinsame Normdatei http://www.dnb.de/gnd

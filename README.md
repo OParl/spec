@@ -1,4 +1,13 @@
-In diesem Repository werden die Inhalte eines Dokuments verwaltet.
+![OParl Wortmarke](https://raw2.github.com/OParl/brand/master/wortmarke/oparl-wortmarke-rgb-m.png)
+
+In diesem Repository wird die Spezifikation zum [OParl](http://oparl.org/)-Standard erarbeitet.
+
+OParl ist eine Initiative für die Offenheit parlamentarischer Informationssysteme. Der
+OParl-Standard dient der Definition einer einheitlichen Schnittstelle zum Abruf von
+öffenltichen Informationen aus Ratsinformationssystemen. Mehr über OParl:
+
+  [http://oparl.org/](http://oparl.org/)
+
 
 Original: Editieren, Änderungen nachvollziehen
 ----------------------------------------------
@@ -18,11 +27,13 @@ Die Quelldateien sind reine Textdateien (Zeichensatz: UTF-8) mit Markdown-Format
 Derivate: Bequemes Lesen auf verschiedenen Geräten
 --------------------------------------------------
 
-Es stehen Exporte des Dokuments in verschiedensten Formaten zur Verfügung:
+Es stehen Versionen des Dokuments in vielen Formaten zur Verfügung:
 
 * [PDF](https://github.com/OParl/specs/blob/master/dokument/pdf/document.pdf?raw=true)
-
-und andere. Du findest alle Formate im Ordner 'dokument/'.
+* [OpenOffice/LibreOffice](https://github.com/OParl/specs/blob/master/dokument/odt/document.odt?raw=true)
+* [Microsoft Word](https://github.com/OParl/specs/blob/master/dokument/docx/document.docx?raw=true)
+* [LaTeX](https://github.com/OParl/specs/blob/master/dokument/latex/document.tex?raw=true)
+* [EPub](https://github.com/OParl/specs/blob/master/dokument/epub/document.epub?raw=true)
+* [Nur Text](https://github.com/OParl/specs/blob/master/dokument/plain/document.txt?raw=true)
 
 Die Derivate werden mit [Pandoc](http://johnmacfarlane.net/pandoc/) erzeugt. Das Script unter 'scripts/create_documents.sh' automatisiert diesen Vorgang.
-

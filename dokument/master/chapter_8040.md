@@ -1,22 +1,22 @@
-OParlBody (Körperschaft)
+oparl:Body (Körperschaft)
 ------------------------
 
 Dieser Objekttyp erlaubt es, eine Körperschaft abzbilden. Eine Körperschaft
 kann beispielsweise eine Gemeinde, ein Landkreis oder ein Zweckverband sein.
 
 Von einem funktionsfähigen Server wird erwartet, dass er mindestens
-ein Objekt vom Typ `OParlBody` bereit hält. Teilen sich mehrere Körperschaften
+ein Objekt vom Typ `oparl:Body` bereit hält. Teilen sich mehrere Körperschaften
 das selbe technische System, können auf demselben Server auch mehrere
-Objekte vom Typ `OParlBody` beherbergt werden.
+Objekte vom Typ `oparl:Body` beherbergt werden.
 
-Über die Zuordnung zu einem bestimmten `OParlBody` Objekt zeigen andere
+Über die Zuordnung zu einem bestimmten `oparl:Body` Objekt zeigen andere
 Objekte, wie beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit
 zu einer bestimmten Körperschaft an.
 
-![Objekttyp OParlBody](images/datenmodell_koerperschaft.png)
+![Objekttyp oparl:Body](images/datenmodell_koerperschaft.png)
 
 Es werden mehrere Eigenschaften angeboten, die dazu dienen, die real
-existierende Körperschaft, die von einem `OParlBody` Objekt repräsentiert
+existierende Körperschaft, die von einem `oparl:Body` Objekt repräsentiert
 wird, programmatisch auslesbar zu machen zu können. Insbesondere sind hier
 die Eigenschaften `url`, `rgs` und `gnd_url` zu nennen.
 
@@ -24,7 +24,7 @@ die Eigenschaften `url`, `rgs` und `gnd_url` zu nennen.
 
 Diese Eigenschaft ist ZWINGEND.
 
-Mit dieser Eigenschaft wird das Objekt dem übergeordneten OParlSystem Objekt zugeordnet. Wert MUSS der IRI des OParlSystem Objekts sein.
+Mit dieser Eigenschaft wird das Objekt dem übergeordneten `oparl:System` Objekt zugeordnet. Wert MUSS der IRI des `oparl:System` Objekts sein.
 
 ### Eigenschaft `name`
 
@@ -69,7 +69,7 @@ Diese Eigenschaft ist EMPFOHLEN.
 gestellt werden, die die inhaltliche Verantwortung für sämtliche zu dieser
 Körperschaft gehörenden Inhalte im System trägt. Besonders wichtig ist diese
 Angabe, wenn auf einem System mehrere Körperschaften vertreten sind und damit
-auf der Ebene des OParlSystem Objekts ein rein technischer Kontakt ausgegeben
+auf der Ebene des `oparl:System` Objekts ein rein technischer Kontakt ausgegeben
 wird, der nicht für inhaltliche Fragestellungen im Zuständigkeitsbereich der
 jeweiligen Körperschaften kontaktiert werden sollte.
 
@@ -78,28 +78,28 @@ jeweiligen Körperschaften kontaktiert werden sollte.
 Diese Eigenschaft ist ZWINGEND.
 
 Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Drucksachen (Objekte vom Typ OParlPaper) für diese Körperschaft.
+Drucksachen (Objekte vom Typ `oparl:Paper`) für diese Körperschaft.
 
 ### Eigenschaft `people`
 
 Diese Eigenschaft ist ZWINGEND.
 
 Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Personen (Objekte vom Typ OParlPerson) für diese Körperschaft.
+Personen (Objekte vom Typ `oparl:Person`) für diese Körperschaft.
 
 ### Eigenschaft `meetings`
 
 Diese Eigenschaft ist ZWINGEND.
 
 Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Sitzungen (Objekte vom Typ OParlMeeting) für diese Körperschaft.
+Sitzungen (Objekte vom Typ `oparl:Meeting`) für diese Körperschaft.
 
 ### Eigenschaft `committees`
 
 Diese Eigenschaft ist ZWINGEND.
 
 Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Gremien (Objekte vom Typ OParlCommittee) für diese Körperschaft.
+Gremien (Objekte vom Typ `oparl:Committee`) für diese Körperschaft.
 
 
 ### Beispiel
@@ -107,7 +107,7 @@ Gremien (Objekte vom Typ OParlCommittee) für diese Körperschaft.
 ~~~~~  {#oparlbody_ex1 .json}
 {
     "@id": "http://refserv.oparl.org/bodies/0",
-    "@context": "http://oparl.org/schema/1.0/OParlBody",
+    "@context": "http://oparl.org/schema/1.0/Body",
     "committees": "http://refserv.oparl.org/bodies/0/committees/",
     "contact": {
         "email": "ris@stadt-koeln.de",

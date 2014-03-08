@@ -122,7 +122,7 @@ mit weiteren Informationen zum Produkt führen.
 ~~~~~  {#OParlSystem_ex1 .json}
 {
     "@id": "http://refserv.oparl.org/",
-    "@context": "http://oparl.org/schema/1.0/OParlSystem",
+    "@context": "http://oparl.org/schema/1.0/System",
     "oparl_version": "http://oparl.org/specs/1.0/",
     "name": "OParl Reference Server",
     "info_url": "https://github.com/OParl/reference-server",

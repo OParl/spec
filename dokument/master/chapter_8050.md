@@ -1,12 +1,12 @@
-OParlCommittee (Gremium
------------------------
+oparl:Committee (Gremium)
+------------------------
 
 Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder 
 ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat, 
 Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten Sitzungen 
 ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
-![Objekttyp Gremium](images/datenmodell_gremium.png)
+![Objekttyp Committee](images/datenmodell_gremium.png)
 
 
 ### Eigenschaften ###
@@ -27,7 +27,7 @@ Zuletzt geändert (`last_modified`)
 
 ### Beziehungen ###
 
-* Objekte vom Typ "Person" referenzieren auf Gremien, um die 
+* Objekte vom Typ `oparl:Person` referenzieren auf Gremien, um die 
 Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu kennzeichnen.
 Diese Beziehung ist datiert. Das bedeutet, sie hat einen Anfangszeitpunkt und
 ggf. einen Endzeitpunkt.

@@ -1,4 +1,4 @@
-oparl:Organisation (Organisation)
+oparl:Organization (Organisation)
 --------------------------------
 
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die 
@@ -24,6 +24,8 @@ oder ob eher Ortsverbände von Parteien ("SPD Köln") gemeint sein werden.
 Einblicke, wie gängige Systeme dies handhaben, sollten evtl. gesammelt und 
 berücksichtigt werden.
 
+* Es wird die Schreibweise "Organization" (und nicht "Organisation") verwendet, da diese in allen englischen Sprachräumen problemlos verwendet werden kann. Siehe dazu Abschnitt 3, Fussnote 1 auf dieser Seite: http://popoloproject.com/specs/organization.html
+
 ### Beziehungen ###
 
 * Jede `oparl:Organisation` gehört zu einer Körperschaft.
@@ -31,7 +33,7 @@ berücksichtigt werden.
 
 ### Beispiel ###
 
-~~~~~  {#organisation_ex1 .json}
+~~~~~  {#organization_ex1 .json}
 {
     "id": "15",
     "name": "SPD",

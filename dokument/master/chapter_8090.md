@@ -1,4 +1,4 @@
-oparl:Agendaitem (Tagesordnungspunkt)
+oparl:AgendaItem (Tagesordnungspunkt)
 ------------------------------------
 
 Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine 

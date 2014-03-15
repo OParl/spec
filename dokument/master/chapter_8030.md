@@ -91,7 +91,7 @@ Mit dieser Eigenschaft wird die URL des Feeds für entfernte Objekte ausgegeben.
 
 TODO: Verweis auf Feeds > Entfernte Objekte
 
-### Eigenschaft `info_url`
+### Eigenschaft `info`
 
 Diese Eigenschaft ist OPTIONAL.
 
@@ -100,14 +100,14 @@ WWW-Seite mit zusätzlichen Informationen zum System anzubieten. So könnten Nut
 beispielsweise auf eine Web-Oberfläche eines parlamentarischen Informationssystems
 geführt werden.
 
-### Eigenschaft `vendor_url`
+### Eigenschaft `vendor`
 
 Diese Eigenschaft ist OPTIONAL.
 
 Diese Eigenschaft dient dazu, über eine URL den Hersteller des Server-Systems zu komunizieren.
 Die URL sollt nach Möglichkeit zu einer WWW-Seite mit weiteren Informationen zum Hersteller führen.
 
-### Eigenschaft `product_url`
+### Eigenschaft `product`
 
 Diese Eigenschaft ist OPTIONAL.
 
@@ -125,13 +125,13 @@ mit weiteren Informationen zum Produkt führen.
     "@context": "http://oparl.org/schema/1.0/System",
     "oparl_version": "http://oparl.org/specs/1.0/",
     "name": "OParl Reference Server",
-    "info_url": "https://github.com/OParl/reference-server",
+    "info": "https://github.com/OParl/reference-server",
     "contact": {
         "email": "info@oparl.org",
         "name": "Common OParl contact"
     }, 
-    "vendor_url": "http://oparl.org/",
-    "product_url": "https://github.com/OParl/reference-server",
+    "vendor": "http://oparl.org/",
+    "product": "https://github.com/OParl/reference-server",
     "license": "http://creativecommons.org/licenses/by/4.0/",
     "bodies": "http://refserv.oparl.org/bodies/",
     "new_objects": "http://refserv.oparl.org/feeds/new/",

@@ -41,8 +41,8 @@ einen Wert ungleich `null` besitzen.
 - Die genannte Lizenz bezieht sich auf das jeweilige Objekt und auf untergeordnete 
   Objekte, sofern diese keine license-Eigenschaft besitzen.
 - Dazu muss die Vererbungshierarchie aufgezeigt werden.
-- Empfohlene Minimalvariante: Nur eine license-Angabe auf Ebene von OParlSystem.
-- Auf Ebene des OParlDocument bezieht sich die Eigenschaft sowohl auf die Metadaten als auch auf das Dokument selbst.
+- Empfohlene Minimalvariante: Nur eine license-Angabe auf Ebene von `oparl:System`.
+- Auf Ebene des `oparl:Document` bezieht sich die Eigenschaft sowohl auf die Metadaten als auch auf das Dokument selbst.
 
 ### Die Eigenschaften "created" und "last_modified"
 

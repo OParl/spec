@@ -1,4 +1,4 @@
-OParlAgendaitem (Tagesordnungspunkt)
+oparl:Agendaitem (Tagesordnungspunkt)
 ------------------------------------
 
 Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine 
@@ -9,7 +9,7 @@ beigefügt sein.
 
 Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
 
-![Objekttyp Tagesordnungspunkt](images/datenmodell_tagesordnungspunkt.png)
+![Objekttyp AgendaItem](images/datenmodell_tagesordnungspunkt.png)
 
 ### Eigenschaften ###
 
@@ -51,11 +51,10 @@ eine Vereinheitlichung der Werte für die Eigenschaft `result` zu diskutieren.
 
 ### Beziehungen ###
 
-* Jeder Tagesordnungspunkt gehört zu genau einer Sitzung.
+* Jeder Tagesordnungspunkt gehört zu genau einem `oparl:Meeting`.
 * Der Tagesordnungspunkt kann auf eine Drucksache verweisen, die im Rahmen
 dieses Tagesordnungspunkt beraten werden soll.
-* Es können Personen referenziert werden, die während der Abstimmung zu 
-diesem Tagesordnungspunkt *nicht* anwesend waren.
+* Es können `oparl:Person` Objekte referenziert werden, die während der Abstimmung zu diesem Tagesordnungspunkt *nicht* anwesend waren.
 
 ### Beispiel ###
 

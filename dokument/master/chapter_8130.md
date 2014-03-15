@@ -1,4 +1,4 @@
-OParlLocation (Ort)
+oparl:Location (Ort)
 -------------------
 
 Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal 
@@ -14,7 +14,7 @@ zusätzlicher Metadaten ermöglicht, beschränkt sich OParl ledliglich auf das
 `geometry`-Attribut in GeoJSON. Sämtliche Geo-Koordinatenangaben werden in
 in OParl im WGS-84-System [11] erwartet.
 
-![Objekttyp Ort](images/datenmodell_ort.png)
+![Objekttyp Location](images/datenmodell_ort.png)
 
 ### Eigenschaften ###
 

@@ -1,7 +1,7 @@
-OParlPerson (Person)
+oparl:Person (Person)
 --------------------
 
-Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person im 
+Jede natürliche Person, die Mitglied eines Gremiums ist, ist als `oparl:Person` im 
 Datenmodell eindeutig identifizierbar.
 
 ![Objekttyp Person](images/datenmodell_person.png)
@@ -49,9 +49,9 @@ Anschriften.
 
 ### Beziehungen ###
 
-* Objekte vom Typ "Person" können einer Organisation, z.B. einer Fraktion, 
+* Objekte vom Typ `oparl:Person` können einer Organisation, z.B. einer Fraktion, 
 zugeornet werden. Diese Beziehung ist datiert.
-* Objekte vom Typ "Person" können einem oder mehreren Gremien zugewiesen 
+* Objekte vom Typ `oparl:Person` können einem oder mehreren Gremien zugewiesen 
 werden, um die Mitgliedschaft in diesem Gremium darzustellen. Diese 
 Beziehungen sind ebenfalls datiert.
 

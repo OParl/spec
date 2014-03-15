@@ -1,4 +1,4 @@
-OParlMeeting (Sitzung)
+oparl:Meeting (Sitzung)
 ----------------------
 
 Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder mehrerer
@@ -8,7 +8,7 @@ Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in
 entsprechender Form referenziert. Verschiedene Dokumente (Einladung, 
 Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.
 
-![Objekttyp Sitzung](images/datenmodell_sitzung.png)
+![Objekttyp Meeting](images/datenmodell_sitzung.png)
 
 ### Eigenschaften ###
 
@@ -38,7 +38,7 @@ Zuletzt geändert (`last_modified`)
 * Sitzungen sind mindestens einem Gremium zugeordnet
 * Einer Sitzung sind Personen zugeordnet, um die Teilnahme an der Sitzung 
 auszudrücken.
-* Dokumente können vom Typ "Sitzung" _optional_ zu mehreren Zwecken 
+* Dokumente können vom Typ `oparl:Meeting` _optional_ zu mehreren Zwecken 
 referenziert werden:
     * Zum Verweis auf die Einladung zur Sitzung
     * Zum Verweis auf das Ergebnisprotokoll zur Sitzung

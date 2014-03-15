@@ -1,17 +1,15 @@
-OParlDocument (Dokument)
+oparl:Document (Dokument)
 ------------------------
 
-Ein Dokument hält die Metadaten einer Datei vor, beispielsweise einer 
-PDF-Datei, eines RTF- oder Word-Dokuments.
+Ein Dokument hält Metadaten einer Datei vor, beispielsweise einer 
+PDF-Datei, eines RTF- oder ODF-Dokuments (oder auch einer Datei in einem proprietären Format).
 
-Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese 
-Ableitung ebenfalls ein Dokument. Um zu zeigen, dass es sich um eine Ableitung
-handelt, verweist dieses auf das Original als "Master".
+Wird von einem Dokument in einem Nicht-PDF-Format (z.B. RTF oder ODF) eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls ein Dokument. Um zu zeigen, dass es sich um eine Ableitung handelt, verweist dieses auf das Original als "Master".
 
 Im Unterschied zur Drucksache benötigt das Dokument keine nutzerfreundliche 
 Kennung.
 
-![Objekttyp Dokument](images/datenmodell_dokument.png)
+![Objekttyp Document](images/datenmodell_dokument.png)
 
 ### Eigenschaften ###
 Schlüssel (`id`)

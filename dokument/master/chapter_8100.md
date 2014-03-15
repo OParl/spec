@@ -1,4 +1,4 @@
-OParlPaper (Drucksache)
+oparl:Paper (Drucksache)
 -----------------------
 
 Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen, 
@@ -15,7 +15,7 @@ besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen
 wird. Hierbei kommen in Ratsinformationssystemen unveränderliche Kennungen 
 der Drucksachen zum Einsatz.
 
-![Objekttyp Drucksache](images/datenmodell_drucksache.png)
+![Objekttyp Paper](images/datenmodell_drucksache.png)
 
 Jede Drucksache ist über die Eigenschaft "Typ" als eine der folgenden Arten 
 von Drucksachen gekennzeichnet:
@@ -48,7 +48,7 @@ Zuletzt geändert (`last_modified`)
 :   Datum und Uhrzeit der letzten Änderung
 
 ### Beziehungen ###
-* Es muss genau ein **Hauptdokument** (Objekttyp "Dokument") referenziert 
+* Es muss genau ein **Hauptdokument** (`oparl:Document`) referenziert 
 werden.
 * Es können beliebig viele weitere Dokumente referenziert werden, die als 
 nachgeordnete **Anlagen** zur Drucksache verstanden werden.
@@ -61,7 +61,7 @@ stets mehrere Uhrheber verknüpft werden.
 * Es können beliebig viele **Orte** (siehe Objekttyp "Ort") referenziert 
 werden, die im Inhalt der Drucksache behandelt werden. Beispiel: 
 Beschlussvorlage zur Freigabe von Mitteln für die Sanierung eines 
-Sportplatzes, wobei der Ort die Lage des Sportplatzes genau beschreibt.
+Sportplatzes, wobei der Ort die Lage des Sportplatzes genau beschreibt.  (TODO)
 * Drucksachen können auf andere Drucksachen referenzieren. Diese Verweise 
 können verschiedene semantische Beziehungen ausdrücken. So kann eine 
 Drucksache auf eine übergeordnete oder eine oder mehrere untergeordnete 

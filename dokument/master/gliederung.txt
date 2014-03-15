@@ -84,7 +84,7 @@ OParl Spezifikation 1.0 Gliederung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    8070 OParlOrganisation (Organisation)
+    8070 OParlOrganization (Organisation)
         Bedeutung
         Eigenschaften
         Besonderheiten

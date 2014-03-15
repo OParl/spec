@@ -28,7 +28,7 @@ berücksichtigt werden.
 
 ### Beziehungen ###
 
-* Jede `oparl:Organisation` gehört zu einer Körperschaft.
+* Jede `oparl:Organization` gehört zu einer Körperschaft.
 * Personen können Organisationen angehören (*datiert*).
 
 ### Beispiel ###

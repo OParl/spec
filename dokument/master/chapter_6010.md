@@ -51,7 +51,7 @@ Roy Fielding eingeführt^[Fielding, Roy: Architectural Styles and
 the Design of Network-based Software Architectures,
 <http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm>]. Die Definition
 von Fielding reicht sehr weit und berührt viele Details. In der Praxis wird der Begriff
-häufig genuutzt, um eine Schnittstelle zu beschreiben,
+häufig genutzt, um eine Schnittstelle zu beschreiben,
 
 * die auf WWW-Technologie aufbaut, insbesondere das HTTP-Protokoll
 * die darauf beruht, dass mittels URL einzelne Ressourcen oder Zustände vom

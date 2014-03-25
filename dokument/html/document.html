@@ -121,6 +121,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>Mehr Abfragekriterien</li>
 <li>Suchfunktionen (Volltextsuche)</li>
 <li>Abstimmungsverhalten und maschinenlesbare Protokolle</li>
+<li>Schreibender Zugriff. Auch dazu muss das Rad nicht neu erfunden werden. Bestehende bzw. in Entwicklung befindliche Spezifikationen und Techniken aus der Linked Data-Welt können verwendet werden. Dazu gehören insbesondere die Linked Data Platform des W3C und Hydra.</li>
 </ul>
 <h2 id="nomenklatur-der-spezifikation-und-satzkonventionen"><span class="header-section-number">1.7</span> Nomenklatur der Spezifikation und Satzkonventionen</h2>
 <h3 id="müssen-sollen-und-können-bzw.-zwingend-empfohlen-und-optional"><span class="header-section-number">1.7.1</span> MÜSSEN, SOLLEN und KÖNNEN bzw. ZWINGEND, EMPFOHLEN und OPTIONAL</h3>
@@ -225,7 +226,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <ul>
 <li>Grundlage für den Zugriff auf die Schnittstelle ist das Hypertext Transfer Protocol (HTTP).</li>
 <li>Optional gzip Encoding und andere Kodierungen, wenn Client und Server dies unterstützen</li>
-<li>Das Protkoll ist zustandslos</li>
+<li>Das Protokoll ist zustandslos</li>
 <li>Authentifizierung wird nicht benötigt.</li>
 </ul>
 <h2 id="designprinzipien"><span class="header-section-number">4.1</span> Designprinzipien</h2>
@@ -240,7 +241,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h3 id="erweiterbarkeit"><span class="header-section-number">4.1.4</span> Erweiterbarkeit</h3>
 <h3 id="browseabilityverlinkung"><span class="header-section-number">4.1.5</span> Browseability/Verlinkung</h3>
 <h2 id="zukunftssicherheit"><span class="header-section-number">4.2</span> Zukunftssicherheit</h2>
-<p>(In diesem Abschnitt wird die Zielsetzung beschrieben, zukünftige Versionen der OParl Spezifikation auf dieser Version aufbauen zu lassen. Damit soll nach Mögloichkeit Abwärtskompatibilität erreicht werden, so dass z.B. OParl-1.0-Clients mit einem 1.1-Server kommunizieren können.</p>
+<p>(In diesem Abschnitt wird die Zielsetzung beschrieben, zukünftige Versionen der OParl Spezifikation auf dieser Version aufbauen zu lassen. Damit soll nach Möglichkeit Abwärtskompatibilität erreicht werden, so dass z.B. OParl-1.0-Clients mit einem 1.1-Server kommunizieren können.</p>
 <p>Ein Garantie wird es jedoch nicht geben.)</p>
 <h2 id="http-und-https"><span class="header-section-number">4.3</span> HTTP und HTTPS</h2>
 <p>(Hier geht es um die Verwendung von HTTP im Sinne der OParl-Spezifikation.</p>
@@ -366,33 +367,33 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>Jedes Objekt KANN die Eigenschaft &quot;license&quot; besitzen.</li>
 <li>Die genannte Lizenz bezieht sich auf das jeweilige Objekt und auf untergeordnete Objekte, sofern diese keine license-Eigenschaft besitzen.</li>
 <li>Dazu muss die Vererbungshierarchie aufgezeigt werden.</li>
-<li>Empfohlene Minimalvariante: Nur eine license-Angabe auf Ebene von OParlSystem.</li>
-<li>Auf Ebene des OParlDocument bezieht sich die Eigenschaft sowohl auf die Metadaten als auch auf das Dokument selbst.</li>
+<li>Empfohlene Minimalvariante: Nur eine license-Angabe auf Ebene von <code>oparl:System</code>.</li>
+<li>Auf Ebene des <code>oparl:Document</code> bezieht sich die Eigenschaft sowohl auf die Metadaten als auch auf das Dokument selbst.</li>
 </ul>
 <h3 id="die-eigenschaften-created-und-last_modified"><span class="header-section-number">5.1.4</span> Die Eigenschaften &quot;created&quot; und &quot;last_modified&quot;</h3>
 <h3 id="die-eigenschaften-name-und-name_long"><span class="header-section-number">5.1.5</span> Die Eigenschaften &quot;name&quot; und &quot;name_long&quot;</h3>
 <h3 id="die-eigenschaft-description"><span class="header-section-number">5.1.6</span> Die Eigenschaft &quot;description&quot;</h3>
 <h2 id="oparlsystem-system"><span class="header-section-number">5.2</span> OParlSystem (System)</h2>
-<p>Der Objekttyp <code>OParlSystem</code> bildet grundlegende Informationen zum parlamentarischen Informationssystem ab. Das Objekt repräsentiert das technische System, unabhängig von der Frage, welche Körperschaften auf diesem System vertreten sind.</p>
-<p>Auf jedem OParl Server MUSS ein Objekt vom Typ <code>OParlSystem</code> vorgehalten werden. Es DARF nur ein einziges solches Objekt je Server existieren.</p>
-<p>Für Clients ist das <code>OParlSystem</code> Objekt ein geeigneter Einstiegspunkt, um grundlegende Informationen über das Sytem zu bekommen und die URLs zum Zugriff auf andere Informationen in Erfahrung zu bringen.</p>
-<p>Die URL (IRI) des <code>OParlSystem</code> Objekts MUSS per Definition identisch mit der URL des API-Endpunkts des Servers sein.</p>
+<p>Der Objekttyp <code>oparl:System</code> bildet grundlegende Informationen zum parlamentarischen Informationssystem ab. Das Objekt repräsentiert das technische System, unabhängig von der Frage, welche Körperschaften auf diesem System vertreten sind.</p>
+<p>Auf jedem OParl Server MUSS ein Objekt vom Typ <code>oparl:System</code> vorgehalten werden. Es DARF nur ein einziges solches Objekt je Server existieren.</p>
+<p>Für Clients ist das <code>oparl:System</code> Objekt ein geeigneter Einstiegspunkt, um grundlegende Informationen über das Sytem zu bekommen und die URLs zum Zugriff auf andere Informationen in Erfahrung zu bringen.</p>
+<p>Die URL (IRI) des <code>oparl:System</code> Objekts MUSS per Definition identisch mit der URL des API-Endpunkts des Servers sein.</p>
 <h3 id="eigenschaft-oparl_version"><span class="header-section-number">5.2.1</span> Eigenschaft <code>oparl_version</code></h3>
 <p>Diese Eigenschaft ist ZWINGEND.</p>
 <p>URL der Version der OParl-Spezifikation, die von diesem System unterstützt wird. So lange es nur die Version 1.0 der OParl-Spezifikation gibt, MUSS der Wert dieser Eigenschaft <code>http://oparl.org/specs/1.0/</code> sein.</p>
 <p>Sofern zukünftig weitere Versionen der Spezifikation vorliegen, können Clients damit in Erfahrung bringen, welches Schema, welche Eigenschaften und Methoden auf Seite des Servers vorausgesetzt werden können.</p>
 <h3 id="eigenschaft-bodies"><span class="header-section-number">5.2.2</span> Eigenschaft <code>bodies</code></h3>
 <p>Diese Eigenschaft ist ZWINGEND.</p>
-<p>Über diese URL sind alle OParlBody Objekte, also die im System geführten Körperschaften, als Liste abrufbar.</p>
-<p>TODO: Verweis auf OParlBody einfügen</p>
+<p>Über diese URL sind alle <code>oparl:Body</code> Objekte, also die im System geführten Körperschaften, als Liste abrufbar.</p>
+<p>TODO: Verweis auf <code>oparl:Body</code> einfügen</p>
 <h3 id="eigenschaft-name"><span class="header-section-number">5.2.3</span> Eigenschaft <code>name</code></h3>
 <p>Diese Eigenschaft wird EMPFOHLEN.</p>
 <p>Diese Eigenschaft dient dazu, einen nutzerfreundlichen Namen zu kommunizieren, mit dem NutzerInnen das System wiedererkennen und von anderen unterscheiden können.</p>
 <h3 id="eigenschaft-contact"><span class="header-section-number">5.2.4</span> Eigenschaft <code>contact</code></h3>
 <p>Diese Eigenschaft wird EMPFOHLEN.</p>
 <p>Die Eigenschaft dient dazu, NutzerInnen bzw. EntwicklerInnen von Clients die Kontaktaufnahme mit dem Betreiber des Systems zu ermöglichen. Es wird EMPFOHLEN, hier die Kontaktdaten eines technischen Ansprechpartners bzw. einer allgemeinen Kontaktstelle auszugeben, über die Anfragen verschiedener Art an die richtige Kontaktperson umgeleitet werden können.</p>
-<p>Der Wert dieser Eigenschaft MUSS ein Objekt vom Typ OParlContact sein.</p>
-<p>TODO: Verweis auf OParlContact einfügen.</p>
+<p>Der Wert dieser Eigenschaft MUSS ein Objekt vom Typ <code>oparl:Contact</code> sein.</p>
+<p>TODO: Verweis auf <code>oparl:Contact</code> einfügen.</p>
 <h3 id="eigenschaft-license"><span class="header-section-number">5.2.5</span> Eigenschaft <code>license</code></h3>
 <p>Diese Eigenschaft wird EMPFOHLEN.</p>
 <p>Die Eigenschaft dient dazu, darüber zu informieren, unter welcher Lizenz die Daten des aktuell angezeigten Objekts stehen. Zur Vererbung dieser Eigenschaft siehe (TODO: Verweis auf Abschnitt zur Lizenz-Vererbung einfügen).</p>
@@ -409,45 +410,45 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Diese Eigenschaft ist EMPFOHLEN.</p>
 <p>Mit dieser Eigenschaft wird die URL des Feeds für entfernte Objekte ausgegeben.</p>
 <p>TODO: Verweis auf Feeds &gt; Entfernte Objekte</p>
-<h3 id="eigenschaft-info_url"><span class="header-section-number">5.2.9</span> Eigenschaft <code>info_url</code></h3>
+<h3 id="eigenschaft-info"><span class="header-section-number">5.2.9</span> Eigenschaft <code>info</code></h3>
 <p>Diese Eigenschaft ist OPTIONAL.</p>
 <p>Diese Eigenschaft dient dazu, eine zusätzliche URL zu einer WWW-Seite mit zusätzlichen Informationen zum System anzubieten. So könnten NutzerInnen beispielsweise auf eine Web-Oberfläche eines parlamentarischen Informationssystems geführt werden.</p>
-<h3 id="eigenschaft-vendor_url"><span class="header-section-number">5.2.10</span> Eigenschaft <code>vendor_url</code></h3>
+<h3 id="eigenschaft-vendor"><span class="header-section-number">5.2.10</span> Eigenschaft <code>vendor</code></h3>
 <p>Diese Eigenschaft ist OPTIONAL.</p>
 <p>Diese Eigenschaft dient dazu, über eine URL den Hersteller des Server-Systems zu komunizieren. Die URL sollt nach Möglichkeit zu einer WWW-Seite mit weiteren Informationen zum Hersteller führen.</p>
-<h3 id="eigenschaft-product_url"><span class="header-section-number">5.2.11</span> Eigenschaft <code>product_url</code></h3>
+<h3 id="eigenschaft-product"><span class="header-section-number">5.2.11</span> Eigenschaft <code>product</code></h3>
 <p>Diese Eigenschaft ist OPTIONAL.</p>
 <p>Diese Eigenschaft dient dazu, über eine URL mitzuteilen, welches Softwareprodukt das Server-System bereitstellt. Die URL soll nach Möglichkeit zu einer WWW-Seite mit weiteren Informationen zum Produkt führen.</p>
 <h3 id="beispiel"><span class="header-section-number">5.2.12</span> Beispiel</h3>
 <pre class="sourceCode json" id="OParlSystem_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/&quot;</span>,
-    <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/OParlSystem&quot;</span>,
+    <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/System&quot;</span>,
     <span class="dt">&quot;oparl_version&quot;</span>: <span class="st">&quot;http://oparl.org/specs/1.0/&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;OParl Reference Server&quot;</span>,
-    <span class="dt">&quot;info_url&quot;</span>: <span class="st">&quot;https://github.com/OParl/reference-server&quot;</span>,
+    <span class="dt">&quot;info&quot;</span>: <span class="st">&quot;https://github.com/OParl/reference-server&quot;</span>,
     <span class="dt">&quot;contact&quot;</span>: {
         <span class="dt">&quot;email&quot;</span>: <span class="st">&quot;info@oparl.org&quot;</span>,
         <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Common OParl contact&quot;</span>
     }, 
-    <span class="dt">&quot;vendor_url&quot;</span>: <span class="st">&quot;http://oparl.org/&quot;</span>,
-    <span class="dt">&quot;product_url&quot;</span>: <span class="st">&quot;https://github.com/OParl/reference-server&quot;</span>,
+    <span class="dt">&quot;vendor&quot;</span>: <span class="st">&quot;http://oparl.org/&quot;</span>,
+    <span class="dt">&quot;product&quot;</span>: <span class="st">&quot;https://github.com/OParl/reference-server&quot;</span>,
     <span class="dt">&quot;license&quot;</span>: <span class="st">&quot;http://creativecommons.org/licenses/by/4.0/&quot;</span>,
     <span class="dt">&quot;bodies&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/&quot;</span>,
     <span class="dt">&quot;new_objects&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/feeds/new/&quot;</span>,
     <span class="dt">&quot;updated_objects&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/feeds/updated/&quot;</span>,
     <span class="dt">&quot;removed_objects&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/feeds/removed/&quot;</span>
 }</code></pre>
-<h2 id="oparlbody-körperschaft"><span class="header-section-number">5.3</span> OParlBody (Körperschaft)</h2>
+<h2 id="oparlbody-körperschaft"><span class="header-section-number">5.3</span> oparl:Body (Körperschaft)</h2>
 <p>Dieser Objekttyp erlaubt es, eine Körperschaft abzbilden. Eine Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder ein Zweckverband sein.</p>
-<p>Von einem funktionsfähigen Server wird erwartet, dass er mindestens ein Objekt vom Typ <code>OParlBody</code> bereit hält. Teilen sich mehrere Körperschaften das selbe technische System, können auf demselben Server auch mehrere Objekte vom Typ <code>OParlBody</code> beherbergt werden.</p>
-<p>Über die Zuordnung zu einem bestimmten <code>OParlBody</code> Objekt zeigen andere Objekte, wie beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit zu einer bestimmten Körperschaft an.</p>
+<p>Von einem funktionsfähigen Server wird erwartet, dass er mindestens ein Objekt vom Typ <code>oparl:Body</code> bereit hält. Teilen sich mehrere Körperschaften das selbe technische System, können auf demselben Server auch mehrere Objekte vom Typ <code>oparl:Body</code> beherbergt werden.</p>
+<p>Über die Zuordnung zu einem bestimmten <code>oparl:Body</code> Objekt zeigen andere Objekte, wie beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit zu einer bestimmten Körperschaft an.</p>
 <div class="figure">
-<img src="images/datenmodell_koerperschaft.png" alt="Objekttyp OParlBody" /><p class="caption">Objekttyp OParlBody</p>
+<img src="images/datenmodell_koerperschaft.png" alt="Objekttyp oparl:Body" /><p class="caption">Objekttyp oparl:Body</p>
 </div>
-<p>Es werden mehrere Eigenschaften angeboten, die dazu dienen, die real existierende Körperschaft, die von einem <code>OParlBody</code> Objekt repräsentiert wird, programmatisch auslesbar zu machen zu können. Insbesondere sind hier die Eigenschaften <code>url</code>, <code>rgs</code> und <code>gnd_url</code> zu nennen.</p>
+<p>Es werden mehrere Eigenschaften angeboten, die dazu dienen, die real existierende Körperschaft, die von einem <code>oparl:Body</code> Objekt repräsentiert wird, programmatisch auslesbar zu machen zu können. Insbesondere sind hier die Eigenschaften <code>url</code>, <code>rgs</code> und <code>gnd_url</code> zu nennen.</p>
 <h3 id="eigenschaft-system"><span class="header-section-number">5.3.1</span> Eigenschaft <code>system</code></h3>
 <p>Diese Eigenschaft ist ZWINGEND.</p>
-<p>Mit dieser Eigenschaft wird das Objekt dem übergeordneten OParlSystem Objekt zugeordnet. Wert MUSS der IRI des OParlSystem Objekts sein.</p>
+<p>Mit dieser Eigenschaft wird das Objekt dem übergeordneten <code>oparl:System</code> Objekt zugeordnet. Wert MUSS der IRI des <code>oparl:System</code> Objekts sein.</p>
 <h3 id="eigenschaft-name-1"><span class="header-section-number">5.3.2</span> Eigenschaft <code>name</code></h3>
 <p>Diese Eigenschaft ist ZWINGEND. Sie transportiert den gebräuchlichen Namen der Körperschaft.</p>
 <h3 id="eigenschaft-name_long"><span class="header-section-number">5.3.3</span> Eigenschaft <code>name_long</code></h3>
@@ -464,23 +465,23 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Sofern die Körperschaft in der GND<sup><a href="#fn4" class="footnoteRef" id="fnref4">4</a></sup> vertreten ist, SOLL diese Eigenschaft als Wert die URL des Eintrags in der GND enthalten.</p>
 <h3 id="eigenschaft-contact-1"><span class="header-section-number">5.3.7</span> Eigenschaft <code>contact</code></h3>
 <p>Diese Eigenschaft ist EMPFOHLEN.</p>
-<p>Über diese Eigenschafte SOLLEN Kontaktinformationen zu einer Stelle bereit gestellt werden, die die inhaltliche Verantwortung für sämtliche zu dieser Körperschaft gehörenden Inhalte im System trägt. Besonders wichtig ist diese Angabe, wenn auf einem System mehrere Körperschaften vertreten sind und damit auf der Ebene des OParlSystem Objekts ein rein technischer Kontakt ausgegeben wird, der nicht für inhaltliche Fragestellungen im Zuständigkeitsbereich der jeweiligen Körperschaften kontaktiert werden sollte.</p>
+<p>Über diese Eigenschafte SOLLEN Kontaktinformationen zu einer Stelle bereit gestellt werden, die die inhaltliche Verantwortung für sämtliche zu dieser Körperschaft gehörenden Inhalte im System trägt. Besonders wichtig ist diese Angabe, wenn auf einem System mehrere Körperschaften vertreten sind und damit auf der Ebene des <code>oparl:System</code> Objekts ein rein technischer Kontakt ausgegeben wird, der nicht für inhaltliche Fragestellungen im Zuständigkeitsbereich der jeweiligen Körperschaften kontaktiert werden sollte.</p>
 <h3 id="eigenschaft-papers"><span class="header-section-number">5.3.8</span> Eigenschaft <code>papers</code></h3>
 <p>Diese Eigenschaft ist ZWINGEND.</p>
-<p>Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der Drucksachen (Objekte vom Typ OParlPaper) für diese Körperschaft.</p>
+<p>Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der Drucksachen (Objekte vom Typ <code>oparl:Paper</code>) für diese Körperschaft.</p>
 <h3 id="eigenschaft-people"><span class="header-section-number">5.3.9</span> Eigenschaft <code>people</code></h3>
 <p>Diese Eigenschaft ist ZWINGEND.</p>
-<p>Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der Personen (Objekte vom Typ OParlPerson) für diese Körperschaft.</p>
+<p>Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der Personen (Objekte vom Typ <code>oparl:Person</code>) für diese Körperschaft.</p>
 <h3 id="eigenschaft-meetings"><span class="header-section-number">5.3.10</span> Eigenschaft <code>meetings</code></h3>
 <p>Diese Eigenschaft ist ZWINGEND.</p>
-<p>Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der Sitzungen (Objekte vom Typ OParlMeeting) für diese Körperschaft.</p>
+<p>Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der Sitzungen (Objekte vom Typ <code>oparl:Meeting</code>) für diese Körperschaft.</p>
 <h3 id="eigenschaft-committees"><span class="header-section-number">5.3.11</span> Eigenschaft <code>committees</code></h3>
 <p>Diese Eigenschaft ist ZWINGEND.</p>
-<p>Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der Gremien (Objekte vom Typ OParlCommittee) für diese Körperschaft.</p>
+<p>Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der Gremien (Objekte vom Typ <code>oparl:Committee</code>) für diese Körperschaft.</p>
 <h3 id="beispiel-1"><span class="header-section-number">5.3.12</span> Beispiel</h3>
 <pre class="sourceCode json" id="oparlbody_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0&quot;</span>,
-    <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/OParlBody&quot;</span>,
+    <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/Body&quot;</span>,
     <span class="dt">&quot;committees&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/committees/&quot;</span>,
     <span class="dt">&quot;contact&quot;</span>: {
         <span class="dt">&quot;email&quot;</span>: <span class="st">&quot;ris@stadt-koeln.de&quot;</span>,
@@ -499,10 +500,10 @@ code > span.er { color: #ff0000; font-weight: bold; }
     <span class="dt">&quot;system&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/&quot;</span>,
     <span class="dt">&quot;url&quot;</span>: <span class="st">&quot;http://www.stadt-koeln.de/&quot;</span>
 }</code></pre>
-<h2 id="oparlcommittee-gremium"><span class="header-section-number">5.4</span> OParlCommittee (Gremium</h2>
+<h2 id="oparlcommittee-gremium"><span class="header-section-number">5.4</span> oparl:Committee (Gremium)</h2>
 <p>Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat, Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.</p>
 <div class="figure">
-<img src="images/datenmodell_gremium.png" alt="Objekttyp Gremium" /><p class="caption">Objekttyp Gremium</p>
+<img src="images/datenmodell_gremium.png" alt="Objekttyp Committee" /><p class="caption">Objekttyp Committee</p>
 </div>
 <h3 id="eigenschaften"><span class="header-section-number">5.4.1</span> Eigenschaften</h3>
 <dl>
@@ -521,7 +522,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </dl>
 <h3 id="beziehungen"><span class="header-section-number">5.4.2</span> Beziehungen</h3>
 <ul>
-<li>Objekte vom Typ &quot;Person&quot; referenzieren auf Gremien, um die Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu kennzeichnen. Diese Beziehung ist datiert. Das bedeutet, sie hat einen Anfangszeitpunkt und ggf. einen Endzeitpunkt.</li>
+<li>Objekte vom Typ <code>oparl:Person</code> referenzieren auf Gremien, um die Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu kennzeichnen. Diese Beziehung ist datiert. Das bedeutet, sie hat einen Anfangszeitpunkt und ggf. einen Endzeitpunkt.</li>
 <li>Objekte vom Typ &quot;Drucksache&quot; verweisen auf Gremien. Beispielsweise wird eine Anfrage oder ein Antrag dem Rat und/oder einer bestimmten Bezirksvertretung zugeordnet. Details zu dieser Beziehung werden unter &quot;Drucksache&quot; erläutert.</li>
 <li>Das Gremium verweist auf die Körperschaft, zu der das Gremium gehört.</li>
 </ul>
@@ -533,8 +534,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
     <span class="dt">&quot;body&quot;</span>: <span class="st">&quot;1&quot;</span>,
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
-<h2 id="oparlperson-person"><span class="header-section-number">5.5</span> OParlPerson (Person)</h2>
-<p>Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person im Datenmodell eindeutig identifizierbar.</p>
+<h2 id="oparlperson-person"><span class="header-section-number">5.5</span> oparl:Person (Person)</h2>
+<p>Jede natürliche Person, die Mitglied eines Gremiums ist, ist als <code>oparl:Person</code> im Datenmodell eindeutig identifizierbar.</p>
 <div class="figure">
 <img src="images/datenmodell_person.png" alt="Objekttyp Person" /><p class="caption">Objekttyp Person</p>
 </div>
@@ -581,8 +582,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul>
 <h3 id="beziehungen-1"><span class="header-section-number">5.5.2</span> Beziehungen</h3>
 <ul>
-<li>Objekte vom Typ &quot;Person&quot; können einer Organisation, z.B. einer Fraktion, zugeornet werden. Diese Beziehung ist datiert.</li>
-<li>Objekte vom Typ &quot;Person&quot; können einem oder mehreren Gremien zugewiesen werden, um die Mitgliedschaft in diesem Gremium darzustellen. Diese Beziehungen sind ebenfalls datiert.</li>
+<li>Objekte vom Typ <code>oparl:Person</code> können einer Organisation, z.B. einer Fraktion, zugeornet werden. Diese Beziehung ist datiert.</li>
+<li>Objekte vom Typ <code>oparl:Person</code> können einem oder mehreren Gremien zugewiesen werden, um die Mitgliedschaft in diesem Gremium darzustellen. Diese Beziehungen sind ebenfalls datiert.</li>
 </ul>
 <h3 id="beispiel-3"><span class="header-section-number">5.5.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="person_ex1"><code class="sourceCode json">{
@@ -615,7 +616,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
         }
     ]
 }</code></pre>
-<h2 id="oparlorganisation-organisation"><span class="header-section-number">5.6</span> OParlOrganisation (Organisation)</h2>
+<h2 id="oparlorganization-organisation"><span class="header-section-number">5.6</span> oparl:Organization (Organisation)</h2>
 <p>Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die Personen angehören können.</p>
 <div class="figure">
 <img src="images/datenmodell_organisation.png" alt="Objekttyp Organisation" /><p class="caption">Objekttyp Organisation</p>
@@ -634,25 +635,26 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </dl>
 <h4 id="anmerkungen-1"><span class="header-section-number">5.6.1.1</span> Anmerkungen</h4>
 <ul>
-<li>Unklar ist bislang, ob Organisationen in der Praxis eher Fraktionen (&quot;SPD-Fraktion im Kölner Rat&quot;, &quot;SPD-Fraktion in Köln-Innenstadt&quot;) abbilden oder ob eher Ortsverbände von Parteien (&quot;SPD Köln&quot;) gemeint sein werden. Einblicke, wie gängige Systeme dies handhaben, sollten evtl. gesammelt und berücksichtigt werden.</li>
+<li><p>Unklar ist bislang, ob Organisationen in der Praxis eher Fraktionen (&quot;SPD-Fraktion im Kölner Rat&quot;, &quot;SPD-Fraktion in Köln-Innenstadt&quot;) abbilden oder ob eher Ortsverbände von Parteien (&quot;SPD Köln&quot;) gemeint sein werden. Einblicke, wie gängige Systeme dies handhaben, sollten evtl. gesammelt und berücksichtigt werden.</p></li>
+<li><p>Es wird die Schreibweise &quot;Organization&quot; (und nicht &quot;Organisation&quot;) verwendet, da diese in allen englischen Sprachräumen problemlos verwendet werden kann. Siehe dazu Abschnitt 3, Fussnote 1 auf dieser Seite: http://popoloproject.com/specs/organization.html</p></li>
 </ul>
 <h3 id="beziehungen-2"><span class="header-section-number">5.6.2</span> Beziehungen</h3>
 <ul>
-<li>Jede Organisationen gehört zu einer Körperschaft.</li>
+<li>Jede <code>oparl:Organization</code> gehört zu einer Körperschaft.</li>
 <li>Personen können Organisationen angehören (<em>datiert</em>).</li>
 </ul>
 <h3 id="beispiel-4"><span class="header-section-number">5.6.3</span> Beispiel</h3>
-<pre class="sourceCode json" id="organisation_ex1"><code class="sourceCode json">{
+<pre class="sourceCode json" id="organization_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;15&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;SPD&quot;</span>,
     <span class="dt">&quot;body&quot;</span>: <span class="st">&quot;1&quot;</span>,
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
-<h2 id="oparlmeeting-sitzung"><span class="header-section-number">5.7</span> OParlMeeting (Sitzung)</h2>
+<h2 id="oparlmeeting-sitzung"><span class="header-section-number">5.7</span> oparl:Meeting (Sitzung)</h2>
 <p>Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.</p>
 <p>Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in entsprechender Form referenziert. Verschiedene Dokumente (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.</p>
 <div class="figure">
-<img src="images/datenmodell_sitzung.png" alt="Objekttyp Sitzung" /><p class="caption">Objekttyp Sitzung</p>
+<img src="images/datenmodell_sitzung.png" alt="Objekttyp Meeting" /><p class="caption">Objekttyp Meeting</p>
 </div>
 <h3 id="eigenschaften-3"><span class="header-section-number">5.7.1</span> Eigenschaften</h3>
 <dl>
@@ -679,7 +681,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <ul>
 <li>Sitzungen sind mindestens einem Gremium zugeordnet</li>
 <li>Einer Sitzung sind Personen zugeordnet, um die Teilnahme an der Sitzung auszudrücken.</li>
-<li>Dokumente können vom Typ &quot;Sitzung&quot; <em>optional</em> zu mehreren Zwecken referenziert werden:
+<li>Dokumente können vom Typ <code>oparl:Meeting</code> <em>optional</em> zu mehreren Zwecken referenziert werden:
 <ul>
 <li>Zum Verweis auf die Einladung zur Sitzung</li>
 <li>Zum Verweis auf das Ergebnisprotokoll zur Sitzung</li>
@@ -706,11 +708,11 @@ code > span.er { color: #ff0000; font-weight: bold; }
     ],
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-01-08T14:05:27+01:00&quot;</span>
 }</code></pre>
-<h2 id="oparlagendaitem-tagesordnungspunkt"><span class="header-section-number">5.8</span> OParlAgendaitem (Tagesordnungspunkt)</h2>
+<h2 id="oparlagendaitem-tagesordnungspunkt"><span class="header-section-number">5.8</span> oparl:AgendaItem (Tagesordnungspunkt)</h2>
 <p>Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. Unter Umständen kann dem Tagesordnungspunkt ein bestimmter Beschlusstext beigefügt sein.</p>
 <p>Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.</p>
 <div class="figure">
-<img src="images/datenmodell_tagesordnungspunkt.png" alt="Objekttyp Tagesordnungspunkt" /><p class="caption">Objekttyp Tagesordnungspunkt</p>
+<img src="images/datenmodell_tagesordnungspunkt.png" alt="Objekttyp AgendaItem" /><p class="caption">Objekttyp AgendaItem</p>
 </div>
 <h3 id="eigenschaften-4"><span class="header-section-number">5.8.1</span> Eigenschaften</h3>
 <dl>
@@ -743,9 +745,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul>
 <h3 id="beziehungen-4"><span class="header-section-number">5.8.2</span> Beziehungen</h3>
 <ul>
-<li>Jeder Tagesordnungspunkt gehört zu genau einer Sitzung.</li>
+<li>Jeder Tagesordnungspunkt gehört zu genau einem <code>oparl:Meeting</code>.</li>
 <li>Der Tagesordnungspunkt kann auf eine Drucksache verweisen, die im Rahmen dieses Tagesordnungspunkt beraten werden soll.</li>
-<li>Es können Personen referenziert werden, die während der Abstimmung zu diesem Tagesordnungspunkt <em>nicht</em> anwesend waren.</li>
+<li>Es können <code>oparl:Person</code> Objekte referenziert werden, die während der Abstimmung zu diesem Tagesordnungspunkt <em>nicht</em> anwesend waren.</li>
 </ul>
 <h3 id="beispiel-6"><span class="header-section-number">5.8.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="agendaitem_ex1"><code class="sourceCode json">{
@@ -758,12 +760,12 @@ code > span.er { color: #ff0000; font-weight: bold; }
     <span class="dt">&quot;people_absent&quot;</span>: [<span class="st">&quot;1002&quot;</span>, <span class="st">&quot;1003&quot;</span>],
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
-<h2 id="oparlpaper-drucksache"><span class="header-section-number">5.9</span> OParlPaper (Drucksache)</h2>
+<h2 id="oparlpaper-drucksache"><span class="header-section-number">5.9</span> oparl:Paper (Drucksache)</h2>
 <p>Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen, Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede Drucksache erhält eine eindeutige Kennung.</p>
 <p>Die Drucksache hat im Informationsmodell eine hervorgehobene Bedeutung. Im Fall eines Antrags kann mit einer einzigen Drucksache ein über Monate oder Jahre dauernder politischer Entscheidungsprozess verbunden sein. In dem Zusammenhang entstehen üblicherweise weitere Drucksachen.</p>
 <p>Drucksachen spielen in der schriftlichen wie mündlichen Kommunikation eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in Ratsinformationssystemen unveränderliche Kennungen der Drucksachen zum Einsatz.</p>
 <div class="figure">
-<img src="images/datenmodell_drucksache.png" alt="Objekttyp Drucksache" /><p class="caption">Objekttyp Drucksache</p>
+<img src="images/datenmodell_drucksache.png" alt="Objekttyp Paper" /><p class="caption">Objekttyp Paper</p>
 </div>
 <p>Jede Drucksache ist über die Eigenschaft &quot;Typ&quot; als eine der folgenden Arten von Drucksachen gekennzeichnet:</p>
 <ul>
@@ -790,11 +792,11 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </dl>
 <h3 id="beziehungen-5"><span class="header-section-number">5.9.2</span> Beziehungen</h3>
 <ul>
-<li>Es muss genau ein <strong>Hauptdokument</strong> (Objekttyp &quot;Dokument&quot;) referenziert werden.</li>
+<li>Es muss genau ein <strong>Hauptdokument</strong> (<code>oparl:Document</code>) referenziert werden.</li>
 <li>Es können beliebig viele weitere Dokumente referenziert werden, die als nachgeordnete <strong>Anlagen</strong> zur Drucksache verstanden werden.</li>
 <li>Die Drucksache ist beliebig vielen Gremien zuzuordnen, in denen diese beraten wird.</li>
 <li>Drucksachen können <strong>Urhebern</strong> zugewiesen werden. Im Fall von Mitteilungen der Verwaltung ist dies oft der Oberbürgermeister. Bei Anträgen oder Anfragen können Organisationen oder Einzelpersonen referenziert werden. Es können stets mehrere Uhrheber verknüpft werden.</li>
-<li>Es können beliebig viele <strong>Orte</strong> (siehe Objekttyp &quot;Ort&quot;) referenziert werden, die im Inhalt der Drucksache behandelt werden. Beispiel: Beschlussvorlage zur Freigabe von Mitteln für die Sanierung eines Sportplatzes, wobei der Ort die Lage des Sportplatzes genau beschreibt.</li>
+<li>Es können beliebig viele <strong>Orte</strong> (siehe Objekttyp &quot;Ort&quot;) referenziert werden, die im Inhalt der Drucksache behandelt werden. Beispiel: Beschlussvorlage zur Freigabe von Mitteln für die Sanierung eines Sportplatzes, wobei der Ort die Lage des Sportplatzes genau beschreibt. (TODO)</li>
 <li>Drucksachen können auf andere Drucksachen referenzieren. Diese Verweise können verschiedene semantische Beziehungen ausdrücken. So kann eine Drucksache auf eine übergeordnete oder eine oder mehrere untergeordnete Drucksachen verweisen. Beim Drucksachen-Typ &quot;Beantwortung einer Anfrage&quot; ist die Drucksache zu referenzieren, die die ursprüngliche <strong>Anfrage</strong> beinhaltet. Denkbar sind auch Verweise auf frühere Drucksachen zum selben Thema. Zu klären ist, wie die verschiedenen möglichen Beziehungen formell ausgedrückt werden.</li>
 <li>Drucksachen können zu beliebig vielen Tagesordnungspunkten in Beziehung stehen, um die <strong>Beratungsfolge</strong> einer Drucksache abzubilden. Hierbei kann die Beziehung jeweils mit einer Zuständigkeit versehen sein, die noch näher zu bestimmen ist (TODO).</li>
 </ul>
@@ -838,12 +840,12 @@ code > span.er { color: #ff0000; font-weight: bold; }
     ],
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2013-01-08T12:05:27+01:00&quot;</span>
 }</code></pre>
-<h2 id="oparldocument-dokument"><span class="header-section-number">5.10</span> OParlDocument (Dokument)</h2>
-<p>Ein Dokument hält die Metadaten einer Datei vor, beispielsweise einer PDF-Datei, eines RTF- oder Word-Dokuments.</p>
-<p>Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls ein Dokument. Um zu zeigen, dass es sich um eine Ableitung handelt, verweist dieses auf das Original als &quot;Master&quot;.</p>
+<h2 id="oparldocument-dokument"><span class="header-section-number">5.10</span> oparl:Document (Dokument)</h2>
+<p>Ein Dokument hält Metadaten einer Datei vor, beispielsweise einer PDF-Datei, eines RTF- oder ODF-Dokuments (oder auch einer Datei in einem proprietären Format).</p>
+<p>Wird von einem Dokument in einem Nicht-PDF-Format (z.B. RTF oder ODF) eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls ein Dokument. Um zu zeigen, dass es sich um eine Ableitung handelt, verweist dieses auf das Original als &quot;Master&quot;.</p>
 <p>Im Unterschied zur Drucksache benötigt das Dokument keine nutzerfreundliche Kennung.</p>
 <div class="figure">
-<img src="images/datenmodell_dokument.png" alt="Objekttyp Dokument" /><p class="caption">Objekttyp Dokument</p>
+<img src="images/datenmodell_dokument.png" alt="Objekttyp Document" /><p class="caption">Objekttyp Document</p>
 </div>
 <h3 id="eigenschaften-6"><span class="header-section-number">5.10.1</span> Eigenschaften</h3>
 <dl>
@@ -888,12 +890,12 @@ code > span.er { color: #ff0000; font-weight: bold; }
     <span class="dt">&quot;text&quot;</span>: <span class="st">&quot;Der Übersichtsplan zeigt alle Ebenen des ...&quot;</span>,
     <span class="dt">&quot;master&quot;</span>: <span class="st">&quot;2099&quot;</span>
 }</code></pre>
-<h2 id="oparlconsultation-beratung"><span class="header-section-number">5.11</span> OParlConsultation (Beratung)</h2>
-<h2 id="oparllocation-ort"><span class="header-section-number">5.12</span> OParlLocation (Ort)</h2>
+<h2 id="oparlconsultation-beratung"><span class="header-section-number">5.11</span> oparl:Consultation (Beratung)</h2>
+<h2 id="oparllocation-ort"><span class="header-section-number">5.12</span> oparl:Location (Ort)</h2>
 <p>Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen (beispielsweise der Name einer Straße/eines Platzes oder eine genaue Adresse) als auch aus Geodaten.</p>
 <p>OParl sieht die Angabe von Geodaten in Anlehnung an die GeoJSON-Spezifikation [13] vor. Die GeoJSON-Spezifikation erlaubt die Abbildung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden und Polygonen. Während GeoJSON zu jedem Geodaten-Objekt auch die Speicherung zusätzlicher Metadaten ermöglicht, beschränkt sich OParl ledliglich auf das <code>geometry</code>-Attribut in GeoJSON. Sämtliche Geo-Koordinatenangaben werden in in OParl im WGS-84-System [11] erwartet.</p>
 <div class="figure">
-<img src="images/datenmodell_ort.png" alt="Objekttyp Ort" /><p class="caption">Objekttyp Ort</p>
+<img src="images/datenmodell_ort.png" alt="Objekttyp Location" /><p class="caption">Objekttyp Location</p>
 </div>
 <h3 id="eigenschaften-7"><span class="header-section-number">5.12.1</span> Eigenschaften</h3>
 <dl>
@@ -919,7 +921,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
     },
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2013-02-14T14:05:27+01:00&quot;</span>
 }</code></pre>
-<h2 id="oparlcontact-kontakt"><span class="header-section-number">5.13</span> OParlContact (Kontakt)</h2>
+<h2 id="oparlcontact-kontakt"><span class="header-section-number">5.13</span> oparl:Contact (Kontakt)</h2>
 <h1 id="fußnoten"><span class="header-section-number">6</span> Fußnoten</h1>
 <p>[11]: World Geodetic System 1984 (EPSG:4326), wird unter anderem auch vom Global Positioning System (GPS) verwendet.</p>
 <p>[13]: GeoJSON <a href="http://www.geojson.org/">www.geojson.org</a></p>

@@ -349,6 +349,11 @@ Stichpunkte:
   Suchfunktionen (Volltextsuche)
 \item
   Abstimmungsverhalten und maschinenlesbare Protokolle
+\item
+  Schreibender Zugriff. Auch dazu muss das Rad nicht neu erfunden
+  werden. Bestehende bzw. in Entwicklung befindliche Spezifikationen und
+  Techniken aus der Linked Data-Welt können verwendet werden. Dazu
+  gehören insbesondere die Linked Data Platform des W3C und Hydra.
 \end{itemize}
 
 \subsection{Nomenklatur der Spezifikation und Satzkonventionen}
@@ -700,7 +705,7 @@ Stichpunkte:
   Optional gzip Encoding und andere Kodierungen, wenn Client und Server
   dies unterstützen
 \item
-  Das Protkoll ist zustandslos
+  Das Protokoll ist zustandslos
 \item
   Authentifizierung wird nicht benötigt.
 \end{itemize}
@@ -731,7 +736,7 @@ Stichpunkte:
 
 (In diesem Abschnitt wird die Zielsetzung beschrieben, zukünftige
 Versionen der OParl Spezifikation auf dieser Version aufbauen zu lassen.
-Damit soll nach Mögloichkeit Abwärtskompatibilität erreicht werden, so
+Damit soll nach Möglichkeit Abwärtskompatibilität erreicht werden, so
 dass z.B. OParl-1.0-Clients mit einem 1.1-Server kommunizieren können.
 
 Ein Garantie wird es jedoch nicht geben.)
@@ -982,10 +987,10 @@ gekennzeichnet sind. ZWINGENDE Eigenschaften müssen einen Wert ungleich
   Dazu muss die Vererbungshierarchie aufgezeigt werden.
 \item
   Empfohlene Minimalvariante: Nur eine license-Angabe auf Ebene von
-  OParlSystem.
+  \texttt{oparl:System}.
 \item
-  Auf Ebene des OParlDocument bezieht sich die Eigenschaft sowohl auf
-  die Metadaten als auch auf das Dokument selbst.
+  Auf Ebene des \texttt{oparl:Document} bezieht sich die Eigenschaft
+  sowohl auf die Metadaten als auch auf das Dokument selbst.
 \end{itemize}
 
 \subsubsection{Die Eigenschaften ``created'' und ``last\_modified''}
@@ -996,21 +1001,21 @@ gekennzeichnet sind. ZWINGENDE Eigenschaften müssen einen Wert ungleich
 
 \subsection{OParlSystem (System)}
 
-Der Objekttyp \texttt{OParlSystem} bildet grundlegende Informationen zum
-parlamentarischen Informationssystem ab. Das Objekt repräsentiert das
-technische System, unabhängig von der Frage, welche Körperschaften auf
-diesem System vertreten sind.
+Der Objekttyp \texttt{oparl:System} bildet grundlegende Informationen
+zum parlamentarischen Informationssystem ab. Das Objekt repräsentiert
+das technische System, unabhängig von der Frage, welche Körperschaften
+auf diesem System vertreten sind.
 
-Auf jedem OParl Server MUSS ein Objekt vom Typ \texttt{OParlSystem}
+Auf jedem OParl Server MUSS ein Objekt vom Typ \texttt{oparl:System}
 vorgehalten werden. Es DARF nur ein einziges solches Objekt je Server
 existieren.
 
-Für Clients ist das \texttt{OParlSystem} Objekt ein geeigneter
+Für Clients ist das \texttt{oparl:System} Objekt ein geeigneter
 Einstiegspunkt, um grundlegende Informationen über das Sytem zu bekommen
 und die URLs zum Zugriff auf andere Informationen in Erfahrung zu
 bringen.
 
-Die URL (IRI) des \texttt{OParlSystem} Objekts MUSS per Definition
+Die URL (IRI) des \texttt{oparl:System} Objekts MUSS per Definition
 identisch mit der URL des API-Endpunkts des Servers sein.
 
 \subsubsection{Eigenschaft \texttt{oparl\_version}}
@@ -1030,10 +1035,10 @@ und Methoden auf Seite des Servers vorausgesetzt werden können.
 
 Diese Eigenschaft ist ZWINGEND.
 
-Über diese URL sind alle OParlBody Objekte, also die im System geführten
-Körperschaften, als Liste abrufbar.
+Über diese URL sind alle \texttt{oparl:Body} Objekte, also die im System
+geführten Körperschaften, als Liste abrufbar.
 
-TODO: Verweis auf OParlBody einfügen
+TODO: Verweis auf \texttt{oparl:Body} einfügen
 
 \subsubsection{Eigenschaft \texttt{name}}
 
@@ -1054,9 +1059,10 @@ bzw. einer allgemeinen Kontaktstelle auszugeben, über die Anfragen
 verschiedener Art an die richtige Kontaktperson umgeleitet werden
 können.
 
-Der Wert dieser Eigenschaft MUSS ein Objekt vom Typ OParlContact sein.
+Der Wert dieser Eigenschaft MUSS ein Objekt vom Typ
+\texttt{oparl:Contact} sein.
 
-TODO: Verweis auf OParlContact einfügen.
+TODO: Verweis auf \texttt{oparl:Contact} einfügen.
 
 \subsubsection{Eigenschaft \texttt{license}}
 
@@ -1097,7 +1103,7 @@ ausgegeben.
 
 TODO: Verweis auf Feeds \textgreater{} Entfernte Objekte
 
-\subsubsection{Eigenschaft \texttt{info\_url}}
+\subsubsection{Eigenschaft \texttt{info}}
 
 Diese Eigenschaft ist OPTIONAL.
 
@@ -1106,7 +1112,7 @@ mit zusätzlichen Informationen zum System anzubieten. So könnten
 NutzerInnen beispielsweise auf eine Web-Oberfläche eines
 parlamentarischen Informationssystems geführt werden.
 
-\subsubsection{Eigenschaft \texttt{vendor\_url}}
+\subsubsection{Eigenschaft \texttt{vendor}}
 
 Diese Eigenschaft ist OPTIONAL.
 
@@ -1114,7 +1120,7 @@ Diese Eigenschaft dient dazu, über eine URL den Hersteller des
 Server-Systems zu komunizieren. Die URL sollt nach Möglichkeit zu einer
 WWW-Seite mit weiteren Informationen zum Hersteller führen.
 
-\subsubsection{Eigenschaft \texttt{product\_url}}
+\subsubsection{Eigenschaft \texttt{product}}
 
 Diese Eigenschaft ist OPTIONAL.
 
@@ -1129,16 +1135,16 @@ führen.
 \begin{Highlighting}[]
 \NormalTok{\{}
     \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/"}\NormalTok{,}
-    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/OParlSystem"}\NormalTok{,}
+    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/System"}\NormalTok{,}
     \DataTypeTok{"oparl_version"}\NormalTok{: }\StringTok{"http://oparl.org/specs/1.0/"}\NormalTok{,}
     \DataTypeTok{"name"}\NormalTok{: }\StringTok{"OParl Reference Server"}\NormalTok{,}
-    \DataTypeTok{"info_url"}\NormalTok{: }\StringTok{"https://github.com/OParl/reference-server"}\NormalTok{,}
+    \DataTypeTok{"info"}\NormalTok{: }\StringTok{"https://github.com/OParl/reference-server"}\NormalTok{,}
     \DataTypeTok{"contact"}\NormalTok{: \{}
         \DataTypeTok{"email"}\NormalTok{: }\StringTok{"info@oparl.org"}\NormalTok{,}
         \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Common OParl contact"}
     \NormalTok{\}, }
-    \DataTypeTok{"vendor_url"}\NormalTok{: }\StringTok{"http://oparl.org/"}\NormalTok{,}
-    \DataTypeTok{"product_url"}\NormalTok{: }\StringTok{"https://github.com/OParl/reference-server"}\NormalTok{,}
+    \DataTypeTok{"vendor"}\NormalTok{: }\StringTok{"http://oparl.org/"}\NormalTok{,}
+    \DataTypeTok{"product"}\NormalTok{: }\StringTok{"https://github.com/OParl/reference-server"}\NormalTok{,}
     \DataTypeTok{"license"}\NormalTok{: }\StringTok{"http://creativecommons.org/licenses/by/4.0/"}\NormalTok{,}
     \DataTypeTok{"bodies"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/"}\NormalTok{,}
     \DataTypeTok{"new_objects"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/feeds/new/"}\NormalTok{,}
@@ -1148,29 +1154,29 @@ führen.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{OParlBody (Körperschaft)}
+\subsection{oparl:Body (Körperschaft)}
 
 Dieser Objekttyp erlaubt es, eine Körperschaft abzbilden. Eine
 Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder ein
 Zweckverband sein.
 
 Von einem funktionsfähigen Server wird erwartet, dass er mindestens ein
-Objekt vom Typ \texttt{OParlBody} bereit hält. Teilen sich mehrere
+Objekt vom Typ \texttt{oparl:Body} bereit hält. Teilen sich mehrere
 Körperschaften das selbe technische System, können auf demselben Server
-auch mehrere Objekte vom Typ \texttt{OParlBody} beherbergt werden.
+auch mehrere Objekte vom Typ \texttt{oparl:Body} beherbergt werden.
 
-Über die Zuordnung zu einem bestimmten \texttt{OParlBody} Objekt zeigen
+Über die Zuordnung zu einem bestimmten \texttt{oparl:Body} Objekt zeigen
 andere Objekte, wie beispielsweise Gremien oder Drucksachen, ihre
 Zugehörigkeit zu einer bestimmten Körperschaft an.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{images/datenmodell_koerperschaft.png}
-\caption{Objekttyp OParlBody}
+\caption{Objekttyp oparl:Body}
 \end{figure}
 
 Es werden mehrere Eigenschaften angeboten, die dazu dienen, die real
-existierende Körperschaft, die von einem \texttt{OParlBody} Objekt
+existierende Körperschaft, die von einem \texttt{oparl:Body} Objekt
 repräsentiert wird, programmatisch auslesbar zu machen zu können.
 Insbesondere sind hier die Eigenschaften \texttt{url}, \texttt{rgs} und
 \texttt{gnd\_url} zu nennen.
@@ -1179,8 +1185,9 @@ Insbesondere sind hier die Eigenschaften \texttt{url}, \texttt{rgs} und
 
 Diese Eigenschaft ist ZWINGEND.
 
-Mit dieser Eigenschaft wird das Objekt dem übergeordneten OParlSystem
-Objekt zugeordnet. Wert MUSS der IRI des OParlSystem Objekts sein.
+Mit dieser Eigenschaft wird das Objekt dem übergeordneten
+\texttt{oparl:System} Objekt zugeordnet. Wert MUSS der IRI des
+\texttt{oparl:System} Objekts sein.
 
 \subsubsection{Eigenschaft \texttt{name}}
 
@@ -1230,8 +1237,8 @@ Diese Eigenschaft ist EMPFOHLEN.
 bereit gestellt werden, die die inhaltliche Verantwortung für sämtliche
 zu dieser Körperschaft gehörenden Inhalte im System trägt. Besonders
 wichtig ist diese Angabe, wenn auf einem System mehrere Körperschaften
-vertreten sind und damit auf der Ebene des OParlSystem Objekts ein rein
-technischer Kontakt ausgegeben wird, der nicht für inhaltliche
+vertreten sind und damit auf der Ebene des \texttt{oparl:System} Objekts
+ein rein technischer Kontakt ausgegeben wird, der nicht für inhaltliche
 Fragestellungen im Zuständigkeitsbereich der jeweiligen Körperschaften
 kontaktiert werden sollte.
 
@@ -1240,28 +1247,31 @@ kontaktiert werden sollte.
 Diese Eigenschaft ist ZWINGEND.
 
 Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Drucksachen (Objekte vom Typ OParlPaper) für diese Körperschaft.
+Drucksachen (Objekte vom Typ \texttt{oparl:Paper}) für diese
+Körperschaft.
 
 \subsubsection{Eigenschaft \texttt{people}}
 
 Diese Eigenschaft ist ZWINGEND.
 
 Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Personen (Objekte vom Typ OParlPerson) für diese Körperschaft.
+Personen (Objekte vom Typ \texttt{oparl:Person}) für diese Körperschaft.
 
 \subsubsection{Eigenschaft \texttt{meetings}}
 
 Diese Eigenschaft ist ZWINGEND.
 
 Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Sitzungen (Objekte vom Typ OParlMeeting) für diese Körperschaft.
+Sitzungen (Objekte vom Typ \texttt{oparl:Meeting}) für diese
+Körperschaft.
 
 \subsubsection{Eigenschaft \texttt{committees}}
 
 Diese Eigenschaft ist ZWINGEND.
 
 Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Gremien (Objekte vom Typ OParlCommittee) für diese Körperschaft.
+Gremien (Objekte vom Typ \texttt{oparl:Committee}) für diese
+Körperschaft.
 
 \subsubsection{Beispiel}
 
@@ -1269,7 +1279,7 @@ Gremien (Objekte vom Typ OParlCommittee) für diese Körperschaft.
 \begin{Highlighting}[]
 \NormalTok{\{}
     \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0"}\NormalTok{,}
-    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/OParlBody"}\NormalTok{,}
+    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/Body"}\NormalTok{,}
     \DataTypeTok{"committees"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/committees/"}\NormalTok{,}
     \DataTypeTok{"contact"}\NormalTok{: \{}
         \DataTypeTok{"email"}\NormalTok{: }\StringTok{"ris@stadt-koeln.de"}\NormalTok{,}
@@ -1291,7 +1301,7 @@ Gremien (Objekte vom Typ OParlCommittee) für diese Körperschaft.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{OParlCommittee (Gremium}
+\subsection{oparl:Committee (Gremium)}
 
 Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder
 ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat,
@@ -1301,7 +1311,7 @@ Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
 \begin{figure}[htbp]
 \centering
 \includegraphics{images/datenmodell_gremium.png}
-\caption{Objekttyp Gremium}
+\caption{Objekttyp Committee}
 \end{figure}
 
 \subsubsection{Eigenschaften}
@@ -1325,8 +1335,8 @@ Datum und Uhrzeit der letzten Änderung
 
 \begin{itemize}
 \item
-  Objekte vom Typ ``Person'' referenzieren auf Gremien, um die
-  Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu
+  Objekte vom Typ \texttt{oparl:Person} referenzieren auf Gremien, um
+  die Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu
   kennzeichnen. Diese Beziehung ist datiert. Das bedeutet, sie hat einen
   Anfangszeitpunkt und ggf. einen Endzeitpunkt.
 \item
@@ -1352,10 +1362,10 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{OParlPerson (Person)}
+\subsection{oparl:Person (Person)}
 
-Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person
-im Datenmodell eindeutig identifizierbar.
+Jede natürliche Person, die Mitglied eines Gremiums ist, ist als
+\texttt{oparl:Person} im Datenmodell eindeutig identifizierbar.
 
 \begin{figure}[htbp]
 \centering
@@ -1414,11 +1424,11 @@ Datum und Uhrzeit der letzten Änderung
 
 \begin{itemize}
 \item
-  Objekte vom Typ ``Person'' können einer Organisation, z.B. einer
-  Fraktion, zugeornet werden. Diese Beziehung ist datiert.
+  Objekte vom Typ \texttt{oparl:Person} können einer Organisation, z.B.
+  einer Fraktion, zugeornet werden. Diese Beziehung ist datiert.
 \item
-  Objekte vom Typ ``Person'' können einem oder mehreren Gremien
-  zugewiesen werden, um die Mitgliedschaft in diesem Gremium
+  Objekte vom Typ \texttt{oparl:Person} können einem oder mehreren
+  Gremien zugewiesen werden, um die Mitgliedschaft in diesem Gremium
   darzustellen. Diese Beziehungen sind ebenfalls datiert.
 \end{itemize}
 
@@ -1459,7 +1469,7 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{OParlOrganisation (Organisation)}
+\subsection{oparl:Organization (Organisation)}
 
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die
 Personen angehören können.
@@ -1491,13 +1501,18 @@ Datum und Uhrzeit der letzten Änderung
   abbilden oder ob eher Ortsverbände von Parteien (``SPD Köln'') gemeint
   sein werden. Einblicke, wie gängige Systeme dies handhaben, sollten
   evtl. gesammelt und berücksichtigt werden.
+\item
+  Es wird die Schreibweise ``Organization'' (und nicht ``Organisation'')
+  verwendet, da diese in allen englischen Sprachräumen problemlos
+  verwendet werden kann. Siehe dazu Abschnitt 3, Fussnote 1 auf dieser
+  Seite: http://popoloproject.com/specs/organization.html
 \end{itemize}
 
 \subsubsection{Beziehungen}
 
 \begin{itemize}
 \item
-  Jede Organisationen gehört zu einer Körperschaft.
+  Jede \texttt{oparl:Organization} gehört zu einer Körperschaft.
 \item
   Personen können Organisationen angehören (\emph{datiert}).
 \end{itemize}
@@ -1515,7 +1530,7 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{OParlMeeting (Sitzung)}
+\subsection{oparl:Meeting (Sitzung)}
 
 Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder
 mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.
@@ -1528,7 +1543,7 @@ werden.
 \begin{figure}[htbp]
 \centering
 \includegraphics{images/datenmodell_sitzung.png}
-\caption{Objekttyp Sitzung}
+\caption{Objekttyp Meeting}
 \end{figure}
 
 \subsubsection{Eigenschaften}
@@ -1565,8 +1580,8 @@ Datum und Uhrzeit der letzten Änderung
   Einer Sitzung sind Personen zugeordnet, um die Teilnahme an der
   Sitzung auszudrücken.
 \item
-  Dokumente können vom Typ ``Sitzung'' \emph{optional} zu mehreren
-  Zwecken referenziert werden:
+  Dokumente können vom Typ \texttt{oparl:Meeting} \emph{optional} zu
+  mehreren Zwecken referenziert werden:
 
   \begin{itemize}
   \item
@@ -1607,7 +1622,7 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{OParlAgendaitem (Tagesordnungspunkt)}
+\subsection{oparl:AgendaItem (Tagesordnungspunkt)}
 
 Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält
 eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel
@@ -1620,7 +1635,7 @@ bestimmter Beschlusstext beigefügt sein.
 \begin{figure}[htbp]
 \centering
 \includegraphics{images/datenmodell_tagesordnungspunkt.png}
-\caption{Objekttyp Tagesordnungspunkt}
+\caption{Objekttyp AgendaItem}
 \end{figure}
 
 \subsubsection{Eigenschaften}
@@ -1674,13 +1689,14 @@ Datum und Uhrzeit der letzten Änderung
 
 \begin{itemize}
 \item
-  Jeder Tagesordnungspunkt gehört zu genau einer Sitzung.
+  Jeder Tagesordnungspunkt gehört zu genau einem \texttt{oparl:Meeting}.
 \item
   Der Tagesordnungspunkt kann auf eine Drucksache verweisen, die im
   Rahmen dieses Tagesordnungspunkt beraten werden soll.
 \item
-  Es können Personen referenziert werden, die während der Abstimmung zu
-  diesem Tagesordnungspunkt \emph{nicht} anwesend waren.
+  Es können \texttt{oparl:Person} Objekte referenziert werden, die
+  während der Abstimmung zu diesem Tagesordnungspunkt \emph{nicht}
+  anwesend waren.
 \end{itemize}
 
 \subsubsection{Beispiel}
@@ -1700,7 +1716,7 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{OParlPaper (Drucksache)}
+\subsection{oparl:Paper (Drucksache)}
 
 Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen,
 Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede
@@ -1719,7 +1735,7 @@ unveränderliche Kennungen der Drucksachen zum Einsatz.
 \begin{figure}[htbp]
 \centering
 \includegraphics{images/datenmodell_drucksache.png}
-\caption{Objekttyp Drucksache}
+\caption{Objekttyp Paper}
 \end{figure}
 
 Jede Drucksache ist über die Eigenschaft ``Typ'' als eine der folgenden
@@ -1764,7 +1780,7 @@ Datum und Uhrzeit der letzten Änderung
 
 \begin{itemize}
 \item
-  Es muss genau ein \textbf{Hauptdokument} (Objekttyp ``Dokument'')
+  Es muss genau ein \textbf{Hauptdokument} (\texttt{oparl:Document})
   referenziert werden.
 \item
   Es können beliebig viele weitere Dokumente referenziert werden, die
@@ -1783,7 +1799,7 @@ Datum und Uhrzeit der letzten Änderung
   referenziert werden, die im Inhalt der Drucksache behandelt werden.
   Beispiel: Beschlussvorlage zur Freigabe von Mitteln für die Sanierung
   eines Sportplatzes, wobei der Ort die Lage des Sportplatzes genau
-  beschreibt.
+  beschreibt. (TODO)
 \item
   Drucksachen können auf andere Drucksachen referenzieren. Diese
   Verweise können verschiedene semantische Beziehungen ausdrücken. So
@@ -1846,14 +1862,16 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{OParlDocument (Dokument)}
+\subsection{oparl:Document (Dokument)}
 
-Ein Dokument hält die Metadaten einer Datei vor, beispielsweise einer
-PDF-Datei, eines RTF- oder Word-Dokuments.
+Ein Dokument hält Metadaten einer Datei vor, beispielsweise einer
+PDF-Datei, eines RTF- oder ODF-Dokuments (oder auch einer Datei in einem
+proprietären Format).
 
-Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese
-Ableitung ebenfalls ein Dokument. Um zu zeigen, dass es sich um eine
-Ableitung handelt, verweist dieses auf das Original als ``Master''.
+Wird von einem Dokument in einem Nicht-PDF-Format (z.B. RTF oder ODF)
+eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls ein
+Dokument. Um zu zeigen, dass es sich um eine Ableitung handelt, verweist
+dieses auf das Original als ``Master''.
 
 Im Unterschied zur Drucksache benötigt das Dokument keine
 nutzerfreundliche Kennung.
@@ -1861,7 +1879,7 @@ nutzerfreundliche Kennung.
 \begin{figure}[htbp]
 \centering
 \includegraphics{images/datenmodell_dokument.png}
-\caption{Objekttyp Dokument}
+\caption{Objekttyp Document}
 \end{figure}
 
 \subsubsection{Eigenschaften}
@@ -1916,9 +1934,9 @@ eine reine Abbildung handelt.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{OParlConsultation (Beratung)}
+\subsection{oparl:Consultation (Beratung)}
 
-\subsection{OParlLocation (Ort)}
+\subsection{oparl:Location (Ort)}
 
 Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal
 abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen
@@ -1937,7 +1955,7 @@ erwartet.
 \begin{figure}[htbp]
 \centering
 \includegraphics{images/datenmodell_ort.png}
-\caption{Objekttyp Ort}
+\caption{Objekttyp Location}
 \end{figure}
 
 \subsubsection{Eigenschaften}
@@ -1972,7 +1990,7 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{OParlContact (Kontakt)}
+\subsection{oparl:Contact (Kontakt)}
 
 \section{Fußnoten}
 

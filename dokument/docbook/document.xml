@@ -412,6 +412,15 @@
           Abstimmungsverhalten und maschinenlesbare Protokolle
         </para>
       </listitem>
+      <listitem>
+        <para>
+          Schreibender Zugriff. Auch dazu muss das Rad nicht neu
+          erfunden werden. Bestehende bzw. in Entwicklung befindliche
+          Spezifikationen und Techniken aus der Linked Data-Welt können
+          verwendet werden. Dazu gehören insbesondere die Linked Data
+          Platform des W3C und Hydra.
+        </para>
+      </listitem>
     </itemizedlist>
   </sect2>
   <sect2 id="nomenklatur-der-spezifikation-und-satzkonventionen">
@@ -944,7 +953,7 @@
     </listitem>
     <listitem>
       <para>
-        Das Protkoll ist zustandslos
+        Das Protokoll ist zustandslos
       </para>
     </listitem>
     <listitem>
@@ -1002,9 +1011,9 @@
     <para>
       (In diesem Abschnitt wird die Zielsetzung beschrieben, zukünftige
       Versionen der OParl Spezifikation auf dieser Version aufbauen zu
-      lassen. Damit soll nach Mögloichkeit Abwärtskompatibilität
-      erreicht werden, so dass z.B. OParl-1.0-Clients mit einem
-      1.1-Server kommunizieren können.
+      lassen. Damit soll nach Möglichkeit Abwärtskompatibilität erreicht
+      werden, so dass z.B. OParl-1.0-Clients mit einem 1.1-Server
+      kommunizieren können.
     </para>
     <para>
       Ein Garantie wird es jedoch nicht geben.)
@@ -1463,13 +1472,14 @@
         <listitem>
           <para>
             Empfohlene Minimalvariante: Nur eine license-Angabe auf
-            Ebene von OParlSystem.
+            Ebene von <literal>oparl:System</literal>.
           </para>
         </listitem>
         <listitem>
           <para>
-            Auf Ebene des OParlDocument bezieht sich die Eigenschaft
-            sowohl auf die Metadaten als auch auf das Dokument selbst.
+            Auf Ebene des <literal>oparl:Document</literal> bezieht sich
+            die Eigenschaft sowohl auf die Metadaten als auch auf das
+            Dokument selbst.
           </para>
         </listitem>
       </itemizedlist>
@@ -1495,24 +1505,24 @@
   <sect2 id="oparlsystem-system">
     <title>OParlSystem (System)</title>
     <para>
-      Der Objekttyp <literal>OParlSystem</literal> bildet grundlegende
+      Der Objekttyp <literal>oparl:System</literal> bildet grundlegende
       Informationen zum parlamentarischen Informationssystem ab. Das
       Objekt repräsentiert das technische System, unabhängig von der
       Frage, welche Körperschaften auf diesem System vertreten sind.
     </para>
     <para>
       Auf jedem OParl Server MUSS ein Objekt vom Typ
-      <literal>OParlSystem</literal> vorgehalten werden. Es DARF nur ein
-      einziges solches Objekt je Server existieren.
+      <literal>oparl:System</literal> vorgehalten werden. Es DARF nur
+      ein einziges solches Objekt je Server existieren.
     </para>
     <para>
-      Für Clients ist das <literal>OParlSystem</literal> Objekt ein
+      Für Clients ist das <literal>oparl:System</literal> Objekt ein
       geeigneter Einstiegspunkt, um grundlegende Informationen über das
       Sytem zu bekommen und die URLs zum Zugriff auf andere
       Informationen in Erfahrung zu bringen.
     </para>
     <para>
-      Die URL (IRI) des <literal>OParlSystem</literal> Objekts MUSS per
+      Die URL (IRI) des <literal>oparl:System</literal> Objekts MUSS per
       Definition identisch mit der URL des API-Endpunkts des Servers
       sein.
     </para>
@@ -1540,11 +1550,11 @@
         Diese Eigenschaft ist ZWINGEND.
       </para>
       <para>
-        Über diese URL sind alle OParlBody Objekte, also die im System
-        geführten Körperschaften, als Liste abrufbar.
+        Über diese URL sind alle <literal>oparl:Body</literal> Objekte,
+        also die im System geführten Körperschaften, als Liste abrufbar.
       </para>
       <para>
-        TODO: Verweis auf OParlBody einfügen
+        TODO: Verweis auf <literal>oparl:Body</literal> einfügen
       </para>
     </sect3>
     <sect3 id="eigenschaft-name">
@@ -1572,11 +1582,11 @@
         die richtige Kontaktperson umgeleitet werden können.
       </para>
       <para>
-        Der Wert dieser Eigenschaft MUSS ein Objekt vom Typ OParlContact
-        sein.
+        Der Wert dieser Eigenschaft MUSS ein Objekt vom Typ
+        <literal>oparl:Contact</literal> sein.
       </para>
       <para>
-        TODO: Verweis auf OParlContact einfügen.
+        TODO: Verweis auf <literal>oparl:Contact</literal> einfügen.
       </para>
     </sect3>
     <sect3 id="eigenschaft-license">
@@ -1635,8 +1645,8 @@
         TODO: Verweis auf Feeds &gt; Entfernte Objekte
       </para>
     </sect3>
-    <sect3 id="eigenschaft-info_url">
-      <title>Eigenschaft <literal>info_url</literal></title>
+    <sect3 id="eigenschaft-info">
+      <title>Eigenschaft <literal>info</literal></title>
       <para>
         Diese Eigenschaft ist OPTIONAL.
       </para>
@@ -1647,8 +1657,8 @@
         eines parlamentarischen Informationssystems geführt werden.
       </para>
     </sect3>
-    <sect3 id="eigenschaft-vendor_url">
-      <title>Eigenschaft <literal>vendor_url</literal></title>
+    <sect3 id="eigenschaft-vendor">
+      <title>Eigenschaft <literal>vendor</literal></title>
       <para>
         Diese Eigenschaft ist OPTIONAL.
       </para>
@@ -1659,8 +1669,8 @@
         führen.
       </para>
     </sect3>
-    <sect3 id="eigenschaft-product_url">
-      <title>Eigenschaft <literal>product_url</literal></title>
+    <sect3 id="eigenschaft-product">
+      <title>Eigenschaft <literal>product</literal></title>
       <para>
         Diese Eigenschaft ist OPTIONAL.
       </para>
@@ -1676,16 +1686,16 @@
       <programlisting language="json">
 {
     &quot;@id&quot;: &quot;http://refserv.oparl.org/&quot;,
-    &quot;@context&quot;: &quot;http://oparl.org/schema/1.0/OParlSystem&quot;,
+    &quot;@context&quot;: &quot;http://oparl.org/schema/1.0/System&quot;,
     &quot;oparl_version&quot;: &quot;http://oparl.org/specs/1.0/&quot;,
     &quot;name&quot;: &quot;OParl Reference Server&quot;,
-    &quot;info_url&quot;: &quot;https://github.com/OParl/reference-server&quot;,
+    &quot;info&quot;: &quot;https://github.com/OParl/reference-server&quot;,
     &quot;contact&quot;: {
         &quot;email&quot;: &quot;info@oparl.org&quot;,
         &quot;name&quot;: &quot;Common OParl contact&quot;
     }, 
-    &quot;vendor_url&quot;: &quot;http://oparl.org/&quot;,
-    &quot;product_url&quot;: &quot;https://github.com/OParl/reference-server&quot;,
+    &quot;vendor&quot;: &quot;http://oparl.org/&quot;,
+    &quot;product&quot;: &quot;https://github.com/OParl/reference-server&quot;,
     &quot;license&quot;: &quot;http://creativecommons.org/licenses/by/4.0/&quot;,
     &quot;bodies&quot;: &quot;http://refserv.oparl.org/bodies/&quot;,
     &quot;new_objects&quot;: &quot;http://refserv.oparl.org/feeds/new/&quot;,
@@ -1696,7 +1706,7 @@
     </sect3>
   </sect2>
   <sect2 id="oparlbody-körperschaft">
-    <title>OParlBody (Körperschaft)</title>
+    <title>oparl:Body (Körperschaft)</title>
     <para>
       Dieser Objekttyp erlaubt es, eine Körperschaft abzbilden. Eine
       Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder
@@ -1704,30 +1714,30 @@
     </para>
     <para>
       Von einem funktionsfähigen Server wird erwartet, dass er
-      mindestens ein Objekt vom Typ <literal>OParlBody</literal> bereit
+      mindestens ein Objekt vom Typ <literal>oparl:Body</literal> bereit
       hält. Teilen sich mehrere Körperschaften das selbe technische
       System, können auf demselben Server auch mehrere Objekte vom Typ
-      <literal>OParlBody</literal> beherbergt werden.
+      <literal>oparl:Body</literal> beherbergt werden.
     </para>
     <para>
       Über die Zuordnung zu einem bestimmten
-      <literal>OParlBody</literal> Objekt zeigen andere Objekte, wie
+      <literal>oparl:Body</literal> Objekt zeigen andere Objekte, wie
       beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit zu
       einer bestimmten Körperschaft an.
     </para>
     <figure>
-      <title>Objekttyp OParlBody</title>
+      <title>Objekttyp oparl:Body</title>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/datenmodell_koerperschaft.png" />
         </imageobject>
-        <textobject><phrase>Objekttyp OParlBody</phrase></textobject>
+        <textobject><phrase>Objekttyp oparl:Body</phrase></textobject>
       </mediaobject>
     </figure>
     <para>
       Es werden mehrere Eigenschaften angeboten, die dazu dienen, die
       real existierende Körperschaft, die von einem
-      <literal>OParlBody</literal> Objekt repräsentiert wird,
+      <literal>oparl:Body</literal> Objekt repräsentiert wird,
       programmatisch auslesbar zu machen zu können. Insbesondere sind
       hier die Eigenschaften <literal>url</literal>,
       <literal>rgs</literal> und <literal>gnd_url</literal> zu nennen.
@@ -1739,8 +1749,8 @@
       </para>
       <para>
         Mit dieser Eigenschaft wird das Objekt dem übergeordneten
-        OParlSystem Objekt zugeordnet. Wert MUSS der IRI des OParlSystem
-        Objekts sein.
+        <literal>oparl:System</literal> Objekt zugeordnet. Wert MUSS der
+        IRI des <literal>oparl:System</literal> Objekts sein.
       </para>
     </sect3>
     <sect3 id="eigenschaft-name-1">
@@ -1817,10 +1827,10 @@
         für sämtliche zu dieser Körperschaft gehörenden Inhalte im
         System trägt. Besonders wichtig ist diese Angabe, wenn auf einem
         System mehrere Körperschaften vertreten sind und damit auf der
-        Ebene des OParlSystem Objekts ein rein technischer Kontakt
-        ausgegeben wird, der nicht für inhaltliche Fragestellungen im
-        Zuständigkeitsbereich der jeweiligen Körperschaften kontaktiert
-        werden sollte.
+        Ebene des <literal>oparl:System</literal> Objekts ein rein
+        technischer Kontakt ausgegeben wird, der nicht für inhaltliche
+        Fragestellungen im Zuständigkeitsbereich der jeweiligen
+        Körperschaften kontaktiert werden sollte.
       </para>
     </sect3>
     <sect3 id="eigenschaft-papers">
@@ -1830,8 +1840,8 @@
       </para>
       <para>
         Wert dieser Eigenschaft ist die URL der API zum Aufruf einer
-        Liste der Drucksachen (Objekte vom Typ OParlPaper) für diese
-        Körperschaft.
+        Liste der Drucksachen (Objekte vom Typ
+        <literal>oparl:Paper</literal>) für diese Körperschaft.
       </para>
     </sect3>
     <sect3 id="eigenschaft-people">
@@ -1841,8 +1851,8 @@
       </para>
       <para>
         Wert dieser Eigenschaft ist die URL der API zum Aufruf einer
-        Liste der Personen (Objekte vom Typ OParlPerson) für diese
-        Körperschaft.
+        Liste der Personen (Objekte vom Typ
+        <literal>oparl:Person</literal>) für diese Körperschaft.
       </para>
     </sect3>
     <sect3 id="eigenschaft-meetings">
@@ -1852,8 +1862,8 @@
       </para>
       <para>
         Wert dieser Eigenschaft ist die URL der API zum Aufruf einer
-        Liste der Sitzungen (Objekte vom Typ OParlMeeting) für diese
-        Körperschaft.
+        Liste der Sitzungen (Objekte vom Typ
+        <literal>oparl:Meeting</literal>) für diese Körperschaft.
       </para>
     </sect3>
     <sect3 id="eigenschaft-committees">
@@ -1863,8 +1873,8 @@
       </para>
       <para>
         Wert dieser Eigenschaft ist die URL der API zum Aufruf einer
-        Liste der Gremien (Objekte vom Typ OParlCommittee) für diese
-        Körperschaft.
+        Liste der Gremien (Objekte vom Typ
+        <literal>oparl:Committee</literal>) für diese Körperschaft.
       </para>
     </sect3>
     <sect3 id="beispiel-1">
@@ -1872,7 +1882,7 @@
       <programlisting language="json">
 {
     &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0&quot;,
-    &quot;@context&quot;: &quot;http://oparl.org/schema/1.0/OParlBody&quot;,
+    &quot;@context&quot;: &quot;http://oparl.org/schema/1.0/Body&quot;,
     &quot;committees&quot;: &quot;http://refserv.oparl.org/bodies/0/committees/&quot;,
     &quot;contact&quot;: {
         &quot;email&quot;: &quot;ris@stadt-koeln.de&quot;,
@@ -1895,7 +1905,7 @@
     </sect3>
   </sect2>
   <sect2 id="oparlcommittee-gremium">
-    <title>OParlCommittee (Gremium</title>
+    <title>oparl:Committee (Gremium)</title>
     <para>
       Das Gremium ist ein Personenkreis, üblicherweise von gewählten
       und/oder ernannten Mitgliedern. Beispiele hierfür sind der
@@ -1904,12 +1914,12 @@
       Gremien-Mitglieder eingeladen werden.
     </para>
     <figure>
-      <title>Objekttyp Gremium</title>
+      <title>Objekttyp Committee</title>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/datenmodell_gremium.png" />
         </imageobject>
-        <textobject><phrase>Objekttyp Gremium</phrase></textobject>
+        <textobject><phrase>Objekttyp Committee</phrase></textobject>
       </mediaobject>
     </figure>
     <sect3 id="eigenschaften">
@@ -1969,11 +1979,11 @@
       <itemizedlist>
         <listitem>
           <para>
-            Objekte vom Typ &quot;Person&quot; referenzieren auf
-            Gremien, um die Mitgliedschaft/Zugehörigkeit einer Person
-            im/zum Gremium zu kennzeichnen. Diese Beziehung ist datiert.
-            Das bedeutet, sie hat einen Anfangszeitpunkt und ggf. einen
-            Endzeitpunkt.
+            Objekte vom Typ <literal>oparl:Person</literal>
+            referenzieren auf Gremien, um die
+            Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu
+            kennzeichnen. Diese Beziehung ist datiert. Das bedeutet, sie
+            hat einen Anfangszeitpunkt und ggf. einen Endzeitpunkt.
           </para>
         </listitem>
         <listitem>
@@ -2007,10 +2017,11 @@
     </sect3>
   </sect2>
   <sect2 id="oparlperson-person">
-    <title>OParlPerson (Person)</title>
+    <title>oparl:Person (Person)</title>
     <para>
       Jede natürliche Person, die Mitglied eines Gremiums ist, ist als
-      Person im Datenmodell eindeutig identifizierbar.
+      <literal>oparl:Person</literal> im Datenmodell eindeutig
+      identifizierbar.
     </para>
     <figure>
       <title>Objekttyp Person</title>
@@ -2173,17 +2184,17 @@
       <itemizedlist>
         <listitem>
           <para>
-            Objekte vom Typ &quot;Person&quot; können einer
+            Objekte vom Typ <literal>oparl:Person</literal> können einer
             Organisation, z.B. einer Fraktion, zugeornet werden. Diese
             Beziehung ist datiert.
           </para>
         </listitem>
         <listitem>
           <para>
-            Objekte vom Typ &quot;Person&quot; können einem oder
-            mehreren Gremien zugewiesen werden, um die Mitgliedschaft in
-            diesem Gremium darzustellen. Diese Beziehungen sind
-            ebenfalls datiert.
+            Objekte vom Typ <literal>oparl:Person</literal> können einem
+            oder mehreren Gremien zugewiesen werden, um die
+            Mitgliedschaft in diesem Gremium darzustellen. Diese
+            Beziehungen sind ebenfalls datiert.
           </para>
         </listitem>
       </itemizedlist>
@@ -2224,8 +2235,8 @@
 </programlisting>
     </sect3>
   </sect2>
-  <sect2 id="oparlorganisation-organisation">
-    <title>OParlOrganisation (Organisation)</title>
+  <sect2 id="oparlorganization-organisation">
+    <title>oparl:Organization (Organisation)</title>
     <para>
       Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen
       die Personen angehören können.
@@ -2289,6 +2300,15 @@
               werden.
             </para>
           </listitem>
+          <listitem>
+            <para>
+              Es wird die Schreibweise &quot;Organization&quot; (und
+              nicht &quot;Organisation&quot;) verwendet, da diese in
+              allen englischen Sprachräumen problemlos verwendet werden
+              kann. Siehe dazu Abschnitt 3, Fussnote 1 auf dieser Seite:
+              http://popoloproject.com/specs/organization.html
+            </para>
+          </listitem>
         </itemizedlist>
       </sect4>
     </sect3>
@@ -2297,7 +2317,8 @@
       <itemizedlist>
         <listitem>
           <para>
-            Jede Organisationen gehört zu einer Körperschaft.
+            Jede <literal>oparl:Organization</literal> gehört zu einer
+            Körperschaft.
           </para>
         </listitem>
         <listitem>
@@ -2321,7 +2342,7 @@
     </sect3>
   </sect2>
   <sect2 id="oparlmeeting-sitzung">
-    <title>OParlMeeting (Sitzung)</title>
+    <title>oparl:Meeting (Sitzung)</title>
     <para>
       Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums
       oder mehrerer Gremien zu einem bestimmten Zeitpunkt an einem
@@ -2334,12 +2355,12 @@
       referenziert werden.
     </para>
     <figure>
-      <title>Objekttyp Sitzung</title>
+      <title>Objekttyp Meeting</title>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/datenmodell_sitzung.png" />
         </imageobject>
-        <textobject><phrase>Objekttyp Sitzung</phrase></textobject>
+        <textobject><phrase>Objekttyp Meeting</phrase></textobject>
       </mediaobject>
     </figure>
     <sect3 id="eigenschaften-3">
@@ -2434,7 +2455,7 @@
         </listitem>
         <listitem>
           <para>
-            Dokumente können vom Typ &quot;Sitzung&quot;
+            Dokumente können vom Typ <literal>oparl:Meeting</literal>
             <emphasis>optional</emphasis> zu mehreren Zwecken
             referenziert werden:
           </para>
@@ -2490,7 +2511,7 @@
     </sect3>
   </sect2>
   <sect2 id="oparlagendaitem-tagesordnungspunkt">
-    <title>OParlAgendaitem (Tagesordnungspunkt)</title>
+    <title>oparl:AgendaItem (Tagesordnungspunkt)</title>
     <para>
       Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt,
       erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen
@@ -2502,13 +2523,12 @@
       Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
     </para>
     <figure>
-      <title>Objekttyp Tagesordnungspunkt</title>
+      <title>Objekttyp AgendaItem</title>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/datenmodell_tagesordnungspunkt.png" />
         </imageobject>
-        <textobject><phrase>Objekttyp
-        Tagesordnungspunkt</phrase></textobject>
+        <textobject><phrase>Objekttyp AgendaItem</phrase></textobject>
       </mediaobject>
     </figure>
     <sect3 id="eigenschaften-4">
@@ -2633,7 +2653,8 @@
       <itemizedlist>
         <listitem>
           <para>
-            Jeder Tagesordnungspunkt gehört zu genau einer Sitzung.
+            Jeder Tagesordnungspunkt gehört zu genau einem
+            <literal>oparl:Meeting</literal>.
           </para>
         </listitem>
         <listitem>
@@ -2644,9 +2665,10 @@
         </listitem>
         <listitem>
           <para>
-            Es können Personen referenziert werden, die während der
-            Abstimmung zu diesem Tagesordnungspunkt
-            <emphasis>nicht</emphasis> anwesend waren.
+            Es können <literal>oparl:Person</literal> Objekte
+            referenziert werden, die während der Abstimmung zu diesem
+            Tagesordnungspunkt <emphasis>nicht</emphasis> anwesend
+            waren.
           </para>
         </listitem>
       </itemizedlist>
@@ -2668,7 +2690,7 @@
     </sect3>
   </sect2>
   <sect2 id="oparlpaper-drucksache">
-    <title>OParlPaper (Drucksache)</title>
+    <title>oparl:Paper (Drucksache)</title>
     <para>
       Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen,
       Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede
@@ -2689,12 +2711,12 @@
       zum Einsatz.
     </para>
     <figure>
-      <title>Objekttyp Drucksache</title>
+      <title>Objekttyp Paper</title>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/datenmodell_drucksache.png" />
         </imageobject>
-        <textobject><phrase>Objekttyp Drucksache</phrase></textobject>
+        <textobject><phrase>Objekttyp Paper</phrase></textobject>
       </mediaobject>
     </figure>
     <para>
@@ -2793,8 +2815,8 @@
         <listitem>
           <para>
             Es muss genau ein
-            <emphasis role="strong">Hauptdokument</emphasis> (Objekttyp
-            &quot;Dokument&quot;) referenziert werden.
+            <emphasis role="strong">Hauptdokument</emphasis>
+            (<literal>oparl:Document</literal>) referenziert werden.
           </para>
         </listitem>
         <listitem>
@@ -2829,6 +2851,7 @@
             Drucksache behandelt werden. Beispiel: Beschlussvorlage zur
             Freigabe von Mitteln für die Sanierung eines Sportplatzes,
             wobei der Ort die Lage des Sportplatzes genau beschreibt.
+            (TODO)
           </para>
         </listitem>
         <listitem>
@@ -2903,28 +2926,29 @@
     </sect3>
   </sect2>
   <sect2 id="oparldocument-dokument">
-    <title>OParlDocument (Dokument)</title>
+    <title>oparl:Document (Dokument)</title>
     <para>
-      Ein Dokument hält die Metadaten einer Datei vor, beispielsweise
-      einer PDF-Datei, eines RTF- oder Word-Dokuments.
+      Ein Dokument hält Metadaten einer Datei vor, beispielsweise einer
+      PDF-Datei, eines RTF- oder ODF-Dokuments (oder auch einer Datei in
+      einem proprietären Format).
     </para>
     <para>
-      Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist
-      diese Ableitung ebenfalls ein Dokument. Um zu zeigen, dass es sich
-      um eine Ableitung handelt, verweist dieses auf das Original als
-      &quot;Master&quot;.
+      Wird von einem Dokument in einem Nicht-PDF-Format (z.B. RTF oder
+      ODF) eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls
+      ein Dokument. Um zu zeigen, dass es sich um eine Ableitung
+      handelt, verweist dieses auf das Original als &quot;Master&quot;.
     </para>
     <para>
       Im Unterschied zur Drucksache benötigt das Dokument keine
       nutzerfreundliche Kennung.
     </para>
     <figure>
-      <title>Objekttyp Dokument</title>
+      <title>Objekttyp Document</title>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/datenmodell_dokument.png" />
         </imageobject>
-        <textobject><phrase>Objekttyp Dokument</phrase></textobject>
+        <textobject><phrase>Objekttyp Document</phrase></textobject>
       </mediaobject>
     </figure>
     <sect3 id="eigenschaften-6">
@@ -3053,12 +3077,12 @@
     </sect3>
   </sect2>
   <sect2 id="oparlconsultation-beratung">
-    <title>OParlConsultation (Beratung)</title>
+    <title>oparl:Consultation (Beratung)</title>
     <para>
     </para>
   </sect2>
   <sect2 id="oparllocation-ort">
-    <title>OParlLocation (Ort)</title>
+    <title>oparl:Location (Ort)</title>
     <para>
       Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache
       formal abzubilden. Ortsangaben können sowohl aus Textinformationen
@@ -3076,12 +3100,12 @@
       WGS-84-System [11] erwartet.
     </para>
     <figure>
-      <title>Objekttyp Ort</title>
+      <title>Objekttyp Location</title>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/datenmodell_ort.png" />
         </imageobject>
-        <textobject><phrase>Objekttyp Ort</phrase></textobject>
+        <textobject><phrase>Objekttyp Location</phrase></textobject>
       </mediaobject>
     </figure>
     <sect3 id="eigenschaften-7">
@@ -3142,7 +3166,7 @@
     </sect3>
   </sect2>
   <sect2 id="oparlcontact-kontakt">
-    <title>OParlContact (Kontakt)</title>
+    <title>oparl:Contact (Kontakt)</title>
     <para>
     </para>
   </sect2>

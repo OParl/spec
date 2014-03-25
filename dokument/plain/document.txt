@@ -198,6 +198,10 @@ Zukunft von OParl
 -   Mehr Abfragekriterien
 -   Suchfunktionen (Volltextsuche)
 -   Abstimmungsverhalten und maschinenlesbare Protokolle
+-   Schreibender Zugriff. Auch dazu muss das Rad nicht neu erfunden
+    werden. Bestehende bzw. in Entwicklung befindliche Spezifikationen
+    und Techniken aus der Linked Data-Welt können verwendet werden. Dazu
+    gehören insbesondere die Linked Data Platform des W3C und Hydra.
 
 Nomenklatur der Spezifikation und Satzkonventionen
 --------------------------------------------------
@@ -539,7 +543,7 @@ Stichpunkte:
     Transfer Protocol (HTTP).
 -   Optional gzip Encoding und andere Kodierungen, wenn Client und
     Server dies unterstützen
--   Das Protkoll ist zustandslos
+-   Das Protokoll ist zustandslos
 -   Authentifizierung wird nicht benötigt.
 
 Designprinzipien
@@ -565,7 +569,7 @@ Zukunftssicherheit
 
 (In diesem Abschnitt wird die Zielsetzung beschrieben, zukünftige
 Versionen der OParl Spezifikation auf dieser Version aufbauen zu lassen.
-Damit soll nach Mögloichkeit Abwärtskompatibilität erreicht werden, so
+Damit soll nach Möglichkeit Abwärtskompatibilität erreicht werden, so
 dass z.B. OParl-1.0-Clients mit einem 1.1-Server kommunizieren können.
 
 Ein Garantie wird es jedoch nicht geben.)
@@ -746,8 +750,8 @@ Vererbung der Lizenzbedingung
     besitzen.
 -   Dazu muss die Vererbungshierarchie aufgezeigt werden.
 -   Empfohlene Minimalvariante: Nur eine license-Angabe auf Ebene von
-    OParlSystem.
--   Auf Ebene des OParlDocument bezieht sich die Eigenschaft sowohl auf
+    oparl:System.
+-   Auf Ebene des oparl:Document bezieht sich die Eigenschaft sowohl auf
     die Metadaten als auch auf das Dokument selbst.
 
 Die Eigenschaften "created" und "last_modified"
@@ -759,19 +763,19 @@ Die Eigenschaft "description"
 OParlSystem (System)
 --------------------
 
-Der Objekttyp OParlSystem bildet grundlegende Informationen zum
+Der Objekttyp oparl:System bildet grundlegende Informationen zum
 parlamentarischen Informationssystem ab. Das Objekt repräsentiert das
 technische System, unabhängig von der Frage, welche Körperschaften auf
 diesem System vertreten sind.
 
-Auf jedem OParl Server MUSS ein Objekt vom Typ OParlSystem vorgehalten
+Auf jedem OParl Server MUSS ein Objekt vom Typ oparl:System vorgehalten
 werden. Es DARF nur ein einziges solches Objekt je Server existieren.
 
-Für Clients ist das OParlSystem Objekt ein geeigneter Einstiegspunkt, um
-grundlegende Informationen über das Sytem zu bekommen und die URLs zum
-Zugriff auf andere Informationen in Erfahrung zu bringen.
+Für Clients ist das oparl:System Objekt ein geeigneter Einstiegspunkt,
+um grundlegende Informationen über das Sytem zu bekommen und die URLs
+zum Zugriff auf andere Informationen in Erfahrung zu bringen.
 
-Die URL (IRI) des OParlSystem Objekts MUSS per Definition identisch mit
+Die URL (IRI) des oparl:System Objekts MUSS per Definition identisch mit
 der URL des API-Endpunkts des Servers sein.
 
 Eigenschaft oparl_version
@@ -791,10 +795,10 @@ Eigenschaft bodies
 
 Diese Eigenschaft ist ZWINGEND.
 
-Über diese URL sind alle OParlBody Objekte, also die im System geführten
-Körperschaften, als Liste abrufbar.
+Über diese URL sind alle oparl:Body Objekte, also die im System
+geführten Körperschaften, als Liste abrufbar.
 
-TODO: Verweis auf OParlBody einfügen
+TODO: Verweis auf oparl:Body einfügen
 
 Eigenschaft name
 
@@ -815,9 +819,9 @@ bzw. einer allgemeinen Kontaktstelle auszugeben, über die Anfragen
 verschiedener Art an die richtige Kontaktperson umgeleitet werden
 können.
 
-Der Wert dieser Eigenschaft MUSS ein Objekt vom Typ OParlContact sein.
+Der Wert dieser Eigenschaft MUSS ein Objekt vom Typ oparl:Contact sein.
 
-TODO: Verweis auf OParlContact einfügen.
+TODO: Verweis auf oparl:Contact einfügen.
 
 Eigenschaft license
 
@@ -858,7 +862,7 @@ ausgegeben.
 
 TODO: Verweis auf Feeds > Entfernte Objekte
 
-Eigenschaft info_url
+Eigenschaft info
 
 Diese Eigenschaft ist OPTIONAL.
 
@@ -867,7 +871,7 @@ mit zusätzlichen Informationen zum System anzubieten. So könnten
 NutzerInnen beispielsweise auf eine Web-Oberfläche eines
 parlamentarischen Informationssystems geführt werden.
 
-Eigenschaft vendor_url
+Eigenschaft vendor
 
 Diese Eigenschaft ist OPTIONAL.
 
@@ -875,7 +879,7 @@ Diese Eigenschaft dient dazu, über eine URL den Hersteller des
 Server-Systems zu komunizieren. Die URL sollt nach Möglichkeit zu einer
 WWW-Seite mit weiteren Informationen zum Hersteller führen.
 
-Eigenschaft product_url
+Eigenschaft product
 
 Diese Eigenschaft ist OPTIONAL.
 
@@ -888,16 +892,16 @@ Beispiel
 
     {
         "@id": "http://refserv.oparl.org/",
-        "@context": "http://oparl.org/schema/1.0/OParlSystem",
+        "@context": "http://oparl.org/schema/1.0/System",
         "oparl_version": "http://oparl.org/specs/1.0/",
         "name": "OParl Reference Server",
-        "info_url": "https://github.com/OParl/reference-server",
+        "info": "https://github.com/OParl/reference-server",
         "contact": {
             "email": "info@oparl.org",
             "name": "Common OParl contact"
         }, 
-        "vendor_url": "http://oparl.org/",
-        "product_url": "https://github.com/OParl/reference-server",
+        "vendor": "http://oparl.org/",
+        "product": "https://github.com/OParl/reference-server",
         "license": "http://creativecommons.org/licenses/by/4.0/",
         "bodies": "http://refserv.oparl.org/bodies/",
         "new_objects": "http://refserv.oparl.org/feeds/new/",
@@ -905,26 +909,26 @@ Beispiel
         "removed_objects": "http://refserv.oparl.org/feeds/removed/"
     }
 
-OParlBody (Körperschaft)
-------------------------
+oparl:Body (Körperschaft)
+-------------------------
 
 Dieser Objekttyp erlaubt es, eine Körperschaft abzbilden. Eine
 Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder ein
 Zweckverband sein.
 
 Von einem funktionsfähigen Server wird erwartet, dass er mindestens ein
-Objekt vom Typ OParlBody bereit hält. Teilen sich mehrere Körperschaften
-das selbe technische System, können auf demselben Server auch mehrere
-Objekte vom Typ OParlBody beherbergt werden.
+Objekt vom Typ oparl:Body bereit hält. Teilen sich mehrere
+Körperschaften das selbe technische System, können auf demselben Server
+auch mehrere Objekte vom Typ oparl:Body beherbergt werden.
 
-Über die Zuordnung zu einem bestimmten OParlBody Objekt zeigen andere
+Über die Zuordnung zu einem bestimmten oparl:Body Objekt zeigen andere
 Objekte, wie beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit
 zu einer bestimmten Körperschaft an.
 
-[Objekttyp OParlBody]
+[Objekttyp oparl:Body]
 
 Es werden mehrere Eigenschaften angeboten, die dazu dienen, die real
-existierende Körperschaft, die von einem OParlBody Objekt repräsentiert
+existierende Körperschaft, die von einem oparl:Body Objekt repräsentiert
 wird, programmatisch auslesbar zu machen zu können. Insbesondere sind
 hier die Eigenschaften url, rgs und gnd_url zu nennen.
 
@@ -932,8 +936,8 @@ Eigenschaft system
 
 Diese Eigenschaft ist ZWINGEND.
 
-Mit dieser Eigenschaft wird das Objekt dem übergeordneten OParlSystem
-Objekt zugeordnet. Wert MUSS der IRI des OParlSystem Objekts sein.
+Mit dieser Eigenschaft wird das Objekt dem übergeordneten oparl:System
+Objekt zugeordnet. Wert MUSS der IRI des oparl:System Objekts sein.
 
 Eigenschaft name
 
@@ -979,7 +983,7 @@ Diese Eigenschaft ist EMPFOHLEN.
 bereit gestellt werden, die die inhaltliche Verantwortung für sämtliche
 zu dieser Körperschaft gehörenden Inhalte im System trägt. Besonders
 wichtig ist diese Angabe, wenn auf einem System mehrere Körperschaften
-vertreten sind und damit auf der Ebene des OParlSystem Objekts ein rein
+vertreten sind und damit auf der Ebene des oparl:System Objekts ein rein
 technischer Kontakt ausgegeben wird, der nicht für inhaltliche
 Fragestellungen im Zuständigkeitsbereich der jeweiligen Körperschaften
 kontaktiert werden sollte.
@@ -989,34 +993,34 @@ Eigenschaft papers
 Diese Eigenschaft ist ZWINGEND.
 
 Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Drucksachen (Objekte vom Typ OParlPaper) für diese Körperschaft.
+Drucksachen (Objekte vom Typ oparl:Paper) für diese Körperschaft.
 
 Eigenschaft people
 
 Diese Eigenschaft ist ZWINGEND.
 
 Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Personen (Objekte vom Typ OParlPerson) für diese Körperschaft.
+Personen (Objekte vom Typ oparl:Person) für diese Körperschaft.
 
 Eigenschaft meetings
 
 Diese Eigenschaft ist ZWINGEND.
 
 Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Sitzungen (Objekte vom Typ OParlMeeting) für diese Körperschaft.
+Sitzungen (Objekte vom Typ oparl:Meeting) für diese Körperschaft.
 
 Eigenschaft committees
 
 Diese Eigenschaft ist ZWINGEND.
 
 Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Gremien (Objekte vom Typ OParlCommittee) für diese Körperschaft.
+Gremien (Objekte vom Typ oparl:Committee) für diese Körperschaft.
 
 Beispiel
 
     {
         "@id": "http://refserv.oparl.org/bodies/0",
-        "@context": "http://oparl.org/schema/1.0/OParlBody",
+        "@context": "http://oparl.org/schema/1.0/Body",
         "committees": "http://refserv.oparl.org/bodies/0/committees/",
         "contact": {
             "email": "ris@stadt-koeln.de",
@@ -1036,15 +1040,15 @@ Beispiel
         "url": "http://www.stadt-koeln.de/"
     }
 
-OParlCommittee (Gremium
------------------------
+oparl:Committee (Gremium)
+-------------------------
 
 Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder
 ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat,
 Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten
 Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
-[Objekttyp Gremium]
+[Objekttyp Committee]
 
 Eigenschaften
 
@@ -1064,7 +1068,7 @@ Zuletzt geändert (last_modified)
 
 Beziehungen
 
--   Objekte vom Typ "Person" referenzieren auf Gremien, um die
+-   Objekte vom Typ oparl:Person referenzieren auf Gremien, um die
     Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu
     kennzeichnen. Diese Beziehung ist datiert. Das bedeutet, sie hat
     einen Anfangszeitpunkt und ggf. einen Endzeitpunkt.
@@ -1085,11 +1089,11 @@ Beispiel
         "last_modified": "2012-08-16T14:05:27+02:00"
     }
 
-OParlPerson (Person)
---------------------
+oparl:Person (Person)
+---------------------
 
-Jede natürliche Person, die Mitglied eines Gremiums ist, ist als Person
-im Datenmodell eindeutig identifizierbar.
+Jede natürliche Person, die Mitglied eines Gremiums ist, ist als
+oparl:Person im Datenmodell eindeutig identifizierbar.
 
 [Objekttyp Person]
 
@@ -1135,9 +1139,9 @@ Anmerkungen
 
 Beziehungen
 
--   Objekte vom Typ "Person" können einer Organisation, z.B. einer
+-   Objekte vom Typ oparl:Person können einer Organisation, z.B. einer
     Fraktion, zugeornet werden. Diese Beziehung ist datiert.
--   Objekte vom Typ "Person" können einem oder mehreren Gremien
+-   Objekte vom Typ oparl:Person können einem oder mehreren Gremien
     zugewiesen werden, um die Mitgliedschaft in diesem Gremium
     darzustellen. Diese Beziehungen sind ebenfalls datiert.
 
@@ -1174,8 +1178,8 @@ Beispiel
         ]
     }
 
-OParlOrganisation (Organisation)
---------------------------------
+oparl:Organization (Organisation)
+---------------------------------
 
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die
 Personen angehören können.
@@ -1201,9 +1205,14 @@ Anmerkungen
     sein werden. Einblicke, wie gängige Systeme dies handhaben, sollten
     evtl. gesammelt und berücksichtigt werden.
 
+-   Es wird die Schreibweise "Organization" (und nicht "Organisation")
+    verwendet, da diese in allen englischen Sprachräumen problemlos
+    verwendet werden kann. Siehe dazu Abschnitt 3, Fussnote 1 auf dieser
+    Seite: http://popoloproject.com/specs/organization.html
+
 Beziehungen
 
--   Jede Organisationen gehört zu einer Körperschaft.
+-   Jede oparl:Organization gehört zu einer Körperschaft.
 -   Personen können Organisationen angehören (datiert).
 
 Beispiel
@@ -1215,8 +1224,8 @@ Beispiel
         "last_modified": "2012-08-16T14:05:27+02:00"
     }
 
-OParlMeeting (Sitzung)
-----------------------
+oparl:Meeting (Sitzung)
+-----------------------
 
 Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder
 mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.
@@ -1226,7 +1235,7 @@ entsprechender Form referenziert. Verschiedene Dokumente (Einladung,
 Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert
 werden.
 
-[Objekttyp Sitzung]
+[Objekttyp Meeting]
 
 Eigenschaften
 
@@ -1256,7 +1265,7 @@ Beziehungen
 -   Sitzungen sind mindestens einem Gremium zugeordnet
 -   Einer Sitzung sind Personen zugeordnet, um die Teilnahme an der
     Sitzung auszudrücken.
--   Dokumente können vom Typ "Sitzung" optional zu mehreren Zwecken
+-   Dokumente können vom Typ oparl:Meeting optional zu mehreren Zwecken
     referenziert werden:
     -   Zum Verweis auf die Einladung zur Sitzung
     -   Zum Verweis auf das Ergebnisprotokoll zur Sitzung
@@ -1287,8 +1296,8 @@ Beispiel
         "last_modified": "2012-01-08T14:05:27+01:00"
     }
 
-OParlAgendaitem (Tagesordnungspunkt)
-------------------------------------
+oparl:AgendaItem (Tagesordnungspunkt)
+-------------------------------------
 
 Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält
 eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel
@@ -1298,7 +1307,7 @@ bestimmter Beschlusstext beigefügt sein.
 
 Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
 
-[Objekttyp Tagesordnungspunkt]
+[Objekttyp AgendaItem]
 
 Eigenschaften
 
@@ -1343,11 +1352,11 @@ Anmerkungen
 
 Beziehungen
 
--   Jeder Tagesordnungspunkt gehört zu genau einer Sitzung.
+-   Jeder Tagesordnungspunkt gehört zu genau einem oparl:Meeting.
 -   Der Tagesordnungspunkt kann auf eine Drucksache verweisen, die im
     Rahmen dieses Tagesordnungspunkt beraten werden soll.
--   Es können Personen referenziert werden, die während der Abstimmung
-    zu diesem Tagesordnungspunkt nicht anwesend waren.
+-   Es können oparl:Person Objekte referenziert werden, die während der
+    Abstimmung zu diesem Tagesordnungspunkt nicht anwesend waren.
 
 Beispiel
 
@@ -1362,8 +1371,8 @@ Beispiel
         "last_modified": "2012-08-16T14:05:27+02:00"
     }
 
-OParlPaper (Drucksache)
------------------------
+oparl:Paper (Drucksache)
+------------------------
 
 Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen,
 Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede
@@ -1379,7 +1388,7 @@ eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen
 Bezug genommen wird. Hierbei kommen in Ratsinformationssystemen
 unveränderliche Kennungen der Drucksachen zum Einsatz.
 
-[Objekttyp Drucksache]
+[Objekttyp Paper]
 
 Jede Drucksache ist über die Eigenschaft "Typ" als eine der folgenden
 Arten von Drucksachen gekennzeichnet:
@@ -1412,7 +1421,7 @@ Zuletzt geändert (last_modified)
 
 Beziehungen
 
--   Es muss genau ein Hauptdokument (Objekttyp "Dokument") referenziert
+-   Es muss genau ein Hauptdokument (oparl:Document) referenziert
     werden.
 -   Es können beliebig viele weitere Dokumente referenziert werden, die
     als nachgeordnete Anlagen zur Drucksache verstanden werden.
@@ -1427,7 +1436,7 @@ Beziehungen
     werden, die im Inhalt der Drucksache behandelt werden. Beispiel:
     Beschlussvorlage zur Freigabe von Mitteln für die Sanierung eines
     Sportplatzes, wobei der Ort die Lage des Sportplatzes genau
-    beschreibt.
+    beschreibt. (TODO)
 -   Drucksachen können auf andere Drucksachen referenzieren. Diese
     Verweise können verschiedene semantische Beziehungen ausdrücken. So
     kann eine Drucksache auf eine übergeordnete oder eine oder mehrere
@@ -1483,20 +1492,22 @@ Beispiel
         "last_modified": "2013-01-08T12:05:27+01:00"
     }
 
-OParlDocument (Dokument)
-------------------------
+oparl:Document (Dokument)
+-------------------------
 
-Ein Dokument hält die Metadaten einer Datei vor, beispielsweise einer
-PDF-Datei, eines RTF- oder Word-Dokuments.
+Ein Dokument hält Metadaten einer Datei vor, beispielsweise einer
+PDF-Datei, eines RTF- oder ODF-Dokuments (oder auch einer Datei in einem
+proprietären Format).
 
-Wird von einem Word-Dokument eine PDF-Ableitung hinterlegt, ist diese
-Ableitung ebenfalls ein Dokument. Um zu zeigen, dass es sich um eine
-Ableitung handelt, verweist dieses auf das Original als "Master".
+Wird von einem Dokument in einem Nicht-PDF-Format (z.B. RTF oder ODF)
+eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls ein
+Dokument. Um zu zeigen, dass es sich um eine Ableitung handelt, verweist
+dieses auf das Original als "Master".
 
 Im Unterschied zur Drucksache benötigt das Dokument keine
 nutzerfreundliche Kennung.
 
-[Objekttyp Dokument]
+[Objekttyp Document]
 
 Eigenschaften
 
@@ -1540,11 +1551,11 @@ Beziehungen
         "master": "2099"
     }
 
-OParlConsultation (Beratung)
-----------------------------
+oparl:Consultation (Beratung)
+-----------------------------
 
-OParlLocation (Ort)
--------------------
+oparl:Location (Ort)
+--------------------
 
 Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal
 abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen
@@ -1560,7 +1571,7 @@ ledliglich auf das geometry-Attribut in GeoJSON. Sämtliche
 Geo-Koordinatenangaben werden in in OParl im WGS-84-System [11]
 erwartet.
 
-[Objekttyp Ort]
+[Objekttyp Location]
 
 Eigenschaften
 
@@ -1585,8 +1596,8 @@ Beziehungen
         "last_modified": "2013-02-14T14:05:27+01:00"
     }
 
-OParlContact (Kontakt)
-----------------------
+oparl:Contact (Kontakt)
+-----------------------
 
 Fußnoten
 ========

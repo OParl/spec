@@ -156,7 +156,8 @@ Objekttypen nutzen. Im Fall von OParl kann diese Möglichkeit genutzt werden, um
 
 Das Beispiel oben zeigt ein Objekt, das über die `@context`-Eigenschaft zwei verschiedene
 URLs als sogenannte Vokabulare referenziert. Das eine Vokabular wird durch das Präfix `oparl`
-repräsentiert, das zweite (herstellereigene) mit dem Präfix `vendor`. Der JSON-LD-Client macht aus dem Präfix und der Typenbezeichnung letztlich wieder eine URL:
+repräsentiert, das zweite (herstellereigene) durch das Präfix `vendor`. Ein JSON-LD-Client 
+setzt Präfix und Typenbezeichnung letztlich wieder zu einer URL zusammen.
 
 * Aus `oparl:Paper` wird `http://oparl.org/schema/1.0/Paper`
 * Aus `vendor:Drucksache` wird `http://www.vendor.de/oparl/schema/Drucksache`

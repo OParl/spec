@@ -1071,15 +1071,61 @@ Kommission\footnote{Study on persistent URIs, with identification of
 
 \subsection{Serialisierung mittels JSON-LD und JSONP}
 
+Eine OParl-konforme API gibt Objekte in Form von JSON aus. Die Objekte
+werden dabei entsprechend der JSON-LD Spezifikation um Kontexte
+erweitert, welche die Selbstbschreibungsfähigkeit der ausgegebenen Daten
+verbessert. Auf Anforderung des Clients wird darüber hinaus JSONP
+unterstützt.
+
 \subsubsection{JSON}
+
+Die Abkürzung JSON steht für ``JavaScript Object Notation''. Das
+JSON-Format ist in RFC4627\footnote{\url{https://tools.ietf.org/html/rfc4627}}
+beschrieben. Nachfolgend werden nur die wichtigsten Definitionen
+übernommen, um eine Terminologie zur weiteren Verwendung in diesem
+Dokument zu etablieren.
+
+Das JSON-Format unterstützt die Ausgabe von vier verschiedenen
+primitiven Datentypen:
 
 \begin{itemize}
 \item
-  Siehe RFC4627
+  Zeichenkette (Unicode)
 \item
-  Generelle Terminologie übernehmen (JSON-Objekt, Array, String, Number,
-  true/false, null)
+  Zahl (sowohl Ganzzahlen als auch Fließkommazahlen)
+\item
+  Wahrheitswert (\emph{true} oder \emph{false})
+\item
+  Null
 \end{itemize}
+
+Darüber hinaus werden zwei komplexe Datentypen unterstützt:
+
+\begin{itemize}
+\item
+  Objekt: Eine Sammlung von Schlüssel-Wert-Paaren ohne Reihenfolge,
+  wobei der Schlüssel eine Zeichenkette sein muss und der Wert ein
+  beliebiger Datentyp sein kann.
+\item
+  Array: Eine geordnete Liste mit beliebigen Datentypen.
+\end{itemize}
+
+Beispiel eines Objekts in JSON-Notation:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"zeichenkette"}\NormalTok{: }\StringTok{"Das ist eine Zeichenkette"}\NormalTok{,}
+    \DataTypeTok{"zahl"}\NormalTok{: }\FloatTok{1.23456789}\NormalTok{,}
+    \DataTypeTok{"wahrheitswert"}\NormalTok{: }\DecValTok{true}\NormalTok{,}
+    \DataTypeTok{"null"}\NormalTok{: }\DecValTok{null}\NormalTok{,}
+    \DataTypeTok{"objekt"}\NormalTok{: \{}
+        \DataTypeTok{"foo"}\NormalTok{: }\StringTok{"bar"}
+    \NormalTok{\},}
+    \DataTypeTok{"array"}\NormalTok{: [}\StringTok{"foo"}\NormalTok{, }\StringTok{"bar"}\NormalTok{]}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 \subsubsection{JSON-LD}
 

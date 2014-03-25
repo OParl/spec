@@ -317,11 +317,32 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </ul>
 <p>Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee<sup><a href="#fn8" class="footnoteRef" id="fnref8">8</a></sup> sowie die Europäische Kommission<sup><a href="#fn9" class="footnoteRef" id="fnref9">9</a></sup>.</p>
 <h2 id="serialisierung-mittels-json-ld-und-jsonp"><span class="header-section-number">4.5</span> Serialisierung mittels JSON-LD und JSONP</h2>
+<p>Eine OParl-konforme API gibt Objekte in Form von JSON aus. Die Objekte werden dabei entsprechend der JSON-LD Spezifikation um Kontexte erweitert, welche die Selbstbschreibungsfähigkeit der ausgegebenen Daten verbessert. Auf Anforderung des Clients wird darüber hinaus JSONP unterstützt.</p>
 <h3 id="json"><span class="header-section-number">4.5.1</span> JSON</h3>
+<p>Die Abkürzung JSON steht für &quot;JavaScript Object Notation&quot;. Das JSON-Format ist in RFC4627<sup><a href="#fn10" class="footnoteRef" id="fnref10">10</a></sup> beschrieben. Nachfolgend werden nur die wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren Verwendung in diesem Dokument zu etablieren.</p>
+<p>Das JSON-Format unterstützt die Ausgabe von vier verschiedenen primitiven Datentypen:</p>
 <ul>
-<li>Siehe RFC4627</li>
-<li>Generelle Terminologie übernehmen (JSON-Objekt, Array, String, Number, true/false, null)</li>
+<li>Zeichenkette (Unicode)</li>
+<li>Zahl (sowohl Ganzzahlen als auch Fließkommazahlen)</li>
+<li>Wahrheitswert (<em>true</em> oder <em>false</em>)</li>
+<li>Null</li>
 </ul>
+<p>Darüber hinaus werden zwei komplexe Datentypen unterstützt:</p>
+<ul>
+<li>Objekt: Eine Sammlung von Schlüssel-Wert-Paaren ohne Reihenfolge, wobei der Schlüssel eine Zeichenkette sein muss und der Wert ein beliebiger Datentyp sein kann.</li>
+<li>Array: Eine geordnete Liste mit beliebigen Datentypen.</li>
+</ul>
+<p>Beispiel eines Objekts in JSON-Notation:</p>
+<pre class="sourceCode json" id="json_ex1"><code class="sourceCode json">{
+    <span class="dt">&quot;zeichenkette&quot;</span>: <span class="st">&quot;Das ist eine Zeichenkette&quot;</span>,
+    <span class="dt">&quot;zahl&quot;</span>: <span class="fl">1.23456789</span>,
+    <span class="dt">&quot;wahrheitswert&quot;</span>: <span class="dv">true</span>,
+    <span class="dt">&quot;null&quot;</span>: <span class="dv">null</span>,
+    <span class="dt">&quot;objekt&quot;</span>: {
+        <span class="dt">&quot;foo&quot;</span>: <span class="st">&quot;bar&quot;</span>
+    },
+    <span class="dt">&quot;array&quot;</span>: [<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>]
+}</code></pre>
 <h3 id="json-ld"><span class="header-section-number">4.5.2</span> JSON-LD</h3>
 <ul>
 <li>JSON-LD: http://www.w3.org/TR/json-ld/</li>
@@ -511,10 +532,10 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>TODO: Beschreibung</p>
 <h3 id="eigenschaft-rgs"><span class="header-section-number">5.3.5</span> Eigenschaft <code>rgs</code></h3>
 <p>Diese Eigenschaft ist EMPFOHLEN.</p>
-<p>Handelt es sich bei der Körperschaft um eine Gebietskörperschaft (Landkreis, Kommune etc.) in Deutschland, SOLL für die eindeutige Identifizierung der amtliche Regionalschlüssel verwendet werden.<sup><a href="#fn10" class="footnoteRef" id="fnref10">10</a></sup> Dieser ist grundsätzlich zwölfstellig.</p>
+<p>Handelt es sich bei der Körperschaft um eine Gebietskörperschaft (Landkreis, Kommune etc.) in Deutschland, SOLL für die eindeutige Identifizierung der amtliche Regionalschlüssel verwendet werden.<sup><a href="#fn11" class="footnoteRef" id="fnref11">11</a></sup> Dieser ist grundsätzlich zwölfstellig.</p>
 <h3 id="eigenschaft-gnd_url"><span class="header-section-number">5.3.6</span> Eigenschaft <code>gnd_url</code></h3>
 <p>Diese Eigenschaft ist EMPFOHLEN.</p>
-<p>Sofern die Körperschaft in der GND<sup><a href="#fn11" class="footnoteRef" id="fnref11">11</a></sup> vertreten ist, SOLL diese Eigenschaft als Wert die URL des Eintrags in der GND enthalten.</p>
+<p>Sofern die Körperschaft in der GND<sup><a href="#fn12" class="footnoteRef" id="fnref12">12</a></sup> vertreten ist, SOLL diese Eigenschaft als Wert die URL des Eintrags in der GND enthalten.</p>
 <h3 id="eigenschaft-contact-1"><span class="header-section-number">5.3.7</span> Eigenschaft <code>contact</code></h3>
 <p>Diese Eigenschaft ist EMPFOHLEN.</p>
 <p>Über diese Eigenschafte SOLLEN Kontaktinformationen zu einer Stelle bereit gestellt werden, die die inhaltliche Verantwortung für sämtliche zu dieser Körperschaft gehörenden Inhalte im System trägt. Besonders wichtig ist diese Angabe, wenn auf einem System mehrere Körperschaften vertreten sind und damit auf der Ebene des <code>oparl:System</code> Objekts ein rein technischer Kontakt ausgegeben wird, der nicht für inhaltliche Fragestellungen im Zuständigkeitsbereich der jeweiligen Körperschaften kontaktiert werden sollte.</p>
@@ -1004,8 +1025,9 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <li id="fn7"><p><a href="http://tools.ietf.org/html/rfc3986"><code class="url">http://tools.ietf.org/html/rfc3986</code></a><a href="#fnref7">↩</a></p></li>
 <li id="fn8"><p>Berners-Lee, Tim: Cool URIs don't change. <a href="http://www.w3.org/Provider/Style/URI.html"><code class="url">http://www.w3.org/Provider/Style/URI.html</code></a><a href="#fnref8">↩</a></p></li>
 <li id="fn9"><p>Study on persistent URIs, with identification of  best practices and recommendations on the topic for the MSs and the EC. (PDF) <a href="http://goo.gl/JaTq6Z"><code class="url">http://goo.gl/JaTq6Z</code></a><a href="#fnref9">↩</a></p></li>
-<li id="fn10"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref10">↩</a></p></li>
-<li id="fn11"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd"><code class="url">http://www.dnb.de/gnd</code></a><a href="#fnref11">↩</a></p></li>
+<li id="fn10"><p><a href="https://tools.ietf.org/html/rfc4627"><code class="url">https://tools.ietf.org/html/rfc4627</code></a><a href="#fnref10">↩</a></p></li>
+<li id="fn11"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref11">↩</a></p></li>
+<li id="fn12"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd"><code class="url">http://www.dnb.de/gnd</code></a><a href="#fnref12">↩</a></p></li>
 </ol>
 </div>
 </body>

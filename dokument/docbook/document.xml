@@ -1481,21 +1481,84 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
   </sect2>
   <sect2 id="serialisierung-mittels-json-ld-und-jsonp">
     <title>Serialisierung mittels JSON-LD und JSONP</title>
+    <para>
+      Eine OParl-konforme API gibt Objekte in Form von JSON aus. Die
+      Objekte werden dabei entsprechend der JSON-LD Spezifikation um
+      Kontexte erweitert, welche die Selbstbschreibungsfähigkeit der
+      ausgegebenen Daten verbessert. Auf Anforderung des Clients wird
+      darüber hinaus JSONP unterstützt.
+    </para>
     <sect3 id="json">
       <title>JSON</title>
+      <para>
+        Die Abkürzung JSON steht für &quot;JavaScript Object
+        Notation&quot;. Das JSON-Format ist in RFC4627<footnote>
+          <para>
+            <ulink url="https://tools.ietf.org/html/rfc4627"><literal>https://tools.ietf.org/html/rfc4627</literal></ulink>
+          </para>
+        </footnote> beschrieben. Nachfolgend werden nur die wichtigsten
+        Definitionen übernommen, um eine Terminologie zur weiteren
+        Verwendung in diesem Dokument zu etablieren.
+      </para>
+      <para>
+        Das JSON-Format unterstützt die Ausgabe von vier verschiedenen
+        primitiven Datentypen:
+      </para>
       <itemizedlist>
         <listitem>
           <para>
-            Siehe RFC4627
+            Zeichenkette (Unicode)
           </para>
         </listitem>
         <listitem>
           <para>
-            Generelle Terminologie übernehmen (JSON-Objekt, Array,
-            String, Number, true/false, null)
+            Zahl (sowohl Ganzzahlen als auch Fließkommazahlen)
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Wahrheitswert (<emphasis>true</emphasis> oder
+            <emphasis>false</emphasis>)
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Null
           </para>
         </listitem>
       </itemizedlist>
+      <para>
+        Darüber hinaus werden zwei komplexe Datentypen unterstützt:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Objekt: Eine Sammlung von Schlüssel-Wert-Paaren ohne
+            Reihenfolge, wobei der Schlüssel eine Zeichenkette sein muss
+            und der Wert ein beliebiger Datentyp sein kann.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Array: Eine geordnete Liste mit beliebigen Datentypen.
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para>
+        Beispiel eines Objekts in JSON-Notation:
+      </para>
+      <programlisting language="json">
+{
+    &quot;zeichenkette&quot;: &quot;Das ist eine Zeichenkette&quot;,
+    &quot;zahl&quot;: 1.23456789,
+    &quot;wahrheitswert&quot;: true,
+    &quot;null&quot;: null,
+    &quot;objekt&quot;: {
+        &quot;foo&quot;: &quot;bar&quot;
+    },
+    &quot;array&quot;: [&quot;foo&quot;, &quot;bar&quot;]
+}
+</programlisting>
     </sect3>
     <sect3 id="json-ld">
       <title>JSON-LD</title>

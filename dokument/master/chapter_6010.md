@@ -46,6 +46,21 @@ PDF-Version.
 
 ### RESTful
 
+Die Bezeichnung "REST" (für "Representational State Transfer") wurde im Jahr 2000 von
+Roy Fielding eingeführt^[Fielding, Roy: Architectural Styles and
+the Design of Network-based Software Architectures,
+<http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm>]. Die Definition
+von Fielding reicht sehr weit und berührt viele Details. In der Praxis wird der Begriff
+häufig genuutzt, um eine Schnittstelle zu beschreiben,
+
+* die auf WWW-Technologie aufbaut, insbesondere das HTTP-Protokoll
+* die darauf beruht, dass mittels URL einzelne Ressourcen oder Zustände vom
+  Client abgerufen werden können.
+* die zustandslos ist. Das bedeutet, die Anfrage eines Clients an den Server enthält
+  alle Informationen, die notwendig sind, um die Anfrage zu verarbeiten. Auf dem Server
+  wird kein Speicher zur Verfügung gestellt, um beispielsweise den Zustand einer Session
+  zu speichern.
+
 ### Selbstbeschreibungsfähigkeit
 
 ### Erweiterbarkeit

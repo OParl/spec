@@ -63,6 +63,14 @@ häufig genuutzt, um eine Schnittstelle zu beschreiben,
 
 ### Selbstbeschreibungsfähigkeit
 
+Ausgaben des Servers sollten so beschaffen sein, dass sie für menschliche NutzerInnen
+weitgehend selbsterklärend sein können. Dies betrifft besonders die Benennung von
+Objekten und Objekteigenschaften.
+
+Um den Kreis der Entwicklerinnen und Entwickler, die mit einer OParl-API arbeiten
+können, nicht unnötig einzuschränken, wird hierbei grundsätzlich auf englischsprachige
+Begrifflichkeiten gesetzt.
+
 ### Erweiterbarkeit
 
 ### Browseability/Verlinkung

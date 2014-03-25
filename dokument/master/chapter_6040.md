@@ -16,15 +16,15 @@ Verwendung in diesem Dokument zu etablieren.
 Das JSON-Format unterstützt die Ausgabe von vier verschiedenen primitiven
 Datentypen:
 
-* Zeichenkette (Unicode)
-* Zahl (sowohl Ganzzahlen als auch Fließkommazahlen)
-* Wahrheitswert (*true* oder *false*)
-* Null
+* *Zeichenkette* (Unicode)
+* *Zahl* (sowohl Ganzzahlen als auch Fließkommazahlen)
+* *Wahrheitswert* (`true` oder `false`)
+* *Null*
 
 Darüber hinaus werden zwei komplexe Datentypen unterstützt:
 
-* Objekt: Eine Sammlung von Schlüssel-Wert-Paaren ohne Reihenfolge, wobei der Schlüssel eine Zeichenkette sein muss und der Wert ein beliebiger Datentyp sein kann.
-* Array: Eine geordnete Liste mit beliebigen Datentypen.
+* *Objekt*: Eine Sammlung von Schlüssel-Wert-Paaren ohne Reihenfolge, wobei der Schlüssel eine Zeichenkette sein muss und der Wert ein beliebiger Datentyp sein kann.
+* *Array*: Eine geordnete Liste mit beliebigen Datentypen.
 
 Beispiel eines Objekts in JSON-Notation:
 
@@ -44,7 +44,128 @@ Beispiel eines Objekts in JSON-Notation:
 
 ### JSON-LD
 
-- JSON-LD: http://www.w3.org/TR/json-ld/
+Das Kürzel LD im Namen "JSON-LD" steht für Linked Data. Entsprechend erweitert die JSON-LD-Spezifikation^[<http://www.w3.org/TR/json-ld/>] das JSON-Format um die Möglichkeit,
+
+* Objekte mit anderen Objekten zu verknüpfen,
+* Objekte und Eigenschaften bestimmten Typen zuzuordnen und damit
+* Auskunft über die semantische Bedeutung von Objekten und Eigenschaften zu geben.
+
+Ein Beispiel aus der JSON-LD-Spezifikation illustriert, wie JSON-LD ein Objekt um zusätzliche
+semantische Informationen erweitert. Als Ausgangspunkt dient eine Personenbeschreibung in
+gewöhnlichem JSON:
+
+~~~~~  {#jsonld_ex1 .json}
+{
+  "name": "Manu Sporny",
+  "homepage": "http://manu.sporny.org/",
+  "image": "http://manu.sporny.org/images/manu.png"
+}
+~~~~~
+
+Als menschlicher Betrachter kann man leicht erkennen, dass die Eigenschaft `name` den 
+Namen der Person enthält, dass `homepage` die Website der Person sein könnte und dass 
+`image` die URL einer Bilddatei der Person sein könnte. Ein automatisierter Client jedoch,
+dem die Objekteigenschaften nicht bekannt sind, kann die Bedeutung dieser Eigenschaften
+nicht entschlüsseln.
+
+Entsprechend der JSON-LD-Spezifikation kann diese Erläuterung über die `@context`-Eigenschaft
+direkt im selben Objekt, sozusagen als Unterobjekt, mitgeliefert werden:
+
+~~~~~  {#jsonld_ex2 .json}
+{
+  "@context":
+  {
+    "name": "http://xmlns.com/foaf/0.1/name",
+    "image": {
+      "@id": "http://xmlns.com/foaf/0.1/img",
+      "@type": "@id"
+    },
+    "homepage": {
+      "@id": "http://xmlns.com/foaf/0.1/homepage",
+      "@type": "@id"
+    }
+  },
+  "name": "Manu Sporny",
+  "homepage": "http://manu.sporny.org/",
+  "image": "http://manu.sporny.org/images/manu.png"
+}
+~~~~~
+
+Hier sind die Eigenschaften wie `image` einer URL wie http://schema.org/image zugewiesen.
+Ein Client, der diese URL kennt, kann daraus folgern, dass über die Objekteigenschaft
+`image` immer die URL eines Bildes zu finden ist. Das Schlüssel-Wert-Paar
+
+    "@type": "@id"
+
+sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die URL eines anderen
+Objekts ist^[URLs heißen in der JSON-LD-Spezifikation "IRI" (für "Internationalized
+Resource Identifier"), wir verwenden hier jedoch weiterhin die Bezeichnung "URL".].
+Mittels `@type`-Deklaration könnte aber auch beispielsweise eine Eigenschaft, die 
+im JSON-Sinn eine Zeichenkette ist, als Datum deklariert werden.
+
+Am obigen Beispiel fällt auf, dass der `@context`-Teil des Objects schon mehr Daten
+umfasst, als die eigentlichen Objekteigenschaften. Sinnvollerweise kann jedoch der 
+gesamte Inhalt des `@context`-Teils in eine externe Ressource ausgelagert werden. Clients,
+die eine Vielzahl von gleichartigen Objekten laden und interpretieren wollen, müssen
+diese Ressource dann nur einmal laden. Das Ergebnis könnte so aussehen:
+
+~~~~~  {#jsonld_ex3 .json}
+{
+  "@context": "http://json-ld.org/contexts/person.jsonld",
+  "name": "Manu Sporny",
+  "homepage": "http://manu.sporny.org/",
+  "image": "http://manu.sporny.org/images/manu.png"
+}
+~~~~~
+
+Die `@context`-Eigenschaft hat nun als Wert eine URL. Die URL (hier: 
+http://json-ld.org/contexts/person.jsonld) gibt wiederum in JSON kodiert die Beschreibung
+aller möglichen Attribute des Objekts aus.
+
+JSON-LD ermöglicht es auch, für ein Objekt einen Objekttyp zu kommunizieren. So könnte
+passend zu unserem Beispiel ausgedrückt werden, um welche Art von Objekt es sich bei den
+vorliegenden Daten handelt. Dazu wird die `@type`-Eigenschaft verwendet, deren Wert
+eine URL ist:
+
+~~~~~  {#jsonld_ex4 .json}
+{
+  "@context": "http://json-ld.org/contexts/person.jsonld",
+  "@type": "http://schema.org/Person",
+  "name": "Manu Sporny",
+  "homepage": "http://manu.sporny.org/",
+  "image": "http://manu.sporny.org/images/manu.png"
+}
+~~~~~
+
+Objekte können mehreren Typen zugeordnet sein und damit die Eigenschafen mehrerer
+Objekttypen nutzen. Im Fall von OParl kann diese Möglichkeit genutzt werden, um
+über die API Eigenschaften auszugeben, die nicht Teil des OParl-Schemas sind.
+
+~~~~~  {#jsonld_ex5 .json}
+{
+  "@context": {
+  	"oparl": "http://oparl.org/schema/1.0/",
+  	"vendor": "http://www.vendor.de/oparl/schema/"
+  },
+  "@type": ["oparl:Paper", "vendor:Drucksache"],
+  "title": "Beschlussvorlage zum Haushalt",
+  "created": "2013-05-29T14:17:39+02:00",
+  "aktenzeichen": "ABC123"
+}
+~~~~~
+
+Das Beispiel oben zeigt ein Objekt, das über die `@context`-Eigenschaft zwei verschiedene
+URLs als sogenannte Vokabulare referenziert. Das eine Vokabular wird durch das Präfix `oparl`
+repräsentiert, das zweite (herstellereigene) mit dem Präfix `vendor`. Der JSON-LD-Client macht aus dem Präfix und der Typenbezeichnung letztlich wieder eine URL:
+
+* Aus `oparl:Paper` wird `http://oparl.org/schema/1.0/Paper`
+* Aus `vendor:Drucksache` wird `http://www.vendor.de/oparl/schema/Drucksache`
+
+TODO: Ab hier weiter ausformulieren
+
+Darüber hinaus stellt JSON-LD zusätzliche Anforderungen an JSON-Daten, die in diesem Abschnitt
+weiter ausgeführt werden sollen...
+
 - Einschränkungen von OParl gegenüber JSON-LD
 - Schlüssel in einem JSON-LD-Objekt müssen einzigartig sein.
 - Unterscheidung von Groß- und Kleinschreibung

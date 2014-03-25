@@ -18,7 +18,7 @@ JSON erlaubt grundsätzlich die Kodierung von Eigenschaften in den folgenden
 verschiedenen Typen:
 
 * Zeichenkette
-* Zahle
+* Zahl
 * Wahrheitswert
 * null
 * Liste (Array)

@@ -53,7 +53,7 @@ the Design of Network-based Software Architectures,
 von Fielding reicht sehr weit und berührt viele Details. In der Praxis wird der Begriff
 häufig genutzt, um eine Schnittstelle zu beschreiben,
 
-* die auf WWW-Technologie aufbaut, insbesondere das HTTP-Protokoll
+* die auf WWW-Technologie aufbaut, insbesondere dem HTTP-Protokoll
 * die darauf beruht, dass mittels URL einzelne Ressourcen oder Zustände vom
   Client abgerufen werden können.
 * die zustandslos ist. Das bedeutet, die Anfrage eines Clients an den Server enthält

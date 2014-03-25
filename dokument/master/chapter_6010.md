@@ -73,4 +73,22 @@ Begrifflichkeiten gesetzt.
 
 ### Erweiterbarkeit
 
+Implementierer sollen in der Lage sein, über eine OParl-konforme Schnittstelle auch
+solche Informationen auszugeben, die nicht im Rahmen des OParl-Schemas abgebildet werden
+können. Dies bedeutet zum einen, dass ein System Objekttypen unterstützen und ausliefern
+darf, die nicht (oder noch nicht) im OParl Schema beschrieben sind. Das bedeutet auch,
+dass Objekttypen so um eigene Eigenschaften erweitert werden können, die nicht im OParl 
+Schema beschrieben sind.
+
+Ein weiterer Aspekt betrifft die Abwärtskompatiblität, also die Kompatibilität von
+OParl-Clients mit zukünftigen Schnittstellen. So können beispielsweise zukünftige Erweiterungen
+des OParl Schemas, etwa um neue Objekttypen, genau so durchgeführt werden wie die Erweiterungen
+um herstellerspezifische Objekttypen. Ein Client muss diese Anteile nicht auswerten, sofern
+sie nicht für die Aufgabe des Clients relevant sind.
+
+Diese angestrebte Erweiterbarkeit wird durch weitgehend durch das JSON-LD-Format
+(TODO: Verweis einfügen) gewährleistet. Es erlaubt die Verflechtung von Objekttypen-Definitionen
+aus verschiedenen Schemata.
+
 ### Browseability/Verlinkung
+

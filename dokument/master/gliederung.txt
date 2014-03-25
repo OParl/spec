@@ -42,6 +42,9 @@ OParl Spezifikation 1.0 Gliederung
         Browseability/Verlinkung
     6020 Zukunftssicherheit
     6030 HTTP und HTTPS
+    6035 URLs
+        Empfehlungen für langlebige IRIs/URIs/URLs
+        Empfehlungen für eindeutige URLs
     6040 Serialisierung mittels JSON-LD und JSONP
         JSON
         JSON-LD
@@ -49,8 +52,6 @@ OParl Spezifikation 1.0 Gliederung
     6050 Benannte und anonyme Objekte
         Benannte Objekte
         Anonyme Objekte (Blank Nodes)
-        Empfehlungen für langlebige IRIs/URIs/URLs
-        Empfehlungen für eindeutige URLs
     6060 Objektlisten
     6070 Feeds
         Neue Objekte

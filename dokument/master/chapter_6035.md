@@ -1,5 +1,5 @@
 URLs
-====
+----
 
 Den URLs (für "Uniform Resource Locators", auch URI für "Uniform Resource Identifier")
 kommt bei einer OParl-konformen API eine besondere Bedeutung zu und es werden eine 
@@ -15,7 +15,7 @@ Verwendung finden:
      |         |                  |                           |
     Schema    Host               Pfad                        Query-String
 
-## URL-Kanonisierung
+### URL-Kanonisierung
 
 Absicht ist, dass jedes benannte Objekt, das ein Server über eine OParl-API anbietet, über genau
 eine URL identifizierbar und abrufbar ist. Diese Vereinheitlichung der URL nennen
@@ -95,7 +95,7 @@ unterscheiden sich lediglich in der Reihenfolge der Query-String-Parameter. Da s
 identisch sind, müssen Clients annehmen, dass beide URLs verschiedene Objekte repräsentieren. In der
 Konsequenz kann es zu vermeidbarer Ressourcennutzugn sowohl auf Client- als auch auf Serverseite kommen.
 
-## Langlebigkeit
+### Langlebigkeit
 
 Weiterhin ist es Absicht, dass URLs von Objekten langlebig sind, so dass sie, wenn sie einmal 
 verbreitet wurden, langfristig zur Abfrage des dazugehörigen Objekts verwendet werden können.

@@ -710,7 +710,7 @@ Stichpunkte:
   Authentifizierung wird nicht benötigt.
 \end{itemize}
 
-\subsection{Designprinzipien}
+\hyperdef{}{designprinzipien}{\subsection{Designprinzipien}\label{designprinzipien}}
 
 \subsubsection{Aufbauend auf der gängigen Praxis}
 
@@ -775,7 +775,7 @@ beschreiben,
 
 \begin{itemize}
 \item
-  die auf WWW-Technologie aufbaut, insbesondere das HTTP-Protokoll
+  die auf WWW-Technologie aufbaut, insbesondere dem HTTP-Protokoll
 \item
   die darauf beruht, dass mittels URL einzelne Ressourcen oder Zustände
   vom Client abgerufen werden können.
@@ -796,7 +796,7 @@ Um den Kreis der Entwicklerinnen und Entwickler, die mit einer OParl-API
 arbeiten können, nicht unnötig einzuschränken, wird hierbei
 grundsätzlich auf englischsprachige Begrifflichkeiten gesetzt.
 
-\subsubsection{Erweiterbarkeit}
+\hyperdef{}{erweiterbarkeit}{\subsubsection{Erweiterbarkeit}\label{erweiterbarkeit}}
 
 Implementierer sollen in der Lage sein, über eine OParl-konforme
 Schnittstelle auch solche Informationen auszugeben, die nicht im Rahmen
@@ -843,24 +843,203 @@ Your Nose'' genannt\footnote{\url{http://patterns.dataincubator.org/book/follow-
 
 \subsection{Zukunftssicherheit}
 
-(In diesem Abschnitt wird die Zielsetzung beschrieben, zukünftige
-Versionen der OParl Spezifikation auf dieser Version aufbauen zu lassen.
-Damit soll nach Möglichkeit Abwärtskompatibilität erreicht werden, so
-dass z.B. OParl-1.0-Clients mit einem 1.1-Server kommunizieren können.
+Wie unter \hyperref[designprinzipien]{Designprinzipien} beschrieben, ist
+diese erste Version der OParl-Spezifikation bereits im Wesentlichen von
+den Zielen der einfachen Implementierbarkeit und Migration geleitet.
 
-Ein Garantie wird es jedoch nicht geben.)
+Der Aufwand, den die Betreiber von parlamentarischen
+Informationssystemen bei der Bereitstellung von OParl-konformen
+Schnittstellen betreiben, soll auch bei der zukünftigen
+Weiterentwicklung dieser Spezifikation berücksichtigt werden. Ebenso
+soll den Entwicklern von Client-Software zukünftig entgegen kommen, dass
+ihre bestehenden Clients auch mit Servern kommunizieren können, die eine
+neuere Version der OParl-Spezifikation unterstützen. Dieser Wunsch ist
+bereits im Designprinzip \hyperref[erweiterbarkeit]{Erweiterbarkeit}
+ausformuliert.
+
+Mit anderen Worten: die Autoren der OParl-Spezifikation beabsichtigen
+größtmögliche Zukunftssicherheit und zukünftige Abwärtskompatibilität.
+Dieses Ziel wird in Zukunft natürlich abgewägt werden müssen mit dem
+Wunsch, sich an Veränderungen und neue Erkenntnisse anzupassen. Eine
+Garantie für Zukunftssicherheit kann insofern niemand aussprechen.
 
 \subsection{HTTP und HTTPS}
 
-(Hier geht es um die Verwendung von HTTP im Sinne der
-OParl-Spezifikation.
+OParl-Server und -Client kommunizieren miteinander über das
+HTTP-Protokoll.
+
+Hierbei KANN eine verschlüsselte Variante des Protokolls, auch HTTPS
+genannt, zum Einsatz kommen. Welche Verschlüsselungstechnologie gewählt
+wird, obliegt dem Betreiber bzw. Server-Implementierer.
+
+Die Wahl des unverschlüsselten oder verschlüsselten HTTP-Zugriffs hat
+Auswirkung auf die im System verwendeten URLs. Wie im Kapitel
+\hyperref[urls]{URLs} beschrieben, verfolgt diese Spezifikation die
+Festlegung auf genau eine ``kanonische'' URL je Ressource
+(URL-Kanonisierung).
+
+Bei unverschlüsseltem Zugriff wird allen URLs, die auf das betreffende
+System zeigen, das Schema ``http://'' voran gestellt, beim
+verschlüsselten Zugriff stattdessen ``https://''.
+
+Es ist daher ZWINGEND, dass der Server-Betreiber sich zur
+URL-Kanonisierung für nur eine von beiden Varianten entscheidet.
+Beantwortet das System regulär Anfragen über HTTPS mit der Auslieferung
+von Objekten etc., dann MUSS das System bei Anfragen an die
+entsprechenden URLs ohne ``https://'' Schema mit einer Weiterleitung
+antworten (HTTP Status-Code 301).
+
+Gleiches gilt umgekehrt: beantwortet das System regulär Anfragen über
+unverschlüsseltes HTTP, dann MÜSSEN Anfragen auf die entsprechenden URLs
+mit ``https://''-Schema mit einer HTTP-Weiterleitung (HTTP Status-Code
+301) beantwortet werden.
+
+\hyperdef{}{urls}{\section{URLs}\label{urls}}
+
+Den URLs (für ``Uniform Resource Locators'', auch URI für ``Uniform
+Resource Identifier'') kommt bei einer OParl-konformen API eine
+besondere Bedeutung zu und es werden eine Reihe von Anforderungen an die
+Verarbeitung von URLs gestellt.
+
+Die grundsätzliche Funktionsweise von URLs ist in RFC3986
+beschrieben\footnote{\url{http://tools.ietf.org/html/rfc3986}}.
+
+Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in
+diesem Dokument Verwendung finden:
+
+\begin{verbatim}
+http://refserv.oparl.org/bodies/0/committees/4/members/?skip=234
+\__/   \_______________/\_____________________________/ \______/
+ |         |                  |                           |
+Schema    Host               Pfad                        Query-String
+\end{verbatim}
+
+\subsubsection{URL-Kanonisierung}
+
+Absicht ist, dass jedes benannte Objekt, das ein Server über eine
+OParl-API anbietet, über genau eine URL identifizierbar und abrufbar
+ist. Diese Vereinheitlichung der URL nennen wir Kanonisierung.
+
+Die Kanonisierung ist entscheidend, um erkennen zu können, ob zwei URLs
+das selbe Objekt repräsentieren. Sind zwei URLs identisch, sollen
+Clients daraus ableiten können, dass diese das selbe Objekt
+repräsentieren. Sind zwei URLs unterschiedlich, soll im Umkehrschluss
+die Annahme gelten, dass sie zwei verschiedene Objekte repräsentieren.
+
+Der OParl-konforme Server MUSS für jedes benannte Objekt eine kanonische
+URL bestimmen können.
+
+Die URL-Kanonisierung betrifft sämtliche Bestandteile der URL.
+Entsprechend beginnt diese schon beim \textbf{Schema} und bei der
+Entscheidung durch den Betreiber, ob eine OParl-API regulär über HTTP
+oder über HTTPS erreichbar sein soll (vgl. {[}HTTP und HTTPS{]}).
+
+Der \textbf{Host}-Teil der URL wird ebenfalls durch die Konfiguration
+des Betreibers festgelegt. Obwohl technisch auch die Verwendung einer
+IP-Adresse (z.B. ``123.123.123.123'') möglich wäre, SOLL der Betreiber
+einen mit Bedacht gewählten Host-Namen einsetzen. Die Vorteile dieser
+Lösung gegenüber der Verwendung einer IP-Adresse sind vielfältig:
 
 \begin{itemize}
 \item
-  HTTPS kann optional an Stelle von HTTP eingesetzt werden.
+  NutzerInnen können Host-Namen lesen und interpretieren
+\item
+  In Kombination mit der richtigen Domain (oder Subdomain) kann der
+  Hostname kommunizieren, wer der Betreiber ist.
+\item
+  Host-Namen können zwischen verschiedenen technischen Systemen (bzw.
+  von IP-Adresse zu IP-Adresse) migriert werden, was hilft, die
+  Langlebigkeit der URLs zu gewährleisten
 \end{itemize}
 
-Siehe auch https://github.com/OParl/specs/issues/90)
+Eine URL wie
+
+\begin{verbatim}
+http://oparl.ratsinformation.stadt-koeln.de/
+\end{verbatim}
+
+kommuniziert beispielsweise direkt die Zugehörigkeit zur Stadt Köln als
+Betreiber des Systems. Die Bezeichnung ``ratsinformation'' in der
+Subdomain zeigt den Zweck des Systems allgemein verständlich an. Der
+Host-Name ``oparl.ratsinformation.stadt-koeln.de'' deutet an, dass diese
+URL zu einer OParl-Schnittstelle zu diesem System gehört.
+
+Um die Kanonisierung zu gewährleisten, sind vom Betreiber alle
+notwendigen Faktoren auszuschließen, die dazu führen können, dass eine
+Ressource neben der kanonischen URL noch über andere URLs abrufbar ist.
+Diese Faktoren könnten sein:
+
+\begin{itemize}
+\item
+  Der selbe Server antwortet nicht nur über den kanonischen Host-Namen,
+  sondern auch noch über andere Host-Namen. Das könnte zum Beispiel der
+  Fall sein, wenn der Host-Name als CNAME für einen anderen Namen
+  konfiguriert wurde oder wenn ein DNS A-Record für die IP-Adresse des
+  Servers existiert.
+\item
+  Der Server ist neben dem Host-Namen auch über die IP-Adresse
+  erreichbar.
+\item
+  Zusätzliche Domains, die einen A-Record auf den selben Server besitzen
+\end{itemize}
+
+Zu der oben gezeigten kanonischen Beispiel-URL
+http://oparl.ratsinformation.stadt-koeln.de/ wären eine Reihe von
+nicht-kanonischen URL-Varianten denkbar, die technischen auf den selben
+Server führen könnten:
+
+\begin{itemize}
+\item
+  http://83.123.89.102/
+\item
+  http://oparl.ratsinformation.stadtkoeln.de/
+\item
+  http://risserv.stadt-koeln.de/
+\end{itemize}
+
+Falls es aus technischen Gründen nicht möglich ist, den Zugang auf das
+OParl-System über nicht-kanonische URLs zu unterbinden, SOLL eine
+entsprechende HTTP-Anfrage mit einer Weiterleitung auf die entsprechende
+kanonische URL beantwortet werden. Dabei ist der HTTP-Status-Code 301 zu
+verwenden.
+
+Server-Implementierern wird empfohlen, hierfür den Host-Header der
+HTTP-Anfrage auszuwerten und mit der konfigurierten Einstellung für den
+kanonischen Hostnamen des Systems abzugleichen.
+
+\subsubsection{Langlebigkeit}
+
+Weiterhin ist es Absicht, dass URLs von Objekten langlebig sind, so dass
+sie, wenn sie einmal verbreitet wurden, langfristig zur Abfrage des
+dazugehörigen Objekts verwendet werden können.
+
+\subsubsection{Empfehlungen für langlebige IRIs/URIs/URLs}
+
+\begin{itemize}
+\item
+  Hinweise und evtl. Auszüge aus
+\item
+  http://www.w3.org/Provider/Style/URI.html
+\item
+  https://joinup.ec.europa.eu/sites/default/files/D7.1.3\%20-\%20Study\%20on\%20persistent\%20URIs.pdf
+\end{itemize}
+
+\subsubsection{Empfehlungen für eindeutige URLs}
+
+\begin{itemize}
+\item
+  Vermeidung von Duplicate Content durch Fehlkonfiguration
+\item
+  z.B.: verschiedene CNAMES mit der selben IP-Adresse
+\item
+  z.B.: Aufruf über http://www.example.com und http://example.com
+\item
+  z.B.: Direkter Aufruf über IP-Adresse http://1.2.3.4/
+\item
+  URL-Parameter in definierter Reihenfolge verwenden
+\item
+  Groß- und Kleinschreibung unterscheiden
+\end{itemize}
 
 \subsection{Serialisierung mittels JSON-LD und JSONP}
 
@@ -925,34 +1104,6 @@ Siehe auch https://github.com/OParl/specs/issues/90)
 \end{itemize}
 
 \subsubsection{Anonyme Objekte (Blank Nodes)}
-
-\subsubsection{Empfehlungen für langlebige IRIs/URIs/URLs}
-
-\begin{itemize}
-\item
-  Hinweise und evtl. Auszüge aus
-\item
-  http://www.w3.org/Provider/Style/URI.html
-\item
-  https://joinup.ec.europa.eu/sites/default/files/D7.1.3\%20-\%20Study\%20on\%20persistent\%20URIs.pdf
-\end{itemize}
-
-\subsubsection{Empfehlungen für eindeutige URLs}
-
-\begin{itemize}
-\item
-  Vermeidung von Duplicate Content durch Fehlkonfiguration
-\item
-  z.B.: verschiedene CNAMES mit der selben IP-Adresse
-\item
-  z.B.: Aufruf über http://www.example.com und http://example.com
-\item
-  z.B.: Direkter Aufruf über IP-Adresse http://1.2.3.4/
-\item
-  URL-Parameter in definierter Reihenfolge verwenden
-\item
-  Groß- und Kleinschreibung unterscheiden
-\end{itemize}
 
 \subsection{Objektlisten}
 

@@ -1052,7 +1052,7 @@
       <itemizedlist>
         <listitem>
           <para>
-            die auf WWW-Technologie aufbaut, insbesondere das
+            die auf WWW-Technologie aufbaut, insbesondere dem
             HTTP-Protokoll
           </para>
         </listitem>
@@ -1154,32 +1154,298 @@
   <sect2 id="zukunftssicherheit">
     <title>Zukunftssicherheit</title>
     <para>
-      (In diesem Abschnitt wird die Zielsetzung beschrieben, zukünftige
-      Versionen der OParl Spezifikation auf dieser Version aufbauen zu
-      lassen. Damit soll nach Möglichkeit Abwärtskompatibilität erreicht
-      werden, so dass z.B. OParl-1.0-Clients mit einem 1.1-Server
-      kommunizieren können.
+      Wie unter <link linkend="designprinzipien">Designprinzipien</link>
+      beschrieben, ist diese erste Version der OParl-Spezifikation
+      bereits im Wesentlichen von den Zielen der einfachen
+      Implementierbarkeit und Migration geleitet.
     </para>
     <para>
-      Ein Garantie wird es jedoch nicht geben.)
+      Der Aufwand, den die Betreiber von parlamentarischen
+      Informationssystemen bei der Bereitstellung von OParl-konformen
+      Schnittstellen betreiben, soll auch bei der zukünftigen
+      Weiterentwicklung dieser Spezifikation berücksichtigt werden.
+      Ebenso soll den Entwicklern von Client-Software zukünftig entgegen
+      kommen, dass ihre bestehenden Clients auch mit Servern
+      kommunizieren können, die eine neuere Version der
+      OParl-Spezifikation unterstützen. Dieser Wunsch ist bereits im
+      Designprinzip
+      <link linkend="erweiterbarkeit">Erweiterbarkeit</link>
+      ausformuliert.
+    </para>
+    <para>
+      Mit anderen Worten: die Autoren der OParl-Spezifikation
+      beabsichtigen größtmögliche Zukunftssicherheit und zukünftige
+      Abwärtskompatibilität. Dieses Ziel wird in Zukunft natürlich
+      abgewägt werden müssen mit dem Wunsch, sich an Veränderungen und
+      neue Erkenntnisse anzupassen. Eine Garantie für Zukunftssicherheit
+      kann insofern niemand aussprechen.
     </para>
   </sect2>
   <sect2 id="http-und-https">
     <title>HTTP und HTTPS</title>
     <para>
-      (Hier geht es um die Verwendung von HTTP im Sinne der
-      OParl-Spezifikation.
+      OParl-Server und -Client kommunizieren miteinander über das
+      HTTP-Protokoll.
+    </para>
+    <para>
+      Hierbei KANN eine verschlüsselte Variante des Protokolls, auch
+      HTTPS genannt, zum Einsatz kommen. Welche
+      Verschlüsselungstechnologie gewählt wird, obliegt dem Betreiber
+      bzw. Server-Implementierer.
+    </para>
+    <para>
+      Die Wahl des unverschlüsselten oder verschlüsselten HTTP-Zugriffs
+      hat Auswirkung auf die im System verwendeten URLs. Wie im Kapitel
+      <link linkend="urls">URLs</link> beschrieben, verfolgt diese
+      Spezifikation die Festlegung auf genau eine &quot;kanonische&quot;
+      URL je Ressource (URL-Kanonisierung).
+    </para>
+    <para>
+      Bei unverschlüsseltem Zugriff wird allen URLs, die auf das
+      betreffende System zeigen, das Schema &quot;http://&quot; voran
+      gestellt, beim verschlüsselten Zugriff stattdessen
+      &quot;https://&quot;.
+    </para>
+    <para>
+      Es ist daher ZWINGEND, dass der Server-Betreiber sich zur
+      URL-Kanonisierung für nur eine von beiden Varianten entscheidet.
+      Beantwortet das System regulär Anfragen über HTTPS mit der
+      Auslieferung von Objekten etc., dann MUSS das System bei Anfragen
+      an die entsprechenden URLs ohne &quot;https://&quot; Schema mit
+      einer Weiterleitung antworten (HTTP Status-Code 301).
+    </para>
+    <para>
+      Gleiches gilt umgekehrt: beantwortet das System regulär Anfragen
+      über unverschlüsseltes HTTP, dann MÜSSEN Anfragen auf die
+      entsprechenden URLs mit &quot;https://&quot;-Schema mit einer
+      HTTP-Weiterleitung (HTTP Status-Code 301) beantwortet werden.
+    </para>
+  </sect2>
+</sect1>
+<sect1 id="urls">
+  <title>URLs</title>
+  <para>
+    Den URLs (für &quot;Uniform Resource Locators&quot;, auch URI für
+    &quot;Uniform Resource Identifier&quot;) kommt bei einer
+    OParl-konformen API eine besondere Bedeutung zu und es werden eine
+    Reihe von Anforderungen an die Verarbeitung von URLs gestellt.
+  </para>
+  <para>
+    Die grundsätzliche Funktionsweise von URLs ist in RFC3986
+    beschrieben<footnote>
+      <para>
+        <ulink url="http://tools.ietf.org/html/rfc3986"><literal>http://tools.ietf.org/html/rfc3986</literal></ulink>
+      </para>
+    </footnote>.
+  </para>
+  <para>
+    Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie
+    in diesem Dokument Verwendung finden:
+  </para>
+  <programlisting>
+http://refserv.oparl.org/bodies/0/committees/4/members/?skip=234
+\__/   \_______________/\_____________________________/ \______/
+ |         |                  |                           |
+Schema    Host               Pfad                        Query-String
+</programlisting>
+  <sect2 id="url-kanonisierung">
+    <title>URL-Kanonisierung</title>
+    <para>
+      Absicht ist, dass jedes benannte Objekt, das ein Server über eine
+      OParl-API anbietet, über genau eine URL identifizierbar und
+      abrufbar ist. Diese Vereinheitlichung der URL nennen wir
+      Kanonisierung.
+    </para>
+    <para>
+      Die Kanonisierung ist entscheidend, um erkennen zu können, ob zwei
+      URLs das selbe Objekt repräsentieren. Sind zwei URLs identisch,
+      sollen Clients daraus ableiten können, dass diese das selbe Objekt
+      repräsentieren. Sind zwei URLs unterschiedlich, soll im
+      Umkehrschluss die Annahme gelten, dass sie zwei verschiedene
+      Objekte repräsentieren.
+    </para>
+    <para>
+      Der OParl-konforme Server MUSS für jedes benannte Objekt eine
+      kanonische URL bestimmen können.
+    </para>
+    <para>
+      Die URL-Kanonisierung betrifft sämtliche Bestandteile der URL.
+      Entsprechend beginnt diese schon beim
+      <emphasis role="strong">Schema</emphasis> und bei der Entscheidung
+      durch den Betreiber, ob eine OParl-API regulär über HTTP oder über
+      HTTPS erreichbar sein soll (vgl. [HTTP und HTTPS]).
+    </para>
+    <para>
+      Der <emphasis role="strong">Host</emphasis>-Teil der URL wird
+      ebenfalls durch die Konfiguration des Betreibers festgelegt.
+      Obwohl technisch auch die Verwendung einer IP-Adresse (z.B.
+      &quot;123.123.123.123&quot;) möglich wäre, SOLL der Betreiber
+      einen mit Bedacht gewählten Host-Namen einsetzen. Die Vorteile
+      dieser Lösung gegenüber der Verwendung einer IP-Adresse sind
+      vielfältig:
     </para>
     <itemizedlist>
       <listitem>
         <para>
-          HTTPS kann optional an Stelle von HTTP eingesetzt werden.
+          NutzerInnen können Host-Namen lesen und interpretieren
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          In Kombination mit der richtigen Domain (oder Subdomain) kann
+          der Hostname kommunizieren, wer der Betreiber ist.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Host-Namen können zwischen verschiedenen technischen Systemen
+          (bzw. von IP-Adresse zu IP-Adresse) migriert werden, was
+          hilft, die Langlebigkeit der URLs zu gewährleisten
         </para>
       </listitem>
     </itemizedlist>
     <para>
-      Siehe auch https://github.com/OParl/specs/issues/90)
+      Eine URL wie
     </para>
+    <programlisting>
+http://oparl.ratsinformation.stadt-koeln.de/
+</programlisting>
+    <para>
+      kommuniziert beispielsweise direkt die Zugehörigkeit zur Stadt
+      Köln als Betreiber des Systems. Die Bezeichnung
+      &quot;ratsinformation&quot; in der Subdomain zeigt den Zweck des
+      Systems allgemein verständlich an. Der Host-Name
+      &quot;oparl.ratsinformation.stadt-koeln.de&quot; deutet an, dass
+      diese URL zu einer OParl-Schnittstelle zu diesem System gehört.
+    </para>
+    <para>
+      Um die Kanonisierung zu gewährleisten, sind vom Betreiber alle
+      notwendigen Faktoren auszuschließen, die dazu führen können, dass
+      eine Ressource neben der kanonischen URL noch über andere URLs
+      abrufbar ist. Diese Faktoren könnten sein:
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Der selbe Server antwortet nicht nur über den kanonischen
+          Host-Namen, sondern auch noch über andere Host-Namen. Das
+          könnte zum Beispiel der Fall sein, wenn der Host-Name als
+          CNAME für einen anderen Namen konfiguriert wurde oder wenn ein
+          DNS A-Record für die IP-Adresse des Servers existiert.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Der Server ist neben dem Host-Namen auch über die IP-Adresse
+          erreichbar.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Zusätzliche Domains, die einen A-Record auf den selben Server
+          besitzen
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      Zu der oben gezeigten kanonischen Beispiel-URL
+      http://oparl.ratsinformation.stadt-koeln.de/ wären eine Reihe von
+      nicht-kanonischen URL-Varianten denkbar, die technischen auf den
+      selben Server führen könnten:
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          http://83.123.89.102/
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          http://oparl.ratsinformation.stadtkoeln.de/
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          http://risserv.stadt-koeln.de/
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      Falls es aus technischen Gründen nicht möglich ist, den Zugang auf
+      das OParl-System über nicht-kanonische URLs zu unterbinden, SOLL
+      eine entsprechende HTTP-Anfrage mit einer Weiterleitung auf die
+      entsprechende kanonische URL beantwortet werden. Dabei ist der
+      HTTP-Status-Code 301 zu verwenden.
+    </para>
+    <para>
+      Server-Implementierern wird empfohlen, hierfür den Host-Header der
+      HTTP-Anfrage auszuwerten und mit der konfigurierten Einstellung
+      für den kanonischen Hostnamen des Systems abzugleichen.
+    </para>
+  </sect2>
+  <sect2 id="langlebigkeit">
+    <title>Langlebigkeit</title>
+    <para>
+      Weiterhin ist es Absicht, dass URLs von Objekten langlebig sind,
+      so dass sie, wenn sie einmal verbreitet wurden, langfristig zur
+      Abfrage des dazugehörigen Objekts verwendet werden können.
+    </para>
+  </sect2>
+  <sect2 id="empfehlungen-für-langlebige-irisurisurls">
+    <title>Empfehlungen für langlebige IRIs/URIs/URLs</title>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Hinweise und evtl. Auszüge aus
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          http://www.w3.org/Provider/Style/URI.html
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf
+        </para>
+      </listitem>
+    </itemizedlist>
+  </sect2>
+  <sect2 id="empfehlungen-für-eindeutige-urls">
+    <title>Empfehlungen für eindeutige URLs</title>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Vermeidung von Duplicate Content durch Fehlkonfiguration
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          z.B.: verschiedene CNAMES mit der selben IP-Adresse
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          z.B.: Aufruf über http://www.example.com und
+          http://example.com
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          z.B.: Direkter Aufruf über IP-Adresse http://1.2.3.4/
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          URL-Parameter in definierter Reihenfolge verwenden
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Groß- und Kleinschreibung unterscheiden
+        </para>
+      </listitem>
+    </itemizedlist>
   </sect2>
   <sect2 id="serialisierung-mittels-json-ld-und-jsonp">
     <title>Serialisierung mittels JSON-LD und JSONP</title>
@@ -1299,62 +1565,6 @@
       <title>Anonyme Objekte (Blank Nodes)</title>
       <para>
       </para>
-    </sect3>
-    <sect3 id="empfehlungen-für-langlebige-irisurisurls">
-      <title>Empfehlungen für langlebige IRIs/URIs/URLs</title>
-      <itemizedlist>
-        <listitem>
-          <para>
-            Hinweise und evtl. Auszüge aus
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            http://www.w3.org/Provider/Style/URI.html
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf
-          </para>
-        </listitem>
-      </itemizedlist>
-    </sect3>
-    <sect3 id="empfehlungen-für-eindeutige-urls">
-      <title>Empfehlungen für eindeutige URLs</title>
-      <itemizedlist>
-        <listitem>
-          <para>
-            Vermeidung von Duplicate Content durch Fehlkonfiguration
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            z.B.: verschiedene CNAMES mit der selben IP-Adresse
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            z.B.: Aufruf über http://www.example.com und
-            http://example.com
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            z.B.: Direkter Aufruf über IP-Adresse http://1.2.3.4/
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            URL-Parameter in definierter Reihenfolge verwenden
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Groß- und Kleinschreibung unterscheiden
-          </para>
-        </listitem>
-      </itemizedlist>
     </sect3>
   </sect2>
   <sect2 id="objektlisten">

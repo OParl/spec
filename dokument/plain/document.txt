@@ -604,7 +604,7 @@ Jahr 2000 von Roy Fielding eingeführt[^5]. Die Definition von Fielding
 reicht sehr weit und berührt viele Details. In der Praxis wird der
 Begriff häufig genutzt, um eine Schnittstelle zu beschreiben,
 
--   die auf WWW-Technologie aufbaut, insbesondere das HTTP-Protokoll
+-   die auf WWW-Technologie aufbaut, insbesondere dem HTTP-Protokoll
 -   die darauf beruht, dass mittels URL einzelne Ressourcen oder
     Zustände vom Client abgerufen werden können.
 -   die zustandslos ist. Das bedeutet, die Anfrage eines Clients an den
@@ -671,22 +671,174 @@ Your Nose" genannt[^6].
 Zukunftssicherheit
 ------------------
 
-(In diesem Abschnitt wird die Zielsetzung beschrieben, zukünftige
-Versionen der OParl Spezifikation auf dieser Version aufbauen zu lassen.
-Damit soll nach Möglichkeit Abwärtskompatibilität erreicht werden, so
-dass z.B. OParl-1.0-Clients mit einem 1.1-Server kommunizieren können.
+Wie unter Designprinzipien beschrieben, ist diese erste Version der
+OParl-Spezifikation bereits im Wesentlichen von den Zielen der einfachen
+Implementierbarkeit und Migration geleitet.
 
-Ein Garantie wird es jedoch nicht geben.)
+Der Aufwand, den die Betreiber von parlamentarischen
+Informationssystemen bei der Bereitstellung von OParl-konformen
+Schnittstellen betreiben, soll auch bei der zukünftigen
+Weiterentwicklung dieser Spezifikation berücksichtigt werden. Ebenso
+soll den Entwicklern von Client-Software zukünftig entgegen kommen, dass
+ihre bestehenden Clients auch mit Servern kommunizieren können, die eine
+neuere Version der OParl-Spezifikation unterstützen. Dieser Wunsch ist
+bereits im Designprinzip Erweiterbarkeit ausformuliert.
+
+Mit anderen Worten: die Autoren der OParl-Spezifikation beabsichtigen
+größtmögliche Zukunftssicherheit und zukünftige Abwärtskompatibilität.
+Dieses Ziel wird in Zukunft natürlich abgewägt werden müssen mit dem
+Wunsch, sich an Veränderungen und neue Erkenntnisse anzupassen. Eine
+Garantie für Zukunftssicherheit kann insofern niemand aussprechen.
 
 HTTP und HTTPS
 --------------
 
-(Hier geht es um die Verwendung von HTTP im Sinne der
-OParl-Spezifikation.
+OParl-Server und -Client kommunizieren miteinander über das
+HTTP-Protokoll.
 
--   HTTPS kann optional an Stelle von HTTP eingesetzt werden.
+Hierbei KANN eine verschlüsselte Variante des Protokolls, auch HTTPS
+genannt, zum Einsatz kommen. Welche Verschlüsselungstechnologie gewählt
+wird, obliegt dem Betreiber bzw. Server-Implementierer.
 
-Siehe auch https://github.com/OParl/specs/issues/90)
+Die Wahl des unverschlüsselten oder verschlüsselten HTTP-Zugriffs hat
+Auswirkung auf die im System verwendeten URLs. Wie im Kapitel URLs
+beschrieben, verfolgt diese Spezifikation die Festlegung auf genau eine
+"kanonische" URL je Ressource (URL-Kanonisierung).
+
+Bei unverschlüsseltem Zugriff wird allen URLs, die auf das betreffende
+System zeigen, das Schema "http://" voran gestellt, beim verschlüsselten
+Zugriff stattdessen "https://".
+
+Es ist daher ZWINGEND, dass der Server-Betreiber sich zur
+URL-Kanonisierung für nur eine von beiden Varianten entscheidet.
+Beantwortet das System regulär Anfragen über HTTPS mit der Auslieferung
+von Objekten etc., dann MUSS das System bei Anfragen an die
+entsprechenden URLs ohne "https://" Schema mit einer Weiterleitung
+antworten (HTTP Status-Code 301).
+
+Gleiches gilt umgekehrt: beantwortet das System regulär Anfragen über
+unverschlüsseltes HTTP, dann MÜSSEN Anfragen auf die entsprechenden URLs
+mit "https://"-Schema mit einer HTTP-Weiterleitung (HTTP Status-Code
+301) beantwortet werden.
+
+URLs
+====
+
+Den URLs (für "Uniform Resource Locators", auch URI für "Uniform
+Resource Identifier") kommt bei einer OParl-konformen API eine besondere
+Bedeutung zu und es werden eine Reihe von Anforderungen an die
+Verarbeitung von URLs gestellt.
+
+Die grundsätzliche Funktionsweise von URLs ist in RFC3986
+beschrieben[^7].
+
+Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in
+diesem Dokument Verwendung finden:
+
+    http://refserv.oparl.org/bodies/0/committees/4/members/?skip=234
+    \__/   \_______________/\_____________________________/ \______/
+     |         |                  |                           |
+    Schema    Host               Pfad                        Query-String
+
+URL-Kanonisierung
+
+Absicht ist, dass jedes benannte Objekt, das ein Server über eine
+OParl-API anbietet, über genau eine URL identifizierbar und abrufbar
+ist. Diese Vereinheitlichung der URL nennen wir Kanonisierung.
+
+Die Kanonisierung ist entscheidend, um erkennen zu können, ob zwei URLs
+das selbe Objekt repräsentieren. Sind zwei URLs identisch, sollen
+Clients daraus ableiten können, dass diese das selbe Objekt
+repräsentieren. Sind zwei URLs unterschiedlich, soll im Umkehrschluss
+die Annahme gelten, dass sie zwei verschiedene Objekte repräsentieren.
+
+Der OParl-konforme Server MUSS für jedes benannte Objekt eine kanonische
+URL bestimmen können.
+
+Die URL-Kanonisierung betrifft sämtliche Bestandteile der URL.
+Entsprechend beginnt diese schon beim Schema und bei der Entscheidung
+durch den Betreiber, ob eine OParl-API regulär über HTTP oder über HTTPS
+erreichbar sein soll (vgl. [HTTP und HTTPS]).
+
+Der Host-Teil der URL wird ebenfalls durch die Konfiguration des
+Betreibers festgelegt. Obwohl technisch auch die Verwendung einer
+IP-Adresse (z.B. "123.123.123.123") möglich wäre, SOLL der Betreiber
+einen mit Bedacht gewählten Host-Namen einsetzen. Die Vorteile dieser
+Lösung gegenüber der Verwendung einer IP-Adresse sind vielfältig:
+
+-   NutzerInnen können Host-Namen lesen und interpretieren
+-   In Kombination mit der richtigen Domain (oder Subdomain) kann der
+    Hostname kommunizieren, wer der Betreiber ist.
+-   Host-Namen können zwischen verschiedenen technischen Systemen (bzw.
+    von IP-Adresse zu IP-Adresse) migriert werden, was hilft, die
+    Langlebigkeit der URLs zu gewährleisten
+
+Eine URL wie
+
+    http://oparl.ratsinformation.stadt-koeln.de/
+
+kommuniziert beispielsweise direkt die Zugehörigkeit zur Stadt Köln als
+Betreiber des Systems. Die Bezeichnung "ratsinformation" in der
+Subdomain zeigt den Zweck des Systems allgemein verständlich an. Der
+Host-Name "oparl.ratsinformation.stadt-koeln.de" deutet an, dass diese
+URL zu einer OParl-Schnittstelle zu diesem System gehört.
+
+Um die Kanonisierung zu gewährleisten, sind vom Betreiber alle
+notwendigen Faktoren auszuschließen, die dazu führen können, dass eine
+Ressource neben der kanonischen URL noch über andere URLs abrufbar ist.
+Diese Faktoren könnten sein:
+
+-   Der selbe Server antwortet nicht nur über den kanonischen
+    Host-Namen, sondern auch noch über andere Host-Namen. Das könnte zum
+    Beispiel der Fall sein, wenn der Host-Name als CNAME für einen
+    anderen Namen konfiguriert wurde oder wenn ein DNS A-Record für die
+    IP-Adresse des Servers existiert.
+
+-   Der Server ist neben dem Host-Namen auch über die IP-Adresse
+    erreichbar.
+
+-   Zusätzliche Domains, die einen A-Record auf den selben Server
+    besitzen
+
+Zu der oben gezeigten kanonischen Beispiel-URL
+http://oparl.ratsinformation.stadt-koeln.de/ wären eine Reihe von
+nicht-kanonischen URL-Varianten denkbar, die technischen auf den selben
+Server führen könnten:
+
+-   http://83.123.89.102/
+-   http://oparl.ratsinformation.stadtkoeln.de/
+-   http://risserv.stadt-koeln.de/
+
+Falls es aus technischen Gründen nicht möglich ist, den Zugang auf das
+OParl-System über nicht-kanonische URLs zu unterbinden, SOLL eine
+entsprechende HTTP-Anfrage mit einer Weiterleitung auf die entsprechende
+kanonische URL beantwortet werden. Dabei ist der HTTP-Status-Code 301 zu
+verwenden.
+
+Server-Implementierern wird empfohlen, hierfür den Host-Header der
+HTTP-Anfrage auszuwerten und mit der konfigurierten Einstellung für den
+kanonischen Hostnamen des Systems abzugleichen.
+
+Langlebigkeit
+
+Weiterhin ist es Absicht, dass URLs von Objekten langlebig sind, so dass
+sie, wenn sie einmal verbreitet wurden, langfristig zur Abfrage des
+dazugehörigen Objekts verwendet werden können.
+
+Empfehlungen für langlebige IRIs/URIs/URLs
+
+-   Hinweise und evtl. Auszüge aus
+-   http://www.w3.org/Provider/Style/URI.html
+-   https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf
+
+Empfehlungen für eindeutige URLs
+
+-   Vermeidung von Duplicate Content durch Fehlkonfiguration
+-   z.B.: verschiedene CNAMES mit der selben IP-Adresse
+-   z.B.: Aufruf über http://www.example.com und http://example.com
+-   z.B.: Direkter Aufruf über IP-Adresse http://1.2.3.4/
+-   URL-Parameter in definierter Reihenfolge verwenden
+-   Groß- und Kleinschreibung unterscheiden
 
 Serialisierung mittels JSON-LD und JSONP
 ----------------------------------------
@@ -728,21 +880,6 @@ Benannte Objekte
 -   IRIs (RFC3987) als eindeutige Kennung
 
 Anonyme Objekte (Blank Nodes)
-
-Empfehlungen für langlebige IRIs/URIs/URLs
-
--   Hinweise und evtl. Auszüge aus
--   http://www.w3.org/Provider/Style/URI.html
--   https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf
-
-Empfehlungen für eindeutige URLs
-
--   Vermeidung von Duplicate Content durch Fehlkonfiguration
--   z.B.: verschiedene CNAMES mit der selben IP-Adresse
--   z.B.: Aufruf über http://www.example.com und http://example.com
--   z.B.: Direkter Aufruf über IP-Adresse http://1.2.3.4/
--   URL-Parameter in definierter Reihenfolge verwenden
--   Groß- und Kleinschreibung unterscheiden
 
 Objektlisten
 ------------
@@ -1069,14 +1206,14 @@ Diese Eigenschaft ist EMPFOHLEN.
 
 Handelt es sich bei der Körperschaft um eine Gebietskörperschaft
 (Landkreis, Kommune etc.) in Deutschland, SOLL für die eindeutige
-Identifizierung der amtliche Regionalschlüssel verwendet werden.[^7]
+Identifizierung der amtliche Regionalschlüssel verwendet werden.[^8]
 Dieser ist grundsätzlich zwölfstellig.
 
 Eigenschaft gnd_url
 
 Diese Eigenschaft ist EMPFOHLEN.
 
-Sofern die Körperschaft in der GND[^8] vertreten ist, SOLL diese
+Sofern die Körperschaft in der GND[^9] vertreten ist, SOLL diese
 Eigenschaft als Wert die URL des Eintrags in der GND enthalten.
 
 Eigenschaft contact
@@ -1746,7 +1883,9 @@ WGS 84
 
 [^6]: http://patterns.dataincubator.org/book/follow-your-nose.html
 
-[^7]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
+[^7]: http://tools.ietf.org/html/rfc3986
+
+[^8]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
     Statistischen Bundesamtes eingesehen werden
 
-[^8]: Gemeinsame Normdatei http://www.dnb.de/gnd
+[^9]: Gemeinsame Normdatei http://www.dnb.de/gnd

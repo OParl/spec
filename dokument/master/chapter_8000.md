@@ -12,22 +12,6 @@ einander stehen.
 Übergreifende Aspekte
 ---------------------
 
-### Typen von Objekteigenschaften
-
-JSON erlaubt grundsätzlich die Kodierung von Eigenschaften in den folgenden
-verschiedenen Typen:
-
-* Zeichenkette
-* Zahl
-* Wahrheitswert
-* null
-* Liste (Array)
-* Objekt
-
-Wenn nicht anders angegeben, wird eine Eigenschaft grundsätzlich als Zeichenkette
-erwartet. Eventuelle Längenbeschränkungen oder Einschränkungen des Zeichenvorrats
-werden gesondert erwähnt.
-
 ### null-Werte
 
 JSON erlaubt es grundsätzlich, dass Eigenschaften den Wert `null` haben können.

@@ -250,7 +250,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul>
 <p>Zur Realisierung derartiger Szenarien können die Fähigkeiten von OParl-kompatiblen Servern mit den besonderen Eigenschaften der mobilen Endgeräte verknüpft werden.</p>
 <p>Smartphones und Tablets verfügen beispielsweise, je nach Aufenthaltsort, über sehr unterschiedlich gute Internetanbindung. In einem Büro oder zuhause können Nutzer über ein WLAN Daten mit hoher Bandbreite austauschen, in Mobilfunknetzen vor allem außerhalb der Ballungsgebiete jedoch sinken die Bandbreiten deutlich. Einige Tablets werden sogar ohne Möglichkeit zur Mobilfunk-Datenübertragung genutzt. In solchen Fällen kann ein <a href="#cache">Cache</a> auf dem Endgerät dazu dienen, Inhalte vorzuhalten, die dann auch bei langsamer oder fehlender Internetverbindung zur Verfügung stehen. Sobald dann wieder eine Verbindung mit hoher Bandbreite bereit steht, kann die App im Hintergrund, entweder über die <a href="#feeds">Feeds</a> der OParl API oder über den einzelnen Abruf von Objekten, die gecachten Inhalte aktualisieren.</p>
-<p>Eine Stärke eines mobilen Clients ist auch die Möglichkeit der Personalisierung, also der Anpassung auf die Bedürfnisse und Interessen der Nutzerin oder des Nutzers. Es wäre beispielsweise denkbar, dass eine Nutzerin die Ratsinformationssysteme, für die sie sich interessiert, dauerhaft in der App einrichtet und eine Favoritenliste der Gremien, die ihre bevorzugten Themengebiete behandeln, hinterlegt. Die App könnte aufgrund dieser Favoritenliste eigneständig über die API nach neuen Sitzungsterminen, Tagesordnungspunkten, Drucksachen und Dokumente suchen. Taucht dabei ein neues Objekt auf, wird die Nutzerin darüber benachrichtigt. Sie kann dann beispielsweise entscheiden, Dokumente direkt zu öffnen oder für den späteren Offline-Zugriff zu speichern.</p>
+<p>Eine Stärke eines mobilen Clients ist auch die Möglichkeit der Personalisierung, also der Anpassung auf die Bedürfnisse und Interessen der Nutzerin oder des Nutzers. Es wäre beispielsweise denkbar, dass eine Nutzerin die Ratsinformationssysteme, für die sie sich interessiert, dauerhaft in der App einrichtet und eine Favoritenliste der Gremien, die ihre bevorzugten Themengebiete behandeln, hinterlegt. Die App könnte aufgrund dieser Favoritenliste eigenständig über die API nach neuen Sitzungsterminen, Tagesordnungspunkten, Drucksachen und Dokumente suchen. Taucht dabei ein neues Objekt auf, wird die Nutzerin darüber benachrichtigt. Sie kann dann beispielsweise entscheiden, Dokumente direkt zu öffnen oder für den späteren Offline-Zugriff zu speichern.</p>
 <p>Einem derartigen Szenario kommt das Graph-orientierte Datenmodell der OParl API entgegen. Ausgehend von einer Sitzung eines bestimmten Gremiums beispielsweise ist es damit einfach möglich, die in Verbindung stehenden Mitglieder des Gremiums, Teilnehmer der Sitzung, Tagesordnungspunkte der Sitzung oder Drucksachen zu den Tagesordnungspunkten und letztlich Dokumente zu Drucksachen und Sitzung abzurufen.</p>
 <p>Für die Nutzer einer mobilen Client-Anwendung könnte es sich als besonders hilfreich erweisen, wenn Dokumente auf dem Server in verschiedenen Formaten zur Verfügung gestellt werden. Denn nicht jedes Endgerät mit kleinem Bildaschirm bietet eine nutzerfreundliche Möglichkeit, beispielsweise Dokumente im weit verbreiteten PDF-Format darzustellen. Hier könnte schon der Entwickler der mobilen App Mechanismen vorsehen, die, sofern vorhanden, besser geeignete Formate wie z.B. HTML abrufen.</p>
 <p>Neben dem kleinen Display kann für einige mobile Endgeräte auch die im Vergleich zu einem zeitgemäßen Desktop-PC geringere CPU-Leistung eine Einschränkung darstellen. Solchen Geräten kommt es besonders entgegen, wenn der Server zu allen Dokumenten auch den reinen Textinhalt abrufbar macht, der dann beispielsweise für eine Volltextsuche auf dem Endgerät indexiert werden kann. So wiederum kann auf dem Client eine Suchfunktion realisiert werden, welche die OParl-API selbst nicht zur Verfügung stellt.</p>
@@ -288,25 +288,41 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul>
 <section class="level2" id="designprinzipien">
 <h2><span class="header-section-number">4.1</span> Designprinzipien</h2>
-<section class="level3" id="allgemein">
-<h3><span class="header-section-number">4.1.1</span> Allgemein</h3>
-<ul>
-<li>Ausgerichtet am Status Quo</li>
-<li>Einige Möglichkeiten weisen in die Zukunft (z.B. Geodaten, Volltexte, Vereinheitlichung der Kategorien-Nomenklatur)</li>
-<li>Ziel: Schnelle Implementierbarkeit in vielen bestehenden RIS</li>
-</ul>
+<section class="level3" id="aufbauend-auf-der-gängigen-praxis">
+<h3><span class="header-section-number">4.1.1</span> Aufbauend auf der gängigen Praxis</h3>
+<p>Grundlage für die Erarbeitung der OParl-Spezifikation in der vorliegenden Version ist eine Analyse der aktuell (2012 bis 2014) in Deutschland befindlichen Ratsinformationssysteme und ihrer Nutzung. Erklärtes Ziel für diese Version ist es, mit möglichst geringem Entwicklungsaufwand auf Seite der Softwareanbieter und Migrationsaufwand auf Seite der Betreiber zu einer Bereitstellung von parlamentarischen Informationen über eine OParl API zu gelangen. Hierbei war es von entscheidender Bedeutung, dass sich die Informationsmodelle der einschlägigen Softwareprodukte stark ähneln. Für die OParl-Spezifikation wurde sozusagen ein Datenmodell als &quot;gemeinsamer Nenner&quot; auf Basis der gängigen Praxis beschrieben.</p>
+</section>
+<section class="level3" id="verbesserungen-gegenüber-dem-status-quo-wo-möglich">
+<h3><span class="header-section-number">4.1.2</span> Verbesserungen gegenüber dem Status Quo wo möglich</h3>
+<p>Dort, wo es dem Ziel der einfachen Implementierbarkeit und der einfachen Migration nicht im Weg steht, erlauben sich die Autoren dieser Spezifikation, auch Funktionen aufzunehmen, die noch nicht als gängige Praxis im Bereich der Ratsinformationssysteme bezeichnet werden können oder welche nur von einzelnen Systemen unterstützt werden. Solche Funktionen sind dann so integriert, dass sie nicht als zwingende Anforderung gelten.</p>
+<p>Ein Beispiel für eine derartige Funktion ist die Abbildung von Geodaten im Kontext von Drucksachen (<code>oparl:Paper</code>), um beispielsweise die Lage eines Bauvorhabens, das in einer Beschlussvorlage behandelt wird, zu beschreiben. Zwar ist den Autoren nur ein einziges Ratsinformationssystem<sup><a href="#fn3" class="footnoteRef" id="fnref3">3</a></sup> in Deutschland bekannt, das Geoinformationen - und zwar in Form von Punktdaten, also einer Kombination aus Längen- und Breitengradangaben - mit Dokumenten verknüpft. Der Vorteil dieser Funktion ist jedoch anhand zahlreicher Anwendungsszenarien belegbar. Somit ist der vorliegenden OParl-Spezifikation die Möglichkeit beschrieben, beliebige Geodaten-Objekte entsprechend der GeoJSON Spezifikation<sup><a href="#fn4" class="footnoteRef" id="fnref4">4</a></sup> einzubetten. Die Angabe eines einzelnen Punktes ist dabei nur ein einfacher Sonderfall. Die Spezifikation erlaubt auch die Kodierung von mehreren Objekten, die Punkte, Linien oder Polygone repräsentieren können. Vgl. dazu <code>oparl:Location</code>.</p>
+<p>Auch die Ausgabe einer Nur-Text-Version im Kontext des Dokuments (<code>oparl:Document</code>), das den barrierefreien Zugriff auf Inhalte oder Indexierung für Volltextsuchfunktionen deutlich vereinfacht, ist eine Möglichkeit, die in der gängigen Praxis noch nicht zu finden ist. Ebenso die Möglichkeit, Beziehungen zwischen einzelnen Dokumenten herzustellen, um so von einem Dokument zu anderen Dokumenten mit identischem Inhalt, aber in anderen technischen Formaten zu verweisen, etwa von einer ODT-Datei zu einer PDF-Version.</p>
 </section>
 <section class="level3" id="restful">
-<h3><span class="header-section-number">4.1.2</span> RESTful</h3>
+<h3><span class="header-section-number">4.1.3</span> RESTful</h3>
+<p>Die Bezeichnung &quot;REST&quot; (für &quot;Representational State Transfer&quot;) wurde im Jahr 2000 von Roy Fielding eingeführt<sup><a href="#fn5" class="footnoteRef" id="fnref5">5</a></sup>. Die Definition von Fielding reicht sehr weit und berührt viele Details. In der Praxis wird der Begriff häufig genutzt, um eine Schnittstelle zu beschreiben,</p>
+<ul>
+<li>die auf WWW-Technologie aufbaut, insbesondere das HTTP-Protokoll</li>
+<li>die darauf beruht, dass mittels URL einzelne Ressourcen oder Zustände vom Client abgerufen werden können.</li>
+<li>die zustandslos ist. Das bedeutet, die Anfrage eines Clients an den Server enthält alle Informationen, die notwendig sind, um die Anfrage zu verarbeiten. Auf dem Server wird kein Speicher zur Verfügung gestellt, um beispielsweise den Zustand einer Session zu speichern.</li>
+</ul>
 </section>
 <section class="level3" id="selbstbeschreibungsfähigkeit">
-<h3><span class="header-section-number">4.1.3</span> Selbstbeschreibungsfähigkeit</h3>
+<h3><span class="header-section-number">4.1.4</span> Selbstbeschreibungsfähigkeit</h3>
+<p>Ausgaben des Servers sollten so beschaffen sein, dass sie für menschliche NutzerInnen weitgehend selbsterklärend sein können. Dies betrifft besonders die Benennung von Objekten und Objekteigenschaften.</p>
+<p>Um den Kreis der Entwicklerinnen und Entwickler, die mit einer OParl-API arbeiten können, nicht unnötig einzuschränken, wird hierbei grundsätzlich auf englischsprachige Begrifflichkeiten gesetzt.</p>
 </section>
 <section class="level3" id="erweiterbarkeit">
-<h3><span class="header-section-number">4.1.4</span> Erweiterbarkeit</h3>
+<h3><span class="header-section-number">4.1.5</span> Erweiterbarkeit</h3>
+<p>Implementierer sollen in der Lage sein, über eine OParl-konforme Schnittstelle auch solche Informationen auszugeben, die nicht im Rahmen des OParl-Schemas abgebildet werden können. Dies bedeutet zum einen, dass ein System Objekttypen unterstützen und ausliefern darf, die nicht (oder noch nicht) im OParl Schema beschrieben sind. Das bedeutet auch, dass Objekttypen so um eigene Eigenschaften erweitert werden können, die nicht im OParl Schema beschrieben sind.</p>
+<p>Ein weiterer Aspekt betrifft die Abwärtskompatiblität, also die Kompatibilität von OParl-Clients mit zukünftigen Schnittstellen. So können beispielsweise zukünftige Erweiterungen des OParl Schemas, etwa um neue Objekttypen, genau so durchgeführt werden wie die Erweiterungen um herstellerspezifische Objekttypen. Ein Client muss diese Anteile nicht auswerten, sofern sie nicht für die Aufgabe des Clients relevant sind.</p>
+<p>Diese angestrebte Erweiterbarkeit wird durch weitgehend durch das JSON-LD-Format (TODO: Verweis einfügen) gewährleistet. Es erlaubt die Verflechtung von Objekttypen-Definitionen aus verschiedenen Schemata.</p>
 </section>
 <section class="level3" id="browseabilityverlinkung">
-<h3><span class="header-section-number">4.1.5</span> Browseability/Verlinkung</h3>
+<h3><span class="header-section-number">4.1.6</span> Browseability/Verlinkung</h3>
+<p>Klassische Webservice-Schnittstellen erfordern von den Entwicklern vollständige Kenntnis der angebotenen Einstiegspunkte und Zugriffsmethoden, gepaart mit sämtlichen unterstützten URL-Parametern, um den vollen Funktionsumfang der Schnittstelle ausschöpfen zu können.</p>
+<p>Parlamentarische Informationen sind weitgehend graphartig aufgebaut. Das bedeutet, dass Objekte häufig mit einer Vielzahl anderer Objekte verknüpft sind. So ist eine Person beispielsweise Mitglied in mehreren Gremien, das Gremium hat mehrere Sitzungen abgehalten und zu diesen Sitzungen gibt es jeweils zahlreiche Drucksachen, die ihrerseits wieder zahlreiche Dokumente enthalten.</p>
+<p>Eine OParl-Schnittstelle gibt jedem einzelnen Objekt eine eindeutige Adresse, eine URL. Somit kann die Schnittstelle den Verweis von einem Objekt, beispielsweise einem Gremium, auf ein anderes Objekt, etwa ein Mitglied des Gremiums, dadurch ausgeben, dass im Kontext des Gremiums die URL des Mitglieds ausgeben wird. Der Client kann somit ausgehend von einem bestimmten Objekt die anderen Objekte im System finden, indem er einfach den angebotenen URLs folgt. Dieses Prinzip wird auch &quot;Follow Your Nose&quot; genannt<sup><a href="#fn6" class="footnoteRef" id="fnref6">6</a></sup>.</p>
 </section>
 </section>
 <section class="level2" id="zukunftssicherheit">
@@ -464,7 +480,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>JSON erlaubt grundsätzlich die Kodierung von Eigenschaften in den folgenden verschiedenen Typen:</p>
 <ul>
 <li>Zeichenkette</li>
-<li>Zahle</li>
+<li>Zahl</li>
 <li>Wahrheitswert</li>
 <li>null</li>
 <li>Liste (Array)</li>
@@ -618,12 +634,12 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <section class="level3" id="eigenschaft-rgs">
 <h3><span class="header-section-number">5.3.5</span> Eigenschaft <code>rgs</code></h3>
 <p>Diese Eigenschaft ist EMPFOHLEN.</p>
-<p>Handelt es sich bei der Körperschaft um eine Gebietskörperschaft (Landkreis, Kommune etc.) in Deutschland, SOLL für die eindeutige Identifizierung der amtliche Regionalschlüssel verwendet werden.<sup><a href="#fn3" class="footnoteRef" id="fnref3">3</a></sup> Dieser ist grundsätzlich zwölfstellig.</p>
+<p>Handelt es sich bei der Körperschaft um eine Gebietskörperschaft (Landkreis, Kommune etc.) in Deutschland, SOLL für die eindeutige Identifizierung der amtliche Regionalschlüssel verwendet werden.<sup><a href="#fn7" class="footnoteRef" id="fnref7">7</a></sup> Dieser ist grundsätzlich zwölfstellig.</p>
 </section>
 <section class="level3" id="eigenschaft-gnd_url">
 <h3><span class="header-section-number">5.3.6</span> Eigenschaft <code>gnd_url</code></h3>
 <p>Diese Eigenschaft ist EMPFOHLEN.</p>
-<p>Sofern die Körperschaft in der GND<sup><a href="#fn4" class="footnoteRef" id="fnref4">4</a></sup> vertreten ist, SOLL diese Eigenschaft als Wert die URL des Eintrags in der GND enthalten.</p>
+<p>Sofern die Körperschaft in der GND<sup><a href="#fn8" class="footnoteRef" id="fnref8">8</a></sup> vertreten ist, SOLL diese Eigenschaft als Wert die URL des Eintrags in der GND enthalten.</p>
 </section>
 <section class="level3" id="eigenschaft-contact-1">
 <h3><span class="header-section-number">5.3.7</span> Eigenschaft <code>contact</code></h3>
@@ -1195,8 +1211,12 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <ol>
 <li id="fn1"><p>RFC2119 <a href="http://tools.ietf.org/html/rfc2119"><code class="url">http://tools.ietf.org/html/rfc2119</code></a><a href="#fnref1">↩</a></p></li>
 <li id="fn2"><p>Architecture of the World Wide Web, Volume One. <a href="http://www.w3.org/TR/webarch/"><code class="url">http://www.w3.org/TR/webarch/</code></a><a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd"><code class="url">http://www.dnb.de/gnd</code></a><a href="#fnref4">↩</a></p></li>
+<li id="fn3"><p>Das System BoRis der Stadt Bonn <a href="http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp"><code class="url">http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp</code></a><a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>GeoJSON <a href="http://geojson.org/"><code class="url">http://geojson.org/</code></a><a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p>Fielding, Roy: Architectural Styles and the Design of Network-based Software Architectures, <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm"><code class="url">http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm</code></a><a href="#fnref5">↩</a></p></li>
+<li id="fn6"><p><a href="http://patterns.dataincubator.org/book/follow-your-nose.html"><code class="url">http://patterns.dataincubator.org/book/follow-your-nose.html</code></a><a href="#fnref6">↩</a></p></li>
+<li id="fn7"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref7">↩</a></p></li>
+<li id="fn8"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd"><code class="url">http://www.dnb.de/gnd</code></a><a href="#fnref8">↩</a></p></li>
 </ol>
 </section>
 </body>

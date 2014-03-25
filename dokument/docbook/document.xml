@@ -822,7 +822,7 @@
       sie sich interessiert, dauerhaft in der App einrichtet und eine
       Favoritenliste der Gremien, die ihre bevorzugten Themengebiete
       behandeln, hinterlegt. Die App könnte aufgrund dieser
-      Favoritenliste eigneständig über die API nach neuen
+      Favoritenliste eigenständig über die API nach neuen
       Sitzungsterminen, Tagesordnungspunkten, Drucksachen und Dokumente
       suchen. Taucht dabei ein neues Objekt auf, wird die Nutzerin
       darüber benachrichtigt. Sie kann dann beispielsweise entscheiden,
@@ -964,45 +964,190 @@
   </itemizedlist>
   <sect2 id="designprinzipien">
     <title>Designprinzipien</title>
-    <sect3 id="allgemein">
-      <title>Allgemein</title>
-      <itemizedlist>
-        <listitem>
+    <sect3 id="aufbauend-auf-der-gängigen-praxis">
+      <title>Aufbauend auf der gängigen Praxis</title>
+      <para>
+        Grundlage für die Erarbeitung der OParl-Spezifikation in der
+        vorliegenden Version ist eine Analyse der aktuell (2012 bis
+        2014) in Deutschland befindlichen Ratsinformationssysteme und
+        ihrer Nutzung. Erklärtes Ziel für diese Version ist es, mit
+        möglichst geringem Entwicklungsaufwand auf Seite der
+        Softwareanbieter und Migrationsaufwand auf Seite der Betreiber
+        zu einer Bereitstellung von parlamentarischen Informationen über
+        eine OParl API zu gelangen. Hierbei war es von entscheidender
+        Bedeutung, dass sich die Informationsmodelle der einschlägigen
+        Softwareprodukte stark ähneln. Für die OParl-Spezifikation wurde
+        sozusagen ein Datenmodell als &quot;gemeinsamer Nenner&quot; auf
+        Basis der gängigen Praxis beschrieben.
+      </para>
+    </sect3>
+    <sect3 id="verbesserungen-gegenüber-dem-status-quo-wo-möglich">
+      <title>Verbesserungen gegenüber dem Status Quo wo möglich</title>
+      <para>
+        Dort, wo es dem Ziel der einfachen Implementierbarkeit und der
+        einfachen Migration nicht im Weg steht, erlauben sich die
+        Autoren dieser Spezifikation, auch Funktionen aufzunehmen, die
+        noch nicht als gängige Praxis im Bereich der
+        Ratsinformationssysteme bezeichnet werden können oder welche nur
+        von einzelnen Systemen unterstützt werden. Solche Funktionen
+        sind dann so integriert, dass sie nicht als zwingende
+        Anforderung gelten.
+      </para>
+      <para>
+        Ein Beispiel für eine derartige Funktion ist die Abbildung von
+        Geodaten im Kontext von Drucksachen
+        (<literal>oparl:Paper</literal>), um beispielsweise die Lage
+        eines Bauvorhabens, das in einer Beschlussvorlage behandelt
+        wird, zu beschreiben. Zwar ist den Autoren nur ein einziges
+        Ratsinformationssystem<footnote>
           <para>
-            Ausgerichtet am Status Quo
+            Das System BoRis der Stadt Bonn
+            <ulink url="http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp"><literal>http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp</literal></ulink>
           </para>
-        </listitem>
-        <listitem>
+        </footnote> in Deutschland bekannt, das Geoinformationen - und
+        zwar in Form von Punktdaten, also einer Kombination aus Längen-
+        und Breitengradangaben - mit Dokumenten verknüpft. Der Vorteil
+        dieser Funktion ist jedoch anhand zahlreicher
+        Anwendungsszenarien belegbar. Somit ist der vorliegenden
+        OParl-Spezifikation die Möglichkeit beschrieben, beliebige
+        Geodaten-Objekte entsprechend der GeoJSON
+        Spezifikation<footnote>
           <para>
-            Einige Möglichkeiten weisen in die Zukunft (z.B. Geodaten,
-            Volltexte, Vereinheitlichung der Kategorien-Nomenklatur)
+            GeoJSON
+            <ulink url="http://geojson.org/"><literal>http://geojson.org/</literal></ulink>
           </para>
-        </listitem>
-        <listitem>
-          <para>
-            Ziel: Schnelle Implementierbarkeit in vielen bestehenden RIS
-          </para>
-        </listitem>
-      </itemizedlist>
+        </footnote> einzubetten. Die Angabe eines einzelnen Punktes ist
+        dabei nur ein einfacher Sonderfall. Die Spezifikation erlaubt
+        auch die Kodierung von mehreren Objekten, die Punkte, Linien
+        oder Polygone repräsentieren können. Vgl. dazu
+        <literal>oparl:Location</literal>.
+      </para>
+      <para>
+        Auch die Ausgabe einer Nur-Text-Version im Kontext des Dokuments
+        (<literal>oparl:Document</literal>), das den barrierefreien
+        Zugriff auf Inhalte oder Indexierung für Volltextsuchfunktionen
+        deutlich vereinfacht, ist eine Möglichkeit, die in der gängigen
+        Praxis noch nicht zu finden ist. Ebenso die Möglichkeit,
+        Beziehungen zwischen einzelnen Dokumenten herzustellen, um so
+        von einem Dokument zu anderen Dokumenten mit identischem Inhalt,
+        aber in anderen technischen Formaten zu verweisen, etwa von
+        einer ODT-Datei zu einer PDF-Version.
+      </para>
     </sect3>
     <sect3 id="restful">
       <title>RESTful</title>
       <para>
+        Die Bezeichnung &quot;REST&quot; (für &quot;Representational
+        State Transfer&quot;) wurde im Jahr 2000 von Roy Fielding
+        eingeführt<footnote>
+          <para>
+            Fielding, Roy: Architectural Styles and the Design of
+            Network-based Software Architectures,
+            <ulink url="http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm"><literal>http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm</literal></ulink>
+          </para>
+        </footnote>. Die Definition von Fielding reicht sehr weit und
+        berührt viele Details. In der Praxis wird der Begriff häufig
+        genutzt, um eine Schnittstelle zu beschreiben,
       </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            die auf WWW-Technologie aufbaut, insbesondere das
+            HTTP-Protokoll
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            die darauf beruht, dass mittels URL einzelne Ressourcen oder
+            Zustände vom Client abgerufen werden können.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            die zustandslos ist. Das bedeutet, die Anfrage eines Clients
+            an den Server enthält alle Informationen, die notwendig
+            sind, um die Anfrage zu verarbeiten. Auf dem Server wird
+            kein Speicher zur Verfügung gestellt, um beispielsweise den
+            Zustand einer Session zu speichern.
+          </para>
+        </listitem>
+      </itemizedlist>
     </sect3>
     <sect3 id="selbstbeschreibungsfähigkeit">
       <title>Selbstbeschreibungsfähigkeit</title>
       <para>
+        Ausgaben des Servers sollten so beschaffen sein, dass sie für
+        menschliche NutzerInnen weitgehend selbsterklärend sein können.
+        Dies betrifft besonders die Benennung von Objekten und
+        Objekteigenschaften.
+      </para>
+      <para>
+        Um den Kreis der Entwicklerinnen und Entwickler, die mit einer
+        OParl-API arbeiten können, nicht unnötig einzuschränken, wird
+        hierbei grundsätzlich auf englischsprachige Begrifflichkeiten
+        gesetzt.
       </para>
     </sect3>
     <sect3 id="erweiterbarkeit">
       <title>Erweiterbarkeit</title>
       <para>
+        Implementierer sollen in der Lage sein, über eine OParl-konforme
+        Schnittstelle auch solche Informationen auszugeben, die nicht im
+        Rahmen des OParl-Schemas abgebildet werden können. Dies bedeutet
+        zum einen, dass ein System Objekttypen unterstützen und
+        ausliefern darf, die nicht (oder noch nicht) im OParl Schema
+        beschrieben sind. Das bedeutet auch, dass Objekttypen so um
+        eigene Eigenschaften erweitert werden können, die nicht im OParl
+        Schema beschrieben sind.
+      </para>
+      <para>
+        Ein weiterer Aspekt betrifft die Abwärtskompatiblität, also die
+        Kompatibilität von OParl-Clients mit zukünftigen Schnittstellen.
+        So können beispielsweise zukünftige Erweiterungen des OParl
+        Schemas, etwa um neue Objekttypen, genau so durchgeführt werden
+        wie die Erweiterungen um herstellerspezifische Objekttypen. Ein
+        Client muss diese Anteile nicht auswerten, sofern sie nicht für
+        die Aufgabe des Clients relevant sind.
+      </para>
+      <para>
+        Diese angestrebte Erweiterbarkeit wird durch weitgehend durch
+        das JSON-LD-Format (TODO: Verweis einfügen) gewährleistet. Es
+        erlaubt die Verflechtung von Objekttypen-Definitionen aus
+        verschiedenen Schemata.
       </para>
     </sect3>
     <sect3 id="browseabilityverlinkung">
       <title>Browseability/Verlinkung</title>
       <para>
+        Klassische Webservice-Schnittstellen erfordern von den
+        Entwicklern vollständige Kenntnis der angebotenen
+        Einstiegspunkte und Zugriffsmethoden, gepaart mit sämtlichen
+        unterstützten URL-Parametern, um den vollen Funktionsumfang der
+        Schnittstelle ausschöpfen zu können.
+      </para>
+      <para>
+        Parlamentarische Informationen sind weitgehend graphartig
+        aufgebaut. Das bedeutet, dass Objekte häufig mit einer Vielzahl
+        anderer Objekte verknüpft sind. So ist eine Person
+        beispielsweise Mitglied in mehreren Gremien, das Gremium hat
+        mehrere Sitzungen abgehalten und zu diesen Sitzungen gibt es
+        jeweils zahlreiche Drucksachen, die ihrerseits wieder zahlreiche
+        Dokumente enthalten.
+      </para>
+      <para>
+        Eine OParl-Schnittstelle gibt jedem einzelnen Objekt eine
+        eindeutige Adresse, eine URL. Somit kann die Schnittstelle den
+        Verweis von einem Objekt, beispielsweise einem Gremium, auf ein
+        anderes Objekt, etwa ein Mitglied des Gremiums, dadurch
+        ausgeben, dass im Kontext des Gremiums die URL des Mitglieds
+        ausgeben wird. Der Client kann somit ausgehend von einem
+        bestimmten Objekt die anderen Objekte im System finden, indem er
+        einfach den angebotenen URLs folgt. Dieses Prinzip wird auch
+        &quot;Follow Your Nose&quot; genannt<footnote>
+          <para>
+            <ulink url="http://patterns.dataincubator.org/book/follow-your-nose.html"><literal>http://patterns.dataincubator.org/book/follow-your-nose.html</literal></ulink>
+          </para>
+        </footnote>.
       </para>
     </sect3>
   </sect2>
@@ -1407,7 +1552,7 @@
         </listitem>
         <listitem>
           <para>
-            Zahle
+            Zahl
           </para>
         </listitem>
         <listitem>

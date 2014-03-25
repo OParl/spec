@@ -1090,24 +1090,24 @@ primitiven Datentypen:
 
 \begin{itemize}
 \item
-  Zeichenkette (Unicode)
+  \emph{Zeichenkette} (Unicode)
 \item
-  Zahl (sowohl Ganzzahlen als auch Fließkommazahlen)
+  \emph{Zahl} (sowohl Ganzzahlen als auch Fließkommazahlen)
 \item
-  Wahrheitswert (\emph{true} oder \emph{false})
+  \emph{Wahrheitswert} (\texttt{true} oder \texttt{false})
 \item
-  Null
+  \emph{Null}
 \end{itemize}
 
 Darüber hinaus werden zwei komplexe Datentypen unterstützt:
 
 \begin{itemize}
 \item
-  Objekt: Eine Sammlung von Schlüssel-Wert-Paaren ohne Reihenfolge,
-  wobei der Schlüssel eine Zeichenkette sein muss und der Wert ein
-  beliebiger Datentyp sein kann.
+  \emph{Objekt}: Eine Sammlung von Schlüssel-Wert-Paaren ohne
+  Reihenfolge, wobei der Schlüssel eine Zeichenkette sein muss und der
+  Wert ein beliebiger Datentyp sein kann.
 \item
-  Array: Eine geordnete Liste mit beliebigen Datentypen.
+  \emph{Array}: Eine geordnete Liste mit beliebigen Datentypen.
 \end{itemize}
 
 Beispiel eines Objekts in JSON-Notation:
@@ -1129,9 +1129,167 @@ Beispiel eines Objekts in JSON-Notation:
 
 \subsubsection{JSON-LD}
 
+Das Kürzel LD im Namen ``JSON-LD'' steht für Linked Data. Entsprechend
+erweitert die JSON-LD-Spezifikation\footnote{\url{http://www.w3.org/TR/json-ld/}}
+das JSON-Format um die Möglichkeit,
+
 \begin{itemize}
 \item
-  JSON-LD: http://www.w3.org/TR/json-ld/
+  Objekte mit anderen Objekten zu verknüpfen,
+\item
+  Objekte und Eigenschaften bestimmten Typen zuzuordnen und damit
+\item
+  Auskunft über die semantische Bedeutung von Objekten und Eigenschaften
+  zu geben.
+\end{itemize}
+
+Ein Beispiel aus der JSON-LD-Spezifikation illustriert, wie JSON-LD ein
+Objekt um zusätzliche semantische Informationen erweitert. Als
+Ausgangspunkt dient eine Personenbeschreibung in gewöhnlichem JSON:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+  \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Manu Sporny"}\NormalTok{,}
+  \DataTypeTok{"homepage"}\NormalTok{: }\StringTok{"http://manu.sporny.org/"}\NormalTok{,}
+  \DataTypeTok{"image"}\NormalTok{: }\StringTok{"http://manu.sporny.org/images/manu.png"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Als menschlicher Betrachter kann man leicht erkennen, dass die
+Eigenschaft \texttt{name} den Namen der Person enthält, dass
+\texttt{homepage} die Website der Person sein könnte und dass
+\texttt{image} die URL einer Bilddatei der Person sein könnte. Ein
+automatisierter Client jedoch, dem die Objekteigenschaften nicht bekannt
+sind, kann die Bedeutung dieser Eigenschaften nicht entschlüsseln.
+
+Entsprechend der JSON-LD-Spezifikation kann diese Erläuterung über die
+\texttt{@context}-Eigenschaft direkt im selben Objekt, sozusagen als
+Unterobjekt, mitgeliefert werden:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+  \DataTypeTok{"@context"}\NormalTok{:}
+  \NormalTok{\{}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"http://xmlns.com/foaf/0.1/name"}\NormalTok{,}
+    \DataTypeTok{"image"}\NormalTok{: \{}
+      \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://xmlns.com/foaf/0.1/img"}\NormalTok{,}
+      \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"@id"}
+    \NormalTok{\},}
+    \DataTypeTok{"homepage"}\NormalTok{: \{}
+      \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://xmlns.com/foaf/0.1/homepage"}\NormalTok{,}
+      \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"@id"}
+    \NormalTok{\}}
+  \NormalTok{\},}
+  \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Manu Sporny"}\NormalTok{,}
+  \DataTypeTok{"homepage"}\NormalTok{: }\StringTok{"http://manu.sporny.org/"}\NormalTok{,}
+  \DataTypeTok{"image"}\NormalTok{: }\StringTok{"http://manu.sporny.org/images/manu.png"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Hier sind die Eigenschaften wie \texttt{image} einer URL wie
+http://schema.org/image zugewiesen. Ein Client, der diese URL kennt,
+kann daraus folgern, dass über die Objekteigenschaft \texttt{image}
+immer die URL eines Bildes zu finden ist. Das Schlüssel-Wert-Paar
+
+\begin{verbatim}
+"@type": "@id"
+\end{verbatim}
+
+sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die URL eines
+anderen Objekts ist\footnote{URLs heißen in der JSON-LD-Spezifikation
+  ``IRI'' (für ``Internationalized Resource Identifier''), wir verwenden
+  hier jedoch weiterhin die Bezeichnung ``URL''.}. Mittels
+\texttt{@type}-Deklaration könnte aber auch beispielsweise eine
+Eigenschaft, die im JSON-Sinn eine Zeichenkette ist, als Datum
+deklariert werden.
+
+Am obigen Beispiel fällt auf, dass der \texttt{@context}-Teil des
+Objects schon mehr Daten umfasst, als die eigentlichen
+Objekteigenschaften. Sinnvollerweise kann jedoch der gesamte Inhalt des
+\texttt{@context}-Teils in eine externe Ressource ausgelagert werden.
+Clients, die eine Vielzahl von gleichartigen Objekten laden und
+interpretieren wollen, müssen diese Ressource dann nur einmal laden. Das
+Ergebnis könnte so aussehen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+  \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"http://json-ld.org/contexts/person.jsonld"}\NormalTok{,}
+  \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Manu Sporny"}\NormalTok{,}
+  \DataTypeTok{"homepage"}\NormalTok{: }\StringTok{"http://manu.sporny.org/"}\NormalTok{,}
+  \DataTypeTok{"image"}\NormalTok{: }\StringTok{"http://manu.sporny.org/images/manu.png"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Die \texttt{@context}-Eigenschaft hat nun als Wert eine URL. Die URL
+(hier: http://json-ld.org/contexts/person.jsonld) gibt wiederum in JSON
+kodiert die Beschreibung aller möglichen Attribute des Objekts aus.
+
+JSON-LD ermöglicht es auch, für ein Objekt einen Objekttyp zu
+kommunizieren. So könnte passend zu unserem Beispiel ausgedrückt werden,
+um welche Art von Objekt es sich bei den vorliegenden Daten handelt.
+Dazu wird die \texttt{@type}-Eigenschaft verwendet, deren Wert eine URL
+ist:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+  \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"http://json-ld.org/contexts/person.jsonld"}\NormalTok{,}
+  \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://schema.org/Person"}\NormalTok{,}
+  \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Manu Sporny"}\NormalTok{,}
+  \DataTypeTok{"homepage"}\NormalTok{: }\StringTok{"http://manu.sporny.org/"}\NormalTok{,}
+  \DataTypeTok{"image"}\NormalTok{: }\StringTok{"http://manu.sporny.org/images/manu.png"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Objekte können mehreren Typen zugeordnet sein und damit die Eigenschafen
+mehrerer Objekttypen nutzen. Im Fall von OParl kann diese Möglichkeit
+genutzt werden, um über die API Eigenschaften auszugeben, die nicht Teil
+des OParl-Schemas sind.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+  \DataTypeTok{"@context"}\NormalTok{: \{}
+    \DataTypeTok{"oparl"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/"}\NormalTok{,}
+    \DataTypeTok{"vendor"}\NormalTok{: }\StringTok{"http://www.vendor.de/oparl/schema/"}
+  \NormalTok{\},}
+  \DataTypeTok{"@type"}\NormalTok{: [}\StringTok{"oparl:Paper"}\NormalTok{, }\StringTok{"vendor:Drucksache"}\NormalTok{],}
+  \DataTypeTok{"title"}\NormalTok{: }\StringTok{"Beschlussvorlage zum Haushalt"}\NormalTok{,}
+  \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2013-05-29T14:17:39+02:00"}\NormalTok{,}
+  \DataTypeTok{"aktenzeichen"}\NormalTok{: }\StringTok{"ABC123"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Das Beispiel oben zeigt ein Objekt, das über die
+\texttt{@context}-Eigenschaft zwei verschiedene URLs als sogenannte
+Vokabulare referenziert. Das eine Vokabular wird durch das Präfix
+\texttt{oparl} repräsentiert, das zweite (herstellereigene) mit dem
+Präfix \texttt{vendor}. Der JSON-LD-Client macht aus dem Präfix und der
+Typenbezeichnung letztlich wieder eine URL:
+
+\begin{itemize}
+\item
+  Aus \texttt{oparl:Paper} wird
+  \texttt{http://oparl.org/schema/1.0/Paper}
+\item
+  Aus \texttt{vendor:Drucksache} wird
+  \texttt{http://www.vendor.de/oparl/schema/Drucksache}
+\end{itemize}
+
+TODO: Ab hier weiter ausformulieren
+
+Darüber hinaus stellt JSON-LD zusätzliche Anforderungen an JSON-Daten,
+die in diesem Abschnitt weiter ausgeführt werden sollen\ldots{}
+
+\begin{itemize}
 \item
   Einschränkungen von OParl gegenüber JSON-LD
 \item
@@ -1275,30 +1433,6 @@ auch festgelegt, in welcher Beziehung verschiedene Objekttypen zu
 einander stehen.
 
 \subsection{Übergreifende Aspekte}
-
-\subsubsection{Typen von Objekteigenschaften}
-
-JSON erlaubt grundsätzlich die Kodierung von Eigenschaften in den
-folgenden verschiedenen Typen:
-
-\begin{itemize}
-\item
-  Zeichenkette
-\item
-  Zahl
-\item
-  Wahrheitswert
-\item
-  null
-\item
-  Liste (Array)
-\item
-  Objekt
-\end{itemize}
-
-Wenn nicht anders angegeben, wird eine Eigenschaft grundsätzlich als
-Zeichenkette erwartet. Eventuelle Längenbeschränkungen oder
-Einschränkungen des Zeichenvorrats werden gesondert erwähnt.
 
 \subsubsection{null-Werte}
 

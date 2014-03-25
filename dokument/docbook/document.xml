@@ -1507,23 +1507,24 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
       <itemizedlist>
         <listitem>
           <para>
-            Zeichenkette (Unicode)
+            <emphasis>Zeichenkette</emphasis> (Unicode)
           </para>
         </listitem>
         <listitem>
           <para>
-            Zahl (sowohl Ganzzahlen als auch Fließkommazahlen)
+            <emphasis>Zahl</emphasis> (sowohl Ganzzahlen als auch
+            Fließkommazahlen)
           </para>
         </listitem>
         <listitem>
           <para>
-            Wahrheitswert (<emphasis>true</emphasis> oder
-            <emphasis>false</emphasis>)
+            <emphasis>Wahrheitswert</emphasis> (<literal>true</literal>
+            oder <literal>false</literal>)
           </para>
         </listitem>
         <listitem>
           <para>
-            Null
+            <emphasis>Null</emphasis>
           </para>
         </listitem>
       </itemizedlist>
@@ -1533,14 +1534,16 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
       <itemizedlist>
         <listitem>
           <para>
-            Objekt: Eine Sammlung von Schlüssel-Wert-Paaren ohne
-            Reihenfolge, wobei der Schlüssel eine Zeichenkette sein muss
-            und der Wert ein beliebiger Datentyp sein kann.
+            <emphasis>Objekt</emphasis>: Eine Sammlung von
+            Schlüssel-Wert-Paaren ohne Reihenfolge, wobei der Schlüssel
+            eine Zeichenkette sein muss und der Wert ein beliebiger
+            Datentyp sein kann.
           </para>
         </listitem>
         <listitem>
           <para>
-            Array: Eine geordnete Liste mit beliebigen Datentypen.
+            <emphasis>Array</emphasis>: Eine geordnete Liste mit
+            beliebigen Datentypen.
           </para>
         </listitem>
       </itemizedlist>
@@ -1562,12 +1565,194 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
     </sect3>
     <sect3 id="json-ld">
       <title>JSON-LD</title>
+      <para>
+        Das Kürzel LD im Namen &quot;JSON-LD&quot; steht für Linked
+        Data. Entsprechend erweitert die JSON-LD-Spezifikation<footnote>
+          <para>
+            <ulink url="http://www.w3.org/TR/json-ld/"><literal>http://www.w3.org/TR/json-ld/</literal></ulink>
+          </para>
+        </footnote> das JSON-Format um die Möglichkeit,
+      </para>
       <itemizedlist>
         <listitem>
           <para>
-            JSON-LD: http://www.w3.org/TR/json-ld/
+            Objekte mit anderen Objekten zu verknüpfen,
           </para>
         </listitem>
+        <listitem>
+          <para>
+            Objekte und Eigenschaften bestimmten Typen zuzuordnen und
+            damit
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Auskunft über die semantische Bedeutung von Objekten und
+            Eigenschaften zu geben.
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para>
+        Ein Beispiel aus der JSON-LD-Spezifikation illustriert, wie
+        JSON-LD ein Objekt um zusätzliche semantische Informationen
+        erweitert. Als Ausgangspunkt dient eine Personenbeschreibung in
+        gewöhnlichem JSON:
+      </para>
+      <programlisting language="json">
+{
+  &quot;name&quot;: &quot;Manu Sporny&quot;,
+  &quot;homepage&quot;: &quot;http://manu.sporny.org/&quot;,
+  &quot;image&quot;: &quot;http://manu.sporny.org/images/manu.png&quot;
+}
+</programlisting>
+      <para>
+        Als menschlicher Betrachter kann man leicht erkennen, dass die
+        Eigenschaft <literal>name</literal> den Namen der Person
+        enthält, dass <literal>homepage</literal> die Website der Person
+        sein könnte und dass <literal>image</literal> die URL einer
+        Bilddatei der Person sein könnte. Ein automatisierter Client
+        jedoch, dem die Objekteigenschaften nicht bekannt sind, kann die
+        Bedeutung dieser Eigenschaften nicht entschlüsseln.
+      </para>
+      <para>
+        Entsprechend der JSON-LD-Spezifikation kann diese Erläuterung
+        über die <literal>@context</literal>-Eigenschaft direkt im
+        selben Objekt, sozusagen als Unterobjekt, mitgeliefert werden:
+      </para>
+      <programlisting language="json">
+{
+  &quot;@context&quot;:
+  {
+    &quot;name&quot;: &quot;http://xmlns.com/foaf/0.1/name&quot;,
+    &quot;image&quot;: {
+      &quot;@id&quot;: &quot;http://xmlns.com/foaf/0.1/img&quot;,
+      &quot;@type&quot;: &quot;@id&quot;
+    },
+    &quot;homepage&quot;: {
+      &quot;@id&quot;: &quot;http://xmlns.com/foaf/0.1/homepage&quot;,
+      &quot;@type&quot;: &quot;@id&quot;
+    }
+  },
+  &quot;name&quot;: &quot;Manu Sporny&quot;,
+  &quot;homepage&quot;: &quot;http://manu.sporny.org/&quot;,
+  &quot;image&quot;: &quot;http://manu.sporny.org/images/manu.png&quot;
+}
+</programlisting>
+      <para>
+        Hier sind die Eigenschaften wie <literal>image</literal> einer
+        URL wie http://schema.org/image zugewiesen. Ein Client, der
+        diese URL kennt, kann daraus folgern, dass über die
+        Objekteigenschaft <literal>image</literal> immer die URL eines
+        Bildes zu finden ist. Das Schlüssel-Wert-Paar
+      </para>
+      <programlisting>
+&quot;@type&quot;: &quot;@id&quot;
+</programlisting>
+      <para>
+        sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die
+        URL eines anderen Objekts ist<footnote>
+          <para>
+            URLs heißen in der JSON-LD-Spezifikation &quot;IRI&quot;
+            (für &quot;Internationalized Resource Identifier&quot;), wir
+            verwenden hier jedoch weiterhin die Bezeichnung
+            &quot;URL&quot;.
+          </para>
+        </footnote>. Mittels <literal>@type</literal>-Deklaration könnte
+        aber auch beispielsweise eine Eigenschaft, die im JSON-Sinn eine
+        Zeichenkette ist, als Datum deklariert werden.
+      </para>
+      <para>
+        Am obigen Beispiel fällt auf, dass der
+        <literal>@context</literal>-Teil des Objects schon mehr Daten
+        umfasst, als die eigentlichen Objekteigenschaften.
+        Sinnvollerweise kann jedoch der gesamte Inhalt des
+        <literal>@context</literal>-Teils in eine externe Ressource
+        ausgelagert werden. Clients, die eine Vielzahl von gleichartigen
+        Objekten laden und interpretieren wollen, müssen diese Ressource
+        dann nur einmal laden. Das Ergebnis könnte so aussehen:
+      </para>
+      <programlisting language="json">
+{
+  &quot;@context&quot;: &quot;http://json-ld.org/contexts/person.jsonld&quot;,
+  &quot;name&quot;: &quot;Manu Sporny&quot;,
+  &quot;homepage&quot;: &quot;http://manu.sporny.org/&quot;,
+  &quot;image&quot;: &quot;http://manu.sporny.org/images/manu.png&quot;
+}
+</programlisting>
+      <para>
+        Die <literal>@context</literal>-Eigenschaft hat nun als Wert
+        eine URL. Die URL (hier:
+        http://json-ld.org/contexts/person.jsonld) gibt wiederum in JSON
+        kodiert die Beschreibung aller möglichen Attribute des Objekts
+        aus.
+      </para>
+      <para>
+        JSON-LD ermöglicht es auch, für ein Objekt einen Objekttyp zu
+        kommunizieren. So könnte passend zu unserem Beispiel ausgedrückt
+        werden, um welche Art von Objekt es sich bei den vorliegenden
+        Daten handelt. Dazu wird die
+        <literal>@type</literal>-Eigenschaft verwendet, deren Wert eine
+        URL ist:
+      </para>
+      <programlisting language="json">
+{
+  &quot;@context&quot;: &quot;http://json-ld.org/contexts/person.jsonld&quot;,
+  &quot;@type&quot;: &quot;http://schema.org/Person&quot;,
+  &quot;name&quot;: &quot;Manu Sporny&quot;,
+  &quot;homepage&quot;: &quot;http://manu.sporny.org/&quot;,
+  &quot;image&quot;: &quot;http://manu.sporny.org/images/manu.png&quot;
+}
+</programlisting>
+      <para>
+        Objekte können mehreren Typen zugeordnet sein und damit die
+        Eigenschafen mehrerer Objekttypen nutzen. Im Fall von OParl kann
+        diese Möglichkeit genutzt werden, um über die API Eigenschaften
+        auszugeben, die nicht Teil des OParl-Schemas sind.
+      </para>
+      <programlisting language="json">
+{
+  &quot;@context&quot;: {
+    &quot;oparl&quot;: &quot;http://oparl.org/schema/1.0/&quot;,
+    &quot;vendor&quot;: &quot;http://www.vendor.de/oparl/schema/&quot;
+  },
+  &quot;@type&quot;: [&quot;oparl:Paper&quot;, &quot;vendor:Drucksache&quot;],
+  &quot;title&quot;: &quot;Beschlussvorlage zum Haushalt&quot;,
+  &quot;created&quot;: &quot;2013-05-29T14:17:39+02:00&quot;,
+  &quot;aktenzeichen&quot;: &quot;ABC123&quot;
+}
+</programlisting>
+      <para>
+        Das Beispiel oben zeigt ein Objekt, das über die
+        <literal>@context</literal>-Eigenschaft zwei verschiedene URLs
+        als sogenannte Vokabulare referenziert. Das eine Vokabular wird
+        durch das Präfix <literal>oparl</literal> repräsentiert, das
+        zweite (herstellereigene) mit dem Präfix
+        <literal>vendor</literal>. Der JSON-LD-Client macht aus dem
+        Präfix und der Typenbezeichnung letztlich wieder eine URL:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Aus <literal>oparl:Paper</literal> wird
+            <literal>http://oparl.org/schema/1.0/Paper</literal>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Aus <literal>vendor:Drucksache</literal> wird
+            <literal>http://www.vendor.de/oparl/schema/Drucksache</literal>
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para>
+        TODO: Ab hier weiter ausformulieren
+      </para>
+      <para>
+        Darüber hinaus stellt JSON-LD zusätzliche Anforderungen an
+        JSON-Daten, die in diesem Abschnitt weiter ausgeführt werden
+        sollen...
+      </para>
+      <itemizedlist>
         <listitem>
           <para>
             Einschränkungen von OParl gegenüber JSON-LD
@@ -1843,50 +2028,6 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
   </para>
   <sect2 id="übergreifende-aspekte">
     <title>Übergreifende Aspekte</title>
-    <sect3 id="typen-von-objekteigenschaften">
-      <title>Typen von Objekteigenschaften</title>
-      <para>
-        JSON erlaubt grundsätzlich die Kodierung von Eigenschaften in
-        den folgenden verschiedenen Typen:
-      </para>
-      <itemizedlist>
-        <listitem>
-          <para>
-            Zeichenkette
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Zahl
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Wahrheitswert
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            null
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Liste (Array)
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Objekt
-          </para>
-        </listitem>
-      </itemizedlist>
-      <para>
-        Wenn nicht anders angegeben, wird eine Eigenschaft grundsätzlich
-        als Zeichenkette erwartet. Eventuelle Längenbeschränkungen oder
-        Einschränkungen des Zeichenvorrats werden gesondert erwähnt.
-      </para>
-    </sect3>
     <sect3 id="null-werte">
       <title>null-Werte</title>
       <para>

@@ -322,15 +322,15 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Die Abkürzung JSON steht für &quot;JavaScript Object Notation&quot;. Das JSON-Format ist in RFC4627<sup><a href="#fn10" class="footnoteRef" id="fnref10">10</a></sup> beschrieben. Nachfolgend werden nur die wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren Verwendung in diesem Dokument zu etablieren.</p>
 <p>Das JSON-Format unterstützt die Ausgabe von vier verschiedenen primitiven Datentypen:</p>
 <ul>
-<li>Zeichenkette (Unicode)</li>
-<li>Zahl (sowohl Ganzzahlen als auch Fließkommazahlen)</li>
-<li>Wahrheitswert (<em>true</em> oder <em>false</em>)</li>
-<li>Null</li>
+<li><em>Zeichenkette</em> (Unicode)</li>
+<li><em>Zahl</em> (sowohl Ganzzahlen als auch Fließkommazahlen)</li>
+<li><em>Wahrheitswert</em> (<code>true</code> oder <code>false</code>)</li>
+<li><em>Null</em></li>
 </ul>
 <p>Darüber hinaus werden zwei komplexe Datentypen unterstützt:</p>
 <ul>
-<li>Objekt: Eine Sammlung von Schlüssel-Wert-Paaren ohne Reihenfolge, wobei der Schlüssel eine Zeichenkette sein muss und der Wert ein beliebiger Datentyp sein kann.</li>
-<li>Array: Eine geordnete Liste mit beliebigen Datentypen.</li>
+<li><em>Objekt</em>: Eine Sammlung von Schlüssel-Wert-Paaren ohne Reihenfolge, wobei der Schlüssel eine Zeichenkette sein muss und der Wert ein beliebiger Datentyp sein kann.</li>
+<li><em>Array</em>: Eine geordnete Liste mit beliebigen Datentypen.</li>
 </ul>
 <p>Beispiel eines Objekts in JSON-Notation:</p>
 <pre class="sourceCode json" id="json_ex1"><code class="sourceCode json">{
@@ -344,8 +344,75 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;array&quot;</span>: [<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>]
 }</code></pre>
 <h3 id="json-ld"><span class="header-section-number">4.5.2</span> JSON-LD</h3>
+<p>Das Kürzel LD im Namen &quot;JSON-LD&quot; steht für Linked Data. Entsprechend erweitert die JSON-LD-Spezifikation<sup><a href="#fn11" class="footnoteRef" id="fnref11">11</a></sup> das JSON-Format um die Möglichkeit,</p>
 <ul>
-<li>JSON-LD: http://www.w3.org/TR/json-ld/</li>
+<li>Objekte mit anderen Objekten zu verknüpfen,</li>
+<li>Objekte und Eigenschaften bestimmten Typen zuzuordnen und damit</li>
+<li>Auskunft über die semantische Bedeutung von Objekten und Eigenschaften zu geben.</li>
+</ul>
+<p>Ein Beispiel aus der JSON-LD-Spezifikation illustriert, wie JSON-LD ein Objekt um zusätzliche semantische Informationen erweitert. Als Ausgangspunkt dient eine Personenbeschreibung in gewöhnlichem JSON:</p>
+<pre class="sourceCode json" id="jsonld_ex1"><code class="sourceCode json">{
+  <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Manu Sporny&quot;</span>,
+  <span class="dt">&quot;homepage&quot;</span>: <span class="st">&quot;http://manu.sporny.org/&quot;</span>,
+  <span class="dt">&quot;image&quot;</span>: <span class="st">&quot;http://manu.sporny.org/images/manu.png&quot;</span>
+}</code></pre>
+<p>Als menschlicher Betrachter kann man leicht erkennen, dass die Eigenschaft <code>name</code> den Namen der Person enthält, dass <code>homepage</code> die Website der Person sein könnte und dass <code>image</code> die URL einer Bilddatei der Person sein könnte. Ein automatisierter Client jedoch, dem die Objekteigenschaften nicht bekannt sind, kann die Bedeutung dieser Eigenschaften nicht entschlüsseln.</p>
+<p>Entsprechend der JSON-LD-Spezifikation kann diese Erläuterung über die <code>@context</code>-Eigenschaft direkt im selben Objekt, sozusagen als Unterobjekt, mitgeliefert werden:</p>
+<pre class="sourceCode json" id="jsonld_ex2"><code class="sourceCode json">{
+  <span class="dt">&quot;@context&quot;</span>:
+  {
+    <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;http://xmlns.com/foaf/0.1/name&quot;</span>,
+    <span class="dt">&quot;image&quot;</span>: {
+      <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://xmlns.com/foaf/0.1/img&quot;</span>,
+      <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;@id&quot;</span>
+    },
+    <span class="dt">&quot;homepage&quot;</span>: {
+      <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://xmlns.com/foaf/0.1/homepage&quot;</span>,
+      <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;@id&quot;</span>
+    }
+  },
+  <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Manu Sporny&quot;</span>,
+  <span class="dt">&quot;homepage&quot;</span>: <span class="st">&quot;http://manu.sporny.org/&quot;</span>,
+  <span class="dt">&quot;image&quot;</span>: <span class="st">&quot;http://manu.sporny.org/images/manu.png&quot;</span>
+}</code></pre>
+<p>Hier sind die Eigenschaften wie <code>image</code> einer URL wie http://schema.org/image zugewiesen. Ein Client, der diese URL kennt, kann daraus folgern, dass über die Objekteigenschaft <code>image</code> immer die URL eines Bildes zu finden ist. Das Schlüssel-Wert-Paar</p>
+<pre><code>&quot;@type&quot;: &quot;@id&quot;</code></pre>
+<p>sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die URL eines anderen Objekts ist<sup><a href="#fn12" class="footnoteRef" id="fnref12">12</a></sup>. Mittels <code>@type</code>-Deklaration könnte aber auch beispielsweise eine Eigenschaft, die im JSON-Sinn eine Zeichenkette ist, als Datum deklariert werden.</p>
+<p>Am obigen Beispiel fällt auf, dass der <code>@context</code>-Teil des Objects schon mehr Daten umfasst, als die eigentlichen Objekteigenschaften. Sinnvollerweise kann jedoch der gesamte Inhalt des <code>@context</code>-Teils in eine externe Ressource ausgelagert werden. Clients, die eine Vielzahl von gleichartigen Objekten laden und interpretieren wollen, müssen diese Ressource dann nur einmal laden. Das Ergebnis könnte so aussehen:</p>
+<pre class="sourceCode json" id="jsonld_ex3"><code class="sourceCode json">{
+  <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;http://json-ld.org/contexts/person.jsonld&quot;</span>,
+  <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Manu Sporny&quot;</span>,
+  <span class="dt">&quot;homepage&quot;</span>: <span class="st">&quot;http://manu.sporny.org/&quot;</span>,
+  <span class="dt">&quot;image&quot;</span>: <span class="st">&quot;http://manu.sporny.org/images/manu.png&quot;</span>
+}</code></pre>
+<p>Die <code>@context</code>-Eigenschaft hat nun als Wert eine URL. Die URL (hier: http://json-ld.org/contexts/person.jsonld) gibt wiederum in JSON kodiert die Beschreibung aller möglichen Attribute des Objekts aus.</p>
+<p>JSON-LD ermöglicht es auch, für ein Objekt einen Objekttyp zu kommunizieren. So könnte passend zu unserem Beispiel ausgedrückt werden, um welche Art von Objekt es sich bei den vorliegenden Daten handelt. Dazu wird die <code>@type</code>-Eigenschaft verwendet, deren Wert eine URL ist:</p>
+<pre class="sourceCode json" id="jsonld_ex4"><code class="sourceCode json">{
+  <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;http://json-ld.org/contexts/person.jsonld&quot;</span>,
+  <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://schema.org/Person&quot;</span>,
+  <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Manu Sporny&quot;</span>,
+  <span class="dt">&quot;homepage&quot;</span>: <span class="st">&quot;http://manu.sporny.org/&quot;</span>,
+  <span class="dt">&quot;image&quot;</span>: <span class="st">&quot;http://manu.sporny.org/images/manu.png&quot;</span>
+}</code></pre>
+<p>Objekte können mehreren Typen zugeordnet sein und damit die Eigenschafen mehrerer Objekttypen nutzen. Im Fall von OParl kann diese Möglichkeit genutzt werden, um über die API Eigenschaften auszugeben, die nicht Teil des OParl-Schemas sind.</p>
+<pre class="sourceCode json" id="jsonld_ex5"><code class="sourceCode json">{
+  <span class="dt">&quot;@context&quot;</span>: {
+    <span class="dt">&quot;oparl&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/&quot;</span>,
+    <span class="dt">&quot;vendor&quot;</span>: <span class="st">&quot;http://www.vendor.de/oparl/schema/&quot;</span>
+  },
+  <span class="dt">&quot;@type&quot;</span>: [<span class="st">&quot;oparl:Paper&quot;</span>, <span class="st">&quot;vendor:Drucksache&quot;</span>],
+  <span class="dt">&quot;title&quot;</span>: <span class="st">&quot;Beschlussvorlage zum Haushalt&quot;</span>,
+  <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2013-05-29T14:17:39+02:00&quot;</span>,
+  <span class="dt">&quot;aktenzeichen&quot;</span>: <span class="st">&quot;ABC123&quot;</span>
+}</code></pre>
+<p>Das Beispiel oben zeigt ein Objekt, das über die <code>@context</code>-Eigenschaft zwei verschiedene URLs als sogenannte Vokabulare referenziert. Das eine Vokabular wird durch das Präfix <code>oparl</code> repräsentiert, das zweite (herstellereigene) mit dem Präfix <code>vendor</code>. Der JSON-LD-Client macht aus dem Präfix und der Typenbezeichnung letztlich wieder eine URL:</p>
+<ul>
+<li>Aus <code>oparl:Paper</code> wird <code>http://oparl.org/schema/1.0/Paper</code></li>
+<li>Aus <code>vendor:Drucksache</code> wird <code>http://www.vendor.de/oparl/schema/Drucksache</code></li>
+</ul>
+<p>TODO: Ab hier weiter ausformulieren</p>
+<p>Darüber hinaus stellt JSON-LD zusätzliche Anforderungen an JSON-Daten, die in diesem Abschnitt weiter ausgeführt werden sollen...</p>
+<ul>
 <li>Einschränkungen von OParl gegenüber JSON-LD</li>
 <li>Schlüssel in einem JSON-LD-Objekt müssen einzigartig sein.</li>
 <li>Unterscheidung von Groß- und Kleinschreibung</li>
@@ -422,20 +489,9 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <h1 id="schema"><span class="header-section-number">5</span> Schema</h1>
 <p>Dieses Kapitel beschreibt das Schema von OParl. Das Schema bildet das Datzenmodell der OParl-Architektur ab. Es definiert, welche Objekttypen über eine OParl-API abgerufen werden können und welche Eigenschaften diese Objekttypen haben dürfen und müssen. Darüber hinaus ist im Schema auch festgelegt, in welcher Beziehung verschiedene Objekttypen zu einander stehen.</p>
 <h2 id="übergreifende-aspekte"><span class="header-section-number">5.1</span> Übergreifende Aspekte</h2>
-<h3 id="typen-von-objekteigenschaften"><span class="header-section-number">5.1.1</span> Typen von Objekteigenschaften</h3>
-<p>JSON erlaubt grundsätzlich die Kodierung von Eigenschaften in den folgenden verschiedenen Typen:</p>
-<ul>
-<li>Zeichenkette</li>
-<li>Zahl</li>
-<li>Wahrheitswert</li>
-<li>null</li>
-<li>Liste (Array)</li>
-<li>Objekt</li>
-</ul>
-<p>Wenn nicht anders angegeben, wird eine Eigenschaft grundsätzlich als Zeichenkette erwartet. Eventuelle Längenbeschränkungen oder Einschränkungen des Zeichenvorrats werden gesondert erwähnt.</p>
-<h3 id="null-werte"><span class="header-section-number">5.1.2</span> null-Werte</h3>
+<h3 id="null-werte"><span class="header-section-number">5.1.1</span> null-Werte</h3>
 <p>JSON erlaubt es grundsätzlich, dass Eigenschaften den Wert <code>null</code> haben können. Im Rahmen dieser Spezifikation DARF das jedoch nur bei Eigenschaften der Fall sein, die als OPTIONAL oder EMPFOHLEN gekennzeichnet sind. ZWINGENDE Eigenschaften müssen einen Wert ungleich <code>null</code> besitzen.</p>
-<h3 id="vererbung-der-lizenzbedingung"><span class="header-section-number">5.1.3</span> Vererbung der Lizenzbedingung</h3>
+<h3 id="vererbung-der-lizenzbedingung"><span class="header-section-number">5.1.2</span> Vererbung der Lizenzbedingung</h3>
 <ul>
 <li>Jedes Objekt KANN die Eigenschaft &quot;license&quot; besitzen.</li>
 <li>Die genannte Lizenz bezieht sich auf das jeweilige Objekt und auf untergeordnete Objekte, sofern diese keine license-Eigenschaft besitzen.</li>
@@ -443,9 +499,9 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <li>Empfohlene Minimalvariante: Nur eine license-Angabe auf Ebene von <code>oparl:System</code>.</li>
 <li>Auf Ebene des <code>oparl:Document</code> bezieht sich die Eigenschaft sowohl auf die Metadaten als auch auf das Dokument selbst.</li>
 </ul>
-<h3 id="die-eigenschaften-created-und-last_modified"><span class="header-section-number">5.1.4</span> Die Eigenschaften &quot;created&quot; und &quot;last_modified&quot;</h3>
-<h3 id="die-eigenschaften-name-und-name_long"><span class="header-section-number">5.1.5</span> Die Eigenschaften &quot;name&quot; und &quot;name_long&quot;</h3>
-<h3 id="die-eigenschaft-description"><span class="header-section-number">5.1.6</span> Die Eigenschaft &quot;description&quot;</h3>
+<h3 id="die-eigenschaften-created-und-last_modified"><span class="header-section-number">5.1.3</span> Die Eigenschaften &quot;created&quot; und &quot;last_modified&quot;</h3>
+<h3 id="die-eigenschaften-name-und-name_long"><span class="header-section-number">5.1.4</span> Die Eigenschaften &quot;name&quot; und &quot;name_long&quot;</h3>
+<h3 id="die-eigenschaft-description"><span class="header-section-number">5.1.5</span> Die Eigenschaft &quot;description&quot;</h3>
 <h2 id="oparlsystem-system"><span class="header-section-number">5.2</span> OParlSystem (System)</h2>
 <p>Der Objekttyp <code>oparl:System</code> bildet grundlegende Informationen zum parlamentarischen Informationssystem ab. Das Objekt repräsentiert das technische System, unabhängig von der Frage, welche Körperschaften auf diesem System vertreten sind.</p>
 <p>Auf jedem OParl Server MUSS ein Objekt vom Typ <code>oparl:System</code> vorgehalten werden. Es DARF nur ein einziges solches Objekt je Server existieren.</p>
@@ -532,10 +588,10 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>TODO: Beschreibung</p>
 <h3 id="eigenschaft-rgs"><span class="header-section-number">5.3.5</span> Eigenschaft <code>rgs</code></h3>
 <p>Diese Eigenschaft ist EMPFOHLEN.</p>
-<p>Handelt es sich bei der Körperschaft um eine Gebietskörperschaft (Landkreis, Kommune etc.) in Deutschland, SOLL für die eindeutige Identifizierung der amtliche Regionalschlüssel verwendet werden.<sup><a href="#fn11" class="footnoteRef" id="fnref11">11</a></sup> Dieser ist grundsätzlich zwölfstellig.</p>
+<p>Handelt es sich bei der Körperschaft um eine Gebietskörperschaft (Landkreis, Kommune etc.) in Deutschland, SOLL für die eindeutige Identifizierung der amtliche Regionalschlüssel verwendet werden.<sup><a href="#fn13" class="footnoteRef" id="fnref13">13</a></sup> Dieser ist grundsätzlich zwölfstellig.</p>
 <h3 id="eigenschaft-gnd_url"><span class="header-section-number">5.3.6</span> Eigenschaft <code>gnd_url</code></h3>
 <p>Diese Eigenschaft ist EMPFOHLEN.</p>
-<p>Sofern die Körperschaft in der GND<sup><a href="#fn12" class="footnoteRef" id="fnref12">12</a></sup> vertreten ist, SOLL diese Eigenschaft als Wert die URL des Eintrags in der GND enthalten.</p>
+<p>Sofern die Körperschaft in der GND<sup><a href="#fn14" class="footnoteRef" id="fnref14">14</a></sup> vertreten ist, SOLL diese Eigenschaft als Wert die URL des Eintrags in der GND enthalten.</p>
 <h3 id="eigenschaft-contact-1"><span class="header-section-number">5.3.7</span> Eigenschaft <code>contact</code></h3>
 <p>Diese Eigenschaft ist EMPFOHLEN.</p>
 <p>Über diese Eigenschafte SOLLEN Kontaktinformationen zu einer Stelle bereit gestellt werden, die die inhaltliche Verantwortung für sämtliche zu dieser Körperschaft gehörenden Inhalte im System trägt. Besonders wichtig ist diese Angabe, wenn auf einem System mehrere Körperschaften vertreten sind und damit auf der Ebene des <code>oparl:System</code> Objekts ein rein technischer Kontakt ausgegeben wird, der nicht für inhaltliche Fragestellungen im Zuständigkeitsbereich der jeweiligen Körperschaften kontaktiert werden sollte.</p>
@@ -1026,8 +1082,10 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <li id="fn8"><p>Berners-Lee, Tim: Cool URIs don't change. <a href="http://www.w3.org/Provider/Style/URI.html"><code class="url">http://www.w3.org/Provider/Style/URI.html</code></a><a href="#fnref8">↩</a></p></li>
 <li id="fn9"><p>Study on persistent URIs, with identification of  best practices and recommendations on the topic for the MSs and the EC. (PDF) <a href="http://goo.gl/JaTq6Z"><code class="url">http://goo.gl/JaTq6Z</code></a><a href="#fnref9">↩</a></p></li>
 <li id="fn10"><p><a href="https://tools.ietf.org/html/rfc4627"><code class="url">https://tools.ietf.org/html/rfc4627</code></a><a href="#fnref10">↩</a></p></li>
-<li id="fn11"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref11">↩</a></p></li>
-<li id="fn12"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd"><code class="url">http://www.dnb.de/gnd</code></a><a href="#fnref12">↩</a></p></li>
+<li id="fn11"><p><a href="http://www.w3.org/TR/json-ld/"><code class="url">http://www.w3.org/TR/json-ld/</code></a><a href="#fnref11">↩</a></p></li>
+<li id="fn12"><p>URLs heißen in der JSON-LD-Spezifikation &quot;IRI&quot; (für &quot;Internationalized Resource Identifier&quot;), wir verwenden hier jedoch weiterhin die Bezeichnung &quot;URL&quot;.<a href="#fnref12">↩</a></p></li>
+<li id="fn13"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref13">↩</a></p></li>
+<li id="fn14"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd"><code class="url">http://www.dnb.de/gnd</code></a><a href="#fnref14">↩</a></p></li>
 </ol>
 </div>
 </body>

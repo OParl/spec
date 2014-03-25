@@ -48,7 +48,7 @@ also der Anpassung auf die Bedürfnisse und Interessen der Nutzerin oder des Nut
 Es wäre beispielsweise denkbar, dass eine Nutzerin die Ratsinformationssysteme,
 für die sie sich interessiert, dauerhaft in der App einrichtet und eine Favoritenliste
 der Gremien, die ihre bevorzugten Themengebiete behandeln, hinterlegt. Die App
-könnte aufgrund dieser Favoritenliste eigneständig über die API nach neuen
+könnte aufgrund dieser Favoritenliste eigenständig über die API nach neuen
 Sitzungsterminen, Tagesordnungspunkten, Drucksachen und Dokumente suchen. Taucht
 dabei ein neues Objekt auf, wird die Nutzerin darüber benachrichtigt. Sie kann dann
 beispielsweise entscheiden, Dokumente direkt zu öffnen oder für den späteren 

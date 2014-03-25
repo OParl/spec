@@ -15,7 +15,7 @@ Verwendung finden:
      |         |                  |                           |
     Schema    Host               Pfad                        Query-String
 
-### URL-Kanonisierung
+## URL-Kanonisierung
 
 Absicht ist, dass jedes benannte Objekt, das ein Server über eine OParl-API anbietet, über genau
 eine URL identifizierbar und abrufbar ist. Diese Vereinheitlichung der URL nennen
@@ -64,7 +64,7 @@ abrufbar ist. Diese Faktoren könnten sein:
 
 * Zusätzliche Domains, die einen A-Record auf den selben Server besitzen
 
-Zu der oben gezeigten kanonischen Beispiel-URL http://oparl.ratsinformation.stadt-koeln.de/ wären eine Reihe von nicht-kanonischen URL-Varianten denkbar, die technischen auf den selben Server führen könnten:
+Zu der kanonischen Beispiel-URL http://oparl.ratsinformation.stadt-koeln.de/ wären eine Reihe von nicht-kanonischen URL-Varianten denkbar, die technischen auf den selben Server führen könnten:
 
 * http://83.123.89.102/
 * http://oparl.ratsinformation.stadtkoeln.de/
@@ -77,23 +77,44 @@ kanonische URL beantwortet werden. Dabei ist der HTTP-Status-Code 301 zu verwend
 Server-Implementierern wird empfohlen, hierfür den Host-Header der HTTP-Anfrage auszuwerten und mit
 der konfigurierten Einstellung für den kanonischen Hostnamen des Systems abzugleichen.
 
-### Langlebigkeit
+Beim **Pfad**-Bestandteil der URL MÜSSEN Server-Implementierer darüber hinaus beachten, dass
+nur jeweils eine Schreibweise als die kanonische Schreibweise gelten kann. Dazu gehört auch
+die Groß- und Kleinschreibung, die Anzahl von Schrägstrichen als Pfad-Trennzeichen, die Anzahl
+von führenden Nullen vor numerischen URL-Bestandteilen und vieles mehr.
 
-Weiterhin ist es Absicht, dass URLs von
-Objekten langlebig sind, so dass sie, wenn sie einmal verbreitet wurden, langfristig
-zur Abfrage des dazugehörigen Objekts verwendet werden können.
+Die Kanonisierung umfasst auch den **Query-String**-Bestandteil der URL. Wie auch beim Pfad, gilt hier,
+dass für jeden Parameter und jeden Wert im Query-String nur eine kanonische Schreibweise gelten MUSS.
 
-### Empfehlungen für langlebige IRIs/URIs/URLs
+Darüber hinaus SOLL der Server-Implementierer darauf achten, bei Verwendung von Query-String-Parametern
+diese in URLs immer nach dem selben Prinzip zu sortieren. Ein Beispiel: die beiden URLs
 
-- Hinweise und evtl. Auszüge aus
-  - http://www.w3.org/Provider/Style/URI.html
-  - https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf
+    http://oparl.meinris.de/members?body=1&committee=2
+    http://oparl.meinris.de/members?committee=2&body=1
 
-### Empfehlungen für eindeutige URLs
+unterscheiden sich lediglich in der Reihenfolge der Query-String-Parameter. Da sie jedoch nicht
+identisch sind, müssen Clients annehmen, dass beide URLs verschiedene Objekte repräsentieren. In der
+Konsequenz kann es zu vermeidbarer Ressourcennutzugn sowohl auf Client- als auch auf Serverseite kommen.
 
-- Vermeidung von Duplicate Content durch Fehlkonfiguration
-- z.B.: verschiedene CNAMES mit der selben IP-Adresse
-- z.B.: Aufruf über http://www.example.com und http://example.com
-- z.B.: Direkter Aufruf über IP-Adresse http://1.2.3.4/
-- URL-Parameter in definierter Reihenfolge verwenden
-- Groß- und Kleinschreibung unterscheiden
+## Langlebigkeit
+
+Weiterhin ist es Absicht, dass URLs von Objekten langlebig sind, so dass sie, wenn sie einmal 
+verbreitet wurden, langfristig zur Abfrage des dazugehörigen Objekts verwendet werden können.
+
+Um dies zu gewährleisten, wird den **Betreibern** empfohlen, die Wahl der Domain, eventuell der
+Subdomain und letztlich des Host-Namens sorgfältig auf seine längerfristige Verwendbarkeit abzuwägen.
+
+**Server-Implementierer** SOLLEN darüber hinaus dafür sorgen, dass der Pfad-Bestandteil der URLs
+die Langlebigkeit der URLs unterstützt. Es gelten die folgenden Empfehlungen, die jedoch keinen
+Anspruch auf Vollständigkeit erheben:
+
+* **Veränderliche Objekt-Eigenschaften nicht als URL-Bestandteil nutzen.** In URLs sollten nur Eigenschaften
+  des Objekts aufgenommen werden, die keinen Veränderungen unterliegen. Ändert sich beispielsweise
+  die Kennung einer Drucksache im Verlauf ihrer Existenz, dann scheidet sie für die Bildung
+  der URL aus.
+
+* **Technische Eigenschaften der Implementierung verbergen.** Ist ein OParl-Server beispielsweise in PHP
+  implementiert, sollte dies nicht dazu führen, dass im Pfad ein Bestandteil wie "oparl.php/" erscheint.
+  Erfahrungsgemäß überdauern solche URLs nur kurz.
+
+Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee^[Berners-Lee, Tim: Cool URIs don't change. <http://www.w3.org/Provider/Style/URI.html>] sowie die Europäische Kommission^[Study on persistent URIs, with identification of 
+best practices and recommendations on the topic for the MSs and the EC. (PDF) <http://goo.gl/JaTq6Z>].

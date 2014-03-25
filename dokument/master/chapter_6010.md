@@ -92,3 +92,20 @@ aus verschiedenen Schemata.
 
 ### Browseability/Verlinkung
 
+Klassische Webservice-Schnittstellen erfordern von den Entwicklern vollständige Kenntnis
+der angebotenen Einstiegspunkte und Zugriffsmethoden, gepaart mit sämtlichen unterstützten
+URL-Parametern, um den vollen Funktionsumfang der Schnittstelle ausschöpfen zu können.
+
+Parlamentarische Informationen sind weitgehend graphartig aufgebaut. Das bedeutet, dass
+Objekte häufig mit einer Vielzahl anderer Objekte verknüpft sind. So ist eine Person
+beispielsweise Mitglied in mehreren Gremien, das Gremium hat mehrere Sitzungen abgehalten
+und zu diesen Sitzungen gibt es jeweils zahlreiche Drucksachen, die ihrerseits wieder
+zahlreiche Dokumente enthalten.
+
+Eine OParl-Schnittstelle gibt jedem einzelnen Objekt eine eindeutige Adresse, eine URL.
+Somit kann die Schnittstelle den Verweis von einem Objekt, beispielsweise einem Gremium,
+auf ein anderes Objekt, etwa ein Mitglied des Gremiums, dadurch ausgeben, dass im Kontext
+des Gremiums die URL des Mitglieds ausgeben wird. Der Client kann somit ausgehend von einem
+bestimmten Objekt die anderen Objekte im System finden, indem er einfach den angebotenen
+URLs folgt. Dieses Prinzip wird auch "Follow Your Nose" genannt^[<http://patterns.dataincubator.org/book/follow-your-nose.html>].
+

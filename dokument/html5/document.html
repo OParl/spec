@@ -334,7 +334,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <section class="level2" id="http-und-https">
 <h2><span class="header-section-number">4.3</span> HTTP und HTTPS</h2>
 <p>OParl-Server und -Client kommunizieren miteinander über das HTTP-Protokoll.</p>
-<p>Hierbei KANN eine verschlüsselte Variante des Protokolls, auch HTTPS genannt, zum Einsatz kommen. Welche Verschlüsselungstechnologie gewählt wird, obliegt dem Betreiber bzw. Server-Implementierer.</p>
+<p>Hierbei SOLL eine verschlüsselte Variante des Protokolls, auch HTTPS genannt, zum Einsatz kommen, alternativ kann jedoch auch unverschlüsseltes HTTP verwendet werden. Welche Verschlüsselungstechnologie im Fall von HTTPS gewählt wird, obliegt dem Betreiber bzw. Server-Implementierer.</p>
 <p>Die Wahl des unverschlüsselten oder verschlüsselten HTTP-Zugriffs hat Auswirkung auf die im System verwendeten URLs. Wie im Kapitel <a href="#urls">URLs</a> beschrieben, verfolgt diese Spezifikation die Festlegung auf genau eine &quot;kanonische&quot; URL je Ressource (URL-Kanonisierung).</p>
 <p>Bei unverschlüsseltem Zugriff wird allen URLs, die auf das betreffende System zeigen, das Schema &quot;http://&quot; voran gestellt, beim verschlüsselten Zugriff stattdessen &quot;https://&quot;.</p>
 <p>Es ist daher ZWINGEND, dass der Server-Betreiber sich zur URL-Kanonisierung für nur eine von beiden Varianten entscheidet. Beantwortet das System regulär Anfragen über HTTPS mit der Auslieferung von Objekten etc., dann MUSS das System bei Anfragen an die entsprechenden URLs ohne &quot;https://&quot; Schema mit einer Weiterleitung antworten (HTTP Status-Code 301).</p>
@@ -490,7 +490,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
   <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2013-05-29T14:17:39+02:00&quot;</span>,
   <span class="dt">&quot;aktenzeichen&quot;</span>: <span class="st">&quot;ABC123&quot;</span>
 }</code></pre>
-<p>Das Beispiel oben zeigt ein Objekt, das über die <code>@context</code>-Eigenschaft zwei verschiedene URLs als sogenannte Vokabulare referenziert. Das eine Vokabular wird durch das Präfix <code>oparl</code> repräsentiert, das zweite (herstellereigene) mit dem Präfix <code>vendor</code>. Der JSON-LD-Client macht aus dem Präfix und der Typenbezeichnung letztlich wieder eine URL:</p>
+<p>Das Beispiel oben zeigt ein Objekt, das über die <code>@context</code>-Eigenschaft zwei verschiedene URLs als sogenannte Vokabulare referenziert. Das eine Vokabular wird durch das Präfix <code>oparl</code> repräsentiert, das zweite (herstellereigene) durch das Präfix <code>vendor</code>. Ein JSON-LD-Client setzt Präfix und Typenbezeichnung letztlich wieder zu einer URL zusammen.</p>
 <ul>
 <li>Aus <code>oparl:Paper</code> wird <code>http://oparl.org/schema/1.0/Paper</code></li>
 <li>Aus <code>vendor:Drucksache</code> wird <code>http://www.vendor.de/oparl/schema/Drucksache</code></li>
@@ -512,32 +512,116 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 <section class="level3" id="jsonp">
 <h3><span class="header-section-number">4.5.3</span> JSONP</h3>
+<p>Eine Einschränkung bei der Nutzung von JSON ist das Sicherheitsmodell von Web-Browsern. Die gängigen Browser erlauben es innerhalb von Webanwendungen nicht, JSON-Ressourcen von Domains auszulesen, die nicht der Domain entsprechen, von der die Webanwendung selbst geladen wurde. AnwendungsentwicklerInnen sind dadurch bei der Implementierung von Client-Anwendungen eingeschränkt.</p>
+<p>Diese Einschränkung gilt nicht fürt JSONP<sup><a href="#fn13" class="footnoteRef" id="fnref13">13</a></sup>. Durch JSONP (TODO: Abkürzung erläutern) wird die JSON-Notation so erweitert, dass der ausgegebene Code ausführbarer JavaScript-Code wird. Damit wird erreicht, dass der JSON-Code über die Grenzen von Domains hinweg direkt von Webanwendungen eingebunden werden kann.</p>
+<p>Das folgende Beispiel verdeutlicht den Unterschied zwischen JSON und JSONP. Zunächst ein einfaches JSON-Beispiel:</p>
+<pre class="sourceCode json" id="jsonp_ex1"><code class="sourceCode json">{
+    <span class="dt">&quot;foo&quot;</span>: <span class="st">&quot;bar&quot;</span>
+}</code></pre>
+<p>Durch Einbettung in eine sogenannte Callback-Funktion wird daraus JSONP:</p>
+<pre class="sourceCode json" id="jsonp_ex2"><code class="sourceCode json"><span class="er">mycallback(</span>{
+    <span class="dt">&quot;foo&quot;</span>: <span class="st">&quot;bar&quot;</span>
+}<span class="er">)</span></code></pre>
+<p>Der Name der Callback-Funktion (im Beispiel &quot;mycallback&quot;) wird grundsätzlich bei der Anfrage vom Client bestimmt, und zwar mittels URL-Parameter.</p>
+<p>Für eine OParl-konforme Schnittstelle wird EMPFOHLEN, dass der Server die JSONP-Ausgabe unterstützt. Die JSONP-Ausgabe MUSS in diesem Fall für sämtliche Abfragen möglich sein. Eine JSONP-Unterstzung nur für bestimmte Anfragen ist nicht vorgesehen.</p>
+<p>Der URL-Parameter, den Clients zur Aktivierung der JSONP-Ausgabe verwenden, MUSS <code>callback</code> lauten. Der Wert des <code>callback</code>-URL-Parameters MUSS vom Server unverändert als Callback-Funktionsname verwendet werden.</p>
+<p>Aus Sicherheitsgründen MUSS der Client den Wert des <code>callback</code>-Parameters aus einem eingeschränkten Zeichenvorrat bilden, erlaubt sind ausschließlich die Klein- und Großbuchstaben von a bis z bzw. A bis Z sowie die Ziffern von 0 bis 9.</p>
+<p>Hält sich der Client nicht an diese Einschränkung und wird ein <code>callback</code>-Parameter mit nicht erlaubten Zeichen verwendet, SOLL der Server die Anfrage mit einer HTTP XXX (Bad Request) Antwort bedienen. (TODO: Status Code einfügen oder prüfen, welche HTTP-Antwort die geeignetste ist.)</p>
 <ul>
 <li>TODO: Spezifikation finden/verlinken. (RFC gibt es nicht)</li>
 <li>https://github.com/OParl/specs/issues/67</li>
-<li>Zeichenvorrat für callback-Parameter beschränken auf [a-zA-Z0-9] aus Sicherheitsgründen</li>
 </ul>
 </section>
 </section>
 <section class="level2" id="benannte-und-anonyme-objekte">
 <h2><span class="header-section-number">4.6</span> Benannte und anonyme Objekte</h2>
+<p>Die JSON-LD-Spezifikation unterscheidet zwischen benannten und anonymen Objekten. Da die Unterscheidung auch für OParl von Bedeutung ist, wird sie hier genauer erläutert.</p>
 <section class="level3" id="benannte-objekte">
 <h3><span class="header-section-number">4.6.1</span> Benannte Objekte</h3>
-<ul>
-<li>IRIs (RFC3987) als eindeutige Kennung</li>
-</ul>
+<p>Benannte Objekte sind innerhalb einer JSON-LD-Ausgabe diejenigen Objekte, die durch eine eigene URL identifiziert werden. Als Beispiel dient ein fiktives Objekt, das ein Client über die URL</p>
+<pre><code>http://refserv.oparl.org/bodies/0/committees/1</code></pre>
+<p>abruft:</p>
+<pre class="sourceCode json" id="benanntanonym_ex1"><code class="sourceCode json">{
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/committees/1&quot;</span>,
+    <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/committee&quot;</span>,
+    <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Hauptausschuss&quot;</span>
+}</code></pre>
+<p>Das Objekt enthält eine Eigenschaft <code>@id</code> mit der URL des Objekts als Wert.</p>
+<p>Das benannte Objekt kann über seine URL sowohl eindeutig identifiziert als auch direkt abgerufen werden.</p>
 </section>
 <section class="level3" id="anonyme-objekte-blank-nodes">
 <h3><span class="header-section-number">4.6.2</span> Anonyme Objekte (Blank Nodes)</h3>
+<p>Im Gegensatz dazu können Objekte existieren, die keine eigene URL haben. Ein Beispiel dafür findet sich in der Beratungsfolge einer Drucksache.</p>
+<p>Das nachfolgende Beispiel zeigt eine Drucksache, deren Beratungsfolge über die Eigenschaft <code>consultations</code> kodiert ist.</p>
+<p>TODO: Nachstehendes Beispiel und Text dazu auf stimmiges Paper Objekt umschreiben.</p>
+<pre class="sourceCode json" id="benanntanonym_ex2"><code class="sourceCode json">{
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/456&quot;</span>,
+    <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/paper&quot;</span>,
+    <span class="dt">&quot;title&quot;</span>: <span class="st">&quot;Beschlussvorlage zur Jugendförderung&quot;</span>,
+    <span class="dt">&quot;consultations&quot;</span>: [
+        {
+            <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/consultation&quot;</span>,
+            <span class="dt">&quot;committee&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/committees/1&quot;</span>,
+            <span class="dt">&quot;meeting&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/committees/1/meetings/123&quot;</span>,
+            <span class="dt">&quot;agendaitem&quot;</span>: <span class="st">&quot;7.2.4&quot;</span>,
+            <span class="dt">&quot;authoritative&quot;</span>: <span class="dv">false</span>
+        },
+        {
+            <span class="er">...</span>
+        }
+    ]
+}</code></pre>
+<p>Die Eigenschaft <code>consultations</code> ist eine Liste mit einem oder mehreren Objekten vom Typ <code>consultation</code>. Diese Objekte spiegeln wieder, in welchen Sitzungen die vorliegende Drucksache beraten wurde bzw. wird.</p>
+<p>Die einzelnen <code>consultation</code>-Objekte haben keine <code>@id</code>-Eigenschaft, daher handelt es sich dabei um anonyme Objekte, auch <em>Blank Nodes</em> genannt. Diese Objekte können nicht einzeln, sondern nur im Kontext verbundener Objekte, wie hier im Beispiel im Kontext einer Drucksache, abgerufen werden.</p>
+<p>TODO: Weitere Objekttypen nennen, in denen Blank Nodes vorkommen.</p>
 </section>
 </section>
 <section class="level2" id="objektlisten">
 <h2><span class="header-section-number">4.7</span> Objektlisten</h2>
+<p>Über die OParl-API können entweder einzelne Objekte oder Listen von Objekten abgefragt werden.</p>
+<section class="level3" id="gezieltes-abfragen-von-listen">
+<h3><span class="header-section-number">4.7.1</span> Gezieltes Abfragen von Listen</h3>
+<p>Fragt ein Client eine Liste von Objekten an, beispielsweise die Liste aller Drucksachen in einem System, kann der Server innerhalb bestimmter Grenzen entscheiden, wie die Ausgabe aussieht.</p>
+<p>In der einfachsten Form gibt der Server ein Objekt mit nur einer Eigenschaft <code>items</code> aus. Der Wert dieser Eigenschaft ist die <strong>vollständige Liste</strong> der URLs aller angefragten Objekte. Beispiel:</p>
+<pre class="sourceCode json" id="objektlisten_ex1"><code class="sourceCode json">{
+    <span class="dt">&quot;items&quot;</span>: [
+        <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/2&quot;</span>,
+        <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/5&quot;</span>,
+        <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/7&quot;</span>,
+    ]
+}</code></pre>
+<p>Diese einfachste Form der Antwort eignet sich nur für Listen mit einer begrenzten Anzahl von Einträgen.</p>
+<p>Für längere Listen ist eine Blätterfunktion bzw. Paginierung vorgesehen. Darunter versteht man den seitenweisen Abruf der Einträge einer Liste, wobei die Reihenfolge der Liste vom Server festgelegt ist und zwischen den Seitenabrufen unverändert bleibt.</p>
+<p>Listen mit mehr als 100 Einträgen SOLL der Server nur teilweise ausgeben und dem Client dabei eine <strong>Paginierung</strong> anbieten, um weitere Listenteile abzurufen. Dabei wird EMPFOHLEN, die Zahl der jeweils ausgegebenen Listeneinträge wiederum auf maximal 100 zu begrenzen.</p>
+<p>Das nachstehende Beispiel zeigt, wie dem Client die URL zum &quot;Blättern&quot;, also zum Aufruf der nächsten Listenseite, angeboten wird.</p>
+<pre class="sourceCode json" id="objektlisten_ex2"><code class="sourceCode json">{
+    <span class="dt">&quot;items&quot;</span>: [
+        <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/2&quot;</span>,
+        <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/5&quot;</span>,
+        <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/7&quot;</span>,
+    ],
+    <span class="dt">&quot;nextpage&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/?skip=7&quot;</span>,
+    <span class="dt">&quot;count&quot;</span>: <span class="dv">7</span>
+}</code></pre>
+<p>Wie oben zu sehen, enthält das Beispiel-Objekt nun eine zusätzliche Eigenschaft <code>nextpage</code>. Der Wert dieser Eigenschaft ist eine URL, die dem Client dazu dient, die weiteren Einträge der Liste abzurufen.</p>
+<p>Die Eigenschaft <code>count</code> DARF bei Listen grundsätzlich ausgegeben werden und SOLL bei mehrseitigen Listen ausgegeben werden. Ihr Wert ist eine Zahl und gibt an, wie viele Einträge die vollständige Liste enthält.</p>
+<p>Ruft der Client die unter <code>nextpage</code> angegebene URL auf, erhält er wiederum ein Listenobjekt. Dieses Objekt MUSS, sofern noch immer mehr Listeneinträge vorhanden sind, als ausgegeben wurden, wiederum die <code>nextpage</code> Eigenschaft mit einer URL enthalten. Um alle Einträge einer Liste zu erfassen, folgt der Client also jeweils der URL, die in der <code>nextpage</code> Eigenschaft angegeben ist.</p>
+<figure>
+<img src="images/pagination01.png" alt="Paginierung: Schematische Darstellung"><figcaption>Paginierung: Schematische Darstellung</figcaption>
+</figure>
+<p>Server-Implementierer entscheiden selbst, wie die <code>nextpage</code>-URL aufgebaut ist und tragen damit selbst Verantwortung für die Funktionsweise der Paginierung. Bei der Entscheidung für eine Form der Implementierung sind weitere Anforderungen zu berücksichtigen:</p>
+<ul>
+<li>Es ist davon auszugehen, dass Clients für den gesamten Abruf aller Seiten einer Liste längere Zeit benötigen. In der Zwischenzeit kann sich der Inhalt der Liste bereits ändern, etwa durch das Hinzukommen neuer Einträge. Die Paginierung ist so zu implementieren, dass sich das Hinzukommen oder Entfernen von Einträgen möglichst nicht auf einen Client auswirkt, der aktuell die Liste paginiert, um alle Einträge abzurufen.</li>
+</ul>
+<p>Eine ungünstige (unstabile) Form der Implementierung soll hier mit Hilfe einer SQL-Abfrage illustriert werden. Gegeben sei eine Tabelle <code>example</code>, die einen numerischen Primärschlüssel <code>id</code> enthält. Nehmen wir an, die erste Seite der Liste wird mit der Abfrage</p>
+<pre class="sourceCode sql" id="objektlisten_ex3"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> example <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span> <span class="kw">LIMIT</span> <span class="dv">10</span> OFFSET <span class="dv">0</span></code></pre>
+<p>abgerufen und würde 10 Datensätze mit den <code>id</code>s 1 bis 10 zurück liefern. Dann wird die zweite Seite mit der Abfrage</p>
+<pre class="sourceCode sql" id="objektlisten_ex4"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> example <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span> <span class="kw">LIMIT</span> <span class="dv">10</span> OFFSET <span class="dv">10</span></code></pre>
+<p>abgerufen. Sofern sich an der Tabelle zwischen den beiden Abfragen nichts geändert hat, liefert die zweite Abfrage Datensätze mit <code>id</code> &gt; 10 aus. Sollte zwischen den beiden Abfragen jedoch beispielsweise der Datensätze mit der <code>id</code> 1 gelöscht worden sein, liefert die zweite Abfrage Datensätze mit <code>id</code> &gt; 9. In diesem Fall würde dies nur dazu führen, dass ein Datensatz (<code>id</code> = 10) zweimal ausgegeben wird. Bei ungünstigeren Konstellationen wäre auch denkbar, dass eine instabile Paginierung bewirkt, dass einzelne Datensätze beim Paginieren übergangen werden.</p>
+<p>Besser wäre es, bei der Paginierung die Eintragsgrenze, bei der eine Listenseite beginnen soll, explizit zu benennen. Wurden auf der ersten Listenseite die Datensätze mit den <code>id</code>s 1 bis 10 ausgegeben, so könnte der Folgeaufruf, um beim SQL-Beispiel zu bleiben, so aussehen:</p>
+<pre class="sourceCode sql" id="objektlisten_ex5"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> example <span class="kw">WHERE</span> <span class="kw">id</span> &gt; <span class="dv">10</span> <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span> <span class="kw">LIMIT</span> <span class="dv">10</span></code></pre>
 <p>(Hier geht es darum, wie Listen von Objekten ausgegeben werden.</p>
 <ul>
-<li>Ausgabe von URLs</li>
-<li>Stabile Sortierung (Sets vs. Lists)</li>
-<li>Paginierung</li>
 <li>Einschränkung auf Datumsbereiche</li>
 </ul>
 <p>Dazu:</p>
@@ -545,6 +629,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <li>https://github.com/OParl/specs/issues/66</li>
 <li>https://github.com/OParl/specs/issues/30 )</li>
 </ul>
+</section>
 </section>
 <section class="level2" id="feeds">
 <h2><span class="header-section-number">4.8</span> Feeds</h2>
@@ -749,12 +834,12 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <section class="level3" id="eigenschaft-rgs">
 <h3><span class="header-section-number">5.3.5</span> Eigenschaft <code>rgs</code></h3>
 <p>Diese Eigenschaft ist EMPFOHLEN.</p>
-<p>Handelt es sich bei der Körperschaft um eine Gebietskörperschaft (Landkreis, Kommune etc.) in Deutschland, SOLL für die eindeutige Identifizierung der amtliche Regionalschlüssel verwendet werden.<sup><a href="#fn13" class="footnoteRef" id="fnref13">13</a></sup> Dieser ist grundsätzlich zwölfstellig.</p>
+<p>Handelt es sich bei der Körperschaft um eine Gebietskörperschaft (Landkreis, Kommune etc.) in Deutschland, SOLL für die eindeutige Identifizierung der amtliche Regionalschlüssel verwendet werden.<sup><a href="#fn14" class="footnoteRef" id="fnref14">14</a></sup> Dieser ist grundsätzlich zwölfstellig.</p>
 </section>
 <section class="level3" id="eigenschaft-gnd_url">
 <h3><span class="header-section-number">5.3.6</span> Eigenschaft <code>gnd_url</code></h3>
 <p>Diese Eigenschaft ist EMPFOHLEN.</p>
-<p>Sofern die Körperschaft in der GND<sup><a href="#fn14" class="footnoteRef" id="fnref14">14</a></sup> vertreten ist, SOLL diese Eigenschaft als Wert die URL des Eintrags in der GND enthalten.</p>
+<p>Sofern die Körperschaft in der GND<sup><a href="#fn15" class="footnoteRef" id="fnref15">15</a></sup> vertreten ist, SOLL diese Eigenschaft als Wert die URL des Eintrags in der GND enthalten.</p>
 </section>
 <section class="level3" id="eigenschaft-contact-1">
 <h3><span class="header-section-number">5.3.7</span> Eigenschaft <code>contact</code></h3>
@@ -1336,8 +1421,9 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <li id="fn10"><p><a href="https://tools.ietf.org/html/rfc4627"><code class="url">https://tools.ietf.org/html/rfc4627</code></a><a href="#fnref10">↩</a></p></li>
 <li id="fn11"><p><a href="http://www.w3.org/TR/json-ld/"><code class="url">http://www.w3.org/TR/json-ld/</code></a><a href="#fnref11">↩</a></p></li>
 <li id="fn12"><p>URLs heißen in der JSON-LD-Spezifikation &quot;IRI&quot; (für &quot;Internationalized Resource Identifier&quot;), wir verwenden hier jedoch weiterhin die Bezeichnung &quot;URL&quot;.<a href="#fnref12">↩</a></p></li>
-<li id="fn13"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref13">↩</a></p></li>
-<li id="fn14"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd"><code class="url">http://www.dnb.de/gnd</code></a><a href="#fnref14">↩</a></p></li>
+<li id="fn13"><p>TODO: URL zur Spezifikation<a href="#fnref13">↩</a></p></li>
+<li id="fn14"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref14">↩</a></p></li>
+<li id="fn15"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd"><code class="url">http://www.dnb.de/gnd</code></a><a href="#fnref15">↩</a></p></li>
 </ol>
 </section>
 </body>

@@ -868,9 +868,11 @@ Garantie für Zukunftssicherheit kann insofern niemand aussprechen.
 OParl-Server und -Client kommunizieren miteinander über das
 HTTP-Protokoll.
 
-Hierbei KANN eine verschlüsselte Variante des Protokolls, auch HTTPS
-genannt, zum Einsatz kommen. Welche Verschlüsselungstechnologie gewählt
-wird, obliegt dem Betreiber bzw. Server-Implementierer.
+Hierbei SOLL eine verschlüsselte Variante des Protokolls, auch HTTPS
+genannt, zum Einsatz kommen, alternativ kann jedoch auch
+unverschlüsseltes HTTP verwendet werden. Welche
+Verschlüsselungstechnologie im Fall von HTTPS gewählt wird, obliegt dem
+Betreiber bzw. Server-Implementierer.
 
 Die Wahl des unverschlüsselten oder verschlüsselten HTTP-Zugriffs hat
 Auswirkung auf die im System verwendeten URLs. Wie im Kapitel
@@ -1271,9 +1273,9 @@ des OParl-Schemas sind.
 Das Beispiel oben zeigt ein Objekt, das über die
 \texttt{@context}-Eigenschaft zwei verschiedene URLs als sogenannte
 Vokabulare referenziert. Das eine Vokabular wird durch das Präfix
-\texttt{oparl} repräsentiert, das zweite (herstellereigene) mit dem
-Präfix \texttt{vendor}. Der JSON-LD-Client macht aus dem Präfix und der
-Typenbezeichnung letztlich wieder eine URL:
+\texttt{oparl} repräsentiert, das zweite (herstellereigene) durch das
+Präfix \texttt{vendor}. Ein JSON-LD-Client setzt Präfix und
+Typenbezeichnung letztlich wieder zu einer URL zusammen.
 
 \begin{itemize}
 \item
@@ -1316,38 +1318,293 @@ die in diesem Abschnitt weiter ausgeführt werden sollen\ldots{}
 
 \hyperdef{}{jsonp}{\subsubsection{JSONP}\label{jsonp}}
 
+Eine Einschränkung bei der Nutzung von JSON ist das Sicherheitsmodell
+von Web-Browsern. Die gängigen Browser erlauben es innerhalb von
+Webanwendungen nicht, JSON-Ressourcen von Domains auszulesen, die nicht
+der Domain entsprechen, von der die Webanwendung selbst geladen wurde.
+AnwendungsentwicklerInnen sind dadurch bei der Implementierung von
+Client-Anwendungen eingeschränkt.
+
+Diese Einschränkung gilt nicht fürt JSONP\footnote{TODO: URL zur
+  Spezifikation}. Durch JSONP (TODO: Abkürzung erläutern) wird die
+JSON-Notation so erweitert, dass der ausgegebene Code ausführbarer
+JavaScript-Code wird. Damit wird erreicht, dass der JSON-Code über die
+Grenzen von Domains hinweg direkt von Webanwendungen eingebunden werden
+kann.
+
+Das folgende Beispiel verdeutlicht den Unterschied zwischen JSON und
+JSONP. Zunächst ein einfaches JSON-Beispiel:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"foo"}\NormalTok{: }\StringTok{"bar"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Durch Einbettung in eine sogenannte Callback-Funktion wird daraus JSONP:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ErrorTok{mycallback(}\NormalTok{\{}
+    \DataTypeTok{"foo"}\NormalTok{: }\StringTok{"bar"}
+\NormalTok{\}}\ErrorTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Der Name der Callback-Funktion (im Beispiel ``mycallback'') wird
+grundsätzlich bei der Anfrage vom Client bestimmt, und zwar mittels
+URL-Parameter.
+
+Für eine OParl-konforme Schnittstelle wird EMPFOHLEN, dass der Server
+die JSONP-Ausgabe unterstützt. Die JSONP-Ausgabe MUSS in diesem Fall für
+sämtliche Abfragen möglich sein. Eine JSONP-Unterstzung nur für
+bestimmte Anfragen ist nicht vorgesehen.
+
+Der URL-Parameter, den Clients zur Aktivierung der JSONP-Ausgabe
+verwenden, MUSS \texttt{callback} lauten. Der Wert des
+\texttt{callback}-URL-Parameters MUSS vom Server unverändert als
+Callback-Funktionsname verwendet werden.
+
+Aus Sicherheitsgründen MUSS der Client den Wert des
+\texttt{callback}-Parameters aus einem eingeschränkten Zeichenvorrat
+bilden, erlaubt sind ausschließlich die Klein- und Großbuchstaben von a
+bis z bzw. A bis Z sowie die Ziffern von 0 bis 9.
+
+Hält sich der Client nicht an diese Einschränkung und wird ein
+\texttt{callback}-Parameter mit nicht erlaubten Zeichen verwendet, SOLL
+der Server die Anfrage mit einer HTTP XXX (Bad Request) Antwort
+bedienen. (TODO: Status Code einfügen oder prüfen, welche HTTP-Antwort
+die geeignetste ist.)
+
 \begin{itemize}
 \item
   TODO: Spezifikation finden/verlinken. (RFC gibt es nicht)
 \item
   https://github.com/OParl/specs/issues/67
-\item
-  Zeichenvorrat für callback-Parameter beschränken auf {[}a-zA-Z0-9{]}
-  aus Sicherheitsgründen
 \end{itemize}
 
 \subsection{Benannte und anonyme Objekte}
 
+Die JSON-LD-Spezifikation unterscheidet zwischen benannten und anonymen
+Objekten. Da die Unterscheidung auch für OParl von Bedeutung ist, wird
+sie hier genauer erläutert.
+
 \subsubsection{Benannte Objekte}
 
-\begin{itemize}
-\item
-  IRIs (RFC3987) als eindeutige Kennung
-\end{itemize}
+Benannte Objekte sind innerhalb einer JSON-LD-Ausgabe diejenigen
+Objekte, die durch eine eigene URL identifiziert werden. Als Beispiel
+dient ein fiktives Objekt, das ein Client über die URL
+
+\begin{verbatim}
+http://refserv.oparl.org/bodies/0/committees/1
+\end{verbatim}
+
+abruft:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/committees/1"}\NormalTok{,}
+    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/committee"}\NormalTok{,}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Hauptausschuss"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Das Objekt enthält eine Eigenschaft \texttt{@id} mit der URL des Objekts
+als Wert.
+
+Das benannte Objekt kann über seine URL sowohl eindeutig identifiziert
+als auch direkt abgerufen werden.
 
 \subsubsection{Anonyme Objekte (Blank Nodes)}
 
+Im Gegensatz dazu können Objekte existieren, die keine eigene URL haben.
+Ein Beispiel dafür findet sich in der Beratungsfolge einer Drucksache.
+
+Das nachfolgende Beispiel zeigt eine Drucksache, deren Beratungsfolge
+über die Eigenschaft \texttt{consultations} kodiert ist.
+
+TODO: Nachstehendes Beispiel und Text dazu auf stimmiges Paper Objekt
+umschreiben.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/papers/456"}\NormalTok{,}
+    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/paper"}\NormalTok{,}
+    \DataTypeTok{"title"}\NormalTok{: }\StringTok{"Beschlussvorlage zur Jugendförderung"}\NormalTok{,}
+    \DataTypeTok{"consultations"}\NormalTok{: [}
+        \NormalTok{\{}
+            \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/consultation"}\NormalTok{,}
+            \DataTypeTok{"committee"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/committees/1"}\NormalTok{,}
+            \DataTypeTok{"meeting"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/committees/1/meetings/123"}\NormalTok{,}
+            \DataTypeTok{"agendaitem"}\NormalTok{: }\StringTok{"7.2.4"}\NormalTok{,}
+            \DataTypeTok{"authoritative"}\NormalTok{: }\DecValTok{false}
+        \NormalTok{\},}
+        \NormalTok{\{}
+            \ErrorTok{...}
+        \NormalTok{\}}
+    \NormalTok{]}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Die Eigenschaft \texttt{consultations} ist eine Liste mit einem oder
+mehreren Objekten vom Typ \texttt{consultation}. Diese Objekte spiegeln
+wieder, in welchen Sitzungen die vorliegende Drucksache beraten wurde
+bzw. wird.
+
+Die einzelnen \texttt{consultation}-Objekte haben keine
+\texttt{@id}-Eigenschaft, daher handelt es sich dabei um anonyme
+Objekte, auch \emph{Blank Nodes} genannt. Diese Objekte können nicht
+einzeln, sondern nur im Kontext verbundener Objekte, wie hier im
+Beispiel im Kontext einer Drucksache, abgerufen werden.
+
+TODO: Weitere Objekttypen nennen, in denen Blank Nodes vorkommen.
+
 \subsection{Objektlisten}
+
+Über die OParl-API können entweder einzelne Objekte oder Listen von
+Objekten abgefragt werden.
+
+\subsubsection{Gezieltes Abfragen von Listen}
+
+Fragt ein Client eine Liste von Objekten an, beispielsweise die Liste
+aller Drucksachen in einem System, kann der Server innerhalb bestimmter
+Grenzen entscheiden, wie die Ausgabe aussieht.
+
+In der einfachsten Form gibt der Server ein Objekt mit nur einer
+Eigenschaft \texttt{items} aus. Der Wert dieser Eigenschaft ist die
+\textbf{vollständige Liste} der URLs aller angefragten Objekte.
+Beispiel:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"items"}\NormalTok{: [}
+        \StringTok{"http://refserv.oparl.org/bodies/0/papers/2"}\NormalTok{,}
+        \StringTok{"http://refserv.oparl.org/bodies/0/papers/5"}\NormalTok{,}
+        \StringTok{"http://refserv.oparl.org/bodies/0/papers/7"}\NormalTok{,}
+    \NormalTok{]}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Diese einfachste Form der Antwort eignet sich nur für Listen mit einer
+begrenzten Anzahl von Einträgen.
+
+Für längere Listen ist eine Blätterfunktion bzw. Paginierung vorgesehen.
+Darunter versteht man den seitenweisen Abruf der Einträge einer Liste,
+wobei die Reihenfolge der Liste vom Server festgelegt ist und zwischen
+den Seitenabrufen unverändert bleibt.
+
+Listen mit mehr als 100 Einträgen SOLL der Server nur teilweise ausgeben
+und dem Client dabei eine \textbf{Paginierung} anbieten, um weitere
+Listenteile abzurufen. Dabei wird EMPFOHLEN, die Zahl der jeweils
+ausgegebenen Listeneinträge wiederum auf maximal 100 zu begrenzen.
+
+Das nachstehende Beispiel zeigt, wie dem Client die URL zum
+``Blättern'', also zum Aufruf der nächsten Listenseite, angeboten wird.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"items"}\NormalTok{: [}
+        \StringTok{"http://refserv.oparl.org/bodies/0/papers/2"}\NormalTok{,}
+        \StringTok{"http://refserv.oparl.org/bodies/0/papers/5"}\NormalTok{,}
+        \StringTok{"http://refserv.oparl.org/bodies/0/papers/7"}\NormalTok{,}
+    \NormalTok{],}
+    \DataTypeTok{"nextpage"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/papers/?skip=7"}\NormalTok{,}
+    \DataTypeTok{"count"}\NormalTok{: }\DecValTok{7}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Wie oben zu sehen, enthält das Beispiel-Objekt nun eine zusätzliche
+Eigenschaft \texttt{nextpage}. Der Wert dieser Eigenschaft ist eine URL,
+die dem Client dazu dient, die weiteren Einträge der Liste abzurufen.
+
+Die Eigenschaft \texttt{count} DARF bei Listen grundsätzlich ausgegeben
+werden und SOLL bei mehrseitigen Listen ausgegeben werden. Ihr Wert ist
+eine Zahl und gibt an, wie viele Einträge die vollständige Liste
+enthält.
+
+Ruft der Client die unter \texttt{nextpage} angegebene URL auf, erhält
+er wiederum ein Listenobjekt. Dieses Objekt MUSS, sofern noch immer mehr
+Listeneinträge vorhanden sind, als ausgegeben wurden, wiederum die
+\texttt{nextpage} Eigenschaft mit einer URL enthalten. Um alle Einträge
+einer Liste zu erfassen, folgt der Client also jeweils der URL, die in
+der \texttt{nextpage} Eigenschaft angegeben ist.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{images/pagination01.png}
+\caption{Paginierung: Schematische Darstellung}
+\end{figure}
+
+Server-Implementierer entscheiden selbst, wie die \texttt{nextpage}-URL
+aufgebaut ist und tragen damit selbst Verantwortung für die
+Funktionsweise der Paginierung. Bei der Entscheidung für eine Form der
+Implementierung sind weitere Anforderungen zu berücksichtigen:
+
+\begin{itemize}
+\item
+  Es ist davon auszugehen, dass Clients für den gesamten Abruf aller
+  Seiten einer Liste längere Zeit benötigen. In der Zwischenzeit kann
+  sich der Inhalt der Liste bereits ändern, etwa durch das Hinzukommen
+  neuer Einträge. Die Paginierung ist so zu implementieren, dass sich
+  das Hinzukommen oder Entfernen von Einträgen möglichst nicht auf einen
+  Client auswirkt, der aktuell die Liste paginiert, um alle Einträge
+  abzurufen.
+\end{itemize}
+
+Eine ungünstige (unstabile) Form der Implementierung soll hier mit Hilfe
+einer SQL-Abfrage illustriert werden. Gegeben sei eine Tabelle
+\texttt{example}, die einen numerischen Primärschlüssel \texttt{id}
+enthält. Nehmen wir an, die erste Seite der Liste wird mit der Abfrage
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \NormalTok{* }\KeywordTok{FROM} \NormalTok{example }\KeywordTok{ORDER} \KeywordTok{BY} \KeywordTok{id} \KeywordTok{LIMIT} \DecValTok{10} \NormalTok{OFFSET }\DecValTok{0}
+\end{Highlighting}
+\end{Shaded}
+
+abgerufen und würde 10 Datensätze mit den \texttt{id}s 1 bis 10 zurück
+liefern. Dann wird die zweite Seite mit der Abfrage
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \NormalTok{* }\KeywordTok{FROM} \NormalTok{example }\KeywordTok{ORDER} \KeywordTok{BY} \KeywordTok{id} \KeywordTok{LIMIT} \DecValTok{10} \NormalTok{OFFSET }\DecValTok{10}
+\end{Highlighting}
+\end{Shaded}
+
+abgerufen. Sofern sich an der Tabelle zwischen den beiden Abfragen
+nichts geändert hat, liefert die zweite Abfrage Datensätze mit
+\texttt{id} \textgreater{} 10 aus. Sollte zwischen den beiden Abfragen
+jedoch beispielsweise der Datensätze mit der \texttt{id} 1 gelöscht
+worden sein, liefert die zweite Abfrage Datensätze mit \texttt{id}
+\textgreater{} 9. In diesem Fall würde dies nur dazu führen, dass ein
+Datensatz (\texttt{id} = 10) zweimal ausgegeben wird. Bei ungünstigeren
+Konstellationen wäre auch denkbar, dass eine instabile Paginierung
+bewirkt, dass einzelne Datensätze beim Paginieren übergangen werden.
+
+Besser wäre es, bei der Paginierung die Eintragsgrenze, bei der eine
+Listenseite beginnen soll, explizit zu benennen. Wurden auf der ersten
+Listenseite die Datensätze mit den \texttt{id}s 1 bis 10 ausgegeben, so
+könnte der Folgeaufruf, um beim SQL-Beispiel zu bleiben, so aussehen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \NormalTok{* }\KeywordTok{FROM} \NormalTok{example }\KeywordTok{WHERE} \KeywordTok{id} \NormalTok{> }\DecValTok{10} \KeywordTok{ORDER} \KeywordTok{BY} \KeywordTok{id} \KeywordTok{LIMIT} \DecValTok{10}
+\end{Highlighting}
+\end{Shaded}
 
 (Hier geht es darum, wie Listen von Objekten ausgegeben werden.
 
 \begin{itemize}
-\item
-  Ausgabe von URLs
-\item
-  Stabile Sortierung (Sets vs.~Lists)
-\item
-  Paginierung
 \item
   Einschränkung auf Datumsbereiche
 \end{itemize}

@@ -1188,10 +1188,11 @@
       HTTP-Protokoll.
     </para>
     <para>
-      Hierbei KANN eine verschlüsselte Variante des Protokolls, auch
-      HTTPS genannt, zum Einsatz kommen. Welche
-      Verschlüsselungstechnologie gewählt wird, obliegt dem Betreiber
-      bzw. Server-Implementierer.
+      Hierbei SOLL eine verschlüsselte Variante des Protokolls, auch
+      HTTPS genannt, zum Einsatz kommen, alternativ kann jedoch auch
+      unverschlüsseltes HTTP verwendet werden. Welche
+      Verschlüsselungstechnologie im Fall von HTTPS gewählt wird,
+      obliegt dem Betreiber bzw. Server-Implementierer.
     </para>
     <para>
       Die Wahl des unverschlüsselten oder verschlüsselten HTTP-Zugriffs
@@ -1726,9 +1727,9 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
         <literal>@context</literal>-Eigenschaft zwei verschiedene URLs
         als sogenannte Vokabulare referenziert. Das eine Vokabular wird
         durch das Präfix <literal>oparl</literal> repräsentiert, das
-        zweite (herstellereigene) mit dem Präfix
-        <literal>vendor</literal>. Der JSON-LD-Client macht aus dem
-        Präfix und der Typenbezeichnung letztlich wieder eine URL:
+        zweite (herstellereigene) durch das Präfix
+        <literal>vendor</literal>. Ein JSON-LD-Client setzt Präfix und
+        Typenbezeichnung letztlich wieder zu einer URL zusammen.
       </para>
       <itemizedlist>
         <listitem>
@@ -1809,6 +1810,76 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
     </sect3>
     <sect3 id="jsonp">
       <title>JSONP</title>
+      <para>
+        Eine Einschränkung bei der Nutzung von JSON ist das
+        Sicherheitsmodell von Web-Browsern. Die gängigen Browser
+        erlauben es innerhalb von Webanwendungen nicht, JSON-Ressourcen
+        von Domains auszulesen, die nicht der Domain entsprechen, von
+        der die Webanwendung selbst geladen wurde.
+        AnwendungsentwicklerInnen sind dadurch bei der Implementierung
+        von Client-Anwendungen eingeschränkt.
+      </para>
+      <para>
+        Diese Einschränkung gilt nicht fürt JSONP<footnote>
+          <para>
+            TODO: URL zur Spezifikation
+          </para>
+        </footnote>. Durch JSONP (TODO: Abkürzung erläutern) wird die
+        JSON-Notation so erweitert, dass der ausgegebene Code
+        ausführbarer JavaScript-Code wird. Damit wird erreicht, dass der
+        JSON-Code über die Grenzen von Domains hinweg direkt von
+        Webanwendungen eingebunden werden kann.
+      </para>
+      <para>
+        Das folgende Beispiel verdeutlicht den Unterschied zwischen JSON
+        und JSONP. Zunächst ein einfaches JSON-Beispiel:
+      </para>
+      <programlisting language="json">
+{
+    &quot;foo&quot;: &quot;bar&quot;
+}
+</programlisting>
+      <para>
+        Durch Einbettung in eine sogenannte Callback-Funktion wird
+        daraus JSONP:
+      </para>
+      <programlisting language="json">
+mycallback({
+    &quot;foo&quot;: &quot;bar&quot;
+})
+</programlisting>
+      <para>
+        Der Name der Callback-Funktion (im Beispiel
+        &quot;mycallback&quot;) wird grundsätzlich bei der Anfrage vom
+        Client bestimmt, und zwar mittels URL-Parameter.
+      </para>
+      <para>
+        Für eine OParl-konforme Schnittstelle wird EMPFOHLEN, dass der
+        Server die JSONP-Ausgabe unterstützt. Die JSONP-Ausgabe MUSS in
+        diesem Fall für sämtliche Abfragen möglich sein. Eine
+        JSONP-Unterstzung nur für bestimmte Anfragen ist nicht
+        vorgesehen.
+      </para>
+      <para>
+        Der URL-Parameter, den Clients zur Aktivierung der JSONP-Ausgabe
+        verwenden, MUSS <literal>callback</literal> lauten. Der Wert des
+        <literal>callback</literal>-URL-Parameters MUSS vom Server
+        unverändert als Callback-Funktionsname verwendet werden.
+      </para>
+      <para>
+        Aus Sicherheitsgründen MUSS der Client den Wert des
+        <literal>callback</literal>-Parameters aus einem eingeschränkten
+        Zeichenvorrat bilden, erlaubt sind ausschließlich die Klein- und
+        Großbuchstaben von a bis z bzw. A bis Z sowie die Ziffern von 0
+        bis 9.
+      </para>
+      <para>
+        Hält sich der Client nicht an diese Einschränkung und wird ein
+        <literal>callback</literal>-Parameter mit nicht erlaubten
+        Zeichen verwendet, SOLL der Server die Anfrage mit einer HTTP
+        XXX (Bad Request) Antwort bedienen. (TODO: Status Code einfügen
+        oder prüfen, welche HTTP-Antwort die geeignetste ist.)
+      </para>
       <itemizedlist>
         <listitem>
           <para>
@@ -1820,75 +1891,284 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
             https://github.com/OParl/specs/issues/67
           </para>
         </listitem>
-        <listitem>
-          <para>
-            Zeichenvorrat für callback-Parameter beschränken auf
-            [a-zA-Z0-9] aus Sicherheitsgründen
-          </para>
-        </listitem>
       </itemizedlist>
     </sect3>
   </sect2>
   <sect2 id="benannte-und-anonyme-objekte">
     <title>Benannte und anonyme Objekte</title>
+    <para>
+      Die JSON-LD-Spezifikation unterscheidet zwischen benannten und
+      anonymen Objekten. Da die Unterscheidung auch für OParl von
+      Bedeutung ist, wird sie hier genauer erläutert.
+    </para>
     <sect3 id="benannte-objekte">
       <title>Benannte Objekte</title>
-      <itemizedlist>
-        <listitem>
-          <para>
-            IRIs (RFC3987) als eindeutige Kennung
-          </para>
-        </listitem>
-      </itemizedlist>
+      <para>
+        Benannte Objekte sind innerhalb einer JSON-LD-Ausgabe diejenigen
+        Objekte, die durch eine eigene URL identifiziert werden. Als
+        Beispiel dient ein fiktives Objekt, das ein Client über die URL
+      </para>
+      <programlisting>
+http://refserv.oparl.org/bodies/0/committees/1
+</programlisting>
+      <para>
+        abruft:
+      </para>
+      <programlisting language="json">
+{
+    &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0/committees/1&quot;,
+    &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/committee&quot;,
+    &quot;name&quot;: &quot;Hauptausschuss&quot;
+}
+</programlisting>
+      <para>
+        Das Objekt enthält eine Eigenschaft <literal>@id</literal> mit
+        der URL des Objekts als Wert.
+      </para>
+      <para>
+        Das benannte Objekt kann über seine URL sowohl eindeutig
+        identifiziert als auch direkt abgerufen werden.
+      </para>
     </sect3>
     <sect3 id="anonyme-objekte-blank-nodes">
       <title>Anonyme Objekte (Blank Nodes)</title>
       <para>
+        Im Gegensatz dazu können Objekte existieren, die keine eigene
+        URL haben. Ein Beispiel dafür findet sich in der Beratungsfolge
+        einer Drucksache.
+      </para>
+      <para>
+        Das nachfolgende Beispiel zeigt eine Drucksache, deren
+        Beratungsfolge über die Eigenschaft
+        <literal>consultations</literal> kodiert ist.
+      </para>
+      <para>
+        TODO: Nachstehendes Beispiel und Text dazu auf stimmiges Paper
+        Objekt umschreiben.
+      </para>
+      <programlisting language="json">
+{
+    &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/456&quot;,
+    &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/paper&quot;,
+    &quot;title&quot;: &quot;Beschlussvorlage zur Jugendförderung&quot;,
+    &quot;consultations&quot;: [
+        {
+            &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/consultation&quot;,
+            &quot;committee&quot;: &quot;http://refserv.oparl.org/bodies/0/committees/1&quot;,
+            &quot;meeting&quot;: &quot;http://refserv.oparl.org/bodies/0/committees/1/meetings/123&quot;,
+            &quot;agendaitem&quot;: &quot;7.2.4&quot;,
+            &quot;authoritative&quot;: false
+        },
+        {
+            ...
+        }
+    ]
+}
+</programlisting>
+      <para>
+        Die Eigenschaft <literal>consultations</literal> ist eine Liste
+        mit einem oder mehreren Objekten vom Typ
+        <literal>consultation</literal>. Diese Objekte spiegeln wieder,
+        in welchen Sitzungen die vorliegende Drucksache beraten wurde
+        bzw. wird.
+      </para>
+      <para>
+        Die einzelnen <literal>consultation</literal>-Objekte haben
+        keine <literal>@id</literal>-Eigenschaft, daher handelt es sich
+        dabei um anonyme Objekte, auch <emphasis>Blank Nodes</emphasis>
+        genannt. Diese Objekte können nicht einzeln, sondern nur im
+        Kontext verbundener Objekte, wie hier im Beispiel im Kontext
+        einer Drucksache, abgerufen werden.
+      </para>
+      <para>
+        TODO: Weitere Objekttypen nennen, in denen Blank Nodes
+        vorkommen.
       </para>
     </sect3>
   </sect2>
   <sect2 id="objektlisten">
     <title>Objektlisten</title>
     <para>
-      (Hier geht es darum, wie Listen von Objekten ausgegeben werden.
+      Über die OParl-API können entweder einzelne Objekte oder Listen
+      von Objekten abgefragt werden.
     </para>
-    <itemizedlist>
-      <listitem>
-        <para>
-          Ausgabe von URLs
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Stabile Sortierung (Sets vs. Lists)
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Paginierung
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Einschränkung auf Datumsbereiche
-        </para>
-      </listitem>
-    </itemizedlist>
-    <para>
-      Dazu:
-    </para>
-    <itemizedlist>
-      <listitem>
-        <para>
-          https://github.com/OParl/specs/issues/66
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          https://github.com/OParl/specs/issues/30 )
-        </para>
-      </listitem>
-    </itemizedlist>
+    <sect3 id="gezieltes-abfragen-von-listen">
+      <title>Gezieltes Abfragen von Listen</title>
+      <para>
+        Fragt ein Client eine Liste von Objekten an, beispielsweise die
+        Liste aller Drucksachen in einem System, kann der Server
+        innerhalb bestimmter Grenzen entscheiden, wie die Ausgabe
+        aussieht.
+      </para>
+      <para>
+        In der einfachsten Form gibt der Server ein Objekt mit nur einer
+        Eigenschaft <literal>items</literal> aus. Der Wert dieser
+        Eigenschaft ist die <emphasis role="strong">vollständige
+        Liste</emphasis> der URLs aller angefragten Objekte. Beispiel:
+      </para>
+      <programlisting language="json">
+{
+    &quot;items&quot;: [
+        &quot;http://refserv.oparl.org/bodies/0/papers/2&quot;,
+        &quot;http://refserv.oparl.org/bodies/0/papers/5&quot;,
+        &quot;http://refserv.oparl.org/bodies/0/papers/7&quot;,
+    ]
+}
+</programlisting>
+      <para>
+        Diese einfachste Form der Antwort eignet sich nur für Listen mit
+        einer begrenzten Anzahl von Einträgen.
+      </para>
+      <para>
+        Für längere Listen ist eine Blätterfunktion bzw. Paginierung
+        vorgesehen. Darunter versteht man den seitenweisen Abruf der
+        Einträge einer Liste, wobei die Reihenfolge der Liste vom Server
+        festgelegt ist und zwischen den Seitenabrufen unverändert
+        bleibt.
+      </para>
+      <para>
+        Listen mit mehr als 100 Einträgen SOLL der Server nur teilweise
+        ausgeben und dem Client dabei eine
+        <emphasis role="strong">Paginierung</emphasis> anbieten, um
+        weitere Listenteile abzurufen. Dabei wird EMPFOHLEN, die Zahl
+        der jeweils ausgegebenen Listeneinträge wiederum auf maximal 100
+        zu begrenzen.
+      </para>
+      <para>
+        Das nachstehende Beispiel zeigt, wie dem Client die URL zum
+        &quot;Blättern&quot;, also zum Aufruf der nächsten Listenseite,
+        angeboten wird.
+      </para>
+      <programlisting language="json">
+{
+    &quot;items&quot;: [
+        &quot;http://refserv.oparl.org/bodies/0/papers/2&quot;,
+        &quot;http://refserv.oparl.org/bodies/0/papers/5&quot;,
+        &quot;http://refserv.oparl.org/bodies/0/papers/7&quot;,
+    ],
+    &quot;nextpage&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/?skip=7&quot;,
+    &quot;count&quot;: 7
+}
+</programlisting>
+      <para>
+        Wie oben zu sehen, enthält das Beispiel-Objekt nun eine
+        zusätzliche Eigenschaft <literal>nextpage</literal>. Der Wert
+        dieser Eigenschaft ist eine URL, die dem Client dazu dient, die
+        weiteren Einträge der Liste abzurufen.
+      </para>
+      <para>
+        Die Eigenschaft <literal>count</literal> DARF bei Listen
+        grundsätzlich ausgegeben werden und SOLL bei mehrseitigen Listen
+        ausgegeben werden. Ihr Wert ist eine Zahl und gibt an, wie viele
+        Einträge die vollständige Liste enthält.
+      </para>
+      <para>
+        Ruft der Client die unter <literal>nextpage</literal> angegebene
+        URL auf, erhält er wiederum ein Listenobjekt. Dieses Objekt
+        MUSS, sofern noch immer mehr Listeneinträge vorhanden sind, als
+        ausgegeben wurden, wiederum die <literal>nextpage</literal>
+        Eigenschaft mit einer URL enthalten. Um alle Einträge einer
+        Liste zu erfassen, folgt der Client also jeweils der URL, die in
+        der <literal>nextpage</literal> Eigenschaft angegeben ist.
+      </para>
+      <figure>
+        <title>Paginierung: Schematische Darstellung</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/pagination01.png" />
+          </imageobject>
+          <textobject><phrase>Paginierung: Schematische
+          Darstellung</phrase></textobject>
+        </mediaobject>
+      </figure>
+      <para>
+        Server-Implementierer entscheiden selbst, wie die
+        <literal>nextpage</literal>-URL aufgebaut ist und tragen damit
+        selbst Verantwortung für die Funktionsweise der Paginierung. Bei
+        der Entscheidung für eine Form der Implementierung sind weitere
+        Anforderungen zu berücksichtigen:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Es ist davon auszugehen, dass Clients für den gesamten Abruf
+            aller Seiten einer Liste längere Zeit benötigen. In der
+            Zwischenzeit kann sich der Inhalt der Liste bereits ändern,
+            etwa durch das Hinzukommen neuer Einträge. Die Paginierung
+            ist so zu implementieren, dass sich das Hinzukommen oder
+            Entfernen von Einträgen möglichst nicht auf einen Client
+            auswirkt, der aktuell die Liste paginiert, um alle Einträge
+            abzurufen.
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para>
+        Eine ungünstige (unstabile) Form der Implementierung soll hier
+        mit Hilfe einer SQL-Abfrage illustriert werden. Gegeben sei eine
+        Tabelle <literal>example</literal>, die einen numerischen
+        Primärschlüssel <literal>id</literal> enthält. Nehmen wir an,
+        die erste Seite der Liste wird mit der Abfrage
+      </para>
+      <programlisting language="sql">
+SELECT * FROM example ORDER BY id LIMIT 10 OFFSET 0
+</programlisting>
+      <para>
+        abgerufen und würde 10 Datensätze mit den <literal>id</literal>s
+        1 bis 10 zurück liefern. Dann wird die zweite Seite mit der
+        Abfrage
+      </para>
+      <programlisting language="sql">
+SELECT * FROM example ORDER BY id LIMIT 10 OFFSET 10
+</programlisting>
+      <para>
+        abgerufen. Sofern sich an der Tabelle zwischen den beiden
+        Abfragen nichts geändert hat, liefert die zweite Abfrage
+        Datensätze mit <literal>id</literal> &gt; 10 aus. Sollte
+        zwischen den beiden Abfragen jedoch beispielsweise der
+        Datensätze mit der <literal>id</literal> 1 gelöscht worden sein,
+        liefert die zweite Abfrage Datensätze mit <literal>id</literal>
+        &gt; 9. In diesem Fall würde dies nur dazu führen, dass ein
+        Datensatz (<literal>id</literal> = 10) zweimal ausgegeben wird.
+        Bei ungünstigeren Konstellationen wäre auch denkbar, dass eine
+        instabile Paginierung bewirkt, dass einzelne Datensätze beim
+        Paginieren übergangen werden.
+      </para>
+      <para>
+        Besser wäre es, bei der Paginierung die Eintragsgrenze, bei der
+        eine Listenseite beginnen soll, explizit zu benennen. Wurden auf
+        der ersten Listenseite die Datensätze mit den
+        <literal>id</literal>s 1 bis 10 ausgegeben, so könnte der
+        Folgeaufruf, um beim SQL-Beispiel zu bleiben, so aussehen:
+      </para>
+      <programlisting language="sql">
+SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
+</programlisting>
+      <para>
+        (Hier geht es darum, wie Listen von Objekten ausgegeben werden.
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Einschränkung auf Datumsbereiche
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para>
+        Dazu:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            https://github.com/OParl/specs/issues/66
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            https://github.com/OParl/specs/issues/30 )
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
   </sect2>
   <sect2 id="feeds">
     <title>Feeds</title>

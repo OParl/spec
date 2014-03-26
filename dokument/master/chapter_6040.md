@@ -209,8 +209,8 @@ mycallback({
 })
 ~~~~~
 
-Der Name der Callback-Funktion wird grundsätzlich bei der Anfrage vom Client
-bestimmt, und zwar mittels URL-Parameter.
+Der Name der Callback-Funktion (im Beispiel "mycallback") wird grundsätzlich 
+bei der Anfrage vom Client bestimmt, und zwar mittels URL-Parameter.
 
 Für eine OParl-konforme Schnittstelle wird EMPFOHLEN, dass der Server die 
 JSONP-Ausgabe unterstützt. Die JSONP-Ausgabe MUSS in diesem Fall für sämtliche
@@ -226,7 +226,8 @@ aus einem eingeschränkten Zeichenvorrat bilden, erlaubt sind ausschließlich
 die Klein- und Großbuchstaben von a bis z bzw. A bis Z sowie die Ziffern 
 von 0 bis 9.
 
-Hält sich der Client nicht an diese Einschränkung, SOLL der Server die Anfrae
+Hält sich der Client nicht an diese Einschränkung und wird ein `callback`-Parameter
+mit nicht erlaubten Zeichen verwendet, SOLL der Server die Anfrage
 mit einer HTTP XXX (Bad Request) Antwort bedienen. (TODO: Status Code einfügen
 oder prüfen, welche HTTP-Antwort die geeignetste ist.)
 

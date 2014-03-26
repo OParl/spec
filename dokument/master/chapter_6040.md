@@ -180,6 +180,55 @@ weiter ausgeführt werden sollen...
 
 ### JSONP
 
+Eine Einschränkung bei der Nutzung von JSON ist das Sicherheitsmodell von
+Web-Browsern. Die gängigen Browser erlauben es innerhalb von Webanwendungen nicht,
+JSON-Ressourcen von Domains auszulesen, die nicht der Domain entsprechen, von der
+die Webanwendung selbst geladen wurde. AnwendungsentwicklerInnen sind dadurch bei
+der Implementierung von Client-Anwendungen eingeschränkt.
+
+Diese Einschränkung gilt nicht fürt JSONP^[TODO: URL zur Spezifikation]. Durch 
+JSONP (TODO: Abkürzung erläutern) wird die JSON-Notation so erweitert, dass der 
+ausgegebene Code ausführbarer JavaScript-Code wird. Damit wird erreicht, dass 
+der JSON-Code über die Grenzen von Domains hinweg direkt von Webanwendungen 
+eingebunden werden kann.
+
+Das folgende Beispiel verdeutlicht den Unterschied zwischen JSON und JSONP.
+Zunächst ein einfaches JSON-Beispiel:
+
+~~~~~  {#jsonp_ex1 .json}
+{
+    "foo": "bar"
+}
+~~~~~
+
+Durch Einbettung in eine sogenannte Callback-Funktion wird daraus JSONP:
+
+~~~~~  {#jsonp_ex2 .json}
+mycallback({
+    "foo": "bar"
+})
+~~~~~
+
+Der Name der Callback-Funktion wird grundsätzlich bei der Anfrage vom Client
+bestimmt, und zwar mittels URL-Parameter.
+
+Für eine OParl-konforme Schnittstelle wird EMPFOHLEN, dass der Server die 
+JSONP-Ausgabe unterstützt. Die JSONP-Ausgabe MUSS in diesem Fall für sämtliche
+Abfragen möglich sein. Eine JSONP-Unterstzung nur für bestimmte Anfragen ist
+nicht vorgesehen.
+
+Der URL-Parameter, den Clients zur Aktivierung der JSONP-Ausgabe verwenden,
+MUSS `callback` lauten. Der Wert des `callback`-URL-Parameters
+MUSS vom Server unverändert als Callback-Funktionsname verwendet werden.
+
+Aus Sicherheitsgründen MUSS der Client den Wert des `callback`-Parameters
+aus einem eingeschränkten Zeichenvorrat bilden, erlaubt sind ausschließlich
+die Klein- und Großbuchstaben von a bis z bzw. A bis Z sowie die Ziffern 
+von 0 bis 9.
+
+Hält sich der Client nicht an diese Einschränkung, SOLL der Server die Anfrae
+mit einer HTTP XXX (Bad Request) Antwort bedienen. (TODO: Status Code einfügen
+oder prüfen, welche HTTP-Antwort die geeignetste ist.)
+
 - TODO: Spezifikation finden/verlinken. (RFC gibt es nicht)
 - https://github.com/OParl/specs/issues/67
-- Zeichenvorrat für callback-Parameter beschränken auf [a-zA-Z0-9] aus Sicherheitsgründen

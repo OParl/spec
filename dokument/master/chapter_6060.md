@@ -118,12 +118,13 @@ Folgeaufruf, um beim SQL-Beispiel zu bleiben, so aussehen:
 SELECT * FROM example WHERE id > 10 ORDER BY id LIMIT 10
 ~~~~~
 
-(Hier geht es darum, wie Listen von Objekten ausgegeben werden.
+TODO: Bestimmte Listen können mit Einschränkung auf einen Datumsbereich
+abgefragt werden. Mehr dazu in https://github.com/OParl/specs/issues/30
+Fraglich ist, ob das in diesem Kapitel behandelt werden sollte oder in
+einem anderen.
 
-- Einschränkung auf Datumsbereiche
+### Listen als Eigenschaften von Objekten
 
-Dazu:
-
-- https://github.com/OParl/specs/issues/66
-- https://github.com/OParl/specs/issues/30
-)
+TODO: Listen können auch als Werte von Objekteigenschaften auftreten. 
+Hierbei gibt es keine Paginierung, sondern es müssen alle URLs aufgelistet werden.
+Das ist auszuformulieren und mit Beispielen zu zeigen.

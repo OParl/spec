@@ -5,7 +5,7 @@ Die nachfolgenden Nutzungsszenarien dienen dazu, die Architektur und die
 Anwendungsmöglichkeiten anhand konkreter Beispiele zu verdeutlichen. Sie
 erheben keinen Anspruch auf Vollständigkeit.
 
-### Szenario 1: Mobile Client-Anwendung
+## Szenario 1: Mobile Client-Anwendung {#szenario_mobile_client}
 
 Eine [Client](#client)-Anwendung für mobile Endgeräte wie SmartPhones und Tablets,
 nachfolgend "App" genannt, könnte das Ziel verfolgen, Nutzern unterwegs
@@ -84,7 +84,7 @@ Objekten in der Umgebung durchsucht werden. Das Ergebnis könnte auf einer Karte
 dargestellt oder in einer Ergebnisliste angezeigt werden, die nach Distanz zum
 Objekt sortiert werden könnte.
 
-### Szenario 2: Integration in Web-Portal
+## Szenario 2: Integration in Web-Portal  {#szenario_web_portal}
 
 Web Portale bieten Nutzern unter anderem die Möglichkeit Anwendungen, Prozesse und Dienste zu integrieren. Die OParl API stellt einen solchen Dienst dar und bereitet so den Weg zu angereicherten Portalseiten. Informationen, die über die API bezogen werden, können in Portlets organisiert und visualisiert werden. Hierbei können
 
@@ -100,7 +100,7 @@ Durch eine solche Integration von RIS Informationen in bestehende Portalsysteme 
 Informationen in der bereits gewohnten Umgebung zu präsentieren und den bestehenden Informationsgehalt und den Datenbestand aufzuwerten.
 
 
-### Szenario 3: Meta-Suche
+## Szenario 3: Meta-Suche  {#szenario_meta_suche}
 
-### Szenario 4: Forschungsprojekt Themen- und Sprachanalyse
+## Szenario 4: Forschungsprojekt Themen- und Sprachanalyse {#szenario_forschung}
 

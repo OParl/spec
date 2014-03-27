@@ -4,8 +4,6 @@ oparl:Person (Person)
 Jede natürliche Person, die Mitglied eines Gremiums ist, ist als `oparl:Person` im 
 Datenmodell eindeutig identifizierbar.
 
-![Objekttyp Person](images/datenmodell_person.png)
-
 ### Eigenschaften ###
 
 Schlüssel (`id`)

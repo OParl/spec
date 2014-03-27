@@ -1,4 +1,4 @@
-oparl:Document (Datei)
+oparl:Document (Datei)  {#oparl_document}
 ----------------------
 
 Ein Objekt vom Typ `oparl:Document` repräsentiert eine Datei,
@@ -27,7 +27,7 @@ Ein Beispiel:
 ~~~~~
 
 Objekt vom Typ `oparl:Document` können mit Drucksachen (`oparl:Paper`)
-oder Sitzungen (`oparl:Meetign`) in Beziehung stehen. Dies wird durch 
+oder Sitzungen (`oparl:Meeting`) in Beziehung stehen. Dies wird durch 
 die Eigenschaft `paper` bzw. `meeting` angezeigt.
 
 Mehrere Objekte vom Typ `oparl:Document` können mit einander in direkter

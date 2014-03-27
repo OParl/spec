@@ -1,5 +1,7 @@
-oparl:Organization (Organisation)  {#oparl_organization}
+oparl:Organization (Organisation)
 --------------------------------
+
+TODO: Inhalt dieses Abschnitts in chapter_8050.md überführen.
 
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die 
 Personen angehören können.

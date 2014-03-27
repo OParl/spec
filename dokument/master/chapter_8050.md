@@ -1,5 +1,8 @@
-oparl:Committee (Gremium)  {#oparl_committee}
-------------------------
+oparl:Organization (Organisation)  {#oparl_organisation}
+---------------------------------
+
+TODO: Inhalte aus chapter_8070.md hier integrieren und damit
+das ehemalige Gremium und die Organisation zusammen führen.
 
 Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder 
 ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat, 

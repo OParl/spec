@@ -75,17 +75,12 @@ OParl Spezifikation 1.0 Gliederung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    8050 OParlCommittee (Gremium)
+    8050 oparl:Organization (Organisation)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
     8060 OParlPerson (Person)
-        Bedeutung
-        Eigenschaften
-        Besonderheiten
-        Beispiel(e)
-    8070 OParlOrganization (Organisation)
         Bedeutung
         Eigenschaften
         Besonderheiten

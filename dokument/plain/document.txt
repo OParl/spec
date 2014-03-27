@@ -109,11 +109,8 @@ Transparenz und Beteiligung durch Open Data
 -   Open Data ist (nur) zum Teil technisches Problem
 -   Vier der "10 Principles" haben technische Dimension:
     -   5.  Machine readability
-
     -   6.  Non-discrimination
-
     -   7.  Use of Commonly Owned Standards
-
     -   9.  Permanence
 
 -   Die bloße Bereitstellung einer OParl-konformen API wird weder die
@@ -123,7 +120,6 @@ Transparenz und Beteiligung durch Open Data
 -   Viele Bestandteile der Oparl Spezifikation, die einen weitgehend
     barrierearmen Zugang zu Informationen ermöglichen, sind optional.
     -   Beispiel: Volltexte von Dokumenten über die API abrufbar machen
-
 -   Andere Bestandteile, die von Interesse wären, sind noch gar nicht
     von OParl abgedeckt. Beispiel: Abstimmungsergebnisse.
 -   Grund dafür ist, dass sich OParl in einem frühen Stadium befindet
@@ -152,13 +148,11 @@ Stichpunkte:
         Austausch über die Frage, wie das Prinzip der offenen
         Ratsinformationen effektiv auf weitere Kommunen ausgeweitet
         werden könnte.
-
 -   6.  Dezember 2012: Anhörung im Landtag NRW in Düsseldorf zu einer
         Open-Data-Strategie der Landesregierung, wo Jens Klessmann und
         Marian Steinbach als Sachverständige gehört werden. Danach
         Gespräch über Möglichkeiten der Standardisierung offener
         Ratsinformationssysteme.
-
 -   Dezember 2012: Dr. Marianne Wulff, Jens Klessmann und Marian
     Steinbach beginnen mit der Abstimmung über einen Workshop mit
     Vertreterinnen und Vertretern von Kommunen, kommunalen
@@ -178,7 +172,6 @@ Stichpunkte:
         Initiatoren präsentieren den Anwesenden hier erstmals den Namen
         "OParl", der künftig als Marke für die Bemühungen der Gruppe
         stehen soll.
-
 -   22. Januar 2014: Nachdem sich die verteilte Zusammenarbeit am
         Standard-Entwurf seit April 2013 als nicht zielführend erwiesen
         hat, laden Jens Klessmann und Marian Steinbach und VITAKO zu
@@ -760,7 +753,7 @@ URL bestimmen können.
 Die URL-Kanonisierung betrifft sämtliche Bestandteile der URL.
 Entsprechend beginnt diese schon beim Schema und bei der Entscheidung
 durch den Betreiber, ob eine OParl-API regulär über HTTP oder über HTTPS
-erreichbar sein soll (vgl. [HTTP und HTTPS]).
+erreichbar sein soll (vgl. HTTP und HTTPS).
 
 Der Host-Teil der URL wird ebenfalls durch die Konfiguration des
 Betreibers festgelegt. Obwohl technisch auch die Verwendung einer
@@ -907,16 +900,18 @@ Darüber hinaus werden zwei komplexe Datentypen unterstützt:
 
 Beispiel eines Objekts in JSON-Notation:
 
-    {
-        "zeichenkette": "Das ist eine Zeichenkette",
-        "zahl": 1.23456789,
-        "wahrheitswert": true,
-        "null": null,
-        "objekt": {
-            "foo": "bar"
-        },
-        "array": ["foo", "bar"]
-    }
+``` {#json_ex1 .json}
+{
+    "zeichenkette": "Das ist eine Zeichenkette",
+    "zahl": 1.23456789,
+    "wahrheitswert": true,
+    "null": null,
+    "objekt": {
+        "foo": "bar"
+    },
+    "array": ["foo", "bar"]
+}
+```
 
 JSON-LD
 
@@ -933,11 +928,13 @@ Ein Beispiel aus der JSON-LD-Spezifikation illustriert, wie JSON-LD ein
 Objekt um zusätzliche semantische Informationen erweitert. Als
 Ausgangspunkt dient eine Personenbeschreibung in gewöhnlichem JSON:
 
-    {
-      "name": "Manu Sporny",
-      "homepage": "http://manu.sporny.org/",
-      "image": "http://manu.sporny.org/images/manu.png"
-    }
+``` {#jsonld_ex1 .json}
+{
+  "name": "Manu Sporny",
+  "homepage": "http://manu.sporny.org/",
+  "image": "http://manu.sporny.org/images/manu.png"
+}
+```
 
 Als menschlicher Betrachter kann man leicht erkennen, dass die
 Eigenschaft name den Namen der Person enthält, dass homepage die Website
@@ -950,23 +947,25 @@ Entsprechend der JSON-LD-Spezifikation kann diese Erläuterung über die
 @context-Eigenschaft direkt im selben Objekt, sozusagen als Unterobjekt,
 mitgeliefert werden:
 
-    {
-      "@context":
-      {
-        "name": "http://xmlns.com/foaf/0.1/name",
-        "image": {
-          "@id": "http://xmlns.com/foaf/0.1/img",
-          "@type": "@id"
-        },
-        "homepage": {
-          "@id": "http://xmlns.com/foaf/0.1/homepage",
-          "@type": "@id"
-        }
-      },
-      "name": "Manu Sporny",
-      "homepage": "http://manu.sporny.org/",
-      "image": "http://manu.sporny.org/images/manu.png"
+``` {#jsonld_ex2 .json}
+{
+  "@context":
+  {
+    "name": "http://xmlns.com/foaf/0.1/name",
+    "image": {
+      "@id": "http://xmlns.com/foaf/0.1/img",
+      "@type": "@id"
+    },
+    "homepage": {
+      "@id": "http://xmlns.com/foaf/0.1/homepage",
+      "@type": "@id"
     }
+  },
+  "name": "Manu Sporny",
+  "homepage": "http://manu.sporny.org/",
+  "image": "http://manu.sporny.org/images/manu.png"
+}
+```
 
 Hier sind die Eigenschaften wie image einer URL wie
 http://schema.org/image zugewiesen. Ein Client, der diese URL kennt,
@@ -987,12 +986,14 @@ eine externe Ressource ausgelagert werden. Clients, die eine Vielzahl
 von gleichartigen Objekten laden und interpretieren wollen, müssen diese
 Ressource dann nur einmal laden. Das Ergebnis könnte so aussehen:
 
-    {
-      "@context": "http://json-ld.org/contexts/person.jsonld",
-      "name": "Manu Sporny",
-      "homepage": "http://manu.sporny.org/",
-      "image": "http://manu.sporny.org/images/manu.png"
-    }
+``` {#jsonld_ex3 .json}
+{
+  "@context": "http://json-ld.org/contexts/person.jsonld",
+  "name": "Manu Sporny",
+  "homepage": "http://manu.sporny.org/",
+  "image": "http://manu.sporny.org/images/manu.png"
+}
+```
 
 Die @context-Eigenschaft hat nun als Wert eine URL. Die URL (hier:
 http://json-ld.org/contexts/person.jsonld) gibt wiederum in JSON kodiert
@@ -1003,29 +1004,33 @@ kommunizieren. So könnte passend zu unserem Beispiel ausgedrückt werden,
 um welche Art von Objekt es sich bei den vorliegenden Daten handelt.
 Dazu wird die @type-Eigenschaft verwendet, deren Wert eine URL ist:
 
-    {
-      "@context": "http://json-ld.org/contexts/person.jsonld",
-      "@type": "http://schema.org/Person",
-      "name": "Manu Sporny",
-      "homepage": "http://manu.sporny.org/",
-      "image": "http://manu.sporny.org/images/manu.png"
-    }
+``` {#jsonld_ex4 .json}
+{
+  "@context": "http://json-ld.org/contexts/person.jsonld",
+  "@type": "http://schema.org/Person",
+  "name": "Manu Sporny",
+  "homepage": "http://manu.sporny.org/",
+  "image": "http://manu.sporny.org/images/manu.png"
+}
+```
 
 Objekte können mehreren Typen zugeordnet sein und damit die Eigenschafen
 mehrerer Objekttypen nutzen. Im Fall von OParl kann diese Möglichkeit
 genutzt werden, um über die API Eigenschaften auszugeben, die nicht Teil
 des OParl-Schemas sind.
 
-    {
-      "@context": {
-        "oparl": "http://oparl.org/schema/1.0/",
-        "vendor": "http://www.vendor.de/oparl/schema/"
-      },
-      "@type": ["oparl:Paper", "vendor:Drucksache"],
-      "title": "Beschlussvorlage zum Haushalt",
-      "created": "2013-05-29T14:17:39+02:00",
-      "aktenzeichen": "ABC123"
-    }
+``` {#jsonld_ex5 .json}
+{
+  "@context": {
+    "oparl": "http://oparl.org/schema/1.0/",
+    "vendor": "http://www.vendor.de/oparl/schema/"
+  },
+  "@type": ["oparl:Paper", "vendor:Drucksache"],
+  "title": "Beschlussvorlage zum Haushalt",
+  "created": "2013-05-29T14:17:39+02:00",
+  "aktenzeichen": "ABC123"
+}
+```
 
 Das Beispiel oben zeigt ein Objekt, das über die @context-Eigenschaft
 zwei verschiedene URLs als sogenannte Vokabulare referenziert. Das eine
@@ -1073,15 +1078,19 @@ Webanwendungen eingebunden werden kann.
 Das folgende Beispiel verdeutlicht den Unterschied zwischen JSON und
 JSONP. Zunächst ein einfaches JSON-Beispiel:
 
-    {
-        "foo": "bar"
-    }
+``` {#jsonp_ex1 .json}
+{
+    "foo": "bar"
+}
+```
 
 Durch Einbettung in eine sogenannte Callback-Funktion wird daraus JSONP:
 
-    mycallback({
-        "foo": "bar"
-    })
+``` {#jsonp_ex2 .json}
+mycallback({
+    "foo": "bar"
+})
+```
 
 Der Name der Callback-Funktion (im Beispiel "mycallback") wird
 grundsätzlich bei der Anfrage vom Client bestimmt, und zwar mittels
@@ -1127,11 +1136,13 @@ dient ein fiktives Objekt, das ein Client über die URL
 
 abruft:
 
-    {
-        "@id": "http://refserv.oparl.org/bodies/0/committees/1",
-        "@type": "http://oparl.org/schema/1.0/committee",
-        "name": "Hauptausschuss"
-    }
+``` {#benanntanonym_ex1 .json}
+{
+    "@id": "http://refserv.oparl.org/bodies/0/committees/1",
+    "@type": "http://oparl.org/schema/1.0/committee",
+    "name": "Hauptausschuss"
+}
+```
 
 Das Objekt enthält eine Eigenschaft @id mit der URL des Objekts als
 Wert.
@@ -1150,23 +1161,25 @@ Das nachfolgende Beispiel zeigt eine Drucksache, deren Beratungsfolge
 TODO: Nachstehendes Beispiel und Text dazu auf stimmiges Paper Objekt
 umschreiben.
 
-    {
-        "@id": "http://refserv.oparl.org/bodies/0/papers/456",
-        "@type": "http://oparl.org/schema/1.0/paper",
-        "title": "Beschlussvorlage zur Jugendförderung",
-        "consultations": [
-            {
-                "@type": "http://oparl.org/schema/1.0/consultation",
-                "committee": "http://refserv.oparl.org/bodies/0/committees/1",
-                "meeting": "http://refserv.oparl.org/bodies/0/committees/1/meetings/123",
-                "agendaitem": "7.2.4",
-                "authoritative": false
-            },
-            {
-                ...
-            }
-        ]
-    }
+``` {#benanntanonym_ex2 .json}
+{
+    "@id": "http://refserv.oparl.org/bodies/0/papers/456",
+    "@type": "http://oparl.org/schema/1.0/paper",
+    "title": "Beschlussvorlage zur Jugendförderung",
+    "consultations": [
+        {
+            "@type": "http://oparl.org/schema/1.0/consultation",
+            "committee": "http://refserv.oparl.org/bodies/0/committees/1",
+            "meeting": "http://refserv.oparl.org/bodies/0/committees/1/meetings/123",
+            "agendaitem": "7.2.4",
+            "authoritative": false
+        },
+        {
+            ...
+        }
+    ]
+}
+```
 
 Die Eigenschaft consultations ist eine Liste mit einem oder mehreren
 Objekten vom Typ consultation. Diese Objekte spiegeln wieder, in welchen
@@ -1196,13 +1209,15 @@ In der einfachsten Form gibt der Server ein Objekt mit nur einer
 Eigenschaft items aus. Der Wert dieser Eigenschaft ist die vollständige
 Liste der URLs aller angefragten Objekte. Beispiel:
 
-    {
-        "items": [
-            "http://refserv.oparl.org/bodies/0/papers/2",
-            "http://refserv.oparl.org/bodies/0/papers/5",
-            "http://refserv.oparl.org/bodies/0/papers/7",
-        ]
-    }
+``` {#objektlisten_ex1 .json}
+{
+    "items": [
+        "http://refserv.oparl.org/bodies/0/papers/2",
+        "http://refserv.oparl.org/bodies/0/papers/5",
+        "http://refserv.oparl.org/bodies/0/papers/7",
+    ]
+}
+```
 
 Diese einfachste Form der Antwort eignet sich nur für Listen mit einer
 begrenzten Anzahl von Einträgen.
@@ -1220,15 +1235,17 @@ Listeneinträge wiederum auf maximal 100 zu begrenzen.
 Das nachstehende Beispiel zeigt, wie dem Client die URL zum "Blättern",
 also zum Aufruf der nächsten Listenseite, angeboten wird.
 
-    {
-        "items": [
-            "http://refserv.oparl.org/bodies/0/papers/2",
-            "http://refserv.oparl.org/bodies/0/papers/5",
-            "http://refserv.oparl.org/bodies/0/papers/7",
-        ],
-        "nextpage": "http://refserv.oparl.org/bodies/0/papers/?skip=7",
-        "count": 7
-    }
+``` {#objektlisten_ex2 .json}
+{
+    "items": [
+        "http://refserv.oparl.org/bodies/0/papers/2",
+        "http://refserv.oparl.org/bodies/0/papers/5",
+        "http://refserv.oparl.org/bodies/0/papers/7",
+    ],
+    "nextpage": "http://refserv.oparl.org/bodies/0/papers/?skip=7",
+    "count": 7
+}
+```
 
 Wie oben zu sehen, enthält das Beispiel-Objekt nun eine zusätzliche
 Eigenschaft nextpage. Der Wert dieser Eigenschaft ist eine URL, die dem
@@ -1265,12 +1282,16 @@ einer SQL-Abfrage illustriert werden. Gegeben sei eine Tabelle example,
 die einen numerischen Primärschlüssel id enthält. Nehmen wir an, die
 erste Seite der Liste wird mit der Abfrage
 
-    SELECT * FROM example ORDER BY id LIMIT 10 OFFSET 0
+``` {#objektlisten_ex3 .sql}
+SELECT * FROM example ORDER BY id LIMIT 10 OFFSET 0
+```
 
 abgerufen und würde 10 Datensätze mit den ids 1 bis 10 zurück liefern.
 Dann wird die zweite Seite mit der Abfrage
 
-    SELECT * FROM example ORDER BY id LIMIT 10 OFFSET 10
+``` {#objektlisten_ex4 .sql}
+SELECT * FROM example ORDER BY id LIMIT 10 OFFSET 10
+```
 
 abgerufen. Sofern sich an der Tabelle zwischen den beiden Abfragen
 nichts geändert hat, liefert die zweite Abfrage Datensätze mit id > 10
@@ -1286,7 +1307,9 @@ Listenseite beginnen soll, explizit zu benennen. Wurden auf der ersten
 Listenseite die Datensätze mit den ids 1 bis 10 ausgegeben, so könnte
 der Folgeaufruf, um beim SQL-Beispiel zu bleiben, so aussehen:
 
-    SELECT * FROM example WHERE id > 10 ORDER BY id LIMIT 10
+``` {#objektlisten_ex5 .sql}
+SELECT * FROM example WHERE id > 10 ORDER BY id LIMIT 10
+```
 
 TODO: Bestimmte Listen können mit Einschränkung auf einen Datumsbereich
 abgefragt werden. Mehr dazu in https://github.com/OParl/specs/issues/30
@@ -1340,24 +1363,26 @@ geführt werden.
 
 Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
 
-    {
-        "items": [
-            {
-                "@id": "http://refserv.oparl.org/bodies/0/papers/21/documents/3",
-                "created": "2014-01-07T12:59:01.038+0100"
-            },
-            {
-                "@id": "http://refserv.oparl.org/bodies/0/papers/21",
-                "created": "2014-01-05T18:29:37.123+0100"
-            },
-            {
-                "@id": "http://refserv.oparl.org/bodies/0/papers/20/documents/5",
-                "created": "2014-01-04T11:26:48.638+0100"
-            },
-            ...
-        ],
-        "nextpage": "http://refserv.oparl.org/feeds/new/?t=20140106170100402"
-    }
+``` {#feed_ex1 .json}
+{
+    "items": [
+        {
+            "@id": "http://refserv.oparl.org/bodies/0/papers/21/documents/3",
+            "created": "2014-01-07T12:59:01.038+0100"
+        },
+        {
+            "@id": "http://refserv.oparl.org/bodies/0/papers/21",
+            "created": "2014-01-05T18:29:37.123+0100"
+        },
+        {
+            "@id": "http://refserv.oparl.org/bodies/0/papers/20/documents/5",
+            "created": "2014-01-04T11:26:48.638+0100"
+        },
+        ...
+    ],
+    "nextpage": "http://refserv.oparl.org/feeds/new/?t=20140106170100402"
+}
+```
 
 Wie im Beispiel zu sehen ist, enthält die Eigenschaft items eine Liste
 mit unbenannten Objekten. Dies ist ein Unterschied zu herkömmlichen
@@ -1404,24 +1429,26 @@ Objekte" als auch im Feed "Geänderte Objekte" zu vermeiden.
 Auch hier SOLL der Feed sämtliche Objekttypen umfassen, die in einem
 System geführt werden.
 
-    {
-        "items": [
-            {
-                "@id": "http://refserv.oparl.org/bodies/0/papers/0/documents/2",
-                "last_modified": "2014-01-08T14:28:31.568+0100"
-            },
-            {
-                "@id": "http://refserv.oparl.org/bodies/0/papers/0",
-                "last_modified": "2014-01-08T12:14:27.958+0100"
-            },
-            {
-                "@id": "http://refserv.oparl.org/bodies/0/papers/0/documents/1",
-                "last_modified": "2014-01-06T17:01:00.402+0100"
-            },
-            ...
-        ],
-        "nextpage": "http://refserv.oparl.org/feeds/updated/?t=20140106170100402"
-    }
+``` {#feed_ex2 .json}
+{
+    "items": [
+        {
+            "@id": "http://refserv.oparl.org/bodies/0/papers/0/documents/2",
+            "last_modified": "2014-01-08T14:28:31.568+0100"
+        },
+        {
+            "@id": "http://refserv.oparl.org/bodies/0/papers/0",
+            "last_modified": "2014-01-08T12:14:27.958+0100"
+        },
+        {
+            "@id": "http://refserv.oparl.org/bodies/0/papers/0/documents/1",
+            "last_modified": "2014-01-06T17:01:00.402+0100"
+        },
+        ...
+    ],
+    "nextpage": "http://refserv.oparl.org/feeds/updated/?t=20140106170100402"
+}
+```
 
 Das Ausgabeformat entspricht weitgehend dem des Feeds "Neue Objekte",
 jedoch heißt hier die Eigenschaft für den Zeitpunkt der letzten Änderung
@@ -1442,16 +1469,18 @@ Client-Implementierer sind angehalten, diesen Feed zu nutzen, um
 beispielsweise depublizierte Dokumente aus ihren lokalen Caches zu
 entfernen.
 
-    {
-        "items": [
-            {
-                "@id": "http://refserv.oparl.org/bodies/0/people/22",
-                "removed": "2013-11-11T11:11:00.000+0100"
-            },
-            ...
-        ],
-        "nextpage": "http://refserv.oparl.org/feeds/updated/?t=20131111111100"
-    }
+``` {#feed_ex3 .json}
+{
+    "items": [
+        {
+            "@id": "http://refserv.oparl.org/bodies/0/people/22",
+            "removed": "2013-11-11T11:11:00.000+0100"
+        },
+        ...
+    ],
+    "nextpage": "http://refserv.oparl.org/feeds/updated/?t=20131111111100"
+}
+```
 
 Die Eigenschaft zur Angabe des Entfernugnszeitpunkts heißt hier removed
 und SOLL, analog zu den beiden anderen Feeds, als Sortierkriterium der
@@ -1459,6 +1488,8 @@ Liste verwendet werden.
 
 Dokumentenabruf
 ---------------
+
+TODO:
 
 -   HTTP GET Methode MUSS unterstützt werden
 -   HEAD-Methode MUSS unterstützt werden
@@ -1657,24 +1688,26 @@ führen.
 
 Beispiel
 
-    {
-        "@id": "http://refserv.oparl.org/",
-        "@context": "http://oparl.org/schema/1.0/System",
-        "oparl_version": "http://oparl.org/specs/1.0/",
-        "name": "OParl Reference Server",
-        "info": "https://github.com/OParl/reference-server",
-        "contact": {
-            "email": "info@oparl.org",
-            "name": "Common OParl contact"
-        }, 
-        "vendor": "http://oparl.org/",
-        "product": "https://github.com/OParl/reference-server",
-        "license": "http://creativecommons.org/licenses/by/4.0/",
-        "bodies": "http://refserv.oparl.org/bodies/",
-        "new_objects": "http://refserv.oparl.org/feeds/new/",
-        "updated_objects": "http://refserv.oparl.org/feeds/updated/",
-        "removed_objects": "http://refserv.oparl.org/feeds/removed/"
-    }
+``` {#OParlSystem_ex1 .json}
+{
+    "@id": "http://refserv.oparl.org/",
+    "@context": "http://oparl.org/schema/1.0/System",
+    "oparl_version": "http://oparl.org/specs/1.0/",
+    "name": "OParl Reference Server",
+    "info": "https://github.com/OParl/reference-server",
+    "contact": {
+        "email": "info@oparl.org",
+        "name": "Common OParl contact"
+    }, 
+    "vendor": "http://oparl.org/",
+    "product": "https://github.com/OParl/reference-server",
+    "license": "http://creativecommons.org/licenses/by/4.0/",
+    "bodies": "http://refserv.oparl.org/bodies/",
+    "new_objects": "http://refserv.oparl.org/feeds/new/",
+    "updated_objects": "http://refserv.oparl.org/feeds/updated/",
+    "removed_objects": "http://refserv.oparl.org/feeds/removed/"
+}
+```
 
 oparl:Body (Körperschaft)
 -------------------------
@@ -1783,27 +1816,29 @@ Gremien (Objekte vom Typ oparl:Committee) für diese Körperschaft.
 
 Beispiel
 
-    {
-        "@id": "http://refserv.oparl.org/bodies/0",
-        "@context": "http://oparl.org/schema/1.0/Body",
-        "committees": "http://refserv.oparl.org/bodies/0/committees/",
-        "contact": {
-            "email": "ris@stadt-koeln.de",
-            "name": "RIS-Betreuung"
-        }, 
-        "created": "2014-01-08T14:28:31.568+0100",
-        "gnd_url": "http://d-nb.info/gnd/2015732-0",
-        "last_modified": "2014-01-08T14:28:31.568+0100",
-        "meetings": "http://refserv.oparl.org/bodies/0/meetings/",
-        "name": "Stadt K\u00f6ln",
-        "name_long": "Stadt K\u00f6ln, kreisfreie Stadt",
-        "organisations": "http://refserv.oparl.org/bodies/0/organisations/",
-        "papers": "http://refserv.oparl.org/bodies/0/papers/",
-        "people": "http://refserv.oparl.org/bodies/0/people/",
-        "rgs": "053150000000",
-        "system": "http://refserv.oparl.org/",
-        "url": "http://www.stadt-koeln.de/"
-    }
+``` {#oparlbody_ex1 .json}
+{
+    "@id": "http://refserv.oparl.org/bodies/0",
+    "@context": "http://oparl.org/schema/1.0/Body",
+    "committees": "http://refserv.oparl.org/bodies/0/committees/",
+    "contact": {
+        "email": "ris@stadt-koeln.de",
+        "name": "RIS-Betreuung"
+    }, 
+    "created": "2014-01-08T14:28:31.568+0100",
+    "gnd_url": "http://d-nb.info/gnd/2015732-0",
+    "last_modified": "2014-01-08T14:28:31.568+0100",
+    "meetings": "http://refserv.oparl.org/bodies/0/meetings/",
+    "name": "Stadt K\u00f6ln",
+    "name_long": "Stadt K\u00f6ln, kreisfreie Stadt",
+    "organisations": "http://refserv.oparl.org/bodies/0/organisations/",
+    "papers": "http://refserv.oparl.org/bodies/0/papers/",
+    "people": "http://refserv.oparl.org/bodies/0/people/",
+    "rgs": "053150000000",
+    "system": "http://refserv.oparl.org/",
+    "url": "http://www.stadt-koeln.de/"
+}
+```
 
 oparl:Committee (Gremium)
 -------------------------
@@ -1844,13 +1879,15 @@ Beziehungen
 
 Beispiel
 
-    {
-        "id": "7",
-        "name": "Finanzausschuss",
-        "short_name": "FA",
-        "body": "1",
-        "last_modified": "2012-08-16T14:05:27+02:00"
-    }
+``` {#committee_ex1 .json}
+{
+    "id": "7",
+    "name": "Finanzausschuss",
+    "short_name": "FA",
+    "body": "1",
+    "last_modified": "2012-08-16T14:05:27+02:00"
+}
+```
 
 oparl:Person (Person)
 ---------------------
@@ -1908,36 +1945,38 @@ Beziehungen
 
 Beispiel
 
-    {
-        "id": "1000",
-        "first_name": "Max",
-        "last_name": "Mustermann",
-        "academic_title": "Dr.",
-        "sex": "M",
-        "profession": "Rechtsanwalt",
-        "email": "max@mustermann.de",
-        "phone": "+4977777",
-        "fax": "+4988888",
-        "address": "Musterstraße 5, 11111 Musterort",
-        "last_modified": "2012-08-16T14:05:27+02:00",
-        "organisations": [
-            {
-                "id": "2000",
-                "start": "2011-03-01",
-                "end": "2013-02-28"
-            },
-            {
-                "id": "2001",
-                "start": "2013-03-01"
-            }
-        ],
-        "committees": [
-            {
-                "id": "7",
-                "start": "2013-01-01"
-            }
-        ]
-    }
+``` {#person_ex1 .json}
+{
+    "id": "1000",
+    "first_name": "Max",
+    "last_name": "Mustermann",
+    "academic_title": "Dr.",
+    "sex": "M",
+    "profession": "Rechtsanwalt",
+    "email": "max@mustermann.de",
+    "phone": "+4977777",
+    "fax": "+4988888",
+    "address": "Musterstraße 5, 11111 Musterort",
+    "last_modified": "2012-08-16T14:05:27+02:00",
+    "organisations": [
+        {
+            "id": "2000",
+            "start": "2011-03-01",
+            "end": "2013-02-28"
+        },
+        {
+            "id": "2001",
+            "start": "2013-03-01"
+        }
+    ],
+    "committees": [
+        {
+            "id": "7",
+            "start": "2013-01-01"
+        }
+    ]
+}
+```
 
 oparl:Organization (Organisation)
 ---------------------------------
@@ -1976,12 +2015,14 @@ Beziehungen
 
 Beispiel
 
-    {
-        "id": "15",
-        "name": "SPD",
-        "body": "1",
-        "last_modified": "2012-08-16T14:05:27+02:00"
-    }
+``` {#organization_ex1 .json}
+{
+    "id": "15",
+    "name": "SPD",
+    "body": "1",
+    "last_modified": "2012-08-16T14:05:27+02:00"
+}
+```
 
 oparl:Meeting (Sitzung)
 -----------------------
@@ -2027,31 +2068,32 @@ Beziehungen
     -   Zum Verweis auf die Einladung zur Sitzung
     -   Zum Verweis auf das Ergebnisprotokoll zur Sitzung
     -   Zum Verweis auf das Wortprotokoll zur Sitzung
-
 -   Weiterhin können Sitzungen beliebige weitere Dokumente, die keine
     eigenständigen Drucksachen sind, referenzieren. Dabei handelt es
     sich dann um nicht weiter spezifizierte Anlagen.
 
 Beispiel
 
-    {
-        "id": "3271",
-        "identifier": "STA/0034/2012",
-        "start": "2013-01-04T08:00:00+01:00",
-        "end": "2013-01-04T12:00:00+01:00",
-        "address": "Rathaus, Raum 136",
-        "sequence_number": 1,
-        "committees": ["STA"],
-        "people": ["1000", "1001"],
-        "invitation": "0001/2013",
-        "result_minutes": "0002/2013",
-        "verbatim_minutes": "0003/2013",
-        "attachments": [
-            "0004/2013",
-            "0005/2013"
-        ],
-        "last_modified": "2012-01-08T14:05:27+01:00"
-    }
+``` {#meeting_ex1 .json}
+{
+    "id": "3271",
+    "identifier": "STA/0034/2012",
+    "start": "2013-01-04T08:00:00+01:00",
+    "end": "2013-01-04T12:00:00+01:00",
+    "address": "Rathaus, Raum 136",
+    "sequence_number": 1,
+    "committees": ["STA"],
+    "people": ["1000", "1001"],
+    "invitation": "0001/2013",
+    "result_minutes": "0002/2013",
+    "verbatim_minutes": "0003/2013",
+    "attachments": [
+        "0004/2013",
+        "0005/2013"
+    ],
+    "last_modified": "2012-01-08T14:05:27+01:00"
+}
+```
 
 oparl:AgendaItem (Tagesordnungspunkt)
 -------------------------------------
@@ -2115,16 +2157,18 @@ Beziehungen
 
 Beispiel
 
-    {
-        "meeting": "3271",
-        "identifier": "3.1.2",
-        "public": true,
-        "title": "Gemeinschaftsgrundschule Hornschaftsstraße/Höhenhaus. Hier: Anfrage von Herrn Philippi",
-        "result": "Geändert beschlossen",
-        "resolution_text": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
-        "people_absent": ["1002", "1003"],
-        "last_modified": "2012-08-16T14:05:27+02:00"
-    }
+``` {#agendaitem_ex1 .json}
+{
+    "meeting": "3271",
+    "identifier": "3.1.2",
+    "public": true,
+    "title": "Gemeinschaftsgrundschule Hornschaftsstraße/Höhenhaus. Hier: Anfrage von Herrn Philippi",
+    "result": "Geändert beschlossen",
+    "resolution_text": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
+    "people_absent": ["1002", "1003"],
+    "last_modified": "2012-08-16T14:05:27+02:00"
+}
+```
 
 oparl:Paper (Drucksache)
 ------------------------
@@ -2205,156 +2249,289 @@ Beziehungen
 
 Beispiel
 
-    {
-        "id": "1234/2012",
-        "date": "2013-01-04",
-        "type": "Beantwortung einer Anfrage",
-        "related_papers": [
-            "0768/2012"
-        ],
-        "main_document": "3000.pdf",
-        "attachments": [
-            "3002.pdf",
-            "3003.pdf"
-        ],
-        "locations": [
-            {
-                "description": "Theodor-Heuss-Ring 1",
-                "lat": 7.148,
-                "lon": 50.023
-            }
-        ],
-        "committees": ["STA"],
-        "creators": [
-            {
-                "typ": "Organisation",
-                "id": "2000"
-            },
-            {
-                "typ": "Person",
-                "id": "1000"
-            }
-        ],
-        "consultations": [
-            {
-                "meeting": "3271",
-                "agendaitem": "3.1.2",
-                "role": "Federführende Beratung"
-            }
-        ],
-        "last_modified": "2013-01-08T12:05:27+01:00"
-    }
+``` {#paper_ex1 .json}
+{
+    "id": "1234/2012",
+    "date": "2013-01-04",
+    "type": "Beantwortung einer Anfrage",
+    "related_papers": [
+        "0768/2012"
+    ],
+    "main_document": "3000.pdf",
+    "attachments": [
+        "3002.pdf",
+        "3003.pdf"
+    ],
+    "locations": [
+        {
+            "description": "Theodor-Heuss-Ring 1",
+            "lat": 7.148,
+            "lon": 50.023
+        }
+    ],
+    "committees": ["STA"],
+    "creators": [
+        {
+            "typ": "Organisation",
+            "id": "2000"
+        },
+        {
+            "typ": "Person",
+            "id": "1000"
+        }
+    ],
+    "consultations": [
+        {
+            "meeting": "3271",
+            "agendaitem": "3.1.2",
+            "role": "Federführende Beratung"
+        }
+    ],
+    "last_modified": "2013-01-08T12:05:27+01:00"
+}
+```
 
-oparl:Document (Dokument)
--------------------------
+oparl:Document (Datei)
+----------------------
 
-Ein Dokument hält Metadaten einer Datei vor, beispielsweise einer
-PDF-Datei, eines RTF- oder ODF-Dokuments (oder auch einer Datei in einem
-proprietären Format).
+Ein Objekt vom Typ oparl:Document repräsentiert eine Datei,
+beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokuments, und hält
+Metadaten zu der Datei sowie URLs zum Zugriff auf die Datei bereit.
 
-Wird von einem Dokument in einem Nicht-PDF-Format (z.B. RTF oder ODF)
-eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls ein
-Dokument. Um zu zeigen, dass es sich um eine Ableitung handelt, verweist
-dieses auf das Original als "Master".
+Ein Beispiel:
 
-Im Unterschied zur Drucksache benötigt das Dokument keine
-nutzerfreundliche Kennung.
+``` {#document_ex1 .json}
+{
+    "@type": "oparl:Document",
+    "@id": "http://beispielris.de/documents/57739",
+    "name": "Anlage 1 zur Anfrage",
+    "paper": "http://beispielris.de/papers/2396",
+    "mime_type": "application/pdf",
+    "date": "2013-01-04T07:54:13+01:00",
+    "last_modified": "2013-01-04T07:54:13+01:00",
+    "sha1_checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "size": 82930,
+    "access_url": "http://beispielris.de/documents/57739.pdf",
+    "access_url": "http://beispielris.de/documents/download/57739.pdf",
+    "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
+    "master_document": "http://beispielris.de/documents/57738"
+}
+```
+
+Objekt vom Typ oparl:Document können mit Drucksachen (oparl:Paper) oder
+Sitzungen (oparl:Meetign) in Beziehung stehen. Dies wird durch die
+Eigenschaft paper bzw. meeting angezeigt.
+
+Mehrere Objekte vom Typ oparl:Document können mit einander in direkter
+Beziehung stehen, wenn sie den selben Inhalt in unterschiedlichen
+technischen Formaten wiedergeben. Hierfür werden die Eigenschaften
+master_document bzw. derivative_documents eingesetzt. Das oben
+angezeigte Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an
+der Eigenschaft mime_type) und zeigt außerdem über die Eigenschaft
+master_document an, von welcher anderen Datei es abgeleitet wurde.
+Umgekehrt KANN über die Eigenschaft derivative_documents angezeigt
+werden, welche Ableitungen einer Datei existieren.
 
 Eigenschaften
 
-Schlüssel (id)
-    Unveränderliche Kennung
-Name (name)
-    Dateiname, z.B. "12345.pdf"
-Dateityp (mime_type)
-    Mime-Typ des Inhalts, z.B. "application/pdf"
-Veröffentlichungsdatum (date)
-    Datum des Tages, an dem das Dokument ins System eingestellt wurde
-Änderungsdatum und -uhrzeit (last_modified)
-    Datum und Uhrzeit der letzten Änderung des Dokuments
-Prüfsumme (sha1_checksum)
-    SHA1-Prüfsumme des Dokumenteninhalts
-URL (url)
-    URL zum Abruf der Daten dieses Dokuments mittels HTTP GET-Aufruf
-Nur-Text-Version (text)
-    Reine Text-Wiedergabe des Dokumenteninhalts, sofern es sich nicht um
-    eine reine Abbildung handelt.
+@id
+    Die URL des Objekts.
 
-Beziehungen
+name
+    Name des Objekts, der Nutzern angezeigt werden kann. Diese
+    Eigenschaft ist ZWINGEND. Typ: Zeichenkette.
 
--   Dokumente gehören zwingend zu einer Drucksache, optional auch zu
-    mehreren. Ein Dokument kann entweder als Hauptdokument einer
-    Drucksache oder als Anlage eingestuft sein.
--   Ein Dokument kann auf ein anderes Dokument referenzieren, wenn es
-    von dem anderen Dokument abstammt. So ist es möglich, von einem
-    abgeleiteten Dokument zu seinem Dokumenten-Master zu gelangen
-    (Beispiel: von einem PDF-Dokument zum OpenOffice-Original).
+mime_type
+    Mime-Typ des Inhalts (vgl. RFC2046[^16]). Diese Eigenschaft ist
+    ZWINGEND. Sollte das System einer Datei keinen spezifischen Typ
+    zuweisen können, wird EMPFOHLEN, hier "application/octet-stream" zu
+    verwenden.
 
-    {
-        "id": "3000",
-        "name": "3000.pdf",
-        "mime_type": "application/pdf",
-        "date": "2013-01-04T07:54:13+01:00",
-        "last_modified": "2013-01-04T07:54:13+01:00",
-        "sha1_checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
-        "url": "http://ris.beispielstadt.de/api/documents/3000.pdf",
-        "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
-        "master": "2099"
-    }
+date
+    Erstellungs- oder Veröffentlichungsdatum und -uhrzeit. Diese
+    Eigenschaft ist ZWINGEND. Typ: Datum.
+
+last_modified
+    Datum und Uhrzeit der letzten Änderung der Datei bzw. der Metadaten.
+    Diese Eigenschaft ist ZWINGEND. Typ: Datum.
+
+size
+    Größe der Datei in Bytes. Diese Eigenschaft ist ZWINGEND. Typ: Zahl.
+
+sha1_checksum
+    SHA1-Prüfsumme des Dokumenteninhalts in Hexadezimal-Schreibweise.
+    Typ: Zeichenkette.
+
+text
+    Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform
+    wiedergegeben werden kann. Diese Eigenschaft ist EMPFOHLEN. Typ:
+    Zeichenkette.
+
+access_url
+    URL zum gewöhnlichen Abruf der Datei mittels HTTP GET-Aufruf. Diese
+    Eigenschaft ist ZWINGEND. Typ: URL.
+
+download_url
+    URL zum Download der Datei. Diese Eigenschaft ist EMPFOHLEN. Typ:
+    URL.
+
+paper
+    URL des zugehörigen Objekts vom Typ oparl:Paper, sofern diese Datei
+    zu einer Drucksache gehört. Wenn diese Datei zu einer Drucksache
+    gehört, MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie
+    NICHT vorhanden sein. Typ: URL.
+
+meeting
+    URL des zugehörigen Objekts vom Typ oparl:Meeting, sofern diese
+    Datei zu einer Sitzung gehört. Wenn diese Datei zu einer Sitzung
+    gehört, MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie
+    NICHT vorhanden sein. Typ: URL.
+
+master_document
+    URL des Objekts vom Typ oparl:Document, von dem das aktuelle Objekt
+    abgeleitet wurde. Diese Eigenschaft ist OPTIONAL. Typ: URL.
+
+derivative_documents
+    URLs aller Objekte vom Typ oparl:Document, die von dem aktuellen
+    Objekt abgeleitet wurden. Diese Eigenschaft ist OPTIONAL. Typ: Liste
+    von URLs.
+
+Siehe auch
+
+-   Dokumentenabruf
 
 oparl:Consultation (Beratung)
 -----------------------------
 
-oparl:Location (Ort)
---------------------
+Der Objekttyp oparl:Consultation dient dazu, die Beratung einer
+Drucksache (oparl:Paper) in einer Sitzung abzubilden. Dabei ist es nicht
+entscheidend, ob diese Beratung in der Vergangenheit stattgefunden hat
+oder diese für die Zukunft geplant ist.
 
-Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal
-abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen
-(beispielsweise der Name einer Straße/eines Platzes oder eine genaue
-Adresse) als auch aus Geodaten.
+Die Gesamtheit aller Objekte des Typs oparl:Consultation zu einer
+bestimmten Drucksache bildet das ab, was in der Praxis als
+"Beratungsfolge" der Drucksache bezeichnet wird.
 
-OParl sieht die Angabe von Geodaten in Anlehnung an die
-GeoJSON-Spezifikation [13] vor. Die GeoJSON-Spezifikation erlaubt die
-Abbildung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden
-und Polygonen. Während GeoJSON zu jedem Geodaten-Objekt auch die
-Speicherung zusätzlicher Metadaten ermöglicht, beschränkt sich OParl
-ledliglich auf das geometry-Attribut in GeoJSON. Sämtliche
-Geo-Koordinatenangaben werden in in OParl im WGS-84-System [11]
-erwartet.
+Ein Beispiel:
+
+``` {#consultation_ex1 .json}
+{
+    "@type": "oparl:Consultation",
+    "@id": "http://beispielris.de/consultations/47594",
+    "paper": "http://beispielris.de/papers/2396",
+    "agendaitem": "http://beispielris.de/agendaitems/15569",
+    "committee": "http://beispielris.de/organisations/96",
+    "authoritative": false
+}
+```
 
 Eigenschaften
 
-Textanabe (description)
-    Optional. Textliche Beschreibung eines Orts, z.B. in Form einer
-    Adresse
-Koordinaten (geometry)
-    Optional. GeoJSON geometry Objekt
-Zuletzt geändert (last_modified)
-    Datum und Uhrzeit der letzten Änderung
+@id
+    URL des Objekts. Diese Eigenschaft ist ZWINGEND.
 
-Beziehungen
+paper
+    URL der Drucksache, die beraten wird. Diese Eigenschaft ist
+    ZWINGEND.
 
--   Orte können mit Drucksachen in Verbindung stehen.
+agendaitem
+    URL des Tagesordnungspunktes (oparl:Agendaitem), unter dem die
+    Drucksache beraten wird. Diese Eigenschaft ist ZWINGEND.
 
-    {
-        "description": "Honschaftsstraße 312, 51061 Köln",
+committee
+    URL des Gremiums (oparl:Organization), dem die Sitzung zugewisen
+    ist, zu welcher der zuvor genannte Tagesordnungspunkt gehört. Diese
+    Eigenschaft ist ZWINGEND.
+
+authoritative
+    Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache
+    gefasst wird (true) wird oder nicht (false). Diese Eigenschaft ist
+    OPTIONAL. Typ: Wahrheitswert.
+
+oparl:Location (Ort)
+--------------------
+
+Dieser Objekttyp dient dazu, den Ortsbezug einer Drucksache formal
+abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen
+(beispielsweise dem Namen einer Straße/eines Platzes oder eine genaue
+Adresse) als auch aus Geodaten.
+
+Dieser Objekttyp ist für anonyme Objekte im Kontext des Objekttyps
+oparl:Paper zu verwenden.
+
+Ein einfaches Beispiel:
+
+``` {#location_ex1 .json}
+{
+    ...
+    "location": {
+        "description": "Honschaftsstra\u00dfe 312, K\u00f6ln",
         "geometry": {
             "type": "Point",
             "coordinates": [7.03291, 50.98249]
-        },
-        "last_modified": "2013-02-14T14:05:27+01:00"
+        }
+    },
+    ...
+}
+```
+
+In der Praxis soll dies dazu dienen, den geografischen Bezug eines
+politischen Vorgangs, wie zum Beispiel eines Bauvorhabens oder der
+Änderung eines Flächennutzungsplanes, maschinenlesbar nachvollziehbar zu
+machen.
+
+OParl sieht bei Angabe von Geodaten die Verwendung des  
+GeoJSON-Formats[^17] vor. GeoJSON erlaubt die Beschreibung von vielen
+unterschiedlichen Geometrien wie Punkten, Pfaden und Polygonen in
+JSON-Notation. Ein GeoJSON-Objekt kann auch mehrere Geometrien umfassen,
+beispielsweise um damit mehrere Punkte oder Polygone zu umschreiben.
+
+Gegenüber der GeoJSON-Spezifikation sieht OParl eine wichtige
+Einschränkung vor: Für die Ausgabe über eine OParl API MÜSSEN sämtliche
+Koordinatenangaben im System WGS84[^18] angegeben werden, und zwar in
+Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.
+
+Eigenschaften
+
+description
+    Textliche Beschreibung eines Orts, z.B. in Form einer Adresse. Diese
+    Eigenschaft ist EMPFOHLEN. Typ: Zeichenkette.
+
+geometry
+    Geodaten-Repräsentation des Orts. Diese Eigenschaft ist OPTIONAL.
+    Ist diese Eigenschaft gesetzt, MUSS ihr Wert ein valides
+    GeoJSON-Objekt sein.
+
+Weitere Beispiele
+
+Ortsangabe mit Polygon-Objekt
+
+``` {#location_ex2 .json}
+{
+    "description": "Rechtes Rheinufer zwischen Deutzer
+        Br\u00fccke und Hohenzollernbr\u00fccke",
+    "type": "Polygon",
+    "geometry": {
+        "coordinates": [
+            [
+                [6.9681106, 50.9412137],
+                [6.9690940, 50.9412137],
+                [6.9692169, 50.9368270],
+                [6.9681218, 50.9368270],
+                [6.9681106, 50.9412137]
+            ]
+        ]
     }
+}
+```
 
 oparl:Contact (Kontakt)
 -----------------------
 
+TODO: Kann nach aktuellem Stand entfallen.
+
 Fußnoten
 ========
-
-[11]: World Geodetic System 1984 (EPSG:4326), wird unter anderem auch
-vom Global Positioning System (GPS) verwendet.
-
-[13]: GeoJSON www.geojson.org
 
 [14]: Frankfurt Gestalten www.geojson.org
 
@@ -2414,3 +2591,12 @@ WGS 84
     Statistischen Bundesamtes eingesehen werden
 
 [^15]: Gemeinsame Normdatei http://www.dnb.de/gnd
+
+[^16]: http://tools.ietf.org/html/rfc2046
+
+[^17]: GeoJSON Spazifikation http://geojson.org/geojson-spec.html
+
+[^18]: WGS84 steht für "World Geodetic System 1984", es wird unter
+    anderem auch vom Global Positioning System (GPS) verwendet. In
+    geografischen Informationssystemen ist für das System der EPSG-Code
+    4326 geläufig.

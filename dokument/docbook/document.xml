@@ -174,7 +174,7 @@
       <listitem>
         <para>
           &quot;10 Principles&quot; erwähnen
-          <ulink url="https://sunlightfoundation.com/policy/documents/ten-open-data-principles/"><literal>https://sunlightfoundation.com/policy/documents/ten-open-data-principles/</literal></ulink>
+          <ulink url="https://sunlightfoundation.com/policy/documents/ten-open-data-principles/">https://sunlightfoundation.com/policy/documents/ten-open-data-principles/</ulink>
         </para>
       </listitem>
       <listitem>
@@ -442,7 +442,7 @@
         RFC2119.<footnote>
           <para>
             RFC2119
-            <ulink url="http://tools.ietf.org/html/rfc2119"><literal>http://tools.ietf.org/html/rfc2119</literal></ulink>
+            <ulink url="http://tools.ietf.org/html/rfc2119">http://tools.ietf.org/html/rfc2119</ulink>
           </para>
         </footnote>
       </para>
@@ -585,7 +585,7 @@
     Architekturbeschreibung des W3-Konsortiums entlehnt.<footnote>
       <para>
         Architecture of the World Wide Web, Volume One.
-        <ulink url="http://www.w3.org/TR/webarch/"><literal>http://www.w3.org/TR/webarch/</literal></ulink>
+        <ulink url="http://www.w3.org/TR/webarch/">http://www.w3.org/TR/webarch/</ulink>
       </para>
     </footnote>
   </para>
@@ -1002,7 +1002,7 @@
         Ratsinformationssystem<footnote>
           <para>
             Das System BoRis der Stadt Bonn
-            <ulink url="http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp"><literal>http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp</literal></ulink>
+            <ulink url="http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp">http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp</ulink>
           </para>
         </footnote> in Deutschland bekannt, das Geoinformationen - und
         zwar in Form von Punktdaten, also einer Kombination aus Längen-
@@ -1014,7 +1014,7 @@
         Spezifikation<footnote>
           <para>
             GeoJSON
-            <ulink url="http://geojson.org/"><literal>http://geojson.org/</literal></ulink>
+            <ulink url="http://geojson.org/">http://geojson.org/</ulink>
           </para>
         </footnote> einzubetten. Die Angabe eines einzelnen Punktes ist
         dabei nur ein einfacher Sonderfall. Die Spezifikation erlaubt
@@ -1043,7 +1043,7 @@
           <para>
             Fielding, Roy: Architectural Styles and the Design of
             Network-based Software Architectures,
-            <ulink url="http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm"><literal>http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm</literal></ulink>
+            <ulink url="http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm">http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm</ulink>
           </para>
         </footnote>. Die Definition von Fielding reicht sehr weit und
         berührt viele Details. In der Praxis wird der Begriff häufig
@@ -1145,7 +1145,7 @@
         einfach den angebotenen URLs folgt. Dieses Prinzip wird auch
         &quot;Follow Your Nose&quot; genannt<footnote>
           <para>
-            <ulink url="http://patterns.dataincubator.org/book/follow-your-nose.html"><literal>http://patterns.dataincubator.org/book/follow-your-nose.html</literal></ulink>
+            <ulink url="http://patterns.dataincubator.org/book/follow-your-nose.html">http://patterns.dataincubator.org/book/follow-your-nose.html</ulink>
           </para>
         </footnote>.
       </para>
@@ -1234,7 +1234,7 @@
       Die grundsätzliche Funktionsweise von URLs ist in RFC3986
       beschrieben<footnote>
         <para>
-          <ulink url="http://tools.ietf.org/html/rfc3986"><literal>http://tools.ietf.org/html/rfc3986</literal></ulink>
+          <ulink url="http://tools.ietf.org/html/rfc3986">http://tools.ietf.org/html/rfc3986</ulink>
         </para>
       </footnote>.
     </para>
@@ -1273,8 +1273,8 @@ Schema    Host               Pfad                        Query-String
         Entsprechend beginnt diese schon beim
         <emphasis role="strong">Schema</emphasis> und bei der
         Entscheidung durch den Betreiber, ob eine OParl-API regulär über
-        HTTP oder über HTTPS erreichbar sein soll (vgl. [HTTP und
-        HTTPS]).
+        HTTP oder über HTTPS erreichbar sein soll (vgl.
+        <link linkend="http-und-https">HTTP und HTTPS</link>).
       </para>
       <para>
         Der <emphasis role="strong">Host</emphasis>-Teil der URL wird
@@ -1467,14 +1467,14 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
         Berners-Lee<footnote>
           <para>
             Berners-Lee, Tim: Cool URIs don't change.
-            <ulink url="http://www.w3.org/Provider/Style/URI.html"><literal>http://www.w3.org/Provider/Style/URI.html</literal></ulink>
+            <ulink url="http://www.w3.org/Provider/Style/URI.html">http://www.w3.org/Provider/Style/URI.html</ulink>
           </para>
         </footnote> sowie die Europäische Kommission<footnote>
           <para>
             Study on persistent URIs, with identification of best
             practices and recommendations on the topic for the MSs and
             the EC. (PDF)
-            <ulink url="http://goo.gl/JaTq6Z"><literal>http://goo.gl/JaTq6Z</literal></ulink>
+            <ulink url="http://goo.gl/JaTq6Z">http://goo.gl/JaTq6Z</ulink>
           </para>
         </footnote>.
       </para>
@@ -1495,7 +1495,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
         Die Abkürzung JSON steht für &quot;JavaScript Object
         Notation&quot;. Das JSON-Format ist in RFC4627<footnote>
           <para>
-            <ulink url="https://tools.ietf.org/html/rfc4627"><literal>https://tools.ietf.org/html/rfc4627</literal></ulink>
+            <ulink url="https://tools.ietf.org/html/rfc4627">https://tools.ietf.org/html/rfc4627</ulink>
           </para>
         </footnote> beschrieben. Nachfolgend werden nur die wichtigsten
         Definitionen übernommen, um eine Terminologie zur weiteren
@@ -1570,7 +1570,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
         Das Kürzel LD im Namen &quot;JSON-LD&quot; steht für Linked
         Data. Entsprechend erweitert die JSON-LD-Spezifikation<footnote>
           <para>
-            <ulink url="http://www.w3.org/TR/json-ld/"><literal>http://www.w3.org/TR/json-ld/</literal></ulink>
+            <ulink url="http://www.w3.org/TR/json-ld/">http://www.w3.org/TR/json-ld/</ulink>
           </para>
         </footnote> das JSON-Format um die Möglichkeit,
       </para>
@@ -2370,6 +2370,9 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
   </sect2>
   <sect2 id="dokumentenabruf">
     <title>Dokumentenabruf</title>
+    <para>
+      TODO:
+    </para>
     <itemizedlist>
       <listitem>
         <para>
@@ -2823,7 +2826,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         Sofern die Körperschaft in der GND<footnote>
           <para>
             Gemeinsame Normdatei
-            <ulink url="http://www.dnb.de/gnd"><literal>http://www.dnb.de/gnd</literal></ulink>
+            <ulink url="http://www.dnb.de/gnd">http://www.dnb.de/gnd</ulink>
           </para>
         </footnote> vertreten ist, SOLL diese Eigenschaft als Wert die
         URL des Eintrags in der GND enthalten.
@@ -3884,244 +3887,456 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
 </programlisting>
     </sect3>
   </sect2>
-  <sect2 id="oparldocument-dokument">
-    <title>oparl:Document (Dokument)</title>
+  <sect2 id="oparldocument-datei">
+    <title>oparl:Document (Datei)</title>
     <para>
-      Ein Dokument hält Metadaten einer Datei vor, beispielsweise einer
-      PDF-Datei, eines RTF- oder ODF-Dokuments (oder auch einer Datei in
-      einem proprietären Format).
+      Ein Objekt vom Typ <literal>oparl:Document</literal> repräsentiert
+      eine Datei, beispielsweise eine PDF-Datei, ein RTF- oder
+      ODF-Dokuments, und hält Metadaten zu der Datei sowie URLs zum
+      Zugriff auf die Datei bereit.
     </para>
     <para>
-      Wird von einem Dokument in einem Nicht-PDF-Format (z.B. RTF oder
-      ODF) eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls
-      ein Dokument. Um zu zeigen, dass es sich um eine Ableitung
-      handelt, verweist dieses auf das Original als &quot;Master&quot;.
+      Ein Beispiel:
+    </para>
+    <programlisting language="json">
+{
+    &quot;@type&quot;: &quot;oparl:Document&quot;,
+    &quot;@id&quot;: &quot;http://beispielris.de/documents/57739&quot;,
+    &quot;name&quot;: &quot;Anlage 1 zur Anfrage&quot;,
+    &quot;paper&quot;: &quot;http://beispielris.de/papers/2396&quot;,
+    &quot;mime_type&quot;: &quot;application/pdf&quot;,
+    &quot;date&quot;: &quot;2013-01-04T07:54:13+01:00&quot;,
+    &quot;last_modified&quot;: &quot;2013-01-04T07:54:13+01:00&quot;,
+    &quot;sha1_checksum&quot;: &quot;da39a3ee5e6b4b0d3255bfef95601890afd80709&quot;,
+    &quot;size&quot;: 82930,
+    &quot;access_url&quot;: &quot;http://beispielris.de/documents/57739.pdf&quot;,
+    &quot;access_url&quot;: &quot;http://beispielris.de/documents/download/57739.pdf&quot;,
+    &quot;text&quot;: &quot;Der Übersichtsplan zeigt alle Ebenen des ...&quot;,
+    &quot;master_document&quot;: &quot;http://beispielris.de/documents/57738&quot;
+}
+</programlisting>
+    <para>
+      Objekt vom Typ <literal>oparl:Document</literal> können mit
+      Drucksachen (<literal>oparl:Paper</literal>) oder Sitzungen
+      (<literal>oparl:Meetign</literal>) in Beziehung stehen. Dies wird
+      durch die Eigenschaft <literal>paper</literal> bzw.
+      <literal>meeting</literal> angezeigt.
     </para>
     <para>
-      Im Unterschied zur Drucksache benötigt das Dokument keine
-      nutzerfreundliche Kennung.
+      Mehrere Objekte vom Typ <literal>oparl:Document</literal> können
+      mit einander in direkter Beziehung stehen, wenn sie den selben
+      Inhalt in unterschiedlichen technischen Formaten wiedergeben.
+      Hierfür werden die Eigenschaften
+      <literal>master_document</literal> bzw.
+      <literal>derivative_documents</literal> eingesetzt. Das oben
+      angezeigte Beispiel-Objekt repräsentiert eine PDF-Datei (zu
+      erkennen an der Eigenschaft <literal>mime_type</literal>) und
+      zeigt außerdem über die Eigenschaft
+      <literal>master_document</literal> an, von welcher anderen Datei
+      es abgeleitet wurde. Umgekehrt KANN über die Eigenschaft
+      <literal>derivative_documents</literal> angezeigt werden, welche
+      Ableitungen einer Datei existieren.
     </para>
     <sect3 id="eigenschaften-6">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
           <term>
-            Schlüssel (<literal>id</literal>)
+            <literal>@id</literal>
           </term>
           <listitem>
             <para>
-              Unveränderliche Kennung
+              Die URL des Objekts.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Name (<literal>name</literal>)
+            <literal>name</literal>
           </term>
           <listitem>
             <para>
-              Dateiname, z.B. &quot;12345.pdf&quot;
+              Name des Objekts, der Nutzern angezeigt werden kann. Diese
+              Eigenschaft ist ZWINGEND. Typ: Zeichenkette.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Dateityp (<literal>mime_type</literal>)
+            <literal>mime_type</literal>
           </term>
           <listitem>
             <para>
-              Mime-Typ des Inhalts, z.B. &quot;application/pdf&quot;
+              Mime-Typ des Inhalts (vgl. RFC2046<footnote>
+                <para>
+                  <ulink url="http://tools.ietf.org/html/rfc2046">http://tools.ietf.org/html/rfc2046</ulink>
+                </para>
+              </footnote>). Diese Eigenschaft ist ZWINGEND. Sollte das
+              System einer Datei keinen spezifischen Typ zuweisen
+              können, wird EMPFOHLEN, hier
+              &quot;application/octet-stream&quot; zu verwenden.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Veröffentlichungsdatum (<literal>date</literal>)
+            <literal>date</literal>
           </term>
           <listitem>
             <para>
-              Datum des Tages, an dem das Dokument ins System
-              eingestellt wurde
+              Erstellungs- oder Veröffentlichungsdatum und -uhrzeit.
+              Diese Eigenschaft ist ZWINGEND. Typ: Datum.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Änderungsdatum und -uhrzeit
-            (<literal>last_modified</literal>)
+            <literal>last_modified</literal>
           </term>
           <listitem>
             <para>
-              Datum und Uhrzeit der letzten Änderung des Dokuments
+              Datum und Uhrzeit der letzten Änderung der Datei bzw. der
+              Metadaten. Diese Eigenschaft ist ZWINGEND. Typ: Datum.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Prüfsumme (<literal>sha1_checksum</literal>)
+            <literal>size</literal>
           </term>
           <listitem>
             <para>
-              SHA1-Prüfsumme des Dokumenteninhalts
+              Größe der Datei in Bytes. Diese Eigenschaft ist ZWINGEND.
+              Typ: Zahl.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            URL (<literal>url</literal>)
+            <literal>sha1_checksum</literal>
           </term>
           <listitem>
             <para>
-              URL zum Abruf der Daten dieses Dokuments mittels HTTP
-              GET-Aufruf
+              SHA1-Prüfsumme des Dokumenteninhalts in
+              Hexadezimal-Schreibweise. Typ: Zeichenkette.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Nur-Text-Version (<literal>text</literal>)
+            <literal>text</literal>
           </term>
           <listitem>
             <para>
-              Reine Text-Wiedergabe des Dokumenteninhalts, sofern es
-              sich nicht um eine reine Abbildung handelt.
+              Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in
+              Textform wiedergegeben werden kann. Diese Eigenschaft ist
+              EMPFOHLEN. Typ: Zeichenkette.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>access_url</literal>
+          </term>
+          <listitem>
+            <para>
+              URL zum gewöhnlichen Abruf der Datei mittels HTTP
+              GET-Aufruf. Diese Eigenschaft ist ZWINGEND. Typ: URL.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>download_url</literal>
+          </term>
+          <listitem>
+            <para>
+              URL zum Download der Datei. Diese Eigenschaft ist
+              EMPFOHLEN. Typ: URL.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>paper</literal>
+          </term>
+          <listitem>
+            <para>
+              URL des zugehörigen Objekts vom Typ
+              <literal>oparl:Paper</literal>, sofern diese Datei zu
+              einer Drucksache gehört. Wenn diese Datei zu einer
+              Drucksache gehört, MUSS diese Eigenschaft vorhanden sein,
+              andernfalls DARF sie NICHT vorhanden sein. Typ: URL.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>meeting</literal>
+          </term>
+          <listitem>
+            <para>
+              URL des zugehörigen Objekts vom Typ
+              <literal>oparl:Meeting</literal>, sofern diese Datei zu
+              einer Sitzung gehört. Wenn diese Datei zu einer Sitzung
+              gehört, MUSS diese Eigenschaft vorhanden sein, andernfalls
+              DARF sie NICHT vorhanden sein. Typ: URL.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>master_document</literal>
+          </term>
+          <listitem>
+            <para>
+              URL des Objekts vom Typ <literal>oparl:Document</literal>,
+              von dem das aktuelle Objekt abgeleitet wurde. Diese
+              Eigenschaft ist OPTIONAL. Typ: URL.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>derivative_documents</literal>
+          </term>
+          <listitem>
+            <para>
+              URLs aller Objekte vom Typ
+              <literal>oparl:Document</literal>, die von dem aktuellen
+              Objekt abgeleitet wurden. Diese Eigenschaft ist OPTIONAL.
+              Typ: Liste von URLs.
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
     </sect3>
-    <sect3 id="beziehungen-6">
-      <title>Beziehungen</title>
+    <sect3 id="siehe-auch">
+      <title>Siehe auch</title>
       <itemizedlist>
         <listitem>
           <para>
-            Dokumente gehören zwingend zu einer
-            <emphasis role="strong">Drucksache</emphasis>, optional auch
-            zu mehreren. Ein Dokument kann entweder als Hauptdokument
-            einer Drucksache oder als Anlage eingestuft sein.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Ein Dokument kann auf ein anderes Dokument referenzieren,
-            wenn es von dem anderen Dokument abstammt. So ist es
-            möglich, von einem abgeleiteten Dokument zu seinem
-            Dokumenten-Master zu gelangen (Beispiel: von einem
-            PDF-Dokument zum OpenOffice-Original).
+            <link linkend="dokumentenabruf">Dokumentenabruf</link>
           </para>
         </listitem>
       </itemizedlist>
-      <programlisting language="json">
-{
-    &quot;id&quot;: &quot;3000&quot;,
-    &quot;name&quot;: &quot;3000.pdf&quot;,
-    &quot;mime_type&quot;: &quot;application/pdf&quot;,
-    &quot;date&quot;: &quot;2013-01-04T07:54:13+01:00&quot;,
-    &quot;last_modified&quot;: &quot;2013-01-04T07:54:13+01:00&quot;,
-    &quot;sha1_checksum&quot;: &quot;da39a3ee5e6b4b0d3255bfef95601890afd80709&quot;,
-    &quot;url&quot;: &quot;http://ris.beispielstadt.de/api/documents/3000.pdf&quot;,
-    &quot;text&quot;: &quot;Der Übersichtsplan zeigt alle Ebenen des ...&quot;,
-    &quot;master&quot;: &quot;2099&quot;
-}
-</programlisting>
     </sect3>
   </sect2>
   <sect2 id="oparlconsultation-beratung">
     <title>oparl:Consultation (Beratung)</title>
     <para>
-    </para>
-  </sect2>
-  <sect2 id="oparllocation-ort">
-    <title>oparl:Location (Ort)</title>
-    <para>
-      Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache
-      formal abzubilden. Ortsangaben können sowohl aus Textinformationen
-      bestehen (beispielsweise der Name einer Straße/eines Platzes oder
-      eine genaue Adresse) als auch aus Geodaten.
+      Der Objekttyp <literal>oparl:Consultation</literal> dient dazu,
+      die Beratung einer Drucksache (<literal>oparl:Paper</literal>) in
+      einer Sitzung abzubilden. Dabei ist es nicht entscheidend, ob
+      diese Beratung in der Vergangenheit stattgefunden hat oder diese
+      für die Zukunft geplant ist.
     </para>
     <para>
-      OParl sieht die Angabe von Geodaten in Anlehnung an die
-      GeoJSON-Spezifikation [13] vor. Die GeoJSON-Spezifikation erlaubt
-      die Abbildung von vielen unterschiedlichen Geometrien wie Punkten,
-      Pfaden und Polygonen. Während GeoJSON zu jedem Geodaten-Objekt
-      auch die Speicherung zusätzlicher Metadaten ermöglicht, beschränkt
-      sich OParl ledliglich auf das <literal>geometry</literal>-Attribut
-      in GeoJSON. Sämtliche Geo-Koordinatenangaben werden in in OParl im
-      WGS-84-System [11] erwartet.
+      Die Gesamtheit aller Objekte des Typs
+      <literal>oparl:Consultation</literal> zu einer bestimmten
+      Drucksache bildet das ab, was in der Praxis als
+      &quot;Beratungsfolge&quot; der Drucksache bezeichnet wird.
     </para>
+    <para>
+      Ein Beispiel:
+    </para>
+    <programlisting language="json">
+{
+    &quot;@type&quot;: &quot;oparl:Consultation&quot;,
+    &quot;@id&quot;: &quot;http://beispielris.de/consultations/47594&quot;,
+    &quot;paper&quot;: &quot;http://beispielris.de/papers/2396&quot;,
+    &quot;agendaitem&quot;: &quot;http://beispielris.de/agendaitems/15569&quot;,
+    &quot;committee&quot;: &quot;http://beispielris.de/organisations/96&quot;,
+    &quot;authoritative&quot;: false
+}
+</programlisting>
     <sect3 id="eigenschaften-7">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
           <term>
-            Textanabe (<literal>description</literal>)
+            <literal>@id</literal>
           </term>
           <listitem>
             <para>
-              <emphasis>Optional.</emphasis> Textliche Beschreibung
-              eines Orts, z.B. in Form einer Adresse
+              URL des Objekts. Diese Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Koordinaten (<literal>geometry</literal>)
+            <literal>paper</literal>
           </term>
           <listitem>
             <para>
-              <emphasis>Optional.</emphasis> GeoJSON geometry Objekt
+              URL der Drucksache, die beraten wird. Diese Eigenschaft
+              ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Zuletzt geändert (<literal>last_modified</literal>)
+            <literal>agendaitem</literal>
           </term>
           <listitem>
             <para>
-              Datum und Uhrzeit der letzten Änderung
+              URL des Tagesordnungspunktes (oparl:Agendaitem), unter dem
+              die Drucksache beraten wird. Diese Eigenschaft ist
+              ZWINGEND.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>committee</literal>
+          </term>
+          <listitem>
+            <para>
+              URL des Gremiums (oparl:Organization), dem die Sitzung
+              zugewisen ist, zu welcher der zuvor genannte
+              Tagesordnungspunkt gehört. Diese Eigenschaft ist ZWINGEND.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>authoritative</literal>
+          </term>
+          <listitem>
+            <para>
+              Drückt aus, ob bei dieser Beratung ein Beschluss zu der
+              Drucksache gefasst wird (<emphasis>true</emphasis>) wird
+              oder nicht (<emphasis>false</emphasis>). Diese Eigenschaft
+              ist OPTIONAL. Typ: Wahrheitswert.
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
     </sect3>
-    <sect3 id="beziehungen-7">
-      <title>Beziehungen</title>
-      <itemizedlist>
-        <listitem>
-          <para>
-            Orte können mit Drucksachen in Verbindung stehen.
-          </para>
-        </listitem>
-      </itemizedlist>
-      <programlisting language="json">
+  </sect2>
+  <sect2 id="oparllocation-ort">
+    <title>oparl:Location (Ort)</title>
+    <para>
+      Dieser Objekttyp dient dazu, den Ortsbezug einer Drucksache formal
+      abzubilden. Ortsangaben können sowohl aus Textinformationen
+      bestehen (beispielsweise dem Namen einer Straße/eines Platzes oder
+      eine genaue Adresse) als auch aus Geodaten.
+    </para>
+    <para>
+      Dieser Objekttyp ist für anonyme Objekte im Kontext des Objekttyps
+      <literal>oparl:Paper</literal> zu verwenden.
+    </para>
+    <para>
+      Ein einfaches Beispiel:
+    </para>
+    <programlisting language="json">
 {
-    &quot;description&quot;: &quot;Honschaftsstraße 312, 51061 Köln&quot;,
-    &quot;geometry&quot;: {
-        &quot;type&quot;: &quot;Point&quot;,
-        &quot;coordinates&quot;: [7.03291, 50.98249]
+    ...
+    &quot;location&quot;: {
+        &quot;description&quot;: &quot;Honschaftsstra\u00dfe 312, K\u00f6ln&quot;,
+        &quot;geometry&quot;: {
+            &quot;type&quot;: &quot;Point&quot;,
+            &quot;coordinates&quot;: [7.03291, 50.98249]
+        }
     },
-    &quot;last_modified&quot;: &quot;2013-02-14T14:05:27+01:00&quot;
+    ...
 }
 </programlisting>
+    <para>
+      In der Praxis soll dies dazu dienen, den geografischen Bezug eines
+      politischen Vorgangs, wie zum Beispiel eines Bauvorhabens oder der
+      Änderung eines Flächennutzungsplanes, maschinenlesbar
+      nachvollziehbar zu machen.
+    </para>
+    <para>
+      OParl sieht bei Angabe von Geodaten die Verwendung des<literallayout>
+</literallayout>GeoJSON-Formats<footnote>
+        <para>
+          GeoJSON Spazifikation
+          <ulink url="http://geojson.org/geojson-spec.html">http://geojson.org/geojson-spec.html</ulink>
+        </para>
+      </footnote> vor. GeoJSON erlaubt die Beschreibung von vielen
+      unterschiedlichen Geometrien wie Punkten, Pfaden und Polygonen in
+      JSON-Notation. Ein GeoJSON-Objekt kann auch mehrere Geometrien
+      umfassen, beispielsweise um damit mehrere Punkte oder Polygone zu
+      umschreiben.
+    </para>
+    <para>
+      Gegenüber der GeoJSON-Spezifikation sieht OParl eine wichtige
+      Einschränkung vor: Für die Ausgabe über eine OParl API MÜSSEN
+      sämtliche Koordinatenangaben im System WGS84<footnote>
+        <para>
+          WGS84 steht für &quot;World Geodetic System 1984&quot;, es
+          wird unter anderem auch vom Global Positioning System (GPS)
+          verwendet. In geografischen Informationssystemen ist für das
+          System der EPSG-Code 4326 geläufig.
+        </para>
+      </footnote> angegeben werden, und zwar in Form von Zahlenwerten
+      (Fließkommazahlen) für Längen- und Breitengrad.
+    </para>
+    <sect3 id="eigenschaften-8">
+      <title>Eigenschaften</title>
+      <variablelist>
+        <varlistentry>
+          <term>
+            <literal>description</literal>
+          </term>
+          <listitem>
+            <para>
+              Textliche Beschreibung eines Orts, z.B. in Form einer
+              Adresse. Diese Eigenschaft ist EMPFOHLEN. Typ:
+              Zeichenkette.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>geometry</literal>
+          </term>
+          <listitem>
+            <para>
+              Geodaten-Repräsentation des Orts. Diese Eigenschaft ist
+              OPTIONAL. Ist diese Eigenschaft gesetzt, MUSS ihr Wert ein
+              valides GeoJSON-Objekt sein.
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </sect3>
+    <sect3 id="weitere-beispiele">
+      <title>Weitere Beispiele</title>
+      <sect4 id="ortsangabe-mit-polygon-objekt">
+        <title>Ortsangabe mit Polygon-Objekt</title>
+        <programlisting language="json">
+{
+    &quot;description&quot;: &quot;Rechtes Rheinufer zwischen Deutzer
+        Br\u00fccke und Hohenzollernbr\u00fccke&quot;,
+    &quot;type&quot;: &quot;Polygon&quot;,
+    &quot;geometry&quot;: {
+        &quot;coordinates&quot;: [
+            [
+                [6.9681106, 50.9412137],
+                [6.9690940, 50.9412137],
+                [6.9692169, 50.9368270],
+                [6.9681218, 50.9368270],
+                [6.9681106, 50.9412137]
+            ]
+        ]
+    }
+}
+</programlisting>
+      </sect4>
     </sect3>
   </sect2>
   <sect2 id="oparlcontact-kontakt">
     <title>oparl:Contact (Kontakt)</title>
     <para>
+      TODO: Kann nach aktuellem Stand entfallen.
     </para>
   </sect2>
 </sect1>
 <sect1 id="fußnoten">
   <title>Fußnoten</title>
-  <para>
-    [11]: World Geodetic System 1984 (EPSG:4326), wird unter anderem
-    auch vom Global Positioning System (GPS) verwendet.
-  </para>
-  <para>
-    [13]: GeoJSON
-    <ulink url="http://www.geojson.org/">www.geojson.org</ulink>
-  </para>
   <para>
     [14]: Frankfurt Gestalten
     <ulink url="http://www.geojson.org/">www.geojson.org</ulink>

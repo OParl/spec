@@ -20,7 +20,8 @@
 \fi
 \usepackage{color}
 \usepackage{fancyvrb}
-\DefineShortVerb[commandchars=\\\{\}]{\|}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
 % Add ',fontsize=\small' for more characters per line
 \newenvironment{Shaded}{}{}
@@ -38,13 +39,6 @@
 \newcommand{\RegionMarkerTok}[1]{{#1}}
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
 \newcommand{\NormalTok}[1]{{#1}}
-% Redefine labelwidth for lists; otherwise, the enumerate package will cause
-% markers to extend beyond the left margin.
-\makeatletter\AtBeginDocument{%
-  \renewcommand{\@listi}
-    {\setlength{\labelwidth}{4em}}
-}\makeatother
-\usepackage{enumerate}
 \usepackage{graphicx}
 % We will generate all images so they have a width \maxwidth. This means
 % that they will get their normal width if they fit onto the page, but
@@ -64,7 +58,7 @@
 \fi
 \hypersetup{breaklinks=true,
             bookmarks=true,
-            pdfauthor={OParl Team - http://oparl.de/},
+            pdfauthor={OParl Team - http://oparl.org/},
             pdftitle={OParl Schnittstellen-Spezifikation (Entwurf)},
             colorlinks=true,
             urlcolor=blue,
@@ -76,7 +70,7 @@
 \setcounter{secnumdepth}{0}
 
 \title{OParl Schnittstellen-Spezifikation (Entwurf)}
-\author{OParl Team - http://oparl.de/}
+\author{OParl Team - http://oparl.org/}
 \date{}
 
 \begin{document}
@@ -84,7 +78,7 @@
 
 Lizenz: Creative Commons CC-BY-SA
 
-\section{Einleitung}
+\section{Einleitung}\label{einleitung}
 
 Dieses Dokument wird bei seiner Fertigstellung die Spezifikation des
 OParl Schnittstellen-Standards für parlamentarische Informationssysteme
@@ -92,13 +86,13 @@ OParl Schnittstellen-Standards für parlamentarische Informationssysteme
 für die Implementierung von OParl-konformen Server- und
 Clientanwendungen.
 
-\subsection{Status}
+\subsection{Status}\label{status}
 
 Die Spezifikation befindet sich in Arbeit. Das Dokument enthält
 entsprechend viele Ungenauigkeiten und Hinweise auf offene
 Fragestellungen.
 
-\subsection{Was ist OParl?}
+\subsection{Was ist OParl?}\label{was-ist-oparl}
 
 (Nachfolgend eine Übernahme aus dem bisherigen Abschnitt
 ``Funktionsumfang der OParl-Schnittstelle''. Der Text sollte deutlich
@@ -114,9 +108,10 @@ Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale
 Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher
 zwischen den Implementierungen variieren.
 
-\subsection{Zielsetzung von OParl}
+\subsection{Zielsetzung von OParl}\label{zielsetzung-von-oparl}
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Nutzen für Kommunen, Bürger, politische Parteien
 \item
@@ -168,6 +163,7 @@ Die Anwendungsmöglichkeiten für parlamentarische Informationen, wenn sie
 sind vielfältig. Beispiele könnten sein:
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Apps für den Abruf auf mobilen Endgeräten
 \item
@@ -194,9 +190,11 @@ integriert werden. Durch eine einheitliche Schnittstelle bieten sich
 effiziente Möglichkeiten zur Integration der Daten in anderen Systeme,
 wie beispielsweise Web-Portale.
 
-\subsection{Transparenz und Beteiligung durch Open Data}
+\subsection{Transparenz und Beteiligung durch Open
+Data}\label{transparenz-und-beteiligung-durch-open-data}
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Einführung zu Open Data
 \item
@@ -211,26 +209,34 @@ wie beispielsweise Web-Portale.
 
   \begin{itemize}
   \item
-    \begin{enumerate}[1.]
+    \begin{enumerate}
+    \def\labelenumi{\arabic{enumi}.}
     \setcounter{enumi}{4}
+    \itemsep1pt\parskip0pt\parsep0pt
     \item
       Machine readability
     \end{enumerate}
   \item
-    \begin{enumerate}[1.]
+    \begin{enumerate}
+    \def\labelenumi{\arabic{enumi}.}
     \setcounter{enumi}{5}
+    \itemsep1pt\parskip0pt\parsep0pt
     \item
       Non-discrimination
     \end{enumerate}
   \item
-    \begin{enumerate}[1.]
+    \begin{enumerate}
+    \def\labelenumi{\arabic{enumi}.}
     \setcounter{enumi}{6}
+    \itemsep1pt\parskip0pt\parsep0pt
     \item
       Use of Commonly Owned Standards
     \end{enumerate}
   \item
-    \begin{enumerate}[1.]
+    \begin{enumerate}
+    \def\labelenumi{\arabic{enumi}.}
     \setcounter{enumi}{8}
+    \itemsep1pt\parskip0pt\parsep0pt
     \item
       Permanence
     \end{enumerate}
@@ -245,6 +251,7 @@ wie beispielsweise Web-Portale.
   barrierearmen Zugang zu Informationen ermöglichen, sind optional.
 
   \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
   \item
     Beispiel: Volltexte von Dokumenten über die API abrufbar machen
   \end{itemize}
@@ -264,14 +271,16 @@ wie beispielsweise Web-Portale.
   bei der verwendeten Sprache auf.
 \end{itemize}
 
-\subsection{Werdegang von OParl 1.0}
+\subsection{Werdegang von OParl 1.0}\label{werdegang-von-oparl-1.0}
 
 Stichpunkte:
 
 \begin{itemize}
 \item
-  \begin{enumerate}[1.]
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
   \setcounter{enumi}{16}
+  \itemsep1pt\parskip0pt\parsep0pt
   \item
     und 18. November 2012: Die Open Knowledge Foundation Deutschland
     veranstaltet in den Räumen der Heinrich-Böll-Stiftung in Berlin
@@ -285,8 +294,10 @@ Stichpunkte:
     effektiv auf weitere Kommunen ausgeweitet werden könnte.
   \end{enumerate}
 \item
-  \begin{enumerate}[1.]
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
   \setcounter{enumi}{5}
+  \itemsep1pt\parskip0pt\parsep0pt
   \item
     Dezember 2012: Anhörung im Landtag NRW in Düsseldorf zu einer
     Open-Data-Strategie der Landesregierung, wo Jens Klessmann und
@@ -304,8 +315,10 @@ Stichpunkte:
   Diskussionsgrundlage. Der Entwurf wird von Beginn an öffentlich auf
   GitHub.com bereit gestellt.
 \item
-  \begin{enumerate}[1.]
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
   \setcounter{enumi}{16}
+  \itemsep1pt\parskip0pt\parsep0pt
   \item
     April 2013: Insgesamt 30 Teilnehmer versammeln sich in Köln, um sich
     in einem ersten Treffen über Ziele und Chancen einer
@@ -318,8 +331,10 @@ Stichpunkte:
     für die Bemühungen der Gruppe stehen soll.
   \end{enumerate}
 \item
-  \begin{enumerate}[1.]
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
   \setcounter{enumi}{21}
+  \itemsep1pt\parskip0pt\parsep0pt
   \item
     Januar 2014: Nachdem sich die verteilte Zusammenarbeit am
     Standard-Entwurf seit April 2013 als nicht zielführend erwiesen hat,
@@ -330,9 +345,10 @@ Stichpunkte:
   \end{enumerate}
 \end{itemize}
 
-\subsection{Zukunft von OParl}
+\subsection{Zukunft von OParl}\label{zukunft-von-oparl}
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Verfeinerung, Lücken schliessen
 \item
@@ -356,10 +372,11 @@ Stichpunkte:
   gehören insbesondere die Linked Data Platform des W3C und Hydra.
 \end{itemize}
 
-\subsection{Nomenklatur der Spezifikation und Satzkonventionen}
+\subsection{Nomenklatur der Spezifikation und
+Satzkonventionen}\label{nomenklatur-der-spezifikation-und-satzkonventionen}
 
 \subsubsection{MÜSSEN, SOLLEN und KÖNNEN bzw. ZWINGEND, EMPFOHLEN und
-OPTIONAL}
+OPTIONAL}\label{muxfcssen-sollen-und-kuxf6nnen-bzw.-zwingend-empfohlen-und-optional}
 
 Dieses Spezifikationsdokument nutzt die Modalverben müssen, können und
 sollen in einer Art und Weise, die bestimmte Anforderungen möglichst
@@ -413,20 +430,21 @@ Anteil unterstützt.
 Die Entsprechung in RFC2119 lautet ``MAY'' oder ``OPTIONAL''.
 \end{description}
 
-\subsubsection{Besondere Hervorhebungen und Satzkonventionen}
+\subsubsection{Besondere Hervorhebungen und
+Satzkonventionen}\label{besondere-hervorhebungen-und-satzkonventionen}
 
-\subsection{Initiatoren}
+\subsection{Initiatoren}\label{initiatoren}
 
-\subsection{Unterstützer}
+\subsection{Unterstützer}\label{unterstuxfctzer}
 
-\subsection{Autoren}
+\subsection{Autoren}\label{autoren}
 
 An diesem Dokument haben mitgewirkt:
 
 Felix Ebert, Jan Erhardt, Jens Klessmann, Andreas Kuckartz, Babett
 Schalitz, Marian Steinbach, Thomas Tursics, Jakob Voss
 
-\section{Architektur}
+\section{Architektur}\label{architektur}
 
 In diesem Abschnitt werden grundlegenden Konzepte, die von OParl
 abgedeckt werden, erläutert. Die Erläuterungen sind nicht im engeren
@@ -439,7 +457,7 @@ Da die Architektur auf der generellen Architektur des World Wide Web
 Architekturbeschreibung des W3-Konsortiums entlehnt.\footnote{Architecture
   of the World Wide Web, Volume One. \url{http://www.w3.org/TR/webarch/}}
 
-\subsection{Überblick}
+\subsection{Überblick}\label{uxfcberblick}
 
 \begin{figure}[htbp]
 \centering
@@ -447,7 +465,8 @@ Architekturbeschreibung des W3-Konsortiums entlehnt.\footnote{Architecture
 \caption{Architekturdiagramm}
 \end{figure}
 
-\subsection{Parlamentarisches Informationssystem}
+\subsection{Parlamentarisches
+Informationssystem}\label{parlamentarisches-informationssystem}
 
 Parlamentarische Informationssysteme sind Software-Systeme, die von
 verschiedensten Körperschaften eingesetzt werden, um die Zusammenarbeit
@@ -467,6 +486,7 @@ Diese Systeme unterstützen in der Regel mehrere der folgenden
 Funktionen:
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Das Erzeugen, Bearbeiten und Darstellen von Sitzungen und deren
   Tagesordnung
@@ -505,7 +525,7 @@ dass er bestimmte parlamentarische Informationen in einem bestimmten
 Format zur Verfügung stellt und auf bestimmte Anfragen von so genannten
 Clients über die OParl API entsprechend dieser Spezifikation reagiert.
 
-\subsection{API}
+\subsection{API}\label{api}
 
 Der Begriff API steht in diesem Dokument für die
 Webservice-Schnittstelle, die der Server anbietet. Die Schnittstelle
@@ -536,13 +556,13 @@ Nutzung eines Cache kann auch zur Verbesserung der Nutzerfreundlichkeit
 eines Clients beitragen, indem Wartezeiten zur Bereitstellung einer
 Ressource verkürzt werden.
 
-\subsection{Nutzerin oder Nutzer}
+\subsection{Nutzerin oder Nutzer}\label{nutzerin-oder-nutzer}
 
 Mit einer Nutzerin oder einem Nutzer ist in diesem Fall eine natürliche
 Person gemeint, die mittels eines OParl-Clients auf parlamentarische
 Informationen zugreift.
 
-\subsection{Objekt}
+\subsection{Objekt}\label{objekt}
 
 Der Server beantwortet Anfragen eines Clients im Regelfall, indem
 bestimmte Objekte ausgegeben werden. Objekte sind im Fall einer
@@ -551,13 +571,14 @@ vorliegenden Spezifikation beaschrieben wird. Antworten des Servers
 können einzelne Objekte, Listen von Objekten oder Listen von URLs von
 Objekten enthalten.
 
-\section{Nutzungsszenarien}
+\section{Nutzungsszenarien}\label{nutzungsszenarien}
 
 Die nachfolgenden Nutzungsszenarien dienen dazu, die Architektur und die
 Anwendungsmöglichkeiten anhand konkreter Beispiele zu verdeutlichen. Sie
 erheben keinen Anspruch auf Vollständigkeit.
 
-\subsubsection{Szenario 1: Mobile Client-Anwendung}
+\subsubsection{Szenario 1: Mobile
+Client-Anwendung}\label{szenario-1-mobile-client-anwendung}
 
 Eine \hyperref[client]{Client}-Anwendung für mobile Endgeräte wie
 SmartPhones und Tablets, nachfolgend ``App'' genannt, könnte das Ziel
@@ -650,7 +671,8 @@ Umgebung durchsucht werden. Das Ergebnis könnte auf einer Karte
 dargestellt oder in einer Ergebnisliste angezeigt werden, die nach
 Distanz zum Objekt sortiert werden könnte.
 
-\subsubsection{Szenario 2: Integration in Web-Portal}
+\subsubsection{Szenario 2: Integration in
+Web-Portal}\label{szenario-2-integration-in-web-portal}
 
 Web Portale bieten Nutzern unter anderem die Möglichkeit Anwendungen,
 Prozesse und Dienste zu integrieren. Die OParl API stellt einen solchen
@@ -658,7 +680,9 @@ Dienst dar und bereitet so den Weg zu angereicherten Portalseiten.
 Informationen, die über die API bezogen werden, können in Portlets
 organisiert und visualisiert werden. Hierbei können
 
-\begin{enumerate}[1.]
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   angemeldete Benutzer
 \end{enumerate}
@@ -666,8 +690,10 @@ organisiert und visualisiert werden. Hierbei können
 die eingegrenzten Portlet Parameter für den nächsten Besuch zwischen
 speichern, während
 
-\begin{enumerate}[1.]
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{1}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   anonyme Benutzer
 \end{enumerate}
@@ -685,11 +711,13 @@ möglich Nutzern zusätzliche Informationen in der bereits gewohnten
 Umgebung zu präsentieren und den bestehenden Informationsgehalt und den
 Datenbestand aufzuwerten.
 
-\subsubsection{Szenario 3: Meta-Suche}
+\subsubsection{Szenario 3: Meta-Suche}\label{szenario-3-meta-suche}
 
-\subsubsection{Szenario 4: Forschungsprojekt Themen- und Sprachanalyse}
+\subsubsection{Szenario 4: Forschungsprojekt Themen- und
+Sprachanalyse}\label{szenario-4-forschungsprojekt-themen--und-sprachanalyse}
 
-\section{Prinzipien und Funktionen der API}
+\section{Prinzipien und Funktionen der
+API}\label{prinzipien-und-funktionen-der-api}
 
 (In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen
 Schnittstelle beschrieben. Hierzu gehören alle chapter-Dateien, deren
@@ -698,6 +726,7 @@ Nummerierung mit der Ziffer 6 beginnnt.)
 Stichpunkte:
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Grundlage für den Zugriff auf die Schnittstelle ist das Hypertext
   Transfer Protocol (HTTP).
@@ -712,7 +741,8 @@ Stichpunkte:
 
 \hyperdef{}{designprinzipien}{\subsection{Designprinzipien}\label{designprinzipien}}
 
-\subsubsection{Aufbauend auf der gängigen Praxis}
+\subsubsection{Aufbauend auf der gängigen
+Praxis}\label{aufbauend-auf-der-guxe4ngigen-praxis}
 
 Grundlage für die Erarbeitung der OParl-Spezifikation in der
 vorliegenden Version ist eine Analyse der aktuell (2012 bis 2014) in
@@ -726,7 +756,8 @@ einschlägigen Softwareprodukte stark ähneln. Für die OParl-Spezifikation
 wurde sozusagen ein Datenmodell als ``gemeinsamer Nenner'' auf Basis der
 gängigen Praxis beschrieben.
 
-\subsubsection{Verbesserungen gegenüber dem Status Quo wo möglich}
+\subsubsection{Verbesserungen gegenüber dem Status Quo wo
+möglich}\label{verbesserungen-gegenuxfcber-dem-status-quo-wo-muxf6glich}
 
 Dort, wo es dem Ziel der einfachen Implementierbarkeit und der einfachen
 Migration nicht im Weg steht, erlauben sich die Autoren dieser
@@ -762,7 +793,7 @@ herzustellen, um so von einem Dokument zu anderen Dokumenten mit
 identischem Inhalt, aber in anderen technischen Formaten zu verweisen,
 etwa von einer ODT-Datei zu einer PDF-Version.
 
-\subsubsection{RESTful}
+\subsubsection{RESTful}\label{restful}
 
 Die Bezeichnung ``REST'' (für ``Representational State Transfer'') wurde
 im Jahr 2000 von Roy Fielding eingeführt\footnote{Fielding, Roy:
@@ -774,6 +805,7 @@ der Praxis wird der Begriff häufig genutzt, um eine Schnittstelle zu
 beschreiben,
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   die auf WWW-Technologie aufbaut, insbesondere dem HTTP-Protokoll
 \item
@@ -786,7 +818,7 @@ beschreiben,
   gestellt, um beispielsweise den Zustand einer Session zu speichern.
 \end{itemize}
 
-\subsubsection{Selbstbeschreibungsfähigkeit}
+\subsubsection{Selbstbeschreibungsfähigkeit}\label{selbstbeschreibungsfuxe4higkeit}
 
 Ausgaben des Servers sollten so beschaffen sein, dass sie für
 menschliche NutzerInnen weitgehend selbsterklärend sein können. Dies
@@ -818,7 +850,7 @@ Diese angestrebte Erweiterbarkeit wird durch weitgehend durch das
 JSON-LD-Format (TODO: Verweis einfügen) gewährleistet. Es erlaubt die
 Verflechtung von Objekttypen-Definitionen aus verschiedenen Schemata.
 
-\subsubsection{Browseability/Verlinkung}
+\subsubsection{Browseability/Verlinkung}\label{browseabilityverlinkung}
 
 Klassische Webservice-Schnittstellen erfordern von den Entwicklern
 vollständige Kenntnis der angebotenen Einstiegspunkte und
@@ -841,7 +873,7 @@ einem bestimmten Objekt die anderen Objekte im System finden, indem er
 einfach den angebotenen URLs folgt. Dieses Prinzip wird auch ``Follow
 Your Nose'' genannt\footnote{\url{http://patterns.dataincubator.org/book/follow-your-nose.html}}.
 
-\subsection{Zukunftssicherheit}
+\subsection{Zukunftssicherheit}\label{zukunftssicherheit}
 
 Wie unter \hyperref[designprinzipien]{Designprinzipien} beschrieben, ist
 diese erste Version der OParl-Spezifikation bereits im Wesentlichen von
@@ -863,7 +895,8 @@ Dieses Ziel wird in Zukunft natürlich abgewägt werden müssen mit dem
 Wunsch, sich an Veränderungen und neue Erkenntnisse anzupassen. Eine
 Garantie für Zukunftssicherheit kann insofern niemand aussprechen.
 
-\subsection{HTTP und HTTPS}
+\hyperdef{}{http-und-https}{\subsection{HTTP und
+HTTPS}\label{http-und-https}}
 
 OParl-Server und -Client kommunizieren miteinander über das
 HTTP-Protokoll.
@@ -916,7 +949,7 @@ http://refserv.oparl.org/bodies/0/committees/4/members/?skip=234
 Schema    Host               Pfad                        Query-String
 \end{verbatim}
 
-\subsubsection{URL-Kanonisierung}
+\subsubsection{URL-Kanonisierung}\label{url-kanonisierung}
 
 Absicht ist, dass jedes benannte Objekt, das ein Server über eine
 OParl-API anbietet, über genau eine URL identifizierbar und abrufbar
@@ -934,7 +967,8 @@ URL bestimmen können.
 Die URL-Kanonisierung betrifft sämtliche Bestandteile der URL.
 Entsprechend beginnt diese schon beim \textbf{Schema} und bei der
 Entscheidung durch den Betreiber, ob eine OParl-API regulär über HTTP
-oder über HTTPS erreichbar sein soll (vgl. {[}HTTP und HTTPS{]}).
+oder über HTTPS erreichbar sein soll (vgl.
+\hyperref[http-und-https]{HTTP und HTTPS}).
 
 Der \textbf{Host}-Teil der URL wird ebenfalls durch die Konfiguration
 des Betreibers festgelegt. Obwohl technisch auch die Verwendung einer
@@ -943,6 +977,7 @@ einen mit Bedacht gewählten Host-Namen einsetzen. Die Vorteile dieser
 Lösung gegenüber der Verwendung einer IP-Adresse sind vielfältig:
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   NutzerInnen können Host-Namen lesen und interpretieren
 \item
@@ -991,6 +1026,7 @@ nicht-kanonischen URL-Varianten denkbar, die technischen auf den selben
 Server führen könnten:
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   http://83.123.89.102/
 \item
@@ -1035,7 +1071,7 @@ Clients annehmen, dass beide URLs verschiedene Objekte repräsentieren.
 In der Konsequenz kann es zu vermeidbarer Ressourcennutzugn sowohl auf
 Client- als auch auf Serverseite kommen.
 
-\subsubsection{Langlebigkeit}
+\subsubsection{Langlebigkeit}\label{langlebigkeit}
 
 Weiterhin ist es Absicht, dass URLs von Objekten langlebig sind, so dass
 sie, wenn sie einmal verbreitet wurden, langfristig zur Abfrage des
@@ -1071,7 +1107,8 @@ Kommission\footnote{Study on persistent URIs, with identification of
   best practices and recommendations on the topic for the MSs and the
   EC. (PDF) \url{http://goo.gl/JaTq6Z}}.
 
-\subsection{Serialisierung mittels JSON-LD und JSONP}
+\subsection{Serialisierung mittels JSON-LD und
+JSONP}\label{serialisierung-mittels-json-ld-und-jsonp}
 
 Eine OParl-konforme API gibt Objekte in Form von JSON aus. Die Objekte
 werden dabei entsprechend der JSON-LD Spezifikation um Kontexte
@@ -1079,7 +1116,7 @@ erweitert, welche die Selbstbschreibungsfähigkeit der ausgegebenen Daten
 verbessert. Auf Anforderung des Clients wird darüber hinaus JSONP
 unterstützt.
 
-\subsubsection{JSON}
+\subsubsection{JSON}\label{json}
 
 Die Abkürzung JSON steht für ``JavaScript Object Notation''. Das
 JSON-Format ist in RFC4627\footnote{\url{https://tools.ietf.org/html/rfc4627}}
@@ -1091,6 +1128,7 @@ Das JSON-Format unterstützt die Ausgabe von vier verschiedenen
 primitiven Datentypen:
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \emph{Zeichenkette} (Unicode)
 \item
@@ -1104,6 +1142,7 @@ primitiven Datentypen:
 Darüber hinaus werden zwei komplexe Datentypen unterstützt:
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \emph{Objekt}: Eine Sammlung von Schlüssel-Wert-Paaren ohne
   Reihenfolge, wobei der Schlüssel eine Zeichenkette sein muss und der
@@ -1114,6 +1153,7 @@ Darüber hinaus werden zwei komplexe Datentypen unterstützt:
 
 Beispiel eines Objekts in JSON-Notation:
 
+\hyperdef{}{jsonux5fex1}{\label{jsonux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -1129,13 +1169,14 @@ Beispiel eines Objekts in JSON-Notation:
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection{JSON-LD}
+\subsubsection{JSON-LD}\label{json-ld}
 
 Das Kürzel LD im Namen ``JSON-LD'' steht für Linked Data. Entsprechend
 erweitert die JSON-LD-Spezifikation\footnote{\url{http://www.w3.org/TR/json-ld/}}
 das JSON-Format um die Möglichkeit,
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Objekte mit anderen Objekten zu verknüpfen,
 \item
@@ -1149,6 +1190,7 @@ Ein Beispiel aus der JSON-LD-Spezifikation illustriert, wie JSON-LD ein
 Objekt um zusätzliche semantische Informationen erweitert. Als
 Ausgangspunkt dient eine Personenbeschreibung in gewöhnlichem JSON:
 
+\hyperdef{}{jsonldux5fex1}{\label{jsonldux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -1170,6 +1212,7 @@ Entsprechend der JSON-LD-Spezifikation kann diese Erläuterung über die
 \texttt{@context}-Eigenschaft direkt im selben Objekt, sozusagen als
 Unterobjekt, mitgeliefert werden:
 
+\hyperdef{}{jsonldux5fex2}{\label{jsonldux5fex2}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -1217,6 +1260,7 @@ Clients, die eine Vielzahl von gleichartigen Objekten laden und
 interpretieren wollen, müssen diese Ressource dann nur einmal laden. Das
 Ergebnis könnte so aussehen:
 
+\hyperdef{}{jsonldux5fex3}{\label{jsonldux5fex3}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -1238,6 +1282,7 @@ um welche Art von Objekt es sich bei den vorliegenden Daten handelt.
 Dazu wird die \texttt{@type}-Eigenschaft verwendet, deren Wert eine URL
 ist:
 
+\hyperdef{}{jsonldux5fex4}{\label{jsonldux5fex4}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -1255,6 +1300,7 @@ mehrerer Objekttypen nutzen. Im Fall von OParl kann diese Möglichkeit
 genutzt werden, um über die API Eigenschaften auszugeben, die nicht Teil
 des OParl-Schemas sind.
 
+\hyperdef{}{jsonldux5fex5}{\label{jsonldux5fex5}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -1278,6 +1324,7 @@ Präfix \texttt{vendor}. Ein JSON-LD-Client setzt Präfix und
 Typenbezeichnung letztlich wieder zu einer URL zusammen.
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Aus \texttt{oparl:Paper} wird
   \texttt{http://oparl.org/schema/1.0/Paper}
@@ -1292,6 +1339,7 @@ Darüber hinaus stellt JSON-LD zusätzliche Anforderungen an JSON-Daten,
 die in diesem Abschnitt weiter ausgeführt werden sollen\ldots{}
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Einschränkungen von OParl gegenüber JSON-LD
 \item
@@ -1335,6 +1383,7 @@ kann.
 Das folgende Beispiel verdeutlicht den Unterschied zwischen JSON und
 JSONP. Zunächst ein einfaches JSON-Beispiel:
 
+\hyperdef{}{jsonpux5fex1}{\label{jsonpux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -1345,6 +1394,7 @@ JSONP. Zunächst ein einfaches JSON-Beispiel:
 
 Durch Einbettung in eine sogenannte Callback-Funktion wird daraus JSONP:
 
+\hyperdef{}{jsonpux5fex2}{\label{jsonpux5fex2}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \ErrorTok{mycallback(}\NormalTok{\{}
@@ -1379,19 +1429,21 @@ bedienen. (TODO: Status Code einfügen oder prüfen, welche HTTP-Antwort
 die geeignetste ist.)
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   TODO: Spezifikation finden/verlinken. (RFC gibt es nicht)
 \item
   https://github.com/OParl/specs/issues/67
 \end{itemize}
 
-\subsection{Benannte und anonyme Objekte}
+\subsection{Benannte und anonyme
+Objekte}\label{benannte-und-anonyme-objekte}
 
 Die JSON-LD-Spezifikation unterscheidet zwischen benannten und anonymen
 Objekten. Da die Unterscheidung auch für OParl von Bedeutung ist, wird
 sie hier genauer erläutert.
 
-\subsubsection{Benannte Objekte}
+\subsubsection{Benannte Objekte}\label{benannte-objekte}
 
 Benannte Objekte sind innerhalb einer JSON-LD-Ausgabe diejenigen
 Objekte, die durch eine eigene URL identifiziert werden. Als Beispiel
@@ -1403,6 +1455,7 @@ http://refserv.oparl.org/bodies/0/committees/1
 
 abruft:
 
+\hyperdef{}{benanntanonymux5fex1}{\label{benanntanonymux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -1419,7 +1472,8 @@ als Wert.
 Das benannte Objekt kann über seine URL sowohl eindeutig identifiziert
 als auch direkt abgerufen werden.
 
-\subsubsection{Anonyme Objekte (Blank Nodes)}
+\subsubsection{Anonyme Objekte (Blank
+Nodes)}\label{anonyme-objekte-blank-nodes}
 
 Im Gegensatz dazu können Objekte existieren, die keine eigene URL haben.
 Ein Beispiel dafür findet sich in der Beratungsfolge einer Drucksache.
@@ -1430,6 +1484,7 @@ Das nachfolgende Beispiel zeigt eine Drucksache, deren Beratungsfolge
 TODO: Nachstehendes Beispiel und Text dazu auf stimmiges Paper Objekt
 umschreiben.
 
+\hyperdef{}{benanntanonymux5fex2}{\label{benanntanonymux5fex2}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -1470,7 +1525,8 @@ TODO: Weitere Objekttypen nennen, in denen Blank Nodes vorkommen.
 Über die OParl-API können entweder einzelne Objekte oder Listen von
 Objekten abgefragt werden.
 
-\subsubsection{Gezieltes Abfragen von Listen}
+\subsubsection{Gezieltes Abfragen von
+Listen}\label{gezieltes-abfragen-von-listen}
 
 Fragt ein Client eine Liste von Objekten an, beispielsweise die Liste
 aller Drucksachen in einem System, kann der Server innerhalb bestimmter
@@ -1481,6 +1537,7 @@ Eigenschaft \texttt{items} aus. Der Wert dieser Eigenschaft ist die
 \textbf{vollständige Liste} der URLs aller angefragten Objekte.
 Beispiel:
 
+\hyperdef{}{objektlistenux5fex1}{\label{objektlistenux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -1509,6 +1566,7 @@ ausgegebenen Listeneinträge wiederum auf maximal 100 zu begrenzen.
 Das nachstehende Beispiel zeigt, wie dem Client die URL zum
 ``Blättern'', also zum Aufruf der nächsten Listenseite, angeboten wird.
 
+\hyperdef{}{objektlistenux5fex2}{\label{objektlistenux5fex2}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -1551,6 +1609,7 @@ Funktionsweise der Paginierung. Bei der Entscheidung für eine Form der
 Implementierung sind weitere Anforderungen zu berücksichtigen:
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Es ist davon auszugehen, dass Clients für den gesamten Abruf aller
   Seiten einer Liste längere Zeit benötigen. In der Zwischenzeit kann
@@ -1566,6 +1625,7 @@ einer SQL-Abfrage illustriert werden. Gegeben sei eine Tabelle
 \texttt{example}, die einen numerischen Primärschlüssel \texttt{id}
 enthält. Nehmen wir an, die erste Seite der Liste wird mit der Abfrage
 
+\hyperdef{}{objektlistenux5fex3}{\label{objektlistenux5fex3}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{SELECT} \NormalTok{* }\KeywordTok{FROM} \NormalTok{example }\KeywordTok{ORDER} \KeywordTok{BY} \KeywordTok{id} \KeywordTok{LIMIT} \DecValTok{10} \NormalTok{OFFSET }\DecValTok{0}
@@ -1575,6 +1635,7 @@ enthält. Nehmen wir an, die erste Seite der Liste wird mit der Abfrage
 abgerufen und würde 10 Datensätze mit den \texttt{id}s 1 bis 10 zurück
 liefern. Dann wird die zweite Seite mit der Abfrage
 
+\hyperdef{}{objektlistenux5fex4}{\label{objektlistenux5fex4}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{SELECT} \NormalTok{* }\KeywordTok{FROM} \NormalTok{example }\KeywordTok{ORDER} \KeywordTok{BY} \KeywordTok{id} \KeywordTok{LIMIT} \DecValTok{10} \NormalTok{OFFSET }\DecValTok{10}
@@ -1596,6 +1657,7 @@ Listenseite beginnen soll, explizit zu benennen. Wurden auf der ersten
 Listenseite die Datensätze mit den \texttt{id}s 1 bis 10 ausgegeben, so
 könnte der Folgeaufruf, um beim SQL-Beispiel zu bleiben, so aussehen:
 
+\hyperdef{}{objektlistenux5fex5}{\label{objektlistenux5fex5}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{SELECT} \NormalTok{* }\KeywordTok{FROM} \NormalTok{example }\KeywordTok{WHERE} \KeywordTok{id} \NormalTok{> }\DecValTok{10} \KeywordTok{ORDER} \KeywordTok{BY} \KeywordTok{id} \KeywordTok{LIMIT} \DecValTok{10}
@@ -1607,7 +1669,8 @@ abgefragt werden. Mehr dazu in https://github.com/OParl/specs/issues/30
 Fraglich ist, ob das in diesem Kapitel behandelt werden sollte oder in
 einem anderen.
 
-\subsubsection{Listen als Eigenschaften von Objekten}
+\subsubsection{Listen als Eigenschaften von
+Objekten}\label{listen-als-eigenschaften-von-objekten}
 
 TODO: Listen können auch als Werte von Objekteigenschaften auftreten.
 Hierbei gibt es keine Paginierung, sondern es müssen alle URLs
@@ -1637,7 +1700,7 @@ anbieten, sofern möglich.
 Für alle Feeds drei gilt, dass mindestens ein Zeitraum von 365 Tagen,
 gerechnet vom Zeitpunkt der Abfrage, abgedeckt werden SOLL.
 
-\subsubsection{Der Feed ``Neue Objekte''}
+\subsubsection{Der Feed ``Neue Objekte''}\label{der-feed-neue-objekte}
 
 Der Feed für neue Objekte listet die URLs neu hinzugekommener Objekte in
 der Reihenfolge des Datums ihrer Erstellung, wobei die jüngsten Objekte
@@ -1654,6 +1717,7 @@ geführt werden.
 
 Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
 
+\hyperdef{}{feedux5fex1}{\label{feedux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -1686,6 +1750,7 @@ Jedes der Objekte in der \texttt{items}-Liste MUSS seinerseits wiederum
 zwei Eigenschaften besitzen:
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \texttt{@id}: Die URL des neuen Objekts
 \item
@@ -1710,7 +1775,8 @@ die Liste nur so weit abarbeiten, so lange der
 \texttt{created}-Zeitpunkt der Einträge größer oder gleich dem Grenzwert
 ist.
 
-\subsubsection{Der Feed ``Geänderte Objekte''}
+\subsubsection{Der Feed ``Geänderte
+Objekte''}\label{der-feed-geuxe4nderte-objekte}
 
 Der Feed für geänderte Objekte listet die URLs geänderter Objekte in der
 Reihenfolge des Datums ihrer Änderung, wobei das zuletzt Objekt zuerst
@@ -1728,6 +1794,7 @@ Objekte'' als auch im Feed ``Geänderte Objekte'' zu vermeiden.
 Auch hier SOLL der Feed sämtliche Objekttypen umfassen, die in einem
 System geführt werden.
 
+\hyperdef{}{feedux5fex2}{\label{feedux5fex2}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -1757,7 +1824,8 @@ jedoch heißt hier die Eigenschaft für den Zeitpunkt der letzten Änderung
 \texttt{last\_modified} ausgegebene Zeitpunkt auch als Sortierkriterium
 der Liste gelten SOLL.
 
-\subsubsection{Der Feed ``Entfernte Objekte''}
+\subsubsection{Der Feed ``Entfernte
+Objekte''}\label{der-feed-entfernte-objekte}
 
 Der Feed für entferne Objekte listet die URLs entfernter Objekte in der
 Reihenfolge des Datums ihrer Entfernung auf, wobei die zuletzt
@@ -1771,6 +1839,7 @@ Client-Implementierer sind angehalten, diesen Feed zu nutzen, um
 beispielsweise depublizierte Dokumente aus ihren lokalen Caches zu
 entfernen.
 
+\hyperdef{}{feedux5fex3}{\label{feedux5fex3}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -1790,9 +1859,12 @@ Die Eigenschaft zur Angabe des Entfernugnszeitpunkts heißt hier
 \texttt{removed} und SOLL, analog zu den beiden anderen Feeds, als
 Sortierkriterium der Liste verwendet werden.
 
-\subsection{Dokumentenabruf}
+\hyperdef{}{dokumentenabruf}{\subsection{Dokumentenabruf}\label{dokumentenabruf}}
+
+TODO:
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   HTTP GET Methode MUSS unterstützt werden
 \item
@@ -1801,17 +1873,19 @@ Sortierkriterium der Liste verwendet werden.
   HTTP Last-Modified Header sowie Conditional GET sind zu unterstützen
 \end{itemize}
 
-\subsection{Ausnahmebehandlung}
+\subsection{Ausnahmebehandlung}\label{ausnahmebehandlung}
 
 (Diskussion hierzu unter https://github.com/OParl/specs/issues/89)
 
-\subsection{Liste reservierter URL-Parameter}
+\subsection{Liste reservierter
+URL-Parameter}\label{liste-reservierter-url-parameter}
 
 Die in dieser Liste enthaltenen Zeichenketten haben eine reservierte
 Bedeutung und stehen bei Implementierungen eines OParl-Servers nicht
 mehr für die freie Verwendung in URLs zur Verfügung.
 
 \begin{description}
+\itemsep1pt\parskip0pt\parsep0pt
 \item[callback:]
 Mit diesem Parameter wird die JSONP-Ausgabe aktiviert. Mehr dazu im
 Abschnitt \hyperref[jsonp]{JSONP}.
@@ -1824,11 +1898,12 @@ einer Zeitangabe.
 \end{description}
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   (Parameter für Datums-/Zeitbereichsfilter)
 \end{itemize}
 
-\section{Schema}
+\section{Schema}\label{schema}
 
 Dieses Kapitel beschreibt das Schema von OParl. Das Schema bildet das
 Datzenmodell der OParl-Architektur ab. Es definiert, welche Objekttypen
@@ -1837,9 +1912,9 @@ diese Objekttypen haben dürfen und müssen. Darüber hinaus ist im Schema
 auch festgelegt, in welcher Beziehung verschiedene Objekttypen zu
 einander stehen.
 
-\subsection{Übergreifende Aspekte}
+\subsection{Übergreifende Aspekte}\label{uxfcbergreifende-aspekte}
 
-\subsubsection{null-Werte}
+\subsubsection{null-Werte}\label{null-werte}
 
 JSON erlaubt es grundsätzlich, dass Eigenschaften den Wert \texttt{null}
 haben können. Im Rahmen dieser Spezifikation DARF das jedoch nur bei
@@ -1847,9 +1922,11 @@ Eigenschaften der Fall sein, die als OPTIONAL oder EMPFOHLEN
 gekennzeichnet sind. ZWINGENDE Eigenschaften müssen einen Wert ungleich
 \texttt{null} besitzen.
 
-\subsubsection{Vererbung der Lizenzbedingung}
+\subsubsection{Vererbung der
+Lizenzbedingung}\label{vererbung-der-lizenzbedingung}
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Jedes Objekt KANN die Eigenschaft ``license'' besitzen.
 \item
@@ -1866,13 +1943,16 @@ gekennzeichnet sind. ZWINGENDE Eigenschaften müssen einen Wert ungleich
   sowohl auf die Metadaten als auch auf das Dokument selbst.
 \end{itemize}
 
-\subsubsection{Die Eigenschaften ``created'' und ``last\_modified''}
+\subsubsection{Die Eigenschaften ``created'' und
+``last\_modified''}\label{die-eigenschaften-created-und-lastux5fmodified}
 
-\subsubsection{Die Eigenschaften ``name'' und ``name\_long''}
+\subsubsection{Die Eigenschaften ``name'' und
+``name\_long''}\label{die-eigenschaften-name-und-nameux5flong}
 
-\subsubsection{Die Eigenschaft ``description''}
+\subsubsection{Die Eigenschaft
+``description''}\label{die-eigenschaft-description}
 
-\subsection{OParlSystem (System)}
+\subsection{OParlSystem (System)}\label{oparlsystem-system}
 
 Der Objekttyp \texttt{oparl:System} bildet grundlegende Informationen
 zum parlamentarischen Informationssystem ab. Das Objekt repräsentiert
@@ -1891,7 +1971,8 @@ bringen.
 Die URL (IRI) des \texttt{oparl:System} Objekts MUSS per Definition
 identisch mit der URL des API-Endpunkts des Servers sein.
 
-\subsubsection{Eigenschaft \texttt{oparl\_version}}
+\subsubsection{Eigenschaft
+\texttt{oparl\_version}}\label{eigenschaft-oparlux5fversion}
 
 Diese Eigenschaft ist ZWINGEND.
 
@@ -1904,7 +1985,7 @@ Sofern zukünftig weitere Versionen der Spezifikation vorliegen, können
 Clients damit in Erfahrung bringen, welches Schema, welche Eigenschaften
 und Methoden auf Seite des Servers vorausgesetzt werden können.
 
-\subsubsection{Eigenschaft \texttt{bodies}}
+\subsubsection{Eigenschaft \texttt{bodies}}\label{eigenschaft-bodies}
 
 Diese Eigenschaft ist ZWINGEND.
 
@@ -1913,7 +1994,7 @@ geführten Körperschaften, als Liste abrufbar.
 
 TODO: Verweis auf \texttt{oparl:Body} einfügen
 
-\subsubsection{Eigenschaft \texttt{name}}
+\subsubsection{Eigenschaft \texttt{name}}\label{eigenschaft-name}
 
 Diese Eigenschaft wird EMPFOHLEN.
 
@@ -1921,7 +2002,7 @@ Diese Eigenschaft dient dazu, einen nutzerfreundlichen Namen zu
 kommunizieren, mit dem NutzerInnen das System wiedererkennen und von
 anderen unterscheiden können.
 
-\subsubsection{Eigenschaft \texttt{contact}}
+\subsubsection{Eigenschaft \texttt{contact}}\label{eigenschaft-contact}
 
 Diese Eigenschaft wird EMPFOHLEN.
 
@@ -1937,7 +2018,7 @@ Der Wert dieser Eigenschaft MUSS ein Objekt vom Typ
 
 TODO: Verweis auf \texttt{oparl:Contact} einfügen.
 
-\subsubsection{Eigenschaft \texttt{license}}
+\subsubsection{Eigenschaft \texttt{license}}\label{eigenschaft-license}
 
 Diese Eigenschaft wird EMPFOHLEN.
 
@@ -1949,7 +2030,8 @@ einfügen).
 Der Wert dieser Eigenschaft sollte nach Möglichkeit eine URL sein, unter
 der genau die entsprechende Lizenz abgerufen werden kann.
 
-\subsubsection{Eigenschaft \texttt{new\_objects}}
+\subsubsection{Eigenschaft
+\texttt{new\_objects}}\label{eigenschaft-newux5fobjects}
 
 Diese Eigenschaft ist EMPFOHLEN.
 
@@ -1958,7 +2040,8 @@ Objekte ausgegeben.
 
 TODO: Verweis auf Feeds \textgreater{} Neue Objekte
 
-\subsubsection{Eigenschaft \texttt{updated\_objects}}
+\subsubsection{Eigenschaft
+\texttt{updated\_objects}}\label{eigenschaft-updatedux5fobjects}
 
 Diese Eigenschaft ist EMPFOHLEN.
 
@@ -1967,7 +2050,8 @@ ausgegeben.
 
 TODO: Verweis auf Feeds \textgreater{} Geänderte Objekte
 
-\subsubsection{Eigenschaft \texttt{removed\_objects}}
+\subsubsection{Eigenschaft
+\texttt{removed\_objects}}\label{eigenschaft-removedux5fobjects}
 
 Diese Eigenschaft ist EMPFOHLEN.
 
@@ -1976,7 +2060,7 @@ ausgegeben.
 
 TODO: Verweis auf Feeds \textgreater{} Entfernte Objekte
 
-\subsubsection{Eigenschaft \texttt{info}}
+\subsubsection{Eigenschaft \texttt{info}}\label{eigenschaft-info}
 
 Diese Eigenschaft ist OPTIONAL.
 
@@ -1985,7 +2069,7 @@ mit zusätzlichen Informationen zum System anzubieten. So könnten
 NutzerInnen beispielsweise auf eine Web-Oberfläche eines
 parlamentarischen Informationssystems geführt werden.
 
-\subsubsection{Eigenschaft \texttt{vendor}}
+\subsubsection{Eigenschaft \texttt{vendor}}\label{eigenschaft-vendor}
 
 Diese Eigenschaft ist OPTIONAL.
 
@@ -1993,7 +2077,7 @@ Diese Eigenschaft dient dazu, über eine URL den Hersteller des
 Server-Systems zu komunizieren. Die URL sollt nach Möglichkeit zu einer
 WWW-Seite mit weiteren Informationen zum Hersteller führen.
 
-\subsubsection{Eigenschaft \texttt{product}}
+\subsubsection{Eigenschaft \texttt{product}}\label{eigenschaft-product}
 
 Diese Eigenschaft ist OPTIONAL.
 
@@ -2002,8 +2086,9 @@ Softwareprodukt das Server-System bereitstellt. Die URL soll nach
 Möglichkeit zu einer WWW-Seite mit weiteren Informationen zum Produkt
 führen.
 
-\subsubsection{Beispiel}
+\subsubsection{Beispiel}\label{beispiel}
 
+\hyperdef{}{OParlSystemux5fex1}{\label{OParlSystemux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -2027,7 +2112,7 @@ führen.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{oparl:Body (Körperschaft)}
+\subsection{oparl:Body (Körperschaft)}\label{oparlbody-kuxf6rperschaft}
 
 Dieser Objekttyp erlaubt es, eine Körperschaft abzbilden. Eine
 Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder ein
@@ -2048,7 +2133,7 @@ repräsentiert wird, programmatisch auslesbar zu machen zu können.
 Insbesondere sind hier die Eigenschaften \texttt{url}, \texttt{rgs} und
 \texttt{gnd\_url} zu nennen.
 
-\subsubsection{Eigenschaft \texttt{system}}
+\subsubsection{Eigenschaft \texttt{system}}\label{eigenschaft-system}
 
 Diese Eigenschaft ist ZWINGEND.
 
@@ -2056,18 +2141,19 @@ Mit dieser Eigenschaft wird das Objekt dem übergeordneten
 \texttt{oparl:System} Objekt zugeordnet. Wert MUSS der IRI des
 \texttt{oparl:System} Objekts sein.
 
-\subsubsection{Eigenschaft \texttt{name}}
+\subsubsection{Eigenschaft \texttt{name}}\label{eigenschaft-name-1}
 
 Diese Eigenschaft ist ZWINGEND. Sie transportiert den gebräuchlichen
 Namen der Körperschaft.
 
-\subsubsection{Eigenschaft \texttt{name\_long}}
+\subsubsection{Eigenschaft
+\texttt{name\_long}}\label{eigenschaft-nameux5flong}
 
 Diese Eigenschaft ist OPTIONAL und kann bei Bedarf dazu verwendet
 werden, eine längere Form des Namens der Körperschaft wieder zu geben,
 sofern dieser für die Eigenschaft \texttt{name} zu lang ist.
 
-\subsubsection{Eigenschaft \texttt{url}}
+\subsubsection{Eigenschaft \texttt{url}}\label{eigenschaft-url}
 
 Diese Eigenschaft ist EMPFOHLEN.
 
@@ -2076,7 +2162,7 @@ Körperschaft ausgegeben werden.
 
 TODO: Beschreibung
 
-\subsubsection{Eigenschaft \texttt{rgs}}
+\subsubsection{Eigenschaft \texttt{rgs}}\label{eigenschaft-rgs}
 
 Diese Eigenschaft ist EMPFOHLEN.
 
@@ -2088,7 +2174,8 @@ werden.\footnote{Regionalschlüssel können im
   (GV-ISys) des Statistischen Bundesamtes} eingesehen werden} Dieser ist
 grundsätzlich zwölfstellig.
 
-\subsubsection{Eigenschaft \texttt{gnd\_url}}
+\subsubsection{Eigenschaft
+\texttt{gnd\_url}}\label{eigenschaft-gndux5furl}
 
 Diese Eigenschaft ist EMPFOHLEN.
 
@@ -2096,7 +2183,8 @@ Sofern die Körperschaft in der GND\footnote{Gemeinsame Normdatei
   \url{http://www.dnb.de/gnd}} vertreten ist, SOLL diese Eigenschaft als
 Wert die URL des Eintrags in der GND enthalten.
 
-\subsubsection{Eigenschaft \texttt{contact}}
+\subsubsection{Eigenschaft
+\texttt{contact}}\label{eigenschaft-contact-1}
 
 Diese Eigenschaft ist EMPFOHLEN.
 
@@ -2109,7 +2197,7 @@ ein rein technischer Kontakt ausgegeben wird, der nicht für inhaltliche
 Fragestellungen im Zuständigkeitsbereich der jeweiligen Körperschaften
 kontaktiert werden sollte.
 
-\subsubsection{Eigenschaft \texttt{papers}}
+\subsubsection{Eigenschaft \texttt{papers}}\label{eigenschaft-papers}
 
 Diese Eigenschaft ist ZWINGEND.
 
@@ -2117,14 +2205,15 @@ Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
 Drucksachen (Objekte vom Typ \texttt{oparl:Paper}) für diese
 Körperschaft.
 
-\subsubsection{Eigenschaft \texttt{people}}
+\subsubsection{Eigenschaft \texttt{people}}\label{eigenschaft-people}
 
 Diese Eigenschaft ist ZWINGEND.
 
 Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
 Personen (Objekte vom Typ \texttt{oparl:Person}) für diese Körperschaft.
 
-\subsubsection{Eigenschaft \texttt{meetings}}
+\subsubsection{Eigenschaft
+\texttt{meetings}}\label{eigenschaft-meetings}
 
 Diese Eigenschaft ist ZWINGEND.
 
@@ -2132,7 +2221,8 @@ Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
 Sitzungen (Objekte vom Typ \texttt{oparl:Meeting}) für diese
 Körperschaft.
 
-\subsubsection{Eigenschaft \texttt{committees}}
+\subsubsection{Eigenschaft
+\texttt{committees}}\label{eigenschaft-committees}
 
 Diese Eigenschaft ist ZWINGEND.
 
@@ -2140,8 +2230,9 @@ Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
 Gremien (Objekte vom Typ \texttt{oparl:Committee}) für diese
 Körperschaft.
 
-\subsubsection{Beispiel}
+\subsubsection{Beispiel}\label{beispiel-1}
 
+\hyperdef{}{oparlbodyux5fex1}{\label{oparlbodyux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -2168,16 +2259,17 @@ Körperschaft.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{oparl:Committee (Gremium)}
+\subsection{oparl:Committee (Gremium)}\label{oparlcommittee-gremium}
 
 Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder
 ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat,
 Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten
 Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
-\subsubsection{Eigenschaften}
+\subsubsection{Eigenschaften}\label{eigenschaften}
 
 \begin{description}
+\itemsep1pt\parskip0pt\parsep0pt
 \item[Schlüssel (\texttt{id})]
 Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten
 Körperschaft. In der Praxis kommen sowohl numerische IDs als auch
@@ -2192,9 +2284,10 @@ Der Name des Gremiums. Beispiele: ``Rat'', ``Hauptausschuss'',
 Datum und Uhrzeit der letzten Änderung
 \end{description}
 
-\subsubsection{Beziehungen}
+\subsubsection{Beziehungen}\label{beziehungen}
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Objekte vom Typ \texttt{oparl:Person} referenzieren auf Gremien, um
   die Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu
@@ -2209,8 +2302,9 @@ Datum und Uhrzeit der letzten Änderung
   Das Gremium verweist auf die Körperschaft, zu der das Gremium gehört.
 \end{itemize}
 
-\subsubsection{Beispiel}
+\subsubsection{Beispiel}\label{beispiel-2}
 
+\hyperdef{}{committeeux5fex1}{\label{committeeux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -2223,14 +2317,15 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{oparl:Person (Person)}
+\subsection{oparl:Person (Person)}\label{oparlperson-person}
 
 Jede natürliche Person, die Mitglied eines Gremiums ist, ist als
 \texttt{oparl:Person} im Datenmodell eindeutig identifizierbar.
 
-\subsubsection{Eigenschaften}
+\subsubsection{Eigenschaften}\label{eigenschaften-1}
 
 \begin{description}
+\itemsep1pt\parskip0pt\parsep0pt
 \item[Schlüssel (\texttt{id})]
 Zur eindeutigen Identifizierung sollte jede Person eine Kennung
 besitzen, die keinen Änderungen unterworfen ist und aus diesem Grund
@@ -2260,9 +2355,10 @@ Der Nachname der Person.
 Datum und Uhrzeit der letzten Änderung
 \end{description}
 
-\paragraph{Anmerkungen}
+\paragraph{Anmerkungen}\label{anmerkungen}
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Das System von Euskirchen scheint Vor- und Nachname (evtl. einschl.
   Titel) in einem gemeinsamen Feld ``Name'' zu führen. Ob das System
@@ -2275,9 +2371,10 @@ Datum und Uhrzeit der letzten Änderung
   Anschriften.
 \end{itemize}
 
-\subsubsection{Beziehungen}
+\subsubsection{Beziehungen}\label{beziehungen-1}
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Objekte vom Typ \texttt{oparl:Person} können einer Organisation, z.B.
   einer Fraktion, zugeornet werden. Diese Beziehung ist datiert.
@@ -2287,8 +2384,9 @@ Datum und Uhrzeit der letzten Änderung
   darzustellen. Diese Beziehungen sind ebenfalls datiert.
 \end{itemize}
 
-\subsubsection{Beispiel}
+\subsubsection{Beispiel}\label{beispiel-3}
 
+\hyperdef{}{personux5fex1}{\label{personux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -2324,14 +2422,16 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{oparl:Organization (Organisation)}
+\subsection{oparl:Organization
+(Organisation)}\label{oparlorganization-organisation}
 
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die
 Personen angehören können.
 
-\subsubsection{Eigenschaften}
+\subsubsection{Eigenschaften}\label{eigenschaften-2}
 
 \begin{description}
+\itemsep1pt\parskip0pt\parsep0pt
 \item[Schlüssel (\texttt{id})]
 Zur eindeutigen Kennzeichnung einer Organisation innerhalb des Systems
 \item[Name (\texttt{name})]
@@ -2341,7 +2441,7 @@ LINKE''.
 Datum und Uhrzeit der letzten Änderung
 \end{description}
 
-\paragraph{Anmerkungen}
+\paragraph{Anmerkungen}\label{anmerkungen-1}
 
 \begin{itemize}
 \item
@@ -2357,17 +2457,19 @@ Datum und Uhrzeit der letzten Änderung
   Seite: http://popoloproject.com/specs/organization.html
 \end{itemize}
 
-\subsubsection{Beziehungen}
+\subsubsection{Beziehungen}\label{beziehungen-2}
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Jede \texttt{oparl:Organization} gehört zu einer Körperschaft.
 \item
   Personen können Organisationen angehören (\emph{datiert}).
 \end{itemize}
 
-\subsubsection{Beispiel}
+\subsubsection{Beispiel}\label{beispiel-4}
 
+\hyperdef{}{organizationux5fex1}{\label{organizationux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -2379,7 +2481,7 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{oparl:Meeting (Sitzung)}
+\subsection{oparl:Meeting (Sitzung)}\label{oparlmeeting-sitzung}
 
 Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder
 mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.
@@ -2389,9 +2491,10 @@ entsprechender Form referenziert. Verschiedene Dokumente (Einladung,
 Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert
 werden.
 
-\subsubsection{Eigenschaften}
+\subsubsection{Eigenschaften}\label{eigenschaften-3}
 
 \begin{description}
+\itemsep1pt\parskip0pt\parsep0pt
 \item[Schlüssel (\texttt{id})]
 Zur eindeutigen Identifizierung der Sitzung innerhalb des Systems. In
 der Praxis wird ein solcher Schlüssel entweder durch eine numerische ID
@@ -2414,9 +2517,10 @@ Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung
 Datum und Uhrzeit der letzten Änderung
 \end{description}
 
-\subsubsection{Beziehungen}
+\subsubsection{Beziehungen}\label{beziehungen-3}
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Sitzungen sind mindestens einem Gremium zugeordnet
 \item
@@ -2427,6 +2531,7 @@ Datum und Uhrzeit der letzten Änderung
   mehreren Zwecken referenziert werden:
 
   \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
   \item
     Zum Verweis auf die Einladung zur Sitzung
   \item
@@ -2440,8 +2545,9 @@ Datum und Uhrzeit der letzten Änderung
   dann um nicht weiter spezifizierte Anlagen.
 \end{itemize}
 
-\subsubsection{Beispiel}
+\subsubsection{Beispiel}\label{beispiel-5}
 
+\hyperdef{}{meetingux5fex1}{\label{meetingux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -2465,7 +2571,8 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{oparl:AgendaItem (Tagesordnungspunkt)}
+\subsection{oparl:AgendaItem
+(Tagesordnungspunkt)}\label{oparlagendaitem-tagesordnungspunkt}
 
 Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält
 eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel
@@ -2475,9 +2582,10 @@ bestimmter Beschlusstext beigefügt sein.
 
 Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
 
-\subsubsection{Eigenschaften}
+\subsubsection{Eigenschaften}\label{eigenschaften-4}
 
 \begin{description}
+\itemsep1pt\parskip0pt\parsep0pt
 \item[Nummer (\texttt{identifier})]
 Beispiel: ``1.2.3''. Diese Nummer gibt an, in welcher Reihenfolge die
 Tagesordnungspunkte einer Sitzung normalerweise behandelt werden. Im
@@ -2507,9 +2615,10 @@ dann in der Praxis relevant, wenn der gefasste Beschluss (z.B. durch
 Datum und Uhrzeit der letzten Änderung
 \end{description}
 
-\paragraph{Anmerkungen}
+\paragraph{Anmerkungen}\label{anmerkungen-2}
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Einige Systeme vergeben zu Tagesordnungspunkten intern
   unveränderliche, numerische IDs. Es ist unklar, ob es zusätzlichen
@@ -2522,9 +2631,10 @@ Datum und Uhrzeit der letzten Änderung
   \texttt{result} zu diskutieren.
 \end{itemize}
 
-\subsubsection{Beziehungen}
+\subsubsection{Beziehungen}\label{beziehungen-4}
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Jeder Tagesordnungspunkt gehört zu genau einem \texttt{oparl:Meeting}.
 \item
@@ -2536,8 +2646,9 @@ Datum und Uhrzeit der letzten Änderung
   anwesend waren.
 \end{itemize}
 
-\subsubsection{Beispiel}
+\subsubsection{Beispiel}\label{beispiel-6}
 
+\hyperdef{}{agendaitemux5fex1}{\label{agendaitemux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -2553,7 +2664,7 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{oparl:Paper (Drucksache)}
+\subsection{oparl:Paper (Drucksache)}\label{oparlpaper-drucksache}
 
 Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen,
 Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede
@@ -2573,6 +2684,7 @@ Jede Drucksache ist über die Eigenschaft ``Typ'' als eine der folgenden
 Arten von Drucksachen gekennzeichnet:
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{Beschlussvorlage}: Entscheidungsvorschlag der Verwaltung
 \item
@@ -2590,9 +2702,10 @@ Arten von Drucksachen gekennzeichnet:
   (mündliche oder schriftliche) Anfragen
 \end{itemize}
 
-\subsubsection{Eigenschaften}
+\subsubsection{Eigenschaften}\label{eigenschaften-5}
 
 \begin{description}
+\itemsep1pt\parskip0pt\parsep0pt
 \item[Schlüssel (\texttt{id})]
 Die Kennung einer Drucksache muss für die jeweilige Körperschaft
 eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben enthalten.
@@ -2607,9 +2720,10 @@ Art der Drucksache (Erläuterung siehe oben)
 Datum und Uhrzeit der letzten Änderung
 \end{description}
 
-\subsubsection{Beziehungen}
+\subsubsection{Beziehungen}\label{beziehungen-5}
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Es muss genau ein \textbf{Hauptdokument} (\texttt{oparl:Document})
   referenziert werden.
@@ -2647,8 +2761,9 @@ Datum und Uhrzeit der letzten Änderung
   versehen sein, die noch näher zu bestimmen ist (TODO).
 \end{itemize}
 
-\subsubsection{Beispiel}
+\subsubsection{Beispiel}\label{beispiel-7}
 
+\hyperdef{}{paperux5fex1}{\label{paperux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
@@ -2693,130 +2808,255 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{oparl:Document (Dokument)}
+\subsection{oparl:Document (Datei)}\label{oparldocument-datei}
 
-Ein Dokument hält Metadaten einer Datei vor, beispielsweise einer
-PDF-Datei, eines RTF- oder ODF-Dokuments (oder auch einer Datei in einem
-proprietären Format).
+Ein Objekt vom Typ \texttt{oparl:Document} repräsentiert eine Datei,
+beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokuments, und hält
+Metadaten zu der Datei sowie URLs zum Zugriff auf die Datei bereit.
 
-Wird von einem Dokument in einem Nicht-PDF-Format (z.B. RTF oder ODF)
-eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls ein
-Dokument. Um zu zeigen, dass es sich um eine Ableitung handelt, verweist
-dieses auf das Original als ``Master''.
+Ein Beispiel:
 
-Im Unterschied zur Drucksache benötigt das Dokument keine
-nutzerfreundliche Kennung.
-
-\subsubsection{Eigenschaften}
-
-\begin{description}
-\item[Schlüssel (\texttt{id})]
-Unveränderliche Kennung
-\item[Name (\texttt{name})]
-Dateiname, z.B. ``12345.pdf''
-\item[Dateityp (\texttt{mime\_type})]
-Mime-Typ des Inhalts, z.B. ``application/pdf''
-\item[Veröffentlichungsdatum (\texttt{date})]
-Datum des Tages, an dem das Dokument ins System eingestellt wurde
-\item[Änderungsdatum und -uhrzeit (\texttt{last\_modified})]
-Datum und Uhrzeit der letzten Änderung des Dokuments
-\item[Prüfsumme (\texttt{sha1\_checksum})]
-SHA1-Prüfsumme des Dokumenteninhalts
-\item[URL (\texttt{url})]
-URL zum Abruf der Daten dieses Dokuments mittels HTTP GET-Aufruf
-\item[Nur-Text-Version (\texttt{text})]
-Reine Text-Wiedergabe des Dokumenteninhalts, sofern es sich nicht um
-eine reine Abbildung handelt.
-\end{description}
-
-\subsubsection{Beziehungen}
-
-\begin{itemize}
-\item
-  Dokumente gehören zwingend zu einer \textbf{Drucksache}, optional auch
-  zu mehreren. Ein Dokument kann entweder als Hauptdokument einer
-  Drucksache oder als Anlage eingestuft sein.
-\item
-  Ein Dokument kann auf ein anderes Dokument referenzieren, wenn es von
-  dem anderen Dokument abstammt. So ist es möglich, von einem
-  abgeleiteten Dokument zu seinem Dokumenten-Master zu gelangen
-  (Beispiel: von einem PDF-Dokument zum OpenOffice-Original).
-\end{itemize}
-
+\hyperdef{}{documentux5fex1}{\label{documentux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
-    \DataTypeTok{"id"}\NormalTok{: }\StringTok{"3000"}\NormalTok{,}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"3000.pdf"}\NormalTok{,}
+    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:Document"}\NormalTok{,}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://beispielris.de/documents/57739"}\NormalTok{,}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Anlage 1 zur Anfrage"}\NormalTok{,}
+    \DataTypeTok{"paper"}\NormalTok{: }\StringTok{"http://beispielris.de/papers/2396"}\NormalTok{,}
     \DataTypeTok{"mime_type"}\NormalTok{: }\StringTok{"application/pdf"}\NormalTok{,}
     \DataTypeTok{"date"}\NormalTok{: }\StringTok{"2013-01-04T07:54:13+01:00"}\NormalTok{,}
     \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2013-01-04T07:54:13+01:00"}\NormalTok{,}
     \DataTypeTok{"sha1_checksum"}\NormalTok{: }\StringTok{"da39a3ee5e6b4b0d3255bfef95601890afd80709"}\NormalTok{,}
-    \DataTypeTok{"url"}\NormalTok{: }\StringTok{"http://ris.beispielstadt.de/api/documents/3000.pdf"}\NormalTok{,}
+    \DataTypeTok{"size"}\NormalTok{: }\DecValTok{82930}\NormalTok{,}
+    \DataTypeTok{"access_url"}\NormalTok{: }\StringTok{"http://beispielris.de/documents/57739.pdf"}\NormalTok{,}
+    \DataTypeTok{"access_url"}\NormalTok{: }\StringTok{"http://beispielris.de/documents/download/57739.pdf"}\NormalTok{,}
     \DataTypeTok{"text"}\NormalTok{: }\StringTok{"Der Übersichtsplan zeigt alle Ebenen des ..."}\NormalTok{,}
-    \DataTypeTok{"master"}\NormalTok{: }\StringTok{"2099"}
+    \DataTypeTok{"master_document"}\NormalTok{: }\StringTok{"http://beispielris.de/documents/57738"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{oparl:Consultation (Beratung)}
+Objekt vom Typ \texttt{oparl:Document} können mit Drucksachen
+(\texttt{oparl:Paper}) oder Sitzungen (\texttt{oparl:Meetign}) in
+Beziehung stehen. Dies wird durch die Eigenschaft \texttt{paper} bzw.
+\texttt{meeting} angezeigt.
 
-\subsection{oparl:Location (Ort)}
+Mehrere Objekte vom Typ \texttt{oparl:Document} können mit einander in
+direkter Beziehung stehen, wenn sie den selben Inhalt in
+unterschiedlichen technischen Formaten wiedergeben. Hierfür werden die
+Eigenschaften \texttt{master\_document} bzw.
+\texttt{derivative\_documents} eingesetzt. Das oben angezeigte
+Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der
+Eigenschaft \texttt{mime\_type}) und zeigt außerdem über die Eigenschaft
+\texttt{master\_document} an, von welcher anderen Datei es abgeleitet
+wurde. Umgekehrt KANN über die Eigenschaft
+\texttt{derivative\_documents} angezeigt werden, welche Ableitungen
+einer Datei existieren.
 
-Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal
-abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen
-(beispielsweise der Name einer Straße/eines Platzes oder eine genaue
-Adresse) als auch aus Geodaten.
-
-OParl sieht die Angabe von Geodaten in Anlehnung an die
-GeoJSON-Spezifikation {[}13{]} vor. Die GeoJSON-Spezifikation erlaubt
-die Abbildung von vielen unterschiedlichen Geometrien wie Punkten,
-Pfaden und Polygonen. Während GeoJSON zu jedem Geodaten-Objekt auch die
-Speicherung zusätzlicher Metadaten ermöglicht, beschränkt sich OParl
-ledliglich auf das \texttt{geometry}-Attribut in GeoJSON. Sämtliche
-Geo-Koordinatenangaben werden in in OParl im WGS-84-System {[}11{]}
-erwartet.
-
-\subsubsection{Eigenschaften}
+\subsubsection{Eigenschaften}\label{eigenschaften-6}
 
 \begin{description}
-\item[Textanabe (\texttt{description})]
-\emph{Optional.} Textliche Beschreibung eines Orts, z.B. in Form einer
-Adresse
-\item[Koordinaten (\texttt{geometry})]
-\emph{Optional.} GeoJSON geometry Objekt
-\item[Zuletzt geändert (\texttt{last\_modified})]
-Datum und Uhrzeit der letzten Änderung
+\item[\texttt{@id}]
+Die URL des Objekts.
+\item[\texttt{name}]
+Name des Objekts, der Nutzern angezeigt werden kann. Diese Eigenschaft
+ist ZWINGEND. Typ: Zeichenkette.
+\item[\texttt{mime\_type}]
+Mime-Typ des Inhalts (vgl. RFC2046\footnote{\url{http://tools.ietf.org/html/rfc2046}}).
+Diese Eigenschaft ist ZWINGEND. Sollte das System einer Datei keinen
+spezifischen Typ zuweisen können, wird EMPFOHLEN, hier
+``application/octet-stream'' zu verwenden.
+\item[\texttt{date}]
+Erstellungs- oder Veröffentlichungsdatum und -uhrzeit. Diese Eigenschaft
+ist ZWINGEND. Typ: Datum.
+\item[\texttt{last\_modified}]
+Datum und Uhrzeit der letzten Änderung der Datei bzw. der Metadaten.
+Diese Eigenschaft ist ZWINGEND. Typ: Datum.
+\item[\texttt{size}]
+Größe der Datei in Bytes. Diese Eigenschaft ist ZWINGEND. Typ: Zahl.
+\item[\texttt{sha1\_checksum}]
+SHA1-Prüfsumme des Dokumenteninhalts in Hexadezimal-Schreibweise. Typ:
+Zeichenkette.
+\item[\texttt{text}]
+Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform
+wiedergegeben werden kann. Diese Eigenschaft ist EMPFOHLEN. Typ:
+Zeichenkette.
+\item[\texttt{access\_url}]
+URL zum gewöhnlichen Abruf der Datei mittels HTTP GET-Aufruf. Diese
+Eigenschaft ist ZWINGEND. Typ: URL.
+\item[\texttt{download\_url}]
+URL zum Download der Datei. Diese Eigenschaft ist EMPFOHLEN. Typ: URL.
+\item[\texttt{paper}]
+URL des zugehörigen Objekts vom Typ \texttt{oparl:Paper}, sofern diese
+Datei zu einer Drucksache gehört. Wenn diese Datei zu einer Drucksache
+gehört, MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie
+NICHT vorhanden sein. Typ: URL.
+\item[\texttt{meeting}]
+URL des zugehörigen Objekts vom Typ \texttt{oparl:Meeting}, sofern diese
+Datei zu einer Sitzung gehört. Wenn diese Datei zu einer Sitzung gehört,
+MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT
+vorhanden sein. Typ: URL.
+\item[\texttt{master\_document}]
+URL des Objekts vom Typ \texttt{oparl:Document}, von dem das aktuelle
+Objekt abgeleitet wurde. Diese Eigenschaft ist OPTIONAL. Typ: URL.
+\item[\texttt{derivative\_documents}]
+URLs aller Objekte vom Typ \texttt{oparl:Document}, die von dem
+aktuellen Objekt abgeleitet wurden. Diese Eigenschaft ist OPTIONAL. Typ:
+Liste von URLs.
 \end{description}
 
-\subsubsection{Beziehungen}
+\subsubsection{Siehe auch}\label{siehe-auch}
 
 \begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
-  Orte können mit Drucksachen in Verbindung stehen.
+  \hyperref[dokumentenabruf]{Dokumentenabruf}
 \end{itemize}
 
+\subsection{oparl:Consultation
+(Beratung)}\label{oparlconsultation-beratung}
+
+Der Objekttyp \texttt{oparl:Consultation} dient dazu, die Beratung einer
+Drucksache (\texttt{oparl:Paper}) in einer Sitzung abzubilden. Dabei ist
+es nicht entscheidend, ob diese Beratung in der Vergangenheit
+stattgefunden hat oder diese für die Zukunft geplant ist.
+
+Die Gesamtheit aller Objekte des Typs \texttt{oparl:Consultation} zu
+einer bestimmten Drucksache bildet das ab, was in der Praxis als
+``Beratungsfolge'' der Drucksache bezeichnet wird.
+
+Ein Beispiel:
+
+\hyperdef{}{consultationux5fex1}{\label{consultationux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
-    \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Honschaftsstraße 312, 51061 Köln"}\NormalTok{,}
-    \DataTypeTok{"geometry"}\NormalTok{: \{}
-        \DataTypeTok{"type"}\NormalTok{: }\StringTok{"Point"}\NormalTok{,}
-        \DataTypeTok{"coordinates"}\NormalTok{: [}\FloatTok{7.03291}\NormalTok{, }\FloatTok{50.98249}\NormalTok{]}
-    \NormalTok{\},}
-    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2013-02-14T14:05:27+01:00"}
+    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:Consultation"}\NormalTok{,}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://beispielris.de/consultations/47594"}\NormalTok{,}
+    \DataTypeTok{"paper"}\NormalTok{: }\StringTok{"http://beispielris.de/papers/2396"}\NormalTok{,}
+    \DataTypeTok{"agendaitem"}\NormalTok{: }\StringTok{"http://beispielris.de/agendaitems/15569"}\NormalTok{,}
+    \DataTypeTok{"committee"}\NormalTok{: }\StringTok{"http://beispielris.de/organisations/96"}\NormalTok{,}
+    \DataTypeTok{"authoritative"}\NormalTok{: }\DecValTok{false}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{oparl:Contact (Kontakt)}
+\subsubsection{Eigenschaften}\label{eigenschaften-7}
 
-\section{Fußnoten}
+\begin{description}
+\item[\texttt{@id}]
+URL des Objekts. Diese Eigenschaft ist ZWINGEND.
+\item[\texttt{paper}]
+URL der Drucksache, die beraten wird. Diese Eigenschaft ist ZWINGEND.
+\item[\texttt{agendaitem}]
+URL des Tagesordnungspunktes (oparl:Agendaitem), unter dem die
+Drucksache beraten wird. Diese Eigenschaft ist ZWINGEND.
+\item[\texttt{committee}]
+URL des Gremiums (oparl:Organization), dem die Sitzung zugewisen ist, zu
+welcher der zuvor genannte Tagesordnungspunkt gehört. Diese Eigenschaft
+ist ZWINGEND.
+\item[\texttt{authoritative}]
+Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache
+gefasst wird (\emph{true}) wird oder nicht (\emph{false}). Diese
+Eigenschaft ist OPTIONAL. Typ: Wahrheitswert.
+\end{description}
 
-{[}11{]}: World Geodetic System 1984 (EPSG:4326), wird unter anderem
-auch vom Global Positioning System (GPS) verwendet.
+\subsection{oparl:Location (Ort)}\label{oparllocation-ort}
 
-{[}13{]}: GeoJSON \href{http://www.geojson.org/}{www.geojson.org}
+Dieser Objekttyp dient dazu, den Ortsbezug einer Drucksache formal
+abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen
+(beispielsweise dem Namen einer Straße/eines Platzes oder eine genaue
+Adresse) als auch aus Geodaten.
+
+Dieser Objekttyp ist für anonyme Objekte im Kontext des Objekttyps
+\texttt{oparl:Paper} zu verwenden.
+
+Ein einfaches Beispiel:
+
+\hyperdef{}{locationux5fex1}{\label{locationux5fex1}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \ErrorTok{...}
+    \DataTypeTok{"location"}\NormalTok{: \{}
+        \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Honschaftsstra\textbackslash{}u00dfe 312, K\textbackslash{}u00f6ln"}\NormalTok{,}
+        \DataTypeTok{"geometry"}\NormalTok{: \{}
+            \DataTypeTok{"type"}\NormalTok{: }\StringTok{"Point"}\NormalTok{,}
+            \DataTypeTok{"coordinates"}\NormalTok{: [}\FloatTok{7.03291}\NormalTok{, }\FloatTok{50.98249}\NormalTok{]}
+        \NormalTok{\}}
+    \NormalTok{\},}
+    \ErrorTok{...}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+In der Praxis soll dies dazu dienen, den geografischen Bezug eines
+politischen Vorgangs, wie zum Beispiel eines Bauvorhabens oder der
+Änderung eines Flächennutzungsplanes, maschinenlesbar nachvollziehbar zu
+machen.
+
+OParl sieht bei Angabe von Geodaten die Verwendung
+des\\GeoJSON-Formats\footnote{GeoJSON Spazifikation
+  \url{http://geojson.org/geojson-spec.html}} vor. GeoJSON erlaubt die
+Beschreibung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden
+und Polygonen in JSON-Notation. Ein GeoJSON-Objekt kann auch mehrere
+Geometrien umfassen, beispielsweise um damit mehrere Punkte oder
+Polygone zu umschreiben.
+
+Gegenüber der GeoJSON-Spezifikation sieht OParl eine wichtige
+Einschränkung vor: Für die Ausgabe über eine OParl API MÜSSEN sämtliche
+Koordinatenangaben im System WGS84\footnote{WGS84 steht für ``World
+  Geodetic System 1984'', es wird unter anderem auch vom Global
+  Positioning System (GPS) verwendet. In geografischen
+  Informationssystemen ist für das System der EPSG-Code 4326 geläufig.}
+angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen)
+für Längen- und Breitengrad.
+
+\subsubsection{Eigenschaften}\label{eigenschaften-8}
+
+\begin{description}
+\item[\texttt{description}]
+Textliche Beschreibung eines Orts, z.B. in Form einer Adresse. Diese
+Eigenschaft ist EMPFOHLEN. Typ: Zeichenkette.
+\item[\texttt{geometry}]
+Geodaten-Repräsentation des Orts. Diese Eigenschaft ist OPTIONAL. Ist
+diese Eigenschaft gesetzt, MUSS ihr Wert ein valides GeoJSON-Objekt
+sein.
+\end{description}
+
+\subsubsection{Weitere Beispiele}\label{weitere-beispiele}
+
+\paragraph{Ortsangabe mit
+Polygon-Objekt}\label{ortsangabe-mit-polygon-objekt}
+
+\hyperdef{}{locationux5fex2}{\label{locationux5fex2}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Rechtes Rheinufer zwischen Deutzer}
+\StringTok{        Br\textbackslash{}u00fccke und Hohenzollernbr\textbackslash{}u00fccke"}\NormalTok{,}
+    \DataTypeTok{"type"}\NormalTok{: }\StringTok{"Polygon"}\NormalTok{,}
+    \DataTypeTok{"geometry"}\NormalTok{: \{}
+        \DataTypeTok{"coordinates"}\NormalTok{: [}
+            \NormalTok{[}
+                \NormalTok{[}\FloatTok{6.9681106}\NormalTok{, }\FloatTok{50.9412137}\NormalTok{],}
+                \NormalTok{[}\FloatTok{6.9690940}\NormalTok{, }\FloatTok{50.9412137}\NormalTok{],}
+                \NormalTok{[}\FloatTok{6.9692169}\NormalTok{, }\FloatTok{50.9368270}\NormalTok{],}
+                \NormalTok{[}\FloatTok{6.9681218}\NormalTok{, }\FloatTok{50.9368270}\NormalTok{],}
+                \NormalTok{[}\FloatTok{6.9681106}\NormalTok{, }\FloatTok{50.9412137}\NormalTok{]}
+            \NormalTok{]}
+        \NormalTok{]}
+    \NormalTok{\}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{oparl:Contact (Kontakt)}\label{oparlcontact-kontakt}
+
+TODO: Kann nach aktuellem Stand entfallen.
+
+\section{Fußnoten}\label{fuuxdfnoten}
 
 {[}14{]}: Frankfurt Gestalten
 \href{http://www.geojson.org/}{www.geojson.org}
@@ -2826,7 +3066,7 @@ auch vom Global Positioning System (GPS) verwendet.
 {[}16{]}: OpenRuhr:RIS
 \href{http://openruhr.de/openruhrris/}{openruhr.de/openruhrris}
 
-\section{Glossar}
+\section{Glossar}\label{glossar}
 
 \begin{description}
 \item[JSON-LD]

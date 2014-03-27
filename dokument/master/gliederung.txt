@@ -121,13 +121,6 @@ OParl Spezifikation 1.0 Gliederung
         Bedeutung
         Eigenschaften
         Besonderheiten
-            - Nur als anonymes Objekt (Blank Node) vorgesehen, SOLL aber IRI enthalten
-        Beispiel(e)
-    8140 OParlContact (Kontakt)
-        Bedeutung
-        Eigenschaften
-        Besonderheiten
-            - Nur als anonymes Objekt (Blank Node) vorgesehen, SOLL aber IRI enthalten
         Beispiel(e)
 9000 Anhang
     9010 Glossar

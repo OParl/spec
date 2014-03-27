@@ -8,8 +8,6 @@ Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in
 entsprechender Form referenziert. Verschiedene Dokumente (Einladung, 
 Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.
 
-![Objekttyp Meeting](images/datenmodell_sitzung.png)
-
 ### Eigenschaften ###
 
 Schlüssel (`id`)

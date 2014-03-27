@@ -1700,7 +1700,8 @@ anbieten, sofern möglich.
 Für alle Feeds drei gilt, dass mindestens ein Zeitraum von 365 Tagen,
 gerechnet vom Zeitpunkt der Abfrage, abgedeckt werden SOLL.
 
-\subsubsection{Der Feed ``Neue Objekte''}\label{der-feed-neue-objekte}
+\hyperdef{}{feedux5fneueux5fobjekte}{\subsubsection{Der Feed ``Neue
+Objekte''}\label{feedux5fneueux5fobjekte}}
 
 Der Feed für neue Objekte listet die URLs neu hinzugekommener Objekte in
 der Reihenfolge des Datums ihrer Erstellung, wobei die jüngsten Objekte
@@ -1775,8 +1776,8 @@ die Liste nur so weit abarbeiten, so lange der
 \texttt{created}-Zeitpunkt der Einträge größer oder gleich dem Grenzwert
 ist.
 
-\subsubsection{Der Feed ``Geänderte
-Objekte''}\label{der-feed-geuxe4nderte-objekte}
+\hyperdef{}{feedux5fgeaenderteux5fobjekte}{\subsubsection{Der Feed
+``Geänderte Objekte''}\label{feedux5fgeaenderteux5fobjekte}}
 
 Der Feed für geänderte Objekte listet die URLs geänderter Objekte in der
 Reihenfolge des Datums ihrer Änderung, wobei das zuletzt Objekt zuerst
@@ -1824,8 +1825,8 @@ jedoch heißt hier die Eigenschaft für den Zeitpunkt der letzten Änderung
 \texttt{last\_modified} ausgegebene Zeitpunkt auch als Sortierkriterium
 der Liste gelten SOLL.
 
-\subsubsection{Der Feed ``Entfernte
-Objekte''}\label{der-feed-entfernte-objekte}
+\hyperdef{}{feedux5fentfernteux5fobjekte}{\subsubsection{Der Feed
+``Entfernte Objekte''}\label{feedux5fentfernteux5fobjekte}}
 
 Der Feed für entferne Objekte listet die URLs entfernter Objekte in der
 Reihenfolge des Datums ihrer Entfernung auf, wobei die zuletzt
@@ -1952,12 +1953,36 @@ Lizenzbedingung}\label{vererbung-der-lizenzbedingung}
 \subsubsection{Die Eigenschaft
 ``description''}\label{die-eigenschaft-description}
 
-\subsection{OParlSystem (System)}\label{oparlsystem-system}
+\subsection{oparl:System (System)}\label{oparlux5fsystem}
 
 Der Objekttyp \texttt{oparl:System} bildet grundlegende Informationen
 zum parlamentarischen Informationssystem ab. Das Objekt repräsentiert
 das technische System, unabhängig von der Frage, welche Körperschaften
 auf diesem System vertreten sind.
+
+Ein Beispiel:
+
+\hyperdef{}{systemux5fex1}{\label{systemux5fex1}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:System"}\NormalTok{,}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://beispielris.de/"}\NormalTok{,}
+    \DataTypeTok{"oparl_version"}\NormalTok{: }\StringTok{"http://oparl.org/specs/1.0/"}\NormalTok{,}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Beispiel-System"}\NormalTok{,}
+    \DataTypeTok{"www_url"}\NormalTok{: }\StringTok{"http://www.beispielris.de/"}\NormalTok{,}
+    \DataTypeTok{"contact_email"}\NormalTok{: }\StringTok{"mailto:info@beispielris.de"}\NormalTok{,}
+    \DataTypeTok{"contact_name"}\NormalTok{: }\StringTok{"Allgemeiner OParl Kontakt"}\NormalTok{,}
+    \DataTypeTok{"vendor"}\NormalTok{: }\StringTok{"http://example-software.com/"}\NormalTok{,}
+    \DataTypeTok{"product"}\NormalTok{: }\StringTok{"http://example-software.com/oparl-server/"}\NormalTok{,}
+    \DataTypeTok{"license"}\NormalTok{: }\StringTok{"http://creativecommons.org/licenses/by/4.0/"}\NormalTok{,}
+    \DataTypeTok{"bodies"}\NormalTok{: }\StringTok{"http://beispielris.de/bodies/"}\NormalTok{,}
+    \DataTypeTok{"new_objects"}\NormalTok{: }\StringTok{"http://beispielris.de/new_objects/"}\NormalTok{,}
+    \DataTypeTok{"updated_objects"}\NormalTok{: }\StringTok{"http://beispielris.de/updated_objects/"}\NormalTok{,}
+    \DataTypeTok{"removed_objects"}\NormalTok{: }\StringTok{"http://beispielris.de/removed_objects"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 Auf jedem OParl Server MUSS ein Objekt vom Typ \texttt{oparl:System}
 vorgehalten werden. Es DARF nur ein einziges solches Objekt je Server
@@ -1968,151 +1993,60 @@ Einstiegspunkt, um grundlegende Informationen über das Sytem zu bekommen
 und die URLs zum Zugriff auf andere Informationen in Erfahrung zu
 bringen.
 
-Die URL (IRI) des \texttt{oparl:System} Objekts MUSS per Definition
-identisch mit der URL des API-Endpunkts des Servers sein.
+Die URL des \texttt{oparl:System} Objekts MUSS per Definition identisch
+mit der URL des API-Endpunkts des Servers sein.
 
-\subsubsection{Eigenschaft
-\texttt{oparl\_version}}\label{eigenschaft-oparlux5fversion}
+\subsubsection{Eigenschaften}\label{eigenschaften}
 
-Diese Eigenschaft ist ZWINGEND.
-
-URL der Version der OParl-Spezifikation, die von diesem System
-unterstützt wird. So lange es nur die Version 1.0 der
-OParl-Spezifikation gibt, MUSS der Wert dieser Eigenschaft
-\texttt{http://oparl.org/specs/1.0/} sein.
-
-Sofern zukünftig weitere Versionen der Spezifikation vorliegen, können
-Clients damit in Erfahrung bringen, welches Schema, welche Eigenschaften
-und Methoden auf Seite des Servers vorausgesetzt werden können.
-
-\subsubsection{Eigenschaft \texttt{bodies}}\label{eigenschaft-bodies}
-
-Diese Eigenschaft ist ZWINGEND.
-
-Über diese URL sind alle \texttt{oparl:Body} Objekte, also die im System
-geführten Körperschaften, als Liste abrufbar.
-
-TODO: Verweis auf \texttt{oparl:Body} einfügen
-
-\subsubsection{Eigenschaft \texttt{name}}\label{eigenschaft-name}
-
-Diese Eigenschaft wird EMPFOHLEN.
-
-Diese Eigenschaft dient dazu, einen nutzerfreundlichen Namen zu
-kommunizieren, mit dem NutzerInnen das System wiedererkennen und von
-anderen unterscheiden können.
-
-\subsubsection{Eigenschaft \texttt{contact}}\label{eigenschaft-contact}
-
-Diese Eigenschaft wird EMPFOHLEN.
-
-Die Eigenschaft dient dazu, NutzerInnen bzw. EntwicklerInnen von Clients
-die Kontaktaufnahme mit dem Betreiber des Systems zu ermöglichen. Es
-wird EMPFOHLEN, hier die Kontaktdaten eines technischen Ansprechpartners
-bzw. einer allgemeinen Kontaktstelle auszugeben, über die Anfragen
-verschiedener Art an die richtige Kontaktperson umgeleitet werden
-können.
-
-Der Wert dieser Eigenschaft MUSS ein Objekt vom Typ
-\texttt{oparl:Contact} sein.
-
-TODO: Verweis auf \texttt{oparl:Contact} einfügen.
-
-\subsubsection{Eigenschaft \texttt{license}}\label{eigenschaft-license}
-
-Diese Eigenschaft wird EMPFOHLEN.
-
-Die Eigenschaft dient dazu, darüber zu informieren, unter welcher Lizenz
-die Daten des aktuell angezeigten Objekts stehen. Zur Vererbung dieser
-Eigenschaft siehe (TODO: Verweis auf Abschnitt zur Lizenz-Vererbung
-einfügen).
-
-Der Wert dieser Eigenschaft sollte nach Möglichkeit eine URL sein, unter
-der genau die entsprechende Lizenz abgerufen werden kann.
-
-\subsubsection{Eigenschaft
-\texttt{new\_objects}}\label{eigenschaft-newux5fobjects}
-
-Diese Eigenschaft ist EMPFOHLEN.
-
-Mit dieser Eigenschaft wird die URL des Feeds für neu hinzugekommene
-Objekte ausgegeben.
-
-TODO: Verweis auf Feeds \textgreater{} Neue Objekte
-
-\subsubsection{Eigenschaft
-\texttt{updated\_objects}}\label{eigenschaft-updatedux5fobjects}
-
-Diese Eigenschaft ist EMPFOHLEN.
-
-Mit dieser Eigenschaft wird die URL des Feeds für geänderte Objekte
-ausgegeben.
-
-TODO: Verweis auf Feeds \textgreater{} Geänderte Objekte
-
-\subsubsection{Eigenschaft
-\texttt{removed\_objects}}\label{eigenschaft-removedux5fobjects}
-
-Diese Eigenschaft ist EMPFOHLEN.
-
-Mit dieser Eigenschaft wird die URL des Feeds für entfernte Objekte
-ausgegeben.
-
-TODO: Verweis auf Feeds \textgreater{} Entfernte Objekte
-
-\subsubsection{Eigenschaft \texttt{info}}\label{eigenschaft-info}
-
+\begin{description}
+\item[\texttt{oparl\_version}]
+Die URL der OParl-Spezifikation, die von diesem Server unterstützt wird.
+Der Wert MUSS die URL \texttt{http://oparl.org/specs/1.0/} sein. Diese
+Eigenschaft ist ZWINGEND.
+\item[\texttt{bodies}]
+Liste der URLs der
+\hyperref[oparlux5fbody]{\texttt{oparl:Body}}-Objekte, also der
+Körperschaften, die auf dem System vorliegen. Alternativ kann statt
+einer Liste eine einzelne URL zum Abruf der Liste angeboten werden. Die
+Eigenschaft ist ZWINGEND.
+\item[\texttt{name}]
+Nutzerfreundlicher Name für das System, mit dessen Hilfe Nutzer das
+System erkennen und von anderen unterscheiden können. Diese Eigenschaft
+wird EMPFOHLEN.
+\item[\texttt{contact\_email}]
+E-Mail-Adresse für Anfragen zur OParl-API. Diese Eigenschaft wird
+EMPFOHLEN. Die Angabe einer E-Mail-Adresse dient sowohl NutzerInnen wie
+auch EntwicklerInnen von Clients zur Kontaktaufnahme mit dem Betreiber.
+\item[\texttt{contact\_name}]
+Name des Ansprechpartners oder der Abteilung, die über die
+\texttt{contact\_email} erreicht werden kann. Die Eigenschaft ist
+EMPFOHLEN. Typ: Zeichenkette.
+\item[\texttt{license}]
+URL der Lizenz, die für die Daten, die über diese API abgerufen werden
+können, gilt, sofern nicht am einzelnen Objekt anders angegeben. Die
+Eigenschaft ist EMPFOHLEN.
+\item[\texttt{new\_objects}]
+URL des Feeds \hyperref[feedux5fneueux5fobjekte]{``Neue Objekte''}. Die
+Eigenschaft ist EMPFOHLEN.
+\item[\texttt{updated\_objects}]
+URL des Feeds \hyperref[feedux5fgeaenderteux5fobjekte]{``Geänderte
+Objekte''}. Die Eigenschaft ist EMPFOHLEN.
+\item[\texttt{removed\_objects}]
+URL des Feeds \hyperref[feedux5fentfernteux5fobjekte]{``Entfernte
+Objekte''}. Die Eigenschaft ist EMPFOHLEN.
+\item[\texttt{www\_url}]
+URL zur WWW-Oberfläche des parlamentarischen Informationssystem. Diese
+Eigenschaft ist OPTIONAL.
+\item[\texttt{vendor}]
+URL des Software-Anbieters, von dem die OParl-Server-Software stammt.
 Diese Eigenschaft ist OPTIONAL.
+\item[\texttt{product}]
+URL mit Informationen zu der auf dem System genutzten
+OParl-Server-Software. Diese Eigenschaft ist OPTIONAL.
+\end{description}
 
-Diese Eigenschaft dient dazu, eine zusätzliche URL zu einer WWW-Seite
-mit zusätzlichen Informationen zum System anzubieten. So könnten
-NutzerInnen beispielsweise auf eine Web-Oberfläche eines
-parlamentarischen Informationssystems geführt werden.
-
-\subsubsection{Eigenschaft \texttt{vendor}}\label{eigenschaft-vendor}
-
-Diese Eigenschaft ist OPTIONAL.
-
-Diese Eigenschaft dient dazu, über eine URL den Hersteller des
-Server-Systems zu komunizieren. Die URL sollt nach Möglichkeit zu einer
-WWW-Seite mit weiteren Informationen zum Hersteller führen.
-
-\subsubsection{Eigenschaft \texttt{product}}\label{eigenschaft-product}
-
-Diese Eigenschaft ist OPTIONAL.
-
-Diese Eigenschaft dient dazu, über eine URL mitzuteilen, welches
-Softwareprodukt das Server-System bereitstellt. Die URL soll nach
-Möglichkeit zu einer WWW-Seite mit weiteren Informationen zum Produkt
-führen.
-
-\subsubsection{Beispiel}\label{beispiel}
-
-\hyperdef{}{OParlSystemux5fex1}{\label{OParlSystemux5fex1}}
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/"}\NormalTok{,}
-    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/System"}\NormalTok{,}
-    \DataTypeTok{"oparl_version"}\NormalTok{: }\StringTok{"http://oparl.org/specs/1.0/"}\NormalTok{,}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"OParl Reference Server"}\NormalTok{,}
-    \DataTypeTok{"info"}\NormalTok{: }\StringTok{"https://github.com/OParl/reference-server"}\NormalTok{,}
-    \DataTypeTok{"contact"}\NormalTok{: \{}
-        \DataTypeTok{"email"}\NormalTok{: }\StringTok{"info@oparl.org"}\NormalTok{,}
-        \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Common OParl contact"}
-    \NormalTok{\}, }
-    \DataTypeTok{"vendor"}\NormalTok{: }\StringTok{"http://oparl.org/"}\NormalTok{,}
-    \DataTypeTok{"product"}\NormalTok{: }\StringTok{"https://github.com/OParl/reference-server"}\NormalTok{,}
-    \DataTypeTok{"license"}\NormalTok{: }\StringTok{"http://creativecommons.org/licenses/by/4.0/"}\NormalTok{,}
-    \DataTypeTok{"bodies"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/"}\NormalTok{,}
-    \DataTypeTok{"new_objects"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/feeds/new/"}\NormalTok{,}
-    \DataTypeTok{"updated_objects"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/feeds/updated/"}\NormalTok{,}
-    \DataTypeTok{"removed_objects"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/feeds/removed/"}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection{oparl:Body (Körperschaft)}\label{oparlbody-kuxf6rperschaft}
+\hyperdef{}{oparlux5fbody}{\subsection{oparl:Body
+(Körperschaft)}\label{oparlux5fbody}}
 
 Dieser Objekttyp erlaubt es, eine Körperschaft abzbilden. Eine
 Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder ein
@@ -2141,7 +2075,7 @@ Mit dieser Eigenschaft wird das Objekt dem übergeordneten
 \texttt{oparl:System} Objekt zugeordnet. Wert MUSS der IRI des
 \texttt{oparl:System} Objekts sein.
 
-\subsubsection{Eigenschaft \texttt{name}}\label{eigenschaft-name-1}
+\subsubsection{Eigenschaft \texttt{name}}\label{eigenschaft-name}
 
 Diese Eigenschaft ist ZWINGEND. Sie transportiert den gebräuchlichen
 Namen der Körperschaft.
@@ -2183,8 +2117,7 @@ Sofern die Körperschaft in der GND\footnote{Gemeinsame Normdatei
   \url{http://www.dnb.de/gnd}} vertreten ist, SOLL diese Eigenschaft als
 Wert die URL des Eintrags in der GND enthalten.
 
-\subsubsection{Eigenschaft
-\texttt{contact}}\label{eigenschaft-contact-1}
+\subsubsection{Eigenschaft \texttt{contact}}\label{eigenschaft-contact}
 
 Diese Eigenschaft ist EMPFOHLEN.
 
@@ -2230,7 +2163,7 @@ Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
 Gremien (Objekte vom Typ \texttt{oparl:Committee}) für diese
 Körperschaft.
 
-\subsubsection{Beispiel}\label{beispiel-1}
+\subsubsection{Beispiel}\label{beispiel}
 
 \hyperdef{}{oparlbodyux5fex1}{\label{oparlbodyux5fex1}}
 \begin{Shaded}
@@ -2259,14 +2192,18 @@ Körperschaft.
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{oparl:Committee (Gremium)}\label{oparlcommittee-gremium}
+\subsection{oparl:Organization
+(Organisation)}\label{oparlux5forganisation}
+
+TODO: Inhalte aus chapter\_8070.md hier integrieren und damit das
+ehemalige Gremium und die Organisation zusammen führen.
 
 Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder
 ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat,
 Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten
 Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
-\subsubsection{Eigenschaften}\label{eigenschaften}
+\subsubsection{Eigenschaften}\label{eigenschaften-1}
 
 \begin{description}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2302,7 +2239,7 @@ Datum und Uhrzeit der letzten Änderung
   Das Gremium verweist auf die Körperschaft, zu der das Gremium gehört.
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-2}
+\subsubsection{Beispiel}\label{beispiel-1}
 
 \hyperdef{}{committeeux5fex1}{\label{committeeux5fex1}}
 \begin{Shaded}
@@ -2317,12 +2254,12 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{oparl:Person (Person)}\label{oparlperson-person}
+\subsection{oparl:Person (Person)}\label{oparlux5fperson}
 
 Jede natürliche Person, die Mitglied eines Gremiums ist, ist als
 \texttt{oparl:Person} im Datenmodell eindeutig identifizierbar.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-1}
+\subsubsection{Eigenschaften}\label{eigenschaften-2}
 
 \begin{description}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2384,7 +2321,7 @@ Datum und Uhrzeit der letzten Änderung
   darzustellen. Diese Beziehungen sind ebenfalls datiert.
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-3}
+\subsubsection{Beispiel}\label{beispiel-2}
 
 \hyperdef{}{personux5fex1}{\label{personux5fex1}}
 \begin{Shaded}
@@ -2425,10 +2362,12 @@ Datum und Uhrzeit der letzten Änderung
 \subsection{oparl:Organization
 (Organisation)}\label{oparlorganization-organisation}
 
+TODO: Inhalt dieses Abschnitts in chapter\_8050.md überführen.
+
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die
 Personen angehören können.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-2}
+\subsubsection{Eigenschaften}\label{eigenschaften-3}
 
 \begin{description}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2467,7 +2406,7 @@ Datum und Uhrzeit der letzten Änderung
   Personen können Organisationen angehören (\emph{datiert}).
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-4}
+\subsubsection{Beispiel}\label{beispiel-3}
 
 \hyperdef{}{organizationux5fex1}{\label{organizationux5fex1}}
 \begin{Shaded}
@@ -2481,7 +2420,7 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{oparl:Meeting (Sitzung)}\label{oparlmeeting-sitzung}
+\subsection{oparl:Meeting (Sitzung)}\label{oparlux5fmeeting}
 
 Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder
 mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.
@@ -2491,7 +2430,7 @@ entsprechender Form referenziert. Verschiedene Dokumente (Einladung,
 Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert
 werden.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-3}
+\subsubsection{Eigenschaften}\label{eigenschaften-4}
 
 \begin{description}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2545,7 +2484,7 @@ Datum und Uhrzeit der letzten Änderung
   dann um nicht weiter spezifizierte Anlagen.
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-5}
+\subsubsection{Beispiel}\label{beispiel-4}
 
 \hyperdef{}{meetingux5fex1}{\label{meetingux5fex1}}
 \begin{Shaded}
@@ -2572,7 +2511,7 @@ Datum und Uhrzeit der letzten Änderung
 \end{Shaded}
 
 \subsection{oparl:AgendaItem
-(Tagesordnungspunkt)}\label{oparlagendaitem-tagesordnungspunkt}
+(Tagesordnungspunkt)}\label{oparlux5fagendaitem}
 
 Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält
 eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel
@@ -2582,7 +2521,7 @@ bestimmter Beschlusstext beigefügt sein.
 
 Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-4}
+\subsubsection{Eigenschaften}\label{eigenschaften-5}
 
 \begin{description}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2646,7 +2585,7 @@ Datum und Uhrzeit der letzten Änderung
   anwesend waren.
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-6}
+\subsubsection{Beispiel}\label{beispiel-5}
 
 \hyperdef{}{agendaitemux5fex1}{\label{agendaitemux5fex1}}
 \begin{Shaded}
@@ -2664,7 +2603,8 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{oparl:Paper (Drucksache)}\label{oparlpaper-drucksache}
+\hyperdef{}{oparlux5fpaper}{\subsection{oparl:Paper
+(Drucksache)}\label{oparlux5fpaper}}
 
 Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen,
 Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede
@@ -2702,7 +2642,7 @@ Arten von Drucksachen gekennzeichnet:
   (mündliche oder schriftliche) Anfragen
 \end{itemize}
 
-\subsubsection{Eigenschaften}\label{eigenschaften-5}
+\subsubsection{Eigenschaften}\label{eigenschaften-6}
 
 \begin{description}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2761,7 +2701,7 @@ Datum und Uhrzeit der letzten Änderung
   versehen sein, die noch näher zu bestimmen ist (TODO).
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-7}
+\subsubsection{Beispiel}\label{beispiel-6}
 
 \hyperdef{}{paperux5fex1}{\label{paperux5fex1}}
 \begin{Shaded}
@@ -2808,7 +2748,7 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{oparl:Document (Datei)}\label{oparldocument-datei}
+\subsection{oparl:Document (Datei)}\label{oparlux5fdocument}
 
 Ein Objekt vom Typ \texttt{oparl:Document} repräsentiert eine Datei,
 beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokuments, und hält
@@ -2838,7 +2778,7 @@ Ein Beispiel:
 \end{Shaded}
 
 Objekt vom Typ \texttt{oparl:Document} können mit Drucksachen
-(\texttt{oparl:Paper}) oder Sitzungen (\texttt{oparl:Meetign}) in
+(\texttt{oparl:Paper}) oder Sitzungen (\texttt{oparl:Meeting}) in
 Beziehung stehen. Dies wird durch die Eigenschaft \texttt{paper} bzw.
 \texttt{meeting} angezeigt.
 
@@ -2854,7 +2794,7 @@ wurde. Umgekehrt KANN über die Eigenschaft
 \texttt{derivative\_documents} angezeigt werden, welche Ableitungen
 einer Datei existieren.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-6}
+\subsubsection{Eigenschaften}\label{eigenschaften-7}
 
 \begin{description}
 \item[\texttt{@id}]
@@ -2914,13 +2854,13 @@ Liste von URLs.
   \hyperref[dokumentenabruf]{Dokumentenabruf}
 \end{itemize}
 
-\subsection{oparl:Consultation
-(Beratung)}\label{oparlconsultation-beratung}
+\subsection{oparl:Consultation (Beratung)}\label{oparlux5fconsultation}
 
 Der Objekttyp \texttt{oparl:Consultation} dient dazu, die Beratung einer
-Drucksache (\texttt{oparl:Paper}) in einer Sitzung abzubilden. Dabei ist
-es nicht entscheidend, ob diese Beratung in der Vergangenheit
-stattgefunden hat oder diese für die Zukunft geplant ist.
+Drucksache (\hyperref[oparlux5fpaper]{\texttt{oparl:Paper}}) in einer
+Sitzung abzubilden. Dabei ist es nicht entscheidend, ob diese Beratung
+in der Vergangenheit stattgefunden hat oder diese für die Zukunft
+geplant ist.
 
 Die Gesamtheit aller Objekte des Typs \texttt{oparl:Consultation} zu
 einer bestimmten Drucksache bildet das ab, was in der Praxis als
@@ -2942,7 +2882,7 @@ Ein Beispiel:
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection{Eigenschaften}\label{eigenschaften-7}
+\subsubsection{Eigenschaften}\label{eigenschaften-8}
 
 \begin{description}
 \item[\texttt{@id}]
@@ -2962,7 +2902,7 @@ gefasst wird (\emph{true}) wird oder nicht (\emph{false}). Diese
 Eigenschaft ist OPTIONAL. Typ: Wahrheitswert.
 \end{description}
 
-\subsection{oparl:Location (Ort)}\label{oparllocation-ort}
+\subsection{oparl:Location (Ort)}\label{oparlux5flocation}
 
 Dieser Objekttyp dient dazu, den Ortsbezug einer Drucksache formal
 abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen
@@ -3013,7 +2953,7 @@ Koordinatenangaben im System WGS84\footnote{WGS84 steht für ``World
 angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen)
 für Längen- und Breitengrad.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-8}
+\subsubsection{Eigenschaften}\label{eigenschaften-9}
 
 \begin{description}
 \item[\texttt{description}]
@@ -3051,10 +2991,6 @@ Polygon-Objekt}\label{ortsangabe-mit-polygon-objekt}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
-
-\subsection{oparl:Contact (Kontakt)}\label{oparlcontact-kontakt}
-
-TODO: Kann nach aktuellem Stand entfallen.
 
 \section{Fußnoten}\label{fuuxdfnoten}
 

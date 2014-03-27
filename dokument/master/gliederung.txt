@@ -64,13 +64,12 @@ OParl Spezifikation 1.0 Gliederung
     8010 Überblick
         - Überblick mit Graph-Darstellung
     8020 Attribute mit Verwendung in mehreren Objekttypen
-    8030 OParlSystem (System)
+    8030 oparl:System (System)
         Bedeutung
         Eigenschaften
         Besonderheiten
-            - Darf nur einmal vorkommen
         Beispiel(e)
-    8040 OParlBody (Körperschaft)
+    8040 oparl:Body (Körperschaft)
         Bedeutung
         Eigenschaften
         Besonderheiten
@@ -80,39 +79,37 @@ OParl Spezifikation 1.0 Gliederung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    8060 OParlPerson (Person)
+    8060 oparl:Person (Person)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    8080 OParlMeeting (Sitzung)
+    8080 oparl:Meeting (Sitzung)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    8090 OParlAgendaitem (Tagesordnungspunkt)
+    8090 oparl:Agendaitem (Tagesordnungspunkt)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    8100 OParlPaper (Drucksache)
+    8100 oparl:Paper (Drucksache)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    8110 OParlDocument (Dokument)
+    8110 oparl:Document (Dokument)
         Bedeutung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    8120 OParlConsultation (Beratung)
+    8120 oparl:Consultation (Beratung)
         Bedeutung
-            - Bildet die Beratung einer Drucksache im Rahmen einer Sitzung ab
         Eigenschaften
         Besonderheiten
-            - Nur als anonymes Objekt (Blank Node) vorgesehen, SOLL aber IRI enthalten
         Beispiel(e)
-    8130 OParlLocation (Ort)
+    8130 oparl:Location (Ort)
         Bedeutung
         Eigenschaften
         Besonderheiten

@@ -15,8 +15,6 @@ besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen
 wird. Hierbei kommen in Ratsinformationssystemen unveränderliche Kennungen 
 der Drucksachen zum Einsatz.
 
-![Objekttyp Paper](images/datenmodell_drucksache.png)
-
 Jede Drucksache ist über die Eigenschaft "Typ" als eine der folgenden Arten 
 von Drucksachen gekennzeichnet:
 

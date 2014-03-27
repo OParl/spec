@@ -13,8 +13,6 @@ Objekte vom Typ `oparl:Body` beherbergt werden.
 Objekte, wie beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit
 zu einer bestimmten Körperschaft an.
 
-![Objekttyp oparl:Body](images/datenmodell_koerperschaft.png)
-
 Es werden mehrere Eigenschaften angeboten, die dazu dienen, die real
 existierende Körperschaft, die von einem `oparl:Body` Objekt repräsentiert
 wird, programmatisch auslesbar zu machen zu können. Insbesondere sind hier

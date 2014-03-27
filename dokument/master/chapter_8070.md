@@ -4,8 +4,6 @@ oparl:Organization (Organisation)
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die 
 Personen angehören können.
 
-![Objekttyp Organisation](images/datenmodell_organisation.png)
-
 ### Eigenschaften ###
 
 Schlüssel (`id`)

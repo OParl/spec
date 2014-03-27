@@ -754,7 +754,7 @@
     die Anwendungsmöglichkeiten anhand konkreter Beispiele zu
     verdeutlichen. Sie erheben keinen Anspruch auf Vollständigkeit.
   </para>
-  <sect2 id="szenario-1-mobile-client-anwendung">
+  <sect2 id="szenario_mobile_client">
     <title>Szenario 1: Mobile Client-Anwendung</title>
     <para>
       Eine <link linkend="client">Client</link>-Anwendung für mobile
@@ -871,7 +871,7 @@
       Distanz zum Objekt sortiert werden könnte.
     </para>
   </sect2>
-  <sect2 id="szenario-2-integration-in-web-portal">
+  <sect2 id="szenario_web_portal">
     <title>Szenario 2: Integration in Web-Portal</title>
     <para>
       Web Portale bieten Nutzern unter anderem die Möglichkeit
@@ -916,12 +916,12 @@
       Informationsgehalt und den Datenbestand aufzuwerten.
     </para>
   </sect2>
-  <sect2 id="szenario-3-meta-suche">
+  <sect2 id="szenario_meta_suche">
     <title>Szenario 3: Meta-Suche</title>
     <para>
     </para>
   </sect2>
-  <sect2 id="szenario-4-forschungsprojekt-themen--und-sprachanalyse">
+  <sect2 id="szenario_forschung">
     <title>Szenario 4: Forschungsprojekt Themen- und
     Sprachanalyse</title>
     <para>

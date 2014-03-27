@@ -242,8 +242,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <section id="nutzungsszenarien" class="level1">
 <h1><span class="header-section-number">3</span> Nutzungsszenarien</h1>
 <p>Die nachfolgenden Nutzungsszenarien dienen dazu, die Architektur und die Anwendungsmöglichkeiten anhand konkreter Beispiele zu verdeutlichen. Sie erheben keinen Anspruch auf Vollständigkeit.</p>
-<section id="szenario-1-mobile-client-anwendung" class="level3">
-<h3><span class="header-section-number">3.0.1</span> Szenario 1: Mobile Client-Anwendung</h3>
+<section id="szenario_mobile_client" class="level2">
+<h2><span class="header-section-number">3.1</span> Szenario 1: Mobile Client-Anwendung</h2>
 <p>Eine <a href="#client">Client</a>-Anwendung für mobile Endgeräte wie SmartPhones und Tablets, nachfolgend &quot;App&quot; genannt, könnte das Ziel verfolgen, Nutzern unterwegs sowie abseits vom Desktop-PC bestmöglichen Lesezugriff auf Dokumente aus Ratsinformationssystemen (RIS) zu bieten. Die möglichen Kontexte und Nutzungsmotivationen sind vielfältig:</p>
 <ul>
 <li><p>Teilnehmer einer Sitzung greifen während der Sitzung auf die Einladung dieser Sitzung und die zur Tagesordnung der Sitzung gehörenden Drucksachen zu, außerdem auf die Protokolle vorheriger Sitzungen.</p></li>
@@ -258,8 +258,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Neben dem kleinen Display kann für einige mobile Endgeräte auch die im Vergleich zu einem zeitgemäßen Desktop-PC geringere CPU-Leistung eine Einschränkung darstellen. Solchen Geräten kommt es besonders entgegen, wenn der Server zu allen Dokumenten auch den reinen Textinhalt abrufbar macht, der dann beispielsweise für eine Volltextsuche auf dem Endgerät indexiert werden kann. So wiederum kann auf dem Client eine Suchfunktion realisiert werden, welche die OParl-API selbst nicht zur Verfügung stellt.</p>
 <p>Eine solche Suchfunktion kann auch über die reine Volltxtsuche hinaus gehen und über die Suche mittels Text- oder Spracheingabe hinaus gehen. Denn ein Client könnte von einem <a href="#server">Server</a>-System, das Drucksachen mit Geoinformationen anbietet, diese abrufen und räumlich indexieren. Anhand der Position des Geräts, die mittels GPS genau bestimmt werden kann, könnte so der lokale Cache nach Objekten in der Umgebung durchsucht werden. Das Ergebnis könnte auf einer Karte dargestellt oder in einer Ergebnisliste angezeigt werden, die nach Distanz zum Objekt sortiert werden könnte.</p>
 </section>
-<section id="szenario-2-integration-in-web-portal" class="level3">
-<h3><span class="header-section-number">3.0.2</span> Szenario 2: Integration in Web-Portal</h3>
+<section id="szenario_web_portal" class="level2">
+<h2><span class="header-section-number">3.2</span> Szenario 2: Integration in Web-Portal</h2>
 <p>Web Portale bieten Nutzern unter anderem die Möglichkeit Anwendungen, Prozesse und Dienste zu integrieren. Die OParl API stellt einen solchen Dienst dar und bereitet so den Weg zu angereicherten Portalseiten. Informationen, die über die API bezogen werden, können in Portlets organisiert und visualisiert werden. Hierbei können</p>
 <ol type="1">
 <li>angemeldete Benutzer</li>
@@ -271,11 +271,11 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>dies nicht können. In beiden Fällen können Portalnutzer das angezeigte Portlet nach ihren Bedürfnissen anpassen. Beispielsweise kann ein solches Portlet eine Liste der Gremien bereitstellen, aus der sich der Nutzer das interessante Gremium aussucht und aufgrund dieser Auswahl die Informationen zu den vergangenen / nächsten Sitzungsterminen im Rat, etwaiger Drucksachen oder Dokumenten erhält und geeignet visualisiert.</p>
 <p>Durch eine solche Integration von RIS Informationen in bestehende Portalsysteme (unter Umständen die kommunale Webseite selbst), ist es möglich Nutzern zusätzliche Informationen in der bereits gewohnten Umgebung zu präsentieren und den bestehenden Informationsgehalt und den Datenbestand aufzuwerten.</p>
 </section>
-<section id="szenario-3-meta-suche" class="level3">
-<h3><span class="header-section-number">3.0.3</span> Szenario 3: Meta-Suche</h3>
+<section id="szenario_meta_suche" class="level2">
+<h2><span class="header-section-number">3.3</span> Szenario 3: Meta-Suche</h2>
 </section>
-<section id="szenario-4-forschungsprojekt-themen--und-sprachanalyse" class="level3">
-<h3><span class="header-section-number">3.0.4</span> Szenario 4: Forschungsprojekt Themen- und Sprachanalyse</h3>
+<section id="szenario_forschung" class="level2">
+<h2><span class="header-section-number">3.4</span> Szenario 4: Forschungsprojekt Themen- und Sprachanalyse</h2>
 </section>
 </section>
 <section id="prinzipien-und-funktionen-der-api" class="level1">

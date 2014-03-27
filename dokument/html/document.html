@@ -194,7 +194,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Der Server beantwortet Anfragen eines Clients im Regelfall, indem bestimmte Objekte ausgegeben werden. Objekte sind im Fall einer OParl-konformen API JSON-Objekte, die das Schema einhalten, das in der vorliegenden Spezifikation beaschrieben wird. Antworten des Servers können einzelne Objekte, Listen von Objekten oder Listen von URLs von Objekten enthalten.</p>
 <h1 id="nutzungsszenarien"><span class="header-section-number">3</span> Nutzungsszenarien</h1>
 <p>Die nachfolgenden Nutzungsszenarien dienen dazu, die Architektur und die Anwendungsmöglichkeiten anhand konkreter Beispiele zu verdeutlichen. Sie erheben keinen Anspruch auf Vollständigkeit.</p>
-<h3 id="szenario-1-mobile-client-anwendung"><span class="header-section-number">3.0.1</span> Szenario 1: Mobile Client-Anwendung</h3>
+<h2 id="szenario_mobile_client"><span class="header-section-number">3.1</span> Szenario 1: Mobile Client-Anwendung</h2>
 <p>Eine <a href="#client">Client</a>-Anwendung für mobile Endgeräte wie SmartPhones und Tablets, nachfolgend &quot;App&quot; genannt, könnte das Ziel verfolgen, Nutzern unterwegs sowie abseits vom Desktop-PC bestmöglichen Lesezugriff auf Dokumente aus Ratsinformationssystemen (RIS) zu bieten. Die möglichen Kontexte und Nutzungsmotivationen sind vielfältig:</p>
 <ul>
 <li><p>Teilnehmer einer Sitzung greifen während der Sitzung auf die Einladung dieser Sitzung und die zur Tagesordnung der Sitzung gehörenden Drucksachen zu, außerdem auf die Protokolle vorheriger Sitzungen.</p></li>
@@ -208,7 +208,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Für die Nutzer einer mobilen Client-Anwendung könnte es sich als besonders hilfreich erweisen, wenn Dokumente auf dem Server in verschiedenen Formaten zur Verfügung gestellt werden. Denn nicht jedes Endgerät mit kleinem Bildaschirm bietet eine nutzerfreundliche Möglichkeit, beispielsweise Dokumente im weit verbreiteten PDF-Format darzustellen. Hier könnte schon der Entwickler der mobilen App Mechanismen vorsehen, die, sofern vorhanden, besser geeignete Formate wie z.B. HTML abrufen.</p>
 <p>Neben dem kleinen Display kann für einige mobile Endgeräte auch die im Vergleich zu einem zeitgemäßen Desktop-PC geringere CPU-Leistung eine Einschränkung darstellen. Solchen Geräten kommt es besonders entgegen, wenn der Server zu allen Dokumenten auch den reinen Textinhalt abrufbar macht, der dann beispielsweise für eine Volltextsuche auf dem Endgerät indexiert werden kann. So wiederum kann auf dem Client eine Suchfunktion realisiert werden, welche die OParl-API selbst nicht zur Verfügung stellt.</p>
 <p>Eine solche Suchfunktion kann auch über die reine Volltxtsuche hinaus gehen und über die Suche mittels Text- oder Spracheingabe hinaus gehen. Denn ein Client könnte von einem <a href="#server">Server</a>-System, das Drucksachen mit Geoinformationen anbietet, diese abrufen und räumlich indexieren. Anhand der Position des Geräts, die mittels GPS genau bestimmt werden kann, könnte so der lokale Cache nach Objekten in der Umgebung durchsucht werden. Das Ergebnis könnte auf einer Karte dargestellt oder in einer Ergebnisliste angezeigt werden, die nach Distanz zum Objekt sortiert werden könnte.</p>
-<h3 id="szenario-2-integration-in-web-portal"><span class="header-section-number">3.0.2</span> Szenario 2: Integration in Web-Portal</h3>
+<h2 id="szenario_web_portal"><span class="header-section-number">3.2</span> Szenario 2: Integration in Web-Portal</h2>
 <p>Web Portale bieten Nutzern unter anderem die Möglichkeit Anwendungen, Prozesse und Dienste zu integrieren. Die OParl API stellt einen solchen Dienst dar und bereitet so den Weg zu angereicherten Portalseiten. Informationen, die über die API bezogen werden, können in Portlets organisiert und visualisiert werden. Hierbei können</p>
 <ol style="list-style-type: decimal">
 <li>angemeldete Benutzer</li>
@@ -219,8 +219,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ol>
 <p>dies nicht können. In beiden Fällen können Portalnutzer das angezeigte Portlet nach ihren Bedürfnissen anpassen. Beispielsweise kann ein solches Portlet eine Liste der Gremien bereitstellen, aus der sich der Nutzer das interessante Gremium aussucht und aufgrund dieser Auswahl die Informationen zu den vergangenen / nächsten Sitzungsterminen im Rat, etwaiger Drucksachen oder Dokumenten erhält und geeignet visualisiert.</p>
 <p>Durch eine solche Integration von RIS Informationen in bestehende Portalsysteme (unter Umständen die kommunale Webseite selbst), ist es möglich Nutzern zusätzliche Informationen in der bereits gewohnten Umgebung zu präsentieren und den bestehenden Informationsgehalt und den Datenbestand aufzuwerten.</p>
-<h3 id="szenario-3-meta-suche"><span class="header-section-number">3.0.3</span> Szenario 3: Meta-Suche</h3>
-<h3 id="szenario-4-forschungsprojekt-themen--und-sprachanalyse"><span class="header-section-number">3.0.4</span> Szenario 4: Forschungsprojekt Themen- und Sprachanalyse</h3>
+<h2 id="szenario_meta_suche"><span class="header-section-number">3.3</span> Szenario 3: Meta-Suche</h2>
+<h2 id="szenario_forschung"><span class="header-section-number">3.4</span> Szenario 4: Forschungsprojekt Themen- und Sprachanalyse</h2>
 <h1 id="prinzipien-und-funktionen-der-api"><span class="header-section-number">4</span> Prinzipien und Funktionen der API</h1>
 <p>(In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen Schnittstelle beschrieben. Hierzu gehören alle chapter-Dateien, deren Nummerierung mit der Ziffer 6 beginnnt.)</p>
 <p>Stichpunkte:</p>

@@ -1465,7 +1465,7 @@ Beispiel im Kontext einer Drucksache, abgerufen werden.
 
 TODO: Weitere Objekttypen nennen, in denen Blank Nodes vorkommen.
 
-\subsection{Objektlisten}
+\hyperdef{}{objektlisten}{\subsection{Objektlisten}\label{objektlisten}}
 
 Über die OParl-API können entweder einzelne Objekte oder Listen von
 Objekten abgefragt werden.
@@ -1602,45 +1602,193 @@ könnte der Folgeaufruf, um beim SQL-Beispiel zu bleiben, so aussehen:
 \end{Highlighting}
 \end{Shaded}
 
-(Hier geht es darum, wie Listen von Objekten ausgegeben werden.
+TODO: Bestimmte Listen können mit Einschränkung auf einen Datumsbereich
+abgefragt werden. Mehr dazu in https://github.com/OParl/specs/issues/30
+Fraglich ist, ob das in diesem Kapitel behandelt werden sollte oder in
+einem anderen.
 
-\begin{itemize}
-\item
-  Einschränkung auf Datumsbereiche
-\end{itemize}
+\subsubsection{Listen als Eigenschaften von Objekten}
 
-Dazu:
-
-\begin{itemize}
-\item
-  https://github.com/OParl/specs/issues/66
-\item
-  https://github.com/OParl/specs/issues/30 )
-\end{itemize}
+TODO: Listen können auch als Werte von Objekteigenschaften auftreten.
+Hierbei gibt es keine Paginierung, sondern es müssen alle URLs
+aufgelistet werden. Das ist auszuformulieren und mit Beispielen zu
+zeigen.
 
 \hyperdef{}{feeds}{\subsection{Feeds}\label{feeds}}
 
+Feeds sind spezielle Arten von \hyperref[objektlisten]{Objektlisten},
+für die besondere Anforderungen gelten. Es werden drei verschiedene
+Feeds spezifiziert.
+
+Der Begriff ``Feed'' ist eine Anlehnung an die weit verbreiteten RSS-
+oder Atom-Feeds, deren Publikationslogik im Wesentlichen auf der
+chronologischen Sortierung beruht. Im Unterschied zu Atom oder RSS ist
+hier jedoch keine XML-Ausgabe beabsichtigt.
+
+Die Feeds sollen es Clients ermöglichen, schnelle und
+ressourcenschonende abzufragen, welche Objekte auf dem Server neu
+hinzugefügt, geändert oder entfernt wurden. Ziel ist, zu verhindern,
+dass Clients zur Aktualisierung ihres Caches den gesamten Datenbestand
+eines Servers abrufen müssen.
+
+Ein OParl-Server SOLL jeden der nachfolgend beschriebenen Feeds
+anbieten, sofern möglich.
+
+Für alle Feeds drei gilt, dass mindestens ein Zeitraum von 365 Tagen,
+gerechnet vom Zeitpunkt der Abfrage, abgedeckt werden SOLL.
+
+\subsubsection{Der Feed ``Neue Objekte''}
+
+Der Feed für neue Objekte listet die URLs neu hinzugekommener Objekte in
+der Reihenfolge des Datums ihrer Erstellung, wobei die jüngsten Objekte
+zuerst ausgegeben werden.
+
+Die Definition, was ein ``neues'' Objekt bzw. die ``Erstellung''
+bedeutet, kann zwischen Systemen und Objekttypen variieren. So werden
+bestimmte Objekte in einigen Systemen zunächst erstellt und erst dann
+für die Öffentlichkeit freigegeben. In diesem Fall ist im Sinne dieses
+Feeds die Freigabe als Zeitpunkt der Erstellung zu verwenden.
+
+Der Feed SOLL sämtliche Objekttypen umfassen, die in einem System
+geführt werden.
+
+Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"items"}\NormalTok{: [}
+        \NormalTok{\{}
+            \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/papers/21/documents/3"}\NormalTok{,}
+            \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2014-01-07T12:59:01.038+0100"}
+        \NormalTok{\},}
+        \NormalTok{\{}
+            \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/papers/21"}\NormalTok{,}
+            \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2014-01-05T18:29:37.123+0100"}
+        \NormalTok{\},}
+        \NormalTok{\{}
+            \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/papers/20/documents/5"}\NormalTok{,}
+            \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2014-01-04T11:26:48.638+0100"}
+        \NormalTok{\},}
+        \ErrorTok{...}
+    \NormalTok{],}
+    \DataTypeTok{"nextpage"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/feeds/new/?t=20140106170100402"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Wie im Beispiel zu sehen ist, enthält die Eigenschaft \texttt{items}
+eine Liste mit unbenannten Objekten. Dies ist ein Unterschied zu
+herkömmlichen Objektlisten, bei denen an dieser Stelle lediglich URLs
+als Listeneinträge erwartet werden.
+
+Jedes der Objekte in der \texttt{items}-Liste MUSS seinerseits wiederum
+zwei Eigenschaften besitzen:
+
 \begin{itemize}
 \item
-  Warum Feeds?
+  \texttt{@id}: Die URL des neuen Objekts
 \item
-  Möglichst ressourcenschonendes Auffinden neuer und geänderter Objekte
-\item
-  Cache-Invalidierung, Entfernung von gelöschten/depublizierten Objekten
-\item
-  https://github.com/OParl/specs/issues/19
+  \texttt{created}: Der Zeitpunkt der Erzeugung des Objekts
 \end{itemize}
 
-\subsubsection{Neue Objekte}
+Wie für Objektlisten üblich, SOLL auch für Feeds automatisch eine
+Aufteilung auf mehrere Seiten vorgenommen und ein Paginierungs-Link
+angeboten werden, um die übertragenen Datenmengen je Abruf einzugrenzen.
 
-\subsubsection{Geänderte Objekte}
+Der jeweils in der Eigenschaft \texttt{created} ausgegebene Zeitpunkt
+SOLL vom Server als Sortierkriterium der Liste genutzt werden. So können
+Clients den jeweils am Anfang der Liste vorgefundenen Zeitpunkt als
+Begrenzung für die zukünftige Abfrage des Feeds nutzen. Ein Beispiel zur
+Erläuterung:
 
-\subsubsection{Entfernte Objekte}
+Am 1. April 2014 ruft ein Client den Feed ab und findet im ersten
+Listeneintrag den \texttt{created}-Zeitpunkt
+\texttt{2014-03-31T18:02:34.058+0200} vor, den er sich als Grenzwert
+merkt. Beim nächsten Abruf des Feeds einige Tage später muss der Client
+die Liste nur so weit abarbeiten, so lange der
+\texttt{created}-Zeitpunkt der Einträge größer oder gleich dem Grenzwert
+ist.
 
-\begin{itemize}
-\item
-  Liste von Objekt-URLs
-\end{itemize}
+\subsubsection{Der Feed ``Geänderte Objekte''}
+
+Der Feed für geänderte Objekte listet die URLs geänderter Objekte in der
+Reihenfolge des Datums ihrer Änderung, wobei das zuletzt Objekt zuerst
+ausgegeben wird.
+
+Die Definition einer ``Änderung'' kann sich zwischen den Objekttypen
+unterscheiden. Tendenziell soll die Definition eher weiter ausgelegt
+werden, als enger. Als Änderung einer Organisation könnte es
+beispielsweise verstanden werden, wenn ein neues Mitglied zur
+Organisation hinzukommt. Das Erstellen eines Objekts (im Sinne des Feeds
+``Neue Objekte'') sollte hingegen nicht als Änderung gewertet werden, um
+das redundante Erscheinen eines neuen Objekts sowohl im Feed ``Neue
+Objekte'' als auch im Feed ``Geänderte Objekte'' zu vermeiden.
+
+Auch hier SOLL der Feed sämtliche Objekttypen umfassen, die in einem
+System geführt werden.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"items"}\NormalTok{: [}
+        \NormalTok{\{}
+            \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/papers/0/documents/2"}\NormalTok{,}
+            \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2014-01-08T14:28:31.568+0100"}
+        \NormalTok{\},}
+        \NormalTok{\{}
+            \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/papers/0"}\NormalTok{,}
+            \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2014-01-08T12:14:27.958+0100"}
+        \NormalTok{\},}
+        \NormalTok{\{}
+            \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/papers/0/documents/1"}\NormalTok{,}
+            \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2014-01-06T17:01:00.402+0100"}
+        \NormalTok{\},}
+        \ErrorTok{...}
+    \NormalTok{],}
+    \DataTypeTok{"nextpage"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/feeds/updated/?t=20140106170100402"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Das Ausgabeformat entspricht weitgehend dem des Feeds ``Neue Objekte'',
+jedoch heißt hier die Eigenschaft für den Zeitpunkt der letzten Änderung
+\texttt{last\_modified}. Auch hier gilt, dass der als
+\texttt{last\_modified} ausgegebene Zeitpunkt auch als Sortierkriterium
+der Liste gelten SOLL.
+
+\subsubsection{Der Feed ``Entfernte Objekte''}
+
+Der Feed für entferne Objekte listet die URLs entfernter Objekte in der
+Reihenfolge des Datums ihrer Entfernung auf, wobei die zuletzt
+entfernten Objekte zuerst ausgegeben werden.
+
+Mit ``Entfernung'' ist im Sinne dieses Feeds die Löschung eines Objekts,
+aber auch die Depublikation oder das Beenden der öffentlichen
+Verfügbarkeit gemeint.
+
+Client-Implementierer sind angehalten, diesen Feed zu nutzen, um
+beispielsweise depublizierte Dokumente aus ihren lokalen Caches zu
+entfernen.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"items"}\NormalTok{: [}
+        \NormalTok{\{}
+            \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/people/22"}\NormalTok{,}
+            \DataTypeTok{"removed"}\NormalTok{: }\StringTok{"2013-11-11T11:11:00.000+0100"}
+        \NormalTok{\},}
+        \ErrorTok{...}
+    \NormalTok{],}
+    \DataTypeTok{"nextpage"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/feeds/updated/?t=20131111111100"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Die Eigenschaft zur Angabe des Entfernugnszeitpunkts heißt hier
+\texttt{removed} und SOLL, analog zu den beiden anderen Feeds, als
+Sortierkriterium der Liste verwendet werden.
 
 \subsection{Dokumentenabruf}
 
@@ -1894,12 +2042,6 @@ auch mehrere Objekte vom Typ \texttt{oparl:Body} beherbergt werden.
 andere Objekte, wie beispielsweise Gremien oder Drucksachen, ihre
 Zugehörigkeit zu einer bestimmten Körperschaft an.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{images/datenmodell_koerperschaft.png}
-\caption{Objekttyp oparl:Body}
-\end{figure}
-
 Es werden mehrere Eigenschaften angeboten, die dazu dienen, die real
 existierende Körperschaft, die von einem \texttt{oparl:Body} Objekt
 repräsentiert wird, programmatisch auslesbar zu machen zu können.
@@ -2033,12 +2175,6 @@ ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat,
 Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten
 Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{images/datenmodell_gremium.png}
-\caption{Objekttyp Committee}
-\end{figure}
-
 \subsubsection{Eigenschaften}
 
 \begin{description}
@@ -2091,12 +2227,6 @@ Datum und Uhrzeit der letzten Änderung
 
 Jede natürliche Person, die Mitglied eines Gremiums ist, ist als
 \texttt{oparl:Person} im Datenmodell eindeutig identifizierbar.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{images/datenmodell_person.png}
-\caption{Objekttyp Person}
-\end{figure}
 
 \subsubsection{Eigenschaften}
 
@@ -2199,12 +2329,6 @@ Datum und Uhrzeit der letzten Änderung
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die
 Personen angehören können.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{images/datenmodell_organisation.png}
-\caption{Objekttyp Organisation}
-\end{figure}
-
 \subsubsection{Eigenschaften}
 
 \begin{description}
@@ -2264,12 +2388,6 @@ Die geladenen Teilnehmer der Sitzung sind jeweils als „Person`` in
 entsprechender Form referenziert. Verschiedene Dokumente (Einladung,
 Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert
 werden.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{images/datenmodell_sitzung.png}
-\caption{Objekttyp Meeting}
-\end{figure}
 
 \subsubsection{Eigenschaften}
 
@@ -2356,12 +2474,6 @@ Ergebnis angehängt. Unter Umständen kann dem Tagesordnungspunkt ein
 bestimmter Beschlusstext beigefügt sein.
 
 Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{images/datenmodell_tagesordnungspunkt.png}
-\caption{Objekttyp AgendaItem}
-\end{figure}
 
 \subsubsection{Eigenschaften}
 
@@ -2456,12 +2568,6 @@ Drucksachen spielen in der schriftlichen wie mündlichen Kommunikation
 eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen
 Bezug genommen wird. Hierbei kommen in Ratsinformationssystemen
 unveränderliche Kennungen der Drucksachen zum Einsatz.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{images/datenmodell_drucksache.png}
-\caption{Objekttyp Paper}
-\end{figure}
 
 Jede Drucksache ist über die Eigenschaft ``Typ'' als eine der folgenden
 Arten von Drucksachen gekennzeichnet:
@@ -2601,12 +2707,6 @@ dieses auf das Original als ``Master''.
 Im Unterschied zur Drucksache benötigt das Dokument keine
 nutzerfreundliche Kennung.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{images/datenmodell_dokument.png}
-\caption{Objekttyp Document}
-\end{figure}
-
 \subsubsection{Eigenschaften}
 
 \begin{description}
@@ -2676,12 +2776,6 @@ Speicherung zusätzlicher Metadaten ermöglicht, beschränkt sich OParl
 ledliglich auf das \texttt{geometry}-Attribut in GeoJSON. Sämtliche
 Geo-Koordinatenangaben werden in in OParl im WGS-84-System {[}11{]}
 erwartet.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{images/datenmodell_ort.png}
-\caption{Objekttyp Location}
-\end{figure}
 
 \subsubsection{Eigenschaften}
 

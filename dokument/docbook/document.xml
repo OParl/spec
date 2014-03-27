@@ -2144,77 +2144,228 @@ SELECT * FROM example ORDER BY id LIMIT 10 OFFSET 10
 SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
 </programlisting>
       <para>
-        (Hier geht es darum, wie Listen von Objekten ausgegeben werden.
+        TODO: Bestimmte Listen können mit Einschränkung auf einen
+        Datumsbereich abgefragt werden. Mehr dazu in
+        https://github.com/OParl/specs/issues/30 Fraglich ist, ob das in
+        diesem Kapitel behandelt werden sollte oder in einem anderen.
       </para>
-      <itemizedlist>
-        <listitem>
-          <para>
-            Einschränkung auf Datumsbereiche
-          </para>
-        </listitem>
-      </itemizedlist>
+    </sect3>
+    <sect3 id="listen-als-eigenschaften-von-objekten">
+      <title>Listen als Eigenschaften von Objekten</title>
       <para>
-        Dazu:
+        TODO: Listen können auch als Werte von Objekteigenschaften
+        auftreten. Hierbei gibt es keine Paginierung, sondern es müssen
+        alle URLs aufgelistet werden. Das ist auszuformulieren und mit
+        Beispielen zu zeigen.
       </para>
-      <itemizedlist>
-        <listitem>
-          <para>
-            https://github.com/OParl/specs/issues/66
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            https://github.com/OParl/specs/issues/30 )
-          </para>
-        </listitem>
-      </itemizedlist>
     </sect3>
   </sect2>
   <sect2 id="feeds">
     <title>Feeds</title>
-    <itemizedlist>
-      <listitem>
-        <para>
-          Warum Feeds?
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Möglichst ressourcenschonendes Auffinden neuer und geänderter
-          Objekte
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Cache-Invalidierung, Entfernung von gelöschten/depublizierten
-          Objekten
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          https://github.com/OParl/specs/issues/19
-        </para>
-      </listitem>
-    </itemizedlist>
-    <sect3 id="neue-objekte">
-      <title>Neue Objekte</title>
+    <para>
+      Feeds sind spezielle Arten von
+      <link linkend="objektlisten">Objektlisten</link>, für die
+      besondere Anforderungen gelten. Es werden drei verschiedene Feeds
+      spezifiziert.
+    </para>
+    <para>
+      Der Begriff &quot;Feed&quot; ist eine Anlehnung an die weit
+      verbreiteten RSS- oder Atom-Feeds, deren Publikationslogik im
+      Wesentlichen auf der chronologischen Sortierung beruht. Im
+      Unterschied zu Atom oder RSS ist hier jedoch keine XML-Ausgabe
+      beabsichtigt.
+    </para>
+    <para>
+      Die Feeds sollen es Clients ermöglichen, schnelle und
+      ressourcenschonende abzufragen, welche Objekte auf dem Server neu
+      hinzugefügt, geändert oder entfernt wurden. Ziel ist, zu
+      verhindern, dass Clients zur Aktualisierung ihres Caches den
+      gesamten Datenbestand eines Servers abrufen müssen.
+    </para>
+    <para>
+      Ein OParl-Server SOLL jeden der nachfolgend beschriebenen Feeds
+      anbieten, sofern möglich.
+    </para>
+    <para>
+      Für alle Feeds drei gilt, dass mindestens ein Zeitraum von 365
+      Tagen, gerechnet vom Zeitpunkt der Abfrage, abgedeckt werden SOLL.
+    </para>
+    <sect3 id="der-feed-neue-objekte">
+      <title>Der Feed &quot;Neue Objekte&quot;</title>
       <para>
+        Der Feed für neue Objekte listet die URLs neu hinzugekommener
+        Objekte in der Reihenfolge des Datums ihrer Erstellung, wobei
+        die jüngsten Objekte zuerst ausgegeben werden.
       </para>
-    </sect3>
-    <sect3 id="geänderte-objekte">
-      <title>Geänderte Objekte</title>
       <para>
+        Die Definition, was ein &quot;neues&quot; Objekt bzw. die
+        &quot;Erstellung&quot; bedeutet, kann zwischen Systemen und
+        Objekttypen variieren. So werden bestimmte Objekte in einigen
+        Systemen zunächst erstellt und erst dann für die Öffentlichkeit
+        freigegeben. In diesem Fall ist im Sinne dieses Feeds die
+        Freigabe als Zeitpunkt der Erstellung zu verwenden.
       </para>
-    </sect3>
-    <sect3 id="entfernte-objekte">
-      <title>Entfernte Objekte</title>
+      <para>
+        Der Feed SOLL sämtliche Objekttypen umfassen, die in einem
+        System geführt werden.
+      </para>
+      <para>
+        Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
+      </para>
+      <programlisting language="json">
+{
+    &quot;items&quot;: [
+        {
+            &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/21/documents/3&quot;,
+            &quot;created&quot;: &quot;2014-01-07T12:59:01.038+0100&quot;
+        },
+        {
+            &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/21&quot;,
+            &quot;created&quot;: &quot;2014-01-05T18:29:37.123+0100&quot;
+        },
+        {
+            &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/20/documents/5&quot;,
+            &quot;created&quot;: &quot;2014-01-04T11:26:48.638+0100&quot;
+        },
+        ...
+    ],
+    &quot;nextpage&quot;: &quot;http://refserv.oparl.org/feeds/new/?t=20140106170100402&quot;
+}
+</programlisting>
+      <para>
+        Wie im Beispiel zu sehen ist, enthält die Eigenschaft
+        <literal>items</literal> eine Liste mit unbenannten Objekten.
+        Dies ist ein Unterschied zu herkömmlichen Objektlisten, bei
+        denen an dieser Stelle lediglich URLs als Listeneinträge
+        erwartet werden.
+      </para>
+      <para>
+        Jedes der Objekte in der <literal>items</literal>-Liste MUSS
+        seinerseits wiederum zwei Eigenschaften besitzen:
+      </para>
       <itemizedlist>
         <listitem>
           <para>
-            Liste von Objekt-URLs
+            <literal>@id</literal>: Die URL des neuen Objekts
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <literal>created</literal>: Der Zeitpunkt der Erzeugung des
+            Objekts
           </para>
         </listitem>
       </itemizedlist>
+      <para>
+        Wie für Objektlisten üblich, SOLL auch für Feeds automatisch
+        eine Aufteilung auf mehrere Seiten vorgenommen und ein
+        Paginierungs-Link angeboten werden, um die übertragenen
+        Datenmengen je Abruf einzugrenzen.
+      </para>
+      <para>
+        Der jeweils in der Eigenschaft <literal>created</literal>
+        ausgegebene Zeitpunkt SOLL vom Server als Sortierkriterium der
+        Liste genutzt werden. So können Clients den jeweils am Anfang
+        der Liste vorgefundenen Zeitpunkt als Begrenzung für die
+        zukünftige Abfrage des Feeds nutzen. Ein Beispiel zur
+        Erläuterung:
+      </para>
+      <para>
+        Am 1. April 2014 ruft ein Client den Feed ab und findet im
+        ersten Listeneintrag den <literal>created</literal>-Zeitpunkt
+        <literal>2014-03-31T18:02:34.058+0200</literal> vor, den er sich
+        als Grenzwert merkt. Beim nächsten Abruf des Feeds einige Tage
+        später muss der Client die Liste nur so weit abarbeiten, so
+        lange der <literal>created</literal>-Zeitpunkt der Einträge
+        größer oder gleich dem Grenzwert ist.
+      </para>
+    </sect3>
+    <sect3 id="der-feed-geänderte-objekte">
+      <title>Der Feed &quot;Geänderte Objekte&quot;</title>
+      <para>
+        Der Feed für geänderte Objekte listet die URLs geänderter
+        Objekte in der Reihenfolge des Datums ihrer Änderung, wobei das
+        zuletzt Objekt zuerst ausgegeben wird.
+      </para>
+      <para>
+        Die Definition einer &quot;Änderung&quot; kann sich zwischen den
+        Objekttypen unterscheiden. Tendenziell soll die Definition eher
+        weiter ausgelegt werden, als enger. Als Änderung einer
+        Organisation könnte es beispielsweise verstanden werden, wenn
+        ein neues Mitglied zur Organisation hinzukommt. Das Erstellen
+        eines Objekts (im Sinne des Feeds &quot;Neue Objekte&quot;)
+        sollte hingegen nicht als Änderung gewertet werden, um das
+        redundante Erscheinen eines neuen Objekts sowohl im Feed
+        &quot;Neue Objekte&quot; als auch im Feed &quot;Geänderte
+        Objekte&quot; zu vermeiden.
+      </para>
+      <para>
+        Auch hier SOLL der Feed sämtliche Objekttypen umfassen, die in
+        einem System geführt werden.
+      </para>
+      <programlisting language="json">
+{
+    &quot;items&quot;: [
+        {
+            &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/0/documents/2&quot;,
+            &quot;last_modified&quot;: &quot;2014-01-08T14:28:31.568+0100&quot;
+        },
+        {
+            &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/0&quot;,
+            &quot;last_modified&quot;: &quot;2014-01-08T12:14:27.958+0100&quot;
+        },
+        {
+            &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/0/documents/1&quot;,
+            &quot;last_modified&quot;: &quot;2014-01-06T17:01:00.402+0100&quot;
+        },
+        ...
+    ],
+    &quot;nextpage&quot;: &quot;http://refserv.oparl.org/feeds/updated/?t=20140106170100402&quot;
+}
+</programlisting>
+      <para>
+        Das Ausgabeformat entspricht weitgehend dem des Feeds &quot;Neue
+        Objekte&quot;, jedoch heißt hier die Eigenschaft für den
+        Zeitpunkt der letzten Änderung <literal>last_modified</literal>.
+        Auch hier gilt, dass der als <literal>last_modified</literal>
+        ausgegebene Zeitpunkt auch als Sortierkriterium der Liste gelten
+        SOLL.
+      </para>
+    </sect3>
+    <sect3 id="der-feed-entfernte-objekte">
+      <title>Der Feed &quot;Entfernte Objekte&quot;</title>
+      <para>
+        Der Feed für entferne Objekte listet die URLs entfernter Objekte
+        in der Reihenfolge des Datums ihrer Entfernung auf, wobei die
+        zuletzt entfernten Objekte zuerst ausgegeben werden.
+      </para>
+      <para>
+        Mit &quot;Entfernung&quot; ist im Sinne dieses Feeds die
+        Löschung eines Objekts, aber auch die Depublikation oder das
+        Beenden der öffentlichen Verfügbarkeit gemeint.
+      </para>
+      <para>
+        Client-Implementierer sind angehalten, diesen Feed zu nutzen, um
+        beispielsweise depublizierte Dokumente aus ihren lokalen Caches
+        zu entfernen.
+      </para>
+      <programlisting language="json">
+{
+    &quot;items&quot;: [
+        {
+            &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0/people/22&quot;,
+            &quot;removed&quot;: &quot;2013-11-11T11:11:00.000+0100&quot;
+        },
+        ...
+    ],
+    &quot;nextpage&quot;: &quot;http://refserv.oparl.org/feeds/updated/?t=20131111111100&quot;
+}
+</programlisting>
+      <para>
+        Die Eigenschaft zur Angabe des Entfernugnszeitpunkts heißt hier
+        <literal>removed</literal> und SOLL, analog zu den beiden
+        anderen Feeds, als Sortierkriterium der Liste verwendet werden.
+      </para>
     </sect3>
   </sect2>
   <sect2 id="dokumentenabruf">
@@ -2596,15 +2747,6 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit zu
       einer bestimmten Körperschaft an.
     </para>
-    <figure>
-      <title>Objekttyp oparl:Body</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/datenmodell_koerperschaft.png" />
-        </imageobject>
-        <textobject><phrase>Objekttyp oparl:Body</phrase></textobject>
-      </mediaobject>
-    </figure>
     <para>
       Es werden mehrere Eigenschaften angeboten, die dazu dienen, die
       real existierende Körperschaft, die von einem
@@ -2784,15 +2926,6 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       Bezirksvertretungen. Gremien halten Sitzungen ab, zu denen die
       Gremien-Mitglieder eingeladen werden.
     </para>
-    <figure>
-      <title>Objekttyp Committee</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/datenmodell_gremium.png" />
-        </imageobject>
-        <textobject><phrase>Objekttyp Committee</phrase></textobject>
-      </mediaobject>
-    </figure>
     <sect3 id="eigenschaften">
       <title>Eigenschaften</title>
       <variablelist>
@@ -2894,15 +3027,6 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       <literal>oparl:Person</literal> im Datenmodell eindeutig
       identifizierbar.
     </para>
-    <figure>
-      <title>Objekttyp Person</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/datenmodell_person.png" />
-        </imageobject>
-        <textobject><phrase>Objekttyp Person</phrase></textobject>
-      </mediaobject>
-    </figure>
     <sect3 id="eigenschaften-1">
       <title>Eigenschaften</title>
       <variablelist>
@@ -3112,15 +3236,6 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen
       die Personen angehören können.
     </para>
-    <figure>
-      <title>Objekttyp Organisation</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/datenmodell_organisation.png" />
-        </imageobject>
-        <textobject><phrase>Objekttyp Organisation</phrase></textobject>
-      </mediaobject>
-    </figure>
     <sect3 id="eigenschaften-2">
       <title>Eigenschaften</title>
       <variablelist>
@@ -3225,15 +3340,6 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können
       referenziert werden.
     </para>
-    <figure>
-      <title>Objekttyp Meeting</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/datenmodell_sitzung.png" />
-        </imageobject>
-        <textobject><phrase>Objekttyp Meeting</phrase></textobject>
-      </mediaobject>
-    </figure>
     <sect3 id="eigenschaften-3">
       <title>Eigenschaften</title>
       <variablelist>
@@ -3393,15 +3499,6 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
     <para>
       Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
     </para>
-    <figure>
-      <title>Objekttyp AgendaItem</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/datenmodell_tagesordnungspunkt.png" />
-        </imageobject>
-        <textobject><phrase>Objekttyp AgendaItem</phrase></textobject>
-      </mediaobject>
-    </figure>
     <sect3 id="eigenschaften-4">
       <title>Eigenschaften</title>
       <variablelist>
@@ -3581,15 +3678,6 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       Ratsinformationssystemen unveränderliche Kennungen der Drucksachen
       zum Einsatz.
     </para>
-    <figure>
-      <title>Objekttyp Paper</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/datenmodell_drucksache.png" />
-        </imageobject>
-        <textobject><phrase>Objekttyp Paper</phrase></textobject>
-      </mediaobject>
-    </figure>
     <para>
       Jede Drucksache ist über die Eigenschaft &quot;Typ&quot; als eine
       der folgenden Arten von Drucksachen gekennzeichnet:
@@ -3813,15 +3901,6 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       Im Unterschied zur Drucksache benötigt das Dokument keine
       nutzerfreundliche Kennung.
     </para>
-    <figure>
-      <title>Objekttyp Document</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/datenmodell_dokument.png" />
-        </imageobject>
-        <textobject><phrase>Objekttyp Document</phrase></textobject>
-      </mediaobject>
-    </figure>
     <sect3 id="eigenschaften-6">
       <title>Eigenschaften</title>
       <variablelist>
@@ -3970,15 +4049,6 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       in GeoJSON. Sämtliche Geo-Koordinatenangaben werden in in OParl im
       WGS-84-System [11] erwartet.
     </para>
-    <figure>
-      <title>Objekttyp Location</title>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/datenmodell_ort.png" />
-        </imageobject>
-        <textobject><phrase>Objekttyp Location</phrase></textobject>
-      </mediaobject>
-    </figure>
     <sect3 id="eigenschaften-7">
       <title>Eigenschaften</title>
       <variablelist>

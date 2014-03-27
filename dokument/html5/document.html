@@ -620,36 +620,95 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>abgerufen. Sofern sich an der Tabelle zwischen den beiden Abfragen nichts geändert hat, liefert die zweite Abfrage Datensätze mit <code>id</code> &gt; 10 aus. Sollte zwischen den beiden Abfragen jedoch beispielsweise der Datensätze mit der <code>id</code> 1 gelöscht worden sein, liefert die zweite Abfrage Datensätze mit <code>id</code> &gt; 9. In diesem Fall würde dies nur dazu führen, dass ein Datensatz (<code>id</code> = 10) zweimal ausgegeben wird. Bei ungünstigeren Konstellationen wäre auch denkbar, dass eine instabile Paginierung bewirkt, dass einzelne Datensätze beim Paginieren übergangen werden.</p>
 <p>Besser wäre es, bei der Paginierung die Eintragsgrenze, bei der eine Listenseite beginnen soll, explizit zu benennen. Wurden auf der ersten Listenseite die Datensätze mit den <code>id</code>s 1 bis 10 ausgegeben, so könnte der Folgeaufruf, um beim SQL-Beispiel zu bleiben, so aussehen:</p>
 <pre class="sourceCode sql" id="objektlisten_ex5"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> example <span class="kw">WHERE</span> <span class="kw">id</span> &gt; <span class="dv">10</span> <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span> <span class="kw">LIMIT</span> <span class="dv">10</span></code></pre>
-<p>(Hier geht es darum, wie Listen von Objekten ausgegeben werden.</p>
-<ul>
-<li>Einschränkung auf Datumsbereiche</li>
-</ul>
-<p>Dazu:</p>
-<ul>
-<li>https://github.com/OParl/specs/issues/66</li>
-<li>https://github.com/OParl/specs/issues/30 )</li>
-</ul>
+<p>TODO: Bestimmte Listen können mit Einschränkung auf einen Datumsbereich abgefragt werden. Mehr dazu in https://github.com/OParl/specs/issues/30 Fraglich ist, ob das in diesem Kapitel behandelt werden sollte oder in einem anderen.</p>
+</section>
+<section class="level3" id="listen-als-eigenschaften-von-objekten">
+<h3><span class="header-section-number">4.7.2</span> Listen als Eigenschaften von Objekten</h3>
+<p>TODO: Listen können auch als Werte von Objekteigenschaften auftreten. Hierbei gibt es keine Paginierung, sondern es müssen alle URLs aufgelistet werden. Das ist auszuformulieren und mit Beispielen zu zeigen.</p>
 </section>
 </section>
 <section class="level2" id="feeds">
 <h2><span class="header-section-number">4.8</span> Feeds</h2>
+<p>Feeds sind spezielle Arten von <a href="#objektlisten">Objektlisten</a>, für die besondere Anforderungen gelten. Es werden drei verschiedene Feeds spezifiziert.</p>
+<p>Der Begriff &quot;Feed&quot; ist eine Anlehnung an die weit verbreiteten RSS- oder Atom-Feeds, deren Publikationslogik im Wesentlichen auf der chronologischen Sortierung beruht. Im Unterschied zu Atom oder RSS ist hier jedoch keine XML-Ausgabe beabsichtigt.</p>
+<p>Die Feeds sollen es Clients ermöglichen, schnelle und ressourcenschonende abzufragen, welche Objekte auf dem Server neu hinzugefügt, geändert oder entfernt wurden. Ziel ist, zu verhindern, dass Clients zur Aktualisierung ihres Caches den gesamten Datenbestand eines Servers abrufen müssen.</p>
+<p>Ein OParl-Server SOLL jeden der nachfolgend beschriebenen Feeds anbieten, sofern möglich.</p>
+<p>Für alle Feeds drei gilt, dass mindestens ein Zeitraum von 365 Tagen, gerechnet vom Zeitpunkt der Abfrage, abgedeckt werden SOLL.</p>
+<section class="level3" id="der-feed-neue-objekte">
+<h3><span class="header-section-number">4.8.1</span> Der Feed &quot;Neue Objekte&quot;</h3>
+<p>Der Feed für neue Objekte listet die URLs neu hinzugekommener Objekte in der Reihenfolge des Datums ihrer Erstellung, wobei die jüngsten Objekte zuerst ausgegeben werden.</p>
+<p>Die Definition, was ein &quot;neues&quot; Objekt bzw. die &quot;Erstellung&quot; bedeutet, kann zwischen Systemen und Objekttypen variieren. So werden bestimmte Objekte in einigen Systemen zunächst erstellt und erst dann für die Öffentlichkeit freigegeben. In diesem Fall ist im Sinne dieses Feeds die Freigabe als Zeitpunkt der Erstellung zu verwenden.</p>
+<p>Der Feed SOLL sämtliche Objekttypen umfassen, die in einem System geführt werden.</p>
+<p>Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:</p>
+<pre class="sourceCode json" id="feed_ex1"><code class="sourceCode json">{
+    <span class="dt">&quot;items&quot;</span>: [
+        {
+            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/21/documents/3&quot;</span>,
+            <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2014-01-07T12:59:01.038+0100&quot;</span>
+        },
+        {
+            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/21&quot;</span>,
+            <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2014-01-05T18:29:37.123+0100&quot;</span>
+        },
+        {
+            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/20/documents/5&quot;</span>,
+            <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2014-01-04T11:26:48.638+0100&quot;</span>
+        },
+        <span class="er">...</span>
+    ],
+    <span class="dt">&quot;nextpage&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/feeds/new/?t=20140106170100402&quot;</span>
+}</code></pre>
+<p>Wie im Beispiel zu sehen ist, enthält die Eigenschaft <code>items</code> eine Liste mit unbenannten Objekten. Dies ist ein Unterschied zu herkömmlichen Objektlisten, bei denen an dieser Stelle lediglich URLs als Listeneinträge erwartet werden.</p>
+<p>Jedes der Objekte in der <code>items</code>-Liste MUSS seinerseits wiederum zwei Eigenschaften besitzen:</p>
 <ul>
-<li>Warum Feeds?</li>
-<li>Möglichst ressourcenschonendes Auffinden neuer und geänderter Objekte</li>
-<li><p>Cache-Invalidierung, Entfernung von gelöschten/depublizierten Objekten</p></li>
-<li><p>https://github.com/OParl/specs/issues/19</p></li>
+<li><code>@id</code>: Die URL des neuen Objekts</li>
+<li><code>created</code>: Der Zeitpunkt der Erzeugung des Objekts</li>
 </ul>
-<section class="level3" id="neue-objekte">
-<h3><span class="header-section-number">4.8.1</span> Neue Objekte</h3>
+<p>Wie für Objektlisten üblich, SOLL auch für Feeds automatisch eine Aufteilung auf mehrere Seiten vorgenommen und ein Paginierungs-Link angeboten werden, um die übertragenen Datenmengen je Abruf einzugrenzen.</p>
+<p>Der jeweils in der Eigenschaft <code>created</code> ausgegebene Zeitpunkt SOLL vom Server als Sortierkriterium der Liste genutzt werden. So können Clients den jeweils am Anfang der Liste vorgefundenen Zeitpunkt als Begrenzung für die zukünftige Abfrage des Feeds nutzen. Ein Beispiel zur Erläuterung:</p>
+<p>Am 1. April 2014 ruft ein Client den Feed ab und findet im ersten Listeneintrag den <code>created</code>-Zeitpunkt <code>2014-03-31T18:02:34.058+0200</code> vor, den er sich als Grenzwert merkt. Beim nächsten Abruf des Feeds einige Tage später muss der Client die Liste nur so weit abarbeiten, so lange der <code>created</code>-Zeitpunkt der Einträge größer oder gleich dem Grenzwert ist.</p>
 </section>
-<section class="level3" id="geänderte-objekte">
-<h3><span class="header-section-number">4.8.2</span> Geänderte Objekte</h3>
+<section class="level3" id="der-feed-geänderte-objekte">
+<h3><span class="header-section-number">4.8.2</span> Der Feed &quot;Geänderte Objekte&quot;</h3>
+<p>Der Feed für geänderte Objekte listet die URLs geänderter Objekte in der Reihenfolge des Datums ihrer Änderung, wobei das zuletzt Objekt zuerst ausgegeben wird.</p>
+<p>Die Definition einer &quot;Änderung&quot; kann sich zwischen den Objekttypen unterscheiden. Tendenziell soll die Definition eher weiter ausgelegt werden, als enger. Als Änderung einer Organisation könnte es beispielsweise verstanden werden, wenn ein neues Mitglied zur Organisation hinzukommt. Das Erstellen eines Objekts (im Sinne des Feeds &quot;Neue Objekte&quot;) sollte hingegen nicht als Änderung gewertet werden, um das redundante Erscheinen eines neuen Objekts sowohl im Feed &quot;Neue Objekte&quot; als auch im Feed &quot;Geänderte Objekte&quot; zu vermeiden.</p>
+<p>Auch hier SOLL der Feed sämtliche Objekttypen umfassen, die in einem System geführt werden.</p>
+<pre class="sourceCode json" id="feed_ex2"><code class="sourceCode json">{
+    <span class="dt">&quot;items&quot;</span>: [
+        {
+            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/0/documents/2&quot;</span>,
+            <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2014-01-08T14:28:31.568+0100&quot;</span>
+        },
+        {
+            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/0&quot;</span>,
+            <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2014-01-08T12:14:27.958+0100&quot;</span>
+        },
+        {
+            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/0/documents/1&quot;</span>,
+            <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2014-01-06T17:01:00.402+0100&quot;</span>
+        },
+        <span class="er">...</span>
+    ],
+    <span class="dt">&quot;nextpage&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/feeds/updated/?t=20140106170100402&quot;</span>
+}</code></pre>
+<p>Das Ausgabeformat entspricht weitgehend dem des Feeds &quot;Neue Objekte&quot;, jedoch heißt hier die Eigenschaft für den Zeitpunkt der letzten Änderung <code>last_modified</code>. Auch hier gilt, dass der als <code>last_modified</code> ausgegebene Zeitpunkt auch als Sortierkriterium der Liste gelten SOLL.</p>
 </section>
-<section class="level3" id="entfernte-objekte">
-<h3><span class="header-section-number">4.8.3</span> Entfernte Objekte</h3>
-<ul>
-<li>Liste von Objekt-URLs</li>
-</ul>
+<section class="level3" id="der-feed-entfernte-objekte">
+<h3><span class="header-section-number">4.8.3</span> Der Feed &quot;Entfernte Objekte&quot;</h3>
+<p>Der Feed für entferne Objekte listet die URLs entfernter Objekte in der Reihenfolge des Datums ihrer Entfernung auf, wobei die zuletzt entfernten Objekte zuerst ausgegeben werden.</p>
+<p>Mit &quot;Entfernung&quot; ist im Sinne dieses Feeds die Löschung eines Objekts, aber auch die Depublikation oder das Beenden der öffentlichen Verfügbarkeit gemeint.</p>
+<p>Client-Implementierer sind angehalten, diesen Feed zu nutzen, um beispielsweise depublizierte Dokumente aus ihren lokalen Caches zu entfernen.</p>
+<pre class="sourceCode json" id="feed_ex3"><code class="sourceCode json">{
+    <span class="dt">&quot;items&quot;</span>: [
+        {
+            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/people/22&quot;</span>,
+            <span class="dt">&quot;removed&quot;</span>: <span class="st">&quot;2013-11-11T11:11:00.000+0100&quot;</span>
+        },
+        <span class="er">...</span>
+    ],
+    <span class="dt">&quot;nextpage&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/feeds/updated/?t=20131111111100&quot;</span>
+}</code></pre>
+<p>Die Eigenschaft zur Angabe des Entfernugnszeitpunkts heißt hier <code>removed</code> und SOLL, analog zu den beiden anderen Feeds, als Sortierkriterium der Liste verwendet werden.</p>
 </section>
 </section>
 <section class="level2" id="dokumentenabruf">
@@ -808,9 +867,6 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Dieser Objekttyp erlaubt es, eine Körperschaft abzbilden. Eine Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder ein Zweckverband sein.</p>
 <p>Von einem funktionsfähigen Server wird erwartet, dass er mindestens ein Objekt vom Typ <code>oparl:Body</code> bereit hält. Teilen sich mehrere Körperschaften das selbe technische System, können auf demselben Server auch mehrere Objekte vom Typ <code>oparl:Body</code> beherbergt werden.</p>
 <p>Über die Zuordnung zu einem bestimmten <code>oparl:Body</code> Objekt zeigen andere Objekte, wie beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit zu einer bestimmten Körperschaft an.</p>
-<figure>
-<img src="images/datenmodell_koerperschaft.png" alt="Objekttyp oparl:Body"><figcaption>Objekttyp oparl:Body</figcaption>
-</figure>
 <p>Es werden mehrere Eigenschaften angeboten, die dazu dienen, die real existierende Körperschaft, die von einem <code>oparl:Body</code> Objekt repräsentiert wird, programmatisch auslesbar zu machen zu können. Insbesondere sind hier die Eigenschaften <code>url</code>, <code>rgs</code> und <code>gnd_url</code> zu nennen.</p>
 <section class="level3" id="eigenschaft-system">
 <h3><span class="header-section-number">5.3.1</span> Eigenschaft <code>system</code></h3>
@@ -894,9 +950,6 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <section class="level2" id="oparlcommittee-gremium">
 <h2><span class="header-section-number">5.4</span> oparl:Committee (Gremium)</h2>
 <p>Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat, Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.</p>
-<figure>
-<img src="images/datenmodell_gremium.png" alt="Objekttyp Committee"><figcaption>Objekttyp Committee</figcaption>
-</figure>
 <section class="level3" id="eigenschaften">
 <h3><span class="header-section-number">5.4.1</span> Eigenschaften</h3>
 <dl>
@@ -936,9 +989,6 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <section class="level2" id="oparlperson-person">
 <h2><span class="header-section-number">5.5</span> oparl:Person (Person)</h2>
 <p>Jede natürliche Person, die Mitglied eines Gremiums ist, ist als <code>oparl:Person</code> im Datenmodell eindeutig identifizierbar.</p>
-<figure>
-<img src="images/datenmodell_person.png" alt="Objekttyp Person"><figcaption>Objekttyp Person</figcaption>
-</figure>
 <section class="level3" id="eigenschaften-1">
 <h3><span class="header-section-number">5.5.1</span> Eigenschaften</h3>
 <dl>
@@ -1028,9 +1078,6 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <section class="level2" id="oparlorganization-organisation">
 <h2><span class="header-section-number">5.6</span> oparl:Organization (Organisation)</h2>
 <p>Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die Personen angehören können.</p>
-<figure>
-<img src="images/datenmodell_organisation.png" alt="Objekttyp Organisation"><figcaption>Objekttyp Organisation</figcaption>
-</figure>
 <section class="level3" id="eigenschaften-2">
 <h3><span class="header-section-number">5.6.1</span> Eigenschaften</h3>
 <dl>
@@ -1073,9 +1120,6 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <h2><span class="header-section-number">5.7</span> oparl:Meeting (Sitzung)</h2>
 <p>Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.</p>
 <p>Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in entsprechender Form referenziert. Verschiedene Dokumente (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.</p>
-<figure>
-<img src="images/datenmodell_sitzung.png" alt="Objekttyp Meeting"><figcaption>Objekttyp Meeting</figcaption>
-</figure>
 <section class="level3" id="eigenschaften-3">
 <h3><span class="header-section-number">5.7.1</span> Eigenschaften</h3>
 <dl>
@@ -1139,9 +1183,6 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <h2><span class="header-section-number">5.8</span> oparl:AgendaItem (Tagesordnungspunkt)</h2>
 <p>Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. Unter Umständen kann dem Tagesordnungspunkt ein bestimmter Beschlusstext beigefügt sein.</p>
 <p>Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.</p>
-<figure>
-<img src="images/datenmodell_tagesordnungspunkt.png" alt="Objekttyp AgendaItem"><figcaption>Objekttyp AgendaItem</figcaption>
-</figure>
 <section class="level3" id="eigenschaften-4">
 <h3><span class="header-section-number">5.8.1</span> Eigenschaften</h3>
 <dl>
@@ -1202,9 +1243,6 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen, Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede Drucksache erhält eine eindeutige Kennung.</p>
 <p>Die Drucksache hat im Informationsmodell eine hervorgehobene Bedeutung. Im Fall eines Antrags kann mit einer einzigen Drucksache ein über Monate oder Jahre dauernder politischer Entscheidungsprozess verbunden sein. In dem Zusammenhang entstehen üblicherweise weitere Drucksachen.</p>
 <p>Drucksachen spielen in der schriftlichen wie mündlichen Kommunikation eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in Ratsinformationssystemen unveränderliche Kennungen der Drucksachen zum Einsatz.</p>
-<figure>
-<img src="images/datenmodell_drucksache.png" alt="Objekttyp Paper"><figcaption>Objekttyp Paper</figcaption>
-</figure>
 <p>Jede Drucksache ist über die Eigenschaft &quot;Typ&quot; als eine der folgenden Arten von Drucksachen gekennzeichnet:</p>
 <ul>
 <li><strong>Beschlussvorlage</strong>: Entscheidungsvorschlag der Verwaltung</li>
@@ -1290,9 +1328,6 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Ein Dokument hält Metadaten einer Datei vor, beispielsweise einer PDF-Datei, eines RTF- oder ODF-Dokuments (oder auch einer Datei in einem proprietären Format).</p>
 <p>Wird von einem Dokument in einem Nicht-PDF-Format (z.B. RTF oder ODF) eine PDF-Ableitung hinterlegt, ist diese Ableitung ebenfalls ein Dokument. Um zu zeigen, dass es sich um eine Ableitung handelt, verweist dieses auf das Original als &quot;Master&quot;.</p>
 <p>Im Unterschied zur Drucksache benötigt das Dokument keine nutzerfreundliche Kennung.</p>
-<figure>
-<img src="images/datenmodell_dokument.png" alt="Objekttyp Document"><figcaption>Objekttyp Document</figcaption>
-</figure>
 <section class="level3" id="eigenschaften-6">
 <h3><span class="header-section-number">5.10.1</span> Eigenschaften</h3>
 <dl>
@@ -1348,9 +1383,6 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <h2><span class="header-section-number">5.12</span> oparl:Location (Ort)</h2>
 <p>Dieser Objekttyp dient dazu, einen Ortsbezug einer Drucksache formal abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen (beispielsweise der Name einer Straße/eines Platzes oder eine genaue Adresse) als auch aus Geodaten.</p>
 <p>OParl sieht die Angabe von Geodaten in Anlehnung an die GeoJSON-Spezifikation [13] vor. Die GeoJSON-Spezifikation erlaubt die Abbildung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden und Polygonen. Während GeoJSON zu jedem Geodaten-Objekt auch die Speicherung zusätzlicher Metadaten ermöglicht, beschränkt sich OParl ledliglich auf das <code>geometry</code>-Attribut in GeoJSON. Sämtliche Geo-Koordinatenangaben werden in in OParl im WGS-84-System [11] erwartet.</p>
-<figure>
-<img src="images/datenmodell_ort.png" alt="Objekttyp Location"><figcaption>Objekttyp Location</figcaption>
-</figure>
 <section class="level3" id="eigenschaften-7">
 <h3><span class="header-section-number">5.12.1</span> Eigenschaften</h3>
 <dl>

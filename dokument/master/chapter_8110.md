@@ -9,8 +9,6 @@ Wird von einem Dokument in einem Nicht-PDF-Format (z.B. RTF oder ODF) eine PDF-A
 Im Unterschied zur Drucksache benötigt das Dokument keine nutzerfreundliche 
 Kennung.
 
-![Objekttyp Document](images/datenmodell_dokument.png)
-
 ### Eigenschaften ###
 Schlüssel (`id`)
 :   Unveränderliche Kennung

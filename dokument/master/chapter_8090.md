@@ -9,8 +9,6 @@ beigefügt sein.
 
 Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
 
-![Objekttyp AgendaItem](images/datenmodell_tagesordnungspunkt.png)
-
 ### Eigenschaften ###
 
 Nummer (`identifier`)

@@ -6,8 +6,6 @@ ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat,
 Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten Sitzungen 
 ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
-![Objekttyp Committee](images/datenmodell_gremium.png)
-
 
 ### Eigenschaften ###
 

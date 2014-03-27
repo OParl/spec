@@ -6,6 +6,27 @@ parlamentarischen Informationssystem ab. Das Objekt repräsentiert
 das technische System, unabhängig von der Frage, welche Körperschaften
 auf diesem System vertreten sind.
 
+Ein Beispiel:
+
+~~~~~  {#system_ex1 .json}
+{
+    "@type": "oparl:System",
+    "@id": "http://beispielris.de/",
+    "oparl_version": "http://oparl.org/specs/1.0/",
+    "name": "Beispiel-System",
+    "www_url": "http://www.beispielris.de/",
+    "contact_email": "mailto:info@beispielris.de",
+    "contact_name": "Allgemeiner OParl Kontakt",
+    "vendor": "http://example-software.com/",
+    "product": "http://example-software.com/oparl-server/",
+    "license": "http://creativecommons.org/licenses/by/4.0/",
+    "bodies": "http://beispielris.de/bodies/",
+    "new_objects": "http://beispielris.de/new_objects/",
+    "updated_objects": "http://beispielris.de/updated_objects/",
+    "removed_objects": "http://beispielris.de/removed_objects"
+}
+~~~~~
+
 Auf jedem OParl Server MUSS ein Objekt vom Typ `oparl:System` vorgehalten
 werden. Es DARF nur ein einziges solches Objekt je Server existieren.
 
@@ -13,129 +34,62 @@ Für Clients ist das `oparl:System` Objekt ein geeigneter Einstiegspunkt,
 um grundlegende Informationen über das Sytem zu bekommen und die URLs
 zum Zugriff auf andere Informationen in Erfahrung zu bringen.
 
-Die URL (IRI) des `oparl:System` Objekts MUSS per Definition identisch mit
+Die URL des `oparl:System` Objekts MUSS per Definition identisch mit
 der URL des API-Endpunkts des Servers sein.
 
-### Eigenschaft `oparl_version`
+### Eigenschaften
 
-Diese Eigenschaft ist ZWINGEND.
+`oparl_version`
+:   Die URL der OParl-Spezifikation, die von diesem Server unterstützt 
+    wird. Der Wert MUSS die URL `http://oparl.org/specs/1.0/` sein.
+    Diese Eigenschaft ist ZWINGEND.
 
-URL der Version der OParl-Spezifikation, die von diesem System unterstützt wird.
-So lange es nur die Version 1.0 der OParl-Spezifikation gibt, MUSS der Wert dieser
-Eigenschaft `http://oparl.org/specs/1.0/` sein.
+`bodies`
+:   Liste der URLs der [`oparl:Body`](#oparl_body)-Objekte, also der 
+    Körperschaften, die auf dem System vorliegen. Alternativ kann statt 
+    einer Liste eine einzelne URL zum Abruf der Liste angeboten werden. 
+    Die Eigenschaft ist ZWINGEND.
 
-Sofern zukünftig weitere Versionen der Spezifikation vorliegen, können Clients damit
-in Erfahrung bringen, welches Schema, welche Eigenschaften und Methoden auf Seite des
-Servers vorausgesetzt werden können.
+`name`
+:   Nutzerfreundlicher Name für das System, mit dessen Hilfe Nutzer das
+    System erkennen und von anderen unterscheiden können. Diese Eigenschaft
+    wird EMPFOHLEN.
 
-### Eigenschaft `bodies`
+`contact_email`
+:   E-Mail-Adresse für Anfragen zur OParl-API. Diese Eigenschaft wird 
+    EMPFOHLEN. Die Angabe einer E-Mail-Adresse dient sowohl NutzerInnen
+    wie auch EntwicklerInnen von Clients zur Kontaktaufnahme mit dem
+    Betreiber. 
 
-Diese Eigenschaft ist ZWINGEND.
+`contact_name`
+:   Name des Ansprechpartners oder der Abteilung, die über die `contact_email`
+    erreicht werden kann. Die Eigenschaft ist EMPFOHLEN. Typ: Zeichenkette.
 
-Über diese URL sind alle `oparl:Body` Objekte, also die im System geführten Körperschaften, als Liste abrufbar.
+`license`
+:   URL der Lizenz, die für die Daten, die über diese API abgerufen werden
+    können, gilt, sofern nicht am einzelnen Objekt anders angegeben.
+    Die Eigenschaft ist EMPFOHLEN.
 
-TODO: Verweis auf `oparl:Body` einfügen
+`new_objects`
+:   URL des Feeds ["Neue Objekte"](#feed_neue_objekte). Die Eigenschaft ist 
+    EMPFOHLEN.
 
-### Eigenschaft `name`
+`updated_objects`
+:   URL des Feeds ["Geänderte Objekte"](#feed_geaenderte_objekte). Die 
+    Eigenschaft ist EMPFOHLEN.
 
-Diese Eigenschaft wird EMPFOHLEN.
+`removed_objects`
+:   URL des Feeds ["Entfernte Objekte"](#feed_entfernte_objekte). Die 
+    Eigenschaft ist EMPFOHLEN.
 
-Diese Eigenschaft dient dazu, einen nutzerfreundlichen Namen zu kommunizieren, mit dem
-NutzerInnen das System wiedererkennen und von anderen unterscheiden können.
+`www_url`
+:   URL zur WWW-Oberfläche des parlamentarischen Informationssystem.
+    Diese Eigenschaft ist OPTIONAL.
 
-### Eigenschaft `contact`
+`vendor`
+:   URL des Software-Anbieters, von dem die OParl-Server-Software stammt.
+    Diese Eigenschaft ist OPTIONAL.
 
-Diese Eigenschaft wird EMPFOHLEN.
-
-Die Eigenschaft dient dazu, NutzerInnen bzw. EntwicklerInnen von Clients die Kontaktaufnahme
-mit dem Betreiber des Systems zu ermöglichen. Es wird EMPFOHLEN, hier die Kontaktdaten
-eines technischen Ansprechpartners bzw. einer allgemeinen Kontaktstelle auszugeben, über die
-Anfragen verschiedener Art an die richtige Kontaktperson umgeleitet werden können.
-
-Der Wert dieser Eigenschaft MUSS ein Objekt vom Typ `oparl:Contact` sein.
-
-TODO: Verweis auf `oparl:Contact` einfügen.
-
-### Eigenschaft `license`
-
-Diese Eigenschaft wird EMPFOHLEN.
-
-Die Eigenschaft dient dazu, darüber zu informieren, unter welcher Lizenz die Daten
-des aktuell angezeigten Objekts stehen. Zur Vererbung dieser Eigenschaft siehe
-(TODO: Verweis auf Abschnitt zur Lizenz-Vererbung einfügen).
-
-Der Wert dieser Eigenschaft sollte nach Möglichkeit eine URL sein, unter der genau die
-entsprechende Lizenz abgerufen werden kann.
-
-### Eigenschaft `new_objects`
-
-Diese Eigenschaft ist EMPFOHLEN.
-
-Mit dieser Eigenschaft wird die URL des Feeds für neu hinzugekommene Objekte ausgegeben.
-
-TODO: Verweis auf Feeds > Neue Objekte
-
-### Eigenschaft `updated_objects`
-
-Diese Eigenschaft ist EMPFOHLEN.
-
-Mit dieser Eigenschaft wird die URL des Feeds für geänderte Objekte ausgegeben.
-
-TODO: Verweis auf Feeds > Geänderte Objekte
-
-### Eigenschaft `removed_objects`
-
-Diese Eigenschaft ist EMPFOHLEN.
-
-Mit dieser Eigenschaft wird die URL des Feeds für entfernte Objekte ausgegeben.
-
-TODO: Verweis auf Feeds > Entfernte Objekte
-
-### Eigenschaft `info`
-
-Diese Eigenschaft ist OPTIONAL.
-
-Diese Eigenschaft dient dazu, eine zusätzliche URL zu einer
-WWW-Seite mit zusätzlichen Informationen zum System anzubieten. So könnten NutzerInnen
-beispielsweise auf eine Web-Oberfläche eines parlamentarischen Informationssystems
-geführt werden.
-
-### Eigenschaft `vendor`
-
-Diese Eigenschaft ist OPTIONAL.
-
-Diese Eigenschaft dient dazu, über eine URL den Hersteller des Server-Systems zu komunizieren.
-Die URL sollt nach Möglichkeit zu einer WWW-Seite mit weiteren Informationen zum Hersteller führen.
-
-### Eigenschaft `product`
-
-Diese Eigenschaft ist OPTIONAL.
-
-Diese Eigenschaft dient dazu, über eine URL mitzuteilen, welches Softwareprodukt
-das Server-System bereitstellt. Die URL soll nach Möglichkeit zu einer WWW-Seite
-mit weiteren Informationen zum Produkt führen.
-
-
-
-### Beispiel
-
-~~~~~  {#OParlSystem_ex1 .json}
-{
-    "@id": "http://refserv.oparl.org/",
-    "@context": "http://oparl.org/schema/1.0/System",
-    "oparl_version": "http://oparl.org/specs/1.0/",
-    "name": "OParl Reference Server",
-    "info": "https://github.com/OParl/reference-server",
-    "contact": {
-        "email": "info@oparl.org",
-        "name": "Common OParl contact"
-    }, 
-    "vendor": "http://oparl.org/",
-    "product": "https://github.com/OParl/reference-server",
-    "license": "http://creativecommons.org/licenses/by/4.0/",
-    "bodies": "http://refserv.oparl.org/bodies/",
-    "new_objects": "http://refserv.oparl.org/feeds/new/",
-    "updated_objects": "http://refserv.oparl.org/feeds/updated/",
-    "removed_objects": "http://refserv.oparl.org/feeds/removed/"
-}
-~~~~~
+`product`
+:   URL mit Informationen zu der auf dem System genutzten OParl-Server-Software.
+    Diese Eigenschaft ist OPTIONAL.

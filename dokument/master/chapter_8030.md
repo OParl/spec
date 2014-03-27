@@ -1,4 +1,4 @@
-OParlSystem (System)
+oparl:System (System)   {#oparl_system}
 --------------------
 
 Der Objekttyp `oparl:System` bildet grundlegende Informationen zum

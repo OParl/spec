@@ -1,4 +1,4 @@
-oparl:Organization (Organisation)
+oparl:Organization (Organisation)  {#oparl_organization}
 --------------------------------
 
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die 

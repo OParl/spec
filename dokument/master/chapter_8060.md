@@ -1,4 +1,4 @@
-oparl:Person (Person)
+oparl:Person (Person)  {#oparl_person}
 --------------------
 
 Jede natürliche Person, die Mitglied eines Gremiums ist, ist als `oparl:Person` im 

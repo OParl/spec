@@ -1,4 +1,4 @@
-oparl:Location (Ort)
+oparl:Location (Ort)  {#oparl_location}
 -------------------
 
 Dieser Objekttyp dient dazu, den Ortsbezug einer Drucksache formal 

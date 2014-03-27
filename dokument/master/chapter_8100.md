@@ -1,4 +1,4 @@
-oparl:Paper (Drucksache)
+oparl:Paper (Drucksache)  {#oparl_paper}
 -----------------------
 
 Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen, 

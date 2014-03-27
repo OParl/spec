@@ -1,4 +1,4 @@
-oparl:Meeting (Sitzung)
+oparl:Meeting (Sitzung)  {#oparl_meeting}
 ----------------------
 
 Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder mehrerer

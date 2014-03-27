@@ -1,4 +1,4 @@
-oparl:Body (Körperschaft)
+oparl:Body (Körperschaft)   {#oparl_body}
 ------------------------
 
 Dieser Objekttyp erlaubt es, eine Körperschaft abzbilden. Eine Körperschaft

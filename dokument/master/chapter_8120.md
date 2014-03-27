@@ -1,8 +1,8 @@
-oparl:Consultation (Beratung)
+oparl:Consultation (Beratung)  {#oparl_consultation}
 ----------------------------
 
 Der Objekttyp `oparl:Consultation` dient dazu, die Beratung einer Drucksache
-(`oparl:Paper`) in einer Sitzung abzubilden. Dabei ist es nicht entscheidend,
+([`oparl:Paper`](#oparl_paper)) in einer Sitzung abzubilden. Dabei ist es nicht entscheidend,
 ob diese Beratung in der Vergangenheit stattgefunden hat oder diese für die
 Zukunft geplant ist.
 

@@ -1,4 +1,4 @@
-oparl:Committee (Gremium)
+oparl:Committee (Gremium)  {#oparl_committee}
 ------------------------
 
 Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder 

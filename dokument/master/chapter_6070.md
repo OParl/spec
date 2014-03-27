@@ -1,4 +1,4 @@
-Feeds
+Feeds  {#feeds}
 -----
 
 Feeds sind spezielle Arten von [Objektlisten](#objektlisten), für die
@@ -21,7 +21,7 @@ sofern möglich.
 Für alle Feeds drei gilt, dass mindestens ein Zeitraum von 365 Tagen, 
 gerechnet vom Zeitpunkt der Abfrage, abgedeckt werden SOLL.
 
-### Der Feed "Neue Objekte"
+### Der Feed "Neue Objekte" ### {#feed_neue_objekte}
 
 Der Feed für neue Objekte listet die URLs neu hinzugekommener Objekte in
 der Reihenfolge des Datums ihrer Erstellung, wobei die jüngsten Objekte
@@ -84,7 +84,7 @@ Grenzwert merkt. Beim nächsten Abruf des Feeds einige Tage später muss der
 Client die Liste nur so weit abarbeiten, so lange der `created`-Zeitpunkt der
 Einträge größer oder gleich dem Grenzwert ist.
 
-### Der Feed "Geänderte Objekte"
+### Der Feed "Geänderte Objekte" ### {#feed_geaenderte_objekte}
 
 Der Feed für geänderte Objekte listet die URLs geänderter Objekte in
 der Reihenfolge des Datums ihrer Änderung, wobei das zuletzt Objekt
@@ -128,7 +128,7 @@ heißt hier die Eigenschaft für den Zeitpunkt der letzten Änderung `last_modif
 Auch hier gilt, dass der als `last_modified` ausgegebene Zeitpunkt auch als
 Sortierkriterium der Liste gelten SOLL.
 
-### Der Feed "Entfernte Objekte"
+### Der Feed "Entfernte Objekte" ### {#feed_entfernte_objekte}
 
 Der Feed für entferne Objekte listet die URLs entfernter Objekte in
 der Reihenfolge des Datums ihrer Entfernung auf, wobei die zuletzt entfernten 

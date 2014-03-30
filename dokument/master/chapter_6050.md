@@ -40,7 +40,7 @@ burden on the content consumer. Higher quality data feeds use fewer
 blank nodes, or none. Instead, they have a clear concept of identity
 and service for every entity in their data.
 
-If someone in the middle tries to convert (Skolemize) blank nodes, it’s
+> If someone in the middle tries to convert (Skolemize) blank nodes, it’s
 a large burden on them. Specifically, they should provide web service
 for those new URIs, and if they get updated data from their sources,
 they’re going to have a very hard [perhaps impossible] time

@@ -17,9 +17,8 @@ Nachname (`last_name`)
 :   Der Nachname der Person.
 Titel (`academic_degree`)
 :   _Optional_. Akademische Titel wie "Dr." und "Prof. Dr.". Aber auch akademische Grade wie "Dipl. Inform." (die rechtlich nicht Teil des Namens sind) sind hier zugelassen.
-Geschlecht (`sex`)
-:   _Optional_. Weiblich (Wert `F` für _female_), männlich (Wert `M`
-    für _male_), anderes (Wert `O` für _others_)
+Geschlecht (`gender`)
+:   _Optional_. Weiblich (Wert `Female`), männlich (Wert `Male`), anderes (Wert `Other`), unbekannt (Wert `Unknown`)
 Beruf (`profession`)
 :   _Optional_. Z.B. "Rechtsanwalt"
 E-Mail-Adresse (`email`)

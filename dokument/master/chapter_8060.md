@@ -15,8 +15,8 @@ Vorname (`first_name`)
 :   Der Vorname der Person.
 Nachname (`last_name`)
 :   Der Nachname der Person.
-Titel (`academic_title`)
-:   _Optional_. Akademische Titel wie "Dr." und "Prof. Dr."
+Titel (`academic_degree`)
+:   _Optional_. Akademische Titel wie "Dr." und "Prof. Dr.". Aber auch akademische Grade wie "Dipl. Inform." (die rechtlich nicht Teil des Namens sind) sind hier zugelassen.
 Geschlecht (`sex`)
 :   _Optional_. Weiblich (Wert `F` für _female_), männlich (Wert `M`
     für _male_), anderes (Wert `O` für _others_)
@@ -60,7 +60,7 @@ Beziehungen sind ebenfalls datiert.
     "id": "1000",
     "first_name": "Max",
     "last_name": "Mustermann",
-    "academic_title": "Dr.",
+    "academic_degree": "Dr. oec. troph",
     "sex": "M",
     "profession": "Rechtsanwalt",
     "email": "max@mustermann.de",

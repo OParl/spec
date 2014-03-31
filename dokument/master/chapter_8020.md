@@ -1,4 +1,5 @@
-## A New Post
+Attribute mit Verwendung in mehreren Objekttypen
+------------------------------------------------
 
 Für Datum und Zeit werden die in XML Schema festgelegten Typen verwendet (was nicht bedeutet, dass in OParl XML verwendet wird).
 

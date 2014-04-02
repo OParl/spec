@@ -24,7 +24,8 @@ Kurzname (`short_name`)
 :   _Optional_. Eine zur Anzeige bestimmte, kürzere Form des Namens.
 Zuletzt geändert (`last_modified`)
 :   Datum und Uhrzeit der letzten Änderung
-
+Unterorganisation von (`subOrganizationOf`)
+:   _Optional_. Die übergeordnete Organisation (kann bei Unterausschüssen auch ein Ausschuss sein).
 
 ### Beziehungen ###
 

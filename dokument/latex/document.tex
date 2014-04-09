@@ -1476,8 +1476,27 @@ als auch direkt abgerufen werden.
 Nodes)}\label{anonyme-objekte-blank-nodes}
 
 Im Gegensatz dazu können Objekte existieren, die keine eigene URL haben.
-Ein Beispiel dafür findet sich in der Beratungsfolge einer Drucksache.
 
+Wenn diese im Semantic Web verwendet werden, dann führen sie zu
+erheblichen Problemen. Sandro Hawke (W3C) hat diese so zusammengefasst:
+
+\begin{quote}
+In general, blank nodes are a convenience for the content provider and a
+burden on the content consumer. Higher quality data feeds use fewer
+blank nodes, or none. Instead, they have a clear concept of identity and
+service for every entity in their data.
+\end{quote}
+
+\begin{quote}
+If someone in the middle tries to convert (Skolemize) blank nodes, it's
+a large burden on them. Specifically, they should provide web service
+for those new URIs, and if they get updated data from their sources,
+they're going to have a very hard {[}perhaps impossible{]} time
+understanding what really changed. (Zitiert nach
+http://richard.cyganiak.de/blog/2011/03/blank-nodes-considered-harmful/)
+\end{quote}
+
+Ein Beispiel dafür findet sich in der Beratungsfolge einer Drucksache.
 Das nachfolgende Beispiel zeigt eine Drucksache, deren Beratungsfolge
 über die Eigenschaft \texttt{consultations} kodiert ist.
 
@@ -1953,6 +1972,29 @@ Lizenzbedingung}\label{vererbung-der-lizenzbedingung}
 \subsubsection{Die Eigenschaft
 ``description''}\label{die-eigenschaft-description}
 
+\subsection{Attribute mit Verwendung in mehreren
+Objekttypen}\label{attribute-mit-verwendung-in-mehreren-objekttypen}
+
+Für Datum und Zeit werden die in XML Schema festgelegten Typen verwendet
+(was nicht bedeutet, dass in OParl XML verwendet wird).
+
+Für ein Datum wird http://www.w3.org/TR/xmlschema-2/\#date verwendet und
+für eine Zeit http://www.w3.org/TR/xmlschema-2/\#dateTime. Dabei wird
+ein Datum (ein Tag ohne Uhrzeit) ohne Zeitzone und ein Datum mit Zeit
+mit Zeitzone angegeben, denn nur damit ist die Uhrzeit weltweit
+eindeutig ohne zusätzlich auf den Ort einer Sitzung o.ä. Bezug nehmen zu
+müssen.
+
+Diese Spezifikationen stützen sich auf RFC 3339
+(http://www.ietf.org/rfc/rfc3339.txt) und RFC 3339 wiederum auf ISO
+8601.
+
+Im JSON-LD Kontext von OParl ist der Präfix `xsd' so spezifiziert, dass
+Datums- und Zeittyp durch `xsd:date' bzw. `xsd:dateTime' abgekürzt
+werden können.
+
+TODO: BEISPIELE
+
 \subsection{oparl:System (System)}\label{oparlux5fsystem}
 
 Der Objekttyp \texttt{oparl:System} bildet grundlegende Informationen
@@ -1995,6 +2037,56 @@ bringen.
 
 Die URL des \texttt{oparl:System} Objekts MUSS per Definition identisch
 mit der URL des API-Endpunkts des Servers sein.
+
+\subsubsection{Well-Known URIs}\label{well-known-uris}
+
+TODO: eventuell in eigenen Abschnitt oder eigenes Kapitel auslagern.
+
+Es gibt eine standardisierte Technik, mit der ein Einstiegspunkt in die
+OParl-Daten angegeben werden kann: ``Well-Known URIs''. Dieser kann dann
+maschinell gefunden werden. Diese Technik wurde durch die IETF und das
+W3C standardisiert.
+
+Die Spezifikation von ``Well-Known URIs'' durch die IETF ist:
+
+Defining Well-Known Uniform Resource Identifiers (URIs)
+http://tools.ietf.org/html/rfc5785
+
+Eine Liste der Well-Known URIs wird von der IANA verwaltet:
+
+Well-Known URIs
+http://www.iana.org/assignments/well-known-uris/well-known-uris.xhtml
+
+Für OParl sind gegenwärtig nur ``Well-Known URIs'' für Beschreibungen
+von Datasets gemäß dem ``Vocabulary of Interlinked Datasets'' (VoID)
+relevant.
+
+BEISPIEL:
+
+Wenn ein RIS unter der Domain ``example.com'' betrieben wird, dann sieht
+der ``Well-Known URI'' so aus (der enthaltene ``.'' ist \emph{kein}
+Schreibfehler):
+
+https://example.com/.well-known/void
+
+Forwarding ist erlaubt.
+
+Siehe dazu auch:
+
+Describing Linked Datasets with the VoID Vocabulary W3C Interest Group
+Note 03 March 2011 http://www.w3.org/TR/void/\#well-known
+
+Die über derartige URIs dereferenzierbaren Dokumente sind hier
+spezifiziert: http://www.w3.org/TR/void/\#void-file
+
+BEISPIEL:
+
+Bei einem http GET Request auf https://example.com/.well-known/void mit
+Angabe des bevorzugten MIME-Type ``application/ld+json'' antwortet das
+System mit dem URI https://example.com/.well-known/void.jsonld unter
+welchem dieses JSON-LD Dokument abrufbar ist:
+
+TODO: Beispiele für JSON-LD und exemplarisch auch für HTML.
 
 \subsubsection{Eigenschaften}\label{eigenschaften}
 
@@ -2048,9 +2140,36 @@ OParl-Server-Software. Diese Eigenschaft ist OPTIONAL.
 \hyperdef{}{oparlux5fbody}{\subsection{oparl:Body
 (Körperschaft)}\label{oparlux5fbody}}
 
-Dieser Objekttyp erlaubt es, eine Körperschaft abzbilden. Eine
-Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder ein
-Zweckverband sein.
+Der Objekttyp \texttt{oparl:Body} dient dazu, eine Körperschaft
+abzubilden. Eine Körperschaft kann beispielsweise eine Gemeinde, ein
+Landkreis oder ein Zweckverband sein.
+
+Ein Beispiel:
+
+\hyperdef{}{oparlbodyux5fex1}{\label{oparlbodyux5fex1}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/Body"}\NormalTok{,}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0"}\NormalTok{,}
+    \DataTypeTok{"system"}\NormalTok{: }\StringTok{"http://beispielris.de/"}\NormalTok{,}
+    \DataTypeTok{"committees"}\NormalTok{: }\StringTok{"http://beispielris.de/bodies/1/committees/"}\NormalTok{,}
+    \DataTypeTok{"contact_email"}\NormalTok{: }\StringTok{"ris@beispielstadt.de"}\NormalTok{,}
+    \DataTypeTok{"contact_name"}\NormalTok{: }\StringTok{"RIS-Betreuung"}\NormalTok{,}
+    \DataTypeTok{"rgs"}\NormalTok{: }\StringTok{"053150000000"}\NormalTok{,}
+    \DataTypeTok{"gnd_url"}\NormalTok{: }\StringTok{"http://d-nb.info/gnd/2015732-0"}\NormalTok{,}
+    \DataTypeTok{"meetings"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/meetings/"}\NormalTok{,}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Stadt K\textbackslash{}u00f6ln"}\NormalTok{,}
+    \DataTypeTok{"name_long"}\NormalTok{: }\StringTok{"Stadt K\textbackslash{}u00f6ln, kreisfreie Stadt"}\NormalTok{,}
+    \DataTypeTok{"organisations"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/organisations/"}\NormalTok{,}
+    \DataTypeTok{"papers"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/papers/"}\NormalTok{,}
+    \DataTypeTok{"people"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/people/"}\NormalTok{,}
+    \DataTypeTok{"www_url"}\NormalTok{: }\StringTok{"http://www.beispielstadt.de/"}
+    \StringTok{"created"}\ErrorTok{:} \StringTok{"2014-01-08T14:28:31.568+0100"}\NormalTok{,}
+    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2014-01-08T14:28:31.568+0100"}\NormalTok{,}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 Von einem funktionsfähigen Server wird erwartet, dass er mindestens ein
 Objekt vom Typ \texttt{oparl:Body} bereit hält. Teilen sich mehrere
@@ -2165,33 +2284,6 @@ Körperschaft.
 
 \subsubsection{Beispiel}\label{beispiel}
 
-\hyperdef{}{oparlbodyux5fex1}{\label{oparlbodyux5fex1}}
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0"}\NormalTok{,}
-    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/Body"}\NormalTok{,}
-    \DataTypeTok{"committees"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/committees/"}\NormalTok{,}
-    \DataTypeTok{"contact"}\NormalTok{: \{}
-        \DataTypeTok{"email"}\NormalTok{: }\StringTok{"ris@stadt-koeln.de"}\NormalTok{,}
-        \DataTypeTok{"name"}\NormalTok{: }\StringTok{"RIS-Betreuung"}
-    \NormalTok{\}, }
-    \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2014-01-08T14:28:31.568+0100"}\NormalTok{,}
-    \DataTypeTok{"gnd_url"}\NormalTok{: }\StringTok{"http://d-nb.info/gnd/2015732-0"}\NormalTok{,}
-    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2014-01-08T14:28:31.568+0100"}\NormalTok{,}
-    \DataTypeTok{"meetings"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/meetings/"}\NormalTok{,}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Stadt K\textbackslash{}u00f6ln"}\NormalTok{,}
-    \DataTypeTok{"name_long"}\NormalTok{: }\StringTok{"Stadt K\textbackslash{}u00f6ln, kreisfreie Stadt"}\NormalTok{,}
-    \DataTypeTok{"organisations"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/organisations/"}\NormalTok{,}
-    \DataTypeTok{"papers"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/papers/"}\NormalTok{,}
-    \DataTypeTok{"people"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/people/"}\NormalTok{,}
-    \DataTypeTok{"rgs"}\NormalTok{: }\StringTok{"053150000000"}\NormalTok{,}
-    \DataTypeTok{"system"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/"}\NormalTok{,}
-    \DataTypeTok{"url"}\NormalTok{: }\StringTok{"http://www.stadt-koeln.de/"}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
 \subsection{oparl:Organization
 (Organisation)}\label{oparlux5forganisation}
 
@@ -2219,6 +2311,9 @@ Der Name des Gremiums. Beispiele: ``Rat'', ``Hauptausschuss'',
 \emph{Optional}. Eine zur Anzeige bestimmte, kürzere Form des Namens.
 \item[Zuletzt geändert (\texttt{last\_modified})]
 Datum und Uhrzeit der letzten Änderung
+\item[Unterorganisation von (\texttt{subOrganizationOf})]
+\emph{Optional}. Die übergeordnete Organisation (kann bei
+Unterausschüssen auch ein Ausschuss sein).
 \end{description}
 
 \subsubsection{Beziehungen}\label{beziehungen}
@@ -2272,12 +2367,14 @@ numerische Kennungen.
 Der Vorname der Person.
 \item[Nachname (\texttt{last\_name})]
 Der Nachname der Person.
-\item[Titel (\texttt{academic\_title})]
-\emph{Optional}. Akademische Titel wie ``Dr.'' und ``Prof.~Dr.''
-\item[Geschlecht (\texttt{sex})]
-\emph{Optional}. Weiblich (Wert \texttt{F} für \emph{female}), männlich
-(Wert \texttt{M} für \emph{male}), anderes (Wert \texttt{O} für
-\emph{others})
+\item[Titel (\texttt{academic\_degree})]
+\emph{Optional}. Akademische Titel wie ``Dr.'' und ``Prof.~Dr.''. Aber
+auch akademische Grade wie ``Dipl. Inform.'' (die rechtlich nicht Teil
+des Namens sind) sind hier zugelassen.
+\item[Geschlecht (\texttt{gender})]
+\emph{Optional}. Weiblich (Wert \texttt{Female}), männlich (Wert
+\texttt{Male}), anderes (Wert \texttt{Other}), unbekannt (Wert
+\texttt{Unknown})
 \item[Beruf (\texttt{profession})]
 \emph{Optional}. Z.B. ``Rechtsanwalt''
 \item[E-Mail-Adresse (\texttt{email})]
@@ -2330,7 +2427,7 @@ Datum und Uhrzeit der letzten Änderung
     \DataTypeTok{"id"}\NormalTok{: }\StringTok{"1000"}\NormalTok{,}
     \DataTypeTok{"first_name"}\NormalTok{: }\StringTok{"Max"}\NormalTok{,}
     \DataTypeTok{"last_name"}\NormalTok{: }\StringTok{"Mustermann"}\NormalTok{,}
-    \DataTypeTok{"academic_title"}\NormalTok{: }\StringTok{"Dr."}\NormalTok{,}
+    \DataTypeTok{"academic_degree"}\NormalTok{: }\StringTok{"Dr. oec. troph"}\NormalTok{,}
     \DataTypeTok{"sex"}\NormalTok{: }\StringTok{"M"}\NormalTok{,}
     \DataTypeTok{"profession"}\NormalTok{: }\StringTok{"Rechtsanwalt"}\NormalTok{,}
     \DataTypeTok{"email"}\NormalTok{: }\StringTok{"max@mustermann.de"}\NormalTok{,}

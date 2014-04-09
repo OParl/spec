@@ -1157,8 +1157,23 @@ als auch direkt abgerufen werden.
 Anonyme Objekte (Blank Nodes)
 
 Im Gegensatz dazu können Objekte existieren, die keine eigene URL haben.
-Ein Beispiel dafür findet sich in der Beratungsfolge einer Drucksache.
 
+Wenn diese im Semantic Web verwendet werden, dann führen sie zu
+erheblichen Problemen. Sandro Hawke (W3C) hat diese so zusammengefasst:
+
+  In general, blank nodes are a convenience for the content provider and
+  a burden on the content consumer. Higher quality data feeds use fewer
+  blank nodes, or none. Instead, they have a clear concept of identity
+  and service for every entity in their data.
+
+  If someone in the middle tries to convert (Skolemize) blank nodes,
+  it’s a large burden on them. Specifically, they should provide web
+  service for those new URIs, and if they get updated data from their
+  sources, they’re going to have a very hard [perhaps impossible] time
+  understanding what really changed. (Zitiert nach
+  http://richard.cyganiak.de/blog/2011/03/blank-nodes-considered-harmful/)
+
+Ein Beispiel dafür findet sich in der Beratungsfolge einer Drucksache.
 Das nachfolgende Beispiel zeigt eine Drucksache, deren Beratungsfolge
 über die Eigenschaft consultations kodiert ist.
 
@@ -1562,6 +1577,28 @@ Die Eigenschaften "name" und "name_long"
 
 Die Eigenschaft "description"
 
+Attribute mit Verwendung in mehreren Objekttypen
+------------------------------------------------
+
+Für Datum und Zeit werden die in XML Schema festgelegten Typen verwendet
+(was nicht bedeutet, dass in OParl XML verwendet wird).
+
+Für ein Datum wird http://www.w3.org/TR/xmlschema-2/#date verwendet und
+für eine Zeit http://www.w3.org/TR/xmlschema-2/#dateTime. Dabei wird ein
+Datum (ein Tag ohne Uhrzeit) ohne Zeitzone und ein Datum mit Zeit mit
+Zeitzone angegeben, denn nur damit ist die Uhrzeit weltweit eindeutig
+ohne zusätzlich auf den Ort einer Sitzung o.ä. Bezug nehmen zu müssen.
+
+Diese Spezifikationen stützen sich auf RFC 3339
+(http://www.ietf.org/rfc/rfc3339.txt) und RFC 3339 wiederum auf ISO
+8601.
+
+Im JSON-LD Kontext von OParl ist der Präfix 'xsd' so spezifiziert, dass
+Datums- und Zeittyp durch 'xsd:date' bzw. 'xsd:dateTime' abgekürzt
+werden können.
+
+TODO: BEISPIELE
+
 oparl:System (System) {#oparl_system}
 ---------------------
 
@@ -1600,6 +1637,54 @@ zum Zugriff auf andere Informationen in Erfahrung zu bringen.
 
 Die URL des oparl:System Objekts MUSS per Definition identisch mit der
 URL des API-Endpunkts des Servers sein.
+
+Well-Known URIs
+
+TODO: eventuell in eigenen Abschnitt oder eigenes Kapitel auslagern.
+
+Es gibt eine standardisierte Technik, mit der ein Einstiegspunkt in die
+OParl-Daten angegeben werden kann: "Well-Known URIs". Dieser kann dann
+maschinell gefunden werden. Diese Technik wurde durch die IETF und das
+W3C standardisiert.
+
+Die Spezifikation von "Well-Known URIs" durch die IETF ist:
+
+Defining Well-Known Uniform Resource Identifiers (URIs)
+http://tools.ietf.org/html/rfc5785
+
+Eine Liste der Well-Known URIs wird von der IANA verwaltet:
+
+Well-Known URIs
+http://www.iana.org/assignments/well-known-uris/well-known-uris.xhtml
+
+Für OParl sind gegenwärtig nur "Well-Known URIs" für Beschreibungen von
+Datasets gemäß dem "Vocabulary of Interlinked Datasets" (VoID) relevant.
+
+BEISPIEL:
+
+Wenn ein RIS unter der Domain "example.com" betrieben wird, dann sieht
+der "Well-Known URI" so aus (der enthaltene "." ist kein Schreibfehler):
+
+https://example.com/.well-known/void
+
+Forwarding ist erlaubt.
+
+Siehe dazu auch:
+
+Describing Linked Datasets with the VoID Vocabulary W3C Interest Group
+Note 03 March 2011 http://www.w3.org/TR/void/#well-known
+
+Die über derartige URIs dereferenzierbaren Dokumente sind hier
+spezifiziert: http://www.w3.org/TR/void/#void-file
+
+BEISPIEL:
+
+Bei einem http GET Request auf https://example.com/.well-known/void mit
+Angabe des bevorzugten MIME-Type "application/ld+json" antwortet das
+System mit dem URI https://example.com/.well-known/void.jsonld unter
+welchem dieses JSON-LD Dokument abrufbar ist:
+
+TODO: Beispiele für JSON-LD und exemplarisch auch für HTML.
 
 Eigenschaften
 
@@ -1659,9 +1744,33 @@ product
 oparl:Body (Körperschaft) {#oparl_body}
 -------------------------
 
-Dieser Objekttyp erlaubt es, eine Körperschaft abzbilden. Eine
+Der Objekttyp oparl:Body dient dazu, eine Körperschaft abzubilden. Eine
 Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder ein
 Zweckverband sein.
+
+Ein Beispiel:
+
+``` {#oparlbody_ex1 .json}
+{
+    "@type": "http://oparl.org/schema/1.0/Body",
+    "@id": "http://refserv.oparl.org/bodies/0",
+    "system": "http://beispielris.de/",
+    "committees": "http://beispielris.de/bodies/1/committees/",
+    "contact_email": "ris@beispielstadt.de",
+    "contact_name": "RIS-Betreuung",
+    "rgs": "053150000000",
+    "gnd_url": "http://d-nb.info/gnd/2015732-0",
+    "meetings": "http://refserv.oparl.org/bodies/0/meetings/",
+    "name": "Stadt K\u00f6ln",
+    "name_long": "Stadt K\u00f6ln, kreisfreie Stadt",
+    "organisations": "http://refserv.oparl.org/bodies/0/organisations/",
+    "papers": "http://refserv.oparl.org/bodies/0/papers/",
+    "people": "http://refserv.oparl.org/bodies/0/people/",
+    "www_url": "http://www.beispielstadt.de/"
+    "created": "2014-01-08T14:28:31.568+0100",
+    "last_modified": "2014-01-08T14:28:31.568+0100",
+}
+```
 
 Von einem funktionsfähigen Server wird erwartet, dass er mindestens ein
 Objekt vom Typ oparl:Body bereit hält. Teilen sich mehrere
@@ -1763,30 +1872,6 @@ Gremien (Objekte vom Typ oparl:Committee) für diese Körperschaft.
 
 Beispiel
 
-``` {#oparlbody_ex1 .json}
-{
-    "@id": "http://refserv.oparl.org/bodies/0",
-    "@context": "http://oparl.org/schema/1.0/Body",
-    "committees": "http://refserv.oparl.org/bodies/0/committees/",
-    "contact": {
-        "email": "ris@stadt-koeln.de",
-        "name": "RIS-Betreuung"
-    }, 
-    "created": "2014-01-08T14:28:31.568+0100",
-    "gnd_url": "http://d-nb.info/gnd/2015732-0",
-    "last_modified": "2014-01-08T14:28:31.568+0100",
-    "meetings": "http://refserv.oparl.org/bodies/0/meetings/",
-    "name": "Stadt K\u00f6ln",
-    "name_long": "Stadt K\u00f6ln, kreisfreie Stadt",
-    "organisations": "http://refserv.oparl.org/bodies/0/organisations/",
-    "papers": "http://refserv.oparl.org/bodies/0/papers/",
-    "people": "http://refserv.oparl.org/bodies/0/people/",
-    "rgs": "053150000000",
-    "system": "http://refserv.oparl.org/",
-    "url": "http://www.stadt-koeln.de/"
-}
-```
-
 oparl:Organization (Organisation) {#oparl_organisation}
 ---------------------------------
 
@@ -1813,6 +1898,9 @@ Kurzname (short_name)
     Optional. Eine zur Anzeige bestimmte, kürzere Form des Namens.
 Zuletzt geändert (last_modified)
     Datum und Uhrzeit der letzten Änderung
+Unterorganisation von (subOrganizationOf)
+    Optional. Die übergeordnete Organisation (kann bei Unterausschüssen
+    auch ein Ausschuss sein).
 
 Beziehungen
 
@@ -1856,11 +1944,13 @@ Vorname (first_name)
     Der Vorname der Person.
 Nachname (last_name)
     Der Nachname der Person.
-Titel (academic_title)
-    Optional. Akademische Titel wie "Dr." und "Prof. Dr."
-Geschlecht (sex)
-    Optional. Weiblich (Wert F für female), männlich (Wert M für male),
-    anderes (Wert O für others)
+Titel (academic_degree)
+    Optional. Akademische Titel wie "Dr." und "Prof. Dr.". Aber auch
+    akademische Grade wie "Dipl. Inform." (die rechtlich nicht Teil des
+    Namens sind) sind hier zugelassen.
+Geschlecht (gender)
+    Optional. Weiblich (Wert Female), männlich (Wert Male), anderes
+    (Wert Other), unbekannt (Wert Unknown)
 Beruf (profession)
     Optional. Z.B. "Rechtsanwalt"
 E-Mail-Adresse (email)
@@ -1900,7 +1990,7 @@ Beispiel
     "id": "1000",
     "first_name": "Max",
     "last_name": "Mustermann",
-    "academic_title": "Dr.",
+    "academic_degree": "Dr. oec. troph",
     "sex": "M",
     "profession": "Rechtsanwalt",
     "email": "max@mustermann.de",

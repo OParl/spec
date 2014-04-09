@@ -1,8 +1,33 @@
 oparl:Body (Körperschaft)   {#oparl_body}
 ------------------------
 
-Dieser Objekttyp erlaubt es, eine Körperschaft abzbilden. Eine Körperschaft
-kann beispielsweise eine Gemeinde, ein Landkreis oder ein Zweckverband sein.
+Der Objekttyp `oparl:Body` dient dazu, eine Körperschaft abzubilden. 
+Eine Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder 
+ein Zweckverband sein.
+
+Ein Beispiel:
+
+~~~~~  {#oparlbody_ex1 .json}
+{
+    "@type": "http://oparl.org/schema/1.0/Body",
+    "@id": "http://refserv.oparl.org/bodies/0",
+    "system": "http://beispielris.de/",
+    "committees": "http://beispielris.de/bodies/1/committees/",
+    "contact_email": "ris@beispielstadt.de",
+    "contact_name": "RIS-Betreuung",
+    "rgs": "053150000000",
+    "gnd_url": "http://d-nb.info/gnd/2015732-0",
+    "meetings": "http://refserv.oparl.org/bodies/0/meetings/",
+    "name": "Stadt K\u00f6ln",
+    "name_long": "Stadt K\u00f6ln, kreisfreie Stadt",
+    "organisations": "http://refserv.oparl.org/bodies/0/organisations/",
+    "papers": "http://refserv.oparl.org/bodies/0/papers/",
+    "people": "http://refserv.oparl.org/bodies/0/people/",
+    "www_url": "http://www.beispielstadt.de/"
+    "created": "2014-01-08T14:28:31.568+0100",
+    "last_modified": "2014-01-08T14:28:31.568+0100",
+}
+~~~~~
 
 Von einem funktionsfähigen Server wird erwartet, dass er mindestens
 ein Objekt vom Typ `oparl:Body` bereit hält. Teilen sich mehrere Körperschaften
@@ -102,27 +127,5 @@ Gremien (Objekte vom Typ `oparl:Committee`) für diese Körperschaft.
 
 ### Beispiel
 
-~~~~~  {#oparlbody_ex1 .json}
-{
-    "@id": "http://refserv.oparl.org/bodies/0",
-    "@context": "http://oparl.org/schema/1.0/Body",
-    "committees": "http://refserv.oparl.org/bodies/0/committees/",
-    "contact": {
-        "email": "ris@stadt-koeln.de",
-        "name": "RIS-Betreuung"
-    }, 
-    "created": "2014-01-08T14:28:31.568+0100",
-    "gnd_url": "http://d-nb.info/gnd/2015732-0",
-    "last_modified": "2014-01-08T14:28:31.568+0100",
-    "meetings": "http://refserv.oparl.org/bodies/0/meetings/",
-    "name": "Stadt K\u00f6ln",
-    "name_long": "Stadt K\u00f6ln, kreisfreie Stadt",
-    "organisations": "http://refserv.oparl.org/bodies/0/organisations/",
-    "papers": "http://refserv.oparl.org/bodies/0/papers/",
-    "people": "http://refserv.oparl.org/bodies/0/people/",
-    "rgs": "053150000000",
-    "system": "http://refserv.oparl.org/",
-    "url": "http://www.stadt-koeln.de/"
-}
-~~~~~
+
 

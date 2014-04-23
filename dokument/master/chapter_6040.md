@@ -42,7 +42,7 @@ Beispiel eines Objekts in JSON-Notation:
 ~~~~~
 
 
-### JSON-LD
+### JSON-LD {#jsonld}
 
 Das Kürzel LD im Namen "JSON-LD" steht für Linked Data. Entsprechend erweitert die JSON-LD-Spezifikation^[<http://www.w3.org/TR/json-ld/>] das JSON-Format um die Möglichkeit,
 

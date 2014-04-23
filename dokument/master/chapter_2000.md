@@ -18,7 +18,7 @@ Architekturbeschreibung des W3-Konsortiums entlehnt.^[Architecture of the World 
 ![Architekturdiagramm](images/architektur-ueberblick.png)
 
 
-Parlamentarisches Informationssystem
+Parlamentarisches Informationssystem {#parlamentarisches_infosystem}
 ------------------------------------
 
 Parlamentarische Informationssysteme sind Software-Systeme, die von
@@ -50,7 +50,7 @@ von Informationen und Dokumenten hingegen ist in vielen Fällen für die
 Die OParl Spezifikation beschreibt eine Schnittstelle, die den maschinellen,
 lesenden Zugriff auf derartige Informationen ermöglicht.
 
-Server
+Server {#server}
 ------
 
 Der Server im Sinne dieser Spezifikation ist ein Software-Dienst, der auf einem
@@ -67,7 +67,7 @@ bestimmte parlamentarische Informationen in einem bestimmten Format zur Verfügu
 stellt und auf bestimmte Anfragen von so genannten Clients über die OParl API
 entsprechend dieser Spezifikation reagiert.
 
-API
+API {#api}
 ---
 
 Der Begriff API steht in diesem Dokument für die Webservice-Schnittstelle, die der
@@ -81,14 +81,14 @@ mit einander kommunizieren können. Die API-Spezifikation stellt dabei die
 nötige Grammatik und das Vokabular bereit, anhand dessen eine sinnvolle Kommunikation
 erfolgen kann.
 
-Client
+Client {#client}
 ------
 
 Der Begriff "Client" steht für eine Software, die über die OParl API mit dem Server
 kommuniziert. Da die API auf dem HTTP-Protokoll aufbaut, handelt es sich bei dem
 Client um eine spezielle Form eines HTTP-Clients.
 
-Cache
+Cache {#cache}
 -----
 
 Ein Cache ist ein Speicher, der einem Client dazu dienen kann, von einem
@@ -99,13 +99,13 @@ Netzwerkbandbreite reduziert werden kann. Die Nutzung eines Cache kann auch
 zur Verbesserung der Nutzerfreundlichkeit eines Clients beitragen, indem
 Wartezeiten zur Bereitstellung einer Ressource verkürzt werden.
 
-Nutzerin oder Nutzer
+Nutzerin oder Nutzer {#nutzerin}
 --------------------
 
 Mit einer Nutzerin oder einem Nutzer ist in diesem Fall eine natürliche Person gemeint,
 die mittels eines OParl-Clients auf parlamentarische Informationen zugreift.
 
-Objekt
+Objekt  {#objekt}
 ------
 
 Der Server beantwortet Anfragen eines Clients im Regelfall, indem bestimmte Objekte

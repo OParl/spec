@@ -92,9 +92,12 @@ Die Spezifikation befindet sich in Arbeit. Das Dokument enthält
 entsprechend viele Ungenauigkeiten und Hinweise auf offene
 Fragestellungen.
 
+Die Kennzeichnung ``TODO'' markiert Hinweise, die für die Bearbeiter des
+Dokuments gedacht sind.
+
 \subsection{Was ist OParl?}\label{was-ist-oparl}
 
-(Nachfolgend eine Übernahme aus dem bisherigen Abschnitt
+(TODO: Nachfolgend eine Übernahme aus dem bisherigen Abschnitt
 ``Funktionsumfang der OParl-Schnittstelle''. Der Text sollte deutlich
 überarbeitet und erweitert werden.)
 
@@ -109,6 +112,8 @@ Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher
 zwischen den Implementierungen variieren.
 
 \subsection{Zielsetzung von OParl}\label{zielsetzung-von-oparl}
+
+TODO:
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -192,6 +197,8 @@ wie beispielsweise Web-Portale.
 
 \subsection{Transparenz und Beteiligung durch Open
 Data}\label{transparenz-und-beteiligung-durch-open-data}
+
+TODO:
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -343,34 +350,43 @@ Stichpunkte:
     Spezifikation so weit wie möglich voran zu treiben und eine gute
     Basis für die baldige Fertigstellung zu legen.
   \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{25}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Januar 2014: In Düsseldorf findet ein weiterer Workshop zur Arbeit
+    am Entwurf der Spezifikation statt.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Mai 2014: Beginn der Review-Phase. Interessierte sind aufgerufen,
+    den vorliegenden Entwurf bis Ende Mai zu kommentieren.
+  \end{enumerate}
+\item
+  Ende Mai 2014: Telefonkonferenz zum eingegangenen Feedback aus der
+  Review-Phase
+\item
+  KW 23 (2. bis 6. Juni): Geplante Veröffentlichung der Spezifikation
+  1.0
 \end{itemize}
 
 \subsection{Zukunft von OParl}\label{zukunft-von-oparl}
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Verfeinerung, Lücken schliessen
-\item
-  Globalisierung
-\item
-  Erweiterung über die kommunale Ebene hinaus (Land, Bund)
-\item
-  Vereinheitlichung von Kategorien (Drucksachentypen, Arten von Gremien)
-\item
-  Erweiterung von Personendaten, z.B. mit Social Media URLs
-\item
-  Mehr Abfragekriterien
-\item
-  Suchfunktionen (Volltextsuche)
-\item
-  Abstimmungsverhalten und maschinenlesbare Protokolle
-\item
-  Schreibender Zugriff. Auch dazu muss das Rad nicht neu erfunden
-  werden. Bestehende bzw. in Entwicklung befindliche Spezifikationen und
-  Techniken aus der Linked Data-Welt können verwendet werden. Dazu
-  gehören insbesondere die Linked Data Platform des W3C und Hydra.
-\end{itemize}
+TODO: - Verfeinerung, Lücken schliessen - Globalisierung - Erweiterung
+über die kommunale Ebene hinaus (Land, Bund) - Vereinheitlichung von
+Kategorien (Drucksachentypen, Arten von Gremien) - Erweiterung von
+Personendaten, z.B. mit Social Media URLs - Mehr Abfragekriterien -
+Suchfunktionen (Volltextsuche) - Abstimmungsverhalten und
+maschinenlesbare Protokolle - Schreibender Zugriff. Auch dazu muss das
+Rad nicht neu erfunden werden. Bestehende bzw. in Entwicklung
+befindliche Spezifikationen und Techniken aus der Linked Data-Welt
+können verwendet werden. Dazu gehören insbesondere die Linked Data
+Platform des W3C und Hydra.
 
 \subsection{Nomenklatur der Spezifikation und
 Satzkonventionen}\label{nomenklatur-der-spezifikation-und-satzkonventionen}
@@ -433,9 +449,15 @@ Die Entsprechung in RFC2119 lautet ``MAY'' oder ``OPTIONAL''.
 \subsubsection{Besondere Hervorhebungen und
 Satzkonventionen}\label{besondere-hervorhebungen-und-satzkonventionen}
 
+TODO
+
 \subsection{Initiatoren}\label{initiatoren}
 
+TODO
+
 \subsection{Unterstützer}\label{unterstuxfctzer}
+
+TODO
 
 \subsection{Autoren}\label{autoren}
 
@@ -713,11 +735,17 @@ Datenbestand aufzuwerten.
 
 \subsection{Szenario 3: Meta-Suche}\label{szenarioux5fmetaux5fsuche}
 
+TODO
+
 \subsection{Szenario 4: Forschungsprojekt Themen- und
 Sprachanalyse}\label{szenarioux5fforschung}
 
+TODO
+
 \section{Prinzipien und Funktionen der
 API}\label{prinzipien-und-funktionen-der-api}
+
+TODO
 
 (In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen
 Schnittstelle beschrieben. Hierzu gehören alle chapter-Dateien, deren
@@ -1632,19 +1660,30 @@ TODO: Weitere Objekttypen nennen, in denen Blank Nodes vorkommen.
 
 \hyperdef{}{objektlisten}{\subsection{Objektlisten}\label{objektlisten}}
 
-Über die OParl-API können entweder einzelne Objekte oder Listen von
-Objekten abgefragt werden.
+Über die OParl-API können entweder einzelne (benannte) Objekte,
+beispielsweise eine bestimmte Drucksache, oder Listen von Objekten, etwa
+die Liste aller Sitzungen einer Körperschaft, abgefragt werden.
 
-\subsubsection{Gezieltes Abfragen von
-Listen}\label{gezieltes-abfragen-von-listen}
+Fragt ein Client eine Liste von Objekten an, hat der Server mehrere
+Möglichkeiten, diese Anfrage zu beantworten.
 
-Fragt ein Client eine Liste von Objekten an, beispielsweise die Liste
-aller Drucksachen in einem System, kann der Server innerhalb bestimmter
-Grenzen entscheiden, wie die Ausgabe aussieht.
+In jedem Fall werden die einzelnen Objekte, die Bestandteile der Liste
+sind (wie z.B. die einzelnen Drucksachen) durch die URL des jeweiligen
+Objekts repräsentiert. Objektlisten sind also tatsächlich immer Listen
+von URLs.
 
-In der einfachsten Form gibt der Server ein Objekt mit nur einer
-Eigenschaft \texttt{items} aus. Der Wert dieser Eigenschaft ist die
-\textbf{vollständige Liste} der URLs aller angefragten Objekte.
+\subsubsection{Vollständige
+Listenausgabe}\label{vollstuxe4ndige-listenausgabe}
+
+In der einfachsten Form gibt der Server die Liste als Objekt mit nur
+einer einzigen Eigenschaft \texttt{items} aus. Der Wert dieser
+Eigenschaft ist die \textbf{vollständige Liste} der URLs aller in der
+Liste enthaltenen Objekte.
+
+Diese einfachste Form der Antwort eignet sich nur für Listen mit einer
+begrenzten Anzahl von Einträgen, wie beispielsweise die Liste der
+Mitglieder einer Organisation.
+
 Beispiel:
 
 \hyperdef{}{objektlistenux5fex1}{\label{objektlistenux5fex1}}
@@ -1660,13 +1699,15 @@ Beispiel:
 \end{Highlighting}
 \end{Shaded}
 
-Diese einfachste Form der Antwort eignet sich nur für Listen mit einer
-begrenzten Anzahl von Einträgen.
+\subsubsection{Paginierung}\label{paginierung}
 
 Für längere Listen ist eine Blätterfunktion bzw. Paginierung vorgesehen.
-Darunter versteht man den seitenweisen Abruf der Einträge einer Liste,
-wobei die Reihenfolge der Liste vom Server festgelegt ist und zwischen
-den Seitenabrufen unverändert bleibt.
+Darunter versteht man die Aufteilung der Liste in kleinere Teilbereiche,
+die wir hier als ``Listenseiten'' bezeichnen. Zweck ist, die einzelnen
+Listenseiten mit je einer eigenen API-Anfrage abrufbar zu machen. Die
+Aufteilung der Liste in Listenseiten erfolgt durch den Server und kann
+vom Client nicht beeinflusst werden, sie bleibt jedoch zwischen den
+einzelnen unverändert.
 
 Listen mit mehr als 100 Einträgen SOLL der Server nur teilweise ausgeben
 und dem Client dabei eine \textbf{Paginierung} anbieten, um weitere
@@ -1674,7 +1715,8 @@ Listenteile abzurufen. Dabei wird EMPFOHLEN, die Zahl der jeweils
 ausgegebenen Listeneinträge wiederum auf maximal 100 zu begrenzen.
 
 Das nachstehende Beispiel zeigt, wie dem Client die URL zum
-``Blättern'', also zum Aufruf der nächsten Listenseite, angeboten wird.
+``Blättern'', also zum Aufruf der jeweils nächsten Listenseite,
+angeboten wird.
 
 \hyperdef{}{objektlistenux5fex2}{\label{objektlistenux5fex2}}
 \begin{Shaded}
@@ -1685,25 +1727,25 @@ Das nachstehende Beispiel zeigt, wie dem Client die URL zum
         \StringTok{"http://refserv.oparl.org/bodies/0/papers/5"}\NormalTok{,}
         \StringTok{"http://refserv.oparl.org/bodies/0/papers/7"}\NormalTok{,}
     \NormalTok{],}
-    \DataTypeTok{"nextpage"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/papers/?skip=7"}\NormalTok{,}
-    \DataTypeTok{"count"}\NormalTok{: }\DecValTok{7}
+    \DataTypeTok{"nextPage"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/papers/?skip=7"}\NormalTok{,}
+    \DataTypeTok{"count"}\NormalTok{: }\DecValTok{118}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
 Wie oben zu sehen, enthält das Beispiel-Objekt nun eine zusätzliche
-Eigenschaft \texttt{nextpage}. Der Wert dieser Eigenschaft ist eine URL,
+Eigenschaft \texttt{nextPage}. Der Wert dieser Eigenschaft ist eine URL,
 die dem Client dazu dient, die weiteren Einträge der Liste abzurufen.
 
 Die Eigenschaft \texttt{count} DARF bei Listen grundsätzlich ausgegeben
 werden und SOLL bei mehrseitigen Listen ausgegeben werden. Ihr Wert ist
-eine Zahl und gibt an, wie viele Einträge die vollständige Liste
-enthält.
+eine Zahl und gibt an, wie viele Einträge die vollständige Liste aller
+Objekte enthält.
 
-Ruft der Client die unter \texttt{nextpage} angegebene URL auf, erhält
+Ruft der Client die unter \texttt{nextPage} angegebene URL auf, erhält
 er wiederum ein Listenobjekt. Dieses Objekt MUSS, sofern noch immer mehr
 Listeneinträge vorhanden sind, als ausgegeben wurden, wiederum die
-\texttt{nextpage} Eigenschaft mit einer URL enthalten. Um alle Einträge
+\texttt{nextPage} Eigenschaft mit einer URL enthalten. Um alle Einträge
 einer Liste zu erfassen, folgt der Client also jeweils der URL, die in
 der \texttt{nextpage} Eigenschaft angegeben ist.
 
@@ -1713,7 +1755,7 @@ der \texttt{nextpage} Eigenschaft angegeben ist.
 \caption{Paginierung: Schematische Darstellung}
 \end{figure}
 
-Server-Implementierer entscheiden selbst, wie die \texttt{nextpage}-URL
+Server-Implementierer entscheiden selbst, wie die \texttt{nextPage}-URL
 aufgebaut ist und tragen damit selbst Verantwortung für die
 Funktionsweise der Paginierung. Bei der Entscheidung für eine Form der
 Implementierung sind weitere Anforderungen zu berücksichtigen:
@@ -1847,7 +1889,7 @@ Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
         \NormalTok{\},}
         \ErrorTok{...}
     \NormalTok{],}
-    \DataTypeTok{"nextpage"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/feeds/new/?t=20140106170100402"}
+    \DataTypeTok{"nextPage"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/feeds/new/?t=20140106170100402"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -1924,7 +1966,7 @@ System geführt werden.
         \NormalTok{\},}
         \ErrorTok{...}
     \NormalTok{],}
-    \DataTypeTok{"nextpage"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/feeds/updated/?t=20140106170100402"}
+    \DataTypeTok{"nextPage"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/feeds/updated/?t=20140106170100402"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -1961,7 +2003,7 @@ entfernen.
         \NormalTok{\},}
         \ErrorTok{...}
     \NormalTok{],}
-    \DataTypeTok{"nextpage"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/feeds/updated/?t=20131111111100"}
+    \DataTypeTok{"nextPage"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/feeds/updated/?t=20131111111100"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -1985,6 +2027,8 @@ TODO:
 \end{itemize}
 
 \subsection{Ausnahmebehandlung}\label{ausnahmebehandlung}
+
+TODO:
 
 (Diskussion hierzu unter https://github.com/OParl/specs/issues/89)
 
@@ -2101,18 +2145,18 @@ Ein Beispiel:
 \NormalTok{\{}
     \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:System"}\NormalTok{,}
     \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://beispielris.de/"}\NormalTok{,}
-    \DataTypeTok{"oparl_version"}\NormalTok{: }\StringTok{"http://oparl.org/specs/1.0/"}\NormalTok{,}
+    \DataTypeTok{"oparlVersion"}\NormalTok{: }\StringTok{"http://oparl.org/specs/1.0/"}\NormalTok{,}
     \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Beispiel-System"}\NormalTok{,}
-    \DataTypeTok{"www_url"}\NormalTok{: }\StringTok{"http://www.beispielris.de/"}\NormalTok{,}
-    \DataTypeTok{"contact_email"}\NormalTok{: }\StringTok{"mailto:info@beispielris.de"}\NormalTok{,}
-    \DataTypeTok{"contact_name"}\NormalTok{: }\StringTok{"Allgemeiner OParl Kontakt"}\NormalTok{,}
+    \DataTypeTok{"wwwUrl"}\NormalTok{: }\StringTok{"http://www.beispielris.de/"}\NormalTok{,}
+    \DataTypeTok{"contactEmail"}\NormalTok{: }\StringTok{"mailto:info@beispielris.de"}\NormalTok{,}
+    \DataTypeTok{"contactName"}\NormalTok{: }\StringTok{"Allgemeiner OParl Kontakt"}\NormalTok{,}
     \DataTypeTok{"vendor"}\NormalTok{: }\StringTok{"http://example-software.com/"}\NormalTok{,}
     \DataTypeTok{"product"}\NormalTok{: }\StringTok{"http://example-software.com/oparl-server/"}\NormalTok{,}
     \DataTypeTok{"license"}\NormalTok{: }\StringTok{"http://creativecommons.org/licenses/by/4.0/"}\NormalTok{,}
     \DataTypeTok{"bodies"}\NormalTok{: }\StringTok{"http://beispielris.de/bodies/"}\NormalTok{,}
-    \DataTypeTok{"new_objects"}\NormalTok{: }\StringTok{"http://beispielris.de/new_objects/"}\NormalTok{,}
-    \DataTypeTok{"updated_objects"}\NormalTok{: }\StringTok{"http://beispielris.de/updated_objects/"}\NormalTok{,}
-    \DataTypeTok{"removed_objects"}\NormalTok{: }\StringTok{"http://beispielris.de/removed_objects"}
+    \DataTypeTok{"newObjects"}\NormalTok{: }\StringTok{"http://beispielris.de/new_objects/"}\NormalTok{,}
+    \DataTypeTok{"updatedObjects"}\NormalTok{: }\StringTok{"http://beispielris.de/updated_objects/"}\NormalTok{,}
+    \DataTypeTok{"removedObjects"}\NormalTok{: }\StringTok{"http://beispielris.de/removed_objects"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -2182,7 +2226,7 @@ TODO: Beispiele für JSON-LD und exemplarisch auch für HTML.
 \subsubsection{Eigenschaften}\label{eigenschaften}
 
 \begin{description}
-\item[\texttt{oparl\_version}]
+\item[\texttt{oparlVersion}]
 Die URL der OParl-Spezifikation, die von diesem Server unterstützt wird.
 Der Wert MUSS die URL \texttt{http://oparl.org/specs/1.0/} sein. Diese
 Eigenschaft ist ZWINGEND.
@@ -2196,11 +2240,11 @@ Eigenschaft ist ZWINGEND.
 Nutzerfreundlicher Name für das System, mit dessen Hilfe Nutzer das
 System erkennen und von anderen unterscheiden können. Diese Eigenschaft
 wird EMPFOHLEN.
-\item[\texttt{contact\_email}]
+\item[\texttt{contactEmail}]
 E-Mail-Adresse für Anfragen zur OParl-API. Diese Eigenschaft wird
 EMPFOHLEN. Die Angabe einer E-Mail-Adresse dient sowohl NutzerInnen wie
 auch EntwicklerInnen von Clients zur Kontaktaufnahme mit dem Betreiber.
-\item[\texttt{contact\_name}]
+\item[\texttt{contactName}]
 Name des Ansprechpartners oder der Abteilung, die über die
 \texttt{contact\_email} erreicht werden kann. Die Eigenschaft ist
 EMPFOHLEN. Typ: Zeichenkette.
@@ -2208,16 +2252,16 @@ EMPFOHLEN. Typ: Zeichenkette.
 URL der Lizenz, die für die Daten, die über diese API abgerufen werden
 können, gilt, sofern nicht am einzelnen Objekt anders angegeben. Die
 Eigenschaft ist EMPFOHLEN.
-\item[\texttt{new\_objects}]
+\item[\texttt{newObjects}]
 URL des Feeds \hyperref[feedux5fneueux5fobjekte]{``Neue Objekte''}. Die
 Eigenschaft ist EMPFOHLEN.
-\item[\texttt{updated\_objects}]
+\item[\texttt{updatedObjects}]
 URL des Feeds \hyperref[feedux5fgeaenderteux5fobjekte]{``Geänderte
 Objekte''}. Die Eigenschaft ist EMPFOHLEN.
-\item[\texttt{removed\_objects}]
+\item[\texttt{removedObjects}]
 URL des Feeds \hyperref[feedux5fentfernteux5fobjekte]{``Entfernte
 Objekte''}. Die Eigenschaft ist EMPFOHLEN.
-\item[\texttt{www\_url}]
+\item[\texttt{wwwUrl}]
 URL zur WWW-Oberfläche des parlamentarischen Informationssystem. Diese
 Eigenschaft ist OPTIONAL.
 \item[\texttt{vendor}]
@@ -2231,9 +2275,15 @@ OParl-Server-Software. Diese Eigenschaft ist OPTIONAL.
 \hyperdef{}{oparlux5fbody}{\subsection{oparl:Body
 (Körperschaft)}\label{oparlux5fbody}}
 
-Der Objekttyp \texttt{oparl:Body} dient dazu, eine Körperschaft
-abzubilden. Eine Körperschaft kann beispielsweise eine Gemeinde, ein
-Landkreis oder ein Zweckverband sein.
+Der Objekttyp \texttt{oparl:Body} dient dazu, eine Körperschaft und
+damit ein Parlament zu repräsentieren, zu dem der Server Informationen
+bereithält. Eine Körperschaft kann beispielsweise eine Gemeinde, ein
+Landkreis oder ein kommunaler Zweckverband sein.
+
+Hätte das System beispielsweise den Zweck, Informationen über das
+kommunale Parlament der Stadt Köln, namentlich den Rat der Stadt Köln,
+abzubilden, dann müsste dieses System dazu ein Objekt vom Typ
+\texttt{oparl:Body} führen, welches die Stadt Köln repräsentiert.
 
 Ein Beispiel:
 
@@ -2242,138 +2292,96 @@ Ein Beispiel:
 \begin{Highlighting}[]
 \NormalTok{\{}
     \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/Body"}\NormalTok{,}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0"}\NormalTok{,}
-    \DataTypeTok{"system"}\NormalTok{: }\StringTok{"http://beispielris.de/"}\NormalTok{,}
-    \DataTypeTok{"committees"}\NormalTok{: }\StringTok{"http://beispielris.de/bodies/1/committees/"}\NormalTok{,}
-    \DataTypeTok{"contact_email"}\NormalTok{: }\StringTok{"ris@beispielstadt.de"}\NormalTok{,}
-    \DataTypeTok{"contact_name"}\NormalTok{: }\StringTok{"RIS-Betreuung"}\NormalTok{,}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/bodies/0"}\NormalTok{,}
+    \DataTypeTok{"system"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/"}\NormalTok{,}
+    \DataTypeTok{"contactEmail"}\NormalTok{: }\StringTok{"mailto:ris@beispielstadt.de"}\NormalTok{,}
+    \DataTypeTok{"contactName"}\NormalTok{: }\StringTok{"RIS-Betreuung"}\NormalTok{,}
     \DataTypeTok{"rgs"}\NormalTok{: }\StringTok{"053150000000"}\NormalTok{,}
-    \DataTypeTok{"gnd_url"}\NormalTok{: }\StringTok{"http://d-nb.info/gnd/2015732-0"}\NormalTok{,}
-    \DataTypeTok{"meetings"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/meetings/"}\NormalTok{,}
+    \DataTypeTok{"sameAs"}\NormalTok{: [}
+        \StringTok{"http://d-nb.info/gnd/2015732-0"}\NormalTok{,}
+        \StringTok{"http://dbpedia.org/resource/Cologne"}
+    \NormalTok{],}
     \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Stadt K\textbackslash{}u00f6ln"}\NormalTok{,}
-    \DataTypeTok{"name_long"}\NormalTok{: }\StringTok{"Stadt K\textbackslash{}u00f6ln, kreisfreie Stadt"}\NormalTok{,}
-    \DataTypeTok{"organisations"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/organisations/"}\NormalTok{,}
-    \DataTypeTok{"papers"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/papers/"}\NormalTok{,}
-    \DataTypeTok{"people"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/people/"}\NormalTok{,}
-    \DataTypeTok{"www_url"}\NormalTok{: }\StringTok{"http://www.beispielstadt.de/"}
-    \StringTok{"created"}\ErrorTok{:} \StringTok{"2014-01-08T14:28:31.568+0100"}\NormalTok{,}
-    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2014-01-08T14:28:31.568+0100"}\NormalTok{,}
+    \DataTypeTok{"nameLong"}\NormalTok{: }\StringTok{"Stadt K\textbackslash{}u00f6ln, kreisfreie Stadt"}\NormalTok{,}
+    \DataTypeTok{"wwwUrl"}\NormalTok{: }\StringTok{"http://www.beispielstadt.de/"}\NormalTok{,}
+    \DataTypeTok{"organizations"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/bodies/0/organisations/"}\NormalTok{,}
+    \DataTypeTok{"meetings"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/bodies/0/meetings/"}\NormalTok{,}
+    \DataTypeTok{"papers"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/bodies/0/papers/"}\NormalTok{,}
+    \DataTypeTok{"people"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/bodies/0/people/"}\NormalTok{,}
+    \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2014-01-08T14:28:31.568+0100"}\NormalTok{,}
+    \DataTypeTok{"lastModified"}\NormalTok{: }\StringTok{"2014-01-08T14:28:31.568+0100"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-Von einem funktionsfähigen Server wird erwartet, dass er mindestens ein
-Objekt vom Typ \texttt{oparl:Body} bereit hält. Teilen sich mehrere
-Körperschaften das selbe technische System, können auf demselben Server
-auch mehrere Objekte vom Typ \texttt{oparl:Body} beherbergt werden.
+Vom OParl-Server wird erwartet, dass er mindestens ein Objekt vom Typ
+\texttt{oparl:Body} bereit hält. Teilen sich mehrere Körperschaften das
+selbe technische System, können auf demselben Server auch mehrere
+Objekte vom Typ \texttt{oparl:Body} beherbergt werden.
 
 Über die Zuordnung zu einem bestimmten \texttt{oparl:Body} Objekt zeigen
 andere Objekte, wie beispielsweise Gremien oder Drucksachen, ihre
-Zugehörigkeit zu einer bestimmten Körperschaft an.
+Zugehörigkeit zu einer bestimmten Körperschaft und damit implizit zu
+einem bestimmten Parlament an.
 
-Es werden mehrere Eigenschaften angeboten, die dazu dienen, die real
-existierende Körperschaft, die von einem \texttt{oparl:Body} Objekt
-repräsentiert wird, programmatisch auslesbar zu machen zu können.
-Insbesondere sind hier die Eigenschaften \texttt{url}, \texttt{rgs} und
-\texttt{gnd\_url} zu nennen.
+\subsubsection{Eigenschaften}\label{eigenschaften-1}
 
-\subsubsection{Eigenschaft \texttt{system}}\label{eigenschaft-system}
-
-Diese Eigenschaft ist ZWINGEND.
-
-Mit dieser Eigenschaft wird das Objekt dem übergeordneten
-\texttt{oparl:System} Objekt zugeordnet. Wert MUSS der IRI des
-\texttt{oparl:System} Objekts sein.
-
-\subsubsection{Eigenschaft \texttt{name}}\label{eigenschaft-name}
-
-Diese Eigenschaft ist ZWINGEND. Sie transportiert den gebräuchlichen
-Namen der Körperschaft.
-
-\subsubsection{Eigenschaft
-\texttt{name\_long}}\label{eigenschaft-nameux5flong}
-
-Diese Eigenschaft ist OPTIONAL und kann bei Bedarf dazu verwendet
-werden, eine längere Form des Namens der Körperschaft wieder zu geben,
-sofern dieser für die Eigenschaft \texttt{name} zu lang ist.
-
-\subsubsection{Eigenschaft \texttt{url}}\label{eigenschaft-url}
-
-Diese Eigenschaft ist EMPFOHLEN.
-
-Mit dieser Eigenschaft SOLL die URL der offiziellen Website der
-Körperschaft ausgegeben werden.
-
-TODO: Beschreibung
-
-\subsubsection{Eigenschaft \texttt{rgs}}\label{eigenschaft-rgs}
-
-Diese Eigenschaft ist EMPFOHLEN.
-
-Handelt es sich bei der Körperschaft um eine Gebietskörperschaft
-(Landkreis, Kommune etc.) in Deutschland, SOLL für die eindeutige
-Identifizierung der amtliche Regionalschlüssel verwendet
-werden.\footnote{Regionalschlüssel können im
+\begin{description}
+\item[\texttt{system}]
+URL des Objekts vom Typ \texttt{oparl:System} Objekts, zu dem dieses
+Objekt gehört. Diese Eigenschaft ist ZWINGEND.
+\item[\texttt{name}]
+Gibt den gebräuchlichen Namen der Körperschaft an. Diese Eigenschaft ist
+ZWINGEND.
+\item[\texttt{nameLong}]
+Kann bei Bedarf dazu verwendet werden, eine längere Form des Namens der
+Körperschaft anzugeben. Diese Eigenschaft ist OPTIONAL.
+\item[\texttt{wwwUrl}]
+Dient der Angabe der WWW-URL der Körperschaft. Diese Eigenschaft ist
+EMPFOHLEN.
+\item[\texttt{rgs}]
+Regionalschlüssel der Körperschaft als zwölfstellige
+Zeichenkette\footnote{Regionalschlüssel können im
   \href{https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html}{Gemeindeverzeichnis
-  (GV-ISys) des Statistischen Bundesamtes} eingesehen werden} Dieser ist
-grundsätzlich zwölfstellig.
-
-\subsubsection{Eigenschaft
-\texttt{gnd\_url}}\label{eigenschaft-gndux5furl}
-
-Diese Eigenschaft ist EMPFOHLEN.
-
-Sofern die Körperschaft in der GND\footnote{Gemeinsame Normdatei
-  \url{http://www.dnb.de/gnd}} vertreten ist, SOLL diese Eigenschaft als
-Wert die URL des Eintrags in der GND enthalten.
-
-\subsubsection{Eigenschaft \texttt{contact}}\label{eigenschaft-contact}
-
-Diese Eigenschaft ist EMPFOHLEN.
-
-Über diese Eigenschafte SOLLEN Kontaktinformationen zu einer Stelle
-bereit gestellt werden, die die inhaltliche Verantwortung für sämtliche
-zu dieser Körperschaft gehörenden Inhalte im System trägt. Besonders
-wichtig ist diese Angabe, wenn auf einem System mehrere Körperschaften
-vertreten sind und damit auf der Ebene des \texttt{oparl:System} Objekts
-ein rein technischer Kontakt ausgegeben wird, der nicht für inhaltliche
-Fragestellungen im Zuständigkeitsbereich der jeweiligen Körperschaften
-kontaktiert werden sollte.
-
-\subsubsection{Eigenschaft \texttt{papers}}\label{eigenschaft-papers}
-
+  (GV-ISys) des Statistischen Bundesamtes} eingesehen werden}. Diese
+Eigenschaft ist EMPFOHLEN.
+\item[\texttt{sameAs}]
+Dient der Angabe beliebig vieler zusätzlicher URLs, die die Körperschaft
+repräsentieren. Diese Eigenschaft ist EMPFOHLEN. Hier können
+Beispielsweise, sofern vorhanden, der entpsrechende Eintrag der
+Gemeinsamen Normdatei der Deutschen Nationalbibliothek\footnote{Gemeinsame
+  Normdatei \url{http://www.dnb.de/gnd}}, der DBPedia\footnote{DBPedia
+  \url{http://www.dbpedia.org/}} oder der Wikipedia\footnote{Wikipedia
+  \url{http://de.wikipedia.org/}} angegeben werden.
+\item[\texttt{contactEmail}]
+Dient der Angabe einer Kontakt-E-Mail-Adresse mit ``mailto:''-Schema.
+Diese Eigenschaft ist EMPFOHLEN. Die Adresse soll die Kontaktaufnahme zu
+einer für die Körperschaft und idealerweise das parlamentarische
+Informationssystem zuständigen Stelle ermöglichen.
+\item[\texttt{contactName}]
+Name oder Bezeichnung der mit \texttt{contactEmail} erreichbaren Stelle.
+OPTIONAL.
+\item[\texttt{papers}]
+URL, unter welcher die API die Liste aller Objekte vom Typ
+\texttt{oparl:Paper}, also die Drucksachen unter dieser Körperschaft
+ausgibt. Diese Eigenschaft ist ZWINGEND.
+\item[\texttt{people}]
+URL, unter welcher die API die Liste aller Objekte vom Typ
+\texttt{oparl:Person}, also die Personen unter dieser Körperschaft
+ausgibt. Diese Eigenschaft ist ZWINGEND.
+\item[\texttt{meetings}]
+URL, unter welcher die API die Liste aller Objekte vom Typ
+\texttt{oparl:Meeting}, also die Sitzungen dieser Körperschaft ausgibt.
 Diese Eigenschaft ist ZWINGEND.
-
-Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Drucksachen (Objekte vom Typ \texttt{oparl:Paper}) für diese
-Körperschaft.
-
-\subsubsection{Eigenschaft \texttt{people}}\label{eigenschaft-people}
-
-Diese Eigenschaft ist ZWINGEND.
-
-Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Personen (Objekte vom Typ \texttt{oparl:Person}) für diese Körperschaft.
-
-\subsubsection{Eigenschaft
-\texttt{meetings}}\label{eigenschaft-meetings}
-
-Diese Eigenschaft ist ZWINGEND.
-
-Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Sitzungen (Objekte vom Typ \texttt{oparl:Meeting}) für diese
-Körperschaft.
-
-\subsubsection{Eigenschaft
-\texttt{committees}}\label{eigenschaft-committees}
-
-Diese Eigenschaft ist ZWINGEND.
-
-Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Gremien (Objekte vom Typ \texttt{oparl:Committee}) für diese
-Körperschaft.
-
-\subsubsection{Beispiel}\label{beispiel}
+\item[\texttt{organizations}]
+URL, unter welcher die API die Liste aller Objekte vom Typ
+\texttt{oparl:Organization}, also die Gruppierungen dieser Körperschaft
+ausgibt. Diese Eigenschaft ist ZWINGEND.
+\item[\texttt{created}]
+Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
+\item[\texttt{lastModified}]
+Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.
+\end{description}
 
 \subsection{oparl:Organization
 (Organisation)}\label{oparlux5forganisation}
@@ -2386,7 +2394,7 @@ ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat,
 Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten
 Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-1}
+\subsubsection{Eigenschaften}\label{eigenschaften-2}
 
 \begin{description}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2425,7 +2433,7 @@ Unterausschüssen auch ein Ausschuss sein).
   Das Gremium verweist auf die Körperschaft, zu der das Gremium gehört.
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-1}
+\subsubsection{Beispiel}\label{beispiel}
 
 \hyperdef{}{committeeux5fex1}{\label{committeeux5fex1}}
 \begin{Shaded}
@@ -2445,7 +2453,7 @@ Unterausschüssen auch ein Ausschuss sein).
 Jede natürliche Person, die Mitglied eines Gremiums ist, ist als
 \texttt{oparl:Person} im Datenmodell eindeutig identifizierbar.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-2}
+\subsubsection{Eigenschaften}\label{eigenschaften-3}
 
 \begin{description}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2509,7 +2517,7 @@ Datum und Uhrzeit der letzten Änderung
   darzustellen. Diese Beziehungen sind ebenfalls datiert.
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-2}
+\subsubsection{Beispiel}\label{beispiel-1}
 
 \hyperdef{}{personux5fex1}{\label{personux5fex1}}
 \begin{Shaded}
@@ -2555,7 +2563,7 @@ TODO: Inhalt dieses Abschnitts in chapter\_8050.md überführen.
 Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die
 Personen angehören können.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-3}
+\subsubsection{Eigenschaften}\label{eigenschaften-4}
 
 \begin{description}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2594,7 +2602,7 @@ Datum und Uhrzeit der letzten Änderung
   Personen können Organisationen angehören (\emph{datiert}).
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-3}
+\subsubsection{Beispiel}\label{beispiel-2}
 
 \hyperdef{}{organizationux5fex1}{\label{organizationux5fex1}}
 \begin{Shaded}
@@ -2618,7 +2626,7 @@ entsprechender Form referenziert. Verschiedene Dokumente (Einladung,
 Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert
 werden.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-4}
+\subsubsection{Eigenschaften}\label{eigenschaften-5}
 
 \begin{description}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2672,7 +2680,7 @@ Datum und Uhrzeit der letzten Änderung
   dann um nicht weiter spezifizierte Anlagen.
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-4}
+\subsubsection{Beispiel}\label{beispiel-3}
 
 \hyperdef{}{meetingux5fex1}{\label{meetingux5fex1}}
 \begin{Shaded}
@@ -2709,7 +2717,7 @@ bestimmter Beschlusstext beigefügt sein.
 
 Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-5}
+\subsubsection{Eigenschaften}\label{eigenschaften-6}
 
 \begin{description}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2773,7 +2781,7 @@ Datum und Uhrzeit der letzten Änderung
   anwesend waren.
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-5}
+\subsubsection{Beispiel}\label{beispiel-4}
 
 \hyperdef{}{agendaitemux5fex1}{\label{agendaitemux5fex1}}
 \begin{Shaded}
@@ -2830,7 +2838,7 @@ Arten von Drucksachen gekennzeichnet:
   (mündliche oder schriftliche) Anfragen
 \end{itemize}
 
-\subsubsection{Eigenschaften}\label{eigenschaften-6}
+\subsubsection{Eigenschaften}\label{eigenschaften-7}
 
 \begin{description}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2889,7 +2897,7 @@ Datum und Uhrzeit der letzten Änderung
   versehen sein, die noch näher zu bestimmen ist (TODO).
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-6}
+\subsubsection{Beispiel}\label{beispiel-5}
 
 \hyperdef{}{paperux5fex1}{\label{paperux5fex1}}
 \begin{Shaded}
@@ -2982,7 +2990,7 @@ wurde. Umgekehrt KANN über die Eigenschaft
 \texttt{derivative\_documents} angezeigt werden, welche Ableitungen
 einer Datei existieren.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-7}
+\subsubsection{Eigenschaften}\label{eigenschaften-8}
 
 \begin{description}
 \item[\texttt{@id}]
@@ -3070,7 +3078,7 @@ Ein Beispiel:
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection{Eigenschaften}\label{eigenschaften-8}
+\subsubsection{Eigenschaften}\label{eigenschaften-9}
 
 \begin{description}
 \item[\texttt{@id}]
@@ -3141,7 +3149,7 @@ Koordinatenangaben im System WGS84\footnote{WGS84 steht für ``World
 angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen)
 für Längen- und Breitengrad.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-9}
+\subsubsection{Eigenschaften}\label{eigenschaften-10}
 
 \begin{description}
 \item[\texttt{description}]

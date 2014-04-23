@@ -16,10 +16,13 @@ Die Spezifikation befindet sich in Arbeit. Das Dokument enthält
 entsprechend viele Ungenauigkeiten und Hinweise auf offene
 Fragestellungen.
 
+Die Kennzeichnung "TODO" markiert Hinweise, die für die Bearbeiter des
+Dokuments gedacht sind.
+
 Was ist OParl?
 --------------
 
-(Nachfolgend eine Übernahme aus dem bisherigen Abschnitt
+(TODO: Nachfolgend eine Übernahme aus dem bisherigen Abschnitt
 "Funktionsumfang der OParl-Schnittstelle". Der Text sollte deutlich
 überarbeitet und erweitert werden.)
 
@@ -35,6 +38,8 @@ zwischen den Implementierungen variieren.
 
 Zielsetzung von OParl
 ---------------------
+
+TODO:
 
 -   Nutzen für Kommunen, Bürger, politische Parteien
 -   Nutzen für Anbieter von RIS-Pflegesoftware
@@ -101,6 +106,8 @@ wie beispielsweise Web-Portale.
 
 Transparenz und Beteiligung durch Open Data
 -------------------------------------------
+
+TODO:
 
 -   Einführung zu Open Data
 -   "10 Principles" erwähnen
@@ -178,23 +185,30 @@ Stichpunkte:
         einem eintägigen OParl-Workshop in Bielefeld ein. Das Ziel ist,
         die Spezifikation so weit wie möglich voran zu treiben und eine
         gute Basis für die baldige Fertigstellung zu legen.
+-   26. Januar 2014: In Düsseldorf findet ein weiterer Workshop zur
+        Arbeit am Entwurf der Spezifikation statt.
+-   1.  Mai 2014: Beginn der Review-Phase. Interessierte sind
+        aufgerufen, den vorliegenden Entwurf bis Ende Mai zu
+        kommentieren.
+-   Ende Mai 2014: Telefonkonferenz zum eingegangenen Feedback aus der
+    Review-Phase
+
+-   KW 23 (2. bis 6. Juni): Geplante Veröffentlichung der Spezifikation
+    1.0
 
 Zukunft von OParl
 -----------------
 
--   Verfeinerung, Lücken schliessen
--   Globalisierung
--   Erweiterung über die kommunale Ebene hinaus (Land, Bund)
--   Vereinheitlichung von Kategorien (Drucksachentypen, Arten von
-    Gremien)
--   Erweiterung von Personendaten, z.B. mit Social Media URLs
--   Mehr Abfragekriterien
--   Suchfunktionen (Volltextsuche)
--   Abstimmungsverhalten und maschinenlesbare Protokolle
--   Schreibender Zugriff. Auch dazu muss das Rad nicht neu erfunden
-    werden. Bestehende bzw. in Entwicklung befindliche Spezifikationen
-    und Techniken aus der Linked Data-Welt können verwendet werden. Dazu
-    gehören insbesondere die Linked Data Platform des W3C und Hydra.
+TODO: - Verfeinerung, Lücken schliessen - Globalisierung - Erweiterung
+über die kommunale Ebene hinaus (Land, Bund) - Vereinheitlichung von
+Kategorien (Drucksachentypen, Arten von Gremien) - Erweiterung von
+Personendaten, z.B. mit Social Media URLs - Mehr Abfragekriterien -
+Suchfunktionen (Volltextsuche) - Abstimmungsverhalten und
+maschinenlesbare Protokolle - Schreibender Zugriff. Auch dazu muss das
+Rad nicht neu erfunden werden. Bestehende bzw. in Entwicklung
+befindliche Spezifikationen und Techniken aus der Linked Data-Welt
+können verwendet werden. Dazu gehören insbesondere die Linked Data
+Platform des W3C und Hydra.
 
 Nomenklatur der Spezifikation und Satzkonventionen
 --------------------------------------------------
@@ -256,11 +270,17 @@ DÜRFEN/DARF bzw. OPTIONAL:
 
 Besondere Hervorhebungen und Satzkonventionen
 
+TODO
+
 Initiatoren
 -----------
 
+TODO
+
 Unterstützer
 ------------
+
+TODO
 
 Autoren
 -------
@@ -524,11 +544,17 @@ Datenbestand aufzuwerten.
 Szenario 3: Meta-Suche {#szenario_meta_suche}
 ----------------------
 
+TODO
+
 Szenario 4: Forschungsprojekt Themen- und Sprachanalyse {#szenario_forschung}
 -------------------------------------------------------
 
+TODO
+
 Prinzipien und Funktionen der API
 =================================
+
+TODO
 
 (In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen
 Schnittstelle beschrieben. Hierzu gehören alle chapter-Dateien, deren
@@ -1304,18 +1330,29 @@ TODO: Weitere Objekttypen nennen, in denen Blank Nodes vorkommen.
 Objektlisten
 ------------
 
-Über die OParl-API können entweder einzelne Objekte oder Listen von
-Objekten abgefragt werden.
+Über die OParl-API können entweder einzelne (benannte) Objekte,
+beispielsweise eine bestimmte Drucksache, oder Listen von Objekten, etwa
+die Liste aller Sitzungen einer Körperschaft, abgefragt werden.
 
-Gezieltes Abfragen von Listen
+Fragt ein Client eine Liste von Objekten an, hat der Server mehrere
+Möglichkeiten, diese Anfrage zu beantworten.
 
-Fragt ein Client eine Liste von Objekten an, beispielsweise die Liste
-aller Drucksachen in einem System, kann der Server innerhalb bestimmter
-Grenzen entscheiden, wie die Ausgabe aussieht.
+In jedem Fall werden die einzelnen Objekte, die Bestandteile der Liste
+sind (wie z.B. die einzelnen Drucksachen) durch die URL des jeweiligen
+Objekts repräsentiert. Objektlisten sind also tatsächlich immer Listen
+von URLs.
 
-In der einfachsten Form gibt der Server ein Objekt mit nur einer
-Eigenschaft items aus. Der Wert dieser Eigenschaft ist die vollständige
-Liste der URLs aller angefragten Objekte. Beispiel:
+Vollständige Listenausgabe
+
+In der einfachsten Form gibt der Server die Liste als Objekt mit nur
+einer einzigen Eigenschaft items aus. Der Wert dieser Eigenschaft ist
+die vollständige Liste der URLs aller in der Liste enthaltenen Objekte.
+
+Diese einfachste Form der Antwort eignet sich nur für Listen mit einer
+begrenzten Anzahl von Einträgen, wie beispielsweise die Liste der
+Mitglieder einer Organisation.
+
+Beispiel:
 
 ``` {#objektlisten_ex1 .json}
 {
@@ -1327,13 +1364,15 @@ Liste der URLs aller angefragten Objekte. Beispiel:
 }
 ```
 
-Diese einfachste Form der Antwort eignet sich nur für Listen mit einer
-begrenzten Anzahl von Einträgen.
+Paginierung
 
 Für längere Listen ist eine Blätterfunktion bzw. Paginierung vorgesehen.
-Darunter versteht man den seitenweisen Abruf der Einträge einer Liste,
-wobei die Reihenfolge der Liste vom Server festgelegt ist und zwischen
-den Seitenabrufen unverändert bleibt.
+Darunter versteht man die Aufteilung der Liste in kleinere Teilbereiche,
+die wir hier als "Listenseiten" bezeichnen. Zweck ist, die einzelnen
+Listenseiten mit je einer eigenen API-Anfrage abrufbar zu machen. Die
+Aufteilung der Liste in Listenseiten erfolgt durch den Server und kann
+vom Client nicht beeinflusst werden, sie bleibt jedoch zwischen den
+einzelnen unverändert.
 
 Listen mit mehr als 100 Einträgen SOLL der Server nur teilweise ausgeben
 und dem Client dabei eine Paginierung anbieten, um weitere Listenteile
@@ -1341,7 +1380,7 @@ abzurufen. Dabei wird EMPFOHLEN, die Zahl der jeweils ausgegebenen
 Listeneinträge wiederum auf maximal 100 zu begrenzen.
 
 Das nachstehende Beispiel zeigt, wie dem Client die URL zum "Blättern",
-also zum Aufruf der nächsten Listenseite, angeboten wird.
+also zum Aufruf der jeweils nächsten Listenseite, angeboten wird.
 
 ``` {#objektlisten_ex2 .json}
 {
@@ -1350,29 +1389,30 @@ also zum Aufruf der nächsten Listenseite, angeboten wird.
         "http://refserv.oparl.org/bodies/0/papers/5",
         "http://refserv.oparl.org/bodies/0/papers/7",
     ],
-    "nextpage": "http://refserv.oparl.org/bodies/0/papers/?skip=7",
-    "count": 7
+    "nextPage": "http://refserv.oparl.org/bodies/0/papers/?skip=7",
+    "count": 118
 }
 ```
 
 Wie oben zu sehen, enthält das Beispiel-Objekt nun eine zusätzliche
-Eigenschaft nextpage. Der Wert dieser Eigenschaft ist eine URL, die dem
+Eigenschaft nextPage. Der Wert dieser Eigenschaft ist eine URL, die dem
 Client dazu dient, die weiteren Einträge der Liste abzurufen.
 
 Die Eigenschaft count DARF bei Listen grundsätzlich ausgegeben werden
 und SOLL bei mehrseitigen Listen ausgegeben werden. Ihr Wert ist eine
-Zahl und gibt an, wie viele Einträge die vollständige Liste enthält.
+Zahl und gibt an, wie viele Einträge die vollständige Liste aller
+Objekte enthält.
 
-Ruft der Client die unter nextpage angegebene URL auf, erhält er
+Ruft der Client die unter nextPage angegebene URL auf, erhält er
 wiederum ein Listenobjekt. Dieses Objekt MUSS, sofern noch immer mehr
 Listeneinträge vorhanden sind, als ausgegeben wurden, wiederum die
-nextpage Eigenschaft mit einer URL enthalten. Um alle Einträge einer
+nextPage Eigenschaft mit einer URL enthalten. Um alle Einträge einer
 Liste zu erfassen, folgt der Client also jeweils der URL, die in der
 nextpage Eigenschaft angegeben ist.
 
 [Paginierung: Schematische Darstellung]
 
-Server-Implementierer entscheiden selbst, wie die nextpage-URL aufgebaut
+Server-Implementierer entscheiden selbst, wie die nextPage-URL aufgebaut
 ist und tragen damit selbst Verantwortung für die Funktionsweise der
 Paginierung. Bei der Entscheidung für eine Form der Implementierung sind
 weitere Anforderungen zu berücksichtigen:
@@ -1488,7 +1528,7 @@ Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
         },
         ...
     ],
-    "nextpage": "http://refserv.oparl.org/feeds/new/?t=20140106170100402"
+    "nextPage": "http://refserv.oparl.org/feeds/new/?t=20140106170100402"
 }
 ```
 
@@ -1554,7 +1594,7 @@ System geführt werden.
         },
         ...
     ],
-    "nextpage": "http://refserv.oparl.org/feeds/updated/?t=20140106170100402"
+    "nextPage": "http://refserv.oparl.org/feeds/updated/?t=20140106170100402"
 }
 ```
 
@@ -1586,7 +1626,7 @@ entfernen.
         },
         ...
     ],
-    "nextpage": "http://refserv.oparl.org/feeds/updated/?t=20131111111100"
+    "nextPage": "http://refserv.oparl.org/feeds/updated/?t=20131111111100"
 }
 ```
 
@@ -1605,6 +1645,8 @@ TODO:
 
 Ausnahmebehandlung
 ------------------
+
+TODO:
 
 (Diskussion hierzu unter https://github.com/OParl/specs/issues/89)
 
@@ -1702,18 +1744,18 @@ Ein Beispiel:
 {
     "@type": "oparl:System",
     "@id": "http://beispielris.de/",
-    "oparl_version": "http://oparl.org/specs/1.0/",
+    "oparlVersion": "http://oparl.org/specs/1.0/",
     "name": "Beispiel-System",
-    "www_url": "http://www.beispielris.de/",
-    "contact_email": "mailto:info@beispielris.de",
-    "contact_name": "Allgemeiner OParl Kontakt",
+    "wwwUrl": "http://www.beispielris.de/",
+    "contactEmail": "mailto:info@beispielris.de",
+    "contactName": "Allgemeiner OParl Kontakt",
     "vendor": "http://example-software.com/",
     "product": "http://example-software.com/oparl-server/",
     "license": "http://creativecommons.org/licenses/by/4.0/",
     "bodies": "http://beispielris.de/bodies/",
-    "new_objects": "http://beispielris.de/new_objects/",
-    "updated_objects": "http://beispielris.de/updated_objects/",
-    "removed_objects": "http://beispielris.de/removed_objects"
+    "newObjects": "http://beispielris.de/new_objects/",
+    "updatedObjects": "http://beispielris.de/updated_objects/",
+    "removedObjects": "http://beispielris.de/removed_objects"
 }
 ```
 
@@ -1777,7 +1819,7 @@ TODO: Beispiele für JSON-LD und exemplarisch auch für HTML.
 
 Eigenschaften
 
-oparl_version
+oparlVersion
     Die URL der OParl-Spezifikation, die von diesem Server unterstützt
     wird. Der Wert MUSS die URL http://oparl.org/specs/1.0/ sein. Diese
     Eigenschaft ist ZWINGEND.
@@ -1793,13 +1835,13 @@ name
     System erkennen und von anderen unterscheiden können. Diese
     Eigenschaft wird EMPFOHLEN.
 
-contact_email
+contactEmail
     E-Mail-Adresse für Anfragen zur OParl-API. Diese Eigenschaft wird
     EMPFOHLEN. Die Angabe einer E-Mail-Adresse dient sowohl NutzerInnen
     wie auch EntwicklerInnen von Clients zur Kontaktaufnahme mit dem
     Betreiber.
 
-contact_name
+contactName
     Name des Ansprechpartners oder der Abteilung, die über die
     contact_email erreicht werden kann. Die Eigenschaft ist EMPFOHLEN.
     Typ: Zeichenkette.
@@ -1809,16 +1851,16 @@ license
     werden können, gilt, sofern nicht am einzelnen Objekt anders
     angegeben. Die Eigenschaft ist EMPFOHLEN.
 
-new_objects
+newObjects
     URL des Feeds "Neue Objekte". Die Eigenschaft ist EMPFOHLEN.
 
-updated_objects
+updatedObjects
     URL des Feeds "Geänderte Objekte". Die Eigenschaft ist EMPFOHLEN.
 
-removed_objects
+removedObjects
     URL des Feeds "Entfernte Objekte". Die Eigenschaft ist EMPFOHLEN.
 
-www_url
+wwwUrl
     URL zur WWW-Oberfläche des parlamentarischen Informationssystem.
     Diese Eigenschaft ist OPTIONAL.
 
@@ -1833,133 +1875,116 @@ product
 oparl:Body (Körperschaft) {#oparl_body}
 -------------------------
 
-Der Objekttyp oparl:Body dient dazu, eine Körperschaft abzubilden. Eine
-Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder ein
-Zweckverband sein.
+Der Objekttyp oparl:Body dient dazu, eine Körperschaft und damit ein
+Parlament zu repräsentieren, zu dem der Server Informationen bereithält.
+Eine Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder
+ein kommunaler Zweckverband sein.
+
+Hätte das System beispielsweise den Zweck, Informationen über das
+kommunale Parlament der Stadt Köln, namentlich den Rat der Stadt Köln,
+abzubilden, dann müsste dieses System dazu ein Objekt vom Typ oparl:Body
+führen, welches die Stadt Köln repräsentiert.
 
 Ein Beispiel:
 
 ``` {#oparlbody_ex1 .json}
 {
     "@type": "http://oparl.org/schema/1.0/Body",
-    "@id": "http://refserv.oparl.org/bodies/0",
-    "system": "http://beispielris.de/",
-    "committees": "http://beispielris.de/bodies/1/committees/",
-    "contact_email": "ris@beispielstadt.de",
-    "contact_name": "RIS-Betreuung",
+    "@id": "http://oparl.beispielris.de/bodies/0",
+    "system": "http://oparl.beispielris.de/",
+    "contactEmail": "mailto:ris@beispielstadt.de",
+    "contactName": "RIS-Betreuung",
     "rgs": "053150000000",
-    "gnd_url": "http://d-nb.info/gnd/2015732-0",
-    "meetings": "http://refserv.oparl.org/bodies/0/meetings/",
+    "sameAs": [
+        "http://d-nb.info/gnd/2015732-0",
+        "http://dbpedia.org/resource/Cologne"
+    ],
     "name": "Stadt K\u00f6ln",
-    "name_long": "Stadt K\u00f6ln, kreisfreie Stadt",
-    "organisations": "http://refserv.oparl.org/bodies/0/organisations/",
-    "papers": "http://refserv.oparl.org/bodies/0/papers/",
-    "people": "http://refserv.oparl.org/bodies/0/people/",
-    "www_url": "http://www.beispielstadt.de/"
+    "nameLong": "Stadt K\u00f6ln, kreisfreie Stadt",
+    "wwwUrl": "http://www.beispielstadt.de/",
+    "organizations": "http://oparl.beispielris.de/bodies/0/organisations/",
+    "meetings": "http://oparl.beispielris.de/bodies/0/meetings/",
+    "papers": "http://oparl.beispielris.de/bodies/0/papers/",
+    "people": "http://oparl.beispielris.de/bodies/0/people/",
     "created": "2014-01-08T14:28:31.568+0100",
-    "last_modified": "2014-01-08T14:28:31.568+0100",
+    "lastModified": "2014-01-08T14:28:31.568+0100"
 }
 ```
 
-Von einem funktionsfähigen Server wird erwartet, dass er mindestens ein
-Objekt vom Typ oparl:Body bereit hält. Teilen sich mehrere
-Körperschaften das selbe technische System, können auf demselben Server
-auch mehrere Objekte vom Typ oparl:Body beherbergt werden.
+Vom OParl-Server wird erwartet, dass er mindestens ein Objekt vom Typ
+oparl:Body bereit hält. Teilen sich mehrere Körperschaften das selbe
+technische System, können auf demselben Server auch mehrere Objekte vom
+Typ oparl:Body beherbergt werden.
 
 Über die Zuordnung zu einem bestimmten oparl:Body Objekt zeigen andere
 Objekte, wie beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit
-zu einer bestimmten Körperschaft an.
+zu einer bestimmten Körperschaft und damit implizit zu einem bestimmten
+Parlament an.
 
-Es werden mehrere Eigenschaften angeboten, die dazu dienen, die real
-existierende Körperschaft, die von einem oparl:Body Objekt repräsentiert
-wird, programmatisch auslesbar zu machen zu können. Insbesondere sind
-hier die Eigenschaften url, rgs und gnd_url zu nennen.
+Eigenschaften
 
-Eigenschaft system
+system
+    URL des Objekts vom Typ oparl:System Objekts, zu dem dieses Objekt
+    gehört. Diese Eigenschaft ist ZWINGEND.
 
-Diese Eigenschaft ist ZWINGEND.
+name
+    Gibt den gebräuchlichen Namen der Körperschaft an. Diese Eigenschaft
+    ist ZWINGEND.
 
-Mit dieser Eigenschaft wird das Objekt dem übergeordneten oparl:System
-Objekt zugeordnet. Wert MUSS der IRI des oparl:System Objekts sein.
+nameLong
+    Kann bei Bedarf dazu verwendet werden, eine längere Form des Namens
+    der Körperschaft anzugeben. Diese Eigenschaft ist OPTIONAL.
 
-Eigenschaft name
+wwwUrl
+    Dient der Angabe der WWW-URL der Körperschaft. Diese Eigenschaft ist
+    EMPFOHLEN.
 
-Diese Eigenschaft ist ZWINGEND. Sie transportiert den gebräuchlichen
-Namen der Körperschaft.
+rgs
+    Regionalschlüssel der Körperschaft als zwölfstellige
+    Zeichenkette[^17]. Diese Eigenschaft ist EMPFOHLEN.
 
-Eigenschaft name_long
+sameAs
+    Dient der Angabe beliebig vieler zusätzlicher URLs, die die
+    Körperschaft repräsentieren. Diese Eigenschaft ist EMPFOHLEN. Hier
+    können Beispielsweise, sofern vorhanden, der entpsrechende Eintrag
+    der Gemeinsamen Normdatei der Deutschen Nationalbibliothek[^18], der
+    DBPedia[^19] oder der Wikipedia[^20] angegeben werden.
 
-Diese Eigenschaft ist OPTIONAL und kann bei Bedarf dazu verwendet
-werden, eine längere Form des Namens der Körperschaft wieder zu geben,
-sofern dieser für die Eigenschaft name zu lang ist.
+contactEmail
+    Dient der Angabe einer Kontakt-E-Mail-Adresse mit "mailto:"-Schema.
+    Diese Eigenschaft ist EMPFOHLEN. Die Adresse soll die
+    Kontaktaufnahme zu einer für die Körperschaft und idealerweise das
+    parlamentarische Informationssystem zuständigen Stelle ermöglichen.
 
-Eigenschaft url
+contactName
+    Name oder Bezeichnung der mit contactEmail erreichbaren Stelle.
+    OPTIONAL.
 
-Diese Eigenschaft ist EMPFOHLEN.
+papers
+    URL, unter welcher die API die Liste aller Objekte vom Typ
+    oparl:Paper, also die Drucksachen unter dieser Körperschaft ausgibt.
+    Diese Eigenschaft ist ZWINGEND.
 
-Mit dieser Eigenschaft SOLL die URL der offiziellen Website der
-Körperschaft ausgegeben werden.
+people
+    URL, unter welcher die API die Liste aller Objekte vom Typ
+    oparl:Person, also die Personen unter dieser Körperschaft ausgibt.
+    Diese Eigenschaft ist ZWINGEND.
 
-TODO: Beschreibung
+meetings
+    URL, unter welcher die API die Liste aller Objekte vom Typ
+    oparl:Meeting, also die Sitzungen dieser Körperschaft ausgibt. Diese
+    Eigenschaft ist ZWINGEND.
 
-Eigenschaft rgs
+organizations
+    URL, unter welcher die API die Liste aller Objekte vom Typ
+    oparl:Organization, also die Gruppierungen dieser Körperschaft
+    ausgibt. Diese Eigenschaft ist ZWINGEND.
 
-Diese Eigenschaft ist EMPFOHLEN.
+created
+    Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
 
-Handelt es sich bei der Körperschaft um eine Gebietskörperschaft
-(Landkreis, Kommune etc.) in Deutschland, SOLL für die eindeutige
-Identifizierung der amtliche Regionalschlüssel verwendet werden.[^17]
-Dieser ist grundsätzlich zwölfstellig.
-
-Eigenschaft gnd_url
-
-Diese Eigenschaft ist EMPFOHLEN.
-
-Sofern die Körperschaft in der GND[^18] vertreten ist, SOLL diese
-Eigenschaft als Wert die URL des Eintrags in der GND enthalten.
-
-Eigenschaft contact
-
-Diese Eigenschaft ist EMPFOHLEN.
-
-Über diese Eigenschafte SOLLEN Kontaktinformationen zu einer Stelle
-bereit gestellt werden, die die inhaltliche Verantwortung für sämtliche
-zu dieser Körperschaft gehörenden Inhalte im System trägt. Besonders
-wichtig ist diese Angabe, wenn auf einem System mehrere Körperschaften
-vertreten sind und damit auf der Ebene des oparl:System Objekts ein rein
-technischer Kontakt ausgegeben wird, der nicht für inhaltliche
-Fragestellungen im Zuständigkeitsbereich der jeweiligen Körperschaften
-kontaktiert werden sollte.
-
-Eigenschaft papers
-
-Diese Eigenschaft ist ZWINGEND.
-
-Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Drucksachen (Objekte vom Typ oparl:Paper) für diese Körperschaft.
-
-Eigenschaft people
-
-Diese Eigenschaft ist ZWINGEND.
-
-Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Personen (Objekte vom Typ oparl:Person) für diese Körperschaft.
-
-Eigenschaft meetings
-
-Diese Eigenschaft ist ZWINGEND.
-
-Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Sitzungen (Objekte vom Typ oparl:Meeting) für diese Körperschaft.
-
-Eigenschaft committees
-
-Diese Eigenschaft ist ZWINGEND.
-
-Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Gremien (Objekte vom Typ oparl:Committee) für diese Körperschaft.
-
-Beispiel
+lastModified
+    Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.
 
 oparl:Organization (Organisation) {#oparl_organisation}
 ---------------------------------
@@ -2473,7 +2498,7 @@ name
     Eigenschaft ist ZWINGEND. Typ: Zeichenkette.
 
 mime_type
-    Mime-Typ des Inhalts (vgl. RFC2046[^19]). Diese Eigenschaft ist
+    Mime-Typ des Inhalts (vgl. RFC2046[^21]). Diese Eigenschaft ist
     ZWINGEND. Sollte das System einer Datei keinen spezifischen Typ
     zuweisen können, wird EMPFOHLEN, hier "application/octet-stream" zu
     verwenden.
@@ -2612,14 +2637,14 @@ politischen Vorgangs, wie zum Beispiel eines Bauvorhabens oder der
 machen.
 
 OParl sieht bei Angabe von Geodaten die Verwendung des  
-GeoJSON-Formats[^20] vor. GeoJSON erlaubt die Beschreibung von vielen
+GeoJSON-Formats[^22] vor. GeoJSON erlaubt die Beschreibung von vielen
 unterschiedlichen Geometrien wie Punkten, Pfaden und Polygonen in
 JSON-Notation. Ein GeoJSON-Objekt kann auch mehrere Geometrien umfassen,
 beispielsweise um damit mehrere Punkte oder Polygone zu umschreiben.
 
 Gegenüber der GeoJSON-Spezifikation sieht OParl eine wichtige
 Einschränkung vor: Für die Ausgabe über eine OParl API MÜSSEN sämtliche
-Koordinatenangaben im System WGS84[^21] angegeben werden, und zwar in
+Koordinatenangaben im System WGS84[^23] angegeben werden, und zwar in
 Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.
 
 Eigenschaften
@@ -2734,11 +2759,15 @@ JSON-LD-Kontextdokumente zu finden sein werden.
 
 [^18]: Gemeinsame Normdatei http://www.dnb.de/gnd
 
-[^19]: http://tools.ietf.org/html/rfc2046
+[^19]: DBPedia http://www.dbpedia.org/
 
-[^20]: GeoJSON Spazifikation http://geojson.org/geojson-spec.html
+[^20]: Wikipedia http://de.wikipedia.org/
 
-[^21]: WGS84 steht für "World Geodetic System 1984", es wird unter
+[^21]: http://tools.ietf.org/html/rfc2046
+
+[^22]: GeoJSON Spazifikation http://geojson.org/geojson-spec.html
+
+[^23]: WGS84 steht für "World Geodetic System 1984", es wird unter
     anderem auch vom Global Positioning System (GPS) verwendet. In
     geografischen Informationssystemen ist für das System der EPSG-Code
     4326 geläufig.

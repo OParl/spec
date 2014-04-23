@@ -17,11 +17,15 @@
       entsprechend viele Ungenauigkeiten und Hinweise auf offene
       Fragestellungen.
     </para>
+    <para>
+      Die Kennzeichnung &quot;TODO&quot; markiert Hinweise, die für die
+      Bearbeiter des Dokuments gedacht sind.
+    </para>
   </sect2>
   <sect2 id="was-ist-oparl">
     <title>Was ist OParl?</title>
     <para>
-      (Nachfolgend eine Übernahme aus dem bisherigen Abschnitt
+      (TODO: Nachfolgend eine Übernahme aus dem bisherigen Abschnitt
       &quot;Funktionsumfang der OParl-Schnittstelle&quot;. Der Text
       sollte deutlich überarbeitet und erweitert werden.)
     </para>
@@ -41,6 +45,9 @@
   </sect2>
   <sect2 id="zielsetzung-von-oparl">
     <title>Zielsetzung von OParl</title>
+    <para>
+      TODO:
+    </para>
     <itemizedlist>
       <listitem>
         <para>
@@ -165,6 +172,9 @@
   </sect2>
   <sect2 id="transparenz-und-beteiligung-durch-open-data">
     <title>Transparenz und Beteiligung durch Open Data</title>
+    <para>
+      TODO:
+    </para>
     <itemizedlist>
       <listitem>
         <para>
@@ -366,62 +376,56 @@
           </listitem>
         </orderedlist>
       </listitem>
+      <listitem>
+        <orderedlist numeration="arabic">
+          <listitem override="26">
+            <para>
+              Januar 2014: In Düsseldorf findet ein weiterer Workshop
+              zur Arbeit am Entwurf der Spezifikation statt.
+            </para>
+          </listitem>
+        </orderedlist>
+      </listitem>
+      <listitem>
+        <orderedlist numeration="arabic">
+          <listitem>
+            <para>
+              Mai 2014: Beginn der Review-Phase. Interessierte sind
+              aufgerufen, den vorliegenden Entwurf bis Ende Mai zu
+              kommentieren.
+            </para>
+          </listitem>
+        </orderedlist>
+      </listitem>
+      <listitem>
+        <para>
+          Ende Mai 2014: Telefonkonferenz zum eingegangenen Feedback aus
+          der Review-Phase
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          KW 23 (2. bis 6. Juni): Geplante Veröffentlichung der
+          Spezifikation 1.0
+        </para>
+      </listitem>
     </itemizedlist>
   </sect2>
   <sect2 id="zukunft-von-oparl">
     <title>Zukunft von OParl</title>
-    <itemizedlist>
-      <listitem>
-        <para>
-          Verfeinerung, Lücken schliessen
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Globalisierung
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Erweiterung über die kommunale Ebene hinaus (Land, Bund)
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Vereinheitlichung von Kategorien (Drucksachentypen, Arten von
-          Gremien)
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Erweiterung von Personendaten, z.B. mit Social Media URLs
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Mehr Abfragekriterien
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Suchfunktionen (Volltextsuche)
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Abstimmungsverhalten und maschinenlesbare Protokolle
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Schreibender Zugriff. Auch dazu muss das Rad nicht neu
-          erfunden werden. Bestehende bzw. in Entwicklung befindliche
-          Spezifikationen und Techniken aus der Linked Data-Welt können
-          verwendet werden. Dazu gehören insbesondere die Linked Data
-          Platform des W3C und Hydra.
-        </para>
-      </listitem>
-    </itemizedlist>
+    <para>
+      TODO: - Verfeinerung, Lücken schliessen - Globalisierung -
+      Erweiterung über die kommunale Ebene hinaus (Land, Bund) -
+      Vereinheitlichung von Kategorien (Drucksachentypen, Arten von
+      Gremien) - Erweiterung von Personendaten, z.B. mit Social Media
+      URLs - Mehr Abfragekriterien - Suchfunktionen (Volltextsuche) -
+      Abstimmungsverhalten und maschinenlesbare Protokolle -
+      Schreibender Zugriff. Auch dazu muss das Rad nicht neu erfunden
+      werden. Bestehende bzw. in Entwicklung befindliche Spezifikationen
+      und Techniken aus der Linked Data-Welt können verwendet werden.
+      Dazu gehören insbesondere die Linked Data Platform des W3C und
+      Hydra.
+    </para>
   </sect2>
   <sect2 id="nomenklatur-der-spezifikation-und-satzkonventionen">
     <title>Nomenklatur der Spezifikation und Satzkonventionen</title>
@@ -545,17 +549,20 @@
     <sect3 id="besondere-hervorhebungen-und-satzkonventionen">
       <title>Besondere Hervorhebungen und Satzkonventionen</title>
       <para>
+        TODO
       </para>
     </sect3>
   </sect2>
   <sect2 id="initiatoren">
     <title>Initiatoren</title>
     <para>
+      TODO
     </para>
   </sect2>
   <sect2 id="unterstützer">
     <title>Unterstützer</title>
     <para>
+      TODO
     </para>
   </sect2>
   <sect2 id="autoren">
@@ -919,17 +926,22 @@
   <sect2 id="szenario_meta_suche">
     <title>Szenario 3: Meta-Suche</title>
     <para>
+      TODO
     </para>
   </sect2>
   <sect2 id="szenario_forschung">
     <title>Szenario 4: Forschungsprojekt Themen- und
     Sprachanalyse</title>
     <para>
+      TODO
     </para>
   </sect2>
 </sect1>
 <sect1 id="prinzipien-und-funktionen-der-api">
   <title>Prinzipien und Funktionen der API</title>
+  <para>
+    TODO
+  </para>
   <para>
     (In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen
     Schnittstelle beschrieben. Hierzu gehören alle chapter-Dateien,
@@ -2125,22 +2137,37 @@ http://refserv.oparl.org/bodies/0/committees/1
   <sect2 id="objektlisten">
     <title>Objektlisten</title>
     <para>
-      Über die OParl-API können entweder einzelne Objekte oder Listen
-      von Objekten abgefragt werden.
+      Über die OParl-API können entweder einzelne (benannte) Objekte,
+      beispielsweise eine bestimmte Drucksache, oder Listen von
+      Objekten, etwa die Liste aller Sitzungen einer Körperschaft,
+      abgefragt werden.
     </para>
-    <sect3 id="gezieltes-abfragen-von-listen">
-      <title>Gezieltes Abfragen von Listen</title>
+    <para>
+      Fragt ein Client eine Liste von Objekten an, hat der Server
+      mehrere Möglichkeiten, diese Anfrage zu beantworten.
+    </para>
+    <para>
+      In jedem Fall werden die einzelnen Objekte, die Bestandteile der
+      Liste sind (wie z.B. die einzelnen Drucksachen) durch die URL des
+      jeweiligen Objekts repräsentiert. Objektlisten sind also
+      tatsächlich immer Listen von URLs.
+    </para>
+    <sect3 id="vollständige-listenausgabe">
+      <title>Vollständige Listenausgabe</title>
       <para>
-        Fragt ein Client eine Liste von Objekten an, beispielsweise die
-        Liste aller Drucksachen in einem System, kann der Server
-        innerhalb bestimmter Grenzen entscheiden, wie die Ausgabe
-        aussieht.
+        In der einfachsten Form gibt der Server die Liste als Objekt mit
+        nur einer einzigen Eigenschaft <literal>items</literal> aus. Der
+        Wert dieser Eigenschaft ist die
+        <emphasis role="strong">vollständige Liste</emphasis> der URLs
+        aller in der Liste enthaltenen Objekte.
       </para>
       <para>
-        In der einfachsten Form gibt der Server ein Objekt mit nur einer
-        Eigenschaft <literal>items</literal> aus. Der Wert dieser
-        Eigenschaft ist die <emphasis role="strong">vollständige
-        Liste</emphasis> der URLs aller angefragten Objekte. Beispiel:
+        Diese einfachste Form der Antwort eignet sich nur für Listen mit
+        einer begrenzten Anzahl von Einträgen, wie beispielsweise die
+        Liste der Mitglieder einer Organisation.
+      </para>
+      <para>
+        Beispiel:
       </para>
       <programlisting language="json">
 {
@@ -2151,16 +2178,18 @@ http://refserv.oparl.org/bodies/0/committees/1
     ]
 }
 </programlisting>
-      <para>
-        Diese einfachste Form der Antwort eignet sich nur für Listen mit
-        einer begrenzten Anzahl von Einträgen.
-      </para>
+    </sect3>
+    <sect3 id="paginierung">
+      <title>Paginierung</title>
       <para>
         Für längere Listen ist eine Blätterfunktion bzw. Paginierung
-        vorgesehen. Darunter versteht man den seitenweisen Abruf der
-        Einträge einer Liste, wobei die Reihenfolge der Liste vom Server
-        festgelegt ist und zwischen den Seitenabrufen unverändert
-        bleibt.
+        vorgesehen. Darunter versteht man die Aufteilung der Liste in
+        kleinere Teilbereiche, die wir hier als &quot;Listenseiten&quot;
+        bezeichnen. Zweck ist, die einzelnen Listenseiten mit je einer
+        eigenen API-Anfrage abrufbar zu machen. Die Aufteilung der Liste
+        in Listenseiten erfolgt durch den Server und kann vom Client
+        nicht beeinflusst werden, sie bleibt jedoch zwischen den
+        einzelnen unverändert.
       </para>
       <para>
         Listen mit mehr als 100 Einträgen SOLL der Server nur teilweise
@@ -2172,8 +2201,8 @@ http://refserv.oparl.org/bodies/0/committees/1
       </para>
       <para>
         Das nachstehende Beispiel zeigt, wie dem Client die URL zum
-        &quot;Blättern&quot;, also zum Aufruf der nächsten Listenseite,
-        angeboten wird.
+        &quot;Blättern&quot;, also zum Aufruf der jeweils nächsten
+        Listenseite, angeboten wird.
       </para>
       <programlisting language="json">
 {
@@ -2182,13 +2211,13 @@ http://refserv.oparl.org/bodies/0/committees/1
         &quot;http://refserv.oparl.org/bodies/0/papers/5&quot;,
         &quot;http://refserv.oparl.org/bodies/0/papers/7&quot;,
     ],
-    &quot;nextpage&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/?skip=7&quot;,
-    &quot;count&quot;: 7
+    &quot;nextPage&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/?skip=7&quot;,
+    &quot;count&quot;: 118
 }
 </programlisting>
       <para>
         Wie oben zu sehen, enthält das Beispiel-Objekt nun eine
-        zusätzliche Eigenschaft <literal>nextpage</literal>. Der Wert
+        zusätzliche Eigenschaft <literal>nextPage</literal>. Der Wert
         dieser Eigenschaft ist eine URL, die dem Client dazu dient, die
         weiteren Einträge der Liste abzurufen.
       </para>
@@ -2196,13 +2225,13 @@ http://refserv.oparl.org/bodies/0/committees/1
         Die Eigenschaft <literal>count</literal> DARF bei Listen
         grundsätzlich ausgegeben werden und SOLL bei mehrseitigen Listen
         ausgegeben werden. Ihr Wert ist eine Zahl und gibt an, wie viele
-        Einträge die vollständige Liste enthält.
+        Einträge die vollständige Liste aller Objekte enthält.
       </para>
       <para>
-        Ruft der Client die unter <literal>nextpage</literal> angegebene
+        Ruft der Client die unter <literal>nextPage</literal> angegebene
         URL auf, erhält er wiederum ein Listenobjekt. Dieses Objekt
         MUSS, sofern noch immer mehr Listeneinträge vorhanden sind, als
-        ausgegeben wurden, wiederum die <literal>nextpage</literal>
+        ausgegeben wurden, wiederum die <literal>nextPage</literal>
         Eigenschaft mit einer URL enthalten. Um alle Einträge einer
         Liste zu erfassen, folgt der Client also jeweils der URL, die in
         der <literal>nextpage</literal> Eigenschaft angegeben ist.
@@ -2219,7 +2248,7 @@ http://refserv.oparl.org/bodies/0/committees/1
       </figure>
       <para>
         Server-Implementierer entscheiden selbst, wie die
-        <literal>nextpage</literal>-URL aufgebaut ist und tragen damit
+        <literal>nextPage</literal>-URL aufgebaut ist und tragen damit
         selbst Verantwortung für die Funktionsweise der Paginierung. Bei
         der Entscheidung für eine Form der Implementierung sind weitere
         Anforderungen zu berücksichtigen:
@@ -2365,7 +2394,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         },
         ...
     ],
-    &quot;nextpage&quot;: &quot;http://refserv.oparl.org/feeds/new/?t=20140106170100402&quot;
+    &quot;nextPage&quot;: &quot;http://refserv.oparl.org/feeds/new/?t=20140106170100402&quot;
 }
 </programlisting>
       <para>
@@ -2456,7 +2485,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         },
         ...
     ],
-    &quot;nextpage&quot;: &quot;http://refserv.oparl.org/feeds/updated/?t=20140106170100402&quot;
+    &quot;nextPage&quot;: &quot;http://refserv.oparl.org/feeds/updated/?t=20140106170100402&quot;
 }
 </programlisting>
       <para>
@@ -2494,7 +2523,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         },
         ...
     ],
-    &quot;nextpage&quot;: &quot;http://refserv.oparl.org/feeds/updated/?t=20131111111100&quot;
+    &quot;nextPage&quot;: &quot;http://refserv.oparl.org/feeds/updated/?t=20131111111100&quot;
 }
 </programlisting>
       <para>
@@ -2530,6 +2559,9 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
   </sect2>
   <sect2 id="ausnahmebehandlung">
     <title>Ausnahmebehandlung</title>
+    <para>
+      TODO:
+    </para>
     <para>
       (Diskussion hierzu unter https://github.com/OParl/specs/issues/89)
     </para>
@@ -2707,18 +2739,18 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
 {
     &quot;@type&quot;: &quot;oparl:System&quot;,
     &quot;@id&quot;: &quot;http://beispielris.de/&quot;,
-    &quot;oparl_version&quot;: &quot;http://oparl.org/specs/1.0/&quot;,
+    &quot;oparlVersion&quot;: &quot;http://oparl.org/specs/1.0/&quot;,
     &quot;name&quot;: &quot;Beispiel-System&quot;,
-    &quot;www_url&quot;: &quot;http://www.beispielris.de/&quot;,
-    &quot;contact_email&quot;: &quot;mailto:info@beispielris.de&quot;,
-    &quot;contact_name&quot;: &quot;Allgemeiner OParl Kontakt&quot;,
+    &quot;wwwUrl&quot;: &quot;http://www.beispielris.de/&quot;,
+    &quot;contactEmail&quot;: &quot;mailto:info@beispielris.de&quot;,
+    &quot;contactName&quot;: &quot;Allgemeiner OParl Kontakt&quot;,
     &quot;vendor&quot;: &quot;http://example-software.com/&quot;,
     &quot;product&quot;: &quot;http://example-software.com/oparl-server/&quot;,
     &quot;license&quot;: &quot;http://creativecommons.org/licenses/by/4.0/&quot;,
     &quot;bodies&quot;: &quot;http://beispielris.de/bodies/&quot;,
-    &quot;new_objects&quot;: &quot;http://beispielris.de/new_objects/&quot;,
-    &quot;updated_objects&quot;: &quot;http://beispielris.de/updated_objects/&quot;,
-    &quot;removed_objects&quot;: &quot;http://beispielris.de/removed_objects&quot;
+    &quot;newObjects&quot;: &quot;http://beispielris.de/new_objects/&quot;,
+    &quot;updatedObjects&quot;: &quot;http://beispielris.de/updated_objects/&quot;,
+    &quot;removedObjects&quot;: &quot;http://beispielris.de/removed_objects&quot;
 }
 </programlisting>
     <para>
@@ -2814,7 +2846,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       <variablelist>
         <varlistentry>
           <term>
-            <literal>oparl_version</literal>
+            <literal>oparlVersion</literal>
           </term>
           <listitem>
             <para>
@@ -2854,7 +2886,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>contact_email</literal>
+            <literal>contactEmail</literal>
           </term>
           <listitem>
             <para>
@@ -2868,7 +2900,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>contact_name</literal>
+            <literal>contactName</literal>
           </term>
           <listitem>
             <para>
@@ -2892,7 +2924,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>new_objects</literal>
+            <literal>newObjects</literal>
           </term>
           <listitem>
             <para>
@@ -2903,7 +2935,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>updated_objects</literal>
+            <literal>updatedObjects</literal>
           </term>
           <listitem>
             <para>
@@ -2915,7 +2947,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>removed_objects</literal>
+            <literal>removedObjects</literal>
           </term>
           <listitem>
             <para>
@@ -2927,7 +2959,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>www_url</literal>
+            <literal>wwwUrl</literal>
           </term>
           <listitem>
             <para>
@@ -2966,8 +2998,17 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
     <title>oparl:Body (Körperschaft)</title>
     <para>
       Der Objekttyp <literal>oparl:Body</literal> dient dazu, eine
-      Körperschaft abzubilden. Eine Körperschaft kann beispielsweise
-      eine Gemeinde, ein Landkreis oder ein Zweckverband sein.
+      Körperschaft und damit ein Parlament zu repräsentieren, zu dem der
+      Server Informationen bereithält. Eine Körperschaft kann
+      beispielsweise eine Gemeinde, ein Landkreis oder ein kommunaler
+      Zweckverband sein.
+    </para>
+    <para>
+      Hätte das System beispielsweise den Zweck, Informationen über das
+      kommunale Parlament der Stadt Köln, namentlich den Rat der Stadt
+      Köln, abzubilden, dann müsste dieses System dazu ein Objekt vom
+      Typ <literal>oparl:Body</literal> führen, welches die Stadt Köln
+      repräsentiert.
     </para>
     <para>
       Ein Beispiel:
@@ -2975,184 +3016,236 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
     <programlisting language="json">
 {
     &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/Body&quot;,
-    &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0&quot;,
-    &quot;system&quot;: &quot;http://beispielris.de/&quot;,
-    &quot;committees&quot;: &quot;http://beispielris.de/bodies/1/committees/&quot;,
-    &quot;contact_email&quot;: &quot;ris@beispielstadt.de&quot;,
-    &quot;contact_name&quot;: &quot;RIS-Betreuung&quot;,
+    &quot;@id&quot;: &quot;http://oparl.beispielris.de/bodies/0&quot;,
+    &quot;system&quot;: &quot;http://oparl.beispielris.de/&quot;,
+    &quot;contactEmail&quot;: &quot;mailto:ris@beispielstadt.de&quot;,
+    &quot;contactName&quot;: &quot;RIS-Betreuung&quot;,
     &quot;rgs&quot;: &quot;053150000000&quot;,
-    &quot;gnd_url&quot;: &quot;http://d-nb.info/gnd/2015732-0&quot;,
-    &quot;meetings&quot;: &quot;http://refserv.oparl.org/bodies/0/meetings/&quot;,
+    &quot;sameAs&quot;: [
+        &quot;http://d-nb.info/gnd/2015732-0&quot;,
+        &quot;http://dbpedia.org/resource/Cologne&quot;
+    ],
     &quot;name&quot;: &quot;Stadt K\u00f6ln&quot;,
-    &quot;name_long&quot;: &quot;Stadt K\u00f6ln, kreisfreie Stadt&quot;,
-    &quot;organisations&quot;: &quot;http://refserv.oparl.org/bodies/0/organisations/&quot;,
-    &quot;papers&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/&quot;,
-    &quot;people&quot;: &quot;http://refserv.oparl.org/bodies/0/people/&quot;,
-    &quot;www_url&quot;: &quot;http://www.beispielstadt.de/&quot;
+    &quot;nameLong&quot;: &quot;Stadt K\u00f6ln, kreisfreie Stadt&quot;,
+    &quot;wwwUrl&quot;: &quot;http://www.beispielstadt.de/&quot;,
+    &quot;organizations&quot;: &quot;http://oparl.beispielris.de/bodies/0/organisations/&quot;,
+    &quot;meetings&quot;: &quot;http://oparl.beispielris.de/bodies/0/meetings/&quot;,
+    &quot;papers&quot;: &quot;http://oparl.beispielris.de/bodies/0/papers/&quot;,
+    &quot;people&quot;: &quot;http://oparl.beispielris.de/bodies/0/people/&quot;,
     &quot;created&quot;: &quot;2014-01-08T14:28:31.568+0100&quot;,
-    &quot;last_modified&quot;: &quot;2014-01-08T14:28:31.568+0100&quot;,
+    &quot;lastModified&quot;: &quot;2014-01-08T14:28:31.568+0100&quot;
 }
 </programlisting>
     <para>
-      Von einem funktionsfähigen Server wird erwartet, dass er
-      mindestens ein Objekt vom Typ <literal>oparl:Body</literal> bereit
-      hält. Teilen sich mehrere Körperschaften das selbe technische
-      System, können auf demselben Server auch mehrere Objekte vom Typ
-      <literal>oparl:Body</literal> beherbergt werden.
+      Vom OParl-Server wird erwartet, dass er mindestens ein Objekt vom
+      Typ <literal>oparl:Body</literal> bereit hält. Teilen sich mehrere
+      Körperschaften das selbe technische System, können auf demselben
+      Server auch mehrere Objekte vom Typ <literal>oparl:Body</literal>
+      beherbergt werden.
     </para>
     <para>
       Über die Zuordnung zu einem bestimmten
       <literal>oparl:Body</literal> Objekt zeigen andere Objekte, wie
       beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit zu
-      einer bestimmten Körperschaft an.
+      einer bestimmten Körperschaft und damit implizit zu einem
+      bestimmten Parlament an.
     </para>
-    <para>
-      Es werden mehrere Eigenschaften angeboten, die dazu dienen, die
-      real existierende Körperschaft, die von einem
-      <literal>oparl:Body</literal> Objekt repräsentiert wird,
-      programmatisch auslesbar zu machen zu können. Insbesondere sind
-      hier die Eigenschaften <literal>url</literal>,
-      <literal>rgs</literal> und <literal>gnd_url</literal> zu nennen.
-    </para>
-    <sect3 id="eigenschaft-system">
-      <title>Eigenschaft <literal>system</literal></title>
-      <para>
-        Diese Eigenschaft ist ZWINGEND.
-      </para>
-      <para>
-        Mit dieser Eigenschaft wird das Objekt dem übergeordneten
-        <literal>oparl:System</literal> Objekt zugeordnet. Wert MUSS der
-        IRI des <literal>oparl:System</literal> Objekts sein.
-      </para>
-    </sect3>
-    <sect3 id="eigenschaft-name">
-      <title>Eigenschaft <literal>name</literal></title>
-      <para>
-        Diese Eigenschaft ist ZWINGEND. Sie transportiert den
-        gebräuchlichen Namen der Körperschaft.
-      </para>
-    </sect3>
-    <sect3 id="eigenschaft-name_long">
-      <title>Eigenschaft <literal>name_long</literal></title>
-      <para>
-        Diese Eigenschaft ist OPTIONAL und kann bei Bedarf dazu
-        verwendet werden, eine längere Form des Namens der Körperschaft
-        wieder zu geben, sofern dieser für die Eigenschaft
-        <literal>name</literal> zu lang ist.
-      </para>
-    </sect3>
-    <sect3 id="eigenschaft-url">
-      <title>Eigenschaft <literal>url</literal></title>
-      <para>
-        Diese Eigenschaft ist EMPFOHLEN.
-      </para>
-      <para>
-        Mit dieser Eigenschaft SOLL die URL der offiziellen Website der
-        Körperschaft ausgegeben werden.
-      </para>
-      <para>
-        TODO: Beschreibung
-      </para>
-    </sect3>
-    <sect3 id="eigenschaft-rgs">
-      <title>Eigenschaft <literal>rgs</literal></title>
-      <para>
-        Diese Eigenschaft ist EMPFOHLEN.
-      </para>
-      <para>
-        Handelt es sich bei der Körperschaft um eine Gebietskörperschaft
-        (Landkreis, Kommune etc.) in Deutschland, SOLL für die
-        eindeutige Identifizierung der amtliche Regionalschlüssel
-        verwendet werden.<footnote>
-          <para>
-            Regionalschlüssel können im
-            <ulink url="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis
-            (GV-ISys) des Statistischen Bundesamtes</ulink> eingesehen
-            werden
-          </para>
-        </footnote> Dieser ist grundsätzlich zwölfstellig.
-      </para>
-    </sect3>
-    <sect3 id="eigenschaft-gnd_url">
-      <title>Eigenschaft <literal>gnd_url</literal></title>
-      <para>
-        Diese Eigenschaft ist EMPFOHLEN.
-      </para>
-      <para>
-        Sofern die Körperschaft in der GND<footnote>
-          <para>
-            Gemeinsame Normdatei
-            <ulink url="http://www.dnb.de/gnd">http://www.dnb.de/gnd</ulink>
-          </para>
-        </footnote> vertreten ist, SOLL diese Eigenschaft als Wert die
-        URL des Eintrags in der GND enthalten.
-      </para>
-    </sect3>
-    <sect3 id="eigenschaft-contact">
-      <title>Eigenschaft <literal>contact</literal></title>
-      <para>
-        Diese Eigenschaft ist EMPFOHLEN.
-      </para>
-      <para>
-        Über diese Eigenschafte SOLLEN Kontaktinformationen zu einer
-        Stelle bereit gestellt werden, die die inhaltliche Verantwortung
-        für sämtliche zu dieser Körperschaft gehörenden Inhalte im
-        System trägt. Besonders wichtig ist diese Angabe, wenn auf einem
-        System mehrere Körperschaften vertreten sind und damit auf der
-        Ebene des <literal>oparl:System</literal> Objekts ein rein
-        technischer Kontakt ausgegeben wird, der nicht für inhaltliche
-        Fragestellungen im Zuständigkeitsbereich der jeweiligen
-        Körperschaften kontaktiert werden sollte.
-      </para>
-    </sect3>
-    <sect3 id="eigenschaft-papers">
-      <title>Eigenschaft <literal>papers</literal></title>
-      <para>
-        Diese Eigenschaft ist ZWINGEND.
-      </para>
-      <para>
-        Wert dieser Eigenschaft ist die URL der API zum Aufruf einer
-        Liste der Drucksachen (Objekte vom Typ
-        <literal>oparl:Paper</literal>) für diese Körperschaft.
-      </para>
-    </sect3>
-    <sect3 id="eigenschaft-people">
-      <title>Eigenschaft <literal>people</literal></title>
-      <para>
-        Diese Eigenschaft ist ZWINGEND.
-      </para>
-      <para>
-        Wert dieser Eigenschaft ist die URL der API zum Aufruf einer
-        Liste der Personen (Objekte vom Typ
-        <literal>oparl:Person</literal>) für diese Körperschaft.
-      </para>
-    </sect3>
-    <sect3 id="eigenschaft-meetings">
-      <title>Eigenschaft <literal>meetings</literal></title>
-      <para>
-        Diese Eigenschaft ist ZWINGEND.
-      </para>
-      <para>
-        Wert dieser Eigenschaft ist die URL der API zum Aufruf einer
-        Liste der Sitzungen (Objekte vom Typ
-        <literal>oparl:Meeting</literal>) für diese Körperschaft.
-      </para>
-    </sect3>
-    <sect3 id="eigenschaft-committees">
-      <title>Eigenschaft <literal>committees</literal></title>
-      <para>
-        Diese Eigenschaft ist ZWINGEND.
-      </para>
-      <para>
-        Wert dieser Eigenschaft ist die URL der API zum Aufruf einer
-        Liste der Gremien (Objekte vom Typ
-        <literal>oparl:Committee</literal>) für diese Körperschaft.
-      </para>
-    </sect3>
-    <sect3 id="beispiel">
-      <title>Beispiel</title>
-      <para>
-      </para>
+    <sect3 id="eigenschaften-1">
+      <title>Eigenschaften</title>
+      <variablelist>
+        <varlistentry>
+          <term>
+            <literal>system</literal>
+          </term>
+          <listitem>
+            <para>
+              URL des Objekts vom Typ <literal>oparl:System</literal>
+              Objekts, zu dem dieses Objekt gehört. Diese Eigenschaft
+              ist ZWINGEND.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>name</literal>
+          </term>
+          <listitem>
+            <para>
+              Gibt den gebräuchlichen Namen der Körperschaft an. Diese
+              Eigenschaft ist ZWINGEND.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>nameLong</literal>
+          </term>
+          <listitem>
+            <para>
+              Kann bei Bedarf dazu verwendet werden, eine längere Form
+              des Namens der Körperschaft anzugeben. Diese Eigenschaft
+              ist OPTIONAL.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>wwwUrl</literal>
+          </term>
+          <listitem>
+            <para>
+              Dient der Angabe der WWW-URL der Körperschaft. Diese
+              Eigenschaft ist EMPFOHLEN.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>rgs</literal>
+          </term>
+          <listitem>
+            <para>
+              Regionalschlüssel der Körperschaft als zwölfstellige
+              Zeichenkette<footnote>
+                <para>
+                  Regionalschlüssel können im
+                  <ulink url="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis
+                  (GV-ISys) des Statistischen Bundesamtes</ulink>
+                  eingesehen werden
+                </para>
+              </footnote>. Diese Eigenschaft ist EMPFOHLEN.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>sameAs</literal>
+          </term>
+          <listitem>
+            <para>
+              Dient der Angabe beliebig vieler zusätzlicher URLs, die
+              die Körperschaft repräsentieren. Diese Eigenschaft ist
+              EMPFOHLEN. Hier können Beispielsweise, sofern vorhanden,
+              der entpsrechende Eintrag der Gemeinsamen Normdatei der
+              Deutschen Nationalbibliothek<footnote>
+                <para>
+                  Gemeinsame Normdatei
+                  <ulink url="http://www.dnb.de/gnd">http://www.dnb.de/gnd</ulink>
+                </para>
+              </footnote>, der DBPedia<footnote>
+                <para>
+                  DBPedia
+                  <ulink url="http://www.dbpedia.org/">http://www.dbpedia.org/</ulink>
+                </para>
+              </footnote> oder der Wikipedia<footnote>
+                <para>
+                  Wikipedia
+                  <ulink url="http://de.wikipedia.org/">http://de.wikipedia.org/</ulink>
+                </para>
+              </footnote> angegeben werden.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>contactEmail</literal>
+          </term>
+          <listitem>
+            <para>
+              Dient der Angabe einer Kontakt-E-Mail-Adresse mit
+              &quot;mailto:&quot;-Schema. Diese Eigenschaft ist
+              EMPFOHLEN. Die Adresse soll die Kontaktaufnahme zu einer
+              für die Körperschaft und idealerweise das parlamentarische
+              Informationssystem zuständigen Stelle ermöglichen.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>contactName</literal>
+          </term>
+          <listitem>
+            <para>
+              Name oder Bezeichnung der mit
+              <literal>contactEmail</literal> erreichbaren Stelle.
+              OPTIONAL.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>papers</literal>
+          </term>
+          <listitem>
+            <para>
+              URL, unter welcher die API die Liste aller Objekte vom Typ
+              <literal>oparl:Paper</literal>, also die Drucksachen unter
+              dieser Körperschaft ausgibt. Diese Eigenschaft ist
+              ZWINGEND.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>people</literal>
+          </term>
+          <listitem>
+            <para>
+              URL, unter welcher die API die Liste aller Objekte vom Typ
+              <literal>oparl:Person</literal>, also die Personen unter
+              dieser Körperschaft ausgibt. Diese Eigenschaft ist
+              ZWINGEND.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>meetings</literal>
+          </term>
+          <listitem>
+            <para>
+              URL, unter welcher die API die Liste aller Objekte vom Typ
+              <literal>oparl:Meeting</literal>, also die Sitzungen
+              dieser Körperschaft ausgibt. Diese Eigenschaft ist
+              ZWINGEND.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>organizations</literal>
+          </term>
+          <listitem>
+            <para>
+              URL, unter welcher die API die Liste aller Objekte vom Typ
+              <literal>oparl:Organization</literal>, also die
+              Gruppierungen dieser Körperschaft ausgibt. Diese
+              Eigenschaft ist ZWINGEND.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>created</literal>
+          </term>
+          <listitem>
+            <para>
+              Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>lastModified</literal>
+          </term>
+          <listitem>
+            <para>
+              Datum/Uhrzeit der letzten Bearbeitung des Objekts.
+              EMPFOHLEN.
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
     </sect3>
   </sect2>
   <sect2 id="oparl_organisation">
@@ -3168,7 +3261,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       Bezirksvertretungen. Gremien halten Sitzungen ab, zu denen die
       Gremien-Mitglieder eingeladen werden.
     </para>
-    <sect3 id="eigenschaften-1">
+    <sect3 id="eigenschaften-2">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -3261,7 +3354,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-1">
+    <sect3 id="beispiel">
       <title>Beispiel</title>
       <programlisting language="json">
 {
@@ -3281,7 +3374,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       <literal>oparl:Person</literal> im Datenmodell eindeutig
       identifizierbar.
     </para>
-    <sect3 id="eigenschaften-2">
+    <sect3 id="eigenschaften-3">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -3451,7 +3544,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-2">
+    <sect3 id="beispiel-1">
       <title>Beispiel</title>
       <programlisting language="json">
 {
@@ -3496,7 +3589,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen
       die Personen angehören können.
     </para>
-    <sect3 id="eigenschaften-3">
+    <sect3 id="eigenschaften-4">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -3575,7 +3668,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-3">
+    <sect3 id="beispiel-2">
       <title>Beispiel</title>
       <programlisting language="json">
 {
@@ -3600,7 +3693,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können
       referenziert werden.
     </para>
-    <sect3 id="eigenschaften-4">
+    <sect3 id="eigenschaften-5">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -3723,7 +3816,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-4">
+    <sect3 id="beispiel-3">
       <title>Beispiel</title>
       <programlisting language="json">
 {
@@ -3759,7 +3852,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
     <para>
       Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
     </para>
-    <sect3 id="eigenschaften-5">
+    <sect3 id="eigenschaften-6">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -3901,7 +3994,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-5">
+    <sect3 id="beispiel-4">
       <title>Beispiel</title>
       <programlisting language="json">
 {
@@ -3978,7 +4071,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </para>
       </listitem>
     </itemizedlist>
-    <sect3 id="eigenschaften-6">
+    <sect3 id="eigenschaften-7">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -4099,7 +4192,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-6">
+    <sect3 id="beispiel-5">
       <title>Beispiel</title>
       <programlisting language="json">
 {
@@ -4194,7 +4287,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       <literal>derivative_documents</literal> angezeigt werden, welche
       Ableitungen einer Datei existieren.
     </para>
-    <sect3 id="eigenschaften-7">
+    <sect3 id="eigenschaften-8">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -4408,7 +4501,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
     &quot;authoritative&quot;: false
 }
 </programlisting>
-    <sect3 id="eigenschaften-8">
+    <sect3 id="eigenschaften-9">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -4532,7 +4625,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       </footnote> angegeben werden, und zwar in Form von Zahlenwerten
       (Fließkommazahlen) für Längen- und Breitengrad.
     </para>
-    <sect3 id="eigenschaften-9">
+    <sect3 id="eigenschaften-10">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>

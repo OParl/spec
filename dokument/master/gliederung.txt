@@ -40,6 +40,7 @@ OParl Spezifikation 1.0 Gliederung
         Selbstbeschreibungsfähigkeit
         Erweiterbarkeit
         Browseability/Verlinkung
+        Linked Data
     6020 Zukunftssicherheit
     6030 HTTP und HTTPS
     6035 URLs

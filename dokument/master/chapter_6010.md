@@ -1,7 +1,7 @@
 Designprinzipien
 ----------------
 
-### Aufbauend auf der gängigen Praxis
+### Aufbauen auf gängiger Praxis
 
 Grundlage für die Erarbeitung der OParl-Spezifikation in der vorliegenden Version
 ist eine Analyse der aktuell (2012 bis 2014) in Deutschland befindlichen
@@ -13,7 +13,7 @@ Bedeutung, dass sich die Informationsmodelle der einschlägigen Softwareprodukte
 ähneln. Für die OParl-Spezifikation wurde sozusagen ein Datenmodell als "gemeinsamer Nenner"
 auf Basis der gängigen Praxis beschrieben.
 
-### Verbesserungen gegenüber dem Status Quo wo möglich
+### Verbesserung gegenüber dem Status Quo wo möglich
 
 Dort, wo es dem Ziel der einfachen Implementierbarkeit und der einfachen Migration
 nicht im Weg steht, erlauben sich die Autoren dieser Spezifikation, auch Funktionen
@@ -90,7 +90,7 @@ Diese angestrebte Erweiterbarkeit wird durch weitgehend durch das [JSON-LD-Forma
 gewährleistet. Es erlaubt die Verflechtung von Objekttypen-Definitionen
 aus verschiedenen Schemata.
 
-### Browseability/Verlinkung
+### Browseability/Verlinkung {#browseability_verlinkung}
 
 Klassische Webservice-Schnittstellen erfordern von den Entwicklern vollständige Kenntnis
 der angebotenen Einstiegspunkte und Zugriffsmethoden, gepaart mit sämtlichen unterstützten
@@ -109,3 +109,44 @@ des Gremiums die URL des Mitglieds ausgeben wird. Der Client kann somit ausgehen
 bestimmten Objekt die anderen Objekte im System finden, indem er einfach den angebotenen
 URLs folgt. Dieses Prinzip wird auch "Follow Your Nose" genannt^[<http://patterns.dataincubator.org/book/follow-your-nose.html>].
 
+### Linked Data {#linked_data}
+
+Der Begriff "Linked Data" steht für die Beschreibung von Daten in einer Form, die diese 
+über ihren ursprünglichen Kontext hinaus verständlich macht.^[vgl. Bundesministerium des Innern (Herausg.): Open Government Data Deutschland, Seite 433f., 2012 <http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf>]
+
+Kern von Linked Data ist die Möglichkeit, alle Bestandteile von Daten in Form von
+Tripeln zu beschreiben, das sind dreiteilige Informationseinheiten aus einem Subjekt, einem
+Prädikat und einem Objekt. Alle drei Bestandteile können in Form global eindeutiger "Uniform
+Resource Identifier" (URI) abgebildet werden.
+
+Nach dem Linked-Data-Prinzip könnte beispielsweise der Vorname einer Person mit dem
+folgenden Tripel beschrieben werden:
+
+
+    Subjekt: http://dbpedia.org/page/John_Doe_(musician)
+    Prädikat: http://xmlns.com/foaf/0.1/givenName
+    Objekt: http://dbpedia.org/page/John_(given_name)
+
+Hierbei macht man von der Tatsache Gebrauch, dass das Subjekt, also die Person, um die es 
+geht, bereits mittels ihrer URI eindeutig identifiziert werden kann und dass bestenfalls 
+unter dieser URI weitere Informationen zu der Person abrufbar sind. Auch für das Prädikat
+"Person hat den Vornamen" liegt bereits eine Beschreibung in einem gebräuchlichen Vokabular
+vor, auf das hier verwiesen werden kann. Und schließlich kann sogar der eigentliche Vorname
+in Form einer URI abgebildet werden, nämlich als Verweis auf eine umfangreiche Beschreibung
+dieses Namens.
+
+Das Ziel von OParl ist es, mit der vorliegenden Version 1.0 der Spezifikation, die Nutzung
+solcher allgemeingültigen Vokabulare für die Veröffentlichung von parlamentarischen
+Informationen zu begünstigen und die automatisierte Verarbeitung und Verknüpfung von
+Informationen, auch über die Grenzen verschiedener Informationssysteme hinweg, zu erleichtern.
+
+Beispiele, wo dies sinnvoll ist, sind in der Praxis leicht zu finden. So finden sich
+beispielsweise in vielen lokalen Parlamenten immer wieder Fraktionen der selben Parteien,
+beispielsweise CDU und SPD. Mittels Linked Data wäre es möglich, jede dieser Fraktionen mit einer externen URL zu verknüpfen^[beispielsweise <http://dbpedia.org/page/Christian_Democratic_Union_(Germany)> und <http://dbpedia.org/page/Social_Democratic_Party_of_Germany>] und somit erkennbar zu machen, zu welcher 
+Partei diese Fraktion gehört. Ebenso finden sich viele inhaltliche Ähnlichkeiten bei
+Gremien wie zum Beispiel Ausschüssen (z.B. Hauptausschuss, Verkehrsausschuss etc.) oder bei
+Arten von Drucksachen (z.B. Anträge, Anfragen, Mitteilungen, Beschlussvorlagen).
+
+OParl lässt in Version 1.0 der Spezifikation noch viele Aufgaben, die die Vereinheitlichung 
+dieses Vokabulars betreffen, offen. Jedoch wird durch die Verwendung von [JSON-LD](#jsonld) als
+Serialisierungsformat der Grundstein für eine Vereinheitlichung im Sinne von Linked Data gelegt.

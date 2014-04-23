@@ -1,6 +1,7 @@
 Zukunft von OParl
 -----------------
 
+TODO:
 - Verfeinerung, Lücken schliessen
 - Globalisierung
 - Erweiterung über die kommunale Ebene hinaus (Land, Bund)

@@ -1,6 +1,8 @@
 Zielsetzung von OParl
 ---------------------
 
+TODO:
+
 - Nutzen für Kommunen, Bürger, politische Parteien
 - Nutzen für Anbieter von RIS-Pflegesoftware
 - Nutzen für Anbieter von RIS-Darstellungssoftware

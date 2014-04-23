@@ -102,5 +102,8 @@ Informationen in der bereits gewohnten Umgebung zu präsentieren und den bestehe
 
 ## Szenario 3: Meta-Suche  {#szenario_meta_suche}
 
+TODO
+
 ## Szenario 4: Forschungsprojekt Themen- und Sprachanalyse {#szenario_forschung}
 
+TODO

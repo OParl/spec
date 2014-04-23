@@ -1,6 +1,8 @@
 Transparenz und Beteiligung durch Open Data
 -------------------------------------------
 
+TODO:
+
 - Einführung zu Open Data
   - "10 Principles" erwähnen
     <https://sunlightfoundation.com/policy/documents/ten-open-data-principles/>

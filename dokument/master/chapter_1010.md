@@ -1,7 +1,7 @@
 Was ist OParl?
 --------------
 
-(Nachfolgend eine Übernahme aus dem bisherigen Abschnitt
+(TODO: Nachfolgend eine Übernahme aus dem bisherigen Abschnitt
 "Funktionsumfang der OParl-Schnittstelle". Der Text sollte deutlich
 überarbeitet und erweitert werden.)
 

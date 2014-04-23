@@ -55,7 +55,7 @@ Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
     	},
     	...
     ],
-    "nextpage": "http://refserv.oparl.org/feeds/new/?t=20140106170100402"
+    "nextPage": "http://refserv.oparl.org/feeds/new/?t=20140106170100402"
 }
 ~~~~~
 
@@ -119,7 +119,7 @@ geführt werden.
     	},
     	...
     ],
-    "nextpage": "http://refserv.oparl.org/feeds/updated/?t=20140106170100402"
+    "nextPage": "http://refserv.oparl.org/feeds/updated/?t=20140106170100402"
 }
 ~~~~~
 
@@ -149,7 +149,7 @@ depublizierte Dokumente aus ihren lokalen Caches zu entfernen.
     	},
     	...
     ],
-    "nextpage": "http://refserv.oparl.org/feeds/updated/?t=20131111111100"
+    "nextPage": "http://refserv.oparl.org/feeds/updated/?t=20131111111100"
 }
 ~~~~~
 

@@ -546,7 +546,7 @@ Stichpunkte:
 Designprinzipien
 ----------------
 
-Aufbauend auf der gängigen Praxis
+Aufbauen auf gängiger Praxis
 
 Grundlage für die Erarbeitung der OParl-Spezifikation in der
 vorliegenden Version ist eine Analyse der aktuell (2012 bis 2014) in
@@ -560,7 +560,7 @@ einschlägigen Softwareprodukte stark ähneln. Für die OParl-Spezifikation
 wurde sozusagen ein Datenmodell als "gemeinsamer Nenner" auf Basis der
 gängigen Praxis beschrieben.
 
-Verbesserungen gegenüber dem Status Quo wo möglich
+Verbesserung gegenüber dem Status Quo wo möglich
 
 Dort, wo es dem Ziel der einfachen Implementierbarkeit und der einfachen
 Migration nicht im Weg steht, erlauben sich die Autoren dieser
@@ -665,6 +665,57 @@ einem bestimmten Objekt die anderen Objekte im System finden, indem er
 einfach den angebotenen URLs folgt. Dieses Prinzip wird auch "Follow
 Your Nose" genannt[^6].
 
+Linked Data
+
+Der Begriff "Linked Data" steht für die Beschreibung von Daten in einer
+Form, die diese über ihren ursprünglichen Kontext hinaus verständlich
+macht.[^7]
+
+Kern von Linked Data ist die Möglichkeit, alle Bestandteile von Daten in
+Form von Tripeln zu beschreiben, das sind dreiteilige
+Informationseinheiten aus einem Subjekt, einem Prädikat und einem
+Objekt. Alle drei Bestandteile können in Form global eindeutiger
+"Uniform Resource Identifier" (URI) abgebildet werden.
+
+Nach dem Linked-Data-Prinzip könnte beispielsweise der Vorname einer
+Person mit dem folgenden Tripel beschrieben werden:
+
+    Subjekt: http://dbpedia.org/page/John_Doe_(musician)
+    Prädikat: http://xmlns.com/foaf/0.1/givenName
+    Objekt: http://dbpedia.org/page/John_(given_name)
+
+Hierbei macht man von der Tatsache Gebrauch, dass das Subjekt, also die
+Person, um die es geht, bereits mittels ihrer URI eindeutig
+identifiziert werden kann und dass bestenfalls unter dieser URI weitere
+Informationen zu der Person abrufbar sind. Auch für das Prädikat "Person
+hat den Vornamen" liegt bereits eine Beschreibung in einem
+gebräuchlichen Vokabular vor, auf das hier verwiesen werden kann. Und
+schließlich kann sogar der eigentliche Vorname in Form einer URI
+abgebildet werden, nämlich als Verweis auf eine umfangreiche
+Beschreibung dieses Namens.
+
+Das Ziel von OParl ist es, mit der vorliegenden Version 1.0 der
+Spezifikation, die Nutzung solcher allgemeingültigen Vokabulare für die
+Veröffentlichung von parlamentarischen Informationen zu begünstigen und
+die automatisierte Verarbeitung und Verknüpfung von Informationen, auch
+über die Grenzen verschiedener Informationssysteme hinweg, zu
+erleichtern.
+
+Beispiele, wo dies sinnvoll ist, sind in der Praxis leicht zu finden. So
+finden sich beispielsweise in vielen lokalen Parlamenten immer wieder
+Fraktionen der selben Parteien, beispielsweise CDU und SPD. Mittels
+Linked Data wäre es möglich, jede dieser Fraktionen mit einer externen
+URL zu verknüpfen[^8] und somit erkennbar zu machen, zu welcher Partei
+diese Fraktion gehört. Ebenso finden sich viele inhaltliche
+Ähnlichkeiten bei Gremien wie zum Beispiel Ausschüssen (z.B.
+Hauptausschuss, Verkehrsausschuss etc.) oder bei Arten von Drucksachen
+(z.B. Anträge, Anfragen, Mitteilungen, Beschlussvorlagen).
+
+OParl lässt in Version 1.0 der Spezifikation noch viele Aufgaben, die
+die Vereinheitlichung dieses Vokabulars betreffen, offen. Jedoch wird
+durch die Verwendung von JSON-LD als Serialisierungsformat der
+Grundstein für eine Vereinheitlichung im Sinne von Linked Data gelegt.
+
 Zukunftssicherheit
 ------------------
 
@@ -729,7 +780,7 @@ Bedeutung zu und es werden eine Reihe von Anforderungen an die
 Verarbeitung von URLs gestellt.
 
 Die grundsätzliche Funktionsweise von URLs ist in RFC3986
-beschrieben[^7].
+beschrieben[^9].
 
 Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in
 diesem Dokument Verwendung finden:
@@ -868,8 +919,8 @@ Vollständigkeit erheben:
     dazu führen, dass im Pfad ein Bestandteil wie "oparl.php/"
     erscheint. Erfahrungsgemäß überdauern solche URLs nur kurz.
 
-Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee[^8]
-sowie die Europäische Kommission[^9].
+Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee[^10]
+sowie die Europäische Kommission[^11].
 
 Serialisierung mittels JSON-LD und JSONP
 ----------------------------------------
@@ -880,10 +931,13 @@ erweitert, welche die Selbstbschreibungsfähigkeit der ausgegebenen Daten
 verbessert. Auf Anforderung des Clients wird darüber hinaus JSONP
 unterstützt.
 
+In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung
+des HTTP Content-type-Headers application/json beantworten.
+
 JSON
 
 Die Abkürzung JSON steht für "JavaScript Object Notation". Das
-JSON-Format ist in RFC4627[^10] beschrieben. Nachfolgend werden nur die
+JSON-Format ist in RFC4627[^12] beschrieben. Nachfolgend werden nur die
 wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren
 Verwendung in diesem Dokument zu etablieren.
 
@@ -919,9 +973,9 @@ Beispiel eines Objekts in JSON-Notation:
 
 JSON-LD
 
-Das Kürzel LD im Namen "JSON-LD" steht für Linked Data. Entsprechend
-erweitert die JSON-LD-Spezifikation[^11] das JSON-Format um die
-Möglichkeit,
+Das Kürzel LD im Namen "JSON-LD" steht für "Linked Data"[^13].
+Entsprechend erweitert die JSON-LD-Spezifikation[^14] das JSON-Format um
+die Möglichkeit,
 
 -   Objekte mit anderen Objekten zu verknüpfen,
 -   Objekte und Eigenschaften bestimmten Typen zuzuordnen und damit
@@ -979,7 +1033,7 @@ eines Bildes zu finden ist. Das Schlüssel-Wert-Paar
     "@type": "@id"
 
 sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die URL eines
-anderen Objekts ist[^12]. Mittels @type-Deklaration könnte aber auch
+anderen Objekts ist[^15]. Mittels @type-Deklaration könnte aber auch
 beispielsweise eine Eigenschaft, die im JSON-Sinn eine Zeichenkette ist,
 als Datum deklariert werden.
 
@@ -1054,29 +1108,50 @@ des OParl-Schemas sind.
 
 Das Beispiel oben zeigt ein Objekt, das über die @context-Eigenschaft
 zwei verschiedene URLs als sogenannte Vokabulare referenziert. Das eine
-Vokabular wird durch das Präfix oparl repräsentiert, das zweite
-(herstellereigene) durch das Präfix vendor. Ein JSON-LD-Client setzt
-Präfix und Typenbezeichnung letztlich wieder zu einer URL zusammen.
+Vokabular wird durch das Namensraum-Präfix oparl repräsentiert, das
+zweite (herstellereigene) durch das Namensraum-Präfix vendor.
+
+Durch das Schlüsselwort @type wird nun dem Objekt ein oder mehrere
+Objekttypen zugewiesen. Dabei werden die zuvor beschriebenen
+Namensraum-Präfixe genutzt. Ein JSON-LD-Client verarbeitet
+Namensraum-Präfixe und Typenbezeichnung so, dass diese letztlich für
+jeden Objekttypen eine eindeutige URL ergeben.
 
 -   Aus oparl:Paper wird http://oparl.org/schema/1.0/Paper
 -   Aus vendor:Drucksache wird
     http://www.vendor.de/oparl/schema/Drucksache
 
-TODO: Ab hier weiter ausformulieren
+TODO: Eventuell hier die Anforderung festhalten, dass jedes Objekt, das
+über eine OParl API ausgegeben wird, das @type-Schlüsselwort haben MUSS.
+Das ist noch nicht geklärt, da Listen hier eine Ausnahme bilden können.
 
-Darüber hinaus stellt JSON-LD zusätzliche Anforderungen an JSON-Daten,
-die in diesem Abschnitt weiter ausgeführt werden sollen...
+Eine JSON-LD-konforme Ausgabe stellt noch weitere Anforderungen, von
+denen nachfolgend die wichtigsten zusammen gefasst werden.
 
--   Einschränkungen von OParl gegenüber JSON-LD
--   Schlüssel in einem JSON-LD-Objekt müssen einzigartig sein.
--   Unterscheidung von Groß- und Kleinschreibung
--   Benannte Objekte (URL als Schlüssel)
--   Anonyme Objekte (Blank Nodes)
--   Mime Type application/ld+json
--   Verweis auf
-    http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf?__blob=publicationFile
--   Siehe https://github.com/OParl/specs/issues/77
--   Siehe https://github.com/OParl/specs/issues/10
+-   Schlüssel müssen einzigartig sein: Es ist nicht zulässig, in einem
+    JSON-LD-Objekt mehrmals den selben Schlüssel für ein Attribut zu
+    verwenden.
+
+-   Groß- und Kleinschreibung werden unterschieden: Groß- und
+    Kleinschreibung sind bei allen Bestandteilen eines JSON-LD-Dokuments
+    zu beachten, also auch bei den Attributnamen.
+
+-   Listen gelten grundsätzlich als nicht sortiert: Die
+    JSON-Spezifikation geht bei Listen grundsätzlich davon aus, dass
+    diese eine Sortierung besitzen. Im Unterschied dazu gilt für
+    JSON-LD, dass die Reihenfolge der Werte zwischen zwei eckigen
+    Klammern [ und ] als zufällig gilt, sofern nicht anders
+    spezifiziert. Wer einen JSON-LD-Objekttyp spezifiziert, kann jedoch
+    mittels des Schlüsselwortes @list kennzeichnen, dass es sich hierbei
+    um eine sortierte Liste handelt.
+
+    Wo immer die OParl-Spezifikation eine stabile, nicht zufällige
+    Sortierung von Listen erwartet, wird dies eigens erwähnt werden. Das
+    OParl-JSON-LD-Vokabular wird an der entsprechenden Stelle das
+    Schlüsselwort @list verwenden.
+
+-   Verschachtelte Listen sind nicht möglich: JSON-LD erlaubt keine
+    Listen, die wiederum Listen als Werte enthalten. TODO: Issue 115.
 
 JSONP
 
@@ -1087,7 +1162,7 @@ der Domain entsprechen, von der die Webanwendung selbst geladen wurde.
 AnwendungsentwicklerInnen sind dadurch bei der Implementierung von
 Client-Anwendungen eingeschränkt.
 
-Diese Einschränkung gilt nicht fürt JSONP[^13]. Durch JSONP (TODO:
+Diese Einschränkung gilt nicht fürt JSONP[^16]. Durch JSONP (TODO:
 Abkürzung erläutern) wird die JSON-Notation so erweitert, dass der
 ausgegebene Code ausführbarer JavaScript-Code wird. Damit wird erreicht,
 dass der JSON-Code über die Grenzen von Domains hinweg direkt von
@@ -1833,14 +1908,14 @@ Diese Eigenschaft ist EMPFOHLEN.
 
 Handelt es sich bei der Körperschaft um eine Gebietskörperschaft
 (Landkreis, Kommune etc.) in Deutschland, SOLL für die eindeutige
-Identifizierung der amtliche Regionalschlüssel verwendet werden.[^14]
+Identifizierung der amtliche Regionalschlüssel verwendet werden.[^17]
 Dieser ist grundsätzlich zwölfstellig.
 
 Eigenschaft gnd_url
 
 Diese Eigenschaft ist EMPFOHLEN.
 
-Sofern die Körperschaft in der GND[^15] vertreten ist, SOLL diese
+Sofern die Körperschaft in der GND[^18] vertreten ist, SOLL diese
 Eigenschaft als Wert die URL des Eintrags in der GND enthalten.
 
 Eigenschaft contact
@@ -2398,7 +2473,7 @@ name
     Eigenschaft ist ZWINGEND. Typ: Zeichenkette.
 
 mime_type
-    Mime-Typ des Inhalts (vgl. RFC2046[^16]). Diese Eigenschaft ist
+    Mime-Typ des Inhalts (vgl. RFC2046[^19]). Diese Eigenschaft ist
     ZWINGEND. Sollte das System einer Datei keinen spezifischen Typ
     zuweisen können, wird EMPFOHLEN, hier "application/octet-stream" zu
     verwenden.
@@ -2537,14 +2612,14 @@ politischen Vorgangs, wie zum Beispiel eines Bauvorhabens oder der
 machen.
 
 OParl sieht bei Angabe von Geodaten die Verwendung des  
-GeoJSON-Formats[^17] vor. GeoJSON erlaubt die Beschreibung von vielen
+GeoJSON-Formats[^20] vor. GeoJSON erlaubt die Beschreibung von vielen
 unterschiedlichen Geometrien wie Punkten, Pfaden und Polygonen in
 JSON-Notation. Ein GeoJSON-Objekt kann auch mehrere Geometrien umfassen,
 beispielsweise um damit mehrere Punkte oder Polygone zu umschreiben.
 
 Gegenüber der GeoJSON-Spezifikation sieht OParl eine wichtige
 Einschränkung vor: Für die Ausgabe über eine OParl API MÜSSEN sämtliche
-Koordinatenangaben im System WGS84[^18] angegeben werden, und zwar in
+Koordinatenangaben im System WGS84[^21] angegeben werden, und zwar in
 Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.
 
 Eigenschaften
@@ -2625,35 +2700,45 @@ JSON-LD-Kontextdokumente zu finden sein werden.
 
 [^6]: http://patterns.dataincubator.org/book/follow-your-nose.html
 
-[^7]: http://tools.ietf.org/html/rfc3986
+[^7]: vgl. Bundesministerium des Innern (Herausg.): Open Government Data
+    Deutschland, Seite 433f., 2012
+    http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf
 
-[^8]: Berners-Lee, Tim: Cool URIs don't change.
+[^8]: beispielsweise
+    http://dbpedia.org/page/Christian_Democratic_Union_(Germany) und
+    http://dbpedia.org/page/Social_Democratic_Party_of_Germany
+
+[^9]: http://tools.ietf.org/html/rfc3986
+
+[^10]: Berners-Lee, Tim: Cool URIs don't change.
     http://www.w3.org/Provider/Style/URI.html
 
-[^9]: Study on persistent URIs, with identification of best practices
+[^11]: Study on persistent URIs, with identification of best practices
     and recommendations on the topic for the MSs and the EC. (PDF)
     http://goo.gl/JaTq6Z
 
-[^10]: https://tools.ietf.org/html/rfc4627
+[^12]: https://tools.ietf.org/html/rfc4627
 
-[^11]: http://www.w3.org/TR/json-ld/
+[^13]: siehe dazu Linked Data
 
-[^12]: URLs heißen in der JSON-LD-Spezifikation "IRI" (für
+[^14]: http://www.w3.org/TR/json-ld/
+
+[^15]: URLs heißen in der JSON-LD-Spezifikation "IRI" (für
     "Internationalized Resource Identifier"), wir verwenden hier jedoch
     weiterhin die Bezeichnung "URL".
 
-[^13]: TODO: URL zur Spezifikation
+[^16]: TODO: URL zur Spezifikation
 
-[^14]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
+[^17]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
     Statistischen Bundesamtes eingesehen werden
 
-[^15]: Gemeinsame Normdatei http://www.dnb.de/gnd
+[^18]: Gemeinsame Normdatei http://www.dnb.de/gnd
 
-[^16]: http://tools.ietf.org/html/rfc2046
+[^19]: http://tools.ietf.org/html/rfc2046
 
-[^17]: GeoJSON Spazifikation http://geojson.org/geojson-spec.html
+[^20]: GeoJSON Spazifikation http://geojson.org/geojson-spec.html
 
-[^18]: WGS84 steht für "World Geodetic System 1984", es wird unter
+[^21]: WGS84 steht für "World Geodetic System 1984", es wird unter
     anderem auch vom Global Positioning System (GPS) verwendet. In
     geografischen Informationssystemen ist für das System der EPSG-Code
     4326 geläufig.

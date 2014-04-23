@@ -741,8 +741,8 @@ Stichpunkte:
 
 \hyperdef{}{designprinzipien}{\subsection{Designprinzipien}\label{designprinzipien}}
 
-\subsubsection{Aufbauend auf der gängigen
-Praxis}\label{aufbauend-auf-der-guxe4ngigen-praxis}
+\subsubsection{Aufbauen auf gängiger
+Praxis}\label{aufbauen-auf-guxe4ngiger-praxis}
 
 Grundlage für die Erarbeitung der OParl-Spezifikation in der
 vorliegenden Version ist eine Analyse der aktuell (2012 bis 2014) in
@@ -756,8 +756,8 @@ einschlägigen Softwareprodukte stark ähneln. Für die OParl-Spezifikation
 wurde sozusagen ein Datenmodell als ``gemeinsamer Nenner'' auf Basis der
 gängigen Praxis beschrieben.
 
-\subsubsection{Verbesserungen gegenüber dem Status Quo wo
-möglich}\label{verbesserungen-gegenuxfcber-dem-status-quo-wo-muxf6glich}
+\subsubsection{Verbesserung gegenüber dem Status Quo wo
+möglich}\label{verbesserung-gegenuxfcber-dem-status-quo-wo-muxf6glich}
 
 Dort, wo es dem Ziel der einfachen Implementierbarkeit und der einfachen
 Migration nicht im Weg steht, erlauben sich die Autoren dieser
@@ -850,7 +850,7 @@ Diese angestrebte Erweiterbarkeit wird durch weitgehend durch das
 \hyperref[jsonld]{JSON-LD-Format} gewährleistet. Es erlaubt die
 Verflechtung von Objekttypen-Definitionen aus verschiedenen Schemata.
 
-\subsubsection{Browseability/Verlinkung}\label{browseabilityverlinkung}
+\subsubsection{Browseability/Verlinkung}\label{browseabilityux5fverlinkung}
 
 Klassische Webservice-Schnittstellen erfordern von den Entwicklern
 vollständige Kenntnis der angebotenen Einstiegspunkte und
@@ -872,6 +872,66 @@ die URL des Mitglieds ausgeben wird. Der Client kann somit ausgehend von
 einem bestimmten Objekt die anderen Objekte im System finden, indem er
 einfach den angebotenen URLs folgt. Dieses Prinzip wird auch ``Follow
 Your Nose'' genannt\footnote{\url{http://patterns.dataincubator.org/book/follow-your-nose.html}}.
+
+\hyperdef{}{linkedux5fdata}{\subsubsection{Linked
+Data}\label{linkedux5fdata}}
+
+Der Begriff ``Linked Data'' steht für die Beschreibung von Daten in
+einer Form, die diese über ihren ursprünglichen Kontext hinaus
+verständlich macht.\footnote{vgl. Bundesministerium des Innern
+  (Herausg.): Open Government Data Deutschland, Seite 433f., 2012
+  \url{http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf}}
+
+Kern von Linked Data ist die Möglichkeit, alle Bestandteile von Daten in
+Form von Tripeln zu beschreiben, das sind dreiteilige
+Informationseinheiten aus einem Subjekt, einem Prädikat und einem
+Objekt. Alle drei Bestandteile können in Form global eindeutiger
+``Uniform Resource Identifier'' (URI) abgebildet werden.
+
+Nach dem Linked-Data-Prinzip könnte beispielsweise der Vorname einer
+Person mit dem folgenden Tripel beschrieben werden:
+
+\begin{verbatim}
+Subjekt: http://dbpedia.org/page/John_Doe_(musician)
+Prädikat: http://xmlns.com/foaf/0.1/givenName
+Objekt: http://dbpedia.org/page/John_(given_name)
+\end{verbatim}
+
+Hierbei macht man von der Tatsache Gebrauch, dass das Subjekt, also die
+Person, um die es geht, bereits mittels ihrer URI eindeutig
+identifiziert werden kann und dass bestenfalls unter dieser URI weitere
+Informationen zu der Person abrufbar sind. Auch für das Prädikat
+``Person hat den Vornamen'' liegt bereits eine Beschreibung in einem
+gebräuchlichen Vokabular vor, auf das hier verwiesen werden kann. Und
+schließlich kann sogar der eigentliche Vorname in Form einer URI
+abgebildet werden, nämlich als Verweis auf eine umfangreiche
+Beschreibung dieses Namens.
+
+Das Ziel von OParl ist es, mit der vorliegenden Version 1.0 der
+Spezifikation, die Nutzung solcher allgemeingültigen Vokabulare für die
+Veröffentlichung von parlamentarischen Informationen zu begünstigen und
+die automatisierte Verarbeitung und Verknüpfung von Informationen, auch
+über die Grenzen verschiedener Informationssysteme hinweg, zu
+erleichtern.
+
+Beispiele, wo dies sinnvoll ist, sind in der Praxis leicht zu finden. So
+finden sich beispielsweise in vielen lokalen Parlamenten immer wieder
+Fraktionen der selben Parteien, beispielsweise CDU und SPD. Mittels
+Linked Data wäre es möglich, jede dieser Fraktionen mit einer externen
+URL zu verknüpfen\footnote{beispielsweise
+  \url{http://dbpedia.org/page/Christian_Democratic_Union_(Germany)} und
+  \url{http://dbpedia.org/page/Social_Democratic_Party_of_Germany}} und
+somit erkennbar zu machen, zu welcher Partei diese Fraktion gehört.
+Ebenso finden sich viele inhaltliche Ähnlichkeiten bei Gremien wie zum
+Beispiel Ausschüssen (z.B. Hauptausschuss, Verkehrsausschuss etc.) oder
+bei Arten von Drucksachen (z.B. Anträge, Anfragen, Mitteilungen,
+Beschlussvorlagen).
+
+OParl lässt in Version 1.0 der Spezifikation noch viele Aufgaben, die
+die Vereinheitlichung dieses Vokabulars betreffen, offen. Jedoch wird
+durch die Verwendung von \hyperref[jsonld]{JSON-LD} als
+Serialisierungsformat der Grundstein für eine Vereinheitlichung im Sinne
+von Linked Data gelegt.
 
 \subsection{Zukunftssicherheit}\label{zukunftssicherheit}
 
@@ -1171,8 +1231,9 @@ Beispiel eines Objekts in JSON-Notation:
 
 \hyperdef{}{jsonld}{\subsubsection{JSON-LD}\label{jsonld}}
 
-Das Kürzel LD im Namen ``JSON-LD'' steht für Linked Data. Entsprechend
-erweitert die JSON-LD-Spezifikation\footnote{\url{http://www.w3.org/TR/json-ld/}}
+Das Kürzel LD im Namen ``JSON-LD'' steht für ``Linked Data''\footnote{siehe
+  dazu \hyperref[linkedux5fdata]{Linked Data}}. Entsprechend erweitert
+die JSON-LD-Spezifikation\footnote{\url{http://www.w3.org/TR/json-ld/}}
 das JSON-Format um die Möglichkeit,
 
 \begin{itemize}
@@ -1363,18 +1424,13 @@ die in diesem Abschnitt weiter ausgeführt werden sollen\ldots{}
 \item
   Unterscheidung von Groß- und Kleinschreibung
 \item
+  Keine Listen von Listen
+\item
   Benannte Objekte (URL als Schlüssel)
 \item
   Anonyme Objekte (Blank Nodes)
 \item
   Mime Type application/ld+json
-\item
-  Verweis auf
-  http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED\_Verwaltung/ModerneVerwaltung/opengovernment.pdf?\_\_blob=publicationFile
-\item
-  Siehe https://github.com/OParl/specs/issues/77
-\item
-  Siehe https://github.com/OParl/specs/issues/10
 \end{itemize}
 
 \hyperdef{}{jsonp}{\subsubsection{JSONP}\label{jsonp}}

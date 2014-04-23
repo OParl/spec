@@ -964,8 +964,8 @@
   </itemizedlist>
   <sect2 id="designprinzipien">
     <title>Designprinzipien</title>
-    <sect3 id="aufbauend-auf-der-gängigen-praxis">
-      <title>Aufbauend auf der gängigen Praxis</title>
+    <sect3 id="aufbauen-auf-gängiger-praxis">
+      <title>Aufbauen auf gängiger Praxis</title>
       <para>
         Grundlage für die Erarbeitung der OParl-Spezifikation in der
         vorliegenden Version ist eine Analyse der aktuell (2012 bis
@@ -981,8 +981,8 @@
         Basis der gängigen Praxis beschrieben.
       </para>
     </sect3>
-    <sect3 id="verbesserungen-gegenüber-dem-status-quo-wo-möglich">
-      <title>Verbesserungen gegenüber dem Status Quo wo möglich</title>
+    <sect3 id="verbesserung-gegenüber-dem-status-quo-wo-möglich">
+      <title>Verbesserung gegenüber dem Status Quo wo möglich</title>
       <para>
         Dort, wo es dem Ziel der einfachen Implementierbarkeit und der
         einfachen Migration nicht im Weg steht, erlauben sich die
@@ -1116,7 +1116,7 @@
         verschiedenen Schemata.
       </para>
     </sect3>
-    <sect3 id="browseabilityverlinkung">
+    <sect3 id="browseability_verlinkung">
       <title>Browseability/Verlinkung</title>
       <para>
         Klassische Webservice-Schnittstellen erfordern von den
@@ -1148,6 +1148,85 @@
             <ulink url="http://patterns.dataincubator.org/book/follow-your-nose.html">http://patterns.dataincubator.org/book/follow-your-nose.html</ulink>
           </para>
         </footnote>.
+      </para>
+    </sect3>
+    <sect3 id="linked_data">
+      <title>Linked Data</title>
+      <para>
+        Der Begriff &quot;Linked Data&quot; steht für die Beschreibung
+        von Daten in einer Form, die diese über ihren ursprünglichen
+        Kontext hinaus verständlich macht.<footnote>
+          <para>
+            vgl. Bundesministerium des Innern (Herausg.): Open
+            Government Data Deutschland, Seite 433f., 2012
+            <ulink url="http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf">http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf</ulink>
+          </para>
+        </footnote>
+      </para>
+      <para>
+        Kern von Linked Data ist die Möglichkeit, alle Bestandteile von
+        Daten in Form von Tripeln zu beschreiben, das sind dreiteilige
+        Informationseinheiten aus einem Subjekt, einem Prädikat und
+        einem Objekt. Alle drei Bestandteile können in Form global
+        eindeutiger &quot;Uniform Resource Identifier&quot; (URI)
+        abgebildet werden.
+      </para>
+      <para>
+        Nach dem Linked-Data-Prinzip könnte beispielsweise der Vorname
+        einer Person mit dem folgenden Tripel beschrieben werden:
+      </para>
+      <programlisting>
+Subjekt: http://dbpedia.org/page/John_Doe_(musician)
+Prädikat: http://xmlns.com/foaf/0.1/givenName
+Objekt: http://dbpedia.org/page/John_(given_name)
+</programlisting>
+      <para>
+        Hierbei macht man von der Tatsache Gebrauch, dass das Subjekt,
+        also die Person, um die es geht, bereits mittels ihrer URI
+        eindeutig identifiziert werden kann und dass bestenfalls unter
+        dieser URI weitere Informationen zu der Person abrufbar sind.
+        Auch für das Prädikat &quot;Person hat den Vornamen&quot; liegt
+        bereits eine Beschreibung in einem gebräuchlichen Vokabular vor,
+        auf das hier verwiesen werden kann. Und schließlich kann sogar
+        der eigentliche Vorname in Form einer URI abgebildet werden,
+        nämlich als Verweis auf eine umfangreiche Beschreibung dieses
+        Namens.
+      </para>
+      <para>
+        Das Ziel von OParl ist es, mit der vorliegenden Version 1.0 der
+        Spezifikation, die Nutzung solcher allgemeingültigen Vokabulare
+        für die Veröffentlichung von parlamentarischen Informationen zu
+        begünstigen und die automatisierte Verarbeitung und Verknüpfung
+        von Informationen, auch über die Grenzen verschiedener
+        Informationssysteme hinweg, zu erleichtern.
+      </para>
+      <para>
+        Beispiele, wo dies sinnvoll ist, sind in der Praxis leicht zu
+        finden. So finden sich beispielsweise in vielen lokalen
+        Parlamenten immer wieder Fraktionen der selben Parteien,
+        beispielsweise CDU und SPD. Mittels Linked Data wäre es möglich,
+        jede dieser Fraktionen mit einer externen URL zu
+        verknüpfen<footnote>
+          <para>
+            beispielsweise
+            <ulink url="http://dbpedia.org/page/Christian_Democratic_Union_(Germany)">http://dbpedia.org/page/Christian_Democratic_Union_(Germany)</ulink>
+            und
+            <ulink url="http://dbpedia.org/page/Social_Democratic_Party_of_Germany">http://dbpedia.org/page/Social_Democratic_Party_of_Germany</ulink>
+          </para>
+        </footnote> und somit erkennbar zu machen, zu welcher Partei
+        diese Fraktion gehört. Ebenso finden sich viele inhaltliche
+        Ähnlichkeiten bei Gremien wie zum Beispiel Ausschüssen (z.B.
+        Hauptausschuss, Verkehrsausschuss etc.) oder bei Arten von
+        Drucksachen (z.B. Anträge, Anfragen, Mitteilungen,
+        Beschlussvorlagen).
+      </para>
+      <para>
+        OParl lässt in Version 1.0 der Spezifikation noch viele
+        Aufgaben, die die Vereinheitlichung dieses Vokabulars betreffen,
+        offen. Jedoch wird durch die Verwendung von
+        <link linkend="jsonld">JSON-LD</link> als Serialisierungsformat
+        der Grundstein für eine Vereinheitlichung im Sinne von Linked
+        Data gelegt.
       </para>
     </sect3>
   </sect2>
@@ -1567,8 +1646,13 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
     <sect3 id="jsonld">
       <title>JSON-LD</title>
       <para>
-        Das Kürzel LD im Namen &quot;JSON-LD&quot; steht für Linked
-        Data. Entsprechend erweitert die JSON-LD-Spezifikation<footnote>
+        Das Kürzel LD im Namen &quot;JSON-LD&quot; steht für
+        &quot;Linked Data&quot;<footnote>
+          <para>
+            siehe dazu <link linkend="linked_data">Linked Data</link>
+          </para>
+        </footnote>. Entsprechend erweitert die
+        JSON-LD-Spezifikation<footnote>
           <para>
             <ulink url="http://www.w3.org/TR/json-ld/">http://www.w3.org/TR/json-ld/</ulink>
           </para>
@@ -1790,6 +1874,11 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
         </listitem>
         <listitem>
           <para>
+            Keine Listen von Listen
+          </para>
+        </listitem>
+        <listitem>
+          <para>
             Benannte Objekte (URL als Schlüssel)
           </para>
         </listitem>
@@ -1801,22 +1890,6 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
         <listitem>
           <para>
             Mime Type application/ld+json
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Verweis auf
-            http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf?__blob=publicationFile
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Siehe https://github.com/OParl/specs/issues/77
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Siehe https://github.com/OParl/specs/issues/10
           </para>
         </listitem>
       </itemizedlist>

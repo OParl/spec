@@ -44,7 +44,8 @@ Beispiel eines Objekts in JSON-Notation:
 
 ### JSON-LD {#jsonld}
 
-Das Kürzel LD im Namen "JSON-LD" steht für Linked Data. Entsprechend erweitert die JSON-LD-Spezifikation^[<http://www.w3.org/TR/json-ld/>] das JSON-Format um die Möglichkeit,
+Das Kürzel LD im Namen "JSON-LD" steht für "Linked Data"^[siehe dazu [Linked Data](#linked_data)].
+Entsprechend erweitert die JSON-LD-Spezifikation^[<http://www.w3.org/TR/json-ld/>] das JSON-Format um die Möglichkeit,
 
 * Objekte mit anderen Objekten zu verknüpfen,
 * Objekte und Eigenschaften bestimmten Typen zuzuordnen und damit
@@ -179,12 +180,11 @@ weiter ausgeführt werden sollen...
 - Einschränkungen von OParl gegenüber JSON-LD
 - Schlüssel in einem JSON-LD-Objekt müssen einzigartig sein.
 - Unterscheidung von Groß- und Kleinschreibung
+- Keine Listen von Listen
 - Benannte Objekte (URL als Schlüssel)
 - Anonyme Objekte (Blank Nodes)
 - Mime Type application/ld+json
-- Verweis auf http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf?__blob=publicationFile
-- Siehe https://github.com/OParl/specs/issues/77
-- Siehe https://github.com/OParl/specs/issues/10
+
 
 ### JSONP
 

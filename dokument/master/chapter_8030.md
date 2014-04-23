@@ -12,18 +12,18 @@ Ein Beispiel:
 {
     "@type": "oparl:System",
     "@id": "http://beispielris.de/",
-    "oparl_version": "http://oparl.org/specs/1.0/",
+    "oparlVersion": "http://oparl.org/specs/1.0/",
     "name": "Beispiel-System",
-    "www_url": "http://www.beispielris.de/",
-    "contact_email": "mailto:info@beispielris.de",
-    "contact_name": "Allgemeiner OParl Kontakt",
+    "wwwUrl": "http://www.beispielris.de/",
+    "contactEmail": "mailto:info@beispielris.de",
+    "contactName": "Allgemeiner OParl Kontakt",
     "vendor": "http://example-software.com/",
     "product": "http://example-software.com/oparl-server/",
     "license": "http://creativecommons.org/licenses/by/4.0/",
     "bodies": "http://beispielris.de/bodies/",
-    "new_objects": "http://beispielris.de/new_objects/",
-    "updated_objects": "http://beispielris.de/updated_objects/",
-    "removed_objects": "http://beispielris.de/removed_objects"
+    "newObjects": "http://beispielris.de/new_objects/",
+    "updatedObjects": "http://beispielris.de/updated_objects/",
+    "removedObjects": "http://beispielris.de/removed_objects"
 }
 ~~~~~
 
@@ -80,7 +80,7 @@ TODO: Beispiele für JSON-LD und exemplarisch auch für HTML.
 
 ### Eigenschaften
 
-`oparl_version`
+`oparlVersion`
 :   Die URL der OParl-Spezifikation, die von diesem Server unterstützt 
     wird. Der Wert MUSS die URL `http://oparl.org/specs/1.0/` sein.
     Diese Eigenschaft ist ZWINGEND.
@@ -96,13 +96,13 @@ TODO: Beispiele für JSON-LD und exemplarisch auch für HTML.
     System erkennen und von anderen unterscheiden können. Diese Eigenschaft
     wird EMPFOHLEN.
 
-`contact_email`
+`contactEmail`
 :   E-Mail-Adresse für Anfragen zur OParl-API. Diese Eigenschaft wird 
     EMPFOHLEN. Die Angabe einer E-Mail-Adresse dient sowohl NutzerInnen
     wie auch EntwicklerInnen von Clients zur Kontaktaufnahme mit dem
     Betreiber. 
 
-`contact_name`
+`contactName`
 :   Name des Ansprechpartners oder der Abteilung, die über die `contact_email`
     erreicht werden kann. Die Eigenschaft ist EMPFOHLEN. Typ: Zeichenkette.
 
@@ -111,19 +111,19 @@ TODO: Beispiele für JSON-LD und exemplarisch auch für HTML.
     können, gilt, sofern nicht am einzelnen Objekt anders angegeben.
     Die Eigenschaft ist EMPFOHLEN.
 
-`new_objects`
+`newObjects`
 :   URL des Feeds ["Neue Objekte"](#feed_neue_objekte). Die Eigenschaft ist 
     EMPFOHLEN.
 
-`updated_objects`
+`updatedObjects`
 :   URL des Feeds ["Geänderte Objekte"](#feed_geaenderte_objekte). Die 
     Eigenschaft ist EMPFOHLEN.
 
-`removed_objects`
+`removedObjects`
 :   URL des Feeds ["Entfernte Objekte"](#feed_entfernte_objekte). Die 
     Eigenschaft ist EMPFOHLEN.
 
-`www_url`
+`wwwUrl`
 :   URL zur WWW-Oberfläche des parlamentarischen Informationssystem.
     Diese Eigenschaft ist OPTIONAL.
 

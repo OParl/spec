@@ -13,19 +13,19 @@ Ein Beispiel:
     "@id": "http://refserv.oparl.org/bodies/0",
     "system": "http://beispielris.de/",
     "committees": "http://beispielris.de/bodies/1/committees/",
-    "contact_email": "ris@beispielstadt.de",
-    "contact_name": "RIS-Betreuung",
+    "contactEmail": "ris@beispielstadt.de",
+    "contactName": "RIS-Betreuung",
     "rgs": "053150000000",
-    "gnd_url": "http://d-nb.info/gnd/2015732-0",
+    "gndUrl": "http://d-nb.info/gnd/2015732-0",
     "meetings": "http://refserv.oparl.org/bodies/0/meetings/",
     "name": "Stadt K\u00f6ln",
-    "name_long": "Stadt K\u00f6ln, kreisfreie Stadt",
+    "nameLong": "Stadt K\u00f6ln, kreisfreie Stadt",
     "organisations": "http://refserv.oparl.org/bodies/0/organisations/",
     "papers": "http://refserv.oparl.org/bodies/0/papers/",
     "people": "http://refserv.oparl.org/bodies/0/people/",
-    "www_url": "http://www.beispielstadt.de/"
+    "wwwUrl": "http://www.beispielstadt.de/"
     "created": "2014-01-08T14:28:31.568+0100",
-    "last_modified": "2014-01-08T14:28:31.568+0100",
+    "lastModified": "2014-01-08T14:28:31.568+0100",
 }
 ~~~~~
 
@@ -53,13 +53,13 @@ Mit dieser Eigenschaft wird das Objekt dem übergeordneten `oparl:System` Objekt
 
 Diese Eigenschaft ist ZWINGEND. Sie transportiert den gebräuchlichen Namen der Körperschaft.
 
-### Eigenschaft `name_long`
+### Eigenschaft `nameLong`
 
 Diese Eigenschaft ist OPTIONAL und kann bei Bedarf dazu verwendet werden, eine längere Form
 des Namens der Körperschaft wieder zu geben, sofern dieser für die Eigenschaft `name` zu lang
 ist.
 
-### Eigenschaft `url`
+### Eigenschaft `wwwUrl`
 
 Diese Eigenschaft ist EMPFOHLEN.
 
@@ -77,7 +77,7 @@ Handelt es sich bei der Körperschaft um eine Gebietskörperschaft
 Identifizierung der amtliche Regionalschlüssel verwendet werden.^[Regionalschlüssel können im [Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes](https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html) eingesehen werden]
 Dieser ist grundsätzlich zwölfstellig.
 
-### Eigenschaft `gnd_url`
+### Eigenschaft `gndUrl`
 
 Diese Eigenschaft ist EMPFOHLEN.
 
@@ -117,12 +117,12 @@ Diese Eigenschaft ist ZWINGEND.
 Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
 Sitzungen (Objekte vom Typ `oparl:Meeting`) für diese Körperschaft.
 
-### Eigenschaft `committees`
+### Eigenschaft `organisations`
 
 Diese Eigenschaft ist ZWINGEND.
 
 Wert dieser Eigenschaft ist die URL der API zum Aufruf einer Liste der
-Gremien (Objekte vom Typ `oparl:Committee`) für diese Körperschaft.
+Organisationen (Objekte vom Typ `oparl:Organization`) für diese Körperschaft.
 
 
 ### Beispiel

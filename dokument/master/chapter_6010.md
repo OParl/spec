@@ -86,8 +86,8 @@ des OParl Schemas, etwa um neue Objekttypen, genau so durchgeführt werden wie d
 um herstellerspezifische Objekttypen. Ein Client muss diese Anteile nicht auswerten, sofern
 sie nicht für die Aufgabe des Clients relevant sind.
 
-Diese angestrebte Erweiterbarkeit wird durch weitgehend durch das JSON-LD-Format
-(TODO: Verweis einfügen) gewährleistet. Es erlaubt die Verflechtung von Objekttypen-Definitionen
+Diese angestrebte Erweiterbarkeit wird durch weitgehend durch das [JSON-LD-Format](#jsonld)
+gewährleistet. Es erlaubt die Verflechtung von Objekttypen-Definitionen
 aus verschiedenen Schemata.
 
 ### Browseability/Verlinkung

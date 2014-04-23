@@ -1568,6 +1568,11 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
       ausgegebenen Daten verbessert. Auf Anforderung des Clients wird
       darüber hinaus JSONP unterstützt.
     </para>
+    <para>
+      In jedem Fall MUSS ein Server die Anfrage eines Clients unter
+      Verwendung des HTTP Content-type-Headers
+      <literal>application/json</literal> beantworten.
+    </para>
     <sect3 id="json">
       <title>JSON</title>
       <para>
@@ -1829,10 +1834,17 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
         Das Beispiel oben zeigt ein Objekt, das über die
         <literal>@context</literal>-Eigenschaft zwei verschiedene URLs
         als sogenannte Vokabulare referenziert. Das eine Vokabular wird
-        durch das Präfix <literal>oparl</literal> repräsentiert, das
-        zweite (herstellereigene) durch das Präfix
-        <literal>vendor</literal>. Ein JSON-LD-Client setzt Präfix und
-        Typenbezeichnung letztlich wieder zu einer URL zusammen.
+        durch das Namensraum-Präfix <literal>oparl</literal>
+        repräsentiert, das zweite (herstellereigene) durch das
+        Namensraum-Präfix <literal>vendor</literal>.
+      </para>
+      <para>
+        Durch das Schlüsselwort <literal>@type</literal> wird nun dem
+        Objekt ein oder mehrere Objekttypen zugewiesen. Dabei werden die
+        zuvor beschriebenen Namensraum-Präfixe genutzt. Ein
+        JSON-LD-Client verarbeitet Namensraum-Präfixe und
+        Typenbezeichnung so, dass diese letztlich für jeden Objekttypen
+        eine eindeutige URL ergeben.
       </para>
       <itemizedlist>
         <listitem>
@@ -1849,47 +1861,60 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
         </listitem>
       </itemizedlist>
       <para>
-        TODO: Ab hier weiter ausformulieren
+        TODO: Eventuell hier die Anforderung festhalten, dass jedes
+        Objekt, das über eine OParl API ausgegeben wird, das
+        <literal>@type</literal>-Schlüsselwort haben MUSS. Das ist noch
+        nicht geklärt, da Listen hier eine Ausnahme bilden können.
       </para>
       <para>
-        Darüber hinaus stellt JSON-LD zusätzliche Anforderungen an
-        JSON-Daten, die in diesem Abschnitt weiter ausgeführt werden
-        sollen...
+        Eine JSON-LD-konforme Ausgabe stellt noch weitere Anforderungen,
+        von denen nachfolgend die wichtigsten zusammen gefasst werden.
       </para>
       <itemizedlist>
         <listitem>
           <para>
-            Einschränkungen von OParl gegenüber JSON-LD
+            <emphasis role="strong">Schlüssel müssen einzigartig
+            sein</emphasis>: Es ist nicht zulässig, in einem
+            JSON-LD-Objekt mehrmals den selben Schlüssel für ein
+            Attribut zu verwenden.
           </para>
         </listitem>
         <listitem>
           <para>
-            Schlüssel in einem JSON-LD-Objekt müssen einzigartig sein.
+            <emphasis role="strong">Groß- und Kleinschreibung werden
+            unterschieden</emphasis>: Groß- und Kleinschreibung sind bei
+            allen Bestandteilen eines JSON-LD-Dokuments zu beachten,
+            also auch bei den Attributnamen.
           </para>
         </listitem>
         <listitem>
           <para>
-            Unterscheidung von Groß- und Kleinschreibung
+            <emphasis role="strong">Listen gelten grundsätzlich als
+            nicht sortiert</emphasis>: Die JSON-Spezifikation geht bei
+            Listen grundsätzlich davon aus, dass diese eine Sortierung
+            besitzen. Im Unterschied dazu gilt für JSON-LD, dass die
+            Reihenfolge der Werte zwischen zwei eckigen Klammern
+            <literal>[</literal> und <literal>]</literal> als zufällig
+            gilt, sofern nicht anders spezifiziert. Wer einen
+            JSON-LD-Objekttyp spezifiziert, kann jedoch mittels des
+            Schlüsselwortes <literal>@list</literal> kennzeichnen, dass
+            es sich hierbei um eine sortierte Liste handelt.
+          </para>
+          <para>
+            Wo immer die OParl-Spezifikation eine stabile, nicht
+            zufällige Sortierung von Listen erwartet, wird dies eigens
+            erwähnt werden. Das OParl-JSON-LD-Vokabular wird an der
+            entsprechenden Stelle das Schlüsselwort
+            <literal>@list</literal> verwenden.
           </para>
         </listitem>
         <listitem>
           <para>
-            Keine Listen von Listen
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Benannte Objekte (URL als Schlüssel)
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Anonyme Objekte (Blank Nodes)
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Mime Type application/ld+json
+            <emphasis role="strong">Verschachtelte Listen sind nicht
+            möglich</emphasis>: JSON-LD erlaubt keine Listen, die
+            wiederum Listen als Werte enthalten. TODO:
+            <ulink url="https://github.com/OParl/specs/issues/115">Issue
+            115</ulink>.
           </para>
         </listitem>
       </itemizedlist>

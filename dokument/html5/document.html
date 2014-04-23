@@ -415,6 +415,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <section id="serialisierung-mittels-json-ld-und-jsonp" class="level2">
 <h2><span class="header-section-number">4.5</span> Serialisierung mittels JSON-LD und JSONP</h2>
 <p>Eine OParl-konforme API gibt Objekte in Form von JSON aus. Die Objekte werden dabei entsprechend der JSON-LD Spezifikation um Kontexte erweitert, welche die Selbstbschreibungsfähigkeit der ausgegebenen Daten verbessert. Auf Anforderung des Clients wird darüber hinaus JSONP unterstützt.</p>
+<p>In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung des HTTP Content-type-Headers <code>application/json</code> beantworten.</p>
 <section id="json" class="level3">
 <h3><span class="header-section-number">4.5.1</span> JSON</h3>
 <p>Die Abkürzung JSON steht für &quot;JavaScript Object Notation&quot;. Das JSON-Format ist in RFC4627<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a> beschrieben. Nachfolgend werden nur die wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren Verwendung in diesem Dokument zu etablieren.</p>
@@ -506,21 +507,20 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
   <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2013-05-29T14:17:39+02:00&quot;</span>,
   <span class="dt">&quot;aktenzeichen&quot;</span>: <span class="st">&quot;ABC123&quot;</span>
 }</code></pre>
-<p>Das Beispiel oben zeigt ein Objekt, das über die <code>@context</code>-Eigenschaft zwei verschiedene URLs als sogenannte Vokabulare referenziert. Das eine Vokabular wird durch das Präfix <code>oparl</code> repräsentiert, das zweite (herstellereigene) durch das Präfix <code>vendor</code>. Ein JSON-LD-Client setzt Präfix und Typenbezeichnung letztlich wieder zu einer URL zusammen.</p>
+<p>Das Beispiel oben zeigt ein Objekt, das über die <code>@context</code>-Eigenschaft zwei verschiedene URLs als sogenannte Vokabulare referenziert. Das eine Vokabular wird durch das Namensraum-Präfix <code>oparl</code> repräsentiert, das zweite (herstellereigene) durch das Namensraum-Präfix <code>vendor</code>.</p>
+<p>Durch das Schlüsselwort <code>@type</code> wird nun dem Objekt ein oder mehrere Objekttypen zugewiesen. Dabei werden die zuvor beschriebenen Namensraum-Präfixe genutzt. Ein JSON-LD-Client verarbeitet Namensraum-Präfixe und Typenbezeichnung so, dass diese letztlich für jeden Objekttypen eine eindeutige URL ergeben.</p>
 <ul>
 <li>Aus <code>oparl:Paper</code> wird <code>http://oparl.org/schema/1.0/Paper</code></li>
 <li>Aus <code>vendor:Drucksache</code> wird <code>http://www.vendor.de/oparl/schema/Drucksache</code></li>
 </ul>
-<p>TODO: Ab hier weiter ausformulieren</p>
-<p>Darüber hinaus stellt JSON-LD zusätzliche Anforderungen an JSON-Daten, die in diesem Abschnitt weiter ausgeführt werden sollen...</p>
+<p>TODO: Eventuell hier die Anforderung festhalten, dass jedes Objekt, das über eine OParl API ausgegeben wird, das <code>@type</code>-Schlüsselwort haben MUSS. Das ist noch nicht geklärt, da Listen hier eine Ausnahme bilden können.</p>
+<p>Eine JSON-LD-konforme Ausgabe stellt noch weitere Anforderungen, von denen nachfolgend die wichtigsten zusammen gefasst werden.</p>
 <ul>
-<li>Einschränkungen von OParl gegenüber JSON-LD</li>
-<li>Schlüssel in einem JSON-LD-Objekt müssen einzigartig sein.</li>
-<li>Unterscheidung von Groß- und Kleinschreibung</li>
-<li>Keine Listen von Listen</li>
-<li>Benannte Objekte (URL als Schlüssel)</li>
-<li>Anonyme Objekte (Blank Nodes)</li>
-<li>Mime Type application/ld+json</li>
+<li><p><strong>Schlüssel müssen einzigartig sein</strong>: Es ist nicht zulässig, in einem JSON-LD-Objekt mehrmals den selben Schlüssel für ein Attribut zu verwenden.</p></li>
+<li><p><strong>Groß- und Kleinschreibung werden unterschieden</strong>: Groß- und Kleinschreibung sind bei allen Bestandteilen eines JSON-LD-Dokuments zu beachten, also auch bei den Attributnamen.</p></li>
+<li><p><strong>Listen gelten grundsätzlich als nicht sortiert</strong>: Die JSON-Spezifikation geht bei Listen grundsätzlich davon aus, dass diese eine Sortierung besitzen. Im Unterschied dazu gilt für JSON-LD, dass die Reihenfolge der Werte zwischen zwei eckigen Klammern <code>[</code> und <code>]</code> als zufällig gilt, sofern nicht anders spezifiziert. Wer einen JSON-LD-Objekttyp spezifiziert, kann jedoch mittels des Schlüsselwortes <code>@list</code> kennzeichnen, dass es sich hierbei um eine sortierte Liste handelt.</p>
+<p>Wo immer die OParl-Spezifikation eine stabile, nicht zufällige Sortierung von Listen erwartet, wird dies eigens erwähnt werden. Das OParl-JSON-LD-Vokabular wird an der entsprechenden Stelle das Schlüsselwort <code>@list</code> verwenden.</p></li>
+<li><p><strong>Verschachtelte Listen sind nicht möglich</strong>: JSON-LD erlaubt keine Listen, die wiederum Listen als Werte enthalten. TODO: <a href="https://github.com/OParl/specs/issues/115">Issue 115</a>.</p></li>
 </ul>
 </section>
 <section id="jsonp" class="level3">

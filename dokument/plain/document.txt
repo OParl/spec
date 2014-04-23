@@ -288,7 +288,7 @@ Architekturbeschreibung des W3-Konsortiums entlehnt.[^2]
 
 [Architekturdiagramm]
 
-Parlamentarisches Informationssystem
+Parlamentarisches Informationssystem {#parlamentarisches_infosystem}
 ------------------------------------
 
 Parlamentarische Informationssysteme sind Software-Systeme, die von
@@ -376,7 +376,7 @@ Nutzung eines Cache kann auch zur Verbesserung der Nutzerfreundlichkeit
 eines Clients beitragen, indem Wartezeiten zur Bereitstellung einer
 Ressource verkürzt werden.
 
-Nutzerin oder Nutzer
+Nutzerin oder Nutzer {#nutzerin}
 --------------------
 
 Mit einer Nutzerin oder einem Nutzer ist in diesem Fall eine natürliche
@@ -639,8 +639,8 @@ nicht auswerten, sofern sie nicht für die Aufgabe des Clients relevant
 sind.
 
 Diese angestrebte Erweiterbarkeit wird durch weitgehend durch das
-JSON-LD-Format (TODO: Verweis einfügen) gewährleistet. Es erlaubt die
-Verflechtung von Objekttypen-Definitionen aus verschiedenen Schemata.
+JSON-LD-Format gewährleistet. Es erlaubt die Verflechtung von
+Objekttypen-Definitionen aus verschiedenen Schemata.
 
 Browseability/Verlinkung
 
@@ -983,12 +983,11 @@ anderen Objekts ist[^12]. Mittels @type-Deklaration könnte aber auch
 beispielsweise eine Eigenschaft, die im JSON-Sinn eine Zeichenkette ist,
 als Datum deklariert werden.
 
-Am obigen Beispiel fällt auf, dass der @context-Teil des Objects schon
+Am obigen Beispiel fällt auf, dass der @context-Teil des Objekts schon
 mehr Daten umfasst, als die eigentlichen Objekteigenschaften.
 Sinnvollerweise kann jedoch der gesamte Inhalt des @context-Teils in
-eine externe Ressource ausgelagert werden. Clients, die eine Vielzahl
-von gleichartigen Objekten laden und interpretieren wollen, müssen diese
-Ressource dann nur einmal laden. Das Ergebnis könnte so aussehen:
+eine externe Ressource ausgelagert werden. Das folgende Beispiel
+verdeutlicht dies:
 
 ``` {#jsonld_ex3 .json}
 {
@@ -1001,7 +1000,24 @@ Ressource dann nur einmal laden. Das Ergebnis könnte so aussehen:
 
 Die @context-Eigenschaft hat nun als Wert eine URL. Die URL (hier:
 http://json-ld.org/contexts/person.jsonld) gibt wiederum in JSON kodiert
-die Beschreibung aller möglichen Attribute des Objekts aus.
+die Beschreibung aller möglichen Attribute des Objekts aus. Die
+Kontext-Beschreibung des JSON-LD-Objekts wurde somit in eine externe
+Ressource ausgelagert. Clients SOLLEN davon ausgehen, dass sich diese
+externen Kontextbeschreibungen nur selten ändern. Somit genügt es, bei
+Abruf vieler gleichartiger JSON-LD-Objekte vom Server die
+Kontext-Ressource nur einmal zu laden.
+
+Im Sinne der JSON-LD-Spezifikation sind Objekte mit eingebettetem und
+externem Kontext identisch. Den Implementierern eines OParl-konformen
+Servers wird EMPFOHLEN, grundsätzlich die Kontextinformation mittels
+externer Ressourcen zu übermitteln. Die OParl Autoren werden hierzu die
+zu dieser Spezifikation passenden Ressourcen auf oparl.org für jegliche
+Verwendung zur Verfügung stellen (mehr dazu im Anhang). Sollten
+Server-Implementierer zusätzliche Objekttypen benötigen, die nicht von
+dieser Spezifikation abgedeckt sind, SOLL entsprechend zusätzlich auf
+eigene Kontextressourcen unter geeigneten URLs verwiesen werden. Hierbei
+können herstellereigene und OParl-spezifische URls gemischt werden, wie
+in einem Beispiel weiter unten verfeutlicht wird.
 
 JSON-LD ermöglicht es auch, für ein Objekt einen Objekttyp zu
 kommunizieren. So könnte passend zu unserem Beispiel ausgedrückt werden,
@@ -1057,8 +1073,6 @@ die in diesem Abschnitt weiter ausgeführt werden sollen...
 -   Benannte Objekte (URL als Schlüssel)
 -   Anonyme Objekte (Blank Nodes)
 -   Mime Type application/ld+json
--   Kompakte Form mit Verwendung externer @context-URL als
-    SOLL-Anforderung
 -   Verweis auf
     http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf?__blob=publicationFile
 -   Siehe https://github.com/OParl/specs/issues/77
@@ -2588,6 +2602,12 @@ RIS
 WGS 84
     World Geodetic System 1984. Ein weltweites Referenzsystem für die
     Interpretation von Geokoordinaten-Angaben.
+
+JSON-LD-Ressourcen auf oparl.org {#jsonld_ressourcen_oparlorg}
+================================
+
+TODO: Beschreiben, wo weitere Informationen über
+JSON-LD-Kontextdokumente zu finden sein werden.
 
 [^1]: RFC2119 http://tools.ietf.org/html/rfc2119
 

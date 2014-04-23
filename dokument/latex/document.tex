@@ -466,7 +466,7 @@ Architekturbeschreibung des W3-Konsortiums entlehnt.\footnote{Architecture
 \end{figure}
 
 \subsection{Parlamentarisches
-Informationssystem}\label{parlamentarisches-informationssystem}
+Informationssystem}\label{parlamentarischesux5finfosystem}
 
 Parlamentarische Informationssysteme sind Software-Systeme, die von
 verschiedensten Körperschaften eingesetzt werden, um die Zusammenarbeit
@@ -556,7 +556,7 @@ Nutzung eines Cache kann auch zur Verbesserung der Nutzerfreundlichkeit
 eines Clients beitragen, indem Wartezeiten zur Bereitstellung einer
 Ressource verkürzt werden.
 
-\subsection{Nutzerin oder Nutzer}\label{nutzerin-oder-nutzer}
+\subsection{Nutzerin oder Nutzer}\label{nutzerin}
 
 Mit einer Nutzerin oder einem Nutzer ist in diesem Fall eine natürliche
 Person gemeint, die mittels eines OParl-Clients auf parlamentarische
@@ -847,7 +847,7 @@ nicht auswerten, sofern sie nicht für die Aufgabe des Clients relevant
 sind.
 
 Diese angestrebte Erweiterbarkeit wird durch weitgehend durch das
-JSON-LD-Format (TODO: Verweis einfügen) gewährleistet. Es erlaubt die
+\hyperref[jsonld]{JSON-LD-Format} gewährleistet. Es erlaubt die
 Verflechtung von Objekttypen-Definitionen aus verschiedenen Schemata.
 
 \subsubsection{Browseability/Verlinkung}\label{browseabilityverlinkung}
@@ -1169,7 +1169,7 @@ Beispiel eines Objekts in JSON-Notation:
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection{JSON-LD}\label{json-ld}
+\hyperdef{}{jsonld}{\subsubsection{JSON-LD}\label{jsonld}}
 
 Das Kürzel LD im Namen ``JSON-LD'' steht für Linked Data. Entsprechend
 erweitert die JSON-LD-Spezifikation\footnote{\url{http://www.w3.org/TR/json-ld/}}
@@ -1253,12 +1253,10 @@ Eigenschaft, die im JSON-Sinn eine Zeichenkette ist, als Datum
 deklariert werden.
 
 Am obigen Beispiel fällt auf, dass der \texttt{@context}-Teil des
-Objects schon mehr Daten umfasst, als die eigentlichen
+Objekts schon mehr Daten umfasst, als die eigentlichen
 Objekteigenschaften. Sinnvollerweise kann jedoch der gesamte Inhalt des
 \texttt{@context}-Teils in eine externe Ressource ausgelagert werden.
-Clients, die eine Vielzahl von gleichartigen Objekten laden und
-interpretieren wollen, müssen diese Ressource dann nur einmal laden. Das
-Ergebnis könnte so aussehen:
+Das folgende Beispiel verdeutlicht dies:
 
 \hyperdef{}{jsonldux5fex3}{\label{jsonldux5fex3}}
 \begin{Shaded}
@@ -1274,9 +1272,27 @@ Ergebnis könnte so aussehen:
 
 Die \texttt{@context}-Eigenschaft hat nun als Wert eine URL. Die URL
 (hier: http://json-ld.org/contexts/person.jsonld) gibt wiederum in JSON
-kodiert die Beschreibung aller möglichen Attribute des Objekts aus.
+kodiert die Beschreibung aller möglichen Attribute des Objekts aus. Die
+Kontext-Beschreibung des JSON-LD-Objekts wurde somit in eine externe
+Ressource ausgelagert. Clients SOLLEN davon ausgehen, dass sich diese
+externen Kontextbeschreibungen nur selten ändern. Somit genügt es, bei
+Abruf vieler gleichartiger JSON-LD-Objekte vom Server die
+Kontext-Ressource nur einmal zu laden.
 
-JSON-LD ermöglicht es auch, für ein Objekt einen Objekttyp zu
+Im Sinne der JSON-LD-Spezifikation sind Objekte mit eingebettetem und
+externem Kontext identisch. Den Implementierern eines OParl-konformen
+Servers wird EMPFOHLEN, grundsätzlich die Kontextinformation mittels
+externer Ressourcen zu übermitteln. Die OParl Autoren werden hierzu die
+zu dieser Spezifikation passenden Ressourcen auf oparl.org für jegliche
+Verwendung zur Verfügung stellen (mehr dazu im
+\hyperref[jsonldux5fressourcenux5foparlorg]{Anhang}). Sollten
+Server-Implementierer zusätzliche Objekttypen benötigen, die nicht von
+dieser Spezifikation abgedeckt sind, SOLL entsprechend zusätzlich auf
+eigene Kontextressourcen unter geeigneten URLs verwiesen werden. Hierbei
+können herstellereigene und OParl-spezifische URls gemischt werden, wie
+in einem Beispiel weiter unten verfeutlicht wird.
+
+JSON-LD ermöglicht es auch, für ein Objekt einen \textbf{Objekttyp} zu
 kommunizieren. So könnte passend zu unserem Beispiel ausgedrückt werden,
 um welche Art von Objekt es sich bei den vorliegenden Daten handelt.
 Dazu wird die \texttt{@type}-Eigenschaft verwendet, deren Wert eine URL
@@ -1352,9 +1368,6 @@ die in diesem Abschnitt weiter ausgeführt werden sollen\ldots{}
   Anonyme Objekte (Blank Nodes)
 \item
   Mime Type application/ld+json
-\item
-  Kompakte Form mit Verwendung externer @context-URL als
-  SOLL-Anforderung
 \item
   Verweis auf
   http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED\_Verwaltung/ModerneVerwaltung/opengovernment.pdf?\_\_blob=publicationFile
@@ -3110,5 +3123,11 @@ Ratsinformationssystem
 World Geodetic System 1984. Ein weltweites Referenzsystem für die
 Interpretation von Geokoordinaten-Angaben.
 \end{description}
+
+\hyperdef{}{jsonldux5fressourcenux5foparlorg}{\section{JSON-LD-Ressourcen
+auf oparl.org}\label{jsonldux5fressourcenux5foparlorg}}
+
+TODO: Beschreiben, wo weitere Informationen über
+JSON-LD-Kontextdokumente zu finden sein werden.
 
 \end{document}

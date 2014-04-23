@@ -164,7 +164,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <div class="figure">
 <img src="images/architektur-ueberblick.png" alt="Architekturdiagramm" /><p class="caption">Architekturdiagramm</p>
 </div>
-<h2 id="parlamentarisches-informationssystem"><span class="header-section-number">2.2</span> Parlamentarisches Informationssystem</h2>
+<h2 id="parlamentarisches_infosystem"><span class="header-section-number">2.2</span> Parlamentarisches Informationssystem</h2>
 <p>Parlamentarische Informationssysteme sind Software-Systeme, die von verschiedensten Körperschaften eingesetzt werden, um die Zusammenarbeit von Parlamenten zu organisieren, zu dokumentieren und öffentlich nachvollziehbar zu machen.</p>
 <p>Im kommunalen Umfeld in Deutschland, wo das Parlament je nach Art der Kommune häufig als Stadtrat oder Gemeinderat bezeichnet wird, hat sich für diese Art von Informationssystem auch der Begriff &quot;Ratsinformationssystem&quot; (kurz &quot;RIS&quot;) etabliert.</p>
 <p>Parlamentarische Informationssysteme sind jedoch nicht auf die kommunale Ebene begrenzt. Ähnliche Systeme werden auch auf Ebene z.B. von Landkreisen, Regierungsbezirken und diversen Zweckverbänden eingesetzt.</p>
@@ -188,7 +188,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Der Begriff &quot;Client&quot; steht für eine Software, die über die OParl API mit dem Server kommuniziert. Da die API auf dem HTTP-Protokoll aufbaut, handelt es sich bei dem Client um eine spezielle Form eines HTTP-Clients.</p>
 <h2 id="cache"><span class="header-section-number">2.6</span> Cache</h2>
 <p>Ein Cache ist ein Speicher, der einem Client dazu dienen kann, von einem Server abgerufene Informationen längerfristig vorzuhalten. Dies kann beispielsweise dazu dienen, mehrfache Anfragen der selben Informationen zu vermeiden, wodurch sowohl Ressourcen auf Seite des Servers geschohnt als auch die Nutzung von Netzwerkbandbreite reduziert werden kann. Die Nutzung eines Cache kann auch zur Verbesserung der Nutzerfreundlichkeit eines Clients beitragen, indem Wartezeiten zur Bereitstellung einer Ressource verkürzt werden.</p>
-<h2 id="nutzerin-oder-nutzer"><span class="header-section-number">2.7</span> Nutzerin oder Nutzer</h2>
+<h2 id="nutzerin"><span class="header-section-number">2.7</span> Nutzerin oder Nutzer</h2>
 <p>Mit einer Nutzerin oder einem Nutzer ist in diesem Fall eine natürliche Person gemeint, die mittels eines OParl-Clients auf parlamentarische Informationen zugreift.</p>
 <h2 id="objekt"><span class="header-section-number">2.8</span> Objekt</h2>
 <p>Der Server beantwortet Anfragen eines Clients im Regelfall, indem bestimmte Objekte ausgegeben werden. Objekte sind im Fall einer OParl-konformen API JSON-Objekte, die das Schema einhalten, das in der vorliegenden Spezifikation beaschrieben wird. Antworten des Servers können einzelne Objekte, Listen von Objekten oder Listen von URLs von Objekten enthalten.</p>
@@ -250,7 +250,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h3 id="erweiterbarkeit"><span class="header-section-number">4.1.5</span> Erweiterbarkeit</h3>
 <p>Implementierer sollen in der Lage sein, über eine OParl-konforme Schnittstelle auch solche Informationen auszugeben, die nicht im Rahmen des OParl-Schemas abgebildet werden können. Dies bedeutet zum einen, dass ein System Objekttypen unterstützen und ausliefern darf, die nicht (oder noch nicht) im OParl Schema beschrieben sind. Das bedeutet auch, dass Objekttypen so um eigene Eigenschaften erweitert werden können, die nicht im OParl Schema beschrieben sind.</p>
 <p>Ein weiterer Aspekt betrifft die Abwärtskompatiblität, also die Kompatibilität von OParl-Clients mit zukünftigen Schnittstellen. So können beispielsweise zukünftige Erweiterungen des OParl Schemas, etwa um neue Objekttypen, genau so durchgeführt werden wie die Erweiterungen um herstellerspezifische Objekttypen. Ein Client muss diese Anteile nicht auswerten, sofern sie nicht für die Aufgabe des Clients relevant sind.</p>
-<p>Diese angestrebte Erweiterbarkeit wird durch weitgehend durch das JSON-LD-Format (TODO: Verweis einfügen) gewährleistet. Es erlaubt die Verflechtung von Objekttypen-Definitionen aus verschiedenen Schemata.</p>
+<p>Diese angestrebte Erweiterbarkeit wird durch weitgehend durch das <a href="#jsonld">JSON-LD-Format</a> gewährleistet. Es erlaubt die Verflechtung von Objekttypen-Definitionen aus verschiedenen Schemata.</p>
 <h3 id="browseabilityverlinkung"><span class="header-section-number">4.1.6</span> Browseability/Verlinkung</h3>
 <p>Klassische Webservice-Schnittstellen erfordern von den Entwicklern vollständige Kenntnis der angebotenen Einstiegspunkte und Zugriffsmethoden, gepaart mit sämtlichen unterstützten URL-Parametern, um den vollen Funktionsumfang der Schnittstelle ausschöpfen zu können.</p>
 <p>Parlamentarische Informationen sind weitgehend graphartig aufgebaut. Das bedeutet, dass Objekte häufig mit einer Vielzahl anderer Objekte verknüpft sind. So ist eine Person beispielsweise Mitglied in mehreren Gremien, das Gremium hat mehrere Sitzungen abgehalten und zu diesen Sitzungen gibt es jeweils zahlreiche Drucksachen, die ihrerseits wieder zahlreiche Dokumente enthalten.</p>
@@ -344,7 +344,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     },
     <span class="dt">&quot;array&quot;</span>: [<span class="st">&quot;foo&quot;</span>, <span class="st">&quot;bar&quot;</span>]
 }</code></pre>
-<h3 id="json-ld"><span class="header-section-number">4.5.2</span> JSON-LD</h3>
+<h3 id="jsonld"><span class="header-section-number">4.5.2</span> JSON-LD</h3>
 <p>Das Kürzel LD im Namen &quot;JSON-LD&quot; steht für Linked Data. Entsprechend erweitert die JSON-LD-Spezifikation<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a> das JSON-Format um die Möglichkeit,</p>
 <ul>
 <li>Objekte mit anderen Objekten zu verknüpfen,</li>
@@ -379,15 +379,16 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Hier sind die Eigenschaften wie <code>image</code> einer URL wie http://schema.org/image zugewiesen. Ein Client, der diese URL kennt, kann daraus folgern, dass über die Objekteigenschaft <code>image</code> immer die URL eines Bildes zu finden ist. Das Schlüssel-Wert-Paar</p>
 <pre><code>&quot;@type&quot;: &quot;@id&quot;</code></pre>
 <p>sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die URL eines anderen Objekts ist<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a>. Mittels <code>@type</code>-Deklaration könnte aber auch beispielsweise eine Eigenschaft, die im JSON-Sinn eine Zeichenkette ist, als Datum deklariert werden.</p>
-<p>Am obigen Beispiel fällt auf, dass der <code>@context</code>-Teil des Objects schon mehr Daten umfasst, als die eigentlichen Objekteigenschaften. Sinnvollerweise kann jedoch der gesamte Inhalt des <code>@context</code>-Teils in eine externe Ressource ausgelagert werden. Clients, die eine Vielzahl von gleichartigen Objekten laden und interpretieren wollen, müssen diese Ressource dann nur einmal laden. Das Ergebnis könnte so aussehen:</p>
+<p>Am obigen Beispiel fällt auf, dass der <code>@context</code>-Teil des Objekts schon mehr Daten umfasst, als die eigentlichen Objekteigenschaften. Sinnvollerweise kann jedoch der gesamte Inhalt des <code>@context</code>-Teils in eine externe Ressource ausgelagert werden. Das folgende Beispiel verdeutlicht dies:</p>
 <pre class="sourceCode json" id="jsonld_ex3"><code class="sourceCode json">{
   <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;http://json-ld.org/contexts/person.jsonld&quot;</span>,
   <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Manu Sporny&quot;</span>,
   <span class="dt">&quot;homepage&quot;</span>: <span class="st">&quot;http://manu.sporny.org/&quot;</span>,
   <span class="dt">&quot;image&quot;</span>: <span class="st">&quot;http://manu.sporny.org/images/manu.png&quot;</span>
 }</code></pre>
-<p>Die <code>@context</code>-Eigenschaft hat nun als Wert eine URL. Die URL (hier: http://json-ld.org/contexts/person.jsonld) gibt wiederum in JSON kodiert die Beschreibung aller möglichen Attribute des Objekts aus.</p>
-<p>JSON-LD ermöglicht es auch, für ein Objekt einen Objekttyp zu kommunizieren. So könnte passend zu unserem Beispiel ausgedrückt werden, um welche Art von Objekt es sich bei den vorliegenden Daten handelt. Dazu wird die <code>@type</code>-Eigenschaft verwendet, deren Wert eine URL ist:</p>
+<p>Die <code>@context</code>-Eigenschaft hat nun als Wert eine URL. Die URL (hier: http://json-ld.org/contexts/person.jsonld) gibt wiederum in JSON kodiert die Beschreibung aller möglichen Attribute des Objekts aus. Die Kontext-Beschreibung des JSON-LD-Objekts wurde somit in eine externe Ressource ausgelagert. Clients SOLLEN davon ausgehen, dass sich diese externen Kontextbeschreibungen nur selten ändern. Somit genügt es, bei Abruf vieler gleichartiger JSON-LD-Objekte vom Server die Kontext-Ressource nur einmal zu laden.</p>
+<p>Im Sinne der JSON-LD-Spezifikation sind Objekte mit eingebettetem und externem Kontext identisch. Den Implementierern eines OParl-konformen Servers wird EMPFOHLEN, grundsätzlich die Kontextinformation mittels externer Ressourcen zu übermitteln. Die OParl Autoren werden hierzu die zu dieser Spezifikation passenden Ressourcen auf oparl.org für jegliche Verwendung zur Verfügung stellen (mehr dazu im <a href="#jsonld_ressourcen_oparlorg">Anhang</a>). Sollten Server-Implementierer zusätzliche Objekttypen benötigen, die nicht von dieser Spezifikation abgedeckt sind, SOLL entsprechend zusätzlich auf eigene Kontextressourcen unter geeigneten URLs verwiesen werden. Hierbei können herstellereigene und OParl-spezifische URls gemischt werden, wie in einem Beispiel weiter unten verfeutlicht wird.</p>
+<p>JSON-LD ermöglicht es auch, für ein Objekt einen <strong>Objekttyp</strong> zu kommunizieren. So könnte passend zu unserem Beispiel ausgedrückt werden, um welche Art von Objekt es sich bei den vorliegenden Daten handelt. Dazu wird die <code>@type</code>-Eigenschaft verwendet, deren Wert eine URL ist:</p>
 <pre class="sourceCode json" id="jsonld_ex4"><code class="sourceCode json">{
   <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;http://json-ld.org/contexts/person.jsonld&quot;</span>,
   <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://schema.org/Person&quot;</span>,
@@ -420,7 +421,6 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <li>Benannte Objekte (URL als Schlüssel)</li>
 <li>Anonyme Objekte (Blank Nodes)</li>
 <li>Mime Type application/ld+json</li>
-<li>Kompakte Form mit Verwendung externer <span class="citation">@context-URL</span> als SOLL-Anforderung</li>
 <li>Verweis auf http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf?__blob=publicationFile</li>
 <li>Siehe https://github.com/OParl/specs/issues/77</li>
 <li>Siehe https://github.com/OParl/specs/issues/10</li>
@@ -1281,6 +1281,8 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dd><p>World Geodetic System 1984. Ein weltweites Referenzsystem für die Interpretation von Geokoordinaten-Angaben.</p>
 </dd>
 </dl>
+<h1 id="jsonld_ressourcen_oparlorg"><span class="header-section-number">8</span> JSON-LD-Ressourcen auf oparl.org</h1>
+<p>TODO: Beschreiben, wo weitere Informationen über JSON-LD-Kontextdokumente zu finden sein werden.</p>
 <div class="footnotes">
 <hr />
 <ol>

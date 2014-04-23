@@ -601,7 +601,7 @@
       </mediaobject>
     </figure>
   </sect2>
-  <sect2 id="parlamentarisches-informationssystem">
+  <sect2 id="parlamentarisches_infosystem">
     <title>Parlamentarisches Informationssystem</title>
     <para>
       Parlamentarische Informationssysteme sind Software-Systeme, die
@@ -727,7 +727,7 @@
       verkürzt werden.
     </para>
   </sect2>
-  <sect2 id="nutzerin-oder-nutzer">
+  <sect2 id="nutzerin">
     <title>Nutzerin oder Nutzer</title>
     <para>
       Mit einer Nutzerin oder einem Nutzer ist in diesem Fall eine
@@ -1111,8 +1111,8 @@
       </para>
       <para>
         Diese angestrebte Erweiterbarkeit wird durch weitgehend durch
-        das JSON-LD-Format (TODO: Verweis einfügen) gewährleistet. Es
-        erlaubt die Verflechtung von Objekttypen-Definitionen aus
+        das <link linkend="jsonld">JSON-LD-Format</link> gewährleistet.
+        Es erlaubt die Verflechtung von Objekttypen-Definitionen aus
         verschiedenen Schemata.
       </para>
     </sect3>
@@ -1564,7 +1564,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
 }
 </programlisting>
     </sect3>
-    <sect3 id="json-ld">
+    <sect3 id="jsonld">
       <title>JSON-LD</title>
       <para>
         Das Kürzel LD im Namen &quot;JSON-LD&quot; steht für Linked
@@ -1664,13 +1664,11 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
       </para>
       <para>
         Am obigen Beispiel fällt auf, dass der
-        <literal>@context</literal>-Teil des Objects schon mehr Daten
+        <literal>@context</literal>-Teil des Objekts schon mehr Daten
         umfasst, als die eigentlichen Objekteigenschaften.
         Sinnvollerweise kann jedoch der gesamte Inhalt des
         <literal>@context</literal>-Teils in eine externe Ressource
-        ausgelagert werden. Clients, die eine Vielzahl von gleichartigen
-        Objekten laden und interpretieren wollen, müssen diese Ressource
-        dann nur einmal laden. Das Ergebnis könnte so aussehen:
+        ausgelagert werden. Das folgende Beispiel verdeutlicht dies:
       </para>
       <programlisting language="json">
 {
@@ -1685,15 +1683,36 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
         eine URL. Die URL (hier:
         http://json-ld.org/contexts/person.jsonld) gibt wiederum in JSON
         kodiert die Beschreibung aller möglichen Attribute des Objekts
-        aus.
+        aus. Die Kontext-Beschreibung des JSON-LD-Objekts wurde somit in
+        eine externe Ressource ausgelagert. Clients SOLLEN davon
+        ausgehen, dass sich diese externen Kontextbeschreibungen nur
+        selten ändern. Somit genügt es, bei Abruf vieler gleichartiger
+        JSON-LD-Objekte vom Server die Kontext-Ressource nur einmal zu
+        laden.
       </para>
       <para>
-        JSON-LD ermöglicht es auch, für ein Objekt einen Objekttyp zu
-        kommunizieren. So könnte passend zu unserem Beispiel ausgedrückt
-        werden, um welche Art von Objekt es sich bei den vorliegenden
-        Daten handelt. Dazu wird die
-        <literal>@type</literal>-Eigenschaft verwendet, deren Wert eine
-        URL ist:
+        Im Sinne der JSON-LD-Spezifikation sind Objekte mit
+        eingebettetem und externem Kontext identisch. Den
+        Implementierern eines OParl-konformen Servers wird EMPFOHLEN,
+        grundsätzlich die Kontextinformation mittels externer Ressourcen
+        zu übermitteln. Die OParl Autoren werden hierzu die zu dieser
+        Spezifikation passenden Ressourcen auf oparl.org für jegliche
+        Verwendung zur Verfügung stellen (mehr dazu im
+        <link linkend="jsonld_ressourcen_oparlorg">Anhang</link>).
+        Sollten Server-Implementierer zusätzliche Objekttypen benötigen,
+        die nicht von dieser Spezifikation abgedeckt sind, SOLL
+        entsprechend zusätzlich auf eigene Kontextressourcen unter
+        geeigneten URLs verwiesen werden. Hierbei können
+        herstellereigene und OParl-spezifische URls gemischt werden, wie
+        in einem Beispiel weiter unten verfeutlicht wird.
+      </para>
+      <para>
+        JSON-LD ermöglicht es auch, für ein Objekt einen
+        <emphasis role="strong">Objekttyp</emphasis> zu kommunizieren.
+        So könnte passend zu unserem Beispiel ausgedrückt werden, um
+        welche Art von Objekt es sich bei den vorliegenden Daten
+        handelt. Dazu wird die <literal>@type</literal>-Eigenschaft
+        verwendet, deren Wert eine URL ist:
       </para>
       <programlisting language="json">
 {
@@ -1782,12 +1801,6 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
         <listitem>
           <para>
             Mime Type application/ld+json
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Kompakte Form mit Verwendung externer @context-URL als
-            SOLL-Anforderung
           </para>
         </listitem>
         <listitem>
@@ -4526,4 +4539,11 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       </listitem>
     </varlistentry>
   </variablelist>
+</sect1>
+<sect1 id="jsonld_ressourcen_oparlorg">
+  <title>JSON-LD-Ressourcen auf oparl.org</title>
+  <para>
+    TODO: Beschreiben, wo weitere Informationen über
+    JSON-LD-Kontextdokumente zu finden sein werden.
+  </para>
 </sect1>

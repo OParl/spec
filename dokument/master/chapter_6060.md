@@ -1,18 +1,29 @@
 Objektlisten
 ------------
 
-Über die OParl-API können entweder einzelne Objekte oder Listen
-von Objekten abgefragt werden.
+Über die OParl-API können entweder einzelne (benannte) Objekte,
+beispielsweise eine bestimmte Drucksache, oder Listen von Objekten,
+etwa die Liste aller Sitzungen einer Körperschaft, abgefragt werden.
 
-### Gezieltes Abfragen von Listen
+Fragt ein Client eine Liste von Objekten an, hat der Server mehrere
+Möglichkeiten, diese Anfrage zu beantworten.
 
-Fragt ein Client eine Liste von Objekten an, beispielsweise die
-Liste aller Drucksachen in einem System, kann der Server innerhalb
-bestimmter Grenzen entscheiden, wie die Ausgabe aussieht.
+In jedem Fall werden die einzelnen Objekte, die Bestandteile der
+Liste sind (wie z.B. die einzelnen Drucksachen) durch die URL
+des jeweiligen Objekts repräsentiert. Objektlisten sind also 
+tatsächlich immer Listen von URLs.
 
-In der einfachsten Form gibt der Server ein Objekt mit nur einer
-Eigenschaft `items` aus. Der Wert dieser Eigenschaft ist die
-**vollständige Liste** der URLs aller angefragten Objekte.
+### Vollständige Listenausgabe
+
+In der einfachsten Form gibt der Server die Liste als Objekt 
+mit nur einer einzigen Eigenschaft `items` aus. Der Wert dieser 
+Eigenschaft ist die **vollständige Liste** der URLs aller 
+in der Liste enthaltenen Objekte.
+
+Diese einfachste Form der Antwort eignet sich nur für Listen mit
+einer begrenzten Anzahl von Einträgen, wie beispielsweise die
+Liste der Mitglieder einer Organisation.
+
 Beispiel:
 
 ~~~~~  {#objektlisten_ex1 .json}
@@ -25,14 +36,15 @@ Beispiel:
 }
 ~~~~~
 
-Diese einfachste Form der Antwort eignet sich nur für Listen mit
-einer begrenzten Anzahl von Einträgen.
+### Paginierung
 
 Für längere Listen ist eine Blätterfunktion bzw.
-Paginierung vorgesehen. Darunter versteht man den seitenweisen 
-Abruf der Einträge einer Liste, wobei die Reihenfolge der Liste
-vom Server festgelegt ist und zwischen den Seitenabrufen unverändert
-bleibt.
+Paginierung vorgesehen. Darunter versteht man die Aufteilung der Liste
+in kleinere Teilbereiche, die wir hier als "Listenseiten" bezeichnen.
+Zweck ist, die einzelnen Listenseiten mit je einer eigenen API-Anfrage
+abrufbar zu machen. Die Aufteilung der Liste in Listenseiten erfolgt 
+durch den Server und kann vom Client nicht beeinflusst werden, sie
+bleibt jedoch zwischen den einzelnen unverändert.
 
 Listen mit mehr als 100 Einträgen SOLL der Server nur teilweise
 ausgeben und dem Client dabei eine **Paginierung** anbieten, um weitere
@@ -40,7 +52,8 @@ Listenteile abzurufen. Dabei wird EMPFOHLEN, die Zahl der jeweils
 ausgegebenen Listeneinträge wiederum auf maximal 100 zu begrenzen.
 
 Das nachstehende Beispiel zeigt, wie dem Client die URL zum
-"Blättern", also zum Aufruf der nächsten Listenseite, angeboten wird.
+"Blättern", also zum Aufruf der jeweils nächsten Listenseite,
+angeboten wird.
 
 
 ~~~~~  {#objektlisten_ex2 .json}
@@ -50,29 +63,30 @@ Das nachstehende Beispiel zeigt, wie dem Client die URL zum
 		"http://refserv.oparl.org/bodies/0/papers/5",
 		"http://refserv.oparl.org/bodies/0/papers/7",
 	],
-	"nextpage": "http://refserv.oparl.org/bodies/0/papers/?skip=7",
-	"count": 7
+	"nextPage": "http://refserv.oparl.org/bodies/0/papers/?skip=7",
+	"count": 118
 }
 ~~~~~
 
 Wie oben zu sehen, enthält das Beispiel-Objekt nun eine zusätzliche 
-Eigenschaft `nextpage`. Der Wert dieser Eigenschaft ist eine URL, die
+Eigenschaft `nextPage`. Der Wert dieser Eigenschaft ist eine URL, die
 dem Client dazu dient, die weiteren Einträge der Liste abzurufen.
 
 Die Eigenschaft `count` DARF bei Listen grundsätzlich ausgegeben werden
 und SOLL bei mehrseitigen Listen ausgegeben werden. Ihr Wert ist eine
-Zahl und gibt an, wie viele Einträge die vollständige Liste enthält.
+Zahl und gibt an, wie viele Einträge die vollständige Liste aller Objekte
+enthält.
 
-Ruft der Client die unter `nextpage` angegebene URL auf, erhält er
+Ruft der Client die unter `nextPage` angegebene URL auf, erhält er
 wiederum ein Listenobjekt. Dieses Objekt MUSS, sofern noch immer mehr
-Listeneinträge vorhanden sind, als ausgegeben wurden, wiederum die `nextpage`
+Listeneinträge vorhanden sind, als ausgegeben wurden, wiederum die `nextPage`
 Eigenschaft mit einer URL enthalten. Um alle Einträge einer Liste zu
 erfassen, folgt der Client also jeweils der URL, die in der `nextpage`
 Eigenschaft angegeben ist.
 
 ![Paginierung: Schematische Darstellung](images/pagination01.png)
 
-Server-Implementierer entscheiden selbst, wie die `nextpage`-URL
+Server-Implementierer entscheiden selbst, wie die `nextPage`-URL
 aufgebaut ist und tragen damit selbst Verantwortung für die Funktionsweise
 der Paginierung. Bei der Entscheidung für eine Form der Implementierung
 sind weitere Anforderungen zu berücksichtigen:

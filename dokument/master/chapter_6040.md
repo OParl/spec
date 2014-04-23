@@ -105,9 +105,8 @@ im JSON-Sinn eine Zeichenkette ist, als Datum deklariert werden.
 
 Am obigen Beispiel fällt auf, dass der `@context`-Teil des Objekts schon mehr Daten
 umfasst, als die eigentlichen Objekteigenschaften. Sinnvollerweise kann jedoch der 
-gesamte Inhalt des `@context`-Teils in eine externe Ressource ausgelagert werden. Clients,
-die eine Vielzahl von gleichartigen Objekten laden und interpretieren wollen, müssen
-diese Ressource dann nur einmal laden. Das Ergebnis könnte so aussehen:
+gesamte Inhalt des `@context`-Teils in eine externe Ressource ausgelagert werden. Das
+folgende Beispiel verdeutlicht dies:
 
 ~~~~~  {#jsonld_ex3 .json}
 {
@@ -120,9 +119,19 @@ diese Ressource dann nur einmal laden. Das Ergebnis könnte so aussehen:
 
 Die `@context`-Eigenschaft hat nun als Wert eine URL. Die URL (hier: 
 http://json-ld.org/contexts/person.jsonld) gibt wiederum in JSON kodiert die Beschreibung
-aller möglichen Attribute des Objekts aus.
+aller möglichen Attribute des Objekts aus. Die Kontext-Beschreibung des JSON-LD-Objekts
+wurde somit in eine externe Ressource ausgelagert. Clients SOLLEN davon ausgehen, dass
+sich diese externen Kontextbeschreibungen nur selten ändern. Somit genügt es, bei Abruf 
+vieler gleichartiger JSON-LD-Objekte vom Server die Kontext-Ressource nur einmal zu laden.
 
-JSON-LD ermöglicht es auch, für ein Objekt einen Objekttyp zu kommunizieren. So könnte
+Im Sinne der JSON-LD-Spezifikation sind Objekte mit eingebettetem und externem Kontext
+identisch. Den Implementierern eines OParl-konformen Servers wird EMPFOHLEN, grundsätzlich
+die Kontextinformation mittels externer Ressourcen zu übermitteln. Die OParl Autoren werden
+hierzu die zu dieser Spezifikation passenden Ressourcen auf oparl.org für jegliche Verwendung
+zur Verfügung stellen (mehr dazu im [Anhang](#jsonld_ressourcen_oparlorg)). Sollten Server-Implementierer zusätzliche Objekttypen benötigen, die nicht von dieser Spezifikation abgedeckt sind, SOLL entsprechend zusätzlich auf eigene Kontextressourcen unter geeigneten URLs verwiesen werden. Hierbei können herstellereigene und OParl-spezifische URls gemischt werden, wie in
+einem Beispiel weiter unten verfeutlicht wird.
+
+JSON-LD ermöglicht es auch, für ein Objekt einen **Objekttyp** zu kommunizieren. So könnte
 passend zu unserem Beispiel ausgedrückt werden, um welche Art von Objekt es sich bei den
 vorliegenden Daten handelt. Dazu wird die `@type`-Eigenschaft verwendet, deren Wert
 eine URL ist:
@@ -173,7 +182,6 @@ weiter ausgeführt werden sollen...
 - Benannte Objekte (URL als Schlüssel)
 - Anonyme Objekte (Blank Nodes)
 - Mime Type application/ld+json
-- Kompakte Form mit Verwendung externer @context-URL als SOLL-Anforderung
 - Verweis auf http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf?__blob=publicationFile
 - Siehe https://github.com/OParl/specs/issues/77
 - Siehe https://github.com/OParl/specs/issues/10

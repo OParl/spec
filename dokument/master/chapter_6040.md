@@ -103,7 +103,7 @@ Resource Identifier"), wir verwenden hier jedoch weiterhin die Bezeichnung "URL"
 Mittels `@type`-Deklaration könnte aber auch beispielsweise eine Eigenschaft, die 
 im JSON-Sinn eine Zeichenkette ist, als Datum deklariert werden.
 
-Am obigen Beispiel fällt auf, dass der `@context`-Teil des Objects schon mehr Daten
+Am obigen Beispiel fällt auf, dass der `@context`-Teil des Objekts schon mehr Daten
 umfasst, als die eigentlichen Objekteigenschaften. Sinnvollerweise kann jedoch der 
 gesamte Inhalt des `@context`-Teils in eine externe Ressource ausgelagert werden. Clients,
 die eine Vielzahl von gleichartigen Objekten laden und interpretieren wollen, müssen

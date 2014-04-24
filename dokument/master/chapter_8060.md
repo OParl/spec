@@ -1,89 +1,76 @@
 oparl:Person (Person)  {#oparl_person}
 --------------------
 
-Jede natürliche Person, die Mitglied eines Gremiums ist, ist als `oparl:Person` im 
-Datenmodell eindeutig identifizierbar.
+Jede natürliche Person, die in der parlamentarischen Arbeit tätig ist
+und insbesondere Mitglied in einer Gruppierung ([oparl:Organization](#oparl_organization)),
+wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
 
-### Eigenschaften ###
-
-Schlüssel (`id`)
-:   Zur eindeutigen Identifizierung sollte jede Person eine Kennung besitzen, 
-    die keinen Änderungen unterworfen ist und aus diesem Grund nicht mit dem 
-    Namen in Verbindung stehen sollte. Viele RIS nutzen rein numerische 
-    Kennungen.
-Vorname (`first_name`)
-:   Der Vorname der Person.
-Nachname (`last_name`)
-:   Der Nachname der Person.
-Titel (`academic_degree`)
-:   _Optional_. Akademische Titel wie "Dr." und "Prof. Dr.". Aber auch akademische Grade wie "Dipl. Inform." (die rechtlich nicht Teil des Namens sind) sind hier zugelassen.
-Geschlecht (`gender`)
-:   _Optional_. Weiblich (Wert `Female`), männlich (Wert `Male`), anderes (Wert `Other`), unbekannt (Wert `Unknown`)
-Beruf (`profession`)
-:   _Optional_. Z.B. "Rechtsanwalt"
-E-Mail-Adresse (`email`)
-:   _Optional_.
-Telefon (`phone`)
-:   _Optional_.
-Fax (`fax`)
-:   _Optional_.
-Anschrift (`address`)
-:   _Optional_. Straße und Hausnummer, Postleitzahl und Ort
-Zuletzt geändert (`last_modified`)
-:   Datum und Uhrzeit der letzten Änderung
-
-
-#### Anmerkungen ####
-
-* Das System von Euskirchen scheint Vor- und Nachname (evtl. einschl. Titel) 
-in einem gemeinsamen Feld "Name" zu führen. Ob das System hier technisch 
-differenziert, ist unklar. Falls einzelne Systeme den angezeigten Namen nur 
-als ganzes speichern, sollte dies für den Standard übernommen werden, da es 
-für die meisten Anwendungen ausreichen sollte.
-* Das System PROVOX unterscheidet zwischen privaten und geschäftlichen 
-Anschriften.
-
-
-### Beziehungen ###
-
-* Objekte vom Typ `oparl:Person` können einer Organisation, z.B. einer Fraktion, 
-zugeornet werden. Diese Beziehung ist datiert.
-* Objekte vom Typ `oparl:Person` können einem oder mehreren Gremien zugewiesen 
-werden, um die Mitgliedschaft in diesem Gremium darzustellen. Diese 
-Beziehungen sind ebenfalls datiert.
-
-### Beispiel ###
+Ein Beispiel:
 
 ~~~~~  {#person_ex1 .json}
 {
-    "id": "1000",
-    "first_name": "Max",
-    "last_name": "Mustermann",
-    "academic_degree": "Dr. oec. troph",
-    "sex": "M",
-    "profession": "Rechtsanwalt",
-    "email": "max@mustermann.de",
-    "phone": "+4977777",
-    "fax": "+4988888",
-    "address": "Musterstraße 5, 11111 Musterort",
-    "last_modified": "2012-08-16T14:05:27+02:00",
-    "organisations": [
-        {
-            "id": "2000",
-            "start": "2011-03-01",
-            "end": "2013-02-28"
-        },
-        {
-            "id": "2001",
-            "start": "2013-03-01"
-        }
+    "@type": "http://oparl.org/schema/1.0/Person",
+    "@id": "http://oparl.beispielris.de/people/29",
+    "name": "Prof. Dr. Max Mustermann",
+    "familyName": "Mustermann",
+    "givenName": "Max",
+    "title": "Prof. Dr.",
+    "gender": "male",
+    "email": "mailto:max@mustermann.de",
+    "phone": "tel:+493012345678",
+    "streetAddress": "Musterstraße 5",
+    "postalCode": "11111",
+    "locality": "Musterort",
+    "organizations": [
+        "http://oparl.beispielris.de/organizations/11",
+        "http://oparl.beispielris.de/organizations/34"
     ],
-    "committees": [
-        {
-            "id": "7",
-            "start": "2013-01-01"
-        }
-    ]
+    "created": "2011-11-11T11:11:00+01:00",
+    "last_modified": "2012-08-16T14:05:27+02:00",
 }
 ~~~~~
 
+### Eigenschaften ###
+
+`name`
+:   Der Vollständige Name der Person, üblicherweise mit Titel und Vorname.
+    Diese Eigenschaft ist ZWINGEND.
+
+`familyName`
+:   Familienname bzw. Nachname. Diese Eigenschaft ist OPTIONAL.
+
+`givenName`
+:   Vorname bzw. Taufname. Diese Eigenschaft ist OPTIONAL.
+
+`title`
+:   Akademische(r) Titel. Diese Eigenschaft ist OPTIONAL.
+
+`gender`
+:   Geschlecht. Üblicherweise `male` oder `female`. Diese Eigenschaft ist OPTIONAL.
+
+`phone`
+:   Telefonnummer mit `tel:` Schema. Diese Eigenschaft ist OPTIONAL.
+
+`email`
+:   E-Mail-Adresse mit `mailto:` Schema. Diese Eigenschaft ist OPTIONAL.
+
+`streetAddress`
+:   Straße und Hausnummer der Kontakt-Anschrift der Person. Diese Eigenschaft ist OPTIONAL.
+
+`postalCode`
+:   Postleitzahl der Kontakt-Anschrift der Person. Diese Eigenschaft ist OPTIONAL.
+
+`locality`
+:   Ortsangabe der Kontakt-Anschrift der Person. Diese Eigenschaft ist OPTIONAL.
+
+`organizations`
+:   Liste der URLs der Gruppierungen (Objekte vom Typ `oparl:Organization`), in der die
+    Person aktuell Mitglied ist, oder alternativ die URL zum Abruf der Liste.
+    Diese Eigenschaft ist ZWINGEND. Sollte die Person Mitglied in keiner Gruppierung sein,
+    enthält die Liste keine Einträge.
+
+`created`
+:   Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
+
+`lastModified`
+:   Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.

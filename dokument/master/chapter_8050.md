@@ -1,5 +1,5 @@
-oparl:Organization (Organisation)  {#oparl_organisation}
----------------------------------
+oparl:Organization (Gruppierung)  {#oparl_organization}
+--------------------------------
 
 TODO: Inhalte aus chapter_8070.md hier integrieren und damit
 das ehemalige Gremium und die Organisation zusammen führen.

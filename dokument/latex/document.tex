@@ -2392,7 +2392,7 @@ Eigenschaft ist EMPFOHLEN.
 \item[\texttt{sameAs}]
 Dient der Angabe beliebig vieler zusätzlicher URLs, die die Körperschaft
 repräsentieren. Diese Eigenschaft ist EMPFOHLEN. Hier können
-Beispielsweise, sofern vorhanden, der entpsrechende Eintrag der
+Beispielsweise, sofern vorhanden, der entsprechende Eintrag der
 Gemeinsamen Normdatei der Deutschen Nationalbibliothek\footnote{Gemeinsame
   Normdatei \url{http://www.dnb.de/gnd}}, der DBPedia\footnote{DBPedia
   \url{http://www.dbpedia.org/}} oder der Wikipedia\footnote{Wikipedia
@@ -2558,93 +2558,112 @@ Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.
 
 \subsection{oparl:Meeting (Sitzung)}\label{oparlux5fmeeting}
 
-Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder
-mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.
+Eine Sitzung ist die Versammlung einer oder mehrerer Gruppierungen
+(oparl:Organization) zu einem bestimmten Zeitpunkt an einem bestimmten
+Ort.
 
-Die geladenen Teilnehmer der Sitzung sind jeweils als „Person`` in
-entsprechender Form referenziert. Verschiedene Dokumente (Einladung,
-Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert
-werden.
+Die geladenen Teilnehmer der Sitzung sind jeweils als Objekte vom Typ
+oparl:Person in entsprechender Form referenziert. Verschiedene Dokumente
+(Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können
+referenziert werden.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-4}
+Die Inhalte einer Sitzung werden durch Tagesordnungspunkte
+(oparl:AgendaItem) abgebildet.
 
-\begin{description}
-\itemsep1pt\parskip0pt\parsep0pt
-\item[Schlüssel (\texttt{id})]
-Zur eindeutigen Identifizierung der Sitzung innerhalb des Systems. In
-der Praxis wird ein solcher Schlüssel entweder durch eine numerische ID
-gebildet oder durch Kombination mehrerer Merkmale wie dem Kürzel des
-Gremiums, der laufenden Nummer der Sitzung in einem Jahr und der
-Jahreszahl (z.B. ``BV1/0034/2012'').
-\item[Nummer (\texttt{sequence\_number})]
-\emph{Optional}. Laufende Nummer der Sitzung, üblicherweise innerhalb
-der Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die
-``2. Sitzung des Rats'' gekennzeichnet. Ist dieses Feld gesetzt, MUSS
-ein numerischer Wert enthalten sein.
-\item[Anfang (\texttt{start})]
-Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung
-\item[Ende (\texttt{end})]
-\emph{Optional}. Datum und Uhrzeit vom Ende der Sitzung
-\item[Ort (\texttt{address})]
-\emph{Optional}. Textliche Information zum Ort der Sitzung, z.B.
-``Rathaus, Raum 136''.
-\item[Zuletzt geändert (\texttt{last\_modified})]
-Datum und Uhrzeit der letzten Änderung
-\end{description}
-
-\subsubsection{Beziehungen}\label{beziehungen}
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Sitzungen sind mindestens einem Gremium zugeordnet
-\item
-  Einer Sitzung sind Personen zugeordnet, um die Teilnahme an der
-  Sitzung auszudrücken.
-\item
-  Dokumente können vom Typ \texttt{oparl:Meeting} \emph{optional} zu
-  mehreren Zwecken referenziert werden:
-
-  \begin{itemize}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    Zum Verweis auf die Einladung zur Sitzung
-  \item
-    Zum Verweis auf das Ergebnisprotokoll zur Sitzung
-  \item
-    Zum Verweis auf das Wortprotokoll zur Sitzung
-  \end{itemize}
-\item
-  Weiterhin können Sitzungen beliebige weitere Dokumente, die keine
-  eigenständigen Drucksachen sind, referenzieren. Dabei handelt es sich
-  dann um nicht weiter spezifizierte Anlagen.
-\end{itemize}
-
-\subsubsection{Beispiel}\label{beispiel}
+Ein Beispiel:
 
 \hyperdef{}{meetingux5fex1}{\label{meetingux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
-    \DataTypeTok{"id"}\NormalTok{: }\StringTok{"3271"}\NormalTok{,}
-    \DataTypeTok{"identifier"}\NormalTok{: }\StringTok{"STA/0034/2012"}\NormalTok{,}
+    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/Meeting"}\NormalTok{,}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/meetings/281"}\NormalTok{,}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"4. Sitzung des Finanzausschusses"}\NormalTok{,}
     \DataTypeTok{"start"}\NormalTok{: }\StringTok{"2013-01-04T08:00:00+01:00"}\NormalTok{,}
     \DataTypeTok{"end"}\NormalTok{: }\StringTok{"2013-01-04T12:00:00+01:00"}\NormalTok{,}
-    \DataTypeTok{"address"}\NormalTok{: }\StringTok{"Rathaus, Raum 136"}\NormalTok{,}
-    \DataTypeTok{"sequence_number"}\NormalTok{: }\DecValTok{1}\NormalTok{,}
-    \DataTypeTok{"committees"}\NormalTok{: [}\StringTok{"STA"}\NormalTok{],}
-    \DataTypeTok{"people"}\NormalTok{: [}\StringTok{"1000"}\NormalTok{, }\StringTok{"1001"}\NormalTok{],}
-    \DataTypeTok{"invitation"}\NormalTok{: }\StringTok{"0001/2013"}\NormalTok{,}
-    \DataTypeTok{"result_minutes"}\NormalTok{: }\StringTok{"0002/2013"}\NormalTok{,}
-    \DataTypeTok{"verbatim_minutes"}\NormalTok{: }\StringTok{"0003/2013"}\NormalTok{,}
-    \DataTypeTok{"attachments"}\NormalTok{: [}
-        \StringTok{"0004/2013"}\NormalTok{,}
-        \StringTok{"0005/2013"}
+    \DataTypeTok{"location"}\NormalTok{: \{}
+        \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Rathaus, Raum 136"}
+    \NormalTok{\},}
+    \DataTypeTok{"organizations"}\NormalTok{: [}
+        \StringTok{"http://oparl.beispielris.de/organizations/34"}
     \NormalTok{],}
-    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2012-01-08T14:05:27+01:00"}
+    \DataTypeTok{"participants"}\NormalTok{: [}
+        \StringTok{"http://oparl.beispielris.de/people/29"}\NormalTok{,}
+        \StringTok{"http://oparl.beispielris.de/people/75"}
+        \StringTok{"http://oparl.beispielris.de/people/94"}
+    \NormalTok{],}
+    \DataTypeTok{"invitation"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/documents/586"}\NormalTok{,}
+    \DataTypeTok{"resultsProtocol"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/documents/628"}\NormalTok{,}
+    \DataTypeTok{"verbatimProtocol"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/documents/691"}\NormalTok{,}
+    \DataTypeTok{"attachments"}\NormalTok{: [}
+        \StringTok{"http://oparl.beispielris.de/documents/588"}\NormalTok{,}
+        \StringTok{"http://oparl.beispielris.de/documents/589"}
+    \NormalTok{],}
+    \DataTypeTok{"agendaItems"}\NormalTok{: [}
+        \StringTok{"http://oparl.beispielris.de/agendaitems/1045"}\NormalTok{,}
+        \StringTok{"http://oparl.beispielris.de/agendaitems/1046"}\NormalTok{,}
+        \StringTok{"http://oparl.beispielris.de/agendaitems/1047"}\NormalTok{,}
+        \StringTok{"http://oparl.beispielris.de/agendaitems/1048"}
+    \NormalTok{]}
+    \StringTok{"created"}\ErrorTok{:} \StringTok{"2012-01-06T12:01:00+01:00"}
+    \StringTok{"lastModified"}\ErrorTok{:} \StringTok{"2012-01-08T14:05:27+01:00"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
+
+\subsubsection{Eigenschaften}\label{eigenschaften-4}
+
+\begin{description}
+\item[\texttt{start}]
+Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer
+zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer
+stattgefundenen KANN es der tatsächliche Startzeitpunkt sein. Diese
+Eigenschaft ist ZWINGEND.
+\item[\texttt{end})]
+Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen
+Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN
+es der tatsächliche Endzeitpunkt sein. Diese Eigenschaft ist EMPFOHLEN.
+\item[\texttt{location}]
+Sitzungsort in Form eines \texttt{oparl:Location} Objekts. Diese
+Eigenschaft ist EMPFOHLEN.
+\item[\texttt{organizations}]
+Liste der URLs der Gruppierungen (oparl:Organization), denen die Sitzung
+zugeordnet ist, oder alternativ die URL zum Abfruf der Liste. Diese
+Eigenschaft ist ZWINGEND. Die Liste MUSS mindestens eine Gruppierung
+umfassen.
+\item[\texttt{participants}]
+Liste der URLs der geladenen Teilnehmer (oparl:Person) der Sitzung, oder
+alternativ die URL zum Abfruf der Liste. Bei einer stattgefundenen
+Sitzung SOLL die Liste nur diejenigen Teilnehmer umfassen, die
+tatsächlich an der Sitzung teilgenommen haben. Die Eigenschaft ist
+ZWINGEND.
+\item[\texttt{invitation}]
+URL des Einladungsdokuments (oparl:Document) zur Sitzung. Diese
+Eigenschaft ist EMPFOHLEN.
+\item[\texttt{resultsProtocol}]
+URL des Ergebnisprotokolls (oparl:Document) zur Sitzung. Diese
+Eigenschaft ist EMPFOHLEN. Sie kann selbstverständlich erst nach dem
+Stattfinden der Sitzung vorkommen.
+\item[\texttt{verbatimProtocol}]
+URL des Wortprotokolls (oparl:Document) zur Sitzung. Diese Eigenschaft
+ist EMPFOHLEN. Sie kann selbstverständlich erst nach dem Stattfinden der
+Sitzung vorkommen.
+\item[\texttt{attachments}]
+Liste von URLs zu Dokumentenanhängen (oparl:Document) zur Sitzung, oder
+alternativ die URL zum Abruf einer solchen Liste. Die Eigenschaft ist
+OPTIONAL. Hiermit sind Dokumente gemeint, die üblicherweise mit der
+Einladung zu einer Sitzung verteilt werden und die nicht bereits über
+einzelne Tagesordnungspunkte referenziert sind.
+\item[\texttt{agendaItems}]
+Liste der URLs aller Tagesordnungspunkte (oparl:AgendaItem) der Sitzung,
+oder alternativ die URL zum Abfruf dieser Liste.
+\item[\texttt{created}]
+Datum und Uhrzeit der Erzeugung des Objekts. Diese Eigenschaft ist
+EMPFOHLEN.
+\item[\texttt{lastModified}]
+Datum und Uhrzeit der letzten Änderung des Objekts. Diese Eigenschaft
+ist EMPFOHLEN.
+\end{description}
 
 \subsection{oparl:AgendaItem
 (Tagesordnungspunkt)}\label{oparlux5fagendaitem}
@@ -2706,7 +2725,7 @@ Datum und Uhrzeit der letzten Änderung
   \texttt{result} zu diskutieren.
 \end{itemize}
 
-\subsubsection{Beziehungen}\label{beziehungen-1}
+\subsubsection{Beziehungen}\label{beziehungen}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2721,7 +2740,7 @@ Datum und Uhrzeit der letzten Änderung
   anwesend waren.
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-1}
+\subsubsection{Beispiel}\label{beispiel}
 
 \hyperdef{}{agendaitemux5fex1}{\label{agendaitemux5fex1}}
 \begin{Shaded}
@@ -2796,7 +2815,7 @@ Art der Drucksache (Erläuterung siehe oben)
 Datum und Uhrzeit der letzten Änderung
 \end{description}
 
-\subsubsection{Beziehungen}\label{beziehungen-2}
+\subsubsection{Beziehungen}\label{beziehungen-1}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2837,7 +2856,7 @@ Datum und Uhrzeit der letzten Änderung
   versehen sein, die noch näher zu bestimmen ist (TODO).
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-2}
+\subsubsection{Beispiel}\label{beispiel-1}
 
 \hyperdef{}{paperux5fex1}{\label{paperux5fex1}}
 \begin{Shaded}

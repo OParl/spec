@@ -961,7 +961,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dd><p>Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a>. Diese Eigenschaft ist EMPFOHLEN.</p>
 </dd>
 <dt><code>sameAs</code></dt>
-<dd><p>Dient der Angabe beliebig vieler zusätzlicher URLs, die die Körperschaft repräsentieren. Diese Eigenschaft ist EMPFOHLEN. Hier können Beispielsweise, sofern vorhanden, der entpsrechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek<a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a>, der DBPedia<a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a> oder der Wikipedia<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a> angegeben werden.</p>
+<dd><p>Dient der Angabe beliebig vieler zusätzlicher URLs, die die Körperschaft repräsentieren. Diese Eigenschaft ist EMPFOHLEN. Hier können Beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek<a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a>, der DBPedia<a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a> oder der Wikipedia<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a> angegeben werden.</p>
 </dd>
 <dt><code>contactEmail</code></dt>
 <dd><p>Dient der Angabe einer Kontakt-E-Mail-Adresse mit &quot;mailto:&quot;-Schema. Diese Eigenschaft ist EMPFOHLEN. Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und idealerweise das parlamentarische Informationssystem zuständigen Stelle ermöglichen.</p>
@@ -1105,65 +1105,83 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 <section id="oparl_meeting" class="level2">
 <h2><span class="header-section-number">5.7</span> oparl:Meeting (Sitzung)</h2>
-<p>Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.</p>
-<p>Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in entsprechender Form referenziert. Verschiedene Dokumente (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.</p>
+<p>Eine Sitzung ist die Versammlung einer oder mehrerer Gruppierungen (oparl:Organization) zu einem bestimmten Zeitpunkt an einem bestimmten Ort.</p>
+<p>Die geladenen Teilnehmer der Sitzung sind jeweils als Objekte vom Typ oparl:Person in entsprechender Form referenziert. Verschiedene Dokumente (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.</p>
+<p>Die Inhalte einer Sitzung werden durch Tagesordnungspunkte (oparl:AgendaItem) abgebildet.</p>
+<p>Ein Beispiel:</p>
+<pre class="sourceCode json" id="meeting_ex1"><code class="sourceCode json">{
+    <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/Meeting&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/meetings/281&quot;</span>,
+    <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;4. Sitzung des Finanzausschusses&quot;</span>,
+    <span class="dt">&quot;start&quot;</span>: <span class="st">&quot;2013-01-04T08:00:00+01:00&quot;</span>,
+    <span class="dt">&quot;end&quot;</span>: <span class="st">&quot;2013-01-04T12:00:00+01:00&quot;</span>,
+    <span class="dt">&quot;location&quot;</span>: {
+        <span class="dt">&quot;description&quot;</span>: <span class="st">&quot;Rathaus, Raum 136&quot;</span>
+    },
+    <span class="dt">&quot;organizations&quot;</span>: [
+        <span class="st">&quot;http://oparl.beispielris.de/organizations/34&quot;</span>
+    ],
+    <span class="dt">&quot;participants&quot;</span>: [
+        <span class="st">&quot;http://oparl.beispielris.de/people/29&quot;</span>,
+        <span class="st">&quot;http://oparl.beispielris.de/people/75&quot;</span>
+        <span class="st">&quot;http://oparl.beispielris.de/people/94&quot;</span>
+    ],
+    <span class="dt">&quot;invitation&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/documents/586&quot;</span>,
+    <span class="dt">&quot;resultsProtocol&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/documents/628&quot;</span>,
+    <span class="dt">&quot;verbatimProtocol&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/documents/691&quot;</span>,
+    <span class="dt">&quot;attachments&quot;</span>: [
+        <span class="st">&quot;http://oparl.beispielris.de/documents/588&quot;</span>,
+        <span class="st">&quot;http://oparl.beispielris.de/documents/589&quot;</span>
+    ],
+    <span class="dt">&quot;agendaItems&quot;</span>: [
+        <span class="st">&quot;http://oparl.beispielris.de/agendaitems/1045&quot;</span>,
+        <span class="st">&quot;http://oparl.beispielris.de/agendaitems/1046&quot;</span>,
+        <span class="st">&quot;http://oparl.beispielris.de/agendaitems/1047&quot;</span>,
+        <span class="st">&quot;http://oparl.beispielris.de/agendaitems/1048&quot;</span>
+    ]
+    <span class="st">&quot;created&quot;</span><span class="er">:</span> <span class="st">&quot;2012-01-06T12:01:00+01:00&quot;</span>
+    <span class="st">&quot;lastModified&quot;</span><span class="er">:</span> <span class="st">&quot;2012-01-08T14:05:27+01:00&quot;</span>
+}</code></pre>
 <section id="eigenschaften-4" class="level3">
 <h3><span class="header-section-number">5.7.1</span> Eigenschaften</h3>
 <dl>
-<dt>Schlüssel (<code>id</code>)</dt>
-<dd>Zur eindeutigen Identifizierung der Sitzung innerhalb des Systems. In der Praxis wird ein solcher Schlüssel entweder durch eine numerische ID gebildet oder durch Kombination mehrerer Merkmale wie dem Kürzel des Gremiums, der laufenden Nummer der Sitzung in einem Jahr und der Jahreszahl (z.B. &quot;BV1/0034/2012&quot;).
+<dt><code>start</code></dt>
+<dd><p>Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Startzeitpunkt sein. Diese Eigenschaft ist ZWINGEND.</p>
 </dd>
-<dt>Nummer (<code>sequence_number</code>)</dt>
-<dd><em>Optional</em>. Laufende Nummer der Sitzung, üblicherweise innerhalb der Wahlperiode mit 1 beginnend. In der Praxis wird dadurch z.B. die &quot;2. Sitzung des Rats&quot; gekennzeichnet. Ist dieses Feld gesetzt, MUSS ein numerischer Wert enthalten sein.
+<dt><code>end</code>)</dt>
+<dd><p>Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Endzeitpunkt sein. Diese Eigenschaft ist EMPFOHLEN.</p>
 </dd>
-<dt>Anfang (<code>start</code>)</dt>
-<dd>Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung
+<dt><code>location</code></dt>
+<dd><p>Sitzungsort in Form eines <code>oparl:Location</code> Objekts. Diese Eigenschaft ist EMPFOHLEN.</p>
 </dd>
-<dt>Ende (<code>end</code>)</dt>
-<dd><em>Optional</em>. Datum und Uhrzeit vom Ende der Sitzung
+<dt><code>organizations</code></dt>
+<dd><p>Liste der URLs der Gruppierungen (oparl:Organization), denen die Sitzung zugeordnet ist, oder alternativ die URL zum Abfruf der Liste. Diese Eigenschaft ist ZWINGEND. Die Liste MUSS mindestens eine Gruppierung umfassen.</p>
 </dd>
-<dt>Ort (<code>address</code>)</dt>
-<dd><em>Optional</em>. Textliche Information zum Ort der Sitzung, z.B. &quot;Rathaus, Raum 136&quot;.
+<dt><code>participants</code></dt>
+<dd><p>Liste der URLs der geladenen Teilnehmer (oparl:Person) der Sitzung, oder alternativ die URL zum Abfruf der Liste. Bei einer stattgefundenen Sitzung SOLL die Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung teilgenommen haben. Die Eigenschaft ist ZWINGEND.</p>
 </dd>
-<dt>Zuletzt geändert (<code>last_modified</code>)</dt>
-<dd>Datum und Uhrzeit der letzten Änderung
+<dt><code>invitation</code></dt>
+<dd><p>URL des Einladungsdokuments (oparl:Document) zur Sitzung. Diese Eigenschaft ist EMPFOHLEN.</p>
+</dd>
+<dt><code>resultsProtocol</code></dt>
+<dd><p>URL des Ergebnisprotokolls (oparl:Document) zur Sitzung. Diese Eigenschaft ist EMPFOHLEN. Sie kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen.</p>
+</dd>
+<dt><code>verbatimProtocol</code></dt>
+<dd><p>URL des Wortprotokolls (oparl:Document) zur Sitzung. Diese Eigenschaft ist EMPFOHLEN. Sie kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen.</p>
+</dd>
+<dt><code>attachments</code></dt>
+<dd><p>Liste von URLs zu Dokumentenanhängen (oparl:Document) zur Sitzung, oder alternativ die URL zum Abruf einer solchen Liste. Die Eigenschaft ist OPTIONAL. Hiermit sind Dokumente gemeint, die üblicherweise mit der Einladung zu einer Sitzung verteilt werden und die nicht bereits über einzelne Tagesordnungspunkte referenziert sind.</p>
+</dd>
+<dt><code>agendaItems</code></dt>
+<dd><p>Liste der URLs aller Tagesordnungspunkte (oparl:AgendaItem) der Sitzung, oder alternativ die URL zum Abfruf dieser Liste.</p>
+</dd>
+<dt><code>created</code></dt>
+<dd><p>Datum und Uhrzeit der Erzeugung des Objekts. Diese Eigenschaft ist EMPFOHLEN.</p>
+</dd>
+<dt><code>lastModified</code></dt>
+<dd><p>Datum und Uhrzeit der letzten Änderung des Objekts. Diese Eigenschaft ist EMPFOHLEN.</p>
 </dd>
 </dl>
-</section>
-<section id="beziehungen" class="level3">
-<h3><span class="header-section-number">5.7.2</span> Beziehungen</h3>
-<ul>
-<li>Sitzungen sind mindestens einem Gremium zugeordnet</li>
-<li>Einer Sitzung sind Personen zugeordnet, um die Teilnahme an der Sitzung auszudrücken.</li>
-<li>Dokumente können vom Typ <code>oparl:Meeting</code> <em>optional</em> zu mehreren Zwecken referenziert werden:
-<ul>
-<li>Zum Verweis auf die Einladung zur Sitzung</li>
-<li>Zum Verweis auf das Ergebnisprotokoll zur Sitzung</li>
-<li>Zum Verweis auf das Wortprotokoll zur Sitzung</li>
-</ul></li>
-<li>Weiterhin können Sitzungen beliebige weitere Dokumente, die keine eigenständigen Drucksachen sind, referenzieren. Dabei handelt es sich dann um nicht weiter spezifizierte Anlagen.</li>
-</ul>
-</section>
-<section id="beispiel" class="level3">
-<h3><span class="header-section-number">5.7.3</span> Beispiel</h3>
-<pre class="sourceCode json" id="meeting_ex1"><code class="sourceCode json">{
-    <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;3271&quot;</span>,
-    <span class="dt">&quot;identifier&quot;</span>: <span class="st">&quot;STA/0034/2012&quot;</span>,
-    <span class="dt">&quot;start&quot;</span>: <span class="st">&quot;2013-01-04T08:00:00+01:00&quot;</span>,
-    <span class="dt">&quot;end&quot;</span>: <span class="st">&quot;2013-01-04T12:00:00+01:00&quot;</span>,
-    <span class="dt">&quot;address&quot;</span>: <span class="st">&quot;Rathaus, Raum 136&quot;</span>,
-    <span class="dt">&quot;sequence_number&quot;</span>: <span class="dv">1</span>,
-    <span class="dt">&quot;committees&quot;</span>: [<span class="st">&quot;STA&quot;</span>],
-    <span class="dt">&quot;people&quot;</span>: [<span class="st">&quot;1000&quot;</span>, <span class="st">&quot;1001&quot;</span>],
-    <span class="dt">&quot;invitation&quot;</span>: <span class="st">&quot;0001/2013&quot;</span>,
-    <span class="dt">&quot;result_minutes&quot;</span>: <span class="st">&quot;0002/2013&quot;</span>,
-    <span class="dt">&quot;verbatim_minutes&quot;</span>: <span class="st">&quot;0003/2013&quot;</span>,
-    <span class="dt">&quot;attachments&quot;</span>: [
-        <span class="st">&quot;0004/2013&quot;</span>,
-        <span class="st">&quot;0005/2013&quot;</span>
-    ],
-    <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-01-08T14:05:27+01:00&quot;</span>
-}</code></pre>
 </section>
 </section>
 <section id="oparl_agendaitem" class="level2">
@@ -1203,7 +1221,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </ul>
 </section>
 </section>
-<section id="beziehungen-1" class="level3">
+<section id="beziehungen" class="level3">
 <h3><span class="header-section-number">5.8.2</span> Beziehungen</h3>
 <ul>
 <li>Jeder Tagesordnungspunkt gehört zu genau einem <code>oparl:Meeting</code>.</li>
@@ -1211,7 +1229,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <li>Es können <code>oparl:Person</code> Objekte referenziert werden, die während der Abstimmung zu diesem Tagesordnungspunkt <em>nicht</em> anwesend waren.</li>
 </ul>
 </section>
-<section id="beispiel-1" class="level3">
+<section id="beispiel" class="level3">
 <h3><span class="header-section-number">5.8.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="agendaitem_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;meeting&quot;</span>: <span class="st">&quot;3271&quot;</span>,
@@ -1255,7 +1273,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </dd>
 </dl>
 </section>
-<section id="beziehungen-2" class="level3">
+<section id="beziehungen-1" class="level3">
 <h3><span class="header-section-number">5.9.2</span> Beziehungen</h3>
 <ul>
 <li>Es muss genau ein <strong>Hauptdokument</strong> (<code>oparl:Document</code>) referenziert werden.</li>
@@ -1267,7 +1285,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <li>Drucksachen können zu beliebig vielen Tagesordnungspunkten in Beziehung stehen, um die <strong>Beratungsfolge</strong> einer Drucksache abzubilden. Hierbei kann die Beziehung jeweils mit einer Zuständigkeit versehen sein, die noch näher zu bestimmen ist (TODO).</li>
 </ul>
 </section>
-<section id="beispiel-2" class="level3">
+<section id="beispiel-1" class="level3">
 <h3><span class="header-section-number">5.9.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="paper_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;1234/2012&quot;</span>,

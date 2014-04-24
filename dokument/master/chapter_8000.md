@@ -12,6 +12,11 @@ einander stehen.
 Übergreifende Aspekte
 ---------------------
 
+### Unicode-Zeichenketten als Standard
+
+Wenn in der nachfolgenden Schema-Beschreibung nicht anders angegeben, werden bei
+den Werten grundsätzlich Unicode-Zeichenketten (Strings) erwartet.
+
 ### null-Werte
 
 JSON erlaubt es grundsätzlich, dass Eigenschaften den Wert `null` haben können.
@@ -19,17 +24,12 @@ Im Rahmen dieser Spezifikation DARF das jedoch nur bei Eigenschaften der Fall se
 die als OPTIONAL oder EMPFOHLEN gekennzeichnet sind. ZWINGENDE Eigenschaften müssen
 einen Wert ungleich `null` besitzen.
 
-### Vererbung der Lizenzbedingung
+### Datums- und Zeitangaben
 
-- Jedes Objekt KANN die Eigenschaft "license" besitzen.
-- Die genannte Lizenz bezieht sich auf das jeweilige Objekt und auf untergeordnete 
-  Objekte, sofern diese keine license-Eigenschaft besitzen.
-- Dazu muss die Vererbungshierarchie aufgezeigt werden.
-- Empfohlene Minimalvariante: Nur eine license-Angabe auf Ebene von `oparl:System`.
-- Auf Ebene des `oparl:Document` bezieht sich die Eigenschaft sowohl auf die Metadaten als auch auf das Dokument selbst.
+Für Datum und Zeit werden die in XML Schema festgelegten Typen verwendet (was nicht bedeutet, dass in OParl XML verwendet wird).
 
-### Die Eigenschaften "created" und "last_modified"
+Für ein Datum wird http://www.w3.org/TR/xmlschema-2/#date verwendet und für eine Zeit http://www.w3.org/TR/xmlschema-2/#dateTime. Dabei wird ein Datum (ein Tag ohne Uhrzeit) ohne Zeitzone und ein Datum mit Zeit mit Zeitzone angegeben, denn nur damit ist die Uhrzeit weltweit eindeutig ohne zusätzlich auf den Ort einer Sitzung o.ä. Bezug nehmen zu müssen.
 
-### Die Eigenschaften "name" und "name_long"
+Diese Spezifikationen stützen sich auf RFC 3339 (http://www.ietf.org/rfc/rfc3339.txt) und RFC 3339 wiederum auf ISO 8601.
 
-### Die Eigenschaft "description"
+Im JSON-LD Kontext von OParl ist der Präfix 'xsd' so spezifiziert, dass Datums- und Zeittyp durch 'xsd:date' bzw. 'xsd:dateTime' abgekürzt werden können.

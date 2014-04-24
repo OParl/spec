@@ -3248,123 +3248,112 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       </variablelist>
     </sect3>
   </sect2>
-  <sect2 id="oparl_organisation">
-    <title>oparl:Organization (Organisation)</title>
+  <sect2 id="oparl_organization">
+    <title>oparl:Organization (Gruppierung)</title>
     <para>
-      TODO: Inhalte aus chapter_8070.md hier integrieren und damit das
-      ehemalige Gremium und die Organisation zusammen führen.
+      Dieser Objekttyp dient dazu, Gruppierungen von Personen
+      abzubilden, die in der parlamentarischen Arbeit eine Rolle
+      spielen. Dazu zählen in der Praxis insbesondee Fraktionen und
+      Gremien.
     </para>
     <para>
-      Das Gremium ist ein Personenkreis, üblicherweise von gewählten
-      und/oder ernannten Mitgliedern. Beispiele hierfür sind der
-      Stadtrat, Kreisrat, Gemeinderat, Ausschüsse und
-      Bezirksvertretungen. Gremien halten Sitzungen ab, zu denen die
-      Gremien-Mitglieder eingeladen werden.
+      Ein Beispiel:
     </para>
+    <programlisting language="json">
+{
+    &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/Organization&quot;,
+    &quot;@id&quot;: &quot;http://oparl.beispielris.de/organizations/34&quot;,
+    &quot;body&quot;: &quot;http://oparl.beispielris.de/bodies/0&quot;,
+    &quot;name&quot;: &quot;Finanzausschuss&quot;,
+    &quot;nameLong&quot;: &quot;Finanzausschuss des Rates der Stadt Köln&quot;,
+    &quot;members&quot;: [
+        &quot;http://oparl.beispielris.de/people/27&quot;,
+        &quot;http://oparl.beispielris.de/people/48&quot;,
+        &quot;http://oparl.beispielris.de/people/57&quot;,
+    ],
+    &quot;last_modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
+}
+</programlisting>
     <sect3 id="eigenschaften-2">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
           <term>
-            Schlüssel (<literal>id</literal>)
+            <literal>body</literal>
           </term>
           <listitem>
             <para>
-              Zur eindeutigen Identifizierung des Gremiums im Kontext
-              einer bestimmten Körperschaft. In der Praxis kommen sowohl
-              numerische IDs als auch Namenskürzel (Beispiel:
-              &quot;STA&quot; für den Stadtentwicklungsausschuss) vor.
-              Beides sollte hier Verwendung finden können.
+              URL der Körperschaft, zu der diese Gruppierung gehört. Die
+              Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Name (<literal>name</literal>)
+            <literal>name</literal>
           </term>
           <listitem>
             <para>
-              Der Name des Gremiums. Beispiele: &quot;Rat&quot;,
-              &quot;Hauptausschuss&quot;, &quot;Bezirksvertretung 1
-              (Innenstadt)&quot;
+              Der Name der Gruppierung. Die Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Kurzname (<literal>short_name</literal>)
+            <literal>nameLong</literal>
           </term>
           <listitem>
             <para>
-              <emphasis>Optional</emphasis>. Eine zur Anzeige bestimmte,
-              kürzere Form des Namens.
+              Langform des Namens der Gruppierung. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Zuletzt geändert (<literal>last_modified</literal>)
+            <literal>members</literal>
           </term>
           <listitem>
             <para>
-              Datum und Uhrzeit der letzten Änderung
+              Entweder die vollständige Liste der URLs aller Mitglieder
+              dieser Organisation (Objekte vom Typ
+              <literal>[oparl:Person](#oparl_person)</literal>) oder URL
+              zum Abruf dieser Liste.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Unterorganisation von (<literal>subOrganizationOf</literal>)
+            <literal>subOrganizationOf</literal>
           </term>
           <listitem>
             <para>
-              <emphasis>Optional</emphasis>. Die übergeordnete
-              Organisation (kann bei Unterausschüssen auch ein Ausschuss
-              sein).
+              Ggf. URL der übergeordneten Organisation. Diese
+              Eigenschaft ist OPTIONAL.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>created</literal>
+          </term>
+          <listitem>
+            <para>
+              Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>lastModified</literal>
+          </term>
+          <listitem>
+            <para>
+              Datum/Uhrzeit der letzten Bearbeitung des Objekts.
+              EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
-    </sect3>
-    <sect3 id="beziehungen">
-      <title>Beziehungen</title>
-      <itemizedlist>
-        <listitem>
-          <para>
-            Objekte vom Typ <literal>oparl:Person</literal>
-            referenzieren auf Gremien, um die
-            Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu
-            kennzeichnen. Diese Beziehung ist datiert. Das bedeutet, sie
-            hat einen Anfangszeitpunkt und ggf. einen Endzeitpunkt.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Objekte vom Typ &quot;Drucksache&quot; verweisen auf
-            Gremien. Beispielsweise wird eine Anfrage oder ein Antrag
-            dem Rat und/oder einer bestimmten Bezirksvertretung
-            zugeordnet. Details zu dieser Beziehung werden unter
-            &quot;Drucksache&quot; erläutert.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Das Gremium verweist auf die Körperschaft, zu der das
-            Gremium gehört.
-          </para>
-        </listitem>
-      </itemizedlist>
-    </sect3>
-    <sect3 id="beispiel">
-      <title>Beispiel</title>
-      <programlisting language="json">
-{
-    &quot;id&quot;: &quot;7&quot;,
-    &quot;name&quot;: &quot;Finanzausschuss&quot;,
-    &quot;short_name&quot;: &quot;FA&quot;,
-    &quot;body&quot;: &quot;1&quot;,
-    &quot;last_modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
-}
-</programlisting>
     </sect3>
   </sect2>
   <sect2 id="oparl_person">
@@ -3524,7 +3513,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </itemizedlist>
       </sect4>
     </sect3>
-    <sect3 id="beziehungen-1">
+    <sect3 id="beziehungen">
       <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
@@ -3544,7 +3533,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-1">
+    <sect3 id="beispiel">
       <title>Beispiel</title>
       <programlisting language="json">
 {
@@ -3580,106 +3569,6 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
 </programlisting>
     </sect3>
   </sect2>
-  <sect2 id="oparlorganization-organisation">
-    <title>oparl:Organization (Organisation)</title>
-    <para>
-      TODO: Inhalt dieses Abschnitts in chapter_8050.md überführen.
-    </para>
-    <para>
-      Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen
-      die Personen angehören können.
-    </para>
-    <sect3 id="eigenschaften-4">
-      <title>Eigenschaften</title>
-      <variablelist>
-        <varlistentry>
-          <term>
-            Schlüssel (<literal>id</literal>)
-          </term>
-          <listitem>
-            <para>
-              Zur eindeutigen Kennzeichnung einer Organisation innerhalb
-              des Systems
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Name (<literal>name</literal>)
-          </term>
-          <listitem>
-            <para>
-              Der gebräuchliche Name der Organisation, z.B.
-              &quot;SPD&quot; oder &quot;DIE LINKE&quot;.
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Zuletzt geändert (<literal>last_modified</literal>)
-          </term>
-          <listitem>
-            <para>
-              Datum und Uhrzeit der letzten Änderung
-            </para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-      <sect4 id="anmerkungen-1">
-        <title>Anmerkungen</title>
-        <itemizedlist>
-          <listitem>
-            <para>
-              Unklar ist bislang, ob Organisationen in der Praxis eher
-              Fraktionen (&quot;SPD-Fraktion im Kölner Rat&quot;,
-              &quot;SPD-Fraktion in Köln-Innenstadt&quot;) abbilden oder
-              ob eher Ortsverbände von Parteien (&quot;SPD Köln&quot;)
-              gemeint sein werden. Einblicke, wie gängige Systeme dies
-              handhaben, sollten evtl. gesammelt und berücksichtigt
-              werden.
-            </para>
-          </listitem>
-          <listitem>
-            <para>
-              Es wird die Schreibweise &quot;Organization&quot; (und
-              nicht &quot;Organisation&quot;) verwendet, da diese in
-              allen englischen Sprachräumen problemlos verwendet werden
-              kann. Siehe dazu Abschnitt 3, Fussnote 1 auf dieser Seite:
-              http://popoloproject.com/specs/organization.html
-            </para>
-          </listitem>
-        </itemizedlist>
-      </sect4>
-    </sect3>
-    <sect3 id="beziehungen-2">
-      <title>Beziehungen</title>
-      <itemizedlist>
-        <listitem>
-          <para>
-            Jede <literal>oparl:Organization</literal> gehört zu einer
-            Körperschaft.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Personen können Organisationen angehören
-            (<emphasis>datiert</emphasis>).
-          </para>
-        </listitem>
-      </itemizedlist>
-    </sect3>
-    <sect3 id="beispiel-2">
-      <title>Beispiel</title>
-      <programlisting language="json">
-{
-    &quot;id&quot;: &quot;15&quot;,
-    &quot;name&quot;: &quot;SPD&quot;,
-    &quot;body&quot;: &quot;1&quot;,
-    &quot;last_modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
-}
-</programlisting>
-    </sect3>
-  </sect2>
   <sect2 id="oparl_meeting">
     <title>oparl:Meeting (Sitzung)</title>
     <para>
@@ -3693,7 +3582,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können
       referenziert werden.
     </para>
-    <sect3 id="eigenschaften-5">
+    <sect3 id="eigenschaften-4">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -3769,7 +3658,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </varlistentry>
       </variablelist>
     </sect3>
-    <sect3 id="beziehungen-3">
+    <sect3 id="beziehungen-1">
       <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
@@ -3816,7 +3705,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-3">
+    <sect3 id="beispiel-1">
       <title>Beispiel</title>
       <programlisting language="json">
 {
@@ -3852,7 +3741,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
     <para>
       Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
     </para>
-    <sect3 id="eigenschaften-6">
+    <sect3 id="eigenschaften-5">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -3946,7 +3835,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
           </listitem>
         </varlistentry>
       </variablelist>
-      <sect4 id="anmerkungen-2">
+      <sect4 id="anmerkungen-1">
         <title>Anmerkungen</title>
         <itemizedlist>
           <listitem>
@@ -3969,7 +3858,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </itemizedlist>
       </sect4>
     </sect3>
-    <sect3 id="beziehungen-4">
+    <sect3 id="beziehungen-2">
       <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
@@ -3994,7 +3883,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-4">
+    <sect3 id="beispiel-2">
       <title>Beispiel</title>
       <programlisting language="json">
 {
@@ -4071,7 +3960,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </para>
       </listitem>
     </itemizedlist>
-    <sect3 id="eigenschaften-7">
+    <sect3 id="eigenschaften-6">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -4121,7 +4010,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </varlistentry>
       </variablelist>
     </sect3>
-    <sect3 id="beziehungen-5">
+    <sect3 id="beziehungen-3">
       <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
@@ -4192,7 +4081,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-5">
+    <sect3 id="beispiel-3">
       <title>Beispiel</title>
       <programlisting language="json">
 {
@@ -4287,7 +4176,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       <literal>derivative_documents</literal> angezeigt werden, welche
       Ableitungen einer Datei existieren.
     </para>
-    <sect3 id="eigenschaften-8">
+    <sect3 id="eigenschaften-7">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -4501,7 +4390,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
     &quot;authoritative&quot;: false
 }
 </programlisting>
-    <sect3 id="eigenschaften-9">
+    <sect3 id="eigenschaften-8">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -4625,7 +4514,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       </footnote> angegeben werden, und zwar in Form von Zahlenwerten
       (Fließkommazahlen) für Längen- und Breitengrad.
     </para>
-    <sect3 id="eigenschaften-10">
+    <sect3 id="eigenschaften-9">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>

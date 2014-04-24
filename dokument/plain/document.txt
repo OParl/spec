@@ -1986,60 +1986,57 @@ created
 lastModified
     Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.
 
-oparl:Organization (Organisation) {#oparl_organisation}
----------------------------------
+oparl:Organization (Gruppierung) {#oparl_organization}
+--------------------------------
 
-TODO: Inhalte aus chapter_8070.md hier integrieren und damit das
-ehemalige Gremium und die Organisation zusammen führen.
+Dieser Objekttyp dient dazu, Gruppierungen von Personen abzubilden, die
+in der parlamentarischen Arbeit eine Rolle spielen. Dazu zählen in der
+Praxis insbesondee Fraktionen und Gremien.
 
-Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder
-ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat,
-Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten
-Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
+Ein Beispiel:
 
-Eigenschaften
-
-Schlüssel (id)
-    Zur eindeutigen Identifizierung des Gremiums im Kontext einer
-    bestimmten Körperschaft. In der Praxis kommen sowohl numerische IDs
-    als auch Namenskürzel (Beispiel: "STA" für den
-    Stadtentwicklungsausschuss) vor. Beides sollte hier Verwendung
-    finden können.
-Name (name)
-    Der Name des Gremiums. Beispiele: "Rat", "Hauptausschuss",
-    "Bezirksvertretung 1 (Innenstadt)"
-Kurzname (short_name)
-    Optional. Eine zur Anzeige bestimmte, kürzere Form des Namens.
-Zuletzt geändert (last_modified)
-    Datum und Uhrzeit der letzten Änderung
-Unterorganisation von (subOrganizationOf)
-    Optional. Die übergeordnete Organisation (kann bei Unterausschüssen
-    auch ein Ausschuss sein).
-
-Beziehungen
-
--   Objekte vom Typ oparl:Person referenzieren auf Gremien, um die
-    Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu
-    kennzeichnen. Diese Beziehung ist datiert. Das bedeutet, sie hat
-    einen Anfangszeitpunkt und ggf. einen Endzeitpunkt.
--   Objekte vom Typ "Drucksache" verweisen auf Gremien. Beispielsweise
-    wird eine Anfrage oder ein Antrag dem Rat und/oder einer bestimmten
-    Bezirksvertretung zugeordnet. Details zu dieser Beziehung werden
-    unter "Drucksache" erläutert.
--   Das Gremium verweist auf die Körperschaft, zu der das Gremium
-    gehört.
-
-Beispiel
-
-``` {#committee_ex1 .json}
+``` {#organization_ex1 .json}
 {
-    "id": "7",
+    "@type": "http://oparl.org/schema/1.0/Organization",
+    "@id": "http://oparl.beispielris.de/organizations/34",
+    "body": "http://oparl.beispielris.de/bodies/0",
     "name": "Finanzausschuss",
-    "short_name": "FA",
-    "body": "1",
+    "nameLong": "Finanzausschuss des Rates der Stadt Köln",
+    "members": [
+        "http://oparl.beispielris.de/people/27",
+        "http://oparl.beispielris.de/people/48",
+        "http://oparl.beispielris.de/people/57",
+    ],
     "last_modified": "2012-08-16T14:05:27+02:00"
 }
 ```
+
+Eigenschaften
+
+body
+    URL der Körperschaft, zu der diese Gruppierung gehört. Die
+    Eigenschaft ist ZWINGEND.
+
+name
+    Der Name der Gruppierung. Die Eigenschaft ist ZWINGEND.
+
+nameLong
+    Langform des Namens der Gruppierung. OPTIONAL.
+
+members
+    Entweder die vollständige Liste der URLs aller Mitglieder dieser
+    Organisation (Objekte vom Typ [oparl:Person](#oparl_person)) oder
+    URL zum Abruf dieser Liste.
+
+subOrganizationOf
+    Ggf. URL der übergeordneten Organisation. Diese Eigenschaft ist
+    OPTIONAL.
+
+created
+    Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
+
+lastModified
+    Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.
 
 oparl:Person (Person) {#oparl_person}
 ---------------------
@@ -2129,54 +2126,6 @@ Beispiel
             "start": "2013-01-01"
         }
     ]
-}
-```
-
-oparl:Organization (Organisation) {#oparlorganization-organisation}
----------------------------------
-
-TODO: Inhalt dieses Abschnitts in chapter_8050.md überführen.
-
-Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die
-Personen angehören können.
-
-Eigenschaften
-
-Schlüssel (id)
-    Zur eindeutigen Kennzeichnung einer Organisation innerhalb des
-    Systems
-Name (name)
-    Der gebräuchliche Name der Organisation, z.B. "SPD" oder "DIE
-    LINKE".
-Zuletzt geändert (last_modified)
-    Datum und Uhrzeit der letzten Änderung
-
-Anmerkungen
-
--   Unklar ist bislang, ob Organisationen in der Praxis eher Fraktionen
-    ("SPD-Fraktion im Kölner Rat", "SPD-Fraktion in Köln-Innenstadt")
-    abbilden oder ob eher Ortsverbände von Parteien ("SPD Köln") gemeint
-    sein werden. Einblicke, wie gängige Systeme dies handhaben, sollten
-    evtl. gesammelt und berücksichtigt werden.
-
--   Es wird die Schreibweise "Organization" (und nicht "Organisation")
-    verwendet, da diese in allen englischen Sprachräumen problemlos
-    verwendet werden kann. Siehe dazu Abschnitt 3, Fussnote 1 auf dieser
-    Seite: http://popoloproject.com/specs/organization.html
-
-Beziehungen
-
--   Jede oparl:Organization gehört zu einer Körperschaft.
--   Personen können Organisationen angehören (datiert).
-
-Beispiel
-
-``` {#organization_ex1 .json}
-{
-    "id": "15",
-    "name": "SPD",
-    "body": "1",
-    "last_modified": "2012-08-16T14:05:27+02:00"
 }
 ```
 

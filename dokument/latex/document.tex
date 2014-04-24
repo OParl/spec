@@ -2384,69 +2384,56 @@ Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.
 \end{description}
 
 \subsection{oparl:Organization
-(Organisation)}\label{oparlux5forganisation}
+(Gruppierung)}\label{oparlux5forganization}
 
-TODO: Inhalte aus chapter\_8070.md hier integrieren und damit das
-ehemalige Gremium und die Organisation zusammen führen.
+Dieser Objekttyp dient dazu, Gruppierungen von Personen abzubilden, die
+in der parlamentarischen Arbeit eine Rolle spielen. Dazu zählen in der
+Praxis insbesondee Fraktionen und Gremien.
 
-Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder
-ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat,
-Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten
-Sitzungen ab, zu denen die Gremien-Mitglieder eingeladen werden.
+Ein Beispiel:
 
-\subsubsection{Eigenschaften}\label{eigenschaften-2}
-
-\begin{description}
-\itemsep1pt\parskip0pt\parsep0pt
-\item[Schlüssel (\texttt{id})]
-Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten
-Körperschaft. In der Praxis kommen sowohl numerische IDs als auch
-Namenskürzel (Beispiel: ``STA'' für den Stadtentwicklungsausschuss) vor.
-Beides sollte hier Verwendung finden können.
-\item[Name (\texttt{name})]
-Der Name des Gremiums. Beispiele: ``Rat'', ``Hauptausschuss'',
-``Bezirksvertretung 1 (Innenstadt)''
-\item[Kurzname (\texttt{short\_name})]
-\emph{Optional}. Eine zur Anzeige bestimmte, kürzere Form des Namens.
-\item[Zuletzt geändert (\texttt{last\_modified})]
-Datum und Uhrzeit der letzten Änderung
-\item[Unterorganisation von (\texttt{subOrganizationOf})]
-\emph{Optional}. Die übergeordnete Organisation (kann bei
-Unterausschüssen auch ein Ausschuss sein).
-\end{description}
-
-\subsubsection{Beziehungen}\label{beziehungen}
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Objekte vom Typ \texttt{oparl:Person} referenzieren auf Gremien, um
-  die Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu
-  kennzeichnen. Diese Beziehung ist datiert. Das bedeutet, sie hat einen
-  Anfangszeitpunkt und ggf. einen Endzeitpunkt.
-\item
-  Objekte vom Typ ``Drucksache'' verweisen auf Gremien. Beispielsweise
-  wird eine Anfrage oder ein Antrag dem Rat und/oder einer bestimmten
-  Bezirksvertretung zugeordnet. Details zu dieser Beziehung werden unter
-  ``Drucksache'' erläutert.
-\item
-  Das Gremium verweist auf die Körperschaft, zu der das Gremium gehört.
-\end{itemize}
-
-\subsubsection{Beispiel}\label{beispiel}
-
-\hyperdef{}{committeeux5fex1}{\label{committeeux5fex1}}
+\hyperdef{}{organizationux5fex1}{\label{organizationux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
-    \DataTypeTok{"id"}\NormalTok{: }\StringTok{"7"}\NormalTok{,}
+    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/Organization"}\NormalTok{,}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/organizations/34"}\NormalTok{,}
+    \DataTypeTok{"body"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/bodies/0"}\NormalTok{,}
     \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Finanzausschuss"}\NormalTok{,}
-    \DataTypeTok{"short_name"}\NormalTok{: }\StringTok{"FA"}\NormalTok{,}
-    \DataTypeTok{"body"}\NormalTok{: }\StringTok{"1"}\NormalTok{,}
+    \DataTypeTok{"nameLong"}\NormalTok{: }\StringTok{"Finanzausschuss des Rates der Stadt Köln"}\NormalTok{,}
+    \DataTypeTok{"members"}\NormalTok{: [}
+        \StringTok{"http://oparl.beispielris.de/people/27"}\NormalTok{,}
+        \StringTok{"http://oparl.beispielris.de/people/48"}\NormalTok{,}
+        \StringTok{"http://oparl.beispielris.de/people/57"}\NormalTok{,}
+    \NormalTok{],}
     \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
+
+\subsubsection{Eigenschaften}\label{eigenschaften-2}
+
+\begin{description}
+\item[\texttt{body}]
+URL der Körperschaft, zu der diese Gruppierung gehört. Die Eigenschaft
+ist ZWINGEND.
+\item[\texttt{name}]
+Der Name der Gruppierung. Die Eigenschaft ist ZWINGEND.
+\item[\texttt{nameLong}]
+Langform des Namens der Gruppierung. OPTIONAL.
+\item[\texttt{members}]
+Entweder die vollständige Liste der URLs aller Mitglieder dieser
+Organisation (Objekte vom Typ
+\texttt{{[}oparl:Person{]}(\#oparl\_person)}) oder URL zum Abruf dieser
+Liste.
+\item[\texttt{subOrganizationOf}]
+Ggf. URL der übergeordneten Organisation. Diese Eigenschaft ist
+OPTIONAL.
+\item[\texttt{created}]
+Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
+\item[\texttt{lastModified}]
+Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.
+\end{description}
 
 \subsection{oparl:Person (Person)}\label{oparlux5fperson}
 
@@ -2504,7 +2491,7 @@ Datum und Uhrzeit der letzten Änderung
   Anschriften.
 \end{itemize}
 
-\subsubsection{Beziehungen}\label{beziehungen-1}
+\subsubsection{Beziehungen}\label{beziehungen}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2517,7 +2504,7 @@ Datum und Uhrzeit der letzten Änderung
   darzustellen. Diese Beziehungen sind ebenfalls datiert.
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-1}
+\subsubsection{Beispiel}\label{beispiel}
 
 \hyperdef{}{personux5fex1}{\label{personux5fex1}}
 \begin{Shaded}
@@ -2555,67 +2542,6 @@ Datum und Uhrzeit der letzten Änderung
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{oparl:Organization
-(Organisation)}\label{oparlorganization-organisation}
-
-TODO: Inhalt dieses Abschnitts in chapter\_8050.md überführen.
-
-Organisationen sind üblicherweise Parteien bzw. Fraktionen, denen die
-Personen angehören können.
-
-\subsubsection{Eigenschaften}\label{eigenschaften-4}
-
-\begin{description}
-\itemsep1pt\parskip0pt\parsep0pt
-\item[Schlüssel (\texttt{id})]
-Zur eindeutigen Kennzeichnung einer Organisation innerhalb des Systems
-\item[Name (\texttt{name})]
-Der gebräuchliche Name der Organisation, z.B. ``SPD'' oder ``DIE
-LINKE''.
-\item[Zuletzt geändert (\texttt{last\_modified})]
-Datum und Uhrzeit der letzten Änderung
-\end{description}
-
-\paragraph{Anmerkungen}\label{anmerkungen-1}
-
-\begin{itemize}
-\item
-  Unklar ist bislang, ob Organisationen in der Praxis eher Fraktionen
-  (``SPD-Fraktion im Kölner Rat'', ``SPD-Fraktion in Köln-Innenstadt'')
-  abbilden oder ob eher Ortsverbände von Parteien (``SPD Köln'') gemeint
-  sein werden. Einblicke, wie gängige Systeme dies handhaben, sollten
-  evtl. gesammelt und berücksichtigt werden.
-\item
-  Es wird die Schreibweise ``Organization'' (und nicht ``Organisation'')
-  verwendet, da diese in allen englischen Sprachräumen problemlos
-  verwendet werden kann. Siehe dazu Abschnitt 3, Fussnote 1 auf dieser
-  Seite: http://popoloproject.com/specs/organization.html
-\end{itemize}
-
-\subsubsection{Beziehungen}\label{beziehungen-2}
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Jede \texttt{oparl:Organization} gehört zu einer Körperschaft.
-\item
-  Personen können Organisationen angehören (\emph{datiert}).
-\end{itemize}
-
-\subsubsection{Beispiel}\label{beispiel-2}
-
-\hyperdef{}{organizationux5fex1}{\label{organizationux5fex1}}
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"id"}\NormalTok{: }\StringTok{"15"}\NormalTok{,}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"SPD"}\NormalTok{,}
-    \DataTypeTok{"body"}\NormalTok{: }\StringTok{"1"}\NormalTok{,}
-    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
 \subsection{oparl:Meeting (Sitzung)}\label{oparlux5fmeeting}
 
 Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder
@@ -2626,7 +2552,7 @@ entsprechender Form referenziert. Verschiedene Dokumente (Einladung,
 Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert
 werden.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-5}
+\subsubsection{Eigenschaften}\label{eigenschaften-4}
 
 \begin{description}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2652,7 +2578,7 @@ Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung
 Datum und Uhrzeit der letzten Änderung
 \end{description}
 
-\subsubsection{Beziehungen}\label{beziehungen-3}
+\subsubsection{Beziehungen}\label{beziehungen-1}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2680,7 +2606,7 @@ Datum und Uhrzeit der letzten Änderung
   dann um nicht weiter spezifizierte Anlagen.
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-3}
+\subsubsection{Beispiel}\label{beispiel-1}
 
 \hyperdef{}{meetingux5fex1}{\label{meetingux5fex1}}
 \begin{Shaded}
@@ -2717,7 +2643,7 @@ bestimmter Beschlusstext beigefügt sein.
 
 Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-6}
+\subsubsection{Eigenschaften}\label{eigenschaften-5}
 
 \begin{description}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2750,7 +2676,7 @@ dann in der Praxis relevant, wenn der gefasste Beschluss (z.B. durch
 Datum und Uhrzeit der letzten Änderung
 \end{description}
 
-\paragraph{Anmerkungen}\label{anmerkungen-2}
+\paragraph{Anmerkungen}\label{anmerkungen-1}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2766,7 +2692,7 @@ Datum und Uhrzeit der letzten Änderung
   \texttt{result} zu diskutieren.
 \end{itemize}
 
-\subsubsection{Beziehungen}\label{beziehungen-4}
+\subsubsection{Beziehungen}\label{beziehungen-2}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2781,7 +2707,7 @@ Datum und Uhrzeit der letzten Änderung
   anwesend waren.
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-4}
+\subsubsection{Beispiel}\label{beispiel-2}
 
 \hyperdef{}{agendaitemux5fex1}{\label{agendaitemux5fex1}}
 \begin{Shaded}
@@ -2838,7 +2764,7 @@ Arten von Drucksachen gekennzeichnet:
   (mündliche oder schriftliche) Anfragen
 \end{itemize}
 
-\subsubsection{Eigenschaften}\label{eigenschaften-7}
+\subsubsection{Eigenschaften}\label{eigenschaften-6}
 
 \begin{description}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2856,7 +2782,7 @@ Art der Drucksache (Erläuterung siehe oben)
 Datum und Uhrzeit der letzten Änderung
 \end{description}
 
-\subsubsection{Beziehungen}\label{beziehungen-5}
+\subsubsection{Beziehungen}\label{beziehungen-3}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2897,7 +2823,7 @@ Datum und Uhrzeit der letzten Änderung
   versehen sein, die noch näher zu bestimmen ist (TODO).
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-5}
+\subsubsection{Beispiel}\label{beispiel-3}
 
 \hyperdef{}{paperux5fex1}{\label{paperux5fex1}}
 \begin{Shaded}
@@ -2990,7 +2916,7 @@ wurde. Umgekehrt KANN über die Eigenschaft
 \texttt{derivative\_documents} angezeigt werden, welche Ableitungen
 einer Datei existieren.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-8}
+\subsubsection{Eigenschaften}\label{eigenschaften-7}
 
 \begin{description}
 \item[\texttt{@id}]
@@ -3078,7 +3004,7 @@ Ein Beispiel:
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection{Eigenschaften}\label{eigenschaften-9}
+\subsubsection{Eigenschaften}\label{eigenschaften-8}
 
 \begin{description}
 \item[\texttt{@id}]
@@ -3149,7 +3075,7 @@ Koordinatenangaben im System WGS84\footnote{WGS84 steht für ``World
 angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen)
 für Längen- und Breitengrad.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-10}
+\subsubsection{Eigenschaften}\label{eigenschaften-9}
 
 \begin{description}
 \item[\texttt{description}]

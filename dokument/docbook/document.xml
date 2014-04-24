@@ -2630,6 +2630,14 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
   </para>
   <sect2 id="übergreifende-aspekte">
     <title>Übergreifende Aspekte</title>
+    <sect3 id="unicode-zeichenketten-als-standard">
+      <title>Unicode-Zeichenketten als Standard</title>
+      <para>
+        Wenn in der nachfolgenden Schema-Beschreibung nicht anders
+        angegeben, werden bei den Werten grundsätzlich
+        Unicode-Zeichenketten (Strings) erwartet.
+      </para>
+    </sect3>
     <sect3 id="null-werte">
       <title>null-Werte</title>
       <para>
@@ -2641,88 +2649,127 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         <literal>null</literal> besitzen.
       </para>
     </sect3>
-    <sect3 id="vererbung-der-lizenzbedingung">
-      <title>Vererbung der Lizenzbedingung</title>
-      <itemizedlist>
-        <listitem>
-          <para>
-            Jedes Objekt KANN die Eigenschaft &quot;license&quot;
-            besitzen.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Die genannte Lizenz bezieht sich auf das jeweilige Objekt
-            und auf untergeordnete Objekte, sofern diese keine
-            license-Eigenschaft besitzen.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Dazu muss die Vererbungshierarchie aufgezeigt werden.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Empfohlene Minimalvariante: Nur eine license-Angabe auf
-            Ebene von <literal>oparl:System</literal>.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Auf Ebene des <literal>oparl:Document</literal> bezieht sich
-            die Eigenschaft sowohl auf die Metadaten als auch auf das
-            Dokument selbst.
-          </para>
-        </listitem>
-      </itemizedlist>
-    </sect3>
-    <sect3 id="die-eigenschaften-created-und-last_modified">
-      <title>Die Eigenschaften &quot;created&quot; und
-      &quot;last_modified&quot;</title>
+    <sect3 id="datums--und-zeitangaben">
+      <title>Datums- und Zeitangaben</title>
       <para>
+        Für Datum und Zeit werden die in XML Schema festgelegten Typen
+        verwendet (was nicht bedeutet, dass in OParl XML verwendet
+        wird).
       </para>
-    </sect3>
-    <sect3 id="die-eigenschaften-name-und-name_long">
-      <title>Die Eigenschaften &quot;name&quot; und
-      &quot;name_long&quot;</title>
       <para>
+        Für ein Datum wird http://www.w3.org/TR/xmlschema-2/#date
+        verwendet und für eine Zeit
+        http://www.w3.org/TR/xmlschema-2/#dateTime. Dabei wird ein Datum
+        (ein Tag ohne Uhrzeit) ohne Zeitzone und ein Datum mit Zeit mit
+        Zeitzone angegeben, denn nur damit ist die Uhrzeit weltweit
+        eindeutig ohne zusätzlich auf den Ort einer Sitzung o.ä. Bezug
+        nehmen zu müssen.
       </para>
-    </sect3>
-    <sect3 id="die-eigenschaft-description">
-      <title>Die Eigenschaft &quot;description&quot;</title>
       <para>
+        Diese Spezifikationen stützen sich auf RFC 3339
+        (http://www.ietf.org/rfc/rfc3339.txt) und RFC 3339 wiederum auf
+        ISO 8601.
+      </para>
+      <para>
+        Im JSON-LD Kontext von OParl ist der Präfix 'xsd' so
+        spezifiziert, dass Datums- und Zeittyp durch 'xsd:date' bzw.
+        'xsd:dateTime' abgekürzt werden können.
       </para>
     </sect3>
   </sect2>
-  <sect2 id="attribute-mit-verwendung-in-mehreren-objekttypen">
-    <title>Attribute mit Verwendung in mehreren Objekttypen</title>
-    <para>
-      Für Datum und Zeit werden die in XML Schema festgelegten Typen
-      verwendet (was nicht bedeutet, dass in OParl XML verwendet wird).
-    </para>
-    <para>
-      Für ein Datum wird http://www.w3.org/TR/xmlschema-2/#date
-      verwendet und für eine Zeit
-      http://www.w3.org/TR/xmlschema-2/#dateTime. Dabei wird ein Datum
-      (ein Tag ohne Uhrzeit) ohne Zeitzone und ein Datum mit Zeit mit
-      Zeitzone angegeben, denn nur damit ist die Uhrzeit weltweit
-      eindeutig ohne zusätzlich auf den Ort einer Sitzung o.ä. Bezug
-      nehmen zu müssen.
-    </para>
-    <para>
-      Diese Spezifikationen stützen sich auf RFC 3339
-      (http://www.ietf.org/rfc/rfc3339.txt) und RFC 3339 wiederum auf
-      ISO 8601.
-    </para>
-    <para>
-      Im JSON-LD Kontext von OParl ist der Präfix 'xsd' so spezifiziert,
-      dass Datums- und Zeittyp durch 'xsd:date' bzw. 'xsd:dateTime'
-      abgekürzt werden können.
-    </para>
-    <para>
-      TODO: BEISPIELE
-    </para>
+  <sect2 id="eigenschaften-mit-verwendung-in-mehreren-objekttypen">
+    <title>Eigenschaften mit Verwendung in mehreren Objekttypen</title>
+    <sect3 id="id">
+      <title><literal>@id</literal></title>
+      <para>
+        URL des Objekts und eindeutiges Identifikationsmerkmal. Siehe
+        dazu auch &quot;Benannte Objekte&quot;. Dies ist ein ZWINGENDES
+        Merkmal für jedes Objekt.
+      </para>
+    </sect3>
+    <sect3 id="type">
+      <title><literal>@type</literal></title>
+      <para>
+        Objekttypenangabe des Objekts. ZWINGEND für jedes Objekt.
+      </para>
+    </sect3>
+    <sect3 id="name-und-namelong">
+      <title><literal>name</literal> und
+      <literal>nameLong</literal></title>
+      <para>
+        Beide Eigenschaften können bei vielen Objekttypen genutzt
+        werden, um den nutzerfreundlichen Namen des Objekts anzugeben.
+        Üblicherweise ist <literal>name</literal> eine
+        Pflichteigenschaft, während nameLong optional angegeben werden
+        kann. Dies ist dann zu empfehlen, wenn zu einem Namen eine kurze
+        bzw. kompakte und eine längere, aber weniger nutzerfreundliche
+        Variante existieren. Ein Beispiel wäre die Kurzform
+        &quot;CDU&quot; für den Parteinamen &quot;Christlich
+        Demokratische Union Deutschlands&quot;.
+      </para>
+      <para>
+        In keinem Fall sollten die Werte von <literal>name</literal> und
+        <literal>nameLong</literal> identische sein.
+      </para>
+    </sect3>
+    <sect3 id="license">
+      <title><literal>license</literal></title>
+      <para>
+        Die Eigenschaft <literal>license</literal> erlaubt es, am
+        jeweiligen Objekt die URL einer Lizenz anzugeben. Damit wird
+        gekennzeichnet, welche Lizenz der Veröffentlicher der Daten für
+        das jeweilige Objekt vergibt.
+      </para>
+      <para>
+        Eine besondere Bedeutung hat die Eigenschaft
+        <literal>license</literal>, wenn sie am
+        <literal>oparl:System</literal> Objekt vergeben wird. Die hier
+        angegebene Lizenzinformation sagt aus, dass alle Objekte dieses
+        Systems unter der angegebenen Lizenz veröffentlicht werden,
+        sofern dies nicht am jeweiligen Objekt mit einer anders
+        lautenden Lizenz-URL überschrieben wird. Daher wird dringend
+        EMPFOHLEN, die Lizenzinformation global am
+        <literal>oparl:System</literal> Objekt mitzuteilen und auf
+        redundante Informationen zu verzichten.
+      </para>
+      <para>
+        Auf Objekte vom Typ <literal>oparl:Document</literal> bezogen
+        bezieht sich die Lizenzinformation nicht nur auf die
+        strukturierten Metadaten, die über die API bezogen werden,
+        sondern auch auf den eigentlichen Inhalt der Dateien, die über
+        die angebotene(n) URL(s) abgerufen werden können.
+      </para>
+    </sect3>
+    <sect3 id="created">
+      <title><literal>created</literal></title>
+      <para>
+        Datum und Uhrzeit der Erstellung des jeweiligen Objekts.
+      </para>
+    </sect3>
+    <sect3 id="lastmodified">
+      <title><literal>lastModified</literal></title>
+      <para>
+        Diese Eigenschaft kennzeichnet stets Datum und Uhrzeit der
+        letzten Änderung des jeweiligen Objekts.
+      </para>
+      <para>
+        In Einzelfällen unterliegt die Frage, was als Änderung eines
+        Objekts bezeichnet werden kann, einem gewissen
+        Interpretationsspielraum. Beispielsweise ist zu entscheiden, ob
+        eine Gruppierung (<literal>oparl:Organization</literal>) als
+        geändert gilt, wenn ein neues Mitglied hinzugefügt wurde.
+      </para>
+      <para>
+        Diese Frage sollte aus Sicht des OParl-Clients beantwortet
+        werden. Wenn beispielsweise eine Gruppierung vom Server
+        grundsätzlich mit der Liste der URLs aller Mitglieder ausgegeben
+        wird, umfasst das Objekt aus Sicht des Clients eben auch die
+        Liste der Mitglieder. In diesem Fall wäre eine Veränderung der
+        Liste der Mitglieder als Änderung des Objekts zu verstehen, die
+        im <literal>lastModified</literal> Zeitstempel wiederspiegeln
+        sollte.
+      </para>
+    </sect3>
   </sect2>
   <sect2 id="oparl_system">
     <title>oparl:System (System)</title>

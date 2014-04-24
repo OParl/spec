@@ -2069,6 +2069,13 @@ einander stehen.
 
 \subsection{Übergreifende Aspekte}\label{uxfcbergreifende-aspekte}
 
+\subsubsection{Unicode-Zeichenketten als
+Standard}\label{unicode-zeichenketten-als-standard}
+
+Wenn in der nachfolgenden Schema-Beschreibung nicht anders angegeben,
+werden bei den Werten grundsätzlich Unicode-Zeichenketten (Strings)
+erwartet.
+
 \subsubsection{null-Werte}\label{null-werte}
 
 JSON erlaubt es grundsätzlich, dass Eigenschaften den Wert \texttt{null}
@@ -2077,38 +2084,7 @@ Eigenschaften der Fall sein, die als OPTIONAL oder EMPFOHLEN
 gekennzeichnet sind. ZWINGENDE Eigenschaften müssen einen Wert ungleich
 \texttt{null} besitzen.
 
-\subsubsection{Vererbung der
-Lizenzbedingung}\label{vererbung-der-lizenzbedingung}
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Jedes Objekt KANN die Eigenschaft ``license'' besitzen.
-\item
-  Die genannte Lizenz bezieht sich auf das jeweilige Objekt und auf
-  untergeordnete Objekte, sofern diese keine license-Eigenschaft
-  besitzen.
-\item
-  Dazu muss die Vererbungshierarchie aufgezeigt werden.
-\item
-  Empfohlene Minimalvariante: Nur eine license-Angabe auf Ebene von
-  \texttt{oparl:System}.
-\item
-  Auf Ebene des \texttt{oparl:Document} bezieht sich die Eigenschaft
-  sowohl auf die Metadaten als auch auf das Dokument selbst.
-\end{itemize}
-
-\subsubsection{Die Eigenschaften ``created'' und
-``last\_modified''}\label{die-eigenschaften-created-und-lastux5fmodified}
-
-\subsubsection{Die Eigenschaften ``name'' und
-``name\_long''}\label{die-eigenschaften-name-und-nameux5flong}
-
-\subsubsection{Die Eigenschaft
-``description''}\label{die-eigenschaft-description}
-
-\subsection{Attribute mit Verwendung in mehreren
-Objekttypen}\label{attribute-mit-verwendung-in-mehreren-objekttypen}
+\subsubsection{Datums- und Zeitangaben}\label{datums--und-zeitangaben}
 
 Für Datum und Zeit werden die in XML Schema festgelegten Typen verwendet
 (was nicht bedeutet, dass in OParl XML verwendet wird).
@@ -2128,7 +2104,75 @@ Im JSON-LD Kontext von OParl ist der Präfix `xsd' so spezifiziert, dass
 Datums- und Zeittyp durch `xsd:date' bzw. `xsd:dateTime' abgekürzt
 werden können.
 
-TODO: BEISPIELE
+\subsection{Eigenschaften mit Verwendung in mehreren
+Objekttypen}\label{eigenschaften-mit-verwendung-in-mehreren-objekttypen}
+
+\subsubsection{\texttt{@id}}\label{id}
+
+URL des Objekts und eindeutiges Identifikationsmerkmal. Siehe dazu auch
+``Benannte Objekte''. Dies ist ein ZWINGENDES Merkmal für jedes Objekt.
+
+\subsubsection{\texttt{@type}}\label{type}
+
+Objekttypenangabe des Objekts. ZWINGEND für jedes Objekt.
+
+\subsubsection{\texttt{name} und
+\texttt{nameLong}}\label{name-und-namelong}
+
+Beide Eigenschaften können bei vielen Objekttypen genutzt werden, um den
+nutzerfreundlichen Namen des Objekts anzugeben. Üblicherweise ist
+\texttt{name} eine Pflichteigenschaft, während nameLong optional
+angegeben werden kann. Dies ist dann zu empfehlen, wenn zu einem Namen
+eine kurze bzw. kompakte und eine längere, aber weniger
+nutzerfreundliche Variante existieren. Ein Beispiel wäre die Kurzform
+``CDU'' für den Parteinamen ``Christlich Demokratische Union
+Deutschlands''.
+
+In keinem Fall sollten die Werte von \texttt{name} und \texttt{nameLong}
+identische sein.
+
+\subsubsection{\texttt{license}}\label{license}
+
+Die Eigenschaft \texttt{license} erlaubt es, am jeweiligen Objekt die
+URL einer Lizenz anzugeben. Damit wird gekennzeichnet, welche Lizenz der
+Veröffentlicher der Daten für das jeweilige Objekt vergibt.
+
+Eine besondere Bedeutung hat die Eigenschaft \texttt{license}, wenn sie
+am \texttt{oparl:System} Objekt vergeben wird. Die hier angegebene
+Lizenzinformation sagt aus, dass alle Objekte dieses Systems unter der
+angegebenen Lizenz veröffentlicht werden, sofern dies nicht am
+jeweiligen Objekt mit einer anders lautenden Lizenz-URL überschrieben
+wird. Daher wird dringend EMPFOHLEN, die Lizenzinformation global am
+\texttt{oparl:System} Objekt mitzuteilen und auf redundante
+Informationen zu verzichten.
+
+Auf Objekte vom Typ \texttt{oparl:Document} bezogen bezieht sich die
+Lizenzinformation nicht nur auf die strukturierten Metadaten, die über
+die API bezogen werden, sondern auch auf den eigentlichen Inhalt der
+Dateien, die über die angebotene(n) URL(s) abgerufen werden können.
+
+\subsubsection{\texttt{created}}\label{created}
+
+Datum und Uhrzeit der Erstellung des jeweiligen Objekts.
+
+\subsubsection{\texttt{lastModified}}\label{lastmodified}
+
+Diese Eigenschaft kennzeichnet stets Datum und Uhrzeit der letzten
+Änderung des jeweiligen Objekts.
+
+In Einzelfällen unterliegt die Frage, was als Änderung eines Objekts
+bezeichnet werden kann, einem gewissen Interpretationsspielraum.
+Beispielsweise ist zu entscheiden, ob eine Gruppierung
+(\texttt{oparl:Organization}) als geändert gilt, wenn ein neues Mitglied
+hinzugefügt wurde.
+
+Diese Frage sollte aus Sicht des OParl-Clients beantwortet werden. Wenn
+beispielsweise eine Gruppierung vom Server grundsätzlich mit der Liste
+der URLs aller Mitglieder ausgegeben wird, umfasst das Objekt aus Sicht
+des Clients eben auch die Liste der Mitglieder. In diesem Fall wäre eine
+Veränderung der Liste der Mitglieder als Änderung des Objekts zu
+verstehen, die im \texttt{lastModified} Zeitstempel wiederspiegeln
+sollte.
 
 \subsection{oparl:System (System)}\label{oparlux5fsystem}
 

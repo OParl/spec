@@ -658,25 +658,33 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <h1 id="schema"><span class="header-section-number">5</span> Schema</h1>
 <p>Dieses Kapitel beschreibt das Schema von OParl. Das Schema bildet das Datzenmodell der OParl-Architektur ab. Es definiert, welche Objekttypen über eine OParl-API abgerufen werden können und welche Eigenschaften diese Objekttypen haben dürfen und müssen. Darüber hinaus ist im Schema auch festgelegt, in welcher Beziehung verschiedene Objekttypen zu einander stehen.</p>
 <h2 id="übergreifende-aspekte"><span class="header-section-number">5.1</span> Übergreifende Aspekte</h2>
-<h3 id="null-werte"><span class="header-section-number">5.1.1</span> null-Werte</h3>
+<h3 id="unicode-zeichenketten-als-standard"><span class="header-section-number">5.1.1</span> Unicode-Zeichenketten als Standard</h3>
+<p>Wenn in der nachfolgenden Schema-Beschreibung nicht anders angegeben, werden bei den Werten grundsätzlich Unicode-Zeichenketten (Strings) erwartet.</p>
+<h3 id="null-werte"><span class="header-section-number">5.1.2</span> null-Werte</h3>
 <p>JSON erlaubt es grundsätzlich, dass Eigenschaften den Wert <code>null</code> haben können. Im Rahmen dieser Spezifikation DARF das jedoch nur bei Eigenschaften der Fall sein, die als OPTIONAL oder EMPFOHLEN gekennzeichnet sind. ZWINGENDE Eigenschaften müssen einen Wert ungleich <code>null</code> besitzen.</p>
-<h3 id="vererbung-der-lizenzbedingung"><span class="header-section-number">5.1.2</span> Vererbung der Lizenzbedingung</h3>
-<ul>
-<li>Jedes Objekt KANN die Eigenschaft &quot;license&quot; besitzen.</li>
-<li>Die genannte Lizenz bezieht sich auf das jeweilige Objekt und auf untergeordnete Objekte, sofern diese keine license-Eigenschaft besitzen.</li>
-<li>Dazu muss die Vererbungshierarchie aufgezeigt werden.</li>
-<li>Empfohlene Minimalvariante: Nur eine license-Angabe auf Ebene von <code>oparl:System</code>.</li>
-<li>Auf Ebene des <code>oparl:Document</code> bezieht sich die Eigenschaft sowohl auf die Metadaten als auch auf das Dokument selbst.</li>
-</ul>
-<h3 id="die-eigenschaften-created-und-last_modified"><span class="header-section-number">5.1.3</span> Die Eigenschaften &quot;created&quot; und &quot;last_modified&quot;</h3>
-<h3 id="die-eigenschaften-name-und-name_long"><span class="header-section-number">5.1.4</span> Die Eigenschaften &quot;name&quot; und &quot;name_long&quot;</h3>
-<h3 id="die-eigenschaft-description"><span class="header-section-number">5.1.5</span> Die Eigenschaft &quot;description&quot;</h3>
-<h2 id="attribute-mit-verwendung-in-mehreren-objekttypen"><span class="header-section-number">5.2</span> Attribute mit Verwendung in mehreren Objekttypen</h2>
+<h3 id="datums--und-zeitangaben"><span class="header-section-number">5.1.3</span> Datums- und Zeitangaben</h3>
 <p>Für Datum und Zeit werden die in XML Schema festgelegten Typen verwendet (was nicht bedeutet, dass in OParl XML verwendet wird).</p>
 <p>Für ein Datum wird http://www.w3.org/TR/xmlschema-2/#date verwendet und für eine Zeit http://www.w3.org/TR/xmlschema-2/#dateTime. Dabei wird ein Datum (ein Tag ohne Uhrzeit) ohne Zeitzone und ein Datum mit Zeit mit Zeitzone angegeben, denn nur damit ist die Uhrzeit weltweit eindeutig ohne zusätzlich auf den Ort einer Sitzung o.ä. Bezug nehmen zu müssen.</p>
 <p>Diese Spezifikationen stützen sich auf RFC 3339 (http://www.ietf.org/rfc/rfc3339.txt) und RFC 3339 wiederum auf ISO 8601.</p>
 <p>Im JSON-LD Kontext von OParl ist der Präfix 'xsd' so spezifiziert, dass Datums- und Zeittyp durch 'xsd:date' bzw. 'xsd:dateTime' abgekürzt werden können.</p>
-<p>TODO: BEISPIELE</p>
+<h2 id="eigenschaften-mit-verwendung-in-mehreren-objekttypen"><span class="header-section-number">5.2</span> Eigenschaften mit Verwendung in mehreren Objekttypen</h2>
+<h3 id="id"><span class="header-section-number">5.2.1</span> <code>@id</code></h3>
+<p>URL des Objekts und eindeutiges Identifikationsmerkmal. Siehe dazu auch &quot;Benannte Objekte&quot;. Dies ist ein ZWINGENDES Merkmal für jedes Objekt.</p>
+<h3 id="type"><span class="header-section-number">5.2.2</span> <code>@type</code></h3>
+<p>Objekttypenangabe des Objekts. ZWINGEND für jedes Objekt.</p>
+<h3 id="name-und-namelong"><span class="header-section-number">5.2.3</span> <code>name</code> und <code>nameLong</code></h3>
+<p>Beide Eigenschaften können bei vielen Objekttypen genutzt werden, um den nutzerfreundlichen Namen des Objekts anzugeben. Üblicherweise ist <code>name</code> eine Pflichteigenschaft, während nameLong optional angegeben werden kann. Dies ist dann zu empfehlen, wenn zu einem Namen eine kurze bzw. kompakte und eine längere, aber weniger nutzerfreundliche Variante existieren. Ein Beispiel wäre die Kurzform &quot;CDU&quot; für den Parteinamen &quot;Christlich Demokratische Union Deutschlands&quot;.</p>
+<p>In keinem Fall sollten die Werte von <code>name</code> und <code>nameLong</code> identische sein.</p>
+<h3 id="license"><span class="header-section-number">5.2.4</span> <code>license</code></h3>
+<p>Die Eigenschaft <code>license</code> erlaubt es, am jeweiligen Objekt die URL einer Lizenz anzugeben. Damit wird gekennzeichnet, welche Lizenz der Veröffentlicher der Daten für das jeweilige Objekt vergibt.</p>
+<p>Eine besondere Bedeutung hat die Eigenschaft <code>license</code>, wenn sie am <code>oparl:System</code> Objekt vergeben wird. Die hier angegebene Lizenzinformation sagt aus, dass alle Objekte dieses Systems unter der angegebenen Lizenz veröffentlicht werden, sofern dies nicht am jeweiligen Objekt mit einer anders lautenden Lizenz-URL überschrieben wird. Daher wird dringend EMPFOHLEN, die Lizenzinformation global am <code>oparl:System</code> Objekt mitzuteilen und auf redundante Informationen zu verzichten.</p>
+<p>Auf Objekte vom Typ <code>oparl:Document</code> bezogen bezieht sich die Lizenzinformation nicht nur auf die strukturierten Metadaten, die über die API bezogen werden, sondern auch auf den eigentlichen Inhalt der Dateien, die über die angebotene(n) URL(s) abgerufen werden können.</p>
+<h3 id="created"><span class="header-section-number">5.2.5</span> <code>created</code></h3>
+<p>Datum und Uhrzeit der Erstellung des jeweiligen Objekts.</p>
+<h3 id="lastmodified"><span class="header-section-number">5.2.6</span> <code>lastModified</code></h3>
+<p>Diese Eigenschaft kennzeichnet stets Datum und Uhrzeit der letzten Änderung des jeweiligen Objekts.</p>
+<p>In Einzelfällen unterliegt die Frage, was als Änderung eines Objekts bezeichnet werden kann, einem gewissen Interpretationsspielraum. Beispielsweise ist zu entscheiden, ob eine Gruppierung (<code>oparl:Organization</code>) als geändert gilt, wenn ein neues Mitglied hinzugefügt wurde.</p>
+<p>Diese Frage sollte aus Sicht des OParl-Clients beantwortet werden. Wenn beispielsweise eine Gruppierung vom Server grundsätzlich mit der Liste der URLs aller Mitglieder ausgegeben wird, umfasst das Objekt aus Sicht des Clients eben auch die Liste der Mitglieder. In diesem Fall wäre eine Veränderung der Liste der Mitglieder als Änderung des Objekts zu verstehen, die im <code>lastModified</code> Zeitstempel wiederspiegeln sollte.</p>
 <h2 id="oparl_system"><span class="header-section-number">5.3</span> oparl:System (System)</h2>
 <p>Der Objekttyp <code>oparl:System</code> bildet grundlegende Informationen zum parlamentarischen Informationssystem ab. Das Objekt repräsentiert das technische System, unabhängig von der Frage, welche Körperschaften auf diesem System vertreten sind.</p>
 <p>Ein Beispiel:</p>

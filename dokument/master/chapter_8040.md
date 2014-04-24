@@ -72,7 +72,7 @@ Parlament an.
 `sameAs`
 :   Dient der Angabe beliebig vieler zusätzlicher URLs, die die Körperschaft
     repräsentieren. Diese Eigenschaft ist EMPFOHLEN. Hier können Beispielsweise,
-    sofern vorhanden, der entpsrechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>],
+    sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>],
     der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden.
 
 `contactEmail`

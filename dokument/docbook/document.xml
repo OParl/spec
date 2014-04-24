@@ -3640,7 +3640,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         &quot;http://oparl.beispielris.de/agendaitems/1047&quot;,
         &quot;http://oparl.beispielris.de/agendaitems/1048&quot;
     ],
-    &quot;created&quot;: &quot;2012-01-06T12:01:00+01:00&quot;
+    &quot;created&quot;: &quot;2012-01-06T12:01:00+01:00&quot;,
     &quot;lastModified&quot;: &quot;2012-01-08T14:05:27+01:00&quot;
 }
 </programlisting>

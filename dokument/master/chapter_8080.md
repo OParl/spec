@@ -45,7 +45,7 @@ Ein Beispiel:
         "http://oparl.beispielris.de/agendaitems/1047",
         "http://oparl.beispielris.de/agendaitems/1048"
     ],
-    "created": "2012-01-06T12:01:00+01:00"
+    "created": "2012-01-06T12:01:00+01:00",
     "lastModified": "2012-01-08T14:05:27+01:00"
 }
 ~~~~~

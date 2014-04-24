@@ -1,52 +1,52 @@
 oparl:Organization (Gruppierung)  {#oparl_organization}
 --------------------------------
 
-TODO: Inhalte aus chapter_8070.md hier integrieren und damit
-das ehemalige Gremium und die Organisation zusammen führen.
+Dieser Objekttyp dient dazu, Gruppierungen von Personen abzubilden,
+die in der parlamentarischen Arbeit eine Rolle spielen. Dazu zählen
+in der Praxis insbesondee Fraktionen und Gremien.
 
-Das Gremium ist ein Personenkreis, üblicherweise von gewählten und/oder 
-ernannten Mitgliedern. Beispiele hierfür sind der Stadtrat, Kreisrat, 
-Gemeinderat, Ausschüsse und Bezirksvertretungen. Gremien halten Sitzungen 
-ab, zu denen die Gremien-Mitglieder eingeladen werden.
+Ein Beispiel:
 
-
-### Eigenschaften ###
-
-Schlüssel (`id`)
-:   Zur eindeutigen Identifizierung des Gremiums im Kontext einer bestimmten 
-    Körperschaft. In der Praxis kommen sowohl numerische IDs als auch 
-    Namenskürzel (Beispiel: "STA" für den Stadtentwicklungsausschuss) vor. 
-    Beides sollte hier Verwendung finden können.
-Name (`name`)
-:   Der Name des Gremiums. Beispiele: "Rat", "Hauptausschuss", 
-    "Bezirksvertretung 1 (Innenstadt)"
-Kurzname (`short_name`)
-:   _Optional_. Eine zur Anzeige bestimmte, kürzere Form des Namens.
-Zuletzt geändert (`last_modified`)
-:   Datum und Uhrzeit der letzten Änderung
-Unterorganisation von (`subOrganizationOf`)
-:   _Optional_. Die übergeordnete Organisation (kann bei Unterausschüssen auch ein Ausschuss sein).
-
-### Beziehungen ###
-
-* Objekte vom Typ `oparl:Person` referenzieren auf Gremien, um die 
-Mitgliedschaft/Zugehörigkeit einer Person im/zum Gremium zu kennzeichnen.
-Diese Beziehung ist datiert. Das bedeutet, sie hat einen Anfangszeitpunkt und
-ggf. einen Endzeitpunkt.
-* Objekte vom Typ "Drucksache" verweisen auf Gremien. Beispielsweise wird 
-eine Anfrage oder ein Antrag dem Rat und/oder einer bestimmten Bezirksvertretung 
-zugeordnet. Details zu dieser Beziehung werden unter "Drucksache" erläutert.
-* Das Gremium verweist auf die Körperschaft, zu der das Gremium gehört.
-
-### Beispiel ###
-
-~~~~~  {#committee_ex1 .json}
+~~~~~  {#organization_ex1 .json}
 {
-    "id": "7",
+    "@type": "http://oparl.org/schema/1.0/Organization",
+    "@id": "http://oparl.beispielris.de/organizations/34",
+    "body": "http://oparl.beispielris.de/bodies/0",
     "name": "Finanzausschuss",
-    "short_name": "FA",
-    "body": "1",
+    "nameLong": "Finanzausschuss des Rates der Stadt Köln",
+    "members": [
+        "http://oparl.beispielris.de/people/27",
+        "http://oparl.beispielris.de/people/48",
+        "http://oparl.beispielris.de/people/57",
+    ],
     "last_modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
+
+### Eigenschaften ###
+
+`body`
+:   URL der Körperschaft, zu der diese Gruppierung gehört. Die
+    Eigenschaft ist ZWINGEND.
+
+`name`
+:   Der Name der Gruppierung. Die Eigenschaft ist ZWINGEND.
+
+`nameLong`
+:   Langform des Namens der Gruppierung. OPTIONAL.
+
+`members`
+:   Entweder die vollständige Liste der URLs aller Mitglieder
+    dieser Organisation (Objekte vom Typ `[oparl:Person](#oparl_person)`)
+    oder URL zum Abruf dieser Liste.
+
+`subOrganizationOf`
+:   Ggf. URL der übergeordneten Organisation. Diese Eigenschaft ist
+    OPTIONAL.
+
+`created`
+:   Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
+
+`lastModified`
+:   Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.
 

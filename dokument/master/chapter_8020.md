@@ -11,6 +11,15 @@ Diese Spezifikationen stützen sich auf RFC 3339 (http://www.ietf.org/rfc/rfc333
 
 Im JSON-LD Kontext von OParl ist der Präfix 'xsd' so spezifiziert, dass Datums- und Zeittyp durch 'xsd:date' bzw. 'xsd:dateTime' abgekürzt werden können.
 
+### `@id`
+
+URL des Objekts und eindeutiges Identifikationsmerkmal. Siehe dazu auch "Benannte Objekte".
+Dies ist ein ZWINGENDES Merkmal für jedes Objekt.
+
+### `@type`
+
+Objekttypenangabe des Objekts. ZWINGEND für jedes Objekt.
+
 ### `license`
 
 Die Eigenschaft `license` erlaubt es, am jeweiligen Objekt die URL einer Lizenz

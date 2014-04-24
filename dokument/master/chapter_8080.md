@@ -58,7 +58,7 @@ Ein Beispiel:
     KANN es der tatsächliche Startzeitpunkt sein.
     Diese Eigenschaft ist ZWINGEND.
 
-`end`)
+`end`
 :   Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen 
     Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen
     KANN es der tatsächliche Endzeitpunkt sein.

@@ -39,6 +39,8 @@ Ein Beispiel:
 :   Entweder die vollständige Liste der URLs aller Mitglieder
     dieser Organisation (Objekte vom Typ `[oparl:Person](#oparl_person)`)
     oder URL zum Abruf dieser Liste.
+    Diese Eigenschaft ist ZWINGEND. Sollte die Gruppierung keine
+    Mitglieder haben, enthält die Liste keine Einträge.
 
 `subOrganizationOf`
 :   Ggf. URL der übergeordneten Organisation. Diese Eigenschaft ist

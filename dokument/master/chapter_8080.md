@@ -35,7 +35,7 @@ Ein Beispiel:
     "invitation": "http://oparl.beispielris.de/documents/586",
     "resultsProtocol": "http://oparl.beispielris.de/documents/628",
     "verbatimProtocol": "http://oparl.beispielris.de/documents/691",
-    "attachments": [
+    "auxiliaryDocuments": [
         "http://oparl.beispielris.de/documents/588",
         "http://oparl.beispielris.de/documents/589"
     ],
@@ -94,7 +94,7 @@ Ein Beispiel:
     Eigenschaft ist EMPFOHLEN. Sie kann selbstverständlich erst nach
     dem Stattfinden der Sitzung vorkommen.
 
-`attachments`
+`auxiliaryDocuments`
 :   Liste von URLs zu Dokumentenanhängen (oparl:Document) zur Sitzung,
     oder alternativ die URL zum Abruf einer solchen Liste.
     Die Eigenschaft ist OPTIONAL.

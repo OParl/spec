@@ -2383,8 +2383,8 @@ Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
 Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.
 \end{description}
 
-\subsection{oparl:Organization
-(Gruppierung)}\label{oparlux5forganization}
+\hyperdef{}{oparlux5forganization}{\subsection{oparl:Organization
+(Gruppierung)}\label{oparlux5forganization}}
 
 Dieser Objekttyp dient dazu, Gruppierungen von Personen abzubilden, die
 in der parlamentarischen Arbeit eine Rolle spielen. Dazu zählen in der
@@ -2425,7 +2425,8 @@ Langform des Namens der Gruppierung. OPTIONAL.
 Entweder die vollständige Liste der URLs aller Mitglieder dieser
 Organisation (Objekte vom Typ
 \texttt{{[}oparl:Person{]}(\#oparl\_person)}) oder URL zum Abruf dieser
-Liste.
+Liste. Diese Eigenschaft ist ZWINGEND. Sollte die Gruppierung keine
+Mitglieder haben, enthält die Liste keine Einträge.
 \item[\texttt{subOrganizationOf}]
 Ggf. URL der übergeordneten Organisation. Diese Eigenschaft ist
 OPTIONAL.
@@ -2437,110 +2438,79 @@ Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.
 
 \subsection{oparl:Person (Person)}\label{oparlux5fperson}
 
-Jede natürliche Person, die Mitglied eines Gremiums ist, ist als
-\texttt{oparl:Person} im Datenmodell eindeutig identifizierbar.
+Jede natürliche Person, die in der parlamentarischen Arbeit tätig ist
+und insbesondere Mitglied in einer Gruppierung
+(\hyperref[oparlux5forganization]{oparl:Organization}), wird mit einem
+Objekt vom Typ \texttt{oparl:Person} abgebildet.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-3}
-
-\begin{description}
-\itemsep1pt\parskip0pt\parsep0pt
-\item[Schlüssel (\texttt{id})]
-Zur eindeutigen Identifizierung sollte jede Person eine Kennung
-besitzen, die keinen Änderungen unterworfen ist und aus diesem Grund
-nicht mit dem Namen in Verbindung stehen sollte. Viele RIS nutzen rein
-numerische Kennungen.
-\item[Vorname (\texttt{first\_name})]
-Der Vorname der Person.
-\item[Nachname (\texttt{last\_name})]
-Der Nachname der Person.
-\item[Titel (\texttt{academic\_degree})]
-\emph{Optional}. Akademische Titel wie ``Dr.'' und ``Prof.~Dr.''. Aber
-auch akademische Grade wie ``Dipl. Inform.'' (die rechtlich nicht Teil
-des Namens sind) sind hier zugelassen.
-\item[Geschlecht (\texttt{gender})]
-\emph{Optional}. Weiblich (Wert \texttt{Female}), männlich (Wert
-\texttt{Male}), anderes (Wert \texttt{Other}), unbekannt (Wert
-\texttt{Unknown})
-\item[Beruf (\texttt{profession})]
-\emph{Optional}. Z.B. ``Rechtsanwalt''
-\item[E-Mail-Adresse (\texttt{email})]
-\emph{Optional}.
-\item[Telefon (\texttt{phone})]
-\emph{Optional}.
-\item[Fax (\texttt{fax})]
-\emph{Optional}.
-\item[Anschrift (\texttt{address})]
-\emph{Optional}. Straße und Hausnummer, Postleitzahl und Ort
-\item[Zuletzt geändert (\texttt{last\_modified})]
-Datum und Uhrzeit der letzten Änderung
-\end{description}
-
-\paragraph{Anmerkungen}\label{anmerkungen}
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Das System von Euskirchen scheint Vor- und Nachname (evtl. einschl.
-  Titel) in einem gemeinsamen Feld ``Name'' zu führen. Ob das System
-  hier technisch differenziert, ist unklar. Falls einzelne Systeme den
-  angezeigten Namen nur als ganzes speichern, sollte dies für den
-  Standard übernommen werden, da es für die meisten Anwendungen
-  ausreichen sollte.
-\item
-  Das System PROVOX unterscheidet zwischen privaten und geschäftlichen
-  Anschriften.
-\end{itemize}
-
-\subsubsection{Beziehungen}\label{beziehungen}
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Objekte vom Typ \texttt{oparl:Person} können einer Organisation, z.B.
-  einer Fraktion, zugeornet werden. Diese Beziehung ist datiert.
-\item
-  Objekte vom Typ \texttt{oparl:Person} können einem oder mehreren
-  Gremien zugewiesen werden, um die Mitgliedschaft in diesem Gremium
-  darzustellen. Diese Beziehungen sind ebenfalls datiert.
-\end{itemize}
-
-\subsubsection{Beispiel}\label{beispiel}
+Ein Beispiel:
 
 \hyperdef{}{personux5fex1}{\label{personux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
-    \DataTypeTok{"id"}\NormalTok{: }\StringTok{"1000"}\NormalTok{,}
-    \DataTypeTok{"first_name"}\NormalTok{: }\StringTok{"Max"}\NormalTok{,}
-    \DataTypeTok{"last_name"}\NormalTok{: }\StringTok{"Mustermann"}\NormalTok{,}
-    \DataTypeTok{"academic_degree"}\NormalTok{: }\StringTok{"Dr. oec. troph"}\NormalTok{,}
-    \DataTypeTok{"sex"}\NormalTok{: }\StringTok{"M"}\NormalTok{,}
-    \DataTypeTok{"profession"}\NormalTok{: }\StringTok{"Rechtsanwalt"}\NormalTok{,}
-    \DataTypeTok{"email"}\NormalTok{: }\StringTok{"max@mustermann.de"}\NormalTok{,}
-    \DataTypeTok{"phone"}\NormalTok{: }\StringTok{"+4977777"}\NormalTok{,}
-    \DataTypeTok{"fax"}\NormalTok{: }\StringTok{"+4988888"}\NormalTok{,}
-    \DataTypeTok{"address"}\NormalTok{: }\StringTok{"Musterstraße 5, 11111 Musterort"}\NormalTok{,}
-    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}\NormalTok{,}
-    \DataTypeTok{"organisations"}\NormalTok{: [}
-        \NormalTok{\{}
-            \DataTypeTok{"id"}\NormalTok{: }\StringTok{"2000"}\NormalTok{,}
-            \DataTypeTok{"start"}\NormalTok{: }\StringTok{"2011-03-01"}\NormalTok{,}
-            \DataTypeTok{"end"}\NormalTok{: }\StringTok{"2013-02-28"}
-        \NormalTok{\},}
-        \NormalTok{\{}
-            \DataTypeTok{"id"}\NormalTok{: }\StringTok{"2001"}\NormalTok{,}
-            \DataTypeTok{"start"}\NormalTok{: }\StringTok{"2013-03-01"}
-        \NormalTok{\}}
+    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/Person"}\NormalTok{,}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/people/29"}\NormalTok{,}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Prof. Dr. Max Mustermann"}\NormalTok{,}
+    \DataTypeTok{"familyName"}\NormalTok{: }\StringTok{"Mustermann"}\NormalTok{,}
+    \DataTypeTok{"givenName"}\NormalTok{: }\StringTok{"Max"}\NormalTok{,}
+    \DataTypeTok{"title"}\NormalTok{: }\StringTok{"Prof. Dr."}\NormalTok{,}
+    \DataTypeTok{"gender"}\NormalTok{: }\StringTok{"male"}\NormalTok{,}
+    \DataTypeTok{"email"}\NormalTok{: }\StringTok{"mailto:max@mustermann.de"}\NormalTok{,}
+    \DataTypeTok{"phone"}\NormalTok{: }\StringTok{"tel:+493012345678"}\NormalTok{,}
+    \DataTypeTok{"streetAddress"}\NormalTok{: }\StringTok{"Musterstraße 5"}\NormalTok{,}
+    \DataTypeTok{"postalCode"}\NormalTok{: }\StringTok{"11111"}\NormalTok{,}
+    \DataTypeTok{"locality"}\NormalTok{: }\StringTok{"Musterort"}\NormalTok{,}
+    \DataTypeTok{"organizations"}\NormalTok{: [}
+        \StringTok{"http://oparl.beispielris.de/organizations/11"}\NormalTok{,}
+        \StringTok{"http://oparl.beispielris.de/organizations/34"}
     \NormalTok{],}
-    \DataTypeTok{"committees"}\NormalTok{: [}
-        \NormalTok{\{}
-            \DataTypeTok{"id"}\NormalTok{: }\StringTok{"7"}\NormalTok{,}
-            \DataTypeTok{"start"}\NormalTok{: }\StringTok{"2013-01-01"}
-        \NormalTok{\}}
-    \NormalTok{]}
+    \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2011-11-11T11:11:00+01:00"}\NormalTok{,}
+    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}\NormalTok{,}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
+
+\subsubsection{Eigenschaften}\label{eigenschaften-3}
+
+\begin{description}
+\item[\texttt{name}]
+Der Vollständige Name der Person, üblicherweise mit Titel und Vorname.
+Diese Eigenschaft ist ZWINGEND.
+\item[\texttt{familyName}]
+Familienname bzw. Nachname. Diese Eigenschaft ist OPTIONAL.
+\item[\texttt{givenName}]
+Vorname bzw. Taufname. Diese Eigenschaft ist OPTIONAL.
+\item[\texttt{title}]
+Akademische(r) Titel. Diese Eigenschaft ist OPTIONAL.
+\item[\texttt{gender}]
+Geschlecht. Üblicherweise \texttt{male} oder \texttt{female}. Diese
+Eigenschaft ist OPTIONAL.
+\item[\texttt{phone}]
+Telefonnummer mit \texttt{tel:} Schema. Diese Eigenschaft ist OPTIONAL.
+\item[\texttt{email}]
+E-Mail-Adresse mit \texttt{mailto:} Schema. Diese Eigenschaft ist
+OPTIONAL.
+\item[\texttt{streetAddress}]
+Straße und Hausnummer der Kontakt-Anschrift der Person. Diese
+Eigenschaft ist OPTIONAL.
+\item[\texttt{postalCode}]
+Postleitzahl der Kontakt-Anschrift der Person. Diese Eigenschaft ist
+OPTIONAL.
+\item[\texttt{locality}]
+Ortsangabe der Kontakt-Anschrift der Person. Diese Eigenschaft ist
+OPTIONAL.
+\item[\texttt{organizations}]
+Liste der URLs der Gruppierungen (Objekte vom Typ
+\texttt{oparl:Organization}), in der die Person aktuell Mitglied ist,
+oder alternativ die URL zum Abruf der Liste. Diese Eigenschaft ist
+ZWINGEND. Sollte die Person Mitglied in keiner Gruppierung sein, enthält
+die Liste keine Einträge.
+\item[\texttt{created}]
+Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
+\item[\texttt{lastModified}]
+Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.
+\end{description}
 
 \subsection{oparl:Meeting (Sitzung)}\label{oparlux5fmeeting}
 
@@ -2578,7 +2548,7 @@ Datum und ggf. Uhrzeit des Anfangszeitpunkts der Sitzung
 Datum und Uhrzeit der letzten Änderung
 \end{description}
 
-\subsubsection{Beziehungen}\label{beziehungen-1}
+\subsubsection{Beziehungen}\label{beziehungen}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2606,7 +2576,7 @@ Datum und Uhrzeit der letzten Änderung
   dann um nicht weiter spezifizierte Anlagen.
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-1}
+\subsubsection{Beispiel}\label{beispiel}
 
 \hyperdef{}{meetingux5fex1}{\label{meetingux5fex1}}
 \begin{Shaded}
@@ -2676,7 +2646,7 @@ dann in der Praxis relevant, wenn der gefasste Beschluss (z.B. durch
 Datum und Uhrzeit der letzten Änderung
 \end{description}
 
-\paragraph{Anmerkungen}\label{anmerkungen-1}
+\paragraph{Anmerkungen}\label{anmerkungen}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2692,7 +2662,7 @@ Datum und Uhrzeit der letzten Änderung
   \texttt{result} zu diskutieren.
 \end{itemize}
 
-\subsubsection{Beziehungen}\label{beziehungen-2}
+\subsubsection{Beziehungen}\label{beziehungen-1}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2707,7 +2677,7 @@ Datum und Uhrzeit der letzten Änderung
   anwesend waren.
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-2}
+\subsubsection{Beispiel}\label{beispiel-1}
 
 \hyperdef{}{agendaitemux5fex1}{\label{agendaitemux5fex1}}
 \begin{Shaded}
@@ -2782,7 +2752,7 @@ Art der Drucksache (Erläuterung siehe oben)
 Datum und Uhrzeit der letzten Änderung
 \end{description}
 
-\subsubsection{Beziehungen}\label{beziehungen-3}
+\subsubsection{Beziehungen}\label{beziehungen-2}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2823,7 +2793,7 @@ Datum und Uhrzeit der letzten Änderung
   versehen sein, die noch näher zu bestimmen ist (TODO).
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-3}
+\subsubsection{Beispiel}\label{beispiel-2}
 
 \hyperdef{}{paperux5fex1}{\label{paperux5fex1}}
 \begin{Shaded}

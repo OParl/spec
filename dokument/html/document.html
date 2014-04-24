@@ -856,7 +856,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dd><p>Langform des Namens der Gruppierung. OPTIONAL.</p>
 </dd>
 <dt><code>members</code></dt>
-<dd><p>Entweder die vollständige Liste der URLs aller Mitglieder dieser Organisation (Objekte vom Typ <code>[oparl:Person](#oparl_person)</code>) oder URL zum Abruf dieser Liste.</p>
+<dd><p>Entweder die vollständige Liste der URLs aller Mitglieder dieser Organisation (Objekte vom Typ <code>[oparl:Person](#oparl_person)</code>) oder URL zum Abruf dieser Liste. Diese Eigenschaft ist ZWINGEND. Sollte die Gruppierung keine Mitglieder haben, enthält die Liste keine Einträge.</p>
 </dd>
 <dt><code>subOrganizationOf</code></dt>
 <dd><p>Ggf. URL der übergeordneten Organisation. Diese Eigenschaft ist OPTIONAL.</p>
@@ -869,84 +869,70 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </dd>
 </dl>
 <h2 id="oparl_person"><span class="header-section-number">5.6</span> oparl:Person (Person)</h2>
-<p>Jede natürliche Person, die Mitglied eines Gremiums ist, ist als <code>oparl:Person</code> im Datenmodell eindeutig identifizierbar.</p>
+<p>Jede natürliche Person, die in der parlamentarischen Arbeit tätig ist und insbesondere Mitglied in einer Gruppierung (<a href="#oparl_organization">oparl:Organization</a>), wird mit einem Objekt vom Typ <code>oparl:Person</code> abgebildet.</p>
+<p>Ein Beispiel:</p>
+<pre class="sourceCode json" id="person_ex1"><code class="sourceCode json">{
+    <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/Person&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/people/29&quot;</span>,
+    <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Prof. Dr. Max Mustermann&quot;</span>,
+    <span class="dt">&quot;familyName&quot;</span>: <span class="st">&quot;Mustermann&quot;</span>,
+    <span class="dt">&quot;givenName&quot;</span>: <span class="st">&quot;Max&quot;</span>,
+    <span class="dt">&quot;title&quot;</span>: <span class="st">&quot;Prof. Dr.&quot;</span>,
+    <span class="dt">&quot;gender&quot;</span>: <span class="st">&quot;male&quot;</span>,
+    <span class="dt">&quot;email&quot;</span>: <span class="st">&quot;mailto:max@mustermann.de&quot;</span>,
+    <span class="dt">&quot;phone&quot;</span>: <span class="st">&quot;tel:+493012345678&quot;</span>,
+    <span class="dt">&quot;streetAddress&quot;</span>: <span class="st">&quot;Musterstraße 5&quot;</span>,
+    <span class="dt">&quot;postalCode&quot;</span>: <span class="st">&quot;11111&quot;</span>,
+    <span class="dt">&quot;locality&quot;</span>: <span class="st">&quot;Musterort&quot;</span>,
+    <span class="dt">&quot;organizations&quot;</span>: [
+        <span class="st">&quot;http://oparl.beispielris.de/organizations/11&quot;</span>,
+        <span class="st">&quot;http://oparl.beispielris.de/organizations/34&quot;</span>
+    ],
+    <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2011-11-11T11:11:00+01:00&quot;</span>,
+    <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>,
+}</code></pre>
 <h3 id="eigenschaften-3"><span class="header-section-number">5.6.1</span> Eigenschaften</h3>
 <dl>
-<dt>Schlüssel (<code>id</code>)</dt>
-<dd>Zur eindeutigen Identifizierung sollte jede Person eine Kennung besitzen, die keinen Änderungen unterworfen ist und aus diesem Grund nicht mit dem Namen in Verbindung stehen sollte. Viele RIS nutzen rein numerische Kennungen.
+<dt><code>name</code></dt>
+<dd><p>Der Vollständige Name der Person, üblicherweise mit Titel und Vorname. Diese Eigenschaft ist ZWINGEND.</p>
 </dd>
-<dt>Vorname (<code>first_name</code>)</dt>
-<dd>Der Vorname der Person.
+<dt><code>familyName</code></dt>
+<dd><p>Familienname bzw. Nachname. Diese Eigenschaft ist OPTIONAL.</p>
 </dd>
-<dt>Nachname (<code>last_name</code>)</dt>
-<dd>Der Nachname der Person.
+<dt><code>givenName</code></dt>
+<dd><p>Vorname bzw. Taufname. Diese Eigenschaft ist OPTIONAL.</p>
 </dd>
-<dt>Titel (<code>academic_degree</code>)</dt>
-<dd><em>Optional</em>. Akademische Titel wie &quot;Dr.&quot; und &quot;Prof. Dr.&quot;. Aber auch akademische Grade wie &quot;Dipl. Inform.&quot; (die rechtlich nicht Teil des Namens sind) sind hier zugelassen.
+<dt><code>title</code></dt>
+<dd><p>Akademische(r) Titel. Diese Eigenschaft ist OPTIONAL.</p>
 </dd>
-<dt>Geschlecht (<code>gender</code>)</dt>
-<dd><em>Optional</em>. Weiblich (Wert <code>Female</code>), männlich (Wert <code>Male</code>), anderes (Wert <code>Other</code>), unbekannt (Wert <code>Unknown</code>)
+<dt><code>gender</code></dt>
+<dd><p>Geschlecht. Üblicherweise <code>male</code> oder <code>female</code>. Diese Eigenschaft ist OPTIONAL.</p>
 </dd>
-<dt>Beruf (<code>profession</code>)</dt>
-<dd><em>Optional</em>. Z.B. &quot;Rechtsanwalt&quot;
+<dt><code>phone</code></dt>
+<dd><p>Telefonnummer mit <code>tel:</code> Schema. Diese Eigenschaft ist OPTIONAL.</p>
 </dd>
-<dt>E-Mail-Adresse (<code>email</code>)</dt>
-<dd><em>Optional</em>.
+<dt><code>email</code></dt>
+<dd><p>E-Mail-Adresse mit <code>mailto:</code> Schema. Diese Eigenschaft ist OPTIONAL.</p>
 </dd>
-<dt>Telefon (<code>phone</code>)</dt>
-<dd><em>Optional</em>.
+<dt><code>streetAddress</code></dt>
+<dd><p>Straße und Hausnummer der Kontakt-Anschrift der Person. Diese Eigenschaft ist OPTIONAL.</p>
 </dd>
-<dt>Fax (<code>fax</code>)</dt>
-<dd><em>Optional</em>.
+<dt><code>postalCode</code></dt>
+<dd><p>Postleitzahl der Kontakt-Anschrift der Person. Diese Eigenschaft ist OPTIONAL.</p>
 </dd>
-<dt>Anschrift (<code>address</code>)</dt>
-<dd><em>Optional</em>. Straße und Hausnummer, Postleitzahl und Ort
+<dt><code>locality</code></dt>
+<dd><p>Ortsangabe der Kontakt-Anschrift der Person. Diese Eigenschaft ist OPTIONAL.</p>
 </dd>
-<dt>Zuletzt geändert (<code>last_modified</code>)</dt>
-<dd>Datum und Uhrzeit der letzten Änderung
+<dt><code>organizations</code></dt>
+<dd><p>Liste der URLs der Gruppierungen (Objekte vom Typ <code>oparl:Organization</code>), in der die Person aktuell Mitglied ist, oder alternativ die URL zum Abruf der Liste. Diese Eigenschaft ist ZWINGEND. Sollte die Person Mitglied in keiner Gruppierung sein, enthält die Liste keine Einträge.</p>
+</dd>
+<dt><code>created</code></dt>
+<dd><p>Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.</p>
+</dd>
+<dt><code>lastModified</code></dt>
+<dd><p>Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.</p>
 </dd>
 </dl>
-<h4 id="anmerkungen"><span class="header-section-number">5.6.1.1</span> Anmerkungen</h4>
-<ul>
-<li>Das System von Euskirchen scheint Vor- und Nachname (evtl. einschl. Titel) in einem gemeinsamen Feld &quot;Name&quot; zu führen. Ob das System hier technisch differenziert, ist unklar. Falls einzelne Systeme den angezeigten Namen nur als ganzes speichern, sollte dies für den Standard übernommen werden, da es für die meisten Anwendungen ausreichen sollte.</li>
-<li>Das System PROVOX unterscheidet zwischen privaten und geschäftlichen Anschriften.</li>
-</ul>
-<h3 id="beziehungen"><span class="header-section-number">5.6.2</span> Beziehungen</h3>
-<ul>
-<li>Objekte vom Typ <code>oparl:Person</code> können einer Organisation, z.B. einer Fraktion, zugeornet werden. Diese Beziehung ist datiert.</li>
-<li>Objekte vom Typ <code>oparl:Person</code> können einem oder mehreren Gremien zugewiesen werden, um die Mitgliedschaft in diesem Gremium darzustellen. Diese Beziehungen sind ebenfalls datiert.</li>
-</ul>
-<h3 id="beispiel"><span class="header-section-number">5.6.3</span> Beispiel</h3>
-<pre class="sourceCode json" id="person_ex1"><code class="sourceCode json">{
-    <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;1000&quot;</span>,
-    <span class="dt">&quot;first_name&quot;</span>: <span class="st">&quot;Max&quot;</span>,
-    <span class="dt">&quot;last_name&quot;</span>: <span class="st">&quot;Mustermann&quot;</span>,
-    <span class="dt">&quot;academic_degree&quot;</span>: <span class="st">&quot;Dr. oec. troph&quot;</span>,
-    <span class="dt">&quot;sex&quot;</span>: <span class="st">&quot;M&quot;</span>,
-    <span class="dt">&quot;profession&quot;</span>: <span class="st">&quot;Rechtsanwalt&quot;</span>,
-    <span class="dt">&quot;email&quot;</span>: <span class="st">&quot;max@mustermann.de&quot;</span>,
-    <span class="dt">&quot;phone&quot;</span>: <span class="st">&quot;+4977777&quot;</span>,
-    <span class="dt">&quot;fax&quot;</span>: <span class="st">&quot;+4988888&quot;</span>,
-    <span class="dt">&quot;address&quot;</span>: <span class="st">&quot;Musterstraße 5, 11111 Musterort&quot;</span>,
-    <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>,
-    <span class="dt">&quot;organisations&quot;</span>: [
-        {
-            <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;2000&quot;</span>,
-            <span class="dt">&quot;start&quot;</span>: <span class="st">&quot;2011-03-01&quot;</span>,
-            <span class="dt">&quot;end&quot;</span>: <span class="st">&quot;2013-02-28&quot;</span>
-        },
-        {
-            <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;2001&quot;</span>,
-            <span class="dt">&quot;start&quot;</span>: <span class="st">&quot;2013-03-01&quot;</span>
-        }
-    ],
-    <span class="dt">&quot;committees&quot;</span>: [
-        {
-            <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;7&quot;</span>,
-            <span class="dt">&quot;start&quot;</span>: <span class="st">&quot;2013-01-01&quot;</span>
-        }
-    ]
-}</code></pre>
 <h2 id="oparl_meeting"><span class="header-section-number">5.7</span> oparl:Meeting (Sitzung)</h2>
 <p>Eine Sitzung ist die Versammlung der Mitglieder eines Gremiums oder mehrerer Gremien zu einem bestimmten Zeitpunkt an einem bestimmten Ort.</p>
 <p>Die geladenen Teilnehmer der Sitzung sind jeweils als „Person“ in entsprechender Form referenziert. Verschiedene Dokumente (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.</p>
@@ -971,7 +957,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h3 id="beziehungen-1"><span class="header-section-number">5.7.2</span> Beziehungen</h3>
+<h3 id="beziehungen"><span class="header-section-number">5.7.2</span> Beziehungen</h3>
 <ul>
 <li>Sitzungen sind mindestens einem Gremium zugeordnet</li>
 <li>Einer Sitzung sind Personen zugeordnet, um die Teilnahme an der Sitzung auszudrücken.</li>
@@ -983,7 +969,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </ul></li>
 <li>Weiterhin können Sitzungen beliebige weitere Dokumente, die keine eigenständigen Drucksachen sind, referenzieren. Dabei handelt es sich dann um nicht weiter spezifizierte Anlagen.</li>
 </ul>
-<h3 id="beispiel-1"><span class="header-section-number">5.7.3</span> Beispiel</h3>
+<h3 id="beispiel"><span class="header-section-number">5.7.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="meeting_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;3271&quot;</span>,
     <span class="dt">&quot;identifier&quot;</span>: <span class="st">&quot;STA/0034/2012&quot;</span>,
@@ -1029,18 +1015,18 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h4 id="anmerkungen-1"><span class="header-section-number">5.8.1.1</span> Anmerkungen</h4>
+<h4 id="anmerkungen"><span class="header-section-number">5.8.1.1</span> Anmerkungen</h4>
 <ul>
 <li>Einige Systeme vergeben zu Tagesordnungspunkten intern unveränderliche, numerische IDs. Es ist unklar, ob es zusätzlichen Nutzen bringt, derartige IDs, neben den Nummern, in den Standard zu übernehmen. Dies würde vermutlich nur Sinn ergeben, wenn es als Pflichtfeld gelten könnte.</li>
 <li>Teil der Beratungen über einheitliche Nomenklatur im Standard sollte sein, eine Vereinheitlichung der Werte für die Eigenschaft <code>result</code> zu diskutieren.</li>
 </ul>
-<h3 id="beziehungen-2"><span class="header-section-number">5.8.2</span> Beziehungen</h3>
+<h3 id="beziehungen-1"><span class="header-section-number">5.8.2</span> Beziehungen</h3>
 <ul>
 <li>Jeder Tagesordnungspunkt gehört zu genau einem <code>oparl:Meeting</code>.</li>
 <li>Der Tagesordnungspunkt kann auf eine Drucksache verweisen, die im Rahmen dieses Tagesordnungspunkt beraten werden soll.</li>
 <li>Es können <code>oparl:Person</code> Objekte referenziert werden, die während der Abstimmung zu diesem Tagesordnungspunkt <em>nicht</em> anwesend waren.</li>
 </ul>
-<h3 id="beispiel-2"><span class="header-section-number">5.8.3</span> Beispiel</h3>
+<h3 id="beispiel-1"><span class="header-section-number">5.8.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="agendaitem_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;meeting&quot;</span>: <span class="st">&quot;3271&quot;</span>,
     <span class="dt">&quot;identifier&quot;</span>: <span class="st">&quot;3.1.2&quot;</span>,
@@ -1078,7 +1064,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h3 id="beziehungen-3"><span class="header-section-number">5.9.2</span> Beziehungen</h3>
+<h3 id="beziehungen-2"><span class="header-section-number">5.9.2</span> Beziehungen</h3>
 <ul>
 <li>Es muss genau ein <strong>Hauptdokument</strong> (<code>oparl:Document</code>) referenziert werden.</li>
 <li>Es können beliebig viele weitere Dokumente referenziert werden, die als nachgeordnete <strong>Anlagen</strong> zur Drucksache verstanden werden.</li>
@@ -1088,7 +1074,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <li>Drucksachen können auf andere Drucksachen referenzieren. Diese Verweise können verschiedene semantische Beziehungen ausdrücken. So kann eine Drucksache auf eine übergeordnete oder eine oder mehrere untergeordnete Drucksachen verweisen. Beim Drucksachen-Typ &quot;Beantwortung einer Anfrage&quot; ist die Drucksache zu referenzieren, die die ursprüngliche <strong>Anfrage</strong> beinhaltet. Denkbar sind auch Verweise auf frühere Drucksachen zum selben Thema. Zu klären ist, wie die verschiedenen möglichen Beziehungen formell ausgedrückt werden.</li>
 <li>Drucksachen können zu beliebig vielen Tagesordnungspunkten in Beziehung stehen, um die <strong>Beratungsfolge</strong> einer Drucksache abzubilden. Hierbei kann die Beziehung jeweils mit einer Zuständigkeit versehen sein, die noch näher zu bestimmen ist (TODO).</li>
 </ul>
-<h3 id="beispiel-3"><span class="header-section-number">5.9.3</span> Beispiel</h3>
+<h3 id="beispiel-2"><span class="header-section-number">5.9.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="paper_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;1234/2012&quot;</span>,
     <span class="dt">&quot;date&quot;</span>: <span class="st">&quot;2013-01-04&quot;</span>,

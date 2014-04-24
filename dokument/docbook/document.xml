@@ -3317,7 +3317,9 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
               Entweder die vollständige Liste der URLs aller Mitglieder
               dieser Organisation (Objekte vom Typ
               <literal>[oparl:Person](#oparl_person)</literal>) oder URL
-              zum Abruf dieser Liste.
+              zum Abruf dieser Liste. Diese Eigenschaft ist ZWINGEND.
+              Sollte die Gruppierung keine Mitglieder haben, enthält die
+              Liste keine Einträge.
             </para>
           </listitem>
         </varlistentry>
@@ -3359,214 +3361,185 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
   <sect2 id="oparl_person">
     <title>oparl:Person (Person)</title>
     <para>
-      Jede natürliche Person, die Mitglied eines Gremiums ist, ist als
-      <literal>oparl:Person</literal> im Datenmodell eindeutig
-      identifizierbar.
+      Jede natürliche Person, die in der parlamentarischen Arbeit tätig
+      ist und insbesondere Mitglied in einer Gruppierung
+      (<link linkend="oparl_organization">oparl:Organization</link>),
+      wird mit einem Objekt vom Typ <literal>oparl:Person</literal>
+      abgebildet.
     </para>
+    <para>
+      Ein Beispiel:
+    </para>
+    <programlisting language="json">
+{
+    &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/Person&quot;,
+    &quot;@id&quot;: &quot;http://oparl.beispielris.de/people/29&quot;,
+    &quot;name&quot;: &quot;Prof. Dr. Max Mustermann&quot;,
+    &quot;familyName&quot;: &quot;Mustermann&quot;,
+    &quot;givenName&quot;: &quot;Max&quot;,
+    &quot;title&quot;: &quot;Prof. Dr.&quot;,
+    &quot;gender&quot;: &quot;male&quot;,
+    &quot;email&quot;: &quot;mailto:max@mustermann.de&quot;,
+    &quot;phone&quot;: &quot;tel:+493012345678&quot;,
+    &quot;streetAddress&quot;: &quot;Musterstraße 5&quot;,
+    &quot;postalCode&quot;: &quot;11111&quot;,
+    &quot;locality&quot;: &quot;Musterort&quot;,
+    &quot;organizations&quot;: [
+        &quot;http://oparl.beispielris.de/organizations/11&quot;,
+        &quot;http://oparl.beispielris.de/organizations/34&quot;
+    ],
+    &quot;created&quot;: &quot;2011-11-11T11:11:00+01:00&quot;,
+    &quot;last_modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;,
+}
+</programlisting>
     <sect3 id="eigenschaften-3">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
           <term>
-            Schlüssel (<literal>id</literal>)
+            <literal>name</literal>
           </term>
           <listitem>
             <para>
-              Zur eindeutigen Identifizierung sollte jede Person eine
-              Kennung besitzen, die keinen Änderungen unterworfen ist
-              und aus diesem Grund nicht mit dem Namen in Verbindung
-              stehen sollte. Viele RIS nutzen rein numerische Kennungen.
+              Der Vollständige Name der Person, üblicherweise mit Titel
+              und Vorname. Diese Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Vorname (<literal>first_name</literal>)
+            <literal>familyName</literal>
           </term>
           <listitem>
             <para>
-              Der Vorname der Person.
+              Familienname bzw. Nachname. Diese Eigenschaft ist
+              OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Nachname (<literal>last_name</literal>)
+            <literal>givenName</literal>
           </term>
           <listitem>
             <para>
-              Der Nachname der Person.
+              Vorname bzw. Taufname. Diese Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Titel (<literal>academic_degree</literal>)
+            <literal>title</literal>
           </term>
           <listitem>
             <para>
-              <emphasis>Optional</emphasis>. Akademische Titel wie
-              &quot;Dr.&quot; und &quot;Prof. Dr.&quot;. Aber auch
-              akademische Grade wie &quot;Dipl. Inform.&quot; (die
-              rechtlich nicht Teil des Namens sind) sind hier
-              zugelassen.
+              Akademische(r) Titel. Diese Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Geschlecht (<literal>gender</literal>)
+            <literal>gender</literal>
           </term>
           <listitem>
             <para>
-              <emphasis>Optional</emphasis>. Weiblich (Wert
-              <literal>Female</literal>), männlich (Wert
-              <literal>Male</literal>), anderes (Wert
-              <literal>Other</literal>), unbekannt (Wert
-              <literal>Unknown</literal>)
+              Geschlecht. Üblicherweise <literal>male</literal> oder
+              <literal>female</literal>. Diese Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Beruf (<literal>profession</literal>)
+            <literal>phone</literal>
           </term>
           <listitem>
             <para>
-              <emphasis>Optional</emphasis>. Z.B.
-              &quot;Rechtsanwalt&quot;
+              Telefonnummer mit <literal>tel:</literal> Schema. Diese
+              Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            E-Mail-Adresse (<literal>email</literal>)
+            <literal>email</literal>
           </term>
           <listitem>
             <para>
-              <emphasis>Optional</emphasis>.
+              E-Mail-Adresse mit <literal>mailto:</literal> Schema.
+              Diese Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Telefon (<literal>phone</literal>)
+            <literal>streetAddress</literal>
           </term>
           <listitem>
             <para>
-              <emphasis>Optional</emphasis>.
+              Straße und Hausnummer der Kontakt-Anschrift der Person.
+              Diese Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Fax (<literal>fax</literal>)
+            <literal>postalCode</literal>
           </term>
           <listitem>
             <para>
-              <emphasis>Optional</emphasis>.
+              Postleitzahl der Kontakt-Anschrift der Person. Diese
+              Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Anschrift (<literal>address</literal>)
+            <literal>locality</literal>
           </term>
           <listitem>
             <para>
-              <emphasis>Optional</emphasis>. Straße und Hausnummer,
-              Postleitzahl und Ort
+              Ortsangabe der Kontakt-Anschrift der Person. Diese
+              Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            Zuletzt geändert (<literal>last_modified</literal>)
+            <literal>organizations</literal>
           </term>
           <listitem>
             <para>
-              Datum und Uhrzeit der letzten Änderung
+              Liste der URLs der Gruppierungen (Objekte vom Typ
+              <literal>oparl:Organization</literal>), in der die Person
+              aktuell Mitglied ist, oder alternativ die URL zum Abruf
+              der Liste. Diese Eigenschaft ist ZWINGEND. Sollte die
+              Person Mitglied in keiner Gruppierung sein, enthält die
+              Liste keine Einträge.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>created</literal>
+          </term>
+          <listitem>
+            <para>
+              Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>lastModified</literal>
+          </term>
+          <listitem>
+            <para>
+              Datum/Uhrzeit der letzten Bearbeitung des Objekts.
+              EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
-      <sect4 id="anmerkungen">
-        <title>Anmerkungen</title>
-        <itemizedlist>
-          <listitem>
-            <para>
-              Das System von Euskirchen scheint Vor- und Nachname (evtl.
-              einschl. Titel) in einem gemeinsamen Feld &quot;Name&quot;
-              zu führen. Ob das System hier technisch differenziert, ist
-              unklar. Falls einzelne Systeme den angezeigten Namen nur
-              als ganzes speichern, sollte dies für den Standard
-              übernommen werden, da es für die meisten Anwendungen
-              ausreichen sollte.
-            </para>
-          </listitem>
-          <listitem>
-            <para>
-              Das System PROVOX unterscheidet zwischen privaten und
-              geschäftlichen Anschriften.
-            </para>
-          </listitem>
-        </itemizedlist>
-      </sect4>
-    </sect3>
-    <sect3 id="beziehungen">
-      <title>Beziehungen</title>
-      <itemizedlist>
-        <listitem>
-          <para>
-            Objekte vom Typ <literal>oparl:Person</literal> können einer
-            Organisation, z.B. einer Fraktion, zugeornet werden. Diese
-            Beziehung ist datiert.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Objekte vom Typ <literal>oparl:Person</literal> können einem
-            oder mehreren Gremien zugewiesen werden, um die
-            Mitgliedschaft in diesem Gremium darzustellen. Diese
-            Beziehungen sind ebenfalls datiert.
-          </para>
-        </listitem>
-      </itemizedlist>
-    </sect3>
-    <sect3 id="beispiel">
-      <title>Beispiel</title>
-      <programlisting language="json">
-{
-    &quot;id&quot;: &quot;1000&quot;,
-    &quot;first_name&quot;: &quot;Max&quot;,
-    &quot;last_name&quot;: &quot;Mustermann&quot;,
-    &quot;academic_degree&quot;: &quot;Dr. oec. troph&quot;,
-    &quot;sex&quot;: &quot;M&quot;,
-    &quot;profession&quot;: &quot;Rechtsanwalt&quot;,
-    &quot;email&quot;: &quot;max@mustermann.de&quot;,
-    &quot;phone&quot;: &quot;+4977777&quot;,
-    &quot;fax&quot;: &quot;+4988888&quot;,
-    &quot;address&quot;: &quot;Musterstraße 5, 11111 Musterort&quot;,
-    &quot;last_modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;,
-    &quot;organisations&quot;: [
-        {
-            &quot;id&quot;: &quot;2000&quot;,
-            &quot;start&quot;: &quot;2011-03-01&quot;,
-            &quot;end&quot;: &quot;2013-02-28&quot;
-        },
-        {
-            &quot;id&quot;: &quot;2001&quot;,
-            &quot;start&quot;: &quot;2013-03-01&quot;
-        }
-    ],
-    &quot;committees&quot;: [
-        {
-            &quot;id&quot;: &quot;7&quot;,
-            &quot;start&quot;: &quot;2013-01-01&quot;
-        }
-    ]
-}
-</programlisting>
     </sect3>
   </sect2>
   <sect2 id="oparl_meeting">
@@ -3658,7 +3631,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </varlistentry>
       </variablelist>
     </sect3>
-    <sect3 id="beziehungen-1">
+    <sect3 id="beziehungen">
       <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
@@ -3705,7 +3678,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-1">
+    <sect3 id="beispiel">
       <title>Beispiel</title>
       <programlisting language="json">
 {
@@ -3835,7 +3808,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
           </listitem>
         </varlistentry>
       </variablelist>
-      <sect4 id="anmerkungen-1">
+      <sect4 id="anmerkungen">
         <title>Anmerkungen</title>
         <itemizedlist>
           <listitem>
@@ -3858,7 +3831,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </itemizedlist>
       </sect4>
     </sect3>
-    <sect3 id="beziehungen-2">
+    <sect3 id="beziehungen-1">
       <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
@@ -3883,7 +3856,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-2">
+    <sect3 id="beispiel-1">
       <title>Beispiel</title>
       <programlisting language="json">
 {
@@ -4010,7 +3983,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </varlistentry>
       </variablelist>
     </sect3>
-    <sect3 id="beziehungen-3">
+    <sect3 id="beziehungen-2">
       <title>Beziehungen</title>
       <itemizedlist>
         <listitem>
@@ -4081,7 +4054,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </listitem>
       </itemizedlist>
     </sect3>
-    <sect3 id="beispiel-3">
+    <sect3 id="beispiel-2">
       <title>Beispiel</title>
       <programlisting language="json">
 {

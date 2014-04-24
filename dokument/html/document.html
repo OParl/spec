@@ -984,7 +984,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dt><code>start</code></dt>
 <dd><p>Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Startzeitpunkt sein. Diese Eigenschaft ist ZWINGEND.</p>
 </dd>
-<dt><code>end</code>)</dt>
+<dt><code>end</code></dt>
 <dd><p>Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Endzeitpunkt sein. Diese Eigenschaft ist EMPFOHLEN.</p>
 </dd>
 <dt><code>location</code></dt>
@@ -1019,54 +1019,51 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </dd>
 </dl>
 <h2 id="oparl_agendaitem"><span class="header-section-number">5.8</span> oparl:AgendaItem (Tagesordnungspunkt)</h2>
-<p>Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel (Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein Ergebnis angehängt. Unter Umständen kann dem Tagesordnungspunkt ein bestimmter Beschlusstext beigefügt sein.</p>
-<p>Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.</p>
-<h3 id="eigenschaften-5"><span class="header-section-number">5.8.1</span> Eigenschaften</h3>
-<dl>
-<dt>Nummer (<code>identifier</code>)</dt>
-<dd>Beispiel: &quot;1.2.3&quot;. Diese Nummer gibt an, in welcher Reihenfolge die Tagesordnungspunkte einer Sitzung normalerweise behandelt werden. Im Kontext einer Sitzung ist diese Nummer eindeutig.
-</dd>
-<dt>Öffentlich (<code>public</code>)</dt>
-<dd>Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher Sitzung behandelt wird. Kann die Werte <code>true</code> (öffentlich) oder <code>false</code> annehmen.
-</dd>
-<dt>Titel (<code>title</code>)</dt>
-<dd>Das Thema des Tagesordnungspunktes
-</dd>
-<dt>Ergebnis (<code>result</code>)</dt>
-<dd><em>Optional</em>. Kategorische Information darüber, welches Ergebnis die Beratung des Tagesordnungspunktes gebracht hat. In der Praxis sind hier Kategorien wie &quot;Unverändert beschlossen&quot;, &quot;Geändert beschlossen&quot;, &quot;Endgültig abgelehnt&quot;, &quot;Zur Kenntnis genommen&quot;, &quot;Ohne Votum in nachfolgende Gremien überwiesen&quot; und weitere zu erwarten.
-</dd>
-<dt>Ergebnis Details (<code>result_details</code>)</dt>
-<dd><em>Optional</em>. Ermöglicht die Angabe zusätzlicher Textinformationen zum Ergebnis, zum Beispiel im Fall der Verweisung an ein anderes Gremium die Angabe, an welches Gremium verwiesen wurde.
-</dd>
-<dt>Beschlusstext (<code>resolution_text</code>)</dt>
-<dd><em>Optional</em>. Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) von der Beschlussvorlage abweicht.
-</dd>
-<dt>Zuletzt geändert (<code>last_modified</code>)</dt>
-<dd>Datum und Uhrzeit der letzten Änderung
-</dd>
-</dl>
-<h4 id="anmerkungen"><span class="header-section-number">5.8.1.1</span> Anmerkungen</h4>
-<ul>
-<li>Einige Systeme vergeben zu Tagesordnungspunkten intern unveränderliche, numerische IDs. Es ist unklar, ob es zusätzlichen Nutzen bringt, derartige IDs, neben den Nummern, in den Standard zu übernehmen. Dies würde vermutlich nur Sinn ergeben, wenn es als Pflichtfeld gelten könnte.</li>
-<li>Teil der Beratungen über einheitliche Nomenklatur im Standard sollte sein, eine Vereinheitlichung der Werte für die Eigenschaft <code>result</code> zu diskutieren.</li>
-</ul>
-<h3 id="beziehungen"><span class="header-section-number">5.8.2</span> Beziehungen</h3>
-<ul>
-<li>Jeder Tagesordnungspunkt gehört zu genau einem <code>oparl:Meeting</code>.</li>
-<li>Der Tagesordnungspunkt kann auf eine Drucksache verweisen, die im Rahmen dieses Tagesordnungspunkt beraten werden soll.</li>
-<li>Es können <code>oparl:Person</code> Objekte referenziert werden, die während der Abstimmung zu diesem Tagesordnungspunkt <em>nicht</em> anwesend waren.</li>
-</ul>
-<h3 id="beispiel"><span class="header-section-number">5.8.3</span> Beispiel</h3>
+<p>Tagesordnungspunkte sind die Bestandteile von Sitzungen (<code>oparl:Meeting</code>). Jeder Tagesordnungspunkt widmet sich inhaltlich einem bestimmten Thema, wozu in der Regel auch die Beratung bestimmter Drucksachen gehört.</p>
+<p>Ein Beispiel:</p>
 <pre class="sourceCode json" id="agendaitem_ex1"><code class="sourceCode json">{
-    <span class="dt">&quot;meeting&quot;</span>: <span class="st">&quot;3271&quot;</span>,
-    <span class="dt">&quot;identifier&quot;</span>: <span class="st">&quot;3.1.2&quot;</span>,
+    <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/AgendaItem&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/agendaitems/1045&quot;</span>,
+    <span class="dt">&quot;meeting&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/meetings/281&quot;</span>,
+    <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Satzungsänderung für Ausschreibungen&quot;</span>,
     <span class="dt">&quot;public&quot;</span>: <span class="dv">true</span>,
-    <span class="dt">&quot;title&quot;</span>: <span class="st">&quot;Gemeinschaftsgrundschule Hornschaftsstraße/Höhenhaus. Hier: Anfrage von Herrn Philippi&quot;</span>,
-    <span class="dt">&quot;result&quot;</span>: <span class="st">&quot;Geändert beschlossen&quot;</span>,
-    <span class="dt">&quot;resolution_text&quot;</span>: <span class="st">&quot;Der Beschluss weicht wie folgt vom Antrag ab: ...&quot;</span>,
-    <span class="dt">&quot;people_absent&quot;</span>: [<span class="st">&quot;1002&quot;</span>, <span class="st">&quot;1003&quot;</span>],
+    <span class="dt">&quot;consultations&quot;</span>: [
+        <span class="st">&quot;http://oparl.beispielris.de/consultations/1034&quot;</span>
+    ],
+    <span class="dt">&quot;result&quot;</span>: <span class="st">&quot;http://oparl.org/vocab/decided_modified&quot;</span>,
+    <span class="dt">&quot;resolutionText&quot;</span>: <span class="st">&quot;Der Beschluss weicht wie folgt vom Antrag ab: ...&quot;</span>,
+    <span class="dt">&quot;absentParticipants&quot;</span>: [
+        <span class="st">&quot;http://oparl.beispielris.de/people/75&quot;</span>
+    ],
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
+<h3 id="eigenschaften-5"><span class="header-section-number">5.8.1</span> Eigenschaften</h3>
+<dl>
+<dt><code>meeting</code></dt>
+<dd><p>URL der Sitzung (<code>oparl:Meeting</code>), dem der Tagesordnungspunkt zugeordnet ist. Die Eigenschaft ist ZWINGEND.</p>
+</dd>
+<dt><code>name</code></dt>
+<dd><p>Das Thema des Tagesordnungspunktes. Die Eigenschaft ist ZWINGEND.</p>
+</dd>
+<dt><code>public</code></dt>
+<dd><p>Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher Sitzung vorgesehen ist/war. Es wird ein Wahrheitswert (<code>true</code> oder <code>false</code>) erwartet. Die Eigenschaft ist EMPFOHLEN.</p>
+</dd>
+<dt><code>consultations</code></dt>
+<dd><p>Liste der URLs der Beratungen (oparl:Consultation), die diesem Tagesordnungspunkt zugewiesen sind, oder alternativ die URL zum Abruf dieser Liste. Die Eigenschaft ist ZWINGEND. Sofern diesem Tagesordnugnspunkt keine Beratungen zugewiesen sind, bleibt die Liste ohne Einträge.</p>
+</dd>
+<dt><code>result</code></dt>
+<dd><p>Kategorische Information darüber, welches Ergebnis die Beratung des Tagesordnungspunktes erbracht hat. In der Praxis sind hier Kategorien wie &quot;Unverändert beschlossen&quot;, &quot;Geändert beschlossen&quot;, &quot;Endgültig abgelehnt&quot;, &quot;Zur Kenntnis genommen&quot;, &quot;Ohne Votum in nachfolgende Gremien überwiesen&quot; und weitere zu erwarten. Alternativ können, sobald dieses zur Verfügung steht, URLs aus einem OParl Vokabular verwendet werden, wie im Beispiel oben zu sehen. Diese dienen dazu, Kategorien über Systemgrenzen hinweg maschinenlesbar zu vereinheitlichen. Die Eigenschaft ist EMPFOHLEN.</p>
+</dd>
+<dt><code>resolutionText</code></dt>
+<dd><p>Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) von der Beschlussvorlage abweicht. Diese Eigenschaft ist OPTIONAL.</p>
+</dd>
+<dt><code>created</code></dt>
+<dd><p>Erzeugungsdatum und -zeit des Objekts. EMPFOHLEN.</p>
+</dd>
+<dt><code>lastModified</code></dt>
+<dd><p>Datum und Uhrzeit der letzten Änderung. EMPFOHLEN.</p>
+</dd>
+</dl>
 <h2 id="oparl_paper"><span class="header-section-number">5.9</span> oparl:Paper (Drucksache)</h2>
 <p>Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen, Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede Drucksache erhält eine eindeutige Kennung.</p>
 <p>Die Drucksache hat im Informationsmodell eine hervorgehobene Bedeutung. Im Fall eines Antrags kann mit einer einzigen Drucksache ein über Monate oder Jahre dauernder politischer Entscheidungsprozess verbunden sein. In dem Zusammenhang entstehen üblicherweise weitere Drucksachen.</p>
@@ -1094,7 +1091,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dd>Datum und Uhrzeit der letzten Änderung
 </dd>
 </dl>
-<h3 id="beziehungen-1"><span class="header-section-number">5.9.2</span> Beziehungen</h3>
+<h3 id="beziehungen"><span class="header-section-number">5.9.2</span> Beziehungen</h3>
 <ul>
 <li>Es muss genau ein <strong>Hauptdokument</strong> (<code>oparl:Document</code>) referenziert werden.</li>
 <li>Es können beliebig viele weitere Dokumente referenziert werden, die als nachgeordnete <strong>Anlagen</strong> zur Drucksache verstanden werden.</li>
@@ -1104,7 +1101,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <li>Drucksachen können auf andere Drucksachen referenzieren. Diese Verweise können verschiedene semantische Beziehungen ausdrücken. So kann eine Drucksache auf eine übergeordnete oder eine oder mehrere untergeordnete Drucksachen verweisen. Beim Drucksachen-Typ &quot;Beantwortung einer Anfrage&quot; ist die Drucksache zu referenzieren, die die ursprüngliche <strong>Anfrage</strong> beinhaltet. Denkbar sind auch Verweise auf frühere Drucksachen zum selben Thema. Zu klären ist, wie die verschiedenen möglichen Beziehungen formell ausgedrückt werden.</li>
 <li>Drucksachen können zu beliebig vielen Tagesordnungspunkten in Beziehung stehen, um die <strong>Beratungsfolge</strong> einer Drucksache abzubilden. Hierbei kann die Beziehung jeweils mit einer Zuständigkeit versehen sein, die noch näher zu bestimmen ist (TODO).</li>
 </ul>
-<h3 id="beispiel-1"><span class="header-section-number">5.9.3</span> Beispiel</h3>
+<h3 id="beispiel"><span class="header-section-number">5.9.3</span> Beispiel</h3>
 <pre class="sourceCode json" id="paper_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;1234/2012&quot;</span>,
     <span class="dt">&quot;date&quot;</span>: <span class="st">&quot;2013-01-04&quot;</span>,

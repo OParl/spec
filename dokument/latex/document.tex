@@ -2619,7 +2619,7 @@ Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer
 zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer
 stattgefundenen KANN es der tatsächliche Startzeitpunkt sein. Diese
 Eigenschaft ist ZWINGEND.
-\item[\texttt{end})]
+\item[\texttt{end}]
 Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen
 Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN
 es der tatsächliche Endzeitpunkt sein. Diese Eigenschaft ist EMPFOHLEN.
@@ -2668,95 +2668,73 @@ ist EMPFOHLEN.
 \subsection{oparl:AgendaItem
 (Tagesordnungspunkt)}\label{oparlux5fagendaitem}
 
-Der Tagesordnungspunkt wird für eine bestimmte Sitzung angelegt, erhält
-eine (innerhalb dieser Sitzung eindeutige) Nummer und einen Titel
-(Betreff). Nach der Sitzung wird dem Tagesordnungspunkt außerdem ein
-Ergebnis angehängt. Unter Umständen kann dem Tagesordnungspunkt ein
-bestimmter Beschlusstext beigefügt sein.
+Tagesordnungspunkte sind die Bestandteile von Sitzungen
+(\texttt{oparl:Meeting}). Jeder Tagesordnungspunkt widmet sich
+inhaltlich einem bestimmten Thema, wozu in der Regel auch die Beratung
+bestimmter Drucksachen gehört.
 
-Überlicherweise haben Sitzungen mehrere Tagesordnungspunkte.
-
-\subsubsection{Eigenschaften}\label{eigenschaften-5}
-
-\begin{description}
-\itemsep1pt\parskip0pt\parsep0pt
-\item[Nummer (\texttt{identifier})]
-Beispiel: ``1.2.3''. Diese Nummer gibt an, in welcher Reihenfolge die
-Tagesordnungspunkte einer Sitzung normalerweise behandelt werden. Im
-Kontext einer Sitzung ist diese Nummer eindeutig.
-\item[Öffentlich (\texttt{public})]
-Kennzeichnet, ob der Tagesordnungspunkt in öffentlicher Sitzung
-behandelt wird. Kann die Werte \texttt{true} (öffentlich) oder
-\texttt{false} annehmen.
-\item[Titel (\texttt{title})]
-Das Thema des Tagesordnungspunktes
-\item[Ergebnis (\texttt{result})]
-\emph{Optional}. Kategorische Information darüber, welches Ergebnis die
-Beratung des Tagesordnungspunktes gebracht hat. In der Praxis sind hier
-Kategorien wie ``Unverändert beschlossen'', ``Geändert beschlossen'',
-``Endgültig abgelehnt'', ``Zur Kenntnis genommen'', ``Ohne Votum in
-nachfolgende Gremien überwiesen'' und weitere zu erwarten.
-\item[Ergebnis Details (\texttt{result\_details})]
-\emph{Optional}. Ermöglicht die Angabe zusätzlicher Textinformationen
-zum Ergebnis, zum Beispiel im Fall der Verweisung an ein anderes Gremium
-die Angabe, an welches Gremium verwiesen wurde.
-\item[Beschlusstext (\texttt{resolution\_text})]
-\emph{Optional}. Falls in diesem Tagesordnungspunkt ein Beschluss
-gefasst wurde, kann der Text hier hinterlegt werden. Das ist besonders
-dann in der Praxis relevant, wenn der gefasste Beschluss (z.B. durch
-Änderungsantrag) von der Beschlussvorlage abweicht.
-\item[Zuletzt geändert (\texttt{last\_modified})]
-Datum und Uhrzeit der letzten Änderung
-\end{description}
-
-\paragraph{Anmerkungen}\label{anmerkungen}
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Einige Systeme vergeben zu Tagesordnungspunkten intern
-  unveränderliche, numerische IDs. Es ist unklar, ob es zusätzlichen
-  Nutzen bringt, derartige IDs, neben den Nummern, in den Standard zu
-  übernehmen. Dies würde vermutlich nur Sinn ergeben, wenn es als
-  Pflichtfeld gelten könnte.
-\item
-  Teil der Beratungen über einheitliche Nomenklatur im Standard sollte
-  sein, eine Vereinheitlichung der Werte für die Eigenschaft
-  \texttt{result} zu diskutieren.
-\end{itemize}
-
-\subsubsection{Beziehungen}\label{beziehungen}
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Jeder Tagesordnungspunkt gehört zu genau einem \texttt{oparl:Meeting}.
-\item
-  Der Tagesordnungspunkt kann auf eine Drucksache verweisen, die im
-  Rahmen dieses Tagesordnungspunkt beraten werden soll.
-\item
-  Es können \texttt{oparl:Person} Objekte referenziert werden, die
-  während der Abstimmung zu diesem Tagesordnungspunkt \emph{nicht}
-  anwesend waren.
-\end{itemize}
-
-\subsubsection{Beispiel}\label{beispiel}
+Ein Beispiel:
 
 \hyperdef{}{agendaitemux5fex1}{\label{agendaitemux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
-    \DataTypeTok{"meeting"}\NormalTok{: }\StringTok{"3271"}\NormalTok{,}
-    \DataTypeTok{"identifier"}\NormalTok{: }\StringTok{"3.1.2"}\NormalTok{,}
+    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/AgendaItem"}\NormalTok{,}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/agendaitems/1045"}\NormalTok{,}
+    \DataTypeTok{"meeting"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/meetings/281"}\NormalTok{,}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Satzungsänderung für Ausschreibungen"}\NormalTok{,}
     \DataTypeTok{"public"}\NormalTok{: }\DecValTok{true}\NormalTok{,}
-    \DataTypeTok{"title"}\NormalTok{: }\StringTok{"Gemeinschaftsgrundschule Hornschaftsstraße/Höhenhaus. Hier: Anfrage von Herrn Philippi"}\NormalTok{,}
-    \DataTypeTok{"result"}\NormalTok{: }\StringTok{"Geändert beschlossen"}\NormalTok{,}
-    \DataTypeTok{"resolution_text"}\NormalTok{: }\StringTok{"Der Beschluss weicht wie folgt vom Antrag ab: ..."}\NormalTok{,}
-    \DataTypeTok{"people_absent"}\NormalTok{: [}\StringTok{"1002"}\NormalTok{, }\StringTok{"1003"}\NormalTok{],}
+    \DataTypeTok{"consultations"}\NormalTok{: [}
+        \StringTok{"http://oparl.beispielris.de/consultations/1034"}
+    \NormalTok{],}
+    \DataTypeTok{"result"}\NormalTok{: }\StringTok{"http://oparl.org/vocab/decided_modified"}\NormalTok{,}
+    \DataTypeTok{"resolutionText"}\NormalTok{: }\StringTok{"Der Beschluss weicht wie folgt vom Antrag ab: ..."}\NormalTok{,}
+    \DataTypeTok{"absentParticipants"}\NormalTok{: [}
+        \StringTok{"http://oparl.beispielris.de/people/75"}
+    \NormalTok{],}
     \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
+
+\subsubsection{Eigenschaften}\label{eigenschaften-5}
+
+\begin{description}
+\item[\texttt{meeting}]
+URL der Sitzung (\texttt{oparl:Meeting}), dem der Tagesordnungspunkt
+zugeordnet ist. Die Eigenschaft ist ZWINGEND.
+\item[\texttt{name}]
+Das Thema des Tagesordnungspunktes. Die Eigenschaft ist ZWINGEND.
+\item[\texttt{public}]
+Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher
+Sitzung vorgesehen ist/war. Es wird ein Wahrheitswert (\texttt{true}
+oder \texttt{false}) erwartet. Die Eigenschaft ist EMPFOHLEN.
+\item[\texttt{consultations}]
+Liste der URLs der Beratungen (oparl:Consultation), die diesem
+Tagesordnungspunkt zugewiesen sind, oder alternativ die URL zum Abruf
+dieser Liste. Die Eigenschaft ist ZWINGEND. Sofern diesem
+Tagesordnugnspunkt keine Beratungen zugewiesen sind, bleibt die Liste
+ohne Einträge.
+\item[\texttt{result}]
+Kategorische Information darüber, welches Ergebnis die Beratung des
+Tagesordnungspunktes erbracht hat. In der Praxis sind hier Kategorien
+wie ``Unverändert beschlossen'', ``Geändert beschlossen'', ``Endgültig
+abgelehnt'', ``Zur Kenntnis genommen'', ``Ohne Votum in nachfolgende
+Gremien überwiesen'' und weitere zu erwarten. Alternativ können, sobald
+dieses zur Verfügung steht, URLs aus einem OParl Vokabular verwendet
+werden, wie im Beispiel oben zu sehen. Diese dienen dazu, Kategorien
+über Systemgrenzen hinweg maschinenlesbar zu vereinheitlichen. Die
+Eigenschaft ist EMPFOHLEN.
+\item[\texttt{resolutionText}]
+Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann der
+Text hier hinterlegt werden. Das ist besonders dann in der Praxis
+relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) von
+der Beschlussvorlage abweicht. Diese Eigenschaft ist OPTIONAL.
+\item[\texttt{created}]
+Erzeugungsdatum und -zeit des Objekts. EMPFOHLEN.
+\item[\texttt{lastModified}]
+Datum und Uhrzeit der letzten Änderung. EMPFOHLEN.
+\end{description}
 
 \hyperdef{}{oparlux5fpaper}{\subsection{oparl:Paper
 (Drucksache)}\label{oparlux5fpaper}}
@@ -2815,7 +2793,7 @@ Art der Drucksache (Erläuterung siehe oben)
 Datum und Uhrzeit der letzten Änderung
 \end{description}
 
-\subsubsection{Beziehungen}\label{beziehungen-1}
+\subsubsection{Beziehungen}\label{beziehungen}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2856,7 +2834,7 @@ Datum und Uhrzeit der letzten Änderung
   versehen sein, die noch näher zu bestimmen ist (TODO).
 \end{itemize}
 
-\subsubsection{Beispiel}\label{beispiel-1}
+\subsubsection{Beispiel}\label{beispiel}
 
 \hyperdef{}{paperux5fex1}{\label{paperux5fex1}}
 \begin{Shaded}

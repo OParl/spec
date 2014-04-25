@@ -17,12 +17,27 @@ Ein Beispiel:
     "members": [
         "http://oparl.beispielris.de/people/27",
         "http://oparl.beispielris.de/people/48",
-        "http://oparl.beispielris.de/people/57",
+        "http://oparl.beispielris.de/people/57"
     ],
     "last_modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
 
+Das selbe Beispiel in kompakter Form. Ein geeigneter Kontext wird vorausgesetzt:
+
+~~~~~  {#organization_ex2 .json}
+{
+    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld",
+    "@type": "oparl:Organization",
+    "@id": "beispielris:organizations/34",
+      // kann eventuell weiter verkürzt werden
+    "body": "0",
+    "name": "Finanzausschuss",
+    "nameLong": "Finanzausschuss des Rates der Stadt Köln",
+    "members": [ 27", "48", "57"],
+    "last_modified": "2012-08-16T14:05:27+02:00"
+}
+~~~~~
 ### Eigenschaften ###
 
 `body`

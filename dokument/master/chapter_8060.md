@@ -5,7 +5,7 @@ Jede natürliche Person, die in der parlamentarischen Arbeit tätig ist
 und insbesondere Mitglied in einer Gruppierung ([oparl:Organization](#oparl_organization)),
 wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
 
-Ein Beispiel:
+Ein Beispiel in expandierter Form:
 
 ~~~~~  {#person_ex1 .json}
 {
@@ -30,6 +30,28 @@ Ein Beispiel:
 }
 ~~~~~
 
+Das selbe Beispiel in kompakter Form. Ein geeigneter Inhalt des angegebenen Kontext wird hierbei vorausgesetzt:
+
+~~~~~  {#person_ex2 .json}
+{
+    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld",
+    "@type": "oparl:Person",
+    "@id": "beispielris:people/29", // kann möglicherweise weiter gekürzt werden
+    "name": "Prof. Dr. Max Mustermann",
+    "familyName": "Mustermann",
+    "givenName": "Max",
+    "title": "Prof. Dr.",
+    "gender": "male",
+    "email": "mailto:max@mustermann.de",
+    "phone": "tel:+493012345678",
+    "streetAddress": "Musterstraße 5",
+    "postalCode": "11111",
+    "locality": "Musterort",
+    "organizations": ["11", "34"],
+    "created": "2011-11-11T11:11:00+01:00",
+    "last_modified": "2012-08-16T14:05:27+02:00",
+}
+~~~~~
 ### Eigenschaften ###
 
 `name`

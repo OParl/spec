@@ -23,6 +23,21 @@ Ein Beispiel:
 }
 ~~~~~
 
+Das selbe Beispiel in kompakter Form (ein passender Kontext wird vorausgesetzt):
+
+~~~~~  {#consultation_ex2 .json}
+{
+    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
+    "@type": "oparl:Consultation",
+    "@id": "beispielris:consultations/47594",
+      // kann eventuell weiter verkürzt werden
+    "paper": "2396",
+    "agendaitem": "15569",
+    "committee": "96",
+    "authoritative": false
+}
+~~~~~
+
 ### Eigenschaften ###
 
 `@id`

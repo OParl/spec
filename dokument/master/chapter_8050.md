@@ -14,6 +14,10 @@ Ein Beispiel:
     "body": "http://oparl.beispielris.de/bodies/0",
     "name": "Finanzausschuss",
     "nameLong": "Finanzausschuss des Rates der Stadt Köln",
+    "role:" [
+        "http://oparl.beispielris.de/roles/vorsitzender",
+        "http://oparl.beispielris.de/people/stellvertretender_vorsitzender",
+    ],
     "members": [
         "http://oparl.beispielris.de/people/27",
         "http://oparl.beispielris.de/people/48",
@@ -34,7 +38,15 @@ Das selbe Beispiel in kompakter Form. Ein geeigneter Kontext wird vorausgesetzt:
     "body": "0",
     "name": "Finanzausschuss",
     "nameLong": "Finanzausschuss des Rates der Stadt Köln",
-    "members": [ 27", "48", "57"],
+    "role:" [
+        "beispielris:roles/vorsitzender",
+        "beispielris:roles/stellvertretender_vorsitzender",
+    ],
+    "members": [
+        "27",
+        "48",
+        "57";;],
+    ],
     "last_modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
@@ -49,6 +61,9 @@ Das selbe Beispiel in kompakter Form. Ein geeigneter Kontext wird vorausgesetzt:
 
 `nameLong`
 :   Langform des Namens der Gruppierung. OPTIONAL.
+
+`role`
+:   Rolle oder Rollen, die für diese Gruppierung vorgesehen sind. Die Rollen-Objekte gehören zu der Klasse org:Role oder einer ihrer Unterklassen. OPTIONAL.
 
 `members`
 :   Entweder die vollständige Liste der URLs aller Mitglieder

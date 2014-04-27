@@ -16,7 +16,7 @@ Ein Beispiel:
     "nameLong": "Finanzausschuss des Rates der Stadt Köln",
     "role:" [
         "http://oparl.beispielris.de/roles/vorsitzender",
-        "http://oparl.beispielris.de/people/stellvertretender_vorsitzender",
+        "http://oparl.beispielris.de/people/stellvertretender_vorsitzender"
     ],
     "members": [
         "http://oparl.beispielris.de/people/27",
@@ -40,7 +40,7 @@ Das selbe Beispiel in kompakter Form. Ein geeigneter Kontext wird vorausgesetzt:
     "nameLong": "Finanzausschuss des Rates der Stadt Köln",
     "role:" [
         "beispielris:roles/vorsitzender",
-        "beispielris:roles/stellvertretender_vorsitzender",
+        "beispielris:roles/stellvertretender_vorsitzender"
     ],
     "members": [
         "27",

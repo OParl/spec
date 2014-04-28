@@ -18,7 +18,7 @@ Ein Beispiel:
     "@id": "http://beispielris.de/consultations/47594",
     "paper": "http://beispielris.de/papers/2396",
     "agendaitem": "http://beispielris.de/agendaitems/15569",
-    "committee": "http://beispielris.de/organisations/96",
+    "committee": "http://beispielris.de/organizations/96",
     "authoritative": false
 }
 ~~~~~
@@ -30,10 +30,9 @@ Das selbe Beispiel in kompakter Form (ein passender Kontext wird vorausgesetzt):
     "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
     "@type": "oparl:Consultation",
     "@id": "beispielris:consultations/47594",
-      // kann eventuell weiter verkürzt werden
-    "paper": "2396",
-    "agendaitem": "15569",
-    "committee": "96",
+    "paper": "beispielris:papers/2396",
+    "agendaitem": "beispielris:agendaitem/15569",
+    "committee": "beispielris:organization/96",
     "authoritative": false
 }
 ~~~~~
@@ -51,9 +50,11 @@ Das selbe Beispiel in kompakter Form (ein passender Kontext wird vorausgesetzt):
     beraten wird. Diese Eigenschaft ist ZWINGEND.
 
 `committee`
-:   URL des Gremiums (oparl:Organization), dem die Sitzung zugewisen ist, zu
-    welcher der zuvor genannte Tagesordnungspunkt gehört. Diese Eigenschaft
-    ist ZWINGEND.
+:   URL des Gremiums (oparl:Organization), dem die Sitzung zugewiesen ist, zu
+    welcher der zuvor genannte Tagesordnungspunkt gehört.
+    Hier kann auch eine mit Liste von Gremien angegeben werden. Die Liste ist dann geordnet.
+    Das erste Gremium ist federführend.
+    Diese Eigenschaft ist ZWINGEND.
 
 `authoritative`
 :   Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst 

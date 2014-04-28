@@ -110,8 +110,8 @@ Das selbe Beispiel in kompakter Form:
 `organizations`
 :   IRI der Gruppierung oder Liste der IRIs der Gruppierungen (oparl:Organization), denen die
     Sitzung zugeordnet ist.
-    Diese Eigenschaft ist ZWINGEND. Die Liste MUSS mindestens eine
-    Gruppierung umfassen.
+    Wenn eine Liste angegeben wird, dann ist diese geordnet. Das erste Element ist dann das federführende Gremium.
+    Diese Eigenschaft ist ZWINGEND.
 
 `participants`
 :   IRI der Gruppierung oder Liste der IRLs der geladenen Teilnehmer (oparl:Person) der Sitzung.

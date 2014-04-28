@@ -20,6 +20,7 @@ Ein Beispiel:
     "vendor": "http://example-software.com/",
     "product": "http://example-software.com/oparl-server/",
     "license": "http://creativecommons.org/licenses/by/4.0/",
+    "licenseValidSinceDay": "2014-01-01",
     "bodies": "http://beispielris.de/bodies/",
     "newObjects": "http://beispielris.de/new_objects/",
     "updatedObjects": "http://beispielris.de/updated_objects/",
@@ -48,6 +49,10 @@ Ein Kontext:
         "@id": "dc:license",
         "@type": "@id"
     }
+    "licenseValidSinceDay": {
+        "@id": "dc:license",
+        "@type": "@id"
+    }
 }
 ~~~~~
 
@@ -65,6 +70,7 @@ Und das System-Objekt in kompakter Form unter Verwendung des Kontext:
     "vendor": "http://example-software.com/",
     "product": "http://example-software.com/oparl-server/",
     "license": "http://creativecommons.org/licenses/by/4.0/",
+    "licenseValidSinceDay": "2014-01-01",
     "bodies": "http://beispielris.de/bodies/",
     "newObjects": "beispielris:new_objects/",
     "updatedObjects": "beispielris:updated_objects/",
@@ -155,6 +161,11 @@ TODO: Beispiele für JSON-LD und exemplarisch auch für HTML.
 :   URL der Lizenz, die für die Daten, die über diese API abgerufen werden
     können, gilt, sofern nicht am einzelnen Objekt anders angegeben.
     Die Eigenschaft ist EMPFOHLEN.
+
+`licenseValidSinceDay`
+:   Tagesdatum, seit dem die unter license angegebene Lizenz gilt.
+    Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen.
+    EMPFOHLEN
 
 `newObjects`
 :   URL des Feeds ["Neue Objekte"](#feed_neue_objekte). Die Eigenschaft ist 

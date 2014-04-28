@@ -3,7 +3,7 @@ oparl:Organization (Gruppierung)  {#oparl_organization}
 
 Dieser Objekttyp dient dazu, Gruppierungen von Personen abzubilden,
 die in der parlamentarischen Arbeit eine Rolle spielen. Dazu zählen
-in der Praxis insbesondee Fraktionen und Gremien.
+in der Praxis insbesondere Fraktionen und Gremien.
 
 Ein Beispiel in expandierter Form:
 

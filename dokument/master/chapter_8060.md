@@ -61,7 +61,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 {
     "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld",
     "@type": "oparl:Person",
-    "@id": "beispielris:people/29", // kann möglicherweise weiter gekürzt werden
+    "@id": "http://oparl.beispielris.de/people/29",
     "name": "Prof. Dr. Max Mustermann",
     "familyName": "Mustermann",
     "givenName": "Max",

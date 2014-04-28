@@ -12,7 +12,7 @@ Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.
 Die Inhalte einer Sitzung werden durch Tagesordnungspunkte (oparl:AgendaItem)
 abgebildet.
 
-Ein Beispiel in expaniderter Form:
+Ein Beispiel in expandierter Form:
 
 ~~~~~  {#meeting_ex1 .json}
 {

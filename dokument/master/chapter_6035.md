@@ -1,5 +1,7 @@
-URLs
+URLs bzw. IRIs
 ----
+
+Internationalized Resource Identifier (IRI) sind die internationalisierte Form der Uniform Resource Identifier (URI). Diese sind in RFC 3987 spezifiziert (http://tools.ietf.org/html/rfc3987). In der OParl-Spezifikation sind grundsätzlich auch dann IRIs gemeint, wenn wie folgt die Bezeichnungen URI oder URL verwendet werden. Dies soll der Lesbarkeit dienen, auch wenn es technisch nicht ganz korrekt ist.
 
 Den URLs (für "Uniform Resource Locators", auch URI für "Uniform Resource Identifier")
 kommt bei einer OParl-konformen API eine besondere Bedeutung zu und es werden eine 
@@ -14,6 +16,10 @@ Verwendung finden:
     \__/   \_______________/\_____________________________/ \______/
      |         |                  |                           |
     Schema    Host               Pfad                        Query-String
+
+
+Um bereits an dieser Stelle das Entstehen von Missverständnissen zu vermeiden sei darauf hingewiesen, dass insbesondere
+auch der enthaltene Pfad nur ein Beipiel ist. Der Aufbau der Pfade wird in OParl nicht festgelegt.
 
 ### URL-Kanonisierung
 

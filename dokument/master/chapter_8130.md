@@ -30,8 +30,10 @@ politischen Vorgangs, wie zum Beispiel eines Bauvorhabens oder der
 Änderung eines Flächennutzungsplanes, maschinenlesbar nachvollziehbar
 zu machen.
 
+TODO: Statt GeoJSON wird Well-Known Text (WKT) verwendet. 
+
 OParl sieht bei Angabe von Geodaten die Verwendung des  
-GeoJSON-Formats^[GeoJSON Spazifikation 
+GeoJSON-Formats^[GeoJSON Spezifikation 
 <http://geojson.org/geojson-spec.html>] vor. GeoJSON erlaubt die 
 Beschreibung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden und 
 Polygonen in JSON-Notation. Ein GeoJSON-Objekt kann auch mehrere Geometrien

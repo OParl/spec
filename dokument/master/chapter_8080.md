@@ -12,7 +12,7 @@ Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.
 Die Inhalte einer Sitzung werden durch Tagesordnungspunkte (oparl:AgendaItem)
 abgebildet.
 
-Ein Beispiel:
+Ein Beispiel in expandierter Form:
 
 ~~~~~  {#meeting_ex1 .json}
 {
@@ -24,9 +24,7 @@ Ein Beispiel:
     "location": {
         "description": "Rathaus, Raum 136"
     },
-    "organizations": [
-        "http://oparl.beispielris.de/organizations/34"
-    ],
+    "organizations": "http://oparl.beispielris.de/organizations/34",
     "participants": [
         "http://oparl.beispielris.de/people/29",
         "http://oparl.beispielris.de/people/75"
@@ -44,6 +42,43 @@ Ein Beispiel:
         "http://oparl.beispielris.de/agendaitems/1046",
         "http://oparl.beispielris.de/agendaitems/1047",
         "http://oparl.beispielris.de/agendaitems/1048"
+    ],
+    "created": "2012-01-06T12:01:00+01:00",
+    "lastModified": "2012-01-08T14:05:27+01:00"
+}
+~~~~~
+
+Das selbe Beispiel in kompakter Form:
+
+~~~~~  {#meeting_ex2 .json}
+{
+    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
+    "@type": "oparl:Meeting",
+    "@id": "http://oparl.beispielris.de/meetings/281",
+    "name": "4. Sitzung des Finanzausschusses",
+    "start": "2013-01-04T08:00:00+01:00",
+    "end": "2013-01-04T12:00:00+01:00",
+    "location": {
+        "description": "Rathaus, Raum 136"
+    },
+    "organizations": "beispielris:organizations/34",
+    "participants": [
+        "beispielris:people/29",
+        "beispielris:people/75",
+        "beispielris:people/94"
+    ],
+    "invitation": "beispielris:documents/586",
+    "resultsProtocol": "beispielris:documents/628",
+    "verbatimProtocol": "beispielris:documents/691",
+    "attachments": [
+        "beispielris:documents/588",
+        "beispielris:documents/589"
+    ],
+    "agendaItems": [
+        "beispielris:agendaitems/1045",
+        "beispielris:agendaitems/1046",
+        "beispielris:agendaitems/1047",
+        "beispielris:agendaitems/1048"
     ],
     "created": "2012-01-06T12:01:00+01:00",
     "lastModified": "2012-01-08T14:05:27+01:00"
@@ -69,15 +104,14 @@ Ein Beispiel:
     Diese Eigenschaft ist EMPFOHLEN.
 
 `organizations`
-:   Liste der URLs der Gruppierungen (oparl:Organization), denen die
-    Sitzung zugeordnet ist, oder alternativ die URL zum Abfruf der Liste.
-    Diese Eigenschaft ist ZWINGEND. Die Liste MUSS mindestens eine
-    Gruppierung umfassen.
+:   IRI der Gruppierung oder Liste der IRIs der Gruppierungen (oparl:Organization), denen die
+    Sitzung zugeordnet ist.
+    Wenn eine Liste angegeben wird, dann ist diese geordnet. Das erste Element ist dann das federführende Gremium.
+    Diese Eigenschaft ist ZWINGEND.
 
 `participants`
-:   Liste der URLs der geladenen Teilnehmer (oparl:Person) der Sitzung,
-    oder alternativ die URL zum Abfruf der Liste. Bei einer stattgefundenen
-    Sitzung SOLL die Liste nur diejenigen Teilnehmer umfassen, die tatsächlich
+:   IRI der Gruppierung oder Liste der IRLs der geladenen Teilnehmer (oparl:Person) der Sitzung.
+    Bei einer stattgefundenen Sitzung SOLL die Liste nur diejenigen Teilnehmer umfassen, die tatsächlich
     an der Sitzung teilgenommen haben. Die Eigenschaft ist ZWINGEND.
 
 `invitation`

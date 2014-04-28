@@ -2595,7 +2595,7 @@ Ein Beispiel:
     \DataTypeTok{"invitation"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/documents/586"}\NormalTok{,}
     \DataTypeTok{"resultsProtocol"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/documents/628"}\NormalTok{,}
     \DataTypeTok{"verbatimProtocol"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/documents/691"}\NormalTok{,}
-    \DataTypeTok{"attachments"}\NormalTok{: [}
+    \DataTypeTok{"auxiliaryDocuments"}\NormalTok{: [}
         \StringTok{"http://oparl.beispielris.de/documents/588"}\NormalTok{,}
         \StringTok{"http://oparl.beispielris.de/documents/589"}
     \NormalTok{],}
@@ -2648,7 +2648,7 @@ Stattfinden der Sitzung vorkommen.
 URL des Wortprotokolls (oparl:Document) zur Sitzung. Diese Eigenschaft
 ist EMPFOHLEN. Sie kann selbstverständlich erst nach dem Stattfinden der
 Sitzung vorkommen.
-\item[\texttt{attachments}]
+\item[\texttt{auxiliaryDocuments}]
 Liste von URLs zu Dokumentenanhängen (oparl:Document) zur Sitzung, oder
 alternativ die URL zum Abruf einer solchen Liste. Die Eigenschaft ist
 OPTIONAL. Hiermit sind Dokumente gemeint, die üblicherweise mit der
@@ -2739,117 +2739,38 @@ Datum und Uhrzeit der letzten Änderung. EMPFOHLEN.
 \hyperdef{}{oparlux5fpaper}{\subsection{oparl:Paper
 (Drucksache)}\label{oparlux5fpaper}}
 
-Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen,
-Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede
-Drucksache erhält eine eindeutige Kennung.
+Dieser Objekttyp dient der Abbildung von Drucksachen in der
+parlamentarischen Arbeit, wie zum Beispiel Anfragen, Anträgen und
+Beschlussvorlagen.
 
-Die Drucksache hat im Informationsmodell eine hervorgehobene Bedeutung.
-Im Fall eines Antrags kann mit einer einzigen Drucksache ein über Monate
-oder Jahre dauernder politischer Entscheidungsprozess verbunden sein. In
-dem Zusammenhang entstehen üblicherweise weitere Drucksachen.
+Drucksachen werden in Form einer Beratung (oparl:Consultation) im Rahmen
+eines Tagesordnungspunkts (oparl:AgendaItem) einer Sitzung
+(oparl:Meeting) behandelt.
 
 Drucksachen spielen in der schriftlichen wie mündlichen Kommunikation
 eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen
-Bezug genommen wird. Hierbei kommen in Ratsinformationssystemen
-unveränderliche Kennungen der Drucksachen zum Einsatz.
+Bezug genommen wird. Hierbei kommen in parlamentarischen
+Informationssystemen unveränderliche Kennungen der Drucksachen zum
+Einsatz.
 
-Jede Drucksache ist über die Eigenschaft ``Typ'' als eine der folgenden
-Arten von Drucksachen gekennzeichnet:
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  \textbf{Beschlussvorlage}: Entscheidungsvorschlag der Verwaltung
-\item
-  \textbf{Antrag}: Entscheidungsvorschlag einer Fraktionen bzw. mehrerer
-  Fraktionen oder einer/mehrerer Einzelperson/en
-\item
-  \textbf{Anfrage}: Frage(n) einer oder mehrerer Fraktion oder
-  Einzelpersonen an die Verwaltung
-\item
-  \textbf{Mitteilung/Stellungnahme der Verwaltung}: Eine Information der
-  Verwaltung an einzelne oder mehrere Gremien. Darunter fallen nicht
-  Beantwortungen von Anfragen.
-\item
-  \textbf{Beantwortung einer Anfrage}: Antwort der Verwaltung auf
-  (mündliche oder schriftliche) Anfragen
-\end{itemize}
-
-\subsubsection{Eigenschaften}\label{eigenschaften-6}
-
-\begin{description}
-\itemsep1pt\parskip0pt\parsep0pt
-\item[Schlüssel (\texttt{id})]
-Die Kennung einer Drucksache muss für die jeweilige Körperschaft
-eindeutig sein. Sie kann sowohl Ziffern als auch Buchstaben enthalten.
-Einige Systeme (z.B. Köln) verwenden besondere Trennzeichen wie ``/'',
-um eine Jahreszahl von einer laufenden Nummer abzutrennen. Weiterhin
-werden mancherorts führende Nullen verwendet.
-\item[Datum (\texttt{date})]
-Datum der Veröffentlichung
-\item[Typ (\texttt{type})]
-Art der Drucksache (Erläuterung siehe oben)
-\item[Zuletzt geändert (\texttt{last\_modified})]
-Datum und Uhrzeit der letzten Änderung
-\end{description}
-
-\subsubsection{Beziehungen}\label{beziehungen}
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Es muss genau ein \textbf{Hauptdokument} (\texttt{oparl:Document})
-  referenziert werden.
-\item
-  Es können beliebig viele weitere Dokumente referenziert werden, die
-  als nachgeordnete \textbf{Anlagen} zur Drucksache verstanden werden.
-\item
-  Die Drucksache ist beliebig vielen Gremien zuzuordnen, in denen diese
-  beraten wird.
-\item
-  Drucksachen können \textbf{Urhebern} zugewiesen werden. Im Fall von
-  Mitteilungen der Verwaltung ist dies oft der Oberbürgermeister. Bei
-  Anträgen oder Anfragen können Organisationen oder Einzelpersonen
-  referenziert werden. Es können stets mehrere Uhrheber verknüpft
-  werden.
-\item
-  Es können beliebig viele \textbf{Orte} (siehe Objekttyp ``Ort'')
-  referenziert werden, die im Inhalt der Drucksache behandelt werden.
-  Beispiel: Beschlussvorlage zur Freigabe von Mitteln für die Sanierung
-  eines Sportplatzes, wobei der Ort die Lage des Sportplatzes genau
-  beschreibt. (TODO)
-\item
-  Drucksachen können auf andere Drucksachen referenzieren. Diese
-  Verweise können verschiedene semantische Beziehungen ausdrücken. So
-  kann eine Drucksache auf eine übergeordnete oder eine oder mehrere
-  untergeordnete Drucksachen verweisen. Beim Drucksachen-Typ
-  ``Beantwortung einer Anfrage'' ist die Drucksache zu referenzieren,
-  die die ursprüngliche \textbf{Anfrage} beinhaltet. Denkbar sind auch
-  Verweise auf frühere Drucksachen zum selben Thema. Zu klären ist, wie
-  die verschiedenen möglichen Beziehungen formell ausgedrückt werden.
-\item
-  Drucksachen können zu beliebig vielen Tagesordnungspunkten in
-  Beziehung stehen, um die \textbf{Beratungsfolge} einer Drucksache
-  abzubilden. Hierbei kann die Beziehung jeweils mit einer Zuständigkeit
-  versehen sein, die noch näher zu bestimmen ist (TODO).
-\end{itemize}
-
-\subsubsection{Beispiel}\label{beispiel}
+Ein Beispiel:
 
 \hyperdef{}{paperux5fex1}{\label{paperux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
-    \DataTypeTok{"id"}\NormalTok{: }\StringTok{"1234/2012"}\NormalTok{,}
-    \DataTypeTok{"date"}\NormalTok{: }\StringTok{"2013-01-04"}\NormalTok{,}
-    \DataTypeTok{"type"}\NormalTok{: }\StringTok{"Beantwortung einer Anfrage"}\NormalTok{,}
-    \DataTypeTok{"related_papers"}\NormalTok{: [}
-        \StringTok{"0768/2012"}
+    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/Paper"}\NormalTok{,}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/papers/749"}\NormalTok{,}
+    \DataTypeTok{"reference"}\NormalTok{: }\StringTok{"1234/2014"}\NormalTok{,}
+    \DataTypeTok{"publishedDate"}\NormalTok{: }\StringTok{"2014-04-04T16:42:02+02:00"}\NormalTok{,}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Antwort auf Anfrage 1200/2014"}\NormalTok{,}
+    \DataTypeTok{"paperType"}\NormalTok{: }\StringTok{"Beantwortung einer Anfrage"}\NormalTok{,}
+    \DataTypeTok{"relatedPapers"}\NormalTok{: [}
+        \StringTok{"http://oparl.beispielris.de/papers/699"}
     \NormalTok{],}
-    \DataTypeTok{"main_document"}\NormalTok{: }\StringTok{"3000.pdf"}\NormalTok{,}
-    \DataTypeTok{"attachments"}\NormalTok{: [}
-        \StringTok{"3002.pdf"}\NormalTok{,}
-        \StringTok{"3003.pdf"}
+    \DataTypeTok{"mainDocument"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/documents/925"}\NormalTok{,}
+    \DataTypeTok{"auxiliaryDocuments"}\NormalTok{: [}
+        \StringTok{"http://oparl.beispielris.de/documents/926"}
     \NormalTok{],}
     \DataTypeTok{"locations"}\NormalTok{: [}
         \NormalTok{\{}
@@ -2858,7 +2779,6 @@ Datum und Uhrzeit der letzten Änderung
             \DataTypeTok{"lon"}\NormalTok{: }\FloatTok{50.023}
         \NormalTok{\}}
     \NormalTok{],}
-    \DataTypeTok{"committees"}\NormalTok{: [}\StringTok{"STA"}\NormalTok{],}
     \DataTypeTok{"creators"}\NormalTok{: [}
         \NormalTok{\{}
             \DataTypeTok{"typ"}\NormalTok{: }\StringTok{"Organisation"}\NormalTok{,}
@@ -2880,6 +2800,8 @@ Datum und Uhrzeit der letzten Änderung
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
+
+\subsubsection{Eigenschaften}\label{eigenschaften-6}
 
 \subsection{oparl:Document (Datei)}\label{oparlux5fdocument}
 

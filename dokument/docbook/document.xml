@@ -3630,7 +3630,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
     &quot;invitation&quot;: &quot;http://oparl.beispielris.de/documents/586&quot;,
     &quot;resultsProtocol&quot;: &quot;http://oparl.beispielris.de/documents/628&quot;,
     &quot;verbatimProtocol&quot;: &quot;http://oparl.beispielris.de/documents/691&quot;,
-    &quot;attachments&quot;: [
+    &quot;auxiliaryDocuments&quot;: [
         &quot;http://oparl.beispielris.de/documents/588&quot;,
         &quot;http://oparl.beispielris.de/documents/589&quot;
     ],
@@ -3750,7 +3750,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>attachments</literal>
+            <literal>auxiliaryDocuments</literal>
           </term>
           <listitem>
             <para>
@@ -3945,199 +3945,39 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
   <sect2 id="oparl_paper">
     <title>oparl:Paper (Drucksache)</title>
     <para>
-      Eine Drucksache bildet Mitteilungen, Antworten auf Anfragen,
-      Beschlussvorlagen, Anfragen, Anträge und weitere Vorlagen ab. Jede
-      Drucksache erhält eine eindeutige Kennung.
+      Dieser Objekttyp dient der Abbildung von Drucksachen in der
+      parlamentarischen Arbeit, wie zum Beispiel Anfragen, Anträgen und
+      Beschlussvorlagen.
     </para>
     <para>
-      Die Drucksache hat im Informationsmodell eine hervorgehobene
-      Bedeutung. Im Fall eines Antrags kann mit einer einzigen
-      Drucksache ein über Monate oder Jahre dauernder politischer
-      Entscheidungsprozess verbunden sein. In dem Zusammenhang entstehen
-      üblicherweise weitere Drucksachen.
+      Drucksachen werden in Form einer Beratung (oparl:Consultation) im
+      Rahmen eines Tagesordnungspunkts (oparl:AgendaItem) einer Sitzung
+      (oparl:Meeting) behandelt.
     </para>
     <para>
       Drucksachen spielen in der schriftlichen wie mündlichen
       Kommunikation eine besondere Rolle, da in vielen Texten auf
       bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in
-      Ratsinformationssystemen unveränderliche Kennungen der Drucksachen
-      zum Einsatz.
+      parlamentarischen Informationssystemen unveränderliche Kennungen
+      der Drucksachen zum Einsatz.
     </para>
     <para>
-      Jede Drucksache ist über die Eigenschaft &quot;Typ&quot; als eine
-      der folgenden Arten von Drucksachen gekennzeichnet:
+      Ein Beispiel:
     </para>
-    <itemizedlist>
-      <listitem>
-        <para>
-          <emphasis role="strong">Beschlussvorlage</emphasis>:
-          Entscheidungsvorschlag der Verwaltung
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          <emphasis role="strong">Antrag</emphasis>:
-          Entscheidungsvorschlag einer Fraktionen bzw. mehrerer
-          Fraktionen oder einer/mehrerer Einzelperson/en
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          <emphasis role="strong">Anfrage</emphasis>: Frage(n) einer
-          oder mehrerer Fraktion oder Einzelpersonen an die Verwaltung
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          <emphasis role="strong">Mitteilung/Stellungnahme der
-          Verwaltung</emphasis>: Eine Information der Verwaltung an
-          einzelne oder mehrere Gremien. Darunter fallen nicht
-          Beantwortungen von Anfragen.
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          <emphasis role="strong">Beantwortung einer Anfrage</emphasis>:
-          Antwort der Verwaltung auf (mündliche oder schriftliche)
-          Anfragen
-        </para>
-      </listitem>
-    </itemizedlist>
-    <sect3 id="eigenschaften-6">
-      <title>Eigenschaften</title>
-      <variablelist>
-        <varlistentry>
-          <term>
-            Schlüssel (<literal>id</literal>)
-          </term>
-          <listitem>
-            <para>
-              Die Kennung einer Drucksache muss für die jeweilige
-              Körperschaft eindeutig sein. Sie kann sowohl Ziffern als
-              auch Buchstaben enthalten. Einige Systeme (z.B. Köln)
-              verwenden besondere Trennzeichen wie &quot;/&quot;, um
-              eine Jahreszahl von einer laufenden Nummer abzutrennen.
-              Weiterhin werden mancherorts führende Nullen verwendet.
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Datum (<literal>date</literal>)
-          </term>
-          <listitem>
-            <para>
-              Datum der Veröffentlichung
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Typ (<literal>type</literal>)
-          </term>
-          <listitem>
-            <para>
-              Art der Drucksache (Erläuterung siehe oben)
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            Zuletzt geändert (<literal>last_modified</literal>)
-          </term>
-          <listitem>
-            <para>
-              Datum und Uhrzeit der letzten Änderung
-            </para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </sect3>
-    <sect3 id="beziehungen">
-      <title>Beziehungen</title>
-      <itemizedlist>
-        <listitem>
-          <para>
-            Es muss genau ein
-            <emphasis role="strong">Hauptdokument</emphasis>
-            (<literal>oparl:Document</literal>) referenziert werden.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Es können beliebig viele weitere Dokumente referenziert
-            werden, die als nachgeordnete
-            <emphasis role="strong">Anlagen</emphasis> zur Drucksache
-            verstanden werden.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Die Drucksache ist beliebig vielen Gremien zuzuordnen, in
-            denen diese beraten wird.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Drucksachen können
-            <emphasis role="strong">Urhebern</emphasis> zugewiesen
-            werden. Im Fall von Mitteilungen der Verwaltung ist dies oft
-            der Oberbürgermeister. Bei Anträgen oder Anfragen können
-            Organisationen oder Einzelpersonen referenziert werden. Es
-            können stets mehrere Uhrheber verknüpft werden.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Es können beliebig viele
-            <emphasis role="strong">Orte</emphasis> (siehe Objekttyp
-            &quot;Ort&quot;) referenziert werden, die im Inhalt der
-            Drucksache behandelt werden. Beispiel: Beschlussvorlage zur
-            Freigabe von Mitteln für die Sanierung eines Sportplatzes,
-            wobei der Ort die Lage des Sportplatzes genau beschreibt.
-            (TODO)
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Drucksachen können auf andere Drucksachen referenzieren.
-            Diese Verweise können verschiedene semantische Beziehungen
-            ausdrücken. So kann eine Drucksache auf eine übergeordnete
-            oder eine oder mehrere untergeordnete Drucksachen verweisen.
-            Beim Drucksachen-Typ &quot;Beantwortung einer Anfrage&quot;
-            ist die Drucksache zu referenzieren, die die ursprüngliche
-            <emphasis role="strong">Anfrage</emphasis> beinhaltet.
-            Denkbar sind auch Verweise auf frühere Drucksachen zum
-            selben Thema. Zu klären ist, wie die verschiedenen möglichen
-            Beziehungen formell ausgedrückt werden.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Drucksachen können zu beliebig vielen Tagesordnungspunkten
-            in Beziehung stehen, um die
-            <emphasis role="strong">Beratungsfolge</emphasis> einer
-            Drucksache abzubilden. Hierbei kann die Beziehung jeweils
-            mit einer Zuständigkeit versehen sein, die noch näher zu
-            bestimmen ist (TODO).
-          </para>
-        </listitem>
-      </itemizedlist>
-    </sect3>
-    <sect3 id="beispiel">
-      <title>Beispiel</title>
-      <programlisting language="json">
+    <programlisting language="json">
 {
-    &quot;id&quot;: &quot;1234/2012&quot;,
-    &quot;date&quot;: &quot;2013-01-04&quot;,
-    &quot;type&quot;: &quot;Beantwortung einer Anfrage&quot;,
-    &quot;related_papers&quot;: [
-        &quot;0768/2012&quot;
+    &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/Paper&quot;,
+    &quot;@id&quot;: &quot;http://oparl.beispielris.de/papers/749&quot;,
+    &quot;reference&quot;: &quot;1234/2014&quot;,
+    &quot;publishedDate&quot;: &quot;2014-04-04T16:42:02+02:00&quot;,
+    &quot;name&quot;: &quot;Antwort auf Anfrage 1200/2014&quot;,
+    &quot;paperType&quot;: &quot;Beantwortung einer Anfrage&quot;,
+    &quot;relatedPapers&quot;: [
+        &quot;http://oparl.beispielris.de/papers/699&quot;
     ],
-    &quot;main_document&quot;: &quot;3000.pdf&quot;,
-    &quot;attachments&quot;: [
-        &quot;3002.pdf&quot;,
-        &quot;3003.pdf&quot;
+    &quot;mainDocument&quot;: &quot;http://oparl.beispielris.de/documents/925&quot;,
+    &quot;auxiliaryDocuments&quot;: [
+        &quot;http://oparl.beispielris.de/documents/926&quot;
     ],
     &quot;locations&quot;: [
         {
@@ -4146,7 +3986,6 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
             &quot;lon&quot;: 50.023
         }
     ],
-    &quot;committees&quot;: [&quot;STA&quot;],
     &quot;creators&quot;: [
         {
             &quot;typ&quot;: &quot;Organisation&quot;,
@@ -4167,6 +4006,10 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
     &quot;last_modified&quot;: &quot;2013-01-08T12:05:27+01:00&quot;
 }
 </programlisting>
+    <sect3 id="eigenschaften-6">
+      <title>Eigenschaften</title>
+      <para>
+      </para>
     </sect3>
   </sect2>
   <sect2 id="oparl_document">

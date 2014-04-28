@@ -3300,11 +3300,11 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
     <para>
       Dieser Objekttyp dient dazu, Gruppierungen von Personen
       abzubilden, die in der parlamentarischen Arbeit eine Rolle
-      spielen. Dazu zählen in der Praxis insbesondee Fraktionen und
+      spielen. Dazu zählen in der Praxis insbesondere Fraktionen und
       Gremien.
     </para>
     <para>
-      Ein Beispiel:
+      Ein Beispiel in expandierter Form:
     </para>
     <programlisting language="json">
 {
@@ -3313,10 +3313,42 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
     &quot;body&quot;: &quot;http://oparl.beispielris.de/bodies/0&quot;,
     &quot;name&quot;: &quot;Finanzausschuss&quot;,
     &quot;nameLong&quot;: &quot;Finanzausschuss des Rates der Stadt Köln&quot;,
+    &quot;role&quot;: {
+        &quot;@list&quot;: [
+        // ohne @list wird in JSON-LD die Reihenfolge nicht festgelegt
+        &quot;http://oparl.beispielris.de/roles/vorsitzender&quot;,
+        &quot;http://oparl.beispielris.de/people/stellvertretender_vorsitzender&quot;
+        ]
+    },
     &quot;members&quot;: [
         &quot;http://oparl.beispielris.de/people/27&quot;,
         &quot;http://oparl.beispielris.de/people/48&quot;,
-        &quot;http://oparl.beispielris.de/people/57&quot;,
+        &quot;http://oparl.beispielris.de/people/57&quot;
+    ],
+    &quot;last_modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
+}
+</programlisting>
+    <para>
+      Das selbe Beispiel in kompakter Form. Ein geeigneter Kontext wird
+      vorausgesetzt:
+    </para>
+    <programlisting language="json">
+{
+    &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;,
+    &quot;@type&quot;: &quot;oparl:Organization&quot;,
+    &quot;@id&quot;: &quot;beispielris:organizations/34&quot;,
+      // kann eventuell weiter verkürzt werden
+    &quot;body&quot;: &quot;0&quot;,
+    &quot;name&quot;: &quot;Finanzausschuss&quot;,
+    &quot;nameLong&quot;: &quot;Finanzausschuss des Rates der Stadt Köln&quot;,
+    &quot;role:&quot; [
+        &quot;beispielris:roles/vorsitzender&quot;,
+        &quot;beispielris:roles/stellvertretender_vorsitzender&quot;
+    ],
+    &quot;members&quot;: [
+        &quot;27&quot;,
+        &quot;48&quot;,
+        &quot;57&quot;
     ],
     &quot;last_modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
 }
@@ -3352,6 +3384,18 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
           <listitem>
             <para>
               Langform des Namens der Gruppierung. OPTIONAL.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>role</literal>
+          </term>
+          <listitem>
+            <para>
+              Rolle oder Rollen, die für diese Gruppierung vorgesehen
+              sind. Die Rollen-Objekte gehören zu der Klasse org:Role
+              oder einer ihrer Unterklassen. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -3415,7 +3459,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       abgebildet.
     </para>
     <para>
-      Ein Beispiel:
+      Ein Beispiel in expandierter Form:
     </para>
     <programlisting language="json">
 {
@@ -3435,6 +3479,30 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         &quot;http://oparl.beispielris.de/organizations/11&quot;,
         &quot;http://oparl.beispielris.de/organizations/34&quot;
     ],
+    &quot;created&quot;: &quot;2011-11-11T11:11:00+01:00&quot;,
+    &quot;last_modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;,
+}
+</programlisting>
+    <para>
+      Das selbe Beispiel in kompakter Form. Ein geeigneter Inhalt des
+      angegebenen Kontext wird hierbei vorausgesetzt:
+    </para>
+    <programlisting language="json">
+{
+    &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;,
+    &quot;@type&quot;: &quot;oparl:Person&quot;,
+    &quot;@id&quot;: &quot;beispielris:people/29&quot;, // kann möglicherweise weiter gekürzt werden
+    &quot;name&quot;: &quot;Prof. Dr. Max Mustermann&quot;,
+    &quot;familyName&quot;: &quot;Mustermann&quot;,
+    &quot;givenName&quot;: &quot;Max&quot;,
+    &quot;title&quot;: &quot;Prof. Dr.&quot;,
+    &quot;gender&quot;: &quot;male&quot;,
+    &quot;email&quot;: &quot;mailto:max@mustermann.de&quot;,
+    &quot;phone&quot;: &quot;tel:+493012345678&quot;,
+    &quot;streetAddress&quot;: &quot;Musterstraße 5&quot;,
+    &quot;postalCode&quot;: &quot;11111&quot;,
+    &quot;locality&quot;: &quot;Musterort&quot;,
+    &quot;organizations&quot;: [&quot;11&quot;, &quot;34&quot;],
     &quot;created&quot;: &quot;2011-11-11T11:11:00+01:00&quot;,
     &quot;last_modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;,
 }
@@ -3556,12 +3624,25 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
           </term>
           <listitem>
             <para>
-              Liste der URLs der Gruppierungen (Objekte vom Typ
-              <literal>oparl:Organization</literal>), in der die Person
-              aktuell Mitglied ist, oder alternativ die URL zum Abruf
-              der Liste. Diese Eigenschaft ist ZWINGEND. Sollte die
-              Person Mitglied in keiner Gruppierung sein, enthält die
-              Liste keine Einträge.
+              IRIs der Gruppierung oder Liste der IRIs der Gruppierungen
+              (Objekte vom Typ <literal>oparl:Organization</literal>),
+              in der bzw. in denen die Person aktuell Mitglied ist.
+              Diese Eigenschaft ist ZWINGEND. Sollte die Person Mitglied
+              in keiner Gruppierung sein, enthält die Liste keine
+              Einträge.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>hasMembership</literal>
+          </term>
+          <listitem>
+            <para>
+              IRIs der Mitgliedschaft oder Liste von IRIs der
+              Mitgliedschaften (Objekte vom Typ
+              <literal>org:Membership</literal>). TODO: Eventuell
+              Unterklasse von org:Membership definieren. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -3607,7 +3688,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       (oparl:AgendaItem) abgebildet.
     </para>
     <para>
-      Ein Beispiel:
+      Ein Beispiel in expandierter Form:
     </para>
     <programlisting language="json">
 {
@@ -3619,9 +3700,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
     &quot;location&quot;: {
         &quot;description&quot;: &quot;Rathaus, Raum 136&quot;
     },
-    &quot;organizations&quot;: [
-        &quot;http://oparl.beispielris.de/organizations/34&quot;
-    ],
+    &quot;organizations&quot;: &quot;http://oparl.beispielris.de/organizations/34&quot;,
     &quot;participants&quot;: [
         &quot;http://oparl.beispielris.de/people/29&quot;,
         &quot;http://oparl.beispielris.de/people/75&quot;
@@ -3639,6 +3718,43 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         &quot;http://oparl.beispielris.de/agendaitems/1046&quot;,
         &quot;http://oparl.beispielris.de/agendaitems/1047&quot;,
         &quot;http://oparl.beispielris.de/agendaitems/1048&quot;
+    ],
+    &quot;created&quot;: &quot;2012-01-06T12:01:00+01:00&quot;,
+    &quot;lastModified&quot;: &quot;2012-01-08T14:05:27+01:00&quot;
+}
+</programlisting>
+    <para>
+      Das selbe Beispiel in kompakter Form:
+    </para>
+    <programlisting language="json">
+{
+    &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;
+    &quot;@type&quot;: &quot;oparl:Meeting&quot;,
+    &quot;@id&quot;: &quot;http://oparl.beispielris.de/meetings/281&quot;,
+    &quot;name&quot;: &quot;4. Sitzung des Finanzausschusses&quot;,
+    &quot;start&quot;: &quot;2013-01-04T08:00:00+01:00&quot;,
+    &quot;end&quot;: &quot;2013-01-04T12:00:00+01:00&quot;,
+    &quot;location&quot;: {
+        &quot;description&quot;: &quot;Rathaus, Raum 136&quot;
+    },
+    &quot;organizations&quot;: &quot;beispielris:organizations/34&quot;,
+    &quot;participants&quot;: [
+        &quot;beispielris:people/29&quot;,
+        &quot;beispielris:people/75&quot;,
+        &quot;beispielris:people/94&quot;
+    ],
+    &quot;invitation&quot;: &quot;beispielris:documents/586&quot;,
+    &quot;resultsProtocol&quot;: &quot;beispielris:documents/628&quot;,
+    &quot;verbatimProtocol&quot;: &quot;beispielris:documents/691&quot;,
+    &quot;attachments&quot;: [
+        &quot;beispielris:documents/588&quot;,
+        &quot;beispielris:documents/589&quot;
+    ],
+    &quot;agendaItems&quot;: [
+        &quot;beispielris:agendaitems/1045&quot;,
+        &quot;beispielris:agendaitems/1046&quot;,
+        &quot;beispielris:agendaitems/1047&quot;,
+        &quot;beispielris:agendaitems/1048&quot;
     ],
     &quot;created&quot;: &quot;2012-01-06T12:01:00+01:00&quot;,
     &quot;lastModified&quot;: &quot;2012-01-08T14:05:27+01:00&quot;
@@ -3691,10 +3807,11 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
           </term>
           <listitem>
             <para>
-              Liste der URLs der Gruppierungen (oparl:Organization),
-              denen die Sitzung zugeordnet ist, oder alternativ die URL
-              zum Abfruf der Liste. Diese Eigenschaft ist ZWINGEND. Die
-              Liste MUSS mindestens eine Gruppierung umfassen.
+              IRI der Gruppierung oder Liste der IRIs der Gruppierungen
+              (oparl:Organization), denen die Sitzung zugeordnet ist.
+              Wenn eine Liste angegeben wird, dann ist diese geordnet.
+              Das erste Element ist dann das federführende Gremium.
+              Diese Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -3704,11 +3821,11 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
           </term>
           <listitem>
             <para>
-              Liste der URLs der geladenen Teilnehmer (oparl:Person) der
-              Sitzung, oder alternativ die URL zum Abfruf der Liste. Bei
-              einer stattgefundenen Sitzung SOLL die Liste nur
-              diejenigen Teilnehmer umfassen, die tatsächlich an der
-              Sitzung teilgenommen haben. Die Eigenschaft ist ZWINGEND.
+              IRI der Gruppierung oder Liste der IRLs der geladenen
+              Teilnehmer (oparl:Person) der Sitzung. Bei einer
+              stattgefundenen Sitzung SOLL die Liste nur diejenigen
+              Teilnehmer umfassen, die tatsächlich an der Sitzung
+              teilgenommen haben. Die Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -3809,12 +3926,13 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       auch die Beratung bestimmter Drucksachen gehört.
     </para>
     <para>
-      Ein Beispiel:
+      Ein Beispiel in kompakter Form:
     </para>
     <programlisting language="json">
 {
-    &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/AgendaItem&quot;,
-    &quot;@id&quot;: &quot;http://oparl.beispielris.de/agendaitems/1045&quot;,
+    &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;
+    &quot;@type&quot;: &quot;oparl:AgendaItem&quot;,
+    &quot;@id&quot;: &quot;http://oparl.beispielris.de/agendaitem/3271&quot;,
     &quot;meeting&quot;: &quot;http://oparl.beispielris.de/meetings/281&quot;,
     &quot;name&quot;: &quot;Satzungsänderung für Ausschreibungen&quot;,
     &quot;public&quot;: true,
@@ -3962,11 +4080,12 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       der Drucksachen zum Einsatz.
     </para>
     <para>
-      Ein Beispiel:
+      Ein Beispiel in kompakter Form:
     </para>
     <programlisting language="json">
 {
-    &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/Paper&quot;,
+    &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;
+    &quot;@type&quot;: &quot;oparl:Paper&quot;,
     &quot;@id&quot;: &quot;http://oparl.beispielris.de/papers/749&quot;,
     &quot;reference&quot;: &quot;1234/2014&quot;,
     &quot;publishedDate&quot;: &quot;2014-04-04T16:42:02+02:00&quot;,
@@ -3987,30 +4106,25 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         }
     ],
     &quot;creators&quot;: [
-        {
-            &quot;typ&quot;: &quot;Organisation&quot;,
-            &quot;id&quot;: &quot;2000&quot;
-        },
-        {
-            &quot;typ&quot;: &quot;Person&quot;,
-            &quot;id&quot;: &quot;1000&quot;
-        }
+        &quot;beispielris:organizations/2000&quot;,
+        &quot;beispielris:people/1000&quot;
     ],
     &quot;consultations&quot;: [
         {
-            &quot;meeting&quot;: &quot;3271&quot;,
-            &quot;agendaitem&quot;: &quot;3.1.2&quot;,
+            &quot;meeting&quot;: &quot;beispielris:meeting/3271&quot;,
+            &quot;agendaitem&quot;: &quot;beispielris:agendaitem/3.1.2&quot;,
             &quot;role&quot;: &quot;Federführende Beratung&quot;
         }
     ],
-    &quot;last_modified&quot;: &quot;2013-01-08T12:05:27+01:00&quot;
+    &quot;lastModified&quot;: &quot;2013-01-08T12:05:27+01:00&quot;
 }
 </programlisting>
-    <sect3 id="eigenschaften-6">
-      <title>Eigenschaften</title>
-      <para>
-      </para>
-    </sect3>
+    <para>
+      TODO: * Eigenschaften beschreiben * Eigenschaft
+      &quot;locations&quot; im Beispiel ändern * Eigenschaft
+      &quot;creators&quot; im Beispiel ändern * Eigenschaft
+      &quot;consultations&quot; im Beispiel ändern
+    </para>
   </sect2>
   <sect2 id="oparl_document">
     <title>oparl:Document (Datei)</title>
@@ -4062,7 +4176,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       <literal>derivative_documents</literal> angezeigt werden, welche
       Ableitungen einer Datei existieren.
     </para>
-    <sect3 id="eigenschaften-7">
+    <sect3 id="eigenschaften-6">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -4272,11 +4386,26 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
     &quot;@id&quot;: &quot;http://beispielris.de/consultations/47594&quot;,
     &quot;paper&quot;: &quot;http://beispielris.de/papers/2396&quot;,
     &quot;agendaitem&quot;: &quot;http://beispielris.de/agendaitems/15569&quot;,
-    &quot;committee&quot;: &quot;http://beispielris.de/organisations/96&quot;,
+    &quot;committee&quot;: &quot;http://beispielris.de/organizations/96&quot;,
     &quot;authoritative&quot;: false
 }
 </programlisting>
-    <sect3 id="eigenschaften-8">
+    <para>
+      Das selbe Beispiel in kompakter Form (ein passender Kontext wird
+      vorausgesetzt):
+    </para>
+    <programlisting language="json">
+{
+    &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;
+    &quot;@type&quot;: &quot;oparl:Consultation&quot;,
+    &quot;@id&quot;: &quot;beispielris:consultations/47594&quot;,
+    &quot;paper&quot;: &quot;beispielris:papers/2396&quot;,
+    &quot;agendaitem&quot;: &quot;beispielris:agendaitem/15569&quot;,
+    &quot;committee&quot;: &quot;beispielris:organization/96&quot;,
+    &quot;authoritative&quot;: false
+}
+</programlisting>
+    <sect3 id="eigenschaften-7">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -4319,8 +4448,11 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
           <listitem>
             <para>
               URL des Gremiums (oparl:Organization), dem die Sitzung
-              zugewisen ist, zu welcher der zuvor genannte
-              Tagesordnungspunkt gehört. Diese Eigenschaft ist ZWINGEND.
+              zugewiesen ist, zu welcher der zuvor genannte
+              Tagesordnungspunkt gehört. Hier kann auch eine mit Liste
+              von Gremien angegeben werden. Die Liste ist dann geordnet.
+              Das erste Gremium ist federführend. Diese Eigenschaft ist
+              ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -4375,10 +4507,13 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       nachvollziehbar zu machen.
     </para>
     <para>
+      TODO: Statt GeoJSON wird Well-Known Text (WKT) verwendet.
+    </para>
+    <para>
       OParl sieht bei Angabe von Geodaten die Verwendung des<literallayout>
 </literallayout>GeoJSON-Formats<footnote>
         <para>
-          GeoJSON Spazifikation
+          GeoJSON Spezifikation
           <ulink url="http://geojson.org/geojson-spec.html">http://geojson.org/geojson-spec.html</ulink>
         </para>
       </footnote> vor. GeoJSON erlaubt die Beschreibung von vielen
@@ -4400,7 +4535,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       </footnote> angegeben werden, und zwar in Form von Zahlenwerten
       (Fließkommazahlen) für Längen- und Breitengrad.
     </para>
-    <sect3 id="eigenschaften-9">
+    <sect3 id="eigenschaften-8">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>

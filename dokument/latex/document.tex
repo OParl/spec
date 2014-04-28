@@ -2432,9 +2432,9 @@ Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.
 
 Dieser Objekttyp dient dazu, Gruppierungen von Personen abzubilden, die
 in der parlamentarischen Arbeit eine Rolle spielen. Dazu zählen in der
-Praxis insbesondee Fraktionen und Gremien.
+Praxis insbesondere Fraktionen und Gremien.
 
-Ein Beispiel:
+Ein Beispiel in expandierter Form:
 
 \hyperdef{}{organizationux5fex1}{\label{organizationux5fex1}}
 \begin{Shaded}
@@ -2445,10 +2445,45 @@ Ein Beispiel:
     \DataTypeTok{"body"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/bodies/0"}\NormalTok{,}
     \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Finanzausschuss"}\NormalTok{,}
     \DataTypeTok{"nameLong"}\NormalTok{: }\StringTok{"Finanzausschuss des Rates der Stadt Köln"}\NormalTok{,}
+    \DataTypeTok{"role"}\NormalTok{: \{}
+        \DataTypeTok{"@list"}\NormalTok{: [}
+        \ErrorTok{//} \ErrorTok{ohne} \ErrorTok{@list} \ErrorTok{wird} \ErrorTok{in} \ErrorTok{JSON-LD} \ErrorTok{die} \ErrorTok{Reihenfolge} \ErrorTok{nicht} \ErrorTok{festgelegt}
+        \StringTok{"http://oparl.beispielris.de/roles/vorsitzender"}\NormalTok{,}
+        \StringTok{"http://oparl.beispielris.de/people/stellvertretender_vorsitzender"}
+        \NormalTok{]}
+    \NormalTok{\},}
     \DataTypeTok{"members"}\NormalTok{: [}
         \StringTok{"http://oparl.beispielris.de/people/27"}\NormalTok{,}
         \StringTok{"http://oparl.beispielris.de/people/48"}\NormalTok{,}
-        \StringTok{"http://oparl.beispielris.de/people/57"}\NormalTok{,}
+        \StringTok{"http://oparl.beispielris.de/people/57"}
+    \NormalTok{],}
+    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Das selbe Beispiel in kompakter Form. Ein geeigneter Kontext wird
+vorausgesetzt:
+
+\hyperdef{}{organizationux5fex2}{\label{organizationux5fex2}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}\NormalTok{,}
+    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:Organization"}\NormalTok{,}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"beispielris:organizations/34"}\NormalTok{,}
+      \ErrorTok{//} \ErrorTok{kann} \ErrorTok{eventuell} \ErrorTok{weiter} \ErrorTok{verkürzt} \ErrorTok{werden}
+    \DataTypeTok{"body"}\NormalTok{: }\StringTok{"0"}\NormalTok{,}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Finanzausschuss"}\NormalTok{,}
+    \DataTypeTok{"nameLong"}\NormalTok{: }\StringTok{"Finanzausschuss des Rates der Stadt Köln"}\NormalTok{,}
+    \DataTypeTok{"role:"} \ErrorTok{[}
+        \DataTypeTok{"beispielris:roles/vorsitzender"}\NormalTok{,}
+        \DataTypeTok{"beispielris:roles/stellvertretender_vorsitzender"}
+    \ErrorTok{]}\NormalTok{,}
+    \DataTypeTok{"members"}\NormalTok{: [}
+        \StringTok{"27"}\NormalTok{,}
+        \StringTok{"48"}\NormalTok{,}
+        \StringTok{"57"}
     \NormalTok{],}
     \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
 \NormalTok{\}}
@@ -2465,6 +2500,10 @@ ist ZWINGEND.
 Der Name der Gruppierung. Die Eigenschaft ist ZWINGEND.
 \item[\texttt{nameLong}]
 Langform des Namens der Gruppierung. OPTIONAL.
+\item[\texttt{role}]
+Rolle oder Rollen, die für diese Gruppierung vorgesehen sind. Die
+Rollen-Objekte gehören zu der Klasse org:Role oder einer ihrer
+Unterklassen. OPTIONAL.
 \item[\texttt{members}]
 Entweder die vollständige Liste der URLs aller Mitglieder dieser
 Organisation (Objekte vom Typ
@@ -2487,7 +2526,7 @@ und insbesondere Mitglied in einer Gruppierung
 (\hyperref[oparlux5forganization]{oparl:Organization}), wird mit einem
 Objekt vom Typ \texttt{oparl:Person} abgebildet.
 
-Ein Beispiel:
+Ein Beispiel in expandierter Form:
 
 \hyperdef{}{personux5fex1}{\label{personux5fex1}}
 \begin{Shaded}
@@ -2509,6 +2548,33 @@ Ein Beispiel:
         \StringTok{"http://oparl.beispielris.de/organizations/11"}\NormalTok{,}
         \StringTok{"http://oparl.beispielris.de/organizations/34"}
     \NormalTok{],}
+    \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2011-11-11T11:11:00+01:00"}\NormalTok{,}
+    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}\NormalTok{,}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Das selbe Beispiel in kompakter Form. Ein geeigneter Inhalt des
+angegebenen Kontext wird hierbei vorausgesetzt:
+
+\hyperdef{}{personux5fex2}{\label{personux5fex2}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}\NormalTok{,}
+    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:Person"}\NormalTok{,}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"beispielris:people/29"}\NormalTok{, }\ErrorTok{//} \ErrorTok{kann} \ErrorTok{möglicherweise} \ErrorTok{weiter} \ErrorTok{gekürzt} \ErrorTok{werden}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Prof. Dr. Max Mustermann"}\NormalTok{,}
+    \DataTypeTok{"familyName"}\NormalTok{: }\StringTok{"Mustermann"}\NormalTok{,}
+    \DataTypeTok{"givenName"}\NormalTok{: }\StringTok{"Max"}\NormalTok{,}
+    \DataTypeTok{"title"}\NormalTok{: }\StringTok{"Prof. Dr."}\NormalTok{,}
+    \DataTypeTok{"gender"}\NormalTok{: }\StringTok{"male"}\NormalTok{,}
+    \DataTypeTok{"email"}\NormalTok{: }\StringTok{"mailto:max@mustermann.de"}\NormalTok{,}
+    \DataTypeTok{"phone"}\NormalTok{: }\StringTok{"tel:+493012345678"}\NormalTok{,}
+    \DataTypeTok{"streetAddress"}\NormalTok{: }\StringTok{"Musterstraße 5"}\NormalTok{,}
+    \DataTypeTok{"postalCode"}\NormalTok{: }\StringTok{"11111"}\NormalTok{,}
+    \DataTypeTok{"locality"}\NormalTok{: }\StringTok{"Musterort"}\NormalTok{,}
+    \DataTypeTok{"organizations"}\NormalTok{: [}\StringTok{"11"}\NormalTok{, }\StringTok{"34"}\NormalTok{],}
     \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2011-11-11T11:11:00+01:00"}\NormalTok{,}
     \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}\NormalTok{,}
 \NormalTok{\}}
@@ -2545,11 +2611,14 @@ OPTIONAL.
 Ortsangabe der Kontakt-Anschrift der Person. Diese Eigenschaft ist
 OPTIONAL.
 \item[\texttt{organizations}]
-Liste der URLs der Gruppierungen (Objekte vom Typ
-\texttt{oparl:Organization}), in der die Person aktuell Mitglied ist,
-oder alternativ die URL zum Abruf der Liste. Diese Eigenschaft ist
-ZWINGEND. Sollte die Person Mitglied in keiner Gruppierung sein, enthält
-die Liste keine Einträge.
+IRIs der Gruppierung oder Liste der IRIs der Gruppierungen (Objekte vom
+Typ \texttt{oparl:Organization}), in der bzw. in denen die Person
+aktuell Mitglied ist. Diese Eigenschaft ist ZWINGEND. Sollte die Person
+Mitglied in keiner Gruppierung sein, enthält die Liste keine Einträge.
+\item[\texttt{hasMembership}]
+IRIs der Mitgliedschaft oder Liste von IRIs der Mitgliedschaften
+(Objekte vom Typ \texttt{org:Membership}). TODO: Eventuell Unterklasse
+von org:Membership definieren. OPTIONAL.
 \item[\texttt{created}]
 Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
 \item[\texttt{lastModified}]
@@ -2570,7 +2639,7 @@ referenziert werden.
 Die Inhalte einer Sitzung werden durch Tagesordnungspunkte
 (oparl:AgendaItem) abgebildet.
 
-Ein Beispiel:
+Ein Beispiel in expandierter Form:
 
 \hyperdef{}{meetingux5fex1}{\label{meetingux5fex1}}
 \begin{Shaded}
@@ -2584,9 +2653,7 @@ Ein Beispiel:
     \DataTypeTok{"location"}\NormalTok{: \{}
         \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Rathaus, Raum 136"}
     \NormalTok{\},}
-    \DataTypeTok{"organizations"}\NormalTok{: [}
-        \StringTok{"http://oparl.beispielris.de/organizations/34"}
-    \NormalTok{],}
+    \DataTypeTok{"organizations"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/organizations/34"}\NormalTok{,}
     \DataTypeTok{"participants"}\NormalTok{: [}
         \StringTok{"http://oparl.beispielris.de/people/29"}\NormalTok{,}
         \StringTok{"http://oparl.beispielris.de/people/75"}
@@ -2611,6 +2678,46 @@ Ein Beispiel:
 \end{Highlighting}
 \end{Shaded}
 
+Das selbe Beispiel in kompakter Form:
+
+\hyperdef{}{meetingux5fex2}{\label{meetingux5fex2}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}
+    \StringTok{"@type"}\ErrorTok{:} \StringTok{"oparl:Meeting"}\NormalTok{,}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/meetings/281"}\NormalTok{,}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"4. Sitzung des Finanzausschusses"}\NormalTok{,}
+    \DataTypeTok{"start"}\NormalTok{: }\StringTok{"2013-01-04T08:00:00+01:00"}\NormalTok{,}
+    \DataTypeTok{"end"}\NormalTok{: }\StringTok{"2013-01-04T12:00:00+01:00"}\NormalTok{,}
+    \DataTypeTok{"location"}\NormalTok{: \{}
+        \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Rathaus, Raum 136"}
+    \NormalTok{\},}
+    \DataTypeTok{"organizations"}\NormalTok{: }\StringTok{"beispielris:organizations/34"}\NormalTok{,}
+    \DataTypeTok{"participants"}\NormalTok{: [}
+        \StringTok{"beispielris:people/29"}\NormalTok{,}
+        \StringTok{"beispielris:people/75"}\NormalTok{,}
+        \StringTok{"beispielris:people/94"}
+    \NormalTok{],}
+    \DataTypeTok{"invitation"}\NormalTok{: }\StringTok{"beispielris:documents/586"}\NormalTok{,}
+    \DataTypeTok{"resultsProtocol"}\NormalTok{: }\StringTok{"beispielris:documents/628"}\NormalTok{,}
+    \DataTypeTok{"verbatimProtocol"}\NormalTok{: }\StringTok{"beispielris:documents/691"}\NormalTok{,}
+    \DataTypeTok{"attachments"}\NormalTok{: [}
+        \StringTok{"beispielris:documents/588"}\NormalTok{,}
+        \StringTok{"beispielris:documents/589"}
+    \NormalTok{],}
+    \DataTypeTok{"agendaItems"}\NormalTok{: [}
+        \StringTok{"beispielris:agendaitems/1045"}\NormalTok{,}
+        \StringTok{"beispielris:agendaitems/1046"}\NormalTok{,}
+        \StringTok{"beispielris:agendaitems/1047"}\NormalTok{,}
+        \StringTok{"beispielris:agendaitems/1048"}
+    \NormalTok{],}
+    \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2012-01-06T12:01:00+01:00"}\NormalTok{,}
+    \DataTypeTok{"lastModified"}\NormalTok{: }\StringTok{"2012-01-08T14:05:27+01:00"}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
 \subsubsection{Eigenschaften}\label{eigenschaften-4}
 
 \begin{description}
@@ -2627,16 +2734,15 @@ es der tatsächliche Endzeitpunkt sein. Diese Eigenschaft ist EMPFOHLEN.
 Sitzungsort in Form eines \texttt{oparl:Location} Objekts. Diese
 Eigenschaft ist EMPFOHLEN.
 \item[\texttt{organizations}]
-Liste der URLs der Gruppierungen (oparl:Organization), denen die Sitzung
-zugeordnet ist, oder alternativ die URL zum Abfruf der Liste. Diese
-Eigenschaft ist ZWINGEND. Die Liste MUSS mindestens eine Gruppierung
-umfassen.
+IRI der Gruppierung oder Liste der IRIs der Gruppierungen
+(oparl:Organization), denen die Sitzung zugeordnet ist. Wenn eine Liste
+angegeben wird, dann ist diese geordnet. Das erste Element ist dann das
+federführende Gremium. Diese Eigenschaft ist ZWINGEND.
 \item[\texttt{participants}]
-Liste der URLs der geladenen Teilnehmer (oparl:Person) der Sitzung, oder
-alternativ die URL zum Abfruf der Liste. Bei einer stattgefundenen
-Sitzung SOLL die Liste nur diejenigen Teilnehmer umfassen, die
-tatsächlich an der Sitzung teilgenommen haben. Die Eigenschaft ist
-ZWINGEND.
+IRI der Gruppierung oder Liste der IRLs der geladenen Teilnehmer
+(oparl:Person) der Sitzung. Bei einer stattgefundenen Sitzung SOLL die
+Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung
+teilgenommen haben. Die Eigenschaft ist ZWINGEND.
 \item[\texttt{invitation}]
 URL des Einladungsdokuments (oparl:Document) zur Sitzung. Diese
 Eigenschaft ist EMPFOHLEN.
@@ -2673,14 +2779,15 @@ Tagesordnungspunkte sind die Bestandteile von Sitzungen
 inhaltlich einem bestimmten Thema, wozu in der Regel auch die Beratung
 bestimmter Drucksachen gehört.
 
-Ein Beispiel:
+Ein Beispiel in kompakter Form:
 
 \hyperdef{}{agendaitemux5fex1}{\label{agendaitemux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
-    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/AgendaItem"}\NormalTok{,}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/agendaitems/1045"}\NormalTok{,}
+    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}
+    \StringTok{"@type"}\ErrorTok{:} \StringTok{"oparl:AgendaItem"}\NormalTok{,}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/agendaitem/3271"}\NormalTok{,}
     \DataTypeTok{"meeting"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/meetings/281"}\NormalTok{,}
     \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Satzungsänderung für Ausschreibungen"}\NormalTok{,}
     \DataTypeTok{"public"}\NormalTok{: }\DecValTok{true}\NormalTok{,}
@@ -2753,13 +2860,14 @@ Bezug genommen wird. Hierbei kommen in parlamentarischen
 Informationssystemen unveränderliche Kennungen der Drucksachen zum
 Einsatz.
 
-Ein Beispiel:
+Ein Beispiel in kompakter Form:
 
 \hyperdef{}{paperux5fex1}{\label{paperux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
-    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/Paper"}\NormalTok{,}
+    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}
+    \StringTok{"@type"}\ErrorTok{:} \StringTok{"oparl:Paper"}\NormalTok{,}
     \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/papers/749"}\NormalTok{,}
     \DataTypeTok{"reference"}\NormalTok{: }\StringTok{"1234/2014"}\NormalTok{,}
     \DataTypeTok{"publishedDate"}\NormalTok{: }\StringTok{"2014-04-04T16:42:02+02:00"}\NormalTok{,}
@@ -2780,28 +2888,24 @@ Ein Beispiel:
         \NormalTok{\}}
     \NormalTok{],}
     \DataTypeTok{"creators"}\NormalTok{: [}
-        \NormalTok{\{}
-            \DataTypeTok{"typ"}\NormalTok{: }\StringTok{"Organisation"}\NormalTok{,}
-            \DataTypeTok{"id"}\NormalTok{: }\StringTok{"2000"}
-        \NormalTok{\},}
-        \NormalTok{\{}
-            \DataTypeTok{"typ"}\NormalTok{: }\StringTok{"Person"}\NormalTok{,}
-            \DataTypeTok{"id"}\NormalTok{: }\StringTok{"1000"}
-        \NormalTok{\}}
+        \StringTok{"beispielris:organizations/2000"}\NormalTok{,}
+        \StringTok{"beispielris:people/1000"}
     \NormalTok{],}
     \DataTypeTok{"consultations"}\NormalTok{: [}
         \NormalTok{\{}
-            \DataTypeTok{"meeting"}\NormalTok{: }\StringTok{"3271"}\NormalTok{,}
-            \DataTypeTok{"agendaitem"}\NormalTok{: }\StringTok{"3.1.2"}\NormalTok{,}
+            \DataTypeTok{"meeting"}\NormalTok{: }\StringTok{"beispielris:meeting/3271"}\NormalTok{,}
+            \DataTypeTok{"agendaitem"}\NormalTok{: }\StringTok{"beispielris:agendaitem/3.1.2"}\NormalTok{,}
             \DataTypeTok{"role"}\NormalTok{: }\StringTok{"Federführende Beratung"}
         \NormalTok{\}}
     \NormalTok{],}
-    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2013-01-08T12:05:27+01:00"}
+    \DataTypeTok{"lastModified"}\NormalTok{: }\StringTok{"2013-01-08T12:05:27+01:00"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection{Eigenschaften}\label{eigenschaften-6}
+TODO: * Eigenschaften beschreiben * Eigenschaft ``locations'' im
+Beispiel ändern * Eigenschaft ``creators'' im Beispiel ändern *
+Eigenschaft ``consultations'' im Beispiel ändern
 
 \subsection{oparl:Document (Datei)}\label{oparlux5fdocument}
 
@@ -2849,7 +2953,7 @@ wurde. Umgekehrt KANN über die Eigenschaft
 \texttt{derivative\_documents} angezeigt werden, welche Ableitungen
 einer Datei existieren.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-7}
+\subsubsection{Eigenschaften}\label{eigenschaften-6}
 
 \begin{description}
 \item[\texttt{@id}]
@@ -2931,13 +3035,31 @@ Ein Beispiel:
     \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://beispielris.de/consultations/47594"}\NormalTok{,}
     \DataTypeTok{"paper"}\NormalTok{: }\StringTok{"http://beispielris.de/papers/2396"}\NormalTok{,}
     \DataTypeTok{"agendaitem"}\NormalTok{: }\StringTok{"http://beispielris.de/agendaitems/15569"}\NormalTok{,}
-    \DataTypeTok{"committee"}\NormalTok{: }\StringTok{"http://beispielris.de/organisations/96"}\NormalTok{,}
+    \DataTypeTok{"committee"}\NormalTok{: }\StringTok{"http://beispielris.de/organizations/96"}\NormalTok{,}
     \DataTypeTok{"authoritative"}\NormalTok{: }\DecValTok{false}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection{Eigenschaften}\label{eigenschaften-8}
+Das selbe Beispiel in kompakter Form (ein passender Kontext wird
+vorausgesetzt):
+
+\hyperdef{}{consultationux5fex2}{\label{consultationux5fex2}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}
+    \StringTok{"@type"}\ErrorTok{:} \StringTok{"oparl:Consultation"}\NormalTok{,}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"beispielris:consultations/47594"}\NormalTok{,}
+    \DataTypeTok{"paper"}\NormalTok{: }\StringTok{"beispielris:papers/2396"}\NormalTok{,}
+    \DataTypeTok{"agendaitem"}\NormalTok{: }\StringTok{"beispielris:agendaitem/15569"}\NormalTok{,}
+    \DataTypeTok{"committee"}\NormalTok{: }\StringTok{"beispielris:organization/96"}\NormalTok{,}
+    \DataTypeTok{"authoritative"}\NormalTok{: }\DecValTok{false}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Eigenschaften}\label{eigenschaften-7}
 
 \begin{description}
 \item[\texttt{@id}]
@@ -2948,9 +3070,11 @@ URL der Drucksache, die beraten wird. Diese Eigenschaft ist ZWINGEND.
 URL des Tagesordnungspunktes (oparl:Agendaitem), unter dem die
 Drucksache beraten wird. Diese Eigenschaft ist ZWINGEND.
 \item[\texttt{committee}]
-URL des Gremiums (oparl:Organization), dem die Sitzung zugewisen ist, zu
-welcher der zuvor genannte Tagesordnungspunkt gehört. Diese Eigenschaft
-ist ZWINGEND.
+URL des Gremiums (oparl:Organization), dem die Sitzung zugewiesen ist,
+zu welcher der zuvor genannte Tagesordnungspunkt gehört. Hier kann auch
+eine mit Liste von Gremien angegeben werden. Die Liste ist dann
+geordnet. Das erste Gremium ist federführend. Diese Eigenschaft ist
+ZWINGEND.
 \item[\texttt{authoritative}]
 Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache
 gefasst wird (\emph{true}) wird oder nicht (\emph{false}). Diese
@@ -2991,8 +3115,10 @@ politischen Vorgangs, wie zum Beispiel eines Bauvorhabens oder der
 Änderung eines Flächennutzungsplanes, maschinenlesbar nachvollziehbar zu
 machen.
 
+TODO: Statt GeoJSON wird Well-Known Text (WKT) verwendet.
+
 OParl sieht bei Angabe von Geodaten die Verwendung
-des\\GeoJSON-Formats\footnote{GeoJSON Spazifikation
+des\\GeoJSON-Formats\footnote{GeoJSON Spezifikation
   \url{http://geojson.org/geojson-spec.html}} vor. GeoJSON erlaubt die
 Beschreibung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden
 und Polygonen in JSON-Notation. Ein GeoJSON-Objekt kann auch mehrere
@@ -3008,7 +3134,7 @@ Koordinatenangaben im System WGS84\footnote{WGS84 steht für ``World
 angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen)
 für Längen- und Breitengrad.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-9}
+\subsubsection{Eigenschaften}\label{eigenschaften-8}
 
 \begin{description}
 \item[\texttt{description}]

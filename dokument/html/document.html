@@ -837,18 +837,45 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </dd>
 </dl>
 <h2 id="oparl_organization"><span class="header-section-number">5.5</span> oparl:Organization (Gruppierung)</h2>
-<p>Dieser Objekttyp dient dazu, Gruppierungen von Personen abzubilden, die in der parlamentarischen Arbeit eine Rolle spielen. Dazu zählen in der Praxis insbesondee Fraktionen und Gremien.</p>
-<p>Ein Beispiel:</p>
+<p>Dieser Objekttyp dient dazu, Gruppierungen von Personen abzubilden, die in der parlamentarischen Arbeit eine Rolle spielen. Dazu zählen in der Praxis insbesondere Fraktionen und Gremien.</p>
+<p>Ein Beispiel in expandierter Form:</p>
 <pre class="sourceCode json" id="organization_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/Organization&quot;</span>,
     <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/organizations/34&quot;</span>,
     <span class="dt">&quot;body&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/bodies/0&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Finanzausschuss&quot;</span>,
     <span class="dt">&quot;nameLong&quot;</span>: <span class="st">&quot;Finanzausschuss des Rates der Stadt Köln&quot;</span>,
+    <span class="dt">&quot;role&quot;</span>: {
+        <span class="dt">&quot;@list&quot;</span>: [
+        <span class="er">//</span> <span class="er">ohne</span> <span class="er">@list</span> <span class="er">wird</span> <span class="er">in</span> <span class="er">JSON-LD</span> <span class="er">die</span> <span class="er">Reihenfolge</span> <span class="er">nicht</span> <span class="er">festgelegt</span>
+        <span class="st">&quot;http://oparl.beispielris.de/roles/vorsitzender&quot;</span>,
+        <span class="st">&quot;http://oparl.beispielris.de/people/stellvertretender_vorsitzender&quot;</span>
+        ]
+    },
     <span class="dt">&quot;members&quot;</span>: [
         <span class="st">&quot;http://oparl.beispielris.de/people/27&quot;</span>,
         <span class="st">&quot;http://oparl.beispielris.de/people/48&quot;</span>,
-        <span class="st">&quot;http://oparl.beispielris.de/people/57&quot;</span>,
+        <span class="st">&quot;http://oparl.beispielris.de/people/57&quot;</span>
+    ],
+    <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
+}</code></pre>
+<p>Das selbe Beispiel in kompakter Form. Ein geeigneter Kontext wird vorausgesetzt:</p>
+<pre class="sourceCode json" id="organization_ex2"><code class="sourceCode json">{
+    <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;</span>,
+    <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;oparl:Organization&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;beispielris:organizations/34&quot;</span>,
+      <span class="er">//</span> <span class="er">kann</span> <span class="er">eventuell</span> <span class="er">weiter</span> <span class="er">verkürzt</span> <span class="er">werden</span>
+    <span class="dt">&quot;body&quot;</span>: <span class="st">&quot;0&quot;</span>,
+    <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Finanzausschuss&quot;</span>,
+    <span class="dt">&quot;nameLong&quot;</span>: <span class="st">&quot;Finanzausschuss des Rates der Stadt Köln&quot;</span>,
+    <span class="dt">&quot;role:&quot;</span> <span class="er">[</span>
+        <span class="dt">&quot;beispielris:roles/vorsitzender&quot;</span>,
+        <span class="dt">&quot;beispielris:roles/stellvertretender_vorsitzender&quot;</span>
+    <span class="er">]</span>,
+    <span class="dt">&quot;members&quot;</span>: [
+        <span class="st">&quot;27&quot;</span>,
+        <span class="st">&quot;48&quot;</span>,
+        <span class="st">&quot;57&quot;</span>
     ],
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
@@ -862,6 +889,9 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </dd>
 <dt><code>nameLong</code></dt>
 <dd><p>Langform des Namens der Gruppierung. OPTIONAL.</p>
+</dd>
+<dt><code>role</code></dt>
+<dd><p>Rolle oder Rollen, die für diese Gruppierung vorgesehen sind. Die Rollen-Objekte gehören zu der Klasse org:Role oder einer ihrer Unterklassen. OPTIONAL.</p>
 </dd>
 <dt><code>members</code></dt>
 <dd><p>Entweder die vollständige Liste der URLs aller Mitglieder dieser Organisation (Objekte vom Typ <code>[oparl:Person](#oparl_person)</code>) oder URL zum Abruf dieser Liste. Diese Eigenschaft ist ZWINGEND. Sollte die Gruppierung keine Mitglieder haben, enthält die Liste keine Einträge.</p>
@@ -878,7 +908,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </dl>
 <h2 id="oparl_person"><span class="header-section-number">5.6</span> oparl:Person (Person)</h2>
 <p>Jede natürliche Person, die in der parlamentarischen Arbeit tätig ist und insbesondere Mitglied in einer Gruppierung (<a href="#oparl_organization">oparl:Organization</a>), wird mit einem Objekt vom Typ <code>oparl:Person</code> abgebildet.</p>
-<p>Ein Beispiel:</p>
+<p>Ein Beispiel in expandierter Form:</p>
 <pre class="sourceCode json" id="person_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/Person&quot;</span>,
     <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/people/29&quot;</span>,
@@ -896,6 +926,25 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
         <span class="st">&quot;http://oparl.beispielris.de/organizations/11&quot;</span>,
         <span class="st">&quot;http://oparl.beispielris.de/organizations/34&quot;</span>
     ],
+    <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2011-11-11T11:11:00+01:00&quot;</span>,
+    <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>,
+}</code></pre>
+<p>Das selbe Beispiel in kompakter Form. Ein geeigneter Inhalt des angegebenen Kontext wird hierbei vorausgesetzt:</p>
+<pre class="sourceCode json" id="person_ex2"><code class="sourceCode json">{
+    <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;</span>,
+    <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;oparl:Person&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;beispielris:people/29&quot;</span>, <span class="er">//</span> <span class="er">kann</span> <span class="er">möglicherweise</span> <span class="er">weiter</span> <span class="er">gekürzt</span> <span class="er">werden</span>
+    <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Prof. Dr. Max Mustermann&quot;</span>,
+    <span class="dt">&quot;familyName&quot;</span>: <span class="st">&quot;Mustermann&quot;</span>,
+    <span class="dt">&quot;givenName&quot;</span>: <span class="st">&quot;Max&quot;</span>,
+    <span class="dt">&quot;title&quot;</span>: <span class="st">&quot;Prof. Dr.&quot;</span>,
+    <span class="dt">&quot;gender&quot;</span>: <span class="st">&quot;male&quot;</span>,
+    <span class="dt">&quot;email&quot;</span>: <span class="st">&quot;mailto:max@mustermann.de&quot;</span>,
+    <span class="dt">&quot;phone&quot;</span>: <span class="st">&quot;tel:+493012345678&quot;</span>,
+    <span class="dt">&quot;streetAddress&quot;</span>: <span class="st">&quot;Musterstraße 5&quot;</span>,
+    <span class="dt">&quot;postalCode&quot;</span>: <span class="st">&quot;11111&quot;</span>,
+    <span class="dt">&quot;locality&quot;</span>: <span class="st">&quot;Musterort&quot;</span>,
+    <span class="dt">&quot;organizations&quot;</span>: [<span class="st">&quot;11&quot;</span>, <span class="st">&quot;34&quot;</span>],
     <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2011-11-11T11:11:00+01:00&quot;</span>,
     <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>,
 }</code></pre>
@@ -932,7 +981,10 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dd><p>Ortsangabe der Kontakt-Anschrift der Person. Diese Eigenschaft ist OPTIONAL.</p>
 </dd>
 <dt><code>organizations</code></dt>
-<dd><p>Liste der URLs der Gruppierungen (Objekte vom Typ <code>oparl:Organization</code>), in der die Person aktuell Mitglied ist, oder alternativ die URL zum Abruf der Liste. Diese Eigenschaft ist ZWINGEND. Sollte die Person Mitglied in keiner Gruppierung sein, enthält die Liste keine Einträge.</p>
+<dd><p>IRIs der Gruppierung oder Liste der IRIs der Gruppierungen (Objekte vom Typ <code>oparl:Organization</code>), in der bzw. in denen die Person aktuell Mitglied ist. Diese Eigenschaft ist ZWINGEND. Sollte die Person Mitglied in keiner Gruppierung sein, enthält die Liste keine Einträge.</p>
+</dd>
+<dt><code>hasMembership</code></dt>
+<dd><p>IRIs der Mitgliedschaft oder Liste von IRIs der Mitgliedschaften (Objekte vom Typ <code>org:Membership</code>). TODO: Eventuell Unterklasse von org:Membership definieren. OPTIONAL.</p>
 </dd>
 <dt><code>created</code></dt>
 <dd><p>Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.</p>
@@ -945,7 +997,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Eine Sitzung ist die Versammlung einer oder mehrerer Gruppierungen (oparl:Organization) zu einem bestimmten Zeitpunkt an einem bestimmten Ort.</p>
 <p>Die geladenen Teilnehmer der Sitzung sind jeweils als Objekte vom Typ oparl:Person in entsprechender Form referenziert. Verschiedene Dokumente (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.</p>
 <p>Die Inhalte einer Sitzung werden durch Tagesordnungspunkte (oparl:AgendaItem) abgebildet.</p>
-<p>Ein Beispiel:</p>
+<p>Ein Beispiel in expandierter Form:</p>
 <pre class="sourceCode json" id="meeting_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/Meeting&quot;</span>,
     <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/meetings/281&quot;</span>,
@@ -955,9 +1007,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;location&quot;</span>: {
         <span class="dt">&quot;description&quot;</span>: <span class="st">&quot;Rathaus, Raum 136&quot;</span>
     },
-    <span class="dt">&quot;organizations&quot;</span>: [
-        <span class="st">&quot;http://oparl.beispielris.de/organizations/34&quot;</span>
-    ],
+    <span class="dt">&quot;organizations&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/organizations/34&quot;</span>,
     <span class="dt">&quot;participants&quot;</span>: [
         <span class="st">&quot;http://oparl.beispielris.de/people/29&quot;</span>,
         <span class="st">&quot;http://oparl.beispielris.de/people/75&quot;</span>
@@ -979,6 +1029,39 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2012-01-06T12:01:00+01:00&quot;</span>,
     <span class="dt">&quot;lastModified&quot;</span>: <span class="st">&quot;2012-01-08T14:05:27+01:00&quot;</span>
 }</code></pre>
+<p>Das selbe Beispiel in kompakter Form:</p>
+<pre class="sourceCode json" id="meeting_ex2"><code class="sourceCode json">{
+    <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;</span>
+    <span class="st">&quot;@type&quot;</span><span class="er">:</span> <span class="st">&quot;oparl:Meeting&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/meetings/281&quot;</span>,
+    <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;4. Sitzung des Finanzausschusses&quot;</span>,
+    <span class="dt">&quot;start&quot;</span>: <span class="st">&quot;2013-01-04T08:00:00+01:00&quot;</span>,
+    <span class="dt">&quot;end&quot;</span>: <span class="st">&quot;2013-01-04T12:00:00+01:00&quot;</span>,
+    <span class="dt">&quot;location&quot;</span>: {
+        <span class="dt">&quot;description&quot;</span>: <span class="st">&quot;Rathaus, Raum 136&quot;</span>
+    },
+    <span class="dt">&quot;organizations&quot;</span>: <span class="st">&quot;beispielris:organizations/34&quot;</span>,
+    <span class="dt">&quot;participants&quot;</span>: [
+        <span class="st">&quot;beispielris:people/29&quot;</span>,
+        <span class="st">&quot;beispielris:people/75&quot;</span>,
+        <span class="st">&quot;beispielris:people/94&quot;</span>
+    ],
+    <span class="dt">&quot;invitation&quot;</span>: <span class="st">&quot;beispielris:documents/586&quot;</span>,
+    <span class="dt">&quot;resultsProtocol&quot;</span>: <span class="st">&quot;beispielris:documents/628&quot;</span>,
+    <span class="dt">&quot;verbatimProtocol&quot;</span>: <span class="st">&quot;beispielris:documents/691&quot;</span>,
+    <span class="dt">&quot;attachments&quot;</span>: [
+        <span class="st">&quot;beispielris:documents/588&quot;</span>,
+        <span class="st">&quot;beispielris:documents/589&quot;</span>
+    ],
+    <span class="dt">&quot;agendaItems&quot;</span>: [
+        <span class="st">&quot;beispielris:agendaitems/1045&quot;</span>,
+        <span class="st">&quot;beispielris:agendaitems/1046&quot;</span>,
+        <span class="st">&quot;beispielris:agendaitems/1047&quot;</span>,
+        <span class="st">&quot;beispielris:agendaitems/1048&quot;</span>
+    ],
+    <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2012-01-06T12:01:00+01:00&quot;</span>,
+    <span class="dt">&quot;lastModified&quot;</span>: <span class="st">&quot;2012-01-08T14:05:27+01:00&quot;</span>
+}</code></pre>
 <h3 id="eigenschaften-4"><span class="header-section-number">5.7.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>start</code></dt>
@@ -991,10 +1074,10 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dd><p>Sitzungsort in Form eines <code>oparl:Location</code> Objekts. Diese Eigenschaft ist EMPFOHLEN.</p>
 </dd>
 <dt><code>organizations</code></dt>
-<dd><p>Liste der URLs der Gruppierungen (oparl:Organization), denen die Sitzung zugeordnet ist, oder alternativ die URL zum Abfruf der Liste. Diese Eigenschaft ist ZWINGEND. Die Liste MUSS mindestens eine Gruppierung umfassen.</p>
+<dd><p>IRI der Gruppierung oder Liste der IRIs der Gruppierungen (oparl:Organization), denen die Sitzung zugeordnet ist. Wenn eine Liste angegeben wird, dann ist diese geordnet. Das erste Element ist dann das federführende Gremium. Diese Eigenschaft ist ZWINGEND.</p>
 </dd>
 <dt><code>participants</code></dt>
-<dd><p>Liste der URLs der geladenen Teilnehmer (oparl:Person) der Sitzung, oder alternativ die URL zum Abfruf der Liste. Bei einer stattgefundenen Sitzung SOLL die Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung teilgenommen haben. Die Eigenschaft ist ZWINGEND.</p>
+<dd><p>IRI der Gruppierung oder Liste der IRLs der geladenen Teilnehmer (oparl:Person) der Sitzung. Bei einer stattgefundenen Sitzung SOLL die Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung teilgenommen haben. Die Eigenschaft ist ZWINGEND.</p>
 </dd>
 <dt><code>invitation</code></dt>
 <dd><p>URL des Einladungsdokuments (oparl:Document) zur Sitzung. Diese Eigenschaft ist EMPFOHLEN.</p>
@@ -1020,10 +1103,11 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </dl>
 <h2 id="oparl_agendaitem"><span class="header-section-number">5.8</span> oparl:AgendaItem (Tagesordnungspunkt)</h2>
 <p>Tagesordnungspunkte sind die Bestandteile von Sitzungen (<code>oparl:Meeting</code>). Jeder Tagesordnungspunkt widmet sich inhaltlich einem bestimmten Thema, wozu in der Regel auch die Beratung bestimmter Drucksachen gehört.</p>
-<p>Ein Beispiel:</p>
+<p>Ein Beispiel in kompakter Form:</p>
 <pre class="sourceCode json" id="agendaitem_ex1"><code class="sourceCode json">{
-    <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/AgendaItem&quot;</span>,
-    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/agendaitems/1045&quot;</span>,
+    <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;</span>
+    <span class="st">&quot;@type&quot;</span><span class="er">:</span> <span class="st">&quot;oparl:AgendaItem&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/agendaitem/3271&quot;</span>,
     <span class="dt">&quot;meeting&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/meetings/281&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Satzungsänderung für Ausschreibungen&quot;</span>,
     <span class="dt">&quot;public&quot;</span>: <span class="dv">true</span>,
@@ -1068,9 +1152,10 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Dieser Objekttyp dient der Abbildung von Drucksachen in der parlamentarischen Arbeit, wie zum Beispiel Anfragen, Anträgen und Beschlussvorlagen.</p>
 <p>Drucksachen werden in Form einer Beratung (oparl:Consultation) im Rahmen eines Tagesordnungspunkts (oparl:AgendaItem) einer Sitzung (oparl:Meeting) behandelt.</p>
 <p>Drucksachen spielen in der schriftlichen wie mündlichen Kommunikation eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in parlamentarischen Informationssystemen unveränderliche Kennungen der Drucksachen zum Einsatz.</p>
-<p>Ein Beispiel:</p>
+<p>Ein Beispiel in kompakter Form:</p>
 <pre class="sourceCode json" id="paper_ex1"><code class="sourceCode json">{
-    <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/Paper&quot;</span>,
+    <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;</span>
+    <span class="st">&quot;@type&quot;</span><span class="er">:</span> <span class="st">&quot;oparl:Paper&quot;</span>,
     <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/papers/749&quot;</span>,
     <span class="dt">&quot;reference&quot;</span>: <span class="st">&quot;1234/2014&quot;</span>,
     <span class="dt">&quot;publishedDate&quot;</span>: <span class="st">&quot;2014-04-04T16:42:02+02:00&quot;</span>,
@@ -1091,25 +1176,19 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
         }
     ],
     <span class="dt">&quot;creators&quot;</span>: [
-        {
-            <span class="dt">&quot;typ&quot;</span>: <span class="st">&quot;Organisation&quot;</span>,
-            <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;2000&quot;</span>
-        },
-        {
-            <span class="dt">&quot;typ&quot;</span>: <span class="st">&quot;Person&quot;</span>,
-            <span class="dt">&quot;id&quot;</span>: <span class="st">&quot;1000&quot;</span>
-        }
+        <span class="st">&quot;beispielris:organizations/2000&quot;</span>,
+        <span class="st">&quot;beispielris:people/1000&quot;</span>
     ],
     <span class="dt">&quot;consultations&quot;</span>: [
         {
-            <span class="dt">&quot;meeting&quot;</span>: <span class="st">&quot;3271&quot;</span>,
-            <span class="dt">&quot;agendaitem&quot;</span>: <span class="st">&quot;3.1.2&quot;</span>,
+            <span class="dt">&quot;meeting&quot;</span>: <span class="st">&quot;beispielris:meeting/3271&quot;</span>,
+            <span class="dt">&quot;agendaitem&quot;</span>: <span class="st">&quot;beispielris:agendaitem/3.1.2&quot;</span>,
             <span class="dt">&quot;role&quot;</span>: <span class="st">&quot;Federführende Beratung&quot;</span>
         }
     ],
-    <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2013-01-08T12:05:27+01:00&quot;</span>
+    <span class="dt">&quot;lastModified&quot;</span>: <span class="st">&quot;2013-01-08T12:05:27+01:00&quot;</span>
 }</code></pre>
-<h3 id="eigenschaften-6"><span class="header-section-number">5.9.1</span> Eigenschaften</h3>
+<p>TODO: * Eigenschaften beschreiben * Eigenschaft &quot;locations&quot; im Beispiel ändern * Eigenschaft &quot;creators&quot; im Beispiel ändern * Eigenschaft &quot;consultations&quot; im Beispiel ändern</p>
 <h2 id="oparl_document"><span class="header-section-number">5.10</span> oparl:Document (Datei)</h2>
 <p>Ein Objekt vom Typ <code>oparl:Document</code> repräsentiert eine Datei, beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokuments, und hält Metadaten zu der Datei sowie URLs zum Zugriff auf die Datei bereit.</p>
 <p>Ein Beispiel:</p>
@@ -1130,7 +1209,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 }</code></pre>
 <p>Objekt vom Typ <code>oparl:Document</code> können mit Drucksachen (<code>oparl:Paper</code>) oder Sitzungen (<code>oparl:Meeting</code>) in Beziehung stehen. Dies wird durch die Eigenschaft <code>paper</code> bzw. <code>meeting</code> angezeigt.</p>
 <p>Mehrere Objekte vom Typ <code>oparl:Document</code> können mit einander in direkter Beziehung stehen, wenn sie den selben Inhalt in unterschiedlichen technischen Formaten wiedergeben. Hierfür werden die Eigenschaften <code>master_document</code> bzw. <code>derivative_documents</code> eingesetzt. Das oben angezeigte Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der Eigenschaft <code>mime_type</code>) und zeigt außerdem über die Eigenschaft <code>master_document</code> an, von welcher anderen Datei es abgeleitet wurde. Umgekehrt KANN über die Eigenschaft <code>derivative_documents</code> angezeigt werden, welche Ableitungen einer Datei existieren.</p>
-<h3 id="eigenschaften-7"><span class="header-section-number">5.10.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-6"><span class="header-section-number">5.10.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>@id</code></dt>
 <dd><p>Die URL des Objekts.</p>
@@ -1188,10 +1267,20 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://beispielris.de/consultations/47594&quot;</span>,
     <span class="dt">&quot;paper&quot;</span>: <span class="st">&quot;http://beispielris.de/papers/2396&quot;</span>,
     <span class="dt">&quot;agendaitem&quot;</span>: <span class="st">&quot;http://beispielris.de/agendaitems/15569&quot;</span>,
-    <span class="dt">&quot;committee&quot;</span>: <span class="st">&quot;http://beispielris.de/organisations/96&quot;</span>,
+    <span class="dt">&quot;committee&quot;</span>: <span class="st">&quot;http://beispielris.de/organizations/96&quot;</span>,
     <span class="dt">&quot;authoritative&quot;</span>: <span class="dv">false</span>
 }</code></pre>
-<h3 id="eigenschaften-8"><span class="header-section-number">5.11.1</span> Eigenschaften</h3>
+<p>Das selbe Beispiel in kompakter Form (ein passender Kontext wird vorausgesetzt):</p>
+<pre class="sourceCode json" id="consultation_ex2"><code class="sourceCode json">{
+    <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;</span>
+    <span class="st">&quot;@type&quot;</span><span class="er">:</span> <span class="st">&quot;oparl:Consultation&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;beispielris:consultations/47594&quot;</span>,
+    <span class="dt">&quot;paper&quot;</span>: <span class="st">&quot;beispielris:papers/2396&quot;</span>,
+    <span class="dt">&quot;agendaitem&quot;</span>: <span class="st">&quot;beispielris:agendaitem/15569&quot;</span>,
+    <span class="dt">&quot;committee&quot;</span>: <span class="st">&quot;beispielris:organization/96&quot;</span>,
+    <span class="dt">&quot;authoritative&quot;</span>: <span class="dv">false</span>
+}</code></pre>
+<h3 id="eigenschaften-7"><span class="header-section-number">5.11.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>@id</code></dt>
 <dd><p>URL des Objekts. Diese Eigenschaft ist ZWINGEND.</p>
@@ -1203,7 +1292,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dd><p>URL des Tagesordnungspunktes (oparl:Agendaitem), unter dem die Drucksache beraten wird. Diese Eigenschaft ist ZWINGEND.</p>
 </dd>
 <dt><code>committee</code></dt>
-<dd><p>URL des Gremiums (oparl:Organization), dem die Sitzung zugewisen ist, zu welcher der zuvor genannte Tagesordnungspunkt gehört. Diese Eigenschaft ist ZWINGEND.</p>
+<dd><p>URL des Gremiums (oparl:Organization), dem die Sitzung zugewiesen ist, zu welcher der zuvor genannte Tagesordnungspunkt gehört. Hier kann auch eine mit Liste von Gremien angegeben werden. Die Liste ist dann geordnet. Das erste Gremium ist federführend. Diese Eigenschaft ist ZWINGEND.</p>
 </dd>
 <dt><code>authoritative</code></dt>
 <dd><p>Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst wird (<em>true</em>) wird oder nicht (<em>false</em>). Diese Eigenschaft ist OPTIONAL. Typ: Wahrheitswert.</p>
@@ -1225,9 +1314,10 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="er">...</span>
 }</code></pre>
 <p>In der Praxis soll dies dazu dienen, den geografischen Bezug eines politischen Vorgangs, wie zum Beispiel eines Bauvorhabens oder der Änderung eines Flächennutzungsplanes, maschinenlesbar nachvollziehbar zu machen.</p>
+<p>TODO: Statt GeoJSON wird Well-Known Text (WKT) verwendet.</p>
 <p>OParl sieht bei Angabe von Geodaten die Verwendung des<br />GeoJSON-Formats<a href="#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a> vor. GeoJSON erlaubt die Beschreibung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden und Polygonen in JSON-Notation. Ein GeoJSON-Objekt kann auch mehrere Geometrien umfassen, beispielsweise um damit mehrere Punkte oder Polygone zu umschreiben.</p>
 <p>Gegenüber der GeoJSON-Spezifikation sieht OParl eine wichtige Einschränkung vor: Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben im System WGS84<a href="#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a> angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.</p>
-<h3 id="eigenschaften-9"><span class="header-section-number">5.12.1</span> Eigenschaften</h3>
+<h3 id="eigenschaften-8"><span class="header-section-number">5.12.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>description</code></dt>
 <dd><p>Textliche Beschreibung eines Orts, z.B. in Form einer Adresse. Diese Eigenschaft ist EMPFOHLEN. Typ: Zeichenkette.</p>
@@ -1296,7 +1386,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <li id="fn19"><p>DBPedia <a href="http://www.dbpedia.org/">http://www.dbpedia.org/</a><a href="#fnref19">↩</a></p></li>
 <li id="fn20"><p>Wikipedia <a href="http://de.wikipedia.org/">http://de.wikipedia.org/</a><a href="#fnref20">↩</a></p></li>
 <li id="fn21"><p><a href="http://tools.ietf.org/html/rfc2046">http://tools.ietf.org/html/rfc2046</a><a href="#fnref21">↩</a></p></li>
-<li id="fn22"><p>GeoJSON Spazifikation <a href="http://geojson.org/geojson-spec.html">http://geojson.org/geojson-spec.html</a><a href="#fnref22">↩</a></p></li>
+<li id="fn22"><p>GeoJSON Spezifikation <a href="http://geojson.org/geojson-spec.html">http://geojson.org/geojson-spec.html</a><a href="#fnref22">↩</a></p></li>
 <li id="fn23"><p>WGS84 steht für &quot;World Geodetic System 1984&quot;, es wird unter anderem auch vom Global Positioning System (GPS) verwendet. In geografischen Informationssystemen ist für das System der EPSG-Code 4326 geläufig.<a href="#fnref23">↩</a></p></li>
 </ol>
 </div>

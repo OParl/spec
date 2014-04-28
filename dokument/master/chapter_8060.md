@@ -34,11 +34,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 
 ~~~~~  {#person_ex_context .json}
 {
-    "oparl": "http://oparl.org/xyz/",
-    "dc": "http://purl.org/dc/terms/",
-    "foaf": "http://xmlns.com/foaf/0.1/",
-    "vcard": "http://www.w3.org/2006/vcard/ns#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    // Präfixe siehe Abschnitt 8000
 
     "gender": "vcard:hasGender",
     "givenName": "foaf:firstName",

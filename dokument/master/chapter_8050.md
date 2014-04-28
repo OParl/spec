@@ -14,7 +14,7 @@ Ein Beispiel in expandierter Form:
     "body": "http://oparl.beispielris.de/bodies/0",
     "name": "Finanzausschuss",
     "nameLong": "Finanzausschuss des Rates der Stadt Köln",
-    "role:" {
+    "role": {
         "@list": [
         // ohne @list wird in JSON-LD die Reihenfolge nicht festgelegt
         "http://oparl.beispielris.de/roles/vorsitzender",

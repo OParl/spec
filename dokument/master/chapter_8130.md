@@ -11,16 +11,16 @@ politischen Vorgangs, wie zum Beispiel eines Bauvorhabens oder der
 Änderung eines Flächennutzungsplanes, maschinenlesbar nachvollziehbar
 zu machen.
 
-Dieser Objekttyp ist für Objekte im Kontext des Objekttyps
-`oparl:Paper` zu verwenden.
+Dieser Objekttyp kann für Objekte im Kontext des Objekttyps
+`oparl:Paper` verwendet werden.
 
-Ein einfaches Beispiel:
+Ein einfaches Beispiel - welches GeoJSON verwendet und deshalb nur der Illustration dient:
 
 ~~~~~  {#location_ex1 .json}
 {
     ...
     "location": {
-        "description": "Honschaftsstra\u00dfe 312, K\u00f6ln",
+        "description": "Honschaftsstra\u00dfe 312, K\u00f6ln", // TODO: weshalb diese Kodierung?!
         "geometry": {
             "type": "Point",
             "coordinates": [7.03291, 50.98249]
@@ -40,6 +40,19 @@ processing lists of lists.
 Das lässt sich nicht mit der Verwendung von GeoJSON vereinbaren, denn dort sind die Geometriedaten bei vielen Objektarten in Form von verschachtelten Listen kodiert. Zwar gibt es eine Iniatiative zur Schaffung von GeoJSON-LD, diese Spezifikation hat bisher jedoch keinen verwendbaren Zustand erreicht, so dass sie nicht für OParl 1.0 verwendbar ist.
 
 TODO: Statt GeoJSON oder GeoJSON-LD wird deshalb der semantisch gleichwertige und etablierte Standard Well-Known Text (WKT) verwendet.
+
+TODO: neue Beispiele
+
+~~~~~  {#location_ex2 .json}
+{
+    ...
+    "location": {
+        "description": "Honschaftsstra\u00dfe 312, K\u00f6ln",
+        "geometry": "POINT (7.03291 50.98249)" // TODO: wie ^^ogc:wktLiteral anhängen ?!?
+    },
+    ...
+}
+~~~~~
 
 OParl sieht bei Angabe von Geodaten die Verwendung des  
 GeoJSON-Formats^[GeoJSON Spezifikation 
@@ -62,13 +75,13 @@ für Längen- und Breitengrad.
 :   Textliche Beschreibung eines Orts, z.B. in Form einer Adresse. Diese Eigenschaft ist EMPFOHLEN. Typ: Zeichenkette.
 
 `geometry`
-:   Geodaten-Repräsentation des Orts. Diese Eigenschaft ist OPTIONAL. Ist diese Eigenschaft gesetzt, MUSS ihr Wert ein valides GeoJSON-Objekt sein.
+:   Geodaten-Repräsentation des Orts. Diese Eigenschaft ist OPTIONAL. Ist diese Eigenschaft gesetzt, MUSS ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen.
 
 ### Weitere Beispiele
 
 #### Ortsangabe mit Polygon-Objekt
 
-~~~~~  {#location_ex2 .json}
+~~~~~  {#location_ex3 .json}
 {
     "description": "Rechtes Rheinufer zwischen Deutzer
         Br\u00fccke und Hohenzollernbr\u00fccke",

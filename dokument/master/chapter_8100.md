@@ -13,6 +13,13 @@ besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen
 wird. Hierbei kommen in parlamentarischen Informationssystemen unveränderliche
 Kennungen der Drucksachen zum Einsatz.
 
+
+Zunächst ein Kontext:
+
+~~~~~  {#paper_context_ex .json}
+// consultations als @list deklarieren!
+~~~~~
+
 Ein Beispiel in kompakter Form:
 
 ~~~~~  {#paper_ex1 .json}
@@ -38,12 +45,10 @@ Ein Beispiel in kompakter Form:
         "beispielris:organizations/2000",
         "beispielris:people/1000"
     ],
-    "consultations": {
-        "@list": [
-            "beispielris:consultation/5676",
-            "beispielris:consultation/5689"
-        ]
-    }
+    "consultations": [
+        "beispielris:consultation/5676",
+        "beispielris:consultation/5689"
+    ]
     "lastModified": "2013-01-08T12:05:27+01:00"
 }
 ~~~~~

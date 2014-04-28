@@ -5,7 +5,7 @@ Dieser Objekttyp dient dazu, Gruppierungen von Personen abzubilden,
 die in der parlamentarischen Arbeit eine Rolle spielen. Dazu zählen
 in der Praxis insbesondee Fraktionen und Gremien.
 
-Ein Beispiel:
+Ein Beispiel in expandierter Form:
 
 ~~~~~  {#organization_ex1 .json}
 {
@@ -14,10 +14,13 @@ Ein Beispiel:
     "body": "http://oparl.beispielris.de/bodies/0",
     "name": "Finanzausschuss",
     "nameLong": "Finanzausschuss des Rates der Stadt Köln",
-    "role:" [
+    "role:" {
+        "@list": [
+        // ohne @list wird in JSON-LD die Reihenfolge nicht festgelegt
         "http://oparl.beispielris.de/roles/vorsitzender",
         "http://oparl.beispielris.de/people/stellvertretender_vorsitzender"
-    ],
+        ]
+    },
     "members": [
         "http://oparl.beispielris.de/people/27",
         "http://oparl.beispielris.de/people/48",

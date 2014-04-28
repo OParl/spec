@@ -86,10 +86,13 @@ Das selbe Beispiel in kompakter Form. Ein geeigneter Inhalt des angegebenen Kont
 :   Ortsangabe der Kontakt-Anschrift der Person. Diese Eigenschaft ist OPTIONAL.
 
 `organizations`
-:   Liste der URLs der Gruppierungen (Objekte vom Typ `oparl:Organization`), in der die
-    Person aktuell Mitglied ist, oder alternativ die URL zum Abruf der Liste.
+:   IRIs der Gruppierung oder Liste der IRIs der Gruppierungen (Objekte vom Typ `oparl:Organization`), in der
+    bzw. in denen die Person aktuell Mitglied ist.
     Diese Eigenschaft ist ZWINGEND. Sollte die Person Mitglied in keiner Gruppierung sein,
     enthält die Liste keine Einträge.
+
+`hasMembership`
+:   IRIs der Mitgliedschaft oder Liste von IRIs der Mitgliedschaften (Objekte vom Typ `org:Membership`). TODO: Eventuell Unterklasse von org:Membership definieren. OPTIONAL.
 
 `created`
 :   Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.

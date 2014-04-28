@@ -26,7 +26,7 @@ Ein Beispiel in expandierter Form:
         "http://oparl.beispielris.de/organizations/34"
     ],
     "created": "2011-11-11T11:11:00+01:00",
-    "last_modified": "2012-08-16T14:05:27+02:00",
+    "last_modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
 
@@ -74,7 +74,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "locality": "Musterort",
     "organizations": ["11", "34"],
     "created": "2011-11-11T11:11:00+01:00",
-    "last_modified": "2012-08-16T14:05:27+02:00",
+    "last_modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
 ### Eigenschaften ###

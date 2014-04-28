@@ -24,13 +24,9 @@ Ein Beispiel in kompakter Form:
     "publishedDate": "2014-04-04T16:42:02+02:00",
     "name": "Antwort auf Anfrage 1200/2014",
     "paperType": "Beantwortung einer Anfrage",
-    "relatedPapers": [
-        "http://oparl.beispielris.de/papers/699"
-    ],
-    "mainDocument": "http://oparl.beispielris.de/documents/925",
-    "auxiliaryDocuments": [
-        "http://oparl.beispielris.de/documents/926"
-    ],
+    "relatedPapers": "beispielris:papers/699",
+    "mainDocument": "beispielris:documents/925",
+    "auxiliaryDocuments": "beispielris:documents/926",
     "locations": [
         {
             "description": "Theodor-Heuss-Ring 1",
@@ -56,5 +52,4 @@ Ein Beispiel in kompakter Form:
 TODO:
 * Eigenschaften beschreiben
 * Eigenschaft "locations" im Beispiel ändern
-* Eigenschaft "creators" im Beispiel ändern
 * Eigenschaft "consultations" im Beispiel ändern

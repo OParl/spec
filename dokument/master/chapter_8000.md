@@ -33,3 +33,17 @@ Für ein Datum wird http://www.w3.org/TR/xmlschema-2/#date verwendet und für ei
 Diese Spezifikationen stützen sich auf RFC 3339 (http://www.ietf.org/rfc/rfc3339.txt) und RFC 3339 wiederum auf ISO 8601.
 
 Im JSON-LD Kontext von OParl ist der Präfix 'xsd' so spezifiziert, dass Datums- und Zeittyp durch 'xsd:date' bzw. 'xsd:dateTime' abgekürzt werden können.
+
+### Präfixe in Kontexten
+
+Die Beispiel-Kontexte verwenden eine Reihe von Präfixen. Diese sind hier zusammengestellt und werden in den einzelnen Beispiel-Kontexten nicht jeweils wiederholt:
+
+~~~~~  {#pcontext_praefixe .json}
+    "beispielris": "http://beispielris.de/",
+    "oparl": "http://oparl.org/xyz/",
+    "dc": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+~~~~~

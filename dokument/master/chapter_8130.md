@@ -37,9 +37,16 @@ This decision was made due to the extreme amount of added complexity when
 processing lists of lists.
 ~~~~~
 
-Das lässt sich nicht mit der Verwendung von GeoJSON vereinbaren, denn dort sind die Geometriedaten bei vielen Objektarten in Form von verschachtelten Listen kodiert. Zwar gibt es eine Iniatiative zur Schaffung von GeoJSON-LD, diese Spezifikation hat bisher jedoch keinen verwendbaren Zustand erreicht, so dass sie nicht für OParl 1.0 verwendbar ist.
+Das lässt sich nicht mit der Verwendung von GeoJSON vereinbaren, denn dort sind die Geometriedaten bei vielen
+Objektarten in Form von verschachtelten Listen kodiert. Zwar gibt es eine Iniatitive zur Schaffung von GeoJSON-LD (siehe http://geojson.org/vocab und https://github.com/geojson/geojson-ld), diese Spezifikation hat bisher jedoch keinen verwendbaren Zustand erreicht, so dass sie nicht für OParl 1.0 verwendbar ist.
 
-TODO: Statt GeoJSON oder GeoJSON-LD wird deshalb der semantisch gleichwertige und etablierte Standard Well-Known Text (WKT) verwendet.
+Statt GeoJSON oder GeoJSON-LD wird deshalb der semantisch gleichwertige und etablierte Standard "Well-Known Text" (WKT) verwendet (siehe http://en.wikipedia.org/wiki/Well-known_text).
+
+WKT ist:
+- präzise spezifiziert a) ISO/IEC 13249-3:2011 standard, "Information technology -- Database languages -- SQL multimedia and application packages -- Part 3: Spatial" (SQL/MM) b) "OpenGIS ® Implementation Standard for Geographic information - Simple feature access - Part 1: Common architecture"
+- semantisch ebenso ausdrucksstark wie GeoJSON / GeoJSON-LD
+- auch durch Linked Data Technik weitreichend unterstützt (GeoSPARQL, Apache Jena spatial extension)
+- leicht von und nach GeoJSON konvertierbar (http://en.wikipedia.org/wiki/Well-known_text#APIs_that_provide_support)
 
 TODO: neue Beispiele
 

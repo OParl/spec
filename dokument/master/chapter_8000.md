@@ -46,4 +46,5 @@ Die Beispiel-Kontexte verwenden eine Reihe von Präfixen. Diese sind hier zusamm
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "vcard": "http://www.w3.org/2006/vcard/ns#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "ogc": "http://www.opengis.net/ont/geosparql#",
 ~~~~~

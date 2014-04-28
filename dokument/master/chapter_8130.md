@@ -43,14 +43,27 @@ TODO: Statt GeoJSON oder GeoJSON-LD wird deshalb der semantisch gleichwertige un
 
 TODO: neue Beispiele
 
+Ein Kontext:
+
+~~~~~
+{
+   "geometry":
+   {
+     "@type": "ogc:wktLiteral" 
+   }
+}
+~~~~~
+
+Und ein Beispiel unter Verwendung des Kontextes:
+
 ~~~~~  {#location_ex2 .json}
 {
-    ...
+    // ...
     "location": {
         "description": "Honschaftsstra\u00dfe 312, K\u00f6ln",
-        "geometry": "POINT (7.03291 50.98249)" // TODO: wie ^^ogc:wktLiteral anhängen ?!?
+        "geometry": "POINT (7.03291 50.98249)"
     },
-    ...
+    // ...
 }
 ~~~~~
 

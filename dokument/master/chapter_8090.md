@@ -54,17 +54,22 @@ eine Vereinheitlichung der Werte für die Eigenschaft `result` zu diskutieren.
 dieses Tagesordnungspunkt beraten werden soll.
 * Es können `oparl:Person` Objekte referenziert werden, die während der Abstimmung zu diesem Tagesordnungspunkt *nicht* anwesend waren.
 
-### Beispiel ###
+### Beispiel in kompakter Form ###
 
 ~~~~~  {#agendaitem_ex1 .json}
 {
-    "meeting": "3271",
+    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
+    "@type": "oparl:AgendaItem",
+    "@id": "http://oparl.beispielris.de/agendaitem/3271",
     "identifier": "3.1.2",
     "public": true,
     "title": "Gemeinschaftsgrundschule Hornschaftsstraße/Höhenhaus. Hier: Anfrage von Herrn Philippi",
     "result": "Geändert beschlossen",
     "resolution_text": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
-    "people_absent": ["1002", "1003"],
+    "people_absent": [
+        "beispielris:people/1002",
+        "beispielris:people/1003"
+    ],
     "last_modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~

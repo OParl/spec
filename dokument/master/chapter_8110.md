@@ -106,7 +106,7 @@ werden, welche Ableitungen einer Datei existieren.
 
 `license`
 :   URL der Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet
-    wird, dann ist sie massgeblich und nicht die globalere Angaben in dem `oparl:Body` Objekt der Körperschaft.
+    wird, dann ist sie massgeblich und nicht die globalere Angabe in dem `oparl:Body` Objekt der Körperschaft.
     Lesenswert zum Thema Lizensierung von Linked Data ist http://linkeddatabook.com/editions/1.0/#htoc48
     OPTIONAL
 

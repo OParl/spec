@@ -115,6 +115,7 @@ OParl Spezifikation 1.0 Gliederung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
+    8140 org:Membership / oparl:Membership (Mitgliedschaft)
 9000 Anhang
     9010 Glossar
     9020 JSON-LD-Ressourcen auf oparl.org

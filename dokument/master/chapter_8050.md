@@ -48,7 +48,7 @@ Das selbe Beispiel in kompakter Form. Ein geeigneter Kontext wird vorausgesetzt:
     "members": [
         "27",
         "48",
-        "57";;],
+        "57"],
     ],
     "last_modified": "2012-08-16T14:05:27+02:00"
 }

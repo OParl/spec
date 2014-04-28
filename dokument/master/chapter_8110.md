@@ -22,7 +22,8 @@ Ein Beispiel:
     "access_url": "http://beispielris.de/documents/57739.pdf",
     "access_url": "http://beispielris.de/documents/download/57739.pdf",
     "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
-    "master_document": "http://beispielris.de/documents/57738"
+    "master_document": "http://beispielris.de/documents/57738",
+    "license": "http://www.opendefinition.org/licenses/cc-by"
 }
 ~~~~~
 
@@ -102,6 +103,11 @@ werden, welche Ableitungen einer Datei existieren.
 :   URLs aller Objekte vom Typ `oparl:Document`, die von dem aktuellen
     Objekt abgeleitet wurden. Diese Eigenschaft ist OPTIONAL. Typ: Liste
     von URLs.
+
+`license"
+:   URL der Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet
+    wird, dann ist sie massgeblich und nicht die globalere Angaben in dem `oparl:Body` Objekt der Körperschaft.
+    OPTIONAL
 
 ### Siehe auch
 

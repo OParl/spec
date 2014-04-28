@@ -73,20 +73,24 @@ stehen, um die **Beratungsfolge** einer Drucksache abzubilden. Hierbei kann
 die Beziehung jeweils mit einer Zuständigkeit versehen sein, die noch 
 näher zu bestimmen ist (TODO).
 
-### Beispiel ###
+### Beispiel in kompakter Form ###
 
 ~~~~~  {#paper_ex1 .json}
 {
+    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
+    "@type": "oparl:Paper",
+    "@id": "http://oparl.beispielris.de/papers/1234/2012",
+    
     "id": "1234/2012",
     "date": "2013-01-04",
     "type": "Beantwortung einer Anfrage",
     "related_papers": [
-        "0768/2012"
+        "beispielris:papers/0768/2012"
     ],
-    "main_document": "3000.pdf",
+    "main_document": "beispielris:documents/3000.pdf",
     "attachments": [
-        "3002.pdf",
-        "3003.pdf"
+        "beispielris:documents/3002.pdf",
+        "beispielris:documents/3003.pdf"
     ],
     "locations": [
     	{
@@ -108,8 +112,8 @@ näher zu bestimmen ist (TODO).
     ],
     "consultations": [
         {
-            "meeting": "3271",
-            "agendaitem": "3.1.2",
+            "meeting": "beispielris:meeting/3271",
+            "agendaitem": "beispielris:agendaitem/3.1.2",
             "role": "Federführende Beratung"
         }
     ],

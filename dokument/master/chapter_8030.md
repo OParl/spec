@@ -14,7 +14,7 @@ Ein Beispiel:
     "@id": "http://beispielris.de/",
     "oparlVersion": "http://oparl.org/specs/1.0/",
     "name": "Beispiel-System",
-    "wwwUrl": "http://www.beispielris.de/",
+    "risWebsite": "http://www.beispielris.de/",
     "contactEmail": "mailto:info@beispielris.de",
     "contactName": "Allgemeiner OParl Kontakt",
     "vendor": "http://example-software.com/",

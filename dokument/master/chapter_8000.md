@@ -48,3 +48,11 @@ Die Beispiel-Kontexte verwenden eine Reihe von Präfixen. Diese sind hier zusamm
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "ogc": "http://www.opengis.net/ont/geosparql#",
 ~~~~~
+
+### Herstellerspezifische Erweiterungen
+
+Diese sind - falls tatsächlich erforderlich - mit den JSON-LD Mitteln einfach möglich. z.B.
+
+~~~~~
+"herstellera:newWonderProperty": "Dies ist ein Feature welches noch kein anderer Hersteller bietet!"
+~~~~~

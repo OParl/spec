@@ -19,7 +19,8 @@ Ein Beispiel:
     "paper": "http://beispielris.de/papers/2396",
     "agendaitem": "http://beispielris.de/agendaitems/15569",
     "committee": "http://beispielris.de/organizations/96",
-    "authoritative": false
+    "authoritative": false,
+    "role": "http://beispielris.de/roles/decision"
 }
 ~~~~~
 
@@ -33,9 +34,21 @@ Das selbe Beispiel in kompakter Form (ein passender Kontext wird vorausgesetzt):
     "paper": "beispielris:papers/2396",
     "agendaitem": "beispielris:agendaitem/15569",
     "committee": "beispielris:organization/96",
-    "authoritative": false
+    "authoritative": false,
+    "role": "beispielris:roles/decision"
 }
 ~~~~~
+
+Das Objekt "beispielris:roles/decision" kann so aussehen:
+
+~~~~~  {#role_ex1 .json}
+{
+    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
+    "@id": "beispielris:roles/decision",
+    "prefLabel": "Entscheidung"
+}
+~~~~~
+
 
 ### Eigenschaften ###
 
@@ -58,5 +71,14 @@ Das selbe Beispiel in kompakter Form (ein passender Kontext wird vorausgesetzt):
 
 `authoritative`
 :   Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst 
-    wird (*true*) wird oder nicht (*false*). Diese Eigenschaft ist OPTIONAL.
+    wird (*true*) wird oder nicht (*false*).
     Typ: Wahrheitswert.
+    Diese Eigenschaft ist OPTIONAL.
+
+`role`
+:   URL der Rolle oder Funktion der Beratung. z.B. Anhörung (hearing), Entscheidung (decision), 
+    Kenntnisnahme (notice), Vorberatung (counseling) usw. Es wird empfohlen in den URLs entsprechende englische
+    Bestandteile zu verwenden. Die Rollenobjekte haben nur eine festgelegte Eigenschaft: "skos:prefLabel" für den Namen.
+    In einer zukünftigen Version von OParl können gegebenenfalls die am stärksten benötigten Rollen
+    standardisiert werden.
+    OPTIONAL

@@ -38,9 +38,12 @@ Ein Beispiel in kompakter Form:
         "beispielris:organizations/2000",
         "beispielris:people/1000"
     ],
-    "consultations": [
-        "beispielris:consultation/5676"
-    ],
+    "consultations": {
+        "@list": [
+            "beispielris:consultation/5676",
+            "beispielris:consultation/5689"
+        ]
+    }
     "lastModified": "2013-01-08T12:05:27+01:00"
 }
 ~~~~~
@@ -48,4 +51,3 @@ Ein Beispiel in kompakter Form:
 TODO:
 * Eigenschaften beschreiben
 * Eigenschaft "locations" im Beispiel ändern
-

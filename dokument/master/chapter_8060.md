@@ -30,7 +30,36 @@ Ein Beispiel in expandierter Form:
 }
 ~~~~~
 
-Das selbe Beispiel in kompakter Form. Ein geeigneter Inhalt des angegebenen Kontext wird hierbei vorausgesetzt:
+Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
+
+~~~~~  {#person_ex_context .json}
+{
+    "oparl": "http://oparl.org/xyz/",
+    "dc": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "gender": "vcard:hasGender",
+    "givenName": "foaf:firstName",
+    "familyName": "foaf:lastName",
+    "academic_degree": "foaf:title",
+    "email": {
+        "@id": "foaf:mbox",
+        "@type": "@id"
+    },
+    "phone": "foaf:phone",
+    "address": "vcard:street-address",
+    "created": {
+        "@id": "dc:created",
+        "@type": "xsd:dateTime"
+    },
+    "last_modified": {
+        "@id": "dc:modified",
+        "@type": "xsd:dateTime"
+    }
+}
+~~~~~
 
 ~~~~~  {#person_ex2 .json}
 {

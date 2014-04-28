@@ -11,6 +11,16 @@ Parlament der Stadt Köln, namentlich den Rat der Stadt Köln, abzubilden,
 dann müsste dieses System dazu ein Objekt vom Typ `oparl:Body` führen, welches
 die Stadt Köln repräsentiert.
 
+Ein Kontext:
+
+~~~~~
+    "license": {
+        "@id": "dc:license",
+        "@type": "@id"
+    }
+    "licenseValidSinceDay": // TODO: datum
+~~~~~
+
 Ein Beispiel:
 
 ~~~~~  {#oparlbody_ex1 .json}
@@ -28,6 +38,8 @@ Ein Beispiel:
     "name": "Stadt K\u00f6ln",
     "nameLong": "Stadt K\u00f6ln, kreisfreie Stadt",
     "website": "http://www.beispielstadt.de/",
+    "license": "http://creativecommons.org/licenses/by/4.0/",
+    "licenseValidSinceDay": "2014-01-01",
     "organizations": "http://oparl.beispielris.de/bodies/0/organisations/",
     "meetings": "http://oparl.beispielris.de/bodies/0/meetings/",
     "papers": "http://oparl.beispielris.de/bodies/0/papers/",
@@ -64,6 +76,16 @@ Parlament an.
 `website`
 :   Dient der Angabe der WWW-URL der Körperschaft.
     Diese Eigenschaft ist EMPFOHLEN.
+
+`license`
+:   URL der Lizenz, die für die Daten, die über diese API abgerufen werden
+    können, gilt, sofern nicht am einzelnen Objekt anders angegeben.
+    Die Eigenschaft ist EMPFOHLEN.
+
+`licenseValidSinceDay`
+:   Tagesdatum, seit dem die unter license angegebene Lizenz gilt.
+    Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen.
+    EMPFOHLEN
 
 `rgs`
 :   Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette^[Regionalschlüssel können im [Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes](https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html) eingesehen werden].

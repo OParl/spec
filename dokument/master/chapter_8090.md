@@ -45,7 +45,7 @@ Ein Beispiel in kompakter Form:
 `consultations`
 :   Liste der URLs der Beratungen (oparl:Consultation), die diesem Tagesordnungspunkt
     zugewiesen sind, oder alternativ die URL zum Abruf dieser Liste.
-    Die Eigenschaft ist ZWINGEND. Sofern diesem Tagesordnugnspunkt keine Beratungen
+    Die Eigenschaft ist ZWINGEND. Sofern diesem Tagesordnungspunkt keine Beratungen
     zugewiesen sind, bleibt die Liste ohne Einträge.
 
 `result`

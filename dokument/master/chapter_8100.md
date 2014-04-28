@@ -101,14 +101,8 @@ näher zu bestimmen ist (TODO).
     ],
     "committees": ["STA"],
     "creators": [
-        {
-            "typ": "Organisation",
-            "id": "2000"
-        },
-        {
-            "typ": "Person",
-            "id": "1000"
-        }
+        "beispielris:organizations/2000",
+        "beispielris:people/1000"
     ],
     "consultations": [
         {

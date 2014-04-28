@@ -27,6 +27,51 @@ Ein Beispiel:
 }
 ~~~~~
 
+Ein Kontext:
+
+~~~~~  {#system_ex_context .json}
+{
+    "beispielris": "http://beispielris.de/",
+    "oparl": "http://oparl.org/xyz/",
+    "dc": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "name": "skos:prefLabel",
+    "contactEmail": {
+        "@id": "foaf:mbox",
+        "@type": "@id"
+    },
+    "license": {
+        "@id": "dc:license",
+        "@type": "@id"
+    }
+}
+~~~~~
+
+Und das System-Objekt in kompakter Form unter Verwendung des Kontext:
+
+~~~~~  {#system_ex2 .json}
+{
+    "@type": "oparl:System",
+    "@id": "http://beispielris.de/",
+    "oparlVersion": "http://oparl.org/specs/1.0/",
+    "name": "Beispiel-System",
+    "risWebsite": "http://www.beispielris.de/",
+    "contactEmail": "mailto:info@beispielris.de",
+    "contactName": "Allgemeiner OParl Kontakt",
+    "vendor": "http://example-software.com/",
+    "product": "http://example-software.com/oparl-server/",
+    "license": "http://creativecommons.org/licenses/by/4.0/",
+    "bodies": "http://beispielris.de/bodies/",
+    "newObjects": "beispielris:new_objects/",
+    "updatedObjects": "beispielris:updated_objects/",
+    "removedObjects": "beispielris:removed_objects"
+}
+~~~~~
+
 Auf jedem OParl Server MUSS ein Objekt vom Typ `oparl:System` vorgehalten
 werden. Es DARF nur ein einziges solches Objekt je Server existieren.
 
@@ -103,7 +148,7 @@ TODO: Beispiele für JSON-LD und exemplarisch auch für HTML.
     Betreiber. 
 
 `contactName`
-:   Name des Ansprechpartners oder der Abteilung, die über die `contact_email`
+:   Name des Ansprechpartners oder der Abteilung, die über die `contactEmail`
     erreicht werden kann. Die Eigenschaft ist EMPFOHLEN. Typ: Zeichenkette.
 
 `license`
@@ -123,7 +168,7 @@ TODO: Beispiele für JSON-LD und exemplarisch auch für HTML.
 :   URL des Feeds ["Entfernte Objekte"](#feed_entfernte_objekte). Die 
     Eigenschaft ist EMPFOHLEN.
 
-`wwwUrl`
+`risWebsite`
 :   URL zur WWW-Oberfläche des parlamentarischen Informationssystem.
     Diese Eigenschaft ist OPTIONAL.
 

@@ -39,11 +39,7 @@ Ein Beispiel in kompakter Form:
         "beispielris:people/1000"
     ],
     "consultations": [
-        {
-            "meeting": "beispielris:meeting/3271",
-            "agendaitem": "beispielris:agendaitem/3.1.2",
-            "role": "Federführende Beratung"
-        }
+        "beispielris:consultation/5676"
     ],
     "lastModified": "2013-01-08T12:05:27+01:00"
 }
@@ -52,4 +48,4 @@ Ein Beispiel in kompakter Form:
 TODO:
 * Eigenschaften beschreiben
 * Eigenschaft "locations" im Beispiel ändern
-* Eigenschaft "consultations" im Beispiel ändern
+

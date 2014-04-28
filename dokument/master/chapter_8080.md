@@ -70,7 +70,7 @@ Das selbe Beispiel in kompakter Form:
     "invitation": "beispielris:documents/586",
     "resultsProtocol": "beispielris:documents/628",
     "verbatimProtocol": "beispielris:documents/691",
-    "attachments": [
+    "auxiliaryDocuments": [
         "beispielris:documents/588",
         "beispielris:documents/589"
     ],

@@ -27,7 +27,7 @@ Die Eigenschaft `license` erlaubt es, am jeweiligen Objekt die URL einer Lizenz
 anzugeben. Damit wird gekennzeichnet, welche Lizenz der Veröffentlicher der
 Daten für das jeweilige Objekt vergibt.
 
-Eine besondere Bedeutung hat die Eigenschaft `license`, wenn sie am `oparl:System`
+Eine besondere Bedeutung hat die Eigenschaft `license`, wenn sie am `oparl:System` Objekt oder am `oparl:Body`
 Objekt vergeben wird. Die hier angegebene Lizenzinformation sagt aus, dass alle
 Objekte dieses Systems unter der angegebenen Lizenz veröffentlicht werden, sofern
 dies nicht am jeweiligen Objekt mit einer anders lautenden Lizenz-URL überschrieben

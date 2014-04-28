@@ -101,6 +101,8 @@ für Längen- und Breitengrad.
 
 #### Ortsangabe mit Polygon-Objekt
 
+Die alte GeoJSON-Variante:
+
 ~~~~~  {#location_ex3 .json}
 {
     "description": "Rechtes Rheinufer zwischen Deutzer
@@ -117,5 +119,20 @@ für Längen- und Breitengrad.
             ]
         ]
     }
+}
+~~~~~
+
+Und die neue Version mit Well-Known Text:
+
+~~~~~  {#location_ex3 .json}
+{
+    "description": "Rechtes Rheinufer zwischen Deutzer
+        Br\u00fccke und Hohenzollernbr\u00fccke",
+    "geometry": "POLYGON ((
+                6.9681106 50.9412137,
+                6.9690940 50.9412137,
+                6.9692169 50.9368270,
+                6.9681218 50.9368270,
+                6.9681106 50.9412137))"
 }
 ~~~~~

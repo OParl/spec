@@ -79,7 +79,10 @@ Parlament an.
 
 `license`
 :   URL der Lizenz, die für die Daten, die über diese API abgerufen werden
-    können, gilt, sofern nicht am einzelnen Objekt anders angegeben.
+    können, gilt, sofern nicht am einzelnen Objekt anders angegeben. Verzeichnisse für solche Lizenz-URLs
+    sind insbesondere
+    http://licenses.opendefinition.org/ und
+    https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json
     Die Eigenschaft ist EMPFOHLEN.
 
 `licenseValidSinceDay`

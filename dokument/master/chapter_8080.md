@@ -24,9 +24,7 @@ Ein Beispiel in expandierter Form:
     "location": {
         "description": "Rathaus, Raum 136"
     },
-    "organizations": [
-        "http://oparl.beispielris.de/organizations/34"
-    ],
+    "organizations": "http://oparl.beispielris.de/organizations/34",
     "participants": [
         "http://oparl.beispielris.de/people/29",
         "http://oparl.beispielris.de/people/75"
@@ -63,9 +61,7 @@ Das selbe Beispiel in kompakter Form:
     "location": {
         "description": "Rathaus, Raum 136"
     },
-    "organizations": [
-        "beispielris:organizations/34"
-    ],
+    "organizations": "beispielris:organizations/34",
     "participants": [
         "beispielris:people/29",
         "beispielris:people/75",

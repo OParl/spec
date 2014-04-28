@@ -27,7 +27,7 @@ Ein Beispiel:
     ],
     "name": "Stadt K\u00f6ln",
     "nameLong": "Stadt K\u00f6ln, kreisfreie Stadt",
-    "wwwUrl": "http://www.beispielstadt.de/",
+    "website": "http://www.beispielstadt.de/",
     "organizations": "http://oparl.beispielris.de/bodies/0/organisations/",
     "meetings": "http://oparl.beispielris.de/bodies/0/meetings/",
     "papers": "http://oparl.beispielris.de/bodies/0/papers/",
@@ -61,7 +61,7 @@ Parlament an.
 :   Kann bei Bedarf dazu verwendet werden, eine längere Form des 
     Namens der Körperschaft anzugeben. Diese Eigenschaft ist OPTIONAL.
 
-`wwwUrl`
+`website`
 :   Dient der Angabe der WWW-URL der Körperschaft.
     Diese Eigenschaft ist EMPFOHLEN.
 

@@ -6,7 +6,12 @@ abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen
 (beispielsweise dem Namen einer Straße/eines Platzes oder eine genaue 
 Adresse) als auch aus Geodaten.
 
-Dieser Objekttyp ist für anonyme Objekte im Kontext des Objekttyps
+In der Praxis soll dies dazu dienen, den geografischen Bezug eines
+politischen Vorgangs, wie zum Beispiel eines Bauvorhabens oder der 
+Änderung eines Flächennutzungsplanes, maschinenlesbar nachvollziehbar
+zu machen.
+
+Dieser Objekttyp ist für Objekte im Kontext des Objekttyps
 `oparl:Paper` zu verwenden.
 
 Ein einfaches Beispiel:
@@ -25,12 +30,16 @@ Ein einfaches Beispiel:
 }
 ~~~~~
 
-In der Praxis soll dies dazu dienen, den geografischen Bezug eines
-politischen Vorgangs, wie zum Beispiel eines Bauvorhabens oder der 
-Änderung eines Flächennutzungsplanes, maschinenlesbar nachvollziehbar
-zu machen.
+In der JSON-LD Recommendation des W3C ist diese Passage zu finden:
+~~~~~
+List of lists in the form of list objects are not allowed in this version of JSON-LD. 
+This decision was made due to the extreme amount of added complexity when 
+processing lists of lists.
+~~~~~
 
-TODO: Statt GeoJSON wird Well-Known Text (WKT) verwendet. 
+Das lässt sich nicht mit der Verwendung von GeoJSON vereinbaren, denn dort sind die Geometriedaten bei vielen Objektarten in Form von verschachtelten Listen kodiert. Zwar gibt es eine Iniatiative zur Schaffung von GeoJSON-LD, diese Spezifikation hat bisher jedoch keinen verwendbaren Zustand erreicht, so dass sie nicht für OParl 1.0 verwendbar ist.
+
+TODO: Statt GeoJSON oder GeoJSON-LD wird deshalb der semantisch gleichwertige und etablierte Standard Well-Known Text (WKT) verwendet.
 
 OParl sieht bei Angabe von Geodaten die Verwendung des  
 GeoJSON-Formats^[GeoJSON Spezifikation 

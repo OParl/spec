@@ -12,18 +12,18 @@ Ein Beispiel in kompakter Form:
     "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
     "@type": "oparl:AgendaItem",
     "@id": "http://oparl.beispielris.de/agendaitem/3271",
-    "meeting": "beispielris:meetings/281",
+    "meeting": "beispielris:meeting/281",
     "number": "10.1",
     "name": "Satzungsänderung für Ausschreibungen",
     "public": true,
     "consultations": [
-        "beispielris:consultations/1034",
-        "beispielris:consultations/1235"
+        "beispielris:consultation/1034",
+        "beispielris:consultation/1235"
     ],
     "result": "besipielris:vocab/decided_modified",
     "resolutionText": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
-    "absentParticipants": [
-        "beispielris:people/75"
+    "absentParticipant": [
+        "beispielris:person/75"
     ],
     "paper": "beispielris:paper/2812",
     "last_modified": "2012-08-16T14:05:27+02:00"
@@ -50,11 +50,12 @@ Ein Beispiel in kompakter Form:
     vorgesehen ist/war. Es wird ein Wahrheitswert (`true` oder `false`) erwartet.
     EMPFOHLEN.
 
-`consultations`
+`consultation`
 :   Liste der URLs der Beratungen (oparl:Consultation), die diesem Tagesordnungspunkt
     zugewiesen sind, oder alternativ die URL zum Abruf dieser Liste.
-    Die Eigenschaft ist ZWINGEND. Sofern diesem Tagesordnungspunkt keine Beratungen
+    Sofern diesem Tagesordnungspunkt keine Beratungen
     zugewiesen sind, bleibt die Liste ohne Einträge.
+    ZWINGEND. 
 
 `result`
 :   Kategorische Information darüber, welches Ergebnis die Beratung des

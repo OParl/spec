@@ -26,6 +26,7 @@ Ein Beispiel in expandierter Form:
         "http://oparl.beispielris.de/person/48",
         "http://oparl.beispielris.de/person/57"
     ],
+    "organizationType": "http://oparl.beispielris.de/vocab/ausschuss",
     "category": "http://oparl.beispielris.de/vocab/finance",
     "last_modified": "2012-08-16T14:05:27+02:00"
 }
@@ -51,6 +52,7 @@ Das selbe Beispiel in kompakter Form. Ein geeigneter Kontext wird vorausgesetzt:
         "48",
         "57"
     ],
+    "organizationType": "beispielris:vocab/ausschuss",
     "category": "beispielris:vocab/finance",
     "last_modified": "2012-08-16T14:05:27+02:00"
 }

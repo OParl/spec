@@ -10,7 +10,7 @@ Ein Beispiel in expandierter Form:
 ~~~~~  {#person_ex1 .json}
 {
     "@type": "http://oparl.org/schema/1.0/Person",
-    "@id": "http://oparl.beispielris.de/people/29",
+    "@id": "http://oparl.beispielris.de/person/29",
     "name": "Prof. Dr. Max Mustermann",
     "familyName": "Mustermann",
     "givenName": "Max",
@@ -21,9 +21,9 @@ Ein Beispiel in expandierter Form:
     "streetAddress": "Musterstraße 5",
     "postalCode": "11111",
     "locality": "Musterort",
-    "organizations": [
-        "http://oparl.beispielris.de/organizations/11",
-        "http://oparl.beispielris.de/organizations/34"
+    "organization": [
+        "http://oparl.beispielris.de/organization/11",
+        "http://oparl.beispielris.de/organization/34"
     ],
     "created": "2011-11-11T11:11:00+01:00",
     "last_modified": "2012-08-16T14:05:27+02:00"
@@ -61,7 +61,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 {
     "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld",
     "@type": "oparl:Person",
-    "@id": "http://oparl.beispielris.de/people/29",
+    "@id": "http://oparl.beispielris.de/person/29",
     "name": "Prof. Dr. Max Mustermann",
     "familyName": "Mustermann",
     "givenName": "Max",
@@ -72,7 +72,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "streetAddress": "Musterstraße 5",
     "postalCode": "11111",
     "locality": "Musterort",
-    "organizations": ["11", "34"],
+    "organization": ["11", "34"],
     "created": "2011-11-11T11:11:00+01:00",
     "last_modified": "2012-08-16T14:05:27+02:00"
 }
@@ -110,8 +110,8 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 `locality`
 :   Ortsangabe der Kontakt-Anschrift der Person. Diese Eigenschaft ist OPTIONAL.
 
-`organizations`
-:   IRIs der Gruppierung oder Liste der IRIs der Gruppierungen (Objekte vom Typ `oparl:Organization`), in der
+`organization`
+:   URLs der Gruppierung oder Liste der URLs der Gruppierungen (Objekte vom Typ `oparl:Organization`), in der
     bzw. in denen die Person aktuell Mitglied ist.
     Diese Eigenschaft ist ZWINGEND. Sollte die Person Mitglied in keiner Gruppierung sein,
     enthält die Liste keine Einträge.

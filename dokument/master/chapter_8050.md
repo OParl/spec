@@ -70,7 +70,10 @@ Das selbe Beispiel in kompakter Form. Ein geeigneter Kontext wird vorausgesetzt:
     OPTIONAL
 
 `role`
-:   Rolle oder Rollen, die für diese Gruppierung vorgesehen sind. Die Rollen-Objekte gehören zu der Klasse org:Role oder einer ihrer Unterklassen.
+:   Rolle oder Rollen, die für diese Gruppierung vorgesehen sind. Die Rollen-Objekte gehören zu der Klasse org:Role oder einer ihrer Unterklassen. Beispiele sind: "Vorsitzende/er", "1. Stellvertreter/in", "2. Stellvertreter/in", "Schriftführerin", "Stellvertretende Schriftführerin", 
+"Ordentliches Mitglied", "Stellvertretendes Mitglied"
+Siehe https://github.com/OParl/specs/issues/45
+TODO: "Ordentliches Mitglied", "Stellvertretendes Mitglied" müssen anders behandelt werden!
     OPTIONAL
 
 `member`

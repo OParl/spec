@@ -2,7 +2,7 @@ oparl:Document (Datei)  {#oparl_document}
 ----------------------
 
 Ein Objekt vom Typ `oparl:Document` repräsentiert eine Datei,
-beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokuments,
+beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokument,
 und hält Metadaten zu der Datei sowie URLs zum Zugriff auf 
 die Datei bereit.
 

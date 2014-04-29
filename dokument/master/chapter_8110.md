@@ -20,10 +20,11 @@ Ein Beispiel:
     "sha1_checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "size": 82930,
     "access_url": "http://beispielris.de/documents/57739.pdf",
-    "access_url": "http://beispielris.de/documents/download/57739.pdf",
+    "download_url": "http://beispielris.de/documents/download/57739.pdf",
     "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
     "master_document": "http://beispielris.de/documents/57738",
-    "license": "http://www.opendefinition.org/licenses/cc-by"
+    "license": "http://www.opendefinition.org/licenses/cc-by",
+    "documentRole": "http://beispielris.de/document-roles/evidence",
 }
 ~~~~~
 
@@ -47,67 +48,90 @@ werden, welche Ableitungen einer Datei existieren.
 :   Die URL des Objekts.
 
 `name`
-:   Name des Objekts, der Nutzern angezeigt werden kann. Diese Eigenschaft 
-    ist ZWINGEND. Typ: Zeichenkette.
+:   Name des Objekts, der Nutzern angezeigt werden kann.
+    Typ: Zeichenkette.
+    ZWINGEND
 
 `mime_type`
 :   Mime-Typ des Inhalts (vgl. RFC2046^[<http://tools.ietf.org/html/rfc2046>]).
-    Diese Eigenschaft ist ZWINGEND. Sollte das System einer Datei keinen
+    Sollte das System einer Datei keinen
     spezifischen Typ zuweisen können, wird EMPFOHLEN, hier 
     "application/octet-stream" zu verwenden.
-
+    ZWINGEND
 `date`
-:   Erstellungs- oder Veröffentlichungsdatum und -uhrzeit. Diese Eigenschaft
-    ist ZWINGEND. Typ: Datum.
+:   Erstellungs- oder Veröffentlichungsdatum und -uhrzeit.
+    Typ: Datum.
+    ZWINGEND
 
 `last_modified`
-:   Datum und Uhrzeit der letzten Änderung der Datei bzw. der Metadaten. Diese
-    Eigenschaft ist ZWINGEND. Typ: Datum.
+:   Datum und Uhrzeit der letzten Änderung der Datei bzw. der Metadaten.
+    Typ: Datum.
+    ZWINGEND
 
 `size`
-:   Größe der Datei in Bytes. Diese Eigenschaft ist ZWINGEND. Typ: Zahl.
+:   Größe der Datei in Bytes.
+    Typ: ganze Zahl.
+    ZWINGEND
 
 `sha1_checksum`
 :   SHA1-Prüfsumme des Dokumenteninhalts in Hexadezimal-Schreibweise.
     Typ: Zeichenkette.
-
+    OPTIONAL
+    
 `text`
 :   Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform
-    wiedergegeben werden kann. Diese Eigenschaft ist EMPFOHLEN.
+    wiedergegeben werden kann.
     Typ: Zeichenkette.
+    EMPFOHLEN
 
 `access_url`
-:   URL zum gewöhnlichen Abruf der Datei mittels
-    HTTP GET-Aufruf. Diese Eigenschaft ist ZWINGEND. Typ: URL.
+:   URL zum gewöhnlichen Abruf der Datei mittels HTTP GET-Aufruf.
+    Typ: URL.
+    ZWINGEND
 
 `download_url`
-:   URL zum Download der Datei. Diese Eigenschaft ist EMPFOHLEN. Typ: URL.
+:   URL zum Download der Datei.
+    Typ: URL.
+    EMPFOHLEN
 
 `paper`
-:   URL des zugehörigen Objekts vom Typ `oparl:Paper`, sofern diese Datei
+:   Zugehöriges Objekts vom Typ `oparl:Paper`, sofern diese Datei
     zu einer Drucksache gehört. Wenn diese Datei zu einer Drucksache gehört,
     MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT
-    vorhanden sein. Typ: URL.
+    vorhanden sein.
+    Typ: URL.
 
 `meeting`
-:   URL des zugehörigen Objekts vom Typ `oparl:Meeting`, sofern diese Datei
+:   Zugehöriges Objekt vom Typ `oparl:Meeting`, sofern diese Datei
     zu einer Sitzung gehört. Wenn diese Datei zu einer Sitzung gehört,
     MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT
-    vorhanden sein. Typ: URL.
+    vorhanden sein.
+    Typ: URL.
 
 `master_document`
-:   URL des Objekts vom Typ `oparl:Document`, von dem das aktuelle
-    Objekt abgeleitet wurde. Diese Eigenschaft ist OPTIONAL. Typ: URL.
+:   `oparl:Document`, von dem das aktuelle Objekt abgeleitet wurde.
+    Typ: URL.
+    OPTIONAL
 
 `derivative_documents`
-:   URLs aller Objekte vom Typ `oparl:Document`, die von dem aktuellen
-    Objekt abgeleitet wurden. Diese Eigenschaft ist OPTIONAL. Typ: Liste
-    von URLs.
-
+:   `oparl:Document`, die von dem aktuellen Objekt abgeleitet wurden.
+    Typ: URL.
+    OPTIONAL
+    
 `license`
-:   URL der Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet
+:   Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet
     wird, dann ist sie massgeblich und nicht die globalere Angabe in dem `oparl:Body` Objekt der Körperschaft.
     Lesenswert zum Thema Lizensierung von Linked Data ist http://linkeddatabook.com/editions/1.0/#htoc48
+    Type: URL
+    OPTIONAL
+
+`documentRole`
+:   Rolle, Funktion, Sorte des Dokuments. Das Objekt enthält ein `skos:prefLabel`. Dessen Werte können z.B. sein:
+    "Einladung", "Protokoll", "Wortprotokoll" oder "Beschlussprotokoll". In einer zukünftigen OParl-Version
+    wird möglicherweise eine Menge der wichtigsten Kategorien vorgegeben.
+    TODO: Besser in `oparl:Paper` oder `oparl:Meeting` ?
+    Siehe Diskussion unter https://github.com/OParl/specs/issues/65
+    Typ: URL
     OPTIONAL
 
 ### Siehe auch

@@ -5,6 +5,9 @@ Jede natürliche Person, die in der parlamentarischen Arbeit tätig ist
 und insbesondere Mitglied in einer Gruppierung ([oparl:Organization](#oparl_organization)),
 wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
 
+Es gibt existieren bereits eine ganze Reihe von Vokabularen für Personen. Dazu gehören FOAF (Friend of a Friend) und vCard. Es gibt aber auch der XÖV-Standard für natürliche Personen, ein XML Schema. Für `oparl:Person` wurde daraus
+und basierend auf dem Input der OParl-Stakeholder eine Auswahl von Eigenschaften zusammengestellt.
+
 Ein Beispiel in expandierter Form:
 
 ~~~~~  {#person_ex1 .json}
@@ -125,6 +128,8 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     z.B. "Bürgermeister", "Bezirksbürgermeister", "Stadtverordneter", "Bezirksverordneter",
     "Sachkundige Bürgerin/Bürger", "Einzelstadtverordnete" (Mitglieder des Rates die keiner Fraktion/Organisation
     angehören -> die Zuordbarkeit einer fiktiven Organisation ermöglichen TODO: warum will man das?).
+    Denkbar ist aber auch z.B. "Pfarrer"
+    TODO: kann ein Pfarrer gleichzeitig Bürgermeister sein?!
     Siehe https://github.com/OParl/specs/issues/45
     OPTIONAL
 

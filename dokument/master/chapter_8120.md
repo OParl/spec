@@ -15,12 +15,12 @@ Ein Beispiel:
 ~~~~~  {#consultation_ex1 .json}
 {
     "@type": "oparl:Consultation",
-    "@id": "http://beispielris.de/consultations/47594",
-    "paper": "http://beispielris.de/papers/2396",
-    "agendaitem": "http://beispielris.de/agendaitems/15569",
-    "committee": "http://beispielris.de/organizations/96",
+    "@id": "http://beispielris.de/consultation/47594",
+    "paper": "http://beispielris.de/paper/2396",
+    "agendaitem": "http://beispielris.de/agendaitem/15569",
+    "committee": "http://beispielris.de/organization/96",
     "authoritative": false,
-    "role": "http://beispielris.de/roles/decision"
+    "role": "http://beispielris.de/role/decision"
 }
 ~~~~~
 
@@ -30,12 +30,12 @@ Das selbe Beispiel in kompakter Form (ein passender Kontext wird vorausgesetzt):
 {
     "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
     "@type": "oparl:Consultation",
-    "@id": "beispielris:consultations/47594",
-    "paper": "beispielris:papers/2396",
+    "@id": "beispielris:consultation/47594",
+    "paper": "beispielris:paper/2396",
     "agendaitem": "beispielris:agendaitem/15569",
     "committee": "beispielris:organization/96",
     "authoritative": false,
-    "role": "beispielris:roles/decision"
+    "role": "beispielris:role/decision"
 }
 ~~~~~
 
@@ -44,7 +44,7 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
 ~~~~~  {#role_ex1 .json}
 {
     "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
-    "@id": "beispielris:roles/decision",
+    "@id": "beispielris:role/decision",
     "prefLabel": "Entscheidung"
 }
 ~~~~~
@@ -53,21 +53,26 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
 ### Eigenschaften ###
 
 `@id`
-:   URL des Objekts. Diese Eigenschaft ist ZWINGEND.
+:   URL des Objekts.
+    ZWINGEND.
 
 `paper`
-:   URL der Drucksache, die beraten wird. Diese Eigenschaft ist ZWINGEND.
+:   URL der Drucksache, die beraten wird.
+    ZWINGEND.
 
 `agendaitem`
 :   URL des Tagesordnungspunktes (oparl:Agendaitem), unter dem die Drucksache 
-    beraten wird. Diese Eigenschaft ist ZWINGEND.
+    beraten wird.
+    ZWINGEND.
 
 `committee`
 :   URL des Gremiums (oparl:Organization), dem die Sitzung zugewiesen ist, zu
     welcher der zuvor genannte Tagesordnungspunkt gehört.
-    Hier kann auch eine mit Liste von Gremien angegeben werden. Die Liste ist dann geordnet.
-    Das erste Gremium ist federführend.
-    Diese Eigenschaft ist ZWINGEND.
+    Hier kann auch eine mit Liste von Gremien angegeben werden (die verschiedenen `oparl:Body` und `oparl:System`
+    angehören können).
+    Die Liste ist dann geordnet.
+    Das erste Gremium der Liste ist federführend.
+    ZWINGEND.
 
 `authoritative`
 :   Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst 

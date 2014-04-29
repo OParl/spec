@@ -26,32 +26,39 @@ Ein Beispiel in kompakter Form:
 {
     "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
     "@type": "oparl:Paper",
-    "@id": "http://oparl.beispielris.de/papers/749",
+    "@id": "http://oparl.beispielris.de/paper/749",
     "reference": "1234/2014",
     "publishedDate": "2014-04-04T16:42:02+02:00",
     "name": "Antwort auf Anfrage 1200/2014",
-    "paperType": "Beantwortung einer Anfrage",
-    "relatedPapers": "beispielris:papers/699",
-    "mainDocument": "beispielris:documents/925",
-    "auxiliaryDocuments": "beispielris:documents/926",
-    "locations": [
+    "paperType": "beispielris:vocab/answer",
+    "relatedPaper": "beispielris:paper/699",
+    "mainDocument": "beispielris:document/925",
+    "auxiliaryDocument": "beispielris:document/926",
+    "location": [
         {
             "description": "Theodor-Heuss-Ring 1",
             "lat": 7.148,
             "lon": 50.023
         }
     ],
-    "creators": [
-        "beispielris:organizations/2000",
+    "creator": [
+        "beispielris:organization/2000",
         "beispielris:people/1000"
     ],
-    "consultations": [
+    "consultation": [
         "beispielris:consultation/5676",
         "beispielris:consultation/5689"
     ]
     "lastModified": "2013-01-08T12:05:27+01:00"
 }
 ~~~~~
+
+`paperType`
+:   Ein Objekt mit einem `skos:prefLabel`-Attribut, dessen Wert eine Zeichenkette ist und 
+    die Art der Drucksache beschreibt, z.B. "Beantwortung einer Anfrage". Eine weitere Liste
+    mit exemplarischen Drucksachentypen gibt es hier: https://wiki.piratenpartei.de/BE:BVVupdates/Glossar
+    Eine zukünftige Version von OParl wird möglicherweise solche Werte spezifizieren.
+    OPTIONAL
 
 TODO:
 * Eigenschaften beschreiben

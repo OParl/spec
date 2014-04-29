@@ -21,8 +21,9 @@ Ein Beispiel in kompakter Form:
     "result": "http://oparl.org/vocab/decided_modified",
     "resolutionText": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
     "absentParticipants": [
-        "http://oparl.beispielris.de/people/75"
+        "beispielris:people/75"
     ],
+    "paper": "beispielris:paper/2812",
     "last_modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
@@ -65,6 +66,11 @@ Ein Beispiel in kompakter Form:
     Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) 
     von der Beschlussvorlage abweicht.
     Diese Eigenschaft ist OPTIONAL.
+
+`paper`
+:   `oparl:Paper`. Zwar kann auch das `oparl:Meeting` darauf verweisen, aber hier sind solche Verweise in der
+    Regel präziser, da sich Drucksachen regelmäßig für einen TOP relevant sind und nicht für alle TOPs.
+    OPTIONAL
 
 `created`
 :   Erzeugungsdatum und -zeit des Objekts. EMPFOHLEN.

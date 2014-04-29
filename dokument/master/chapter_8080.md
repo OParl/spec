@@ -17,33 +17,33 @@ Ein Beispiel in expandierter Form:
 ~~~~~  {#meeting_ex1 .json}
 {
     "@type": "http://oparl.org/schema/1.0/Meeting",
-    "@id": "http://oparl.beispielris.de/meetings/281",
+    "@id": "http://oparl.beispielris.de/meeting/281",
     "name": "4. Sitzung des Finanzausschusses",
     "start": "2013-01-04T08:00:00+01:00",
     "end": "2013-01-04T12:00:00+01:00",
     "location": {
         "description": "Rathaus, Raum 136"
     },
-    "organizations": "http://oparl.beispielris.de/organizations/34",
-    "participants": [
-        "http://oparl.beispielris.de/people/29",
-        "http://oparl.beispielris.de/people/75"
-        "http://oparl.beispielris.de/people/94"
+    "organization": "http://oparl.beispielris.de/organization/34",
+    "participant": [
+        "http://oparl.beispielris.de/person/29",
+        "http://oparl.beispielris.de/person/75"
+        "http://oparl.beispielris.de/person/94"
     ],
-    "invitation": "http://oparl.beispielris.de/documents/586",
-    "resultsProtocol": "http://oparl.beispielris.de/documents/628",
-    "verbatimProtocol": "http://oparl.beispielris.de/documents/691",
-    "auxiliaryDocuments": [
-        "http://oparl.beispielris.de/documents/588",
-        "http://oparl.beispielris.de/documents/589"
+    "invitation": "http://oparl.beispielris.de/document/586",
+    "resultsProtocol": "http://oparl.beispielris.de/document/628",
+    "verbatimProtocol": "http://oparl.beispielris.de/document/691",
+    "auxiliaryDocument": [
+        "http://oparl.beispielris.de/document/588",
+        "http://oparl.beispielris.de/document/589"
     ],
-    "agendaItems": {
+    "agendaItem": {
     // Reihenfolge ist wichtig
         "@list": [
-            "http://oparl.beispielris.de/agendaitems/1045",
-            "http://oparl.beispielris.de/agendaitems/1046",
-            "http://oparl.beispielris.de/agendaitems/1047",
-            "http://oparl.beispielris.de/agendaitems/1048"
+            "http://oparl.beispielris.de/agendaitem/1045",
+            "http://oparl.beispielris.de/agendaitem/1046",
+            "http://oparl.beispielris.de/agendaitem/1047",
+            "http://oparl.beispielris.de/agendaitem/1048"
         ]
     }
     "created": "2012-01-06T12:01:00+01:00",
@@ -57,32 +57,32 @@ Das selbe Beispiel in kompakter Form:
 {
     "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
     "@type": "oparl:Meeting",
-    "@id": "http://oparl.beispielris.de/meetings/281",
+    "@id": "http://oparl.beispielris.de/meeting/281",
     "name": "4. Sitzung des Finanzausschusses",
     "start": "2013-01-04T08:00:00+01:00",
     "end": "2013-01-04T12:00:00+01:00",
     "location": {
         "description": "Rathaus, Raum 136"
     },
-    "organizations": "beispielris:organizations/34",
-    "participants": [
-        "beispielris:people/29",
-        "beispielris:people/75",
-        "beispielris:people/94"
+    "organization": "beispielris:organization/34",
+    "participant": [
+        "beispielris:person/29",
+        "beispielris:person/75",
+        "beispielris:person/94"
     ],
-    "invitation": "beispielris:documents/586",
-    "resultsProtocol": "beispielris:documents/628",
-    "verbatimProtocol": "beispielris:documents/691",
-    "auxiliaryDocuments": [
-        "beispielris:documents/588",
-        "beispielris:documents/589"
+    "invitation": "beispielris:document/586",
+    "resultsProtocol": "beispielris:document/628",
+    "verbatimProtocol": "beispielris:document/691",
+    "auxiliaryDocument": [
+        "beispielris:document/588",
+        "beispielris:document/589"
     ],
-    "agendaItems": [
+    "agendaItem": [
     // Reihenfolge ist wichtig, deshalb @list im Kontext angeben
-        "beispielris:agendaitems/1045",
-        "beispielris:agendaitems/1046",
-        "beispielris:agendaitems/1047",
-        "beispielris:agendaitems/1048"
+        "beispielris:agendaitem/1045",
+        "beispielris:agendaitem/1046",
+        "beispielris:agendaitem/1047",
+        "beispielris:agendaitem/1048"
     ],
     "created": "2012-01-06T12:01:00+01:00",
     "lastModified": "2012-01-08T14:05:27+01:00"
@@ -107,16 +107,16 @@ Das selbe Beispiel in kompakter Form:
 :   Sitzungsort in Form eines `oparl:Location` Objekts.
     EMPFOHLEN
 
-`organizations`
-:   IRI der Gruppierung oder Liste der IRIs der Gruppierungen (oparl:Organization), denen die
+`organization`
+:   URL der Gruppierung oder Liste der URLs der Gruppierungen (oparl:Organization), denen die
     Sitzung zugeordnet ist.
     Wenn eine Liste angegeben wird, dann ist diese geordnet. Das erste Element ist dann das federführende Gremium.
     ZWINGEND
 
-`participants`
-:   IRI der Gruppierung oder Liste der IRLs der geladenen Teilnehmer (oparl:Person) der Sitzung.
-    Bei einer stattgefundenen Sitzung SOLL die Liste nur diejenigen Teilnehmer umfassen, die tatsächlich
-    an der Sitzung teilgenommen haben.
+`participant`
+:   URL der Teilnehmer oder Liste der URLs der Teilnehmer (oparl:Person) der Sitzung.
+    Bei einer Sitzung in der Zukunft sind dies die geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die
+    Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung teilgenommen haben.
     ZWINGEND.
 
 `invitation`
@@ -135,16 +135,16 @@ Das selbe Beispiel in kompakter Form:
     dem Stattfinden der Sitzung vorkommen.
     EMPFOHLEN
     
-`auxiliaryDocuments`
-:   Liste von URLs zu Dokumentenanhängen (oparl:Document) zur Sitzung,
-    oder alternativ die URL zum Abruf einer solchen Liste.
+`auxiliaryDocument`
+:   URL oder Liste von URLs zu Dokumentenanhängen (oparl:Document) zur Sitzung.
     Hiermit sind Dokumente gemeint, die üblicherweise mit der Einladung
     zu einer Sitzung verteilt werden und die nicht bereits über einzelne
     Tagesordnungspunkte referenziert sind.
     OPTIONAL
 
-`agendaItems`
+`agendaItem`
 :   URLs der Tagesordnungspunkte (oparl:AgendaItem) der Sitzung.
+    Die Reihenfolge ist relevant.
     Es kann Sitzungen ohne TOPs geben.
     OPTIONAL
     

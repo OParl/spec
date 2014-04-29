@@ -37,12 +37,15 @@ Ein Beispiel in expandierter Form:
         "http://oparl.beispielris.de/documents/588",
         "http://oparl.beispielris.de/documents/589"
     ],
-    "agendaItems": [
-        "http://oparl.beispielris.de/agendaitems/1045",
-        "http://oparl.beispielris.de/agendaitems/1046",
-        "http://oparl.beispielris.de/agendaitems/1047",
-        "http://oparl.beispielris.de/agendaitems/1048"
-    ],
+    "agendaItems": {
+    // Reihenfolge ist wichtig
+        "@list": [
+            "http://oparl.beispielris.de/agendaitems/1045",
+            "http://oparl.beispielris.de/agendaitems/1046",
+            "http://oparl.beispielris.de/agendaitems/1047",
+            "http://oparl.beispielris.de/agendaitems/1048"
+        ]
+    }
     "created": "2012-01-06T12:01:00+01:00",
     "lastModified": "2012-01-08T14:05:27+01:00"
 }
@@ -75,6 +78,7 @@ Das selbe Beispiel in kompakter Form:
         "beispielris:documents/589"
     ],
     "agendaItems": [
+    // Reihenfolge ist wichtig, deshalb @list im Kontext angeben
         "beispielris:agendaitems/1045",
         "beispielris:agendaitems/1046",
         "beispielris:agendaitems/1047",

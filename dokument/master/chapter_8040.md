@@ -26,7 +26,7 @@ Ein Beispiel:
 ~~~~~  {#oparlbody_ex1 .json}
 {
     "@type": "http://oparl.org/schema/1.0/Body",
-    "@id": "http://oparl.beispielris.de/bodies/0",
+    "@id": "http://oparl.beispielris.de/body/0",
     "system": "http://oparl.beispielris.de/",
     "contactEmail": "mailto:ris@beispielstadt.de",
     "contactName": "RIS-Betreuung",
@@ -40,10 +40,10 @@ Ein Beispiel:
     "website": "http://www.beispielstadt.de/",
     "license": "http://creativecommons.org/licenses/by/4.0/",
     "licenseValidSinceDay": "2014-01-01",
-    "organizations": "http://oparl.beispielris.de/bodies/0/organisations/",
-    "meetings": "http://oparl.beispielris.de/bodies/0/meetings/",
-    "papers": "http://oparl.beispielris.de/bodies/0/papers/",
-    "people": "http://oparl.beispielris.de/bodies/0/people/",
+    "organization": "http://oparl.beispielris.de/body/0/organisation/",
+    "meeting": "http://oparl.beispielris.de/body/0/meeting/",
+    "paper": "http://oparl.beispielris.de/body/0/paper/",
+    "member": "http://oparl.beispielris.de/body/0/person/",
     "created": "2014-01-08T14:28:31.568+0100",
     "lastModified": "2014-01-08T14:28:31.568+0100"
 }
@@ -109,22 +109,22 @@ Parlament an.
 `contactName`
 :   Name oder Bezeichnung der mit `contactEmail` erreichbaren Stelle. OPTIONAL.
 
-`papers`
+`paper`
 :   URL, unter welcher die API die Liste aller Objekte vom Typ `oparl:Paper`,
     also die Drucksachen unter dieser Körperschaft ausgibt.
     Diese Eigenschaft ist ZWINGEND.
 
-`people`
+`member`
 :   URL, unter welcher die API die Liste aller Objekte vom Typ `oparl:Person`,
     also die Personen unter dieser Körperschaft ausgibt.
     Diese Eigenschaft ist ZWINGEND.
 
-`meetings`
+`meeting`
 :   URL, unter welcher die API die Liste aller Objekte vom Typ `oparl:Meeting`,
     also die Sitzungen dieser Körperschaft ausgibt.
     Diese Eigenschaft ist ZWINGEND.
 
-`organizations`
+`organization`
 :   URL, unter welcher die API die Liste aller Objekte vom Typ `oparl:Organization`,
     also die Gruppierungen dieser Körperschaft ausgibt.
     Diese Eigenschaft ist ZWINGEND.

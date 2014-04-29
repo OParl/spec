@@ -11,20 +11,20 @@ Ein Beispiel:
 ~~~~~  {#document_ex1 .json}
 {
     "@type": "oparl:Document",
-    "@id": "http://beispielris.de/documents/57739",
+    "@id": "http://beispielris.de/document/57739",
     "name": "Anlage 1 zur Anfrage",
-    "paper": "http://beispielris.de/papers/2396",
-    "mime_type": "application/pdf",
+    "paper": "http://beispielris.de/paper/2396",
+    "mimeType": "application/pdf",
     "date": "2013-01-04T07:54:13+01:00",
-    "last_modified": "2013-01-04T07:54:13+01:00",
-    "sha1_checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "lastModified": "2013-01-04T07:54:13+01:00",
+    "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "size": 82930,
-    "accessUrl": "http://beispielris.de/documents/57739.pdf",
-    "downloadUrl": "http://beispielris.de/documents/download/57739.pdf",
+    "accessUrl": "http://beispielris.de/document/57739.pdf",
+    "downloadUrl": "http://beispielris.de/document/download/57739.pdf",
     "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
-    "master_document": "http://beispielris.de/documents/57738",
+    "masterDocument": "http://beispielris.de/document/57738",
     "license": "http://www.opendefinition.org/licenses/cc-by",
-    "documentRole": "http://beispielris.de/document-roles/evidence",
+    "documentRole": "http://beispielris.de/document-role/evidence",
 }
 ~~~~~
 
@@ -52,7 +52,7 @@ werden, welche Ableitungen einer Datei existieren.
     Typ: Zeichenkette.
     ZWINGEND
 
-`mime_type`
+`mimeType`
 :   Mime-Typ des Inhalts (vgl. RFC2046^[<http://tools.ietf.org/html/rfc2046>]).
     Sollte das System einer Datei keinen
     spezifischen Typ zuweisen können, wird EMPFOHLEN, hier 
@@ -63,7 +63,7 @@ werden, welche Ableitungen einer Datei existieren.
     Typ: Datum.
     ZWINGEND
 
-`last_modified`
+`lastModified`
 :   Datum und Uhrzeit der letzten Änderung der Datei bzw. der Metadaten.
     Typ: Datum.
     ZWINGEND
@@ -73,7 +73,7 @@ werden, welche Ableitungen einer Datei existieren.
     Typ: ganze Zahl.
     ZWINGEND
 
-`sha1_checksum`
+`sha1Checksum`
 :   SHA1-Prüfsumme des Dokumenteninhalts in Hexadezimal-Schreibweise.
     Typ: Zeichenkette.
     OPTIONAL
@@ -109,12 +109,12 @@ werden, welche Ableitungen einer Datei existieren.
     vorhanden sein.
     Typ: URL.
 
-`master_document`
+`masterDocument`
 :   `oparl:Document`, von dem das aktuelle Objekt abgeleitet wurde.
     Typ: URL.
     OPTIONAL
 
-`derivative_documents`
+`derivativeDocuments`
 :   `oparl:Document`, die von dem aktuellen Objekt abgeleitet wurden.
     Typ: URL.
     OPTIONAL

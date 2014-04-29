@@ -92,8 +92,7 @@ Das selbe Beispiel in kompakter Form. Ein geeigneter Kontext wird vorausgesetzt:
 `category`
     Schlagworte. Dies sind Objekte mit einem `skos:prefLabel`-Attribut (für jede unterstützte Sprache) mit einer
     Zeichenkette. In einer zukünftigen OParl-Version wird möglicherweise eine Menge solcher Schlagwort-Objekte
-    definiert.
-    Siehe https://github.com/OParl/specs/issues/42
+    definiert. Anregungen gibt es u.a. in der Tabelle "Kategorien" im unteren Drittel der Seite http://htmlpreview.github.io/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html 
     OPTIONAL
     
 `lastModified`

@@ -26,6 +26,7 @@ Ein Beispiel in expandierter Form:
         "http://oparl.beispielris.de/people/48",
         "http://oparl.beispielris.de/people/57"
     ],
+    "category": "http://oparl.beispielris.de/org-categories/finance",
     "last_modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
@@ -50,38 +51,51 @@ Das selbe Beispiel in kompakter Form. Ein geeigneter Kontext wird vorausgesetzt:
         "48",
         "57"
     ],
+    "category": "beispielris:org-categories/finance",
     "last_modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
 ### Eigenschaften ###
 
 `body`
-:   URL der Körperschaft, zu der diese Gruppierung gehört. Die
-    Eigenschaft ist ZWINGEND.
+:   URL der Körperschaft, zu der diese Gruppierung gehört. 
+    ZWINGEND
 
 `name`
-:   Der Name der Gruppierung. Die Eigenschaft ist ZWINGEND.
+:   Der Name der Gruppierung.
+    ZWINGEND
 
 `nameLong`
-:   Langform des Namens der Gruppierung. OPTIONAL.
+:   Langform des Namens der Gruppierung.
+    OPTIONAL
 
 `role`
-:   Rolle oder Rollen, die für diese Gruppierung vorgesehen sind. Die Rollen-Objekte gehören zu der Klasse org:Role oder einer ihrer Unterklassen. OPTIONAL.
+:   Rolle oder Rollen, die für diese Gruppierung vorgesehen sind. Die Rollen-Objekte gehören zu der Klasse org:Role oder einer ihrer Unterklassen.
+    OPTIONAL
 
 `members`
 :   Entweder die vollständige Liste der URLs aller Mitglieder
     dieser Organisation (Objekte vom Typ `[oparl:Person](#oparl_person)`)
     oder URL zum Abruf dieser Liste.
-    Diese Eigenschaft ist ZWINGEND. Sollte die Gruppierung keine
+    Sollte die Gruppierung keine
     Mitglieder haben, enthält die Liste keine Einträge.
-
+    ZWINGEND
+    
 `subOrganizationOf`
-:   Ggf. URL der übergeordneten Organisation. Diese Eigenschaft ist
+:   Ggf. URL der übergeordneten Organisation.
     OPTIONAL.
 
 `created`
-:   Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
+:   Datum/Uhrzeit der Erzeugung des Objekts.
+    EMPFOHLEN
 
+`category`
+    Schlagworte. Dies sind Objekte mit einem `skos:prefLabel`-Attribut (für jede unterstützte Sprache) mit einer
+    Zeichenkette. In einer zukünftigen OParl-Version wird möglicherweise eine Menge solcher Schlagwort-Objekte
+    definiert.
+    Siehe https://github.com/OParl/specs/issues/42
+    OPTIONAL
+    
 `lastModified`
-:   Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.
-
+:   Datum/Uhrzeit der letzten Bearbeitung des Objekts.
+    EMPFOHLEN

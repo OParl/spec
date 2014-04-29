@@ -91,59 +91,63 @@ Das selbe Beispiel in kompakter Form:
 :   Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen 
     Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen
     KANN es der tatsächliche Startzeitpunkt sein.
-    Diese Eigenschaft ist ZWINGEND.
+    ZWINGEND
 
 `end`
 :   Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen 
     Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen
     KANN es der tatsächliche Endzeitpunkt sein.
-    Diese Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN
 
 `location`
 :   Sitzungsort in Form eines `oparl:Location` Objekts.
-    Diese Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN
 
 `organizations`
 :   IRI der Gruppierung oder Liste der IRIs der Gruppierungen (oparl:Organization), denen die
     Sitzung zugeordnet ist.
     Wenn eine Liste angegeben wird, dann ist diese geordnet. Das erste Element ist dann das federführende Gremium.
-    Diese Eigenschaft ist ZWINGEND.
+    ZWINGEND
 
 `participants`
 :   IRI der Gruppierung oder Liste der IRLs der geladenen Teilnehmer (oparl:Person) der Sitzung.
     Bei einer stattgefundenen Sitzung SOLL die Liste nur diejenigen Teilnehmer umfassen, die tatsächlich
-    an der Sitzung teilgenommen haben. Die Eigenschaft ist ZWINGEND.
+    an der Sitzung teilgenommen haben.
+    ZWINGEND.
 
 `invitation`
-:   URL des Einladungsdokuments (oparl:Document) zur Sitzung. Diese
-    Eigenschaft ist EMPFOHLEN.
+:   URL des Einladungsdokuments (oparl:Document) zur Sitzung.
+    EMPFOHLEN.
 
 `resultsProtocol`
 :   URL des Ergebnisprotokolls (oparl:Document) zur Sitzung. Diese
-    Eigenschaft ist EMPFOHLEN. Sie kann selbstverständlich erst nach
+    Eigenschaft kann selbstverständlich erst nach
     dem Stattfinden der Sitzung vorkommen.
+    EMPFOHLEN
 
 `verbatimProtocol`
 :   URL des Wortprotokolls (oparl:Document) zur Sitzung. Diese
-    Eigenschaft ist EMPFOHLEN. Sie kann selbstverständlich erst nach
+    Eigenschaft kann selbstverständlich erst nach
     dem Stattfinden der Sitzung vorkommen.
-
+    EMPFOHLEN
+    
 `auxiliaryDocuments`
 :   Liste von URLs zu Dokumentenanhängen (oparl:Document) zur Sitzung,
     oder alternativ die URL zum Abruf einer solchen Liste.
-    Die Eigenschaft ist OPTIONAL.
     Hiermit sind Dokumente gemeint, die üblicherweise mit der Einladung
     zu einer Sitzung verteilt werden und die nicht bereits über einzelne
     Tagesordnungspunkte referenziert sind.
+    OPTIONAL
 
 `agendaItems`
-:   Liste der URLs aller Tagesordnungspunkte (oparl:AgendaItem) der Sitzung,
-    oder alternativ die URL zum Abfruf dieser Liste.
-
+:   URLs der Tagesordnungspunkte (oparl:AgendaItem) der Sitzung.
+    Es kann Sitzungen ohne TOPs geben.
+    OPTIONAL
+    
 `created`
 :   Datum und Uhrzeit der Erzeugung des Objekts.
-    Diese Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN
 
 `lastModified`
 :   Datum und Uhrzeit der letzten Änderung des Objekts.
-    Diese Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN

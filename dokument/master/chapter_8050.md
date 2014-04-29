@@ -72,8 +72,20 @@ Das selbe Beispiel in kompakter Form. Ein geeigneter Kontext wird vorausgesetzt:
     OPTIONAL
 
 `role`
-:   Rolle oder Rollen, die für diese Gruppierung vorgesehen sind. Die Rollen-Objekte gehören zu der Klasse org:Role oder einer ihrer Unterklassen. Beispiele sind: "Vorsitzende/er", "1. Stellvertreter/in", "2. Stellvertreter/in", "Schriftführerin", "Stellvertretende Schriftführerin", 
-"Ordentliches Mitglied", "Stellvertretendes Mitglied"
+:   Rolle oder Rollen, die für diese Gruppierung vorgesehen sind. Die Rollen-Objekte gehören zu der Klasse org:Role oder einer ihrer Unterklassen.
+    Die Zeichenketten SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster
+    "männliche Form | weibliche Form" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem "|")
+    Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden:
+    "Mitglied" und nicht "Mitglied | Mitglied".
+    Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschecht
+    der Personen vornimmt.
+    z.B. "Vorsitzender | Vorsitzende",
+    "1. Stellvertreter | 1. Stellvertreterin",
+    "2. Stellvertreter | 2. Stellvertreterin",
+    "Schriftführer | Schriftführerin",
+    "Stellvertretender Schriftführer | Stellvertretende Schriftführerin",
+    "Ordentliches Mitglied",
+    "Stellvertretendes Mitglied"
 Siehe https://github.com/OParl/specs/issues/45
 TODO: "Ordentliches Mitglied", "Stellvertretendes Mitglied" müssen anders behandelt werden!
     OPTIONAL

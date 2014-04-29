@@ -19,8 +19,8 @@ Ein Beispiel:
     "last_modified": "2013-01-04T07:54:13+01:00",
     "sha1_checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "size": 82930,
-    "access_url": "http://beispielris.de/documents/57739.pdf",
-    "download_url": "http://beispielris.de/documents/download/57739.pdf",
+    "accessUrl": "http://beispielris.de/documents/57739.pdf",
+    "downloadUrl": "http://beispielris.de/documents/download/57739.pdf",
     "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
     "master_document": "http://beispielris.de/documents/57738",
     "license": "http://www.opendefinition.org/licenses/cc-by",
@@ -84,13 +84,14 @@ werden, welche Ableitungen einer Datei existieren.
     Typ: Zeichenkette.
     EMPFOHLEN
 
-`access_url`
+`accessUrl`
 :   URL zum gewöhnlichen Abruf der Datei mittels HTTP GET-Aufruf.
     Typ: URL.
     ZWINGEND
 
-`download_url`
-:   URL zum Download der Datei.
+`downloadUrl`
+:   URL zum Download der Datei. Besser ist es, bereits unter `accessUrl` einen "schönen" Dateinamen anzugeben.
+    TODO: Zweck erklären.
     Typ: URL.
     EMPFOHLEN
 

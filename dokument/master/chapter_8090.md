@@ -13,6 +13,7 @@ Ein Beispiel in kompakter Form:
     "@type": "oparl:AgendaItem",
     "@id": "http://oparl.beispielris.de/agendaitem/3271",
     "meeting": "beispielris:meetings/281",
+    "number": "10.1",
     "name": "Satzungsänderung für Ausschreibungen",
     "public": true,
     "consultations": [
@@ -35,6 +36,11 @@ Ein Beispiel in kompakter Form:
 :   URL der Sitzung (`oparl:Meeting`), dem der Tagesordnungspunkt zugeordnet ist.
     ZWINGEND.
 
+`number`
+:   Nummer des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z.B. "10.", "10.1", "C", "c)" o.ä.
+    Die Reihenfolge wird dadurch nicht festgelegt, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut
+    von  `oparl:Meeting`
+    OPTIONAL
 `name`
 :   Das Thema des Tagesordnungspunktes.
     ZWINGEND.

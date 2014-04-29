@@ -136,11 +136,19 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     
 `status`
 :   URLs von Objekten mit skos:prefLabel.
-    z.B. "Bürgermeister", "Bezirksbürgermeister", "Stadtverordneter", "Bezirksverordneter",
-    "Sachkundige Bürgerin/Bürger", "Einzelstadtverordnete" (Mitglieder des Rates die keiner Fraktion/Organisation
+    Die Zeichenketten SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster
+    "männliche Form | weibliche Form" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem "|")
+    Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden:
+    "Mitglied" und nicht "Mitglied | Mitglied".
+    Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschecht
+    der Personen vornimmt.
+    z.B. "Bürgermeister | Bürgermeisterin",
+    "Bezirksbürgermeister | Bezirksbürgermeisterin",
+    "Stadtverordneter | Stadtverordnete",
+    "Bezirksverordneter | Bezirksverordnete",
+    "Sachkundiger Bürger | Sachkundige Bürgerin",
+    "Einzelstadtverordneter | Einzelstadtverordnete" (Mitglieder des Rates die keiner Fraktion/Organisation
     angehören -> die Zuordbarkeit einer fiktiven Organisation ermöglichen TODO: warum will man das?).
-    Denkbar ist aber auch z.B. "Pfarrer"
-    TODO: kann ein Pfarrer gleichzeitig Bürgermeister sein?!
     Siehe https://github.com/OParl/specs/issues/45
     OPTIONAL
 

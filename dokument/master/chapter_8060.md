@@ -18,7 +18,7 @@ Ein Beispiel in expandierter Form:
     "familyName": "Mustermann",
     "givenName": "Max",
     "title": "Prof. Dr.",
-    "gender": "male",
+    "gender": "http://www.w3.org/2006/vcard/ns#Male",
     "email": "mailto:max@mustermann.de",
     "phone": "tel:+493012345678",
     "streetAddress": "Musterstraße 5",
@@ -31,7 +31,7 @@ Ein Beispiel in expandierter Form:
     "status": "http://oparl.beispielris.de/status/buergermeister",
     "hasMembership": "http://oparl.beispielris.de/membership/34",
     "created": "2011-11-11T11:11:00+01:00",
-    "last_modified": "2012-08-16T14:05:27+02:00"
+    "lastModified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
 
@@ -55,7 +55,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
         "@id": "dc:created",
         "@type": "xsd:dateTime"
     },
-    "last_modified": {
+    "lastModified": {
         "@id": "dc:modified",
         "@type": "xsd:dateTime"
     }
@@ -71,7 +71,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "familyName": "Mustermann",
     "givenName": "Max",
     "title": "Prof. Dr.",
-    "gender": "male",
+    "gender": "vcard:Male",
     "email": "mailto:max@mustermann.de",
     "phone": "tel:+493012345678",
     "streetAddress": "Musterstraße 5",
@@ -87,42 +87,53 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 ### Eigenschaften ###
 
 `name`
-:   Der Vollständige Name der Person, üblicherweise mit Titel und Vorname.
-    Diese Eigenschaft ist ZWINGEND.
+:   Der vollständige Name der Person mit akademischem Grad und Vornamen.
+    ZWINGEND
 
 `familyName`
-:   Familienname bzw. Nachname. Diese Eigenschaft ist OPTIONAL.
+:   Familienname bzw. Nachname.
+    OPTIONAL
 
 `givenName`
-:   Vorname bzw. Taufname. Diese Eigenschaft ist OPTIONAL.
+:   Vorname bzw. Taufname.
+    OPTIONAL
 
 `title`
-:   Akademische(r) Titel. Diese Eigenschaft ist OPTIONAL.
+:   Akademische(r) Titel.
+    TODO: "Dr."? "Diplom"?
+    OPTIONAL
 
 `gender`
-:   Geschlecht. Üblicherweise `male` oder `female`. Diese Eigenschaft ist OPTIONAL.
+:   Geschlecht. Zulässige Werte sind `vcard:Female`, `vcard:Male`, `vcard:None`, `vcard:Other` und `vcard:Unknown`.
+    OPTIONAL
 
 `phone`
-:   Telefonnummer mit `tel:` Schema. Diese Eigenschaft ist OPTIONAL.
+:   Telefonnummer mit `tel:` Schema.
+    OPTIONAL
 
 `email`
-:   E-Mail-Adresse mit `mailto:` Schema. Diese Eigenschaft ist OPTIONAL.
+:   E-Mail-Adresse mit `mailto:` Schema.
+    OPTIONAL
 
 `streetAddress`
-:   Straße und Hausnummer der Kontakt-Anschrift der Person. Diese Eigenschaft ist OPTIONAL.
+:   Straße und Hausnummer der Kontakt-Anschrift der Person.
+    OPTIONAL
 
 `postalCode`
-:   Postleitzahl der Kontakt-Anschrift der Person. Diese Eigenschaft ist OPTIONAL.
+:   Postleitzahl der Kontakt-Anschrift der Person.
+    OPTIONAL
 
 `locality`
-:   Ortsangabe der Kontakt-Anschrift der Person. Diese Eigenschaft ist OPTIONAL.
+:   Ortsangabe der Kontakt-Anschrift der Person.
+    OPTIONAL
 
 `organization`
 :   URLs der Gruppierung oder Liste der URLs der Gruppierungen (Objekte vom Typ `oparl:Organization`), in der
     bzw. in denen die Person aktuell Mitglied ist.
-    Diese Eigenschaft ist ZWINGEND. Sollte die Person Mitglied in keiner Gruppierung sein,
+    Sollte die Person Mitglied in keiner Gruppierung sein,
     enthält die Liste keine Einträge.
-
+    ZWINGEND
+    
 `status`
 :   URLs von Objekten mit skos:prefLabel.
     z.B. "Bürgermeister", "Bezirksbürgermeister", "Stadtverordneter", "Bezirksverordneter",
@@ -142,4 +153,5 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     EMPFOHLEN.
 
 `lastModified`
-:   Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.
+:   Datum/Uhrzeit der letzten Bearbeitung des Objekts.
+    EMPFOHLEN.

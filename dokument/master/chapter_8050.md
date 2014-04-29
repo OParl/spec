@@ -17,8 +17,8 @@ Ein Beispiel in expandierter Form:
     "role": {
         "@list": [
         // ohne @list wird in JSON-LD die Reihenfolge nicht festgelegt
-        "http://oparl.beispielris.de/roles/vorsitzender",
-        "http://oparl.beispielris.de/people/stellvertretender_vorsitzender"
+        "http://oparl.beispielris.de/roles/vorsitze",
+        "http://oparl.beispielris.de/people/stellvertretender_vorsitz"
         ]
     },
     "members": [
@@ -43,8 +43,8 @@ Das selbe Beispiel in kompakter Form. Ein geeigneter Kontext wird vorausgesetzt:
     "name": "Finanzausschuss",
     "nameLong": "Finanzausschuss des Rates der Stadt Köln",
     "role:" [
-        "beispielris:roles/vorsitzender",
-        "beispielris:roles/stellvertretender_vorsitzender"
+        "beispielris:roles/vorsitz",
+        "beispielris:roles/stellvertretender_vorsitz"
     ],
     "members": [
         "27",

@@ -25,6 +25,8 @@ Ein Beispiel in expandierter Form:
         "http://oparl.beispielris.de/organization/11",
         "http://oparl.beispielris.de/organization/34"
     ],
+    "status": "http://oparl.beispielris.de/status/buergermeister",
+    "hasMembership": "http://oparl.beispielris.de/membership/34",
     "created": "2011-11-11T11:11:00+01:00",
     "last_modified": "2012-08-16T14:05:27+02:00"
 }
@@ -73,6 +75,8 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "postalCode": "11111",
     "locality": "Musterort",
     "organization": ["11", "34"],
+    "status": "beispielris:status/buergermeister",
+    "hasMembership": "beispielris:membership/34",
     "created": "2011-11-11T11:11:00+01:00",
     "last_modified": "2012-08-16T14:05:27+02:00"
 }
@@ -116,11 +120,21 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     Diese Eigenschaft ist ZWINGEND. Sollte die Person Mitglied in keiner Gruppierung sein,
     enthält die Liste keine Einträge.
 
+`status`
+:   URLs von Objekten mit skos:prefLabel.
+    z.B. "Bürgermeister", "Bezirksbürgermeister", "Stadtverordneter", "Bezirksverordneter",
+    "Sachkundige Bürgerin/Bürger", "Einzelstadtverordnete" (Mitglieder des Rates die keiner Fraktion/Organisation
+    angehören -> die Zuordbarkeit einer fiktiven Organisation ermöglichen TODO: warum will man das?).
+    Siehe https://github.com/OParl/specs/issues/45
+    OPTIONAL
+
 `hasMembership`
-:   IRIs der Mitgliedschaft oder Liste von IRIs der Mitgliedschaften (Objekte vom Typ `org:Membership`). TODO: Eventuell Unterklasse von org:Membership definieren. OPTIONAL.
+:   URLs der Mitgliedschaft oder Liste von URLs der Mitgliedschaften (Objekte vom Typ `org:Membership`). TODO: Eventuell     Unterklasse von org:Membership definieren.
+    OPTIONAL.
 
 `created`
-:   Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
+:   Datum/Uhrzeit der Erzeugung des Objekts.
+    EMPFOHLEN.
 
 `lastModified`
 :   Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.

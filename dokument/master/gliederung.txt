@@ -33,7 +33,7 @@ OParl Spezifikation 1.0 Gliederung
     Szenario 2: Integration in Web-Portal
     Szenario 3: Meta-Suche
     Szenario 4: Forschungsprojekt Themen- und Sprachanalyse
-6000 Prinzipien und Funktionen der API
+6000 Prinzipien und Funktionen des Vokabulars und der API
     6010 Designprinzipien
         Allgemein
         RESTful

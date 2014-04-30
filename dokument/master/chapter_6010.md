@@ -30,8 +30,9 @@ einziges Ratsinformationssystem^[Das System BoRis der Stadt Bonn
 Geoinformationen - und zwar in Form von Punktdaten, also einer Kombination aus 
 Längen- und Breitengradangaben - mit Dokumenten verknüpft. Der Vorteil dieser
 Funktion ist jedoch anhand zahlreicher Anwendungsszenarien belegbar. Somit ist der
-vorliegenden OParl-Spezifikation die Möglichkeit beschrieben, beliebige Geodaten-Objekte
-entsprechend der GeoJSON Spezifikation^[GeoJSON <http://geojson.org/>] einzubetten.
+vorliegenden OParl-Spezifikation die Möglichkeit beschrieben, Geodaten-Objekte
+einzubetten.
+
 Die Angabe eines einzelnen Punktes ist dabei nur ein einfacher Sonderfall. Die
 Spezifikation erlaubt auch die Kodierung von mehreren Objekten, die Punkte, Linien
 oder Polygone repräsentieren können. Vgl. dazu `oparl:Location`.

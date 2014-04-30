@@ -137,11 +137,11 @@ in Form einer URI abgebildet werden, nämlich als Verweis auf eine umfangreiche 
 dieses Namens.
 
 Auf ein für Linked Data wichtiges Detail sei hier hingewiesen. Wenn man in einem üblichen Web-Browser
-diesen oben angegebenen Link eingibt:
+diesen oben angegebenen Link eingibt und aufruft:
 
     https://dbpedia.org/resource/John_Doe_(musician)
 
-dann erhält sieht man bei der Anzeige einer HTML-Seite diese Adresse:
+dann sieht man anschliessend bei der Anzeige der HTML-Seite diesen Link im Adressfeld:
 
     https://dbpedia.org/page/John_Doe_(musician)
 
@@ -154,7 +154,7 @@ HTML-Seite den Inhalt dieser URL erhalten:
 
 Dabei handelt es sich um eine Repräsentation des Musikers in Form von JSON-LD.
 
-Diese drei Links sind nicht nur verschieden, sondern haben unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL (HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients generell nicht verwendet werden, um auf einfache Weise zu den anderen beiden URLs zu gelangen. Deshalb soll bei Linked Data der erste Link, also der des abstrakten Begriffs angegeben werden. Der Zugriff auf den ersten Link wird "Dereferenzierung" genannt. Von dem ersten Link gelangt man zu den beiden anderen mittels "Content Negotiation".
+Diese drei Links sind nicht nur verschieden, sondern haben unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL (HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients generell nicht verwendet werden, um auf einfache Weise zu den anderen beiden URLs zu gelangen. Deshalb soll bei Linked Data der erste Link, also der des abstrakten Begriffs angegeben werden. Der Zugriff auf diesen Link wird "Dereferenzierung" genannt. Von dem ersten Link gelangt man zu den beiden anderen mittels "Content Negotiation".
 
 ### Ziel
 

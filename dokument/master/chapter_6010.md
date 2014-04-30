@@ -124,9 +124,9 @@ Nach dem Linked-Data-Prinzip könnte beispielsweise der Vorname einer Person mit
 folgenden Tripel beschrieben werden:
 
 
-    Subjekt: http://dbpedia.org/page/John_Doe_(musician)
+    Subjekt: https://dbpedia.org/resource/John_Doe_(musician)
     Prädikat: http://xmlns.com/foaf/0.1/givenName
-    Objekt: http://dbpedia.org/page/John_(given_name)
+    Objekt: https://dbpedia.org/resource/John_(given_name)
 
 Hierbei macht man von der Tatsache Gebrauch, dass das Subjekt, also die Person, um die es 
 geht, bereits mittels ihrer URI eindeutig identifiziert werden kann und dass bestenfalls 
@@ -136,6 +136,28 @@ vor, auf das hier verwiesen werden kann. Und schließlich kann sogar der eigentl
 in Form einer URI abgebildet werden, nämlich als Verweis auf eine umfangreiche Beschreibung
 dieses Namens.
 
+Auf ein für Linked Data wichtiges Detail sei hier hingewiesen. Wenn man in einem üblichen Web-Browser
+diesen oben angegebenen Link eingibt:
+
+    https://dbpedia.org/resource/John_Doe_(musician)
+
+dann erhält sieht man bei der Anzeige einer HTML-Seite diese Adresse:
+
+    https://dbpedia.org/page/John_Doe_(musician)
+
+Dabei identifiziert der erste Link den abstrakten Begriff des Musikers, während der
+zweite Link eine Repräsentation dieses Begriffs identifiziert. Ein anderer http-Client, der
+statt HTML-Seiten z.B. JSON-LD bevorzugt, würde bei Zugriff auf den ersten Link statt der
+HTML-Seite den Inhalt dieser URL erhalten:
+
+    https://dbpedia.org/data/John_Doe_(musician).jsonld
+
+Dabei handelt es sich um eine Repräsentation des Musikers in Form von JSON-LD.
+
+Diese drei Links sind nicht nur verschieden, sondern haben unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL (HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients generell nicht verwendet werden, um auf einfache Weise zu den anderen beiden URLs zu gelangen. Deshalb soll bei Linked Data der erste Link, also der des abstrakten Begriffs angegeben werden. Der Zugriff auf den ersten Link wird "Dereferenzierung" genannt. Von dem ersten Link gelangt man zu den beiden anderen mittels "Content Negotiation".
+
+### Ziel
+
 Das Ziel von OParl ist es, mit der vorliegenden Version 1.0 der Spezifikation, die Nutzung
 solcher allgemeingültigen Vokabulare für die Veröffentlichung von parlamentarischen
 Informationen zu begünstigen und die automatisierte Verarbeitung und Verknüpfung von
@@ -143,7 +165,7 @@ Informationen, auch über die Grenzen verschiedener Informationssysteme hinweg, 
 
 Beispiele, wo dies sinnvoll ist, sind in der Praxis leicht zu finden. So finden sich
 beispielsweise in vielen lokalen Parlamenten immer wieder Fraktionen der selben Parteien,
-beispielsweise CDU und SPD. Mittels Linked Data wäre es möglich, jede dieser Fraktionen mit einer externen URL zu verknüpfen^[beispielsweise <http://dbpedia.org/page/Christian_Democratic_Union_(Germany)> und <http://dbpedia.org/page/Social_Democratic_Party_of_Germany>] und somit erkennbar zu machen, zu welcher 
+beispielsweise CDU und SPD. Mittels Linked Data wäre es möglich, jede dieser Fraktionen mit einer externen URL zu verknüpfen^[beispielsweise <http://dbpedia.org/resource/Christian_Democratic_Union_(Germany)> und <http://dbpedia.org/resource/Social_Democratic_Party_of_Germany>] und somit erkennbar zu machen, zu welcher 
 Partei diese Fraktion gehört. Ebenso finden sich viele inhaltliche Ähnlichkeiten bei
 Gremien wie zum Beispiel Ausschüssen (z.B. Hauptausschuss, Verkehrsausschuss etc.) oder bei
 Arten von Drucksachen (z.B. Anträge, Anfragen, Mitteilungen, Beschlussvorlagen).

@@ -1,5 +1,5 @@
-Prinzipien und Funktionen der API
-=================================
+Prinzipien und Funktionen des Vokabulars und der API
+====================================================
 
 TODO
 

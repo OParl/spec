@@ -17,7 +17,12 @@ Ein Kontext:
     "license": {
         "@id": "dc:license",
         "@type": "@id"
+    },
+    "exactMatch": {
+        "@id": "skos:exactMatch",
+        "@type": "@id"
     }
+    
     "licenseValidSinceDay": // TODO: datum
 ~~~~~
 
@@ -31,7 +36,7 @@ Ein Beispiel:
     "contactEmail": "mailto:ris@beispielstadt.de",
     "contactName": "RIS-Betreuung",
     "rgs": "053150000000",
-    "sameAs": [
+    "sameBody": [
         "http://d-nb.info/gnd/2015732-0",
         "http://dbpedia.org/resource/Cologne"
     ],
@@ -94,9 +99,9 @@ Parlament an.
 :   Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette^[Regionalschlüssel können im [Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes](https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html) eingesehen werden].
     Diese Eigenschaft ist EMPFOHLEN.
 
-`sameAs`
+`sameBody`
 :   Dient der Angabe beliebig vieler zusätzlicher URLs, die die Körperschaft
-    repräsentieren. Diese Eigenschaft ist EMPFOHLEN. Hier können Beispielsweise,
+    repräsentieren. Diese Eigenschaft ist EMPFOHLEN. Hier können beispielsweise,
     sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>],
     der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden.
 

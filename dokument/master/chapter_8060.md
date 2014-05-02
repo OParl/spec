@@ -66,7 +66,11 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
         "@type": "@id"
     },
     "phone": "foaf:phone",
-    "address": "vcard:street-address",
+    "streetAddress": "vcard:street-address",
+    "locality": {
+        "@id": "vcard:locality",
+        "@container": "@language" // für eine "language map"
+    }
     "created": {
         "@id": "dc:created",
         "@type": "xsd:dateTime"

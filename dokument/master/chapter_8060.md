@@ -17,15 +17,24 @@ Ein Beispiel in expandierter Form:
     "@type": "http://oparl.org/schema/1.0/Person",
     "@id": "http://oparl.beispielris.de/person/29",
     "name": "Prof. Dr. Max Mustermann",
-    "familyName": "Mustermann",
-    "givenName": "Max",
-    "title": "Prof. Dr.",
+    "familyName": { // könnte mehrsprachig sein, z.B. griechisch, russisch, tamilisch 
+        "@value": "Mustermann",
+        "@language": "de"
+    }
+    "givenName": { // könnte mehrsprachig sein
+        "@value": "Max",
+        "@language": "de"
+    }
+    "title": "Prof. Dr.", // nicht mehrsprachig
     "gender": "http://www.w3.org/2006/vcard/ns#Male",
     "email": "mailto:max@mustermann.de",
     "phone": "tel:+493012345678",
-    "streetAddress": "Musterstraße 5",
+    "streetAddress": "Musterstraße 5", // nicht mehrsprachig
     "postalCode": "11111",
-    "locality": "Musterort",
+    "locality": {
+        "de": "Musterort",
+        "en": Sample Town"
+    }
     "organization": [
         "http://oparl.beispielris.de/organization/11",
         "http://oparl.beispielris.de/organization/34"
@@ -41,14 +50,17 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 
 ~~~~~  {#person_ex_context .json}
 {
-    // "@language": "de", TODO: eventuell *nicht*
+    "@language": "de",
     
     // Präfixe siehe Abschnitt 8000
 
     "gender": "vcard:hasGender",
     "givenName": "foaf:firstName",
     "familyName": "foaf:lastName",
-    "academic_degree": "foaf:title",
+    "academic_degree": {
+        "@language": null , // keine Vorgabesprache da nicht mehrsprachig
+        "@id": "foaf:title"
+    }
     "email": {
         "@id": "foaf:mbox",
         "@type": "@id"
@@ -72,7 +84,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "@type": "oparl:Person",
     "@id": "http://oparl.beispielris.de/person/29",
     "name": "Prof. Dr. Max Mustermann",
-    "familyName": "Mustermann",
+    "familyName": "Mustermann", // Kontext gibt deutsche Spache vor
     "givenName": "Max",
     "title": "Prof. Dr.",
     "gender": "vcard:Male",

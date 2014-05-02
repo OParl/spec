@@ -30,7 +30,7 @@ Ein Kontext:
 }
 ~~~~~
 
-Ein Beispiel:
+Ein expandiertes Beispiel:
 
 ~~~~~  {#oparlbody_ex1 .json}
 {
@@ -45,7 +45,10 @@ Ein Beispiel:
         "http://dbpedia.org/resource/Cologne"
     ],
     "name": "Stadt K\u00f6ln",
-    "nameLong": "Stadt K\u00f6ln, kreisfreie Stadt",
+    "nameLong": { // verwendet eine "language map"
+        "de": "Stadt K\u00f6ln, kreisfreie Stadt",
+        "en": "City of Cologne"
+    }
     "website": "http://www.beispielstadt.de/",
     "license": "http://creativecommons.org/licenses/by/4.0/",
     "licenseValidSinceDay": "2014-01-01",

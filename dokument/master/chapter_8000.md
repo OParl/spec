@@ -34,6 +34,18 @@ Diese Spezifikationen stützen sich auf RFC 3339 (http://www.ietf.org/rfc/rfc333
 
 Im JSON-LD Kontext von OParl ist der Präfix 'xsd' so spezifiziert, dass Datums- und Zeittyp durch 'xsd:date' bzw. 'xsd:dateTime' abgekürzt werden können.
 
+### Mehrsprachigkeit
+
+Für Texte ist durchgehend vorgesehen, dass diese mehrsprachig sein können. Kommunale Anbieter von OParl-Daten in Deutchland müssen aus gesetzlichen Gründen auf jeden Fall die deutsche Sprache unterstützten. Die Unterstützung anderer Sprachen ist dagegen optional. Deshalb wird grundsätzich durch
+~~~~~
+    "@language": "de",
+~~~~~
+im Kontext die deutsche Sprache als Vorgabe eingestellt.
+
+Es gibt aber möglicherweise auch Zeichenketten, die für die keine Mehrsprachigkeit vorgesehen wird. Dazu gehören z.B. Personennamen.
+
+TODO: Stimmt nicht. Tamilische Namen verwenden in der Originalschreibweise sogar ein vollkommen anderes Alphabet.
+
 ### Präfixe in Kontexten
 
 Die Beispiel-Kontexte verwenden eine Reihe von Präfixen. Diese sind hier zusammengestellt und werden in den einzelnen Beispiel-Kontexten nicht jeweils wiederholt:
@@ -56,3 +68,38 @@ Diese sind - falls tatsächlich erforderlich - mit den JSON-LD Mitteln einfach m
 ~~~~~
 "herstellera:newWonderProperty": "Dies ist ein Feature welches noch kein anderer Hersteller bietet!"
 ~~~~~
+
+### URL-Pfade in den Beispielen
+
+OParl-Clients wissen *nichts* vom Aufbau von Pfaden innerhalb von URLs, müssen dies nicht wissen und es gibt deshalb in der OParl-Spezifikation *keine* Festlegungen dazu.
+
+Wenn ein RIS-Betreiber z.B. meint, dass eine Person eine eigene Domain verdient, dann ist so etwas aus OParl-Sicht völlig ok:
+~~~~~~~~~~
+https://ratsmitglied-max-mustermann.beispielris.de/mein-oparl-datensatz
+~~~~~~~~~~
+
+Noch etwas extremer: selbst eine eigene Domain für jedes einzelne OParl-Objekt würde der OParl-Spezifikation nicht widersprechen.
+
+Wenn also so etwas wie
+~~~~~~~~~~
+bodies/0/peoples/
+~~~~~~~~~~
+
+in einer URL eines Beispiels auftaucht, dann bedeutet das nicht, dass genau solche Pfade durch die OParl-Spezifikation vorgeschrieben sind.
+
+Auch dies wäre als absoluter Link z.B. für eine Person verwendbar:
+
+~~~~~~~~~~
+https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
+~~~~~~~~~~
+Dies käme dann als relativer Link für die Person in Frage:
+~~~~~~~~~~
+personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
+~~~~~~~~~~
+
+oder auch z.B. dies
+~~~~~~~~~~
+LfyIfvCWq8SpBQj0MiyHaxDZwGJ
+~~~~~~~~~~
+
+Gleichzeitig ist aber aus verschiedenen Gründen ein strukturierter Aufbau der Pfade durchaus sinnvoll, der sich an der Hierarchie der Objekte orientiert (nicht zuletzt, weil dies Softwareentwicklern während der Entwicklung helfen kann). Dennoch wird eine solche Struktur bewusst nicht in OParl festgelegt.

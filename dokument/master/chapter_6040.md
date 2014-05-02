@@ -7,7 +7,11 @@ Selbstbschreibungsfähigkeit der ausgegebenen Daten verbessert. Auf Anforderung 
 Clients wird darüber hinaus JSONP unterstützt.
 
 In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung des HTTP
-Content-type-Headers `application/json` beantworten.
+`Content-type`-Headers `application/ld+json` beantworten. Die Spezifikation von JSON-LD liefert dazu genauere
+Informationen^[http://www.w3.org/TR/json-ld/#iana-considerations], auch zu dem optionalen Parameter `profile`
+für die explizite Anforderung von JSON-LD in einer dieser drei Unterformen: kompakt, expandiert oder flach.
+
+Wenn der Server auch Anfragen nach `application/json` akzeptiert, dann SOLL er expandierte JSON-LD Dokumente liefern (also solche ohne `@context`). TODO: MUSS der Server solche Legacy-Anfragen akzeptieren? Warum?
 
 ### JSON
 

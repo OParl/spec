@@ -97,6 +97,9 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "streetAddress": "Musterstraße 5",
     "postalCode": "11111",
     "locality": "Musterort",
+    "locality": {
+        "en": "Sample Town" // TODO prüfen, ob Eigenschaft doppelt erscheinen darf
+    }
     "organization": ["11", "34"],
     "status": "beispielris:status/buergermeister",
     "hasMembership": "beispielris:membership/34",

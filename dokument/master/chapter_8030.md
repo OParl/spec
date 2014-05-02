@@ -30,6 +30,8 @@ Ein Kontext:
 
 ~~~~~  {#system_ex_context .json}
 {
+    "@language": "de",
+
     "beispielris": "http://beispielris.de/",
     "oparl": "http://oparl.org/xyz/",
     "dc": "http://purl.org/dc/terms/",
@@ -38,7 +40,10 @@ Ein Kontext:
     "vcard": "http://www.w3.org/2006/vcard/ns#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
 
-    "name": "skos:prefLabel",
+    "name": {
+        "@id": "skos:prefLabel",
+        "@type": "@id"
+    },
     "contactEmail": {
         "@id": "foaf:mbox",
         "@type": "@id"

@@ -32,7 +32,16 @@ Ein Beispiel in expandierter Form:
 }
 ~~~~~
 
-Das selbe Beispiel in kompakter Form. Ein geeigneter Kontext wird vorausgesetzt:
+Das selbe Beispiel in kompakter Form.
+
+Ein Kontext:
+~~~~~~~~~~
+{
+    "@language": "de",
+    // ...
+}
+~~~~~~~~~~
+
 
 ~~~~~  {#organization_ex2 .json}
 {

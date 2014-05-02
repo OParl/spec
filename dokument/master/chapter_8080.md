@@ -22,7 +22,14 @@ Ein Beispiel in expandierter Form:
     "start": "2013-01-04T08:00:00+01:00",
     "end": "2013-01-04T12:00:00+01:00",
     "location": {
-        "description": "Rathaus, Raum 136"
+        "description": {
+            "@value": "Rathaus, Raum 136",
+            "@language": "de"
+        },
+        "description": {
+            "@value": "Town Hall, room 136",
+            "@language": "en"
+        }
     },
     "organization": "http://oparl.beispielris.de/organization/34",
     "participant": [
@@ -62,7 +69,11 @@ Das selbe Beispiel in kompakter Form:
     "start": "2013-01-04T08:00:00+01:00",
     "end": "2013-01-04T12:00:00+01:00",
     "location": {
-        "description": "Rathaus, Raum 136"
+        "description": "Rathaus, Raum 136", // default-Sprache ist im Kontext als "de" angegeben
+        "description": {
+            "@value": "Town Hall, room 136",
+            "@language": "en"
+        }
     },
     "organization": "beispielris:organization/34",
     "participant": [

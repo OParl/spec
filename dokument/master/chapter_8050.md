@@ -12,8 +12,14 @@ Ein Beispiel in expandierter Form:
     "@type": "http://oparl.org/schema/1.0/Organization",
     "@id": "http://oparl.beispielris.de/organization/34",
     "body": "http://oparl.beispielris.de/body/0",
-    "name": "Finanzausschuss",
-    "nameLong": "Finanzausschuss des Rates der Stadt Köln",
+    "name": {
+        @language" :"de",
+        @value": "Finanzausschuss"
+    },
+    "nameLong": {
+        "@language": "de",
+        "@value": "Finanzausschuss des Rates der Stadt Köln"
+    },
     "role": {
         "@list": [
         // ohne @list wird in JSON-LD die Reihenfolge nicht festgelegt

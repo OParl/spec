@@ -39,6 +39,8 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 
 ~~~~~  {#person_ex_context .json}
 {
+    "@language": "de",
+    
     // Präfixe siehe Abschnitt 8000
 
     "gender": "vcard:hasGender",

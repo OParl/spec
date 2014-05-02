@@ -14,6 +14,9 @@ die Stadt Köln repräsentiert.
 Ein Kontext:
 
 ~~~~~
+{
+    "@language": "de",
+    
     "license": {
         "@id": "dc:license",
         "@type": "@id"
@@ -24,6 +27,7 @@ Ein Kontext:
     }
     
     "licenseValidSinceDay": // TODO: datum
+}
 ~~~~~
 
 Ein Beispiel:
@@ -36,7 +40,7 @@ Ein Beispiel:
     "contactEmail": "mailto:ris@beispielstadt.de",
     "contactName": "RIS-Betreuung",
     "rgs": "053150000000",
-    "sameBody": [
+    "equivalentBody": [
         "http://d-nb.info/gnd/2015732-0",
         "http://dbpedia.org/resource/Cologne"
     ],

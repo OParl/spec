@@ -45,7 +45,10 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
 {
     "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
     "@id": "beispielris:role/decision",
-    "prefLabel": "Entscheidung"
+    "prefLabel": {
+        "de": "Entscheidung",
+        "en": "decision"
+    }
 }
 ~~~~~
 

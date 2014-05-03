@@ -20,11 +20,11 @@ Ein Beispiel in expandierter Form:
         "@language": "de",
         "@value": "Finanzausschuss des Rates der Stadt Köln"
     },
-    "role": {
+    "post": {
         "@list": [
         // ohne @list wird in JSON-LD die Reihenfolge nicht festgelegt
-        "http://oparl.beispielris.de/role/vorsitz",
-        "http://oparl.beispielris.de/role/stellvertretender_vorsitz"
+        "http://oparl.beispielris.de/post/chairperson",
+        "http://oparl.beispielris.de/post/deputyChairperson"
         ]
     },
     "member": [
@@ -32,9 +32,9 @@ Ein Beispiel in expandierter Form:
         "http://oparl.beispielris.de/person/48",
         "http://oparl.beispielris.de/person/57"
     ],
-    "organizationType": "http://oparl.beispielris.de/vocab/ausschuss",
+    "organizationType": "http://oparl.beispielris.de/vocab/committee",
     "category": "http://oparl.beispielris.de/vocab/finance",
-    "last_modified": "2012-08-16T14:05:27+02:00"
+    modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
 
@@ -51,25 +51,25 @@ Ein Kontext:
 
 ~~~~~  {#organization_ex2 .json}
 {
-    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld",
+    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/organization.jsonld",
     "@type": "oparl:Organization",
     "@id": "beispielris:organization/34",
       // kann eventuell weiter verkürzt werden
     "body": "0",
     "name": "Finanzausschuss",
     "nameLong": "Finanzausschuss des Rates der Stadt Köln",
-    "role:" [
-        "beispielris:role/vorsitz",
-        "beispielris:role/stellvertretender_vorsitz"
+    "post:" [
+        "beispielris:post/chairperson",
+        "beispielris:post/deputyChairperson"
     ],
     "members: [
         "27",
         "48",
         "57"
     ],
-    "organizationType": "beispielris:vocab/ausschuss",
+    "organizationType": "beispielris:vocab/committee",
     "category": "beispielris:vocab/finance",
-    "last_modified": "2012-08-16T14:05:27+02:00"
+    "modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
 ### Eigenschaften ###
@@ -86,9 +86,9 @@ Ein Kontext:
 :   Langform des Namens der Gruppierung.
     OPTIONAL
 
-`role`
-:   Rolle oder Rollen, die für diese Gruppierung vorgesehen sind. Die Rollen-Objekte gehören zu der Klasse org:Role oder einer ihrer Unterklassen.
-    Die Zeichenketten SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster
+`post`
+:   Position oder Positionen, die für diese Gruppierung vorgesehen sind. Die Objekte gehören zu der Klasse `org:Post` oder einer ihrer Unterklassen.
+    Die `skos:prefLabel`-Eigenschaften der Objekte SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster
     "männliche Form | weibliche Form" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem "|")
     Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden:
     "Mitglied" und nicht "Mitglied | Mitglied".
@@ -106,12 +106,9 @@ TODO: "Ordentliches Mitglied", "Stellvertretendes Mitglied" müssen anders behan
     OPTIONAL
 
 `member`
-:   Entweder die vollständige Liste der URLs aller Mitglieder
-    dieser Organisation (Objekte vom Typ `[oparl:Person](#oparl_person)`)
-    oder URL zum Abruf dieser Liste.
-    Sollte die Gruppierung keine
-    Mitglieder haben, enthält die Liste keine Einträge.
-    ZWINGEND
+:   URLs aller Mitglieder dieser Organisation (Objekte vom Typ `[oparl:Person](#oparl_person)`). Auch alle Personen mit
+    Positionen in der Organisation sind hier anzugeben.
+    ZWINGEND (falls es Mitglieder gibt)
     
 `subOrganizationOf`
 :   Ggf. URL der übergeordneten Organisation.
@@ -132,6 +129,6 @@ TODO: "Ordentliches Mitglied", "Stellvertretendes Mitglied" müssen anders behan
     "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat"
     OPTIONAL
     
-`lastModified`
+`modified`
 :   Datum/Uhrzeit der letzten Bearbeitung des Objekts.
     EMPFOHLEN

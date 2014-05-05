@@ -26,4 +26,4 @@ Weiterleitung antworten (HTTP Status-Code 301).
 Gleiches gilt umgekehrt: beantwortet das System regulär Anfragen über
 unverschlüsseltes HTTP, dann MÜSSEN Anfragen auf die entsprechenden URLs mit
 "https://"-Schema mit einer HTTP-Weiterleitung (HTTP Status-Code 301) beantwortet
-werden.
+werden. TODO: Geht das, wenn HTTPS nicht unterstützt wird?

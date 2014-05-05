@@ -33,8 +33,8 @@ Ein Beispiel in expandierter Form:
         "http://oparl.beispielris.de/person/57"
     ],
     "organizationType": "http://oparl.beispielris.de/vocab/committee",
-    "category": "http://oparl.beispielris.de/vocab/finance",
-    modified": "2012-08-16T14:05:27+02:00"
+    "classification": "http://oparl.beispielris.de/vocab/finance",
+    "modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
 
@@ -68,7 +68,7 @@ Ein Kontext:
         "57"
     ],
     "organizationType": "beispielris:vocab/committee",
-    "category": "beispielris:vocab/finance",
+    "classification": "beispielris:vocab/finance",
     "modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
@@ -118,8 +118,8 @@ TODO: "Ordentliches Mitglied", "Stellvertretendes Mitglied" müssen anders behan
 :   Datum/Uhrzeit der Erzeugung des Objekts.
     EMPFOHLEN
 
-`category`
-:   Schlagworte. Dies sind Objekte mit einem `skos:prefLabel`-Attribut (für jede unterstützte Sprache) mit einer
+`classification`
+:   Schlagworte. Dies sind `skos:Concept`-Objekte mit einem `skos:prefLabel`-Attribut (für jede unterstützte Sprache) mit einer
     Zeichenkette. In einer zukünftigen OParl-Version wird möglicherweise eine Menge solcher Schlagwort-Objekte
     definiert. Anregungen gibt es u.a. in der Tabelle "Kategorien" im unteren Drittel der Seite http://htmlpreview.github.io/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html 
     OPTIONAL

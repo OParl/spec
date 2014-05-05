@@ -187,6 +187,10 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 :   URLs der Mitgliedschaft oder Liste von URLs der Mitgliedschaften (Objekte vom Typ `org:Membership`). TODO: Eventuell     Unterklasse von org:Membership definieren.
     OPTIONAL.
 
+`classification`
+:   `skos:Concept`
+    OPTIONAL
+
 `created`
 :   Datum/Uhrzeit der Erzeugung des Objekts.
     EMPFOHLEN.

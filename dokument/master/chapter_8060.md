@@ -25,7 +25,8 @@ Ein Beispiel in expandierter Form:
         "@value": "Max",
         "@language": "de"
     }
-    "title": "Prof. Dr.", // nicht mehrsprachig
+    "title": "Prof. Dr.", // TODO: nicht mehrsprachig?!
+    "formOfAddress": "http://oparl.beispielris.de/formofaddress/ratsmitglied",
     "gender": "http://www.w3.org/2006/vcard/ns#Male",
     "email": "mailto:max@mustermann.de",
     "phone": "tel:+493012345678",
@@ -84,13 +85,14 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 
 ~~~~~  {#person_ex2 .json}
 {
-    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld",
+    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld",
     "@type": "oparl:Person",
     "@id": "http://oparl.beispielris.de/person/29",
     "name": "Prof. Dr. Max Mustermann",
     "familyName": "Mustermann", // Kontext gibt deutsche Spache vor
     "givenName": "Max",
     "title": "Prof. Dr.",
+    "formOfAddress": "beispielris:formofaddress/ratsmitglied",
     "gender": "vcard:Male",
     "email": "mailto:max@mustermann.de",
     "phone": "tel:+493012345678",
@@ -119,6 +121,12 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 
 `givenName`
 :   Vorname bzw. Taufname.
+    OPTIONAL
+
+`formOfAddress`
+:   Anrede
+    URLs von Objekten mit skos:prefLabel. Ähnlich wie `status`. Beispiele für die `skos:prefLabel` sind
+    "Ratsherr | Ratsfrau" und "Herr | Frau".
     OPTIONAL
 
 `title`

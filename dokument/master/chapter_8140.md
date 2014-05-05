@@ -31,3 +31,7 @@ https://github.com/OParl/specs/issues/109
     OPTIONAL
 
 `
+### Hinweise
+
+http://www.w3.org/TR/vocab-org/#membership-roles-posts-and-reporting
+http://popoloproject.com/specs/membership.html

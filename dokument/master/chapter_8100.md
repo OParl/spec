@@ -53,6 +53,8 @@ Ein Beispiel in kompakter Form:
 }
 ~~~~~
 
+### Eigenschaften
+
 `paperType`
 :   Ein Objekt mit einem `skos:prefLabel`-Attribut, dessen Wert eine Zeichenkette ist und 
     die Art der Drucksache beschreibt, z.B. "Beantwortung einer Anfrage". Eine weitere Liste
@@ -60,6 +62,11 @@ Ein Beispiel in kompakter Form:
     Eine zukünftige Version von OParl wird möglicherweise solche Werte spezifizieren.
     OPTIONAL
 
+`classification`
+:   `skos:Concept` mit `skos:prefLabel`. Allgemeiner als `paperType`
+    OPTIONAL
+
 TODO:
+
 * Eigenschaften beschreiben
 * Eigenschaft "locations" im Beispiel ändern

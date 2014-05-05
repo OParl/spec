@@ -135,6 +135,11 @@ werden, welche Ableitungen einer Datei existieren.
     Typ: URL
     OPTIONAL
 
+`classification`
+:   `skos:Concept` mit `skos:prefLabel`. Hat allgemeinere Bedeutung als `documentRole`.
+    Typ: URL
+    OPTIONAL
+
 ### Siehe auch
 
 * [Dokumentenabruf](#dokumentenabruf)

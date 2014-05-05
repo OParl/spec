@@ -40,7 +40,10 @@ zu legen.
 * 26. Januar 2014: In Düsseldorf findet ein weiterer Workshop zur Arbeit am Entwurf der
 Spezifikation statt.
 
-* 1. Mai 2014: Beginn der Review-Phase. Interessierte sind aufgerufen, den vorliegenden
+* April 2014: Verfeinerung des Vokabular-Teils durch Andreas Kuckartz, finanziert durch das
+FP7-Projekt Fusepool aus Mitteln der Europäischen Union.
+
+* 6. Mai 2014: Beginn der Review-Phase. Interessierte sind aufgerufen, den vorliegenden
 Entwurf bis Ende Mai zu kommentieren.
 
 * Ende Mai 2014: Telefonkonferenz zum eingegangenen Feedback aus der Review-Phase

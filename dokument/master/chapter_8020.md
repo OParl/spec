@@ -43,7 +43,7 @@ abgerufen werden können.
 
 Datum und Uhrzeit der Erstellung des jeweiligen Objekts.
 
-### `lastModified`
+### `modified`
 
 Diese Eigenschaft kennzeichnet stets Datum und Uhrzeit der letzten Änderung des
 jeweiligen Objekts.
@@ -62,6 +62,17 @@ die im `lastModified` Zeitstempel wiederspiegeln sollte.
 ### `classification`
 
 Verweist auf ein oder eventuell auch mehrere `skos:Concept`-Objekte mit einer `skos:prefLabel`-Eigenschaft. Der Wert der
-Eigenschaft ist jeweils eine Zeichenkette. TODO: Es werden *zwei* Eigenschaften pro Klasse benötigt, eine für Schlagworte und eine für eine Bezeichnung.
+Eigenschaft ist jeweils eine Zeichenkette.
+
 Siehe u.a.:
-https://github.com/OParl/specs/issues/41
+
+    https://github.com/OParl/specs/issues/41
+
+Geoportal.de und DeStat.de werden bereits auf Basis von Metadaten-Standards verlinkt. Bei einer Verwendung von Metadaten-Standards für RIS könnten ebenfalls interessante Potenziale durch Verlinkung entstehen.
+Der GovData-Metadaten-Standard z.B. kann genutzt werden
+
+    http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html
+
+und die 14 GovData-Kategorien können dabei durch eine zusätzliche Verschlagwortung auf Basis von Standard-Schlagwortkatalogen für RIS eine Ergänzung erfahren ( LeiKa, Bremer-Katalog, DBpedia, RAMON).
+
+Die 14 Werte des GovData-Metadaten-Standard sind bisher nicht als Linked Data existent. TODO: eventuell können diese in OParl als Schlagwort-`skos:Concept`-Objekte als nicht abschliessende Menge von Schlagworten vorgegeben werden.

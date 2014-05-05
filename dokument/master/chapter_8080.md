@@ -158,7 +158,10 @@ Das selbe Beispiel in kompakter Form:
     Die Reihenfolge ist relevant.
     Es kann Sitzungen ohne TOPs geben.
     OPTIONAL
-    
+
+`classification`
+:   `skos:Concept`
+
 `created`
 :   Datum und Uhrzeit der Erzeugung des Objekts.
     EMPFOHLEN

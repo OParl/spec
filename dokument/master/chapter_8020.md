@@ -57,12 +57,15 @@ Diese Frage sollte aus Sicht des OParl-Clients beantwortet werden. Wenn beispiel
 eine Gruppierung vom Server grundsätzlich mit der Liste der URLs aller Mitglieder ausgegeben
 wird, umfasst das Objekt aus Sicht des Clients eben auch die Liste der Mitglieder. In diesem
 Fall wäre eine Veränderung der Liste der Mitglieder als Änderung des Objekts zu verstehen,
-die im `lastModified` Zeitstempel wiederspiegeln sollte.
+die im `modified` Zeitstempel widerspiegeln sollte.
 
 ### `classification`
 
-Verweist auf ein oder eventuell auch mehrere `skos:Concept`-Objekte mit einer `skos:prefLabel`-Eigenschaft. Der Wert der
-Eigenschaft ist jeweils eine Zeichenkette.
+Dient der Verschlagwortung und verweist dazu auf ein oder eventuell auch mehrere `skos:Concept`-Objekte mit einer `skos:prefLabel`-Eigenschaft. Der Wert der Eigenschaft ist jeweils eine Zeichenkette. Die verwendete Sprache (in der Regel "de" für Deutsch) MUSS dabei angegeben werden.
+
+TODO: SKOS darstellen
+
+TODO: Beispiel
 
 Siehe u.a.:
 

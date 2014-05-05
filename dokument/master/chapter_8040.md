@@ -56,8 +56,9 @@ Ein expandiertes Beispiel:
     "meeting": "http://oparl.beispielris.de/body/0/meeting/",
     "paper": "http://oparl.beispielris.de/body/0/paper/",
     "member": "http://oparl.beispielris.de/body/0/person/",
+    "classification": "http://oparl.beispielris.de/vocab/landkreis",
     "created": "2014-01-08T14:28:31.568+0100",
-    "lastModified": "2014-01-08T14:28:31.568+0100"
+    "modified": "2014-01-08T14:28:31.568+0100"
 }
 ~~~~~
 
@@ -75,19 +76,20 @@ Parlament an.
 
 `system`
 :   URL des Objekts vom Typ `oparl:System` Objekts, zu dem dieses Objekt gehört. 
-    Diese Eigenschaft ist ZWINGEND.
+    ZWINGEND.
 
 `name`
 :   Gibt den gebräuchlichen Namen der Körperschaft an.
-    Diese Eigenschaft ist ZWINGEND.
+    ZWINGEND.
 
 `nameLong`
 :   Kann bei Bedarf dazu verwendet werden, eine längere Form des 
-    Namens der Körperschaft anzugeben. Diese Eigenschaft ist OPTIONAL.
+    Namens der Körperschaft anzugeben.
+    OPTIONAL.
 
 `website`
 :   Dient der Angabe der WWW-URL der Körperschaft.
-    Diese Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 `license`
 :   URL der Lizenz, die für die Daten, die über diese API abgerufen werden
@@ -95,7 +97,7 @@ Parlament an.
     sind insbesondere
     http://licenses.opendefinition.org/ und
     https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json
-    Die Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 `licenseValidSinceDay`
 :   Tagesdatum, seit dem die unter license angegebene Lizenz gilt.
@@ -140,6 +142,9 @@ Parlament an.
 :   URL, unter welcher die API die Liste aller Objekte vom Typ `oparl:Organization`,
     also die Gruppierungen dieser Körperschaft ausgibt.
     Diese Eigenschaft ist ZWINGEND.
+
+`classification`
+:   `skos:Concept`
 
 `created`
 :   Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.

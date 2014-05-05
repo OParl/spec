@@ -1,18 +1,18 @@
 Zielsetzung von OParl
 ---------------------
 
-TODO:
+OParl richtet sich an vielvältige Nutzergruppen (Stakeholder):
 
-- Nutzen für Kommunen, Bürger, politische Parteien
-- Nutzen für Anbieter von RIS-Pflegesoftware
-- Nutzen für Anbieter von RIS-Darstellungssoftware
-- Nutzen für Open Data Initiativen
-- Nutzen für die Wissenschaft
-- Linked Data erwähnen
+* Verwaltung und politische Gremien in Kommunen
+* Bürger, politische Parteien und Organisationen
+* Open Data Initiativen
+* Wissenschaftler
+* Anbieter von RIS-Pflegesoftware oder -services 
+* Anbieter von RIS-Darstellungssoftware oder -services
+* Anbieter von Linked Data-Plattformen oder -Services
 
-(Nachstehen der bisherige Textentwurf aus dem Abschnitt
-"Motivationen für den standardisierten Datenzugriff", der sicherlich
-deutlich überarbeitet werden muss.)
+TODO: Nutzen für jede Stakeholder-Gruppe
+TODO: Linked Data erwähnen
 
 Die Gründe, warum Betreiber von parlamentarischen Informationssystemen den
 Zugriff darauf über eine standardisierte Schnittstelle ermöglichen sollten,
@@ -41,7 +41,7 @@ derartige Systeme noch nicht verfügbar sind.
 
 Die Anwendungsmöglichkeiten für parlamentarische Informationen, wenn sie über
 eine Schnittstelle schnell und einfach abgerufen werden können, sind vielfältig.
-Beispiele könnten sein:
+Beispiele sind:
 
 * Apps für den Abruf auf mobilen Endgeräten
 * Möglichkeiten zur Wiedergabe für Nutzerinnen und Nutzer mit Beeinträchtigung des Sehvermögens
@@ -59,4 +59,3 @@ erkennbar. So sollen parlamentarische Informationssysteme vielerorts in
 verschiedenste Prozesse und heterogene Systemlandschaften integriert werden. Durch
 eine einheitliche Schnittstelle bieten sich effiziente Möglichkeiten zur Integration
 der Daten in anderen Systeme, wie beispielsweise Web-Portale.
-

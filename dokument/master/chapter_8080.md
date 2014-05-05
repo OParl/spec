@@ -54,7 +54,7 @@ Ein Beispiel in expandierter Form:
         ]
     }
     "created": "2012-01-06T12:01:00+01:00",
-    "lastModified": "2012-01-08T14:05:27+01:00"
+    "modified": "2012-01-08T14:05:27+01:00"
 }
 ~~~~~
 
@@ -96,7 +96,7 @@ Das selbe Beispiel in kompakter Form:
         "beispielris:agendaitem/1048"
     ],
     "created": "2012-01-06T12:01:00+01:00",
-    "lastModified": "2012-01-08T14:05:27+01:00"
+    "modified": "2012-01-08T14:05:27+01:00"
 }
 ~~~~~
 
@@ -163,6 +163,6 @@ Das selbe Beispiel in kompakter Form:
 :   Datum und Uhrzeit der Erzeugung des Objekts.
     EMPFOHLEN
 
-`lastModified`
+`modified`
 :   Datum und Uhrzeit der letzten Änderung des Objekts.
     EMPFOHLEN

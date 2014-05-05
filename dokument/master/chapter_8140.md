@@ -27,7 +27,12 @@ https://github.com/OParl/specs/issues/109
     deren Wert eine Funktionsbezeichnung ist, z.B.
     "1. pers. Vertreter | 1. pers. Vertreterin" oder "2. pers. Vertreter | 2. pers. Vertreterin".
     normale Mitglieder haben keine eigene Funktion.
-    Popolo: "The role that the person fulfills in the organization"
+    Popolo: "The role that the person fulfills in the organization".
+    
+    Auch eine Unterscheidung zwischen z.B. "Sachkundige Bürger | Sachkundige Bürgerin" und "Ratsherr | Ratsfrau" bei
+    einfachen Mitgliedern ist hiermit möglich.
+    TODO: was ist mit einem sachkundigen Bürger, der gleichzeitig Vorsitzender ist?
+    
     OPTIONAL
 
 `

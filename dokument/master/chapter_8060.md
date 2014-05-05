@@ -43,7 +43,7 @@ Ein Beispiel in expandierter Form:
     "status": "http://oparl.beispielris.de/status/buergermeister",
     "hasMembership": "http://oparl.beispielris.de/membership/34",
     "created": "2011-11-11T11:11:00+01:00",
-    "lastModified": "2012-08-16T14:05:27+02:00"
+    "modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
 
@@ -76,7 +76,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
         "@id": "dc:created",
         "@type": "xsd:dateTime"
     },
-    "lastModified": {
+    "modified": {
         "@id": "dc:modified",
         "@type": "xsd:dateTime"
     }
@@ -106,7 +106,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "status": "beispielris:status/buergermeister",
     "hasMembership": "beispielris:membership/34",
     "created": "2011-11-11T11:11:00+01:00",
-    "last_modified": "2012-08-16T14:05:27+02:00"
+    "modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
 ### Eigenschaften ###

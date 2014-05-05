@@ -5,21 +5,14 @@ TODO. Siehe:
 https://github.com/OParl/specs/issues/122
 https://github.com/OParl/specs/issues/109
 
-
 ### Eigenschaften
 
-`onBehalfOf`
-:   Entsendende Organization - Fraktion, fraktionslos oder externes Gremium
-    TODO: Hinweis auf `opengov:onBehalfOf`
-    TODO: wie wird fraktionslos kodiert?
+`person`
+:   `oparl:Person` Eine Person.
     OPTIONAL
-
-`startDate`
-:   `schema:validFrom` wie in Popolo. The date on which the relationship began
-    OPTIONAL
-
-`endDate`
-:   `schema:validThrough` wie in Popolo. The date on which the relationship ended
+    
+`organization`
+:   `oparl:Organization` Eine Organization.
     OPTIONAL
 
 `role`
@@ -32,8 +25,26 @@ https://github.com/OParl/specs/issues/109
     TODO: was ist mit einem sachkundigen Bürger, der gleichzeitig Vorsitzender ist?
     OPTIONAL
 
-`
+`post`
+:   The post held by the person in the organization
+    OPTIONAL
+
+`onBehalfOf`
+:   Entsendende Organization - Fraktion, fraktionslos oder externes Gremium
+    Dies entspricht `opengov:onBehalfOf` in Popolo.
+    TODO: wie wird fraktionslos kodiert?
+    OPTIONAL
+
+`startDate`
+:   `schema:validFrom` wie in Popolo. The date on which the relationship began
+    OPTIONAL
+
+`endDate`
+:   `schema:validThrough` wie in Popolo. The date on which the relationship ended
+    OPTIONAL
+
 ### Hinweise
 
 http://www.w3.org/TR/vocab-org/#membership-roles-posts-and-reporting
+
 http://popoloproject.com/specs/membership.html

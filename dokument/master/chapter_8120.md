@@ -55,10 +55,6 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
 
 ### Eigenschaften ###
 
-`@id`
-:   URL des Objekts.
-    ZWINGEND.
-
 `paper`
 :   URL der Drucksache, die beraten wird.
     ZWINGEND.
@@ -84,9 +80,13 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
     Diese Eigenschaft ist OPTIONAL.
 
 `role`
-:   URL der Rolle oder Funktion der Beratung. z.B. Anhörung (hearing), Entscheidung (decision), 
+:   `skos:Concept` Rolle oder Funktion der Beratung. z.B. Anhörung (hearing), Entscheidung (decision), 
     Kenntnisnahme (notice), Vorberatung (counseling) usw. Es wird empfohlen in den URLs entsprechende englische
-    Bestandteile zu verwenden. Die Rollenobjekte haben nur eine festgelegte Eigenschaft: "skos:prefLabel" für den Namen.
+    Bestandteile zu verwenden. Die Rollenobjekte haben nur eine festgelegte Eigenschaft: `skos:prefLabel` für den Namen.
     In einer zukünftigen Version von OParl können gegebenenfalls die am stärksten benötigten Rollen
     standardisiert werden.
+    OPTIONAL
+
+`classification`
+:   `skos:Concept` mit `skos:prefLabel`. Allgemeiner verwendbar als `role`.
     OPTIONAL

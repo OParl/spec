@@ -26,7 +26,7 @@ Ein Beispiel in kompakter Form:
         "beispielris:person/75"
     ],
     "paper": "beispielris:paper/2812",
-    "last_modified": "2012-08-16T14:05:27+02:00"
+    "modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
 
@@ -84,6 +84,9 @@ Ein Beispiel in kompakter Form:
 `auxiliaryDocument`
 :  `oparl:Document` zum TOP.
     OPTIONAL
+
+`classification`
+:   `skos:Concept`
 
 `created`
 :   Erzeugungsdatum und -zeit des Objekts.

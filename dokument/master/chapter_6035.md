@@ -123,4 +123,4 @@ Anspruch auf Vollständigkeit erheben:
   Erfahrungsgemäß überdauern solche URLs nur kurz.
 
 Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee^[Berners-Lee, Tim: Cool URIs don't change. <http://www.w3.org/Provider/Style/URI.html>] sowie die Europäische Kommission^[Study on persistent URIs, with identification of 
-best practices and recommendations on the topic for the MSs and the EC. (PDF) <http://goo.gl/JaTq6Z>].
+best practices and recommendations on the topic for the MSs and the EC. (PDF) <http://goo.gl/JaTq6Z>]. TODO: goo.gl URL expandieren

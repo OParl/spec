@@ -13,3 +13,12 @@ https://github.com/OParl/specs/issues/109
     TODO: Hinweis auf `opengov:onBehalfOf`
     TODO: wie wird fraktionslos kodiert?
     OPTIONAL
+
+`startDate`
+:   `schema:validFrom` wie in Popolo. The date on which the relationship began
+    OPTIONAL
+
+`endDate`
+    `schema:validThrough` wie in Popolo. The date on which the relationship ended
+    OPTIONAL
+

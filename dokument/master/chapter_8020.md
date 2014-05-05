@@ -59,9 +59,9 @@ wird, umfasst das Objekt aus Sicht des Clients eben auch die Liste der Mitgliede
 Fall wäre eine Veränderung der Liste der Mitglieder als Änderung des Objekts zu verstehen,
 die im `lastModified` Zeitstempel wiederspiegeln sollte.
 
-### `category`
+### `classification`
 
-Verweist auf ein oder eventuell auch mehrere Objekte mit einer `skos:prefLabel`-Eigenschaft. Der Wert der
+Verweist auf ein oder eventuell auch mehrere `skos:Concept`-Objekte mit einer `skos:prefLabel`-Eigenschaft. Der Wert der
 Eigenschaft ist jeweils eine Zeichenkette. TODO: Es werden *zwei* Eigenschaften pro Klasse benötigt, eine für Schlagworte und eine für eine Bezeichnung.
 Siehe u.a.:
 https://github.com/OParl/specs/issues/41

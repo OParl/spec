@@ -1,13 +1,21 @@
-URLs bzw. IRIs
-----
+URLs, IRIs und URIs  {#urls}
+-------------------
 
-Internationalized Resource Identifier (IRI) sind die internationalisierte Form der Uniform Resource Identifier (URI). Diese sind in RFC 3987 spezifiziert (http://tools.ietf.org/html/rfc3987). In der OParl-Spezifikation sind grundsätzlich auch dann IRIs gemeint, wenn wie folgt die Bezeichnungen URI oder URL verwendet werden. Dies soll der Lesbarkeit dienen, auch wenn es technisch nicht ganz korrekt ist.
-
-Den URLs (für "Uniform Resource Locators", auch URI für "Uniform Resource Identifier")
+Den URLs (für "Uniform Resource Locators")
 kommt bei einer OParl-konformen API eine besondere Bedeutung zu und es werden eine 
 Reihe von Anforderungen an die Verarbeitung von URLs gestellt.
 
-Die grundsätzliche Funktionsweise von URLs ist in RFC3986 beschrieben^[<http://tools.ietf.org/html/rfc3986>].
+Im Rahmen dieses Dokuments wird aus Gründen der Verständlichkeit generell der allgemein
+gebräuchlichere Begriff "URL" werwendet, auch wenn damit tatsächlich die
+internationalisierte Variante nach RFC 3987^[RFC 3987: 
+<http://tools.ietf.org/html/rfc3987>], die korrekterweise IRI bzw. "Internationalized
+Resource Identifier" genannt werden müsste. In andern Kontexten wiederum wird von
+URIs bzw. "Uniform Resource Identifier" gesprochen. Das vorliegende Dokumente fasst
+alle drei Konzepte mit dem Begriff "URL" zusammen und ignoriert damit die
+Unterschiede der einzelnen Begriffe, da diese im Rahmen dieser Spezifikation ohne
+bedeutung sind.
+
+Die grundsätzliche Funktionsweise von URLs ist in RFC 3986 beschrieben^[RFC 3986: <http://tools.ietf.org/html/rfc3986>].
 
 Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in diesem Dokument
 Verwendung finden:

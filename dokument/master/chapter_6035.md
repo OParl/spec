@@ -99,7 +99,7 @@ diese in URLs immer nach dem selben Prinzip zu sortieren. Ein Beispiel: die beid
 
 unterscheiden sich lediglich in der Reihenfolge der Query-String-Parameter. Da sie jedoch nicht
 identisch sind, müssen Clients annehmen, dass beide URLs verschiedene Objekte repräsentieren. In der
-Konsequenz kann es zu vermeidbarer Ressourcennutzugn sowohl auf Client- als auch auf Serverseite kommen.
+Konsequenz kann es zu vermeidbarer Ressourcennutzung sowohl auf Client- als auch auf Serverseite kommen.
 
 ### Langlebigkeit
 

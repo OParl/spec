@@ -14,43 +14,20 @@ zu machen.
 Dieser Objekttyp kann für Objekte im Kontext des Objekttyps
 `oparl:Paper` verwendet werden.
 
-Ein einfaches Beispiel - welches GeoJSON verwendet und deshalb nur der Illustration dient:
+Ein einfaches Beispiel:
 
 ~~~~~  {#location_ex1 .json}
 {
     ...
     "location": {
         "description": "Honschaftsstraße 312, Köln",
-        "geometry": {
-            "type": "Point",
-            "coordinates": [7.03291, 50.98249]
-        }
+        "geometry": "POINT (7.03291 50.98249)"
     },
     ...
 }
 ~~~~~
 
-In der JSON-LD Recommendation des W3C ist diese Passage zu finden:
-~~~~~
-List of lists in the form of list objects are not allowed in this version of JSON-LD. 
-This decision was made due to the extreme amount of added complexity when 
-processing lists of lists.
-~~~~~
-
-Das lässt sich nicht mit der Verwendung von GeoJSON vereinbaren, denn dort sind die Geometriedaten bei vielen
-Objektarten in Form von verschachtelten Listen kodiert. Zwar gibt es eine Iniatitive zur Schaffung von GeoJSON-LD (siehe http://geojson.org/vocab und https://github.com/geojson/geojson-ld), diese Spezifikation hat bisher jedoch keinen verwendbaren Zustand erreicht, so dass sie nicht für OParl 1.0 verwendbar ist.
-
-Statt GeoJSON oder GeoJSON-LD wird deshalb der semantisch gleichwertige und etablierte Standard "Well-Known Text" (WKT) verwendet (siehe http://en.wikipedia.org/wiki/Well-known_text).
-
-WKT ist:
-- präzise spezifiziert a) ISO/IEC 13249-3:2011 standard, "Information technology -- Database languages -- SQL multimedia and application packages -- Part 3: Spatial" (SQL/MM) b) "OpenGIS ® Implementation Standard for Geographic information - Simple feature access - Part 1: Common architecture"
-- semantisch ebenso ausdrucksstark wie GeoJSON / GeoJSON-LD
-- auch durch Linked Data Technik weitreichend unterstützt (GeoSPARQL, Apache Jena spatial extension)
-- leicht von und nach GeoJSON konvertierbar (http://en.wikipedia.org/wiki/Well-known_text#APIs_that_provide_support)
-
-TODO: neue Beispiele
-
-Ein Kontext:
+Ein Kontext (TODO: Kann das weg?):
 
 ~~~~~
 {
@@ -74,16 +51,20 @@ Und ein Beispiel unter Verwendung des Kontextes:
 }
 ~~~~~
 
-OParl sieht bei Angabe von Geodaten die Verwendung des  
-GeoJSON-Formats^[GeoJSON Spezifikation 
-<http://geojson.org/geojson-spec.html>] vor. GeoJSON erlaubt die 
-Beschreibung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden und 
-Polygonen in JSON-Notation. Ein GeoJSON-Objekt kann auch mehrere Geometrien
-umfassen, beispielsweise um damit mehrere Punkte oder Polygone zu umschreiben.
+OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des  
+Well-Known-Text-Formats (WKT) der Simple Feature Access Spezifikation^[Simple
+Feature Access Spezifikation: <http://www.opengeospatial.org/standards/sfa>]
+vor. WKT erlaubt die Beschreibung von unterschiedlichen Geometrien wie
+Punkten (`Point`), Pfaden (`LineString`), Polygonen (`Polygon`) und viele andere
+mehr.
 
-Gegenüber der GeoJSON-Spezifikation sieht OParl eine wichtige
-Einschränkung vor: Für die Ausgabe über eine OParl API MÜSSEN sämtliche
-Koordinatenangaben im System WGS84^[WGS84 steht für "World Geodetic System 1984",
+Zum Zeitpunkt der Erstellung der vorliegenden Spezifikation ist Version 1.2.1
+der Simple-Feature-Access-Spezifikation aktuell. OParl stellt keine Anforderungen
+daran, welche Version von Simple-Feature-Access bei der Ausgabe von WKT zu
+unterstützen ist.
+
+Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben solcher
+Geodaten im System WGS84^[WGS84 steht für "World Geodetic System 1984",
 es wird unter anderem auch vom Global Positioning System (GPS) verwendet.
 In geografischen Informationssystemen ist für das System der EPSG-Code 4326 
 geläufig.] angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen)
@@ -98,7 +79,7 @@ für Längen- und Breitengrad.
 
 `geometry`
 :   Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt, MUSS ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen.
-    Typ: TODO
+    Typ: Zeichenkette (TODO: Stimmt das?).
     OPTIONAL
 
 `classification`
@@ -108,35 +89,12 @@ für Längen- und Breitengrad.
 
 ### Weitere Beispiele
 
-#### Ortsangabe mit Polygon-Objekt
-
-Die alte GeoJSON-Variante:
+Ortsangabe mit Polygon-Objekt:
 
 ~~~~~  {#location_ex3 .json}
 {
     "description": "Rechtes Rheinufer zwischen Deutzer
-        Br\u00fccke und Hohenzollernbr\u00fccke",
-    "type": "Polygon",
-    "geometry": {
-        "coordinates": [
-            [
-                [6.9681106, 50.9412137],
-                [6.9690940, 50.9412137],
-                [6.9692169, 50.9368270],
-                [6.9681218, 50.9368270],
-                [6.9681106, 50.9412137]
-            ]
-        ]
-    }
-}
-~~~~~
-
-Und die neue Version mit Well-Known Text:
-
-~~~~~  {#location_ex3 .json}
-{
-    "description": "Rechtes Rheinufer zwischen Deutzer
-        Br\u00fccke und Hohenzollernbr\u00fccke",
+        Brücke und Hohenzollernbrücke",
     "geometry": "POLYGON ((
                 6.9681106 50.9412137,
                 6.9690940 50.9412137,

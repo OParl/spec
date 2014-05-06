@@ -128,41 +128,22 @@ Nach dem Linked-Data-Prinzip könnte beispielsweise der Vorname einer Person mit
 folgenden Tripel beschrieben werden:
 
 
-    Subjekt: https://dbpedia.org/resource/John_Doe_(musician)
+    Subjekt: http://dbpedia.org/resource/John_Doe_(musician)
     Prädikat: http://xmlns.com/foaf/0.1/givenName
-    Objekt: https://dbpedia.org/resource/John_(given_name)
+    Objekt: http://dbpedia.org/resource/John_(given_name)
 
 Hierbei macht man von der Tatsache Gebrauch, dass das Subjekt, also die Person, um die es 
 geht, bereits mittels ihrer URI eindeutig identifiziert werden kann und dass bestenfalls 
-unter dieser URI weitere Informationen zu der Person abrufbar sind. Auch für das Prädikat
+unter dieser URI weitere Informationen zu der Person abrufbar 
+sind.^[Ein Aufruf der URL <http://dbpedia.org/resource/John_Doe_(musician)> im herkömmlichen
+Web-Browser führt zu einer Weiterleitung auf die URL <http://dbpedia.org/page/John_Doe_(musician)>.
+Siehe dazu auch der Abschnitt [Content Negotiation](#content_negotiation)] Auch für das Prädikat
 "Person hat den Vornamen" liegt bereits eine Beschreibung in einem gebräuchlichen Vokabular
 vor, auf das hier verwiesen werden kann. Und schließlich kann sogar der eigentliche Vorname
 in Form einer URI abgebildet werden, nämlich als Verweis auf eine umfangreiche Beschreibung
 dieses Namens.
 
-Auf ein für Linked Data wichtiges Detail sei hier hingewiesen. Wenn man in einem üblichen Web-Browser
-diesen oben angegebenen Link eingibt und aufruft:
-
-    https://dbpedia.org/resource/John_Doe_(musician)
-
-dann sieht man anschliessend bei der Anzeige der HTML-Seite diesen Link im Adressfeld:
-
-    https://dbpedia.org/page/John_Doe_(musician)
-
-Dabei identifiziert der erste Link den abstrakten Begriff des Musikers, während der
-zweite Link eine Repräsentation dieses Begriffs identifiziert. Ein anderer http-Client, der
-statt HTML-Seiten z.B. JSON-LD bevorzugt, würde bei Zugriff auf den ersten Link statt der
-HTML-Seite den Inhalt dieser URL erhalten:
-
-    https://dbpedia.org/data/John_Doe_(musician).jsonld
-
-Dabei handelt es sich um eine Repräsentation des Musikers in Form von JSON-LD.
-
-Diese drei Links sind nicht nur verschieden, sondern haben unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL (HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients generell nicht verwendet werden, um auf einfache Weise zu den anderen beiden URLs zu gelangen. Deshalb soll bei Linked Data der erste Link, also der des abstrakten Begriffs angegeben werden. Der Zugriff auf diesen Link wird "Dereferenzierung" genannt. Von dem ersten Link gelangt man zu den beiden anderen mittels "Content Negotiation".
-
-### Ziel
-
-Das Ziel von OParl ist es, mit der vorliegenden Version 1.0 der Spezifikation, die Nutzung
+Das **Ziel** von OParl ist es, mit der vorliegenden Version 1.0 der Spezifikation, die Nutzung
 solcher allgemeingültigen Vokabulare für die Veröffentlichung von parlamentarischen
 Informationen zu begünstigen und die automatisierte Verarbeitung und Verknüpfung von
 Informationen, auch über die Grenzen verschiedener Informationssysteme hinweg, zu erleichtern.

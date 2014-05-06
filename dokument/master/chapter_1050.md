@@ -59,6 +59,10 @@ DÜRFEN/DARF bzw. OPTIONAL:
     Die Entsprechung in RFC2119 lautet "MAY" oder "OPTIONAL".
 
 
-### Besondere Hervorhebungen und Satzkonventionen
+### Geschlechterspezifische Begrifflichkeiten
 
-TODO
+Um bei Begriffen wie Nutzer, Anwender, Betreiber etc. die sonst übliche Dominanz
+männlich der männlichen Variante zu vermeiden, werden in diesem Dokument
+männliche oder weibliche Varianten gemischt. Es wird also beispielsweise mal
+von einer Nutzerin gesprochen und mal von einem Nutzer. Gemeint sind selbstverständlich
+in allen Fällen immer weibliche wie auch männliche Personen.

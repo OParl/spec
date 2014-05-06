@@ -20,7 +20,7 @@ Ein einfaches Beispiel - welches GeoJSON verwendet und deshalb nur der Illustrat
 {
     ...
     "location": {
-        "description": "Honschaftsstra\u00dfe 312, K\u00f6ln", // TODO: weshalb diese Kodierung?!
+        "description": "Honschaftsstraße 312, Köln",
         "geometry": {
             "type": "Point",
             "coordinates": [7.03291, 50.98249]

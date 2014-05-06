@@ -1,16 +1,18 @@
-Was ist OParl?
---------------
+Was ist OParl in Kürze?
+-----------------------
 
-(TODO: Nachfolgend eine Übernahme aus dem bisherigen Abschnitt
-"Funktionsumfang der OParl-Schnittstelle". Der Text sollte deutlich
-überarbeitet und erweitert werden.)
+OParl ist die Gruppierung, die Initiator und Herausgeber der
+vorliegenden Spezifikation ist. An OParl wirken Verbände,
+Zivilgesellschaftliche Organisationen und Initiativen und
+Software-Anbieter sowie interessierte Einzelpersonen mit.
 
-Die vorliegende Spezifikation soll eine Webservice-Schnittstelle definieren, 
+Die vorliegende Spezifikation beschreibt den OParl-Standard. Dieser
+definiert eine Webservice-Schnittstelle, 
 die den anonymen und lesenden Zugriff auf öffentliche Inhalte aus 
-Parlamentarischen Informationssystemen ermöglicht. Die Zugriffe erfolgen 
-über das Hypertext Transfer Protocol (HTTP). Daten werden als JSON oder als
-JSONP ausgeliefert.
+parlamentarischen Informationssystemen ermöglicht. Wie der Name
+"Webservice" ausdrückt, setzt diese Schnittstelle auf dem World Wide
+Web auf. Sie ermöglicht, dass parlamentarishe Informationen
+maschinenlesbar als Offene Daten (Open Data) veröffentlicht werden.
 
-Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale 
-Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher 
-zwischen den Implementierungen variieren.
+Die vorligende Version ist die erste verabschiedete Version
+der Spezifikaiton zum OParl-Standard.

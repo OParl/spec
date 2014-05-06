@@ -28,7 +28,7 @@ Verwendung finden:
 
 ### URL-Kanonisierung
 
-Absicht ist, dass jedes benannte Objekt, das ein Server über eine OParl-API anbietet, über genau
+Absicht ist, dass jedes benannte Objekt^[vgl. [Benannte und anonyme Objekte](#benannte_anonyme_objekte)], das ein Server über eine OParl-API anbietet, über genau
 eine URL identifizierbar und abrufbar ist. Diese Vereinheitlichung der URL nennen
 wir Kanonisierung.
 

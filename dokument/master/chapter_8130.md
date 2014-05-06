@@ -92,15 +92,18 @@ für Längen- und Breitengrad.
 ### Eigenschaften ###
 
 `description`
-:   Textliche Beschreibung eines Orts, z.B. in Form einer Adresse. Typ: Zeichenkette.
+:   Textliche Beschreibung eines Orts, z.B. in Form einer Adresse.
+    Typ: Zeichenkette.
     EMPFOHLEN
 
 `geometry`
 :   Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt, MUSS ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen.
+    Typ: TODO
     OPTIONAL
 
 `classification`
-:   `skos:Concept` mit `skos:prefLabel`
+:   Schlagwort mit `skos:prefLabel`
+    Typ: `skos:Concept`
     OPTIONAL
 
 ### Weitere Beispiele

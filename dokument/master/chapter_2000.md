@@ -24,11 +24,8 @@ Parlamentarisches Informationssystem {#parlamentarisches_infosystem}
 Parlamentarische Informationssysteme sind Software-Systeme, die von
 verschiedensten Körperschaften eingesetzt werden, um die Zusammenarbeit
 von Parlamenten zu organisieren, zu dokumentieren und öffentlich nachvollziehbar
-zu machen.
-
-Parlamentarische Informationssysteme sind jedoch nicht auf die kommunale Ebene
-begrenzt. Ähnliche Systeme werden auch auf Ebene z.B. von Landkreisen,
-Regierungsbezirken und diversen Zweckverbänden eingesetzt.
+zu machen. Zu den Körperschaften können beispielsweise Kommunen, Landkreise,
+Regierungsbezirke und Zweckverbänden gehören.
 
 Diese Systeme unterstützen in der Regel mehrere der folgenden Funktionen:
 

@@ -129,12 +129,42 @@ sind auch Portlet-Entwicklungen als Open-Source-Projekte.
 
 ## Szenario 3: Meta-Suche  {#szenario_meta_suche}
 
-Über die OParl-API können die Informationen zu Abläufen und Entscheidungen aus einem Ratsinformationssystem (RIS) in einem externen System anders aufbereitet und dargestellt werden. Bieten mehrere RIS eine OParl-API an, ist der Aufwand die Inhalte dieser weiteren Instanzen zusätzlich in dem externen System aufzubereiten und darzustellen vergleichsweise gering. Auf dem externen System werden die Inhalte unterschiedlicher RIS übergreifend durchsuchbar gemacht. Nutzerinnen und Nutzer dieses Angebots können in einer Meta-Suche über alle angeschlossenen RIS hinweg nach Ratsvorgängen suchen. Daraus ergeben sich unterschiedliche Anwendungsmöglichkeiten:
+Über die OParl-API können die Informationen zu Abläufen und Entscheidungen aus einem
+Ratsinformationssystem (RIS) in einem externen System anders aufbereitet und dargestellt
+werden. Bieten mehrere RIS eine OParl-API an, ist der Aufwand die Inhalte dieser weiteren
+Instanzen zusätzlich in dem externen System aufzubereiten und darzustellen vergleichsweise
+gering. Auf dem externen System werden die Inhalte unterschiedlicher RIS übergreifend
+durchsuchbar gemacht. Nutzerinnen und Nutzer dieses Angebots können in einer Meta-Suche
+über alle angeschlossenen RIS hinweg nach Ratsvorgängen suchen. Daraus ergeben sich
+unterschiedliche Anwendungsmöglichkeiten:
 
-* Eine Mitarbeiterin eines regionalen Zweckverbands hat die Aufgabe Ratsvorgänge in den Mitgliedskommunen mit Relevanz für die Aufgaben des Verbandes im Blick zu behalten. Sie nutzt dafür ein regionales Internetportal, in dem die RIS-Inhalte der Mitgliedskommunen mittels OParl-Schnittstelle durchsuchbar sind. Um die Suche zu vereinfachen hat sie einzelne Schlagwörter abonniert, zu denen sie automatisch über neue Vorgänge informiert wird.
-* Ein Einwohner eines Ballungsraums will sich über aktuelle Vorgänge rund um seine Mietwohnung in Stadt A, sein Gartengrundstück in einer Kleingartenkolonie in der Nachbarstadt B und seinen Arbeitsplatz in Stadt C auf dem laufenden halten. Dazu abonniert er im regionalen Meta-RIS-Portal parlamentarische Vorgänge mit räumlichem Bezug zu diesen drei Standorten und wird so automatisch über neue Aktivitäten informiert.
-* Eine Landespolitikerin möchte einfacher über die politischen Aktivitäten ihrer Parteikollegen in den Rathäusern des Bundeslandes informiert werden. Dazu nutzt sie ein Internetportal, in dem die Informationen aus den RIS mit OParl-Schnittstelle im Land zusammengeführt werden. Dort hat sie sich Abonnements zu einzelnen Lokalpolitikern eingerichtet und wird automatisch über ihre Teilnahme an Gremiensitzungen und die Themen dieser Sitzungen informiert.
+* Eine Mitarbeiterin eines regionalen Zweckverbands hat die Aufgabe Ratsvorgänge in den
+Mitgliedskommunen mit Relevanz für die Aufgaben des Verbandes im Blick zu behalten. Sie
+nutzt dafür ein regionales Internetportal, in dem die RIS-Inhalte der Mitgliedskommunen
+mittels OParl-Schnittstelle durchsuchbar sind. Um die Suche zu vereinfachen hat sie
+einzelne Schlagwörter abonniert, zu denen sie automatisch über neue Vorgänge informiert
+wird.
+
+* Ein Einwohner eines Ballungsraums will sich über aktuelle Vorgänge rund um seine
+Mietwohnung in Stadt A, sein Gartengrundstück in einer Kleingartenkolonie in der
+Nachbarstadt B und seinen Arbeitsplatz in Stadt C auf dem laufenden halten. Dazu abonniert
+er im regionalen Meta-RIS-Portal parlamentarische Vorgänge mit räumlichem Bezug zu diesen
+drei Standorten und wird so automatisch über neue Aktivitäten informiert.
+
+* Eine Landespolitikerin möchte einfacher über die politischen Aktivitäten ihrer
+Parteikollegen in den Rathäusern des Bundeslandes informiert werden. Dazu nutzt sie ein
+Internetportal, in dem die Informationen aus den RIS mit OParl-Schnittstelle im Land
+zusammengeführt werden. Dort hat sie sich Abonnements zu einzelnen Lokalpolitikern
+eingerichtet und wird automatisch über ihre Teilnahme an Gremiensitzungen und die
+Themen dieser Sitzungen informiert.
 
 ## Szenario 4: Forschungsprojekt Themen- und Sprachanalyse {#szenario_forschung}
 
-In einem Forschungsprojekt sollen Pro- und Contra-Argumentationen bei Ratsdiskussionen zum Ausbau von Stromtrassen identifiziert werden. Über die Analyse in mehreren Gebietskörperschaften sollen die gefundenen Argumentationen zu wiederkehrenden Mustern verdichtet und festgestellt werden, wie diese Muster regional abweichen. Dazu nutzen die Mitarbeitenden des Forschungsprojektes die OParl-Schnittstellen der Ratsinformationssysteme von Kommunen entlang der geplanten überregionalen Trassen. Über diese einheitlichen Schnittstellen können sie relevante Beratungen, Drucksachen und Dateien abrufen und zum Beispiel in einem Werkzeug zur qualitativen Datenanalyse lokal verarbeiten.  
+In einem Forschungsprojekt sollen Pro- und Contra-Argumentationen bei Ratsdiskussionen zum
+Ausbau von Stromtrassen identifiziert werden. Über die Analyse in mehreren Gebietskörperschaften
+sollen die gefundenen Argumentationen zu wiederkehrenden Mustern verdichtet und festgestellt
+werden, wie diese Muster regional abweichen. Dazu nutzen die Mitarbeitenden des
+Forschungsprojektes die OParl-Schnittstellen der Ratsinformationssysteme von Kommunen entlang der
+geplanten überregionalen Trassen. Über diese einheitlichen Schnittstellen können sie relevante
+Beratungen, Drucksachen und Dateien abrufen und zum Beispiel in einem Werkzeug zur qualitativen
+Datenanalyse lokal verarbeiten.  

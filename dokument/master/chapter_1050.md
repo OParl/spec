@@ -66,3 +66,14 @@ der männlichen Variante zu vermeiden, werden in diesem Dokument
 männliche oder weibliche Varianten gemischt. Es wird also beispielsweise mal
 von einer Nutzerin gesprochen und mal von einem Nutzer. Gemeint sind selbstverständlich
 in allen Fällen immer weibliche wie auch männliche Personen.
+
+### Codebeispiele
+
+Die in diesem Dokument aufgeführten Codebeispiele dienen der Veranschaulichung
+der beschriebenen Prinzipien. Es handelt sich in der Regel um frei erfundene
+Daten.
+
+Codebeispiele erheben insbesondere bei JSON-Code nicht den Anspruch auf
+hundertprozentige syntaktische Korrektheit. Es kann in Einzelfällen aus Gründen
+der besseren Lesbarkeit zur Verwendung von Umlauten etc. kommen, die in JSON nicht
+erlaubt wären.

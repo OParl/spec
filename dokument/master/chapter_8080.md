@@ -106,66 +106,76 @@ Das selbe Beispiel in kompakter Form:
 :   Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen 
     Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen
     KANN es der tatsächliche Startzeitpunkt sein.
+    Typ: TODO
     ZWINGEND
 
 `end`
 :   Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen 
     Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen
     KANN es der tatsächliche Endzeitpunkt sein.
+    Typ: TODO
     EMPFOHLEN
 
 `location`
-:   Sitzungsort in Form eines `oparl:Location` Objekts.
+:   Sitzungsort.
+    Typ: `oparl:Location`
     EMPFOHLEN
 
 `organization`
-:   URL der Gruppierung oder Liste der URLs der Gruppierungen (oparl:Organization), denen die
-    Sitzung zugeordnet ist.
-    Wenn eine Liste angegeben wird, dann ist diese geordnet. Das erste Element ist dann das federführende Gremium.
+:   Gruppierung der die Sitzung zugeordnet ist. Wenn eine Liste angegeben wird, dann ist diese geordnet. Das erste
+    Element ist dann das federführende Gremium.
+    Typ: `oparl:Organization`
     ZWINGEND
 
 `participant`
-:   URL der Teilnehmer oder Liste der URLs der Teilnehmer (oparl:Person) der Sitzung.
+:   Teilnehmer der Sitzung.
     Bei einer Sitzung in der Zukunft sind dies die geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die
     Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung teilgenommen haben.
+    Typ: `oparl:Person`
     ZWINGEND.
 
 `invitation`
-:   URL des Einladungsdokuments (oparl:Document) zur Sitzung.
+:   Einladungsdokument zur Sitzung.
+    Typ: `oparl:Document`
     EMPFOHLEN.
 
 `resultsProtocol`
-:   URL des Ergebnisprotokolls (oparl:Document) zur Sitzung. Diese
-    Eigenschaft kann selbstverständlich erst nach
+:   Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach
     dem Stattfinden der Sitzung vorkommen.
+    Typ: `oparl:Document`
     EMPFOHLEN
 
 `verbatimProtocol`
-:   URL des Wortprotokolls (oparl:Document) zur Sitzung. Diese
-    Eigenschaft kann selbstverständlich erst nach
+:   Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach
     dem Stattfinden der Sitzung vorkommen.
+    Typ: `oparl:Document`
     EMPFOHLEN
     
 `auxiliaryDocument`
-:   URL oder Liste von URLs zu Dokumentenanhängen (oparl:Document) zur Sitzung.
+:   Dokumentenanhang zur Sitzung.
     Hiermit sind Dokumente gemeint, die üblicherweise mit der Einladung
     zu einer Sitzung verteilt werden und die nicht bereits über einzelne
     Tagesordnungspunkte referenziert sind.
+    Typ: `oparl:Document`
     OPTIONAL
 
 `agendaItem`
-:   URLs der Tagesordnungspunkte (oparl:AgendaItem) der Sitzung.
+:   Tagesordnungspunkte der Sitzung.
     Die Reihenfolge ist relevant.
     Es kann Sitzungen ohne TOPs geben.
+    Typ: `oparl:AgendaItem`
     OPTIONAL
 
 `classification`
-:   `skos:Concept`
-
+:   Typ: `skos:Concept`
+    OPTIONAL
+    
 `created`
 :   Datum und Uhrzeit der Erzeugung des Objekts.
+    Typ: TODO
     EMPFOHLEN
 
 `modified`
 :   Datum und Uhrzeit der letzten Änderung des Objekts.
+    Typ: TODO
     EMPFOHLEN

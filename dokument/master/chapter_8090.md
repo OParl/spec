@@ -33,28 +33,31 @@ Ein Beispiel in kompakter Form:
 ### Eigenschaften ###
 
 `meeting`
-:   URL der Sitzung (`oparl:Meeting`), dem der Tagesordnungspunkt zugeordnet ist.
+:   Sitzung, der der Tagesordnungspunkt zugeordnet ist.
+    Typ: `oparl:Meeting`
     ZWINGEND.
 
 `number`
 :   Nummer des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z.B. "10.", "10.1", "C", "c)" o.ä.
     Die Reihenfolge wird dadurch nicht festgelegt, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut
     von  `oparl:Meeting`
+    Typ: TODO
     OPTIONAL
+
 `name`
 :   Das Thema des Tagesordnungspunktes.
+    Typ: TODO
     ZWINGEND.
 
 `public`
 :   Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher Sitzung 
     vorgesehen ist/war. Es wird ein Wahrheitswert (`true` oder `false`) erwartet.
+    Typ: boolean
     EMPFOHLEN.
 
 `consultation`
-:   Liste der URLs der Beratungen (oparl:Consultation), die diesem Tagesordnungspunkt
-    zugewiesen sind, oder alternativ die URL zum Abruf dieser Liste.
-    Sofern diesem Tagesordnungspunkt keine Beratungen
-    zugewiesen sind, bleibt die Liste ohne Einträge.
+:   Beratung, die diesem Tagesordnungspunkt zugewiesen ist.
+    Typ: `oparl:Consultation`
     ZWINGEND. 
 
 `result`
@@ -67,6 +70,7 @@ Ein Beispiel in kompakter Form:
     Alternativ können, sobald dieses zur Verfügung steht, URLs aus einem OParl
     Vokabular verwendet werden, wie im Beispiel oben zu sehen. Diese dienen dazu,
     Kategorien über Systemgrenzen hinweg maschinenlesbar zu vereinheitlichen.
+    Typ: `skos:Concept`
     EMPFOHLEN
 
 `resolutionText`
@@ -74,24 +78,30 @@ Ein Beispiel in kompakter Form:
     wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in der 
     Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) 
     von der Beschlussvorlage abweicht.
+    Typ: TODO
     OPTIONAL.
 
 `paper`
-:   `oparl:Paper`. Zwar kann auch das `oparl:Meeting` darauf verweisen, aber hier sind solche Verweise in der
-    Regel präziser, da sich Drucksachen regelmäßig für einen TOP relevant sind und nicht für alle TOPs.
+:   Drucksache. Zwar kann auch das `oparl:Meeting` darauf verweisen, aber hier sind solche Verweise in der
+    Regel präziser, da Drucksachen regelmäßig nur für einen TOP relevant sind und nicht für alle TOPs.
+    Typ: `oparl:Paper`
     OPTIONAL
 
 `auxiliaryDocument`
-:  `oparl:Document` zum TOP.
+:   eine weitere relevante Datei.
+    Typ: `oparl:Document`
     OPTIONAL
 
 `classification`
-:   `skos:Concept`
+:   Typ: `skos:Concept`
+    OPTIONAL
 
 `created`
 :   Erzeugungsdatum und -zeit des Objekts.
+    Typ: TODO
     EMPFOHLEN
 
 `lastModified`
 :   Datum und Uhrzeit der letzten Änderung.
+    Typ: TODO
     EMPFOHLEN

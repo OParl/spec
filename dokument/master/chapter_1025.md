@@ -51,5 +51,5 @@ ebenfalls als PDF gespeichert wurde) und hört bei der verwendeten Sprache auf.[
 [^1]: Weitere generelle Informationen zur Bereitstellung offener Verwaltungsdaten bieten
 bspw.
 
-	* Praktische Informationen: [Open-Data-Handbook](http://opendatahandbook.org/de/how-to-open-up-data/index.html) der Open Knowledge Foundation
-	* Grundsätzliche Informationen: Die vom Bundesministerium des Innern beauftragte Studie "[Open Government Data Deutschland](http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf?__blob=publicationFile)" (PDF)
+	* Praktische Informationen: Open-Data-Handbook der Open Knowledge Foundation <http://opendatahandbook.org/de/how-to-open-up-data/index.html>
+	* Grundsätzliche Informationen: Die vom Bundesministerium des Innern beauftragte Studie "Open Government Data Deutschland" <http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf>

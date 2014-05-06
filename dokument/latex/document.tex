@@ -474,6 +474,17 @@ mal von einer Nutzerin gesprochen und mal von einem Nutzer. Gemeint sind
 selbstverständlich in allen Fällen immer weibliche wie auch männliche
 Personen.
 
+\subsubsection{Codebeispiele}\label{codebeispiele}
+
+Die in diesem Dokument aufgeführten Codebeispiele dienen der
+Veranschaulichung der beschriebenen Prinzipien. Es handelt sich in der
+Regel um frei erfundene Daten.
+
+Codebeispiele erheben insbesondere bei JSON-Code nicht den Anspruch auf
+hundertprozentige syntaktische Korrektheit. Es kann in Einzelfällen aus
+Gründen der besseren Lesbarkeit zur Verwendung von Umlauten etc. kommen,
+die in JSON nicht erlaubt wären.
+
 \subsection{Initiatoren}\label{initiatoren}
 
 TODO
@@ -1386,7 +1397,8 @@ Berners-Lee\footnote{Berners-Lee, Tim: Cool URIs don't change.
   \url{http://www.w3.org/Provider/Style/URI.html}} sowie die Europäische
 Kommission\footnote{Study on persistent URIs, with identification of
   best practices and recommendations on the topic for the MSs and the
-  EC. (PDF) \url{http://goo.gl/JaTq6Z}}. TODO: goo.gl URL expandieren
+  EC. (PDF)
+  \url{https://joinup.ec.europa.eu/sites/default/files/D7.1.3\%20-\%20Study\%20on\%20persistent\%20URIs.pdf}}.
 
 \subsection{Serialisierung mittels JSON-LD und
 JSONP}\label{serialisierung-mittels-json-ld-und-jsonp}
@@ -1400,23 +1412,25 @@ unterstützt.
 In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung
 des HTTP \texttt{Content-type}-Headers \texttt{application/ld+json}
 beantworten. Die Spezifikation von JSON-LD liefert dazu genauere
-Informationen\footnote{http://www.w3.org/TR/json-ld/\#iana-considerations},
-auch zu dem optionalen Parameter \texttt{profile} für die explizite
-Anforderung von JSON-LD in einer dieser drei Unterformen: kompakt,
-expandiert oder flach.
+Informationen\footnote{JSON-LD 1.0: IANA COnsiderations:
+  \url{http://www.w3.org/TR/json-ld/\#iana-considerations}}, auch zu dem
+optionalen Parameter \texttt{profile} für die explizite Anforderung von
+JSON-LD in einer dieser drei Unterformen: kompakt, expandiert oder
+flach.
 
 Wenn der Server auch Anfragen nach \texttt{application/json} akzeptiert,
 dann SOLL er expandierte JSON-LD Dokumente liefern (also solche ohne
-\texttt{@context}). TODO: MUSS der Server solche Legacy-Anfragen
-akzeptieren? Warum?
+\texttt{@context}).
+
+TODO: MUSS der Server solche Legacy-Anfragen akzeptieren? Warum?
 
 \subsubsection{JSON}\label{json}
 
 Die Abkürzung JSON steht für ``JavaScript Object Notation''. Das
-JSON-Format ist in RFC4627\footnote{\url{https://tools.ietf.org/html/rfc4627}}
-beschrieben. Nachfolgend werden nur die wichtigsten Definitionen
-übernommen, um eine Terminologie zur weiteren Verwendung in diesem
-Dokument zu etablieren.
+JSON-Format ist in RFC4627\footnote{RFC4627:
+  \url{https://tools.ietf.org/html/rfc4627}} beschrieben. Nachfolgend
+werden nur die wichtigsten Definitionen übernommen, um eine Terminologie
+zur weiteren Verwendung in diesem Dokument zu etablieren.
 
 Das JSON-Format unterstützt die Ausgabe von vier verschiedenen
 primitiven Datentypen:
@@ -1659,13 +1673,13 @@ denen nachfolgend die wichtigsten zusammen gefasst werden.
 
 \begin{itemize}
 \item
-  \textbf{Schlüssel müssen einzigartig sein}: Es ist nicht zulässig, in
+  \textbf{Schlüssel MÜSSEN einzigartig sein}: Es ist nicht zulässig, in
   einem JSON-LD-Objekt mehrmals den selben Schlüssel für ein Attribut zu
   verwenden.
 \item
   \textbf{Groß- und Kleinschreibung werden unterschieden}: Groß- und
-  Kleinschreibung sind bei allen Bestandteilen eines JSON-LD-Dokuments
-  zu beachten, also auch bei den Attributnamen.
+  Kleinschreibung MÜSSEN bei allen Bestandteilen eines JSON-LD-Dokuments
+  unterschieden werden, also auch bei den Attributnamen.
 \item
   \textbf{Listen gelten grundsätzlich als nicht sortiert}: Die
   JSON-Spezifikation geht bei Listen grundsätzlich davon aus, dass diese
@@ -1681,9 +1695,8 @@ denen nachfolgend die wichtigsten zusammen gefasst werden.
   OParl-JSON-LD-Vokabular wird an der entsprechenden Stelle das
   Schlüsselwort \texttt{@list} verwenden.
 \item
-  \textbf{Verschachtelte Listen sind nicht möglich}: JSON-LD erlaubt
-  keine Listen, die wiederum Listen als Werte enthalten. TODO:
-  \href{https://github.com/OParl/specs/issues/115}{Issue 115}.
+  \textbf{Listen DÜRFEN NICHT verschachtelt werden}: JSON-LD erlaubt
+  keine Listen, die wiederum Listen als Werte enthalten.
 \end{itemize}
 
 \hyperdef{}{jsonp}{\subsubsection{JSONP}\label{jsonp}}
@@ -3741,8 +3754,7 @@ machen.
 Dieser Objekttyp kann für Objekte im Kontext des Objekttyps
 \texttt{oparl:Paper} verwendet werden.
 
-Ein einfaches Beispiel - welches GeoJSON verwendet und deshalb nur der
-Illustration dient:
+Ein einfaches Beispiel:
 
 \hyperdef{}{locationux5fex1}{\label{locationux5fex1}}
 \begin{Shaded}
@@ -3750,49 +3762,15 @@ Illustration dient:
 \NormalTok{\{}
     \ErrorTok{...}
     \DataTypeTok{"location"}\NormalTok{: \{}
-        \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Honschaftsstra\textbackslash{}u00dfe 312, K\textbackslash{}u00f6ln"}\NormalTok{, }\ErrorTok{//} \ErrorTok{TODO}\NormalTok{: }\ErrorTok{weshalb} \ErrorTok{diese} \ErrorTok{Kodierung?!}
-        \StringTok{"geometry"}\ErrorTok{:} \NormalTok{\{}
-            \DataTypeTok{"type"}\NormalTok{: }\StringTok{"Point"}\NormalTok{,}
-            \DataTypeTok{"coordinates"}\NormalTok{: [}\FloatTok{7.03291}\NormalTok{, }\FloatTok{50.98249}\NormalTok{]}
-        \NormalTok{\}}
+        \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Honschaftsstraße 312, Köln"}\NormalTok{,}
+        \DataTypeTok{"geometry"}\NormalTok{: }\StringTok{"POINT (7.03291 50.98249)"}
     \NormalTok{\},}
     \ErrorTok{...}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-In der JSON-LD Recommendation des W3C ist diese Passage zu finden:
-\textsubscript{\textasciitilde{}}\textasciitilde{}\textasciitilde{} List
-of lists in the form of list objects are not allowed in this version of
-JSON-LD. This decision was made due to the extreme amount of added
-complexity when processing lists of lists.
-\textsubscript{\textasciitilde{}}\textasciitilde{}\textasciitilde{}
-
-Das lässt sich nicht mit der Verwendung von GeoJSON vereinbaren, denn
-dort sind die Geometriedaten bei vielen Objektarten in Form von
-verschachtelten Listen kodiert. Zwar gibt es eine Iniatitive zur
-Schaffung von GeoJSON-LD (siehe http://geojson.org/vocab und
-https://github.com/geojson/geojson-ld), diese Spezifikation hat bisher
-jedoch keinen verwendbaren Zustand erreicht, so dass sie nicht für OParl
-1.0 verwendbar ist.
-
-Statt GeoJSON oder GeoJSON-LD wird deshalb der semantisch gleichwertige
-und etablierte Standard ``Well-Known Text'' (WKT) verwendet (siehe
-http://en.wikipedia.org/wiki/Well-known\_text).
-
-WKT ist: - präzise spezifiziert a) ISO/IEC 13249-3:2011 standard,
-``Information technology -- Database languages -- SQL multimedia and
-application packages -- Part 3: Spatial'' (SQL/MM) b) ``OpenGIS ®
-Implementation Standard for Geographic information - Simple feature
-access - Part 1: Common architecture'' - semantisch ebenso
-ausdrucksstark wie GeoJSON / GeoJSON-LD - auch durch Linked Data Technik
-weitreichend unterstützt (GeoSPARQL, Apache Jena spatial extension) -
-leicht von und nach GeoJSON konvertierbar
-(http://en.wikipedia.org/wiki/Well-known\_text\#APIs\_that\_provide\_support)
-
-TODO: neue Beispiele
-
-Ein Kontext:
+Ein Kontext (TODO: Kann das weg?):
 
 \begin{verbatim}
 {
@@ -3811,7 +3789,7 @@ Und ein Beispiel unter Verwendung des Kontextes:
 \NormalTok{\{}
     \ErrorTok{//} \ErrorTok{...}
     \DataTypeTok{"location"}\NormalTok{: \{}
-        \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Honschaftsstra\textbackslash{}u00dfe 312, K\textbackslash{}u00f6ln"}\NormalTok{,}
+        \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Honschaftsstraße 312, Köln"}\NormalTok{,}
         \DataTypeTok{"geometry"}\NormalTok{: }\StringTok{"POINT (7.03291 50.98249)"}
     \NormalTok{\},}
     \ErrorTok{//} \ErrorTok{...}
@@ -3819,17 +3797,21 @@ Und ein Beispiel unter Verwendung des Kontextes:
 \end{Highlighting}
 \end{Shaded}
 
-OParl sieht bei Angabe von Geodaten die Verwendung
-des\\GeoJSON-Formats\footnote{GeoJSON Spezifikation
-  \url{http://geojson.org/geojson-spec.html}} vor. GeoJSON erlaubt die
-Beschreibung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden
-und Polygonen in JSON-Notation. Ein GeoJSON-Objekt kann auch mehrere
-Geometrien umfassen, beispielsweise um damit mehrere Punkte oder
-Polygone zu umschreiben.
+OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung
+des\\Well-Known-Text-Formats (WKT) der Simple Feature Access
+Spezifikation\footnote{Simple Feature Access Spezifikation:
+  \url{http://www.opengeospatial.org/standards/sfa}} vor. WKT erlaubt
+die Beschreibung von unterschiedlichen Geometrien wie Punkten
+(\texttt{Point}), Pfaden (\texttt{LineString}), Polygonen
+(\texttt{Polygon}) und viele andere mehr.
 
-Gegenüber der GeoJSON-Spezifikation sieht OParl eine wichtige
-Einschränkung vor: Für die Ausgabe über eine OParl API MÜSSEN sämtliche
-Koordinatenangaben im System WGS84\footnote{WGS84 steht für ``World
+Zum Zeitpunkt der Erstellung der vorliegenden Spezifikation ist Version
+1.2.1 der Simple-Feature-Access-Spezifikation aktuell. OParl stellt
+keine Anforderungen daran, welche Version von Simple-Feature-Access bei
+der Ausgabe von WKT zu unterstützen ist.
+
+Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben
+solcher Geodaten im System WGS84\footnote{WGS84 steht für ``World
   Geodetic System 1984'', es wird unter anderem auch vom Global
   Positioning System (GPS) verwendet. In geografischen
   Informationssystemen ist für das System der EPSG-Code 4326 geläufig.}
@@ -3845,7 +3827,7 @@ Zeichenkette. EMPFOHLEN
 \item[\texttt{geometry}]
 Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt, MUSS
 ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen. Typ:
-TODO OPTIONAL
+Zeichenkette (TODO: Stimmt das?). OPTIONAL
 \item[\texttt{classification}]
 Schlagwort mit \texttt{skos:prefLabel} Typ: \texttt{skos:Concept}
 OPTIONAL
@@ -3853,41 +3835,14 @@ OPTIONAL
 
 \subsubsection{Weitere Beispiele}\label{weitere-beispiele}
 
-\paragraph{Ortsangabe mit
-Polygon-Objekt}\label{ortsangabe-mit-polygon-objekt}
-
-Die alte GeoJSON-Variante:
+Ortsangabe mit Polygon-Objekt:
 
 \hyperdef{}{locationux5fex3}{\label{locationux5fex3}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
     \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Rechtes Rheinufer zwischen Deutzer}
-\StringTok{        Br\textbackslash{}u00fccke und Hohenzollernbr\textbackslash{}u00fccke"}\NormalTok{,}
-    \DataTypeTok{"type"}\NormalTok{: }\StringTok{"Polygon"}\NormalTok{,}
-    \DataTypeTok{"geometry"}\NormalTok{: \{}
-        \DataTypeTok{"coordinates"}\NormalTok{: [}
-            \NormalTok{[}
-                \NormalTok{[}\FloatTok{6.9681106}\NormalTok{, }\FloatTok{50.9412137}\NormalTok{],}
-                \NormalTok{[}\FloatTok{6.9690940}\NormalTok{, }\FloatTok{50.9412137}\NormalTok{],}
-                \NormalTok{[}\FloatTok{6.9692169}\NormalTok{, }\FloatTok{50.9368270}\NormalTok{],}
-                \NormalTok{[}\FloatTok{6.9681218}\NormalTok{, }\FloatTok{50.9368270}\NormalTok{],}
-                \NormalTok{[}\FloatTok{6.9681106}\NormalTok{, }\FloatTok{50.9412137}\NormalTok{]}
-            \NormalTok{]}
-        \NormalTok{]}
-    \NormalTok{\}}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-Und die neue Version mit Well-Known Text:
-
-\hyperdef{}{locationux5fex3}{\label{locationux5fex3}}
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Rechtes Rheinufer zwischen Deutzer}
-\StringTok{        Br\textbackslash{}u00fccke und Hohenzollernbr\textbackslash{}u00fccke"}\NormalTok{,}
+\StringTok{        Brücke und Hohenzollernbrücke"}\NormalTok{,}
     \DataTypeTok{"geometry"}\NormalTok{: }\StringTok{"POLYGON ((}
 \StringTok{                6.9681106 50.9412137,}
 \StringTok{                6.9690940 50.9412137,}

@@ -316,6 +316,17 @@ mal von einer Nutzerin gesprochen und mal von einem Nutzer. Gemeint sind
 selbstverständlich in allen Fällen immer weibliche wie auch männliche
 Personen.
 
+Codebeispiele
+
+Die in diesem Dokument aufgeführten Codebeispiele dienen der
+Veranschaulichung der beschriebenen Prinzipien. Es handelt sich in der
+Regel um frei erfundene Daten.
+
+Codebeispiele erheben insbesondere bei JSON-Code nicht den Anspruch auf
+hundertprozentige syntaktische Korrektheit. Es kann in Einzelfällen aus
+Gründen der besseren Lesbarkeit zur Verwendung von Umlauten etc. kommen,
+die in JSON nicht erlaubt wären.
+
 Initiatoren
 -----------
 
@@ -1157,7 +1168,7 @@ Vollständigkeit erheben:
     erscheint. Erfahrungsgemäß überdauern solche URLs nur kurz.
 
 Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee[^20]
-sowie die Europäische Kommission[^21]. TODO: goo.gl URL expandieren
+sowie die Europäische Kommission[^21].
 
 Serialisierung mittels JSON-LD und JSONP
 ----------------------------------------
@@ -1177,8 +1188,9 @@ flach.
 
 Wenn der Server auch Anfragen nach application/json akzeptiert, dann
 SOLL er expandierte JSON-LD Dokumente liefern (also solche ohne
-@context). TODO: MUSS der Server solche Legacy-Anfragen akzeptieren?
-Warum?
+@context).
+
+TODO: MUSS der Server solche Legacy-Anfragen akzeptieren? Warum?
 
 JSON
 
@@ -1374,13 +1386,14 @@ Das ist noch nicht geklärt, da Listen hier eine Ausnahme bilden können.
 Eine JSON-LD-konforme Ausgabe stellt noch weitere Anforderungen, von
 denen nachfolgend die wichtigsten zusammen gefasst werden.
 
--   Schlüssel müssen einzigartig sein: Es ist nicht zulässig, in einem
+-   Schlüssel MÜSSEN einzigartig sein: Es ist nicht zulässig, in einem
     JSON-LD-Objekt mehrmals den selben Schlüssel für ein Attribut zu
     verwenden.
 
 -   Groß- und Kleinschreibung werden unterschieden: Groß- und
-    Kleinschreibung sind bei allen Bestandteilen eines JSON-LD-Dokuments
-    zu beachten, also auch bei den Attributnamen.
+    Kleinschreibung MÜSSEN bei allen Bestandteilen eines
+    JSON-LD-Dokuments unterschieden werden, also auch bei den
+    Attributnamen.
 
 -   Listen gelten grundsätzlich als nicht sortiert: Die
     JSON-Spezifikation geht bei Listen grundsätzlich davon aus, dass
@@ -1396,8 +1409,8 @@ denen nachfolgend die wichtigsten zusammen gefasst werden.
     OParl-JSON-LD-Vokabular wird an der entsprechenden Stelle das
     Schlüsselwort @list verwenden.
 
--   Verschachtelte Listen sind nicht möglich: JSON-LD erlaubt keine
-    Listen, die wiederum Listen als Werte enthalten. TODO: Issue 115.
+-   Listen DÜRFEN NICHT verschachtelt werden: JSON-LD erlaubt keine
+    Listen, die wiederum Listen als Werte enthalten.
 
 JSONP
 
@@ -3346,53 +3359,20 @@ machen.
 Dieser Objekttyp kann für Objekte im Kontext des Objekttyps oparl:Paper
 verwendet werden.
 
-Ein einfaches Beispiel - welches GeoJSON verwendet und deshalb nur der
-Illustration dient:
+Ein einfaches Beispiel:
 
 ``` {#location_ex1 .json}
 {
     ...
     "location": {
-        "description": "Honschaftsstra\u00dfe 312, K\u00f6ln", // TODO: weshalb diese Kodierung?!
-        "geometry": {
-            "type": "Point",
-            "coordinates": [7.03291, 50.98249]
-        }
+        "description": "Honschaftsstraße 312, Köln",
+        "geometry": "POINT (7.03291 50.98249)"
     },
     ...
 }
 ```
 
-In der JSON-LD Recommendation des W3C ist diese Passage zu finden: ~~~
-List of lists in the form of list objects are not allowed in this
-version of JSON-LD. This decision was made due to the extreme amount of
-added complexity when processing lists of lists. ~~~
-
-Das lässt sich nicht mit der Verwendung von GeoJSON vereinbaren, denn
-dort sind die Geometriedaten bei vielen Objektarten in Form von
-verschachtelten Listen kodiert. Zwar gibt es eine Iniatitive zur
-Schaffung von GeoJSON-LD (siehe http://geojson.org/vocab und
-https://github.com/geojson/geojson-ld), diese Spezifikation hat bisher
-jedoch keinen verwendbaren Zustand erreicht, so dass sie nicht für OParl
-1.0 verwendbar ist.
-
-Statt GeoJSON oder GeoJSON-LD wird deshalb der semantisch gleichwertige
-und etablierte Standard "Well-Known Text" (WKT) verwendet (siehe
-http://en.wikipedia.org/wiki/Well-known_text).
-
-WKT ist: - präzise spezifiziert a) ISO/IEC 13249-3:2011 standard,
-"Information technology -- Database languages -- SQL multimedia and
-application packages -- Part 3: Spatial" (SQL/MM) b) "OpenGIS ®
-Implementation Standard for Geographic information - Simple feature
-access - Part 1: Common architecture" - semantisch ebenso ausdrucksstark
-wie GeoJSON / GeoJSON-LD - auch durch Linked Data Technik weitreichend
-unterstützt (GeoSPARQL, Apache Jena spatial extension) - leicht von und
-nach GeoJSON konvertierbar
-(http://en.wikipedia.org/wiki/Well-known_text#APIs_that_provide_support)
-
-TODO: neue Beispiele
-
-Ein Kontext:
+Ein Kontext (TODO: Kann das weg?):
 
     {
        "geometry":
@@ -3407,23 +3387,27 @@ Und ein Beispiel unter Verwendung des Kontextes:
 {
     // ...
     "location": {
-        "description": "Honschaftsstra\u00dfe 312, K\u00f6ln",
+        "description": "Honschaftsstraße 312, Köln",
         "geometry": "POINT (7.03291 50.98249)"
     },
     // ...
 }
 ```
 
-OParl sieht bei Angabe von Geodaten die Verwendung des  
-GeoJSON-Formats[^33] vor. GeoJSON erlaubt die Beschreibung von vielen
-unterschiedlichen Geometrien wie Punkten, Pfaden und Polygonen in
-JSON-Notation. Ein GeoJSON-Objekt kann auch mehrere Geometrien umfassen,
-beispielsweise um damit mehrere Punkte oder Polygone zu umschreiben.
+OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des  
+Well-Known-Text-Formats (WKT) der Simple Feature Access
+Spezifikation[^33] vor. WKT erlaubt die Beschreibung von
+unterschiedlichen Geometrien wie Punkten (Point), Pfaden (LineString),
+Polygonen (Polygon) und viele andere mehr.
 
-Gegenüber der GeoJSON-Spezifikation sieht OParl eine wichtige
-Einschränkung vor: Für die Ausgabe über eine OParl API MÜSSEN sämtliche
-Koordinatenangaben im System WGS84[^34] angegeben werden, und zwar in
-Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.
+Zum Zeitpunkt der Erstellung der vorliegenden Spezifikation ist Version
+1.2.1 der Simple-Feature-Access-Spezifikation aktuell. OParl stellt
+keine Anforderungen daran, welche Version von Simple-Feature-Access bei
+der Ausgabe von WKT zu unterstützen ist.
+
+Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben
+solcher Geodaten im System WGS84[^34] angegeben werden, und zwar in Form
+von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.
 
 Eigenschaften
 
@@ -3434,42 +3418,19 @@ description
 geometry
     Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt,
     MUSS ihr Wert der Spezifikation von Well-Known Text (WKT)
-    entsprechen. Typ: TODO OPTIONAL
+    entsprechen. Typ: Zeichenkette (TODO: Stimmt das?). OPTIONAL
 
 classification
     Schlagwort mit skos:prefLabel Typ: skos:Concept OPTIONAL
 
 Weitere Beispiele
 
-Ortsangabe mit Polygon-Objekt
-
-Die alte GeoJSON-Variante:
+Ortsangabe mit Polygon-Objekt:
 
 ``` {#location_ex3 .json}
 {
     "description": "Rechtes Rheinufer zwischen Deutzer
-        Br\u00fccke und Hohenzollernbr\u00fccke",
-    "type": "Polygon",
-    "geometry": {
-        "coordinates": [
-            [
-                [6.9681106, 50.9412137],
-                [6.9690940, 50.9412137],
-                [6.9692169, 50.9368270],
-                [6.9681218, 50.9368270],
-                [6.9681106, 50.9412137]
-            ]
-        ]
-    }
-}
-```
-
-Und die neue Version mit Well-Known Text:
-
-``` {#location_ex3 .json}
-{
-    "description": "Rechtes Rheinufer zwischen Deutzer
-        Br\u00fccke und Hohenzollernbr\u00fccke",
+        Brücke und Hohenzollernbrücke",
     "geometry": "POLYGON ((
                 6.9681106 50.9412137,
                 6.9690940 50.9412137,
@@ -3633,11 +3594,12 @@ JSON-LD-Kontextdokumente zu finden sein werden.
 
 [^21]: Study on persistent URIs, with identification of best practices
     and recommendations on the topic for the MSs and the EC. (PDF)
-    http://goo.gl/JaTq6Z
+    https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf
 
-[^22]: http://www.w3.org/TR/json-ld/#iana-considerations
+[^22]: JSON-LD 1.0: IANA COnsiderations:
+    http://www.w3.org/TR/json-ld/#iana-considerations
 
-[^23]: https://tools.ietf.org/html/rfc4627
+[^23]: RFC4627: https://tools.ietf.org/html/rfc4627
 
 [^24]: siehe dazu Linked Data
 
@@ -3660,7 +3622,8 @@ JSON-LD-Kontextdokumente zu finden sein werden.
 
 [^32]: http://tools.ietf.org/html/rfc2046
 
-[^33]: GeoJSON Spezifikation http://geojson.org/geojson-spec.html
+[^33]: Simple Feature Access Spezifikation:
+    http://www.opengeospatial.org/standards/sfa
 
 [^34]: WGS84 steht für "World Geodetic System 1984", es wird unter
     anderem auch vom Global Positioning System (GPS) verwendet. In

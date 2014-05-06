@@ -51,11 +51,11 @@ gegenüber der Verwendung einer IP-Adresse sind vielfältig:
 
 Eine URL wie
 
-    http://oparl.ratsinformation.stadt-koeln.de/
+    http://oparl.stadtrat.stadt-koeln.de/
 
 kommuniziert beispielsweise direkt die Zugehörigkeit zur Stadt Köln als Betreiber des Systems. Die
-Bezeichnung "ratsinformation" in der Subdomain zeigt den Zweck des Systems allgemein verständlich an.
-Der Host-Name "oparl.ratsinformation.stadt-koeln.de" deutet an, dass diese URL zu einer 
+Bezeichnung "stadtrat" in der Subdomain zeigt den Zweck des Systems allgemein verständlich an.
+Der Host-Name "oparl.stadtrat.stadt-koeln.de" deutet an, dass diese URL zu einer 
 OParl-Schnittstelle zu diesem System gehört.
 
 Um die Kanonisierung zu gewährleisten, sind vom Betreiber alle notwendigen Faktoren auszuschließen,
@@ -70,10 +70,10 @@ abrufbar ist. Diese Faktoren könnten sein:
 
 * Zusätzliche Domains, die einen A-Record auf den selben Server besitzen
 
-Zu der kanonischen Beispiel-URL http://oparl.ratsinformation.stadt-koeln.de/ wären eine Reihe von nicht-kanonischen URL-Varianten denkbar, die technischen auf den selben Server führen könnten:
+Zu der kanonischen Beispiel-URL http://oparl.stadtrat.stadt-koeln.de/ wären eine Reihe von nicht-kanonischen URL-Varianten denkbar, die technischen auf den selben Server führen könnten:
 
 * http://83.123.89.102/
-* http://oparl.ratsinformation.stadtkoeln.de/
+* http://oparl.stadtrat.stadtkoeln.de/
 * http://risserv.stadt-koeln.de/
 
 Falls es aus technischen Gründen nicht möglich ist, den Zugang auf das OParl-System über nicht-kanonische

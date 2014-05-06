@@ -7,12 +7,12 @@ OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:
 * Bürger, politische Parteien und Organisationen
 * Open Data Initiativen
 * Wissenschaftler
-* Anbieter von RIS-Pflegesoftware oder -services 
-* Anbieter von RIS-Darstellungssoftware oder -services
+* Anbieter von Server- und Softwareprodukten
 * Anbieter von Linked Data-Plattformen oder -Services
 
 TODO: Nutzen für jede Stakeholder-Gruppe
-TODO: Linked Data erwähnen
+
+TODO: Linked Data erwähnen oder Verweis auf Linked Data Abschnitt
 
 Die Gründe, warum Betreiber von parlamentarischen Informationssystemen den
 Zugriff darauf über eine standardisierte Schnittstelle ermöglichen sollten,

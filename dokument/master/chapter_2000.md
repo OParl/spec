@@ -26,11 +26,6 @@ verschiedensten Körperschaften eingesetzt werden, um die Zusammenarbeit
 von Parlamenten zu organisieren, zu dokumentieren und öffentlich nachvollziehbar
 zu machen.
 
-Im kommunalen Umfeld in Deutschland, wo das Parlament je nach Art der Kommune
-häufig als Stadtrat oder Gemeinderat bezeichnet wird, hat sich für diese Art
-von Informationssystem auch der Begriff "Ratsinformationssystem" (kurz "RIS")
-etabliert.
-
 Parlamentarische Informationssysteme sind jedoch nicht auf die kommunale Ebene
 begrenzt. Ähnliche Systeme werden auch auf Ebene z.B. von Landkreisen,
 Regierungsbezirken und diversen Zweckverbänden eingesetzt.

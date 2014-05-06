@@ -196,11 +196,11 @@ Listen hier eine Ausnahme bilden können.
 Eine JSON-LD-konforme Ausgabe stellt noch weitere Anforderungen, von denen nachfolgend die 
 wichtigsten zusammen gefasst werden.
 
-* **Schlüssel müssen einzigartig sein**: Es ist nicht zulässig, in einem JSON-LD-Objekt
+* **Schlüssel MÜSSEN einzigartig sein**: Es ist nicht zulässig, in einem JSON-LD-Objekt
 mehrmals den selben Schlüssel für ein Attribut zu verwenden.
 
-* **Groß- und Kleinschreibung werden unterschieden**: Groß- und Kleinschreibung sind
-bei allen Bestandteilen eines JSON-LD-Dokuments zu beachten, also auch bei den
+* **Groß- und Kleinschreibung werden unterschieden**: Groß- und Kleinschreibung MÜSSEN
+bei allen Bestandteilen eines JSON-LD-Dokuments unterschieden werden, also auch bei den
 Attributnamen.
 
 * **Listen gelten grundsätzlich als nicht sortiert**: Die JSON-Spezifikation

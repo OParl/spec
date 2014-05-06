@@ -113,60 +113,69 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 
 `name`
 :   Der vollständige Name der Person mit akademischem Grad und Vornamen.
+    Typ: TODO
     ZWINGEND
 
 `familyName`
 :   Familienname bzw. Nachname.
+    Typ: TODO
     OPTIONAL
 
 `givenName`
 :   Vorname bzw. Taufname.
+    Typ: TODO
     OPTIONAL
 
 `formOfAddress`
 :   Anrede
-    URLs von Objekten mit skos:prefLabel. Ähnlich wie `status`. Beispiele für die `skos:prefLabel` sind
+    Begriff mit `skos:prefLabel`. Ähnlich wie `status`. Beispiele für die `skos:prefLabel` sind
     "Ratsherr | Ratsfrau" und "Herr | Frau".
+    Typ: `skos:Concept`
     OPTIONAL
 
 `title`
 :   Akademische(r) Titel.
     TODO: "Dr."? "Diplom"?
+    Typ: `skos:Concept`
     OPTIONAL
 
 `gender`
 :   Geschlecht. Zulässige Werte sind `vcard:Female`, `vcard:Male`, `vcard:None`, `vcard:Other` und `vcard:Unknown`.
+    Typ: `vcard:TODO`
     OPTIONAL
 
 `phone`
 :   Telefonnummer mit `tel:` Schema.
+    Typ: TODO
     OPTIONAL
 
 `email`
 :   E-Mail-Adresse mit `mailto:` Schema.
+    Typ: `foaf:mbox`
     OPTIONAL
 
 `streetAddress`
 :   Straße und Hausnummer der Kontakt-Anschrift der Person.
+    Typ: TODO
     OPTIONAL
 
 `postalCode`
 :   Postleitzahl der Kontakt-Anschrift der Person.
+    Typ: TODO
     OPTIONAL
 
 `locality`
 :   Ortsangabe der Kontakt-Anschrift der Person.
+    Typ: `vcard:locality`
     OPTIONAL
 
 `organization`
-:   URLs der Gruppierung oder Liste der URLs der Gruppierungen (Objekte vom Typ `oparl:Organization`), in der
-    bzw. in denen die Person aktuell Mitglied ist.
-    Sollte die Person Mitglied in keiner Gruppierung sein,
-    enthält die Liste keine Einträge.
+:   Gruppierung in der die Person aktuell Mitglied ist.
+    Typ: `oparl:Organization`
     ZWINGEND
-    
+
 `status`
-:   URLs von Objekten mit skos:prefLabel.
+:   Status. Begriff mit `skos:prefLabel`.
     Die Zeichenketten SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster
     "männliche Form | weibliche Form" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem "|")
     Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden:
@@ -181,20 +190,25 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "Einzelstadtverordneter | Einzelstadtverordnete" (Mitglieder des Rates die keiner Fraktion/Organisation
     angehören -> die Zuordbarkeit einer fiktiven Organisation ermöglichen TODO: warum will man das?).
     Siehe https://github.com/OParl/specs/issues/45
+    Typ: `skos:Concept`
     OPTIONAL
 
 `hasMembership`
-:   URLs der Mitgliedschaft oder Liste von URLs der Mitgliedschaften (Objekte vom Typ `org:Membership`). TODO: Eventuell     Unterklasse von org:Membership definieren.
+:   Mitgliedschaft.
+    TODO: Eventuell Unterklasse von `org:Membership` definieren.
+    Typ: `org:Membership`
     OPTIONAL.
 
 `classification`
-:   `skos:Concept`
+:   Typ: `skos:Concept`
     OPTIONAL
 
 `created`
 :   Datum/Uhrzeit der Erzeugung des Objekts.
+    Typ: String mit xsd:dateTime
     EMPFOHLEN.
 
 `lastModified`
 :   Datum/Uhrzeit der letzten Bearbeitung des Objekts.
+    Typ: String mit xsd:dateTime
     EMPFOHLEN.

@@ -9,7 +9,7 @@ Im Rahmen dieses Dokuments wird aus Gründen der Verständlichkeit generell der 
 gebräuchlichere Begriff "URL" werwendet, auch wenn damit tatsächlich die
 internationalisierte Variante nach RFC 3987^[RFC 3987: 
 <http://tools.ietf.org/html/rfc3987>], die korrekterweise IRI bzw. "Internationalized
-Resource Identifier" genannt werden müsste. In andern Kontexten wiederum wird von
+Resource Identifier" genannt werden müsste, gemeint ist. In andern Kontexten wiederum wird von
 URIs bzw. "Uniform Resource Identifier" gesprochen. Das vorliegende Dokumente fasst
 alle drei Konzepte mit dem Begriff "URL" zusammen und ignoriert damit die
 Unterschiede der einzelnen Begriffe, da diese im Rahmen dieser Spezifikation ohne

@@ -14,7 +14,7 @@ Ein Beispiel:
     "@id": "http://beispielris.de/",
     "oparlVersion": "http://oparl.org/specs/1.0/",
     "name": "Beispiel-System",
-    "risWebsite": "http://www.beispielris.de/",
+    "website": "http://www.beispielris.de/",
     "contactEmail": "mailto:info@beispielris.de",
     "contactName": "Allgemeiner OParl Kontakt",
     "vendor": "http://example-software.com/",
@@ -59,7 +59,7 @@ Und das System-Objekt in kompakter Form unter Verwendung des Kontext:
     "@id": "http://beispielris.de/",
     "oparlVersion": "http://oparl.org/specs/1.0/",
     "name": "Beispiel-System",
-    "risWebsite": "http://www.beispielris.de/",
+    "website": "http://www.beispielris.de/",
     "contactEmail": "mailto:info@beispielris.de",
     "contactName": "Allgemeiner OParl Kontakt",
     "vendor": "http://example-software.com/",
@@ -162,7 +162,7 @@ TODO: Beispiele für JSON-LD und exemplarisch auch für HTML.
 :   URL des Feeds ["Entfernte Objekte"](#feed_entfernte_objekte). Die 
     Eigenschaft ist EMPFOHLEN.
 
-`risWebsite`
+`website`
 :   URL zur WWW-Oberfläche des parlamentarischen Informationssystem.
     Diese Eigenschaft ist OPTIONAL.
 

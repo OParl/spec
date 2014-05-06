@@ -148,9 +148,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </dd>
 </dl>
 </section>
-<section id="besondere-hervorhebungen-und-satzkonventionen" class="level3">
-<h3><span class="header-section-number">1.6.2</span> Besondere Hervorhebungen und Satzkonventionen</h3>
-<p>TODO</p>
+<section id="geschlechterspezifische-begrifflichkeiten" class="level3">
+<h3><span class="header-section-number">1.6.2</span> Geschlechterspezifische Begrifflichkeiten</h3>
+<p>Um bei Begriffen wie Nutzer, Anwender, Betreiber etc. die sonst übliche Dominanz der männlichen Variante zu vermeiden, werden in diesem Dokument männliche oder weibliche Varianten gemischt. Es wird also beispielsweise mal von einer Nutzerin gesprochen und mal von einem Nutzer. Gemeint sind selbstverständlich in allen Fällen immer weibliche wie auch männliche Personen.</p>
 </section>
 </section>
 <section id="initiatoren" class="level2">
@@ -271,9 +271,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>(In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen Schnittstelle beschrieben. Hierzu gehören alle chapter-Dateien, deren Nummerierung mit der Ziffer 6 beginnnt.)</p>
 <p>Stichpunkte:</p>
 <ul>
-<li>Grundlage für den Zugriff auf die Schnittstelle ist das Hypertext Transfer Protocol (HTTP).</li>
 <li>Optional gzip Encoding und andere Kodierungen, wenn Client und Server dies unterstützen</li>
-<li>Das Protokoll ist zustandslos</li>
 <li>Authentifizierung wird nicht benötigt.</li>
 </ul>
 <section id="designprinzipien" class="level2">
@@ -297,6 +295,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>die darauf beruht, dass mittels URL einzelne Ressourcen oder Zustände vom Client abgerufen werden können.</li>
 <li>die zustandslos ist. Das bedeutet, die Anfrage eines Clients an den Server enthält alle Informationen, die notwendig sind, um die Anfrage zu verarbeiten. Auf dem Server wird kein Speicher zur Verfügung gestellt, um beispielsweise den Zustand einer Session zu speichern.</li>
 </ul>
+<p>Diese Prinzipien macht sich auch OParl zunutze. Damit gilt prinzipiell, dass eine OParl-konforme Server-Schnittstelle auch als &quot;RESTful&quot; gelten darf.</p>
 </section>
 <section id="selbstbeschreibungsfähigkeit" class="level3">
 <h3><span class="header-section-number">4.1.4</span> Selbstbeschreibungsfähigkeit</h3>
@@ -371,17 +370,16 @@ Objekt: https://dbpedia.org/resource/John_(given_name)</code></pre>
 <section id="urls" class="level2">
 <h2><span class="header-section-number">4.5</span> URLs, IRIs und URIs</h2>
 <p>Den URLs (für &quot;Uniform Resource Locators&quot;) kommt bei einer OParl-konformen API eine besondere Bedeutung zu und es werden eine Reihe von Anforderungen an die Verarbeitung von URLs gestellt.</p>
-<p>Im Rahmen dieses Dokuments wird aus Gründen der Verständlichkeit generell der allgemein gebräuchlichere Begriff &quot;URL&quot; werwendet, auch wenn damit tatsächlich die internationalisierte Variante nach RFC 3987<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a>, die korrekterweise IRI bzw. &quot;Internationalized Resource Identifier&quot; genannt werden müsste. In andern Kontexten wiederum wird von URIs bzw. &quot;Uniform Resource Identifier&quot; gesprochen. Das vorliegende Dokumente fasst alle drei Konzepte mit dem Begriff &quot;URL&quot; zusammen und ignoriert damit die Unterschiede der einzelnen Begriffe, da diese im Rahmen dieser Spezifikation ohne bedeutung sind.</p>
+<p>Im Rahmen dieses Dokuments wird aus Gründen der Verständlichkeit generell der allgemein gebräuchlichere Begriff &quot;URL&quot; werwendet, auch wenn damit tatsächlich die internationalisierte Variante nach RFC 3987<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a>, die korrekterweise IRI bzw. &quot;Internationalized Resource Identifier&quot; genannt werden müsste, gemeint ist. In andern Kontexten wiederum wird von URIs bzw. &quot;Uniform Resource Identifier&quot; gesprochen. Das vorliegende Dokumente fasst alle drei Konzepte mit dem Begriff &quot;URL&quot; zusammen und ignoriert damit die Unterschiede der einzelnen Begriffe, da diese im Rahmen dieser Spezifikation ohne bedeutung sind.</p>
 <p>Die grundsätzliche Funktionsweise von URLs ist in RFC 3986 beschrieben<a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a>.</p>
 <p>Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in diesem Dokument Verwendung finden:</p>
-<pre><code>http://refserv.oparl.org/bodies/0/committees/4/members/?skip=234
-\__/   \_______________/\_____________________________/ \______/
- |         |                  |                           |
-Schema    Host               Pfad                        Query-String</code></pre>
-<p>Um bereits an dieser Stelle das Entstehen von Missverständnissen zu vermeiden sei darauf hingewiesen, dass insbesondere auch der enthaltene Pfad nur ein Beipiel ist. Der Aufbau der Pfade wird in OParl nicht festgelegt.</p>
+<pre><code>http://refserv.oparl.org/foo/bar/?skip=234
+\__/   \_______________/\_______/ \______/
+ |         |                |        |
+Schema    Host             Pfad  Query-String</code></pre>
 <section id="url-kanonisierung" class="level3">
 <h3><span class="header-section-number">4.5.1</span> URL-Kanonisierung</h3>
-<p>Absicht ist, dass jedes benannte Objekt, das ein Server über eine OParl-API anbietet, über genau eine URL identifizierbar und abrufbar ist. Diese Vereinheitlichung der URL nennen wir Kanonisierung.</p>
+<p>Absicht ist, dass jedes benannte Objekt<a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a>, das ein Server über eine OParl-API anbietet, über genau eine URL identifizierbar und abrufbar ist. Diese Vereinheitlichung der URL nennen wir Kanonisierung.</p>
 <p>Die Kanonisierung ist entscheidend, um erkennen zu können, ob zwei URLs das selbe Objekt repräsentieren. Sind zwei URLs identisch, sollen Clients daraus ableiten können, dass diese das selbe Objekt repräsentieren. Sind zwei URLs unterschiedlich, soll im Umkehrschluss die Annahme gelten, dass sie zwei verschiedene Objekte repräsentieren.</p>
 <p>Der OParl-konforme Server MUSS für jedes benannte Objekt eine kanonische URL bestimmen können.</p>
 <p>Die URL-Kanonisierung betrifft sämtliche Bestandteile der URL. Entsprechend beginnt diese schon beim <strong>Schema</strong> und bei der Entscheidung durch den Betreiber, ob eine OParl-API regulär über HTTP oder über HTTPS erreichbar sein soll (vgl. <a href="#http-und-https">HTTP und HTTPS</a>).</p>
@@ -424,17 +422,17 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <li><p><strong>Veränderliche Objekt-Eigenschaften nicht als URL-Bestandteil nutzen.</strong> In URLs sollten nur Eigenschaften des Objekts aufgenommen werden, die keinen Veränderungen unterliegen. Ändert sich beispielsweise die Kennung einer Drucksache im Verlauf ihrer Existenz, dann scheidet sie für die Bildung der URL aus.</p></li>
 <li><p><strong>Technische Eigenschaften der Implementierung verbergen.</strong> Ist ein OParl-Server beispielsweise in PHP implementiert, sollte dies nicht dazu führen, dass im Pfad ein Bestandteil wie &quot;oparl.php/&quot; erscheint. Erfahrungsgemäß überdauern solche URLs nur kurz.</p></li>
 </ul>
-<p>Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee<a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a> sowie die Europäische Kommission<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a>. TODO: goo.gl URL expandieren</p>
+<p>Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a> sowie die Europäische Kommission<a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a>. TODO: goo.gl URL expandieren</p>
 </section>
 </section>
 <section id="serialisierung-mittels-json-ld-und-jsonp" class="level2">
 <h2><span class="header-section-number">4.6</span> Serialisierung mittels JSON-LD und JSONP</h2>
 <p>Eine OParl-konforme API gibt Objekte in Form von JSON aus. Die Objekte werden dabei entsprechend der JSON-LD Spezifikation um Kontexte erweitert, welche die Selbstbschreibungsfähigkeit der ausgegebenen Daten verbessert. Auf Anforderung des Clients wird darüber hinaus JSONP unterstützt.</p>
-<p>In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung des HTTP <code>Content-type</code>-Headers <code>application/ld+json</code> beantworten. Die Spezifikation von JSON-LD liefert dazu genauere Informationen<a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a>, auch zu dem optionalen Parameter <code>profile</code> für die explizite Anforderung von JSON-LD in einer dieser drei Unterformen: kompakt, expandiert oder flach.</p>
+<p>In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung des HTTP <code>Content-type</code>-Headers <code>application/ld+json</code> beantworten. Die Spezifikation von JSON-LD liefert dazu genauere Informationen<a href="#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a>, auch zu dem optionalen Parameter <code>profile</code> für die explizite Anforderung von JSON-LD in einer dieser drei Unterformen: kompakt, expandiert oder flach.</p>
 <p>Wenn der Server auch Anfragen nach <code>application/json</code> akzeptiert, dann SOLL er expandierte JSON-LD Dokumente liefern (also solche ohne <code>@context</code>). TODO: MUSS der Server solche Legacy-Anfragen akzeptieren? Warum?</p>
 <section id="json" class="level3">
 <h3><span class="header-section-number">4.6.1</span> JSON</h3>
-<p>Die Abkürzung JSON steht für &quot;JavaScript Object Notation&quot;. Das JSON-Format ist in RFC4627<a href="#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a> beschrieben. Nachfolgend werden nur die wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren Verwendung in diesem Dokument zu etablieren.</p>
+<p>Die Abkürzung JSON steht für &quot;JavaScript Object Notation&quot;. Das JSON-Format ist in RFC4627<a href="#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a> beschrieben. Nachfolgend werden nur die wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren Verwendung in diesem Dokument zu etablieren.</p>
 <p>Das JSON-Format unterstützt die Ausgabe von vier verschiedenen primitiven Datentypen:</p>
 <ul>
 <li><em>Zeichenkette</em> (Unicode)</li>
@@ -461,7 +459,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 <section id="jsonld" class="level3">
 <h3><span class="header-section-number">4.6.2</span> JSON-LD</h3>
-<p>Das Kürzel LD im Namen &quot;JSON-LD&quot; steht für &quot;Linked Data&quot;<a href="#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a>. Entsprechend erweitert die JSON-LD-Spezifikation<a href="#fn24" class="footnoteRef" id="fnref24"><sup>24</sup></a> das JSON-Format um die Möglichkeit,</p>
+<p>Das Kürzel LD im Namen &quot;JSON-LD&quot; steht für &quot;Linked Data&quot;<a href="#fn24" class="footnoteRef" id="fnref24"><sup>24</sup></a>. Entsprechend erweitert die JSON-LD-Spezifikation<a href="#fn25" class="footnoteRef" id="fnref25"><sup>25</sup></a> das JSON-Format um die Möglichkeit,</p>
 <ul>
 <li>Objekte mit anderen Objekten zu verknüpfen,</li>
 <li>Objekte und Eigenschaften bestimmten Typen zuzuordnen und damit</li>
@@ -494,7 +492,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 }</code></pre>
 <p>Hier sind die Eigenschaften wie <code>image</code> einer URL wie http://schema.org/image zugewiesen. Ein Client, der diese URL kennt, kann daraus folgern, dass über die Objekteigenschaft <code>image</code> immer die URL eines Bildes zu finden ist. Das Schlüssel-Wert-Paar</p>
 <pre><code>&quot;@type&quot;: &quot;@id&quot;</code></pre>
-<p>sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die URL eines anderen Objekts ist<a href="#fn25" class="footnoteRef" id="fnref25"><sup>25</sup></a>. Mittels <code>@type</code>-Deklaration könnte aber auch beispielsweise eine Eigenschaft, die im JSON-Sinn eine Zeichenkette ist, als Datum deklariert werden.</p>
+<p>sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die URL eines anderen Objekts ist<a href="#fn26" class="footnoteRef" id="fnref26"><sup>26</sup></a>. Mittels <code>@type</code>-Deklaration könnte aber auch beispielsweise eine Eigenschaft, die im JSON-Sinn eine Zeichenkette ist, als Datum deklariert werden.</p>
 <p>Am obigen Beispiel fällt auf, dass der <code>@context</code>-Teil des Objekts schon mehr Daten umfasst, als die eigentlichen Objekteigenschaften. Sinnvollerweise kann jedoch der gesamte Inhalt des <code>@context</code>-Teils in eine externe Ressource ausgelagert werden. Das folgende Beispiel verdeutlicht dies:</p>
 <pre class="sourceCode json" id="jsonld_ex3"><code class="sourceCode json">{
   <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;http://json-ld.org/contexts/person.jsonld&quot;</span>,
@@ -542,7 +540,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <section id="jsonp" class="level3">
 <h3><span class="header-section-number">4.6.3</span> JSONP</h3>
 <p>Eine Einschränkung bei der Nutzung von JSON ist das Sicherheitsmodell von Web-Browsern. Die gängigen Browser erlauben es innerhalb von Webanwendungen nicht, JSON-Ressourcen von Domains auszulesen, die nicht der Domain entsprechen, von der die Webanwendung selbst geladen wurde. AnwendungsentwicklerInnen sind dadurch bei der Implementierung von Client-Anwendungen eingeschränkt.</p>
-<p>Diese Einschränkung gilt nicht fürt JSONP<a href="#fn26" class="footnoteRef" id="fnref26"><sup>26</sup></a>. Durch JSONP (TODO: Abkürzung erläutern) wird die JSON-Notation so erweitert, dass der ausgegebene Code ausführbarer JavaScript-Code wird. Damit wird erreicht, dass der JSON-Code über die Grenzen von Domains hinweg direkt von Webanwendungen eingebunden werden kann.</p>
+<p>Diese Einschränkung gilt nicht fürt JSONP<a href="#fn27" class="footnoteRef" id="fnref27"><sup>27</sup></a>. Durch JSONP (TODO: Abkürzung erläutern) wird die JSON-Notation so erweitert, dass der ausgegebene Code ausführbarer JavaScript-Code wird. Damit wird erreicht, dass der JSON-Code über die Grenzen von Domains hinweg direkt von Webanwendungen eingebunden werden kann.</p>
 <p>Das folgende Beispiel verdeutlicht den Unterschied zwischen JSON und JSONP. Zunächst ein einfaches JSON-Beispiel:</p>
 <pre class="sourceCode json" id="jsonp_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;foo&quot;</span>: <span class="st">&quot;bar&quot;</span>
@@ -562,7 +560,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </ul>
 </section>
 </section>
-<section id="benannte-und-anonyme-objekte" class="level2">
+<section id="benannte_anonyme_objekte" class="level2">
 <h2><span class="header-section-number">4.7</span> Benannte und anonyme Objekte</h2>
 <p>Die JSON-LD-Spezifikation unterscheidet zwischen benannten und anonymen Objekten. Da die Unterscheidung auch für OParl von Bedeutung ist, wird sie hier genauer erläutert.</p>
 <section id="benannte-objekte" class="level3">
@@ -1057,55 +1055,55 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <h3><span class="header-section-number">5.4.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>system</code></dt>
-<dd><p>URL des Objekts vom Typ <code>oparl:System</code> Objekts, zu dem dieses Objekt gehört. ZWINGEND.</p>
+<dd><p>System zu dem dieses Objekt gehört. Typ: <code>oparl:System</code> ZWINGEND.</p>
 </dd>
 <dt><code>name</code></dt>
-<dd><p>Gibt den gebräuchlichen Namen der Körperschaft an. ZWINGEND.</p>
+<dd><p>Gibt den gebräuchlichen Namen der Körperschaft an. Typ: TODO ZWINGEND.</p>
 </dd>
 <dt><code>nameLong</code></dt>
-<dd><p>Kann bei Bedarf dazu verwendet werden, eine längere Form des Namens der Körperschaft anzugeben. OPTIONAL.</p>
+<dd><p>Kann bei Bedarf dazu verwendet werden, eine längere Form des Namens der Körperschaft anzugeben. Typ: TODO OPTIONAL.</p>
 </dd>
 <dt><code>website</code></dt>
-<dd><p>Dient der Angabe der WWW-URL der Körperschaft. EMPFOHLEN.</p>
+<dd><p>WWW-URL der Körperschaft. EMPFOHLEN.</p>
 </dd>
 <dt><code>license</code></dt>
-<dd><p>URL der Lizenz, die für die Daten, die über diese API abgerufen werden können, gilt, sofern nicht am einzelnen Objekt anders angegeben. Verzeichnisse für solche Lizenz-URLs sind insbesondere http://licenses.opendefinition.org/ und https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json EMPFOHLEN.</p>
+<dd><p>Lizenz, die für die Daten, die über diese API abgerufen werden können, gilt, sofern nicht am einzelnen Objekt anders angegeben. Verzeichnisse für solche Lizenz-URLs sind insbesondere http://licenses.opendefinition.org/ und https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json Typ: TODO EMPFOHLEN.</p>
 </dd>
 <dt><code>licenseValidSinceDay</code></dt>
-<dd><p>Tagesdatum, seit dem die unter license angegebene Lizenz gilt. Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen. EMPFOHLEN</p>
+<dd><p>Tagesdatum, seit dem die unter license angegebene Lizenz gilt. Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen. Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>rgs</code></dt>
-<dd><p>Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette<a href="#fn27" class="footnoteRef" id="fnref27"><sup>27</sup></a>. Diese Eigenschaft ist EMPFOHLEN.</p>
+<dd><p>Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette<a href="#fn28" class="footnoteRef" id="fnref28"><sup>28</sup></a>. Typ: TODO EMPFOHLEN</p>
 </dd>
-<dt><code>sameBody</code></dt>
-<dd><p>Dient der Angabe beliebig vieler zusätzlicher URLs, die die Körperschaft repräsentieren. Diese Eigenschaft ist EMPFOHLEN. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek<a href="#fn28" class="footnoteRef" id="fnref28"><sup>28</sup></a>, der DBPedia<a href="#fn29" class="footnoteRef" id="fnref29"><sup>29</sup></a> oder der Wikipedia<a href="#fn30" class="footnoteRef" id="fnref30"><sup>30</sup></a> angegeben werden.</p>
+<dt><code>equivalentBody</code></dt>
+<dd><p>Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe Körperschaft repräsentieren. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek<a href="#fn29" class="footnoteRef" id="fnref29"><sup>29</sup></a>, der DBPedia<a href="#fn30" class="footnoteRef" id="fnref30"><sup>30</sup></a> oder der Wikipedia<a href="#fn31" class="footnoteRef" id="fnref31"><sup>31</sup></a> angegeben werden. Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>contactEmail</code></dt>
-<dd><p>Dient der Angabe einer Kontakt-E-Mail-Adresse mit &quot;mailto:&quot;-Schema. Diese Eigenschaft ist EMPFOHLEN. Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und idealerweise das parlamentarische Informationssystem zuständigen Stelle ermöglichen.</p>
+<dd><p>Dient der Angabe einer Kontakt-E-Mail-Adresse mit &quot;mailto:&quot;-Schema. Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und idealerweise das parlamentarische Informationssystem zuständigen Stelle ermöglichen. Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>contactName</code></dt>
-<dd><p>Name oder Bezeichnung der mit <code>contactEmail</code> erreichbaren Stelle. OPTIONAL.</p>
+<dd><p>Name oder Bezeichnung der mit <code>contactEmail</code> erreichbaren Stelle. Typ: TODO OPTIONAL.</p>
 </dd>
 <dt><code>paper</code></dt>
-<dd><p>URL, unter welcher die API die Liste aller Objekte vom Typ <code>oparl:Paper</code>, also die Drucksachen unter dieser Körperschaft ausgibt. Diese Eigenschaft ist ZWINGEND.</p>
+<dd><p>Drucksachen unter dieser Körperschaft. Typ: <code>oparl:Paper</code> ZWINGEND.</p>
 </dd>
 <dt><code>member</code></dt>
-<dd><p>URL, unter welcher die API die Liste aller Objekte vom Typ <code>oparl:Person</code>, also die Personen unter dieser Körperschaft ausgibt. Diese Eigenschaft ist ZWINGEND.</p>
+<dd><p>Personen in dieser Körperschaft. Typ: <code>oparl:Person</code> ZWINGEND.</p>
 </dd>
 <dt><code>meeting</code></dt>
-<dd><p>URL, unter welcher die API die Liste aller Objekte vom Typ <code>oparl:Meeting</code>, also die Sitzungen dieser Körperschaft ausgibt. Diese Eigenschaft ist ZWINGEND.</p>
+<dd><p>Sitzungen dieser Körperschaft. Typ: <code>oparl:Meeting</code> ZWINGEND</p>
 </dd>
 <dt><code>organization</code></dt>
-<dd><p>URL, unter welcher die API die Liste aller Objekte vom Typ <code>oparl:Organization</code>, also die Gruppierungen dieser Körperschaft ausgibt. Diese Eigenschaft ist ZWINGEND.</p>
+<dd><p>Gruppierung in dieser Körperschaft. Typ: <code>oparl:Organization</code> ZWINGEND</p>
 </dd>
 <dt><code>classification</code></dt>
-<dd><p><code>skos:Concept</code></p>
+<dd><p>Typ: <code>skos:Concept</code> OPTIONAL</p>
 </dd>
 <dt><code>created</code></dt>
-<dd><p>Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.</p>
+<dd><p>Datum/Uhrzeit der Erzeugung des Objekts. Typ: TODO EMPFOHLEN.</p>
 </dd>
 <dt><code>lastModified</code></dt>
-<dd><p>Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.</p>
+<dd><p>Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ: TODO EMPFOHLEN</p>
 </dd>
 </dl>
 </section>
@@ -1444,43 +1442,43 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <h3><span class="header-section-number">5.7.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>start</code></dt>
-<dd><p>Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Startzeitpunkt sein. ZWINGEND</p>
+<dd><p>Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Startzeitpunkt sein. Typ: TODO ZWINGEND</p>
 </dd>
 <dt><code>end</code></dt>
-<dd><p>Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Endzeitpunkt sein. EMPFOHLEN</p>
+<dd><p>Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Endzeitpunkt sein. Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>location</code></dt>
-<dd><p>Sitzungsort in Form eines <code>oparl:Location</code> Objekts. EMPFOHLEN</p>
+<dd><p>Sitzungsort. Typ: <code>oparl:Location</code> EMPFOHLEN</p>
 </dd>
 <dt><code>organization</code></dt>
-<dd><p>URL der Gruppierung oder Liste der URLs der Gruppierungen (oparl:Organization), denen die Sitzung zugeordnet ist. Wenn eine Liste angegeben wird, dann ist diese geordnet. Das erste Element ist dann das federführende Gremium. ZWINGEND</p>
+<dd><p>Gruppierung der die Sitzung zugeordnet ist. Wenn eine Liste angegeben wird, dann ist diese geordnet. Das erste Element ist dann das federführende Gremium. Typ: <code>oparl:Organization</code> ZWINGEND</p>
 </dd>
 <dt><code>participant</code></dt>
-<dd><p>URL der Teilnehmer oder Liste der URLs der Teilnehmer (oparl:Person) der Sitzung. Bei einer Sitzung in der Zukunft sind dies die geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung teilgenommen haben. ZWINGEND.</p>
+<dd><p>Teilnehmer der Sitzung. Bei einer Sitzung in der Zukunft sind dies die geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung teilgenommen haben. Typ: <code>oparl:Person</code> ZWINGEND.</p>
 </dd>
 <dt><code>invitation</code></dt>
-<dd><p>URL des Einladungsdokuments (oparl:Document) zur Sitzung. EMPFOHLEN.</p>
+<dd><p>Einladungsdokument zur Sitzung. Typ: <code>oparl:Document</code> EMPFOHLEN.</p>
 </dd>
 <dt><code>resultsProtocol</code></dt>
-<dd><p>URL des Ergebnisprotokolls (oparl:Document) zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen. EMPFOHLEN</p>
+<dd><p>Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen. Typ: <code>oparl:Document</code> EMPFOHLEN</p>
 </dd>
 <dt><code>verbatimProtocol</code></dt>
-<dd><p>URL des Wortprotokolls (oparl:Document) zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen. EMPFOHLEN</p>
+<dd><p>Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen. Typ: <code>oparl:Document</code> EMPFOHLEN</p>
 </dd>
 <dt><code>auxiliaryDocument</code></dt>
-<dd><p>URL oder Liste von URLs zu Dokumentenanhängen (oparl:Document) zur Sitzung. Hiermit sind Dokumente gemeint, die üblicherweise mit der Einladung zu einer Sitzung verteilt werden und die nicht bereits über einzelne Tagesordnungspunkte referenziert sind. OPTIONAL</p>
+<dd><p>Dokumentenanhang zur Sitzung. Hiermit sind Dokumente gemeint, die üblicherweise mit der Einladung zu einer Sitzung verteilt werden und die nicht bereits über einzelne Tagesordnungspunkte referenziert sind. Typ: <code>oparl:Document</code> OPTIONAL</p>
 </dd>
 <dt><code>agendaItem</code></dt>
-<dd><p>URLs der Tagesordnungspunkte (oparl:AgendaItem) der Sitzung. Die Reihenfolge ist relevant. Es kann Sitzungen ohne TOPs geben. OPTIONAL</p>
+<dd><p>Tagesordnungspunkte der Sitzung. Die Reihenfolge ist relevant. Es kann Sitzungen ohne TOPs geben. Typ: <code>oparl:AgendaItem</code> OPTIONAL</p>
 </dd>
 <dt><code>classification</code></dt>
-<dd><p><code>skos:Concept</code></p>
+<dd><p>Typ: <code>skos:Concept</code> OPTIONAL</p>
 </dd>
 <dt><code>created</code></dt>
-<dd><p>Datum und Uhrzeit der Erzeugung des Objekts. EMPFOHLEN</p>
+<dd><p>Datum und Uhrzeit der Erzeugung des Objekts. Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>modified</code></dt>
-<dd><p>Datum und Uhrzeit der letzten Änderung des Objekts. EMPFOHLEN</p>
+<dd><p>Datum und Uhrzeit der letzten Änderung des Objekts. Typ: TODO EMPFOHLEN</p>
 </dd>
 </dl>
 </section>
@@ -1513,40 +1511,40 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <h3><span class="header-section-number">5.8.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>meeting</code></dt>
-<dd><p>URL der Sitzung (<code>oparl:Meeting</code>), dem der Tagesordnungspunkt zugeordnet ist. ZWINGEND.</p>
+<dd><p>Sitzung, der der Tagesordnungspunkt zugeordnet ist. Typ: <code>oparl:Meeting</code> ZWINGEND.</p>
 </dd>
 <dt><code>number</code></dt>
-<dd>Nummer des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z.B. &quot;10.&quot;, &quot;10.1&quot;, &quot;C&quot;, &quot;c)&quot; o.ä. Die Reihenfolge wird dadurch nicht festgelegt, sondern durch die Reihenfolge der TOPs im <code>agendaItem</code>-Attribut von <code>oparl:Meeting</code> OPTIONAL
+<dd><p>Nummer des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z.B. &quot;10.&quot;, &quot;10.1&quot;, &quot;C&quot;, &quot;c)&quot; o.ä. Die Reihenfolge wird dadurch nicht festgelegt, sondern durch die Reihenfolge der TOPs im <code>agendaItem</code>-Attribut von <code>oparl:Meeting</code> Typ: TODO OPTIONAL</p>
 </dd>
 <dt><code>name</code></dt>
-<dd><p>Das Thema des Tagesordnungspunktes. ZWINGEND.</p>
+<dd><p>Das Thema des Tagesordnungspunktes. Typ: TODO ZWINGEND.</p>
 </dd>
 <dt><code>public</code></dt>
-<dd><p>Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher Sitzung vorgesehen ist/war. Es wird ein Wahrheitswert (<code>true</code> oder <code>false</code>) erwartet. EMPFOHLEN.</p>
+<dd><p>Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher Sitzung vorgesehen ist/war. Es wird ein Wahrheitswert (<code>true</code> oder <code>false</code>) erwartet. Typ: boolean EMPFOHLEN.</p>
 </dd>
 <dt><code>consultation</code></dt>
-<dd><p>Liste der URLs der Beratungen (oparl:Consultation), die diesem Tagesordnungspunkt zugewiesen sind, oder alternativ die URL zum Abruf dieser Liste. Sofern diesem Tagesordnungspunkt keine Beratungen zugewiesen sind, bleibt die Liste ohne Einträge. ZWINGEND.</p>
+<dd><p>Beratung, die diesem Tagesordnungspunkt zugewiesen ist. Typ: <code>oparl:Consultation</code> ZWINGEND.</p>
 </dd>
 <dt><code>result</code></dt>
-<dd><p>Kategorische Information darüber, welches Ergebnis die Beratung des Tagesordnungspunktes erbracht hat. Es wird zu einem Objekt verlinkt, welches ein <code>skos:prefLabel</code>-Attribut mit einer Zeichenkette hat. In der Praxis sind hier Kategorien wie &quot;Unverändert beschlossen&quot;, &quot;Geändert beschlossen&quot;, &quot;Endgültig abgelehnt&quot;, &quot;Zur Kenntnis genommen&quot;, &quot;Ohne Votum in nachfolgende Gremien überwiesen&quot; und weitere zu erwarten. Alternativ können, sobald dieses zur Verfügung steht, URLs aus einem OParl Vokabular verwendet werden, wie im Beispiel oben zu sehen. Diese dienen dazu, Kategorien über Systemgrenzen hinweg maschinenlesbar zu vereinheitlichen. EMPFOHLEN</p>
+<dd><p>Kategorische Information darüber, welches Ergebnis die Beratung des Tagesordnungspunktes erbracht hat. Es wird zu einem Objekt verlinkt, welches ein <code>skos:prefLabel</code>-Attribut mit einer Zeichenkette hat. In der Praxis sind hier Kategorien wie &quot;Unverändert beschlossen&quot;, &quot;Geändert beschlossen&quot;, &quot;Endgültig abgelehnt&quot;, &quot;Zur Kenntnis genommen&quot;, &quot;Ohne Votum in nachfolgende Gremien überwiesen&quot; und weitere zu erwarten. Alternativ können, sobald dieses zur Verfügung steht, URLs aus einem OParl Vokabular verwendet werden, wie im Beispiel oben zu sehen. Diese dienen dazu, Kategorien über Systemgrenzen hinweg maschinenlesbar zu vereinheitlichen. Typ: <code>skos:Concept</code> EMPFOHLEN</p>
 </dd>
 <dt><code>resolutionText</code></dt>
-<dd><p>Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) von der Beschlussvorlage abweicht. OPTIONAL.</p>
+<dd><p>Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) von der Beschlussvorlage abweicht. Typ: TODO OPTIONAL.</p>
 </dd>
 <dt><code>paper</code></dt>
-<dd><p><code>oparl:Paper</code>. Zwar kann auch das <code>oparl:Meeting</code> darauf verweisen, aber hier sind solche Verweise in der Regel präziser, da sich Drucksachen regelmäßig für einen TOP relevant sind und nicht für alle TOPs. OPTIONAL</p>
+<dd><p>Drucksache. Zwar kann auch das <code>oparl:Meeting</code> darauf verweisen, aber hier sind solche Verweise in der Regel präziser, da Drucksachen regelmäßig nur für einen TOP relevant sind und nicht für alle TOPs. Typ: <code>oparl:Paper</code> OPTIONAL</p>
 </dd>
-</dl>
-<p><code>auxiliaryDocument</code> : <code>oparl:Document</code> zum TOP. OPTIONAL</p>
-<dl>
+<dt><code>auxiliaryDocument</code></dt>
+<dd><p>eine weitere relevante Datei. Typ: <code>oparl:Document</code> OPTIONAL</p>
+</dd>
 <dt><code>classification</code></dt>
-<dd><p><code>skos:Concept</code></p>
+<dd><p>Typ: <code>skos:Concept</code> OPTIONAL</p>
 </dd>
 <dt><code>created</code></dt>
-<dd><p>Erzeugungsdatum und -zeit des Objekts. EMPFOHLEN</p>
+<dd><p>Erzeugungsdatum und -zeit des Objekts. Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>lastModified</code></dt>
-<dd><p>Datum und Uhrzeit der letzten Änderung. EMPFOHLEN</p>
+<dd><p>Datum und Uhrzeit der letzten Änderung. Typ: TODO EMPFOHLEN</p>
 </dd>
 </dl>
 </section>
@@ -1585,23 +1583,49 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
         <span class="st">&quot;beispielris:consultation/5676&quot;</span>,
         <span class="st">&quot;beispielris:consultation/5689&quot;</span>
     ]
-    <span class="st">&quot;lastModified&quot;</span><span class="er">:</span> <span class="st">&quot;2013-01-08T12:05:27+01:00&quot;</span>
+    <span class="st">&quot;modified&quot;</span><span class="er">:</span> <span class="st">&quot;2013-01-08T12:05:27+01:00&quot;</span>
 }</code></pre>
 <section id="eigenschaften-6" class="level3">
 <h3><span class="header-section-number">5.9.1</span> Eigenschaften</h3>
 <dl>
+<dt><code>reference</code></dt>
+<dd><p>Beispiel: &quot;1234/2014&quot; Typ: TODO OPTIONAL</p>
+</dd>
+<dt><code>publishedDate</code></dt>
+<dd><p>Beispiel: &quot;2014-04-04T16:42:02+02:00&quot; Typ: TODO EMPFOHLEN</p>
+</dd>
+<dt><code>name</code></dt>
+<dd><p>Beispiel: &quot;Antwort auf Anfrage 1200/2014&quot; Typ: TODO EMPFOHLEN</p>
+</dd>
 <dt><code>paperType</code></dt>
-<dd><p>Ein Objekt mit einem <code>skos:prefLabel</code>-Attribut, dessen Wert eine Zeichenkette ist und die Art der Drucksache beschreibt, z.B. &quot;Beantwortung einer Anfrage&quot;. Eine weitere Liste mit exemplarischen Drucksachentypen gibt es hier: https://wiki.piratenpartei.de/BE:BVVupdates/Glossar Eine zukünftige Version von OParl wird möglicherweise solche Werte spezifizieren. OPTIONAL</p>
+<dd><p>Begriff mit einem <code>skos:prefLabel</code>-Attribut, dessen Wert eine Zeichenkette ist und die Art der Drucksache beschreibt, z.B. &quot;Beantwortung einer Anfrage&quot;. Eine weitere Liste mit exemplarischen Drucksachentypen gibt es hier: https://wiki.piratenpartei.de/BE:BVVupdates/Glossar Eine zukünftige Version von OParl wird möglicherweise solche Werte spezifizieren. Typ: <code>skos:Concept</code> OPTIONAL</p>
+</dd>
+<dt><code>relatedPaper</code></dt>
+<dd><p>Typ: <code>oparl:Paper</code> OPTIONAL</p>
+</dd>
+<dt><code>mainDocument</code></dt>
+<dd><p>Typ: <code>oparl:Document</code></p>
+</dd>
+<dt><code>auxiliaryDocument</code></dt>
+<dd><p>Typ: <code>oparl:Document</code></p>
+</dd>
+<dt><code>location</code></dt>
+<dd><p>Typ: <code>oparl:Location</code></p>
+</dd>
+<dt><code>creator</code></dt>
+<dd><p>Typ: <code>oparl:Person</code> | <code>oparl:Organization</code></p>
+</dd>
+<dt><code>consultation</code></dt>
+<dd><p>Typ: <code>oparl:Consultation</code></p>
+</dd>
+<dt><code>modified</code></dt>
+<dd><p>Typ: TODO Beispiel: &quot;2013-01-08T12:05:27+01:00&quot;</p>
 </dd>
 <dt><code>classification</code></dt>
-<dd><p><code>skos:Concept</code> mit <code>skos:prefLabel</code>. Allgemeiner als <code>paperType</code> OPTIONAL</p>
+<dd><p>Begriff mit <code>skos:prefLabel</code>. Allgemeiner als <code>paperType</code> Typ: <code>skos:Concept</code> OPTIONAL</p>
 </dd>
 </dl>
-<p>TODO:</p>
-<ul>
-<li>Eigenschaften beschreiben</li>
-<li>Eigenschaft &quot;locations&quot; im Beispiel ändern</li>
-</ul>
+<p>TODO: * Festlegen: OPTIONAL / EMPFOHLEN / ZWINGEND * Eigenschaft &quot;locations&quot; im Beispiel ändern</p>
 </section>
 </section>
 <section id="oparl_document" class="level2">
@@ -1626,18 +1650,15 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;documentRole&quot;</span>: <span class="st">&quot;http://beispielris.de/document-role/evidence&quot;</span>,
 }</code></pre>
 <p>Objekt vom Typ <code>oparl:Document</code> können mit Drucksachen (<code>oparl:Paper</code>) oder Sitzungen (<code>oparl:Meeting</code>) in Beziehung stehen. Dies wird durch die Eigenschaft <code>paper</code> bzw. <code>meeting</code> angezeigt.</p>
-<p>Mehrere Objekte vom Typ <code>oparl:Document</code> können mit einander in direkter Beziehung stehen, wenn sie den selben Inhalt in unterschiedlichen technischen Formaten wiedergeben. Hierfür werden die Eigenschaften <code>master_document</code> bzw. <code>derivative_documents</code> eingesetzt. Das oben angezeigte Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der Eigenschaft <code>mime_type</code>) und zeigt außerdem über die Eigenschaft <code>master_document</code> an, von welcher anderen Datei es abgeleitet wurde. Umgekehrt KANN über die Eigenschaft <code>derivative_documents</code> angezeigt werden, welche Ableitungen einer Datei existieren.</p>
+<p>Mehrere Objekte vom Typ <code>oparl:Document</code> können mit einander in direkter Beziehung stehen, wenn sie den selben Inhalt in unterschiedlichen technischen Formaten wiedergeben. Hierfür werden die Eigenschaften <code>masterDocument</code> bzw. <code>derivativeDocuments</code> eingesetzt. Das oben angezeigte Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der Eigenschaft <code>mimeType</code>) und zeigt außerdem über die Eigenschaft <code>masterDocument</code> an, von welcher anderen Datei es abgeleitet wurde. Umgekehrt KANN über die Eigenschaft <code>derivativeDocuments</code> angezeigt werden, welche Ableitungen einer Datei existieren.</p>
 <section id="eigenschaften-7" class="level3">
 <h3><span class="header-section-number">5.10.1</span> Eigenschaften</h3>
 <dl>
-<dt><code>@id</code></dt>
-<dd><p>Die URL des Objekts.</p>
-</dd>
 <dt><code>name</code></dt>
 <dd><p>Name des Objekts, der Nutzern angezeigt werden kann. Typ: Zeichenkette. ZWINGEND</p>
 </dd>
 <dt><code>mimeType</code></dt>
-<dd>Mime-Typ des Inhalts (vgl. RFC2046<a href="#fn31" class="footnoteRef" id="fnref31"><sup>31</sup></a>). Sollte das System einer Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier &quot;application/octet-stream&quot; zu verwenden. ZWINGEND
+<dd><p>Mime-Typ des Inhalts (vgl. RFC2046<a href="#fn32" class="footnoteRef" id="fnref32"><sup>32</sup></a>). Sollte das System einer Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier &quot;application/octet-stream&quot; zu verwenden. Typ: TODO ZWINGEND</p>
 </dd>
 <dt><code>date</code></dt>
 <dd><p>Erstellungs- oder Veröffentlichungsdatum und -uhrzeit. Typ: Datum. ZWINGEND</p>
@@ -1661,25 +1682,25 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dd><p>URL zum Download der Datei. Besser ist es, bereits unter <code>accessUrl</code> einen &quot;schönen&quot; Dateinamen anzugeben. TODO: Zweck erklären. Typ: URL. EMPFOHLEN</p>
 </dd>
 <dt><code>paper</code></dt>
-<dd><p>Zugehöriges Objekts vom Typ <code>oparl:Paper</code>, sofern diese Datei zu einer Drucksache gehört. Wenn diese Datei zu einer Drucksache gehört, MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT vorhanden sein. Typ: URL.</p>
+<dd><p>Drucksache, sofern diese Datei zu einer Drucksache gehört. Wenn diese Datei zu einer Drucksache gehört, MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT vorhanden sein. TODO: ist das eine Tautologie? Typ: <code>oparl:Paper</code></p>
 </dd>
 <dt><code>meeting</code></dt>
-<dd><p>Zugehöriges Objekt vom Typ <code>oparl:Meeting</code>, sofern diese Datei zu einer Sitzung gehört. Wenn diese Datei zu einer Sitzung gehört, MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT vorhanden sein. Typ: URL.</p>
+<dd><p>Sitzung, sofern diese Datei zu einer Sitzung gehört. Wenn diese Datei zu einer Sitzung gehört, MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT vorhanden sein. TODO: ist das eine Tautologie? Typ: <code>oparl:Meeting</code></p>
 </dd>
 <dt><code>masterDocument</code></dt>
-<dd><p><code>oparl:Document</code>, von dem das aktuelle Objekt abgeleitet wurde. Typ: URL. OPTIONAL</p>
+<dd><p>Datei von der das aktuelle Objekt abgeleitet wurde. Typ: <code>oparl:Document</code> OPTIONAL</p>
 </dd>
 <dt><code>derivativeDocuments</code></dt>
-<dd><p><code>oparl:Document</code>, die von dem aktuellen Objekt abgeleitet wurden. Typ: URL. OPTIONAL</p>
+<dd><p>Abgeleitete Datei die von dem aktuellen Objekt abgeleitet wurde. Typ: <code>oparl:Document</code> OPTIONAL</p>
 </dd>
 <dt><code>license</code></dt>
 <dd><p>Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet wird, dann ist sie massgeblich und nicht die globalere Angabe in dem <code>oparl:Body</code> Objekt der Körperschaft. Lesenswert zum Thema Lizensierung von Linked Data ist http://linkeddatabook.com/editions/1.0/#htoc48 Type: URL OPTIONAL</p>
 </dd>
 <dt><code>documentRole</code></dt>
-<dd><p>Rolle, Funktion, Sorte des Dokuments. Das Objekt enthält ein <code>skos:prefLabel</code>. Dessen Werte können z.B. sein: &quot;Einladung&quot;, &quot;Protokoll&quot;, &quot;Wortprotokoll&quot; oder &quot;Beschlussprotokoll&quot;. In einer zukünftigen OParl-Version wird möglicherweise eine Menge der wichtigsten Kategorien vorgegeben. TODO: Besser in <code>oparl:Paper</code> oder <code>oparl:Meeting</code> ? Siehe Diskussion unter https://github.com/OParl/specs/issues/65 Typ: URL OPTIONAL</p>
+<dd><p>Rolle, Funktion, Sorte des Dokuments. Das Objekt enthält ein <code>skos:prefLabel</code>. Dessen Werte können z.B. sein: &quot;Einladung&quot;, &quot;Protokoll&quot;, &quot;Wortprotokoll&quot; oder &quot;Beschlussprotokoll&quot;. In einer zukünftigen OParl-Version wird möglicherweise eine Menge der wichtigsten Kategorien vorgegeben. TODO: Besser in <code>oparl:Paper</code> oder <code>oparl:Meeting</code> ? Siehe Diskussion unter https://github.com/OParl/specs/issues/65 Typ: <code>skos:Concept</code> OPTIONAL</p>
 </dd>
 <dt><code>classification</code></dt>
-<dd><p><code>skos:Concept</code> mit <code>skos:prefLabel</code>. Hat allgemeinere Bedeutung als <code>documentRole</code>. Typ: URL OPTIONAL</p>
+<dd><p>Begriff mit <code>skos:prefLabel</code>. Hat allgemeinere Bedeutung als <code>documentRole</code>. Typ: <code>skos:Concept</code> OPTIONAL</p>
 </dd>
 </dl>
 </section>
@@ -1728,22 +1749,22 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <h3><span class="header-section-number">5.11.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>paper</code></dt>
-<dd><p>URL der Drucksache, die beraten wird. ZWINGEND.</p>
+<dd><p>Drucksache, die beraten wird. Typ: <code>oparl:Paper</code> ZWINGEND.</p>
 </dd>
 <dt><code>agendaitem</code></dt>
-<dd><p>URL des Tagesordnungspunktes (oparl:Agendaitem), unter dem die Drucksache beraten wird. ZWINGEND.</p>
+<dd><p>Tagesordnungspunkt, unter dem die Drucksache beraten wird. Typ: <code>oparl:AgendaItem</code> ZWINGEND.</p>
 </dd>
 <dt><code>committee</code></dt>
-<dd><p>URL des Gremiums (oparl:Organization), dem die Sitzung zugewiesen ist, zu welcher der zuvor genannte Tagesordnungspunkt gehört. Hier kann auch eine mit Liste von Gremien angegeben werden (die verschiedenen <code>oparl:Body</code> und <code>oparl:System</code> angehören können). Die Liste ist dann geordnet. Das erste Gremium der Liste ist federführend. ZWINGEND.</p>
+<dd><p>Gremium, dem die Sitzung zugewiesen ist, zu welcher der zuvor genannte Tagesordnungspunkt gehört. Hier kann auch eine mit Liste von Gremien angegeben werden (die verschiedenen <code>oparl:Body</code> und <code>oparl:System</code> angehören können). Die Liste ist dann geordnet. Das erste Gremium der Liste ist federführend. Typ: <code>oparl:Organization</code> ZWINGEND.</p>
 </dd>
 <dt><code>authoritative</code></dt>
-<dd><p>Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst wird (<em>true</em>) wird oder nicht (<em>false</em>). Typ: Wahrheitswert. Diese Eigenschaft ist OPTIONAL.</p>
+<dd><p>Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst wird (<code>true</code>) wird oder nicht (<code>false</code>). Typ: boolean. Diese Eigenschaft ist OPTIONAL.</p>
 </dd>
 <dt><code>role</code></dt>
-<dd><p><code>skos:Concept</code> Rolle oder Funktion der Beratung. z.B. Anhörung (hearing), Entscheidung (decision), Kenntnisnahme (notice), Vorberatung (counseling) usw. Es wird empfohlen in den URLs entsprechende englische Bestandteile zu verwenden. Die Rollenobjekte haben nur eine festgelegte Eigenschaft: <code>skos:prefLabel</code> für den Namen. In einer zukünftigen Version von OParl können gegebenenfalls die am stärksten benötigten Rollen standardisiert werden. OPTIONAL</p>
+<dd><p>Rolle oder Funktion der Beratung. z.B. Anhörung (hearing), Entscheidung (decision), Kenntnisnahme (notice), Vorberatung (counseling) usw. Es wird empfohlen in den URLs entsprechende englische Bestandteile zu verwenden. Die Rollenobjekte haben nur eine festgelegte Eigenschaft: <code>skos:prefLabel</code> für den Namen. In einer zukünftigen Version von OParl können gegebenenfalls die am stärksten benötigten Rollen standardisiert werden. Typ: <code>skos:Concept</code> OPTIONAL</p>
 </dd>
 <dt><code>classification</code></dt>
-<dd><p><code>skos:Concept</code> mit <code>skos:prefLabel</code>. Allgemeiner verwendbar als <code>role</code>. OPTIONAL</p>
+<dd><p>Schlagwort, Begriff mit <code>skos:prefLabel</code>. Allgemeiner verwendbar als <code>role</code>. Typ: <code>skos:Concept</code> OPTIONAL</p>
 </dd>
 </dl>
 </section>
@@ -1786,8 +1807,8 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     },
     <span class="er">//</span> <span class="er">...</span>
 }</code></pre>
-<p>OParl sieht bei Angabe von Geodaten die Verwendung des<br />GeoJSON-Formats<a href="#fn32" class="footnoteRef" id="fnref32"><sup>32</sup></a> vor. GeoJSON erlaubt die Beschreibung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden und Polygonen in JSON-Notation. Ein GeoJSON-Objekt kann auch mehrere Geometrien umfassen, beispielsweise um damit mehrere Punkte oder Polygone zu umschreiben.</p>
-<p>Gegenüber der GeoJSON-Spezifikation sieht OParl eine wichtige Einschränkung vor: Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben im System WGS84<a href="#fn33" class="footnoteRef" id="fnref33"><sup>33</sup></a> angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.</p>
+<p>OParl sieht bei Angabe von Geodaten die Verwendung des<br />GeoJSON-Formats<a href="#fn33" class="footnoteRef" id="fnref33"><sup>33</sup></a> vor. GeoJSON erlaubt die Beschreibung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden und Polygonen in JSON-Notation. Ein GeoJSON-Objekt kann auch mehrere Geometrien umfassen, beispielsweise um damit mehrere Punkte oder Polygone zu umschreiben.</p>
+<p>Gegenüber der GeoJSON-Spezifikation sieht OParl eine wichtige Einschränkung vor: Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben im System WGS84<a href="#fn34" class="footnoteRef" id="fnref34"><sup>34</sup></a> angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.</p>
 <section id="eigenschaften-9" class="level3">
 <h3><span class="header-section-number">5.12.1</span> Eigenschaften</h3>
 <dl>
@@ -1795,10 +1816,10 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dd><p>Textliche Beschreibung eines Orts, z.B. in Form einer Adresse. Typ: Zeichenkette. EMPFOHLEN</p>
 </dd>
 <dt><code>geometry</code></dt>
-<dd><p>Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt, MUSS ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen. OPTIONAL</p>
+<dd><p>Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt, MUSS ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen. Typ: TODO OPTIONAL</p>
 </dd>
 <dt><code>classification</code></dt>
-<dd><p><code>skos:Concept</code> mit <code>skos:prefLabel</code> OPTIONAL</p>
+<dd><p>Schlagwort mit <code>skos:prefLabel</code> Typ: <code>skos:Concept</code> OPTIONAL</p>
 </dd>
 </dl>
 </section>
@@ -1844,25 +1865,25 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <h3><span class="header-section-number">5.13.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>person</code></dt>
-<dd><p><code>oparl:Person</code> Eine Person. OPTIONAL</p>
+<dd><p>Person. Typ: <code>oparl:Person</code> OPTIONAL</p>
 </dd>
 <dt><code>organization</code></dt>
-<dd><p><code>oparl:Organization</code> Eine Organization. OPTIONAL</p>
+<dd><p>Organization. Typ: <code>oparl:Organization</code> OPTIONAL</p>
 </dd>
 <dt><code>role</code></dt>
-<dd><p>zeigt auf ein Objekt der Klasse <code>org:Role</code> oder einer Unterklasse. Das Objekt hat eine <code>skos:prefLabel</code>-Eigenschaft, deren Wert eine Funktionsbezeichnung ist, z.B. &quot;1. pers. Vertreter | 1. pers. Vertreterin&quot; oder &quot;2. pers. Vertreter | 2. pers. Vertreterin&quot;. Popolo: &quot;The role that the person fulfills in the organization&quot;. normale Mitglieder haben in der Regel keine eigene Funktion, aber auch eine Unterscheidung zwischen z.B. &quot;Sachkundige Bürger | Sachkundige Bürgerin&quot; und &quot;Ratsherr | Ratsfrau&quot; bei einfachen Mitgliedern ist hiermit möglich. TODO: was ist mit einem sachkundigen Bürger, der gleichzeitig Vorsitzender ist? OPTIONAL</p>
+<dd><p>Rolle. Das Objekt hat eine <code>skos:prefLabel</code>-Eigenschaft, deren Wert eine Funktionsbezeichnung ist, z.B. &quot;1. pers. Vertreter | 1. pers. Vertreterin&quot; oder &quot;2. pers. Vertreter | 2. pers. Vertreterin&quot;. Popolo: &quot;The role that the person fulfills in the organization&quot;. normale Mitglieder haben in der Regel keine eigene Funktion, aber auch eine Unterscheidung zwischen z.B. &quot;Sachkundige Bürger | Sachkundige Bürgerin&quot; und &quot;Ratsherr | Ratsfrau&quot; bei einfachen Mitgliedern ist hiermit möglich. TODO: was ist mit einem sachkundigen Bürger, der gleichzeitig Vorsitzender ist? Typ: <code>org:Role</code> OPTIONAL</p>
 </dd>
 <dt><code>post</code></dt>
-<dd><p>The post held by the person in the organization OPTIONAL</p>
+<dd><p>The post held by the person in the organization Typ: <code>org:Post</code> OPTIONAL</p>
 </dd>
 <dt><code>onBehalfOf</code></dt>
-<dd><p>Entsendende Organization - Fraktion, fraktionslos oder externes Gremium Dies entspricht <code>opengov:onBehalfOf</code> in Popolo. TODO: wie wird fraktionslos kodiert? OPTIONAL</p>
+<dd><p>Entsendende Organization - Fraktion, fraktionslos oder externes Gremium Dies entspricht <code>opengov:onBehalfOf</code> in Popolo. TODO: wie wird fraktionslos kodiert? Typ: <code>oparl:Organization</code> OPTIONAL</p>
 </dd>
 <dt><code>startDate</code></dt>
-<dd><p><code>schema:validFrom</code> wie in Popolo. The date on which the relationship began OPTIONAL</p>
+<dd><p><code>schema:validFrom</code> wie in Popolo. The date on which the relationship began Typ: TODO OPTIONAL</p>
 </dd>
 <dt><code>endDate</code></dt>
-<dd><p><code>schema:validThrough</code> wie in Popolo. The date on which the relationship ended OPTIONAL</p>
+<dd><p><code>schema:validThrough</code> wie in Popolo. The date on which the relationship ended Typ: TODO OPTIONAL</p>
 </dd>
 </dl>
 </section>
@@ -1929,21 +1950,22 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <li id="fn16"><p>beispielsweise <a href="http://dbpedia.org/resource/Christian_Democratic_Union_(Germany)">http://dbpedia.org/resource/Christian_Democratic_Union_(Germany)</a> und <a href="http://dbpedia.org/resource/Social_Democratic_Party_of_Germany">http://dbpedia.org/resource/Social_Democratic_Party_of_Germany</a><a href="#fnref16">↩</a></p></li>
 <li id="fn17"><p>RFC 3987: <a href="http://tools.ietf.org/html/rfc3987">http://tools.ietf.org/html/rfc3987</a><a href="#fnref17">↩</a></p></li>
 <li id="fn18"><p>RFC 3986: <a href="http://tools.ietf.org/html/rfc3986">http://tools.ietf.org/html/rfc3986</a><a href="#fnref18">↩</a></p></li>
-<li id="fn19"><p>Berners-Lee, Tim: Cool URIs don't change. <a href="http://www.w3.org/Provider/Style/URI.html">http://www.w3.org/Provider/Style/URI.html</a><a href="#fnref19">↩</a></p></li>
-<li id="fn20"><p>Study on persistent URIs, with identification of best practices and recommendations on the topic for the MSs and the EC. (PDF) <a href="http://goo.gl/JaTq6Z">http://goo.gl/JaTq6Z</a><a href="#fnref20">↩</a></p></li>
-<li id="fn21"><p>http://www.w3.org/TR/json-ld/#iana-considerations<a href="#fnref21">↩</a></p></li>
-<li id="fn22"><p><a href="https://tools.ietf.org/html/rfc4627">https://tools.ietf.org/html/rfc4627</a><a href="#fnref22">↩</a></p></li>
-<li id="fn23"><p>siehe dazu <a href="#linked_data">Linked Data</a><a href="#fnref23">↩</a></p></li>
-<li id="fn24"><p><a href="http://www.w3.org/TR/json-ld/">http://www.w3.org/TR/json-ld/</a><a href="#fnref24">↩</a></p></li>
-<li id="fn25"><p>URLs heißen in der JSON-LD-Spezifikation &quot;IRI&quot; (für &quot;Internationalized Resource Identifier&quot;), wir verwenden hier jedoch weiterhin die Bezeichnung &quot;URL&quot;.<a href="#fnref25">↩</a></p></li>
-<li id="fn26"><p>TODO: URL zur Spezifikation<a href="#fnref26">↩</a></p></li>
-<li id="fn27"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref27">↩</a></p></li>
-<li id="fn28"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd">http://www.dnb.de/gnd</a><a href="#fnref28">↩</a></p></li>
-<li id="fn29"><p>DBPedia <a href="http://www.dbpedia.org/">http://www.dbpedia.org/</a><a href="#fnref29">↩</a></p></li>
-<li id="fn30"><p>Wikipedia <a href="http://de.wikipedia.org/">http://de.wikipedia.org/</a><a href="#fnref30">↩</a></p></li>
-<li id="fn31"><p><a href="http://tools.ietf.org/html/rfc2046">http://tools.ietf.org/html/rfc2046</a><a href="#fnref31">↩</a></p></li>
-<li id="fn32"><p>GeoJSON Spezifikation <a href="http://geojson.org/geojson-spec.html">http://geojson.org/geojson-spec.html</a><a href="#fnref32">↩</a></p></li>
-<li id="fn33"><p>WGS84 steht für &quot;World Geodetic System 1984&quot;, es wird unter anderem auch vom Global Positioning System (GPS) verwendet. In geografischen Informationssystemen ist für das System der EPSG-Code 4326 geläufig.<a href="#fnref33">↩</a></p></li>
+<li id="fn19"><p>vgl. <a href="#benannte_anonyme_objekte">Benannte und anonyme Objekte</a><a href="#fnref19">↩</a></p></li>
+<li id="fn20"><p>Berners-Lee, Tim: Cool URIs don't change. <a href="http://www.w3.org/Provider/Style/URI.html">http://www.w3.org/Provider/Style/URI.html</a><a href="#fnref20">↩</a></p></li>
+<li id="fn21"><p>Study on persistent URIs, with identification of best practices and recommendations on the topic for the MSs and the EC. (PDF) <a href="http://goo.gl/JaTq6Z">http://goo.gl/JaTq6Z</a><a href="#fnref21">↩</a></p></li>
+<li id="fn22"><p>http://www.w3.org/TR/json-ld/#iana-considerations<a href="#fnref22">↩</a></p></li>
+<li id="fn23"><p><a href="https://tools.ietf.org/html/rfc4627">https://tools.ietf.org/html/rfc4627</a><a href="#fnref23">↩</a></p></li>
+<li id="fn24"><p>siehe dazu <a href="#linked_data">Linked Data</a><a href="#fnref24">↩</a></p></li>
+<li id="fn25"><p><a href="http://www.w3.org/TR/json-ld/">http://www.w3.org/TR/json-ld/</a><a href="#fnref25">↩</a></p></li>
+<li id="fn26"><p>URLs heißen in der JSON-LD-Spezifikation &quot;IRI&quot; (für &quot;Internationalized Resource Identifier&quot;), wir verwenden hier jedoch weiterhin die Bezeichnung &quot;URL&quot;.<a href="#fnref26">↩</a></p></li>
+<li id="fn27"><p>TODO: URL zur Spezifikation<a href="#fnref27">↩</a></p></li>
+<li id="fn28"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref28">↩</a></p></li>
+<li id="fn29"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd">http://www.dnb.de/gnd</a><a href="#fnref29">↩</a></p></li>
+<li id="fn30"><p>DBPedia <a href="http://www.dbpedia.org/">http://www.dbpedia.org/</a><a href="#fnref30">↩</a></p></li>
+<li id="fn31"><p>Wikipedia <a href="http://de.wikipedia.org/">http://de.wikipedia.org/</a><a href="#fnref31">↩</a></p></li>
+<li id="fn32"><p><a href="http://tools.ietf.org/html/rfc2046">http://tools.ietf.org/html/rfc2046</a><a href="#fnref32">↩</a></p></li>
+<li id="fn33"><p>GeoJSON Spezifikation <a href="http://geojson.org/geojson-spec.html">http://geojson.org/geojson-spec.html</a><a href="#fnref33">↩</a></p></li>
+<li id="fn34"><p>WGS84 steht für &quot;World Geodetic System 1984&quot;, es wird unter anderem auch vom Global Positioning System (GPS) verwendet. In geografischen Informationssystemen ist für das System der EPSG-Code 4326 geläufig.<a href="#fnref34">↩</a></p></li>
 </ol>
 </section>
 </body>

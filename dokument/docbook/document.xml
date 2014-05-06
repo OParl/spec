@@ -577,10 +577,15 @@
         </varlistentry>
       </variablelist>
     </sect3>
-    <sect3 id="besondere-hervorhebungen-und-satzkonventionen">
-      <title>Besondere Hervorhebungen und Satzkonventionen</title>
+    <sect3 id="geschlechterspezifische-begrifflichkeiten">
+      <title>Geschlechterspezifische Begrifflichkeiten</title>
       <para>
-        TODO
+        Um bei Begriffen wie Nutzer, Anwender, Betreiber etc. die sonst
+        übliche Dominanz der männlichen Variante zu vermeiden, werden in
+        diesem Dokument männliche oder weibliche Varianten gemischt. Es
+        wird also beispielsweise mal von einer Nutzerin gesprochen und
+        mal von einem Nutzer. Gemeint sind selbstverständlich in allen
+        Fällen immer weibliche wie auch männliche Personen.
       </para>
     </sect3>
   </sect2>
@@ -1095,19 +1100,8 @@
   <itemizedlist>
     <listitem>
       <para>
-        Grundlage für den Zugriff auf die Schnittstelle ist das
-        Hypertext Transfer Protocol (HTTP).
-      </para>
-    </listitem>
-    <listitem>
-      <para>
         Optional gzip Encoding und andere Kodierungen, wenn Client und
         Server dies unterstützen
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Das Protokoll ist zustandslos
       </para>
     </listitem>
     <listitem>
@@ -1225,6 +1219,11 @@
           </para>
         </listitem>
       </itemizedlist>
+      <para>
+        Diese Prinzipien macht sich auch OParl zunutze. Damit gilt
+        prinzipiell, dass eine OParl-konforme Server-Schnittstelle auch
+        als &quot;RESTful&quot; gelten darf.
+      </para>
     </sect3>
     <sect3 id="selbstbeschreibungsfähigkeit">
       <title>Selbstbeschreibungsfähigkeit</title>
@@ -1560,12 +1559,12 @@ https://dbpedia.org/data/John_Doe_(musician).jsonld
           <ulink url="http://tools.ietf.org/html/rfc3987">http://tools.ietf.org/html/rfc3987</ulink>
         </para>
       </footnote>, die korrekterweise IRI bzw. &quot;Internationalized
-      Resource Identifier&quot; genannt werden müsste. In andern
-      Kontexten wiederum wird von URIs bzw. &quot;Uniform Resource
-      Identifier&quot; gesprochen. Das vorliegende Dokumente fasst alle
-      drei Konzepte mit dem Begriff &quot;URL&quot; zusammen und
-      ignoriert damit die Unterschiede der einzelnen Begriffe, da diese
-      im Rahmen dieser Spezifikation ohne bedeutung sind.
+      Resource Identifier&quot; genannt werden müsste, gemeint ist. In
+      andern Kontexten wiederum wird von URIs bzw. &quot;Uniform
+      Resource Identifier&quot; gesprochen. Das vorliegende Dokumente
+      fasst alle drei Konzepte mit dem Begriff &quot;URL&quot; zusammen
+      und ignoriert damit die Unterschiede der einzelnen Begriffe, da
+      diese im Rahmen dieser Spezifikation ohne bedeutung sind.
     </para>
     <para>
       Die grundsätzliche Funktionsweise von URLs ist in RFC 3986
@@ -1581,24 +1580,22 @@ https://dbpedia.org/data/John_Doe_(musician).jsonld
       in diesem Dokument Verwendung finden:
     </para>
     <programlisting>
-http://refserv.oparl.org/bodies/0/committees/4/members/?skip=234
-\__/   \_______________/\_____________________________/ \______/
- |         |                  |                           |
-Schema    Host               Pfad                        Query-String
+http://refserv.oparl.org/foo/bar/?skip=234
+\__/   \_______________/\_______/ \______/
+ |         |                |        |
+Schema    Host             Pfad  Query-String
 </programlisting>
-    <para>
-      Um bereits an dieser Stelle das Entstehen von Missverständnissen
-      zu vermeiden sei darauf hingewiesen, dass insbesondere auch der
-      enthaltene Pfad nur ein Beipiel ist. Der Aufbau der Pfade wird in
-      OParl nicht festgelegt.
-    </para>
     <sect3 id="url-kanonisierung">
       <title>URL-Kanonisierung</title>
       <para>
-        Absicht ist, dass jedes benannte Objekt, das ein Server über
-        eine OParl-API anbietet, über genau eine URL identifizierbar und
-        abrufbar ist. Diese Vereinheitlichung der URL nennen wir
-        Kanonisierung.
+        Absicht ist, dass jedes benannte Objekt<footnote>
+          <para>
+            vgl. <link linkend="benannte_anonyme_objekte">Benannte und
+            anonyme Objekte</link>
+          </para>
+        </footnote>, das ein Server über eine OParl-API anbietet, über
+        genau eine URL identifizierbar und abrufbar ist. Diese
+        Vereinheitlichung der URL nennen wir Kanonisierung.
       </para>
       <para>
         Die Kanonisierung ist entscheidend, um erkennen zu können, ob
@@ -2286,7 +2283,7 @@ mycallback({
       </itemizedlist>
     </sect3>
   </sect2>
-  <sect2 id="benannte-und-anonyme-objekte">
+  <sect2 id="benannte_anonyme_objekte">
     <title>Benannte und anonyme Objekte</title>
     <para>
       Die JSON-LD-Spezifikation unterscheidet zwischen benannten und
@@ -3587,8 +3584,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL des Objekts vom Typ <literal>oparl:System</literal>
-              Objekts, zu dem dieses Objekt gehört. ZWINGEND.
+              System zu dem dieses Objekt gehört. Typ:
+              <literal>oparl:System</literal> ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -3598,8 +3595,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Gibt den gebräuchlichen Namen der Körperschaft an.
-              ZWINGEND.
+              Gibt den gebräuchlichen Namen der Körperschaft an. Typ:
+              TODO ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -3610,7 +3607,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Kann bei Bedarf dazu verwendet werden, eine längere Form
-              des Namens der Körperschaft anzugeben. OPTIONAL.
+              des Namens der Körperschaft anzugeben. Typ: TODO OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -3620,7 +3617,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Dient der Angabe der WWW-URL der Körperschaft. EMPFOHLEN.
+              WWW-URL der Körperschaft. EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -3630,13 +3627,12 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL der Lizenz, die für die Daten, die über diese API
-              abgerufen werden können, gilt, sofern nicht am einzelnen
-              Objekt anders angegeben. Verzeichnisse für solche
-              Lizenz-URLs sind insbesondere
-              http://licenses.opendefinition.org/ und
+              Lizenz, die für die Daten, die über diese API abgerufen
+              werden können, gilt, sofern nicht am einzelnen Objekt
+              anders angegeben. Verzeichnisse für solche Lizenz-URLs
+              sind insbesondere http://licenses.opendefinition.org/ und
               https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json
-              EMPFOHLEN.
+              Typ: TODO EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -3648,7 +3644,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             <para>
               Tagesdatum, seit dem die unter license angegebene Lizenz
               gilt. Vorsicht bei Änderungen der Lizenz die zu
-              restriktiveren Bedingungen führen. EMPFOHLEN
+              restriktiveren Bedingungen führen. Typ: TODO EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -3666,21 +3662,21 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
                   (GV-ISys) des Statistischen Bundesamtes</ulink>
                   eingesehen werden
                 </para>
-              </footnote>. Diese Eigenschaft ist EMPFOHLEN.
+              </footnote>. Typ: TODO EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>sameBody</literal>
+            <literal>equivalentBody</literal>
           </term>
           <listitem>
             <para>
               Dient der Angabe beliebig vieler zusätzlicher URLs, die
-              die Körperschaft repräsentieren. Diese Eigenschaft ist
-              EMPFOHLEN. Hier können beispielsweise, sofern vorhanden,
-              der entsprechende Eintrag der Gemeinsamen Normdatei der
-              Deutschen Nationalbibliothek<footnote>
+              die selbe Körperschaft repräsentieren. Hier können
+              beispielsweise, sofern vorhanden, der entsprechende
+              Eintrag der Gemeinsamen Normdatei der Deutschen
+              Nationalbibliothek<footnote>
                 <para>
                   Gemeinsame Normdatei
                   <ulink url="http://www.dnb.de/gnd">http://www.dnb.de/gnd</ulink>
@@ -3695,7 +3691,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
                   Wikipedia
                   <ulink url="http://de.wikipedia.org/">http://de.wikipedia.org/</ulink>
                 </para>
-              </footnote> angegeben werden.
+              </footnote> angegeben werden. Typ: TODO EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -3706,10 +3702,10 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Dient der Angabe einer Kontakt-E-Mail-Adresse mit
-              &quot;mailto:&quot;-Schema. Diese Eigenschaft ist
-              EMPFOHLEN. Die Adresse soll die Kontaktaufnahme zu einer
-              für die Körperschaft und idealerweise das parlamentarische
-              Informationssystem zuständigen Stelle ermöglichen.
+              &quot;mailto:&quot;-Schema. Die Adresse soll die
+              Kontaktaufnahme zu einer für die Körperschaft und
+              idealerweise das parlamentarische Informationssystem
+              zuständigen Stelle ermöglichen. Typ: TODO EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -3720,8 +3716,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Name oder Bezeichnung der mit
-              <literal>contactEmail</literal> erreichbaren Stelle.
-              OPTIONAL.
+              <literal>contactEmail</literal> erreichbaren Stelle. Typ:
+              TODO OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -3731,10 +3727,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL, unter welcher die API die Liste aller Objekte vom Typ
-              <literal>oparl:Paper</literal>, also die Drucksachen unter
-              dieser Körperschaft ausgibt. Diese Eigenschaft ist
-              ZWINGEND.
+              Drucksachen unter dieser Körperschaft. Typ:
+              <literal>oparl:Paper</literal> ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -3744,10 +3738,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL, unter welcher die API die Liste aller Objekte vom Typ
-              <literal>oparl:Person</literal>, also die Personen unter
-              dieser Körperschaft ausgibt. Diese Eigenschaft ist
-              ZWINGEND.
+              Personen in dieser Körperschaft. Typ:
+              <literal>oparl:Person</literal> ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -3757,10 +3749,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL, unter welcher die API die Liste aller Objekte vom Typ
-              <literal>oparl:Meeting</literal>, also die Sitzungen
-              dieser Körperschaft ausgibt. Diese Eigenschaft ist
-              ZWINGEND.
+              Sitzungen dieser Körperschaft. Typ:
+              <literal>oparl:Meeting</literal> ZWINGEND
             </para>
           </listitem>
         </varlistentry>
@@ -3770,10 +3760,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL, unter welcher die API die Liste aller Objekte vom Typ
-              <literal>oparl:Organization</literal>, also die
-              Gruppierungen dieser Körperschaft ausgibt. Diese
-              Eigenschaft ist ZWINGEND.
+              Gruppierung in dieser Körperschaft. Typ:
+              <literal>oparl:Organization</literal> ZWINGEND
             </para>
           </listitem>
         </varlistentry>
@@ -3783,7 +3771,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              <literal>skos:Concept</literal>
+              Typ: <literal>skos:Concept</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -3793,7 +3781,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
+              Datum/Uhrzeit der Erzeugung des Objekts. Typ: TODO
+              EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -3803,8 +3792,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Datum/Uhrzeit der letzten Bearbeitung des Objekts.
-              EMPFOHLEN.
+              Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ:
+              TODO EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4487,7 +4476,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei
               einer zukünftigen Sitzung ist dies der geplante Zeitpunkt,
               bei einer stattgefundenen KANN es der tatsächliche
-              Startzeitpunkt sein. ZWINGEND
+              Startzeitpunkt sein. Typ: TODO ZWINGEND
             </para>
           </listitem>
         </varlistentry>
@@ -4500,7 +4489,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer
               zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei
               einer stattgefundenen KANN es der tatsächliche
-              Endzeitpunkt sein. EMPFOHLEN
+              Endzeitpunkt sein. Typ: TODO EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4510,8 +4499,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Sitzungsort in Form eines
-              <literal>oparl:Location</literal> Objekts. EMPFOHLEN
+              Sitzungsort. Typ: <literal>oparl:Location</literal>
+              EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4521,11 +4510,10 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL der Gruppierung oder Liste der URLs der Gruppierungen
-              (oparl:Organization), denen die Sitzung zugeordnet ist.
-              Wenn eine Liste angegeben wird, dann ist diese geordnet.
-              Das erste Element ist dann das federführende Gremium.
-              ZWINGEND
+              Gruppierung der die Sitzung zugeordnet ist. Wenn eine
+              Liste angegeben wird, dann ist diese geordnet. Das erste
+              Element ist dann das federführende Gremium. Typ:
+              <literal>oparl:Organization</literal> ZWINGEND
             </para>
           </listitem>
         </varlistentry>
@@ -4535,12 +4523,12 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL der Teilnehmer oder Liste der URLs der Teilnehmer
-              (oparl:Person) der Sitzung. Bei einer Sitzung in der
-              Zukunft sind dies die geladenen Teilnehmer, bei einer
+              Teilnehmer der Sitzung. Bei einer Sitzung in der Zukunft
+              sind dies die geladenen Teilnehmer, bei einer
               stattgefundenen Sitzung SOLL die Liste nur diejenigen
               Teilnehmer umfassen, die tatsächlich an der Sitzung
-              teilgenommen haben. ZWINGEND.
+              teilgenommen haben. Typ: <literal>oparl:Person</literal>
+              ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -4550,8 +4538,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL des Einladungsdokuments (oparl:Document) zur Sitzung.
-              EMPFOHLEN.
+              Einladungsdokument zur Sitzung. Typ:
+              <literal>oparl:Document</literal> EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -4561,9 +4549,10 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL des Ergebnisprotokolls (oparl:Document) zur Sitzung.
-              Diese Eigenschaft kann selbstverständlich erst nach dem
-              Stattfinden der Sitzung vorkommen. EMPFOHLEN
+              Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann
+              selbstverständlich erst nach dem Stattfinden der Sitzung
+              vorkommen. Typ: <literal>oparl:Document</literal>
+              EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4573,9 +4562,10 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL des Wortprotokolls (oparl:Document) zur Sitzung. Diese
-              Eigenschaft kann selbstverständlich erst nach dem
-              Stattfinden der Sitzung vorkommen. EMPFOHLEN
+              Wortprotokoll zur Sitzung. Diese Eigenschaft kann
+              selbstverständlich erst nach dem Stattfinden der Sitzung
+              vorkommen. Typ: <literal>oparl:Document</literal>
+              EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4585,11 +4575,11 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL oder Liste von URLs zu Dokumentenanhängen
-              (oparl:Document) zur Sitzung. Hiermit sind Dokumente
+              Dokumentenanhang zur Sitzung. Hiermit sind Dokumente
               gemeint, die üblicherweise mit der Einladung zu einer
               Sitzung verteilt werden und die nicht bereits über
-              einzelne Tagesordnungspunkte referenziert sind. OPTIONAL
+              einzelne Tagesordnungspunkte referenziert sind. Typ:
+              <literal>oparl:Document</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4599,9 +4589,9 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URLs der Tagesordnungspunkte (oparl:AgendaItem) der
-              Sitzung. Die Reihenfolge ist relevant. Es kann Sitzungen
-              ohne TOPs geben. OPTIONAL
+              Tagesordnungspunkte der Sitzung. Die Reihenfolge ist
+              relevant. Es kann Sitzungen ohne TOPs geben. Typ:
+              <literal>oparl:AgendaItem</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4611,7 +4601,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              <literal>skos:Concept</literal>
+              Typ: <literal>skos:Concept</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4621,7 +4611,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Datum und Uhrzeit der Erzeugung des Objekts. EMPFOHLEN
+              Datum und Uhrzeit der Erzeugung des Objekts. Typ: TODO
+              EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4631,8 +4622,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Datum und Uhrzeit der letzten Änderung des Objekts.
-              EMPFOHLEN
+              Datum und Uhrzeit der letzten Änderung des Objekts. Typ:
+              TODO EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4681,8 +4672,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL der Sitzung (<literal>oparl:Meeting</literal>), dem
-              der Tagesordnungspunkt zugeordnet ist. ZWINGEND.
+              Sitzung, der der Tagesordnungspunkt zugeordnet ist. Typ:
+              <literal>oparl:Meeting</literal> ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -4697,7 +4688,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               &quot;C&quot;, &quot;c)&quot; o.ä. Die Reihenfolge wird
               dadurch nicht festgelegt, sondern durch die Reihenfolge
               der TOPs im <literal>agendaItem</literal>-Attribut von
-              <literal>oparl:Meeting</literal> OPTIONAL
+              <literal>oparl:Meeting</literal> Typ: TODO OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4707,7 +4698,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Das Thema des Tagesordnungspunktes. ZWINGEND.
+              Das Thema des Tagesordnungspunktes. Typ: TODO ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -4720,7 +4711,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in
               öffentlicher Sitzung vorgesehen ist/war. Es wird ein
               Wahrheitswert (<literal>true</literal> oder
-              <literal>false</literal>) erwartet. EMPFOHLEN.
+              <literal>false</literal>) erwartet. Typ: boolean
+              EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -4730,11 +4722,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Liste der URLs der Beratungen (oparl:Consultation), die
-              diesem Tagesordnungspunkt zugewiesen sind, oder alternativ
-              die URL zum Abruf dieser Liste. Sofern diesem
-              Tagesordnungspunkt keine Beratungen zugewiesen sind,
-              bleibt die Liste ohne Einträge. ZWINGEND.
+              Beratung, die diesem Tagesordnungspunkt zugewiesen ist.
+              Typ: <literal>oparl:Consultation</literal> ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -4757,7 +4746,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               steht, URLs aus einem OParl Vokabular verwendet werden,
               wie im Beispiel oben zu sehen. Diese dienen dazu,
               Kategorien über Systemgrenzen hinweg maschinenlesbar zu
-              vereinheitlichen. EMPFOHLEN
+              vereinheitlichen. Typ: <literal>skos:Concept</literal>
+              EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4771,7 +4761,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               wurde, kann der Text hier hinterlegt werden. Das ist
               besonders dann in der Praxis relevant, wenn der gefasste
               Beschluss (z.B. durch Änderungsantrag) von der
-              Beschlussvorlage abweicht. OPTIONAL.
+              Beschlussvorlage abweicht. Typ: TODO OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -4781,27 +4771,33 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              <literal>oparl:Paper</literal>. Zwar kann auch das
+              Drucksache. Zwar kann auch das
               <literal>oparl:Meeting</literal> darauf verweisen, aber
-              hier sind solche Verweise in der Regel präziser, da sich
-              Drucksachen regelmäßig für einen TOP relevant sind und
-              nicht für alle TOPs. OPTIONAL
+              hier sind solche Verweise in der Regel präziser, da
+              Drucksachen regelmäßig nur für einen TOP relevant sind und
+              nicht für alle TOPs. Typ: <literal>oparl:Paper</literal>
+              OPTIONAL
             </para>
           </listitem>
         </varlistentry>
-      </variablelist>
-      <para>
-        <literal>auxiliaryDocument</literal> :
-        <literal>oparl:Document</literal> zum TOP. OPTIONAL
-      </para>
-      <variablelist>
+        <varlistentry>
+          <term>
+            <literal>auxiliaryDocument</literal>
+          </term>
+          <listitem>
+            <para>
+              eine weitere relevante Datei. Typ:
+              <literal>oparl:Document</literal> OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
         <varlistentry>
           <term>
             <literal>classification</literal>
           </term>
           <listitem>
             <para>
-              <literal>skos:Concept</literal>
+              Typ: <literal>skos:Concept</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4811,7 +4807,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Erzeugungsdatum und -zeit des Objekts. EMPFOHLEN
+              Erzeugungsdatum und -zeit des Objekts. Typ: TODO EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4821,7 +4817,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Datum und Uhrzeit der letzten Änderung. EMPFOHLEN
+              Datum und Uhrzeit der letzten Änderung. Typ: TODO
+              EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4883,7 +4880,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
         &quot;beispielris:consultation/5676&quot;,
         &quot;beispielris:consultation/5689&quot;
     ]
-    &quot;lastModified&quot;: &quot;2013-01-08T12:05:27+01:00&quot;
+    &quot;modified&quot;: &quot;2013-01-08T12:05:27+01:00&quot;
 }
 </programlisting>
     <sect3 id="eigenschaften-6">
@@ -4891,11 +4888,43 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
       <variablelist>
         <varlistentry>
           <term>
+            <literal>reference</literal>
+          </term>
+          <listitem>
+            <para>
+              Beispiel: &quot;1234/2014&quot; Typ: TODO OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>publishedDate</literal>
+          </term>
+          <listitem>
+            <para>
+              Beispiel: &quot;2014-04-04T16:42:02+02:00&quot; Typ: TODO
+              EMPFOHLEN
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>name</literal>
+          </term>
+          <listitem>
+            <para>
+              Beispiel: &quot;Antwort auf Anfrage 1200/2014&quot; Typ:
+              TODO EMPFOHLEN
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
             <literal>paperType</literal>
           </term>
           <listitem>
             <para>
-              Ein Objekt mit einem
+              Begriff mit einem
               <literal>skos:prefLabel</literal>-Attribut, dessen Wert
               eine Zeichenkette ist und die Art der Drucksache
               beschreibt, z.B. &quot;Beantwortung einer Anfrage&quot;.
@@ -4903,7 +4932,79 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               gibt es hier:
               https://wiki.piratenpartei.de/BE:BVVupdates/Glossar Eine
               zukünftige Version von OParl wird möglicherweise solche
-              Werte spezifizieren. OPTIONAL
+              Werte spezifizieren. Typ: <literal>skos:Concept</literal>
+              OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>relatedPaper</literal>
+          </term>
+          <listitem>
+            <para>
+              Typ: <literal>oparl:Paper</literal> OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>mainDocument</literal>
+          </term>
+          <listitem>
+            <para>
+              Typ: <literal>oparl:Document</literal>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>auxiliaryDocument</literal>
+          </term>
+          <listitem>
+            <para>
+              Typ: <literal>oparl:Document</literal>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>location</literal>
+          </term>
+          <listitem>
+            <para>
+              Typ: <literal>oparl:Location</literal>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>creator</literal>
+          </term>
+          <listitem>
+            <para>
+              Typ: <literal>oparl:Person</literal> |
+              <literal>oparl:Organization</literal>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>consultation</literal>
+          </term>
+          <listitem>
+            <para>
+              Typ: <literal>oparl:Consultation</literal>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>modified</literal>
+          </term>
+          <listitem>
+            <para>
+              Typ: TODO Beispiel: &quot;2013-01-08T12:05:27+01:00&quot;
             </para>
           </listitem>
         </varlistentry>
@@ -4913,28 +5014,17 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              <literal>skos:Concept</literal> mit
-              <literal>skos:prefLabel</literal>. Allgemeiner als
-              <literal>paperType</literal> OPTIONAL
+              Begriff mit <literal>skos:prefLabel</literal>. Allgemeiner
+              als <literal>paperType</literal> Typ:
+              <literal>skos:Concept</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
       <para>
-        TODO:
+        TODO: * Festlegen: OPTIONAL / EMPFOHLEN / ZWINGEND * Eigenschaft
+        &quot;locations&quot; im Beispiel ändern
       </para>
-      <itemizedlist>
-        <listitem>
-          <para>
-            Eigenschaften beschreiben
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Eigenschaft &quot;locations&quot; im Beispiel ändern
-          </para>
-        </listitem>
-      </itemizedlist>
     </sect3>
   </sect2>
   <sect2 id="oparl_document">
@@ -4978,30 +5068,18 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
       Mehrere Objekte vom Typ <literal>oparl:Document</literal> können
       mit einander in direkter Beziehung stehen, wenn sie den selben
       Inhalt in unterschiedlichen technischen Formaten wiedergeben.
-      Hierfür werden die Eigenschaften
-      <literal>master_document</literal> bzw.
-      <literal>derivative_documents</literal> eingesetzt. Das oben
+      Hierfür werden die Eigenschaften <literal>masterDocument</literal>
+      bzw. <literal>derivativeDocuments</literal> eingesetzt. Das oben
       angezeigte Beispiel-Objekt repräsentiert eine PDF-Datei (zu
-      erkennen an der Eigenschaft <literal>mime_type</literal>) und
-      zeigt außerdem über die Eigenschaft
-      <literal>master_document</literal> an, von welcher anderen Datei
-      es abgeleitet wurde. Umgekehrt KANN über die Eigenschaft
-      <literal>derivative_documents</literal> angezeigt werden, welche
-      Ableitungen einer Datei existieren.
+      erkennen an der Eigenschaft <literal>mimeType</literal>) und zeigt
+      außerdem über die Eigenschaft <literal>masterDocument</literal>
+      an, von welcher anderen Datei es abgeleitet wurde. Umgekehrt KANN
+      über die Eigenschaft <literal>derivativeDocuments</literal>
+      angezeigt werden, welche Ableitungen einer Datei existieren.
     </para>
     <sect3 id="eigenschaften-7">
       <title>Eigenschaften</title>
       <variablelist>
-        <varlistentry>
-          <term>
-            <literal>@id</literal>
-          </term>
-          <listitem>
-            <para>
-              Die URL des Objekts.
-            </para>
-          </listitem>
-        </varlistentry>
         <varlistentry>
           <term>
             <literal>name</literal>
@@ -5025,8 +5103,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
                 </para>
               </footnote>). Sollte das System einer Datei keinen
               spezifischen Typ zuweisen können, wird EMPFOHLEN, hier
-              &quot;application/octet-stream&quot; zu verwenden.
-              ZWINGEND
+              &quot;application/octet-stream&quot; zu verwenden. Typ:
+              TODO ZWINGEND
             </para>
           </listitem>
         </varlistentry>
@@ -5115,11 +5193,11 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Zugehöriges Objekts vom Typ
-              <literal>oparl:Paper</literal>, sofern diese Datei zu
-              einer Drucksache gehört. Wenn diese Datei zu einer
-              Drucksache gehört, MUSS diese Eigenschaft vorhanden sein,
-              andernfalls DARF sie NICHT vorhanden sein. Typ: URL.
+              Drucksache, sofern diese Datei zu einer Drucksache gehört.
+              Wenn diese Datei zu einer Drucksache gehört, MUSS diese
+              Eigenschaft vorhanden sein, andernfalls DARF sie NICHT
+              vorhanden sein. TODO: ist das eine Tautologie? Typ:
+              <literal>oparl:Paper</literal>
             </para>
           </listitem>
         </varlistentry>
@@ -5129,11 +5207,11 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Zugehöriges Objekt vom Typ
-              <literal>oparl:Meeting</literal>, sofern diese Datei zu
-              einer Sitzung gehört. Wenn diese Datei zu einer Sitzung
-              gehört, MUSS diese Eigenschaft vorhanden sein, andernfalls
-              DARF sie NICHT vorhanden sein. Typ: URL.
+              Sitzung, sofern diese Datei zu einer Sitzung gehört. Wenn
+              diese Datei zu einer Sitzung gehört, MUSS diese
+              Eigenschaft vorhanden sein, andernfalls DARF sie NICHT
+              vorhanden sein. TODO: ist das eine Tautologie? Typ:
+              <literal>oparl:Meeting</literal>
             </para>
           </listitem>
         </varlistentry>
@@ -5143,8 +5221,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              <literal>oparl:Document</literal>, von dem das aktuelle
-              Objekt abgeleitet wurde. Typ: URL. OPTIONAL
+              Datei von der das aktuelle Objekt abgeleitet wurde. Typ:
+              <literal>oparl:Document</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5154,8 +5232,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              <literal>oparl:Document</literal>, die von dem aktuellen
-              Objekt abgeleitet wurden. Typ: URL. OPTIONAL
+              Abgeleitete Datei die von dem aktuellen Objekt abgeleitet
+              wurde. Typ: <literal>oparl:Document</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5190,7 +5268,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               wichtigsten Kategorien vorgegeben. TODO: Besser in
               <literal>oparl:Paper</literal> oder
               <literal>oparl:Meeting</literal> ? Siehe Diskussion unter
-              https://github.com/OParl/specs/issues/65 Typ: URL OPTIONAL
+              https://github.com/OParl/specs/issues/65 Typ:
+              <literal>skos:Concept</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5200,10 +5279,10 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              <literal>skos:Concept</literal> mit
-              <literal>skos:prefLabel</literal>. Hat allgemeinere
-              Bedeutung als <literal>documentRole</literal>. Typ: URL
-              OPTIONAL
+              Begriff mit <literal>skos:prefLabel</literal>. Hat
+              allgemeinere Bedeutung als
+              <literal>documentRole</literal>. Typ:
+              <literal>skos:Concept</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5289,7 +5368,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL der Drucksache, die beraten wird. ZWINGEND.
+              Drucksache, die beraten wird. Typ:
+              <literal>oparl:Paper</literal> ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -5299,8 +5379,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL des Tagesordnungspunktes (oparl:Agendaitem), unter dem
-              die Drucksache beraten wird. ZWINGEND.
+              Tagesordnungspunkt, unter dem die Drucksache beraten wird.
+              Typ: <literal>oparl:AgendaItem</literal> ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -5310,14 +5390,14 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL des Gremiums (oparl:Organization), dem die Sitzung
-              zugewiesen ist, zu welcher der zuvor genannte
-              Tagesordnungspunkt gehört. Hier kann auch eine mit Liste
-              von Gremien angegeben werden (die verschiedenen
-              <literal>oparl:Body</literal> und
+              Gremium, dem die Sitzung zugewiesen ist, zu welcher der
+              zuvor genannte Tagesordnungspunkt gehört. Hier kann auch
+              eine mit Liste von Gremien angegeben werden (die
+              verschiedenen <literal>oparl:Body</literal> und
               <literal>oparl:System</literal> angehören können). Die
               Liste ist dann geordnet. Das erste Gremium der Liste ist
-              federführend. ZWINGEND.
+              federführend. Typ: <literal>oparl:Organization</literal>
+              ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -5328,9 +5408,9 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Drückt aus, ob bei dieser Beratung ein Beschluss zu der
-              Drucksache gefasst wird (<emphasis>true</emphasis>) wird
-              oder nicht (<emphasis>false</emphasis>). Typ:
-              Wahrheitswert. Diese Eigenschaft ist OPTIONAL.
+              Drucksache gefasst wird (<literal>true</literal>) wird
+              oder nicht (<literal>false</literal>). Typ: boolean. Diese
+              Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5340,16 +5420,15 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              <literal>skos:Concept</literal> Rolle oder Funktion der
-              Beratung. z.B. Anhörung (hearing), Entscheidung
-              (decision), Kenntnisnahme (notice), Vorberatung
-              (counseling) usw. Es wird empfohlen in den URLs
-              entsprechende englische Bestandteile zu verwenden. Die
-              Rollenobjekte haben nur eine festgelegte Eigenschaft:
+              Rolle oder Funktion der Beratung. z.B. Anhörung (hearing),
+              Entscheidung (decision), Kenntnisnahme (notice),
+              Vorberatung (counseling) usw. Es wird empfohlen in den
+              URLs entsprechende englische Bestandteile zu verwenden.
+              Die Rollenobjekte haben nur eine festgelegte Eigenschaft:
               <literal>skos:prefLabel</literal> für den Namen. In einer
               zukünftigen Version von OParl können gegebenenfalls die am
-              stärksten benötigten Rollen standardisiert werden.
-              OPTIONAL
+              stärksten benötigten Rollen standardisiert werden. Typ:
+              <literal>skos:Concept</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5359,9 +5438,9 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              <literal>skos:Concept</literal> mit
-              <literal>skos:prefLabel</literal>. Allgemeiner verwendbar
-              als <literal>role</literal>. OPTIONAL
+              Schlagwort, Begriff mit <literal>skos:prefLabel</literal>.
+              Allgemeiner verwendbar als <literal>role</literal>. Typ:
+              <literal>skos:Concept</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5512,7 +5591,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             <para>
               Geodaten-Repräsentation des Orts. Ist diese Eigenschaft
               gesetzt, MUSS ihr Wert der Spezifikation von Well-Known
-              Text (WKT) entsprechen. OPTIONAL
+              Text (WKT) entsprechen. Typ: TODO OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5522,8 +5601,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              <literal>skos:Concept</literal> mit
-              <literal>skos:prefLabel</literal> OPTIONAL
+              Schlagwort mit <literal>skos:prefLabel</literal> Typ:
+              <literal>skos:Concept</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5587,7 +5666,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              <literal>oparl:Person</literal> Eine Person. OPTIONAL
+              Person. Typ: <literal>oparl:Person</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5597,7 +5676,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              <literal>oparl:Organization</literal> Eine Organization.
+              Organization. Typ: <literal>oparl:Organization</literal>
               OPTIONAL
             </para>
           </listitem>
@@ -5608,9 +5687,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              zeigt auf ein Objekt der Klasse
-              <literal>org:Role</literal> oder einer Unterklasse. Das
-              Objekt hat eine
+              Rolle. Das Objekt hat eine
               <literal>skos:prefLabel</literal>-Eigenschaft, deren Wert
               eine Funktionsbezeichnung ist, z.B. &quot;1. pers.
               Vertreter | 1. pers. Vertreterin&quot; oder &quot;2. pers.
@@ -5621,7 +5698,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               &quot;Sachkundige Bürger | Sachkundige Bürgerin&quot; und
               &quot;Ratsherr | Ratsfrau&quot; bei einfachen Mitgliedern
               ist hiermit möglich. TODO: was ist mit einem sachkundigen
-              Bürger, der gleichzeitig Vorsitzender ist? OPTIONAL
+              Bürger, der gleichzeitig Vorsitzender ist? Typ:
+              <literal>org:Role</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5631,7 +5709,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              The post held by the person in the organization OPTIONAL
+              The post held by the person in the organization Typ:
+              <literal>org:Post</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5644,7 +5723,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               Entsendende Organization - Fraktion, fraktionslos oder
               externes Gremium Dies entspricht
               <literal>opengov:onBehalfOf</literal> in Popolo. TODO: wie
-              wird fraktionslos kodiert? OPTIONAL
+              wird fraktionslos kodiert? Typ:
+              <literal>oparl:Organization</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5655,7 +5735,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               <literal>schema:validFrom</literal> wie in Popolo. The
-              date on which the relationship began OPTIONAL
+              date on which the relationship began Typ: TODO OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5666,7 +5746,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               <literal>schema:validThrough</literal> wie in Popolo. The
-              date on which the relationship ended OPTIONAL
+              date on which the relationship ended Typ: TODO OPTIONAL
             </para>
           </listitem>
         </varlistentry>

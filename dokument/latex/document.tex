@@ -464,10 +464,15 @@ Anteil unterstützt.
 Die Entsprechung in RFC2119 lautet ``MAY'' oder ``OPTIONAL''.
 \end{description}
 
-\subsubsection{Besondere Hervorhebungen und
-Satzkonventionen}\label{besondere-hervorhebungen-und-satzkonventionen}
+\subsubsection{Geschlechterspezifische
+Begrifflichkeiten}\label{geschlechterspezifische-begrifflichkeiten}
 
-TODO
+Um bei Begriffen wie Nutzer, Anwender, Betreiber etc. die sonst übliche
+Dominanz der männlichen Variante zu vermeiden, werden in diesem Dokument
+männliche oder weibliche Varianten gemischt. Es wird also beispielsweise
+mal von einer Nutzerin gesprochen und mal von einem Nutzer. Gemeint sind
+selbstverständlich in allen Fällen immer weibliche wie auch männliche
+Personen.
 
 \subsection{Initiatoren}\label{initiatoren}
 
@@ -860,13 +865,8 @@ Stichpunkte:
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  Grundlage für den Zugriff auf die Schnittstelle ist das Hypertext
-  Transfer Protocol (HTTP).
-\item
   Optional gzip Encoding und andere Kodierungen, wenn Client und Server
   dies unterstützen
-\item
-  Das Protokoll ist zustandslos
 \item
   Authentifizierung wird nicht benötigt.
 \end{itemize}
@@ -951,6 +951,10 @@ beschreiben,
   zu verarbeiten. Auf dem Server wird kein Speicher zur Verfügung
   gestellt, um beispielsweise den Zustand einer Session zu speichern.
 \end{itemize}
+
+Diese Prinzipien macht sich auch OParl zunutze. Damit gilt prinzipiell,
+dass eine OParl-konforme Server-Schnittstelle auch als ``RESTful''
+gelten darf.
 
 \subsubsection{Selbstbeschreibungsfähigkeit}\label{selbstbeschreibungsfuxe4higkeit}
 
@@ -1206,11 +1210,11 @@ generell der allgemein gebräuchlichere Begriff ``URL'' werwendet, auch
 wenn damit tatsächlich die internationalisierte Variante nach RFC
 3987\footnote{RFC 3987: \url{http://tools.ietf.org/html/rfc3987}}, die
 korrekterweise IRI bzw. ``Internationalized Resource Identifier''
-genannt werden müsste. In andern Kontexten wiederum wird von URIs bzw.
-``Uniform Resource Identifier'' gesprochen. Das vorliegende Dokumente
-fasst alle drei Konzepte mit dem Begriff ``URL'' zusammen und ignoriert
-damit die Unterschiede der einzelnen Begriffe, da diese im Rahmen dieser
-Spezifikation ohne bedeutung sind.
+genannt werden müsste, gemeint ist. In andern Kontexten wiederum wird
+von URIs bzw. ``Uniform Resource Identifier'' gesprochen. Das
+vorliegende Dokumente fasst alle drei Konzepte mit dem Begriff ``URL''
+zusammen und ignoriert damit die Unterschiede der einzelnen Begriffe, da
+diese im Rahmen dieser Spezifikation ohne bedeutung sind.
 
 Die grundsätzliche Funktionsweise von URLs ist in RFC 3986
 beschrieben\footnote{RFC 3986: \url{http://tools.ietf.org/html/rfc3986}}.
@@ -1219,22 +1223,19 @@ Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in
 diesem Dokument Verwendung finden:
 
 \begin{verbatim}
-http://refserv.oparl.org/bodies/0/committees/4/members/?skip=234
-\__/   \_______________/\_____________________________/ \______/
- |         |                  |                           |
-Schema    Host               Pfad                        Query-String
+http://refserv.oparl.org/foo/bar/?skip=234
+\__/   \_______________/\_______/ \______/
+ |         |                |        |
+Schema    Host             Pfad  Query-String
 \end{verbatim}
-
-Um bereits an dieser Stelle das Entstehen von Missverständnissen zu
-vermeiden sei darauf hingewiesen, dass insbesondere auch der enthaltene
-Pfad nur ein Beipiel ist. Der Aufbau der Pfade wird in OParl nicht
-festgelegt.
 
 \subsubsection{URL-Kanonisierung}\label{url-kanonisierung}
 
-Absicht ist, dass jedes benannte Objekt, das ein Server über eine
-OParl-API anbietet, über genau eine URL identifizierbar und abrufbar
-ist. Diese Vereinheitlichung der URL nennen wir Kanonisierung.
+Absicht ist, dass jedes benannte Objekt\footnote{vgl.
+  \hyperref[benannteux5fanonymeux5fobjekte]{Benannte und anonyme
+  Objekte}}, das ein Server über eine OParl-API anbietet, über genau
+eine URL identifizierbar und abrufbar ist. Diese Vereinheitlichung der
+URL nennen wir Kanonisierung.
 
 Die Kanonisierung ist entscheidend, um erkennen zu können, ob zwei URLs
 das selbe Objekt repräsentieren. Sind zwei URLs identisch, sollen
@@ -1757,8 +1758,8 @@ die geeignetste ist.)
   https://github.com/OParl/specs/issues/67
 \end{itemize}
 
-\subsection{Benannte und anonyme
-Objekte}\label{benannte-und-anonyme-objekte}
+\hyperdef{}{benannteux5fanonymeux5fobjekte}{\subsection{Benannte und
+anonyme Objekte}\label{benannteux5fanonymeux5fobjekte}}
 
 Die JSON-LD-Spezifikation unterscheidet zwischen benannten und anonymen
 Objekten. Da die Unterscheidung auch für OParl von Bedeutung ist, wird
@@ -2773,70 +2774,63 @@ einem bestimmten Parlament an.
 
 \begin{description}
 \item[\texttt{system}]
-URL des Objekts vom Typ \texttt{oparl:System} Objekts, zu dem dieses
-Objekt gehört. ZWINGEND.
+System zu dem dieses Objekt gehört. Typ: \texttt{oparl:System} ZWINGEND.
 \item[\texttt{name}]
-Gibt den gebräuchlichen Namen der Körperschaft an. ZWINGEND.
+Gibt den gebräuchlichen Namen der Körperschaft an. Typ: TODO ZWINGEND.
 \item[\texttt{nameLong}]
 Kann bei Bedarf dazu verwendet werden, eine längere Form des Namens der
-Körperschaft anzugeben. OPTIONAL.
+Körperschaft anzugeben. Typ: TODO OPTIONAL.
 \item[\texttt{website}]
-Dient der Angabe der WWW-URL der Körperschaft. EMPFOHLEN.
+WWW-URL der Körperschaft. EMPFOHLEN.
 \item[\texttt{license}]
-URL der Lizenz, die für die Daten, die über diese API abgerufen werden
-können, gilt, sofern nicht am einzelnen Objekt anders angegeben.
-Verzeichnisse für solche Lizenz-URLs sind insbesondere
+Lizenz, die für die Daten, die über diese API abgerufen werden können,
+gilt, sofern nicht am einzelnen Objekt anders angegeben. Verzeichnisse
+für solche Lizenz-URLs sind insbesondere
 http://licenses.opendefinition.org/ und
 https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json
-EMPFOHLEN.
+Typ: TODO EMPFOHLEN.
 \item[\texttt{licenseValidSinceDay}]
 Tagesdatum, seit dem die unter license angegebene Lizenz gilt. Vorsicht
-bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen.
-EMPFOHLEN
+bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen. Typ:
+TODO EMPFOHLEN
 \item[\texttt{rgs}]
 Regionalschlüssel der Körperschaft als zwölfstellige
 Zeichenkette\footnote{Regionalschlüssel können im
   \href{https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html}{Gemeindeverzeichnis
-  (GV-ISys) des Statistischen Bundesamtes} eingesehen werden}. Diese
-Eigenschaft ist EMPFOHLEN.
-\item[\texttt{sameBody}]
-Dient der Angabe beliebig vieler zusätzlicher URLs, die die Körperschaft
-repräsentieren. Diese Eigenschaft ist EMPFOHLEN. Hier können
-beispielsweise, sofern vorhanden, der entsprechende Eintrag der
-Gemeinsamen Normdatei der Deutschen Nationalbibliothek\footnote{Gemeinsame
-  Normdatei \url{http://www.dnb.de/gnd}}, der DBPedia\footnote{DBPedia
+  (GV-ISys) des Statistischen Bundesamtes} eingesehen werden}. Typ: TODO
+EMPFOHLEN
+\item[\texttt{equivalentBody}]
+Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe
+Körperschaft repräsentieren. Hier können beispielsweise, sofern
+vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der
+Deutschen Nationalbibliothek\footnote{Gemeinsame Normdatei
+  \url{http://www.dnb.de/gnd}}, der DBPedia\footnote{DBPedia
   \url{http://www.dbpedia.org/}} oder der Wikipedia\footnote{Wikipedia
-  \url{http://de.wikipedia.org/}} angegeben werden.
+  \url{http://de.wikipedia.org/}} angegeben werden. Typ: TODO EMPFOHLEN
 \item[\texttt{contactEmail}]
 Dient der Angabe einer Kontakt-E-Mail-Adresse mit ``mailto:''-Schema.
-Diese Eigenschaft ist EMPFOHLEN. Die Adresse soll die Kontaktaufnahme zu
-einer für die Körperschaft und idealerweise das parlamentarische
-Informationssystem zuständigen Stelle ermöglichen.
+Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und
+idealerweise das parlamentarische Informationssystem zuständigen Stelle
+ermöglichen. Typ: TODO EMPFOHLEN
 \item[\texttt{contactName}]
 Name oder Bezeichnung der mit \texttt{contactEmail} erreichbaren Stelle.
-OPTIONAL.
+Typ: TODO OPTIONAL.
 \item[\texttt{paper}]
-URL, unter welcher die API die Liste aller Objekte vom Typ
-\texttt{oparl:Paper}, also die Drucksachen unter dieser Körperschaft
-ausgibt. Diese Eigenschaft ist ZWINGEND.
+Drucksachen unter dieser Körperschaft. Typ: \texttt{oparl:Paper}
+ZWINGEND.
 \item[\texttt{member}]
-URL, unter welcher die API die Liste aller Objekte vom Typ
-\texttt{oparl:Person}, also die Personen unter dieser Körperschaft
-ausgibt. Diese Eigenschaft ist ZWINGEND.
+Personen in dieser Körperschaft. Typ: \texttt{oparl:Person} ZWINGEND.
 \item[\texttt{meeting}]
-URL, unter welcher die API die Liste aller Objekte vom Typ
-\texttt{oparl:Meeting}, also die Sitzungen dieser Körperschaft ausgibt.
-Diese Eigenschaft ist ZWINGEND.
+Sitzungen dieser Körperschaft. Typ: \texttt{oparl:Meeting} ZWINGEND
 \item[\texttt{organization}]
-URL, unter welcher die API die Liste aller Objekte vom Typ
-\texttt{oparl:Organization}, also die Gruppierungen dieser Körperschaft
-ausgibt. Diese Eigenschaft ist ZWINGEND.
+Gruppierung in dieser Körperschaft. Typ: \texttt{oparl:Organization}
+ZWINGEND
 \item[\texttt{classification}]
-\texttt{skos:Concept}
+Typ: \texttt{skos:Concept} OPTIONAL
 \item[\texttt{created}]
-Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
+Datum/Uhrzeit der Erzeugung des Objekts. Typ: TODO EMPFOHLEN.
 \item[\texttt{lastModified}]
-Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.
+Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ: TODO EMPFOHLEN
 \end{description}
 
 \hyperdef{}{oparlux5forganization}{\subsection{oparl:Organization
@@ -3280,48 +3274,47 @@ Das selbe Beispiel in kompakter Form:
 \item[\texttt{start}]
 Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer
 zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer
-stattgefundenen KANN es der tatsächliche Startzeitpunkt sein. ZWINGEND
+stattgefundenen KANN es der tatsächliche Startzeitpunkt sein. Typ: TODO
+ZWINGEND
 \item[\texttt{end}]
 Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen
 Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN
-es der tatsächliche Endzeitpunkt sein. EMPFOHLEN
+es der tatsächliche Endzeitpunkt sein. Typ: TODO EMPFOHLEN
 \item[\texttt{location}]
-Sitzungsort in Form eines \texttt{oparl:Location} Objekts. EMPFOHLEN
+Sitzungsort. Typ: \texttt{oparl:Location} EMPFOHLEN
 \item[\texttt{organization}]
-URL der Gruppierung oder Liste der URLs der Gruppierungen
-(oparl:Organization), denen die Sitzung zugeordnet ist. Wenn eine Liste
-angegeben wird, dann ist diese geordnet. Das erste Element ist dann das
-federführende Gremium. ZWINGEND
+Gruppierung der die Sitzung zugeordnet ist. Wenn eine Liste angegeben
+wird, dann ist diese geordnet. Das erste Element ist dann das
+federführende Gremium. Typ: \texttt{oparl:Organization} ZWINGEND
 \item[\texttt{participant}]
-URL der Teilnehmer oder Liste der URLs der Teilnehmer (oparl:Person) der
-Sitzung. Bei einer Sitzung in der Zukunft sind dies die geladenen
-Teilnehmer, bei einer stattgefundenen Sitzung SOLL die Liste nur
-diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung
-teilgenommen haben. ZWINGEND.
+Teilnehmer der Sitzung. Bei einer Sitzung in der Zukunft sind dies die
+geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die Liste
+nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung
+teilgenommen haben. Typ: \texttt{oparl:Person} ZWINGEND.
 \item[\texttt{invitation}]
-URL des Einladungsdokuments (oparl:Document) zur Sitzung. EMPFOHLEN.
+Einladungsdokument zur Sitzung. Typ: \texttt{oparl:Document} EMPFOHLEN.
 \item[\texttt{resultsProtocol}]
-URL des Ergebnisprotokolls (oparl:Document) zur Sitzung. Diese
-Eigenschaft kann selbstverständlich erst nach dem Stattfinden der
-Sitzung vorkommen. EMPFOHLEN
+Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich
+erst nach dem Stattfinden der Sitzung vorkommen. Typ:
+\texttt{oparl:Document} EMPFOHLEN
 \item[\texttt{verbatimProtocol}]
-URL des Wortprotokolls (oparl:Document) zur Sitzung. Diese Eigenschaft
-kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen.
-EMPFOHLEN
+Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich
+erst nach dem Stattfinden der Sitzung vorkommen. Typ:
+\texttt{oparl:Document} EMPFOHLEN
 \item[\texttt{auxiliaryDocument}]
-URL oder Liste von URLs zu Dokumentenanhängen (oparl:Document) zur
-Sitzung. Hiermit sind Dokumente gemeint, die üblicherweise mit der
-Einladung zu einer Sitzung verteilt werden und die nicht bereits über
-einzelne Tagesordnungspunkte referenziert sind. OPTIONAL
+Dokumentenanhang zur Sitzung. Hiermit sind Dokumente gemeint, die
+üblicherweise mit der Einladung zu einer Sitzung verteilt werden und die
+nicht bereits über einzelne Tagesordnungspunkte referenziert sind. Typ:
+\texttt{oparl:Document} OPTIONAL
 \item[\texttt{agendaItem}]
-URLs der Tagesordnungspunkte (oparl:AgendaItem) der Sitzung. Die
-Reihenfolge ist relevant. Es kann Sitzungen ohne TOPs geben. OPTIONAL
+Tagesordnungspunkte der Sitzung. Die Reihenfolge ist relevant. Es kann
+Sitzungen ohne TOPs geben. Typ: \texttt{oparl:AgendaItem} OPTIONAL
 \item[\texttt{classification}]
-\texttt{skos:Concept}
+Typ: \texttt{skos:Concept} OPTIONAL
 \item[\texttt{created}]
-Datum und Uhrzeit der Erzeugung des Objekts. EMPFOHLEN
+Datum und Uhrzeit der Erzeugung des Objekts. Typ: TODO EMPFOHLEN
 \item[\texttt{modified}]
-Datum und Uhrzeit der letzten Änderung des Objekts. EMPFOHLEN
+Datum und Uhrzeit der letzten Änderung des Objekts. Typ: TODO EMPFOHLEN
 \end{description}
 
 \subsection{oparl:AgendaItem
@@ -3364,24 +3357,23 @@ Ein Beispiel in kompakter Form:
 
 \begin{description}
 \item[\texttt{meeting}]
-URL der Sitzung (\texttt{oparl:Meeting}), dem der Tagesordnungspunkt
-zugeordnet ist. ZWINGEND.
+Sitzung, der der Tagesordnungspunkt zugeordnet ist. Typ:
+\texttt{oparl:Meeting} ZWINGEND.
 \item[\texttt{number}]
 Nummer des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z.B.
 ``10.'', ``10.1'', ``C'', ``c)'' o.ä. Die Reihenfolge wird dadurch nicht
 festgelegt, sondern durch die Reihenfolge der TOPs im
-\texttt{agendaItem}-Attribut von \texttt{oparl:Meeting} OPTIONAL
+\texttt{agendaItem}-Attribut von \texttt{oparl:Meeting} Typ: TODO
+OPTIONAL
 \item[\texttt{name}]
-Das Thema des Tagesordnungspunktes. ZWINGEND.
+Das Thema des Tagesordnungspunktes. Typ: TODO ZWINGEND.
 \item[\texttt{public}]
 Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher
 Sitzung vorgesehen ist/war. Es wird ein Wahrheitswert (\texttt{true}
-oder \texttt{false}) erwartet. EMPFOHLEN.
+oder \texttt{false}) erwartet. Typ: boolean EMPFOHLEN.
 \item[\texttt{consultation}]
-Liste der URLs der Beratungen (oparl:Consultation), die diesem
-Tagesordnungspunkt zugewiesen sind, oder alternativ die URL zum Abruf
-dieser Liste. Sofern diesem Tagesordnungspunkt keine Beratungen
-zugewiesen sind, bleibt die Liste ohne Einträge. ZWINGEND.
+Beratung, die diesem Tagesordnungspunkt zugewiesen ist. Typ:
+\texttt{oparl:Consultation} ZWINGEND.
 \item[\texttt{result}]
 Kategorische Information darüber, welches Ergebnis die Beratung des
 Tagesordnungspunktes erbracht hat. Es wird zu einem Objekt verlinkt,
@@ -3392,28 +3384,26 @@ genommen'', ``Ohne Votum in nachfolgende Gremien überwiesen'' und
 weitere zu erwarten. Alternativ können, sobald dieses zur Verfügung
 steht, URLs aus einem OParl Vokabular verwendet werden, wie im Beispiel
 oben zu sehen. Diese dienen dazu, Kategorien über Systemgrenzen hinweg
-maschinenlesbar zu vereinheitlichen. EMPFOHLEN
+maschinenlesbar zu vereinheitlichen. Typ: \texttt{skos:Concept}
+EMPFOHLEN
 \item[\texttt{resolutionText}]
 Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann der
 Text hier hinterlegt werden. Das ist besonders dann in der Praxis
 relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) von
-der Beschlussvorlage abweicht. OPTIONAL.
+der Beschlussvorlage abweicht. Typ: TODO OPTIONAL.
 \item[\texttt{paper}]
-\texttt{oparl:Paper}. Zwar kann auch das \texttt{oparl:Meeting} darauf
-verweisen, aber hier sind solche Verweise in der Regel präziser, da sich
-Drucksachen regelmäßig für einen TOP relevant sind und nicht für alle
-TOPs. OPTIONAL
-\end{description}
-
-\texttt{auxiliaryDocument} : \texttt{oparl:Document} zum TOP. OPTIONAL
-
-\begin{description}
+Drucksache. Zwar kann auch das \texttt{oparl:Meeting} darauf verweisen,
+aber hier sind solche Verweise in der Regel präziser, da Drucksachen
+regelmäßig nur für einen TOP relevant sind und nicht für alle TOPs. Typ:
+\texttt{oparl:Paper} OPTIONAL
+\item[\texttt{auxiliaryDocument}]
+eine weitere relevante Datei. Typ: \texttt{oparl:Document} OPTIONAL
 \item[\texttt{classification}]
-\texttt{skos:Concept}
+Typ: \texttt{skos:Concept} OPTIONAL
 \item[\texttt{created}]
-Erzeugungsdatum und -zeit des Objekts. EMPFOHLEN
+Erzeugungsdatum und -zeit des Objekts. Typ: TODO EMPFOHLEN
 \item[\texttt{lastModified}]
-Datum und Uhrzeit der letzten Änderung. EMPFOHLEN
+Datum und Uhrzeit der letzten Änderung. Typ: TODO EMPFOHLEN
 \end{description}
 
 \hyperdef{}{oparlux5fpaper}{\subsection{oparl:Paper
@@ -3473,7 +3463,7 @@ Ein Beispiel in kompakter Form:
         \StringTok{"beispielris:consultation/5676"}\NormalTok{,}
         \StringTok{"beispielris:consultation/5689"}
     \NormalTok{]}
-    \StringTok{"lastModified"}\ErrorTok{:} \StringTok{"2013-01-08T12:05:27+01:00"}
+    \StringTok{"modified"}\ErrorTok{:} \StringTok{"2013-01-08T12:05:27+01:00"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -3481,28 +3471,41 @@ Ein Beispiel in kompakter Form:
 \subsubsection{Eigenschaften}\label{eigenschaften-6}
 
 \begin{description}
+\item[\texttt{reference}]
+Beispiel: ``1234/2014'' Typ: TODO OPTIONAL
+\item[\texttt{publishedDate}]
+Beispiel: ``2014-04-04T16:42:02+02:00'' Typ: TODO EMPFOHLEN
+\item[\texttt{name}]
+Beispiel: ``Antwort auf Anfrage 1200/2014'' Typ: TODO EMPFOHLEN
 \item[\texttt{paperType}]
-Ein Objekt mit einem \texttt{skos:prefLabel}-Attribut, dessen Wert eine
+Begriff mit einem \texttt{skos:prefLabel}-Attribut, dessen Wert eine
 Zeichenkette ist und die Art der Drucksache beschreibt, z.B.
 ``Beantwortung einer Anfrage''. Eine weitere Liste mit exemplarischen
 Drucksachentypen gibt es hier:
 https://wiki.piratenpartei.de/BE:BVVupdates/Glossar Eine zukünftige
-Version von OParl wird möglicherweise solche Werte spezifizieren.
-OPTIONAL
+Version von OParl wird möglicherweise solche Werte spezifizieren. Typ:
+\texttt{skos:Concept} OPTIONAL
+\item[\texttt{relatedPaper}]
+Typ: \texttt{oparl:Paper} OPTIONAL
+\item[\texttt{mainDocument}]
+Typ: \texttt{oparl:Document}
+\item[\texttt{auxiliaryDocument}]
+Typ: \texttt{oparl:Document}
+\item[\texttt{location}]
+Typ: \texttt{oparl:Location}
+\item[\texttt{creator}]
+Typ: \texttt{oparl:Person} \textbar{} \texttt{oparl:Organization}
+\item[\texttt{consultation}]
+Typ: \texttt{oparl:Consultation}
+\item[\texttt{modified}]
+Typ: TODO Beispiel: ``2013-01-08T12:05:27+01:00''
 \item[\texttt{classification}]
-\texttt{skos:Concept} mit \texttt{skos:prefLabel}. Allgemeiner als
-\texttt{paperType} OPTIONAL
+Begriff mit \texttt{skos:prefLabel}. Allgemeiner als \texttt{paperType}
+Typ: \texttt{skos:Concept} OPTIONAL
 \end{description}
 
-TODO:
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Eigenschaften beschreiben
-\item
-  Eigenschaft ``locations'' im Beispiel ändern
-\end{itemize}
+TODO: * Festlegen: OPTIONAL / EMPFOHLEN / ZWINGEND * Eigenschaft
+``locations'' im Beispiel ändern
 
 \subsection{oparl:Document (Datei)}\label{oparlux5fdocument}
 
@@ -3543,27 +3546,25 @@ Beziehung stehen. Dies wird durch die Eigenschaft \texttt{paper} bzw.
 Mehrere Objekte vom Typ \texttt{oparl:Document} können mit einander in
 direkter Beziehung stehen, wenn sie den selben Inhalt in
 unterschiedlichen technischen Formaten wiedergeben. Hierfür werden die
-Eigenschaften \texttt{master\_document} bzw.
-\texttt{derivative\_documents} eingesetzt. Das oben angezeigte
-Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der
-Eigenschaft \texttt{mime\_type}) und zeigt außerdem über die Eigenschaft
-\texttt{master\_document} an, von welcher anderen Datei es abgeleitet
-wurde. Umgekehrt KANN über die Eigenschaft
-\texttt{derivative\_documents} angezeigt werden, welche Ableitungen
-einer Datei existieren.
+Eigenschaften \texttt{masterDocument} bzw. \texttt{derivativeDocuments}
+eingesetzt. Das oben angezeigte Beispiel-Objekt repräsentiert eine
+PDF-Datei (zu erkennen an der Eigenschaft \texttt{mimeType}) und zeigt
+außerdem über die Eigenschaft \texttt{masterDocument} an, von welcher
+anderen Datei es abgeleitet wurde. Umgekehrt KANN über die Eigenschaft
+\texttt{derivativeDocuments} angezeigt werden, welche Ableitungen einer
+Datei existieren.
 
 \subsubsection{Eigenschaften}\label{eigenschaften-7}
 
 \begin{description}
-\item[\texttt{@id}]
-Die URL des Objekts.
 \item[\texttt{name}]
 Name des Objekts, der Nutzern angezeigt werden kann. Typ: Zeichenkette.
 ZWINGEND
 \item[\texttt{mimeType}]
 Mime-Typ des Inhalts (vgl. RFC2046\footnote{\url{http://tools.ietf.org/html/rfc2046}}).
 Sollte das System einer Datei keinen spezifischen Typ zuweisen können,
-wird EMPFOHLEN, hier ``application/octet-stream'' zu verwenden. ZWINGEND
+wird EMPFOHLEN, hier ``application/octet-stream'' zu verwenden. Typ:
+TODO ZWINGEND
 \item[\texttt{date}]
 Erstellungs- oder Veröffentlichungsdatum und -uhrzeit. Typ: Datum.
 ZWINGEND
@@ -3586,21 +3587,21 @@ URL zum Download der Datei. Besser ist es, bereits unter
 \texttt{accessUrl} einen ``schönen'' Dateinamen anzugeben. TODO: Zweck
 erklären. Typ: URL. EMPFOHLEN
 \item[\texttt{paper}]
-Zugehöriges Objekts vom Typ \texttt{oparl:Paper}, sofern diese Datei zu
-einer Drucksache gehört. Wenn diese Datei zu einer Drucksache gehört,
-MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT
-vorhanden sein. Typ: URL.
+Drucksache, sofern diese Datei zu einer Drucksache gehört. Wenn diese
+Datei zu einer Drucksache gehört, MUSS diese Eigenschaft vorhanden sein,
+andernfalls DARF sie NICHT vorhanden sein. TODO: ist das eine
+Tautologie? Typ: \texttt{oparl:Paper}
 \item[\texttt{meeting}]
-Zugehöriges Objekt vom Typ \texttt{oparl:Meeting}, sofern diese Datei zu
-einer Sitzung gehört. Wenn diese Datei zu einer Sitzung gehört, MUSS
-diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT vorhanden
-sein. Typ: URL.
+Sitzung, sofern diese Datei zu einer Sitzung gehört. Wenn diese Datei zu
+einer Sitzung gehört, MUSS diese Eigenschaft vorhanden sein, andernfalls
+DARF sie NICHT vorhanden sein. TODO: ist das eine Tautologie? Typ:
+\texttt{oparl:Meeting}
 \item[\texttt{masterDocument}]
-\texttt{oparl:Document}, von dem das aktuelle Objekt abgeleitet wurde.
-Typ: URL. OPTIONAL
+Datei von der das aktuelle Objekt abgeleitet wurde. Typ:
+\texttt{oparl:Document} OPTIONAL
 \item[\texttt{derivativeDocuments}]
-\texttt{oparl:Document}, die von dem aktuellen Objekt abgeleitet wurden.
-Typ: URL. OPTIONAL
+Abgeleitete Datei die von dem aktuellen Objekt abgeleitet wurde. Typ:
+\texttt{oparl:Document} OPTIONAL
 \item[\texttt{license}]
 Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft
 verwendet wird, dann ist sie massgeblich und nicht die globalere Angabe
@@ -3614,10 +3615,11 @@ Rolle, Funktion, Sorte des Dokuments. Das Objekt enthält ein
 zukünftigen OParl-Version wird möglicherweise eine Menge der wichtigsten
 Kategorien vorgegeben. TODO: Besser in \texttt{oparl:Paper} oder
 \texttt{oparl:Meeting} ? Siehe Diskussion unter
-https://github.com/OParl/specs/issues/65 Typ: URL OPTIONAL
+https://github.com/OParl/specs/issues/65 Typ: \texttt{skos:Concept}
+OPTIONAL
 \item[\texttt{classification}]
-\texttt{skos:Concept} mit \texttt{skos:prefLabel}. Hat allgemeinere
-Bedeutung als \texttt{documentRole}. Typ: URL OPTIONAL
+Begriff mit \texttt{skos:prefLabel}. Hat allgemeinere Bedeutung als
+\texttt{documentRole}. Typ: \texttt{skos:Concept} OPTIONAL
 \end{description}
 
 \subsubsection{Siehe auch}\label{siehe-auch}
@@ -3696,32 +3698,32 @@ Das Objekt ``beispielris:roles/decision'' kann so aussehen:
 
 \begin{description}
 \item[\texttt{paper}]
-URL der Drucksache, die beraten wird. ZWINGEND.
+Drucksache, die beraten wird. Typ: \texttt{oparl:Paper} ZWINGEND.
 \item[\texttt{agendaitem}]
-URL des Tagesordnungspunktes (oparl:Agendaitem), unter dem die
-Drucksache beraten wird. ZWINGEND.
+Tagesordnungspunkt, unter dem die Drucksache beraten wird. Typ:
+\texttt{oparl:AgendaItem} ZWINGEND.
 \item[\texttt{committee}]
-URL des Gremiums (oparl:Organization), dem die Sitzung zugewiesen ist,
-zu welcher der zuvor genannte Tagesordnungspunkt gehört. Hier kann auch
-eine mit Liste von Gremien angegeben werden (die verschiedenen
-\texttt{oparl:Body} und \texttt{oparl:System} angehören können). Die
-Liste ist dann geordnet. Das erste Gremium der Liste ist federführend.
-ZWINGEND.
+Gremium, dem die Sitzung zugewiesen ist, zu welcher der zuvor genannte
+Tagesordnungspunkt gehört. Hier kann auch eine mit Liste von Gremien
+angegeben werden (die verschiedenen \texttt{oparl:Body} und
+\texttt{oparl:System} angehören können). Die Liste ist dann geordnet.
+Das erste Gremium der Liste ist federführend. Typ:
+\texttt{oparl:Organization} ZWINGEND.
 \item[\texttt{authoritative}]
 Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache
-gefasst wird (\emph{true}) wird oder nicht (\emph{false}). Typ:
-Wahrheitswert. Diese Eigenschaft ist OPTIONAL.
+gefasst wird (\texttt{true}) wird oder nicht (\texttt{false}). Typ:
+boolean. Diese Eigenschaft ist OPTIONAL.
 \item[\texttt{role}]
-\texttt{skos:Concept} Rolle oder Funktion der Beratung. z.B. Anhörung
-(hearing), Entscheidung (decision), Kenntnisnahme (notice), Vorberatung
-(counseling) usw. Es wird empfohlen in den URLs entsprechende englische
-Bestandteile zu verwenden. Die Rollenobjekte haben nur eine festgelegte
-Eigenschaft: \texttt{skos:prefLabel} für den Namen. In einer zukünftigen
-Version von OParl können gegebenenfalls die am stärksten benötigten
-Rollen standardisiert werden. OPTIONAL
+Rolle oder Funktion der Beratung. z.B. Anhörung (hearing), Entscheidung
+(decision), Kenntnisnahme (notice), Vorberatung (counseling) usw. Es
+wird empfohlen in den URLs entsprechende englische Bestandteile zu
+verwenden. Die Rollenobjekte haben nur eine festgelegte Eigenschaft:
+\texttt{skos:prefLabel} für den Namen. In einer zukünftigen Version von
+OParl können gegebenenfalls die am stärksten benötigten Rollen
+standardisiert werden. Typ: \texttt{skos:Concept} OPTIONAL
 \item[\texttt{classification}]
-\texttt{skos:Concept} mit \texttt{skos:prefLabel}. Allgemeiner
-verwendbar als \texttt{role}. OPTIONAL
+Schlagwort, Begriff mit \texttt{skos:prefLabel}. Allgemeiner verwendbar
+als \texttt{role}. Typ: \texttt{skos:Concept} OPTIONAL
 \end{description}
 
 \subsection{oparl:Location (Ort)}\label{oparlux5flocation}
@@ -3842,10 +3844,11 @@ Textliche Beschreibung eines Orts, z.B. in Form einer Adresse. Typ:
 Zeichenkette. EMPFOHLEN
 \item[\texttt{geometry}]
 Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt, MUSS
-ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen.
-OPTIONAL
+ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen. Typ:
+TODO OPTIONAL
 \item[\texttt{classification}]
-\texttt{skos:Concept} mit \texttt{skos:prefLabel} OPTIONAL
+Schlagwort mit \texttt{skos:prefLabel} Typ: \texttt{skos:Concept}
+OPTIONAL
 \end{description}
 
 \subsubsection{Weitere Beispiele}\label{weitere-beispiele}
@@ -3905,33 +3908,33 @@ https://github.com/OParl/specs/issues/109
 
 \begin{description}
 \item[\texttt{person}]
-\texttt{oparl:Person} Eine Person. OPTIONAL
+Person. Typ: \texttt{oparl:Person} OPTIONAL
 \item[\texttt{organization}]
-\texttt{oparl:Organization} Eine Organization. OPTIONAL
+Organization. Typ: \texttt{oparl:Organization} OPTIONAL
 \item[\texttt{role}]
-zeigt auf ein Objekt der Klasse \texttt{org:Role} oder einer
-Unterklasse. Das Objekt hat eine \texttt{skos:prefLabel}-Eigenschaft,
-deren Wert eine Funktionsbezeichnung ist, z.B. ``1. pers. Vertreter
-\textbar{} 1. pers. Vertreterin'' oder ``2. pers. Vertreter \textbar{}
-2. pers. Vertreterin''. Popolo: ``The role that the person fulfills in
-the organization''. normale Mitglieder haben in der Regel keine eigene
+Rolle. Das Objekt hat eine \texttt{skos:prefLabel}-Eigenschaft, deren
+Wert eine Funktionsbezeichnung ist, z.B. ``1. pers. Vertreter \textbar{}
+1. pers. Vertreterin'' oder ``2. pers. Vertreter \textbar{} 2. pers.
+Vertreterin''. Popolo: ``The role that the person fulfills in the
+organization''. normale Mitglieder haben in der Regel keine eigene
 Funktion, aber auch eine Unterscheidung zwischen z.B. ``Sachkundige
 Bürger \textbar{} Sachkundige Bürgerin'' und ``Ratsherr \textbar{}
 Ratsfrau'' bei einfachen Mitgliedern ist hiermit möglich. TODO: was ist
-mit einem sachkundigen Bürger, der gleichzeitig Vorsitzender ist?
-OPTIONAL
+mit einem sachkundigen Bürger, der gleichzeitig Vorsitzender ist? Typ:
+\texttt{org:Role} OPTIONAL
 \item[\texttt{post}]
-The post held by the person in the organization OPTIONAL
+The post held by the person in the organization Typ: \texttt{org:Post}
+OPTIONAL
 \item[\texttt{onBehalfOf}]
 Entsendende Organization - Fraktion, fraktionslos oder externes Gremium
 Dies entspricht \texttt{opengov:onBehalfOf} in Popolo. TODO: wie wird
-fraktionslos kodiert? OPTIONAL
+fraktionslos kodiert? Typ: \texttt{oparl:Organization} OPTIONAL
 \item[\texttt{startDate}]
 \texttt{schema:validFrom} wie in Popolo. The date on which the
-relationship began OPTIONAL
+relationship began Typ: TODO OPTIONAL
 \item[\texttt{endDate}]
 \texttt{schema:validThrough} wie in Popolo. The date on which the
-relationship ended OPTIONAL
+relationship ended Typ: TODO OPTIONAL
 \end{description}
 
 \subsubsection{Hinweise}\label{hinweise}

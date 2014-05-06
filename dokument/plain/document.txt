@@ -307,9 +307,14 @@ DÜRFEN/DARF bzw. OPTIONAL:
 
     Die Entsprechung in RFC2119 lautet "MAY" oder "OPTIONAL".
 
-Besondere Hervorhebungen und Satzkonventionen
+Geschlechterspezifische Begrifflichkeiten
 
-TODO
+Um bei Begriffen wie Nutzer, Anwender, Betreiber etc. die sonst übliche
+Dominanz der männlichen Variante zu vermeiden, werden in diesem Dokument
+männliche oder weibliche Varianten gemischt. Es wird also beispielsweise
+mal von einer Nutzerin gesprochen und mal von einem Nutzer. Gemeint sind
+selbstverständlich in allen Fällen immer weibliche wie auch männliche
+Personen.
 
 Initiatoren
 -----------
@@ -693,11 +698,8 @@ Nummerierung mit der Ziffer 6 beginnnt.)
 
 Stichpunkte:
 
--   Grundlage für den Zugriff auf die Schnittstelle ist das Hypertext
-    Transfer Protocol (HTTP).
 -   Optional gzip Encoding und andere Kodierungen, wenn Client und
     Server dies unterstützen
--   Das Protokoll ist zustandslos
 -   Authentifizierung wird nicht benötigt.
 
 Designprinzipien
@@ -767,6 +769,10 @@ Begriff häufig genutzt, um eine Schnittstelle zu beschreiben,
     Anfrage zu verarbeiten. Auf dem Server wird kein Speicher zur
     Verfügung gestellt, um beispielsweise den Zustand einer Session zu
     speichern.
+
+Diese Prinzipien macht sich auch OParl zunutze. Damit gilt prinzipiell,
+dass eine OParl-konforme Server-Schnittstelle auch als "RESTful" gelten
+darf.
 
 Selbstbeschreibungsfähigkeit
 
@@ -1005,11 +1011,11 @@ Im Rahmen dieses Dokuments wird aus Gründen der Verständlichkeit
 generell der allgemein gebräuchlichere Begriff "URL" werwendet, auch
 wenn damit tatsächlich die internationalisierte Variante nach RFC
 3987[^17], die korrekterweise IRI bzw. "Internationalized Resource
-Identifier" genannt werden müsste. In andern Kontexten wiederum wird von
-URIs bzw. "Uniform Resource Identifier" gesprochen. Das vorliegende
-Dokumente fasst alle drei Konzepte mit dem Begriff "URL" zusammen und
-ignoriert damit die Unterschiede der einzelnen Begriffe, da diese im
-Rahmen dieser Spezifikation ohne bedeutung sind.
+Identifier" genannt werden müsste, gemeint ist. In andern Kontexten
+wiederum wird von URIs bzw. "Uniform Resource Identifier" gesprochen.
+Das vorliegende Dokumente fasst alle drei Konzepte mit dem Begriff "URL"
+zusammen und ignoriert damit die Unterschiede der einzelnen Begriffe, da
+diese im Rahmen dieser Spezifikation ohne bedeutung sind.
 
 Die grundsätzliche Funktionsweise von URLs ist in RFC 3986
 beschrieben[^18].
@@ -1017,19 +1023,14 @@ beschrieben[^18].
 Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in
 diesem Dokument Verwendung finden:
 
-    http://refserv.oparl.org/bodies/0/committees/4/members/?skip=234
-    \__/   \_______________/\_____________________________/ \______/
-     |         |                  |                           |
-    Schema    Host               Pfad                        Query-String
-
-Um bereits an dieser Stelle das Entstehen von Missverständnissen zu
-vermeiden sei darauf hingewiesen, dass insbesondere auch der enthaltene
-Pfad nur ein Beipiel ist. Der Aufbau der Pfade wird in OParl nicht
-festgelegt.
+    http://refserv.oparl.org/foo/bar/?skip=234
+    \__/   \_______________/\_______/ \______/
+     |         |                |        |
+    Schema    Host             Pfad  Query-String
 
 URL-Kanonisierung
 
-Absicht ist, dass jedes benannte Objekt, das ein Server über eine
+Absicht ist, dass jedes benannte Objekt[^19], das ein Server über eine
 OParl-API anbietet, über genau eine URL identifizierbar und abrufbar
 ist. Diese Vereinheitlichung der URL nennen wir Kanonisierung.
 
@@ -1155,8 +1156,8 @@ Vollständigkeit erheben:
     dazu führen, dass im Pfad ein Bestandteil wie "oparl.php/"
     erscheint. Erfahrungsgemäß überdauern solche URLs nur kurz.
 
-Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee[^19]
-sowie die Europäische Kommission[^20]. TODO: goo.gl URL expandieren
+Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee[^20]
+sowie die Europäische Kommission[^21]. TODO: goo.gl URL expandieren
 
 Serialisierung mittels JSON-LD und JSONP
 ----------------------------------------
@@ -1169,7 +1170,7 @@ unterstützt.
 
 In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung
 des HTTP Content-type-Headers application/ld+json beantworten. Die
-Spezifikation von JSON-LD liefert dazu genauere Informationen[^21], auch
+Spezifikation von JSON-LD liefert dazu genauere Informationen[^22], auch
 zu dem optionalen Parameter profile für die explizite Anforderung von
 JSON-LD in einer dieser drei Unterformen: kompakt, expandiert oder
 flach.
@@ -1182,7 +1183,7 @@ Warum?
 JSON
 
 Die Abkürzung JSON steht für "JavaScript Object Notation". Das
-JSON-Format ist in RFC4627[^22] beschrieben. Nachfolgend werden nur die
+JSON-Format ist in RFC4627[^23] beschrieben. Nachfolgend werden nur die
 wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren
 Verwendung in diesem Dokument zu etablieren.
 
@@ -1218,8 +1219,8 @@ Beispiel eines Objekts in JSON-Notation:
 
 JSON-LD
 
-Das Kürzel LD im Namen "JSON-LD" steht für "Linked Data"[^23].
-Entsprechend erweitert die JSON-LD-Spezifikation[^24] das JSON-Format um
+Das Kürzel LD im Namen "JSON-LD" steht für "Linked Data"[^24].
+Entsprechend erweitert die JSON-LD-Spezifikation[^25] das JSON-Format um
 die Möglichkeit,
 
 -   Objekte mit anderen Objekten zu verknüpfen,
@@ -1278,7 +1279,7 @@ eines Bildes zu finden ist. Das Schlüssel-Wert-Paar
     "@type": "@id"
 
 sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die URL eines
-anderen Objekts ist[^25]. Mittels @type-Deklaration könnte aber auch
+anderen Objekts ist[^26]. Mittels @type-Deklaration könnte aber auch
 beispielsweise eine Eigenschaft, die im JSON-Sinn eine Zeichenkette ist,
 als Datum deklariert werden.
 
@@ -1407,7 +1408,7 @@ der Domain entsprechen, von der die Webanwendung selbst geladen wurde.
 AnwendungsentwicklerInnen sind dadurch bei der Implementierung von
 Client-Anwendungen eingeschränkt.
 
-Diese Einschränkung gilt nicht fürt JSONP[^26]. Durch JSONP (TODO:
+Diese Einschränkung gilt nicht fürt JSONP[^27]. Durch JSONP (TODO:
 Abkürzung erläutern) wird die JSON-Notation so erweitert, dass der
 ausgegebene Code ausführbarer JavaScript-Code wird. Damit wird erreicht,
 dass der JSON-Code über die Grenzen von Domains hinweg direkt von
@@ -1457,7 +1458,7 @@ geeignetste ist.)
 -   TODO: Spezifikation finden/verlinken. (RFC gibt es nicht)
 -   https://github.com/OParl/specs/issues/67
 
-Benannte und anonyme Objekte
+Benannte und anonyme Objekte {#benannte_anonyme_objekte}
 ----------------------------
 
 Die JSON-LD-Spezifikation unterscheidet zwischen benannten und anonymen
@@ -2360,81 +2361,74 @@ Parlament an.
 Eigenschaften
 
 system
-    URL des Objekts vom Typ oparl:System Objekts, zu dem dieses Objekt
-    gehört. ZWINGEND.
+    System zu dem dieses Objekt gehört. Typ: oparl:System ZWINGEND.
 
 name
-    Gibt den gebräuchlichen Namen der Körperschaft an. ZWINGEND.
+    Gibt den gebräuchlichen Namen der Körperschaft an. Typ: TODO
+    ZWINGEND.
 
 nameLong
     Kann bei Bedarf dazu verwendet werden, eine längere Form des Namens
-    der Körperschaft anzugeben. OPTIONAL.
+    der Körperschaft anzugeben. Typ: TODO OPTIONAL.
 
 website
-    Dient der Angabe der WWW-URL der Körperschaft. EMPFOHLEN.
+    WWW-URL der Körperschaft. EMPFOHLEN.
 
 license
-    URL der Lizenz, die für die Daten, die über diese API abgerufen
-    werden können, gilt, sofern nicht am einzelnen Objekt anders
-    angegeben. Verzeichnisse für solche Lizenz-URLs sind insbesondere
+    Lizenz, die für die Daten, die über diese API abgerufen werden
+    können, gilt, sofern nicht am einzelnen Objekt anders angegeben.
+    Verzeichnisse für solche Lizenz-URLs sind insbesondere
     http://licenses.opendefinition.org/ und
     https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json
-    EMPFOHLEN.
+    Typ: TODO EMPFOHLEN.
 
 licenseValidSinceDay
     Tagesdatum, seit dem die unter license angegebene Lizenz gilt.
     Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen
-    führen. EMPFOHLEN
+    führen. Typ: TODO EMPFOHLEN
 
 rgs
     Regionalschlüssel der Körperschaft als zwölfstellige
-    Zeichenkette[^27]. Diese Eigenschaft ist EMPFOHLEN.
+    Zeichenkette[^28]. Typ: TODO EMPFOHLEN
 
-sameBody
-    Dient der Angabe beliebig vieler zusätzlicher URLs, die die
-    Körperschaft repräsentieren. Diese Eigenschaft ist EMPFOHLEN. Hier
-    können beispielsweise, sofern vorhanden, der entsprechende Eintrag
-    der Gemeinsamen Normdatei der Deutschen Nationalbibliothek[^28], der
-    DBPedia[^29] oder der Wikipedia[^30] angegeben werden.
+equivalentBody
+    Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe
+    Körperschaft repräsentieren. Hier können beispielsweise, sofern
+    vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der
+    Deutschen Nationalbibliothek[^29], der DBPedia[^30] oder der
+    Wikipedia[^31] angegeben werden. Typ: TODO EMPFOHLEN
 
 contactEmail
     Dient der Angabe einer Kontakt-E-Mail-Adresse mit "mailto:"-Schema.
-    Diese Eigenschaft ist EMPFOHLEN. Die Adresse soll die
-    Kontaktaufnahme zu einer für die Körperschaft und idealerweise das
-    parlamentarische Informationssystem zuständigen Stelle ermöglichen.
+    Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft
+    und idealerweise das parlamentarische Informationssystem zuständigen
+    Stelle ermöglichen. Typ: TODO EMPFOHLEN
 
 contactName
-    Name oder Bezeichnung der mit contactEmail erreichbaren Stelle.
-    OPTIONAL.
+    Name oder Bezeichnung der mit contactEmail erreichbaren Stelle. Typ:
+    TODO OPTIONAL.
 
 paper
-    URL, unter welcher die API die Liste aller Objekte vom Typ
-    oparl:Paper, also die Drucksachen unter dieser Körperschaft ausgibt.
-    Diese Eigenschaft ist ZWINGEND.
+    Drucksachen unter dieser Körperschaft. Typ: oparl:Paper ZWINGEND.
 
 member
-    URL, unter welcher die API die Liste aller Objekte vom Typ
-    oparl:Person, also die Personen unter dieser Körperschaft ausgibt.
-    Diese Eigenschaft ist ZWINGEND.
+    Personen in dieser Körperschaft. Typ: oparl:Person ZWINGEND.
 
 meeting
-    URL, unter welcher die API die Liste aller Objekte vom Typ
-    oparl:Meeting, also die Sitzungen dieser Körperschaft ausgibt. Diese
-    Eigenschaft ist ZWINGEND.
+    Sitzungen dieser Körperschaft. Typ: oparl:Meeting ZWINGEND
 
 organization
-    URL, unter welcher die API die Liste aller Objekte vom Typ
-    oparl:Organization, also die Gruppierungen dieser Körperschaft
-    ausgibt. Diese Eigenschaft ist ZWINGEND.
+    Gruppierung in dieser Körperschaft. Typ: oparl:Organization ZWINGEND
 
 classification
-    skos:Concept
+    Typ: skos:Concept OPTIONAL
 
 created
-    Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
+    Datum/Uhrzeit der Erzeugung des Objekts. Typ: TODO EMPFOHLEN.
 
 lastModified
-    Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.
+    Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ: TODO
+    EMPFOHLEN
 
 oparl:Organization (Gruppierung) {#oparl_organization}
 --------------------------------
@@ -2867,62 +2861,60 @@ Eigenschaften
 start
     Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer
     zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer
-    stattgefundenen KANN es der tatsächliche Startzeitpunkt sein.
-    ZWINGEND
+    stattgefundenen KANN es der tatsächliche Startzeitpunkt sein. Typ:
+    TODO ZWINGEND
 
 end
     Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen
     Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen
-    KANN es der tatsächliche Endzeitpunkt sein. EMPFOHLEN
+    KANN es der tatsächliche Endzeitpunkt sein. Typ: TODO EMPFOHLEN
 
 location
-    Sitzungsort in Form eines oparl:Location Objekts. EMPFOHLEN
+    Sitzungsort. Typ: oparl:Location EMPFOHLEN
 
 organization
-    URL der Gruppierung oder Liste der URLs der Gruppierungen
-    (oparl:Organization), denen die Sitzung zugeordnet ist. Wenn eine
-    Liste angegeben wird, dann ist diese geordnet. Das erste Element ist
-    dann das federführende Gremium. ZWINGEND
+    Gruppierung der die Sitzung zugeordnet ist. Wenn eine Liste
+    angegeben wird, dann ist diese geordnet. Das erste Element ist dann
+    das federführende Gremium. Typ: oparl:Organization ZWINGEND
 
 participant
-    URL der Teilnehmer oder Liste der URLs der Teilnehmer (oparl:Person)
-    der Sitzung. Bei einer Sitzung in der Zukunft sind dies die
-    geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die
+    Teilnehmer der Sitzung. Bei einer Sitzung in der Zukunft sind dies
+    die geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die
     Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der
-    Sitzung teilgenommen haben. ZWINGEND.
+    Sitzung teilgenommen haben. Typ: oparl:Person ZWINGEND.
 
 invitation
-    URL des Einladungsdokuments (oparl:Document) zur Sitzung. EMPFOHLEN.
+    Einladungsdokument zur Sitzung. Typ: oparl:Document EMPFOHLEN.
 
 resultsProtocol
-    URL des Ergebnisprotokolls (oparl:Document) zur Sitzung. Diese
-    Eigenschaft kann selbstverständlich erst nach dem Stattfinden der
-    Sitzung vorkommen. EMPFOHLEN
+    Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann
+    selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen.
+    Typ: oparl:Document EMPFOHLEN
 
 verbatimProtocol
-    URL des Wortprotokolls (oparl:Document) zur Sitzung. Diese
-    Eigenschaft kann selbstverständlich erst nach dem Stattfinden der
-    Sitzung vorkommen. EMPFOHLEN
+    Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich
+    erst nach dem Stattfinden der Sitzung vorkommen. Typ: oparl:Document
+    EMPFOHLEN
 
 auxiliaryDocument
-    URL oder Liste von URLs zu Dokumentenanhängen (oparl:Document) zur
-    Sitzung. Hiermit sind Dokumente gemeint, die üblicherweise mit der
-    Einladung zu einer Sitzung verteilt werden und die nicht bereits
-    über einzelne Tagesordnungspunkte referenziert sind. OPTIONAL
+    Dokumentenanhang zur Sitzung. Hiermit sind Dokumente gemeint, die
+    üblicherweise mit der Einladung zu einer Sitzung verteilt werden und
+    die nicht bereits über einzelne Tagesordnungspunkte referenziert
+    sind. Typ: oparl:Document OPTIONAL
 
 agendaItem
-    URLs der Tagesordnungspunkte (oparl:AgendaItem) der Sitzung. Die
-    Reihenfolge ist relevant. Es kann Sitzungen ohne TOPs geben.
-    OPTIONAL
+    Tagesordnungspunkte der Sitzung. Die Reihenfolge ist relevant. Es
+    kann Sitzungen ohne TOPs geben. Typ: oparl:AgendaItem OPTIONAL
 
 classification
-    skos:Concept
+    Typ: skos:Concept OPTIONAL
 
 created
-    Datum und Uhrzeit der Erzeugung des Objekts. EMPFOHLEN
+    Datum und Uhrzeit der Erzeugung des Objekts. Typ: TODO EMPFOHLEN
 
 modified
-    Datum und Uhrzeit der letzten Änderung des Objekts. EMPFOHLEN
+    Datum und Uhrzeit der letzten Änderung des Objekts. Typ: TODO
+    EMPFOHLEN
 
 oparl:AgendaItem (Tagesordnungspunkt) {#oparl_agendaitem}
 -------------------------------------
@@ -2959,28 +2951,26 @@ Ein Beispiel in kompakter Form:
 Eigenschaften
 
 meeting
-    URL der Sitzung (oparl:Meeting), dem der Tagesordnungspunkt
-    zugeordnet ist. ZWINGEND.
+    Sitzung, der der Tagesordnungspunkt zugeordnet ist. Typ:
+    oparl:Meeting ZWINGEND.
 
 number
     Nummer des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie
     z.B. "10.", "10.1", "C", "c)" o.ä. Die Reihenfolge wird dadurch
     nicht festgelegt, sondern durch die Reihenfolge der TOPs im
-    agendaItem-Attribut von oparl:Meeting OPTIONAL
+    agendaItem-Attribut von oparl:Meeting Typ: TODO OPTIONAL
+
 name
-    Das Thema des Tagesordnungspunktes. ZWINGEND.
+    Das Thema des Tagesordnungspunktes. Typ: TODO ZWINGEND.
 
 public
     Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in
     öffentlicher Sitzung vorgesehen ist/war. Es wird ein Wahrheitswert
-    (true oder false) erwartet. EMPFOHLEN.
+    (true oder false) erwartet. Typ: boolean EMPFOHLEN.
 
 consultation
-    Liste der URLs der Beratungen (oparl:Consultation), die diesem
-    Tagesordnungspunkt zugewiesen sind, oder alternativ die URL zum
-    Abruf dieser Liste. Sofern diesem Tagesordnungspunkt keine
-    Beratungen zugewiesen sind, bleibt die Liste ohne Einträge.
-    ZWINGEND.
+    Beratung, die diesem Tagesordnungspunkt zugewiesen ist. Typ:
+    oparl:Consultation ZWINGEND.
 
 result
     Kategorische Information darüber, welches Ergebnis die Beratung des
@@ -2992,30 +2982,33 @@ result
     weitere zu erwarten. Alternativ können, sobald dieses zur Verfügung
     steht, URLs aus einem OParl Vokabular verwendet werden, wie im
     Beispiel oben zu sehen. Diese dienen dazu, Kategorien über
-    Systemgrenzen hinweg maschinenlesbar zu vereinheitlichen. EMPFOHLEN
+    Systemgrenzen hinweg maschinenlesbar zu vereinheitlichen. Typ:
+    skos:Concept EMPFOHLEN
 
 resolutionText
     Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann
     der Text hier hinterlegt werden. Das ist besonders dann in der
     Praxis relevant, wenn der gefasste Beschluss (z.B. durch
-    Änderungsantrag) von der Beschlussvorlage abweicht. OPTIONAL.
+    Änderungsantrag) von der Beschlussvorlage abweicht. Typ: TODO
+    OPTIONAL.
 
 paper
-    oparl:Paper. Zwar kann auch das oparl:Meeting darauf verweisen, aber
-    hier sind solche Verweise in der Regel präziser, da sich Drucksachen
-    regelmäßig für einen TOP relevant sind und nicht für alle TOPs.
-    OPTIONAL
+    Drucksache. Zwar kann auch das oparl:Meeting darauf verweisen, aber
+    hier sind solche Verweise in der Regel präziser, da Drucksachen
+    regelmäßig nur für einen TOP relevant sind und nicht für alle TOPs.
+    Typ: oparl:Paper OPTIONAL
 
-auxiliaryDocument : oparl:Document zum TOP. OPTIONAL
+auxiliaryDocument
+    eine weitere relevante Datei. Typ: oparl:Document OPTIONAL
 
 classification
-    skos:Concept
+    Typ: skos:Concept OPTIONAL
 
 created
-    Erzeugungsdatum und -zeit des Objekts. EMPFOHLEN
+    Erzeugungsdatum und -zeit des Objekts. Typ: TODO EMPFOHLEN
 
 lastModified
-    Datum und Uhrzeit der letzten Änderung. EMPFOHLEN
+    Datum und Uhrzeit der letzten Änderung. Typ: TODO EMPFOHLEN
 
 oparl:Paper (Drucksache) {#oparl_paper}
 ------------------------
@@ -3069,28 +3062,57 @@ Ein Beispiel in kompakter Form:
         "beispielris:consultation/5676",
         "beispielris:consultation/5689"
     ]
-    "lastModified": "2013-01-08T12:05:27+01:00"
+    "modified": "2013-01-08T12:05:27+01:00"
 }
 ```
 
 Eigenschaften
 
+reference
+    Beispiel: "1234/2014" Typ: TODO OPTIONAL
+
+publishedDate
+    Beispiel: "2014-04-04T16:42:02+02:00" Typ: TODO EMPFOHLEN
+
+name
+    Beispiel: "Antwort auf Anfrage 1200/2014" Typ: TODO EMPFOHLEN
+
 paperType
-    Ein Objekt mit einem skos:prefLabel-Attribut, dessen Wert eine
+    Begriff mit einem skos:prefLabel-Attribut, dessen Wert eine
     Zeichenkette ist und die Art der Drucksache beschreibt, z.B.
     "Beantwortung einer Anfrage". Eine weitere Liste mit exemplarischen
     Drucksachentypen gibt es hier:
     https://wiki.piratenpartei.de/BE:BVVupdates/Glossar Eine zukünftige
     Version von OParl wird möglicherweise solche Werte spezifizieren.
-    OPTIONAL
+    Typ: skos:Concept OPTIONAL
+
+relatedPaper
+    Typ: oparl:Paper OPTIONAL
+
+mainDocument
+    Typ: oparl:Document
+
+auxiliaryDocument
+    Typ: oparl:Document
+
+location
+    Typ: oparl:Location
+
+creator
+    Typ: oparl:Person | oparl:Organization
+
+consultation
+    Typ: oparl:Consultation
+
+modified
+    Typ: TODO Beispiel: "2013-01-08T12:05:27+01:00"
 
 classification
-    skos:Concept mit skos:prefLabel. Allgemeiner als paperType OPTIONAL
+    Begriff mit skos:prefLabel. Allgemeiner als paperType Typ:
+    skos:Concept OPTIONAL
 
-TODO:
-
--   Eigenschaften beschreiben
--   Eigenschaft "locations" im Beispiel ändern
+TODO: * Festlegen: OPTIONAL / EMPFOHLEN / ZWINGEND * Eigenschaft
+"locations" im Beispiel ändern
 
 oparl:Document (Datei) {#oparl_document}
 ----------------------
@@ -3128,26 +3150,24 @@ Eigenschaft paper bzw. meeting angezeigt.
 Mehrere Objekte vom Typ oparl:Document können mit einander in direkter
 Beziehung stehen, wenn sie den selben Inhalt in unterschiedlichen
 technischen Formaten wiedergeben. Hierfür werden die Eigenschaften
-master_document bzw. derivative_documents eingesetzt. Das oben
-angezeigte Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an
-der Eigenschaft mime_type) und zeigt außerdem über die Eigenschaft
-master_document an, von welcher anderen Datei es abgeleitet wurde.
-Umgekehrt KANN über die Eigenschaft derivative_documents angezeigt
+masterDocument bzw. derivativeDocuments eingesetzt. Das oben angezeigte
+Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der
+Eigenschaft mimeType) und zeigt außerdem über die Eigenschaft
+masterDocument an, von welcher anderen Datei es abgeleitet wurde.
+Umgekehrt KANN über die Eigenschaft derivativeDocuments angezeigt
 werden, welche Ableitungen einer Datei existieren.
 
 Eigenschaften
-
-@id
-    Die URL des Objekts.
 
 name
     Name des Objekts, der Nutzern angezeigt werden kann. Typ:
     Zeichenkette. ZWINGEND
 
 mimeType
-    Mime-Typ des Inhalts (vgl. RFC2046[^31]). Sollte das System einer
+    Mime-Typ des Inhalts (vgl. RFC2046[^32]). Sollte das System einer
     Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier
-    "application/octet-stream" zu verwenden. ZWINGEND
+    "application/octet-stream" zu verwenden. Typ: TODO ZWINGEND
+
 date
     Erstellungs- oder Veröffentlichungsdatum und -uhrzeit. Typ: Datum.
     ZWINGEND
@@ -3177,24 +3197,24 @@ downloadUrl
     URL. EMPFOHLEN
 
 paper
-    Zugehöriges Objekts vom Typ oparl:Paper, sofern diese Datei zu einer
-    Drucksache gehört. Wenn diese Datei zu einer Drucksache gehört, MUSS
-    diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT
-    vorhanden sein. Typ: URL.
+    Drucksache, sofern diese Datei zu einer Drucksache gehört. Wenn
+    diese Datei zu einer Drucksache gehört, MUSS diese Eigenschaft
+    vorhanden sein, andernfalls DARF sie NICHT vorhanden sein. TODO: ist
+    das eine Tautologie? Typ: oparl:Paper
 
 meeting
-    Zugehöriges Objekt vom Typ oparl:Meeting, sofern diese Datei zu
-    einer Sitzung gehört. Wenn diese Datei zu einer Sitzung gehört, MUSS
-    diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT
-    vorhanden sein. Typ: URL.
+    Sitzung, sofern diese Datei zu einer Sitzung gehört. Wenn diese
+    Datei zu einer Sitzung gehört, MUSS diese Eigenschaft vorhanden
+    sein, andernfalls DARF sie NICHT vorhanden sein. TODO: ist das eine
+    Tautologie? Typ: oparl:Meeting
 
 masterDocument
-    oparl:Document, von dem das aktuelle Objekt abgeleitet wurde. Typ:
-    URL. OPTIONAL
+    Datei von der das aktuelle Objekt abgeleitet wurde. Typ:
+    oparl:Document OPTIONAL
 
 derivativeDocuments
-    oparl:Document, die von dem aktuellen Objekt abgeleitet wurden. Typ:
-    URL. OPTIONAL
+    Abgeleitete Datei die von dem aktuellen Objekt abgeleitet wurde.
+    Typ: oparl:Document OPTIONAL
 
 license
     Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft
@@ -3210,11 +3230,11 @@ documentRole
     zukünftigen OParl-Version wird möglicherweise eine Menge der
     wichtigsten Kategorien vorgegeben. TODO: Besser in oparl:Paper oder
     oparl:Meeting ? Siehe Diskussion unter
-    https://github.com/OParl/specs/issues/65 Typ: URL OPTIONAL
+    https://github.com/OParl/specs/issues/65 Typ: skos:Concept OPTIONAL
 
 classification
-    skos:Concept mit skos:prefLabel. Hat allgemeinere Bedeutung als
-    documentRole. Typ: URL OPTIONAL
+    Begriff mit skos:prefLabel. Hat allgemeinere Bedeutung als
+    documentRole. Typ: skos:Concept OPTIONAL
 
 Siehe auch
 
@@ -3278,37 +3298,37 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
 Eigenschaften
 
 paper
-    URL der Drucksache, die beraten wird. ZWINGEND.
+    Drucksache, die beraten wird. Typ: oparl:Paper ZWINGEND.
 
 agendaitem
-    URL des Tagesordnungspunktes (oparl:Agendaitem), unter dem die
-    Drucksache beraten wird. ZWINGEND.
+    Tagesordnungspunkt, unter dem die Drucksache beraten wird. Typ:
+    oparl:AgendaItem ZWINGEND.
 
 committee
-    URL des Gremiums (oparl:Organization), dem die Sitzung zugewiesen
-    ist, zu welcher der zuvor genannte Tagesordnungspunkt gehört. Hier
-    kann auch eine mit Liste von Gremien angegeben werden (die
-    verschiedenen oparl:Body und oparl:System angehören können). Die
-    Liste ist dann geordnet. Das erste Gremium der Liste ist
-    federführend. ZWINGEND.
+    Gremium, dem die Sitzung zugewiesen ist, zu welcher der zuvor
+    genannte Tagesordnungspunkt gehört. Hier kann auch eine mit Liste
+    von Gremien angegeben werden (die verschiedenen oparl:Body und
+    oparl:System angehören können). Die Liste ist dann geordnet. Das
+    erste Gremium der Liste ist federführend. Typ: oparl:Organization
+    ZWINGEND.
 
 authoritative
     Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache
-    gefasst wird (true) wird oder nicht (false). Typ: Wahrheitswert.
-    Diese Eigenschaft ist OPTIONAL.
+    gefasst wird (true) wird oder nicht (false). Typ: boolean. Diese
+    Eigenschaft ist OPTIONAL.
 
 role
-    skos:Concept Rolle oder Funktion der Beratung. z.B. Anhörung
-    (hearing), Entscheidung (decision), Kenntnisnahme (notice),
-    Vorberatung (counseling) usw. Es wird empfohlen in den URLs
-    entsprechende englische Bestandteile zu verwenden. Die Rollenobjekte
-    haben nur eine festgelegte Eigenschaft: skos:prefLabel für den
-    Namen. In einer zukünftigen Version von OParl können gegebenenfalls
-    die am stärksten benötigten Rollen standardisiert werden. OPTIONAL
+    Rolle oder Funktion der Beratung. z.B. Anhörung (hearing),
+    Entscheidung (decision), Kenntnisnahme (notice), Vorberatung
+    (counseling) usw. Es wird empfohlen in den URLs entsprechende
+    englische Bestandteile zu verwenden. Die Rollenobjekte haben nur
+    eine festgelegte Eigenschaft: skos:prefLabel für den Namen. In einer
+    zukünftigen Version von OParl können gegebenenfalls die am stärksten
+    benötigten Rollen standardisiert werden. Typ: skos:Concept OPTIONAL
 
 classification
-    skos:Concept mit skos:prefLabel. Allgemeiner verwendbar als role.
-    OPTIONAL
+    Schlagwort, Begriff mit skos:prefLabel. Allgemeiner verwendbar als
+    role. Typ: skos:Concept OPTIONAL
 
 oparl:Location (Ort) {#oparl_location}
 --------------------
@@ -3395,14 +3415,14 @@ Und ein Beispiel unter Verwendung des Kontextes:
 ```
 
 OParl sieht bei Angabe von Geodaten die Verwendung des  
-GeoJSON-Formats[^32] vor. GeoJSON erlaubt die Beschreibung von vielen
+GeoJSON-Formats[^33] vor. GeoJSON erlaubt die Beschreibung von vielen
 unterschiedlichen Geometrien wie Punkten, Pfaden und Polygonen in
 JSON-Notation. Ein GeoJSON-Objekt kann auch mehrere Geometrien umfassen,
 beispielsweise um damit mehrere Punkte oder Polygone zu umschreiben.
 
 Gegenüber der GeoJSON-Spezifikation sieht OParl eine wichtige
 Einschränkung vor: Für die Ausgabe über eine OParl API MÜSSEN sämtliche
-Koordinatenangaben im System WGS84[^33] angegeben werden, und zwar in
+Koordinatenangaben im System WGS84[^34] angegeben werden, und zwar in
 Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.
 
 Eigenschaften
@@ -3414,10 +3434,10 @@ description
 geometry
     Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt,
     MUSS ihr Wert der Spezifikation von Well-Known Text (WKT)
-    entsprechen. OPTIONAL
+    entsprechen. Typ: TODO OPTIONAL
 
 classification
-    skos:Concept mit skos:prefLabel OPTIONAL
+    Schlagwort mit skos:prefLabel Typ: skos:Concept OPTIONAL
 
 Weitere Beispiele
 
@@ -3468,38 +3488,39 @@ https://github.com/OParl/specs/issues/109
 Eigenschaften
 
 person
-    oparl:Person Eine Person. OPTIONAL
+    Person. Typ: oparl:Person OPTIONAL
 
 organization
-    oparl:Organization Eine Organization. OPTIONAL
+    Organization. Typ: oparl:Organization OPTIONAL
 
 role
-    zeigt auf ein Objekt der Klasse org:Role oder einer Unterklasse. Das
-    Objekt hat eine skos:prefLabel-Eigenschaft, deren Wert eine
-    Funktionsbezeichnung ist, z.B. "1. pers. Vertreter | 1. pers.
+    Rolle. Das Objekt hat eine skos:prefLabel-Eigenschaft, deren Wert
+    eine Funktionsbezeichnung ist, z.B. "1. pers. Vertreter | 1. pers.
     Vertreterin" oder "2. pers. Vertreter | 2. pers. Vertreterin".
     Popolo: "The role that the person fulfills in the organization".
     normale Mitglieder haben in der Regel keine eigene Funktion, aber
     auch eine Unterscheidung zwischen z.B. "Sachkundige Bürger |
     Sachkundige Bürgerin" und "Ratsherr | Ratsfrau" bei einfachen
     Mitgliedern ist hiermit möglich. TODO: was ist mit einem
-    sachkundigen Bürger, der gleichzeitig Vorsitzender ist? OPTIONAL
+    sachkundigen Bürger, der gleichzeitig Vorsitzender ist? Typ:
+    org:Role OPTIONAL
 
 post
-    The post held by the person in the organization OPTIONAL
+    The post held by the person in the organization Typ: org:Post
+    OPTIONAL
 
 onBehalfOf
     Entsendende Organization - Fraktion, fraktionslos oder externes
     Gremium Dies entspricht opengov:onBehalfOf in Popolo. TODO: wie wird
-    fraktionslos kodiert? OPTIONAL
+    fraktionslos kodiert? Typ: oparl:Organization OPTIONAL
 
 startDate
     schema:validFrom wie in Popolo. The date on which the relationship
-    began OPTIONAL
+    began Typ: TODO OPTIONAL
 
 endDate
     schema:validThrough wie in Popolo. The date on which the
-    relationship ended OPTIONAL
+    relationship ended Typ: TODO OPTIONAL
 
 Hinweise
 
@@ -3605,41 +3626,43 @@ JSON-LD-Kontextdokumente zu finden sein werden.
 
 [^18]: RFC 3986: http://tools.ietf.org/html/rfc3986
 
-[^19]: Berners-Lee, Tim: Cool URIs don't change.
+[^19]: vgl. Benannte und anonyme Objekte
+
+[^20]: Berners-Lee, Tim: Cool URIs don't change.
     http://www.w3.org/Provider/Style/URI.html
 
-[^20]: Study on persistent URIs, with identification of best practices
+[^21]: Study on persistent URIs, with identification of best practices
     and recommendations on the topic for the MSs and the EC. (PDF)
     http://goo.gl/JaTq6Z
 
-[^21]: http://www.w3.org/TR/json-ld/#iana-considerations
+[^22]: http://www.w3.org/TR/json-ld/#iana-considerations
 
-[^22]: https://tools.ietf.org/html/rfc4627
+[^23]: https://tools.ietf.org/html/rfc4627
 
-[^23]: siehe dazu Linked Data
+[^24]: siehe dazu Linked Data
 
-[^24]: http://www.w3.org/TR/json-ld/
+[^25]: http://www.w3.org/TR/json-ld/
 
-[^25]: URLs heißen in der JSON-LD-Spezifikation "IRI" (für
+[^26]: URLs heißen in der JSON-LD-Spezifikation "IRI" (für
     "Internationalized Resource Identifier"), wir verwenden hier jedoch
     weiterhin die Bezeichnung "URL".
 
-[^26]: TODO: URL zur Spezifikation
+[^27]: TODO: URL zur Spezifikation
 
-[^27]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
+[^28]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
     Statistischen Bundesamtes eingesehen werden
 
-[^28]: Gemeinsame Normdatei http://www.dnb.de/gnd
+[^29]: Gemeinsame Normdatei http://www.dnb.de/gnd
 
-[^29]: DBPedia http://www.dbpedia.org/
+[^30]: DBPedia http://www.dbpedia.org/
 
-[^30]: Wikipedia http://de.wikipedia.org/
+[^31]: Wikipedia http://de.wikipedia.org/
 
-[^31]: http://tools.ietf.org/html/rfc2046
+[^32]: http://tools.ietf.org/html/rfc2046
 
-[^32]: GeoJSON Spezifikation http://geojson.org/geojson-spec.html
+[^33]: GeoJSON Spezifikation http://geojson.org/geojson-spec.html
 
-[^33]: WGS84 steht für "World Geodetic System 1984", es wird unter
+[^34]: WGS84 steht für "World Geodetic System 1984", es wird unter
     anderem auch vom Global Positioning System (GPS) verwendet. In
     geografischen Informationssystemen ist für das System der EPSG-Code
     4326 geläufig.

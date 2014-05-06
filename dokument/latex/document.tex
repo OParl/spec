@@ -163,10 +163,13 @@ heißt ``Open Data''.
 Das Interesse an parlamentarischen Informationen und an Anwendungen, die
 diese nutzbar und auswertbar machen, ist offensichtlich vorhanden. Die
 Entwickler der alternativen Ratsinformationssysteme wie Frankfurt
-Gestalten{[}14{]}, Offenes Köln{[}15{]} oder der
-OpenRuhr:RIS-Instanzen{[}16{]} wissen zu berichten, wie viel Interesse
-den Projekten gerade aus Orten entgegen gebracht wird, in denen
-derartige Systeme noch nicht verfügbar sind.
+Gestalten\footnote{Frankfurt Gestalten:
+  \url{http://www.frankfurt-gestalten.de/}}, Offenes Köln\footnote{Offenes
+  Köln: \url{http://offeneskoeln.de/}} oder der
+OpenRuhr:RIS-Instanzen\footnote{OpenRuhr:RIS:
+  \url{http://openruhr.de/openruhrris/}} wissen zu berichten, wie viel
+Interesse den Projekten gerade aus Orten entgegen gebracht wird, in
+denen derartige Systeme noch nicht verfügbar sind.
 
 Die Anwendungsmöglichkeiten für parlamentarische Informationen, wenn sie
 über eine Schnittstelle schnell und einfach abgerufen werden können,
@@ -614,8 +617,8 @@ Eine \hyperref[client]{Client}-Anwendung für mobile Endgeräte wie
 Smartphones und Tablets, nachfolgend ``App'' genannt, könnte das Ziel
 verfolgen, Nutzern unterwegs sowie abseits vom Desktop-PC auf die
 Gegebenheiten mobiler Endgeräte optimierten Lesezugriff auf Dokumente
-aus Ratsinformationssystemen (RIS) zu bieten. Die möglichen Kontexte und
-Nutzungsmotivationen sind vielfältig:
+aus parlamentarischen Informationssystemen zu bieten. Die möglichen
+Kontexte und Nutzungsmotivationen sind vielfältig:
 
 \begin{itemize}
 \item
@@ -657,14 +660,15 @@ aktualisieren.
 Eine Stärke eines mobilen Clients ist auch die Möglichkeit der
 Personalisierung, also der Anpassung auf die Bedürfnisse und Interessen
 der Nutzerin oder des Nutzers. Es wäre beispielsweise denkbar, dass eine
-Nutzerin die Ratsinformationssysteme, für die sie sich interessiert,
-dauerhaft in der App einrichtet und eine Favoritenliste der Gremien, die
-ihre bevorzugten Themengebiete behandeln, hinterlegt. Die App könnte
-aufgrund dieser Favoritenliste eigenständig über die API nach neuen
-Sitzungsterminen, Tagesordnungspunkten, Drucksachen und Dokumente
-suchen. Taucht dabei ein neues Objekt auf, wird die Nutzerin darüber
-benachrichtigt. Sie kann dann beispielsweise entscheiden, Dokumente
-direkt zu öffnen oder für den späteren Offline-Zugriff zu speichern.
+Nutzerin die parlamentarischen Informationssysteme, für die sie sich
+interessiert, dauerhaft in der App einrichtet und eine Favoritenliste
+der Gremien, die ihre bevorzugten Themengebiete behandeln, hinterlegt.
+Die App könnte aufgrund dieser Favoritenliste eigenständig über die API
+nach neuen Sitzungsterminen, Tagesordnungspunkten, Drucksachen und
+Dokumente suchen. Taucht dabei ein neues Objekt auf, wird die Nutzerin
+darüber benachrichtigt. Sie kann dann beispielsweise entscheiden,
+Dokumente direkt zu öffnen oder für den späteren Offline-Zugriff zu
+speichern.
 
 Einem derartigen Szenario kommt das Graph-orientierte Datenmodell der
 OParl API entgegen. Ausgehend von einer Sitzung eines bestimmten
@@ -692,95 +696,136 @@ indexiert werden kann. So wiederum kann auf dem Client eine Suchfunktion
 realisiert werden, welche die OParl-API selbst nicht zur Verfügung
 stellt.
 
-Eine solche Suchfunktion kann auch über die reine Volltxtsuche hinaus
-gehen und über die Suche mittels Text- oder Spracheingabe hinaus gehen.
-Denn ein Client könnte von einem \hyperref[server]{Server}-System, das
-Drucksachen mit Geoinformationen anbietet, diese abrufen und räumlich
-indexieren. Anhand der Position des Geräts, die mittels GPS genau
-bestimmt werden kann, könnte so der lokale Cache nach Objekten in der
-Umgebung durchsucht werden. Das Ergebnis könnte auf einer Karte
-dargestellt oder in einer Ergebnisliste angezeigt werden, die nach
-Distanz zum Objekt sortiert werden könnte.
+Eine solche Suchfunktion kann auch über die reine Volltxtsuche und über
+die Suche mittels Text- oder Spracheingabe hinaus gehen. Denn ein Client
+könnte von einem \hyperref[server]{Server}-System, das Drucksachen mit
+Geoinformationen anbietet, diese abrufen und räumlich indexieren. Anhand
+der Position des Geräts, die mittels GPS genau bestimmt werden kann,
+könnte so der lokale Cache nach Objekten in der Umgebung durchsucht
+werden. Das Ergebnis könnte auf einer Karte dargestellt oder in einer
+Ergebnisliste angezeigt werden, die nach Distanz zum Objekt sortiert
+werden könnte.
 
 \subsection{Szenario 2: Integration in
 Web-Portal}\label{szenarioux5fwebux5fportal}
 
-Web Portale bieten Nutzern unter anderem die Möglichkeit Anwendungen,
-Prozesse und Dienste zu integrieren. Die OParl API stellt einen solchen
-Dienst dar und bereitet so den Weg zu angereicherten Portalseiten.
-Informationen, die über die API bezogen werden, können in Portlets
-organisiert und visualisiert werden. Hierbei können
+Portallösungen bieten den Betreibern die Möglichkeit, Inhalte auf einer
+einheitlichen Weboberfläche zu veröffentlichen, die aus verschiedensten
+Quellen und Plattformen bereitgestellt werden. Inhalte werden dabei
+häufig als sogenannte ``Portlets'' in Seiten integriert.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  angemeldete Benutzer
-\end{enumerate}
+Ein Beispiel für die Realisierung eines solchen Integrations-Ansatzes
+wäre eine Kommune, die für ihre allgemeine Website eine Portallösung
+einsezt und hier auch Inhalte aus dem kommunalen Ratsinforamtionssystem
+einspeisen und darstellen möchte. Die Inhalte könnten als Module mit
+anderen Inhalten, beispielsweise aus einem Web Content Management System
+(WCMS) gemeinsam auf einer Seite dargestellt werden.
 
-die eingegrenzten Portlet Parameter für den nächsten Besuch zwischen
-speichern, während
+Eine Seite über den Gemeinderat beispielsweise könnte durch ein Portlet
+ergänzt werden, in dem die nächsten Sitzungstermine des Gemeinderats
+aufgelistet werden. Eine Pressemeldung über ein bestimmtes Bauvorhaben,
+in dem ein Beschluss erwähnt wird, könnte direkt ein Portlet mit einer
+Detailsansicht der entsprechenden Drucksache einbinden.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  anonyme Benutzer
-\end{enumerate}
+Die Portlets, die von einem Portalserver zur Verfügung gestellt werden,
+stellen damit im Sinne der OParl-Architektur Clients dar. Je nach
+Performanz und Anforderungen im Einzelfall könnten diese Client mit
+eigenen Caches arbeiten oder aber direkt auf den jeweiligen OParl-Server
+zugreifen.
 
-dies nicht können. In beiden Fällen können Portalnutzer das angezeigte
-Portlet nach ihren Bedürfnissen anpassen. Beispielsweise kann ein
-solches Portlet eine Liste der Gremien bereitstellen, aus der sich der
-Nutzer das interessante Gremium aussucht und aufgrund dieser Auswahl die
-Informationen zu den vergangenen / nächsten Sitzungsterminen im Rat,
-etwaiger Drucksachen oder Dokumenten erhält und geeignet visualisiert.
+Vorteil einer solchen Einbindung, also der kontextbezogenen Darstellung
+von parlamentarischen Informationen im Gegensatz zu einem monolitischen
+parlamentarischen Informationssystem könnte sein, dass Nutzer in einer
+gewohnten und akzeptierten Oberfläche jeweils die relevanten
+Informationen erhalten, ohne sich an die ungewohnte Umgebung eines
+parlamentarischen Informationssystems gewöhnen zu müssen.
 
-Durch eine solche Integration von RIS Informationen in bestehende
-Portalsysteme (unter Umständen die kommunale Webseite selbst), ist es
-möglich Nutzern zusätzliche Informationen in der bereits gewohnten
-Umgebung zu präsentieren und den bestehenden Informationsgehalt und den
-Datenbestand aufzuwerten.
+Die denkbaren Szenarien einer solchen Integration beschränken sich nicht
+auf anonyme Nutzer von öffentlichen Websites. In einem authentifizierten
+Umfeld wie beispielsweise einem kommunalen Intranet lassen sich weitere
+Arten von Portlets und damit Mehrwerte für die Nutzer realisieren. So
+könnte beispielswiese eine eingeloggte Nutzerin eine personalisierte
+Liste der Sitzungstermine, zu der sie eingeladen ist, angezeigt
+bekommen.
+
+Die Standardisierung durch OParl sorgt im Rahmen der Portal-Szenarios
+dazu, dass Portlets, die für ein bestimmtes parlamentarisches
+Informationssystem entwickelt wurden, leichter auf andere Systeme - auch
+verschiedener Anbieter - ausgeweitet werden könne, sofern diese
+ebenfalls OParl-konform sind. Dies ermöglicht es beispielsweise
+verschiedenen Kommunen, ihre bei der Entwicklung von Portlets zusammen
+zu arbeiten und ihre Ergebnisse auszutauschen. Denkbar sind auch
+Portlet-Entwicklungen als Open-Source-Projekte.
 
 \subsection{Szenario 3: Meta-Suche}\label{szenarioux5fmetaux5fsuche}
 
-Über die OParl-API können die Informationen zu Abläufen und
-Entscheidungen aus einem Ratsinformationssystem (RIS) in einem externen
-System anders aufbereitet und dargestellt werden. Bieten mehrere RIS
-eine OParl-API an, ist der Aufwand die Inhalte dieser weiteren Instanzen
-zusätzlich in dem externen System aufzubereiten und darzustellen
-vergleichsweise gering. Auf dem externen System werden die Inhalte
-unterschiedlicher RIS übergreifend durchsuchbar gemacht. Nutzerinnen und
-Nutzer dieses Angebots können in einer Meta-Suche über alle
-angeschlossenen RIS hinweg nach Ratsvorgängen suchen. Daraus ergeben
-sich unterschiedliche Anwendungsmöglichkeiten:
+Die Ermöglichung einer nutzerfreundliche Suche, die damit verbundene
+Indexierung von verschiedensten Dokumenteninhalten und die
+Kategorisierung von Inhalten kann eine sowohl konzeptionell als auch
+technisch Anspruchsvolle Aufgabe sein. Auch im Hinblick auf die
+Server-Ressourcen sind damit nennenswerte Aufwände verbunden.
+Andererseits liegt auf der Hand, dass die effiziente Arbeit mit großen
+Informationsmengen nach intelligenten Möglichkeiten der Einschränkung
+von Informationsmengen auf das jeweils im Anwendungsfall relevante
+Treffer verlangt. Beispiel wäre ein Nutzer, der sich für alle Dokumente
+zum Thema Kreisverkehre interessiert. Die OParl-Spezifikation sieht
+keine Methoden vor, wie die Ausgabe des Servers schon bei der Anfrage
+von Dokumenten derart beschränkt werden können. Damit ist die
+Realisation von Such- und Filtermechanismen im OParl-Umfeld eine
+Aufgabe, die bis auf weiteres lediglich auf Seite der Clients angeboten
+werden kann.
+
+Angelehnt an das seit den Anfängen des Web etablierte Modell der
+externen Web-Suchmaschine sind spezielle Suchmaschinen für
+OParl-konforme parlamentarische Informationssysteme denkbar. Diese
+können auch von dritten, beispielsweise zivilgesellschaftlichen
+Organisationen betrieben werden, die nicht Betreiber des Server-Systems
+sind. Solche Plattformen treten gegenüber dem OParl-Server als Client
+auf und rufen bestimmte oder sämtliche Informationen, die das System
+bereit hält, ab. Vorbild sind die Robots oder Spider von
+Web-Suchmaschinen. Die abgerufenen Informationen können dann indexiert
+und je nach Anforderungen für eine gezielte Suche weiterverarbeitet
+werden.
+
+Dieses Modell ist grundsätzlich nicht auf einzelne OParl-Server oder
+einzelne Körperschaften beschränkt. Vielmehr könnte der Betreiber einer
+solchen Suchmaschine sich entschließen, die Informationen aus mehreren
+OParl-konformen Systemen zu indexieren. Nutzern könnte entweder
+angeboten werden, die Suche auf bestimmte Körperschaften, beispielsweise
+auf eine bestimmte Kommune, zu beschränken, oder ohne Beschränkung über
+alle angebotenen Körperschaften zu suchen.\footnote{Daher der Begriff
+  Meta-Suche}
+
+Daraus ergeben sich vielfältige Anwendungsszenarien, die hier
+beispielhaft beschrieben werden:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
 \item
-  Eine Mitarbeiterin eines regionalen Zweckverbands hat die Aufgabe
+  Eine Mitarbeiterin eines regionalen Zweckverbands hat die Aufgabe,
   Ratsvorgänge in den Mitgliedskommunen mit Relevanz für die Aufgaben
   des Verbandes im Blick zu behalten. Sie nutzt dafür ein regionales
-  Internetportal, in dem die RIS-Inhalte der Mitgliedskommunen mittels
-  OParl-Schnittstelle durchsuchbar sind. Um die Suche zu vereinfachen
-  hat sie einzelne Schlagwörter abonniert, zu denen sie automatisch über
-  neue Vorgänge informiert wird.
+  Internetportal, in dem die Inhalte der OParl-konformen
+  parlamentarischen Informationssysteme der Mitgliedskommunen
+  durchsuchbar sind. Um die Suche zu vereinfachen, hat sie einzelne
+  Schlagwörter abonniert, zu denen sie automatisch über neue Vorgänge
+  informiert wird.
 \item
   Ein Einwohner eines Ballungsraums will sich über aktuelle Vorgänge
   rund um seine Mietwohnung in Stadt A, sein Gartengrundstück in einer
   Kleingartenkolonie in der Nachbarstadt B und seinen Arbeitsplatz in
   Stadt C auf dem laufenden halten. Dazu abonniert er im regionalen
-  Meta-RIS-Portal parlamentarische Vorgänge mit räumlichem Bezug zu
+  Meta-Such-Portal parlamentarische Vorgänge mit räumlichem Bezug zu
   diesen drei Standorten und wird so automatisch über neue Aktivitäten
-  informiert.
+  informiert, die Relevanz für ihn haben könnten.
 \item
   Eine Landespolitikerin möchte einfacher über die politischen
   Aktivitäten ihrer Parteikollegen in den Rathäusern des Bundeslandes
   informiert werden. Dazu nutzt sie ein Internetportal, in dem die
-  Informationen aus den RIS mit OParl-Schnittstelle im Land
-  zusammengeführt werden. Dort hat sie sich Abonnements zu einzelnen
-  Lokalpolitikern eingerichtet und wird automatisch über ihre Teilnahme
-  an Gremiensitzungen und die Themen dieser Sitzungen informiert.
+  Informationen aus den parlamentarischen Informationssystemen mit
+  OParl-Schnittstelle im Land zusammengeführt werden. Dort hat sie sich
+  Abonnements zu einzelnen Lokalpolitikern eingerichtet und wird
+  automatisch über ihre Teilnahme an Gremiensitzungen und die Themen
+  dieser Sitzungen informiert.
 \end{itemize}
 
 \subsection{Szenario 4: Forschungsprojekt Themen- und
@@ -790,13 +835,16 @@ In einem Forschungsprojekt sollen Pro- und Contra-Argumentationen bei
 Ratsdiskussionen zum Ausbau von Stromtrassen identifiziert werden. Über
 die Analyse in mehreren Gebietskörperschaften sollen die gefundenen
 Argumentationen zu wiederkehrenden Mustern verdichtet und festgestellt
-werden, wie diese Muster regional abweichen. Dazu nutzen die
-Mitarbeitenden des Forschungsprojektes die OParl-Schnittstellen der
-Ratsinformationssysteme von Kommunen entlang der geplanten
-überregionalen Trassen. Über diese einheitlichen Schnittstellen können
-sie relevante Beratungen, Drucksachen und Dateien abrufen und zum
-Beispiel in einem Werkzeug zur qualitativen Datenanalyse lokal
-verarbeiten.
+werden, wie diese Muster regional abweichen.
+
+Dazu nutzen die Mitarbeitenden des Forschungsprojektes die
+OParl-Schnittstellen der parlamentarischen Informationssysteme aller
+Kommunen entlang der geplanten überregionalen Trassen. Über diese
+einheitlichen Schnittstellen können sie insbesondere die relevanten
+Wortprotokolle abrufen und zum Beispiel in einem Werkzeug zur
+qualitativen Datenanalyse lokal verarbeiten. Im Ergebnis ließe sich auch
+erkennen, wie ähnlich oder wie unterschiedlich die Argumente in
+rhetorischer Hinsicht vorgetragen werden.
 
 \section{Prinzipien und Funktionen des Vokabulars und der
 API}\label{prinzipien-und-funktionen-des-vokabulars-und-der-api}
@@ -829,16 +877,16 @@ Stichpunkte:
 Praxis}\label{aufbauen-auf-guxe4ngiger-praxis}
 
 Grundlage für die Erarbeitung der OParl-Spezifikation in der
-vorliegenden Version ist eine Analyse der aktuell (2012 bis 2014) in
-Deutschland befindlichen Ratsinformationssysteme und ihrer Nutzung.
-Erklärtes Ziel für diese Version ist es, mit möglichst geringem
-Entwicklungsaufwand auf Seite der Softwareanbieter und Migrationsaufwand
-auf Seite der Betreiber zu einer Bereitstellung von parlamentarischen
-Informationen über eine OParl API zu gelangen. Hierbei war es von
-entscheidender Bedeutung, dass sich die Informationsmodelle der
-einschlägigen Softwareprodukte stark ähneln. Für die OParl-Spezifikation
-wurde sozusagen ein Datenmodell als ``gemeinsamer Nenner'' auf Basis der
-gängigen Praxis beschrieben.
+vorliegenden Version ist eine Analyse von aktuell (2012 bis 2014) in
+Deutschland etablierten parlamentarischen Informationssystemen und ihrer
+Nutzung. Erklärtes Ziel für diese erste Version ist es, mit möglichst
+geringem Entwicklungsaufwand auf Seite der Softwareanbieter und
+Migrationsaufwand auf Seite der Betreiber zu einer Bereitstellung von
+parlamentarischen Informationen über eine OParl API zu gelangen. Hierbei
+war es von entscheidender Bedeutung, dass sich die Informationsmodelle
+der einschlägigen Softwareprodukte stark ähneln. Für die
+OParl-Spezifikation wurde sozusagen ein Datenmodell als ``gemeinsamer
+Nenner'' auf Basis der gängigen Praxis beschrieben.
 
 \subsubsection{Verbesserung gegenüber dem Status Quo wo
 möglich}\label{verbesserung-gegenuxfcber-dem-status-quo-wo-muxf6glich}
@@ -854,8 +902,9 @@ Anforderung gelten.
 Ein Beispiel für eine derartige Funktion ist die Abbildung von Geodaten
 im Kontext von Drucksachen (\texttt{oparl:Paper}), um beispielsweise die
 Lage eines Bauvorhabens, das in einer Beschlussvorlage behandelt wird,
-zu beschreiben. Zwar ist den Autoren nur ein einziges
-Ratsinformationssystem\footnote{Das System BoRis der Stadt Bonn
+zu beschreiben. Zwar ist den Autoren nur ein einziges parlamentarisches
+Informationssystem\footnote{Das Ratsinformationssystem BoRis, eine
+  Eigenentwicklung der Stadt Bonn
   \url{http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp}} in Deutschland
 bekannt, das Geoinformationen - und zwar in Form von Punktdaten, also
 einer Kombination aus Längen- und Breitengradangaben - mit Dokumenten
@@ -1146,22 +1195,25 @@ mit ``https://''-Schema mit einer HTTP-Weiterleitung (HTTP Status-Code
 301) beantwortet werden. TODO: Geht das, wenn HTTPS nicht unterstützt
 wird?
 
-\subsection{URLs bzw. IRIs}\label{urls-bzw.-iris}
+\hyperdef{}{urls}{\subsection{URLs, IRIs und URIs}\label{urls}}
 
-Internationalized Resource Identifier (IRI) sind die
-internationalisierte Form der Uniform Resource Identifier (URI). Diese
-sind in RFC 3987 spezifiziert (http://tools.ietf.org/html/rfc3987). In
-der OParl-Spezifikation sind grundsätzlich auch dann IRIs gemeint, wenn
-wie folgt die Bezeichnungen URI oder URL verwendet werden. Dies soll der
-Lesbarkeit dienen, auch wenn es technisch nicht ganz korrekt ist.
+Den URLs (für ``Uniform Resource Locators'') kommt bei einer
+OParl-konformen API eine besondere Bedeutung zu und es werden eine Reihe
+von Anforderungen an die Verarbeitung von URLs gestellt.
 
-Den URLs (für ``Uniform Resource Locators'', auch URI für ``Uniform
-Resource Identifier'') kommt bei einer OParl-konformen API eine
-besondere Bedeutung zu und es werden eine Reihe von Anforderungen an die
-Verarbeitung von URLs gestellt.
+Im Rahmen dieses Dokuments wird aus Gründen der Verständlichkeit
+generell der allgemein gebräuchlichere Begriff ``URL'' werwendet, auch
+wenn damit tatsächlich die internationalisierte Variante nach RFC
+3987\footnote{RFC 3987: \url{http://tools.ietf.org/html/rfc3987}}, die
+korrekterweise IRI bzw. ``Internationalized Resource Identifier''
+genannt werden müsste. In andern Kontexten wiederum wird von URIs bzw.
+``Uniform Resource Identifier'' gesprochen. Das vorliegende Dokumente
+fasst alle drei Konzepte mit dem Begriff ``URL'' zusammen und ignoriert
+damit die Unterschiede der einzelnen Begriffe, da diese im Rahmen dieser
+Spezifikation ohne bedeutung sind.
 
-Die grundsätzliche Funktionsweise von URLs ist in RFC3986
-beschrieben\footnote{\url{http://tools.ietf.org/html/rfc3986}}.
+Die grundsätzliche Funktionsweise von URLs ist in RFC 3986
+beschrieben\footnote{RFC 3986: \url{http://tools.ietf.org/html/rfc3986}}.
 
 Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in
 diesem Dokument Verwendung finden:
@@ -1221,14 +1273,14 @@ Lösung gegenüber der Verwendung einer IP-Adresse sind vielfältig:
 Eine URL wie
 
 \begin{verbatim}
-http://oparl.ratsinformation.stadt-koeln.de/
+http://oparl.stadtrat.stadt-koeln.de/
 \end{verbatim}
 
 kommuniziert beispielsweise direkt die Zugehörigkeit zur Stadt Köln als
-Betreiber des Systems. Die Bezeichnung ``ratsinformation'' in der
-Subdomain zeigt den Zweck des Systems allgemein verständlich an. Der
-Host-Name ``oparl.ratsinformation.stadt-koeln.de'' deutet an, dass diese
-URL zu einer OParl-Schnittstelle zu diesem System gehört.
+Betreiber des Systems. Die Bezeichnung ``stadtrat'' in der Subdomain
+zeigt den Zweck des Systems allgemein verständlich an. Der Host-Name
+``oparl.stadtrat.stadt-koeln.de'' deutet an, dass diese URL zu einer
+OParl-Schnittstelle zu diesem System gehört.
 
 Um die Kanonisierung zu gewährleisten, sind vom Betreiber alle
 notwendigen Faktoren auszuschließen, die dazu führen können, dass eine
@@ -1249,17 +1301,16 @@ Diese Faktoren könnten sein:
   Zusätzliche Domains, die einen A-Record auf den selben Server besitzen
 \end{itemize}
 
-Zu der kanonischen Beispiel-URL
-http://oparl.ratsinformation.stadt-koeln.de/ wären eine Reihe von
-nicht-kanonischen URL-Varianten denkbar, die technischen auf den selben
-Server führen könnten:
+Zu der kanonischen Beispiel-URL http://oparl.stadtrat.stadt-koeln.de/
+wären eine Reihe von nicht-kanonischen URL-Varianten denkbar, die
+technischen auf den selben Server führen könnten:
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
   http://83.123.89.102/
 \item
-  http://oparl.ratsinformation.stadtkoeln.de/
+  http://oparl.stadtrat.stadtkoeln.de/
 \item
   http://risserv.stadt-koeln.de/
 \end{itemize}
@@ -1297,7 +1348,7 @@ http://oparl.meinris.de/members?committee=2&body=1
 unterscheiden sich lediglich in der Reihenfolge der
 Query-String-Parameter. Da sie jedoch nicht identisch sind, müssen
 Clients annehmen, dass beide URLs verschiedene Objekte repräsentieren.
-In der Konsequenz kann es zu vermeidbarer Ressourcennutzugn sowohl auf
+In der Konsequenz kann es zu vermeidbarer Ressourcennutzung sowohl auf
 Client- als auch auf Serverseite kommen.
 
 \subsubsection{Langlebigkeit}\label{langlebigkeit}
@@ -3888,16 +3939,6 @@ relationship ended OPTIONAL
 http://www.w3.org/TR/vocab-org/\#membership-roles-posts-and-reporting
 
 http://popoloproject.com/specs/membership.html
-
-\section{Fußnoten}\label{fuuxdfnoten}
-
-{[}14{]}: Frankfurt Gestalten
-\href{http://www.geojson.org/}{www.geojson.org}
-
-{[}15{]}: Offenes Köln \href{http://offeneskoeln.de/}{offeneskoeln.de}
-
-{[}16{]}: OpenRuhr:RIS
-\href{http://openruhr.de/openruhrris/}{openruhr.de/openruhrris}
 
 \section{Glossar}\label{glossar}
 

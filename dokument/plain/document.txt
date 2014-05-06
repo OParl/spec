@@ -4,10 +4,9 @@ Einleitung
 ==========
 
 Dieses Dokument wird bei seiner Fertigstellung die Spezifikation des
-OParl Schnittstellen-Standards für parlamentarische Informationssysteme
-(Ratsinformationssysteme, RIS) darstellen. Es dient damit als Grundlage
-für die Implementierung von OParl-konformen Server- und
-Clientanwendungen.
+OParl Schnittstellen-Standards für parlamentarische
+Informationssysteme[^1] darstellen. Es dient damit als Grundlage für die
+Implementierung von OParl-konformen Server- und Clientanwendungen.
 
 Status
 ------
@@ -20,37 +19,38 @@ Die Kennzeichnung "TODO" markiert Hinweise, die für die Bearbeiter des
 Dokuments gedacht sind. Darunter befinden sich auch Fragen an deren
 Beantwortung durch Reviewer des Dokuments die Autoren interessiert sind.
 
-Was ist OParl?
---------------
+Was ist OParl in Kürze?
+-----------------------
 
-(TODO: Nachfolgend eine Übernahme aus dem bisherigen Abschnitt
-"Funktionsumfang der OParl-Schnittstelle". Der Text sollte deutlich
-überarbeitet und erweitert werden.)
+OParl ist die Gruppierung, die Initiator und Herausgeber der
+vorliegenden Spezifikation ist. An OParl wirken Verbände,
+Zivilgesellschaftliche Organisationen und Initiativen und
+Software-Anbieter sowie interessierte Einzelpersonen mit.
 
-Die vorliegende Spezifikation soll eine Webservice-Schnittstelle
-definieren, die den anonymen und lesenden Zugriff auf öffentliche
-Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die
-Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP). Daten
-werden als JSON oder als JSONP ausgeliefert.
+Die vorliegende Spezifikation beschreibt den OParl-Standard. Dieser
+definiert eine Webservice-Schnittstelle, die den anonymen und lesenden
+Zugriff auf öffentliche Inhalte aus parlamentarischen
+Informationssystemen ermöglicht. Wie der Name "Webservice" ausdrückt,
+setzt diese Schnittstelle auf dem World Wide Web auf. Sie ermöglicht,
+dass parlamentarishe Informationen maschinenlesbar als Offene Daten
+(Open Data) veröffentlicht werden.
 
-Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale
-Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher
-zwischen den Implementierungen variieren.
-
-Zielsetzung von OParl
+Die vorligende Version ist die erste verabschiedete Version der
+Spezifikaiton zum OParl-Standard. Zielsetzung von OParl
 ---------------------
 
-OParl richtet sich an vielvältige Nutzergruppen (Stakeholder):
+OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:
 
 -   Verwaltung und politische Gremien in Kommunen
 -   Bürger, politische Parteien und Organisationen
 -   Open Data Initiativen
 -   Wissenschaftler
--   Anbieter von RIS-Pflegesoftware oder -services
--   Anbieter von RIS-Darstellungssoftware oder -services
+-   Anbieter von Server- und Softwareprodukten
 -   Anbieter von Linked Data-Plattformen oder -Services
 
-TODO: Nutzen für jede Stakeholder-Gruppe TODO: Linked Data erwähnen
+TODO: Nutzen für jede Stakeholder-Gruppe
+
+TODO: Linked Data erwähnen oder Verweis auf Linked Data Abschnitt
 
 Die Gründe, warum Betreiber von parlamentarischen Informationssystemen
 den Zugriff darauf über eine standardisierte Schnittstelle ermöglichen
@@ -111,10 +111,10 @@ Transparenz und Beteiligung durch Open Data
 Seit einigen Jahren sind zivilgesellschaftliche Organisationen sowie
 Politik und Verwaltung unter dem Schlagwort "Open Data" international
 und auch in Deutschland in unterschiedlichem Maße um eine stärkere
-Öffnung dieser Daten bemüht[^1]. Bei dem Ansatz "Open Data" geht es
+Öffnung dieser Daten bemüht[^2]. Bei dem Ansatz "Open Data"[^3] geht es
 darum diese Daten so bereitzustellen, dass Dritte diese einfacher finden
 und weiterverwenden können. Die zehn Open-Data-Prinzipien der
-Sunlight-Foundation beschreiben die Offenheit von Datensätzen.
+Sunlight-Foundation[^4] beschreiben die Offenheit von Datensätzen.
 Wesentlich dabei sind vor allem die einfache rechtliche und die
 technische Offenheit. Bei ersterer geht es darum, dass Datensätze unter
 Nutzungsbestimmungen bereitgestellt werden, die kurz und verständlich
@@ -158,7 +158,7 @@ verantwortungsvollen Umgang mit den Systemen die maximal erreichbare
 Transparenz zu bieten. Das fängt bei Dokumentenformaten an (ein PDF mit
 digitalem Text weist weit weniger Barrieren auf, als ein gescannter
 Brief, der ebenfalls als PDF gespeichert wurde) und hört bei der
-verwendeten Sprache auf[^2].
+verwendeten Sprache auf.[^5]
 
 Werdegang von OParl 1.0
 -----------------------
@@ -236,7 +236,6 @@ Linked Data-Welt können verwendet werden. Dazu gehören insbesondere die
 Linked Data Platform des W3C und Hydra.
 
 Globalisierung
-==============
 
 Es gibt in sehr vielen Ländern Gebietskörperschaften mit politischen
 Gremien, deren Prozesse ähnlich strukturiert sind wie diejenigen in
@@ -262,7 +261,7 @@ ihre normative Bedeutung zu unterstreichen, werden diese Wörter
 grundsätzlich in Großbuchstaben gesetzt.
 
 Diese Konvention ist angelehnt an die Definitionen der Begriffe MUST,
-SHOULD und MAY (bzw. MUST NOT, SHOULD NOT und MAY NOT) aus RFC2119.[^3]
+SHOULD und MAY (bzw. MUST NOT, SHOULD NOT und MAY NOT) aus RFC2119.[^6]
 
 Die Bedeutung im Einzelnen:
 
@@ -328,7 +327,8 @@ Autoren
 An diesem Dokument haben mitgewirkt:
 
 Felix Ebert, Jan Erhardt, Jens Klessmann, Andreas Kuckartz, Babett
-Schalitz, Marian Steinbach, Thomas Tursics, Jakob Voss
+Schalitz, Ralph Sternberg, Marian Steinbach, Bernd Thiem, Thomas
+Tursics, Jakob Voss
 
 Architektur
 ===========
@@ -341,7 +341,7 @@ API verständlicher und konkreter beschreiben zu können.
 
 Da die Architektur auf der generellen Architektur des World Wide Web
 (WWW) aufbaut, sind einzelne Konzepte direkt den Begriffen der
-Architekturbeschreibung des W3-Konsortiums entlehnt.[^4]
+Architekturbeschreibung des W3-Konsortiums entlehnt.[^7]
 
 Überblick
 ---------
@@ -354,16 +354,8 @@ Parlamentarisches Informationssystem {#parlamentarisches_infosystem}
 Parlamentarische Informationssysteme sind Software-Systeme, die von
 verschiedensten Körperschaften eingesetzt werden, um die Zusammenarbeit
 von Parlamenten zu organisieren, zu dokumentieren und öffentlich
-nachvollziehbar zu machen.
-
-Im kommunalen Umfeld in Deutschland, wo das Parlament je nach Art der
-Kommune häufig als Stadtrat oder Gemeinderat bezeichnet wird, hat sich
-für diese Art von Informationssystem auch der Begriff
-"Ratsinformationssystem" (kurz "RIS") etabliert.
-
-Parlamentarische Informationssysteme sind jedoch nicht auf die kommunale
-Ebene begrenzt. Ähnliche Systeme werden auch auf Ebene z.B. von
-Landkreisen, Regierungsbezirken und diversen Zweckverbänden eingesetzt.
+nachvollziehbar zu machen. Zu den Körperschaften können beispielsweise
+Kommunen, Landkreise, Regierungsbezirke und Zweckverbänden gehören.
 
 Diese Systeme unterstützen in der Regel mehrere der folgenden
 Funktionen:
@@ -683,7 +675,7 @@ Ein Beispiel für eine derartige Funktion ist die Abbildung von Geodaten
 im Kontext von Drucksachen (oparl:Paper), um beispielsweise die Lage
 eines Bauvorhabens, das in einer Beschlussvorlage behandelt wird, zu
 beschreiben. Zwar ist den Autoren nur ein einziges
-Ratsinformationssystem[^5] in Deutschland bekannt, das Geoinformationen
+Ratsinformationssystem[^8] in Deutschland bekannt, das Geoinformationen
 - und zwar in Form von Punktdaten, also einer Kombination aus Längen-
 und Breitengradangaben - mit Dokumenten verknüpft. Der Vorteil dieser
 Funktion ist jedoch anhand zahlreicher Anwendungsszenarien belegbar.
@@ -707,7 +699,7 @@ ODT-Datei zu einer PDF-Version.
 RESTful
 
 Die Bezeichnung "REST" (für "Representational State Transfer") wurde im
-Jahr 2000 von Roy Fielding eingeführt[^6]. Die Definition von Fielding
+Jahr 2000 von Roy Fielding eingeführt[^9]. Die Definition von Fielding
 reicht sehr weit und berührt viele Details. In der Praxis wird der
 Begriff häufig genutzt, um eine Schnittstelle zu beschreiben,
 
@@ -773,13 +765,13 @@ Mitglied des Gremiums, dadurch ausgeben, dass im Kontext des Gremiums
 die URL des Mitglieds ausgeben wird. Der Client kann somit ausgehend von
 einem bestimmten Objekt die anderen Objekte im System finden, indem er
 einfach den angebotenen URLs folgt. Dieses Prinzip wird auch "Follow
-Your Nose" genannt[^7].
+Your Nose" genannt[^10].
 
 Linked Data
 
 Der Begriff "Linked Data" steht für die Beschreibung von Daten in einer
 Form, die diese über ihren ursprünglichen Kontext hinaus verständlich
-macht.[^8]
+macht.[^11]
 
 Kern von Linked Data ist die Möglichkeit, alle Bestandteile von Daten in
 Form von Tripeln zu beschreiben, das sind dreiteilige
@@ -848,7 +840,7 @@ Beispiele, wo dies sinnvoll ist, sind in der Praxis leicht zu finden. So
 finden sich beispielsweise in vielen lokalen Parlamenten immer wieder
 Fraktionen der selben Parteien, beispielsweise CDU und SPD. Mittels
 Linked Data wäre es möglich, jede dieser Fraktionen mit einer externen
-URL zu verknüpfen[^9] und somit erkennbar zu machen, zu welcher Partei
+URL zu verknüpfen[^12] und somit erkennbar zu machen, zu welcher Partei
 diese Fraktion gehört. Ebenso finden sich viele inhaltliche
 Ähnlichkeiten bei Gremien wie zum Beispiel Ausschüssen (z.B.
 Hauptausschuss, Verkehrsausschuss etc.) oder bei Arten von Drucksachen
@@ -962,7 +954,7 @@ Bedeutung zu und es werden eine Reihe von Anforderungen an die
 Verarbeitung von URLs gestellt.
 
 Die grundsätzliche Funktionsweise von URLs ist in RFC3986
-beschrieben[^10].
+beschrieben[^13].
 
 Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in
 diesem Dokument Verwendung finden:
@@ -1106,8 +1098,8 @@ Vollständigkeit erheben:
     dazu führen, dass im Pfad ein Bestandteil wie "oparl.php/"
     erscheint. Erfahrungsgemäß überdauern solche URLs nur kurz.
 
-Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee[^11]
-sowie die Europäische Kommission[^12]. TODO: goo.gl URL expandieren
+Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee[^14]
+sowie die Europäische Kommission[^15]. TODO: goo.gl URL expandieren
 
 Serialisierung mittels JSON-LD und JSONP
 ----------------------------------------
@@ -1120,7 +1112,7 @@ unterstützt.
 
 In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung
 des HTTP Content-type-Headers application/ld+json beantworten. Die
-Spezifikation von JSON-LD liefert dazu genauere Informationen[^13], auch
+Spezifikation von JSON-LD liefert dazu genauere Informationen[^16], auch
 zu dem optionalen Parameter profile für die explizite Anforderung von
 JSON-LD in einer dieser drei Unterformen: kompakt, expandiert oder
 flach.
@@ -1133,7 +1125,7 @@ Warum?
 JSON
 
 Die Abkürzung JSON steht für "JavaScript Object Notation". Das
-JSON-Format ist in RFC4627[^14] beschrieben. Nachfolgend werden nur die
+JSON-Format ist in RFC4627[^17] beschrieben. Nachfolgend werden nur die
 wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren
 Verwendung in diesem Dokument zu etablieren.
 
@@ -1169,8 +1161,8 @@ Beispiel eines Objekts in JSON-Notation:
 
 JSON-LD
 
-Das Kürzel LD im Namen "JSON-LD" steht für "Linked Data"[^15].
-Entsprechend erweitert die JSON-LD-Spezifikation[^16] das JSON-Format um
+Das Kürzel LD im Namen "JSON-LD" steht für "Linked Data"[^18].
+Entsprechend erweitert die JSON-LD-Spezifikation[^19] das JSON-Format um
 die Möglichkeit,
 
 -   Objekte mit anderen Objekten zu verknüpfen,
@@ -1229,7 +1221,7 @@ eines Bildes zu finden ist. Das Schlüssel-Wert-Paar
     "@type": "@id"
 
 sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die URL eines
-anderen Objekts ist[^17]. Mittels @type-Deklaration könnte aber auch
+anderen Objekts ist[^20]. Mittels @type-Deklaration könnte aber auch
 beispielsweise eine Eigenschaft, die im JSON-Sinn eine Zeichenkette ist,
 als Datum deklariert werden.
 
@@ -1358,7 +1350,7 @@ der Domain entsprechen, von der die Webanwendung selbst geladen wurde.
 AnwendungsentwicklerInnen sind dadurch bei der Implementierung von
 Client-Anwendungen eingeschränkt.
 
-Diese Einschränkung gilt nicht fürt JSONP[^18]. Durch JSONP (TODO:
+Diese Einschränkung gilt nicht fürt JSONP[^21]. Durch JSONP (TODO:
 Abkürzung erläutern) wird die JSON-Notation so erweitert, dass der
 ausgegebene Code ausführbarer JavaScript-Code wird. Damit wird erreicht,
 dass der JSON-Code über die Grenzen von Domains hinweg direkt von
@@ -2339,14 +2331,14 @@ licenseValidSinceDay
 
 rgs
     Regionalschlüssel der Körperschaft als zwölfstellige
-    Zeichenkette[^19]. Diese Eigenschaft ist EMPFOHLEN.
+    Zeichenkette[^22]. Diese Eigenschaft ist EMPFOHLEN.
 
 sameBody
     Dient der Angabe beliebig vieler zusätzlicher URLs, die die
     Körperschaft repräsentieren. Diese Eigenschaft ist EMPFOHLEN. Hier
     können beispielsweise, sofern vorhanden, der entsprechende Eintrag
-    der Gemeinsamen Normdatei der Deutschen Nationalbibliothek[^20], der
-    DBPedia[^21] oder der Wikipedia[^22] angegeben werden.
+    der Gemeinsamen Normdatei der Deutschen Nationalbibliothek[^23], der
+    DBPedia[^24] oder der Wikipedia[^25] angegeben werden.
 
 contactEmail
     Dient der Angabe einer Kontakt-E-Mail-Adresse mit "mailto:"-Schema.
@@ -3096,7 +3088,7 @@ name
     Zeichenkette. ZWINGEND
 
 mimeType
-    Mime-Typ des Inhalts (vgl. RFC2046[^23]). Sollte das System einer
+    Mime-Typ des Inhalts (vgl. RFC2046[^26]). Sollte das System einer
     Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier
     "application/octet-stream" zu verwenden. ZWINGEND
 date
@@ -3346,14 +3338,14 @@ Und ein Beispiel unter Verwendung des Kontextes:
 ```
 
 OParl sieht bei Angabe von Geodaten die Verwendung des  
-GeoJSON-Formats[^24] vor. GeoJSON erlaubt die Beschreibung von vielen
+GeoJSON-Formats[^27] vor. GeoJSON erlaubt die Beschreibung von vielen
 unterschiedlichen Geometrien wie Punkten, Pfaden und Polygonen in
 JSON-Notation. Ein GeoJSON-Objekt kann auch mehrere Geometrien umfassen,
 beispielsweise um damit mehrere Punkte oder Polygone zu umschreiben.
 
 Gegenüber der GeoJSON-Spezifikation sieht OParl eine wichtige
 Einschränkung vor: Für die Ausgabe über eine OParl API MÜSSEN sämtliche
-Koordinatenangaben im System WGS84[^25] angegeben werden, und zwar in
+Koordinatenangaben im System WGS84[^28] angegeben werden, und zwar in
 Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.
 
 Eigenschaften
@@ -3508,77 +3500,88 @@ JSON-LD-Ressourcen auf oparl.org {#jsonld_ressourcen_oparlorg}
 TODO: Beschreiben, wo weitere Informationen über
 JSON-LD-Kontextdokumente zu finden sein werden.
 
-[^1]: Eine weltweite Übersicht zu Open-Data-Projekten bietet z.B. der
-    Open-Data-Showroom
+[^1]: In Deutschland hat sich auf kommunaler Ebene der Begriff
+    "Ratsinformationssystem" etabliert. OParl ist in seiner Anwendung
+    jedoch nicht auf Gemeinderäte eingeschränkt und verwendet daher den
+    Begriff "parlamentarisches Informationssystem".
 
-[^2]: Weitere generelle Informationen zur Bereitstellung offener
+[^2]: Eine weltweite Übersicht zu Open-Data-Projekten bietet z.B. der
+    Open-Data-Showroom http://opendata-showroom.org/de/
+
+[^3]: vgl. https://de.wikipedia.org/wiki/Open_data
+
+[^4]: Ten Principles for Opening Up Open Government Information,
+    https://sunlightfoundation.com/policy/documents/ten-open-data-principles
+
+[^5]: Weitere generelle Informationen zur Bereitstellung offener
     Verwaltungsdaten bieten bspw.
 
     -   Praktische Informationen: Open-Data-Handbook der Open Knowledge
         Foundation
+        http://opendatahandbook.org/de/how-to-open-up-data/index.html
     -   Grundsätzliche Informationen: Die vom Bundesministerium des
         Innern beauftragte Studie "Open Government Data Deutschland"
-        (PDF)
+        http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf
 
-[^3]: RFC2119 http://tools.ietf.org/html/rfc2119
+[^6]: RFC2119 http://tools.ietf.org/html/rfc2119
 
-[^4]: Architecture of the World Wide Web, Volume One.
+[^7]: Architecture of the World Wide Web, Volume One.
     http://www.w3.org/TR/webarch/
 
-[^5]: Das System BoRis der Stadt Bonn
+[^8]: Das System BoRis der Stadt Bonn
     http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp
 
-[^6]: Fielding, Roy: Architectural Styles and the Design of
+[^9]: Fielding, Roy: Architectural Styles and the Design of
     Network-based Software Architectures,
     http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm
 
-[^7]: http://patterns.dataincubator.org/book/follow-your-nose.html
+[^10]: http://patterns.dataincubator.org/book/follow-your-nose.html
 
-[^8]: vgl. Bundesministerium des Innern (Herausg.): Open Government Data
-    Deutschland, Seite 433f., 2012
+[^11]: vgl. Bundesministerium des Innern (Herausg.): Open Government
+    Data Deutschland, Seite 433f., 2012
     http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf
 
-[^9]: beispielsweise
+[^12]: beispielsweise
     http://dbpedia.org/resource/Christian_Democratic_Union_(Germany) und
     http://dbpedia.org/resource/Social_Democratic_Party_of_Germany
 
-[^10]: http://tools.ietf.org/html/rfc3986
+[^13]: http://tools.ietf.org/html/rfc3986
 
-[^11]: Berners-Lee, Tim: Cool URIs don't change.
+[^14]: Berners-Lee, Tim: Cool URIs don't change.
     http://www.w3.org/Provider/Style/URI.html
 
-[^12]: Study on persistent URIs, with identification of best practices
+[^15]: Study on persistent URIs, with identification of best practices
     and recommendations on the topic for the MSs and the EC. (PDF)
     http://goo.gl/JaTq6Z
 
-[^13]: http://www.w3.org/TR/json-ld/#iana-considerations
+[^16]: http://www.w3.org/TR/json-ld/#iana-considerations
 
-[^14]: https://tools.ietf.org/html/rfc4627
+[^17]: https://tools.ietf.org/html/rfc4627
 
-[^15]: siehe dazu Linked Data
+[^18]: siehe dazu Linked Data
 
-[^16]: http://www.w3.org/TR/json-ld/
+[^19]: http://www.w3.org/TR/json-ld/
 
-[^17]: URLs heißen in der JSON-LD-Spezifikation "IRI" (für
+[^20]: URLs heißen in der JSON-LD-Spezifikation "IRI" (für
     "Internationalized Resource Identifier"), wir verwenden hier jedoch
     weiterhin die Bezeichnung "URL".
 
-[^18]: TODO: URL zur Spezifikation
+[^21]: TODO: URL zur Spezifikation
 
-[^19]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
+[^22]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
     Statistischen Bundesamtes eingesehen werden
 
-[^20]: Gemeinsame Normdatei http://www.dnb.de/gnd
+[^23]: Gemeinsame Normdatei http://www.dnb.de/gnd
 
-[^21]: DBPedia http://www.dbpedia.org/
+[^24]: DBPedia http://www.dbpedia.org/
 
-[^22]: Wikipedia http://de.wikipedia.org/
+[^25]: Wikipedia http://de.wikipedia.org/
 
-[^23]: http://tools.ietf.org/html/rfc2046
+[^26]: http://tools.ietf.org/html/rfc2046
 
-[^24]: GeoJSON Spezifikation http://geojson.org/geojson-spec.html
+[^27]: GeoJSON Spezifikation http://geojson.org/geojson-spec.html
 
-[^25]: WGS84 steht für "World Geodetic System 1984", es wird unter
+[^28]: WGS84 steht für "World Geodetic System 1984", es wird unter
     anderem auch vom Global Positioning System (GPS) verwendet. In
     geografischen Informationssystemen ist für das System der EPSG-Code
     4326 geläufig.

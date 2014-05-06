@@ -81,10 +81,13 @@ Lizenz: Creative Commons CC-BY-SA
 \section{Einleitung}\label{einleitung}
 
 Dieses Dokument wird bei seiner Fertigstellung die Spezifikation des
-OParl Schnittstellen-Standards für parlamentarische Informationssysteme
-(Ratsinformationssysteme, RIS) darstellen. Es dient damit als Grundlage
-für die Implementierung von OParl-konformen Server- und
-Clientanwendungen.
+OParl Schnittstellen-Standards für parlamentarische
+Informationssysteme\footnote{In Deutschland hat sich auf kommunaler
+  Ebene der Begriff ``Ratsinformationssystem'' etabliert. OParl ist in
+  seiner Anwendung jedoch nicht auf Gemeinderäte eingeschränkt und
+  verwendet daher den Begriff ``parlamentarisches Informationssystem''.}
+darstellen. Es dient damit als Grundlage für die Implementierung von
+OParl-konformen Server- und Clientanwendungen.
 
 \subsection{Status}\label{status}
 
@@ -96,25 +99,26 @@ Die Kennzeichnung ``TODO'' markiert Hinweise, die für die Bearbeiter des
 Dokuments gedacht sind. Darunter befinden sich auch Fragen an deren
 Beantwortung durch Reviewer des Dokuments die Autoren interessiert sind.
 
-\subsection{Was ist OParl?}\label{was-ist-oparl}
+\subsection{Was ist OParl in Kürze?}\label{was-ist-oparl-in-kuxfcrze}
 
-(TODO: Nachfolgend eine Übernahme aus dem bisherigen Abschnitt
-``Funktionsumfang der OParl-Schnittstelle''. Der Text sollte deutlich
-überarbeitet und erweitert werden.)
+OParl ist die Gruppierung, die Initiator und Herausgeber der
+vorliegenden Spezifikation ist. An OParl wirken Verbände,
+Zivilgesellschaftliche Organisationen und Initiativen und
+Software-Anbieter sowie interessierte Einzelpersonen mit.
 
-Die vorliegende Spezifikation soll eine Webservice-Schnittstelle
-definieren, die den anonymen und lesenden Zugriff auf öffentliche
-Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die
-Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP). Daten
-werden als JSON oder als JSONP ausgeliefert.
+Die vorliegende Spezifikation beschreibt den OParl-Standard. Dieser
+definiert eine Webservice-Schnittstelle, die den anonymen und lesenden
+Zugriff auf öffentliche Inhalte aus parlamentarischen
+Informationssystemen ermöglicht. Wie der Name ``Webservice'' ausdrückt,
+setzt diese Schnittstelle auf dem World Wide Web auf. Sie ermöglicht,
+dass parlamentarishe Informationen maschinenlesbar als Offene Daten
+(Open Data) veröffentlicht werden.
 
-Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale
-Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher
-zwischen den Implementierungen variieren.
+Die vorligende Version ist die erste verabschiedete Version der
+Spezifikaiton zum OParl-Standard. Zielsetzung von OParl
+---------------------
 
-\subsection{Zielsetzung von OParl}\label{zielsetzung-von-oparl}
-
-OParl richtet sich an vielvältige Nutzergruppen (Stakeholder):
+OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -127,14 +131,14 @@ OParl richtet sich an vielvältige Nutzergruppen (Stakeholder):
 \item
   Wissenschaftler
 \item
-  Anbieter von RIS-Pflegesoftware oder -services
-\item
-  Anbieter von RIS-Darstellungssoftware oder -services
+  Anbieter von Server- und Softwareprodukten
 \item
   Anbieter von Linked Data-Plattformen oder -Services
 \end{itemize}
 
-TODO: Nutzen für jede Stakeholder-Gruppe TODO: Linked Data erwähnen
+TODO: Nutzen für jede Stakeholder-Gruppe
+
+TODO: Linked Data erwähnen oder Verweis auf Linked Data Abschnitt
 
 Die Gründe, warum Betreiber von parlamentarischen Informationssystemen
 den Zugriff darauf über eine standardisierte Schnittstelle ermöglichen
@@ -204,22 +208,23 @@ Seit einigen Jahren sind zivilgesellschaftliche Organisationen sowie
 Politik und Verwaltung unter dem Schlagwort ``Open Data'' international
 und auch in Deutschland in unterschiedlichem Maße um eine stärkere
 Öffnung dieser Daten bemüht\footnote{Eine weltweite Übersicht zu
-  Open-Data-Projekten bietet z.B. der
-  \href{http://opendata-showroom.org/de/}{Open-Data-Showroom}}. Bei dem
-Ansatz ``\href{https://de.wikipedia.org/wiki/Open_data}{Open Data}''
-geht es darum diese Daten so bereitzustellen, dass Dritte diese
-einfacher finden und weiterverwenden können. Die
-\href{https://sunlightfoundation.com/policy/documents/ten-open-data-principles/}{zehn
-Open-Data-Prinzipien der Sunlight-Foundation} beschreiben die Offenheit
-von Datensätzen. Wesentlich dabei sind vor allem die einfache rechtliche
-und die technische Offenheit. Bei ersterer geht es darum, dass
-Datensätze unter Nutzungsbestimmungen bereitgestellt werden, die kurz
-und verständlich formuliert sind und mindestens jegliche weitere
-Verwendung inklusive der kommerziellen erlauben unter der Voraussetzung,
-dass bei der Weiterverwendung die Quelle benannt wird. Bei der
-technischen Offenheit steht die Bereitstellung von Datensätzen in
-möglichst maschinenlesbaren Formaten im Vordergrund. Dies bedeutet,
-stärker strukturierte Datensätze sind in der Bereitstellung zu
+  Open-Data-Projekten bietet z.B. der Open-Data-Showroom
+  \url{http://opendata-showroom.org/de/}}. Bei dem Ansatz ``Open
+Data''\footnote{vgl. \url{https://de.wikipedia.org/wiki/Open_data}} geht
+es darum diese Daten so bereitzustellen, dass Dritte diese einfacher
+finden und weiterverwenden können. Die zehn Open-Data-Prinzipien der
+Sunlight-Foundation\footnote{Ten Principles for Opening Up Open
+  Government Information,
+  \url{https://sunlightfoundation.com/policy/documents/ten-open-data-principles}}
+beschreiben die Offenheit von Datensätzen. Wesentlich dabei sind vor
+allem die einfache rechtliche und die technische Offenheit. Bei ersterer
+geht es darum, dass Datensätze unter Nutzungsbestimmungen bereitgestellt
+werden, die kurz und verständlich formuliert sind und mindestens
+jegliche weitere Verwendung inklusive der kommerziellen erlauben unter
+der Voraussetzung, dass bei der Weiterverwendung die Quelle benannt
+wird. Bei der technischen Offenheit steht die Bereitstellung von
+Datensätzen in möglichst maschinenlesbaren Formaten im Vordergrund. Dies
+bedeutet, stärker strukturierte Datensätze sind in der Bereitstellung zu
 bevorzugen. Liegen Daten innerhalb einer Organisation in einer Datenbank
 vor, so bietet es sich an, diese soweit möglich über eine
 Programmierschnittstelle (API) für Außenstehende bereitzustellen.
@@ -254,21 +259,20 @@ verantwortungsvollen Umgang mit den Systemen die maximal erreichbare
 Transparenz zu bieten. Das fängt bei Dokumentenformaten an (ein PDF mit
 digitalem Text weist weit weniger Barrieren auf, als ein gescannter
 Brief, der ebenfalls als PDF gespeichert wurde) und hört bei der
-verwendeten Sprache auf\footnote{Weitere generelle Informationen zur
+verwendeten Sprache auf.\footnote{Weitere generelle Informationen zur
   Bereitstellung offener Verwaltungsdaten bieten bspw.
 
   \begin{itemize}
   \itemsep1pt\parskip0pt\parsep0pt
   \item
-    Praktische Informationen:
-    \href{http://opendatahandbook.org/de/how-to-open-up-data/index.html}{Open-Data-Handbook}
-    der Open Knowledge Foundation
+    Praktische Informationen: Open-Data-Handbook der Open Knowledge
+    Foundation
+    \url{http://opendatahandbook.org/de/how-to-open-up-data/index.html}
   \item
     Grundsätzliche Informationen: Die vom Bundesministerium des Innern
-    beauftragte Studie
-    ``\href{http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf?__blob=publicationFile}{Open
-    Government Data Deutschland}'' (PDF)
-  \end{itemize}}.
+    beauftragte Studie ``Open Government Data Deutschland''
+    \url{http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf}
+  \end{itemize}}
 
 \subsection{Werdegang von OParl 1.0}\label{werdegang-von-oparl-1.0}
 
@@ -385,7 +389,7 @@ bzw. in Entwicklung befindliche Spezifikationen und Techniken aus der
 Linked Data-Welt können verwendet werden. Dazu gehören insbesondere die
 Linked Data Platform des W3C und Hydra.
 
-\section{Globalisierung}\label{globalisierung}
+\subsubsection{Globalisierung}\label{globalisierung}
 
 Es gibt in sehr vielen Ländern Gebietskörperschaften mit politischen
 Gremien, deren Prozesse ähnlich strukturiert sind wie diejenigen in
@@ -475,7 +479,8 @@ TODO
 An diesem Dokument haben mitgewirkt:
 
 Felix Ebert, Jan Erhardt, Jens Klessmann, Andreas Kuckartz, Babett
-Schalitz, Marian Steinbach, Thomas Tursics, Jakob Voss
+Schalitz, Ralph Sternberg, Marian Steinbach, Bernd Thiem, Thomas
+Tursics, Jakob Voss
 
 \section{Architektur}\label{architektur}
 
@@ -504,16 +509,8 @@ Informationssystem}\label{parlamentarischesux5finfosystem}
 Parlamentarische Informationssysteme sind Software-Systeme, die von
 verschiedensten Körperschaften eingesetzt werden, um die Zusammenarbeit
 von Parlamenten zu organisieren, zu dokumentieren und öffentlich
-nachvollziehbar zu machen.
-
-Im kommunalen Umfeld in Deutschland, wo das Parlament je nach Art der
-Kommune häufig als Stadtrat oder Gemeinderat bezeichnet wird, hat sich
-für diese Art von Informationssystem auch der Begriff
-``Ratsinformationssystem'' (kurz ``RIS'') etabliert.
-
-Parlamentarische Informationssysteme sind jedoch nicht auf die kommunale
-Ebene begrenzt. Ähnliche Systeme werden auch auf Ebene z.B. von
-Landkreisen, Regierungsbezirken und diversen Zweckverbänden eingesetzt.
+nachvollziehbar zu machen. Zu den Körperschaften können beispielsweise
+Kommunen, Landkreise, Regierungsbezirke und Zweckverbänden gehören.
 
 Diese Systeme unterstützen in der Regel mehrere der folgenden
 Funktionen:

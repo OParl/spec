@@ -38,31 +38,28 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Lizenz: Creative Commons CC-BY-SA</p>
 <section id="einleitung" class="level1">
 <h1><span class="header-section-number">1</span> Einleitung</h1>
-<p>Dieses Dokument wird bei seiner Fertigstellung die Spezifikation des OParl Schnittstellen-Standards für parlamentarische Informationssysteme (Ratsinformationssysteme, RIS) darstellen. Es dient damit als Grundlage für die Implementierung von OParl-konformen Server- und Clientanwendungen.</p>
+<p>Dieses Dokument wird bei seiner Fertigstellung die Spezifikation des OParl Schnittstellen-Standards für parlamentarische Informationssysteme<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> darstellen. Es dient damit als Grundlage für die Implementierung von OParl-konformen Server- und Clientanwendungen.</p>
 <section id="status" class="level2">
 <h2><span class="header-section-number">1.1</span> Status</h2>
 <p>Die Spezifikation befindet sich in Arbeit. Das Dokument enthält entsprechend viele Ungenauigkeiten und Hinweise auf offene Fragestellungen.</p>
 <p>Die Kennzeichnung &quot;TODO&quot; markiert Hinweise, die für die Bearbeiter des Dokuments gedacht sind. Darunter befinden sich auch Fragen an deren Beantwortung durch Reviewer des Dokuments die Autoren interessiert sind.</p>
 </section>
-<section id="was-ist-oparl" class="level2">
-<h2><span class="header-section-number">1.2</span> Was ist OParl?</h2>
-<p>(TODO: Nachfolgend eine Übernahme aus dem bisherigen Abschnitt &quot;Funktionsumfang der OParl-Schnittstelle&quot;. Der Text sollte deutlich überarbeitet und erweitert werden.)</p>
-<p>Die vorliegende Spezifikation soll eine Webservice-Schnittstelle definieren, die den anonymen und lesenden Zugriff auf öffentliche Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP). Daten werden als JSON oder als JSONP ausgeliefert.</p>
-<p>Die Spezifikation wird obligatorische Bestandteile (MUSS) und optionale Bestandteile (KANN) haben. Der tatsächliche Funktionsumfang kann daher zwischen den Implementierungen variieren.</p>
-</section>
-<section id="zielsetzung-von-oparl" class="level2">
-<h2><span class="header-section-number">1.3</span> Zielsetzung von OParl</h2>
-<p>OParl richtet sich an vielvältige Nutzergruppen (Stakeholder):</p>
+<section id="was-ist-oparl-in-kürze" class="level2">
+<h2><span class="header-section-number">1.2</span> Was ist OParl in Kürze?</h2>
+<p>OParl ist die Gruppierung, die Initiator und Herausgeber der vorliegenden Spezifikation ist. An OParl wirken Verbände, Zivilgesellschaftliche Organisationen und Initiativen und Software-Anbieter sowie interessierte Einzelpersonen mit.</p>
+<p>Die vorliegende Spezifikation beschreibt den OParl-Standard. Dieser definiert eine Webservice-Schnittstelle, die den anonymen und lesenden Zugriff auf öffentliche Inhalte aus parlamentarischen Informationssystemen ermöglicht. Wie der Name &quot;Webservice&quot; ausdrückt, setzt diese Schnittstelle auf dem World Wide Web auf. Sie ermöglicht, dass parlamentarishe Informationen maschinenlesbar als Offene Daten (Open Data) veröffentlicht werden.</p>
+<p>Die vorligende Version ist die erste verabschiedete Version der Spezifikaiton zum OParl-Standard. Zielsetzung von OParl ---------------------</p>
+<p>OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:</p>
 <ul>
 <li>Verwaltung und politische Gremien in Kommunen</li>
 <li>Bürger, politische Parteien und Organisationen</li>
 <li>Open Data Initiativen</li>
 <li>Wissenschaftler</li>
-<li>Anbieter von RIS-Pflegesoftware oder -services</li>
-<li>Anbieter von RIS-Darstellungssoftware oder -services</li>
+<li>Anbieter von Server- und Softwareprodukten</li>
 <li>Anbieter von Linked Data-Plattformen oder -Services</li>
 </ul>
-<p>TODO: Nutzen für jede Stakeholder-Gruppe TODO: Linked Data erwähnen</p>
+<p>TODO: Nutzen für jede Stakeholder-Gruppe</p>
+<p>TODO: Linked Data erwähnen oder Verweis auf Linked Data Abschnitt</p>
 <p>Die Gründe, warum Betreiber von parlamentarischen Informationssystemen den Zugriff darauf über eine standardisierte Schnittstelle ermöglichen sollten, können vielfältig sein.</p>
 <p>Ein zentrales Argument ist die Verpflichtung der Parlamente gegenüber der Bevölkerung, diese über die Fortschritte der parlamentarischen Arbeit zu informieren und auf dem Laufenden zu halten. Ein erster Schritt, der Bevölkerung Einblicke in die Arbeit und Zugriff auf Dokumente zu gewähren, ist vielerorts in den letzten Jahren durch Einführung von Ratsinformationssystemen mit anonymem, lesenden Zugriff über das World Wide Web gemacht worden.</p>
 <p>Die damit eingeschlagene Richtung konsequent weiter zu gehen, bedeutet, die Daten der parlamentarischen Informationssystemen gänzlich offen zu legen, sofern die Inhalte es erlauben. Es bedeutet, die Daten und Inhalte so universell weiterverwendbar und so barrierearm wie möglich anzubieten, dass jegliche weitere Verwendung durch Dritte technisch möglich ist. Der seit einiger Zeit etablierte Begriff für dieses Prinzip heißt &quot;Open Data&quot;.</p>
@@ -79,13 +76,13 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Darüber hinaus sind auch Motivationen innerhalb von Organisationen und Körperschaften erkennbar. So sollen parlamentarische Informationssysteme vielerorts in verschiedenste Prozesse und heterogene Systemlandschaften integriert werden. Durch eine einheitliche Schnittstelle bieten sich effiziente Möglichkeiten zur Integration der Daten in anderen Systeme, wie beispielsweise Web-Portale.</p>
 </section>
 <section id="transparenz-und-beteiligung-durch-open-data" class="level2">
-<h2><span class="header-section-number">1.4</span> Transparenz und Beteiligung durch Open Data</h2>
-<p>Öffentliche Stellen verfügen über vielfältige Informationen und Daten. Seit einigen Jahren sind zivilgesellschaftliche Organisationen sowie Politik und Verwaltung unter dem Schlagwort &quot;Open Data&quot; international und auch in Deutschland in unterschiedlichem Maße um eine stärkere Öffnung dieser Daten bemüht<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. Bei dem Ansatz &quot;<a href="https://de.wikipedia.org/wiki/Open_data">Open Data</a>&quot; geht es darum diese Daten so bereitzustellen, dass Dritte diese einfacher finden und weiterverwenden können. Die <a href="https://sunlightfoundation.com/policy/documents/ten-open-data-principles/">zehn Open-Data-Prinzipien der Sunlight-Foundation</a> beschreiben die Offenheit von Datensätzen. Wesentlich dabei sind vor allem die einfache rechtliche und die technische Offenheit. Bei ersterer geht es darum, dass Datensätze unter Nutzungsbestimmungen bereitgestellt werden, die kurz und verständlich formuliert sind und mindestens jegliche weitere Verwendung inklusive der kommerziellen erlauben unter der Voraussetzung, dass bei der Weiterverwendung die Quelle benannt wird. Bei der technischen Offenheit steht die Bereitstellung von Datensätzen in möglichst maschinenlesbaren Formaten im Vordergrund. Dies bedeutet, stärker strukturierte Datensätze sind in der Bereitstellung zu bevorzugen. Liegen Daten innerhalb einer Organisation in einer Datenbank vor, so bietet es sich an, diese soweit möglich über eine Programmierschnittstelle (API) für Außenstehende bereitzustellen.</p>
+<h2><span class="header-section-number">1.3</span> Transparenz und Beteiligung durch Open Data</h2>
+<p>Öffentliche Stellen verfügen über vielfältige Informationen und Daten. Seit einigen Jahren sind zivilgesellschaftliche Organisationen sowie Politik und Verwaltung unter dem Schlagwort &quot;Open Data&quot; international und auch in Deutschland in unterschiedlichem Maße um eine stärkere Öffnung dieser Daten bemüht<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>. Bei dem Ansatz &quot;Open Data&quot;<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> geht es darum diese Daten so bereitzustellen, dass Dritte diese einfacher finden und weiterverwenden können. Die zehn Open-Data-Prinzipien der Sunlight-Foundation<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> beschreiben die Offenheit von Datensätzen. Wesentlich dabei sind vor allem die einfache rechtliche und die technische Offenheit. Bei ersterer geht es darum, dass Datensätze unter Nutzungsbestimmungen bereitgestellt werden, die kurz und verständlich formuliert sind und mindestens jegliche weitere Verwendung inklusive der kommerziellen erlauben unter der Voraussetzung, dass bei der Weiterverwendung die Quelle benannt wird. Bei der technischen Offenheit steht die Bereitstellung von Datensätzen in möglichst maschinenlesbaren Formaten im Vordergrund. Dies bedeutet, stärker strukturierte Datensätze sind in der Bereitstellung zu bevorzugen. Liegen Daten innerhalb einer Organisation in einer Datenbank vor, so bietet es sich an, diese soweit möglich über eine Programmierschnittstelle (API) für Außenstehende bereitzustellen.</p>
 <p>Die Erfüllung dieser rechtlichen und technischen Offenheit erlaubt es Dritten, dies können Bürgerinnen und Bürger, Unternehmen, Forschungseinrichtungen oder auch andere Verwaltungseinheiten sein, die Verwaltungsdaten wesentlich unkomplizierter für eigene Vorhaben wie Anwendungen oder Visualisierungen einzusetzen. Mit dem Ansatz offener Verwaltungsdaten soll so erstens mehr Transparenz über Prozesse und Entscheidungen in Politik und Verwaltung erreicht werden. Zweitens können Dritte auf Grundlage dieser Daten leichter eigene Geschäftsmodelle verfeinern oder neue entwickeln. Drittens wird es auch öffentlichen Stellen selbst leichter bereits im öffentlichen Sektor existierende Daten zu finden und weiterzuverwenden.</p>
-<p>Wie das Prinzip offener Daten bzw. offener Verwaltungsdaten über die Minimalprinzipien rechtlicher und technischer Offenheit hinaus am besten erreicht werden kann erfordert im Einzelfall häufig eine Zusammenarbeit von Datenbereitstellern und potentiellen Datennutzern. Die bloße Bereitstellung einer OParl-konformen API wird weder die Einhaltung der technischen Prinzipien, noch der weiteren Open-Data-Prinzipien vollständig garantieren. Viele Bestandteile der Oparl Spezifikation, die einen weitgehend barrierearmen Zugang zu Informationen ermöglichen, sind optional (Beispiel: Volltexte von Dokumenten über die API abrufbar machen). Andere Bestandteile, die von Interesse wären, sind noch gar nicht von OParl abgedeckt (Beispiel: Abstimmungsergebnisse). Grund dafür ist, dass sich OParl in einem frühen Stadium befindet und primär am Status Quo der parlamentarischen Informationssysteme ausgerichtet ist. Es liegt also auch weiterhin an Verwaltung und Politik, durch einen verantwortungsvollen Umgang mit den Systemen die maximal erreichbare Transparenz zu bieten. Das fängt bei Dokumentenformaten an (ein PDF mit digitalem Text weist weit weniger Barrieren auf, als ein gescannter Brief, der ebenfalls als PDF gespeichert wurde) und hört bei der verwendeten Sprache auf<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>.</p>
+<p>Wie das Prinzip offener Daten bzw. offener Verwaltungsdaten über die Minimalprinzipien rechtlicher und technischer Offenheit hinaus am besten erreicht werden kann erfordert im Einzelfall häufig eine Zusammenarbeit von Datenbereitstellern und potentiellen Datennutzern. Die bloße Bereitstellung einer OParl-konformen API wird weder die Einhaltung der technischen Prinzipien, noch der weiteren Open-Data-Prinzipien vollständig garantieren. Viele Bestandteile der Oparl Spezifikation, die einen weitgehend barrierearmen Zugang zu Informationen ermöglichen, sind optional (Beispiel: Volltexte von Dokumenten über die API abrufbar machen). Andere Bestandteile, die von Interesse wären, sind noch gar nicht von OParl abgedeckt (Beispiel: Abstimmungsergebnisse). Grund dafür ist, dass sich OParl in einem frühen Stadium befindet und primär am Status Quo der parlamentarischen Informationssysteme ausgerichtet ist. Es liegt also auch weiterhin an Verwaltung und Politik, durch einen verantwortungsvollen Umgang mit den Systemen die maximal erreichbare Transparenz zu bieten. Das fängt bei Dokumentenformaten an (ein PDF mit digitalem Text weist weit weniger Barrieren auf, als ein gescannter Brief, der ebenfalls als PDF gespeichert wurde) und hört bei der verwendeten Sprache auf.<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a></p>
 </section>
 <section id="werdegang-von-oparl-1.0" class="level2">
-<h2><span class="header-section-number">1.5</span> Werdegang von OParl 1.0</h2>
+<h2><span class="header-section-number">1.4</span> Werdegang von OParl 1.0</h2>
 <p>Stichpunkte:</p>
 <ul>
 <li><ol start="17" type="1">
@@ -113,20 +110,20 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul>
 </section>
 <section id="zukunft-von-oparl" class="level2">
-<h2><span class="header-section-number">1.6</span> Zukunft von OParl</h2>
+<h2><span class="header-section-number">1.5</span> Zukunft von OParl</h2>
 <p>TODO: - Verfeinerung, Lücken schliessen - Erweiterung über die kommunale Ebene hinaus (Land, Bund) - Vereinheitlichung von Kategorien (Drucksachentypen, Arten von Gremien) - Erweiterung von Personendaten, z.B. mit Social Media URLs - Mehr Abfragekriterien - Suchfunktionen (Volltextsuche) - Abstimmungsverhalten und maschinenlesbare Protokolle - Verknüpfung mit verteilten Social Media Plattformen - Schreibender Zugriff. Auch dazu muss das Rad nicht neu erfunden werden. Bestehende bzw. in Entwicklung befindliche Spezifikationen und Techniken aus der Linked Data-Welt können verwendet werden. Dazu gehören insbesondere die Linked Data Platform des W3C und Hydra.</p>
-</section>
-</section>
-<section id="globalisierung" class="level1">
-<h1><span class="header-section-number">2</span> Globalisierung</h1>
+<section id="globalisierung" class="level3">
+<h3><span class="header-section-number">1.5.1</span> Globalisierung</h3>
 <p>Es gibt in sehr vielen Ländern Gebietskörperschaften mit politischen Gremien, deren Prozesse ähnlich strukturiert sind wie diejenigen in Deutschland. Auch dort besteht Bedarf an standardisierten Vokabularen zur Veröffentlichung parlamentarischer Informationen. Deshalb sind - teilweise noch vor OParl - auch weitere entsprechende Initiativen entstanden. Eine enge Zusammenarbeit mit diesen Initiativen mit dem Ziel der Wiederverwendung von Arbeitsergebnissen wird deshalb angestrebt. Auch aus diesem Grund wurde bereits in OParl 1.0 die Möglichkeit der Verwendung mit anderen Sprachen und Mehrsprachigkeit eingebaut.</p>
 <p>TODO: Popolo, UK, KB Niederlande</p>
+</section>
+</section>
 <section id="nomenklatur-der-spezifikation-und-satzkonventionen" class="level2">
-<h2><span class="header-section-number">2.1</span> Nomenklatur der Spezifikation und Satzkonventionen</h2>
+<h2><span class="header-section-number">1.6</span> Nomenklatur der Spezifikation und Satzkonventionen</h2>
 <section id="müssen-sollen-und-können-bzw.-zwingend-empfohlen-und-optional" class="level3">
-<h3><span class="header-section-number">2.1.1</span> MÜSSEN, SOLLEN und KÖNNEN bzw. ZWINGEND, EMPFOHLEN und OPTIONAL</h3>
+<h3><span class="header-section-number">1.6.1</span> MÜSSEN, SOLLEN und KÖNNEN bzw. ZWINGEND, EMPFOHLEN und OPTIONAL</h3>
 <p>Dieses Spezifikationsdokument nutzt die Modalverben müssen, können und sollen in einer Art und Weise, die bestimmte Anforderungen möglichst unmissverständlich in drei verschiedene Abstufung einteilen lässt. Um ihre normative Bedeutung zu unterstreichen, werden diese Wörter grundsätzlich in Großbuchstaben gesetzt.</p>
-<p>Diese Konvention ist angelehnt an die Definitionen der Begriffe MUST, SHOULD und MAY (bzw. MUST NOT, SHOULD NOT und MAY NOT) aus RFC2119.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a></p>
+<p>Diese Konvention ist angelehnt an die Definitionen der Begriffe MUST, SHOULD und MAY (bzw. MUST NOT, SHOULD NOT und MAY NOT) aus RFC2119.<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a></p>
 <p>Die Bedeutung im Einzelnen:</p>
 <dl>
 <dt>MÜSSEN/MUSS bzw. ZWINGEND:</dt>
@@ -152,39 +149,37 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </dl>
 </section>
 <section id="besondere-hervorhebungen-und-satzkonventionen" class="level3">
-<h3><span class="header-section-number">2.1.2</span> Besondere Hervorhebungen und Satzkonventionen</h3>
+<h3><span class="header-section-number">1.6.2</span> Besondere Hervorhebungen und Satzkonventionen</h3>
 <p>TODO</p>
 </section>
 </section>
 <section id="initiatoren" class="level2">
-<h2><span class="header-section-number">2.2</span> Initiatoren</h2>
+<h2><span class="header-section-number">1.7</span> Initiatoren</h2>
 <p>TODO</p>
 </section>
 <section id="unterstützer" class="level2">
-<h2><span class="header-section-number">2.3</span> Unterstützer</h2>
+<h2><span class="header-section-number">1.8</span> Unterstützer</h2>
 <p>TODO</p>
 </section>
 <section id="autoren" class="level2">
-<h2><span class="header-section-number">2.4</span> Autoren</h2>
+<h2><span class="header-section-number">1.9</span> Autoren</h2>
 <p>An diesem Dokument haben mitgewirkt:</p>
-<p>Felix Ebert, Jan Erhardt, Jens Klessmann, Andreas Kuckartz, Babett Schalitz, Marian Steinbach, Thomas Tursics, Jakob Voss</p>
+<p>Felix Ebert, Jan Erhardt, Jens Klessmann, Andreas Kuckartz, Babett Schalitz, Ralph Sternberg, Marian Steinbach, Bernd Thiem, Thomas Tursics, Jakob Voss</p>
 </section>
 </section>
 <section id="architektur" class="level1">
-<h1><span class="header-section-number">3</span> Architektur</h1>
+<h1><span class="header-section-number">2</span> Architektur</h1>
 <p>In diesem Abschnitt werden grundlegenden Konzepte, die von OParl abgedeckt werden, erläutert. Die Erläuterungen sind nicht im engeren Sinne Teil der Spezifikation, sondern dienen dazu, die Anwendungsbereiche von OParl und die Funktionen einer OParl-konformen API verständlicher und konkreter beschreiben zu können.</p>
-<p>Da die Architektur auf der generellen Architektur des World Wide Web (WWW) aufbaut, sind einzelne Konzepte direkt den Begriffen der Architekturbeschreibung des W3-Konsortiums entlehnt.<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a></p>
+<p>Da die Architektur auf der generellen Architektur des World Wide Web (WWW) aufbaut, sind einzelne Konzepte direkt den Begriffen der Architekturbeschreibung des W3-Konsortiums entlehnt.<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a></p>
 <section id="überblick" class="level2">
-<h2><span class="header-section-number">3.1</span> Überblick</h2>
+<h2><span class="header-section-number">2.1</span> Überblick</h2>
 <figure>
 <img src="images/architektur-ueberblick.png" alt="Architekturdiagramm" /><figcaption>Architekturdiagramm</figcaption>
 </figure>
 </section>
 <section id="parlamentarisches_infosystem" class="level2">
-<h2><span class="header-section-number">3.2</span> Parlamentarisches Informationssystem</h2>
-<p>Parlamentarische Informationssysteme sind Software-Systeme, die von verschiedensten Körperschaften eingesetzt werden, um die Zusammenarbeit von Parlamenten zu organisieren, zu dokumentieren und öffentlich nachvollziehbar zu machen.</p>
-<p>Im kommunalen Umfeld in Deutschland, wo das Parlament je nach Art der Kommune häufig als Stadtrat oder Gemeinderat bezeichnet wird, hat sich für diese Art von Informationssystem auch der Begriff &quot;Ratsinformationssystem&quot; (kurz &quot;RIS&quot;) etabliert.</p>
-<p>Parlamentarische Informationssysteme sind jedoch nicht auf die kommunale Ebene begrenzt. Ähnliche Systeme werden auch auf Ebene z.B. von Landkreisen, Regierungsbezirken und diversen Zweckverbänden eingesetzt.</p>
+<h2><span class="header-section-number">2.2</span> Parlamentarisches Informationssystem</h2>
+<p>Parlamentarische Informationssysteme sind Software-Systeme, die von verschiedensten Körperschaften eingesetzt werden, um die Zusammenarbeit von Parlamenten zu organisieren, zu dokumentieren und öffentlich nachvollziehbar zu machen. Zu den Körperschaften können beispielsweise Kommunen, Landkreise, Regierungsbezirke und Zweckverbänden gehören.</p>
 <p>Diese Systeme unterstützen in der Regel mehrere der folgenden Funktionen:</p>
 <ul>
 <li>Das Erzeugen, Bearbeiten und Darstellen von Sitzungen und deren Tagesordnung</li>
@@ -196,38 +191,38 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Die OParl Spezifikation beschreibt eine Schnittstelle, die den maschinellen, lesenden Zugriff auf derartige Informationen ermöglicht.</p>
 </section>
 <section id="server" class="level2">
-<h2><span class="header-section-number">3.3</span> Server</h2>
+<h2><span class="header-section-number">2.3</span> Server</h2>
 <p>Der Server im Sinne dieser Spezifikation ist ein Software-Dienst, der auf einem mit dem Internet verbundenen Rechnersystem läuft. Dieser Dienst ist eine spezielle Form eines WWW- bzw. HTTP(S)-Servers. Entsprechend beantwortet der Server HTTP-Anfragen, die an ihn auf einem bestimmten TCP-Port gestellt werden.</p>
 <p>Der Server ist als Bestandteil des parlamentarischen Informationssystems zu verstehen. Der Betrieb des Servers steht damit üblicherweise in der Verantwortung desjenigen, der das parlamentarischen Informationssystem betreibt.</p>
 <p>Von einem Server, der die OParl-Spezifikation erfüllt, wird erwartet, dass er bestimmte parlamentarische Informationen in einem bestimmten Format zur Verfügung stellt und auf bestimmte Anfragen von so genannten Clients über die OParl API entsprechend dieser Spezifikation reagiert.</p>
 </section>
 <section id="api" class="level2">
-<h2><span class="header-section-number">3.4</span> API</h2>
+<h2><span class="header-section-number">2.4</span> API</h2>
 <p>Der Begriff API steht in diesem Dokument für die Webservice-Schnittstelle, die der Server anbietet. Die Schnittstelle basiert auf dem HTTP-Protokoll. Mittels HTTPS ist wahlweise auch die verschlüsselte Nutzung der API möglich, sofern Server dies unterstützt.</p>
 <p>Die API steht im Mittelpunkt dieser Spezifikation. Server und Clients sind als Kommunikationspartner zu verstehen, die über das Internet als Kommunikationskanal mit einander kommunizieren können. Die API-Spezifikation stellt dabei die nötige Grammatik und das Vokabular bereit, anhand dessen eine sinnvolle Kommunikation erfolgen kann.</p>
 </section>
 <section id="client" class="level2">
-<h2><span class="header-section-number">3.5</span> Client</h2>
+<h2><span class="header-section-number">2.5</span> Client</h2>
 <p>Der Begriff &quot;Client&quot; steht für eine Software, die über die OParl API mit dem Server kommuniziert. Da die API auf dem HTTP-Protokoll aufbaut, handelt es sich bei dem Client um eine spezielle Form eines HTTP-Clients.</p>
 </section>
 <section id="cache" class="level2">
-<h2><span class="header-section-number">3.6</span> Cache</h2>
+<h2><span class="header-section-number">2.6</span> Cache</h2>
 <p>Ein Cache ist ein Speicher, der einem Client dazu dienen kann, von einem Server abgerufene Informationen längerfristig vorzuhalten. Dies kann beispielsweise dazu dienen, mehrfache Anfragen der selben Informationen zu vermeiden, wodurch sowohl Ressourcen auf Seite des Servers geschohnt als auch die Nutzung von Netzwerkbandbreite reduziert werden kann. Die Nutzung eines Cache kann auch zur Verbesserung der Nutzerfreundlichkeit eines Clients beitragen, indem Wartezeiten zur Bereitstellung einer Ressource verkürzt werden.</p>
 </section>
 <section id="nutzerin" class="level2">
-<h2><span class="header-section-number">3.7</span> Nutzerin oder Nutzer</h2>
+<h2><span class="header-section-number">2.7</span> Nutzerin oder Nutzer</h2>
 <p>Mit einer Nutzerin oder einem Nutzer ist in diesem Fall eine natürliche Person gemeint, die mittels eines OParl-Clients auf parlamentarische Informationen zugreift.</p>
 </section>
 <section id="objekt" class="level2">
-<h2><span class="header-section-number">3.8</span> Objekt</h2>
+<h2><span class="header-section-number">2.8</span> Objekt</h2>
 <p>Der Server beantwortet Anfragen eines Clients im Regelfall, indem bestimmte Objekte ausgegeben werden. Objekte sind im Fall einer OParl-konformen API JSON-Objekte, die das Schema einhalten, das in der vorliegenden Spezifikation beaschrieben wird. Antworten des Servers können einzelne Objekte, Listen von Objekten oder Listen von URLs von Objekten enthalten.</p>
 </section>
 </section>
 <section id="nutzungsszenarien" class="level1">
-<h1><span class="header-section-number">4</span> Nutzungsszenarien</h1>
+<h1><span class="header-section-number">3</span> Nutzungsszenarien</h1>
 <p>Die nachfolgenden Nutzungsszenarien dienen dazu, die Architektur und die Anwendungsmöglichkeiten anhand konkreter Beispiele zu verdeutlichen. Sie erheben keinen Anspruch auf Vollständigkeit.</p>
 <section id="szenario_mobile_client" class="level2">
-<h2><span class="header-section-number">4.1</span> Szenario 1: Mobile Client-Anwendung</h2>
+<h2><span class="header-section-number">3.1</span> Szenario 1: Mobile Client-Anwendung</h2>
 <p>Eine <a href="#client">Client</a>-Anwendung für mobile Endgeräte wie Smartphones und Tablets, nachfolgend &quot;App&quot; genannt, könnte das Ziel verfolgen, Nutzern unterwegs sowie abseits vom Desktop-PC auf die Gegebenheiten mobiler Endgeräte optimierten Lesezugriff auf Dokumente aus Ratsinformationssystemen (RIS) zu bieten. Die möglichen Kontexte und Nutzungsmotivationen sind vielfältig:</p>
 <ul>
 <li><p>Teilnehmer einer Sitzung greifen während der Sitzung auf die Einladung dieser Sitzung und die zur Tagesordnung der Sitzung gehörenden Drucksachen zu, außerdem auf die Protokolle vorheriger Sitzungen.</p></li>
@@ -243,7 +238,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Eine solche Suchfunktion kann auch über die reine Volltxtsuche hinaus gehen und über die Suche mittels Text- oder Spracheingabe hinaus gehen. Denn ein Client könnte von einem <a href="#server">Server</a>-System, das Drucksachen mit Geoinformationen anbietet, diese abrufen und räumlich indexieren. Anhand der Position des Geräts, die mittels GPS genau bestimmt werden kann, könnte so der lokale Cache nach Objekten in der Umgebung durchsucht werden. Das Ergebnis könnte auf einer Karte dargestellt oder in einer Ergebnisliste angezeigt werden, die nach Distanz zum Objekt sortiert werden könnte.</p>
 </section>
 <section id="szenario_web_portal" class="level2">
-<h2><span class="header-section-number">4.2</span> Szenario 2: Integration in Web-Portal</h2>
+<h2><span class="header-section-number">3.2</span> Szenario 2: Integration in Web-Portal</h2>
 <p>Web Portale bieten Nutzern unter anderem die Möglichkeit Anwendungen, Prozesse und Dienste zu integrieren. Die OParl API stellt einen solchen Dienst dar und bereitet so den Weg zu angereicherten Portalseiten. Informationen, die über die API bezogen werden, können in Portlets organisiert und visualisiert werden. Hierbei können</p>
 <ol type="1">
 <li>angemeldete Benutzer</li>
@@ -256,7 +251,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Durch eine solche Integration von RIS Informationen in bestehende Portalsysteme (unter Umständen die kommunale Webseite selbst), ist es möglich Nutzern zusätzliche Informationen in der bereits gewohnten Umgebung zu präsentieren und den bestehenden Informationsgehalt und den Datenbestand aufzuwerten.</p>
 </section>
 <section id="szenario_meta_suche" class="level2">
-<h2><span class="header-section-number">4.3</span> Szenario 3: Meta-Suche</h2>
+<h2><span class="header-section-number">3.3</span> Szenario 3: Meta-Suche</h2>
 <p>Über die OParl-API können die Informationen zu Abläufen und Entscheidungen aus einem Ratsinformationssystem (RIS) in einem externen System anders aufbereitet und dargestellt werden. Bieten mehrere RIS eine OParl-API an, ist der Aufwand die Inhalte dieser weiteren Instanzen zusätzlich in dem externen System aufzubereiten und darzustellen vergleichsweise gering. Auf dem externen System werden die Inhalte unterschiedlicher RIS übergreifend durchsuchbar gemacht. Nutzerinnen und Nutzer dieses Angebots können in einer Meta-Suche über alle angeschlossenen RIS hinweg nach Ratsvorgängen suchen. Daraus ergeben sich unterschiedliche Anwendungsmöglichkeiten:</p>
 <ul>
 <li>Eine Mitarbeiterin eines regionalen Zweckverbands hat die Aufgabe Ratsvorgänge in den Mitgliedskommunen mit Relevanz für die Aufgaben des Verbandes im Blick zu behalten. Sie nutzt dafür ein regionales Internetportal, in dem die RIS-Inhalte der Mitgliedskommunen mittels OParl-Schnittstelle durchsuchbar sind. Um die Suche zu vereinfachen hat sie einzelne Schlagwörter abonniert, zu denen sie automatisch über neue Vorgänge informiert wird.</li>
@@ -265,12 +260,12 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul>
 </section>
 <section id="szenario_forschung" class="level2">
-<h2><span class="header-section-number">4.4</span> Szenario 4: Forschungsprojekt Themen- und Sprachanalyse</h2>
+<h2><span class="header-section-number">3.4</span> Szenario 4: Forschungsprojekt Themen- und Sprachanalyse</h2>
 <p>In einem Forschungsprojekt sollen Pro- und Contra-Argumentationen bei Ratsdiskussionen zum Ausbau von Stromtrassen identifiziert werden. Über die Analyse in mehreren Gebietskörperschaften sollen die gefundenen Argumentationen zu wiederkehrenden Mustern verdichtet und festgestellt werden, wie diese Muster regional abweichen. Dazu nutzen die Mitarbeitenden des Forschungsprojektes die OParl-Schnittstellen der Ratsinformationssysteme von Kommunen entlang der geplanten überregionalen Trassen. Über diese einheitlichen Schnittstellen können sie relevante Beratungen, Drucksachen und Dateien abrufen und zum Beispiel in einem Werkzeug zur qualitativen Datenanalyse lokal verarbeiten.</p>
 </section>
 </section>
 <section id="prinzipien-und-funktionen-des-vokabulars-und-der-api" class="level1">
-<h1><span class="header-section-number">5</span> Prinzipien und Funktionen des Vokabulars und der API</h1>
+<h1><span class="header-section-number">4</span> Prinzipien und Funktionen des Vokabulars und der API</h1>
 <p>TODO</p>
 <p>(In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen Schnittstelle beschrieben. Hierzu gehören alle chapter-Dateien, deren Nummerierung mit der Ziffer 6 beginnnt.)</p>
 <p>Stichpunkte:</p>
@@ -281,21 +276,21 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>Authentifizierung wird nicht benötigt.</li>
 </ul>
 <section id="designprinzipien" class="level2">
-<h2><span class="header-section-number">5.1</span> Designprinzipien</h2>
+<h2><span class="header-section-number">4.1</span> Designprinzipien</h2>
 <section id="aufbauen-auf-gängiger-praxis" class="level3">
-<h3><span class="header-section-number">5.1.1</span> Aufbauen auf gängiger Praxis</h3>
+<h3><span class="header-section-number">4.1.1</span> Aufbauen auf gängiger Praxis</h3>
 <p>Grundlage für die Erarbeitung der OParl-Spezifikation in der vorliegenden Version ist eine Analyse der aktuell (2012 bis 2014) in Deutschland befindlichen Ratsinformationssysteme und ihrer Nutzung. Erklärtes Ziel für diese Version ist es, mit möglichst geringem Entwicklungsaufwand auf Seite der Softwareanbieter und Migrationsaufwand auf Seite der Betreiber zu einer Bereitstellung von parlamentarischen Informationen über eine OParl API zu gelangen. Hierbei war es von entscheidender Bedeutung, dass sich die Informationsmodelle der einschlägigen Softwareprodukte stark ähneln. Für die OParl-Spezifikation wurde sozusagen ein Datenmodell als &quot;gemeinsamer Nenner&quot; auf Basis der gängigen Praxis beschrieben.</p>
 </section>
 <section id="verbesserung-gegenüber-dem-status-quo-wo-möglich" class="level3">
-<h3><span class="header-section-number">5.1.2</span> Verbesserung gegenüber dem Status Quo wo möglich</h3>
+<h3><span class="header-section-number">4.1.2</span> Verbesserung gegenüber dem Status Quo wo möglich</h3>
 <p>Dort, wo es dem Ziel der einfachen Implementierbarkeit und der einfachen Migration nicht im Weg steht, erlauben sich die Autoren dieser Spezifikation, auch Funktionen aufzunehmen, die noch nicht als gängige Praxis im Bereich der Ratsinformationssysteme bezeichnet werden können oder welche nur von einzelnen Systemen unterstützt werden. Solche Funktionen sind dann so integriert, dass sie nicht als zwingende Anforderung gelten.</p>
-<p>Ein Beispiel für eine derartige Funktion ist die Abbildung von Geodaten im Kontext von Drucksachen (<code>oparl:Paper</code>), um beispielsweise die Lage eines Bauvorhabens, das in einer Beschlussvorlage behandelt wird, zu beschreiben. Zwar ist den Autoren nur ein einziges Ratsinformationssystem<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> in Deutschland bekannt, das Geoinformationen - und zwar in Form von Punktdaten, also einer Kombination aus Längen- und Breitengradangaben - mit Dokumenten verknüpft. Der Vorteil dieser Funktion ist jedoch anhand zahlreicher Anwendungsszenarien belegbar. Somit ist der vorliegenden OParl-Spezifikation die Möglichkeit beschrieben, Geodaten-Objekte einzubetten.</p>
+<p>Ein Beispiel für eine derartige Funktion ist die Abbildung von Geodaten im Kontext von Drucksachen (<code>oparl:Paper</code>), um beispielsweise die Lage eines Bauvorhabens, das in einer Beschlussvorlage behandelt wird, zu beschreiben. Zwar ist den Autoren nur ein einziges Ratsinformationssystem<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a> in Deutschland bekannt, das Geoinformationen - und zwar in Form von Punktdaten, also einer Kombination aus Längen- und Breitengradangaben - mit Dokumenten verknüpft. Der Vorteil dieser Funktion ist jedoch anhand zahlreicher Anwendungsszenarien belegbar. Somit ist der vorliegenden OParl-Spezifikation die Möglichkeit beschrieben, Geodaten-Objekte einzubetten.</p>
 <p>Die Angabe eines einzelnen Punktes ist dabei nur ein einfacher Sonderfall. Die Spezifikation erlaubt auch die Kodierung von mehreren Objekten, die Punkte, Linien oder Polygone repräsentieren können. Vgl. dazu <code>oparl:Location</code>.</p>
 <p>Auch die Ausgabe einer Nur-Text-Version im Kontext des Dokuments (<code>oparl:Document</code>), das den barrierefreien Zugriff auf Inhalte oder Indexierung für Volltextsuchfunktionen deutlich vereinfacht, ist eine Möglichkeit, die in der gängigen Praxis noch nicht zu finden ist. Ebenso die Möglichkeit, Beziehungen zwischen einzelnen Dokumenten herzustellen, um so von einem Dokument zu anderen Dokumenten mit identischem Inhalt, aber in anderen technischen Formaten zu verweisen, etwa von einer ODT-Datei zu einer PDF-Version.</p>
 </section>
 <section id="restful" class="level3">
-<h3><span class="header-section-number">5.1.3</span> RESTful</h3>
-<p>Die Bezeichnung &quot;REST&quot; (für &quot;Representational State Transfer&quot;) wurde im Jahr 2000 von Roy Fielding eingeführt<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>. Die Definition von Fielding reicht sehr weit und berührt viele Details. In der Praxis wird der Begriff häufig genutzt, um eine Schnittstelle zu beschreiben,</p>
+<h3><span class="header-section-number">4.1.3</span> RESTful</h3>
+<p>Die Bezeichnung &quot;REST&quot; (für &quot;Representational State Transfer&quot;) wurde im Jahr 2000 von Roy Fielding eingeführt<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a>. Die Definition von Fielding reicht sehr weit und berührt viele Details. In der Praxis wird der Begriff häufig genutzt, um eine Schnittstelle zu beschreiben,</p>
 <ul>
 <li>die auf WWW-Technologie aufbaut, insbesondere dem HTTP-Protokoll</li>
 <li>die darauf beruht, dass mittels URL einzelne Ressourcen oder Zustände vom Client abgerufen werden können.</li>
@@ -303,25 +298,25 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul>
 </section>
 <section id="selbstbeschreibungsfähigkeit" class="level3">
-<h3><span class="header-section-number">5.1.4</span> Selbstbeschreibungsfähigkeit</h3>
+<h3><span class="header-section-number">4.1.4</span> Selbstbeschreibungsfähigkeit</h3>
 <p>Ausgaben des Servers sollten so beschaffen sein, dass sie für menschliche NutzerInnen weitgehend selbsterklärend sein können. Dies betrifft besonders die Benennung von Objekten und Objekteigenschaften.</p>
 <p>Um den Kreis der Entwicklerinnen und Entwickler, die mit einer OParl-API arbeiten können, nicht unnötig einzuschränken, wird hierbei grundsätzlich auf englischsprachige Begrifflichkeiten gesetzt.</p>
 </section>
 <section id="erweiterbarkeit" class="level3">
-<h3><span class="header-section-number">5.1.5</span> Erweiterbarkeit</h3>
+<h3><span class="header-section-number">4.1.5</span> Erweiterbarkeit</h3>
 <p>Implementierer sollen in der Lage sein, über eine OParl-konforme Schnittstelle auch solche Informationen auszugeben, die nicht im Rahmen des OParl-Schemas abgebildet werden können. Dies bedeutet zum einen, dass ein System Objekttypen unterstützen und ausliefern darf, die nicht (oder noch nicht) im OParl Schema beschrieben sind. Das bedeutet auch, dass Objekttypen so um eigene Eigenschaften erweitert werden können, die nicht im OParl Schema beschrieben sind.</p>
 <p>Ein weiterer Aspekt betrifft die Abwärtskompatiblität, also die Kompatibilität von OParl-Clients mit zukünftigen Schnittstellen. So können beispielsweise zukünftige Erweiterungen des OParl Schemas, etwa um neue Objekttypen, genau so durchgeführt werden wie die Erweiterungen um herstellerspezifische Objekttypen. Ein Client muss diese Anteile nicht auswerten, sofern sie nicht für die Aufgabe des Clients relevant sind.</p>
 <p>Diese angestrebte Erweiterbarkeit wird durch weitgehend durch das <a href="#jsonld">JSON-LD-Format</a> gewährleistet. Es erlaubt die Verflechtung von Objekttypen-Definitionen aus verschiedenen Schemata.</p>
 </section>
 <section id="browseability_verlinkung" class="level3">
-<h3><span class="header-section-number">5.1.6</span> Browseability/Verlinkung</h3>
+<h3><span class="header-section-number">4.1.6</span> Browseability/Verlinkung</h3>
 <p>Klassische Webservice-Schnittstellen erfordern von den Entwicklern vollständige Kenntnis der angebotenen Einstiegspunkte und Zugriffsmethoden, gepaart mit sämtlichen unterstützten URL-Parametern, um den vollen Funktionsumfang der Schnittstelle ausschöpfen zu können.</p>
 <p>Parlamentarische Informationen sind weitgehend graphartig aufgebaut. Das bedeutet, dass Objekte häufig mit einer Vielzahl anderer Objekte verknüpft sind. So ist eine Person beispielsweise Mitglied in mehreren Gremien, das Gremium hat mehrere Sitzungen abgehalten und zu diesen Sitzungen gibt es jeweils zahlreiche Drucksachen, die ihrerseits wieder zahlreiche Dokumente enthalten.</p>
-<p>Eine OParl-Schnittstelle gibt jedem einzelnen Objekt eine eindeutige Adresse, eine URL. Somit kann die Schnittstelle den Verweis von einem Objekt, beispielsweise einem Gremium, auf ein anderes Objekt, etwa ein Mitglied des Gremiums, dadurch ausgeben, dass im Kontext des Gremiums die URL des Mitglieds ausgeben wird. Der Client kann somit ausgehend von einem bestimmten Objekt die anderen Objekte im System finden, indem er einfach den angebotenen URLs folgt. Dieses Prinzip wird auch &quot;Follow Your Nose&quot; genannt<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>.</p>
+<p>Eine OParl-Schnittstelle gibt jedem einzelnen Objekt eine eindeutige Adresse, eine URL. Somit kann die Schnittstelle den Verweis von einem Objekt, beispielsweise einem Gremium, auf ein anderes Objekt, etwa ein Mitglied des Gremiums, dadurch ausgeben, dass im Kontext des Gremiums die URL des Mitglieds ausgeben wird. Der Client kann somit ausgehend von einem bestimmten Objekt die anderen Objekte im System finden, indem er einfach den angebotenen URLs folgt. Dieses Prinzip wird auch &quot;Follow Your Nose&quot; genannt<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a>.</p>
 </section>
 <section id="linked_data" class="level3">
-<h3><span class="header-section-number">5.1.7</span> Linked Data</h3>
-<p>Der Begriff &quot;Linked Data&quot; steht für die Beschreibung von Daten in einer Form, die diese über ihren ursprünglichen Kontext hinaus verständlich macht.<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a></p>
+<h3><span class="header-section-number">4.1.7</span> Linked Data</h3>
+<p>Der Begriff &quot;Linked Data&quot; steht für die Beschreibung von Daten in einer Form, die diese über ihren ursprünglichen Kontext hinaus verständlich macht.<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a></p>
 <p>Kern von Linked Data ist die Möglichkeit, alle Bestandteile von Daten in Form von Tripeln zu beschreiben, das sind dreiteilige Informationseinheiten aus einem Subjekt, einem Prädikat und einem Objekt. Alle drei Bestandteile können in Form global eindeutiger &quot;Uniform Resource Identifier&quot; (URI) abgebildet werden.</p>
 <p>Nach dem Linked-Data-Prinzip könnte beispielsweise der Vorname einer Person mit dem folgenden Tripel beschrieben werden:</p>
 <pre><code>Subjekt: https://dbpedia.org/resource/John_Doe_(musician)
@@ -338,20 +333,20 @@ Objekt: https://dbpedia.org/resource/John_(given_name)</code></pre>
 <p>Diese drei Links sind nicht nur verschieden, sondern haben unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL (HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients generell nicht verwendet werden, um auf einfache Weise zu den anderen beiden URLs zu gelangen. Deshalb soll bei Linked Data der erste Link, also der des abstrakten Begriffs angegeben werden. Der Zugriff auf diesen Link wird &quot;Dereferenzierung&quot; genannt. Von dem ersten Link gelangt man zu den beiden anderen mittels &quot;Content Negotiation&quot;.</p>
 </section>
 <section id="ziel" class="level3">
-<h3><span class="header-section-number">5.1.8</span> Ziel</h3>
+<h3><span class="header-section-number">4.1.8</span> Ziel</h3>
 <p>Das Ziel von OParl ist es, mit der vorliegenden Version 1.0 der Spezifikation, die Nutzung solcher allgemeingültigen Vokabulare für die Veröffentlichung von parlamentarischen Informationen zu begünstigen und die automatisierte Verarbeitung und Verknüpfung von Informationen, auch über die Grenzen verschiedener Informationssysteme hinweg, zu erleichtern.</p>
-<p>Beispiele, wo dies sinnvoll ist, sind in der Praxis leicht zu finden. So finden sich beispielsweise in vielen lokalen Parlamenten immer wieder Fraktionen der selben Parteien, beispielsweise CDU und SPD. Mittels Linked Data wäre es möglich, jede dieser Fraktionen mit einer externen URL zu verknüpfen<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a> und somit erkennbar zu machen, zu welcher Partei diese Fraktion gehört. Ebenso finden sich viele inhaltliche Ähnlichkeiten bei Gremien wie zum Beispiel Ausschüssen (z.B. Hauptausschuss, Verkehrsausschuss etc.) oder bei Arten von Drucksachen (z.B. Anträge, Anfragen, Mitteilungen, Beschlussvorlagen).</p>
+<p>Beispiele, wo dies sinnvoll ist, sind in der Praxis leicht zu finden. So finden sich beispielsweise in vielen lokalen Parlamenten immer wieder Fraktionen der selben Parteien, beispielsweise CDU und SPD. Mittels Linked Data wäre es möglich, jede dieser Fraktionen mit einer externen URL zu verknüpfen<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a> und somit erkennbar zu machen, zu welcher Partei diese Fraktion gehört. Ebenso finden sich viele inhaltliche Ähnlichkeiten bei Gremien wie zum Beispiel Ausschüssen (z.B. Hauptausschuss, Verkehrsausschuss etc.) oder bei Arten von Drucksachen (z.B. Anträge, Anfragen, Mitteilungen, Beschlussvorlagen).</p>
 <p>OParl lässt in Version 1.0 der Spezifikation noch viele Aufgaben, die die Vereinheitlichung dieses Vokabulars betreffen, offen. Jedoch wird durch die Verwendung von <a href="#jsonld">JSON-LD</a> als Serialisierungsformat der Grundstein für eine Vereinheitlichung im Sinne von Linked Data gelegt.</p>
 </section>
 </section>
 <section id="zukunftssicherheit" class="level2">
-<h2><span class="header-section-number">5.2</span> Zukunftssicherheit</h2>
+<h2><span class="header-section-number">4.2</span> Zukunftssicherheit</h2>
 <p>Wie unter <a href="#designprinzipien">Designprinzipien</a> beschrieben, ist diese erste Version der OParl-Spezifikation bereits im Wesentlichen von den Zielen der einfachen Implementierbarkeit und Migration geleitet.</p>
 <p>Der Aufwand, den die Betreiber von parlamentarischen Informationssystemen bei der Bereitstellung von OParl-konformen Schnittstellen betreiben, soll auch bei der zukünftigen Weiterentwicklung dieser Spezifikation berücksichtigt werden. Ebenso soll den Entwicklern von Client-Software zukünftig entgegen kommen, dass ihre bestehenden Clients auch mit Servern kommunizieren können, die eine neuere Version der OParl-Spezifikation unterstützen. Dieser Wunsch ist bereits im Designprinzip <a href="#erweiterbarkeit">Erweiterbarkeit</a> ausformuliert.</p>
 <p>Mit anderen Worten: die Autoren der OParl-Spezifikation beabsichtigen größtmögliche Zukunftssicherheit und zukünftige Abwärtskompatibilität. Dieses Ziel wird in Zukunft natürlich abgewägt werden müssen mit dem Wunsch, sich an Veränderungen und neue Erkenntnisse anzupassen. Eine Garantie für Zukunftssicherheit kann insofern niemand aussprechen.</p>
 </section>
 <section id="content-negotiation" class="level2">
-<h2><span class="header-section-number">5.3</span> Content Negotiation</h2>
+<h2><span class="header-section-number">4.3</span> Content Negotiation</h2>
 <p>Im Abschnitt Designprinzipien wurde bereits erwähnt, dass die &quot;Dereferenzierung&quot; mittels Content Negotiation erfolgt.</p>
 <p>So kann der Server beim Zugriff eines Client auf</p>
 <p>https://dbpedia.org/resource/John_Doe_(musician)</p>
@@ -364,7 +359,7 @@ Objekt: https://dbpedia.org/resource/John_(given_name)</code></pre>
 <p>Wichtig ist, dass Client und Server die Möglichkeit haben, das Format auszuhandeln. Deshalb müssen in OParl-Daten format-unspezifische URLs angegeben werden, bei dem Musiker John Doe ist das die erste der oben angegebenen URLs und nicht die letzte.</p>
 </section>
 <section id="http-und-https" class="level2">
-<h2><span class="header-section-number">5.4</span> HTTP und HTTPS</h2>
+<h2><span class="header-section-number">4.4</span> HTTP und HTTPS</h2>
 <p>OParl-Server und -Client kommunizieren miteinander über das HTTP-Protokoll.</p>
 <p>Hierbei SOLL eine verschlüsselte Variante des Protokolls, auch HTTPS genannt, zum Einsatz kommen, alternativ kann jedoch auch unverschlüsseltes HTTP verwendet werden. Welche Verschlüsselungstechnologie im Fall von HTTPS gewählt wird, obliegt dem Betreiber bzw. Server-Implementierer.</p>
 <p>Die Wahl des unverschlüsselten oder verschlüsselten HTTP-Zugriffs hat Auswirkung auf die im System verwendeten URLs. Wie im Kapitel <a href="#urls">URLs</a> beschrieben, verfolgt diese Spezifikation die Festlegung auf genau eine &quot;kanonische&quot; URL je Ressource (URL-Kanonisierung).</p>
@@ -373,10 +368,10 @@ Objekt: https://dbpedia.org/resource/John_(given_name)</code></pre>
 <p>Gleiches gilt umgekehrt: beantwortet das System regulär Anfragen über unverschlüsseltes HTTP, dann MÜSSEN Anfragen auf die entsprechenden URLs mit &quot;https://&quot;-Schema mit einer HTTP-Weiterleitung (HTTP Status-Code 301) beantwortet werden. TODO: Geht das, wenn HTTPS nicht unterstützt wird?</p>
 </section>
 <section id="urls-bzw.-iris" class="level2">
-<h2><span class="header-section-number">5.5</span> URLs bzw. IRIs</h2>
+<h2><span class="header-section-number">4.5</span> URLs bzw. IRIs</h2>
 <p>Internationalized Resource Identifier (IRI) sind die internationalisierte Form der Uniform Resource Identifier (URI). Diese sind in RFC 3987 spezifiziert (http://tools.ietf.org/html/rfc3987). In der OParl-Spezifikation sind grundsätzlich auch dann IRIs gemeint, wenn wie folgt die Bezeichnungen URI oder URL verwendet werden. Dies soll der Lesbarkeit dienen, auch wenn es technisch nicht ganz korrekt ist.</p>
 <p>Den URLs (für &quot;Uniform Resource Locators&quot;, auch URI für &quot;Uniform Resource Identifier&quot;) kommt bei einer OParl-konformen API eine besondere Bedeutung zu und es werden eine Reihe von Anforderungen an die Verarbeitung von URLs gestellt.</p>
-<p>Die grundsätzliche Funktionsweise von URLs ist in RFC3986 beschrieben<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a>.</p>
+<p>Die grundsätzliche Funktionsweise von URLs ist in RFC3986 beschrieben<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>.</p>
 <p>Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in diesem Dokument Verwendung finden:</p>
 <pre><code>http://refserv.oparl.org/bodies/0/committees/4/members/?skip=234
 \__/   \_______________/\_____________________________/ \______/
@@ -384,7 +379,7 @@ Objekt: https://dbpedia.org/resource/John_(given_name)</code></pre>
 Schema    Host               Pfad                        Query-String</code></pre>
 <p>Um bereits an dieser Stelle das Entstehen von Missverständnissen zu vermeiden sei darauf hingewiesen, dass insbesondere auch der enthaltene Pfad nur ein Beipiel ist. Der Aufbau der Pfade wird in OParl nicht festgelegt.</p>
 <section id="url-kanonisierung" class="level3">
-<h3><span class="header-section-number">5.5.1</span> URL-Kanonisierung</h3>
+<h3><span class="header-section-number">4.5.1</span> URL-Kanonisierung</h3>
 <p>Absicht ist, dass jedes benannte Objekt, das ein Server über eine OParl-API anbietet, über genau eine URL identifizierbar und abrufbar ist. Diese Vereinheitlichung der URL nennen wir Kanonisierung.</p>
 <p>Die Kanonisierung ist entscheidend, um erkennen zu können, ob zwei URLs das selbe Objekt repräsentieren. Sind zwei URLs identisch, sollen Clients daraus ableiten können, dass diese das selbe Objekt repräsentieren. Sind zwei URLs unterschiedlich, soll im Umkehrschluss die Annahme gelten, dass sie zwei verschiedene Objekte repräsentieren.</p>
 <p>Der OParl-konforme Server MUSS für jedes benannte Objekt eine kanonische URL bestimmen können.</p>
@@ -420,7 +415,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>unterscheiden sich lediglich in der Reihenfolge der Query-String-Parameter. Da sie jedoch nicht identisch sind, müssen Clients annehmen, dass beide URLs verschiedene Objekte repräsentieren. In der Konsequenz kann es zu vermeidbarer Ressourcennutzugn sowohl auf Client- als auch auf Serverseite kommen.</p>
 </section>
 <section id="langlebigkeit" class="level3">
-<h3><span class="header-section-number">5.5.2</span> Langlebigkeit</h3>
+<h3><span class="header-section-number">4.5.2</span> Langlebigkeit</h3>
 <p>Weiterhin ist es Absicht, dass URLs von Objekten langlebig sind, so dass sie, wenn sie einmal verbreitet wurden, langfristig zur Abfrage des dazugehörigen Objekts verwendet werden können.</p>
 <p>Um dies zu gewährleisten, wird den <strong>Betreibern</strong> empfohlen, die Wahl der Domain, eventuell der Subdomain und letztlich des Host-Namens sorgfältig auf seine längerfristige Verwendbarkeit abzuwägen.</p>
 <p><strong>Server-Implementierer</strong> SOLLEN darüber hinaus dafür sorgen, dass der Pfad-Bestandteil der URLs die Langlebigkeit der URLs unterstützt. Es gelten die folgenden Empfehlungen, die jedoch keinen Anspruch auf Vollständigkeit erheben:</p>
@@ -428,17 +423,17 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <li><p><strong>Veränderliche Objekt-Eigenschaften nicht als URL-Bestandteil nutzen.</strong> In URLs sollten nur Eigenschaften des Objekts aufgenommen werden, die keinen Veränderungen unterliegen. Ändert sich beispielsweise die Kennung einer Drucksache im Verlauf ihrer Existenz, dann scheidet sie für die Bildung der URL aus.</p></li>
 <li><p><strong>Technische Eigenschaften der Implementierung verbergen.</strong> Ist ein OParl-Server beispielsweise in PHP implementiert, sollte dies nicht dazu führen, dass im Pfad ein Bestandteil wie &quot;oparl.php/&quot; erscheint. Erfahrungsgemäß überdauern solche URLs nur kurz.</p></li>
 </ul>
-<p>Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee<a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a> sowie die Europäische Kommission<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a>. TODO: goo.gl URL expandieren</p>
+<p>Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a> sowie die Europäische Kommission<a href="#fn15" class="footnoteRef" id="fnref15"><sup>15</sup></a>. TODO: goo.gl URL expandieren</p>
 </section>
 </section>
 <section id="serialisierung-mittels-json-ld-und-jsonp" class="level2">
-<h2><span class="header-section-number">5.6</span> Serialisierung mittels JSON-LD und JSONP</h2>
+<h2><span class="header-section-number">4.6</span> Serialisierung mittels JSON-LD und JSONP</h2>
 <p>Eine OParl-konforme API gibt Objekte in Form von JSON aus. Die Objekte werden dabei entsprechend der JSON-LD Spezifikation um Kontexte erweitert, welche die Selbstbschreibungsfähigkeit der ausgegebenen Daten verbessert. Auf Anforderung des Clients wird darüber hinaus JSONP unterstützt.</p>
-<p>In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung des HTTP <code>Content-type</code>-Headers <code>application/ld+json</code> beantworten. Die Spezifikation von JSON-LD liefert dazu genauere Informationen<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a>, auch zu dem optionalen Parameter <code>profile</code> für die explizite Anforderung von JSON-LD in einer dieser drei Unterformen: kompakt, expandiert oder flach.</p>
+<p>In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung des HTTP <code>Content-type</code>-Headers <code>application/ld+json</code> beantworten. Die Spezifikation von JSON-LD liefert dazu genauere Informationen<a href="#fn16" class="footnoteRef" id="fnref16"><sup>16</sup></a>, auch zu dem optionalen Parameter <code>profile</code> für die explizite Anforderung von JSON-LD in einer dieser drei Unterformen: kompakt, expandiert oder flach.</p>
 <p>Wenn der Server auch Anfragen nach <code>application/json</code> akzeptiert, dann SOLL er expandierte JSON-LD Dokumente liefern (also solche ohne <code>@context</code>). TODO: MUSS der Server solche Legacy-Anfragen akzeptieren? Warum?</p>
 <section id="json" class="level3">
-<h3><span class="header-section-number">5.6.1</span> JSON</h3>
-<p>Die Abkürzung JSON steht für &quot;JavaScript Object Notation&quot;. Das JSON-Format ist in RFC4627<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a> beschrieben. Nachfolgend werden nur die wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren Verwendung in diesem Dokument zu etablieren.</p>
+<h3><span class="header-section-number">4.6.1</span> JSON</h3>
+<p>Die Abkürzung JSON steht für &quot;JavaScript Object Notation&quot;. Das JSON-Format ist in RFC4627<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a> beschrieben. Nachfolgend werden nur die wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren Verwendung in diesem Dokument zu etablieren.</p>
 <p>Das JSON-Format unterstützt die Ausgabe von vier verschiedenen primitiven Datentypen:</p>
 <ul>
 <li><em>Zeichenkette</em> (Unicode)</li>
@@ -464,8 +459,8 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 }</code></pre>
 </section>
 <section id="jsonld" class="level3">
-<h3><span class="header-section-number">5.6.2</span> JSON-LD</h3>
-<p>Das Kürzel LD im Namen &quot;JSON-LD&quot; steht für &quot;Linked Data&quot;<a href="#fn15" class="footnoteRef" id="fnref15"><sup>15</sup></a>. Entsprechend erweitert die JSON-LD-Spezifikation<a href="#fn16" class="footnoteRef" id="fnref16"><sup>16</sup></a> das JSON-Format um die Möglichkeit,</p>
+<h3><span class="header-section-number">4.6.2</span> JSON-LD</h3>
+<p>Das Kürzel LD im Namen &quot;JSON-LD&quot; steht für &quot;Linked Data&quot;<a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a>. Entsprechend erweitert die JSON-LD-Spezifikation<a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a> das JSON-Format um die Möglichkeit,</p>
 <ul>
 <li>Objekte mit anderen Objekten zu verknüpfen,</li>
 <li>Objekte und Eigenschaften bestimmten Typen zuzuordnen und damit</li>
@@ -498,7 +493,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 }</code></pre>
 <p>Hier sind die Eigenschaften wie <code>image</code> einer URL wie http://schema.org/image zugewiesen. Ein Client, der diese URL kennt, kann daraus folgern, dass über die Objekteigenschaft <code>image</code> immer die URL eines Bildes zu finden ist. Das Schlüssel-Wert-Paar</p>
 <pre><code>&quot;@type&quot;: &quot;@id&quot;</code></pre>
-<p>sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die URL eines anderen Objekts ist<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a>. Mittels <code>@type</code>-Deklaration könnte aber auch beispielsweise eine Eigenschaft, die im JSON-Sinn eine Zeichenkette ist, als Datum deklariert werden.</p>
+<p>sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die URL eines anderen Objekts ist<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a>. Mittels <code>@type</code>-Deklaration könnte aber auch beispielsweise eine Eigenschaft, die im JSON-Sinn eine Zeichenkette ist, als Datum deklariert werden.</p>
 <p>Am obigen Beispiel fällt auf, dass der <code>@context</code>-Teil des Objekts schon mehr Daten umfasst, als die eigentlichen Objekteigenschaften. Sinnvollerweise kann jedoch der gesamte Inhalt des <code>@context</code>-Teils in eine externe Ressource ausgelagert werden. Das folgende Beispiel verdeutlicht dies:</p>
 <pre class="sourceCode json" id="jsonld_ex3"><code class="sourceCode json">{
   <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;http://json-ld.org/contexts/person.jsonld&quot;</span>,
@@ -544,9 +539,9 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </ul>
 </section>
 <section id="jsonp" class="level3">
-<h3><span class="header-section-number">5.6.3</span> JSONP</h3>
+<h3><span class="header-section-number">4.6.3</span> JSONP</h3>
 <p>Eine Einschränkung bei der Nutzung von JSON ist das Sicherheitsmodell von Web-Browsern. Die gängigen Browser erlauben es innerhalb von Webanwendungen nicht, JSON-Ressourcen von Domains auszulesen, die nicht der Domain entsprechen, von der die Webanwendung selbst geladen wurde. AnwendungsentwicklerInnen sind dadurch bei der Implementierung von Client-Anwendungen eingeschränkt.</p>
-<p>Diese Einschränkung gilt nicht fürt JSONP<a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a>. Durch JSONP (TODO: Abkürzung erläutern) wird die JSON-Notation so erweitert, dass der ausgegebene Code ausführbarer JavaScript-Code wird. Damit wird erreicht, dass der JSON-Code über die Grenzen von Domains hinweg direkt von Webanwendungen eingebunden werden kann.</p>
+<p>Diese Einschränkung gilt nicht fürt JSONP<a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a>. Durch JSONP (TODO: Abkürzung erläutern) wird die JSON-Notation so erweitert, dass der ausgegebene Code ausführbarer JavaScript-Code wird. Damit wird erreicht, dass der JSON-Code über die Grenzen von Domains hinweg direkt von Webanwendungen eingebunden werden kann.</p>
 <p>Das folgende Beispiel verdeutlicht den Unterschied zwischen JSON und JSONP. Zunächst ein einfaches JSON-Beispiel:</p>
 <pre class="sourceCode json" id="jsonp_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;foo&quot;</span>: <span class="st">&quot;bar&quot;</span>
@@ -567,10 +562,10 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="benannte-und-anonyme-objekte" class="level2">
-<h2><span class="header-section-number">5.7</span> Benannte und anonyme Objekte</h2>
+<h2><span class="header-section-number">4.7</span> Benannte und anonyme Objekte</h2>
 <p>Die JSON-LD-Spezifikation unterscheidet zwischen benannten und anonymen Objekten. Da die Unterscheidung auch für OParl von Bedeutung ist, wird sie hier genauer erläutert.</p>
 <section id="benannte-objekte" class="level3">
-<h3><span class="header-section-number">5.7.1</span> Benannte Objekte</h3>
+<h3><span class="header-section-number">4.7.1</span> Benannte Objekte</h3>
 <p>Benannte Objekte sind innerhalb einer JSON-LD-Ausgabe diejenigen Objekte, die durch eine eigene URL identifiziert werden. Als Beispiel dient ein fiktives Objekt, das ein Client über die URL</p>
 <pre><code>http://refserv.oparl.org/bodies/0/committees/1</code></pre>
 <p>abruft:</p>
@@ -583,7 +578,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Das benannte Objekt kann über seine URL sowohl eindeutig identifiziert als auch direkt abgerufen werden.</p>
 </section>
 <section id="anonyme-objekte-blank-nodes" class="level3">
-<h3><span class="header-section-number">5.7.2</span> Anonyme Objekte (Blank Nodes)</h3>
+<h3><span class="header-section-number">4.7.2</span> Anonyme Objekte (Blank Nodes)</h3>
 <p>Im Gegensatz dazu können Objekte existieren, die keine eigene URL haben.</p>
 <p>Wenn diese im Semantic Web verwendet werden, dann führen sie zu erheblichen Problemen. Sandro Hawke (W3C) hat diese so zusammengefasst:</p>
 <blockquote>
@@ -617,12 +612,12 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="objektlisten" class="level2">
-<h2><span class="header-section-number">5.8</span> Objektlisten</h2>
+<h2><span class="header-section-number">4.8</span> Objektlisten</h2>
 <p>Über die OParl-API können entweder einzelne (benannte) Objekte, beispielsweise eine bestimmte Drucksache, oder Listen von Objekten, etwa die Liste aller Sitzungen einer Körperschaft, abgefragt werden.</p>
 <p>Fragt ein Client eine Liste von Objekten an, hat der Server mehrere Möglichkeiten, diese Anfrage zu beantworten.</p>
 <p>In jedem Fall werden die einzelnen Objekte, die Bestandteile der Liste sind (wie z.B. die einzelnen Drucksachen) durch die URL des jeweiligen Objekts repräsentiert. Objektlisten sind also tatsächlich immer Listen von URLs.</p>
 <section id="vollständige-listenausgabe" class="level3">
-<h3><span class="header-section-number">5.8.1</span> Vollständige Listenausgabe</h3>
+<h3><span class="header-section-number">4.8.1</span> Vollständige Listenausgabe</h3>
 <p>In der einfachsten Form gibt der Server die Liste als Objekt mit nur einer einzigen Eigenschaft <code>items</code> aus. Der Wert dieser Eigenschaft ist die <strong>vollständige Liste</strong> der URLs aller in der Liste enthaltenen Objekte.</p>
 <p>Diese einfachste Form der Antwort eignet sich nur für Listen mit einer begrenzten Anzahl von Einträgen, wie beispielsweise die Liste der Mitglieder einer Organisation.</p>
 <p>Beispiel:</p>
@@ -635,7 +630,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 }</code></pre>
 </section>
 <section id="paginierung" class="level3">
-<h3><span class="header-section-number">5.8.2</span> Paginierung</h3>
+<h3><span class="header-section-number">4.8.2</span> Paginierung</h3>
 <p>Für längere Listen ist eine Blätterfunktion bzw. Paginierung vorgesehen. Darunter versteht man die Aufteilung der Liste in kleinere Teilbereiche, die wir hier als &quot;Listenseiten&quot; bezeichnen. Zweck ist, die einzelnen Listenseiten mit je einer eigenen API-Anfrage abrufbar zu machen. Die Aufteilung der Liste in Listenseiten erfolgt durch den Server und kann vom Client nicht beeinflusst werden, sie bleibt jedoch zwischen den einzelnen unverändert.</p>
 <p>Listen mit mehr als 100 Einträgen SOLL der Server nur teilweise ausgeben und dem Client dabei eine <strong>Paginierung</strong> anbieten, um weitere Listenteile abzurufen. Dabei wird EMPFOHLEN, die Zahl der jeweils ausgegebenen Listeneinträge wiederum auf maximal 100 zu begrenzen.</p>
 <p>Das nachstehende Beispiel zeigt, wie dem Client die URL zum &quot;Blättern&quot;, also zum Aufruf der jeweils nächsten Listenseite, angeboten wird.</p>
@@ -668,19 +663,19 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>TODO: Bestimmte Listen können mit Einschränkung auf einen Datumsbereich abgefragt werden. Mehr dazu in https://github.com/OParl/specs/issues/30 Fraglich ist, ob das in diesem Kapitel behandelt werden sollte oder in einem anderen.</p>
 </section>
 <section id="listen-als-eigenschaften-von-objekten" class="level3">
-<h3><span class="header-section-number">5.8.3</span> Listen als Eigenschaften von Objekten</h3>
+<h3><span class="header-section-number">4.8.3</span> Listen als Eigenschaften von Objekten</h3>
 <p>TODO: Listen können auch als Werte von Objekteigenschaften auftreten. Hierbei gibt es keine Paginierung, sondern es müssen alle URLs aufgelistet werden. Das ist auszuformulieren und mit Beispielen zu zeigen.</p>
 </section>
 </section>
 <section id="feeds" class="level2">
-<h2><span class="header-section-number">5.9</span> Feeds</h2>
+<h2><span class="header-section-number">4.9</span> Feeds</h2>
 <p>Feeds sind spezielle Arten von <a href="#objektlisten">Objektlisten</a>, für die besondere Anforderungen gelten. Es werden drei verschiedene Feeds spezifiziert.</p>
 <p>Der Begriff &quot;Feed&quot; ist eine Anlehnung an die weit verbreiteten RSS- oder Atom-Feeds, deren Publikationslogik im Wesentlichen auf der chronologischen Sortierung beruht. Im Unterschied zu Atom oder RSS ist hier jedoch keine XML-Ausgabe beabsichtigt.</p>
 <p>Die Feeds sollen es Clients ermöglichen, schnelle und ressourcenschonende abzufragen, welche Objekte auf dem Server neu hinzugefügt, geändert oder entfernt wurden. Ziel ist, zu verhindern, dass Clients zur Aktualisierung ihres Caches den gesamten Datenbestand eines Servers abrufen müssen.</p>
 <p>Ein OParl-Server SOLL jeden der nachfolgend beschriebenen Feeds anbieten, sofern möglich.</p>
 <p>Für alle Feeds drei gilt, dass mindestens ein Zeitraum von 365 Tagen, gerechnet vom Zeitpunkt der Abfrage, abgedeckt werden SOLL.</p>
 <section id="feed_neue_objekte" class="level3">
-<h3><span class="header-section-number">5.9.1</span> Der Feed &quot;Neue Objekte&quot;</h3>
+<h3><span class="header-section-number">4.9.1</span> Der Feed &quot;Neue Objekte&quot;</h3>
 <p>Der Feed für neue Objekte listet die URLs neu hinzugekommener Objekte in der Reihenfolge des Datums ihrer Erstellung, wobei die jüngsten Objekte zuerst ausgegeben werden.</p>
 <p>Die Definition, was ein &quot;neues&quot; Objekt bzw. die &quot;Erstellung&quot; bedeutet, kann zwischen Systemen und Objekttypen variieren. So werden bestimmte Objekte in einigen Systemen zunächst erstellt und erst dann für die Öffentlichkeit freigegeben. In diesem Fall ist im Sinne dieses Feeds die Freigabe als Zeitpunkt der Erstellung zu verwenden.</p>
 <p>Der Feed SOLL sämtliche Objekttypen umfassen, die in einem System geführt werden.</p>
@@ -714,7 +709,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Am 1. April 2014 ruft ein Client den Feed ab und findet im ersten Listeneintrag den <code>created</code>-Zeitpunkt <code>2014-03-31T18:02:34.058+0200</code> vor, den er sich als Grenzwert merkt. Beim nächsten Abruf des Feeds einige Tage später muss der Client die Liste nur so weit abarbeiten, so lange der <code>created</code>-Zeitpunkt der Einträge größer oder gleich dem Grenzwert ist.</p>
 </section>
 <section id="feed_geaenderte_objekte" class="level3">
-<h3><span class="header-section-number">5.9.2</span> Der Feed &quot;Geänderte Objekte&quot;</h3>
+<h3><span class="header-section-number">4.9.2</span> Der Feed &quot;Geänderte Objekte&quot;</h3>
 <p>Der Feed für geänderte Objekte listet die URLs geänderter Objekte in der Reihenfolge des Datums ihrer Änderung, wobei das zuletzt Objekt zuerst ausgegeben wird.</p>
 <p>Die Definition einer &quot;Änderung&quot; kann sich zwischen den Objekttypen unterscheiden. Tendenziell soll die Definition eher weiter ausgelegt werden, als enger. Als Änderung einer Organisation könnte es beispielsweise verstanden werden, wenn ein neues Mitglied zur Organisation hinzukommt. Das Erstellen eines Objekts (im Sinne des Feeds &quot;Neue Objekte&quot;) sollte hingegen nicht als Änderung gewertet werden, um das redundante Erscheinen eines neuen Objekts sowohl im Feed &quot;Neue Objekte&quot; als auch im Feed &quot;Geänderte Objekte&quot; zu vermeiden.</p>
 <p>Auch hier SOLL der Feed sämtliche Objekttypen umfassen, die in einem System geführt werden.</p>
@@ -739,7 +734,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Das Ausgabeformat entspricht weitgehend dem des Feeds &quot;Neue Objekte&quot;, jedoch heißt hier die Eigenschaft für den Zeitpunkt der letzten Änderung <code>last_modified</code>. Auch hier gilt, dass der als <code>last_modified</code> ausgegebene Zeitpunkt auch als Sortierkriterium der Liste gelten SOLL.</p>
 </section>
 <section id="feed_entfernte_objekte" class="level3">
-<h3><span class="header-section-number">5.9.3</span> Der Feed &quot;Entfernte Objekte&quot;</h3>
+<h3><span class="header-section-number">4.9.3</span> Der Feed &quot;Entfernte Objekte&quot;</h3>
 <p>Der Feed für entferne Objekte listet die URLs entfernter Objekte in der Reihenfolge des Datums ihrer Entfernung auf, wobei die zuletzt entfernten Objekte zuerst ausgegeben werden.</p>
 <p>Mit &quot;Entfernung&quot; ist im Sinne dieses Feeds die Löschung eines Objekts, aber auch die Depublikation oder das Beenden der öffentlichen Verfügbarkeit gemeint.</p>
 <p>Client-Implementierer sind angehalten, diesen Feed zu nutzen, um beispielsweise depublizierte Dokumente aus ihren lokalen Caches zu entfernen.</p>
@@ -757,7 +752,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="dokumentenabruf" class="level2">
-<h2><span class="header-section-number">5.10</span> Dokumentenabruf</h2>
+<h2><span class="header-section-number">4.10</span> Dokumentenabruf</h2>
 <p>TODO:</p>
 <ul>
 <li>HTTP GET Methode MUSS unterstützt werden</li>
@@ -766,12 +761,12 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </ul>
 </section>
 <section id="ausnahmebehandlung" class="level2">
-<h2><span class="header-section-number">5.11</span> Ausnahmebehandlung</h2>
+<h2><span class="header-section-number">4.11</span> Ausnahmebehandlung</h2>
 <p>TODO:</p>
 <p>(Diskussion hierzu unter https://github.com/OParl/specs/issues/89)</p>
 </section>
 <section id="liste-reservierter-url-parameter" class="level2">
-<h2><span class="header-section-number">5.12</span> Liste reservierter URL-Parameter</h2>
+<h2><span class="header-section-number">4.12</span> Liste reservierter URL-Parameter</h2>
 <p>Die in dieser Liste enthaltenen Zeichenketten haben eine reservierte Bedeutung und stehen bei Implementierungen eines OParl-Servers nicht mehr für die freie Verwendung in URLs zur Verfügung.</p>
 <dl>
 <dt>callback:</dt>
@@ -790,33 +785,33 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="schema" class="level1">
-<h1><span class="header-section-number">6</span> Schema</h1>
+<h1><span class="header-section-number">5</span> Schema</h1>
 <p>Dieses Kapitel beschreibt das Schema von OParl. Das Schema bildet das Datzenmodell der OParl-Architektur ab. Es definiert, welche Objekttypen über eine OParl-API abgerufen werden können und welche Eigenschaften diese Objekttypen haben dürfen und müssen. Darüber hinaus ist im Schema auch festgelegt, in welcher Beziehung verschiedene Objekttypen zu einander stehen.</p>
 <section id="übergreifende-aspekte" class="level2">
-<h2><span class="header-section-number">6.1</span> Übergreifende Aspekte</h2>
+<h2><span class="header-section-number">5.1</span> Übergreifende Aspekte</h2>
 <section id="unicode-zeichenketten-als-standard" class="level3">
-<h3><span class="header-section-number">6.1.1</span> Unicode-Zeichenketten als Standard</h3>
+<h3><span class="header-section-number">5.1.1</span> Unicode-Zeichenketten als Standard</h3>
 <p>Wenn in der nachfolgenden Schema-Beschreibung nicht anders angegeben, werden bei den Werten grundsätzlich Unicode-Zeichenketten (Strings) erwartet.</p>
 </section>
 <section id="null-werte" class="level3">
-<h3><span class="header-section-number">6.1.2</span> null-Werte</h3>
+<h3><span class="header-section-number">5.1.2</span> null-Werte</h3>
 <p>JSON erlaubt es grundsätzlich, dass Eigenschaften den Wert <code>null</code> haben können. Im Rahmen dieser Spezifikation DARF das jedoch nur bei Eigenschaften der Fall sein, die als OPTIONAL oder EMPFOHLEN gekennzeichnet sind. ZWINGENDE Eigenschaften müssen einen Wert ungleich <code>null</code> besitzen.</p>
 </section>
 <section id="datums--und-zeitangaben" class="level3">
-<h3><span class="header-section-number">6.1.3</span> Datums- und Zeitangaben</h3>
+<h3><span class="header-section-number">5.1.3</span> Datums- und Zeitangaben</h3>
 <p>Für Datum und Zeit werden die in XML Schema festgelegten Typen verwendet (was nicht bedeutet, dass in OParl XML verwendet wird).</p>
 <p>Für ein Datum wird http://www.w3.org/TR/xmlschema-2/#date verwendet und für eine Zeit http://www.w3.org/TR/xmlschema-2/#dateTime. Dabei wird ein Datum (ein Tag ohne Uhrzeit) ohne Zeitzone und ein Datum mit Zeit mit Zeitzone angegeben, denn nur damit ist die Uhrzeit weltweit eindeutig ohne zusätzlich auf den Ort einer Sitzung o.ä. Bezug nehmen zu müssen.</p>
 <p>Diese Spezifikationen stützen sich auf RFC 3339 (http://www.ietf.org/rfc/rfc3339.txt) und RFC 3339 wiederum auf ISO 8601.</p>
 <p>Im JSON-LD Kontext von OParl ist der Präfix 'xsd' so spezifiziert, dass Datums- und Zeittyp durch 'xsd:date' bzw. 'xsd:dateTime' abgekürzt werden können.</p>
 </section>
 <section id="mehrsprachigkeit" class="level3">
-<h3><span class="header-section-number">6.1.4</span> Mehrsprachigkeit</h3>
+<h3><span class="header-section-number">5.1.4</span> Mehrsprachigkeit</h3>
 <p>Für Texte ist durchgehend vorgesehen, dass diese mehrsprachig sein können. Kommunale Anbieter von OParl-Daten in Deutchland müssen aus gesetzlichen Gründen auf jeden Fall die deutsche Sprache unterstützten. Die Unterstützung anderer Sprachen ist dagegen optional. Deshalb wird grundsätzich durch <sub>~</sub>~~ &quot;<span class="citation" data-cites="language">@language</span>&quot;: &quot;de&quot;, <sub>~</sub>~~ im Kontext die deutsche Sprache als Vorgabe eingestellt.</p>
 <p>Es gibt aber möglicherweise auch Zeichenketten, die für die keine Mehrsprachigkeit vorgesehen wird. Dazu gehören z.B. Personennamen.</p>
 <p>TODO: Stimmt nicht. Tamilische Namen verwenden in der Originalschreibweise sogar ein vollkommen anderes Alphabet.</p>
 </section>
 <section id="präfixe-in-kontexten" class="level3">
-<h3><span class="header-section-number">6.1.5</span> Präfixe in Kontexten</h3>
+<h3><span class="header-section-number">5.1.5</span> Präfixe in Kontexten</h3>
 <p>Die Beispiel-Kontexte verwenden eine Reihe von Präfixen. Diese sind hier zusammengestellt und werden in den einzelnen Beispiel-Kontexten nicht jeweils wiederholt:</p>
 <pre class="sourceCode json" id="pcontext_praefixe"><code class="sourceCode json">    <span class="er">&quot;beispielris&quot;:</span> <span class="er">&quot;http://beispielris.de/&quot;,</span>
     <span class="er">&quot;oparl&quot;:</span> <span class="er">&quot;http://oparl.org/xyz/&quot;,</span>
@@ -828,12 +823,12 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="er">&quot;ogc&quot;:</span> <span class="er">&quot;http://www.opengis.net/ont/geosparql#&quot;,</span></code></pre>
 </section>
 <section id="herstellerspezifische-erweiterungen" class="level3">
-<h3><span class="header-section-number">6.1.6</span> Herstellerspezifische Erweiterungen</h3>
+<h3><span class="header-section-number">5.1.6</span> Herstellerspezifische Erweiterungen</h3>
 <p>Diese sind - falls tatsächlich erforderlich - mit den JSON-LD Mitteln einfach möglich. z.B.</p>
 <pre><code>&quot;herstellera:newWonderProperty&quot;: &quot;Dies ist ein Feature welches noch kein anderer Hersteller bietet!&quot;</code></pre>
 </section>
 <section id="url-pfade-in-den-beispielen" class="level3">
-<h3><span class="header-section-number">6.1.7</span> URL-Pfade in den Beispielen</h3>
+<h3><span class="header-section-number">5.1.7</span> URL-Pfade in den Beispielen</h3>
 <p>OParl-Clients wissen <em>nichts</em> vom Aufbau von Pfaden innerhalb von URLs, müssen dies nicht wissen und es gibt deshalb in der OParl-Spezifikation <em>keine</em> Festlegungen dazu.</p>
 <p>Wenn ein RIS-Betreiber z.B. meint, dass eine Person eine eigene Domain verdient, dann ist so etwas aus OParl-Sicht völlig ok: <sub><sub><sub><sub><sub><sub><sub><sub><sub><sub> https://ratsmitglied-max-mustermann.beispielris.de/mein-oparl-datensatz </sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></p>
 <p>Noch etwas extremer: selbst eine eigene Domain für jedes einzelne OParl-Objekt würde der OParl-Spezifikation nicht widersprechen.</p>
@@ -847,38 +842,38 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="eigenschaften-mit-verwendung-in-mehreren-objekttypen" class="level2">
-<h2><span class="header-section-number">6.2</span> Eigenschaften mit Verwendung in mehreren Objekttypen</h2>
+<h2><span class="header-section-number">5.2</span> Eigenschaften mit Verwendung in mehreren Objekttypen</h2>
 <section id="id" class="level3">
-<h3><span class="header-section-number">6.2.1</span> <code>@id</code></h3>
+<h3><span class="header-section-number">5.2.1</span> <code>@id</code></h3>
 <p>URL des Objekts und eindeutiges Identifikationsmerkmal. Siehe dazu auch &quot;Benannte Objekte&quot;. Dies ist ein ZWINGENDES Merkmal für jedes Objekt.</p>
 </section>
 <section id="type" class="level3">
-<h3><span class="header-section-number">6.2.2</span> <code>@type</code></h3>
+<h3><span class="header-section-number">5.2.2</span> <code>@type</code></h3>
 <p>Objekttypenangabe des Objekts. ZWINGEND für jedes Objekt.</p>
 </section>
 <section id="name-und-namelong" class="level3">
-<h3><span class="header-section-number">6.2.3</span> <code>name</code> und <code>nameLong</code></h3>
+<h3><span class="header-section-number">5.2.3</span> <code>name</code> und <code>nameLong</code></h3>
 <p>Beide Eigenschaften können bei vielen Objekttypen genutzt werden, um den nutzerfreundlichen Namen des Objekts anzugeben. Üblicherweise ist <code>name</code> eine Pflichteigenschaft, während nameLong optional angegeben werden kann. Dies ist dann zu empfehlen, wenn zu einem Namen eine kurze bzw. kompakte und eine längere, aber weniger nutzerfreundliche Variante existieren. Ein Beispiel wäre die Kurzform &quot;CDU&quot; für den Parteinamen &quot;Christlich Demokratische Union Deutschlands&quot;.</p>
 <p>In keinem Fall sollten die Werte von <code>name</code> und <code>nameLong</code> identische sein.</p>
 </section>
 <section id="license" class="level3">
-<h3><span class="header-section-number">6.2.4</span> <code>license</code></h3>
+<h3><span class="header-section-number">5.2.4</span> <code>license</code></h3>
 <p>Die Eigenschaft <code>license</code> erlaubt es, am jeweiligen Objekt die URL einer Lizenz anzugeben. Damit wird gekennzeichnet, welche Lizenz der Veröffentlicher der Daten für das jeweilige Objekt vergibt.</p>
 <p>Eine besondere Bedeutung hat die Eigenschaft <code>license</code>, wenn sie am <code>oparl:System</code> Objekt oder am <code>oparl:Body</code> Objekt vergeben wird. Die hier angegebene Lizenzinformation sagt aus, dass alle Objekte dieses Systems unter der angegebenen Lizenz veröffentlicht werden, sofern dies nicht am jeweiligen Objekt mit einer anders lautenden Lizenz-URL überschrieben wird. Daher wird dringend EMPFOHLEN, die Lizenzinformation global am <code>oparl:System</code> Objekt mitzuteilen und auf redundante Informationen zu verzichten.</p>
 <p>Auf Objekte vom Typ <code>oparl:Document</code> bezogen bezieht sich die Lizenzinformation nicht nur auf die strukturierten Metadaten, die über die API bezogen werden, sondern auch auf den eigentlichen Inhalt der Dateien, die über die angebotene(n) URL(s) abgerufen werden können.</p>
 </section>
 <section id="created" class="level3">
-<h3><span class="header-section-number">6.2.5</span> <code>created</code></h3>
+<h3><span class="header-section-number">5.2.5</span> <code>created</code></h3>
 <p>Datum und Uhrzeit der Erstellung des jeweiligen Objekts.</p>
 </section>
 <section id="modified" class="level3">
-<h3><span class="header-section-number">6.2.6</span> <code>modified</code></h3>
+<h3><span class="header-section-number">5.2.6</span> <code>modified</code></h3>
 <p>Diese Eigenschaft kennzeichnet stets Datum und Uhrzeit der letzten Änderung des jeweiligen Objekts.</p>
 <p>In Einzelfällen unterliegt die Frage, was als Änderung eines Objekts bezeichnet werden kann, einem gewissen Interpretationsspielraum. Beispielsweise ist zu entscheiden, ob eine Gruppierung (<code>oparl:Organization</code>) als geändert gilt, wenn ein neues Mitglied hinzugefügt wurde.</p>
 <p>Diese Frage sollte aus Sicht des OParl-Clients beantwortet werden. Wenn beispielsweise eine Gruppierung vom Server grundsätzlich mit der Liste der URLs aller Mitglieder ausgegeben wird, umfasst das Objekt aus Sicht des Clients eben auch die Liste der Mitglieder. In diesem Fall wäre eine Veränderung der Liste der Mitglieder als Änderung des Objekts zu verstehen, die im <code>modified</code> Zeitstempel widerspiegeln sollte.</p>
 </section>
 <section id="classification" class="level3">
-<h3><span class="header-section-number">6.2.7</span> <code>classification</code></h3>
+<h3><span class="header-section-number">5.2.7</span> <code>classification</code></h3>
 <p>Dient der Verschlagwortung und verweist dazu auf ein oder eventuell auch mehrere <code>skos:Concept</code>-Objekte mit einer <code>skos:prefLabel</code>-Eigenschaft. Der Wert der Eigenschaft ist jeweils eine Zeichenkette. Die verwendete Sprache (in der Regel &quot;de&quot; für Deutsch) MUSS dabei angegeben werden.</p>
 <p>TODO: SKOS darstellen</p>
 <p>TODO: Beispiel</p>
@@ -891,7 +886,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="oparl_system" class="level2">
-<h2><span class="header-section-number">6.3</span> oparl:System (System)</h2>
+<h2><span class="header-section-number">5.3</span> oparl:System (System)</h2>
 <p>Der Objekttyp <code>oparl:System</code> bildet grundlegende Informationen zum parlamentarischen Informationssystem ab. Das Objekt repräsentiert das technische System, unabhängig von der Frage, welche Körperschaften auf diesem System vertreten sind.</p>
 <p>Ein Beispiel:</p>
 <pre class="sourceCode json" id="system_ex1"><code class="sourceCode json">{
@@ -950,7 +945,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Für Clients ist das <code>oparl:System</code> Objekt ein geeigneter Einstiegspunkt, um grundlegende Informationen über das Sytem zu bekommen und die URLs zum Zugriff auf andere Informationen in Erfahrung zu bringen.</p>
 <p>Die URL des <code>oparl:System</code> Objekts MUSS per Definition identisch mit der URL des API-Endpunkts des Servers sein.</p>
 <section id="well-known-uris" class="level3">
-<h3><span class="header-section-number">6.3.1</span> Well-Known URIs</h3>
+<h3><span class="header-section-number">5.3.1</span> Well-Known URIs</h3>
 <p>TODO: eventuell in eigenen Abschnitt oder eigenes Kapitel auslagern.</p>
 <p>Es gibt eine standardisierte Technik, mit der ein Einstiegspunkt in die OParl-Daten angegeben werden kann: &quot;Well-Known URIs&quot;. Dieser kann dann maschinell gefunden werden. Diese Technik wurde durch die IETF und das W3C standardisiert.</p>
 <p>Die Spezifikation von &quot;Well-Known URIs&quot; durch die IETF ist:</p>
@@ -970,7 +965,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>TODO: Beispiele für JSON-LD und exemplarisch auch für HTML.</p>
 </section>
 <section id="eigenschaften" class="level3">
-<h3><span class="header-section-number">6.3.2</span> Eigenschaften</h3>
+<h3><span class="header-section-number">5.3.2</span> Eigenschaften</h3>
 <dl>
 <dt><code>oparlVersion</code></dt>
 <dd><p>Die URL der OParl-Spezifikation, die von diesem Server unterstützt wird. Der Wert MUSS die URL <code>http://oparl.org/specs/1.0/</code> sein. Diese Eigenschaft ist ZWINGEND.</p>
@@ -1009,7 +1004,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="oparl_body" class="level2">
-<h2><span class="header-section-number">6.4</span> oparl:Body (Körperschaft)</h2>
+<h2><span class="header-section-number">5.4</span> oparl:Body (Körperschaft)</h2>
 <p>Der Objekttyp <code>oparl:Body</code> dient dazu, eine Körperschaft und damit ein Parlament zu repräsentieren, zu dem der Server Informationen bereithält. Eine Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder ein kommunaler Zweckverband sein.</p>
 <p>Hätte das System beispielsweise den Zweck, Informationen über das kommunale Parlament der Stadt Köln, namentlich den Rat der Stadt Köln, abzubilden, dann müsste dieses System dazu ein Objekt vom Typ <code>oparl:Body</code> führen, welches die Stadt Köln repräsentiert.</p>
 <p>Ein Kontext:</p>
@@ -1058,7 +1053,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Vom OParl-Server wird erwartet, dass er mindestens ein Objekt vom Typ <code>oparl:Body</code> bereit hält. Teilen sich mehrere Körperschaften das selbe technische System, können auf demselben Server auch mehrere Objekte vom Typ <code>oparl:Body</code> beherbergt werden.</p>
 <p>Über die Zuordnung zu einem bestimmten <code>oparl:Body</code> Objekt zeigen andere Objekte, wie beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit zu einer bestimmten Körperschaft und damit implizit zu einem bestimmten Parlament an.</p>
 <section id="eigenschaften-1" class="level3">
-<h3><span class="header-section-number">6.4.1</span> Eigenschaften</h3>
+<h3><span class="header-section-number">5.4.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>system</code></dt>
 <dd><p>URL des Objekts vom Typ <code>oparl:System</code> Objekts, zu dem dieses Objekt gehört. ZWINGEND.</p>
@@ -1079,10 +1074,10 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dd><p>Tagesdatum, seit dem die unter license angegebene Lizenz gilt. Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen. EMPFOHLEN</p>
 </dd>
 <dt><code>rgs</code></dt>
-<dd><p>Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette<a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a>. Diese Eigenschaft ist EMPFOHLEN.</p>
+<dd><p>Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette<a href="#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a>. Diese Eigenschaft ist EMPFOHLEN.</p>
 </dd>
 <dt><code>sameBody</code></dt>
-<dd><p>Dient der Angabe beliebig vieler zusätzlicher URLs, die die Körperschaft repräsentieren. Diese Eigenschaft ist EMPFOHLEN. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a>, der DBPedia<a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a> oder der Wikipedia<a href="#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a> angegeben werden.</p>
+<dd><p>Dient der Angabe beliebig vieler zusätzlicher URLs, die die Körperschaft repräsentieren. Diese Eigenschaft ist EMPFOHLEN. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek<a href="#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a>, der DBPedia<a href="#fn24" class="footnoteRef" id="fnref24"><sup>24</sup></a> oder der Wikipedia<a href="#fn25" class="footnoteRef" id="fnref25"><sup>25</sup></a> angegeben werden.</p>
 </dd>
 <dt><code>contactEmail</code></dt>
 <dd><p>Dient der Angabe einer Kontakt-E-Mail-Adresse mit &quot;mailto:&quot;-Schema. Diese Eigenschaft ist EMPFOHLEN. Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und idealerweise das parlamentarische Informationssystem zuständigen Stelle ermöglichen.</p>
@@ -1115,7 +1110,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="oparl_organization" class="level2">
-<h2><span class="header-section-number">6.5</span> oparl:Organization (Gruppierung)</h2>
+<h2><span class="header-section-number">5.5</span> oparl:Organization (Gruppierung)</h2>
 <p>Dieser Objekttyp dient dazu, Gruppierungen von Personen abzubilden, die in der parlamentarischen Arbeit eine Rolle spielen. Dazu zählen in der Praxis insbesondere Fraktionen und Gremien.</p>
 <p>Ein Beispiel in expandierter Form:</p>
 <pre class="sourceCode json" id="organization_ex1"><code class="sourceCode json">{
@@ -1170,7 +1165,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <span class="st">    &quot;</span><span class="er">modified</span><span class="st">&quot;: &quot;</span><span class="dv">2012-08-16</span><span class="er">T</span><span class="dv">14</span><span class="er">:</span><span class="dv">05</span><span class="er">:</span><span class="dv">27</span><span class="er">+</span><span class="dv">02</span><span class="er">:</span><span class="dv">00</span><span class="st">&quot;</span>
 <span class="st">}</span></code></pre>
 <section id="eigenschaften-2" class="level3">
-<h3><span class="header-section-number">6.5.1</span> Eigenschaften</h3>
+<h3><span class="header-section-number">5.5.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>body</code></dt>
 <dd><p>URL der Körperschaft, zu der diese Gruppierung gehört. ZWINGEND</p>
@@ -1209,7 +1204,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="oparl_person" class="level2">
-<h2><span class="header-section-number">6.6</span> oparl:Person (Person)</h2>
+<h2><span class="header-section-number">5.6</span> oparl:Person (Person)</h2>
 <p>Jede natürliche Person, die in der parlamentarischen Arbeit tätig ist und insbesondere Mitglied in einer Gruppierung (<a href="#oparl_organization">oparl:Organization</a>), wird mit einem Objekt vom Typ <code>oparl:Person</code> abgebildet.</p>
 <p>Es gibt existieren bereits eine ganze Reihe von Vokabularen für Personen. Dazu gehören FOAF (Friend of a Friend) und vCard. Es gibt aber auch der XÖV-Standard für natürliche Personen, ein XML Schema. Für <code>oparl:Person</code> wurde daraus und basierend auf dem Input der OParl-Stakeholder eine Auswahl von Eigenschaften zusammengestellt.</p>
 <p>TODO: für Personen-Namen und Titel wird keine Mehrsprachigkeit benötigt. Dies im Kontext berücksichtigen. Dies spricht auch für je einen Kontext pro Klasse.</p>
@@ -1303,7 +1298,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
 <section id="eigenschaften-3" class="level3">
-<h3><span class="header-section-number">6.6.1</span> Eigenschaften</h3>
+<h3><span class="header-section-number">5.6.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>name</code></dt>
 <dd><p>Der vollständige Name der Person mit akademischem Grad und Vornamen. ZWINGEND</p>
@@ -1360,7 +1355,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="oparl_meeting" class="level2">
-<h2><span class="header-section-number">6.7</span> oparl:Meeting (Sitzung)</h2>
+<h2><span class="header-section-number">5.7</span> oparl:Meeting (Sitzung)</h2>
 <p>Eine Sitzung ist die Versammlung einer oder mehrerer Gruppierungen (oparl:Organization) zu einem bestimmten Zeitpunkt an einem bestimmten Ort.</p>
 <p>Die geladenen Teilnehmer der Sitzung sind jeweils als Objekte vom Typ oparl:Person in entsprechender Form referenziert. Verschiedene Dokumente (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.</p>
 <p>Die Inhalte einer Sitzung werden durch Tagesordnungspunkte (oparl:AgendaItem) abgebildet.</p>
@@ -1445,7 +1440,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;modified&quot;</span>: <span class="st">&quot;2012-01-08T14:05:27+01:00&quot;</span>
 }</code></pre>
 <section id="eigenschaften-4" class="level3">
-<h3><span class="header-section-number">6.7.1</span> Eigenschaften</h3>
+<h3><span class="header-section-number">5.7.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>start</code></dt>
 <dd><p>Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Startzeitpunkt sein. ZWINGEND</p>
@@ -1490,7 +1485,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="oparl_agendaitem" class="level2">
-<h2><span class="header-section-number">6.8</span> oparl:AgendaItem (Tagesordnungspunkt)</h2>
+<h2><span class="header-section-number">5.8</span> oparl:AgendaItem (Tagesordnungspunkt)</h2>
 <p>Tagesordnungspunkte sind die Bestandteile von Sitzungen (<code>oparl:Meeting</code>). Jeder Tagesordnungspunkt widmet sich inhaltlich einem bestimmten Thema, wozu in der Regel auch die Beratung bestimmter Drucksachen gehört.</p>
 <p>Ein Beispiel in kompakter Form:</p>
 <pre class="sourceCode json" id="agendaitem_ex1"><code class="sourceCode json">{
@@ -1514,7 +1509,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
 <section id="eigenschaften-5" class="level3">
-<h3><span class="header-section-number">6.8.1</span> Eigenschaften</h3>
+<h3><span class="header-section-number">5.8.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>meeting</code></dt>
 <dd><p>URL der Sitzung (<code>oparl:Meeting</code>), dem der Tagesordnungspunkt zugeordnet ist. ZWINGEND.</p>
@@ -1556,7 +1551,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="oparl_paper" class="level2">
-<h2><span class="header-section-number">6.9</span> oparl:Paper (Drucksache)</h2>
+<h2><span class="header-section-number">5.9</span> oparl:Paper (Drucksache)</h2>
 <p>Dieser Objekttyp dient der Abbildung von Drucksachen in der parlamentarischen Arbeit, wie zum Beispiel Anfragen, Anträgen und Beschlussvorlagen.</p>
 <p>Drucksachen werden in Form einer Beratung (oparl:Consultation) im Rahmen eines Tagesordnungspunkts (oparl:AgendaItem) einer Sitzung (oparl:Meeting) behandelt.</p>
 <p>Drucksachen spielen in der schriftlichen wie mündlichen Kommunikation eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in parlamentarischen Informationssystemen unveränderliche Kennungen der Drucksachen zum Einsatz.</p>
@@ -1592,7 +1587,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="st">&quot;lastModified&quot;</span><span class="er">:</span> <span class="st">&quot;2013-01-08T12:05:27+01:00&quot;</span>
 }</code></pre>
 <section id="eigenschaften-6" class="level3">
-<h3><span class="header-section-number">6.9.1</span> Eigenschaften</h3>
+<h3><span class="header-section-number">5.9.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>paperType</code></dt>
 <dd><p>Ein Objekt mit einem <code>skos:prefLabel</code>-Attribut, dessen Wert eine Zeichenkette ist und die Art der Drucksache beschreibt, z.B. &quot;Beantwortung einer Anfrage&quot;. Eine weitere Liste mit exemplarischen Drucksachentypen gibt es hier: https://wiki.piratenpartei.de/BE:BVVupdates/Glossar Eine zukünftige Version von OParl wird möglicherweise solche Werte spezifizieren. OPTIONAL</p>
@@ -1609,7 +1604,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="oparl_document" class="level2">
-<h2><span class="header-section-number">6.10</span> oparl:Document (Datei)</h2>
+<h2><span class="header-section-number">5.10</span> oparl:Document (Datei)</h2>
 <p>Ein Objekt vom Typ <code>oparl:Document</code> repräsentiert eine Datei, beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokument, und hält Metadaten zu der Datei sowie URLs zum Zugriff auf die Datei bereit.</p>
 <p>Ein Beispiel:</p>
 <pre class="sourceCode json" id="document_ex1"><code class="sourceCode json">{
@@ -1632,7 +1627,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Objekt vom Typ <code>oparl:Document</code> können mit Drucksachen (<code>oparl:Paper</code>) oder Sitzungen (<code>oparl:Meeting</code>) in Beziehung stehen. Dies wird durch die Eigenschaft <code>paper</code> bzw. <code>meeting</code> angezeigt.</p>
 <p>Mehrere Objekte vom Typ <code>oparl:Document</code> können mit einander in direkter Beziehung stehen, wenn sie den selben Inhalt in unterschiedlichen technischen Formaten wiedergeben. Hierfür werden die Eigenschaften <code>master_document</code> bzw. <code>derivative_documents</code> eingesetzt. Das oben angezeigte Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der Eigenschaft <code>mime_type</code>) und zeigt außerdem über die Eigenschaft <code>master_document</code> an, von welcher anderen Datei es abgeleitet wurde. Umgekehrt KANN über die Eigenschaft <code>derivative_documents</code> angezeigt werden, welche Ableitungen einer Datei existieren.</p>
 <section id="eigenschaften-7" class="level3">
-<h3><span class="header-section-number">6.10.1</span> Eigenschaften</h3>
+<h3><span class="header-section-number">5.10.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>@id</code></dt>
 <dd><p>Die URL des Objekts.</p>
@@ -1641,7 +1636,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dd><p>Name des Objekts, der Nutzern angezeigt werden kann. Typ: Zeichenkette. ZWINGEND</p>
 </dd>
 <dt><code>mimeType</code></dt>
-<dd>Mime-Typ des Inhalts (vgl. RFC2046<a href="#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a>). Sollte das System einer Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier &quot;application/octet-stream&quot; zu verwenden. ZWINGEND
+<dd>Mime-Typ des Inhalts (vgl. RFC2046<a href="#fn26" class="footnoteRef" id="fnref26"><sup>26</sup></a>). Sollte das System einer Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier &quot;application/octet-stream&quot; zu verwenden. ZWINGEND
 </dd>
 <dt><code>date</code></dt>
 <dd><p>Erstellungs- oder Veröffentlichungsdatum und -uhrzeit. Typ: Datum. ZWINGEND</p>
@@ -1688,14 +1683,14 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </dl>
 </section>
 <section id="siehe-auch" class="level3">
-<h3><span class="header-section-number">6.10.2</span> Siehe auch</h3>
+<h3><span class="header-section-number">5.10.2</span> Siehe auch</h3>
 <ul>
 <li><a href="#dokumentenabruf">Dokumentenabruf</a></li>
 </ul>
 </section>
 </section>
 <section id="oparl_consultation" class="level2">
-<h2><span class="header-section-number">6.11</span> oparl:Consultation (Beratung)</h2>
+<h2><span class="header-section-number">5.11</span> oparl:Consultation (Beratung)</h2>
 <p>Der Objekttyp <code>oparl:Consultation</code> dient dazu, die Beratung einer Drucksache (<a href="#oparl_paper"><code>oparl:Paper</code></a>) in einer Sitzung abzubilden. Dabei ist es nicht entscheidend, ob diese Beratung in der Vergangenheit stattgefunden hat oder diese für die Zukunft geplant ist.</p>
 <p>Die Gesamtheit aller Objekte des Typs <code>oparl:Consultation</code> zu einer bestimmten Drucksache bildet das ab, was in der Praxis als &quot;Beratungsfolge&quot; der Drucksache bezeichnet wird.</p>
 <p>Ein Beispiel:</p>
@@ -1729,7 +1724,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     }
 }</code></pre>
 <section id="eigenschaften-8" class="level3">
-<h3><span class="header-section-number">6.11.1</span> Eigenschaften</h3>
+<h3><span class="header-section-number">5.11.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>paper</code></dt>
 <dd><p>URL der Drucksache, die beraten wird. ZWINGEND.</p>
@@ -1753,7 +1748,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="oparl_location" class="level2">
-<h2><span class="header-section-number">6.12</span> oparl:Location (Ort)</h2>
+<h2><span class="header-section-number">5.12</span> oparl:Location (Ort)</h2>
 <p>Dieser Objekttyp dient dazu, den Ortsbezug einer Drucksache formal abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen (beispielsweise dem Namen einer Straße/eines Platzes oder eine genaue Adresse) als auch aus Geodaten.</p>
 <p>In der Praxis soll dies dazu dienen, den geografischen Bezug eines politischen Vorgangs, wie zum Beispiel eines Bauvorhabens oder der Änderung eines Flächennutzungsplanes, maschinenlesbar nachvollziehbar zu machen.</p>
 <p>Dieser Objekttyp kann für Objekte im Kontext des Objekttyps <code>oparl:Paper</code> verwendet werden.</p>
@@ -1790,10 +1785,10 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     },
     <span class="er">//</span> <span class="er">...</span>
 }</code></pre>
-<p>OParl sieht bei Angabe von Geodaten die Verwendung des<br />GeoJSON-Formats<a href="#fn24" class="footnoteRef" id="fnref24"><sup>24</sup></a> vor. GeoJSON erlaubt die Beschreibung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden und Polygonen in JSON-Notation. Ein GeoJSON-Objekt kann auch mehrere Geometrien umfassen, beispielsweise um damit mehrere Punkte oder Polygone zu umschreiben.</p>
-<p>Gegenüber der GeoJSON-Spezifikation sieht OParl eine wichtige Einschränkung vor: Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben im System WGS84<a href="#fn25" class="footnoteRef" id="fnref25"><sup>25</sup></a> angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.</p>
+<p>OParl sieht bei Angabe von Geodaten die Verwendung des<br />GeoJSON-Formats<a href="#fn27" class="footnoteRef" id="fnref27"><sup>27</sup></a> vor. GeoJSON erlaubt die Beschreibung von vielen unterschiedlichen Geometrien wie Punkten, Pfaden und Polygonen in JSON-Notation. Ein GeoJSON-Objekt kann auch mehrere Geometrien umfassen, beispielsweise um damit mehrere Punkte oder Polygone zu umschreiben.</p>
+<p>Gegenüber der GeoJSON-Spezifikation sieht OParl eine wichtige Einschränkung vor: Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben im System WGS84<a href="#fn28" class="footnoteRef" id="fnref28"><sup>28</sup></a> angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.</p>
 <section id="eigenschaften-9" class="level3">
-<h3><span class="header-section-number">6.12.1</span> Eigenschaften</h3>
+<h3><span class="header-section-number">5.12.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>description</code></dt>
 <dd><p>Textliche Beschreibung eines Orts, z.B. in Form einer Adresse. Typ: Zeichenkette. EMPFOHLEN</p>
@@ -1807,9 +1802,9 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </dl>
 </section>
 <section id="weitere-beispiele" class="level3">
-<h3><span class="header-section-number">6.12.2</span> Weitere Beispiele</h3>
+<h3><span class="header-section-number">5.12.2</span> Weitere Beispiele</h3>
 <section id="ortsangabe-mit-polygon-objekt" class="level4">
-<h4><span class="header-section-number">6.12.2.1</span> Ortsangabe mit Polygon-Objekt</h4>
+<h4><span class="header-section-number">5.12.2.1</span> Ortsangabe mit Polygon-Objekt</h4>
 <p>Die alte GeoJSON-Variante:</p>
 <pre class="sourceCode json" id="location_ex3"><code class="sourceCode json">{
     <span class="dt">&quot;description&quot;</span>: <span class="st">&quot;Rechtes Rheinufer zwischen Deutzer</span>
@@ -1842,10 +1837,10 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="oparl_membership" class="level2">
-<h2><span class="header-section-number">6.13</span> org:Membership oder oparl:Membership</h2>
+<h2><span class="header-section-number">5.13</span> org:Membership oder oparl:Membership</h2>
 <p>TODO. Siehe: https://github.com/OParl/specs/issues/122 https://github.com/OParl/specs/issues/109</p>
 <section id="eigenschaften-10" class="level3">
-<h3><span class="header-section-number">6.13.1</span> Eigenschaften</h3>
+<h3><span class="header-section-number">5.13.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>person</code></dt>
 <dd><p><code>oparl:Person</code> Eine Person. OPTIONAL</p>
@@ -1871,20 +1866,20 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </dl>
 </section>
 <section id="hinweise" class="level3">
-<h3><span class="header-section-number">6.13.2</span> Hinweise</h3>
+<h3><span class="header-section-number">5.13.2</span> Hinweise</h3>
 <p>http://www.w3.org/TR/vocab-org/#membership-roles-posts-and-reporting</p>
 <p>http://popoloproject.com/specs/membership.html</p>
 </section>
 </section>
 </section>
 <section id="fußnoten" class="level1">
-<h1><span class="header-section-number">7</span> Fußnoten</h1>
+<h1><span class="header-section-number">6</span> Fußnoten</h1>
 <p>[14]: Frankfurt Gestalten <a href="http://www.geojson.org/">www.geojson.org</a></p>
 <p>[15]: Offenes Köln <a href="http://offeneskoeln.de/">offeneskoeln.de</a></p>
 <p>[16]: OpenRuhr:RIS <a href="http://openruhr.de/openruhrris/">openruhr.de/openruhrris</a></p>
 </section>
 <section id="glossar" class="level1">
-<h1><span class="header-section-number">8</span> Glossar</h1>
+<h1><span class="header-section-number">7</span> Glossar</h1>
 <dl>
 <dt>IRI</dt>
 <dd><p>Internationalized Resource Identifier ist die internationalisierte Form der Uniform Resource Identifier (URI). Diese sind in RFC 3987 spezifiziert (http://tools.ietf.org/html/rfc3987). In der OParl-Spezifikation sind grundsätzlich auch dann IRIs gemeint, wenn die Bezeichnungen URI oder URL verwendet werden. Dies dient der Lesbarkeit, auch wenn es technisch nicht korrekt ist.</p>
@@ -1910,42 +1905,45 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </dl>
 </section>
 <section id="jsonld_ressourcen_oparlorg" class="level1">
-<h1><span class="header-section-number">9</span> JSON-LD-Ressourcen auf oparl.org</h1>
+<h1><span class="header-section-number">8</span> JSON-LD-Ressourcen auf oparl.org</h1>
 <p>TODO: Beschreiben, wo weitere Informationen über JSON-LD-Kontextdokumente zu finden sein werden.</p>
 </section>
 <section class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Eine weltweite Übersicht zu Open-Data-Projekten bietet z.B. der <a href="http://opendata-showroom.org/de/">Open-Data-Showroom</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>Weitere generelle Informationen zur Bereitstellung offener Verwaltungsdaten bieten bspw.</p>
+<li id="fn1"><p>In Deutschland hat sich auf kommunaler Ebene der Begriff &quot;Ratsinformationssystem&quot; etabliert. OParl ist in seiner Anwendung jedoch nicht auf Gemeinderäte eingeschränkt und verwendet daher den Begriff &quot;parlamentarisches Informationssystem&quot;.<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>Eine weltweite Übersicht zu Open-Data-Projekten bietet z.B. der Open-Data-Showroom <a href="http://opendata-showroom.org/de/">http://opendata-showroom.org/de/</a><a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>vgl. <a href="https://de.wikipedia.org/wiki/Open_data">https://de.wikipedia.org/wiki/Open_data</a><a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>Ten Principles for Opening Up Open Government Information, <a href="https://sunlightfoundation.com/policy/documents/ten-open-data-principles">https://sunlightfoundation.com/policy/documents/ten-open-data-principles</a><a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p>Weitere generelle Informationen zur Bereitstellung offener Verwaltungsdaten bieten bspw.</p>
 <ul>
-<li>Praktische Informationen: <a href="http://opendatahandbook.org/de/how-to-open-up-data/index.html">Open-Data-Handbook</a> der Open Knowledge Foundation</li>
-<li>Grundsätzliche Informationen: Die vom Bundesministerium des Innern beauftragte Studie &quot;<a href="http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf?__blob=publicationFile">Open Government Data Deutschland</a>&quot; (PDF)</li>
+<li>Praktische Informationen: Open-Data-Handbook der Open Knowledge Foundation <a href="http://opendatahandbook.org/de/how-to-open-up-data/index.html">http://opendatahandbook.org/de/how-to-open-up-data/index.html</a></li>
+<li>Grundsätzliche Informationen: Die vom Bundesministerium des Innern beauftragte Studie &quot;Open Government Data Deutschland&quot; <a href="http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf">http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf</a></li>
 </ul>
-<a href="#fnref2">↩</a></li>
-<li id="fn3"><p>RFC2119 <a href="http://tools.ietf.org/html/rfc2119">http://tools.ietf.org/html/rfc2119</a><a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p>Architecture of the World Wide Web, Volume One. <a href="http://www.w3.org/TR/webarch/">http://www.w3.org/TR/webarch/</a><a href="#fnref4">↩</a></p></li>
-<li id="fn5"><p>Das System BoRis der Stadt Bonn <a href="http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp">http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp</a><a href="#fnref5">↩</a></p></li>
-<li id="fn6"><p>Fielding, Roy: Architectural Styles and the Design of Network-based Software Architectures, <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm">http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm</a><a href="#fnref6">↩</a></p></li>
-<li id="fn7"><p><a href="http://patterns.dataincubator.org/book/follow-your-nose.html">http://patterns.dataincubator.org/book/follow-your-nose.html</a><a href="#fnref7">↩</a></p></li>
-<li id="fn8"><p>vgl. Bundesministerium des Innern (Herausg.): Open Government Data Deutschland, Seite 433f., 2012 <a href="http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf">http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf</a><a href="#fnref8">↩</a></p></li>
-<li id="fn9"><p>beispielsweise <a href="http://dbpedia.org/resource/Christian_Democratic_Union_(Germany)">http://dbpedia.org/resource/Christian_Democratic_Union_(Germany)</a> und <a href="http://dbpedia.org/resource/Social_Democratic_Party_of_Germany">http://dbpedia.org/resource/Social_Democratic_Party_of_Germany</a><a href="#fnref9">↩</a></p></li>
-<li id="fn10"><p><a href="http://tools.ietf.org/html/rfc3986">http://tools.ietf.org/html/rfc3986</a><a href="#fnref10">↩</a></p></li>
-<li id="fn11"><p>Berners-Lee, Tim: Cool URIs don't change. <a href="http://www.w3.org/Provider/Style/URI.html">http://www.w3.org/Provider/Style/URI.html</a><a href="#fnref11">↩</a></p></li>
-<li id="fn12"><p>Study on persistent URIs, with identification of best practices and recommendations on the topic for the MSs and the EC. (PDF) <a href="http://goo.gl/JaTq6Z">http://goo.gl/JaTq6Z</a><a href="#fnref12">↩</a></p></li>
-<li id="fn13"><p>http://www.w3.org/TR/json-ld/#iana-considerations<a href="#fnref13">↩</a></p></li>
-<li id="fn14"><p><a href="https://tools.ietf.org/html/rfc4627">https://tools.ietf.org/html/rfc4627</a><a href="#fnref14">↩</a></p></li>
-<li id="fn15"><p>siehe dazu <a href="#linked_data">Linked Data</a><a href="#fnref15">↩</a></p></li>
-<li id="fn16"><p><a href="http://www.w3.org/TR/json-ld/">http://www.w3.org/TR/json-ld/</a><a href="#fnref16">↩</a></p></li>
-<li id="fn17"><p>URLs heißen in der JSON-LD-Spezifikation &quot;IRI&quot; (für &quot;Internationalized Resource Identifier&quot;), wir verwenden hier jedoch weiterhin die Bezeichnung &quot;URL&quot;.<a href="#fnref17">↩</a></p></li>
-<li id="fn18"><p>TODO: URL zur Spezifikation<a href="#fnref18">↩</a></p></li>
-<li id="fn19"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref19">↩</a></p></li>
-<li id="fn20"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd">http://www.dnb.de/gnd</a><a href="#fnref20">↩</a></p></li>
-<li id="fn21"><p>DBPedia <a href="http://www.dbpedia.org/">http://www.dbpedia.org/</a><a href="#fnref21">↩</a></p></li>
-<li id="fn22"><p>Wikipedia <a href="http://de.wikipedia.org/">http://de.wikipedia.org/</a><a href="#fnref22">↩</a></p></li>
-<li id="fn23"><p><a href="http://tools.ietf.org/html/rfc2046">http://tools.ietf.org/html/rfc2046</a><a href="#fnref23">↩</a></p></li>
-<li id="fn24"><p>GeoJSON Spezifikation <a href="http://geojson.org/geojson-spec.html">http://geojson.org/geojson-spec.html</a><a href="#fnref24">↩</a></p></li>
-<li id="fn25"><p>WGS84 steht für &quot;World Geodetic System 1984&quot;, es wird unter anderem auch vom Global Positioning System (GPS) verwendet. In geografischen Informationssystemen ist für das System der EPSG-Code 4326 geläufig.<a href="#fnref25">↩</a></p></li>
+<a href="#fnref5">↩</a></li>
+<li id="fn6"><p>RFC2119 <a href="http://tools.ietf.org/html/rfc2119">http://tools.ietf.org/html/rfc2119</a><a href="#fnref6">↩</a></p></li>
+<li id="fn7"><p>Architecture of the World Wide Web, Volume One. <a href="http://www.w3.org/TR/webarch/">http://www.w3.org/TR/webarch/</a><a href="#fnref7">↩</a></p></li>
+<li id="fn8"><p>Das System BoRis der Stadt Bonn <a href="http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp">http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp</a><a href="#fnref8">↩</a></p></li>
+<li id="fn9"><p>Fielding, Roy: Architectural Styles and the Design of Network-based Software Architectures, <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm">http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm</a><a href="#fnref9">↩</a></p></li>
+<li id="fn10"><p><a href="http://patterns.dataincubator.org/book/follow-your-nose.html">http://patterns.dataincubator.org/book/follow-your-nose.html</a><a href="#fnref10">↩</a></p></li>
+<li id="fn11"><p>vgl. Bundesministerium des Innern (Herausg.): Open Government Data Deutschland, Seite 433f., 2012 <a href="http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf">http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf</a><a href="#fnref11">↩</a></p></li>
+<li id="fn12"><p>beispielsweise <a href="http://dbpedia.org/resource/Christian_Democratic_Union_(Germany)">http://dbpedia.org/resource/Christian_Democratic_Union_(Germany)</a> und <a href="http://dbpedia.org/resource/Social_Democratic_Party_of_Germany">http://dbpedia.org/resource/Social_Democratic_Party_of_Germany</a><a href="#fnref12">↩</a></p></li>
+<li id="fn13"><p><a href="http://tools.ietf.org/html/rfc3986">http://tools.ietf.org/html/rfc3986</a><a href="#fnref13">↩</a></p></li>
+<li id="fn14"><p>Berners-Lee, Tim: Cool URIs don't change. <a href="http://www.w3.org/Provider/Style/URI.html">http://www.w3.org/Provider/Style/URI.html</a><a href="#fnref14">↩</a></p></li>
+<li id="fn15"><p>Study on persistent URIs, with identification of best practices and recommendations on the topic for the MSs and the EC. (PDF) <a href="http://goo.gl/JaTq6Z">http://goo.gl/JaTq6Z</a><a href="#fnref15">↩</a></p></li>
+<li id="fn16"><p>http://www.w3.org/TR/json-ld/#iana-considerations<a href="#fnref16">↩</a></p></li>
+<li id="fn17"><p><a href="https://tools.ietf.org/html/rfc4627">https://tools.ietf.org/html/rfc4627</a><a href="#fnref17">↩</a></p></li>
+<li id="fn18"><p>siehe dazu <a href="#linked_data">Linked Data</a><a href="#fnref18">↩</a></p></li>
+<li id="fn19"><p><a href="http://www.w3.org/TR/json-ld/">http://www.w3.org/TR/json-ld/</a><a href="#fnref19">↩</a></p></li>
+<li id="fn20"><p>URLs heißen in der JSON-LD-Spezifikation &quot;IRI&quot; (für &quot;Internationalized Resource Identifier&quot;), wir verwenden hier jedoch weiterhin die Bezeichnung &quot;URL&quot;.<a href="#fnref20">↩</a></p></li>
+<li id="fn21"><p>TODO: URL zur Spezifikation<a href="#fnref21">↩</a></p></li>
+<li id="fn22"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref22">↩</a></p></li>
+<li id="fn23"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd">http://www.dnb.de/gnd</a><a href="#fnref23">↩</a></p></li>
+<li id="fn24"><p>DBPedia <a href="http://www.dbpedia.org/">http://www.dbpedia.org/</a><a href="#fnref24">↩</a></p></li>
+<li id="fn25"><p>Wikipedia <a href="http://de.wikipedia.org/">http://de.wikipedia.org/</a><a href="#fnref25">↩</a></p></li>
+<li id="fn26"><p><a href="http://tools.ietf.org/html/rfc2046">http://tools.ietf.org/html/rfc2046</a><a href="#fnref26">↩</a></p></li>
+<li id="fn27"><p>GeoJSON Spezifikation <a href="http://geojson.org/geojson-spec.html">http://geojson.org/geojson-spec.html</a><a href="#fnref27">↩</a></p></li>
+<li id="fn28"><p>WGS84 steht für &quot;World Geodetic System 1984&quot;, es wird unter anderem auch vom Global Positioning System (GPS) verwendet. In geografischen Informationssystemen ist für das System der EPSG-Code 4326 geläufig.<a href="#fnref28">↩</a></p></li>
 </ol>
 </section>
 </body>

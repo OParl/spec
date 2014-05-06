@@ -6,9 +6,16 @@
   <para>
     Dieses Dokument wird bei seiner Fertigstellung die Spezifikation des
     OParl Schnittstellen-Standards für parlamentarische
-    Informationssysteme (Ratsinformationssysteme, RIS) darstellen. Es
-    dient damit als Grundlage für die Implementierung von
-    OParl-konformen Server- und Clientanwendungen.
+    Informationssysteme<footnote>
+      <para>
+        In Deutschland hat sich auf kommunaler Ebene der Begriff
+        &quot;Ratsinformationssystem&quot; etabliert. OParl ist in
+        seiner Anwendung jedoch nicht auf Gemeinderäte eingeschränkt und
+        verwendet daher den Begriff &quot;parlamentarisches
+        Informationssystem&quot;.
+      </para>
+    </footnote> darstellen. Es dient damit als Grundlage für die
+    Implementierung von OParl-konformen Server- und Clientanwendungen.
   </para>
   <sect2 id="status">
     <title>Status</title>
@@ -24,31 +31,31 @@
       Autoren interessiert sind.
     </para>
   </sect2>
-  <sect2 id="was-ist-oparl">
-    <title>Was ist OParl?</title>
+  <sect2 id="was-ist-oparl-in-kürze">
+    <title>Was ist OParl in Kürze?</title>
     <para>
-      (TODO: Nachfolgend eine Übernahme aus dem bisherigen Abschnitt
-      &quot;Funktionsumfang der OParl-Schnittstelle&quot;. Der Text
-      sollte deutlich überarbeitet und erweitert werden.)
+      OParl ist die Gruppierung, die Initiator und Herausgeber der
+      vorliegenden Spezifikation ist. An OParl wirken Verbände,
+      Zivilgesellschaftliche Organisationen und Initiativen und
+      Software-Anbieter sowie interessierte Einzelpersonen mit.
     </para>
     <para>
-      Die vorliegende Spezifikation soll eine Webservice-Schnittstelle
-      definieren, die den anonymen und lesenden Zugriff auf öffentliche
-      Inhalte aus Parlamentarischen Informationssystemen ermöglicht. Die
-      Zugriffe erfolgen über das Hypertext Transfer Protocol (HTTP).
-      Daten werden als JSON oder als JSONP ausgeliefert.
+      Die vorliegende Spezifikation beschreibt den OParl-Standard.
+      Dieser definiert eine Webservice-Schnittstelle, die den anonymen
+      und lesenden Zugriff auf öffentliche Inhalte aus parlamentarischen
+      Informationssystemen ermöglicht. Wie der Name
+      &quot;Webservice&quot; ausdrückt, setzt diese Schnittstelle auf
+      dem World Wide Web auf. Sie ermöglicht, dass parlamentarishe
+      Informationen maschinenlesbar als Offene Daten (Open Data)
+      veröffentlicht werden.
     </para>
     <para>
-      Die Spezifikation wird obligatorische Bestandteile (MUSS) und
-      optionale Bestandteile (KANN) haben. Der tatsächliche
-      Funktionsumfang kann daher zwischen den Implementierungen
-      variieren.
+      Die vorligende Version ist die erste verabschiedete Version der
+      Spezifikaiton zum OParl-Standard. Zielsetzung von OParl
+      ---------------------
     </para>
-  </sect2>
-  <sect2 id="zielsetzung-von-oparl">
-    <title>Zielsetzung von OParl</title>
     <para>
-      OParl richtet sich an vielvältige Nutzergruppen (Stakeholder):
+      OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:
     </para>
     <itemizedlist>
       <listitem>
@@ -73,12 +80,7 @@
       </listitem>
       <listitem>
         <para>
-          Anbieter von RIS-Pflegesoftware oder -services
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Anbieter von RIS-Darstellungssoftware oder -services
+          Anbieter von Server- und Softwareprodukten
         </para>
       </listitem>
       <listitem>
@@ -88,8 +90,10 @@
       </listitem>
     </itemizedlist>
     <para>
-      TODO: Nutzen für jede Stakeholder-Gruppe TODO: Linked Data
-      erwähnen
+      TODO: Nutzen für jede Stakeholder-Gruppe
+    </para>
+    <para>
+      TODO: Linked Data erwähnen oder Verweis auf Linked Data Abschnitt
     </para>
     <para>
       Die Gründe, warum Betreiber von parlamentarischen
@@ -187,28 +191,35 @@
       bemüht<footnote>
         <para>
           Eine weltweite Übersicht zu Open-Data-Projekten bietet z.B.
-          der
-          <ulink url="http://opendata-showroom.org/de/">Open-Data-Showroom</ulink>
+          der Open-Data-Showroom
+          <ulink url="http://opendata-showroom.org/de/">http://opendata-showroom.org/de/</ulink>
         </para>
-      </footnote>. Bei dem Ansatz
-      &quot;<ulink url="https://de.wikipedia.org/wiki/Open_data">Open
-      Data</ulink>&quot; geht es darum diese Daten so bereitzustellen,
-      dass Dritte diese einfacher finden und weiterverwenden können. Die
-      <ulink url="https://sunlightfoundation.com/policy/documents/ten-open-data-principles/">zehn
-      Open-Data-Prinzipien der Sunlight-Foundation</ulink> beschreiben
-      die Offenheit von Datensätzen. Wesentlich dabei sind vor allem die
-      einfache rechtliche und die technische Offenheit. Bei ersterer
-      geht es darum, dass Datensätze unter Nutzungsbestimmungen
-      bereitgestellt werden, die kurz und verständlich formuliert sind
-      und mindestens jegliche weitere Verwendung inklusive der
-      kommerziellen erlauben unter der Voraussetzung, dass bei der
-      Weiterverwendung die Quelle benannt wird. Bei der technischen
-      Offenheit steht die Bereitstellung von Datensätzen in möglichst
-      maschinenlesbaren Formaten im Vordergrund. Dies bedeutet, stärker
-      strukturierte Datensätze sind in der Bereitstellung zu bevorzugen.
-      Liegen Daten innerhalb einer Organisation in einer Datenbank vor,
-      so bietet es sich an, diese soweit möglich über eine
-      Programmierschnittstelle (API) für Außenstehende bereitzustellen.
+      </footnote>. Bei dem Ansatz &quot;Open Data&quot;<footnote>
+        <para>
+          vgl.
+          <ulink url="https://de.wikipedia.org/wiki/Open_data">https://de.wikipedia.org/wiki/Open_data</ulink>
+        </para>
+      </footnote> geht es darum diese Daten so bereitzustellen, dass
+      Dritte diese einfacher finden und weiterverwenden können. Die zehn
+      Open-Data-Prinzipien der Sunlight-Foundation<footnote>
+        <para>
+          Ten Principles for Opening Up Open Government Information,
+          <ulink url="https://sunlightfoundation.com/policy/documents/ten-open-data-principles">https://sunlightfoundation.com/policy/documents/ten-open-data-principles</ulink>
+        </para>
+      </footnote> beschreiben die Offenheit von Datensätzen. Wesentlich
+      dabei sind vor allem die einfache rechtliche und die technische
+      Offenheit. Bei ersterer geht es darum, dass Datensätze unter
+      Nutzungsbestimmungen bereitgestellt werden, die kurz und
+      verständlich formuliert sind und mindestens jegliche weitere
+      Verwendung inklusive der kommerziellen erlauben unter der
+      Voraussetzung, dass bei der Weiterverwendung die Quelle benannt
+      wird. Bei der technischen Offenheit steht die Bereitstellung von
+      Datensätzen in möglichst maschinenlesbaren Formaten im
+      Vordergrund. Dies bedeutet, stärker strukturierte Datensätze sind
+      in der Bereitstellung zu bevorzugen. Liegen Daten innerhalb einer
+      Organisation in einer Datenbank vor, so bietet es sich an, diese
+      soweit möglich über eine Programmierschnittstelle (API) für
+      Außenstehende bereitzustellen.
     </para>
     <para>
       Die Erfüllung dieser rechtlichen und technischen Offenheit erlaubt
@@ -245,7 +256,7 @@
       Dokumentenformaten an (ein PDF mit digitalem Text weist weit
       weniger Barrieren auf, als ein gescannter Brief, der ebenfalls als
       PDF gespeichert wurde) und hört bei der verwendeten Sprache
-      auf<footnote>
+      auf.<footnote>
         <para>
           Weitere generelle Informationen zur Bereitstellung offener
           Verwaltungsdaten bieten bspw.
@@ -253,21 +264,21 @@
         <itemizedlist>
           <listitem>
             <para>
-              Praktische Informationen:
-              <ulink url="http://opendatahandbook.org/de/how-to-open-up-data/index.html">Open-Data-Handbook</ulink>
-              der Open Knowledge Foundation
+              Praktische Informationen: Open-Data-Handbook der Open
+              Knowledge Foundation
+              <ulink url="http://opendatahandbook.org/de/how-to-open-up-data/index.html">http://opendatahandbook.org/de/how-to-open-up-data/index.html</ulink>
             </para>
           </listitem>
           <listitem>
             <para>
               Grundsätzliche Informationen: Die vom Bundesministerium
-              des Innern beauftragte Studie
-              &quot;<ulink url="http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf?__blob=publicationFile">Open
-              Government Data Deutschland</ulink>&quot; (PDF)
+              des Innern beauftragte Studie &quot;Open Government Data
+              Deutschland&quot;
+              <ulink url="http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf">http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf</ulink>
             </para>
           </listitem>
         </itemizedlist>
-      </footnote>.
+      </footnote>
     </para>
   </sect2>
   <sect2 id="werdegang-von-oparl-1.0">
@@ -414,25 +425,26 @@
       können verwendet werden. Dazu gehören insbesondere die Linked Data
       Platform des W3C und Hydra.
     </para>
+    <sect3 id="globalisierung">
+      <title>Globalisierung</title>
+      <para>
+        Es gibt in sehr vielen Ländern Gebietskörperschaften mit
+        politischen Gremien, deren Prozesse ähnlich strukturiert sind
+        wie diejenigen in Deutschland. Auch dort besteht Bedarf an
+        standardisierten Vokabularen zur Veröffentlichung
+        parlamentarischer Informationen. Deshalb sind - teilweise noch
+        vor OParl - auch weitere entsprechende Initiativen entstanden.
+        Eine enge Zusammenarbeit mit diesen Initiativen mit dem Ziel der
+        Wiederverwendung von Arbeitsergebnissen wird deshalb angestrebt.
+        Auch aus diesem Grund wurde bereits in OParl 1.0 die Möglichkeit
+        der Verwendung mit anderen Sprachen und Mehrsprachigkeit
+        eingebaut.
+      </para>
+      <para>
+        TODO: Popolo, UK, KB Niederlande
+      </para>
+    </sect3>
   </sect2>
-</sect1>
-<sect1 id="globalisierung">
-  <title>Globalisierung</title>
-  <para>
-    Es gibt in sehr vielen Ländern Gebietskörperschaften mit politischen
-    Gremien, deren Prozesse ähnlich strukturiert sind wie diejenigen in
-    Deutschland. Auch dort besteht Bedarf an standardisierten
-    Vokabularen zur Veröffentlichung parlamentarischer Informationen.
-    Deshalb sind - teilweise noch vor OParl - auch weitere entsprechende
-    Initiativen entstanden. Eine enge Zusammenarbeit mit diesen
-    Initiativen mit dem Ziel der Wiederverwendung von Arbeitsergebnissen
-    wird deshalb angestrebt. Auch aus diesem Grund wurde bereits in
-    OParl 1.0 die Möglichkeit der Verwendung mit anderen Sprachen und
-    Mehrsprachigkeit eingebaut.
-  </para>
-  <para>
-    TODO: Popolo, UK, KB Niederlande
-  </para>
   <sect2 id="nomenklatur-der-spezifikation-und-satzkonventionen">
     <title>Nomenklatur der Spezifikation und Satzkonventionen</title>
     <sect3 id="müssen-sollen-und-können-bzw.-zwingend-empfohlen-und-optional">
@@ -578,7 +590,8 @@
     </para>
     <para>
       Felix Ebert, Jan Erhardt, Jens Klessmann, Andreas Kuckartz, Babett
-      Schalitz, Marian Steinbach, Thomas Tursics, Jakob Voss
+      Schalitz, Ralph Sternberg, Marian Steinbach, Bernd Thiem, Thomas
+      Tursics, Jakob Voss
     </para>
   </sect2>
 </sect1>
@@ -620,20 +633,9 @@
       Parlamentarische Informationssysteme sind Software-Systeme, die
       von verschiedensten Körperschaften eingesetzt werden, um die
       Zusammenarbeit von Parlamenten zu organisieren, zu dokumentieren
-      und öffentlich nachvollziehbar zu machen.
-    </para>
-    <para>
-      Im kommunalen Umfeld in Deutschland, wo das Parlament je nach Art
-      der Kommune häufig als Stadtrat oder Gemeinderat bezeichnet wird,
-      hat sich für diese Art von Informationssystem auch der Begriff
-      &quot;Ratsinformationssystem&quot; (kurz &quot;RIS&quot;)
-      etabliert.
-    </para>
-    <para>
-      Parlamentarische Informationssysteme sind jedoch nicht auf die
-      kommunale Ebene begrenzt. Ähnliche Systeme werden auch auf Ebene
-      z.B. von Landkreisen, Regierungsbezirken und diversen
-      Zweckverbänden eingesetzt.
+      und öffentlich nachvollziehbar zu machen. Zu den Körperschaften
+      können beispielsweise Kommunen, Landkreise, Regierungsbezirke und
+      Zweckverbänden gehören.
     </para>
     <para>
       Diese Systeme unterstützen in der Regel mehrere der folgenden

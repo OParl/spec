@@ -45,7 +45,7 @@ gecachten Inhalte aktualisieren.
 
 Eine Stärke eines mobilen Clients ist auch die Möglichkeit der Personalisierung,
 also der Anpassung auf die Bedürfnisse und Interessen der Nutzerin oder des Nutzers.
-Es wäre beispielsweise denkbar, dass eine Nutzerin die Ratsinformationssysteme,
+Es wäre beispielsweise denkbar, dass eine Nutzerin die parlamentarischen Informationssysteme,
 für die sie sich interessiert, dauerhaft in der App einrichtet und eine Favoritenliste
 der Gremien, die ihre bevorzugten Themengebiete behandeln, hinterlegt. Die App
 könnte aufgrund dieser Favoritenliste eigenständig über die API nach neuen

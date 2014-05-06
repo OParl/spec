@@ -95,12 +95,10 @@ Parlament an.
     EMPFOHLEN.
 
 `license`
-:   Lizenz, die für die Daten, die über diese API abgerufen werden
-    können, gilt, sofern nicht am einzelnen Objekt anders angegeben. Verzeichnisse für solche Lizenz-URLs
-    sind insbesondere
-    http://licenses.opendefinition.org/ und
-    https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json
-    Typ: TODO
+:   URL der Lizenz, die für die Daten, die über diese API abgerufen werden
+    können, gilt, sofern nicht am einzelnen Objekt anders angegeben.
+    Sie dazu auch die übergreifende Beschreibung zur Eigenschaft
+    [`license`](#eigenschaft_license).
     EMPFOHLEN.
 
 `licenseValidSinceDay`

@@ -25,7 +25,10 @@ In keinem Fall sollten die Werte von `name` und `nameLong` identische sein.
 
 Die Eigenschaft `license` erlaubt es, am jeweiligen Objekt die URL einer Lizenz
 anzugeben. Damit wird gekennzeichnet, welche Lizenz der Veröffentlicher der
-Daten für das jeweilige Objekt vergibt.
+Daten für das jeweilige Objekt vergibt.^[Verzeichnisse für Lizenz-URLs sind
+unter anderem unter <http://licenses.opendefinition.org/> und 
+<https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json>
+zu finden.]
 
 Eine besondere Bedeutung hat die Eigenschaft `license`, wenn sie am `oparl:System` Objekt oder am `oparl:Body`
 Objekt vergeben wird. Die hier angegebene Lizenzinformation sagt aus, dass alle

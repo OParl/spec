@@ -75,79 +75,96 @@ Parlament an.
 ### Eigenschaften
 
 `system`
-:   URL des Objekts vom Typ `oparl:System` Objekts, zu dem dieses Objekt gehört. 
+:   System zu dem dieses Objekt gehört.
+    Typ: `oparl:System`
     ZWINGEND.
 
 `name`
 :   Gibt den gebräuchlichen Namen der Körperschaft an.
+    Typ: TODO
     ZWINGEND.
 
 `nameLong`
 :   Kann bei Bedarf dazu verwendet werden, eine längere Form des 
     Namens der Körperschaft anzugeben.
+    Typ: TODO
     OPTIONAL.
 
 `website`
-:   Dient der Angabe der WWW-URL der Körperschaft.
+:   WWW-URL der Körperschaft.
     EMPFOHLEN.
 
 `license`
-:   URL der Lizenz, die für die Daten, die über diese API abgerufen werden
+:   Lizenz, die für die Daten, die über diese API abgerufen werden
     können, gilt, sofern nicht am einzelnen Objekt anders angegeben. Verzeichnisse für solche Lizenz-URLs
     sind insbesondere
     http://licenses.opendefinition.org/ und
     https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json
+    Typ: TODO
     EMPFOHLEN.
 
 `licenseValidSinceDay`
 :   Tagesdatum, seit dem die unter license angegebene Lizenz gilt.
     Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen.
+    Typ: TODO
     EMPFOHLEN
 
 `rgs`
 :   Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette^[Regionalschlüssel können im [Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes](https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html) eingesehen werden].
-    Diese Eigenschaft ist EMPFOHLEN.
+    Typ: TODO
+    EMPFOHLEN
 
-`sameBody`
-:   Dient der Angabe beliebig vieler zusätzlicher URLs, die die Körperschaft
-    repräsentieren. Diese Eigenschaft ist EMPFOHLEN. Hier können beispielsweise,
+`equivalentBody`
+:   Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe Körperschaft
+    repräsentieren. Hier können beispielsweise,
     sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>],
     der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden.
+    Typ: TODO
+    EMPFOHLEN
 
 `contactEmail`
-:   Dient der Angabe einer Kontakt-E-Mail-Adresse mit "mailto:"-Schema. Diese Eigenschaft
-    ist EMPFOHLEN. Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft
+:   Dient der Angabe einer Kontakt-E-Mail-Adresse mit "mailto:"-Schema.
+    Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft
     und idealerweise das parlamentarische Informationssystem zuständigen Stelle
     ermöglichen.
+    Typ: TODO
+    EMPFOHLEN
 
 `contactName`
-:   Name oder Bezeichnung der mit `contactEmail` erreichbaren Stelle. OPTIONAL.
+:   Name oder Bezeichnung der mit `contactEmail` erreichbaren Stelle.
+    Typ: TODO
+    OPTIONAL.
 
 `paper`
-:   URL, unter welcher die API die Liste aller Objekte vom Typ `oparl:Paper`,
-    also die Drucksachen unter dieser Körperschaft ausgibt.
-    Diese Eigenschaft ist ZWINGEND.
+:   Drucksachen unter dieser Körperschaft.
+    Typ: `oparl:Paper`
+    ZWINGEND.
 
 `member`
-:   URL, unter welcher die API die Liste aller Objekte vom Typ `oparl:Person`,
-    also die Personen unter dieser Körperschaft ausgibt.
-    Diese Eigenschaft ist ZWINGEND.
+:   Personen in dieser Körperschaft.
+    Typ: `oparl:Person`
+    ZWINGEND.
 
 `meeting`
-:   URL, unter welcher die API die Liste aller Objekte vom Typ `oparl:Meeting`,
-    also die Sitzungen dieser Körperschaft ausgibt.
-    Diese Eigenschaft ist ZWINGEND.
+:   Sitzungen dieser Körperschaft.
+    Typ: `oparl:Meeting`
+    ZWINGEND
 
 `organization`
-:   URL, unter welcher die API die Liste aller Objekte vom Typ `oparl:Organization`,
-    also die Gruppierungen dieser Körperschaft ausgibt.
-    Diese Eigenschaft ist ZWINGEND.
+:   Gruppierung in dieser Körperschaft.
+    Typ: `oparl:Organization`
+    ZWINGEND
 
 `classification`
-:   `skos:Concept`
+:   Typ: `skos:Concept`
+    OPTIONAL
 
 `created`
-:   Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
+:   Datum/Uhrzeit der Erzeugung des Objekts.
+    Typ: TODO
+    EMPFOHLEN.
 
 `lastModified`
-:   Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.
+:   Datum/Uhrzeit der letzten Bearbeitung des Objekts.
+    Typ: TODO
+    EMPFOHLEN

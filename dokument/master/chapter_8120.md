@@ -28,7 +28,7 @@ Das selbe Beispiel in kompakter Form (ein passender Kontext wird vorausgesetzt):
 
 ~~~~~  {#consultation_ex2 .json}
 {
-    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
+    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld",
     "@type": "oparl:Consultation",
     "@id": "beispielris:consultation/47594",
     "paper": "beispielris:paper/2396",

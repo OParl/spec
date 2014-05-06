@@ -20,11 +20,11 @@ Ein Beispiel in expandierter Form:
     "familyName": { // könnte mehrsprachig sein, z.B. griechisch, russisch, tamilisch 
         "@value": "Mustermann",
         "@language": "de"
-    }
+    },
     "givenName": { // könnte mehrsprachig sein
         "@value": "Max",
         "@language": "de"
-    }
+    },
     "title": "Prof. Dr.", // TODO: nicht mehrsprachig?!
     "formOfAddress": "http://oparl.beispielris.de/formofaddress/ratsmitglied",
     "gender": "http://www.w3.org/2006/vcard/ns#Male",
@@ -35,7 +35,7 @@ Ein Beispiel in expandierter Form:
     "locality": {
         "de": "Musterort",
         "en": Sample Town"
-    }
+    },
     "organization": [
         "http://oparl.beispielris.de/organization/11",
         "http://oparl.beispielris.de/organization/34"
@@ -61,7 +61,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "academic_degree": {
         "@language": null , // keine Vorgabesprache da nicht mehrsprachig
         "@id": "foaf:title"
-    }
+    },
     "email": {
         "@id": "foaf:mbox",
         "@type": "@id"
@@ -71,7 +71,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "locality": {
         "@id": "vcard:locality",
         "@container": "@language" // für eine "language map"
-    }
+    },
     "created": {
         "@id": "dc:created",
         "@type": "xsd:dateTime"
@@ -101,7 +101,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "locality": "Musterort",
     "locality": {
         "en": "Sample Town" // TODO prüfen, ob Eigenschaft doppelt erscheinen darf
-    }
+    },
     "organization": ["11", "34"],
     "status": "beispielris:status/buergermeister",
     "hasMembership": "beispielris:membership/34",

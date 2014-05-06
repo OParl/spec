@@ -129,42 +129,69 @@ sind auch Portlet-Entwicklungen als Open-Source-Projekte.
 
 ## Szenario 3: Meta-Suche  {#szenario_meta_suche}
 
-Über die OParl-API können die Informationen zu Abläufen und Entscheidungen aus einem
-Ratsinformationssystem (RIS) in einem externen System anders aufbereitet und dargestellt
-werden. Bieten mehrere RIS eine OParl-API an, ist der Aufwand die Inhalte dieser weiteren
-Instanzen zusätzlich in dem externen System aufzubereiten und darzustellen vergleichsweise
-gering. Auf dem externen System werden die Inhalte unterschiedlicher RIS übergreifend
-durchsuchbar gemacht. Nutzerinnen und Nutzer dieses Angebots können in einer Meta-Suche
-über alle angeschlossenen RIS hinweg nach Ratsvorgängen suchen. Daraus ergeben sich
-unterschiedliche Anwendungsmöglichkeiten:
+Die Ermöglichung einer nutzerfreundliche Suche, die damit verbundene Indexierung von
+verschiedensten Dokumenteninhalten und die Kategorisierung von Inhalten kann eine
+sowohl konzeptionell als auch technisch Anspruchsvolle Aufgabe sein. Auch im Hinblick
+auf die Server-Ressourcen sind damit nennenswerte Aufwände verbunden. Andererseits
+liegt auf der Hand, dass die effiziente Arbeit mit großen Informationsmengen nach
+intelligenten Möglichkeiten der Einschränkung von Informationsmengen auf das jeweils
+im Anwendungsfall relevante Treffer verlangt. Beispiel wäre ein Nutzer, der sich für
+alle Dokumente zum Thema Kreisverkehre interessiert. Die OParl-Spezifikation sieht
+keine Methoden vor, wie die Ausgabe des Servers schon bei der Anfrage von Dokumenten
+derart beschränkt werden können. Damit ist die Realisation von Such- und Filtermechanismen
+im OParl-Umfeld eine Aufgabe, die bis auf weiteres lediglich auf Seite der Clients
+angeboten werden kann.
 
-* Eine Mitarbeiterin eines regionalen Zweckverbands hat die Aufgabe Ratsvorgänge in den
+Angelehnt an das seit den Anfängen des Web etablierte Modell der externen Web-Suchmaschine
+sind spezielle Suchmaschinen für OParl-konforme parlamentarische Informationssysteme
+denkbar. Diese können auch von dritten, beispielsweise zivilgesellschaftlichen
+Organisationen betrieben werden, die nicht Betreiber des Server-Systems sind. Solche
+Plattformen treten gegenüber dem OParl-Server als Client auf und rufen bestimmte oder
+sämtliche Informationen, die das System bereit hält, ab. Vorbild sind die Robots oder
+Spider von Web-Suchmaschinen. Die abgerufenen Informationen können dann indexiert
+und je nach Anforderungen für eine gezielte Suche weiterverarbeitet werden.
+
+Dieses Modell ist grundsätzlich nicht auf einzelne OParl-Server oder einzelne
+Körperschaften beschränkt. Vielmehr könnte der Betreiber einer solchen Suchmaschine
+sich entschließen, die Informationen aus mehreren OParl-konformen Systemen zu indexieren.
+Nutzern könnte entweder angeboten werden, die Suche auf bestimmte Körperschaften,
+beispielsweise auf eine bestimmte Kommune, zu beschränken, oder ohne Beschränkung über
+alle angebotenen Körperschaften zu suchen.^[Daher der Begriff Meta-Suche]
+
+Daraus ergeben sich vielfältige Anwendungsszenarien, die hier beispielhaft
+beschrieben werden:
+
+* Eine Mitarbeiterin eines regionalen Zweckverbands hat die Aufgabe, Ratsvorgänge in den
 Mitgliedskommunen mit Relevanz für die Aufgaben des Verbandes im Blick zu behalten. Sie
-nutzt dafür ein regionales Internetportal, in dem die RIS-Inhalte der Mitgliedskommunen
-mittels OParl-Schnittstelle durchsuchbar sind. Um die Suche zu vereinfachen hat sie
-einzelne Schlagwörter abonniert, zu denen sie automatisch über neue Vorgänge informiert
-wird.
+nutzt dafür ein regionales Internetportal, in dem die Inhalte der OParl-konformen 
+parlamentarischen Informationssysteme der Mitgliedskommunen durchsuchbar sind.
+Um die Suche zu vereinfachen, hat sie einzelne Schlagwörter abonniert, zu denen sie 
+automatisch über neue Vorgänge informiert wird.
 
 * Ein Einwohner eines Ballungsraums will sich über aktuelle Vorgänge rund um seine
 Mietwohnung in Stadt A, sein Gartengrundstück in einer Kleingartenkolonie in der
 Nachbarstadt B und seinen Arbeitsplatz in Stadt C auf dem laufenden halten. Dazu abonniert
-er im regionalen Meta-RIS-Portal parlamentarische Vorgänge mit räumlichem Bezug zu diesen
-drei Standorten und wird so automatisch über neue Aktivitäten informiert.
+er im regionalen Meta-Such-Portal parlamentarische Vorgänge mit räumlichem Bezug zu diesen
+drei Standorten und wird so automatisch über neue Aktivitäten informiert, die Relevanz
+für ihn haben könnten.
 
 * Eine Landespolitikerin möchte einfacher über die politischen Aktivitäten ihrer
 Parteikollegen in den Rathäusern des Bundeslandes informiert werden. Dazu nutzt sie ein
-Internetportal, in dem die Informationen aus den RIS mit OParl-Schnittstelle im Land
-zusammengeführt werden. Dort hat sie sich Abonnements zu einzelnen Lokalpolitikern
-eingerichtet und wird automatisch über ihre Teilnahme an Gremiensitzungen und die
-Themen dieser Sitzungen informiert.
+Internetportal, in dem die Informationen aus den parlamentarischen Informationssystemen 
+mit OParl-Schnittstelle im Land zusammengeführt werden. Dort hat sie sich Abonnements 
+zu einzelnen Lokalpolitikern eingerichtet und wird automatisch über ihre Teilnahme an 
+Gremiensitzungen und die Themen dieser Sitzungen informiert.
 
 ## Szenario 4: Forschungsprojekt Themen- und Sprachanalyse {#szenario_forschung}
 
 In einem Forschungsprojekt sollen Pro- und Contra-Argumentationen bei Ratsdiskussionen zum
 Ausbau von Stromtrassen identifiziert werden. Über die Analyse in mehreren Gebietskörperschaften
 sollen die gefundenen Argumentationen zu wiederkehrenden Mustern verdichtet und festgestellt
-werden, wie diese Muster regional abweichen. Dazu nutzen die Mitarbeitenden des
-Forschungsprojektes die OParl-Schnittstellen der Ratsinformationssysteme von Kommunen entlang der
-geplanten überregionalen Trassen. Über diese einheitlichen Schnittstellen können sie relevante
-Beratungen, Drucksachen und Dateien abrufen und zum Beispiel in einem Werkzeug zur qualitativen
-Datenanalyse lokal verarbeiten.  
+werden, wie diese Muster regional abweichen.
+
+Dazu nutzen die Mitarbeitenden des Forschungsprojektes die OParl-Schnittstellen der
+parlamentarischen Informationssysteme aller Kommunen entlang der geplanten überregionalen
+Trassen. Über diese einheitlichen Schnittstellen können sie insbesondere die relevanten
+Wortprotokolle abrufen und zum Beispiel in einem Werkzeug zur qualitativen
+Datenanalyse lokal verarbeiten. Im Ergebnis ließe sich auch erkennen, wie ähnlich oder
+wie unterschiedlich die Argumente in rhetorischer Hinsicht vorgetragen werden.

@@ -9,9 +9,9 @@ erheben keinen Anspruch auf Vollständigkeit.
 
 Eine [Client](#client)-Anwendung für mobile Endgeräte wie Smartphones und Tablets,
 nachfolgend "App" genannt, könnte das Ziel verfolgen, Nutzern unterwegs
-sowie abseits vom Desktop-PC auf die Gegebenheiten mobiler Endgeräte optimierten Lesezugriff auf Dokumente aus
-Ratsinformationssystemen (RIS) zu bieten. Die möglichen Kontexte und
-Nutzungsmotivationen sind vielfältig:
+sowie abseits vom Desktop-PC auf die Gegebenheiten mobiler Endgeräte optimierten
+Lesezugriff auf Dokumente aus parlamentarischen Informationssystemen
+zu bieten. Die möglichen Kontexte und Nutzungsmotivationen sind vielfältig:
 
 * Teilnehmer einer Sitzung greifen während der Sitzung auf die Einladung
   dieser Sitzung und die zur Tagesordnung der Sitzung gehörenden

@@ -44,9 +44,9 @@ Ein expandiertes Beispiel:
         "http://d-nb.info/gnd/2015732-0",
         "http://dbpedia.org/resource/Cologne"
     ],
-    "name": "Stadt K\u00f6ln",
+    "name": "Stadt Köln",
     "nameLong": { // verwendet eine "language map"
-        "de": "Stadt K\u00f6ln, kreisfreie Stadt",
+        "de": "Stadt Köln, kreisfreie Stadt",
         "en": "City of Cologne"
     }
     "website": "http://www.beispielstadt.de/",

@@ -14,5 +14,4 @@ Stichpunkte:
 Protocol (HTTP).
 * Optional gzip Encoding und andere Kodierungen, wenn Client und Server dies 
 unterstützen
-* Das Protokoll ist zustandslos
 * Authentifizierung wird nicht benötigt.

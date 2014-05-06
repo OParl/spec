@@ -21,7 +21,7 @@ Union Deutschlands".
 
 In keinem Fall sollten die Werte von `name` und `nameLong` identische sein.
 
-### `license`
+### `license` {#eigenschaft_license}
 
 Die Eigenschaft `license` erlaubt es, am jeweiligen Objekt die URL einer Lizenz
 anzugeben. Damit wird gekennzeichnet, welche Lizenz der Veröffentlicher der

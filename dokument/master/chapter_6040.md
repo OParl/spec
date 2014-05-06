@@ -21,7 +21,7 @@ TODO: MUSS der Server solche Legacy-Anfragen akzeptieren? Warum?
 ### JSON
 
 Die Abkürzung JSON steht für "JavaScript Object Notation". Das JSON-Format ist in
-RFC4627^[<https://tools.ietf.org/html/rfc4627>] beschrieben. Nachfolgend werden nur die
+RFC4627^[RFC4627: <https://tools.ietf.org/html/rfc4627>] beschrieben. Nachfolgend werden nur die
 wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren
 Verwendung in diesem Dokument zu etablieren.
 

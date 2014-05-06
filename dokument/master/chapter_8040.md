@@ -76,22 +76,22 @@ Parlament an.
 
 `system`
 :   System zu dem dieses Objekt gehört.
-    Typ: `oparl:System`
+    Typ: `oparl:System`.
     ZWINGEND.
 
 `name`
 :   Gibt den gebräuchlichen Namen der Körperschaft an.
-    Typ: TODO
+    Typ: TODO.
     ZWINGEND.
 
 `nameLong`
 :   Kann bei Bedarf dazu verwendet werden, eine längere Form des 
     Namens der Körperschaft anzugeben.
-    Typ: TODO
+    Typ: TODO.
     OPTIONAL.
 
 `website`
-:   WWW-URL der Körperschaft.
+:   URL der allgemeinen Website der Körperschaft.
     EMPFOHLEN.
 
 `license`

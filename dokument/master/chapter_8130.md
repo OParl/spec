@@ -67,7 +67,7 @@ Und ein Beispiel unter Verwendung des Kontextes:
 {
     // ...
     "location": {
-        "description": "Honschaftsstra\u00dfe 312, K\u00f6ln",
+        "description": "Honschaftsstraße 312, Köln",
         "geometry": "POINT (7.03291 50.98249)"
     },
     // ...

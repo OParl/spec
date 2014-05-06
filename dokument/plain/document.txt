@@ -17,7 +17,8 @@ entsprechend viele Ungenauigkeiten und Hinweise auf offene
 Fragestellungen.
 
 Die Kennzeichnung "TODO" markiert Hinweise, die für die Bearbeiter des
-Dokuments gedacht sind.
+Dokuments gedacht sind. Darunter befinden sich auch Fragen an deren
+Beantwortung durch Reviewer des Dokuments die Autoren interessiert sind.
 
 Was ist OParl?
 --------------
@@ -39,18 +40,17 @@ zwischen den Implementierungen variieren.
 Zielsetzung von OParl
 ---------------------
 
-TODO:
+OParl richtet sich an vielvältige Nutzergruppen (Stakeholder):
 
--   Nutzen für Kommunen, Bürger, politische Parteien
--   Nutzen für Anbieter von RIS-Pflegesoftware
--   Nutzen für Anbieter von RIS-Darstellungssoftware
--   Nutzen für Open Data Initiativen
--   Nutzen für die Wissenschaft
--   Linked Data erwähnen
+-   Verwaltung und politische Gremien in Kommunen
+-   Bürger, politische Parteien und Organisationen
+-   Open Data Initiativen
+-   Wissenschaftler
+-   Anbieter von RIS-Pflegesoftware oder -services
+-   Anbieter von RIS-Darstellungssoftware oder -services
+-   Anbieter von Linked Data-Plattformen oder -Services
 
-(Nachstehen der bisherige Textentwurf aus dem Abschnitt "Motivationen
-für den standardisierten Datenzugriff", der sicherlich deutlich
-überarbeitet werden muss.)
+TODO: Nutzen für jede Stakeholder-Gruppe TODO: Linked Data erwähnen
 
 Die Gründe, warum Betreiber von parlamentarischen Informationssystemen
 den Zugriff darauf über eine standardisierte Schnittstelle ermöglichen
@@ -82,7 +82,7 @@ sind.
 
 Die Anwendungsmöglichkeiten für parlamentarische Informationen, wenn sie
 über eine Schnittstelle schnell und einfach abgerufen werden können,
-sind vielfältig. Beispiele könnten sein:
+sind vielfältig. Beispiele sind:
 
 -   Apps für den Abruf auf mobilen Endgeräten
 -   Möglichkeiten zur Wiedergabe für Nutzerinnen und Nutzer mit
@@ -208,7 +208,11 @@ Stichpunkte:
         gute Basis für die baldige Fertigstellung zu legen.
 -   26. Januar 2014: In Düsseldorf findet ein weiterer Workshop zur
         Arbeit am Entwurf der Spezifikation statt.
--   1.  Mai 2014: Beginn der Review-Phase. Interessierte sind
+-   April 2014: Verfeinerung des Vokabular-Teils durch Andreas Kuckartz,
+    finanziert durch das FP7-Projekt Fusepool aus Mitteln der
+    Europäischen Union.
+
+-   6.  Mai 2014: Beginn der Review-Phase. Interessierte sind
         aufgerufen, den vorliegenden Entwurf bis Ende Mai zu
         kommentieren.
 -   Ende Mai 2014: Telefonkonferenz zum eingegangenen Feedback aus der
@@ -220,16 +224,31 @@ Stichpunkte:
 Zukunft von OParl
 -----------------
 
-TODO: - Verfeinerung, Lücken schliessen - Globalisierung - Erweiterung
-über die kommunale Ebene hinaus (Land, Bund) - Vereinheitlichung von
-Kategorien (Drucksachentypen, Arten von Gremien) - Erweiterung von
-Personendaten, z.B. mit Social Media URLs - Mehr Abfragekriterien -
-Suchfunktionen (Volltextsuche) - Abstimmungsverhalten und
-maschinenlesbare Protokolle - Schreibender Zugriff. Auch dazu muss das
-Rad nicht neu erfunden werden. Bestehende bzw. in Entwicklung
-befindliche Spezifikationen und Techniken aus der Linked Data-Welt
-können verwendet werden. Dazu gehören insbesondere die Linked Data
-Platform des W3C und Hydra.
+TODO: - Verfeinerung, Lücken schliessen - Erweiterung über die kommunale
+Ebene hinaus (Land, Bund) - Vereinheitlichung von Kategorien
+(Drucksachentypen, Arten von Gremien) - Erweiterung von Personendaten,
+z.B. mit Social Media URLs - Mehr Abfragekriterien - Suchfunktionen
+(Volltextsuche) - Abstimmungsverhalten und maschinenlesbare Protokolle -
+Verknüpfung mit verteilten Social Media Plattformen - Schreibender
+Zugriff. Auch dazu muss das Rad nicht neu erfunden werden. Bestehende
+bzw. in Entwicklung befindliche Spezifikationen und Techniken aus der
+Linked Data-Welt können verwendet werden. Dazu gehören insbesondere die
+Linked Data Platform des W3C und Hydra.
+
+Globalisierung
+==============
+
+Es gibt in sehr vielen Ländern Gebietskörperschaften mit politischen
+Gremien, deren Prozesse ähnlich strukturiert sind wie diejenigen in
+Deutschland. Auch dort besteht Bedarf an standardisierten Vokabularen
+zur Veröffentlichung parlamentarischer Informationen. Deshalb sind -
+teilweise noch vor OParl - auch weitere entsprechende Initiativen
+entstanden. Eine enge Zusammenarbeit mit diesen Initiativen mit dem Ziel
+der Wiederverwendung von Arbeitsergebnissen wird deshalb angestrebt.
+Auch aus diesem Grund wurde bereits in OParl 1.0 die Möglichkeit der
+Verwendung mit anderen Sprachen und Mehrsprachigkeit eingebaut.
+
+TODO: Popolo, UK, KB Niederlande
 
 Nomenklatur der Spezifikation und Satzkonventionen
 --------------------------------------------------
@@ -862,6 +881,37 @@ Dieses Ziel wird in Zukunft natürlich abgewägt werden müssen mit dem
 Wunsch, sich an Veränderungen und neue Erkenntnisse anzupassen. Eine
 Garantie für Zukunftssicherheit kann insofern niemand aussprechen.
 
+Content Negotiation
+-------------------
+
+Im Abschnitt Designprinzipien wurde bereits erwähnt, dass die
+"Dereferenzierung" mittels Content Negotiation erfolgt.
+
+So kann der Server beim Zugriff eines Client auf
+
+https://dbpedia.org/resource/John_Doe_(musician)
+
+z.B. entweder diese URL sowie HTML-Inhalt liefern
+
+https://dbpedia.org/page/John_Doe_(musician)
+
+oder aber diese URL mit JSON-LD als Inhalt
+
+https://dbpedia.org/data/John_Doe_(musician).jsonld
+
+Die Entscheidung darüber, welche der URLs und welche der Inhaltsformate
+der Server liefert, wird zwischen Client und Server mittels Content
+Negotiation ausgehandelt.
+
+Der Vorgang ist u.a. in http://de.wikipedia.org/wiki/Content_Negotiation
+erklärt. Content Negotiation ist Bestandteil der HTTP 1.1 Spezifikation.
+Siehe RFC 2616 (http://tools.ietf.org/html/rfc2616).
+
+Wichtig ist, dass Client und Server die Möglichkeit haben, das Format
+auszuhandeln. Deshalb müssen in OParl-Daten format-unspezifische URLs
+angegeben werden, bei dem Musiker John Doe ist das die erste der oben
+angegebenen URLs und nicht die letzte.
+
 HTTP und HTTPS
 --------------
 
@@ -893,7 +943,8 @@ antworten (HTTP Status-Code 301).
 Gleiches gilt umgekehrt: beantwortet das System regulär Anfragen über
 unverschlüsseltes HTTP, dann MÜSSEN Anfragen auf die entsprechenden URLs
 mit "https://"-Schema mit einer HTTP-Weiterleitung (HTTP Status-Code
-301) beantwortet werden.
+301) beantwortet werden. TODO: Geht das, wenn HTTPS nicht unterstützt
+wird?
 
 URLs bzw. IRIs
 --------------
@@ -1056,7 +1107,7 @@ Vollständigkeit erheben:
     erscheint. Erfahrungsgemäß überdauern solche URLs nur kurz.
 
 Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee[^11]
-sowie die Europäische Kommission[^12].
+sowie die Europäische Kommission[^12]. TODO: goo.gl URL expandieren
 
 Serialisierung mittels JSON-LD und JSONP
 ----------------------------------------
@@ -1954,7 +2005,7 @@ created
 
 Datum und Uhrzeit der Erstellung des jeweiligen Objekts.
 
-lastModified
+modified
 
 Diese Eigenschaft kennzeichnet stets Datum und Uhrzeit der letzten
 Änderung des jeweiligen Objekts.
@@ -1970,15 +2021,39 @@ beispielsweise eine Gruppierung vom Server grundsätzlich mit der Liste
 der URLs aller Mitglieder ausgegeben wird, umfasst das Objekt aus Sicht
 des Clients eben auch die Liste der Mitglieder. In diesem Fall wäre eine
 Veränderung der Liste der Mitglieder als Änderung des Objekts zu
-verstehen, die im lastModified Zeitstempel wiederspiegeln sollte.
+verstehen, die im modified Zeitstempel widerspiegeln sollte.
 
-category
+classification
 
-Verweist auf ein oder eventuell auch mehrere Objekte mit einer
-skos:prefLabel-Eigenschaft. Der Wert der Eigenschaft ist jeweils eine
-Zeichenkette. TODO: Es werden zwei Eigenschaften pro Klasse benötigt,
-eine für Schlagworte und eine für eine Bezeichnung. Siehe u.a.:
-https://github.com/OParl/specs/issues/41
+Dient der Verschlagwortung und verweist dazu auf ein oder eventuell auch
+mehrere skos:Concept-Objekte mit einer skos:prefLabel-Eigenschaft. Der
+Wert der Eigenschaft ist jeweils eine Zeichenkette. Die verwendete
+Sprache (in der Regel "de" für Deutsch) MUSS dabei angegeben werden.
+
+TODO: SKOS darstellen
+
+TODO: Beispiel
+
+Siehe u.a.:
+
+    https://github.com/OParl/specs/issues/41
+
+Geoportal.de und DeStat.de werden bereits auf Basis von
+Metadaten-Standards verlinkt. Bei einer Verwendung von
+Metadaten-Standards für RIS könnten ebenfalls interessante Potenziale
+durch Verlinkung entstehen. Der GovData-Metadaten-Standard z.B. kann
+genutzt werden
+
+    http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html
+
+und die 14 GovData-Kategorien können dabei durch eine zusätzliche
+Verschlagwortung auf Basis von Standard-Schlagwortkatalogen für RIS eine
+Ergänzung erfahren ( LeiKa, Bremer-Katalog, DBpedia, RAMON).
+
+Die 14 Werte des GovData-Metadaten-Standard sind bisher nicht als Linked
+Data existent. TODO: eventuell können diese in OParl als
+Schlagwort-skos:Concept-Objekte als nicht abschliessende Menge von
+Schlagworten vorgegeben werden.
 
 oparl:System (System) {#oparl_system}
 ---------------------
@@ -2217,8 +2292,9 @@ Ein expandiertes Beispiel:
     "meeting": "http://oparl.beispielris.de/body/0/meeting/",
     "paper": "http://oparl.beispielris.de/body/0/paper/",
     "member": "http://oparl.beispielris.de/body/0/person/",
+    "classification": "http://oparl.beispielris.de/vocab/landkreis",
     "created": "2014-01-08T14:28:31.568+0100",
-    "lastModified": "2014-01-08T14:28:31.568+0100"
+    "modified": "2014-01-08T14:28:31.568+0100"
 }
 ```
 
@@ -2236,19 +2312,17 @@ Eigenschaften
 
 system
     URL des Objekts vom Typ oparl:System Objekts, zu dem dieses Objekt
-    gehört. Diese Eigenschaft ist ZWINGEND.
+    gehört. ZWINGEND.
 
 name
-    Gibt den gebräuchlichen Namen der Körperschaft an. Diese Eigenschaft
-    ist ZWINGEND.
+    Gibt den gebräuchlichen Namen der Körperschaft an. ZWINGEND.
 
 nameLong
     Kann bei Bedarf dazu verwendet werden, eine längere Form des Namens
-    der Körperschaft anzugeben. Diese Eigenschaft ist OPTIONAL.
+    der Körperschaft anzugeben. OPTIONAL.
 
 website
-    Dient der Angabe der WWW-URL der Körperschaft. Diese Eigenschaft ist
-    EMPFOHLEN.
+    Dient der Angabe der WWW-URL der Körperschaft. EMPFOHLEN.
 
 license
     URL der Lizenz, die für die Daten, die über diese API abgerufen
@@ -2256,7 +2330,7 @@ license
     angegeben. Verzeichnisse für solche Lizenz-URLs sind insbesondere
     http://licenses.opendefinition.org/ und
     https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json
-    Die Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 licenseValidSinceDay
     Tagesdatum, seit dem die unter license angegebene Lizenz gilt.
@@ -2304,6 +2378,9 @@ organization
     oparl:Organization, also die Gruppierungen dieser Körperschaft
     ausgibt. Diese Eigenschaft ist ZWINGEND.
 
+classification
+    skos:Concept
+
 created
     Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
 
@@ -2345,8 +2422,8 @@ Ein Beispiel in expandierter Form:
         "http://oparl.beispielris.de/person/57"
     ],
     "organizationType": "http://oparl.beispielris.de/vocab/committee",
-    "category": "http://oparl.beispielris.de/vocab/finance",
-    modified": "2012-08-16T14:05:27+02:00"
+    "classification": "http://oparl.beispielris.de/vocab/finance",
+    "modified": "2012-08-16T14:05:27+02:00"
 }
 ```
 
@@ -2373,7 +2450,7 @@ Ein Kontext: ~~~~ { "@language": "de", // ... } ~~~~
         "57"
     ],
     "organizationType": "beispielris:vocab/committee",
-    "category": "beispielris:vocab/finance",
+    "classification": "beispielris:vocab/finance",
     "modified": "2012-08-16T14:05:27+02:00"
 }
 ```
@@ -2422,12 +2499,12 @@ subOrganizationOf
 created
     Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN
 
-category
-    Schlagworte. Dies sind Objekte mit einem skos:prefLabel-Attribut
-    (für jede unterstützte Sprache) mit einer Zeichenkette. In einer
-    zukünftigen OParl-Version wird möglicherweise eine Menge solcher
-    Schlagwort-Objekte definiert. Anregungen gibt es u.a. in der Tabelle
-    "Kategorien" im unteren Drittel der Seite
+classification
+    Schlagworte. Dies sind skos:Concept-Objekte mit einem
+    skos:prefLabel-Attribut (für jede unterstützte Sprache) mit einer
+    Zeichenkette. In einer zukünftigen OParl-Version wird möglicherweise
+    eine Menge solcher Schlagwort-Objekte definiert. Anregungen gibt es
+    u.a. in der Tabelle "Kategorien" im unteren Drittel der Seite
     http://htmlpreview.github.io/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html
     OPTIONAL
 
@@ -2471,7 +2548,8 @@ Ein Beispiel in expandierter Form:
         "@value": "Max",
         "@language": "de"
     }
-    "title": "Prof. Dr.", // nicht mehrsprachig
+    "title": "Prof. Dr.", // TODO: nicht mehrsprachig?!
+    "formOfAddress": "http://oparl.beispielris.de/formofaddress/ratsmitglied",
     "gender": "http://www.w3.org/2006/vcard/ns#Male",
     "email": "mailto:max@mustermann.de",
     "phone": "tel:+493012345678",
@@ -2488,7 +2566,7 @@ Ein Beispiel in expandierter Form:
     "status": "http://oparl.beispielris.de/status/buergermeister",
     "hasMembership": "http://oparl.beispielris.de/membership/34",
     "created": "2011-11-11T11:11:00+01:00",
-    "lastModified": "2012-08-16T14:05:27+02:00"
+    "modified": "2012-08-16T14:05:27+02:00"
 }
 ```
 
@@ -2521,7 +2599,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
         "@id": "dc:created",
         "@type": "xsd:dateTime"
     },
-    "lastModified": {
+    "modified": {
         "@id": "dc:modified",
         "@type": "xsd:dateTime"
     }
@@ -2530,13 +2608,14 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 
 ``` {#person_ex2 .json}
 {
-    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld",
+    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld",
     "@type": "oparl:Person",
     "@id": "http://oparl.beispielris.de/person/29",
     "name": "Prof. Dr. Max Mustermann",
     "familyName": "Mustermann", // Kontext gibt deutsche Spache vor
     "givenName": "Max",
     "title": "Prof. Dr.",
+    "formOfAddress": "beispielris:formofaddress/ratsmitglied",
     "gender": "vcard:Male",
     "email": "mailto:max@mustermann.de",
     "phone": "tel:+493012345678",
@@ -2550,7 +2629,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "status": "beispielris:status/buergermeister",
     "hasMembership": "beispielris:membership/34",
     "created": "2011-11-11T11:11:00+01:00",
-    "last_modified": "2012-08-16T14:05:27+02:00"
+    "modified": "2012-08-16T14:05:27+02:00"
 }
 ```
 
@@ -2565,6 +2644,11 @@ familyName
 
 givenName
     Vorname bzw. Taufname. OPTIONAL
+
+formOfAddress
+    Anrede URLs von Objekten mit skos:prefLabel. Ähnlich wie status.
+    Beispiele für die skos:prefLabel sind "Ratsherr | Ratsfrau" und
+    "Herr | Frau". OPTIONAL
 
 title
     Akademische(r) Titel. TODO: "Dr."? "Diplom"? OPTIONAL
@@ -2616,6 +2700,9 @@ hasMembership
     URLs der Mitgliedschaft oder Liste von URLs der Mitgliedschaften
     (Objekte vom Typ org:Membership). TODO: Eventuell Unterklasse von
     org:Membership definieren. OPTIONAL.
+
+classification
+    skos:Concept OPTIONAL
 
 created
     Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
@@ -2680,7 +2767,7 @@ Ein Beispiel in expandierter Form:
         ]
     }
     "created": "2012-01-06T12:01:00+01:00",
-    "lastModified": "2012-01-08T14:05:27+01:00"
+    "modified": "2012-01-08T14:05:27+01:00"
 }
 ```
 
@@ -2722,7 +2809,7 @@ Das selbe Beispiel in kompakter Form:
         "beispielris:agendaitem/1048"
     ],
     "created": "2012-01-06T12:01:00+01:00",
-    "lastModified": "2012-01-08T14:05:27+01:00"
+    "modified": "2012-01-08T14:05:27+01:00"
 }
 ```
 
@@ -2779,10 +2866,13 @@ agendaItem
     Reihenfolge ist relevant. Es kann Sitzungen ohne TOPs geben.
     OPTIONAL
 
+classification
+    skos:Concept
+
 created
     Datum und Uhrzeit der Erzeugung des Objekts. EMPFOHLEN
 
-lastModified
+modified
     Datum und Uhrzeit der letzten Änderung des Objekts. EMPFOHLEN
 
 oparl:AgendaItem (Tagesordnungspunkt) {#oparl_agendaitem}
@@ -2813,7 +2903,7 @@ Ein Beispiel in kompakter Form:
         "beispielris:person/75"
     ],
     "paper": "beispielris:paper/2812",
-    "last_modified": "2012-08-16T14:05:27+02:00"
+    "modified": "2012-08-16T14:05:27+02:00"
 }
 ```
 
@@ -2868,6 +2958,9 @@ paper
     OPTIONAL
 
 auxiliaryDocument : oparl:Document zum TOP. OPTIONAL
+
+classification
+    skos:Concept
 
 created
     Erzeugungsdatum und -zeit des Objekts. EMPFOHLEN
@@ -2931,6 +3024,8 @@ Ein Beispiel in kompakter Form:
 }
 ```
 
+Eigenschaften
+
 paperType
     Ein Objekt mit einem skos:prefLabel-Attribut, dessen Wert eine
     Zeichenkette ist und die Art der Drucksache beschreibt, z.B.
@@ -2940,8 +3035,13 @@ paperType
     Version von OParl wird möglicherweise solche Werte spezifizieren.
     OPTIONAL
 
-TODO: * Eigenschaften beschreiben * Eigenschaft "locations" im Beispiel
-ändern
+classification
+    skos:Concept mit skos:prefLabel. Allgemeiner als paperType OPTIONAL
+
+TODO:
+
+-   Eigenschaften beschreiben
+-   Eigenschaft "locations" im Beispiel ändern
 
 oparl:Document (Datei) {#oparl_document}
 ----------------------
@@ -3063,6 +3163,10 @@ documentRole
     oparl:Meeting ? Siehe Diskussion unter
     https://github.com/OParl/specs/issues/65 Typ: URL OPTIONAL
 
+classification
+    skos:Concept mit skos:prefLabel. Hat allgemeinere Bedeutung als
+    documentRole. Typ: URL OPTIONAL
+
 Siehe auch
 
 -   Dokumentenabruf
@@ -3124,9 +3228,6 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
 
 Eigenschaften
 
-@id
-    URL des Objekts. ZWINGEND.
-
 paper
     URL der Drucksache, die beraten wird. ZWINGEND.
 
@@ -3148,13 +3249,17 @@ authoritative
     Diese Eigenschaft ist OPTIONAL.
 
 role
-    URL der Rolle oder Funktion der Beratung. z.B. Anhörung (hearing),
-    Entscheidung (decision), Kenntnisnahme (notice), Vorberatung
-    (counseling) usw. Es wird empfohlen in den URLs entsprechende
-    englische Bestandteile zu verwenden. Die Rollenobjekte haben nur
-    eine festgelegte Eigenschaft: "skos:prefLabel" für den Namen. In
-    einer zukünftigen Version von OParl können gegebenenfalls die am
-    stärksten benötigten Rollen standardisiert werden. OPTIONAL
+    skos:Concept Rolle oder Funktion der Beratung. z.B. Anhörung
+    (hearing), Entscheidung (decision), Kenntnisnahme (notice),
+    Vorberatung (counseling) usw. Es wird empfohlen in den URLs
+    entsprechende englische Bestandteile zu verwenden. Die Rollenobjekte
+    haben nur eine festgelegte Eigenschaft: skos:prefLabel für den
+    Namen. In einer zukünftigen Version von OParl können gegebenenfalls
+    die am stärksten benötigten Rollen standardisiert werden. OPTIONAL
+
+classification
+    skos:Concept mit skos:prefLabel. Allgemeiner verwendbar als role.
+    OPTIONAL
 
 oparl:Location (Ort) {#oparl_location}
 --------------------
@@ -3254,13 +3359,16 @@ Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.
 Eigenschaften
 
 description
-    Textliche Beschreibung eines Orts, z.B. in Form einer Adresse. Diese
-    Eigenschaft ist EMPFOHLEN. Typ: Zeichenkette.
+    Textliche Beschreibung eines Orts, z.B. in Form einer Adresse. Typ:
+    Zeichenkette. EMPFOHLEN
 
 geometry
-    Geodaten-Repräsentation des Orts. Diese Eigenschaft ist OPTIONAL.
-    Ist diese Eigenschaft gesetzt, MUSS ihr Wert der Spezifikation von
-    Well-Known Text (WKT) entsprechen.
+    Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt,
+    MUSS ihr Wert der Spezifikation von Well-Known Text (WKT)
+    entsprechen. OPTIONAL
+
+classification
+    skos:Concept mit skos:prefLabel OPTIONAL
 
 Weitere Beispiele
 
@@ -3305,8 +3413,50 @@ Und die neue Version mit Well-Known Text:
 org:Membership oder oparl:Membership {#oparl_membership}
 ------------------------------------
 
-Siehe: https://github.com/OParl/specs/issues/122
+TODO. Siehe: https://github.com/OParl/specs/issues/122
 https://github.com/OParl/specs/issues/109
+
+Eigenschaften
+
+person
+    oparl:Person Eine Person. OPTIONAL
+
+organization
+    oparl:Organization Eine Organization. OPTIONAL
+
+role
+    zeigt auf ein Objekt der Klasse org:Role oder einer Unterklasse. Das
+    Objekt hat eine skos:prefLabel-Eigenschaft, deren Wert eine
+    Funktionsbezeichnung ist, z.B. "1. pers. Vertreter | 1. pers.
+    Vertreterin" oder "2. pers. Vertreter | 2. pers. Vertreterin".
+    Popolo: "The role that the person fulfills in the organization".
+    normale Mitglieder haben in der Regel keine eigene Funktion, aber
+    auch eine Unterscheidung zwischen z.B. "Sachkundige Bürger |
+    Sachkundige Bürgerin" und "Ratsherr | Ratsfrau" bei einfachen
+    Mitgliedern ist hiermit möglich. TODO: was ist mit einem
+    sachkundigen Bürger, der gleichzeitig Vorsitzender ist? OPTIONAL
+
+post
+    The post held by the person in the organization OPTIONAL
+
+onBehalfOf
+    Entsendende Organization - Fraktion, fraktionslos oder externes
+    Gremium Dies entspricht opengov:onBehalfOf in Popolo. TODO: wie wird
+    fraktionslos kodiert? OPTIONAL
+
+startDate
+    schema:validFrom wie in Popolo. The date on which the relationship
+    began OPTIONAL
+
+endDate
+    schema:validThrough wie in Popolo. The date on which the
+    relationship ended OPTIONAL
+
+Hinweise
+
+http://www.w3.org/TR/vocab-org/#membership-roles-posts-and-reporting
+
+http://popoloproject.com/specs/membership.html
 
 Fußnoten
 ========

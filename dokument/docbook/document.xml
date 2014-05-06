@@ -19,7 +19,9 @@
     </para>
     <para>
       Die Kennzeichnung &quot;TODO&quot; markiert Hinweise, die für die
-      Bearbeiter des Dokuments gedacht sind.
+      Bearbeiter des Dokuments gedacht sind. Darunter befinden sich auch
+      Fragen an deren Beantwortung durch Reviewer des Dokuments die
+      Autoren interessiert sind.
     </para>
   </sect2>
   <sect2 id="was-ist-oparl">
@@ -46,44 +48,48 @@
   <sect2 id="zielsetzung-von-oparl">
     <title>Zielsetzung von OParl</title>
     <para>
-      TODO:
+      OParl richtet sich an vielvältige Nutzergruppen (Stakeholder):
     </para>
     <itemizedlist>
       <listitem>
         <para>
-          Nutzen für Kommunen, Bürger, politische Parteien
+          Verwaltung und politische Gremien in Kommunen
         </para>
       </listitem>
       <listitem>
         <para>
-          Nutzen für Anbieter von RIS-Pflegesoftware
+          Bürger, politische Parteien und Organisationen
         </para>
       </listitem>
       <listitem>
         <para>
-          Nutzen für Anbieter von RIS-Darstellungssoftware
+          Open Data Initiativen
         </para>
       </listitem>
       <listitem>
         <para>
-          Nutzen für Open Data Initiativen
+          Wissenschaftler
         </para>
       </listitem>
       <listitem>
         <para>
-          Nutzen für die Wissenschaft
+          Anbieter von RIS-Pflegesoftware oder -services
         </para>
       </listitem>
       <listitem>
         <para>
-          Linked Data erwähnen
+          Anbieter von RIS-Darstellungssoftware oder -services
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Anbieter von Linked Data-Plattformen oder -Services
         </para>
       </listitem>
     </itemizedlist>
     <para>
-      (Nachstehen der bisherige Textentwurf aus dem Abschnitt
-      &quot;Motivationen für den standardisierten Datenzugriff&quot;,
-      der sicherlich deutlich überarbeitet werden muss.)
+      TODO: Nutzen für jede Stakeholder-Gruppe TODO: Linked Data
+      erwähnen
     </para>
     <para>
       Die Gründe, warum Betreiber von parlamentarischen
@@ -123,7 +129,7 @@
     <para>
       Die Anwendungsmöglichkeiten für parlamentarische Informationen,
       wenn sie über eine Schnittstelle schnell und einfach abgerufen
-      werden können, sind vielfältig. Beispiele könnten sein:
+      werden können, sind vielfältig. Beispiele sind:
     </para>
     <itemizedlist>
       <listitem>
@@ -362,8 +368,15 @@
         </orderedlist>
       </listitem>
       <listitem>
+        <para>
+          April 2014: Verfeinerung des Vokabular-Teils durch Andreas
+          Kuckartz, finanziert durch das FP7-Projekt Fusepool aus
+          Mitteln der Europäischen Union.
+        </para>
+      </listitem>
+      <listitem>
         <orderedlist numeration="arabic">
-          <listitem>
+          <listitem override="6">
             <para>
               Mai 2014: Beginn der Review-Phase. Interessierte sind
               aufgerufen, den vorliegenden Entwurf bis Ende Mai zu
@@ -389,19 +402,37 @@
   <sect2 id="zukunft-von-oparl">
     <title>Zukunft von OParl</title>
     <para>
-      TODO: - Verfeinerung, Lücken schliessen - Globalisierung -
-      Erweiterung über die kommunale Ebene hinaus (Land, Bund) -
-      Vereinheitlichung von Kategorien (Drucksachentypen, Arten von
-      Gremien) - Erweiterung von Personendaten, z.B. mit Social Media
-      URLs - Mehr Abfragekriterien - Suchfunktionen (Volltextsuche) -
-      Abstimmungsverhalten und maschinenlesbare Protokolle -
-      Schreibender Zugriff. Auch dazu muss das Rad nicht neu erfunden
-      werden. Bestehende bzw. in Entwicklung befindliche Spezifikationen
-      und Techniken aus der Linked Data-Welt können verwendet werden.
-      Dazu gehören insbesondere die Linked Data Platform des W3C und
-      Hydra.
+      TODO: - Verfeinerung, Lücken schliessen - Erweiterung über die
+      kommunale Ebene hinaus (Land, Bund) - Vereinheitlichung von
+      Kategorien (Drucksachentypen, Arten von Gremien) - Erweiterung von
+      Personendaten, z.B. mit Social Media URLs - Mehr Abfragekriterien
+      - Suchfunktionen (Volltextsuche) - Abstimmungsverhalten und
+      maschinenlesbare Protokolle - Verknüpfung mit verteilten Social
+      Media Plattformen - Schreibender Zugriff. Auch dazu muss das Rad
+      nicht neu erfunden werden. Bestehende bzw. in Entwicklung
+      befindliche Spezifikationen und Techniken aus der Linked Data-Welt
+      können verwendet werden. Dazu gehören insbesondere die Linked Data
+      Platform des W3C und Hydra.
     </para>
   </sect2>
+</sect1>
+<sect1 id="globalisierung">
+  <title>Globalisierung</title>
+  <para>
+    Es gibt in sehr vielen Ländern Gebietskörperschaften mit politischen
+    Gremien, deren Prozesse ähnlich strukturiert sind wie diejenigen in
+    Deutschland. Auch dort besteht Bedarf an standardisierten
+    Vokabularen zur Veröffentlichung parlamentarischer Informationen.
+    Deshalb sind - teilweise noch vor OParl - auch weitere entsprechende
+    Initiativen entstanden. Eine enge Zusammenarbeit mit diesen
+    Initiativen mit dem Ziel der Wiederverwendung von Arbeitsergebnissen
+    wird deshalb angestrebt. Auch aus diesem Grund wurde bereits in
+    OParl 1.0 die Möglichkeit der Verwendung mit anderen Sprachen und
+    Mehrsprachigkeit eingebaut.
+  </para>
+  <para>
+    TODO: Popolo, UK, KB Niederlande
+  </para>
   <sect2 id="nomenklatur-der-spezifikation-und-satzkonventionen">
     <title>Nomenklatur der Spezifikation und Satzkonventionen</title>
     <sect3 id="müssen-sollen-und-können-bzw.-zwingend-empfohlen-und-optional">
@@ -1347,6 +1378,49 @@ https://dbpedia.org/data/John_Doe_(musician).jsonld
       kann insofern niemand aussprechen.
     </para>
   </sect2>
+  <sect2 id="content-negotiation">
+    <title>Content Negotiation</title>
+    <para>
+      Im Abschnitt Designprinzipien wurde bereits erwähnt, dass die
+      &quot;Dereferenzierung&quot; mittels Content Negotiation erfolgt.
+    </para>
+    <para>
+      So kann der Server beim Zugriff eines Client auf
+    </para>
+    <para>
+      https://dbpedia.org/resource/John_Doe_(musician)
+    </para>
+    <para>
+      z.B. entweder diese URL sowie HTML-Inhalt liefern
+    </para>
+    <para>
+      https://dbpedia.org/page/John_Doe_(musician)
+    </para>
+    <para>
+      oder aber diese URL mit JSON-LD als Inhalt
+    </para>
+    <para>
+      https://dbpedia.org/data/John_Doe_(musician).jsonld
+    </para>
+    <para>
+      Die Entscheidung darüber, welche der URLs und welche der
+      Inhaltsformate der Server liefert, wird zwischen Client und Server
+      mittels Content Negotiation ausgehandelt.
+    </para>
+    <para>
+      Der Vorgang ist u.a. in
+      http://de.wikipedia.org/wiki/Content_Negotiation erklärt. Content
+      Negotiation ist Bestandteil der HTTP 1.1 Spezifikation. Siehe RFC
+      2616 (http://tools.ietf.org/html/rfc2616).
+    </para>
+    <para>
+      Wichtig ist, dass Client und Server die Möglichkeit haben, das
+      Format auszuhandeln. Deshalb müssen in OParl-Daten
+      format-unspezifische URLs angegeben werden, bei dem Musiker John
+      Doe ist das die erste der oben angegebenen URLs und nicht die
+      letzte.
+    </para>
+  </sect2>
   <sect2 id="http-und-https">
     <title>HTTP und HTTPS</title>
     <para>
@@ -1386,6 +1460,7 @@ https://dbpedia.org/data/John_Doe_(musician).jsonld
       über unverschlüsseltes HTTP, dann MÜSSEN Anfragen auf die
       entsprechenden URLs mit &quot;https://&quot;-Schema mit einer
       HTTP-Weiterleitung (HTTP Status-Code 301) beantwortet werden.
+      TODO: Geht das, wenn HTTPS nicht unterstützt wird?
     </para>
   </sect2>
   <sect2 id="urls-bzw.-iris">
@@ -1657,7 +1732,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1
             the EC. (PDF)
             <ulink url="http://goo.gl/JaTq6Z">http://goo.gl/JaTq6Z</ulink>
           </para>
-        </footnote>.
+        </footnote>. TODO: goo.gl URL expandieren
       </para>
     </sect3>
   </sect2>
@@ -2962,8 +3037,8 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         Datum und Uhrzeit der Erstellung des jeweiligen Objekts.
       </para>
     </sect3>
-    <sect3 id="lastmodified">
-      <title><literal>lastModified</literal></title>
+    <sect3 id="modified">
+      <title><literal>modified</literal></title>
       <para>
         Diese Eigenschaft kennzeichnet stets Datum und Uhrzeit der
         letzten Änderung des jeweiligen Objekts.
@@ -2982,19 +3057,52 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         wird, umfasst das Objekt aus Sicht des Clients eben auch die
         Liste der Mitglieder. In diesem Fall wäre eine Veränderung der
         Liste der Mitglieder als Änderung des Objekts zu verstehen, die
-        im <literal>lastModified</literal> Zeitstempel wiederspiegeln
-        sollte.
+        im <literal>modified</literal> Zeitstempel widerspiegeln sollte.
       </para>
     </sect3>
-    <sect3 id="category">
-      <title><literal>category</literal></title>
+    <sect3 id="classification">
+      <title><literal>classification</literal></title>
       <para>
-        Verweist auf ein oder eventuell auch mehrere Objekte mit einer
-        <literal>skos:prefLabel</literal>-Eigenschaft. Der Wert der
-        Eigenschaft ist jeweils eine Zeichenkette. TODO: Es werden
-        <emphasis>zwei</emphasis> Eigenschaften pro Klasse benötigt,
-        eine für Schlagworte und eine für eine Bezeichnung. Siehe u.a.:
-        https://github.com/OParl/specs/issues/41
+        Dient der Verschlagwortung und verweist dazu auf ein oder
+        eventuell auch mehrere <literal>skos:Concept</literal>-Objekte
+        mit einer <literal>skos:prefLabel</literal>-Eigenschaft. Der
+        Wert der Eigenschaft ist jeweils eine Zeichenkette. Die
+        verwendete Sprache (in der Regel &quot;de&quot; für Deutsch)
+        MUSS dabei angegeben werden.
+      </para>
+      <para>
+        TODO: SKOS darstellen
+      </para>
+      <para>
+        TODO: Beispiel
+      </para>
+      <para>
+        Siehe u.a.:
+      </para>
+      <programlisting>
+https://github.com/OParl/specs/issues/41
+</programlisting>
+      <para>
+        Geoportal.de und DeStat.de werden bereits auf Basis von
+        Metadaten-Standards verlinkt. Bei einer Verwendung von
+        Metadaten-Standards für RIS könnten ebenfalls interessante
+        Potenziale durch Verlinkung entstehen. Der
+        GovData-Metadaten-Standard z.B. kann genutzt werden
+      </para>
+      <programlisting>
+http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html
+</programlisting>
+      <para>
+        und die 14 GovData-Kategorien können dabei durch eine
+        zusätzliche Verschlagwortung auf Basis von
+        Standard-Schlagwortkatalogen für RIS eine Ergänzung erfahren (
+        LeiKa, Bremer-Katalog, DBpedia, RAMON).
+      </para>
+      <para>
+        Die 14 Werte des GovData-Metadaten-Standard sind bisher nicht
+        als Linked Data existent. TODO: eventuell können diese in OParl
+        als Schlagwort-<literal>skos:Concept</literal>-Objekte als nicht
+        abschliessende Menge von Schlagworten vorgegeben werden.
       </para>
     </sect3>
   </sect2>
@@ -3363,8 +3471,9 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
     &quot;meeting&quot;: &quot;http://oparl.beispielris.de/body/0/meeting/&quot;,
     &quot;paper&quot;: &quot;http://oparl.beispielris.de/body/0/paper/&quot;,
     &quot;member&quot;: &quot;http://oparl.beispielris.de/body/0/person/&quot;,
+    &quot;classification&quot;: &quot;http://oparl.beispielris.de/vocab/landkreis&quot;,
     &quot;created&quot;: &quot;2014-01-08T14:28:31.568+0100&quot;,
-    &quot;lastModified&quot;: &quot;2014-01-08T14:28:31.568+0100&quot;
+    &quot;modified&quot;: &quot;2014-01-08T14:28:31.568+0100&quot;
 }
 </programlisting>
     <para>
@@ -3391,8 +3500,7 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           <listitem>
             <para>
               URL des Objekts vom Typ <literal>oparl:System</literal>
-              Objekts, zu dem dieses Objekt gehört. Diese Eigenschaft
-              ist ZWINGEND.
+              Objekts, zu dem dieses Objekt gehört. ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -3402,8 +3510,8 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Gibt den gebräuchlichen Namen der Körperschaft an. Diese
-              Eigenschaft ist ZWINGEND.
+              Gibt den gebräuchlichen Namen der Körperschaft an.
+              ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -3414,8 +3522,7 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           <listitem>
             <para>
               Kann bei Bedarf dazu verwendet werden, eine längere Form
-              des Namens der Körperschaft anzugeben. Diese Eigenschaft
-              ist OPTIONAL.
+              des Namens der Körperschaft anzugeben. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -3425,8 +3532,7 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Dient der Angabe der WWW-URL der Körperschaft. Diese
-              Eigenschaft ist EMPFOHLEN.
+              Dient der Angabe der WWW-URL der Körperschaft. EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -3442,7 +3548,7 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
               Lizenz-URLs sind insbesondere
               http://licenses.opendefinition.org/ und
               https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json
-              Die Eigenschaft ist EMPFOHLEN.
+              EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -3585,6 +3691,16 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         </varlistentry>
         <varlistentry>
           <term>
+            <literal>classification</literal>
+          </term>
+          <listitem>
+            <para>
+              <literal>skos:Concept</literal>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
             <literal>created</literal>
           </term>
           <listitem>
@@ -3644,8 +3760,8 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         &quot;http://oparl.beispielris.de/person/57&quot;
     ],
     &quot;organizationType&quot;: &quot;http://oparl.beispielris.de/vocab/committee&quot;,
-    &quot;category&quot;: &quot;http://oparl.beispielris.de/vocab/finance&quot;,
-    modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
+    &quot;classification&quot;: &quot;http://oparl.beispielris.de/vocab/finance&quot;,
+    &quot;modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
 }
 </programlisting>
     <para>
@@ -3675,7 +3791,7 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         &quot;57&quot;
     ],
     &quot;organizationType&quot;: &quot;beispielris:vocab/committee&quot;,
-    &quot;category&quot;: &quot;beispielris:vocab/finance&quot;,
+    &quot;classification&quot;: &quot;beispielris:vocab/finance&quot;,
     &quot;modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
 }
 </programlisting>
@@ -3784,11 +3900,12 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>category</literal>
+            <literal>classification</literal>
           </term>
           <listitem>
             <para>
-              Schlagworte. Dies sind Objekte mit einem
+              Schlagworte. Dies sind
+              <literal>skos:Concept</literal>-Objekte mit einem
               <literal>skos:prefLabel</literal>-Attribut (für jede
               unterstützte Sprache) mit einer Zeichenkette. In einer
               zukünftigen OParl-Version wird möglicherweise eine Menge
@@ -3866,7 +3983,8 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         &quot;@value&quot;: &quot;Max&quot;,
         &quot;@language&quot;: &quot;de&quot;
     }
-    &quot;title&quot;: &quot;Prof. Dr.&quot;, // nicht mehrsprachig
+    &quot;title&quot;: &quot;Prof. Dr.&quot;, // TODO: nicht mehrsprachig?!
+    &quot;formOfAddress&quot;: &quot;http://oparl.beispielris.de/formofaddress/ratsmitglied&quot;,
     &quot;gender&quot;: &quot;http://www.w3.org/2006/vcard/ns#Male&quot;,
     &quot;email&quot;: &quot;mailto:max@mustermann.de&quot;,
     &quot;phone&quot;: &quot;tel:+493012345678&quot;,
@@ -3883,7 +4001,7 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
     &quot;status&quot;: &quot;http://oparl.beispielris.de/status/buergermeister&quot;,
     &quot;hasMembership&quot;: &quot;http://oparl.beispielris.de/membership/34&quot;,
     &quot;created&quot;: &quot;2011-11-11T11:11:00+01:00&quot;,
-    &quot;lastModified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
+    &quot;modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
 }
 </programlisting>
     <para>
@@ -3917,7 +4035,7 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         &quot;@id&quot;: &quot;dc:created&quot;,
         &quot;@type&quot;: &quot;xsd:dateTime&quot;
     },
-    &quot;lastModified&quot;: {
+    &quot;modified&quot;: {
         &quot;@id&quot;: &quot;dc:modified&quot;,
         &quot;@type&quot;: &quot;xsd:dateTime&quot;
     }
@@ -3925,13 +4043,14 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
 </programlisting>
     <programlisting language="json">
 {
-    &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;,
+    &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld&quot;,
     &quot;@type&quot;: &quot;oparl:Person&quot;,
     &quot;@id&quot;: &quot;http://oparl.beispielris.de/person/29&quot;,
     &quot;name&quot;: &quot;Prof. Dr. Max Mustermann&quot;,
     &quot;familyName&quot;: &quot;Mustermann&quot;, // Kontext gibt deutsche Spache vor
     &quot;givenName&quot;: &quot;Max&quot;,
     &quot;title&quot;: &quot;Prof. Dr.&quot;,
+    &quot;formOfAddress&quot;: &quot;beispielris:formofaddress/ratsmitglied&quot;,
     &quot;gender&quot;: &quot;vcard:Male&quot;,
     &quot;email&quot;: &quot;mailto:max@mustermann.de&quot;,
     &quot;phone&quot;: &quot;tel:+493012345678&quot;,
@@ -3945,7 +4064,7 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
     &quot;status&quot;: &quot;beispielris:status/buergermeister&quot;,
     &quot;hasMembership&quot;: &quot;beispielris:membership/34&quot;,
     &quot;created&quot;: &quot;2011-11-11T11:11:00+01:00&quot;,
-    &quot;last_modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
+    &quot;modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
 }
 </programlisting>
     <sect3 id="eigenschaften-3">
@@ -3979,6 +4098,19 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           <listitem>
             <para>
               Vorname bzw. Taufname. OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>formOfAddress</literal>
+          </term>
+          <listitem>
+            <para>
+              Anrede URLs von Objekten mit skos:prefLabel. Ähnlich wie
+              <literal>status</literal>. Beispiele für die
+              <literal>skos:prefLabel</literal> sind &quot;Ratsherr |
+              Ratsfrau&quot; und &quot;Herr | Frau&quot;. OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4118,6 +4250,16 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         </varlistentry>
         <varlistentry>
           <term>
+            <literal>classification</literal>
+          </term>
+          <listitem>
+            <para>
+              <literal>skos:Concept</literal> OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
             <literal>created</literal>
           </term>
           <listitem>
@@ -4200,7 +4342,7 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         ]
     }
     &quot;created&quot;: &quot;2012-01-06T12:01:00+01:00&quot;,
-    &quot;lastModified&quot;: &quot;2012-01-08T14:05:27+01:00&quot;
+    &quot;modified&quot;: &quot;2012-01-08T14:05:27+01:00&quot;
 }
 </programlisting>
     <para>
@@ -4242,7 +4384,7 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         &quot;beispielris:agendaitem/1048&quot;
     ],
     &quot;created&quot;: &quot;2012-01-06T12:01:00+01:00&quot;,
-    &quot;lastModified&quot;: &quot;2012-01-08T14:05:27+01:00&quot;
+    &quot;modified&quot;: &quot;2012-01-08T14:05:27+01:00&quot;
 }
 </programlisting>
     <sect3 id="eigenschaften-4">
@@ -4377,6 +4519,16 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         </varlistentry>
         <varlistentry>
           <term>
+            <literal>classification</literal>
+          </term>
+          <listitem>
+            <para>
+              <literal>skos:Concept</literal>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
             <literal>created</literal>
           </term>
           <listitem>
@@ -4387,7 +4539,7 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>lastModified</literal>
+            <literal>modified</literal>
           </term>
           <listitem>
             <para>
@@ -4429,7 +4581,7 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         &quot;beispielris:person/75&quot;
     ],
     &quot;paper&quot;: &quot;beispielris:paper/2812&quot;,
-    &quot;last_modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
+    &quot;modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
 }
 </programlisting>
     <sect3 id="eigenschaften-5">
@@ -4557,6 +4709,16 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
       <variablelist>
         <varlistentry>
           <term>
+            <literal>classification</literal>
+          </term>
+          <listitem>
+            <para>
+              <literal>skos:Concept</literal>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
             <literal>created</literal>
           </term>
           <listitem>
@@ -4636,29 +4798,56 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
     &quot;lastModified&quot;: &quot;2013-01-08T12:05:27+01:00&quot;
 }
 </programlisting>
-    <variablelist>
-      <varlistentry>
-        <term>
-          <literal>paperType</literal>
-        </term>
+    <sect3 id="eigenschaften-6">
+      <title>Eigenschaften</title>
+      <variablelist>
+        <varlistentry>
+          <term>
+            <literal>paperType</literal>
+          </term>
+          <listitem>
+            <para>
+              Ein Objekt mit einem
+              <literal>skos:prefLabel</literal>-Attribut, dessen Wert
+              eine Zeichenkette ist und die Art der Drucksache
+              beschreibt, z.B. &quot;Beantwortung einer Anfrage&quot;.
+              Eine weitere Liste mit exemplarischen Drucksachentypen
+              gibt es hier:
+              https://wiki.piratenpartei.de/BE:BVVupdates/Glossar Eine
+              zukünftige Version von OParl wird möglicherweise solche
+              Werte spezifizieren. OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>classification</literal>
+          </term>
+          <listitem>
+            <para>
+              <literal>skos:Concept</literal> mit
+              <literal>skos:prefLabel</literal>. Allgemeiner als
+              <literal>paperType</literal> OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>
+        TODO:
+      </para>
+      <itemizedlist>
         <listitem>
           <para>
-            Ein Objekt mit einem
-            <literal>skos:prefLabel</literal>-Attribut, dessen Wert eine
-            Zeichenkette ist und die Art der Drucksache beschreibt, z.B.
-            &quot;Beantwortung einer Anfrage&quot;. Eine weitere Liste
-            mit exemplarischen Drucksachentypen gibt es hier:
-            https://wiki.piratenpartei.de/BE:BVVupdates/Glossar Eine
-            zukünftige Version von OParl wird möglicherweise solche
-            Werte spezifizieren. OPTIONAL
+            Eigenschaften beschreiben
           </para>
         </listitem>
-      </varlistentry>
-    </variablelist>
-    <para>
-      TODO: * Eigenschaften beschreiben * Eigenschaft
-      &quot;locations&quot; im Beispiel ändern
-    </para>
+        <listitem>
+          <para>
+            Eigenschaft &quot;locations&quot; im Beispiel ändern
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
   </sect2>
   <sect2 id="oparl_document">
     <title>oparl:Document (Datei)</title>
@@ -4712,7 +4901,7 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
       <literal>derivative_documents</literal> angezeigt werden, welche
       Ableitungen einer Datei existieren.
     </para>
-    <sect3 id="eigenschaften-6">
+    <sect3 id="eigenschaften-7">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -4917,6 +5106,19 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
             </para>
           </listitem>
         </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>classification</literal>
+          </term>
+          <listitem>
+            <para>
+              <literal>skos:Concept</literal> mit
+              <literal>skos:prefLabel</literal>. Hat allgemeinere
+              Bedeutung als <literal>documentRole</literal>. Typ: URL
+              OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
       </variablelist>
     </sect3>
     <sect3 id="siehe-auch">
@@ -4990,19 +5192,9 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
     }
 }
 </programlisting>
-    <sect3 id="eigenschaften-7">
+    <sect3 id="eigenschaften-8">
       <title>Eigenschaften</title>
       <variablelist>
-        <varlistentry>
-          <term>
-            <literal>@id</literal>
-          </term>
-          <listitem>
-            <para>
-              URL des Objekts. ZWINGEND.
-            </para>
-          </listitem>
-        </varlistentry>
         <varlistentry>
           <term>
             <literal>paper</literal>
@@ -5060,15 +5252,28 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              URL der Rolle oder Funktion der Beratung. z.B. Anhörung
-              (hearing), Entscheidung (decision), Kenntnisnahme
-              (notice), Vorberatung (counseling) usw. Es wird empfohlen
-              in den URLs entsprechende englische Bestandteile zu
-              verwenden. Die Rollenobjekte haben nur eine festgelegte
-              Eigenschaft: &quot;skos:prefLabel&quot; für den Namen. In
-              einer zukünftigen Version von OParl können gegebenenfalls
-              die am stärksten benötigten Rollen standardisiert werden.
+              <literal>skos:Concept</literal> Rolle oder Funktion der
+              Beratung. z.B. Anhörung (hearing), Entscheidung
+              (decision), Kenntnisnahme (notice), Vorberatung
+              (counseling) usw. Es wird empfohlen in den URLs
+              entsprechende englische Bestandteile zu verwenden. Die
+              Rollenobjekte haben nur eine festgelegte Eigenschaft:
+              <literal>skos:prefLabel</literal> für den Namen. In einer
+              zukünftigen Version von OParl können gegebenenfalls die am
+              stärksten benötigten Rollen standardisiert werden.
               OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>classification</literal>
+          </term>
+          <listitem>
+            <para>
+              <literal>skos:Concept</literal> mit
+              <literal>skos:prefLabel</literal>. Allgemeiner verwendbar
+              als <literal>role</literal>. OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5197,7 +5402,7 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
       </footnote> angegeben werden, und zwar in Form von Zahlenwerten
       (Fließkommazahlen) für Längen- und Breitengrad.
     </para>
-    <sect3 id="eigenschaften-8">
+    <sect3 id="eigenschaften-9">
       <title>Eigenschaften</title>
       <variablelist>
         <varlistentry>
@@ -5207,8 +5412,7 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           <listitem>
             <para>
               Textliche Beschreibung eines Orts, z.B. in Form einer
-              Adresse. Diese Eigenschaft ist EMPFOHLEN. Typ:
-              Zeichenkette.
+              Adresse. Typ: Zeichenkette. EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -5218,9 +5422,20 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Geodaten-Repräsentation des Orts. Diese Eigenschaft ist
-              OPTIONAL. Ist diese Eigenschaft gesetzt, MUSS ihr Wert der
-              Spezifikation von Well-Known Text (WKT) entsprechen.
+              Geodaten-Repräsentation des Orts. Ist diese Eigenschaft
+              gesetzt, MUSS ihr Wert der Spezifikation von Well-Known
+              Text (WKT) entsprechen. OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>classification</literal>
+          </term>
+          <listitem>
+            <para>
+              <literal>skos:Concept</literal> mit
+              <literal>skos:prefLabel</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5272,9 +5487,112 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
   <sect2 id="oparl_membership">
     <title>org:Membership oder oparl:Membership</title>
     <para>
-      Siehe: https://github.com/OParl/specs/issues/122
+      TODO. Siehe: https://github.com/OParl/specs/issues/122
       https://github.com/OParl/specs/issues/109
     </para>
+    <sect3 id="eigenschaften-10">
+      <title>Eigenschaften</title>
+      <variablelist>
+        <varlistentry>
+          <term>
+            <literal>person</literal>
+          </term>
+          <listitem>
+            <para>
+              <literal>oparl:Person</literal> Eine Person. OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>organization</literal>
+          </term>
+          <listitem>
+            <para>
+              <literal>oparl:Organization</literal> Eine Organization.
+              OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>role</literal>
+          </term>
+          <listitem>
+            <para>
+              zeigt auf ein Objekt der Klasse
+              <literal>org:Role</literal> oder einer Unterklasse. Das
+              Objekt hat eine
+              <literal>skos:prefLabel</literal>-Eigenschaft, deren Wert
+              eine Funktionsbezeichnung ist, z.B. &quot;1. pers.
+              Vertreter | 1. pers. Vertreterin&quot; oder &quot;2. pers.
+              Vertreter | 2. pers. Vertreterin&quot;. Popolo: &quot;The
+              role that the person fulfills in the organization&quot;.
+              normale Mitglieder haben in der Regel keine eigene
+              Funktion, aber auch eine Unterscheidung zwischen z.B.
+              &quot;Sachkundige Bürger | Sachkundige Bürgerin&quot; und
+              &quot;Ratsherr | Ratsfrau&quot; bei einfachen Mitgliedern
+              ist hiermit möglich. TODO: was ist mit einem sachkundigen
+              Bürger, der gleichzeitig Vorsitzender ist? OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>post</literal>
+          </term>
+          <listitem>
+            <para>
+              The post held by the person in the organization OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>onBehalfOf</literal>
+          </term>
+          <listitem>
+            <para>
+              Entsendende Organization - Fraktion, fraktionslos oder
+              externes Gremium Dies entspricht
+              <literal>opengov:onBehalfOf</literal> in Popolo. TODO: wie
+              wird fraktionslos kodiert? OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>startDate</literal>
+          </term>
+          <listitem>
+            <para>
+              <literal>schema:validFrom</literal> wie in Popolo. The
+              date on which the relationship began OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>endDate</literal>
+          </term>
+          <listitem>
+            <para>
+              <literal>schema:validThrough</literal> wie in Popolo. The
+              date on which the relationship ended OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </sect3>
+    <sect3 id="hinweise">
+      <title>Hinweise</title>
+      <para>
+        http://www.w3.org/TR/vocab-org/#membership-roles-posts-and-reporting
+      </para>
+      <para>
+        http://popoloproject.com/specs/membership.html
+      </para>
+    </sect3>
   </sect2>
 </sect1>
 <sect1 id="fußnoten">

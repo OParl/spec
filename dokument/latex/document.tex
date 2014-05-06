@@ -93,7 +93,8 @@ entsprechend viele Ungenauigkeiten und Hinweise auf offene
 Fragestellungen.
 
 Die Kennzeichnung ``TODO'' markiert Hinweise, die für die Bearbeiter des
-Dokuments gedacht sind.
+Dokuments gedacht sind. Darunter befinden sich auch Fragen an deren
+Beantwortung durch Reviewer des Dokuments die Autoren interessiert sind.
 
 \subsection{Was ist OParl?}\label{was-ist-oparl}
 
@@ -113,27 +114,27 @@ zwischen den Implementierungen variieren.
 
 \subsection{Zielsetzung von OParl}\label{zielsetzung-von-oparl}
 
-TODO:
+OParl richtet sich an vielvältige Nutzergruppen (Stakeholder):
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  Nutzen für Kommunen, Bürger, politische Parteien
+  Verwaltung und politische Gremien in Kommunen
 \item
-  Nutzen für Anbieter von RIS-Pflegesoftware
+  Bürger, politische Parteien und Organisationen
 \item
-  Nutzen für Anbieter von RIS-Darstellungssoftware
+  Open Data Initiativen
 \item
-  Nutzen für Open Data Initiativen
+  Wissenschaftler
 \item
-  Nutzen für die Wissenschaft
+  Anbieter von RIS-Pflegesoftware oder -services
 \item
-  Linked Data erwähnen
+  Anbieter von RIS-Darstellungssoftware oder -services
+\item
+  Anbieter von Linked Data-Plattformen oder -Services
 \end{itemize}
 
-(Nachstehen der bisherige Textentwurf aus dem Abschnitt ``Motivationen
-für den standardisierten Datenzugriff'', der sicherlich deutlich
-überarbeitet werden muss.)
+TODO: Nutzen für jede Stakeholder-Gruppe TODO: Linked Data erwähnen
 
 Die Gründe, warum Betreiber von parlamentarischen Informationssystemen
 den Zugriff darauf über eine standardisierte Schnittstelle ermöglichen
@@ -165,7 +166,7 @@ derartige Systeme noch nicht verfügbar sind.
 
 Die Anwendungsmöglichkeiten für parlamentarische Informationen, wenn sie
 über eine Schnittstelle schnell und einfach abgerufen werden können,
-sind vielfältig. Beispiele könnten sein:
+sind vielfältig. Beispiele sind:
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -351,8 +352,13 @@ Stichpunkte:
     am Entwurf der Spezifikation statt.
   \end{enumerate}
 \item
+  April 2014: Verfeinerung des Vokabular-Teils durch Andreas Kuckartz,
+  finanziert durch das FP7-Projekt Fusepool aus Mitteln der Europäischen
+  Union.
+\item
   \begin{enumerate}
   \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{5}
   \itemsep1pt\parskip0pt\parsep0pt
   \item
     Mai 2014: Beginn der Review-Phase. Interessierte sind aufgerufen,
@@ -368,16 +374,30 @@ Stichpunkte:
 
 \subsection{Zukunft von OParl}\label{zukunft-von-oparl}
 
-TODO: - Verfeinerung, Lücken schliessen - Globalisierung - Erweiterung
-über die kommunale Ebene hinaus (Land, Bund) - Vereinheitlichung von
-Kategorien (Drucksachentypen, Arten von Gremien) - Erweiterung von
-Personendaten, z.B. mit Social Media URLs - Mehr Abfragekriterien -
-Suchfunktionen (Volltextsuche) - Abstimmungsverhalten und
-maschinenlesbare Protokolle - Schreibender Zugriff. Auch dazu muss das
-Rad nicht neu erfunden werden. Bestehende bzw. in Entwicklung
-befindliche Spezifikationen und Techniken aus der Linked Data-Welt
-können verwendet werden. Dazu gehören insbesondere die Linked Data
-Platform des W3C und Hydra.
+TODO: - Verfeinerung, Lücken schliessen - Erweiterung über die kommunale
+Ebene hinaus (Land, Bund) - Vereinheitlichung von Kategorien
+(Drucksachentypen, Arten von Gremien) - Erweiterung von Personendaten,
+z.B. mit Social Media URLs - Mehr Abfragekriterien - Suchfunktionen
+(Volltextsuche) - Abstimmungsverhalten und maschinenlesbare Protokolle -
+Verknüpfung mit verteilten Social Media Plattformen - Schreibender
+Zugriff. Auch dazu muss das Rad nicht neu erfunden werden. Bestehende
+bzw. in Entwicklung befindliche Spezifikationen und Techniken aus der
+Linked Data-Welt können verwendet werden. Dazu gehören insbesondere die
+Linked Data Platform des W3C und Hydra.
+
+\section{Globalisierung}\label{globalisierung}
+
+Es gibt in sehr vielen Ländern Gebietskörperschaften mit politischen
+Gremien, deren Prozesse ähnlich strukturiert sind wie diejenigen in
+Deutschland. Auch dort besteht Bedarf an standardisierten Vokabularen
+zur Veröffentlichung parlamentarischer Informationen. Deshalb sind -
+teilweise noch vor OParl - auch weitere entsprechende Initiativen
+entstanden. Eine enge Zusammenarbeit mit diesen Initiativen mit dem Ziel
+der Wiederverwendung von Arbeitsergebnissen wird deshalb angestrebt.
+Auch aus diesem Grund wurde bereits in OParl 1.0 die Möglichkeit der
+Verwendung mit anderen Sprachen und Mehrsprachigkeit eingebaut.
+
+TODO: Popolo, UK, KB Niederlande
 
 \subsection{Nomenklatur der Spezifikation und
 Satzkonventionen}\label{nomenklatur-der-spezifikation-und-satzkonventionen}
@@ -1063,6 +1083,37 @@ Dieses Ziel wird in Zukunft natürlich abgewägt werden müssen mit dem
 Wunsch, sich an Veränderungen und neue Erkenntnisse anzupassen. Eine
 Garantie für Zukunftssicherheit kann insofern niemand aussprechen.
 
+\subsection{Content Negotiation}\label{content-negotiation}
+
+Im Abschnitt Designprinzipien wurde bereits erwähnt, dass die
+``Dereferenzierung'' mittels Content Negotiation erfolgt.
+
+So kann der Server beim Zugriff eines Client auf
+
+https://dbpedia.org/resource/John\_Doe\_(musician)
+
+z.B. entweder diese URL sowie HTML-Inhalt liefern
+
+https://dbpedia.org/page/John\_Doe\_(musician)
+
+oder aber diese URL mit JSON-LD als Inhalt
+
+https://dbpedia.org/data/John\_Doe\_(musician).jsonld
+
+Die Entscheidung darüber, welche der URLs und welche der Inhaltsformate
+der Server liefert, wird zwischen Client und Server mittels Content
+Negotiation ausgehandelt.
+
+Der Vorgang ist u.a. in
+http://de.wikipedia.org/wiki/Content\_Negotiation erklärt. Content
+Negotiation ist Bestandteil der HTTP 1.1 Spezifikation. Siehe RFC 2616
+(http://tools.ietf.org/html/rfc2616).
+
+Wichtig ist, dass Client und Server die Möglichkeit haben, das Format
+auszuhandeln. Deshalb müssen in OParl-Daten format-unspezifische URLs
+angegeben werden, bei dem Musiker John Doe ist das die erste der oben
+angegebenen URLs und nicht die letzte.
+
 \hyperdef{}{http-und-https}{\subsection{HTTP und
 HTTPS}\label{http-und-https}}
 
@@ -1095,7 +1146,8 @@ antworten (HTTP Status-Code 301).
 Gleiches gilt umgekehrt: beantwortet das System regulär Anfragen über
 unverschlüsseltes HTTP, dann MÜSSEN Anfragen auf die entsprechenden URLs
 mit ``https://''-Schema mit einer HTTP-Weiterleitung (HTTP Status-Code
-301) beantwortet werden.
+301) beantwortet werden. TODO: Geht das, wenn HTTPS nicht unterstützt
+wird?
 
 \subsection{URLs bzw. IRIs}\label{urls-bzw.-iris}
 
@@ -1285,7 +1337,7 @@ Berners-Lee\footnote{Berners-Lee, Tim: Cool URIs don't change.
   \url{http://www.w3.org/Provider/Style/URI.html}} sowie die Europäische
 Kommission\footnote{Study on persistent URIs, with identification of
   best practices and recommendations on the topic for the MSs and the
-  EC. (PDF) \url{http://goo.gl/JaTq6Z}}.
+  EC. (PDF) \url{http://goo.gl/JaTq6Z}}. TODO: goo.gl URL expandieren
 
 \subsection{Serialisierung mittels JSON-LD und
 JSONP}\label{serialisierung-mittels-json-ld-und-jsonp}
@@ -2349,7 +2401,7 @@ Dateien, die über die angebotene(n) URL(s) abgerufen werden können.
 
 Datum und Uhrzeit der Erstellung des jeweiligen Objekts.
 
-\subsubsection{\texttt{lastModified}}\label{lastmodified}
+\subsubsection{\texttt{modified}}\label{modified}
 
 Diese Eigenschaft kennzeichnet stets Datum und Uhrzeit der letzten
 Änderung des jeweiligen Objekts.
@@ -2365,16 +2417,44 @@ beispielsweise eine Gruppierung vom Server grundsätzlich mit der Liste
 der URLs aller Mitglieder ausgegeben wird, umfasst das Objekt aus Sicht
 des Clients eben auch die Liste der Mitglieder. In diesem Fall wäre eine
 Veränderung der Liste der Mitglieder als Änderung des Objekts zu
-verstehen, die im \texttt{lastModified} Zeitstempel wiederspiegeln
-sollte.
+verstehen, die im \texttt{modified} Zeitstempel widerspiegeln sollte.
 
-\subsubsection{\texttt{category}}\label{category}
+\subsubsection{\texttt{classification}}\label{classification}
 
-Verweist auf ein oder eventuell auch mehrere Objekte mit einer
+Dient der Verschlagwortung und verweist dazu auf ein oder eventuell auch
+mehrere \texttt{skos:Concept}-Objekte mit einer
 \texttt{skos:prefLabel}-Eigenschaft. Der Wert der Eigenschaft ist
-jeweils eine Zeichenkette. TODO: Es werden \emph{zwei} Eigenschaften pro
-Klasse benötigt, eine für Schlagworte und eine für eine Bezeichnung.
-Siehe u.a.: https://github.com/OParl/specs/issues/41
+jeweils eine Zeichenkette. Die verwendete Sprache (in der Regel ``de''
+für Deutsch) MUSS dabei angegeben werden.
+
+TODO: SKOS darstellen
+
+TODO: Beispiel
+
+Siehe u.a.:
+
+\begin{verbatim}
+https://github.com/OParl/specs/issues/41
+\end{verbatim}
+
+Geoportal.de und DeStat.de werden bereits auf Basis von
+Metadaten-Standards verlinkt. Bei einer Verwendung von
+Metadaten-Standards für RIS könnten ebenfalls interessante Potenziale
+durch Verlinkung entstehen. Der GovData-Metadaten-Standard z.B. kann
+genutzt werden
+
+\begin{verbatim}
+http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html
+\end{verbatim}
+
+und die 14 GovData-Kategorien können dabei durch eine zusätzliche
+Verschlagwortung auf Basis von Standard-Schlagwortkatalogen für RIS eine
+Ergänzung erfahren ( LeiKa, Bremer-Katalog, DBpedia, RAMON).
+
+Die 14 Werte des GovData-Metadaten-Standard sind bisher nicht als Linked
+Data existent. TODO: eventuell können diese in OParl als
+Schlagwort-\texttt{skos:Concept}-Objekte als nicht abschliessende Menge
+von Schlagworten vorgegeben werden.
 
 \subsection{oparl:System (System)}\label{oparlux5fsystem}
 
@@ -2624,8 +2704,9 @@ Ein expandiertes Beispiel:
     \DataTypeTok{"meeting"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/body/0/meeting/"}\NormalTok{,}
     \DataTypeTok{"paper"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/body/0/paper/"}\NormalTok{,}
     \DataTypeTok{"member"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/body/0/person/"}\NormalTok{,}
+    \DataTypeTok{"classification"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/vocab/landkreis"}\NormalTok{,}
     \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2014-01-08T14:28:31.568+0100"}\NormalTok{,}
-    \DataTypeTok{"lastModified"}\NormalTok{: }\StringTok{"2014-01-08T14:28:31.568+0100"}
+    \DataTypeTok{"modified"}\NormalTok{: }\StringTok{"2014-01-08T14:28:31.568+0100"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -2645,23 +2726,21 @@ einem bestimmten Parlament an.
 \begin{description}
 \item[\texttt{system}]
 URL des Objekts vom Typ \texttt{oparl:System} Objekts, zu dem dieses
-Objekt gehört. Diese Eigenschaft ist ZWINGEND.
+Objekt gehört. ZWINGEND.
 \item[\texttt{name}]
-Gibt den gebräuchlichen Namen der Körperschaft an. Diese Eigenschaft ist
-ZWINGEND.
+Gibt den gebräuchlichen Namen der Körperschaft an. ZWINGEND.
 \item[\texttt{nameLong}]
 Kann bei Bedarf dazu verwendet werden, eine längere Form des Namens der
-Körperschaft anzugeben. Diese Eigenschaft ist OPTIONAL.
+Körperschaft anzugeben. OPTIONAL.
 \item[\texttt{website}]
-Dient der Angabe der WWW-URL der Körperschaft. Diese Eigenschaft ist
-EMPFOHLEN.
+Dient der Angabe der WWW-URL der Körperschaft. EMPFOHLEN.
 \item[\texttt{license}]
 URL der Lizenz, die für die Daten, die über diese API abgerufen werden
 können, gilt, sofern nicht am einzelnen Objekt anders angegeben.
 Verzeichnisse für solche Lizenz-URLs sind insbesondere
 http://licenses.opendefinition.org/ und
 https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json
-Die Eigenschaft ist EMPFOHLEN.
+EMPFOHLEN.
 \item[\texttt{licenseValidSinceDay}]
 Tagesdatum, seit dem die unter license angegebene Lizenz gilt. Vorsicht
 bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen.
@@ -2704,6 +2783,8 @@ Diese Eigenschaft ist ZWINGEND.
 URL, unter welcher die API die Liste aller Objekte vom Typ
 \texttt{oparl:Organization}, also die Gruppierungen dieser Körperschaft
 ausgibt. Diese Eigenschaft ist ZWINGEND.
+\item[\texttt{classification}]
+\texttt{skos:Concept}
 \item[\texttt{created}]
 Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
 \item[\texttt{lastModified}]
@@ -2747,9 +2828,9 @@ Ein Beispiel in expandierter Form:
         \StringTok{"http://oparl.beispielris.de/person/57"}
     \NormalTok{],}
     \DataTypeTok{"organizationType"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/vocab/committee"}\NormalTok{,}
-    \DataTypeTok{"category"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/vocab/finance"}\NormalTok{,}
-    \ErrorTok{modified}\DataTypeTok{": "}\ErrorTok{2012-08-16T14}\NormalTok{:}\DecValTok{05}\ErrorTok{:}\DecValTok{27}\ErrorTok{+}\DecValTok{02}\ErrorTok{:}\DecValTok{00}\StringTok{"}
-\StringTok{\}}
+    \DataTypeTok{"classification"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/vocab/finance"}\NormalTok{,}
+    \DataTypeTok{"modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
+\NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2781,7 +2862,7 @@ Ein Kontext:
 \DataTypeTok{        "}\ErrorTok{57}\DataTypeTok{"}
 \DataTypeTok{    ],}
 \DataTypeTok{    "}\ErrorTok{organizationType}\DataTypeTok{": "}\ErrorTok{beispielris}\NormalTok{:}\ErrorTok{vocab/committee}\StringTok{",}
-\StringTok{    "}\ErrorTok{category}\StringTok{": "}\ErrorTok{beispielris:vocab/finance}\StringTok{",}
+\StringTok{    "}\ErrorTok{classification}\StringTok{": "}\ErrorTok{beispielris:vocab/finance}\StringTok{",}
 \StringTok{    "}\ErrorTok{modified}\StringTok{": "}\DecValTok{2012-08-16}\ErrorTok{T}\DecValTok{14}\ErrorTok{:}\DecValTok{05}\ErrorTok{:}\DecValTok{27}\ErrorTok{+}\DecValTok{02}\ErrorTok{:}\DecValTok{00}\StringTok{"}
 \StringTok{\}}
 \end{Highlighting}
@@ -2829,8 +2910,8 @@ Mitglieder gibt)
 Ggf. URL der übergeordneten Organisation. OPTIONAL.
 \item[\texttt{created}]
 Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN
-\item[\texttt{category}]
-Schlagworte. Dies sind Objekte mit einem
+\item[\texttt{classification}]
+Schlagworte. Dies sind \texttt{skos:Concept}-Objekte mit einem
 \texttt{skos:prefLabel}-Attribut (für jede unterstützte Sprache) mit
 einer Zeichenkette. In einer zukünftigen OParl-Version wird
 möglicherweise eine Menge solcher Schlagwort-Objekte definiert.
@@ -2880,7 +2961,8 @@ Ein Beispiel in expandierter Form:
         \DataTypeTok{"@value"}\NormalTok{: }\StringTok{"Max"}\NormalTok{,}
         \DataTypeTok{"@language"}\NormalTok{: }\StringTok{"de"}
     \NormalTok{\}}
-    \StringTok{"title"}\ErrorTok{:} \StringTok{"Prof. Dr."}\NormalTok{, }\ErrorTok{//} \ErrorTok{nicht} \ErrorTok{mehrsprachig}
+    \StringTok{"title"}\ErrorTok{:} \StringTok{"Prof. Dr."}\NormalTok{, }\ErrorTok{//} \ErrorTok{TODO}\NormalTok{: }\ErrorTok{nicht} \ErrorTok{mehrsprachig?!}
+    \StringTok{"formOfAddress"}\ErrorTok{:} \StringTok{"http://oparl.beispielris.de/formofaddress/ratsmitglied"}\NormalTok{,}
     \DataTypeTok{"gender"}\NormalTok{: }\StringTok{"http://www.w3.org/2006/vcard/ns#Male"}\NormalTok{,}
     \DataTypeTok{"email"}\NormalTok{: }\StringTok{"mailto:max@mustermann.de"}\NormalTok{,}
     \DataTypeTok{"phone"}\NormalTok{: }\StringTok{"tel:+493012345678"}\NormalTok{,}
@@ -2897,7 +2979,7 @@ Ein Beispiel in expandierter Form:
 \StringTok{    "}\ErrorTok{status}\StringTok{": "}\ErrorTok{http://oparl.beispielris.de/status/buergermeister}\StringTok{",}
 \StringTok{    "}\ErrorTok{hasMembership}\StringTok{": "}\ErrorTok{http://oparl.beispielris.de/membership/}\DecValTok{34}\StringTok{",}
 \StringTok{    "}\ErrorTok{created}\StringTok{": "}\DecValTok{2011-11-11}\ErrorTok{T}\DecValTok{11}\ErrorTok{:}\DecValTok{11}\ErrorTok{:}\DecValTok{00}\ErrorTok{+}\DecValTok{01}\ErrorTok{:}\DecValTok{00}\StringTok{",}
-\StringTok{    "}\ErrorTok{lastModified}\StringTok{": "}\DecValTok{2012-08-16}\ErrorTok{T}\DecValTok{14}\ErrorTok{:}\DecValTok{05}\ErrorTok{:}\DecValTok{27}\ErrorTok{+}\DecValTok{02}\ErrorTok{:}\DecValTok{00}\StringTok{"}
+\StringTok{    "}\ErrorTok{modified}\StringTok{": "}\DecValTok{2012-08-16}\ErrorTok{T}\DecValTok{14}\ErrorTok{:}\DecValTok{05}\ErrorTok{:}\DecValTok{27}\ErrorTok{+}\DecValTok{02}\ErrorTok{:}\DecValTok{00}\StringTok{"}
 \StringTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -2933,7 +3015,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
         \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"dc:created"}\NormalTok{,}
         \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"xsd:dateTime"}
     \NormalTok{\},}
-    \DataTypeTok{"lastModified"}\NormalTok{: \{}
+    \DataTypeTok{"modified"}\NormalTok{: \{}
         \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"dc:modified"}\NormalTok{,}
         \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"xsd:dateTime"}
     \NormalTok{\}}
@@ -2945,13 +3027,14 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
-    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}\NormalTok{,}
+    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld"}\NormalTok{,}
     \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:Person"}\NormalTok{,}
     \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/person/29"}\NormalTok{,}
     \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Prof. Dr. Max Mustermann"}\NormalTok{,}
     \DataTypeTok{"familyName"}\NormalTok{: }\StringTok{"Mustermann"}\NormalTok{, }\ErrorTok{//} \ErrorTok{Kontext} \ErrorTok{gibt} \ErrorTok{deutsche} \ErrorTok{Spache} \ErrorTok{vor}
     \DataTypeTok{"givenName"}\NormalTok{: }\StringTok{"Max"}\NormalTok{,}
     \DataTypeTok{"title"}\NormalTok{: }\StringTok{"Prof. Dr."}\NormalTok{,}
+    \DataTypeTok{"formOfAddress"}\NormalTok{: }\StringTok{"beispielris:formofaddress/ratsmitglied"}\NormalTok{,}
     \DataTypeTok{"gender"}\NormalTok{: }\StringTok{"vcard:Male"}\NormalTok{,}
     \DataTypeTok{"email"}\NormalTok{: }\StringTok{"mailto:max@mustermann.de"}\NormalTok{,}
     \DataTypeTok{"phone"}\NormalTok{: }\StringTok{"tel:+493012345678"}\NormalTok{,}
@@ -2965,7 +3048,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     \DataTypeTok{"status"}\NormalTok{: }\StringTok{"beispielris:status/buergermeister"}\NormalTok{,}
     \DataTypeTok{"hasMembership"}\NormalTok{: }\StringTok{"beispielris:membership/34"}\NormalTok{,}
     \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2011-11-11T11:11:00+01:00"}\NormalTok{,}
-    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
+    \DataTypeTok{"modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -2980,6 +3063,10 @@ ZWINGEND
 Familienname bzw. Nachname. OPTIONAL
 \item[\texttt{givenName}]
 Vorname bzw. Taufname. OPTIONAL
+\item[\texttt{formOfAddress}]
+Anrede URLs von Objekten mit skos:prefLabel. Ähnlich wie
+\texttt{status}. Beispiele für die \texttt{skos:prefLabel} sind
+``Ratsherr \textbar{} Ratsfrau'' und ``Herr \textbar{} Frau''. OPTIONAL
 \item[\texttt{title}]
 Akademische(r) Titel. TODO: ``Dr.''? ``Diplom''? OPTIONAL
 \item[\texttt{gender}]
@@ -3023,6 +3110,8 @@ https://github.com/OParl/specs/issues/45 OPTIONAL
 URLs der Mitgliedschaft oder Liste von URLs der Mitgliedschaften
 (Objekte vom Typ \texttt{org:Membership}). TODO: Eventuell Unterklasse
 von org:Membership definieren. OPTIONAL.
+\item[\texttt{classification}]
+\texttt{skos:Concept} OPTIONAL
 \item[\texttt{created}]
 Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
 \item[\texttt{lastModified}]
@@ -3087,7 +3176,7 @@ Ein Beispiel in expandierter Form:
         \NormalTok{]}
     \NormalTok{\}}
     \StringTok{"created"}\ErrorTok{:} \StringTok{"2012-01-06T12:01:00+01:00"}\NormalTok{,}
-    \DataTypeTok{"lastModified"}\NormalTok{: }\StringTok{"2012-01-08T14:05:27+01:00"}
+    \DataTypeTok{"modified"}\NormalTok{: }\StringTok{"2012-01-08T14:05:27+01:00"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -3132,7 +3221,7 @@ Das selbe Beispiel in kompakter Form:
         \StringTok{"beispielris:agendaitem/1048"}
     \NormalTok{],}
     \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2012-01-06T12:01:00+01:00"}\NormalTok{,}
-    \DataTypeTok{"lastModified"}\NormalTok{: }\StringTok{"2012-01-08T14:05:27+01:00"}
+    \DataTypeTok{"modified"}\NormalTok{: }\StringTok{"2012-01-08T14:05:27+01:00"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -3179,9 +3268,11 @@ einzelne Tagesordnungspunkte referenziert sind. OPTIONAL
 \item[\texttt{agendaItem}]
 URLs der Tagesordnungspunkte (oparl:AgendaItem) der Sitzung. Die
 Reihenfolge ist relevant. Es kann Sitzungen ohne TOPs geben. OPTIONAL
+\item[\texttt{classification}]
+\texttt{skos:Concept}
 \item[\texttt{created}]
 Datum und Uhrzeit der Erzeugung des Objekts. EMPFOHLEN
-\item[\texttt{lastModified}]
+\item[\texttt{modified}]
 Datum und Uhrzeit der letzten Änderung des Objekts. EMPFOHLEN
 \end{description}
 
@@ -3216,7 +3307,7 @@ Ein Beispiel in kompakter Form:
         \StringTok{"beispielris:person/75"}
     \NormalTok{],}
     \DataTypeTok{"paper"}\NormalTok{: }\StringTok{"beispielris:paper/2812"}\NormalTok{,}
-    \DataTypeTok{"last_modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
+    \DataTypeTok{"modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -3269,6 +3360,8 @@ TOPs. OPTIONAL
 \texttt{auxiliaryDocument} : \texttt{oparl:Document} zum TOP. OPTIONAL
 
 \begin{description}
+\item[\texttt{classification}]
+\texttt{skos:Concept}
 \item[\texttt{created}]
 Erzeugungsdatum und -zeit des Objekts. EMPFOHLEN
 \item[\texttt{lastModified}]
@@ -3337,8 +3430,9 @@ Ein Beispiel in kompakter Form:
 \end{Highlighting}
 \end{Shaded}
 
+\subsubsection{Eigenschaften}\label{eigenschaften-6}
+
 \begin{description}
-\itemsep1pt\parskip0pt\parsep0pt
 \item[\texttt{paperType}]
 Ein Objekt mit einem \texttt{skos:prefLabel}-Attribut, dessen Wert eine
 Zeichenkette ist und die Art der Drucksache beschreibt, z.B.
@@ -3347,10 +3441,20 @@ Drucksachentypen gibt es hier:
 https://wiki.piratenpartei.de/BE:BVVupdates/Glossar Eine zukünftige
 Version von OParl wird möglicherweise solche Werte spezifizieren.
 OPTIONAL
+\item[\texttt{classification}]
+\texttt{skos:Concept} mit \texttt{skos:prefLabel}. Allgemeiner als
+\texttt{paperType} OPTIONAL
 \end{description}
 
-TODO: * Eigenschaften beschreiben * Eigenschaft ``locations'' im
-Beispiel ändern
+TODO:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Eigenschaften beschreiben
+\item
+  Eigenschaft ``locations'' im Beispiel ändern
+\end{itemize}
 
 \subsection{oparl:Document (Datei)}\label{oparlux5fdocument}
 
@@ -3400,7 +3504,7 @@ wurde. Umgekehrt KANN über die Eigenschaft
 \texttt{derivative\_documents} angezeigt werden, welche Ableitungen
 einer Datei existieren.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-6}
+\subsubsection{Eigenschaften}\label{eigenschaften-7}
 
 \begin{description}
 \item[\texttt{@id}]
@@ -3463,6 +3567,9 @@ zukünftigen OParl-Version wird möglicherweise eine Menge der wichtigsten
 Kategorien vorgegeben. TODO: Besser in \texttt{oparl:Paper} oder
 \texttt{oparl:Meeting} ? Siehe Diskussion unter
 https://github.com/OParl/specs/issues/65 Typ: URL OPTIONAL
+\item[\texttt{classification}]
+\texttt{skos:Concept} mit \texttt{skos:prefLabel}. Hat allgemeinere
+Bedeutung als \texttt{documentRole}. Typ: URL OPTIONAL
 \end{description}
 
 \subsubsection{Siehe auch}\label{siehe-auch}
@@ -3537,11 +3644,9 @@ Das Objekt ``beispielris:roles/decision'' kann so aussehen:
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection{Eigenschaften}\label{eigenschaften-7}
+\subsubsection{Eigenschaften}\label{eigenschaften-8}
 
 \begin{description}
-\item[\texttt{@id}]
-URL des Objekts. ZWINGEND.
 \item[\texttt{paper}]
 URL der Drucksache, die beraten wird. ZWINGEND.
 \item[\texttt{agendaitem}]
@@ -3559,13 +3664,16 @@ Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache
 gefasst wird (\emph{true}) wird oder nicht (\emph{false}). Typ:
 Wahrheitswert. Diese Eigenschaft ist OPTIONAL.
 \item[\texttt{role}]
-URL der Rolle oder Funktion der Beratung. z.B. Anhörung (hearing),
-Entscheidung (decision), Kenntnisnahme (notice), Vorberatung
+\texttt{skos:Concept} Rolle oder Funktion der Beratung. z.B. Anhörung
+(hearing), Entscheidung (decision), Kenntnisnahme (notice), Vorberatung
 (counseling) usw. Es wird empfohlen in den URLs entsprechende englische
 Bestandteile zu verwenden. Die Rollenobjekte haben nur eine festgelegte
-Eigenschaft: ``skos:prefLabel'' für den Namen. In einer zukünftigen
+Eigenschaft: \texttt{skos:prefLabel} für den Namen. In einer zukünftigen
 Version von OParl können gegebenenfalls die am stärksten benötigten
 Rollen standardisiert werden. OPTIONAL
+\item[\texttt{classification}]
+\texttt{skos:Concept} mit \texttt{skos:prefLabel}. Allgemeiner
+verwendbar als \texttt{role}. OPTIONAL
 \end{description}
 
 \subsection{oparl:Location (Ort)}\label{oparlux5flocation}
@@ -3678,16 +3786,18 @@ Koordinatenangaben im System WGS84\footnote{WGS84 steht für ``World
 angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen)
 für Längen- und Breitengrad.
 
-\subsubsection{Eigenschaften}\label{eigenschaften-8}
+\subsubsection{Eigenschaften}\label{eigenschaften-9}
 
 \begin{description}
 \item[\texttt{description}]
-Textliche Beschreibung eines Orts, z.B. in Form einer Adresse. Diese
-Eigenschaft ist EMPFOHLEN. Typ: Zeichenkette.
+Textliche Beschreibung eines Orts, z.B. in Form einer Adresse. Typ:
+Zeichenkette. EMPFOHLEN
 \item[\texttt{geometry}]
-Geodaten-Repräsentation des Orts. Diese Eigenschaft ist OPTIONAL. Ist
-diese Eigenschaft gesetzt, MUSS ihr Wert der Spezifikation von
-Well-Known Text (WKT) entsprechen.
+Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt, MUSS
+ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen.
+OPTIONAL
+\item[\texttt{classification}]
+\texttt{skos:Concept} mit \texttt{skos:prefLabel} OPTIONAL
 \end{description}
 
 \subsubsection{Weitere Beispiele}\label{weitere-beispiele}
@@ -3740,8 +3850,47 @@ Und die neue Version mit Well-Known Text:
 \subsection{org:Membership oder
 oparl:Membership}\label{oparlux5fmembership}
 
-Siehe: https://github.com/OParl/specs/issues/122
+TODO. Siehe: https://github.com/OParl/specs/issues/122
 https://github.com/OParl/specs/issues/109
+
+\subsubsection{Eigenschaften}\label{eigenschaften-10}
+
+\begin{description}
+\item[\texttt{person}]
+\texttt{oparl:Person} Eine Person. OPTIONAL
+\item[\texttt{organization}]
+\texttt{oparl:Organization} Eine Organization. OPTIONAL
+\item[\texttt{role}]
+zeigt auf ein Objekt der Klasse \texttt{org:Role} oder einer
+Unterklasse. Das Objekt hat eine \texttt{skos:prefLabel}-Eigenschaft,
+deren Wert eine Funktionsbezeichnung ist, z.B. ``1. pers. Vertreter
+\textbar{} 1. pers. Vertreterin'' oder ``2. pers. Vertreter \textbar{}
+2. pers. Vertreterin''. Popolo: ``The role that the person fulfills in
+the organization''. normale Mitglieder haben in der Regel keine eigene
+Funktion, aber auch eine Unterscheidung zwischen z.B. ``Sachkundige
+Bürger \textbar{} Sachkundige Bürgerin'' und ``Ratsherr \textbar{}
+Ratsfrau'' bei einfachen Mitgliedern ist hiermit möglich. TODO: was ist
+mit einem sachkundigen Bürger, der gleichzeitig Vorsitzender ist?
+OPTIONAL
+\item[\texttt{post}]
+The post held by the person in the organization OPTIONAL
+\item[\texttt{onBehalfOf}]
+Entsendende Organization - Fraktion, fraktionslos oder externes Gremium
+Dies entspricht \texttt{opengov:onBehalfOf} in Popolo. TODO: wie wird
+fraktionslos kodiert? OPTIONAL
+\item[\texttt{startDate}]
+\texttt{schema:validFrom} wie in Popolo. The date on which the
+relationship began OPTIONAL
+\item[\texttt{endDate}]
+\texttt{schema:validThrough} wie in Popolo. The date on which the
+relationship ended OPTIONAL
+\end{description}
+
+\subsubsection{Hinweise}\label{hinweise}
+
+http://www.w3.org/TR/vocab-org/\#membership-roles-posts-and-reporting
+
+http://popoloproject.com/specs/membership.html
 
 \section{Fußnoten}\label{fuuxdfnoten}
 

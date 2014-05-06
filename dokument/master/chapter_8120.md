@@ -56,37 +56,40 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
 ### Eigenschaften ###
 
 `paper`
-:   URL der Drucksache, die beraten wird.
+:   Drucksache, die beraten wird.
+    Typ: `oparl:Paper`
     ZWINGEND.
 
 `agendaitem`
-:   URL des Tagesordnungspunktes (oparl:Agendaitem), unter dem die Drucksache 
-    beraten wird.
+:   Tagesordnungspunkt, unter dem die Drucksache beraten wird.
+    Typ: `oparl:AgendaItem`
     ZWINGEND.
 
 `committee`
-:   URL des Gremiums (oparl:Organization), dem die Sitzung zugewiesen ist, zu
-    welcher der zuvor genannte Tagesordnungspunkt gehört.
+:   Gremium, dem die Sitzung zugewiesen ist, zu welcher der zuvor genannte Tagesordnungspunkt gehört.
     Hier kann auch eine mit Liste von Gremien angegeben werden (die verschiedenen `oparl:Body` und `oparl:System`
     angehören können).
     Die Liste ist dann geordnet.
     Das erste Gremium der Liste ist federführend.
+    Typ: `oparl:Organization`
     ZWINGEND.
 
 `authoritative`
 :   Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst 
-    wird (*true*) wird oder nicht (*false*).
-    Typ: Wahrheitswert.
+    wird (`true`) wird oder nicht (`false`).
+    Typ: boolean.
     Diese Eigenschaft ist OPTIONAL.
 
 `role`
-:   `skos:Concept` Rolle oder Funktion der Beratung. z.B. Anhörung (hearing), Entscheidung (decision), 
+:   Rolle oder Funktion der Beratung. z.B. Anhörung (hearing), Entscheidung (decision), 
     Kenntnisnahme (notice), Vorberatung (counseling) usw. Es wird empfohlen in den URLs entsprechende englische
     Bestandteile zu verwenden. Die Rollenobjekte haben nur eine festgelegte Eigenschaft: `skos:prefLabel` für den Namen.
     In einer zukünftigen Version von OParl können gegebenenfalls die am stärksten benötigten Rollen
     standardisiert werden.
+    Typ: `skos:Concept`
     OPTIONAL
 
 `classification`
-:   `skos:Concept` mit `skos:prefLabel`. Allgemeiner verwendbar als `role`.
+:   Schlagwort, Begriff mit `skos:prefLabel`. Allgemeiner verwendbar als `role`.
+    Typ: `skos:Concept`
     OPTIONAL

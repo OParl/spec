@@ -1,4 +1,4 @@
-Benannte und anonyme Objekte
+Benannte und anonyme Objekte  {#benannte_anonyme_objekte}
 ----------------------------
 
 Die JSON-LD-Spezifikation unterscheidet zwischen benannten und anonymen

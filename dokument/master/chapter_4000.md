@@ -75,7 +75,7 @@ auf dem Endgerät indexiert werden kann. So wiederum kann auf dem Client eine
 Suchfunktion realisiert werden, welche die OParl-API selbst nicht zur Verfügung
 stellt.
 
-Eine solche Suchfunktion kann auch über die reine Volltxtsuche hinaus gehen
+Eine solche Suchfunktion kann auch über die reine Volltxtsuche
 und über die Suche mittels Text- oder Spracheingabe hinaus gehen. Denn ein Client
 könnte von einem [Server](#server)-System, das Drucksachen mit Geoinformationen
 anbietet, diese abrufen und räumlich indexieren. Anhand der Position des Geräts,

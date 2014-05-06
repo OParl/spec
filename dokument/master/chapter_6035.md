@@ -20,14 +20,11 @@ Die grundsätzliche Funktionsweise von URLs ist in RFC 3986 beschrieben^[RFC 398
 Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in diesem Dokument
 Verwendung finden:
 
-    http://refserv.oparl.org/bodies/0/committees/4/members/?skip=234
-    \__/   \_______________/\_____________________________/ \______/
-     |         |                  |                           |
-    Schema    Host               Pfad                        Query-String
+    http://refserv.oparl.org/foo/bar/?skip=234
+    \__/   \_______________/\_______/ \______/
+     |         |                |        |
+    Schema    Host             Pfad  Query-String
 
-
-Um bereits an dieser Stelle das Entstehen von Missverständnissen zu vermeiden sei darauf hingewiesen, dass insbesondere
-auch der enthaltene Pfad nur ein Beipiel ist. Der Aufbau der Pfade wird in OParl nicht festgelegt.
 
 ### URL-Kanonisierung
 

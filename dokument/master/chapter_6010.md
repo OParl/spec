@@ -63,6 +63,9 @@ häufig genutzt, um eine Schnittstelle zu beschreiben,
   wird kein Speicher zur Verfügung gestellt, um beispielsweise den Zustand einer Session
   zu speichern.
 
+Diese Prinzipien macht sich auch OParl zunutze. Damit gilt prinzipiell, dass eine 
+OParl-konforme Server-Schnittstelle auch als "RESTful" gelten darf.
+
 ### Selbstbeschreibungsfähigkeit
 
 Ausgaben des Servers sollten so beschaffen sein, dass sie für menschliche NutzerInnen

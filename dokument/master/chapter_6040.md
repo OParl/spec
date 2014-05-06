@@ -214,8 +214,8 @@ dass es sich hierbei um eine sortierte Liste handelt.
 erwartet, wird dies eigens erwähnt werden. Das OParl-JSON-LD-Vokabular wird an der 
 entsprechenden Stelle das Schlüsselwort `@list` verwenden.
 
-* **Verschachtelte Listen sind nicht möglich**: JSON-LD erlaubt keine Listen, die
-wiederum Listen als Werte enthalten. TODO: [Issue 115](https://github.com/OParl/specs/issues/115).
+* **Listen DÜRFEN NICHT verschachtelt werden**: JSON-LD erlaubt keine Listen, die
+wiederum Listen als Werte enthalten.
 
 
 ### JSONP

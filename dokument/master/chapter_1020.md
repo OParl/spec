@@ -1,7 +1,7 @@
 Zielsetzung von OParl
 ---------------------
 
-OParl richtet sich an vielvältige Nutzergruppen (Stakeholder):
+OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:
 
 * Verwaltung und politische Gremien in Kommunen
 * Bürger, politische Parteien und Organisationen

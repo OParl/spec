@@ -34,7 +34,7 @@ Ein Beispiel in expandierter Form:
     "postalCode": "11111",
     "locality": {
         "de": "Musterort",
-        "en": Sample Town"
+        "en": "Sample Town"
     },
     "organization": [
         "http://oparl.beispielris.de/organization/11",

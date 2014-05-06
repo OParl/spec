@@ -35,17 +35,14 @@ die Eigenschaft `paper` bzw. `meeting` angezeigt.
 Mehrere Objekte vom Typ `oparl:Document` können mit einander in direkter
 Beziehung stehen, wenn sie den selben Inhalt in unterschiedlichen
 technischen Formaten wiedergeben. Hierfür werden die Eigenschaften
-`master_document` bzw. `derivative_documents` eingesetzt. Das oben angezeigte
+`masterDocument` bzw. `derivativeDocuments` eingesetzt. Das oben angezeigte
 Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der
-Eigenschaft `mime_type`) und zeigt außerdem über die Eigenschaft 
-`master_document` an, von welcher anderen Datei es abgeleitet wurde.
-Umgekehrt KANN über die Eigenschaft `derivative_documents` angezeigt
+Eigenschaft `mimeType`) und zeigt außerdem über die Eigenschaft 
+`masterDocument` an, von welcher anderen Datei es abgeleitet wurde.
+Umgekehrt KANN über die Eigenschaft `derivativeDocuments` angezeigt
 werden, welche Ableitungen einer Datei existieren.
 
 ### Eigenschaften ###
-
-`@id`
-:   Die URL des Objekts.
 
 `name`
 :   Name des Objekts, der Nutzern angezeigt werden kann.
@@ -57,7 +54,9 @@ werden, welche Ableitungen einer Datei existieren.
     Sollte das System einer Datei keinen
     spezifischen Typ zuweisen können, wird EMPFOHLEN, hier 
     "application/octet-stream" zu verwenden.
+    Typ: TODO
     ZWINGEND
+    
 `date`
 :   Erstellungs- oder Veröffentlichungsdatum und -uhrzeit.
     Typ: Datum.
@@ -96,27 +95,27 @@ werden, welche Ableitungen einer Datei existieren.
     EMPFOHLEN
 
 `paper`
-:   Zugehöriges Objekts vom Typ `oparl:Paper`, sofern diese Datei
-    zu einer Drucksache gehört. Wenn diese Datei zu einer Drucksache gehört,
-    MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT
-    vorhanden sein.
-    Typ: URL.
-
+:   Drucksache, sofern diese Datei zu einer Drucksache gehört. Wenn diese Datei zu einer Drucksache gehört,
+    MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT vorhanden sein.
+    TODO: ist das eine Tautologie?
+    Typ: `oparl:Paper`
+    
+    
 `meeting`
-:   Zugehöriges Objekt vom Typ `oparl:Meeting`, sofern diese Datei
-    zu einer Sitzung gehört. Wenn diese Datei zu einer Sitzung gehört,
+:   Sitzung, sofern diese Datei zu einer Sitzung gehört. Wenn diese Datei zu einer Sitzung gehört,
     MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT
     vorhanden sein.
-    Typ: URL.
+    TODO: ist das eine Tautologie?
+    Typ: `oparl:Meeting`
 
 `masterDocument`
-:   `oparl:Document`, von dem das aktuelle Objekt abgeleitet wurde.
-    Typ: URL.
+:   Datei von der das aktuelle Objekt abgeleitet wurde.
+    Typ: `oparl:Document`
     OPTIONAL
 
 `derivativeDocuments`
-:   `oparl:Document`, die von dem aktuellen Objekt abgeleitet wurden.
-    Typ: URL.
+:   Abgeleitete Datei die von dem aktuellen Objekt abgeleitet wurde.
+    Typ: `oparl:Document`
     OPTIONAL
     
 `license`
@@ -132,12 +131,12 @@ werden, welche Ableitungen einer Datei existieren.
     wird möglicherweise eine Menge der wichtigsten Kategorien vorgegeben.
     TODO: Besser in `oparl:Paper` oder `oparl:Meeting` ?
     Siehe Diskussion unter https://github.com/OParl/specs/issues/65
-    Typ: URL
+    Typ: `skos:Concept`
     OPTIONAL
 
 `classification`
-:   `skos:Concept` mit `skos:prefLabel`. Hat allgemeinere Bedeutung als `documentRole`.
-    Typ: URL
+:   Begriff mit `skos:prefLabel`. Hat allgemeinere Bedeutung als `documentRole`.
+    Typ: `skos:Concept`
     OPTIONAL
 
 ### Siehe auch

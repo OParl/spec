@@ -86,19 +86,46 @@ Objekt sortiert werden könnte.
 
 ## Szenario 2: Integration in Web-Portal  {#szenario_web_portal}
 
-Web Portale bieten Nutzern unter anderem die Möglichkeit Anwendungen, Prozesse und Dienste zu integrieren. Die OParl API stellt einen solchen Dienst dar und bereitet so den Weg zu angereicherten Portalseiten. Informationen, die über die API bezogen werden, können in Portlets organisiert und visualisiert werden. Hierbei können
+Portallösungen bieten den Betreibern die Möglichkeit, Inhalte auf einer einheitlichen
+Weboberfläche zu veröffentlichen, die aus verschiedensten Quellen und Plattformen
+bereitgestellt werden. Inhalte werden dabei häufig als sogenannte "Portlets" in
+Seiten integriert.
 
-1. angemeldete Benutzer 
+Ein Beispiel für die Realisierung eines solchen Integrations-Ansatzes wäre eine Kommune,
+die für ihre allgemeine Website eine Portallösung einsezt und hier auch Inhalte aus
+dem kommunalen Ratsinforamtionssystem einspeisen und darstellen möchte. Die Inhalte könnten
+als Module mit anderen Inhalten, beispielsweise aus einem Web Content Management System
+(WCMS) gemeinsam auf einer Seite dargestellt werden.
 
-die eingegrenzten Portlet Parameter für den nächsten Besuch zwischen speichern, während
+Eine Seite über den Gemeinderat beispielsweise könnte durch ein Portlet ergänzt
+werden, in dem die nächsten Sitzungstermine des Gemeinderats aufgelistet werden. Eine
+Pressemeldung über ein bestimmtes Bauvorhaben, in dem ein Beschluss erwähnt wird,
+könnte direkt ein Portlet mit einer Detailsansicht der entsprechenden Drucksache
+einbinden.
 
-2. anonyme Benutzer 
+Die Portlets, die von einem Portalserver zur Verfügung gestellt werden, stellen damit
+im Sinne der OParl-Architektur Clients dar. Je nach Performanz und Anforderungen im
+Einzelfall könnten diese Client mit eigenen Caches arbeiten oder aber direkt auf den
+jeweiligen OParl-Server zugreifen. 
 
-dies nicht können. In beiden Fällen können Portalnutzer das angezeigte Portlet nach ihren Bedürfnissen anpassen. Beispielsweise kann ein solches Portlet eine Liste der Gremien bereitstellen, aus der sich der Nutzer das interessante Gremium aussucht und aufgrund dieser Auswahl die Informationen zu den vergangenen / nächsten Sitzungsterminen im Rat, etwaiger Drucksachen oder Dokumenten erhält und geeignet visualisiert. 
+Vorteil einer solchen Einbindung, also der kontextbezogenen Darstellung von parlamentarischen
+Informationen im Gegensatz zu einem monolitischen parlamentarischen Informationssystem
+könnte sein, dass Nutzer in einer gewohnten und akzeptierten Oberfläche jeweils die
+relevanten Informationen erhalten, ohne sich an die ungewohnte Umgebung eines parlamentarischen
+Informationssystems gewöhnen zu müssen.
 
-Durch eine solche Integration von RIS Informationen in bestehende Portalsysteme (unter Umständen die kommunale Webseite selbst), ist es möglich Nutzern zusätzliche 
-Informationen in der bereits gewohnten Umgebung zu präsentieren und den bestehenden Informationsgehalt und den Datenbestand aufzuwerten.
+Die denkbaren Szenarien einer solchen Integration beschränken sich nicht auf
+anonyme Nutzer von öffentlichen Websites. In einem authentifizierten Umfeld wie beispielsweise
+einem kommunalen Intranet lassen sich weitere Arten von Portlets und damit Mehrwerte für die
+Nutzer realisieren. So könnte beispielswiese eine eingeloggte Nutzerin eine personalisierte
+Liste der Sitzungstermine, zu der sie eingeladen ist, angezeigt bekommen.
 
+Die Standardisierung durch OParl sorgt im Rahmen der Portal-Szenarios dazu, dass Portlets,
+die für ein bestimmtes parlamentarisches Informationssystem entwickelt wurden, leichter auf
+andere Systeme - auch verschiedener Anbieter - ausgeweitet werden könne, sofern diese ebenfalls
+OParl-konform sind. Dies ermöglicht es beispielsweise verschiedenen Kommunen, ihre
+bei der Entwicklung von Portlets zusammen zu arbeiten und ihre Ergebnisse auszutauschen. Denkbar
+sind auch Portlet-Entwicklungen als Open-Source-Projekte.
 
 ## Szenario 3: Meta-Suche  {#szenario_meta_suche}
 

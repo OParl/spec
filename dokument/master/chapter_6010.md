@@ -4,9 +4,9 @@ Designprinzipien
 ### Aufbauen auf gängiger Praxis
 
 Grundlage für die Erarbeitung der OParl-Spezifikation in der vorliegenden Version
-ist eine Analyse der aktuell (2012 bis 2014) in Deutschland befindlichen
-Ratsinformationssysteme und ihrer Nutzung. Erklärtes Ziel für diese Version ist es,
-mit möglichst geringem Entwicklungsaufwand auf Seite der Softwareanbieter und 
+ist eine Analyse von aktuell (2012 bis 2014) in Deutschland etablierten
+parlamentarischen Informationssystemen und ihrer Nutzung. Erklärtes Ziel für diese erste
+Version ist es, mit möglichst geringem Entwicklungsaufwand auf Seite der Softwareanbieter und 
 Migrationsaufwand auf Seite der Betreiber zu einer Bereitstellung von parlamentarischen 
 Informationen über eine OParl API zu gelangen. Hierbei war es von entscheidender 
 Bedeutung, dass sich die Informationsmodelle der einschlägigen Softwareprodukte stark
@@ -25,8 +25,9 @@ gelten.
 Ein Beispiel für eine derartige Funktion ist die Abbildung von Geodaten im Kontext von
 Drucksachen (`oparl:Paper`), um beispielsweise die Lage eines Bauvorhabens, das in
 einer Beschlussvorlage behandelt wird, zu beschreiben. Zwar ist den Autoren nur ein
-einziges Ratsinformationssystem^[Das System BoRis der Stadt Bonn
-<http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp>] in Deutschland bekannt, das 
+einziges parlamentarisches Informationssystem^[Das Ratsinformationssystem BoRis, eine
+Eigenentwicklung der Stadt Bonn <http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp>]
+in Deutschland bekannt, das 
 Geoinformationen - und zwar in Form von Punktdaten, also einer Kombination aus 
 Längen- und Breitengradangaben - mit Dokumenten verknüpft. Der Vorteil dieser
 Funktion ist jedoch anhand zahlreicher Anwendungsszenarien belegbar. Somit ist der

@@ -34,7 +34,7 @@ Ein Beispiel in expandierter Form:
     "organization": "http://oparl.beispielris.de/organization/34",
     "participant": [
         "http://oparl.beispielris.de/person/29",
-        "http://oparl.beispielris.de/person/75"
+        "http://oparl.beispielris.de/person/75",
         "http://oparl.beispielris.de/person/94"
     ],
     "invitation": "http://oparl.beispielris.de/document/586",
@@ -52,7 +52,7 @@ Ein Beispiel in expandierter Form:
             "http://oparl.beispielris.de/agendaitem/1047",
             "http://oparl.beispielris.de/agendaitem/1048"
         ]
-    }
+    },
     "created": "2012-01-06T12:01:00+01:00",
     "modified": "2012-01-08T14:05:27+01:00"
 }

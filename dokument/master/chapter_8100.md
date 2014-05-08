@@ -37,8 +37,7 @@ Ein Beispiel in kompakter Form:
     "location": [
         {
             "description": "Theodor-Heuss-Ring 1",
-            "lat": 7.148,
-            "lon": 50.023
+            "geometry": "POINT(7.148  50.023)"
         }
     ],
     "creator": [

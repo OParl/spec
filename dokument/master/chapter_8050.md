@@ -43,7 +43,7 @@ Ein Kontext:
 ~~~~~~~~~~
 {
     "@language": "de",
-    // ...
+    ...
 }
 ~~~~~~~~~~
 
@@ -71,6 +71,7 @@ Ein Kontext:
     "modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
+
 ### Eigenschaften ###
 
 `body`

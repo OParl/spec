@@ -42,7 +42,7 @@ Für Texte ist durchgehend vorgesehen, dass diese mehrsprachig sein können. Kom
 ~~~~~
 im Kontext die deutsche Sprache als Vorgabe eingestellt.
 
-Es gibt aber möglicherweise auch Zeichenketten, die für die keine Mehrsprachigkeit vorgesehen wird. Dazu gehören z.B. Personennamen.
+Es gibt aber möglicherweise auch Zeichenketten, für die keine Mehrsprachigkeit vorgesehen wird. Dazu gehören z.B. Personennamen.
 
 TODO: Stimmt nicht. Tamilische Namen verwenden in der Originalschreibweise sogar ein vollkommen anderes Alphabet.
 
@@ -51,8 +51,8 @@ TODO: Stimmt nicht. Tamilische Namen verwenden in der Originalschreibweise sogar
 Die Beispiel-Kontexte verwenden eine Reihe von Präfixen. Diese sind hier zusammengestellt und werden in den einzelnen Beispiel-Kontexten nicht jeweils wiederholt:
 
 ~~~~~  {#pcontext_praefixe .json}
-    "beispielris": "http://beispielris.de/",
-    "oparl": "http://oparl.org/xyz/",
+    "beispielris": "https://oparl.beispielris.de",
+    "oparl": "http://oparl.org/TODO/",
     "dc": "http://purl.org/dc/terms/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
@@ -66,33 +66,44 @@ Die Beispiel-Kontexte verwenden eine Reihe von Präfixen. Diese sind hier zusamm
 Diese sind - falls tatsächlich erforderlich - mit den JSON-LD Mitteln einfach möglich. z.B.
 
 ~~~~~
-"herstellera:newWonderProperty": "Dies ist ein Feature welches noch kein anderer Hersteller bietet!"
+"herstellera:newWonderProperty": "Dies ist ein Feature
+    welches noch kein anderer Hersteller bietet!"
 ~~~~~
 
 ### URL-Pfade in den Beispielen
 
-OParl-Clients wissen *nichts* vom Aufbau von Pfaden innerhalb von URLs, müssen dies nicht wissen und es gibt deshalb in der OParl-Spezifikation *keine* Festlegungen dazu.
+OParl-Clients wissen *nichts* vom Aufbau von Pfaden innerhalb von URLs,
+müssen dies nicht wissen und es gibt deshalb in der OParl-Spezifikation
+*keine* Festlegungen dazu.
 
-Wenn ein RIS-Betreiber z.B. meint, dass eine Person eine eigene Domain verdient, dann ist so etwas aus OParl-Sicht völlig ok:
+Wenn der Betreiber eines OParl-Systems beispielsweise meint, dass eine
+Person eine eigene Domain verdient, dann ist dies aus Sicht der OParl-Spezifikation
+völlig in Ordnung:
+
 ~~~~~~~~~~
 https://ratsmitglied-max-mustermann.beispielris.de/mein-oparl-datensatz
 ~~~~~~~~~~
 
-Noch etwas extremer: selbst eine eigene Domain für jedes einzelne OParl-Objekt würde der OParl-Spezifikation nicht widersprechen.
+Noch etwas extremer: selbst eine eigene Domain für jedes einzelne 
+OParl-Objekt würde der OParl-Spezifikation nicht widersprechen.
 
-Wenn also so etwas wie
+Wenn also in einer Beispiel-URL so etwas wie
+
 ~~~~~~~~~~
 bodies/0/peoples/
 ~~~~~~~~~~
 
-in einer URL eines Beispiels auftaucht, dann bedeutet das nicht, dass genau solche Pfade durch die OParl-Spezifikation vorgeschrieben sind.
+auftaucht, dann bedeutet das nicht, dass genau solche Pfade durch
+die OParl-Spezifikation vorgeschrieben sind.
 
 Auch dies wäre als absoluter Link z.B. für eine Person verwendbar:
 
 ~~~~~~~~~~
 https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
 ~~~~~~~~~~
+
 Dies käme dann als relativer Link für die Person in Frage:
+
 ~~~~~~~~~~
 personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
 ~~~~~~~~~~
@@ -102,4 +113,8 @@ oder auch z.B. dies
 LfyIfvCWq8SpBQj0MiyHaxDZwGJ
 ~~~~~~~~~~
 
-Gleichzeitig ist aber aus verschiedenen Gründen ein strukturierter Aufbau der Pfade durchaus sinnvoll, der sich an der Hierarchie der Objekte orientiert (nicht zuletzt, weil dies Softwareentwicklern während der Entwicklung helfen kann). Dennoch wird eine solche Struktur bewusst nicht in OParl festgelegt.
+Gleichzeitig ist aber aus verschiedenen Gründen ein strukturierter Aufbau
+der Pfade durchaus sinnvoll, der sich an der Hierarchie der Objekte
+orientiert (nicht zuletzt, weil dies Softwareentwicklern während der
+Entwicklung helfen kann). Dennoch wird eine solche Struktur bewusst
+nicht in OParl festgelegt.

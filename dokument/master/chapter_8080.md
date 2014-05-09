@@ -17,7 +17,7 @@ Ein Beispiel in expandierter Form:
 ~~~~~  {#meeting_ex1 .json}
 {
     "@type": "http://oparl.org/schema/1.0/Meeting",
-    "@id": "http://oparl.beispielris.de/meeting/281",
+    "@id": "https://oparl.beispielris.de/meeting/281",
     "name": "4. Sitzung des Finanzausschusses",
     "start": "2013-01-04T08:00:00+01:00",
     "end": "2013-01-04T12:00:00+01:00",
@@ -31,26 +31,25 @@ Ein Beispiel in expandierter Form:
             "@language": "en"
         }
     },
-    "organization": "http://oparl.beispielris.de/organization/34",
+    "organization": "https://oparl.beispielris.de/organization/34",
     "participant": [
-        "http://oparl.beispielris.de/person/29",
-        "http://oparl.beispielris.de/person/75",
-        "http://oparl.beispielris.de/person/94"
+        "https://oparl.beispielris.de/person/29",
+        "https://oparl.beispielris.de/person/75",
+        "https://oparl.beispielris.de/person/94"
     ],
-    "invitation": "http://oparl.beispielris.de/document/586",
-    "resultsProtocol": "http://oparl.beispielris.de/document/628",
-    "verbatimProtocol": "http://oparl.beispielris.de/document/691",
+    "invitation": "https://oparl.beispielris.de/document/586",
+    "resultsProtocol": "https://oparl.beispielris.de/document/628",
+    "verbatimProtocol": "https://oparl.beispielris.de/document/691",
     "auxiliaryDocument": [
-        "http://oparl.beispielris.de/document/588",
-        "http://oparl.beispielris.de/document/589"
+        "https://oparl.beispielris.de/document/588",
+        "https://oparl.beispielris.de/document/589"
     ],
     "agendaItem": {
-    // Reihenfolge ist wichtig
         "@list": [
-            "http://oparl.beispielris.de/agendaitem/1045",
-            "http://oparl.beispielris.de/agendaitem/1046",
-            "http://oparl.beispielris.de/agendaitem/1047",
-            "http://oparl.beispielris.de/agendaitem/1048"
+            "https://oparl.beispielris.de/agendaitem/1045",
+            "https://oparl.beispielris.de/agendaitem/1046",
+            "https://oparl.beispielris.de/agendaitem/1047",
+            "https://oparl.beispielris.de/agendaitem/1048"
         ]
     },
     "created": "2012-01-06T12:01:00+01:00",
@@ -64,7 +63,7 @@ Das selbe Beispiel in kompakter Form:
 {
     "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
     "@type": "oparl:Meeting",
-    "@id": "http://oparl.beispielris.de/meeting/281",
+    "@id": "https://oparl.beispielris.de/meeting/281",
     "name": "4. Sitzung des Finanzausschusses",
     "start": "2013-01-04T08:00:00+01:00",
     "end": "2013-01-04T12:00:00+01:00",

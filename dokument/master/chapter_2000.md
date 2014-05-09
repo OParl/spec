@@ -1,4 +1,4 @@
-Architektur
+Architektur  {#architektur}
 ===========
 
 In diesem Abschnitt werden grundlegenden Konzepte, die von OParl abgedeckt

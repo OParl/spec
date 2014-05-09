@@ -32,15 +32,18 @@ zu finden.]
 
 Eine besondere Bedeutung hat die Eigenschaft `license`, wenn sie am `oparl:System` Objekt oder am `oparl:Body`
 Objekt vergeben wird. Die hier angegebene Lizenzinformation sagt aus, dass alle
-Objekte dieses Systems unter der angegebenen Lizenz veröffentlicht werden, sofern
+Objekte dieses Systems bzw. der Körperschaft unter der angegebenen Lizenz veröffentlicht werden, sofern
 dies nicht am jeweiligen Objekt mit einer anders lautenden Lizenz-URL überschrieben
 wird. Daher wird dringend EMPFOHLEN, die Lizenzinformation global am `oparl:System`
 Objekt mitzuteilen und auf redundante Informationen zu verzichten.
 
-Auf Objekte vom Typ `oparl:Document` bezogen bezieht sich die Lizenzinformation
+An Objekten vom Typ `oparl:Document` auftretend, bezieht sich die Lizenzinformation
 nicht nur auf die strukturierten Metadaten, die über die API bezogen werden, sondern
 auch auf den eigentlichen Inhalt der Dateien, die über die angebotene(n) URL(s)
 abgerufen werden können.
+
+Lesenswert zum Thema Lizensierung von Linked Data ist auch er Abschnitt "Licenses,
+Waivers and Norms for Data" im online zugänglichen Linked Data Book.^[Tom Heath, Christian Bizer: Linked Data: Evolving the Web into a Global Data Space (1st edition), <http://linkeddatabook.com/editions/1.0/#htoc48>]
 
 ### `created`
 

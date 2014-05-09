@@ -42,20 +42,20 @@ Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
 {
     "items": [
     	{
-    		"@id": "http://refserv.oparl.org/bodies/0/papers/21/documents/3",
+    		"@id": "https://oparl.beispielris.de/bodies/0/papers/21/documents/3",
     		"created": "2014-01-07T12:59:01.038+0100"
     	},
     	{
-    		"@id": "http://refserv.oparl.org/bodies/0/papers/21",
+    		"@id": "https://oparl.beispielris.de/bodies/0/papers/21",
     		"created": "2014-01-05T18:29:37.123+0100"
     	},
     	{
-    		"@id": "http://refserv.oparl.org/bodies/0/papers/20/documents/5",
+    		"@id": "https://oparl.beispielris.de/bodies/0/papers/20/documents/5",
     		"created": "2014-01-04T11:26:48.638+0100"
     	},
     	...
     ],
-    "nextPage": "http://refserv.oparl.org/feeds/new/?t=20140106170100402"
+    "nextPage": "https://oparl.beispielris.de/feeds/new/?t=20140106170100402"
 }
 ~~~~~
 
@@ -106,20 +106,20 @@ geführt werden.
 {
     "items": [
     	{
-    		"@id": "http://refserv.oparl.org/bodies/0/papers/0/documents/2",
+    		"@id": "https://oparl.beispielris.de/bodies/0/papers/0/documents/2",
     		"last_modified": "2014-01-08T14:28:31.568+0100"
     	},
     	{
-    		"@id": "http://refserv.oparl.org/bodies/0/papers/0",
+    		"@id": "https://oparl.beispielris.de/bodies/0/papers/0",
     		"last_modified": "2014-01-08T12:14:27.958+0100"
     	},
     	{
-    		"@id": "http://refserv.oparl.org/bodies/0/papers/0/documents/1",
+    		"@id": "https://oparl.beispielris.de/bodies/0/papers/0/documents/1",
     		"last_modified": "2014-01-06T17:01:00.402+0100"
     	},
     	...
     ],
-    "nextPage": "http://refserv.oparl.org/feeds/updated/?t=20140106170100402"
+    "nextPage": "https://oparl.beispielris.de/feeds/updated/?t=20140106170100402"
 }
 ~~~~~
 
@@ -144,12 +144,12 @@ depublizierte Dokumente aus ihren lokalen Caches zu entfernen.
 {
     "items": [
     	{
-    		"@id": "http://refserv.oparl.org/bodies/0/people/22",
+    		"@id": "https://oparl.beispielris.de/bodies/0/people/22",
     		"removed": "2013-11-11T11:11:00.000+0100"
     	},
     	...
     ],
-    "nextPage": "http://refserv.oparl.org/feeds/updated/?t=20131111111100"
+    "nextPage": "https://oparl.beispielris.de/feeds/updated/?t=20131111111100"
 }
 ~~~~~
 

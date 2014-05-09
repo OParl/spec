@@ -338,6 +338,25 @@ Objekt: http://dbpedia.org/resource/John_(given_name)</code></pre>
 <p>Wie unter <a href="#designprinzipien">Designprinzipien</a> beschrieben, ist diese erste Version der OParl-Spezifikation bereits im Wesentlichen von den Zielen der einfachen Implementierbarkeit und Migration geleitet.</p>
 <p>Der Aufwand, den die Betreiber von parlamentarischen Informationssystemen bei der Bereitstellung von OParl-konformen Schnittstellen betreiben, soll auch bei der zukünftigen Weiterentwicklung dieser Spezifikation berücksichtigt werden. Ebenso soll den Entwicklern von Client-Software zukünftig entgegen kommen, dass ihre bestehenden Clients auch mit Servern kommunizieren können, die eine neuere Version der OParl-Spezifikation unterstützen. Dieser Wunsch ist bereits im Designprinzip <a href="#erweiterbarkeit">Erweiterbarkeit</a> ausformuliert.</p>
 <p>Mit anderen Worten: die Autoren der OParl-Spezifikation beabsichtigen größtmögliche Zukunftssicherheit und zukünftige Abwärtskompatibilität. Dieses Ziel wird in Zukunft natürlich abgewägt werden müssen mit dem Wunsch, sich an Veränderungen und neue Erkenntnisse anzupassen. Eine Garantie für Zukunftssicherheit kann insofern niemand aussprechen.</p>
+<p>Ein fiktives Szenario soll verdeutlichen, dass es zweckmäßig ist, schon beim Betrieb eines OParl 1.0 Servers die zukünftige Entwicklung im Blick zu haben:</p>
+<ul>
+<li><p>Die Kommune <em>Beispielstadt</em> betreibt ihren OParl-1.0-Server unter der URL <code>https://oparl.bstadt.de/1.0/</code>.</p></li>
+<li><p>Verschiedene Clients, die für OParl Version 1.0 entwickelt wurden, kommen bei Nutzerinnen und Nutzern, die sich für den Stadtrat in Beispielstadt intressieren, zum Einsatz. Jeder Client-Nutzer hat dazu lediglich die URL <code>https://oparl.bstadt.de/1.0/</code> des OParl-Servers in der Client-Konfiguration hinterlegt.</p></li>
+<li><p>Die OParl-Spezifikation wird aktualisiert, es erscheint Version 1.1. Das Schema enthält Erweiterungen gegenüber Version 1.0, jedes gültige Objekt aus Version 1.0 behält jedoch auch weiterhin seine Gültigkeit. Und Objekte, die nach Version 1.1 gültig sind, sind auch für Clients gültig, die für Version 1.0 entwickelt wurden.</p></li>
+<li><p>Die Firma, die den OParl-Server von Beispielstadt entwickelt hat, liefert ein Update.</p></li>
+<li><p>Der OParl-Server von Beispielstadt ist nun über eine neue URL <code>https://oparl.bstadt.de/1.1/</code> zu erreichen. Alle Anfragen an <code>https://oparl.bstadt.de/1.0/...</code> werden auf die entsprechende URL unter <code>https://oparl.bstadt.de/1.1/</code> mit HTTP-Redirects und Status-Code 301 weiter geleitet.</p></li>
+<li><p>Die Nutzer der Clients, die mit dem OParl-Server von Beispielstadt arbeiten, können weiter arbeiten wie bisher. Sie erhalten vom Client höchstens einmalig eine Information, dass sich die Server-URL geändert hat.</p></li>
+<li><p>Einzelne Client-NutzerInnen werden von den Anbietern ihrer Clients darauf aufmerksam gemacht, dass eine neue Version ihres Produkts für eine neue OParl-Version zur Verfügung steht. Mit dieser Version könnten die Nutzer in den Genuss der Vorteile von OParl Version 1.1 kommen.</p></li>
+<li><p>Nach einiger Zeit erscheint eine neue Version 2.0 der OParl Spezifikation. Hier haben sich größere Änderungen ergeben. Das Schema ist nicht kompatibel mit dem von Version 1.0 und 1.1. Clients, die für eine Version 1.* entwickelt wurden, werden nicht sinnvoll mit einem Server der Version 2 kommunizieren können.</p></li>
+<li><p>Der Server-Entwickler bietet das entsprechende Produkt zu OParl Version 2 an, Beispielstadt entschließt sich zum Einsatz der neuen Version. Da das Server-Produkt gleichzeitig OParl 1.* und OParl 2.0 bedienen kann, kann Beispielstadt gleichzeitig einen Endpunkt für 1.1 und einen für 2.0 betreiben. Die URL des neuen Endpunkts lautet <code>https://oparl.bstadt.de/2.0/</code>.</p></li>
+</ul>
+<p>Das Szenario verdeutlicht, wie insbesondere zwei Aspekte für eine möglichst sanfte Migration zwischen den OParl-Versionen sorgen können:</p>
+<ol type="1">
+<li><p>Dedizierte API-Endpunkt-URLs für jede OParl-Version</p></li>
+<li><p>HTTP-Weiterleitungen auf die neue URL, sofern diese kompatibel mit der alten ist, erspart den Parallelbetrieb von zwei ähnlichen Endpunkten und kommuniziert den Clients automatisch den Endpunkt der neuen Version</p></li>
+</ol>
+<p>Zu der Art, wie die OParl-Version sich auf die Endpunkt-URL auswirkt, will diese Spezifikation keine Vorgaben machen. Die Pfad-Elemente im obigen Szenario sind Vorschläge, aber in keiner Weise bindend.</p>
+<p>Die praktische Umsetzung von HTTP-Weiterleitungen ist besonders dann trivial, wenn die restlichen URL-Bestandteile identisch bleiben. In diesem Fall können Server mit einer einfachen Regel von jeglicher vorherigen auf jegliche neue URL weiter leiten.</p>
 </section>
 <section id="content_negotiation" class="level2">
 <h2><span class="header-section-number">4.3</span> Content Negotiation</h2>
@@ -377,10 +396,10 @@ Objekt: http://dbpedia.org/resource/John_(given_name)</code></pre>
 <p>Im Rahmen dieses Dokuments wird aus Gründen der Verständlichkeit generell der allgemein gebräuchlichere Begriff &quot;URL&quot; werwendet, auch wenn damit tatsächlich die internationalisierte Variante nach RFC 3987<a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a>, die korrekterweise IRI bzw. &quot;Internationalized Resource Identifier&quot; genannt werden müsste, gemeint ist. In andern Kontexten wiederum wird von URIs bzw. &quot;Uniform Resource Identifier&quot; gesprochen. Das vorliegende Dokumente fasst alle drei Konzepte mit dem Begriff &quot;URL&quot; zusammen und ignoriert damit die Unterschiede der einzelnen Begriffe, da diese im Rahmen dieser Spezifikation ohne bedeutung sind.</p>
 <p>Die grundsätzliche Funktionsweise von URLs ist in RFC 3986 beschrieben<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a>.</p>
 <p>Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in diesem Dokument Verwendung finden:</p>
-<pre><code>http://refserv.oparl.org/foo/bar/?skip=234
-\__/   \_______________/\_______/ \______/
- |         |                |        |
-Schema    Host             Pfad  Query-String</code></pre>
+<pre><code>https://refserv.oparl.org/foo/bar/?skip=234
+\___/   \_______________/\_______/ \______/
+  |         |                |        |
+Schema     Host             Pfad  Query-String</code></pre>
 <section id="url-kanonisierung" class="level3">
 <h3><span class="header-section-number">4.5.1</span> URL-Kanonisierung</h3>
 <p>Absicht ist, dass jedes benannte Objekt<a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a>, das ein Server über eine OParl-API anbietet, über genau eine URL identifizierbar und abrufbar ist. Diese Vereinheitlichung der URL nennen wir Kanonisierung.</p>
@@ -402,19 +421,19 @@ Schema    Host             Pfad  Query-String</code></pre>
 <li><p>Der Server ist neben dem Host-Namen auch über die IP-Adresse erreichbar.</p></li>
 <li><p>Zusätzliche Domains, die einen A-Record auf den selben Server besitzen</p></li>
 </ul>
-<p>Zu der kanonischen Beispiel-URL http://oparl.stadtrat.stadt-koeln.de/ wären eine Reihe von nicht-kanonischen URL-Varianten denkbar, die technischen auf den selben Server führen könnten:</p>
+<p>Zu der kanonischen Beispiel-URL https://oparl.stadtrat.stadt-koeln.de/ wären eine Reihe von nicht-kanonischen URL-Varianten denkbar, die technischen auf den selben Server führen könnten:</p>
 <ul>
-<li>http://83.123.89.102/</li>
-<li>http://oparl.stadtrat.stadtkoeln.de/</li>
-<li>http://risserv.stadt-koeln.de/</li>
+<li>https://83.123.89.102/</li>
+<li>https://oparl.stadtrat.stadtkoeln.de/</li>
+<li>https://risserv.stadt-koeln.de/</li>
 </ul>
 <p>Falls es aus technischen Gründen nicht möglich ist, den Zugang auf das OParl-System über nicht-kanonische URLs zu unterbinden, SOLL eine entsprechende HTTP-Anfrage mit einer Weiterleitung auf die entsprechende kanonische URL beantwortet werden. Dabei ist der HTTP-Status-Code 301 zu verwenden.</p>
 <p>Server-Implementierern wird empfohlen, hierfür den Host-Header der HTTP-Anfrage auszuwerten und mit der konfigurierten Einstellung für den kanonischen Hostnamen des Systems abzugleichen.</p>
 <p>Beim <strong>Pfad</strong>-Bestandteil der URL MÜSSEN Server-Implementierer darüber hinaus beachten, dass nur jeweils eine Schreibweise als die kanonische Schreibweise gelten kann. Dazu gehört auch die Groß- und Kleinschreibung, die Anzahl von Schrägstrichen als Pfad-Trennzeichen, die Anzahl von führenden Nullen vor numerischen URL-Bestandteilen und vieles mehr.</p>
 <p>Die Kanonisierung umfasst auch den <strong>Query-String</strong>-Bestandteil der URL. Wie auch beim Pfad, gilt hier, dass für jeden Parameter und jeden Wert im Query-String nur eine kanonische Schreibweise gelten MUSS.</p>
 <p>Darüber hinaus SOLL der Server-Implementierer darauf achten, bei Verwendung von Query-String-Parametern diese in URLs immer nach dem selben Prinzip zu sortieren. Ein Beispiel: die beiden URLs</p>
-<pre><code>http://oparl.meinris.de/members?body=1&amp;committee=2
-http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
+<pre><code>https://oparl.beispielris.de/members?body=1&amp;committee=2
+https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 <p>unterscheiden sich lediglich in der Reihenfolge der Query-String-Parameter. Da sie jedoch nicht identisch sind, müssen Clients annehmen, dass beide URLs verschiedene Objekte repräsentieren. In der Konsequenz kann es zu vermeidbarer Ressourcennutzung sowohl auf Client- als auch auf Serverseite kommen.</p>
 </section>
 <section id="langlebigkeit" class="level3">
@@ -571,10 +590,10 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <section id="benannte-objekte" class="level3">
 <h3><span class="header-section-number">4.7.1</span> Benannte Objekte</h3>
 <p>Benannte Objekte sind innerhalb einer JSON-LD-Ausgabe diejenigen Objekte, die durch eine eigene URL identifiziert werden. Als Beispiel dient ein fiktives Objekt, das ein Client über die URL</p>
-<pre><code>http://refserv.oparl.org/bodies/0/committees/1</code></pre>
+<pre><code>https://oparl.beispielris.de/bodies/0/committees/1</code></pre>
 <p>abruft:</p>
 <pre class="sourceCode json" id="benanntanonym_ex1"><code class="sourceCode json">{
-    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/committees/1&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/bodies/0/committees/1&quot;</span>,
     <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/committee&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Hauptausschuss&quot;</span>
 }</code></pre>
@@ -594,14 +613,14 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Ein Beispiel dafür findet sich in der Beratungsfolge einer Drucksache. Das nachfolgende Beispiel zeigt eine Drucksache, deren Beratungsfolge über die Eigenschaft <code>consultations</code> kodiert ist.</p>
 <p>TODO: Nachstehendes Beispiel und Text dazu auf stimmiges Paper Objekt umschreiben.</p>
 <pre class="sourceCode json" id="benanntanonym_ex2"><code class="sourceCode json">{
-    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/456&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/bodies/0/papers/456&quot;</span>,
     <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/paper&quot;</span>,
     <span class="dt">&quot;title&quot;</span>: <span class="st">&quot;Beschlussvorlage zur Jugendförderung&quot;</span>,
     <span class="dt">&quot;consultations&quot;</span>: [
         {
             <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/consultation&quot;</span>,
-            <span class="dt">&quot;committee&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/committees/1&quot;</span>,
-            <span class="dt">&quot;meeting&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/committees/1/meetings/123&quot;</span>,
+            <span class="dt">&quot;committee&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/bodies/0/committees/1&quot;</span>,
+            <span class="dt">&quot;meeting&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/bodies/0/committees/1/meetings/123&quot;</span>,
             <span class="dt">&quot;agendaitem&quot;</span>: <span class="st">&quot;7.2.4&quot;</span>,
             <span class="dt">&quot;authoritative&quot;</span>: <span class="dv">false</span>
         },
@@ -720,11 +739,17 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 <section id="feeds" class="level2">
 <h2><span class="header-section-number">4.9</span> Feeds</h2>
-<p>Feeds sind spezielle Arten von <a href="#objektlisten">Objektlisten</a>, für die besondere Anforderungen gelten. Es werden drei verschiedene Feeds spezifiziert.</p>
-<p>Der Begriff &quot;Feed&quot; ist eine Anlehnung an die weit verbreiteten RSS- oder Atom-Feeds, deren Publikationslogik im Wesentlichen auf der chronologischen Sortierung beruht. Im Unterschied zu Atom oder RSS ist hier jedoch keine XML-Ausgabe beabsichtigt.</p>
-<p>Die Feeds sollen es Clients ermöglichen, schnelle und ressourcenschonende abzufragen, welche Objekte auf dem Server neu hinzugefügt, geändert oder entfernt wurden. Ziel ist, zu verhindern, dass Clients zur Aktualisierung ihres Caches den gesamten Datenbestand eines Servers abrufen müssen.</p>
+<p>Feeds sind spezielle Arten von <a href="#objektlisten">Objektlisten</a>, für die besondere Anforderungen gelten. Es werden drei verschiedene Feeds spezifiziert:</p>
+<ul>
+<li>Der Feed <em>Neue Objekte</em></li>
+<li>Der Feed <em>Geänderte Objekte</em></li>
+<li>Der Feed <em>Entfernte Objekte</em></li>
+</ul>
+<p>Der Begriff &quot;Feed&quot; ist eine Anlehnung an die weit verbreiteten RSS-<a href="#fn32" class="footnoteRef" id="fnref32"><sup>32</sup></a> oder Atom-Feeds<a href="#fn33" class="footnoteRef" id="fnref33"><sup>33</sup></a>, deren Publikationslogik im Wesentlichen auf der chronologischen Sortierung beruht. Im Unterschied zu Atom oder RSS ist hier jedoch keine XML-Ausgabe beabsichtigt.</p>
+<p>Die Feeds sollen es Clients ermöglichen, schnell und ressourcenschonend abzufragen, welche Objekte auf dem Server neu hinzugefügt, geändert oder entfernt wurden. Damit können Clients beispielsweise schnell und einfach neue Dokumente auffinden und verarbeiten oder entfernte Objekte aus ihren Caches entfernen und dabei nur ein Mindestmaß an Anfragen ausführen.</p>
 <p>Ein OParl-Server SOLL jeden der nachfolgend beschriebenen Feeds anbieten, sofern möglich.</p>
-<p>Für alle Feeds drei gilt, dass mindestens ein Zeitraum von 365 Tagen, gerechnet vom Zeitpunkt der Abfrage, abgedeckt werden SOLL.</p>
+<p>Für alle drei Feeds wird EMPFOHLEN, dass mindestens ein Zeitraum von 365 Tagen abgedeckt wird.</p>
+<p>Da Feeds üblicherweise eine große und stetig steigende Anzahl von Objekten beinhalten können, ist hier die <a href="#paginierung">Paginierung</a> anzuwenden, wie sie im vorigen Abschnitt über <a href="#objektlisten">Objektlisten</a> beschrieben wird.</p>
 <section id="feed_neue_objekte" class="level3">
 <h3><span class="header-section-number">4.9.1</span> Der Feed &quot;Neue Objekte&quot;</h3>
 <p>Der Feed für neue Objekte listet die URLs neu hinzugekommener Objekte in der Reihenfolge des Datums ihrer Erstellung, wobei die jüngsten Objekte zuerst ausgegeben werden.</p>
@@ -734,20 +759,19 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <pre class="sourceCode json" id="feed_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;items&quot;</span>: [
         {
-            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/21/documents/3&quot;</span>,
+            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/bodies/0/papers/21/documents/3&quot;</span>,
             <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2014-01-07T12:59:01.038+0100&quot;</span>
         },
         {
-            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/21&quot;</span>,
+            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/bodies/0/papers/21&quot;</span>,
             <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2014-01-05T18:29:37.123+0100&quot;</span>
         },
         {
-            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/20/documents/5&quot;</span>,
+            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/bodies/0/papers/20/documents/5&quot;</span>,
             <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2014-01-04T11:26:48.638+0100&quot;</span>
         },
         <span class="er">...</span>
-    ],
-    <span class="dt">&quot;nextPage&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/feeds/new/?t=20140106170100402&quot;</span>
+    ]
 }</code></pre>
 <p>Wie im Beispiel zu sehen ist, enthält die Eigenschaft <code>items</code> eine Liste mit unbenannten Objekten. Dies ist ein Unterschied zu herkömmlichen Objektlisten, bei denen an dieser Stelle lediglich URLs als Listeneinträge erwartet werden.</p>
 <p>Jedes der Objekte in der <code>items</code>-Liste MUSS seinerseits wiederum zwei Eigenschaften besitzen:</p>
@@ -755,34 +779,32 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <li><code>@id</code>: Die URL des neuen Objekts</li>
 <li><code>created</code>: Der Zeitpunkt der Erzeugung des Objekts</li>
 </ul>
-<p>Wie für Objektlisten üblich, SOLL auch für Feeds automatisch eine Aufteilung auf mehrere Seiten vorgenommen und ein Paginierungs-Link angeboten werden, um die übertragenen Datenmengen je Abruf einzugrenzen.</p>
 <p>Der jeweils in der Eigenschaft <code>created</code> ausgegebene Zeitpunkt SOLL vom Server als Sortierkriterium der Liste genutzt werden. So können Clients den jeweils am Anfang der Liste vorgefundenen Zeitpunkt als Begrenzung für die zukünftige Abfrage des Feeds nutzen. Ein Beispiel zur Erläuterung:</p>
 <p>Am 1. April 2014 ruft ein Client den Feed ab und findet im ersten Listeneintrag den <code>created</code>-Zeitpunkt <code>2014-03-31T18:02:34.058+0200</code> vor, den er sich als Grenzwert merkt. Beim nächsten Abruf des Feeds einige Tage später muss der Client die Liste nur so weit abarbeiten, so lange der <code>created</code>-Zeitpunkt der Einträge größer oder gleich dem Grenzwert ist.</p>
 </section>
 <section id="feed_geaenderte_objekte" class="level3">
 <h3><span class="header-section-number">4.9.2</span> Der Feed &quot;Geänderte Objekte&quot;</h3>
-<p>Der Feed für geänderte Objekte listet die URLs geänderter Objekte in der Reihenfolge des Datums ihrer Änderung, wobei das zuletzt Objekt zuerst ausgegeben wird.</p>
+<p>Der Feed für geänderte Objekte listet die URLs geänderter Objekte in der Reihenfolge des Datums ihrer Änderung, wobei das zuletzt geänderte Objekt zuerst ausgegeben wird.</p>
 <p>Die Definition einer &quot;Änderung&quot; kann sich zwischen den Objekttypen unterscheiden. Tendenziell soll die Definition eher weiter ausgelegt werden, als enger. Als Änderung einer Organisation könnte es beispielsweise verstanden werden, wenn ein neues Mitglied zur Organisation hinzukommt. Das Erstellen eines Objekts (im Sinne des Feeds &quot;Neue Objekte&quot;) sollte hingegen nicht als Änderung gewertet werden, um das redundante Erscheinen eines neuen Objekts sowohl im Feed &quot;Neue Objekte&quot; als auch im Feed &quot;Geänderte Objekte&quot; zu vermeiden.</p>
 <p>Auch hier SOLL der Feed sämtliche Objekttypen umfassen, die in einem System geführt werden.</p>
 <pre class="sourceCode json" id="feed_ex2"><code class="sourceCode json">{
     <span class="dt">&quot;items&quot;</span>: [
         {
-            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/0/documents/2&quot;</span>,
-            <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2014-01-08T14:28:31.568+0100&quot;</span>
+            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/bodies/0/papers/0/documents/2&quot;</span>,
+            <span class="dt">&quot;lastModified&quot;</span>: <span class="st">&quot;2014-01-08T14:28:31.568+0100&quot;</span>
         },
         {
-            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/0&quot;</span>,
-            <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2014-01-08T12:14:27.958+0100&quot;</span>
+            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/bodies/0/papers/0&quot;</span>,
+            <span class="dt">&quot;lastModified&quot;</span>: <span class="st">&quot;2014-01-08T12:14:27.958+0100&quot;</span>
         },
         {
-            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/0/documents/1&quot;</span>,
-            <span class="dt">&quot;last_modified&quot;</span>: <span class="st">&quot;2014-01-06T17:01:00.402+0100&quot;</span>
+            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/bodies/0/papers/0/documents/1&quot;</span>,
+            <span class="dt">&quot;lastModified&quot;</span>: <span class="st">&quot;2014-01-06T17:01:00.402+0100&quot;</span>
         },
         <span class="er">...</span>
-    ],
-    <span class="dt">&quot;nextPage&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/feeds/updated/?t=20140106170100402&quot;</span>
+    ]
 }</code></pre>
-<p>Das Ausgabeformat entspricht weitgehend dem des Feeds &quot;Neue Objekte&quot;, jedoch heißt hier die Eigenschaft für den Zeitpunkt der letzten Änderung <code>last_modified</code>. Auch hier gilt, dass der als <code>last_modified</code> ausgegebene Zeitpunkt auch als Sortierkriterium der Liste gelten SOLL.</p>
+<p>Das Ausgabeformat entspricht weitgehend dem des Feeds &quot;Neue Objekte&quot;, jedoch heißt hier die Eigenschaft für den Zeitpunkt der letzten Änderung <code>lastModified</code>. Auch hier gilt, dass der als <code>lastModified</code> ausgegebene Zeitpunkt auch als Sortierkriterium der Liste gelten SOLL.</p>
 </section>
 <section id="feed_entfernte_objekte" class="level3">
 <h3><span class="header-section-number">4.9.3</span> Der Feed &quot;Entfernte Objekte&quot;</h3>
@@ -792,14 +814,13 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <pre class="sourceCode json" id="feed_ex3"><code class="sourceCode json">{
     <span class="dt">&quot;items&quot;</span>: [
         {
-            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/people/22&quot;</span>,
+            <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/bodies/0/people/22&quot;</span>,
             <span class="dt">&quot;removed&quot;</span>: <span class="st">&quot;2013-11-11T11:11:00.000+0100&quot;</span>
         },
         <span class="er">...</span>
-    ],
-    <span class="dt">&quot;nextPage&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/feeds/updated/?t=20131111111100&quot;</span>
+    ]
 }</code></pre>
-<p>Die Eigenschaft zur Angabe des Entfernugnszeitpunkts heißt hier <code>removed</code> und SOLL, analog zu den beiden anderen Feeds, als Sortierkriterium der Liste verwendet werden.</p>
+<p>Die Eigenschaft zur Angabe des Entfernungszeitpunkts heißt hier <code>removed</code> und SOLL, analog zu den beiden anderen Feeds, als Sortierkriterium der Liste verwendet werden.</p>
 </section>
 </section>
 <section id="dokumentenabruf" class="level2">
@@ -858,14 +879,14 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <section id="mehrsprachigkeit" class="level3">
 <h3><span class="header-section-number">5.1.4</span> Mehrsprachigkeit</h3>
 <p>Für Texte ist durchgehend vorgesehen, dass diese mehrsprachig sein können. Kommunale Anbieter von OParl-Daten in Deutchland müssen aus gesetzlichen Gründen auf jeden Fall die deutsche Sprache unterstützten. Die Unterstützung anderer Sprachen ist dagegen optional. Deshalb wird grundsätzich durch <sub>~</sub>~~ &quot;<span class="citation" data-cites="language">@language</span>&quot;: &quot;de&quot;, <sub>~</sub>~~ im Kontext die deutsche Sprache als Vorgabe eingestellt.</p>
-<p>Es gibt aber möglicherweise auch Zeichenketten, die für die keine Mehrsprachigkeit vorgesehen wird. Dazu gehören z.B. Personennamen.</p>
+<p>Es gibt aber möglicherweise auch Zeichenketten, für die keine Mehrsprachigkeit vorgesehen wird. Dazu gehören z.B. Personennamen.</p>
 <p>TODO: Stimmt nicht. Tamilische Namen verwenden in der Originalschreibweise sogar ein vollkommen anderes Alphabet.</p>
 </section>
 <section id="präfixe-in-kontexten" class="level3">
 <h3><span class="header-section-number">5.1.5</span> Präfixe in Kontexten</h3>
 <p>Die Beispiel-Kontexte verwenden eine Reihe von Präfixen. Diese sind hier zusammengestellt und werden in den einzelnen Beispiel-Kontexten nicht jeweils wiederholt:</p>
-<pre class="sourceCode json" id="pcontext_praefixe"><code class="sourceCode json">    <span class="er">&quot;beispielris&quot;:</span> <span class="er">&quot;http://beispielris.de/&quot;,</span>
-    <span class="er">&quot;oparl&quot;:</span> <span class="er">&quot;http://oparl.org/xyz/&quot;,</span>
+<pre class="sourceCode json" id="pcontext_praefixe"><code class="sourceCode json">    <span class="er">&quot;beispielris&quot;:</span> <span class="er">&quot;https://oparl.beispielris.de&quot;,</span>
+    <span class="er">&quot;oparl&quot;:</span> <span class="er">&quot;http://oparl.org/TODO/&quot;,</span>
     <span class="er">&quot;dc&quot;:</span> <span class="er">&quot;http://purl.org/dc/terms/&quot;,</span>
     <span class="er">&quot;foaf&quot;:</span> <span class="er">&quot;http://xmlns.com/foaf/0.1/&quot;,</span>
     <span class="er">&quot;skos&quot;:</span> <span class="er">&quot;http://www.w3.org/2004/02/skos/core#&quot;,</span>
@@ -876,18 +897,22 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <section id="herstellerspezifische-erweiterungen" class="level3">
 <h3><span class="header-section-number">5.1.6</span> Herstellerspezifische Erweiterungen</h3>
 <p>Diese sind - falls tatsächlich erforderlich - mit den JSON-LD Mitteln einfach möglich. z.B.</p>
-<pre><code>&quot;herstellera:newWonderProperty&quot;: &quot;Dies ist ein Feature welches noch kein anderer Hersteller bietet!&quot;</code></pre>
+<pre><code>&quot;herstellera:newWonderProperty&quot;: &quot;Dies ist ein Feature
+    welches noch kein anderer Hersteller bietet!&quot;</code></pre>
 </section>
 <section id="url-pfade-in-den-beispielen" class="level3">
 <h3><span class="header-section-number">5.1.7</span> URL-Pfade in den Beispielen</h3>
 <p>OParl-Clients wissen <em>nichts</em> vom Aufbau von Pfaden innerhalb von URLs, müssen dies nicht wissen und es gibt deshalb in der OParl-Spezifikation <em>keine</em> Festlegungen dazu.</p>
-<p>Wenn ein RIS-Betreiber z.B. meint, dass eine Person eine eigene Domain verdient, dann ist so etwas aus OParl-Sicht völlig ok: <sub><sub><sub><sub><sub><sub><sub><sub><sub><sub> https://ratsmitglied-max-mustermann.beispielris.de/mein-oparl-datensatz </sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></p>
+<p>Wenn der Betreiber eines OParl-Systems beispielsweise meint, dass eine Person eine eigene Domain verdient, dann ist dies aus Sicht der OParl-Spezifikation völlig in Ordnung:</p>
+<pre><code>https://ratsmitglied-max-mustermann.beispielris.de/mein-oparl-datensatz</code></pre>
 <p>Noch etwas extremer: selbst eine eigene Domain für jedes einzelne OParl-Objekt würde der OParl-Spezifikation nicht widersprechen.</p>
-<p>Wenn also so etwas wie <sub><sub><sub><sub><sub><sub><sub><sub><sub><sub> bodies/0/peoples/ </sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></p>
-<p>in einer URL eines Beispiels auftaucht, dann bedeutet das nicht, dass genau solche Pfade durch die OParl-Spezifikation vorgeschrieben sind.</p>
+<p>Wenn also in einer Beispiel-URL so etwas wie</p>
+<pre><code>bodies/0/peoples/</code></pre>
+<p>auftaucht, dann bedeutet das nicht, dass genau solche Pfade durch die OParl-Spezifikation vorgeschrieben sind.</p>
 <p>Auch dies wäre als absoluter Link z.B. für eine Person verwendbar:</p>
 <pre><code>https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ</code></pre>
-<p>Dies käme dann als relativer Link für die Person in Frage: <sub><sub>~</sub>~</sub>~~ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ <sub><sub>~</sub>~</sub>~~</p>
+<p>Dies käme dann als relativer Link für die Person in Frage:</p>
+<pre><code>personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ</code></pre>
 <p>oder auch z.B. dies <sub><sub><sub><sub><sub><sub><sub><sub><sub><sub> LfyIfvCWq8SpBQj0MiyHaxDZwGJ </sub></sub></sub></sub></sub></sub></sub></sub></sub></sub></p>
 <p>Gleichzeitig ist aber aus verschiedenen Gründen ein strukturierter Aufbau der Pfade durchaus sinnvoll, der sich an der Hierarchie der Objekte orientiert (nicht zuletzt, weil dies Softwareentwicklern während der Entwicklung helfen kann). Dennoch wird eine solche Struktur bewusst nicht in OParl festgelegt.</p>
 </section>
@@ -909,9 +934,10 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 <section id="license" class="level3">
 <h3><span class="header-section-number">5.2.4</span> <code id="eigenschaft_license">license</code></h3>
-<p>Die Eigenschaft <code>license</code> erlaubt es, am jeweiligen Objekt die URL einer Lizenz anzugeben. Damit wird gekennzeichnet, welche Lizenz der Veröffentlicher der Daten für das jeweilige Objekt vergibt.<a href="#fn32" class="footnoteRef" id="fnref32"><sup>32</sup></a></p>
-<p>Eine besondere Bedeutung hat die Eigenschaft <code>license</code>, wenn sie am <code>oparl:System</code> Objekt oder am <code>oparl:Body</code> Objekt vergeben wird. Die hier angegebene Lizenzinformation sagt aus, dass alle Objekte dieses Systems unter der angegebenen Lizenz veröffentlicht werden, sofern dies nicht am jeweiligen Objekt mit einer anders lautenden Lizenz-URL überschrieben wird. Daher wird dringend EMPFOHLEN, die Lizenzinformation global am <code>oparl:System</code> Objekt mitzuteilen und auf redundante Informationen zu verzichten.</p>
-<p>Auf Objekte vom Typ <code>oparl:Document</code> bezogen bezieht sich die Lizenzinformation nicht nur auf die strukturierten Metadaten, die über die API bezogen werden, sondern auch auf den eigentlichen Inhalt der Dateien, die über die angebotene(n) URL(s) abgerufen werden können.</p>
+<p>Die Eigenschaft <code>license</code> erlaubt es, am jeweiligen Objekt die URL einer Lizenz anzugeben. Damit wird gekennzeichnet, welche Lizenz der Veröffentlicher der Daten für das jeweilige Objekt vergibt.<a href="#fn34" class="footnoteRef" id="fnref34"><sup>34</sup></a></p>
+<p>Eine besondere Bedeutung hat die Eigenschaft <code>license</code>, wenn sie am <code>oparl:System</code> Objekt oder am <code>oparl:Body</code> Objekt vergeben wird. Die hier angegebene Lizenzinformation sagt aus, dass alle Objekte dieses Systems bzw. der Körperschaft unter der angegebenen Lizenz veröffentlicht werden, sofern dies nicht am jeweiligen Objekt mit einer anders lautenden Lizenz-URL überschrieben wird. Daher wird dringend EMPFOHLEN, die Lizenzinformation global am <code>oparl:System</code> Objekt mitzuteilen und auf redundante Informationen zu verzichten.</p>
+<p>An Objekten vom Typ <code>oparl:Document</code> auftretend, bezieht sich die Lizenzinformation nicht nur auf die strukturierten Metadaten, die über die API bezogen werden, sondern auch auf den eigentlichen Inhalt der Dateien, die über die angebotene(n) URL(s) abgerufen werden können.</p>
+<p>Lesenswert zum Thema Lizensierung von Linked Data ist auch er Abschnitt &quot;Licenses, Waivers and Norms for Data&quot; im online zugänglichen Linked Data Book.<a href="#fn35" class="footnoteRef" id="fnref35"><sup>35</sup></a></p>
 </section>
 <section id="created" class="level3">
 <h3><span class="header-section-number">5.2.5</span> <code>created</code></h3>
@@ -942,7 +968,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Ein Beispiel:</p>
 <pre class="sourceCode json" id="system_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;oparl:System&quot;</span>,
-    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://beispielris.de/&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/&quot;</span>,
     <span class="dt">&quot;oparlVersion&quot;</span>: <span class="st">&quot;http://oparl.org/specs/1.0/&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Beispiel-System&quot;</span>,
     <span class="dt">&quot;website&quot;</span>: <span class="st">&quot;http://www.beispielris.de/&quot;</span>,
@@ -950,17 +976,16 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;contactName&quot;</span>: <span class="st">&quot;Allgemeiner OParl Kontakt&quot;</span>,
     <span class="dt">&quot;vendor&quot;</span>: <span class="st">&quot;http://example-software.com/&quot;</span>,
     <span class="dt">&quot;product&quot;</span>: <span class="st">&quot;http://example-software.com/oparl-server/&quot;</span>,
-    <span class="dt">&quot;bodies&quot;</span>: <span class="st">&quot;http://beispielris.de/bodies/&quot;</span>,
-    <span class="dt">&quot;newObjects&quot;</span>: <span class="st">&quot;http://beispielris.de/new_objects/&quot;</span>,
-    <span class="dt">&quot;updatedObjects&quot;</span>: <span class="st">&quot;http://beispielris.de/updated_objects/&quot;</span>,
-    <span class="dt">&quot;removedObjects&quot;</span>: <span class="st">&quot;http://beispielris.de/removed_objects&quot;</span>
+    <span class="dt">&quot;bodies&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/bodies/&quot;</span>,
+    <span class="dt">&quot;newObjects&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/new_objects/&quot;</span>,
+    <span class="dt">&quot;updatedObjects&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/updated_objects/&quot;</span>,
+    <span class="dt">&quot;removedObjects&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/removed_objects&quot;</span>
 }</code></pre>
 <p>Ein Kontext:</p>
 <pre class="sourceCode json" id="system_ex_context"><code class="sourceCode json">{
     <span class="dt">&quot;@language&quot;</span>: <span class="st">&quot;de&quot;</span>,
-
-    <span class="dt">&quot;beispielris&quot;</span>: <span class="st">&quot;http://beispielris.de/&quot;</span>,
-    <span class="dt">&quot;oparl&quot;</span>: <span class="st">&quot;http://oparl.org/xyz/&quot;</span>,
+    <span class="dt">&quot;beispielris&quot;</span>: <span class="st">&quot;https://oparl.eispielris.de/&quot;</span>,
+    <span class="dt">&quot;oparl&quot;</span>: <span class="st">&quot;http://oparl.org/TODO/&quot;</span>,
     <span class="dt">&quot;dc&quot;</span>: <span class="st">&quot;http://purl.org/dc/terms/&quot;</span>,
     <span class="dt">&quot;foaf&quot;</span>: <span class="st">&quot;http://xmlns.com/foaf/0.1/&quot;</span>,
     <span class="dt">&quot;skos&quot;</span>: <span class="st">&quot;http://www.w3.org/2004/02/skos/core#&quot;</span>,
@@ -979,7 +1004,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Und das System-Objekt in kompakter Form unter Verwendung des Kontext:</p>
 <pre class="sourceCode json" id="system_ex2"><code class="sourceCode json">{
     <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;oparl:System&quot;</span>,
-    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://beispielris.de/&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/&quot;</span>,
     <span class="dt">&quot;oparlVersion&quot;</span>: <span class="st">&quot;http://oparl.org/specs/1.0/&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Beispiel-System&quot;</span>,
     <span class="dt">&quot;website&quot;</span>: <span class="st">&quot;http://www.beispielris.de/&quot;</span>,
@@ -987,7 +1012,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;contactName&quot;</span>: <span class="st">&quot;Allgemeiner OParl Kontakt&quot;</span>,
     <span class="dt">&quot;vendor&quot;</span>: <span class="st">&quot;http://example-software.com/&quot;</span>,
     <span class="dt">&quot;product&quot;</span>: <span class="st">&quot;http://example-software.com/oparl-server/&quot;</span>,
-    <span class="dt">&quot;bodies&quot;</span>: <span class="st">&quot;http://beispielris.de/bodies/&quot;</span>,
+    <span class="dt">&quot;bodies&quot;</span>: <span class="st">&quot;beispielris:bodies/&quot;</span>,
     <span class="dt">&quot;newObjects&quot;</span>: <span class="st">&quot;beispielris:new_objects/&quot;</span>,
     <span class="dt">&quot;updatedObjects&quot;</span>: <span class="st">&quot;beispielris:updated_objects/&quot;</span>,
     <span class="dt">&quot;removedObjects&quot;</span>: <span class="st">&quot;beispielris:removed_objects&quot;</span>
@@ -995,28 +1020,8 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Auf jedem OParl Server MUSS ein Objekt vom Typ <code>oparl:System</code> vorgehalten werden. Es DARF nur ein einziges solches Objekt je Server existieren.</p>
 <p>Für Clients ist das <code>oparl:System</code> Objekt ein geeigneter Einstiegspunkt, um grundlegende Informationen über das Sytem zu bekommen und die URLs zum Zugriff auf andere Informationen in Erfahrung zu bringen.</p>
 <p>Die URL des <code>oparl:System</code> Objekts MUSS per Definition identisch mit der URL des API-Endpunkts des Servers sein.</p>
-<section id="well-known-uris" class="level3">
-<h3><span class="header-section-number">5.3.1</span> Well-Known URIs</h3>
-<p>TODO: eventuell in eigenen Abschnitt oder eigenes Kapitel auslagern.</p>
-<p>Es gibt eine standardisierte Technik, mit der ein Einstiegspunkt in die OParl-Daten angegeben werden kann: &quot;Well-Known URIs&quot;. Dieser kann dann maschinell gefunden werden. Diese Technik wurde durch die IETF und das W3C standardisiert.</p>
-<p>Die Spezifikation von &quot;Well-Known URIs&quot; durch die IETF ist:</p>
-<p>Defining Well-Known Uniform Resource Identifiers (URIs) http://tools.ietf.org/html/rfc5785</p>
-<p>Eine Liste der Well-Known URIs wird von der IANA verwaltet:</p>
-<p>Well-Known URIs http://www.iana.org/assignments/well-known-uris/well-known-uris.xhtml</p>
-<p>Für OParl sind gegenwärtig nur &quot;Well-Known URIs&quot; für Beschreibungen von Datasets gemäß dem &quot;Vocabulary of Interlinked Datasets&quot; (VoID) relevant.</p>
-<p>BEISPIEL:</p>
-<p>Wenn ein RIS unter der Domain &quot;example.com&quot; betrieben wird, dann sieht der &quot;Well-Known URI&quot; so aus (der enthaltene &quot;.&quot; ist <em>kein</em> Schreibfehler):</p>
-<p>https://example.com/.well-known/void</p>
-<p>Forwarding ist erlaubt.</p>
-<p>Siehe dazu auch:</p>
-<p>Describing Linked Datasets with the VoID Vocabulary W3C Interest Group Note 03 March 2011 http://www.w3.org/TR/void/#well-known</p>
-<p>Die über derartige URIs dereferenzierbaren Dokumente sind hier spezifiziert: http://www.w3.org/TR/void/#void-file</p>
-<p>BEISPIEL:</p>
-<p>Bei einem http GET Request auf https://example.com/.well-known/void mit Angabe des bevorzugten MIME-Type &quot;application/ld+json&quot; antwortet das System mit dem URI https://example.com/.well-known/void.jsonld unter welchem dieses JSON-LD Dokument abrufbar ist:</p>
-<p>TODO: Beispiele für JSON-LD und exemplarisch auch für HTML.</p>
-</section>
 <section id="eigenschaften" class="level3">
-<h3><span class="header-section-number">5.3.2</span> Eigenschaften</h3>
+<h3><span class="header-section-number">5.3.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>oparlVersion</code></dt>
 <dd><p>Die URL der OParl-Spezifikation, die von diesem Server unterstützt wird. Der Wert MUSS die URL <code>http://oparl.org/specs/1.0/</code> sein. Diese Eigenschaft ist ZWINGEND.</p>
@@ -1061,7 +1066,6 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Ein Kontext:</p>
 <pre><code>{
     &quot;@language&quot;: &quot;de&quot;,
-    
     &quot;license&quot;: {
         &quot;@id&quot;: &quot;dc:license&quot;,
         &quot;@type&quot;: &quot;@id&quot;
@@ -1070,14 +1074,13 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
         &quot;@id&quot;: &quot;skos:exactMatch&quot;,
         &quot;@type&quot;: &quot;@id&quot;
     }
-    
     &quot;licenseValidSinceDay&quot;: // TODO: datum
 }</code></pre>
 <p>Ein expandiertes Beispiel:</p>
 <pre class="sourceCode json" id="oparlbody_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/Body&quot;</span>,
-    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/body/0&quot;</span>,
-    <span class="dt">&quot;system&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/body/0&quot;</span>,
+    <span class="dt">&quot;system&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/&quot;</span>,
     <span class="dt">&quot;contactEmail&quot;</span>: <span class="st">&quot;mailto:ris@beispielstadt.de&quot;</span>,
     <span class="dt">&quot;contactName&quot;</span>: <span class="st">&quot;RIS-Betreuung&quot;</span>,
     <span class="dt">&quot;rgs&quot;</span>: <span class="st">&quot;053150000000&quot;</span>,
@@ -1086,18 +1089,18 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
         <span class="st">&quot;http://dbpedia.org/resource/Cologne&quot;</span>
     ],
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Stadt Köln&quot;</span>,
-    <span class="dt">&quot;nameLong&quot;</span>: { <span class="er">//</span> <span class="er">verwendet</span> <span class="er">eine</span> <span class="dt">&quot;language map&quot;</span>
+    <span class="dt">&quot;nameLong&quot;</span>: {
         <span class="dt">&quot;de&quot;</span>: <span class="st">&quot;Stadt Köln, kreisfreie Stadt&quot;</span>,
         <span class="dt">&quot;en&quot;</span>: <span class="st">&quot;City of Cologne&quot;</span>
     }
     <span class="st">&quot;website&quot;</span><span class="er">:</span> <span class="st">&quot;http://www.beispielstadt.de/&quot;</span>,
     <span class="dt">&quot;license&quot;</span>: <span class="st">&quot;http://creativecommons.org/licenses/by/4.0/&quot;</span>,
     <span class="dt">&quot;licenseValidSinceDay&quot;</span>: <span class="st">&quot;2014-01-01&quot;</span>,
-    <span class="dt">&quot;organization&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/body/0/organisation/&quot;</span>,
-    <span class="dt">&quot;meeting&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/body/0/meeting/&quot;</span>,
-    <span class="dt">&quot;paper&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/body/0/paper/&quot;</span>,
-    <span class="dt">&quot;member&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/body/0/person/&quot;</span>,
-    <span class="dt">&quot;classification&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/vocab/landkreis&quot;</span>,
+    <span class="dt">&quot;organization&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/body/0/organisation/&quot;</span>,
+    <span class="dt">&quot;meeting&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/body/0/meeting/&quot;</span>,
+    <span class="dt">&quot;paper&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/body/0/paper/&quot;</span>,
+    <span class="dt">&quot;member&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/body/0/person/&quot;</span>,
+    <span class="dt">&quot;classification&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/vocab/landkreis&quot;</span>,
     <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2014-01-08T14:28:31.568+0100&quot;</span>,
     <span class="dt">&quot;modified&quot;</span>: <span class="st">&quot;2014-01-08T14:28:31.568+0100&quot;</span>
 }</code></pre>
@@ -1125,10 +1128,10 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dd><p>Tagesdatum, seit dem die unter license angegebene Lizenz gilt. Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen. Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>rgs</code></dt>
-<dd><p>Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette<a href="#fn33" class="footnoteRef" id="fnref33"><sup>33</sup></a>. Typ: TODO EMPFOHLEN</p>
+<dd><p>Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette<a href="#fn36" class="footnoteRef" id="fnref36"><sup>36</sup></a>. Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>equivalentBody</code></dt>
-<dd><p>Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe Körperschaft repräsentieren. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek<a href="#fn34" class="footnoteRef" id="fnref34"><sup>34</sup></a>, der DBPedia<a href="#fn35" class="footnoteRef" id="fnref35"><sup>35</sup></a> oder der Wikipedia<a href="#fn36" class="footnoteRef" id="fnref36"><sup>36</sup></a> angegeben werden. Typ: TODO EMPFOHLEN</p>
+<dd><p>Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe Körperschaft repräsentieren. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek<a href="#fn37" class="footnoteRef" id="fnref37"><sup>37</sup></a>, der DBPedia<a href="#fn38" class="footnoteRef" id="fnref38"><sup>38</sup></a> oder der Wikipedia<a href="#fn39" class="footnoteRef" id="fnref39"><sup>39</sup></a> angegeben werden. Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>contactEmail</code></dt>
 <dd><p>Dient der Angabe einer Kontakt-E-Mail-Adresse mit &quot;mailto:&quot;-Schema. Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und idealerweise das parlamentarische Informationssystem zuständigen Stelle ermöglichen. Typ: TODO EMPFOHLEN</p>
@@ -1166,8 +1169,8 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Ein Beispiel in expandierter Form:</p>
 <pre class="sourceCode json" id="organization_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/Organization&quot;</span>,
-    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/organization/34&quot;</span>,
-    <span class="dt">&quot;body&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/body/0&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/organization/34&quot;</span>,
+    <span class="dt">&quot;body&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/body/0&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: {
         <span class="er">@language</span><span class="dt">&quot; :&quot;</span><span class="er">de</span><span class="dt">&quot;,</span>
 <span class="dt">        @value&quot;</span>: <span class="st">&quot;Finanzausschuss&quot;</span>
@@ -1178,22 +1181,21 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     },
     <span class="dt">&quot;post&quot;</span>: {
         <span class="dt">&quot;@list&quot;</span>: [
-        <span class="er">//</span> <span class="er">ohne</span> <span class="er">@list</span> <span class="er">wird</span> <span class="er">in</span> <span class="er">JSON-LD</span> <span class="er">die</span> <span class="er">Reihenfolge</span> <span class="er">nicht</span> <span class="er">festgelegt</span>
-        <span class="st">&quot;http://oparl.beispielris.de/post/chairperson&quot;</span>,
-        <span class="st">&quot;http://oparl.beispielris.de/post/deputyChairperson&quot;</span>
+            <span class="st">&quot;https://oparl.beispielris.de/post/chairperson&quot;</span>,
+            <span class="st">&quot;https://oparl.beispielris.de/post/deputyChairperson&quot;</span>
         ]
     },
     <span class="dt">&quot;member&quot;</span>: [
-        <span class="st">&quot;http://oparl.beispielris.de/person/27&quot;</span>,
-        <span class="st">&quot;http://oparl.beispielris.de/person/48&quot;</span>,
-        <span class="st">&quot;http://oparl.beispielris.de/person/57&quot;</span>
+        <span class="st">&quot;https://oparl.beispielris.de/person/27&quot;</span>,
+        <span class="st">&quot;https://oparl.beispielris.de/person/48&quot;</span>,
+        <span class="st">&quot;https://oparl.beispielris.de/person/57&quot;</span>
     ],
-    <span class="dt">&quot;organizationType&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/vocab/committee&quot;</span>,
-    <span class="dt">&quot;classification&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/vocab/finance&quot;</span>,
+    <span class="dt">&quot;organizationType&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/vocab/committee&quot;</span>,
+    <span class="dt">&quot;classification&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/vocab/finance&quot;</span>,
     <span class="dt">&quot;modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
 <p>Das selbe Beispiel in kompakter Form.</p>
-<p>Ein Kontext: <sub><sub>~</sub>~</sub>~~ { &quot;<span class="citation" data-cites="language">@language</span>&quot;: &quot;de&quot;, // ... } <sub><sub>~</sub>~</sub>~~</p>
+<p>Ein Kontext: <sub><sub>~</sub>~</sub>~~ { &quot;<span class="citation" data-cites="language">@language</span>&quot;: &quot;de&quot;, ... } <sub><sub>~</sub>~</sub>~~</p>
 <pre class="sourceCode json" id="organization_ex2"><code class="sourceCode json">{
     <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/Pfad/zum/Kontext/organization.jsonld&quot;</span>,
     <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;oparl:Organization&quot;</span>,
@@ -1262,7 +1264,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Ein Beispiel in expandierter Form:</p>
 <pre class="sourceCode json" id="person_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/Person&quot;</span>,
-    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/person/29&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/person/29&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Prof. Dr. Max Mustermann&quot;</span>,
     <span class="dt">&quot;familyName&quot;</span>: { <span class="er">//</span> <span class="er">könnte</span> <span class="er">mehrsprachig</span> <span class="er">sein</span>, <span class="er">z.B.</span> <span class="er">griechisch</span>, <span class="er">russisch</span>, <span class="er">tamilisch</span> 
         <span class="dt">&quot;@value&quot;</span>: <span class="st">&quot;Mustermann&quot;</span>,
@@ -1273,7 +1275,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
         <span class="dt">&quot;@language&quot;</span>: <span class="st">&quot;de&quot;</span>
     },
     <span class="dt">&quot;title&quot;</span>: <span class="st">&quot;Prof. Dr.&quot;</span>, <span class="er">//</span> <span class="er">TODO</span>: <span class="er">nicht</span> <span class="er">mehrsprachig?!</span>
-    <span class="st">&quot;formOfAddress&quot;</span><span class="er">:</span> <span class="st">&quot;http://oparl.beispielris.de/formofaddress/ratsmitglied&quot;</span>,
+    <span class="st">&quot;formOfAddress&quot;</span><span class="er">:</span> <span class="st">&quot;https://oparl.beispielris.de/formofaddress/ratsmitglied&quot;</span>,
     <span class="dt">&quot;gender&quot;</span>: <span class="st">&quot;http://www.w3.org/2006/vcard/ns#Male&quot;</span>,
     <span class="dt">&quot;email&quot;</span>: <span class="st">&quot;mailto:max@mustermann.de&quot;</span>,
     <span class="dt">&quot;phone&quot;</span>: <span class="st">&quot;tel:+493012345678&quot;</span>,
@@ -1284,11 +1286,11 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
         <span class="dt">&quot;en&quot;</span>: <span class="st">&quot;Sample Town&quot;</span>
     },
     <span class="dt">&quot;organization&quot;</span>: [
-        <span class="st">&quot;http://oparl.beispielris.de/organization/11&quot;</span>,
-        <span class="st">&quot;http://oparl.beispielris.de/organization/34&quot;</span>
+        <span class="st">&quot;https://oparl.beispielris.de/organization/11&quot;</span>,
+        <span class="st">&quot;https://oparl.beispielris.de/organization/34&quot;</span>
     ],
-    <span class="dt">&quot;status&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/status/buergermeister&quot;</span>,
-    <span class="dt">&quot;hasMembership&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/membership/34&quot;</span>,
+    <span class="dt">&quot;status&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/status/buergermeister&quot;</span>,
+    <span class="dt">&quot;hasMembership&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/membership/34&quot;</span>,
     <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2011-11-11T11:11:00+01:00&quot;</span>,
     <span class="dt">&quot;modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 }</code></pre>
@@ -1327,7 +1329,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <pre class="sourceCode json" id="person_ex2"><code class="sourceCode json">{
     <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld&quot;</span>,
     <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;oparl:Person&quot;</span>,
-    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/person/29&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/person/29&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Prof. Dr. Max Mustermann&quot;</span>,
     <span class="dt">&quot;familyName&quot;</span>: <span class="st">&quot;Mustermann&quot;</span>, <span class="er">//</span> <span class="er">Kontext</span> <span class="er">gibt</span> <span class="er">deutsche</span> <span class="er">Spache</span> <span class="er">vor</span>
     <span class="dt">&quot;givenName&quot;</span>: <span class="st">&quot;Max&quot;</span>,
@@ -1413,7 +1415,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Ein Beispiel in expandierter Form:</p>
 <pre class="sourceCode json" id="meeting_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;http://oparl.org/schema/1.0/Meeting&quot;</span>,
-    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/meeting/281&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/meeting/281&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;4. Sitzung des Finanzausschusses&quot;</span>,
     <span class="dt">&quot;start&quot;</span>: <span class="st">&quot;2013-01-04T08:00:00+01:00&quot;</span>,
     <span class="dt">&quot;end&quot;</span>: <span class="st">&quot;2013-01-04T12:00:00+01:00&quot;</span>,
@@ -1427,26 +1429,25 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
             <span class="dt">&quot;@language&quot;</span>: <span class="st">&quot;en&quot;</span>
         }
     },
-    <span class="dt">&quot;organization&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/organization/34&quot;</span>,
+    <span class="dt">&quot;organization&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/organization/34&quot;</span>,
     <span class="dt">&quot;participant&quot;</span>: [
-        <span class="st">&quot;http://oparl.beispielris.de/person/29&quot;</span>,
-        <span class="st">&quot;http://oparl.beispielris.de/person/75&quot;</span>,
-        <span class="st">&quot;http://oparl.beispielris.de/person/94&quot;</span>
+        <span class="st">&quot;https://oparl.beispielris.de/person/29&quot;</span>,
+        <span class="st">&quot;https://oparl.beispielris.de/person/75&quot;</span>,
+        <span class="st">&quot;https://oparl.beispielris.de/person/94&quot;</span>
     ],
-    <span class="dt">&quot;invitation&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/document/586&quot;</span>,
-    <span class="dt">&quot;resultsProtocol&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/document/628&quot;</span>,
-    <span class="dt">&quot;verbatimProtocol&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/document/691&quot;</span>,
+    <span class="dt">&quot;invitation&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/document/586&quot;</span>,
+    <span class="dt">&quot;resultsProtocol&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/document/628&quot;</span>,
+    <span class="dt">&quot;verbatimProtocol&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/document/691&quot;</span>,
     <span class="dt">&quot;auxiliaryDocument&quot;</span>: [
-        <span class="st">&quot;http://oparl.beispielris.de/document/588&quot;</span>,
-        <span class="st">&quot;http://oparl.beispielris.de/document/589&quot;</span>
+        <span class="st">&quot;https://oparl.beispielris.de/document/588&quot;</span>,
+        <span class="st">&quot;https://oparl.beispielris.de/document/589&quot;</span>
     ],
     <span class="dt">&quot;agendaItem&quot;</span>: {
-    <span class="er">//</span> <span class="er">Reihenfolge</span> <span class="er">ist</span> <span class="er">wichtig</span>
         <span class="dt">&quot;@list&quot;</span>: [
-            <span class="st">&quot;http://oparl.beispielris.de/agendaitem/1045&quot;</span>,
-            <span class="st">&quot;http://oparl.beispielris.de/agendaitem/1046&quot;</span>,
-            <span class="st">&quot;http://oparl.beispielris.de/agendaitem/1047&quot;</span>,
-            <span class="st">&quot;http://oparl.beispielris.de/agendaitem/1048&quot;</span>
+            <span class="st">&quot;https://oparl.beispielris.de/agendaitem/1045&quot;</span>,
+            <span class="st">&quot;https://oparl.beispielris.de/agendaitem/1046&quot;</span>,
+            <span class="st">&quot;https://oparl.beispielris.de/agendaitem/1047&quot;</span>,
+            <span class="st">&quot;https://oparl.beispielris.de/agendaitem/1048&quot;</span>
         ]
     },
     <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2012-01-06T12:01:00+01:00&quot;</span>,
@@ -1456,7 +1457,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <pre class="sourceCode json" id="meeting_ex2"><code class="sourceCode json">{
     <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;</span>
     <span class="st">&quot;@type&quot;</span><span class="er">:</span> <span class="st">&quot;oparl:Meeting&quot;</span>,
-    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/meeting/281&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/meeting/281&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;4. Sitzung des Finanzausschusses&quot;</span>,
     <span class="dt">&quot;start&quot;</span>: <span class="st">&quot;2013-01-04T08:00:00+01:00&quot;</span>,
     <span class="dt">&quot;end&quot;</span>: <span class="st">&quot;2013-01-04T12:00:00+01:00&quot;</span>,
@@ -1494,43 +1495,43 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <h3><span class="header-section-number">5.7.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>start</code></dt>
-<dd><p>Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Startzeitpunkt sein. Typ: TODO ZWINGEND</p>
+<dd><p>Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Startzeitpunkt sein. Typ: TODO. ZWINGEND</p>
 </dd>
 <dt><code>end</code></dt>
-<dd><p>Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Endzeitpunkt sein. Typ: TODO EMPFOHLEN</p>
+<dd><p>Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Endzeitpunkt sein. Typ: TODO. EMPFOHLEN</p>
 </dd>
 <dt><code>location</code></dt>
-<dd><p>Sitzungsort. Typ: <code>oparl:Location</code> EMPFOHLEN</p>
+<dd><p>Sitzungsort. Typ: <code>oparl:Location</code>. EMPFOHLEN</p>
 </dd>
 <dt><code>organization</code></dt>
-<dd><p>Gruppierung der die Sitzung zugeordnet ist. Wenn eine Liste angegeben wird, dann ist diese geordnet. Das erste Element ist dann das federführende Gremium. Typ: <code>oparl:Organization</code> ZWINGEND</p>
+<dd><p>Gruppierung der die Sitzung zugeordnet ist. Wenn eine Liste angegeben wird, dann ist diese geordnet. Das erste Element ist dann das federführende Gremium. Typ: <code>oparl:Organization</code>. ZWINGEND</p>
 </dd>
 <dt><code>participant</code></dt>
-<dd><p>Teilnehmer der Sitzung. Bei einer Sitzung in der Zukunft sind dies die geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung teilgenommen haben. Typ: <code>oparl:Person</code> ZWINGEND.</p>
+<dd><p>Teilnehmer der Sitzung. Bei einer Sitzung in der Zukunft sind dies die geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung teilgenommen haben. Typ: <code>oparl:Person</code>. ZWINGEND.</p>
 </dd>
 <dt><code>invitation</code></dt>
-<dd><p>Einladungsdokument zur Sitzung. Typ: <code>oparl:Document</code> EMPFOHLEN.</p>
+<dd><p>Einladungsdokument zur Sitzung. Typ: <code>oparl:Document</code>. EMPFOHLEN.</p>
 </dd>
 <dt><code>resultsProtocol</code></dt>
-<dd><p>Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen. Typ: <code>oparl:Document</code> EMPFOHLEN</p>
+<dd><p>Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen. Typ: <code>oparl:Document</code>. EMPFOHLEN</p>
 </dd>
 <dt><code>verbatimProtocol</code></dt>
-<dd><p>Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen. Typ: <code>oparl:Document</code> EMPFOHLEN</p>
+<dd><p>Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen. Typ: <code>oparl:Document</code>. EMPFOHLEN</p>
 </dd>
 <dt><code>auxiliaryDocument</code></dt>
-<dd><p>Dokumentenanhang zur Sitzung. Hiermit sind Dokumente gemeint, die üblicherweise mit der Einladung zu einer Sitzung verteilt werden und die nicht bereits über einzelne Tagesordnungspunkte referenziert sind. Typ: <code>oparl:Document</code> OPTIONAL</p>
+<dd><p>Dokumentenanhang zur Sitzung. Hiermit sind Dokumente gemeint, die üblicherweise mit der Einladung zu einer Sitzung verteilt werden und die nicht bereits über einzelne Tagesordnungspunkte referenziert sind. Typ: <code>oparl:Document</code>. OPTIONAL</p>
 </dd>
 <dt><code>agendaItem</code></dt>
-<dd><p>Tagesordnungspunkte der Sitzung. Die Reihenfolge ist relevant. Es kann Sitzungen ohne TOPs geben. Typ: <code>oparl:AgendaItem</code> OPTIONAL</p>
+<dd><p>Tagesordnungspunkte der Sitzung. Die Reihenfolge ist relevant. Es kann Sitzungen ohne TOPs geben. Typ: <code>oparl:AgendaItem</code>. OPTIONAL</p>
 </dd>
 <dt><code>classification</code></dt>
-<dd><p>Typ: <code>skos:Concept</code> OPTIONAL</p>
+<dd><p>Typ: <code>skos:Concept</code>. OPTIONAL</p>
 </dd>
 <dt><code>created</code></dt>
-<dd><p>Datum und Uhrzeit der Erzeugung des Objekts. Typ: TODO EMPFOHLEN</p>
+<dd><p>Datum und Uhrzeit der Erzeugung des Objekts. Typ: TODO. EMPFOHLEN</p>
 </dd>
 <dt><code>modified</code></dt>
-<dd><p>Datum und Uhrzeit der letzten Änderung des Objekts. Typ: TODO EMPFOHLEN</p>
+<dd><p>Datum und Uhrzeit der letzten Änderung des Objekts. Typ: TODO. EMPFOHLEN</p>
 </dd>
 </dl>
 </section>
@@ -1542,7 +1543,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <pre class="sourceCode json" id="agendaitem_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;</span>
     <span class="st">&quot;@type&quot;</span><span class="er">:</span> <span class="st">&quot;oparl:AgendaItem&quot;</span>,
-    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/agendaitem/3271&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/agendaitem/3271&quot;</span>,
     <span class="dt">&quot;meeting&quot;</span>: <span class="st">&quot;beispielris:meeting/281&quot;</span>,
     <span class="dt">&quot;number&quot;</span>: <span class="st">&quot;10.1&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Satzungsänderung für Ausschreibungen&quot;</span>,
@@ -1612,7 +1613,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <pre class="sourceCode json" id="paper_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;</span>
     <span class="st">&quot;@type&quot;</span><span class="er">:</span> <span class="st">&quot;oparl:Paper&quot;</span>,
-    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/paper/749&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/paper/749&quot;</span>,
     <span class="dt">&quot;reference&quot;</span>: <span class="st">&quot;1234/2014&quot;</span>,
     <span class="dt">&quot;publishedDate&quot;</span>: <span class="st">&quot;2014-04-04T16:42:02+02:00&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Antwort auf Anfrage 1200/2014&quot;</span>,
@@ -1685,20 +1686,20 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Ein Beispiel:</p>
 <pre class="sourceCode json" id="document_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;oparl:Document&quot;</span>,
-    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://beispielris.de/document/57739&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/document/57739&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Anlage 1 zur Anfrage&quot;</span>,
-    <span class="dt">&quot;paper&quot;</span>: <span class="st">&quot;http://beispielris.de/paper/2396&quot;</span>,
+    <span class="dt">&quot;paper&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/paper/2396&quot;</span>,
     <span class="dt">&quot;mimeType&quot;</span>: <span class="st">&quot;application/pdf&quot;</span>,
     <span class="dt">&quot;date&quot;</span>: <span class="st">&quot;2013-01-04T07:54:13+01:00&quot;</span>,
     <span class="dt">&quot;lastModified&quot;</span>: <span class="st">&quot;2013-01-04T07:54:13+01:00&quot;</span>,
     <span class="dt">&quot;sha1Checksum&quot;</span>: <span class="st">&quot;da39a3ee5e6b4b0d3255bfef95601890afd80709&quot;</span>,
     <span class="dt">&quot;size&quot;</span>: <span class="dv">82930</span>,
-    <span class="dt">&quot;accessUrl&quot;</span>: <span class="st">&quot;http://beispielris.de/document/57739.pdf&quot;</span>,
-    <span class="dt">&quot;downloadUrl&quot;</span>: <span class="st">&quot;http://beispielris.de/document/download/57739.pdf&quot;</span>,
+    <span class="dt">&quot;accessUrl&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/document/57739.pdf&quot;</span>,
+    <span class="dt">&quot;downloadUrl&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/document/download/57739.pdf&quot;</span>,
     <span class="dt">&quot;text&quot;</span>: <span class="st">&quot;Der Übersichtsplan zeigt alle Ebenen des ...&quot;</span>,
-    <span class="dt">&quot;masterDocument&quot;</span>: <span class="st">&quot;http://beispielris.de/document/57738&quot;</span>,
+    <span class="dt">&quot;masterDocument&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/document/57738&quot;</span>,
     <span class="dt">&quot;license&quot;</span>: <span class="st">&quot;http://www.opendefinition.org/licenses/cc-by&quot;</span>,
-    <span class="dt">&quot;documentRole&quot;</span>: <span class="st">&quot;http://beispielris.de/document-role/evidence&quot;</span>,
+    <span class="dt">&quot;documentRole&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/document-role/evidence&quot;</span>,
 }</code></pre>
 <p>Objekt vom Typ <code>oparl:Document</code> können mit Drucksachen (<code>oparl:Paper</code>) oder Sitzungen (<code>oparl:Meeting</code>) in Beziehung stehen. Dies wird durch die Eigenschaft <code>paper</code> bzw. <code>meeting</code> angezeigt.</p>
 <p>Mehrere Objekte vom Typ <code>oparl:Document</code> können mit einander in direkter Beziehung stehen, wenn sie den selben Inhalt in unterschiedlichen technischen Formaten wiedergeben. Hierfür werden die Eigenschaften <code>masterDocument</code> bzw. <code>derivativeDocuments</code> eingesetzt. Das oben angezeigte Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der Eigenschaft <code>mimeType</code>) und zeigt außerdem über die Eigenschaft <code>masterDocument</code> an, von welcher anderen Datei es abgeleitet wurde. Umgekehrt KANN über die Eigenschaft <code>derivativeDocuments</code> angezeigt werden, welche Ableitungen einer Datei existieren.</p>
@@ -1709,7 +1710,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dd><p>Name des Objekts, der Nutzern angezeigt werden kann. Typ: Zeichenkette. ZWINGEND</p>
 </dd>
 <dt><code>mimeType</code></dt>
-<dd><p>Mime-Typ des Inhalts (vgl. RFC2046<a href="#fn37" class="footnoteRef" id="fnref37"><sup>37</sup></a>). Sollte das System einer Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier &quot;application/octet-stream&quot; zu verwenden. Typ: TODO ZWINGEND</p>
+<dd><p>Mime-Typ des Inhalts (vgl. RFC2046<a href="#fn40" class="footnoteRef" id="fnref40"><sup>40</sup></a>). Sollte das System einer Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier &quot;application/octet-stream&quot; zu verwenden. Typ: TODO ZWINGEND</p>
 </dd>
 <dt><code>date</code></dt>
 <dd><p>Erstellungs- oder Veröffentlichungsdatum und -uhrzeit. Typ: Datum. ZWINGEND</p>
@@ -1736,16 +1737,16 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dd><p>Drucksache, sofern diese Datei zu einer Drucksache gehört. Wenn diese Datei zu einer Drucksache gehört, MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT vorhanden sein. TODO: ist das eine Tautologie? Typ: <code>oparl:Paper</code></p>
 </dd>
 <dt><code>meeting</code></dt>
-<dd><p>Sitzung, sofern diese Datei zu einer Sitzung gehört. Wenn diese Datei zu einer Sitzung gehört, MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT vorhanden sein. TODO: ist das eine Tautologie? Typ: <code>oparl:Meeting</code></p>
+<dd><p>Sitzung, sofern diese Datei zu einer Sitzung gehört. Wenn diese Datei zu einer Sitzung gehört, MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT vorhanden sein. TODO: ist das eine Tautologie? Typ: <code>oparl:Meeting</code>.</p>
 </dd>
 <dt><code>masterDocument</code></dt>
-<dd><p>Datei von der das aktuelle Objekt abgeleitet wurde. Typ: <code>oparl:Document</code> OPTIONAL</p>
+<dd><p>Datei von der das aktuelle Objekt abgeleitet wurde. Typ: <code>oparl:Document</code>. OPTIONAL</p>
 </dd>
 <dt><code>derivativeDocuments</code></dt>
-<dd><p>Abgeleitete Datei die von dem aktuellen Objekt abgeleitet wurde. Typ: <code>oparl:Document</code> OPTIONAL</p>
+<dd><p>Abgeleitete Datei die von dem aktuellen Objekt abgeleitet wurde. Typ: <code>oparl:Document</code>. OPTIONAL</p>
 </dd>
 <dt><code>license</code></dt>
-<dd><p>Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet wird, dann ist sie massgeblich und nicht die globalere Angabe in dem <code>oparl:Body</code> Objekt der Körperschaft. Lesenswert zum Thema Lizensierung von Linked Data ist http://linkeddatabook.com/editions/1.0/#htoc48 Type: URL OPTIONAL</p>
+<dd><p>Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet wird, dann ist sie anstelle einer globalen Angabe im übergeordneten <code>oparl:Body</code> bzw. <code>oparl:System</code> Objekt maßgeblich. Typ: URL. OPTIONAL</p>
 </dd>
 <dt><code>documentRole</code></dt>
 <dd><p>Rolle, Funktion, Sorte des Dokuments. Das Objekt enthält ein <code>skos:prefLabel</code>. Dessen Werte können z.B. sein: &quot;Einladung&quot;, &quot;Protokoll&quot;, &quot;Wortprotokoll&quot; oder &quot;Beschlussprotokoll&quot;. In einer zukünftigen OParl-Version wird möglicherweise eine Menge der wichtigsten Kategorien vorgegeben. TODO: Besser in <code>oparl:Paper</code> oder <code>oparl:Meeting</code> ? Siehe Diskussion unter https://github.com/OParl/specs/issues/65 Typ: <code>skos:Concept</code> OPTIONAL</p>
@@ -1769,12 +1770,12 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Ein Beispiel:</p>
 <pre class="sourceCode json" id="consultation_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;oparl:Consultation&quot;</span>,
-    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://beispielris.de/consultation/47594&quot;</span>,
-    <span class="dt">&quot;paper&quot;</span>: <span class="st">&quot;http://beispielris.de/paper/2396&quot;</span>,
-    <span class="dt">&quot;agendaitem&quot;</span>: <span class="st">&quot;http://beispielris.de/agendaitem/15569&quot;</span>,
-    <span class="dt">&quot;committee&quot;</span>: <span class="st">&quot;http://beispielris.de/organization/96&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/consultation/47594&quot;</span>,
+    <span class="dt">&quot;paper&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/paper/2396&quot;</span>,
+    <span class="dt">&quot;agendaitem&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/agendaitem/15569&quot;</span>,
+    <span class="dt">&quot;committee&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/organization/96&quot;</span>,
     <span class="dt">&quot;authoritative&quot;</span>: <span class="dv">false</span>,
-    <span class="dt">&quot;role&quot;</span>: <span class="st">&quot;http://beispielris.de/role/decision&quot;</span>
+    <span class="dt">&quot;role&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/role/decision&quot;</span>
 }</code></pre>
 <p>Das selbe Beispiel in kompakter Form (ein passender Kontext wird vorausgesetzt):</p>
 <pre class="sourceCode json" id="consultation_ex2"><code class="sourceCode json">{
@@ -1850,9 +1851,9 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     },
     <span class="er">//</span> <span class="er">...</span>
 }</code></pre>
-<p>OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des<br />Well-Known-Text-Formats (WKT) der Simple Feature Access Spezifikation<a href="#fn38" class="footnoteRef" id="fnref38"><sup>38</sup></a> vor. WKT erlaubt die Beschreibung von unterschiedlichen Geometrien wie Punkten (<code>Point</code>), Pfaden (<code>LineString</code>), Polygonen (<code>Polygon</code>) und viele andere mehr.</p>
+<p>OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des<br />Well-Known-Text-Formats (WKT) der Simple Feature Access Spezifikation<a href="#fn41" class="footnoteRef" id="fnref41"><sup>41</sup></a> vor. WKT erlaubt die Beschreibung von unterschiedlichen Geometrien wie Punkten (<code>Point</code>), Pfaden (<code>LineString</code>), Polygonen (<code>Polygon</code>) und viele andere mehr.</p>
 <p>Zum Zeitpunkt der Erstellung der vorliegenden Spezifikation ist Version 1.2.1 der Simple-Feature-Access-Spezifikation aktuell. OParl stellt keine Anforderungen daran, welche Version von Simple-Feature-Access bei der Ausgabe von WKT zu unterstützen ist.</p>
-<p>Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben solcher Geodaten im System WGS84<a href="#fn39" class="footnoteRef" id="fnref39"><sup>39</sup></a> angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.</p>
+<p>Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben solcher Geodaten im System WGS84<a href="#fn42" class="footnoteRef" id="fnref42"><sup>42</sup></a> angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.</p>
 <section id="eigenschaften-9" class="level3">
 <h3><span class="header-section-number">5.12.1</span> Eigenschaften</h3>
 <dl>
@@ -1987,14 +1988,17 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <li id="fn29"><p>TODO: URL zur Spezifikation<a href="#fnref29">↩</a></p></li>
 <li id="fn30"><p>RFC5988: <a href="http://tools.ietf.org/html/rfc5988">http://tools.ietf.org/html/rfc5988</a><a href="#fnref30">↩</a></p></li>
 <li id="fn31"><p>Wie in vielen anderen Fällen ist diese URL hier wieder nur beispielhaft. Die tatsächliche Gestaltung des Pfads bestimmt der Server-Implementierer.<a href="#fnref31">↩</a></p></li>
-<li id="fn32"><p>Verzeichnisse für Lizenz-URLs sind unter anderem unter <a href="http://licenses.opendefinition.org/">http://licenses.opendefinition.org/</a> und <a href="https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json">https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json</a> zu finden.<a href="#fnref32">↩</a></p></li>
-<li id="fn33"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref33">↩</a></p></li>
-<li id="fn34"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd">http://www.dnb.de/gnd</a><a href="#fnref34">↩</a></p></li>
-<li id="fn35"><p>DBPedia <a href="http://www.dbpedia.org/">http://www.dbpedia.org/</a><a href="#fnref35">↩</a></p></li>
-<li id="fn36"><p>Wikipedia <a href="http://de.wikipedia.org/">http://de.wikipedia.org/</a><a href="#fnref36">↩</a></p></li>
-<li id="fn37"><p><a href="http://tools.ietf.org/html/rfc2046">http://tools.ietf.org/html/rfc2046</a><a href="#fnref37">↩</a></p></li>
-<li id="fn38"><p>Simple Feature Access Spezifikation: <a href="http://www.opengeospatial.org/standards/sfa">http://www.opengeospatial.org/standards/sfa</a><a href="#fnref38">↩</a></p></li>
-<li id="fn39"><p>WGS84 steht für &quot;World Geodetic System 1984&quot;, es wird unter anderem auch vom Global Positioning System (GPS) verwendet. In geografischen Informationssystemen ist für das System der EPSG-Code 4326 geläufig.<a href="#fnref39">↩</a></p></li>
+<li id="fn32"><p>RSS 2.0 Specification: <a href="http://cyber.law.harvard.edu/rss/rss.html">http://cyber.law.harvard.edu/rss/rss.html</a><a href="#fnref32">↩</a></p></li>
+<li id="fn33"><p>Atom ist in RFC4287 spezifiziert: <a href="http://www.ietf.org/rfc/rfc4287.txt">http://www.ietf.org/rfc/rfc4287.txt</a><a href="#fnref33">↩</a></p></li>
+<li id="fn34"><p>Verzeichnisse für Lizenz-URLs sind unter anderem unter <a href="http://licenses.opendefinition.org/">http://licenses.opendefinition.org/</a> und <a href="https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json">https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json</a> zu finden.<a href="#fnref34">↩</a></p></li>
+<li id="fn35"><p>Tom Heath, Christian Bizer: Linked Data: Evolving the Web into a Global Data Space (1st edition), <a href="http://linkeddatabook.com/editions/1.0/#htoc48">http://linkeddatabook.com/editions/1.0/#htoc48</a><a href="#fnref35">↩</a></p></li>
+<li id="fn36"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref36">↩</a></p></li>
+<li id="fn37"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd">http://www.dnb.de/gnd</a><a href="#fnref37">↩</a></p></li>
+<li id="fn38"><p>DBPedia <a href="http://www.dbpedia.org/">http://www.dbpedia.org/</a><a href="#fnref38">↩</a></p></li>
+<li id="fn39"><p>Wikipedia <a href="http://de.wikipedia.org/">http://de.wikipedia.org/</a><a href="#fnref39">↩</a></p></li>
+<li id="fn40"><p><a href="http://tools.ietf.org/html/rfc2046">http://tools.ietf.org/html/rfc2046</a><a href="#fnref40">↩</a></p></li>
+<li id="fn41"><p>Simple Feature Access Spezifikation: <a href="http://www.opengeospatial.org/standards/sfa">http://www.opengeospatial.org/standards/sfa</a><a href="#fnref41">↩</a></p></li>
+<li id="fn42"><p>WGS84 steht für &quot;World Geodetic System 1984&quot;, es wird unter anderem auch vom Global Positioning System (GPS) verwendet. In geografischen Informationssystemen ist für das System der EPSG-Code 4326 geläufig.<a href="#fnref42">↩</a></p></li>
 </ol>
 </section>
 </body>

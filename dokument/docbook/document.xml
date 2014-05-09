@@ -1438,6 +1438,127 @@ Objekt: http://dbpedia.org/resource/John_(given_name)
       neue Erkenntnisse anzupassen. Eine Garantie für Zukunftssicherheit
       kann insofern niemand aussprechen.
     </para>
+    <para>
+      Ein fiktives Szenario soll verdeutlichen, dass es zweckmäßig ist,
+      schon beim Betrieb eines OParl 1.0 Servers die zukünftige
+      Entwicklung im Blick zu haben:
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Die Kommune <emphasis>Beispielstadt</emphasis> betreibt ihren
+          OParl-1.0-Server unter der URL
+          <literal>https://oparl.bstadt.de/1.0/</literal>.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Verschiedene Clients, die für OParl Version 1.0 entwickelt
+          wurden, kommen bei Nutzerinnen und Nutzern, die sich für den
+          Stadtrat in Beispielstadt intressieren, zum Einsatz. Jeder
+          Client-Nutzer hat dazu lediglich die URL
+          <literal>https://oparl.bstadt.de/1.0/</literal> des
+          OParl-Servers in der Client-Konfiguration hinterlegt.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Die OParl-Spezifikation wird aktualisiert, es erscheint
+          Version 1.1. Das Schema enthält Erweiterungen gegenüber
+          Version 1.0, jedes gültige Objekt aus Version 1.0 behält
+          jedoch auch weiterhin seine Gültigkeit. Und Objekte, die nach
+          Version 1.1 gültig sind, sind auch für Clients gültig, die für
+          Version 1.0 entwickelt wurden.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Die Firma, die den OParl-Server von Beispielstadt entwickelt
+          hat, liefert ein Update.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Der OParl-Server von Beispielstadt ist nun über eine neue URL
+          <literal>https://oparl.bstadt.de/1.1/</literal> zu erreichen.
+          Alle Anfragen an
+          <literal>https://oparl.bstadt.de/1.0/...</literal> werden auf
+          die entsprechende URL unter
+          <literal>https://oparl.bstadt.de/1.1/</literal> mit
+          HTTP-Redirects und Status-Code 301 weiter geleitet.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Die Nutzer der Clients, die mit dem OParl-Server von
+          Beispielstadt arbeiten, können weiter arbeiten wie bisher. Sie
+          erhalten vom Client höchstens einmalig eine Information, dass
+          sich die Server-URL geändert hat.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Einzelne Client-NutzerInnen werden von den Anbietern ihrer
+          Clients darauf aufmerksam gemacht, dass eine neue Version
+          ihres Produkts für eine neue OParl-Version zur Verfügung
+          steht. Mit dieser Version könnten die Nutzer in den Genuss der
+          Vorteile von OParl Version 1.1 kommen.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Nach einiger Zeit erscheint eine neue Version 2.0 der OParl
+          Spezifikation. Hier haben sich größere Änderungen ergeben. Das
+          Schema ist nicht kompatibel mit dem von Version 1.0 und 1.1.
+          Clients, die für eine Version 1.* entwickelt wurden, werden
+          nicht sinnvoll mit einem Server der Version 2 kommunizieren
+          können.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Der Server-Entwickler bietet das entsprechende Produkt zu
+          OParl Version 2 an, Beispielstadt entschließt sich zum Einsatz
+          der neuen Version. Da das Server-Produkt gleichzeitig OParl
+          1.* und OParl 2.0 bedienen kann, kann Beispielstadt
+          gleichzeitig einen Endpunkt für 1.1 und einen für 2.0
+          betreiben. Die URL des neuen Endpunkts lautet
+          <literal>https://oparl.bstadt.de/2.0/</literal>.
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      Das Szenario verdeutlicht, wie insbesondere zwei Aspekte für eine
+      möglichst sanfte Migration zwischen den OParl-Versionen sorgen
+      können:
+    </para>
+    <orderedlist numeration="arabic">
+      <listitem>
+        <para>
+          Dedizierte API-Endpunkt-URLs für jede OParl-Version
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          HTTP-Weiterleitungen auf die neue URL, sofern diese kompatibel
+          mit der alten ist, erspart den Parallelbetrieb von zwei
+          ähnlichen Endpunkten und kommuniziert den Clients automatisch
+          den Endpunkt der neuen Version
+        </para>
+      </listitem>
+    </orderedlist>
+    <para>
+      Zu der Art, wie die OParl-Version sich auf die Endpunkt-URL
+      auswirkt, will diese Spezifikation keine Vorgaben machen. Die
+      Pfad-Elemente im obigen Szenario sind Vorschläge, aber in keiner
+      Weise bindend.
+    </para>
+    <para>
+      Die praktische Umsetzung von HTTP-Weiterleitungen ist besonders
+      dann trivial, wenn die restlichen URL-Bestandteile identisch
+      bleiben. In diesem Fall können Server mit einer einfachen Regel
+      von jeglicher vorherigen auf jegliche neue URL weiter leiten.
+    </para>
   </sect2>
   <sect2 id="content_negotiation">
     <title>Content Negotiation</title>
@@ -1618,10 +1739,10 @@ https://dbpedia.org/data/John_Doe_(musician).jsonld
       in diesem Dokument Verwendung finden:
     </para>
     <programlisting>
-http://refserv.oparl.org/foo/bar/?skip=234
-\__/   \_______________/\_______/ \______/
- |         |                |        |
-Schema    Host             Pfad  Query-String
+https://refserv.oparl.org/foo/bar/?skip=234
+\___/   \_______________/\_______/ \______/
+  |         |                |        |
+Schema     Host             Pfad  Query-String
 </programlisting>
     <sect3 id="url-kanonisierung">
       <title>URL-Kanonisierung</title>
@@ -1730,24 +1851,24 @@ http://oparl.stadtrat.stadt-koeln.de/
       </itemizedlist>
       <para>
         Zu der kanonischen Beispiel-URL
-        http://oparl.stadtrat.stadt-koeln.de/ wären eine Reihe von
+        https://oparl.stadtrat.stadt-koeln.de/ wären eine Reihe von
         nicht-kanonischen URL-Varianten denkbar, die technischen auf den
         selben Server führen könnten:
       </para>
       <itemizedlist>
         <listitem>
           <para>
-            http://83.123.89.102/
+            https://83.123.89.102/
           </para>
         </listitem>
         <listitem>
           <para>
-            http://oparl.stadtrat.stadtkoeln.de/
+            https://oparl.stadtrat.stadtkoeln.de/
           </para>
         </listitem>
         <listitem>
           <para>
-            http://risserv.stadt-koeln.de/
+            https://risserv.stadt-koeln.de/
           </para>
         </listitem>
       </itemizedlist>
@@ -1786,8 +1907,8 @@ http://oparl.stadtrat.stadt-koeln.de/
         dem selben Prinzip zu sortieren. Ein Beispiel: die beiden URLs
       </para>
       <programlisting>
-http://oparl.meinris.de/members?body=1&amp;committee=2
-http://oparl.meinris.de/members?committee=2&amp;body=1
+https://oparl.beispielris.de/members?body=1&amp;committee=2
+https://oparl.beispielris.de/members?committee=2&amp;body=1
 </programlisting>
       <para>
         unterscheiden sich lediglich in der Reihenfolge der
@@ -2338,14 +2459,14 @@ mycallback({
         Beispiel dient ein fiktives Objekt, das ein Client über die URL
       </para>
       <programlisting>
-http://refserv.oparl.org/bodies/0/committees/1
+https://oparl.beispielris.de/bodies/0/committees/1
 </programlisting>
       <para>
         abruft:
       </para>
       <programlisting language="json">
 {
-    &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0/committees/1&quot;,
+    &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/committees/1&quot;,
     &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/committee&quot;,
     &quot;name&quot;: &quot;Hauptausschuss&quot;
 }
@@ -2402,14 +2523,14 @@ http://refserv.oparl.org/bodies/0/committees/1
       </para>
       <programlisting language="json">
 {
-    &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/456&quot;,
+    &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/456&quot;,
     &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/paper&quot;,
     &quot;title&quot;: &quot;Beschlussvorlage zur Jugendförderung&quot;,
     &quot;consultations&quot;: [
         {
             &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/consultation&quot;,
-            &quot;committee&quot;: &quot;http://refserv.oparl.org/bodies/0/committees/1&quot;,
-            &quot;meeting&quot;: &quot;http://refserv.oparl.org/bodies/0/committees/1/meetings/123&quot;,
+            &quot;committee&quot;: &quot;https://oparl.beispielris.de/bodies/0/committees/1&quot;,
+            &quot;meeting&quot;: &quot;https://oparl.beispielris.de/bodies/0/committees/1/meetings/123&quot;,
             &quot;agendaitem&quot;: &quot;7.2.4&quot;,
             &quot;authoritative&quot;: false
         },
@@ -2822,29 +2943,63 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       Feeds sind spezielle Arten von
       <link linkend="objektlisten">Objektlisten</link>, für die
       besondere Anforderungen gelten. Es werden drei verschiedene Feeds
-      spezifiziert.
+      spezifiziert:
     </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Der Feed <emphasis>Neue Objekte</emphasis>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Der Feed <emphasis>Geänderte Objekte</emphasis>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Der Feed <emphasis>Entfernte Objekte</emphasis>
+        </para>
+      </listitem>
+    </itemizedlist>
     <para>
       Der Begriff &quot;Feed&quot; ist eine Anlehnung an die weit
-      verbreiteten RSS- oder Atom-Feeds, deren Publikationslogik im
-      Wesentlichen auf der chronologischen Sortierung beruht. Im
-      Unterschied zu Atom oder RSS ist hier jedoch keine XML-Ausgabe
-      beabsichtigt.
+      verbreiteten RSS-<footnote>
+        <para>
+          RSS 2.0 Specification:
+          <ulink url="http://cyber.law.harvard.edu/rss/rss.html">http://cyber.law.harvard.edu/rss/rss.html</ulink>
+        </para>
+      </footnote> oder Atom-Feeds<footnote>
+        <para>
+          Atom ist in RFC4287 spezifiziert:
+          <ulink url="http://www.ietf.org/rfc/rfc4287.txt">http://www.ietf.org/rfc/rfc4287.txt</ulink>
+        </para>
+      </footnote>, deren Publikationslogik im Wesentlichen auf der
+      chronologischen Sortierung beruht. Im Unterschied zu Atom oder RSS
+      ist hier jedoch keine XML-Ausgabe beabsichtigt.
     </para>
     <para>
-      Die Feeds sollen es Clients ermöglichen, schnelle und
-      ressourcenschonende abzufragen, welche Objekte auf dem Server neu
-      hinzugefügt, geändert oder entfernt wurden. Ziel ist, zu
-      verhindern, dass Clients zur Aktualisierung ihres Caches den
-      gesamten Datenbestand eines Servers abrufen müssen.
+      Die Feeds sollen es Clients ermöglichen, schnell und
+      ressourcenschonend abzufragen, welche Objekte auf dem Server neu
+      hinzugefügt, geändert oder entfernt wurden. Damit können Clients
+      beispielsweise schnell und einfach neue Dokumente auffinden und
+      verarbeiten oder entfernte Objekte aus ihren Caches entfernen und
+      dabei nur ein Mindestmaß an Anfragen ausführen.
     </para>
     <para>
       Ein OParl-Server SOLL jeden der nachfolgend beschriebenen Feeds
       anbieten, sofern möglich.
     </para>
     <para>
-      Für alle Feeds drei gilt, dass mindestens ein Zeitraum von 365
-      Tagen, gerechnet vom Zeitpunkt der Abfrage, abgedeckt werden SOLL.
+      Für alle drei Feeds wird EMPFOHLEN, dass mindestens ein Zeitraum
+      von 365 Tagen abgedeckt wird.
+    </para>
+    <para>
+      Da Feeds üblicherweise eine große und stetig steigende Anzahl von
+      Objekten beinhalten können, ist hier die
+      <link linkend="paginierung">Paginierung</link> anzuwenden, wie sie
+      im vorigen Abschnitt über
+      <link linkend="objektlisten">Objektlisten</link> beschrieben wird.
     </para>
     <sect3 id="feed_neue_objekte">
       <title>Der Feed &quot;Neue Objekte&quot;</title>
@@ -2872,20 +3027,19 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
 {
     &quot;items&quot;: [
         {
-            &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/21/documents/3&quot;,
+            &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/21/documents/3&quot;,
             &quot;created&quot;: &quot;2014-01-07T12:59:01.038+0100&quot;
         },
         {
-            &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/21&quot;,
+            &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/21&quot;,
             &quot;created&quot;: &quot;2014-01-05T18:29:37.123+0100&quot;
         },
         {
-            &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/20/documents/5&quot;,
+            &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/20/documents/5&quot;,
             &quot;created&quot;: &quot;2014-01-04T11:26:48.638+0100&quot;
         },
         ...
-    ],
-    &quot;nextPage&quot;: &quot;http://refserv.oparl.org/feeds/new/?t=20140106170100402&quot;
+    ]
 }
 </programlisting>
       <para>
@@ -2913,12 +3067,6 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         </listitem>
       </itemizedlist>
       <para>
-        Wie für Objektlisten üblich, SOLL auch für Feeds automatisch
-        eine Aufteilung auf mehrere Seiten vorgenommen und ein
-        Paginierungs-Link angeboten werden, um die übertragenen
-        Datenmengen je Abruf einzugrenzen.
-      </para>
-      <para>
         Der jeweils in der Eigenschaft <literal>created</literal>
         ausgegebene Zeitpunkt SOLL vom Server als Sortierkriterium der
         Liste genutzt werden. So können Clients den jeweils am Anfang
@@ -2941,7 +3089,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       <para>
         Der Feed für geänderte Objekte listet die URLs geänderter
         Objekte in der Reihenfolge des Datums ihrer Änderung, wobei das
-        zuletzt Objekt zuerst ausgegeben wird.
+        zuletzt geänderte Objekt zuerst ausgegeben wird.
       </para>
       <para>
         Die Definition einer &quot;Änderung&quot; kann sich zwischen den
@@ -2963,27 +3111,26 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
 {
     &quot;items&quot;: [
         {
-            &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/0/documents/2&quot;,
-            &quot;last_modified&quot;: &quot;2014-01-08T14:28:31.568+0100&quot;
+            &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/0/documents/2&quot;,
+            &quot;lastModified&quot;: &quot;2014-01-08T14:28:31.568+0100&quot;
         },
         {
-            &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/0&quot;,
-            &quot;last_modified&quot;: &quot;2014-01-08T12:14:27.958+0100&quot;
+            &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/0&quot;,
+            &quot;lastModified&quot;: &quot;2014-01-08T12:14:27.958+0100&quot;
         },
         {
-            &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/0/documents/1&quot;,
-            &quot;last_modified&quot;: &quot;2014-01-06T17:01:00.402+0100&quot;
+            &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/0/documents/1&quot;,
+            &quot;lastModified&quot;: &quot;2014-01-06T17:01:00.402+0100&quot;
         },
         ...
-    ],
-    &quot;nextPage&quot;: &quot;http://refserv.oparl.org/feeds/updated/?t=20140106170100402&quot;
+    ]
 }
 </programlisting>
       <para>
         Das Ausgabeformat entspricht weitgehend dem des Feeds &quot;Neue
         Objekte&quot;, jedoch heißt hier die Eigenschaft für den
-        Zeitpunkt der letzten Änderung <literal>last_modified</literal>.
-        Auch hier gilt, dass der als <literal>last_modified</literal>
+        Zeitpunkt der letzten Änderung <literal>lastModified</literal>.
+        Auch hier gilt, dass der als <literal>lastModified</literal>
         ausgegebene Zeitpunkt auch als Sortierkriterium der Liste gelten
         SOLL.
       </para>
@@ -3009,16 +3156,15 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
 {
     &quot;items&quot;: [
         {
-            &quot;@id&quot;: &quot;http://refserv.oparl.org/bodies/0/people/22&quot;,
+            &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/people/22&quot;,
             &quot;removed&quot;: &quot;2013-11-11T11:11:00.000+0100&quot;
         },
         ...
-    ],
-    &quot;nextPage&quot;: &quot;http://refserv.oparl.org/feeds/updated/?t=20131111111100&quot;
+    ]
 }
 </programlisting>
       <para>
-        Die Eigenschaft zur Angabe des Entfernugnszeitpunkts heißt hier
+        Die Eigenschaft zur Angabe des Entfernungszeitpunkts heißt hier
         <literal>removed</literal> und SOLL, analog zu den beiden
         anderen Feeds, als Sortierkriterium der Liste verwendet werden.
       </para>
@@ -3180,8 +3326,8 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         deutsche Sprache als Vorgabe eingestellt.
       </para>
       <para>
-        Es gibt aber möglicherweise auch Zeichenketten, die für die
-        keine Mehrsprachigkeit vorgesehen wird. Dazu gehören z.B.
+        Es gibt aber möglicherweise auch Zeichenketten, für die keine
+        Mehrsprachigkeit vorgesehen wird. Dazu gehören z.B.
         Personennamen.
       </para>
       <para>
@@ -3197,8 +3343,8 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         Beispiel-Kontexten nicht jeweils wiederholt:
       </para>
       <programlisting language="json">
-    &quot;beispielris&quot;: &quot;http://beispielris.de/&quot;,
-    &quot;oparl&quot;: &quot;http://oparl.org/xyz/&quot;,
+    &quot;beispielris&quot;: &quot;https://oparl.beispielris.de&quot;,
+    &quot;oparl&quot;: &quot;http://oparl.org/TODO/&quot;,
     &quot;dc&quot;: &quot;http://purl.org/dc/terms/&quot;,
     &quot;foaf&quot;: &quot;http://xmlns.com/foaf/0.1/&quot;,
     &quot;skos&quot;: &quot;http://www.w3.org/2004/02/skos/core#&quot;,
@@ -3214,7 +3360,8 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         Mitteln einfach möglich. z.B.
       </para>
       <programlisting>
-&quot;herstellera:newWonderProperty&quot;: &quot;Dies ist ein Feature welches noch kein anderer Hersteller bietet!&quot;
+&quot;herstellera:newWonderProperty&quot;: &quot;Dies ist ein Feature
+    welches noch kein anderer Hersteller bietet!&quot;
 </programlisting>
     </sect3>
     <sect3 id="url-pfade-in-den-beispielen">
@@ -3226,27 +3373,27 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         Festlegungen dazu.
       </para>
       <para>
-        Wenn ein RIS-Betreiber z.B. meint, dass eine Person eine eigene
-        Domain verdient, dann ist so etwas aus OParl-Sicht völlig ok:
-        <subscript><subscript><subscript><subscript><subscript><subscript><subscript><subscript><subscript><subscript>
-        https://ratsmitglied-max-mustermann.beispielris.de/mein-oparl-datensatz
-        </subscript></subscript></subscript></subscript></subscript></subscript></subscript></subscript></subscript></subscript>
+        Wenn der Betreiber eines OParl-Systems beispielsweise meint,
+        dass eine Person eine eigene Domain verdient, dann ist dies aus
+        Sicht der OParl-Spezifikation völlig in Ordnung:
       </para>
+      <programlisting>
+https://ratsmitglied-max-mustermann.beispielris.de/mein-oparl-datensatz
+</programlisting>
       <para>
         Noch etwas extremer: selbst eine eigene Domain für jedes
         einzelne OParl-Objekt würde der OParl-Spezifikation nicht
         widersprechen.
       </para>
       <para>
-        Wenn also so etwas wie
-        <subscript><subscript><subscript><subscript><subscript><subscript><subscript><subscript><subscript><subscript>
-        bodies/0/peoples/
-        </subscript></subscript></subscript></subscript></subscript></subscript></subscript></subscript></subscript></subscript>
+        Wenn also in einer Beispiel-URL so etwas wie
       </para>
+      <programlisting>
+bodies/0/peoples/
+</programlisting>
       <para>
-        in einer URL eines Beispiels auftaucht, dann bedeutet das nicht,
-        dass genau solche Pfade durch die OParl-Spezifikation
-        vorgeschrieben sind.
+        auftaucht, dann bedeutet das nicht, dass genau solche Pfade
+        durch die OParl-Spezifikation vorgeschrieben sind.
       </para>
       <para>
         Auch dies wäre als absoluter Link z.B. für eine Person
@@ -3257,10 +3404,10 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
 </programlisting>
       <para>
         Dies käme dann als relativer Link für die Person in Frage:
-        <subscript><subscript>~</subscript>~</subscript>~~
-        personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
-        <subscript><subscript>~</subscript>~</subscript>~~
       </para>
+      <programlisting>
+personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
+</programlisting>
       <para>
         oder auch z.B. dies
         <subscript><subscript><subscript><subscript><subscript><subscript><subscript><subscript><subscript><subscript>
@@ -3334,19 +3481,30 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         <literal>oparl:System</literal> Objekt oder am
         <literal>oparl:Body</literal> Objekt vergeben wird. Die hier
         angegebene Lizenzinformation sagt aus, dass alle Objekte dieses
-        Systems unter der angegebenen Lizenz veröffentlicht werden,
-        sofern dies nicht am jeweiligen Objekt mit einer anders
-        lautenden Lizenz-URL überschrieben wird. Daher wird dringend
-        EMPFOHLEN, die Lizenzinformation global am
+        Systems bzw. der Körperschaft unter der angegebenen Lizenz
+        veröffentlicht werden, sofern dies nicht am jeweiligen Objekt
+        mit einer anders lautenden Lizenz-URL überschrieben wird. Daher
+        wird dringend EMPFOHLEN, die Lizenzinformation global am
         <literal>oparl:System</literal> Objekt mitzuteilen und auf
         redundante Informationen zu verzichten.
       </para>
       <para>
-        Auf Objekte vom Typ <literal>oparl:Document</literal> bezogen
-        bezieht sich die Lizenzinformation nicht nur auf die
+        An Objekten vom Typ <literal>oparl:Document</literal>
+        auftretend, bezieht sich die Lizenzinformation nicht nur auf die
         strukturierten Metadaten, die über die API bezogen werden,
         sondern auch auf den eigentlichen Inhalt der Dateien, die über
         die angebotene(n) URL(s) abgerufen werden können.
+      </para>
+      <para>
+        Lesenswert zum Thema Lizensierung von Linked Data ist auch er
+        Abschnitt &quot;Licenses, Waivers and Norms for Data&quot; im
+        online zugänglichen Linked Data Book.<footnote>
+          <para>
+            Tom Heath, Christian Bizer: Linked Data: Evolving the Web
+            into a Global Data Space (1st edition),
+            <ulink url="http://linkeddatabook.com/editions/1.0/#htoc48">http://linkeddatabook.com/editions/1.0/#htoc48</ulink>
+          </para>
+        </footnote>
       </para>
     </sect3>
     <sect3 id="created">
@@ -3438,7 +3596,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     <programlisting language="json">
 {
     &quot;@type&quot;: &quot;oparl:System&quot;,
-    &quot;@id&quot;: &quot;http://beispielris.de/&quot;,
+    &quot;@id&quot;: &quot;https://oparl.beispielris.de/&quot;,
     &quot;oparlVersion&quot;: &quot;http://oparl.org/specs/1.0/&quot;,
     &quot;name&quot;: &quot;Beispiel-System&quot;,
     &quot;website&quot;: &quot;http://www.beispielris.de/&quot;,
@@ -3446,10 +3604,10 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     &quot;contactName&quot;: &quot;Allgemeiner OParl Kontakt&quot;,
     &quot;vendor&quot;: &quot;http://example-software.com/&quot;,
     &quot;product&quot;: &quot;http://example-software.com/oparl-server/&quot;,
-    &quot;bodies&quot;: &quot;http://beispielris.de/bodies/&quot;,
-    &quot;newObjects&quot;: &quot;http://beispielris.de/new_objects/&quot;,
-    &quot;updatedObjects&quot;: &quot;http://beispielris.de/updated_objects/&quot;,
-    &quot;removedObjects&quot;: &quot;http://beispielris.de/removed_objects&quot;
+    &quot;bodies&quot;: &quot;https://oparl.beispielris.de/bodies/&quot;,
+    &quot;newObjects&quot;: &quot;https://oparl.beispielris.de/new_objects/&quot;,
+    &quot;updatedObjects&quot;: &quot;https://oparl.beispielris.de/updated_objects/&quot;,
+    &quot;removedObjects&quot;: &quot;https://oparl.beispielris.de/removed_objects&quot;
 }
 </programlisting>
     <para>
@@ -3458,9 +3616,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     <programlisting language="json">
 {
     &quot;@language&quot;: &quot;de&quot;,
-
-    &quot;beispielris&quot;: &quot;http://beispielris.de/&quot;,
-    &quot;oparl&quot;: &quot;http://oparl.org/xyz/&quot;,
+    &quot;beispielris&quot;: &quot;https://oparl.eispielris.de/&quot;,
+    &quot;oparl&quot;: &quot;http://oparl.org/TODO/&quot;,
     &quot;dc&quot;: &quot;http://purl.org/dc/terms/&quot;,
     &quot;foaf&quot;: &quot;http://xmlns.com/foaf/0.1/&quot;,
     &quot;skos&quot;: &quot;http://www.w3.org/2004/02/skos/core#&quot;,
@@ -3484,7 +3641,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     <programlisting language="json">
 {
     &quot;@type&quot;: &quot;oparl:System&quot;,
-    &quot;@id&quot;: &quot;http://beispielris.de/&quot;,
+    &quot;@id&quot;: &quot;https://oparl.beispielris.de/&quot;,
     &quot;oparlVersion&quot;: &quot;http://oparl.org/specs/1.0/&quot;,
     &quot;name&quot;: &quot;Beispiel-System&quot;,
     &quot;website&quot;: &quot;http://www.beispielris.de/&quot;,
@@ -3492,7 +3649,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     &quot;contactName&quot;: &quot;Allgemeiner OParl Kontakt&quot;,
     &quot;vendor&quot;: &quot;http://example-software.com/&quot;,
     &quot;product&quot;: &quot;http://example-software.com/oparl-server/&quot;,
-    &quot;bodies&quot;: &quot;http://beispielris.de/bodies/&quot;,
+    &quot;bodies&quot;: &quot;beispielris:bodies/&quot;,
     &quot;newObjects&quot;: &quot;beispielris:new_objects/&quot;,
     &quot;updatedObjects&quot;: &quot;beispielris:updated_objects/&quot;,
     &quot;removedObjects&quot;: &quot;beispielris:removed_objects&quot;
@@ -3514,78 +3671,6 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
       Definition identisch mit der URL des API-Endpunkts des Servers
       sein.
     </para>
-    <sect3 id="well-known-uris">
-      <title>Well-Known URIs</title>
-      <para>
-        TODO: eventuell in eigenen Abschnitt oder eigenes Kapitel
-        auslagern.
-      </para>
-      <para>
-        Es gibt eine standardisierte Technik, mit der ein Einstiegspunkt
-        in die OParl-Daten angegeben werden kann: &quot;Well-Known
-        URIs&quot;. Dieser kann dann maschinell gefunden werden. Diese
-        Technik wurde durch die IETF und das W3C standardisiert.
-      </para>
-      <para>
-        Die Spezifikation von &quot;Well-Known URIs&quot; durch die IETF
-        ist:
-      </para>
-      <para>
-        Defining Well-Known Uniform Resource Identifiers (URIs)
-        http://tools.ietf.org/html/rfc5785
-      </para>
-      <para>
-        Eine Liste der Well-Known URIs wird von der IANA verwaltet:
-      </para>
-      <para>
-        Well-Known URIs
-        http://www.iana.org/assignments/well-known-uris/well-known-uris.xhtml
-      </para>
-      <para>
-        Für OParl sind gegenwärtig nur &quot;Well-Known URIs&quot; für
-        Beschreibungen von Datasets gemäß dem &quot;Vocabulary of
-        Interlinked Datasets&quot; (VoID) relevant.
-      </para>
-      <para>
-        BEISPIEL:
-      </para>
-      <para>
-        Wenn ein RIS unter der Domain &quot;example.com&quot; betrieben
-        wird, dann sieht der &quot;Well-Known URI&quot; so aus (der
-        enthaltene &quot;.&quot; ist <emphasis>kein</emphasis>
-        Schreibfehler):
-      </para>
-      <para>
-        https://example.com/.well-known/void
-      </para>
-      <para>
-        Forwarding ist erlaubt.
-      </para>
-      <para>
-        Siehe dazu auch:
-      </para>
-      <para>
-        Describing Linked Datasets with the VoID Vocabulary W3C Interest
-        Group Note 03 March 2011 http://www.w3.org/TR/void/#well-known
-      </para>
-      <para>
-        Die über derartige URIs dereferenzierbaren Dokumente sind hier
-        spezifiziert: http://www.w3.org/TR/void/#void-file
-      </para>
-      <para>
-        BEISPIEL:
-      </para>
-      <para>
-        Bei einem http GET Request auf
-        https://example.com/.well-known/void mit Angabe des bevorzugten
-        MIME-Type &quot;application/ld+json&quot; antwortet das System
-        mit dem URI https://example.com/.well-known/void.jsonld unter
-        welchem dieses JSON-LD Dokument abrufbar ist:
-      </para>
-      <para>
-        TODO: Beispiele für JSON-LD und exemplarisch auch für HTML.
-      </para>
-    </sect3>
     <sect3 id="eigenschaften">
       <title>Eigenschaften</title>
       <variablelist>
@@ -3749,7 +3834,6 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     <programlisting>
 {
     &quot;@language&quot;: &quot;de&quot;,
-    
     &quot;license&quot;: {
         &quot;@id&quot;: &quot;dc:license&quot;,
         &quot;@type&quot;: &quot;@id&quot;
@@ -3758,7 +3842,6 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
         &quot;@id&quot;: &quot;skos:exactMatch&quot;,
         &quot;@type&quot;: &quot;@id&quot;
     }
-    
     &quot;licenseValidSinceDay&quot;: // TODO: datum
 }
 </programlisting>
@@ -3768,8 +3851,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     <programlisting language="json">
 {
     &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/Body&quot;,
-    &quot;@id&quot;: &quot;http://oparl.beispielris.de/body/0&quot;,
-    &quot;system&quot;: &quot;http://oparl.beispielris.de/&quot;,
+    &quot;@id&quot;: &quot;https://oparl.beispielris.de/body/0&quot;,
+    &quot;system&quot;: &quot;https://oparl.beispielris.de/&quot;,
     &quot;contactEmail&quot;: &quot;mailto:ris@beispielstadt.de&quot;,
     &quot;contactName&quot;: &quot;RIS-Betreuung&quot;,
     &quot;rgs&quot;: &quot;053150000000&quot;,
@@ -3778,18 +3861,18 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
         &quot;http://dbpedia.org/resource/Cologne&quot;
     ],
     &quot;name&quot;: &quot;Stadt Köln&quot;,
-    &quot;nameLong&quot;: { // verwendet eine &quot;language map&quot;
+    &quot;nameLong&quot;: {
         &quot;de&quot;: &quot;Stadt Köln, kreisfreie Stadt&quot;,
         &quot;en&quot;: &quot;City of Cologne&quot;
     }
     &quot;website&quot;: &quot;http://www.beispielstadt.de/&quot;,
     &quot;license&quot;: &quot;http://creativecommons.org/licenses/by/4.0/&quot;,
     &quot;licenseValidSinceDay&quot;: &quot;2014-01-01&quot;,
-    &quot;organization&quot;: &quot;http://oparl.beispielris.de/body/0/organisation/&quot;,
-    &quot;meeting&quot;: &quot;http://oparl.beispielris.de/body/0/meeting/&quot;,
-    &quot;paper&quot;: &quot;http://oparl.beispielris.de/body/0/paper/&quot;,
-    &quot;member&quot;: &quot;http://oparl.beispielris.de/body/0/person/&quot;,
-    &quot;classification&quot;: &quot;http://oparl.beispielris.de/vocab/landkreis&quot;,
+    &quot;organization&quot;: &quot;https://oparl.beispielris.de/body/0/organisation/&quot;,
+    &quot;meeting&quot;: &quot;https://oparl.beispielris.de/body/0/meeting/&quot;,
+    &quot;paper&quot;: &quot;https://oparl.beispielris.de/body/0/paper/&quot;,
+    &quot;member&quot;: &quot;https://oparl.beispielris.de/body/0/person/&quot;,
+    &quot;classification&quot;: &quot;https://oparl.beispielris.de/vocab/landkreis&quot;,
     &quot;created&quot;: &quot;2014-01-08T14:28:31.568+0100&quot;,
     &quot;modified&quot;: &quot;2014-01-08T14:28:31.568+0100&quot;
 }
@@ -4048,8 +4131,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     <programlisting language="json">
 {
     &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/Organization&quot;,
-    &quot;@id&quot;: &quot;http://oparl.beispielris.de/organization/34&quot;,
-    &quot;body&quot;: &quot;http://oparl.beispielris.de/body/0&quot;,
+    &quot;@id&quot;: &quot;https://oparl.beispielris.de/organization/34&quot;,
+    &quot;body&quot;: &quot;https://oparl.beispielris.de/body/0&quot;,
     &quot;name&quot;: {
         @language&quot; :&quot;de&quot;,
         @value&quot;: &quot;Finanzausschuss&quot;
@@ -4060,18 +4143,17 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     },
     &quot;post&quot;: {
         &quot;@list&quot;: [
-        // ohne @list wird in JSON-LD die Reihenfolge nicht festgelegt
-        &quot;http://oparl.beispielris.de/post/chairperson&quot;,
-        &quot;http://oparl.beispielris.de/post/deputyChairperson&quot;
+            &quot;https://oparl.beispielris.de/post/chairperson&quot;,
+            &quot;https://oparl.beispielris.de/post/deputyChairperson&quot;
         ]
     },
     &quot;member&quot;: [
-        &quot;http://oparl.beispielris.de/person/27&quot;,
-        &quot;http://oparl.beispielris.de/person/48&quot;,
-        &quot;http://oparl.beispielris.de/person/57&quot;
+        &quot;https://oparl.beispielris.de/person/27&quot;,
+        &quot;https://oparl.beispielris.de/person/48&quot;,
+        &quot;https://oparl.beispielris.de/person/57&quot;
     ],
-    &quot;organizationType&quot;: &quot;http://oparl.beispielris.de/vocab/committee&quot;,
-    &quot;classification&quot;: &quot;http://oparl.beispielris.de/vocab/finance&quot;,
+    &quot;organizationType&quot;: &quot;https://oparl.beispielris.de/vocab/committee&quot;,
+    &quot;classification&quot;: &quot;https://oparl.beispielris.de/vocab/finance&quot;,
     &quot;modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
 }
 </programlisting>
@@ -4080,7 +4162,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     </para>
     <para>
       Ein Kontext: <subscript><subscript>~</subscript>~</subscript>~~ {
-      &quot;@language&quot;: &quot;de&quot;, // ... }
+      &quot;@language&quot;: &quot;de&quot;, ... }
       <subscript><subscript>~</subscript>~</subscript>~~
     </para>
     <programlisting language="json">
@@ -4284,7 +4366,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     <programlisting language="json">
 {
     &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/Person&quot;,
-    &quot;@id&quot;: &quot;http://oparl.beispielris.de/person/29&quot;,
+    &quot;@id&quot;: &quot;https://oparl.beispielris.de/person/29&quot;,
     &quot;name&quot;: &quot;Prof. Dr. Max Mustermann&quot;,
     &quot;familyName&quot;: { // könnte mehrsprachig sein, z.B. griechisch, russisch, tamilisch 
         &quot;@value&quot;: &quot;Mustermann&quot;,
@@ -4295,7 +4377,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
         &quot;@language&quot;: &quot;de&quot;
     },
     &quot;title&quot;: &quot;Prof. Dr.&quot;, // TODO: nicht mehrsprachig?!
-    &quot;formOfAddress&quot;: &quot;http://oparl.beispielris.de/formofaddress/ratsmitglied&quot;,
+    &quot;formOfAddress&quot;: &quot;https://oparl.beispielris.de/formofaddress/ratsmitglied&quot;,
     &quot;gender&quot;: &quot;http://www.w3.org/2006/vcard/ns#Male&quot;,
     &quot;email&quot;: &quot;mailto:max@mustermann.de&quot;,
     &quot;phone&quot;: &quot;tel:+493012345678&quot;,
@@ -4306,11 +4388,11 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
         &quot;en&quot;: &quot;Sample Town&quot;
     },
     &quot;organization&quot;: [
-        &quot;http://oparl.beispielris.de/organization/11&quot;,
-        &quot;http://oparl.beispielris.de/organization/34&quot;
+        &quot;https://oparl.beispielris.de/organization/11&quot;,
+        &quot;https://oparl.beispielris.de/organization/34&quot;
     ],
-    &quot;status&quot;: &quot;http://oparl.beispielris.de/status/buergermeister&quot;,
-    &quot;hasMembership&quot;: &quot;http://oparl.beispielris.de/membership/34&quot;,
+    &quot;status&quot;: &quot;https://oparl.beispielris.de/status/buergermeister&quot;,
+    &quot;hasMembership&quot;: &quot;https://oparl.beispielris.de/membership/34&quot;,
     &quot;created&quot;: &quot;2011-11-11T11:11:00+01:00&quot;,
     &quot;modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
 }
@@ -4356,7 +4438,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
 {
     &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld&quot;,
     &quot;@type&quot;: &quot;oparl:Person&quot;,
-    &quot;@id&quot;: &quot;http://oparl.beispielris.de/person/29&quot;,
+    &quot;@id&quot;: &quot;https://oparl.beispielris.de/person/29&quot;,
     &quot;name&quot;: &quot;Prof. Dr. Max Mustermann&quot;,
     &quot;familyName&quot;: &quot;Mustermann&quot;, // Kontext gibt deutsche Spache vor
     &quot;givenName&quot;: &quot;Max&quot;,
@@ -4621,7 +4703,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     <programlisting language="json">
 {
     &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/Meeting&quot;,
-    &quot;@id&quot;: &quot;http://oparl.beispielris.de/meeting/281&quot;,
+    &quot;@id&quot;: &quot;https://oparl.beispielris.de/meeting/281&quot;,
     &quot;name&quot;: &quot;4. Sitzung des Finanzausschusses&quot;,
     &quot;start&quot;: &quot;2013-01-04T08:00:00+01:00&quot;,
     &quot;end&quot;: &quot;2013-01-04T12:00:00+01:00&quot;,
@@ -4635,26 +4717,25 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             &quot;@language&quot;: &quot;en&quot;
         }
     },
-    &quot;organization&quot;: &quot;http://oparl.beispielris.de/organization/34&quot;,
+    &quot;organization&quot;: &quot;https://oparl.beispielris.de/organization/34&quot;,
     &quot;participant&quot;: [
-        &quot;http://oparl.beispielris.de/person/29&quot;,
-        &quot;http://oparl.beispielris.de/person/75&quot;,
-        &quot;http://oparl.beispielris.de/person/94&quot;
+        &quot;https://oparl.beispielris.de/person/29&quot;,
+        &quot;https://oparl.beispielris.de/person/75&quot;,
+        &quot;https://oparl.beispielris.de/person/94&quot;
     ],
-    &quot;invitation&quot;: &quot;http://oparl.beispielris.de/document/586&quot;,
-    &quot;resultsProtocol&quot;: &quot;http://oparl.beispielris.de/document/628&quot;,
-    &quot;verbatimProtocol&quot;: &quot;http://oparl.beispielris.de/document/691&quot;,
+    &quot;invitation&quot;: &quot;https://oparl.beispielris.de/document/586&quot;,
+    &quot;resultsProtocol&quot;: &quot;https://oparl.beispielris.de/document/628&quot;,
+    &quot;verbatimProtocol&quot;: &quot;https://oparl.beispielris.de/document/691&quot;,
     &quot;auxiliaryDocument&quot;: [
-        &quot;http://oparl.beispielris.de/document/588&quot;,
-        &quot;http://oparl.beispielris.de/document/589&quot;
+        &quot;https://oparl.beispielris.de/document/588&quot;,
+        &quot;https://oparl.beispielris.de/document/589&quot;
     ],
     &quot;agendaItem&quot;: {
-    // Reihenfolge ist wichtig
         &quot;@list&quot;: [
-            &quot;http://oparl.beispielris.de/agendaitem/1045&quot;,
-            &quot;http://oparl.beispielris.de/agendaitem/1046&quot;,
-            &quot;http://oparl.beispielris.de/agendaitem/1047&quot;,
-            &quot;http://oparl.beispielris.de/agendaitem/1048&quot;
+            &quot;https://oparl.beispielris.de/agendaitem/1045&quot;,
+            &quot;https://oparl.beispielris.de/agendaitem/1046&quot;,
+            &quot;https://oparl.beispielris.de/agendaitem/1047&quot;,
+            &quot;https://oparl.beispielris.de/agendaitem/1048&quot;
         ]
     },
     &quot;created&quot;: &quot;2012-01-06T12:01:00+01:00&quot;,
@@ -4668,7 +4749,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
 {
     &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;
     &quot;@type&quot;: &quot;oparl:Meeting&quot;,
-    &quot;@id&quot;: &quot;http://oparl.beispielris.de/meeting/281&quot;,
+    &quot;@id&quot;: &quot;https://oparl.beispielris.de/meeting/281&quot;,
     &quot;name&quot;: &quot;4. Sitzung des Finanzausschusses&quot;,
     &quot;start&quot;: &quot;2013-01-04T08:00:00+01:00&quot;,
     &quot;end&quot;: &quot;2013-01-04T12:00:00+01:00&quot;,
@@ -4715,7 +4796,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei
               einer zukünftigen Sitzung ist dies der geplante Zeitpunkt,
               bei einer stattgefundenen KANN es der tatsächliche
-              Startzeitpunkt sein. Typ: TODO ZWINGEND
+              Startzeitpunkt sein. Typ: TODO. ZWINGEND
             </para>
           </listitem>
         </varlistentry>
@@ -4728,7 +4809,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer
               zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei
               einer stattgefundenen KANN es der tatsächliche
-              Endzeitpunkt sein. Typ: TODO EMPFOHLEN
+              Endzeitpunkt sein. Typ: TODO. EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4738,7 +4819,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Sitzungsort. Typ: <literal>oparl:Location</literal>
+              Sitzungsort. Typ: <literal>oparl:Location</literal>.
               EMPFOHLEN
             </para>
           </listitem>
@@ -4752,7 +4833,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               Gruppierung der die Sitzung zugeordnet ist. Wenn eine
               Liste angegeben wird, dann ist diese geordnet. Das erste
               Element ist dann das federführende Gremium. Typ:
-              <literal>oparl:Organization</literal> ZWINGEND
+              <literal>oparl:Organization</literal>. ZWINGEND
             </para>
           </listitem>
         </varlistentry>
@@ -4766,7 +4847,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               sind dies die geladenen Teilnehmer, bei einer
               stattgefundenen Sitzung SOLL die Liste nur diejenigen
               Teilnehmer umfassen, die tatsächlich an der Sitzung
-              teilgenommen haben. Typ: <literal>oparl:Person</literal>
+              teilgenommen haben. Typ: <literal>oparl:Person</literal>.
               ZWINGEND.
             </para>
           </listitem>
@@ -4778,7 +4859,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Einladungsdokument zur Sitzung. Typ:
-              <literal>oparl:Document</literal> EMPFOHLEN.
+              <literal>oparl:Document</literal>. EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -4790,7 +4871,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             <para>
               Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann
               selbstverständlich erst nach dem Stattfinden der Sitzung
-              vorkommen. Typ: <literal>oparl:Document</literal>
+              vorkommen. Typ: <literal>oparl:Document</literal>.
               EMPFOHLEN
             </para>
           </listitem>
@@ -4803,7 +4884,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             <para>
               Wortprotokoll zur Sitzung. Diese Eigenschaft kann
               selbstverständlich erst nach dem Stattfinden der Sitzung
-              vorkommen. Typ: <literal>oparl:Document</literal>
+              vorkommen. Typ: <literal>oparl:Document</literal>.
               EMPFOHLEN
             </para>
           </listitem>
@@ -4818,7 +4899,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               gemeint, die üblicherweise mit der Einladung zu einer
               Sitzung verteilt werden und die nicht bereits über
               einzelne Tagesordnungspunkte referenziert sind. Typ:
-              <literal>oparl:Document</literal> OPTIONAL
+              <literal>oparl:Document</literal>. OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4830,7 +4911,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             <para>
               Tagesordnungspunkte der Sitzung. Die Reihenfolge ist
               relevant. Es kann Sitzungen ohne TOPs geben. Typ:
-              <literal>oparl:AgendaItem</literal> OPTIONAL
+              <literal>oparl:AgendaItem</literal>. OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4840,7 +4921,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Typ: <literal>skos:Concept</literal> OPTIONAL
+              Typ: <literal>skos:Concept</literal>. OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4850,7 +4931,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Datum und Uhrzeit der Erzeugung des Objekts. Typ: TODO
+              Datum und Uhrzeit der Erzeugung des Objekts. Typ: TODO.
               EMPFOHLEN
             </para>
           </listitem>
@@ -4862,7 +4943,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Datum und Uhrzeit der letzten Änderung des Objekts. Typ:
-              TODO EMPFOHLEN
+              TODO. EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4884,7 +4965,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
 {
     &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;
     &quot;@type&quot;: &quot;oparl:AgendaItem&quot;,
-    &quot;@id&quot;: &quot;http://oparl.beispielris.de/agendaitem/3271&quot;,
+    &quot;@id&quot;: &quot;https://oparl.beispielris.de/agendaitem/3271&quot;,
     &quot;meeting&quot;: &quot;beispielris:meeting/281&quot;,
     &quot;number&quot;: &quot;10.1&quot;,
     &quot;name&quot;: &quot;Satzungsänderung für Ausschreibungen&quot;,
@@ -5096,7 +5177,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
 {
     &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;
     &quot;@type&quot;: &quot;oparl:Paper&quot;,
-    &quot;@id&quot;: &quot;http://oparl.beispielris.de/paper/749&quot;,
+    &quot;@id&quot;: &quot;https://oparl.beispielris.de/paper/749&quot;,
     &quot;reference&quot;: &quot;1234/2014&quot;,
     &quot;publishedDate&quot;: &quot;2014-04-04T16:42:02+02:00&quot;,
     &quot;name&quot;: &quot;Antwort auf Anfrage 1200/2014&quot;,
@@ -5279,20 +5360,20 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     <programlisting language="json">
 {
     &quot;@type&quot;: &quot;oparl:Document&quot;,
-    &quot;@id&quot;: &quot;http://beispielris.de/document/57739&quot;,
+    &quot;@id&quot;: &quot;https://oparl.beispielris.de/document/57739&quot;,
     &quot;name&quot;: &quot;Anlage 1 zur Anfrage&quot;,
-    &quot;paper&quot;: &quot;http://beispielris.de/paper/2396&quot;,
+    &quot;paper&quot;: &quot;https://oparl.beispielris.de/paper/2396&quot;,
     &quot;mimeType&quot;: &quot;application/pdf&quot;,
     &quot;date&quot;: &quot;2013-01-04T07:54:13+01:00&quot;,
     &quot;lastModified&quot;: &quot;2013-01-04T07:54:13+01:00&quot;,
     &quot;sha1Checksum&quot;: &quot;da39a3ee5e6b4b0d3255bfef95601890afd80709&quot;,
     &quot;size&quot;: 82930,
-    &quot;accessUrl&quot;: &quot;http://beispielris.de/document/57739.pdf&quot;,
-    &quot;downloadUrl&quot;: &quot;http://beispielris.de/document/download/57739.pdf&quot;,
+    &quot;accessUrl&quot;: &quot;https://oparl.beispielris.de/document/57739.pdf&quot;,
+    &quot;downloadUrl&quot;: &quot;https://oparl.beispielris.de/document/download/57739.pdf&quot;,
     &quot;text&quot;: &quot;Der Übersichtsplan zeigt alle Ebenen des ...&quot;,
-    &quot;masterDocument&quot;: &quot;http://beispielris.de/document/57738&quot;,
+    &quot;masterDocument&quot;: &quot;https://oparl.beispielris.de/document/57738&quot;,
     &quot;license&quot;: &quot;http://www.opendefinition.org/licenses/cc-by&quot;,
-    &quot;documentRole&quot;: &quot;http://beispielris.de/document-role/evidence&quot;,
+    &quot;documentRole&quot;: &quot;https://oparl.beispielris.de/document-role/evidence&quot;,
 }
 </programlisting>
     <para>
@@ -5449,7 +5530,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               diese Datei zu einer Sitzung gehört, MUSS diese
               Eigenschaft vorhanden sein, andernfalls DARF sie NICHT
               vorhanden sein. TODO: ist das eine Tautologie? Typ:
-              <literal>oparl:Meeting</literal>
+              <literal>oparl:Meeting</literal>.
             </para>
           </listitem>
         </varlistentry>
@@ -5460,7 +5541,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Datei von der das aktuelle Objekt abgeleitet wurde. Typ:
-              <literal>oparl:Document</literal> OPTIONAL
+              <literal>oparl:Document</literal>. OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5471,7 +5552,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Abgeleitete Datei die von dem aktuellen Objekt abgeleitet
-              wurde. Typ: <literal>oparl:Document</literal> OPTIONAL
+              wurde. Typ: <literal>oparl:Document</literal>. OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5482,12 +5563,11 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Lizenz unter der die Datei angeboten wird. Wenn diese
-              Eigenschaft verwendet wird, dann ist sie massgeblich und
-              nicht die globalere Angabe in dem
-              <literal>oparl:Body</literal> Objekt der Körperschaft.
-              Lesenswert zum Thema Lizensierung von Linked Data ist
-              http://linkeddatabook.com/editions/1.0/#htoc48 Type: URL
-              OPTIONAL
+              Eigenschaft verwendet wird, dann ist sie anstelle einer
+              globalen Angabe im übergeordneten
+              <literal>oparl:Body</literal> bzw.
+              <literal>oparl:System</literal> Objekt maßgeblich. Typ:
+              URL. OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5559,12 +5639,12 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     <programlisting language="json">
 {
     &quot;@type&quot;: &quot;oparl:Consultation&quot;,
-    &quot;@id&quot;: &quot;http://beispielris.de/consultation/47594&quot;,
-    &quot;paper&quot;: &quot;http://beispielris.de/paper/2396&quot;,
-    &quot;agendaitem&quot;: &quot;http://beispielris.de/agendaitem/15569&quot;,
-    &quot;committee&quot;: &quot;http://beispielris.de/organization/96&quot;,
+    &quot;@id&quot;: &quot;https://oparl.beispielris.de/consultation/47594&quot;,
+    &quot;paper&quot;: &quot;https://oparl.beispielris.de/paper/2396&quot;,
+    &quot;agendaitem&quot;: &quot;https://oparl.beispielris.de/agendaitem/15569&quot;,
+    &quot;committee&quot;: &quot;https://oparl.beispielris.de/organization/96&quot;,
     &quot;authoritative&quot;: false,
-    &quot;role&quot;: &quot;http://beispielris.de/role/decision&quot;
+    &quot;role&quot;: &quot;https://oparl.beispielris.de/role/decision&quot;
 }
 </programlisting>
     <para>

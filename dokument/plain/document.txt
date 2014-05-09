@@ -913,6 +913,77 @@ Dieses Ziel wird in Zukunft natürlich abgewägt werden müssen mit dem
 Wunsch, sich an Veränderungen und neue Erkenntnisse anzupassen. Eine
 Garantie für Zukunftssicherheit kann insofern niemand aussprechen.
 
+Ein fiktives Szenario soll verdeutlichen, dass es zweckmäßig ist, schon
+beim Betrieb eines OParl 1.0 Servers die zukünftige Entwicklung im Blick
+zu haben:
+
+-   Die Kommune Beispielstadt betreibt ihren OParl-1.0-Server unter der
+    URL https://oparl.bstadt.de/1.0/.
+
+-   Verschiedene Clients, die für OParl Version 1.0 entwickelt wurden,
+    kommen bei Nutzerinnen und Nutzern, die sich für den Stadtrat in
+    Beispielstadt intressieren, zum Einsatz. Jeder Client-Nutzer hat
+    dazu lediglich die URL https://oparl.bstadt.de/1.0/ des
+    OParl-Servers in der Client-Konfiguration hinterlegt.
+
+-   Die OParl-Spezifikation wird aktualisiert, es erscheint Version 1.1.
+    Das Schema enthält Erweiterungen gegenüber Version 1.0, jedes
+    gültige Objekt aus Version 1.0 behält jedoch auch weiterhin seine
+    Gültigkeit. Und Objekte, die nach Version 1.1 gültig sind, sind auch
+    für Clients gültig, die für Version 1.0 entwickelt wurden.
+
+-   Die Firma, die den OParl-Server von Beispielstadt entwickelt hat,
+    liefert ein Update.
+
+-   Der OParl-Server von Beispielstadt ist nun über eine neue URL
+    https://oparl.bstadt.de/1.1/ zu erreichen. Alle Anfragen an
+    https://oparl.bstadt.de/1.0/... werden auf die entsprechende URL
+    unter https://oparl.bstadt.de/1.1/ mit HTTP-Redirects und
+    Status-Code 301 weiter geleitet.
+
+-   Die Nutzer der Clients, die mit dem OParl-Server von Beispielstadt
+    arbeiten, können weiter arbeiten wie bisher. Sie erhalten vom Client
+    höchstens einmalig eine Information, dass sich die Server-URL
+    geändert hat.
+
+-   Einzelne Client-NutzerInnen werden von den Anbietern ihrer Clients
+    darauf aufmerksam gemacht, dass eine neue Version ihres Produkts für
+    eine neue OParl-Version zur Verfügung steht. Mit dieser Version
+    könnten die Nutzer in den Genuss der Vorteile von OParl Version 1.1
+    kommen.
+
+-   Nach einiger Zeit erscheint eine neue Version 2.0 der OParl
+    Spezifikation. Hier haben sich größere Änderungen ergeben. Das
+    Schema ist nicht kompatibel mit dem von Version 1.0 und 1.1.
+    Clients, die für eine Version 1.* entwickelt wurden, werden nicht
+    sinnvoll mit einem Server der Version 2 kommunizieren können.
+
+-   Der Server-Entwickler bietet das entsprechende Produkt zu OParl
+    Version 2 an, Beispielstadt entschließt sich zum Einsatz der neuen
+    Version. Da das Server-Produkt gleichzeitig OParl 1.* und OParl 2.0
+    bedienen kann, kann Beispielstadt gleichzeitig einen Endpunkt für
+    1.1 und einen für 2.0 betreiben. Die URL des neuen Endpunkts lautet
+    https://oparl.bstadt.de/2.0/.
+
+Das Szenario verdeutlicht, wie insbesondere zwei Aspekte für eine
+möglichst sanfte Migration zwischen den OParl-Versionen sorgen können:
+
+1.  Dedizierte API-Endpunkt-URLs für jede OParl-Version
+
+2.  HTTP-Weiterleitungen auf die neue URL, sofern diese kompatibel mit
+    der alten ist, erspart den Parallelbetrieb von zwei ähnlichen
+    Endpunkten und kommuniziert den Clients automatisch den Endpunkt der
+    neuen Version
+
+Zu der Art, wie die OParl-Version sich auf die Endpunkt-URL auswirkt,
+will diese Spezifikation keine Vorgaben machen. Die Pfad-Elemente im
+obigen Szenario sind Vorschläge, aber in keiner Weise bindend.
+
+Die praktische Umsetzung von HTTP-Weiterleitungen ist besonders dann
+trivial, wenn die restlichen URL-Bestandteile identisch bleiben. In
+diesem Fall können Server mit einer einfachen Regel von jeglicher
+vorherigen auf jegliche neue URL weiter leiten.
+
 Content Negotiation {#content_negotiation}
 -------------------
 
@@ -1040,10 +1111,10 @@ beschrieben[^20].
 Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in
 diesem Dokument Verwendung finden:
 
-    http://refserv.oparl.org/foo/bar/?skip=234
-    \__/   \_______________/\_______/ \______/
-     |         |                |        |
-    Schema    Host             Pfad  Query-String
+    https://refserv.oparl.org/foo/bar/?skip=234
+    \___/   \_______________/\_______/ \______/
+      |         |                |        |
+    Schema     Host             Pfad  Query-String
 
 URL-Kanonisierung
 
@@ -1105,13 +1176,13 @@ Diese Faktoren könnten sein:
 -   Zusätzliche Domains, die einen A-Record auf den selben Server
     besitzen
 
-Zu der kanonischen Beispiel-URL http://oparl.stadtrat.stadt-koeln.de/
+Zu der kanonischen Beispiel-URL https://oparl.stadtrat.stadt-koeln.de/
 wären eine Reihe von nicht-kanonischen URL-Varianten denkbar, die
 technischen auf den selben Server führen könnten:
 
--   http://83.123.89.102/
--   http://oparl.stadtrat.stadtkoeln.de/
--   http://risserv.stadt-koeln.de/
+-   https://83.123.89.102/
+-   https://oparl.stadtrat.stadtkoeln.de/
+-   https://risserv.stadt-koeln.de/
 
 Falls es aus technischen Gründen nicht möglich ist, den Zugang auf das
 OParl-System über nicht-kanonische URLs zu unterbinden, SOLL eine
@@ -1138,8 +1209,8 @@ Darüber hinaus SOLL der Server-Implementierer darauf achten, bei
 Verwendung von Query-String-Parametern diese in URLs immer nach dem
 selben Prinzip zu sortieren. Ein Beispiel: die beiden URLs
 
-    http://oparl.meinris.de/members?body=1&committee=2
-    http://oparl.meinris.de/members?committee=2&body=1
+    https://oparl.beispielris.de/members?body=1&committee=2
+    https://oparl.beispielris.de/members?committee=2&body=1
 
 unterscheiden sich lediglich in der Reihenfolge der
 Query-String-Parameter. Da sie jedoch nicht identisch sind, müssen
@@ -1490,13 +1561,13 @@ Benannte Objekte sind innerhalb einer JSON-LD-Ausgabe diejenigen
 Objekte, die durch eine eigene URL identifiziert werden. Als Beispiel
 dient ein fiktives Objekt, das ein Client über die URL
 
-    http://refserv.oparl.org/bodies/0/committees/1
+    https://oparl.beispielris.de/bodies/0/committees/1
 
 abruft:
 
 ``` {#benanntanonym_ex1 .json}
 {
-    "@id": "http://refserv.oparl.org/bodies/0/committees/1",
+    "@id": "https://oparl.beispielris.de/bodies/0/committees/1",
     "@type": "http://oparl.org/schema/1.0/committee",
     "name": "Hauptausschuss"
 }
@@ -1536,14 +1607,14 @@ umschreiben.
 
 ``` {#benanntanonym_ex2 .json}
 {
-    "@id": "http://refserv.oparl.org/bodies/0/papers/456",
+    "@id": "https://oparl.beispielris.de/bodies/0/papers/456",
     "@type": "http://oparl.org/schema/1.0/paper",
     "title": "Beschlussvorlage zur Jugendförderung",
     "consultations": [
         {
             "@type": "http://oparl.org/schema/1.0/consultation",
-            "committee": "http://refserv.oparl.org/bodies/0/committees/1",
-            "meeting": "http://refserv.oparl.org/bodies/0/committees/1/meetings/123",
+            "committee": "https://oparl.beispielris.de/bodies/0/committees/1",
+            "meeting": "https://oparl.beispielris.de/bodies/0/committees/1/meetings/123",
             "agendaitem": "7.2.4",
             "authoritative": false
         },
@@ -1811,24 +1882,33 @@ Feeds
 -----
 
 Feeds sind spezielle Arten von Objektlisten, für die besondere
-Anforderungen gelten. Es werden drei verschiedene Feeds spezifiziert.
+Anforderungen gelten. Es werden drei verschiedene Feeds spezifiziert:
 
-Der Begriff "Feed" ist eine Anlehnung an die weit verbreiteten RSS- oder
-Atom-Feeds, deren Publikationslogik im Wesentlichen auf der
+-   Der Feed Neue Objekte
+-   Der Feed Geänderte Objekte
+-   Der Feed Entfernte Objekte
+
+Der Begriff "Feed" ist eine Anlehnung an die weit verbreiteten RSS-[^32]
+oder Atom-Feeds[^33], deren Publikationslogik im Wesentlichen auf der
 chronologischen Sortierung beruht. Im Unterschied zu Atom oder RSS ist
 hier jedoch keine XML-Ausgabe beabsichtigt.
 
-Die Feeds sollen es Clients ermöglichen, schnelle und
-ressourcenschonende abzufragen, welche Objekte auf dem Server neu
-hinzugefügt, geändert oder entfernt wurden. Ziel ist, zu verhindern,
-dass Clients zur Aktualisierung ihres Caches den gesamten Datenbestand
-eines Servers abrufen müssen.
+Die Feeds sollen es Clients ermöglichen, schnell und ressourcenschonend
+abzufragen, welche Objekte auf dem Server neu hinzugefügt, geändert oder
+entfernt wurden. Damit können Clients beispielsweise schnell und einfach
+neue Dokumente auffinden und verarbeiten oder entfernte Objekte aus
+ihren Caches entfernen und dabei nur ein Mindestmaß an Anfragen
+ausführen.
 
 Ein OParl-Server SOLL jeden der nachfolgend beschriebenen Feeds
 anbieten, sofern möglich.
 
-Für alle Feeds drei gilt, dass mindestens ein Zeitraum von 365 Tagen,
-gerechnet vom Zeitpunkt der Abfrage, abgedeckt werden SOLL.
+Für alle drei Feeds wird EMPFOHLEN, dass mindestens ein Zeitraum von 365
+Tagen abgedeckt wird.
+
+Da Feeds üblicherweise eine große und stetig steigende Anzahl von
+Objekten beinhalten können, ist hier die Paginierung anzuwenden, wie sie
+im vorigen Abschnitt über Objektlisten beschrieben wird.
 
 Der Feed "Neue Objekte"
 
@@ -1851,20 +1931,19 @@ Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
 {
     "items": [
         {
-            "@id": "http://refserv.oparl.org/bodies/0/papers/21/documents/3",
+            "@id": "https://oparl.beispielris.de/bodies/0/papers/21/documents/3",
             "created": "2014-01-07T12:59:01.038+0100"
         },
         {
-            "@id": "http://refserv.oparl.org/bodies/0/papers/21",
+            "@id": "https://oparl.beispielris.de/bodies/0/papers/21",
             "created": "2014-01-05T18:29:37.123+0100"
         },
         {
-            "@id": "http://refserv.oparl.org/bodies/0/papers/20/documents/5",
+            "@id": "https://oparl.beispielris.de/bodies/0/papers/20/documents/5",
             "created": "2014-01-04T11:26:48.638+0100"
         },
         ...
-    ],
-    "nextPage": "http://refserv.oparl.org/feeds/new/?t=20140106170100402"
+    ]
 }
 ```
 
@@ -1878,10 +1957,6 @@ Eigenschaften besitzen:
 
 -   @id: Die URL des neuen Objekts
 -   created: Der Zeitpunkt der Erzeugung des Objekts
-
-Wie für Objektlisten üblich, SOLL auch für Feeds automatisch eine
-Aufteilung auf mehrere Seiten vorgenommen und ein Paginierungs-Link
-angeboten werden, um die übertragenen Datenmengen je Abruf einzugrenzen.
 
 Der jeweils in der Eigenschaft created ausgegebene Zeitpunkt SOLL vom
 Server als Sortierkriterium der Liste genutzt werden. So können Clients
@@ -1898,8 +1973,8 @@ der created-Zeitpunkt der Einträge größer oder gleich dem Grenzwert ist.
 Der Feed "Geänderte Objekte"
 
 Der Feed für geänderte Objekte listet die URLs geänderter Objekte in der
-Reihenfolge des Datums ihrer Änderung, wobei das zuletzt Objekt zuerst
-ausgegeben wird.
+Reihenfolge des Datums ihrer Änderung, wobei das zuletzt geänderte
+Objekt zuerst ausgegeben wird.
 
 Die Definition einer "Änderung" kann sich zwischen den Objekttypen
 unterscheiden. Tendenziell soll die Definition eher weiter ausgelegt
@@ -1917,26 +1992,25 @@ System geführt werden.
 {
     "items": [
         {
-            "@id": "http://refserv.oparl.org/bodies/0/papers/0/documents/2",
-            "last_modified": "2014-01-08T14:28:31.568+0100"
+            "@id": "https://oparl.beispielris.de/bodies/0/papers/0/documents/2",
+            "lastModified": "2014-01-08T14:28:31.568+0100"
         },
         {
-            "@id": "http://refserv.oparl.org/bodies/0/papers/0",
-            "last_modified": "2014-01-08T12:14:27.958+0100"
+            "@id": "https://oparl.beispielris.de/bodies/0/papers/0",
+            "lastModified": "2014-01-08T12:14:27.958+0100"
         },
         {
-            "@id": "http://refserv.oparl.org/bodies/0/papers/0/documents/1",
-            "last_modified": "2014-01-06T17:01:00.402+0100"
+            "@id": "https://oparl.beispielris.de/bodies/0/papers/0/documents/1",
+            "lastModified": "2014-01-06T17:01:00.402+0100"
         },
         ...
-    ],
-    "nextPage": "http://refserv.oparl.org/feeds/updated/?t=20140106170100402"
+    ]
 }
 ```
 
 Das Ausgabeformat entspricht weitgehend dem des Feeds "Neue Objekte",
 jedoch heißt hier die Eigenschaft für den Zeitpunkt der letzten Änderung
-last_modified. Auch hier gilt, dass der als last_modified ausgegebene
+lastModified. Auch hier gilt, dass der als lastModified ausgegebene
 Zeitpunkt auch als Sortierkriterium der Liste gelten SOLL.
 
 Der Feed "Entfernte Objekte"
@@ -1957,16 +2031,15 @@ entfernen.
 {
     "items": [
         {
-            "@id": "http://refserv.oparl.org/bodies/0/people/22",
+            "@id": "https://oparl.beispielris.de/bodies/0/people/22",
             "removed": "2013-11-11T11:11:00.000+0100"
         },
         ...
-    ],
-    "nextPage": "http://refserv.oparl.org/feeds/updated/?t=20131111111100"
+    ]
 }
 ```
 
-Die Eigenschaft zur Angabe des Entfernugnszeitpunkts heißt hier removed
+Die Eigenschaft zur Angabe des Entfernungszeitpunkts heißt hier removed
 und SOLL, analog zu den beiden anderen Feeds, als Sortierkriterium der
 Liste verwendet werden.
 
@@ -2060,7 +2133,7 @@ Die Unterstützung anderer Sprachen ist dagegen optional. Deshalb wird
 grundsätzich durch ~~~ "@language": "de", ~~~ im Kontext die deutsche
 Sprache als Vorgabe eingestellt.
 
-Es gibt aber möglicherweise auch Zeichenketten, die für die keine
+Es gibt aber möglicherweise auch Zeichenketten, für die keine
 Mehrsprachigkeit vorgesehen wird. Dazu gehören z.B. Personennamen.
 
 TODO: Stimmt nicht. Tamilische Namen verwenden in der
@@ -2073,8 +2146,8 @@ zusammengestellt und werden in den einzelnen Beispiel-Kontexten nicht
 jeweils wiederholt:
 
 ``` {#pcontext_praefixe .json}
-    "beispielris": "http://beispielris.de/",
-    "oparl": "http://oparl.org/xyz/",
+    "beispielris": "https://oparl.beispielris.de",
+    "oparl": "http://oparl.org/TODO/",
     "dc": "http://purl.org/dc/terms/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
@@ -2088,7 +2161,8 @@ Herstellerspezifische Erweiterungen
 Diese sind - falls tatsächlich erforderlich - mit den JSON-LD Mitteln
 einfach möglich. z.B.
 
-    "herstellera:newWonderProperty": "Dies ist ein Feature welches noch kein anderer Hersteller bietet!"
+    "herstellera:newWonderProperty": "Dies ist ein Feature
+        welches noch kein anderer Hersteller bietet!"
 
 URL-Pfade in den Beispielen
 
@@ -2096,24 +2170,29 @@ OParl-Clients wissen nichts vom Aufbau von Pfaden innerhalb von URLs,
 müssen dies nicht wissen und es gibt deshalb in der OParl-Spezifikation
 keine Festlegungen dazu.
 
-Wenn ein RIS-Betreiber z.B. meint, dass eine Person eine eigene Domain
-verdient, dann ist so etwas aus OParl-Sicht völlig ok:
-https://ratsmitglied-max-mustermann.beispielris.de/mein-oparl-datensatz
+Wenn der Betreiber eines OParl-Systems beispielsweise meint, dass eine
+Person eine eigene Domain verdient, dann ist dies aus Sicht der
+OParl-Spezifikation völlig in Ordnung:
+
+    https://ratsmitglied-max-mustermann.beispielris.de/mein-oparl-datensatz
 
 Noch etwas extremer: selbst eine eigene Domain für jedes einzelne
 OParl-Objekt würde der OParl-Spezifikation nicht widersprechen.
 
-Wenn also so etwas wie bodies/0/peoples/
+Wenn also in einer Beispiel-URL so etwas wie
 
-in einer URL eines Beispiels auftaucht, dann bedeutet das nicht, dass
-genau solche Pfade durch die OParl-Spezifikation vorgeschrieben sind.
+    bodies/0/peoples/
+
+auftaucht, dann bedeutet das nicht, dass genau solche Pfade durch die
+OParl-Spezifikation vorgeschrieben sind.
 
 Auch dies wäre als absoluter Link z.B. für eine Person verwendbar:
 
     https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
 
-Dies käme dann als relativer Link für die Person in Frage: ~~~~
-personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ ~~~~
+Dies käme dann als relativer Link für die Person in Frage:
+
+    personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
 
 oder auch z.B. dies LfyIfvCWq8SpBQj0MiyHaxDZwGJ
 
@@ -2151,21 +2230,25 @@ license
 
 Die Eigenschaft license erlaubt es, am jeweiligen Objekt die URL einer
 Lizenz anzugeben. Damit wird gekennzeichnet, welche Lizenz der
-Veröffentlicher der Daten für das jeweilige Objekt vergibt.[^32]
+Veröffentlicher der Daten für das jeweilige Objekt vergibt.[^34]
 
 Eine besondere Bedeutung hat die Eigenschaft license, wenn sie am
 oparl:System Objekt oder am oparl:Body Objekt vergeben wird. Die hier
 angegebene Lizenzinformation sagt aus, dass alle Objekte dieses Systems
-unter der angegebenen Lizenz veröffentlicht werden, sofern dies nicht am
-jeweiligen Objekt mit einer anders lautenden Lizenz-URL überschrieben
-wird. Daher wird dringend EMPFOHLEN, die Lizenzinformation global am
-oparl:System Objekt mitzuteilen und auf redundante Informationen zu
-verzichten.
+bzw. der Körperschaft unter der angegebenen Lizenz veröffentlicht
+werden, sofern dies nicht am jeweiligen Objekt mit einer anders
+lautenden Lizenz-URL überschrieben wird. Daher wird dringend EMPFOHLEN,
+die Lizenzinformation global am oparl:System Objekt mitzuteilen und auf
+redundante Informationen zu verzichten.
 
-Auf Objekte vom Typ oparl:Document bezogen bezieht sich die
+An Objekten vom Typ oparl:Document auftretend, bezieht sich die
 Lizenzinformation nicht nur auf die strukturierten Metadaten, die über
 die API bezogen werden, sondern auch auf den eigentlichen Inhalt der
 Dateien, die über die angebotene(n) URL(s) abgerufen werden können.
+
+Lesenswert zum Thema Lizensierung von Linked Data ist auch er Abschnitt
+"Licenses, Waivers and Norms for Data" im online zugänglichen Linked
+Data Book.[^35]
 
 created
 
@@ -2234,7 +2317,7 @@ Ein Beispiel:
 ``` {#system_ex1 .json}
 {
     "@type": "oparl:System",
-    "@id": "http://beispielris.de/",
+    "@id": "https://oparl.beispielris.de/",
     "oparlVersion": "http://oparl.org/specs/1.0/",
     "name": "Beispiel-System",
     "website": "http://www.beispielris.de/",
@@ -2242,10 +2325,10 @@ Ein Beispiel:
     "contactName": "Allgemeiner OParl Kontakt",
     "vendor": "http://example-software.com/",
     "product": "http://example-software.com/oparl-server/",
-    "bodies": "http://beispielris.de/bodies/",
-    "newObjects": "http://beispielris.de/new_objects/",
-    "updatedObjects": "http://beispielris.de/updated_objects/",
-    "removedObjects": "http://beispielris.de/removed_objects"
+    "bodies": "https://oparl.beispielris.de/bodies/",
+    "newObjects": "https://oparl.beispielris.de/new_objects/",
+    "updatedObjects": "https://oparl.beispielris.de/updated_objects/",
+    "removedObjects": "https://oparl.beispielris.de/removed_objects"
 }
 ```
 
@@ -2254,9 +2337,8 @@ Ein Kontext:
 ``` {#system_ex_context .json}
 {
     "@language": "de",
-
-    "beispielris": "http://beispielris.de/",
-    "oparl": "http://oparl.org/xyz/",
+    "beispielris": "https://oparl.eispielris.de/",
+    "oparl": "http://oparl.org/TODO/",
     "dc": "http://purl.org/dc/terms/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
@@ -2279,7 +2361,7 @@ Und das System-Objekt in kompakter Form unter Verwendung des Kontext:
 ``` {#system_ex2 .json}
 {
     "@type": "oparl:System",
-    "@id": "http://beispielris.de/",
+    "@id": "https://oparl.beispielris.de/",
     "oparlVersion": "http://oparl.org/specs/1.0/",
     "name": "Beispiel-System",
     "website": "http://www.beispielris.de/",
@@ -2287,7 +2369,7 @@ Und das System-Objekt in kompakter Form unter Verwendung des Kontext:
     "contactName": "Allgemeiner OParl Kontakt",
     "vendor": "http://example-software.com/",
     "product": "http://example-software.com/oparl-server/",
-    "bodies": "http://beispielris.de/bodies/",
+    "bodies": "beispielris:bodies/",
     "newObjects": "beispielris:new_objects/",
     "updatedObjects": "beispielris:updated_objects/",
     "removedObjects": "beispielris:removed_objects"
@@ -2303,54 +2385,6 @@ zum Zugriff auf andere Informationen in Erfahrung zu bringen.
 
 Die URL des oparl:System Objekts MUSS per Definition identisch mit der
 URL des API-Endpunkts des Servers sein.
-
-Well-Known URIs
-
-TODO: eventuell in eigenen Abschnitt oder eigenes Kapitel auslagern.
-
-Es gibt eine standardisierte Technik, mit der ein Einstiegspunkt in die
-OParl-Daten angegeben werden kann: "Well-Known URIs". Dieser kann dann
-maschinell gefunden werden. Diese Technik wurde durch die IETF und das
-W3C standardisiert.
-
-Die Spezifikation von "Well-Known URIs" durch die IETF ist:
-
-Defining Well-Known Uniform Resource Identifiers (URIs)
-http://tools.ietf.org/html/rfc5785
-
-Eine Liste der Well-Known URIs wird von der IANA verwaltet:
-
-Well-Known URIs
-http://www.iana.org/assignments/well-known-uris/well-known-uris.xhtml
-
-Für OParl sind gegenwärtig nur "Well-Known URIs" für Beschreibungen von
-Datasets gemäß dem "Vocabulary of Interlinked Datasets" (VoID) relevant.
-
-BEISPIEL:
-
-Wenn ein RIS unter der Domain "example.com" betrieben wird, dann sieht
-der "Well-Known URI" so aus (der enthaltene "." ist kein Schreibfehler):
-
-https://example.com/.well-known/void
-
-Forwarding ist erlaubt.
-
-Siehe dazu auch:
-
-Describing Linked Datasets with the VoID Vocabulary W3C Interest Group
-Note 03 March 2011 http://www.w3.org/TR/void/#well-known
-
-Die über derartige URIs dereferenzierbaren Dokumente sind hier
-spezifiziert: http://www.w3.org/TR/void/#void-file
-
-BEISPIEL:
-
-Bei einem http GET Request auf https://example.com/.well-known/void mit
-Angabe des bevorzugten MIME-Type "application/ld+json" antwortet das
-System mit dem URI https://example.com/.well-known/void.jsonld unter
-welchem dieses JSON-LD Dokument abrufbar ist:
-
-TODO: Beispiele für JSON-LD und exemplarisch auch für HTML.
 
 Eigenschaften
 
@@ -2419,7 +2453,6 @@ Ein Kontext:
 
     {
         "@language": "de",
-        
         "license": {
             "@id": "dc:license",
             "@type": "@id"
@@ -2428,7 +2461,6 @@ Ein Kontext:
             "@id": "skos:exactMatch",
             "@type": "@id"
         }
-        
         "licenseValidSinceDay": // TODO: datum
     }
 
@@ -2437,8 +2469,8 @@ Ein expandiertes Beispiel:
 ``` {#oparlbody_ex1 .json}
 {
     "@type": "http://oparl.org/schema/1.0/Body",
-    "@id": "http://oparl.beispielris.de/body/0",
-    "system": "http://oparl.beispielris.de/",
+    "@id": "https://oparl.beispielris.de/body/0",
+    "system": "https://oparl.beispielris.de/",
     "contactEmail": "mailto:ris@beispielstadt.de",
     "contactName": "RIS-Betreuung",
     "rgs": "053150000000",
@@ -2447,18 +2479,18 @@ Ein expandiertes Beispiel:
         "http://dbpedia.org/resource/Cologne"
     ],
     "name": "Stadt Köln",
-    "nameLong": { // verwendet eine "language map"
+    "nameLong": {
         "de": "Stadt Köln, kreisfreie Stadt",
         "en": "City of Cologne"
     }
     "website": "http://www.beispielstadt.de/",
     "license": "http://creativecommons.org/licenses/by/4.0/",
     "licenseValidSinceDay": "2014-01-01",
-    "organization": "http://oparl.beispielris.de/body/0/organisation/",
-    "meeting": "http://oparl.beispielris.de/body/0/meeting/",
-    "paper": "http://oparl.beispielris.de/body/0/paper/",
-    "member": "http://oparl.beispielris.de/body/0/person/",
-    "classification": "http://oparl.beispielris.de/vocab/landkreis",
+    "organization": "https://oparl.beispielris.de/body/0/organisation/",
+    "meeting": "https://oparl.beispielris.de/body/0/meeting/",
+    "paper": "https://oparl.beispielris.de/body/0/paper/",
+    "member": "https://oparl.beispielris.de/body/0/person/",
+    "classification": "https://oparl.beispielris.de/vocab/landkreis",
     "created": "2014-01-08T14:28:31.568+0100",
     "modified": "2014-01-08T14:28:31.568+0100"
 }
@@ -2503,14 +2535,14 @@ licenseValidSinceDay
 
 rgs
     Regionalschlüssel der Körperschaft als zwölfstellige
-    Zeichenkette[^33]. Typ: TODO EMPFOHLEN
+    Zeichenkette[^36]. Typ: TODO EMPFOHLEN
 
 equivalentBody
     Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe
     Körperschaft repräsentieren. Hier können beispielsweise, sofern
     vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der
-    Deutschen Nationalbibliothek[^34], der DBPedia[^35] oder der
-    Wikipedia[^36] angegeben werden. Typ: TODO EMPFOHLEN
+    Deutschen Nationalbibliothek[^37], der DBPedia[^38] oder der
+    Wikipedia[^39] angegeben werden. Typ: TODO EMPFOHLEN
 
 contactEmail
     Dient der Angabe einer Kontakt-E-Mail-Adresse mit "mailto:"-Schema.
@@ -2556,8 +2588,8 @@ Ein Beispiel in expandierter Form:
 ``` {#organization_ex1 .json}
 {
     "@type": "http://oparl.org/schema/1.0/Organization",
-    "@id": "http://oparl.beispielris.de/organization/34",
-    "body": "http://oparl.beispielris.de/body/0",
+    "@id": "https://oparl.beispielris.de/organization/34",
+    "body": "https://oparl.beispielris.de/body/0",
     "name": {
         @language" :"de",
         @value": "Finanzausschuss"
@@ -2568,25 +2600,24 @@ Ein Beispiel in expandierter Form:
     },
     "post": {
         "@list": [
-        // ohne @list wird in JSON-LD die Reihenfolge nicht festgelegt
-        "http://oparl.beispielris.de/post/chairperson",
-        "http://oparl.beispielris.de/post/deputyChairperson"
+            "https://oparl.beispielris.de/post/chairperson",
+            "https://oparl.beispielris.de/post/deputyChairperson"
         ]
     },
     "member": [
-        "http://oparl.beispielris.de/person/27",
-        "http://oparl.beispielris.de/person/48",
-        "http://oparl.beispielris.de/person/57"
+        "https://oparl.beispielris.de/person/27",
+        "https://oparl.beispielris.de/person/48",
+        "https://oparl.beispielris.de/person/57"
     ],
-    "organizationType": "http://oparl.beispielris.de/vocab/committee",
-    "classification": "http://oparl.beispielris.de/vocab/finance",
+    "organizationType": "https://oparl.beispielris.de/vocab/committee",
+    "classification": "https://oparl.beispielris.de/vocab/finance",
     "modified": "2012-08-16T14:05:27+02:00"
 }
 ```
 
 Das selbe Beispiel in kompakter Form.
 
-Ein Kontext: ~~~~ { "@language": "de", // ... } ~~~~
+Ein Kontext: ~~~~ { "@language": "de", ... } ~~~~
 
 ``` {#organization_ex2 .json}
 {
@@ -2695,7 +2726,7 @@ Ein Beispiel in expandierter Form:
 ``` {#person_ex1 .json}
 {
     "@type": "http://oparl.org/schema/1.0/Person",
-    "@id": "http://oparl.beispielris.de/person/29",
+    "@id": "https://oparl.beispielris.de/person/29",
     "name": "Prof. Dr. Max Mustermann",
     "familyName": { // könnte mehrsprachig sein, z.B. griechisch, russisch, tamilisch 
         "@value": "Mustermann",
@@ -2706,7 +2737,7 @@ Ein Beispiel in expandierter Form:
         "@language": "de"
     },
     "title": "Prof. Dr.", // TODO: nicht mehrsprachig?!
-    "formOfAddress": "http://oparl.beispielris.de/formofaddress/ratsmitglied",
+    "formOfAddress": "https://oparl.beispielris.de/formofaddress/ratsmitglied",
     "gender": "http://www.w3.org/2006/vcard/ns#Male",
     "email": "mailto:max@mustermann.de",
     "phone": "tel:+493012345678",
@@ -2717,11 +2748,11 @@ Ein Beispiel in expandierter Form:
         "en": "Sample Town"
     },
     "organization": [
-        "http://oparl.beispielris.de/organization/11",
-        "http://oparl.beispielris.de/organization/34"
+        "https://oparl.beispielris.de/organization/11",
+        "https://oparl.beispielris.de/organization/34"
     ],
-    "status": "http://oparl.beispielris.de/status/buergermeister",
-    "hasMembership": "http://oparl.beispielris.de/membership/34",
+    "status": "https://oparl.beispielris.de/status/buergermeister",
+    "hasMembership": "https://oparl.beispielris.de/membership/34",
     "created": "2011-11-11T11:11:00+01:00",
     "modified": "2012-08-16T14:05:27+02:00"
 }
@@ -2767,7 +2798,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 {
     "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld",
     "@type": "oparl:Person",
-    "@id": "http://oparl.beispielris.de/person/29",
+    "@id": "https://oparl.beispielris.de/person/29",
     "name": "Prof. Dr. Max Mustermann",
     "familyName": "Mustermann", // Kontext gibt deutsche Spache vor
     "givenName": "Max",
@@ -2889,7 +2920,7 @@ Ein Beispiel in expandierter Form:
 ``` {#meeting_ex1 .json}
 {
     "@type": "http://oparl.org/schema/1.0/Meeting",
-    "@id": "http://oparl.beispielris.de/meeting/281",
+    "@id": "https://oparl.beispielris.de/meeting/281",
     "name": "4. Sitzung des Finanzausschusses",
     "start": "2013-01-04T08:00:00+01:00",
     "end": "2013-01-04T12:00:00+01:00",
@@ -2903,26 +2934,25 @@ Ein Beispiel in expandierter Form:
             "@language": "en"
         }
     },
-    "organization": "http://oparl.beispielris.de/organization/34",
+    "organization": "https://oparl.beispielris.de/organization/34",
     "participant": [
-        "http://oparl.beispielris.de/person/29",
-        "http://oparl.beispielris.de/person/75",
-        "http://oparl.beispielris.de/person/94"
+        "https://oparl.beispielris.de/person/29",
+        "https://oparl.beispielris.de/person/75",
+        "https://oparl.beispielris.de/person/94"
     ],
-    "invitation": "http://oparl.beispielris.de/document/586",
-    "resultsProtocol": "http://oparl.beispielris.de/document/628",
-    "verbatimProtocol": "http://oparl.beispielris.de/document/691",
+    "invitation": "https://oparl.beispielris.de/document/586",
+    "resultsProtocol": "https://oparl.beispielris.de/document/628",
+    "verbatimProtocol": "https://oparl.beispielris.de/document/691",
     "auxiliaryDocument": [
-        "http://oparl.beispielris.de/document/588",
-        "http://oparl.beispielris.de/document/589"
+        "https://oparl.beispielris.de/document/588",
+        "https://oparl.beispielris.de/document/589"
     ],
     "agendaItem": {
-    // Reihenfolge ist wichtig
         "@list": [
-            "http://oparl.beispielris.de/agendaitem/1045",
-            "http://oparl.beispielris.de/agendaitem/1046",
-            "http://oparl.beispielris.de/agendaitem/1047",
-            "http://oparl.beispielris.de/agendaitem/1048"
+            "https://oparl.beispielris.de/agendaitem/1045",
+            "https://oparl.beispielris.de/agendaitem/1046",
+            "https://oparl.beispielris.de/agendaitem/1047",
+            "https://oparl.beispielris.de/agendaitem/1048"
         ]
     },
     "created": "2012-01-06T12:01:00+01:00",
@@ -2936,7 +2966,7 @@ Das selbe Beispiel in kompakter Form:
 {
     "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
     "@type": "oparl:Meeting",
-    "@id": "http://oparl.beispielris.de/meeting/281",
+    "@id": "https://oparl.beispielris.de/meeting/281",
     "name": "4. Sitzung des Finanzausschusses",
     "start": "2013-01-04T08:00:00+01:00",
     "end": "2013-01-04T12:00:00+01:00",
@@ -2978,58 +3008,58 @@ start
     Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer
     zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer
     stattgefundenen KANN es der tatsächliche Startzeitpunkt sein. Typ:
-    TODO ZWINGEND
+    TODO. ZWINGEND
 
 end
     Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen
     Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen
-    KANN es der tatsächliche Endzeitpunkt sein. Typ: TODO EMPFOHLEN
+    KANN es der tatsächliche Endzeitpunkt sein. Typ: TODO. EMPFOHLEN
 
 location
-    Sitzungsort. Typ: oparl:Location EMPFOHLEN
+    Sitzungsort. Typ: oparl:Location. EMPFOHLEN
 
 organization
     Gruppierung der die Sitzung zugeordnet ist. Wenn eine Liste
     angegeben wird, dann ist diese geordnet. Das erste Element ist dann
-    das federführende Gremium. Typ: oparl:Organization ZWINGEND
+    das federführende Gremium. Typ: oparl:Organization. ZWINGEND
 
 participant
     Teilnehmer der Sitzung. Bei einer Sitzung in der Zukunft sind dies
     die geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die
     Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der
-    Sitzung teilgenommen haben. Typ: oparl:Person ZWINGEND.
+    Sitzung teilgenommen haben. Typ: oparl:Person. ZWINGEND.
 
 invitation
-    Einladungsdokument zur Sitzung. Typ: oparl:Document EMPFOHLEN.
+    Einladungsdokument zur Sitzung. Typ: oparl:Document. EMPFOHLEN.
 
 resultsProtocol
     Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann
     selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen.
-    Typ: oparl:Document EMPFOHLEN
+    Typ: oparl:Document. EMPFOHLEN
 
 verbatimProtocol
     Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich
-    erst nach dem Stattfinden der Sitzung vorkommen. Typ: oparl:Document
-    EMPFOHLEN
+    erst nach dem Stattfinden der Sitzung vorkommen. Typ:
+    oparl:Document. EMPFOHLEN
 
 auxiliaryDocument
     Dokumentenanhang zur Sitzung. Hiermit sind Dokumente gemeint, die
     üblicherweise mit der Einladung zu einer Sitzung verteilt werden und
     die nicht bereits über einzelne Tagesordnungspunkte referenziert
-    sind. Typ: oparl:Document OPTIONAL
+    sind. Typ: oparl:Document. OPTIONAL
 
 agendaItem
     Tagesordnungspunkte der Sitzung. Die Reihenfolge ist relevant. Es
-    kann Sitzungen ohne TOPs geben. Typ: oparl:AgendaItem OPTIONAL
+    kann Sitzungen ohne TOPs geben. Typ: oparl:AgendaItem. OPTIONAL
 
 classification
-    Typ: skos:Concept OPTIONAL
+    Typ: skos:Concept. OPTIONAL
 
 created
-    Datum und Uhrzeit der Erzeugung des Objekts. Typ: TODO EMPFOHLEN
+    Datum und Uhrzeit der Erzeugung des Objekts. Typ: TODO. EMPFOHLEN
 
 modified
-    Datum und Uhrzeit der letzten Änderung des Objekts. Typ: TODO
+    Datum und Uhrzeit der letzten Änderung des Objekts. Typ: TODO.
     EMPFOHLEN
 
 oparl:AgendaItem (Tagesordnungspunkt) {#oparl_agendaitem}
@@ -3045,7 +3075,7 @@ Ein Beispiel in kompakter Form:
 {
     "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
     "@type": "oparl:AgendaItem",
-    "@id": "http://oparl.beispielris.de/agendaitem/3271",
+    "@id": "https://oparl.beispielris.de/agendaitem/3271",
     "meeting": "beispielris:meeting/281",
     "number": "10.1",
     "name": "Satzungsänderung für Ausschreibungen",
@@ -3155,7 +3185,7 @@ Ein Beispiel in kompakter Form:
 {
     "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
     "@type": "oparl:Paper",
-    "@id": "http://oparl.beispielris.de/paper/749",
+    "@id": "https://oparl.beispielris.de/paper/749",
     "reference": "1234/2014",
     "publishedDate": "2014-04-04T16:42:02+02:00",
     "name": "Antwort auf Anfrage 1200/2014",
@@ -3241,20 +3271,20 @@ Ein Beispiel:
 ``` {#document_ex1 .json}
 {
     "@type": "oparl:Document",
-    "@id": "http://beispielris.de/document/57739",
+    "@id": "https://oparl.beispielris.de/document/57739",
     "name": "Anlage 1 zur Anfrage",
-    "paper": "http://beispielris.de/paper/2396",
+    "paper": "https://oparl.beispielris.de/paper/2396",
     "mimeType": "application/pdf",
     "date": "2013-01-04T07:54:13+01:00",
     "lastModified": "2013-01-04T07:54:13+01:00",
     "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "size": 82930,
-    "accessUrl": "http://beispielris.de/document/57739.pdf",
-    "downloadUrl": "http://beispielris.de/document/download/57739.pdf",
+    "accessUrl": "https://oparl.beispielris.de/document/57739.pdf",
+    "downloadUrl": "https://oparl.beispielris.de/document/download/57739.pdf",
     "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
-    "masterDocument": "http://beispielris.de/document/57738",
+    "masterDocument": "https://oparl.beispielris.de/document/57738",
     "license": "http://www.opendefinition.org/licenses/cc-by",
-    "documentRole": "http://beispielris.de/document-role/evidence",
+    "documentRole": "https://oparl.beispielris.de/document-role/evidence",
 }
 ```
 
@@ -3279,7 +3309,7 @@ name
     Zeichenkette. ZWINGEND
 
 mimeType
-    Mime-Typ des Inhalts (vgl. RFC2046[^37]). Sollte das System einer
+    Mime-Typ des Inhalts (vgl. RFC2046[^40]). Sollte das System einer
     Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier
     "application/octet-stream" zu verwenden. Typ: TODO ZWINGEND
 
@@ -3321,22 +3351,21 @@ meeting
     Sitzung, sofern diese Datei zu einer Sitzung gehört. Wenn diese
     Datei zu einer Sitzung gehört, MUSS diese Eigenschaft vorhanden
     sein, andernfalls DARF sie NICHT vorhanden sein. TODO: ist das eine
-    Tautologie? Typ: oparl:Meeting
+    Tautologie? Typ: oparl:Meeting.
 
 masterDocument
     Datei von der das aktuelle Objekt abgeleitet wurde. Typ:
-    oparl:Document OPTIONAL
+    oparl:Document. OPTIONAL
 
 derivativeDocuments
     Abgeleitete Datei die von dem aktuellen Objekt abgeleitet wurde.
-    Typ: oparl:Document OPTIONAL
+    Typ: oparl:Document. OPTIONAL
 
 license
     Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft
-    verwendet wird, dann ist sie massgeblich und nicht die globalere
-    Angabe in dem oparl:Body Objekt der Körperschaft. Lesenswert zum
-    Thema Lizensierung von Linked Data ist
-    http://linkeddatabook.com/editions/1.0/#htoc48 Type: URL OPTIONAL
+    verwendet wird, dann ist sie anstelle einer globalen Angabe im
+    übergeordneten oparl:Body bzw. oparl:System Objekt maßgeblich. Typ:
+    URL. OPTIONAL
 
 documentRole
     Rolle, Funktion, Sorte des Dokuments. Das Objekt enthält ein
@@ -3372,12 +3401,12 @@ Ein Beispiel:
 ``` {#consultation_ex1 .json}
 {
     "@type": "oparl:Consultation",
-    "@id": "http://beispielris.de/consultation/47594",
-    "paper": "http://beispielris.de/paper/2396",
-    "agendaitem": "http://beispielris.de/agendaitem/15569",
-    "committee": "http://beispielris.de/organization/96",
+    "@id": "https://oparl.beispielris.de/consultation/47594",
+    "paper": "https://oparl.beispielris.de/paper/2396",
+    "agendaitem": "https://oparl.beispielris.de/agendaitem/15569",
+    "committee": "https://oparl.beispielris.de/organization/96",
     "authoritative": false,
-    "role": "http://beispielris.de/role/decision"
+    "role": "https://oparl.beispielris.de/role/decision"
 }
 ```
 
@@ -3498,7 +3527,7 @@ Und ein Beispiel unter Verwendung des Kontextes:
 
 OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des  
 Well-Known-Text-Formats (WKT) der Simple Feature Access
-Spezifikation[^38] vor. WKT erlaubt die Beschreibung von
+Spezifikation[^41] vor. WKT erlaubt die Beschreibung von
 unterschiedlichen Geometrien wie Punkten (Point), Pfaden (LineString),
 Polygonen (Polygon) und viele andere mehr.
 
@@ -3508,7 +3537,7 @@ keine Anforderungen daran, welche Version von Simple-Feature-Access bei
 der Ausgabe von WKT zu unterstützen ist.
 
 Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben
-solcher Geodaten im System WGS84[^39] angegeben werden, und zwar in Form
+solcher Geodaten im System WGS84[^42] angegeben werden, und zwar in Form
 von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.
 
 Eigenschaften
@@ -3727,26 +3756,35 @@ JSON-LD-Kontextdokumente zu finden sein werden.
     beispielhaft. Die tatsächliche Gestaltung des Pfads bestimmt der
     Server-Implementierer.
 
-[^32]: Verzeichnisse für Lizenz-URLs sind unter anderem unter
+[^32]: RSS 2.0 Specification: http://cyber.law.harvard.edu/rss/rss.html
+
+[^33]: Atom ist in RFC4287 spezifiziert:
+    http://www.ietf.org/rfc/rfc4287.txt
+
+[^34]: Verzeichnisse für Lizenz-URLs sind unter anderem unter
     http://licenses.opendefinition.org/ und
     https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json
     zu finden.
 
-[^33]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
+[^35]: Tom Heath, Christian Bizer: Linked Data: Evolving the Web into a
+    Global Data Space (1st edition),
+    http://linkeddatabook.com/editions/1.0/#htoc48
+
+[^36]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
     Statistischen Bundesamtes eingesehen werden
 
-[^34]: Gemeinsame Normdatei http://www.dnb.de/gnd
+[^37]: Gemeinsame Normdatei http://www.dnb.de/gnd
 
-[^35]: DBPedia http://www.dbpedia.org/
+[^38]: DBPedia http://www.dbpedia.org/
 
-[^36]: Wikipedia http://de.wikipedia.org/
+[^39]: Wikipedia http://de.wikipedia.org/
 
-[^37]: http://tools.ietf.org/html/rfc2046
+[^40]: http://tools.ietf.org/html/rfc2046
 
-[^38]: Simple Feature Access Spezifikation:
+[^41]: Simple Feature Access Spezifikation:
     http://www.opengeospatial.org/standards/sfa
 
-[^39]: WGS84 steht für "World Geodetic System 1984", es wird unter
+[^42]: WGS84 steht für "World Geodetic System 1984", es wird unter
     anderem auch vom Global Positioning System (GPS) verwendet. In
     geografischen Informationssystemen ist für das System der EPSG-Code
     4326 geläufig.

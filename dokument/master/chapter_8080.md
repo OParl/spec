@@ -105,49 +105,49 @@ Das selbe Beispiel in kompakter Form:
 :   Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen 
     Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen
     KANN es der tatsächliche Startzeitpunkt sein.
-    Typ: TODO
+    Typ: TODO.
     ZWINGEND
 
 `end`
 :   Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen 
     Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen
     KANN es der tatsächliche Endzeitpunkt sein.
-    Typ: TODO
+    Typ: TODO.
     EMPFOHLEN
 
 `location`
 :   Sitzungsort.
-    Typ: `oparl:Location`
+    Typ: `oparl:Location`.
     EMPFOHLEN
 
 `organization`
 :   Gruppierung der die Sitzung zugeordnet ist. Wenn eine Liste angegeben wird, dann ist diese geordnet. Das erste
     Element ist dann das federführende Gremium.
-    Typ: `oparl:Organization`
+    Typ: `oparl:Organization`.
     ZWINGEND
 
 `participant`
 :   Teilnehmer der Sitzung.
     Bei einer Sitzung in der Zukunft sind dies die geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die
     Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung teilgenommen haben.
-    Typ: `oparl:Person`
+    Typ: `oparl:Person`.
     ZWINGEND.
 
 `invitation`
 :   Einladungsdokument zur Sitzung.
-    Typ: `oparl:Document`
+    Typ: `oparl:Document`.
     EMPFOHLEN.
 
 `resultsProtocol`
 :   Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach
     dem Stattfinden der Sitzung vorkommen.
-    Typ: `oparl:Document`
+    Typ: `oparl:Document`.
     EMPFOHLEN
 
 `verbatimProtocol`
 :   Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach
     dem Stattfinden der Sitzung vorkommen.
-    Typ: `oparl:Document`
+    Typ: `oparl:Document`.
     EMPFOHLEN
     
 `auxiliaryDocument`
@@ -155,26 +155,26 @@ Das selbe Beispiel in kompakter Form:
     Hiermit sind Dokumente gemeint, die üblicherweise mit der Einladung
     zu einer Sitzung verteilt werden und die nicht bereits über einzelne
     Tagesordnungspunkte referenziert sind.
-    Typ: `oparl:Document`
+    Typ: `oparl:Document`.
     OPTIONAL
 
 `agendaItem`
 :   Tagesordnungspunkte der Sitzung.
     Die Reihenfolge ist relevant.
     Es kann Sitzungen ohne TOPs geben.
-    Typ: `oparl:AgendaItem`
+    Typ: `oparl:AgendaItem`.
     OPTIONAL
 
 `classification`
-:   Typ: `skos:Concept`
+:   Typ: `skos:Concept`.
     OPTIONAL
     
 `created`
 :   Datum und Uhrzeit der Erzeugung des Objekts.
-    Typ: TODO
+    Typ: TODO.
     EMPFOHLEN
 
 `modified`
 :   Datum und Uhrzeit der letzten Änderung des Objekts.
-    Typ: TODO
+    Typ: TODO.
     EMPFOHLEN

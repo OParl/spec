@@ -1041,61 +1041,26 @@ Nach dem Linked-Data-Prinzip könnte beispielsweise der Vorname einer
 Person mit dem folgenden Tripel beschrieben werden:
 
 \begin{verbatim}
-Subjekt: https://dbpedia.org/resource/John_Doe_(musician)
+Subjekt: http://dbpedia.org/resource/John_Doe_(musician)
 Prädikat: http://xmlns.com/foaf/0.1/givenName
-Objekt: https://dbpedia.org/resource/John_(given_name)
+Objekt: http://dbpedia.org/resource/John_(given_name)
 \end{verbatim}
 
 Hierbei macht man von der Tatsache Gebrauch, dass das Subjekt, also die
 Person, um die es geht, bereits mittels ihrer URI eindeutig
 identifiziert werden kann und dass bestenfalls unter dieser URI weitere
-Informationen zu der Person abrufbar sind. Auch für das Prädikat
-``Person hat den Vornamen'' liegt bereits eine Beschreibung in einem
-gebräuchlichen Vokabular vor, auf das hier verwiesen werden kann. Und
-schließlich kann sogar der eigentliche Vorname in Form einer URI
-abgebildet werden, nämlich als Verweis auf eine umfangreiche
-Beschreibung dieses Namens.
+Informationen zu der Person abrufbar sind.\footnote{Ein Aufruf der URL
+  \url{http://dbpedia.org/resource/John_Doe_(musician)} im herkömmlichen
+  Web-Browser führt zu einer Weiterleitung auf die URL
+  \url{http://dbpedia.org/page/John_Doe_(musician)}. Siehe dazu auch der
+  Abschnitt \hyperref[contentux5fnegotiation]{Content Negotiation}} Auch
+für das Prädikat ``Person hat den Vornamen'' liegt bereits eine
+Beschreibung in einem gebräuchlichen Vokabular vor, auf das hier
+verwiesen werden kann. Und schließlich kann sogar der eigentliche
+Vorname in Form einer URI abgebildet werden, nämlich als Verweis auf
+eine umfangreiche Beschreibung dieses Namens.
 
-Auf ein für Linked Data wichtiges Detail sei hier hingewiesen. Wenn man
-in einem üblichen Web-Browser diesen oben angegebenen Link eingibt und
-aufruft:
-
-\begin{verbatim}
-https://dbpedia.org/resource/John_Doe_(musician)
-\end{verbatim}
-
-dann sieht man anschliessend bei der Anzeige der HTML-Seite diesen Link
-im Adressfeld:
-
-\begin{verbatim}
-https://dbpedia.org/page/John_Doe_(musician)
-\end{verbatim}
-
-Dabei identifiziert der erste Link den abstrakten Begriff des Musikers,
-während der zweite Link eine Repräsentation dieses Begriffs
-identifiziert. Ein anderer http-Client, der statt HTML-Seiten z.B.
-JSON-LD bevorzugt, würde bei Zugriff auf den ersten Link statt der
-HTML-Seite den Inhalt dieser URL erhalten:
-
-\begin{verbatim}
-https://dbpedia.org/data/John_Doe_(musician).jsonld
-\end{verbatim}
-
-Dabei handelt es sich um eine Repräsentation des Musikers in Form von
-JSON-LD.
-
-Diese drei Links sind nicht nur verschieden, sondern haben
-unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL
-(HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients generell
-nicht verwendet werden, um auf einfache Weise zu den anderen beiden URLs
-zu gelangen. Deshalb soll bei Linked Data der erste Link, also der des
-abstrakten Begriffs angegeben werden. Der Zugriff auf diesen Link wird
-``Dereferenzierung'' genannt. Von dem ersten Link gelangt man zu den
-beiden anderen mittels ``Content Negotiation''.
-
-\subsubsection{Ziel}\label{ziel}
-
-Das Ziel von OParl ist es, mit der vorliegenden Version 1.0 der
+Das \textbf{Ziel} von OParl ist es, mit der vorliegenden Version 1.0 der
 Spezifikation, die Nutzung solcher allgemeingültigen Vokabulare für die
 Veröffentlichung von parlamentarischen Informationen zu begünstigen und
 die automatisierte Verarbeitung und Verknüpfung von Informationen, auch
@@ -1144,22 +1109,75 @@ Dieses Ziel wird in Zukunft natürlich abgewägt werden müssen mit dem
 Wunsch, sich an Veränderungen und neue Erkenntnisse anzupassen. Eine
 Garantie für Zukunftssicherheit kann insofern niemand aussprechen.
 
-\subsection{Content Negotiation}\label{content-negotiation}
+\hyperdef{}{contentux5fnegotiation}{\subsection{Content
+Negotiation}\label{contentux5fnegotiation}}
 
-Im Abschnitt Designprinzipien wurde bereits erwähnt, dass die
-``Dereferenzierung'' mittels Content Negotiation erfolgt.
+Server im World Wide Web können bestimmte Ressourcen entsprechend
+RFC2295\footnote{RFC2295: \url{http://tools.ietf.org/html/rfc2295}} in
+verschiedenen Formaten vorhalten. Clients haben die Möglichkeit, mittels
+HTTP-Header schon in der Anfrage eine Vorliebe für ein bestimmtes Format
+zu übermitteln.
+
+TODO: Hier muss eine Beschreibung folgen, was mit Content Negotiation
+erreicht werden soll und wie genau die Anforderungen lauten (vgl. Issue
+\#105).
+
+TODO: Der nachstehende Text muss noch sauber formuliert werden.
+
+Auf ein für Linked Data wichtiges Detail sei hier hingewiesen. Wenn man
+in einem üblichen Web-Browser diesen oben angegebenen Link eingibt und
+aufruft:
+
+\begin{verbatim}
+https://dbpedia.org/resource/John_Doe_(musician)
+\end{verbatim}
+
+dann sieht man anschliessend bei der Anzeige der HTML-Seite diesen Link
+im Adressfeld:
+
+\begin{verbatim}
+https://dbpedia.org/page/John_Doe_(musician)
+\end{verbatim}
+
+Dabei identifiziert der erste Link den abstrakten Begriff des Musikers,
+während der zweite Link eine Repräsentation dieses Begriffs
+identifiziert. Ein anderer http-Client, der statt HTML-Seiten z.B.
+JSON-LD bevorzugt, würde bei Zugriff auf den ersten Link statt der
+HTML-Seite den Inhalt dieser URL erhalten:
+
+\begin{verbatim}
+https://dbpedia.org/data/John_Doe_(musician).jsonld
+\end{verbatim}
+
+Dabei handelt es sich um eine Repräsentation des Musikers in Form von
+JSON-LD.
+
+Diese drei Links sind nicht nur verschieden, sondern haben
+unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL
+(HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients generell
+nicht verwendet werden, um auf einfache Weise zu den anderen beiden URLs
+zu gelangen. Deshalb soll bei Linked Data der erste Link, also der des
+abstrakten Begriffs angegeben werden. Der Zugriff auf diesen Link wird
+``Dereferenzierung'' genannt. Von dem ersten Link gelangt man zu den
+beiden anderen mittels ``Content Negotiation''.
 
 So kann der Server beim Zugriff eines Client auf
 
-https://dbpedia.org/resource/John\_Doe\_(musician)
+\begin{verbatim}
+https://dbpedia.org/resource/John_Doe_(musician)
+\end{verbatim}
 
 z.B. entweder diese URL sowie HTML-Inhalt liefern
 
-https://dbpedia.org/page/John\_Doe\_(musician)
+\begin{verbatim}
+https://dbpedia.org/page/John_Doe_(musician)
+\end{verbatim}
 
 oder aber diese URL mit JSON-LD als Inhalt
 
-https://dbpedia.org/data/John\_Doe\_(musician).jsonld
+\begin{verbatim}
+https://dbpedia.org/data/John_Doe_(musician).jsonld
+\end{verbatim}
 
 Die Entscheidung darüber, welche der URLs und welche der Inhaltsformate
 der Server liefert, wird zwischen Client und Server mittels Content
@@ -1907,63 +1925,132 @@ Beispiel:
 \begin{Highlighting}[]
 \NormalTok{\{}
     \DataTypeTok{"items"}\NormalTok{: [}
-        \StringTok{"http://refserv.oparl.org/bodies/0/papers/2"}\NormalTok{,}
-        \StringTok{"http://refserv.oparl.org/bodies/0/papers/5"}\NormalTok{,}
-        \StringTok{"http://refserv.oparl.org/bodies/0/papers/7"}\NormalTok{,}
+        \StringTok{"https://beispielris.de/bodies/0/papers/2"}\NormalTok{,}
+        \StringTok{"https://beispielris.de/bodies/0/papers/5"}\NormalTok{,}
+        \StringTok{"https://beispielris.de/bodies/0/papers/7"}\NormalTok{,}
     \NormalTok{]}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
+Die vollständige Listenausgabe SOLL nur für Listen verwendet werden, die
+bis zu 100 Einträge umfassen.
+
 \subsubsection{Paginierung}\label{paginierung}
 
-Für längere Listen ist eine Blätterfunktion bzw. Paginierung vorgesehen.
-Darunter versteht man die Aufteilung der Liste in kleinere Teilbereiche,
-die wir hier als ``Listenseiten'' bezeichnen. Zweck ist, die einzelnen
-Listenseiten mit je einer eigenen API-Anfrage abrufbar zu machen. Die
-Aufteilung der Liste in Listenseiten erfolgt durch den Server und kann
-vom Client nicht beeinflusst werden, sie bleibt jedoch zwischen den
-einzelnen unverändert.
+Für den Abruf von Listen mit vielen Elementen ist eine Blätterfunktion
+(Paginierung) vorgesehen. Darunter verstehen wir die Aufteilung einer
+Liste in kleinere Teilstücke, die wir hier als Listenseiten bezeichnen.
+Jede Listenseite wird vom Client jeweils mit einer eigenen API-Anfrage
+abgerufen. Das dient dazu, die bei der jeweiligen Anfrage übertragenen
+Datenmengen zu begrenzen und damit Antwortzeiten und Systemressourcen
+sowohl beim Server als auch beim Client zu schonen.
 
-Listen mit mehr als 100 Einträgen SOLL der Server nur teilweise ausgeben
-und dem Client dabei eine \textbf{Paginierung} anbieten, um weitere
-Listenteile abzurufen. Dabei wird EMPFOHLEN, die Zahl der jeweils
-ausgegebenen Listeneinträge wiederum auf maximal 100 zu begrenzen.
+Die Entscheidung, ob eine Seite teilweise und daher mit Paginierung
+ausgegeben wird, liegt allein beim Server. Bei Listen mit mehr als 100
+Einträgen ist dies EMPFOHLEN. Die Zahl der Einträge, die der Server
+dabei je Listenseite ausliefert, SOLL dabei maximal 100 betragen. Die
+Anzahl der Einträge (Obergrenze) MUSS auf allen Listenseiten der selben
+Liste einheitlich sein, sofern nicht (beispielsweise auf der letzten
+Listenseite) weniger Listeneinträge vorhanden sind.
 
-Das nachstehende Beispiel zeigt, wie dem Client die URL zum
-``Blättern'', also zum Aufruf der jeweils nächsten Listenseite,
-angeboten wird.
+Wird eine Liste in Form von Listenseiten, also mit Paginierung,
+ausgegeben, teilt der Server dem Client mittels HTTP-Headern in der
+nachfolgend beschriebenen Form mit, unter welcher URL weitere
+Listenseiten abgerufen werden können. Dabei wird von dem in
+RFC5988\footnote{RFC5988: \url{http://tools.ietf.org/html/rfc5988}}
+beschriebenen Header namens \texttt{Link} Gebrauch gemacht.
 
-\hyperdef{}{objektlistenux5fex2}{\label{objektlistenux5fex2}}
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"items"}\NormalTok{: [}
-        \StringTok{"http://refserv.oparl.org/bodies/0/papers/2"}\NormalTok{,}
-        \StringTok{"http://refserv.oparl.org/bodies/0/papers/5"}\NormalTok{,}
-        \StringTok{"http://refserv.oparl.org/bodies/0/papers/7"}\NormalTok{,}
-    \NormalTok{],}
-    \DataTypeTok{"nextPage"}\NormalTok{: }\StringTok{"http://refserv.oparl.org/bodies/0/papers/?skip=7"}\NormalTok{,}
-    \DataTypeTok{"count"}\NormalTok{: }\DecValTok{118}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
+Beispiel eines Link-Headers zur Angabe der URL für den Abruf der
+folgenden Listenseite:
 
-Wie oben zu sehen, enthält das Beispiel-Objekt nun eine zusätzliche
-Eigenschaft \texttt{nextPage}. Der Wert dieser Eigenschaft ist eine URL,
-die dem Client dazu dient, die weiteren Einträge der Liste abzurufen.
+\begin{verbatim}
+Link: <https://oparl.beispielris.de/bodies/0/papers/?skip_id=7>;rel=next
+\end{verbatim}
 
-Die Eigenschaft \texttt{count} DARF bei Listen grundsätzlich ausgegeben
-werden und SOLL bei mehrseitigen Listen ausgegeben werden. Ihr Wert ist
-eine Zahl und gibt an, wie viele Einträge die vollständige Liste aller
-Objekte enthält.
+Im oben gezeigten Beispiel besteht der Wert des Link-Headers aus zwei
+Bestandteilen, die durch Semikolon \texttt{;} von einander getrennt
+sind:
 
-Ruft der Client die unter \texttt{nextPage} angegebene URL auf, erhält
-er wiederum ein Listenobjekt. Dieses Objekt MUSS, sofern noch immer mehr
-Listeneinträge vorhanden sind, als ausgegeben wurden, wiederum die
-\texttt{nextPage} Eigenschaft mit einer URL enthalten. Um alle Einträge
-einer Liste zu erfassen, folgt der Client also jeweils der URL, die in
-der \texttt{nextpage} Eigenschaft angegeben ist.
+\begin{verbatim}
+<https://oparl.beispielris.de/bodies/0/papers/?skip_id=7>;rel=next
+ \_____________________________________________________/  \______/
+                            |                                |
+                           URL                        Link-Parameter
+\end{verbatim}
+
+Die Bestandteile sind:
+
+\begin{description}
+\item[URL:]
+Die URL zum Abruf der nächsten Listenseite. Die URL wird in spitzen
+Klammern \texttt{\textless{}} und \texttt{\textgreater{}} ausgegeben.
+\emph{Hinweis:} Wie diese URL aufgebaut ist, entscheidet allein der
+Server. Hier wird lediglich ein fiktives Beispiel gegeben.
+\item[Link-Parameter:]
+Gemäß RFC5988 können belibig viele, auch null, Link-Parameter hinter der
+URL ausgegeben werden, jeweils durch ein Semikolon von der URL getrennt.
+Für OParl gilt: Es MUSS bei einer Liste mit Paginierung genau ein
+Link-Header mit dem Link-Parameter \texttt{rel=next} gegeben sein,
+sofern es eine nächste Seite mit weiteren Listenelementen gibt. Stellt
+die mit der aktuellen Anfrage ausgegebene Listenseite das Ende der Liste
+dar, DARF die Anfrage NICHT den Link-Header mit Link-Parameter
+\texttt{rel=next} enthalten.
+\end{description}
+
+Es ergibt sich eine typische Abfolge, wie Clients bei Bedarf mit
+mehreren Anfragen ganze Objektlisten vom Server abrufen:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Der Server stellt eine URL für eine Liste zur Verfügung.
+\item
+  Der Client ruft diese URL der Liste auf.
+\item
+  Der Server antwortet mit einer Listenseite und stellt im Link-Header
+  mit Link-Parameter \texttt{rel=next} die URL für den Abruf der
+  nächsten Listenseite zur Verfügung.
+\item
+  Der Client ruft die im Link-Header übergebene URL für die nächste
+  Listenseite auf.
+\end{enumerate}
+
+Die Punkte 3 und 4 können sich nun so oft wiederholen, bis die letzte
+Listenseite erreicht ist.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Der Server liefert die letzte Listenseite ohne Link-Header aus.
+\end{enumerate}
+
+Zusätzlich zu dem für die Paginierung obligatorischen Link-Header für
+die folgende Listenseite (Link-Parameter \texttt{rel=next}) können
+Server OPTIONAL weitere Link-Header zum Abruf bestimmter Listenseiten
+anbieten:
+
+\begin{description}
+\item[Erste Listenseite (\texttt{first}):]
+Sofern die aktuell abgerufene Listenseite nicht den Anfang der Liste
+wiedergibt, KANN der Server einen Link-Header mit Link-Parameter
+\texttt{rel=first} und der URL zum Abruf der \emph{ersten} Listenseite
+ausgeben.
+\item[Letzte Listenseite (\texttt{last}):]
+Sofern die aktuell abgerufene Listenseite nicht das Ende der Liste
+wiedergibt, KANN der Server einen Link-Header mit Link-Parameter
+\texttt{rel=last} und der URL zum Abruf der \emph{letzten} Listenseite
+ausgeben.
+\item[Vorherige Listenseite (\texttt{prev}):]
+Sofern die aktuell abgerufene Listenseite nicht den Anfang der Liste
+wiedergibt, KANN der Server einen Link-Header mit Link-Parameter
+\texttt{rel=prev} und der URL zum Abruf der ersten Listenseite ausgeben.
+\end{description}
+
+Damit eröffnet der Server dem Client zusätzliche Möglichkeiten, die
+einzelnen Listenseiten abzurufen.
 
 \begin{figure}[htbp]
 \centering
@@ -1971,27 +2058,34 @@ der \texttt{nextpage} Eigenschaft angegeben ist.
 \caption{Paginierung: Schematische Darstellung}
 \end{figure}
 
-Server-Implementierer entscheiden selbst, wie die \texttt{nextPage}-URL
-aufgebaut ist und tragen damit selbst Verantwortung für die
-Funktionsweise der Paginierung. Bei der Entscheidung für eine Form der
-Implementierung sind weitere Anforderungen zu berücksichtigen:
+Server-Implementierer entscheiden selbst, wie die URLs zum Abruf
+einzelner Listenseiten aufgebaut ist und tragen damit selbst
+Verantwortung für die Funktionsweise der Paginierung. Bei der
+Entscheidung für eine Form der Implementierung sollten die folgenden
+Anforderungen von Clients berücksichtigt werden.
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Es ist davon auszugehen, dass Clients für den gesamten Abruf aller
-  Seiten einer Liste längere Zeit benötigen. In der Zwischenzeit kann
-  sich der Inhalt der Liste bereits ändern, etwa durch das Hinzukommen
-  neuer Einträge. Die Paginierung ist so zu implementieren, dass sich
-  das Hinzukommen oder Entfernen von Einträgen möglichst nicht auf einen
-  Client auswirkt, der aktuell die Liste paginiert, um alle Einträge
-  abzurufen.
-\end{itemize}
+Es ist davon auszugehen, dass Clients für den gesamten Abruf aller
+Seiten einer Liste längere Zeit benötigen. In der Zwischenzeit kann sich
+der Inhalt der Liste bereits ändern, etwa durch das Hinzukommen neuer
+Einträge. Die Paginierung ist idealerweise so zu implementieren, dass
+sich das Hinzukommen oder Entfernen von Einträgen möglichst nicht auf
+einen Client auswirkt, der aktuell die Liste paginiert, um alle Einträge
+abzurufen. Wir bezeichnen dies als \textbf{stabile Paginierung}.
 
-Eine ungünstige (unstabile) Form der Implementierung soll hier mit Hilfe
-einer SQL-Abfrage illustriert werden. Gegeben sei eine Tabelle
-\texttt{example}, die einen numerischen Primärschlüssel \texttt{id}
-enthält. Nehmen wir an, die erste Seite der Liste wird mit der Abfrage
+Eine wesentliche Anforderung an Listen mit Paginierung ist, dass alle
+Einträge der Liste in einer konstistenten Reihenfolge sortiert
+ausgegeben werden SOLLEN. Das bedeutet, dass die Sortierung beim Server
+im Idealfall anhand einer eindeutigen und unveränderlichen
+Objekteigenschaft vorgenommen wird. Hierfür eignen sich die Objekt-URLs,
+da sie genau diese beiden Anforderungen erfüllen sollten.
+
+Über die Sortierung hinaus können bei der Implementierung einer stabilen
+Paginierung auf Server-Seite weitere Überlegungen einbezogen werden. Zur
+Verdeutlichung soll hier eine ungünstige (unstabile) Form der
+Implementierung mit Hilfe einer SQL-Abfrage illustriert werden. Gegeben
+sei eine Tabelle \texttt{example}, die einen numerischen Primärschlüssel
+\texttt{id} enthält. Nehmen wir an, die erste Seite der Liste wird mit
+der Abfrage
 
 \hyperdef{}{objektlistenux5fex3}{\label{objektlistenux5fex3}}
 \begin{Shaded}
@@ -2010,20 +2104,18 @@ liefern. Dann wird die zweite Seite mit der Abfrage
 \end{Highlighting}
 \end{Shaded}
 
-abgerufen. Sofern sich an der Tabelle zwischen den beiden Abfragen
-nichts geändert hat, liefert die zweite Abfrage Datensätze mit
-\texttt{id} \textgreater{} 10 aus. Sollte zwischen den beiden Abfragen
-jedoch beispielsweise der Datensätze mit der \texttt{id} 1 gelöscht
-worden sein, liefert die zweite Abfrage Datensätze mit \texttt{id}
-\textgreater{} 9. In diesem Fall würde dies nur dazu führen, dass ein
-Datensatz (\texttt{id} = 10) zweimal ausgegeben wird. Bei ungünstigeren
-Konstellationen wäre auch denkbar, dass eine instabile Paginierung
+abgerufen. Sollte nach der ersten, aber vor der zweiten Abfrage
+beispielsweise der Datensatz mit der \texttt{id=1} gelöscht worden sein,
+liefert die zweite Abfrage Datensätze mit \texttt{id} \textgreater{} 9.
+In diesem Fall würde dies nur dazu führen, dass ein Datensatz
+(\texttt{id=10}) zweimal ausgegeben wird. Bei ungünstigeren
+Konstellationen wäre auch denkbar, dass eine unstabile Paginierung
 bewirkt, dass einzelne Datensätze beim Paginieren übergangen werden.
 
 Besser wäre es, bei der Paginierung die Eintragsgrenze, bei der eine
 Listenseite beginnen soll, explizit zu benennen. Wurden auf der ersten
-Listenseite die Datensätze mit den \texttt{id}s 1 bis 10 ausgegeben, so
-könnte der Folgeaufruf, um beim SQL-Beispiel zu bleiben, so aussehen:
+Listenseite die Datensätze mit den IDs 1 bis 10 ausgegeben, so könnte
+der Folgeaufruf, um beim SQL-Beispiel zu bleiben, so aussehen:
 
 \hyperdef{}{objektlistenux5fex5}{\label{objektlistenux5fex5}}
 \begin{Shaded}
@@ -2032,18 +2124,61 @@ könnte der Folgeaufruf, um beim SQL-Beispiel zu bleiben, so aussehen:
 \end{Highlighting}
 \end{Shaded}
 
-TODO: Bestimmte Listen können mit Einschränkung auf einen Datumsbereich
-abgefragt werden. Mehr dazu in https://github.com/OParl/specs/issues/30
-Fraglich ist, ob das in diesem Kapitel behandelt werden sollte oder in
-einem anderen.
+Die zuvor beschriebenen Anforderungen für die Paginierung von Listen
+gelten auch unverändert, wenn der Umfang der Liste durch
+Abfrageparameter vom Client eingeschränkt wurde.
 
 \subsubsection{Listen als Eigenschaften von
 Objekten}\label{listen-als-eigenschaften-von-objekten}
 
-TODO: Listen können auch als Werte von Objekteigenschaften auftreten.
-Hierbei gibt es keine Paginierung, sondern es müssen alle URLs
-aufgelistet werden. Das ist auszuformulieren und mit Beispielen zu
-zeigen.
+Listen von Objekten können auch als Werte von Objekteigenschaften
+auftreten. Hierbei kann die oben beschriebene Paginierung nicht
+angewendet werden, sondern es MÜSSEN die URLs aller Listeneinträge
+aufgelistet werden.
+
+Ein Beispiel dafür könnte die Eigenschaft \texttt{bodies} des
+\texttt{oparl:System} Objekts sein, also die Liste der Körperschaften,
+die auf einem OParl-Server abgebildet werden:
+
+\hyperdef{}{objektlistenux5fex6}{\label{objektlistenux5fex6}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:System"}\NormalTok{,}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/"}\NormalTok{,}
+    \DataTypeTok{"bodies"}\NormalTok{: [}
+        \StringTok{"https://oparl.beispielris.de/bodies/1"}\NormalTok{,}
+        \StringTok{"https://oparl.beispielris.de/bodies/2"}
+    \NormalTok{],}
+    \ErrorTok{...}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Diese Listenausgabe direkt im Objekt ist nur zu empfehlen, wenn die
+Anzahl der Einträge klein (weniger als 100 Einträge) ist. Sind mehr
+Einträge zu erwarten, SOLL die entsprechende Liste über eine eigene URL
+angeboten werden.
+
+Das folgende Beispiel verdeutlicht, wie dies die Eigenschaft
+\texttt{bodies} am vorangegangenen Beispiel beeinflusst:
+
+\hyperdef{}{objektlistenux5fex6}{\label{objektlistenux5fex6}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\{}
+    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:System"}\NormalTok{,}
+    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/"}\NormalTok{,}
+    \DataTypeTok{"bodies"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/"}
+    \ErrorTok{...}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Statt einer JSON-Liste ist der Wert der Eigenschaft nun eine einzige
+URL.\footnote{Wie in vielen anderen Fällen ist diese URL hier wieder nur
+  beispielhaft. Die tatsächliche Gestaltung des Pfads bestimmt der
+  Server-Implementierer.}
 
 \hyperdef{}{feeds}{\subsection{Feeds}\label{feeds}}
 
@@ -2443,7 +2578,11 @@ identische sein.
 
 Die Eigenschaft \texttt{license} erlaubt es, am jeweiligen Objekt die
 URL einer Lizenz anzugeben. Damit wird gekennzeichnet, welche Lizenz der
-Veröffentlicher der Daten für das jeweilige Objekt vergibt.
+Veröffentlicher der Daten für das jeweilige Objekt vergibt.\footnote{Verzeichnisse
+  für Lizenz-URLs sind unter anderem unter
+  \url{http://licenses.opendefinition.org/} und
+  \url{https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json}
+  zu finden.}
 
 Eine besondere Bedeutung hat die Eigenschaft \texttt{license}, wenn sie
 am \texttt{oparl:System} Objekt oder am \texttt{oparl:Body} Objekt
@@ -2535,7 +2674,7 @@ Ein Beispiel:
     \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://beispielris.de/"}\NormalTok{,}
     \DataTypeTok{"oparlVersion"}\NormalTok{: }\StringTok{"http://oparl.org/specs/1.0/"}\NormalTok{,}
     \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Beispiel-System"}\NormalTok{,}
-    \DataTypeTok{"risWebsite"}\NormalTok{: }\StringTok{"http://www.beispielris.de/"}\NormalTok{,}
+    \DataTypeTok{"website"}\NormalTok{: }\StringTok{"http://www.beispielris.de/"}\NormalTok{,}
     \DataTypeTok{"contactEmail"}\NormalTok{: }\StringTok{"mailto:info@beispielris.de"}\NormalTok{,}
     \DataTypeTok{"contactName"}\NormalTok{: }\StringTok{"Allgemeiner OParl Kontakt"}\NormalTok{,}
     \DataTypeTok{"vendor"}\NormalTok{: }\StringTok{"http://example-software.com/"}\NormalTok{,}
@@ -2586,7 +2725,7 @@ Und das System-Objekt in kompakter Form unter Verwendung des Kontext:
     \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://beispielris.de/"}\NormalTok{,}
     \DataTypeTok{"oparlVersion"}\NormalTok{: }\StringTok{"http://oparl.org/specs/1.0/"}\NormalTok{,}
     \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Beispiel-System"}\NormalTok{,}
-    \DataTypeTok{"risWebsite"}\NormalTok{: }\StringTok{"http://www.beispielris.de/"}\NormalTok{,}
+    \DataTypeTok{"website"}\NormalTok{: }\StringTok{"http://www.beispielris.de/"}\NormalTok{,}
     \DataTypeTok{"contactEmail"}\NormalTok{: }\StringTok{"mailto:info@beispielris.de"}\NormalTok{,}
     \DataTypeTok{"contactName"}\NormalTok{: }\StringTok{"Allgemeiner OParl Kontakt"}\NormalTok{,}
     \DataTypeTok{"vendor"}\NormalTok{: }\StringTok{"http://example-software.com/"}\NormalTok{,}
@@ -2695,7 +2834,7 @@ Objekte''}. Die Eigenschaft ist EMPFOHLEN.
 \item[\texttt{removedObjects}]
 URL des Feeds \hyperref[feedux5fentfernteux5fobjekte]{``Entfernte
 Objekte''}. Die Eigenschaft ist EMPFOHLEN.
-\item[\texttt{risWebsite}]
+\item[\texttt{website}]
 URL zur WWW-Oberfläche des parlamentarischen Informationssystem. Diese
 Eigenschaft ist OPTIONAL.
 \item[\texttt{vendor}]
@@ -2754,9 +2893,9 @@ Ein expandiertes Beispiel:
         \StringTok{"http://d-nb.info/gnd/2015732-0"}\NormalTok{,}
         \StringTok{"http://dbpedia.org/resource/Cologne"}
     \NormalTok{],}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Stadt K\textbackslash{}u00f6ln"}\NormalTok{,}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Stadt Köln"}\NormalTok{,}
     \DataTypeTok{"nameLong"}\NormalTok{: \{ }\ErrorTok{//} \ErrorTok{verwendet} \ErrorTok{eine} \DataTypeTok{"language map"}
-        \DataTypeTok{"de"}\NormalTok{: }\StringTok{"Stadt K\textbackslash{}u00f6ln, kreisfreie Stadt"}\NormalTok{,}
+        \DataTypeTok{"de"}\NormalTok{: }\StringTok{"Stadt Köln, kreisfreie Stadt"}\NormalTok{,}
         \DataTypeTok{"en"}\NormalTok{: }\StringTok{"City of Cologne"}
     \NormalTok{\}}
     \StringTok{"website"}\ErrorTok{:} \StringTok{"http://www.beispielstadt.de/"}\NormalTok{,}
@@ -2787,21 +2926,20 @@ einem bestimmten Parlament an.
 
 \begin{description}
 \item[\texttt{system}]
-System zu dem dieses Objekt gehört. Typ: \texttt{oparl:System} ZWINGEND.
+System zu dem dieses Objekt gehört. Typ: \texttt{oparl:System}.
+ZWINGEND.
 \item[\texttt{name}]
-Gibt den gebräuchlichen Namen der Körperschaft an. Typ: TODO ZWINGEND.
+Gibt den gebräuchlichen Namen der Körperschaft an. Typ: TODO. ZWINGEND.
 \item[\texttt{nameLong}]
 Kann bei Bedarf dazu verwendet werden, eine längere Form des Namens der
-Körperschaft anzugeben. Typ: TODO OPTIONAL.
+Körperschaft anzugeben. Typ: TODO. OPTIONAL.
 \item[\texttt{website}]
-WWW-URL der Körperschaft. EMPFOHLEN.
+URL der allgemeinen Website der Körperschaft. EMPFOHLEN.
 \item[\texttt{license}]
-Lizenz, die für die Daten, die über diese API abgerufen werden können,
-gilt, sofern nicht am einzelnen Objekt anders angegeben. Verzeichnisse
-für solche Lizenz-URLs sind insbesondere
-http://licenses.opendefinition.org/ und
-https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json
-Typ: TODO EMPFOHLEN.
+URL der Lizenz, die für die Daten, die über diese API abgerufen werden
+können, gilt, sofern nicht am einzelnen Objekt anders angegeben. Sie
+dazu auch die übergreifende Beschreibung zur Eigenschaft
+\hyperref[eigenschaftux5flicense]{\texttt{license}}. EMPFOHLEN.
 \item[\texttt{licenseValidSinceDay}]
 Tagesdatum, seit dem die unter license angegebene Lizenz gilt. Vorsicht
 bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen. Typ:
@@ -3011,12 +3149,12 @@ Ein Beispiel in expandierter Form:
     \DataTypeTok{"familyName"}\NormalTok{: \{ }\ErrorTok{//} \ErrorTok{könnte} \ErrorTok{mehrsprachig} \ErrorTok{sein}\NormalTok{, }\ErrorTok{z.B.} \ErrorTok{griechisch}\NormalTok{, }\ErrorTok{russisch}\NormalTok{, }\ErrorTok{tamilisch} 
         \DataTypeTok{"@value"}\NormalTok{: }\StringTok{"Mustermann"}\NormalTok{,}
         \DataTypeTok{"@language"}\NormalTok{: }\StringTok{"de"}
-    \NormalTok{\}}
-    \StringTok{"givenName"}\ErrorTok{:} \NormalTok{\{ }\ErrorTok{//} \ErrorTok{könnte} \ErrorTok{mehrsprachig} \ErrorTok{sein}
+    \NormalTok{\},}
+    \DataTypeTok{"givenName"}\NormalTok{: \{ }\ErrorTok{//} \ErrorTok{könnte} \ErrorTok{mehrsprachig} \ErrorTok{sein}
         \DataTypeTok{"@value"}\NormalTok{: }\StringTok{"Max"}\NormalTok{,}
         \DataTypeTok{"@language"}\NormalTok{: }\StringTok{"de"}
-    \NormalTok{\}}
-    \StringTok{"title"}\ErrorTok{:} \StringTok{"Prof. Dr."}\NormalTok{, }\ErrorTok{//} \ErrorTok{TODO}\NormalTok{: }\ErrorTok{nicht} \ErrorTok{mehrsprachig?!}
+    \NormalTok{\},}
+    \DataTypeTok{"title"}\NormalTok{: }\StringTok{"Prof. Dr."}\NormalTok{, }\ErrorTok{//} \ErrorTok{TODO}\NormalTok{: }\ErrorTok{nicht} \ErrorTok{mehrsprachig?!}
     \StringTok{"formOfAddress"}\ErrorTok{:} \StringTok{"http://oparl.beispielris.de/formofaddress/ratsmitglied"}\NormalTok{,}
     \DataTypeTok{"gender"}\NormalTok{: }\StringTok{"http://www.w3.org/2006/vcard/ns#Male"}\NormalTok{,}
     \DataTypeTok{"email"}\NormalTok{: }\StringTok{"mailto:max@mustermann.de"}\NormalTok{,}
@@ -3025,17 +3163,17 @@ Ein Beispiel in expandierter Form:
     \DataTypeTok{"postalCode"}\NormalTok{: }\StringTok{"11111"}\NormalTok{,}
     \DataTypeTok{"locality"}\NormalTok{: \{}
         \DataTypeTok{"de"}\NormalTok{: }\StringTok{"Musterort"}\NormalTok{,}
-        \DataTypeTok{"en"}\NormalTok{: }\ErrorTok{Sample} \ErrorTok{Town}\StringTok{"}
-\StringTok{    \}}
-\StringTok{    "}\ErrorTok{organization}\StringTok{": [}
-\StringTok{        "}\ErrorTok{http://oparl.beispielris.de/organization/}\DecValTok{11}\StringTok{",}
-\StringTok{        "}\ErrorTok{http://oparl.beispielris.de/organization/}\DecValTok{34}\StringTok{"}
-\StringTok{    ],}
-\StringTok{    "}\ErrorTok{status}\StringTok{": "}\ErrorTok{http://oparl.beispielris.de/status/buergermeister}\StringTok{",}
-\StringTok{    "}\ErrorTok{hasMembership}\StringTok{": "}\ErrorTok{http://oparl.beispielris.de/membership/}\DecValTok{34}\StringTok{",}
-\StringTok{    "}\ErrorTok{created}\StringTok{": "}\DecValTok{2011-11-11}\ErrorTok{T}\DecValTok{11}\ErrorTok{:}\DecValTok{11}\ErrorTok{:}\DecValTok{00}\ErrorTok{+}\DecValTok{01}\ErrorTok{:}\DecValTok{00}\StringTok{",}
-\StringTok{    "}\ErrorTok{modified}\StringTok{": "}\DecValTok{2012-08-16}\ErrorTok{T}\DecValTok{14}\ErrorTok{:}\DecValTok{05}\ErrorTok{:}\DecValTok{27}\ErrorTok{+}\DecValTok{02}\ErrorTok{:}\DecValTok{00}\StringTok{"}
-\StringTok{\}}
+        \DataTypeTok{"en"}\NormalTok{: }\StringTok{"Sample Town"}
+    \NormalTok{\},}
+    \DataTypeTok{"organization"}\NormalTok{: [}
+        \StringTok{"http://oparl.beispielris.de/organization/11"}\NormalTok{,}
+        \StringTok{"http://oparl.beispielris.de/organization/34"}
+    \NormalTok{],}
+    \DataTypeTok{"status"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/status/buergermeister"}\NormalTok{,}
+    \DataTypeTok{"hasMembership"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/membership/34"}\NormalTok{,}
+    \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2011-11-11T11:11:00+01:00"}\NormalTok{,}
+    \DataTypeTok{"modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
+\NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3055,8 +3193,8 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     \DataTypeTok{"academic_degree"}\NormalTok{: \{}
         \DataTypeTok{"@language"}\NormalTok{: }\DecValTok{null} \NormalTok{, }\ErrorTok{//} \ErrorTok{keine} \ErrorTok{Vorgabesprache} \ErrorTok{da} \ErrorTok{nicht} \ErrorTok{mehrsprachig}
         \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"foaf:title"}
-    \NormalTok{\}}
-    \StringTok{"email"}\ErrorTok{:} \NormalTok{\{}
+    \NormalTok{\},}
+    \DataTypeTok{"email"}\NormalTok{: \{}
         \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"foaf:mbox"}\NormalTok{,}
         \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"@id"}
     \NormalTok{\},}
@@ -3065,8 +3203,8 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     \DataTypeTok{"locality"}\NormalTok{: \{}
         \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"vcard:locality"}\NormalTok{,}
         \DataTypeTok{"@container"}\NormalTok{: }\StringTok{"@language"} \ErrorTok{//} \ErrorTok{für} \ErrorTok{eine} \StringTok{"language map"}
-    \NormalTok{\}}
-    \StringTok{"created"}\ErrorTok{:} \NormalTok{\{}
+    \NormalTok{\},}
+    \DataTypeTok{"created"}\NormalTok{: \{}
         \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"dc:created"}\NormalTok{,}
         \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"xsd:dateTime"}
     \NormalTok{\},}
@@ -3098,8 +3236,8 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     \DataTypeTok{"locality"}\NormalTok{: }\StringTok{"Musterort"}\NormalTok{,}
     \DataTypeTok{"locality"}\NormalTok{: \{}
         \DataTypeTok{"en"}\NormalTok{: }\StringTok{"Sample Town"} \ErrorTok{//} \ErrorTok{TODO} \ErrorTok{prüfen}\NormalTok{, }\ErrorTok{ob} \ErrorTok{Eigenschaft} \ErrorTok{doppelt} \ErrorTok{erscheinen} \ErrorTok{darf}
-    \NormalTok{\}}
-    \StringTok{"organization"}\ErrorTok{:} \NormalTok{[}\StringTok{"11"}\NormalTok{, }\StringTok{"34"}\NormalTok{],}
+    \NormalTok{\},}
+    \DataTypeTok{"organization"}\NormalTok{: [}\StringTok{"11"}\NormalTok{, }\StringTok{"34"}\NormalTok{],}
     \DataTypeTok{"status"}\NormalTok{: }\StringTok{"beispielris:status/buergermeister"}\NormalTok{,}
     \DataTypeTok{"hasMembership"}\NormalTok{: }\StringTok{"beispielris:membership/34"}\NormalTok{,}
     \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2011-11-11T11:11:00+01:00"}\NormalTok{,}
@@ -3113,40 +3251,43 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 \begin{description}
 \item[\texttt{name}]
 Der vollständige Name der Person mit akademischem Grad und Vornamen.
-ZWINGEND
+Typ: TODO ZWINGEND
 \item[\texttt{familyName}]
-Familienname bzw. Nachname. OPTIONAL
+Familienname bzw. Nachname. Typ: TODO OPTIONAL
 \item[\texttt{givenName}]
-Vorname bzw. Taufname. OPTIONAL
+Vorname bzw. Taufname. Typ: TODO OPTIONAL
 \item[\texttt{formOfAddress}]
-Anrede URLs von Objekten mit skos:prefLabel. Ähnlich wie
-\texttt{status}. Beispiele für die \texttt{skos:prefLabel} sind
-``Ratsherr \textbar{} Ratsfrau'' und ``Herr \textbar{} Frau''. OPTIONAL
+Anrede Begriff mit \texttt{skos:prefLabel}. Ähnlich wie \texttt{status}.
+Beispiele für die \texttt{skos:prefLabel} sind ``Ratsherr \textbar{}
+Ratsfrau'' und ``Herr \textbar{} Frau''. Typ: \texttt{skos:Concept}
+OPTIONAL
 \item[\texttt{title}]
-Akademische(r) Titel. TODO: ``Dr.''? ``Diplom''? OPTIONAL
+Akademische(r) Titel. TODO: ``Dr.''? ``Diplom''? Typ:
+\texttt{skos:Concept} OPTIONAL
 \item[\texttt{gender}]
 Geschlecht. Zulässige Werte sind \texttt{vcard:Female},
 \texttt{vcard:Male}, \texttt{vcard:None}, \texttt{vcard:Other} und
-\texttt{vcard:Unknown}. OPTIONAL
+\texttt{vcard:Unknown}. Typ: \texttt{vcard:TODO} OPTIONAL
 \item[\texttt{phone}]
-Telefonnummer mit \texttt{tel:} Schema. OPTIONAL
+Telefonnummer mit \texttt{tel:} Schema. Typ: TODO OPTIONAL
 \item[\texttt{email}]
-E-Mail-Adresse mit \texttt{mailto:} Schema. OPTIONAL
+E-Mail-Adresse mit \texttt{mailto:} Schema. Typ: \texttt{foaf:mbox}
+OPTIONAL
 \item[\texttt{streetAddress}]
-Straße und Hausnummer der Kontakt-Anschrift der Person. OPTIONAL
+Straße und Hausnummer der Kontakt-Anschrift der Person. Typ: TODO
+OPTIONAL
 \item[\texttt{postalCode}]
-Postleitzahl der Kontakt-Anschrift der Person. OPTIONAL
+Postleitzahl der Kontakt-Anschrift der Person. Typ: TODO OPTIONAL
 \item[\texttt{locality}]
-Ortsangabe der Kontakt-Anschrift der Person. OPTIONAL
+Ortsangabe der Kontakt-Anschrift der Person. Typ:
+\texttt{vcard:locality} OPTIONAL
 \item[\texttt{organization}]
-URLs der Gruppierung oder Liste der URLs der Gruppierungen (Objekte vom
-Typ \texttt{oparl:Organization}), in der bzw. in denen die Person
-aktuell Mitglied ist. Sollte die Person Mitglied in keiner Gruppierung
-sein, enthält die Liste keine Einträge. ZWINGEND
+Gruppierung in der die Person aktuell Mitglied ist. Typ:
+\texttt{oparl:Organization} ZWINGEND
 \item[\texttt{status}]
-URLs von Objekten mit skos:prefLabel. Die Zeichenketten SOLLEN sowohl
-die männliche als auch die weibliche Form enthalten, und zwar in dem
-Muster ``männliche Form \textbar{} weibliche Form'' (genau in der
+Status. Begriff mit \texttt{skos:prefLabel}. Die Zeichenketten SOLLEN
+sowohl die männliche als auch die weibliche Form enthalten, und zwar in
+dem Muster ``männliche Form \textbar{} weibliche Form'' (genau in der
 Reihenfolge mit einem Leerzeichen vor und nach dem ``\textbar{}'') Wenn
 sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal
 verwendet werden: ``Mitglied'' und nicht ``Mitglied \textbar{}
@@ -3160,17 +3301,19 @@ Sachkundige Bürgerin'', ``Einzelstadtverordneter \textbar{}
 Einzelstadtverordnete'' (Mitglieder des Rates die keiner
 Fraktion/Organisation angehören -\textgreater{} die Zuordbarkeit einer
 fiktiven Organisation ermöglichen TODO: warum will man das?). Siehe
-https://github.com/OParl/specs/issues/45 OPTIONAL
+https://github.com/OParl/specs/issues/45 Typ: \texttt{skos:Concept}
+OPTIONAL
 \item[\texttt{hasMembership}]
-URLs der Mitgliedschaft oder Liste von URLs der Mitgliedschaften
-(Objekte vom Typ \texttt{org:Membership}). TODO: Eventuell Unterklasse
-von org:Membership definieren. OPTIONAL.
+Mitgliedschaft. TODO: Eventuell Unterklasse von \texttt{org:Membership}
+definieren. Typ: \texttt{org:Membership} OPTIONAL.
 \item[\texttt{classification}]
-\texttt{skos:Concept} OPTIONAL
+Typ: \texttt{skos:Concept} OPTIONAL
 \item[\texttt{created}]
-Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
+Datum/Uhrzeit der Erzeugung des Objekts. Typ: String mit xsd:dateTime
+EMPFOHLEN.
 \item[\texttt{lastModified}]
-Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.
+Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ: String mit
+xsd:dateTime EMPFOHLEN.
 \end{description}
 
 \subsection{oparl:Meeting (Sitzung)}\label{oparlux5fmeeting}
@@ -3211,7 +3354,7 @@ Ein Beispiel in expandierter Form:
     \DataTypeTok{"organization"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/organization/34"}\NormalTok{,}
     \DataTypeTok{"participant"}\NormalTok{: [}
         \StringTok{"http://oparl.beispielris.de/person/29"}\NormalTok{,}
-        \StringTok{"http://oparl.beispielris.de/person/75"}
+        \StringTok{"http://oparl.beispielris.de/person/75"}\NormalTok{,}
         \StringTok{"http://oparl.beispielris.de/person/94"}
     \NormalTok{],}
     \DataTypeTok{"invitation"}\NormalTok{: }\StringTok{"http://oparl.beispielris.de/document/586"}\NormalTok{,}
@@ -3229,8 +3372,8 @@ Ein Beispiel in expandierter Form:
             \StringTok{"http://oparl.beispielris.de/agendaitem/1047"}\NormalTok{,}
             \StringTok{"http://oparl.beispielris.de/agendaitem/1048"}
         \NormalTok{]}
-    \NormalTok{\}}
-    \StringTok{"created"}\ErrorTok{:} \StringTok{"2012-01-06T12:01:00+01:00"}\NormalTok{,}
+    \NormalTok{\},}
+    \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2012-01-06T12:01:00+01:00"}\NormalTok{,}
     \DataTypeTok{"modified"}\NormalTok{: }\StringTok{"2012-01-08T14:05:27+01:00"}
 \NormalTok{\}}
 \end{Highlighting}
@@ -3464,8 +3607,7 @@ Ein Beispiel in kompakter Form:
     \DataTypeTok{"location"}\NormalTok{: [}
         \NormalTok{\{}
             \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Theodor-Heuss-Ring 1"}\NormalTok{,}
-            \DataTypeTok{"lat"}\NormalTok{: }\FloatTok{7.148}\NormalTok{,}
-            \DataTypeTok{"lon"}\NormalTok{: }\FloatTok{50.023}
+            \DataTypeTok{"geometry"}\NormalTok{: }\StringTok{"POINT(7.148  50.023)"}
         \NormalTok{\}}
     \NormalTok{],}
     \DataTypeTok{"creator"}\NormalTok{: [}
@@ -3679,8 +3821,8 @@ vorausgesetzt):
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
-    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}
-    \StringTok{"@type"}\ErrorTok{:} \StringTok{"oparl:Consultation"}\NormalTok{,}
+    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}\NormalTok{,}
+    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:Consultation"}\NormalTok{,}
     \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"beispielris:consultation/47594"}\NormalTok{,}
     \DataTypeTok{"paper"}\NormalTok{: }\StringTok{"beispielris:paper/2396"}\NormalTok{,}
     \DataTypeTok{"agendaitem"}\NormalTok{: }\StringTok{"beispielris:agendaitem/15569"}\NormalTok{,}

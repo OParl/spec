@@ -324,23 +324,12 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Der Begriff &quot;Linked Data&quot; steht für die Beschreibung von Daten in einer Form, die diese über ihren ursprünglichen Kontext hinaus verständlich macht.<a href="#fn15" class="footnoteRef" id="fnref15"><sup>15</sup></a></p>
 <p>Kern von Linked Data ist die Möglichkeit, alle Bestandteile von Daten in Form von Tripeln zu beschreiben, das sind dreiteilige Informationseinheiten aus einem Subjekt, einem Prädikat und einem Objekt. Alle drei Bestandteile können in Form global eindeutiger &quot;Uniform Resource Identifier&quot; (URI) abgebildet werden.</p>
 <p>Nach dem Linked-Data-Prinzip könnte beispielsweise der Vorname einer Person mit dem folgenden Tripel beschrieben werden:</p>
-<pre><code>Subjekt: https://dbpedia.org/resource/John_Doe_(musician)
+<pre><code>Subjekt: http://dbpedia.org/resource/John_Doe_(musician)
 Prädikat: http://xmlns.com/foaf/0.1/givenName
-Objekt: https://dbpedia.org/resource/John_(given_name)</code></pre>
-<p>Hierbei macht man von der Tatsache Gebrauch, dass das Subjekt, also die Person, um die es geht, bereits mittels ihrer URI eindeutig identifiziert werden kann und dass bestenfalls unter dieser URI weitere Informationen zu der Person abrufbar sind. Auch für das Prädikat &quot;Person hat den Vornamen&quot; liegt bereits eine Beschreibung in einem gebräuchlichen Vokabular vor, auf das hier verwiesen werden kann. Und schließlich kann sogar der eigentliche Vorname in Form einer URI abgebildet werden, nämlich als Verweis auf eine umfangreiche Beschreibung dieses Namens.</p>
-<p>Auf ein für Linked Data wichtiges Detail sei hier hingewiesen. Wenn man in einem üblichen Web-Browser diesen oben angegebenen Link eingibt und aufruft:</p>
-<pre><code>https://dbpedia.org/resource/John_Doe_(musician)</code></pre>
-<p>dann sieht man anschliessend bei der Anzeige der HTML-Seite diesen Link im Adressfeld:</p>
-<pre><code>https://dbpedia.org/page/John_Doe_(musician)</code></pre>
-<p>Dabei identifiziert der erste Link den abstrakten Begriff des Musikers, während der zweite Link eine Repräsentation dieses Begriffs identifiziert. Ein anderer http-Client, der statt HTML-Seiten z.B. JSON-LD bevorzugt, würde bei Zugriff auf den ersten Link statt der HTML-Seite den Inhalt dieser URL erhalten:</p>
-<pre><code>https://dbpedia.org/data/John_Doe_(musician).jsonld</code></pre>
-<p>Dabei handelt es sich um eine Repräsentation des Musikers in Form von JSON-LD.</p>
-<p>Diese drei Links sind nicht nur verschieden, sondern haben unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL (HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients generell nicht verwendet werden, um auf einfache Weise zu den anderen beiden URLs zu gelangen. Deshalb soll bei Linked Data der erste Link, also der des abstrakten Begriffs angegeben werden. Der Zugriff auf diesen Link wird &quot;Dereferenzierung&quot; genannt. Von dem ersten Link gelangt man zu den beiden anderen mittels &quot;Content Negotiation&quot;.</p>
-</section>
-<section id="ziel" class="level3">
-<h3><span class="header-section-number">4.1.8</span> Ziel</h3>
-<p>Das Ziel von OParl ist es, mit der vorliegenden Version 1.0 der Spezifikation, die Nutzung solcher allgemeingültigen Vokabulare für die Veröffentlichung von parlamentarischen Informationen zu begünstigen und die automatisierte Verarbeitung und Verknüpfung von Informationen, auch über die Grenzen verschiedener Informationssysteme hinweg, zu erleichtern.</p>
-<p>Beispiele, wo dies sinnvoll ist, sind in der Praxis leicht zu finden. So finden sich beispielsweise in vielen lokalen Parlamenten immer wieder Fraktionen der selben Parteien, beispielsweise CDU und SPD. Mittels Linked Data wäre es möglich, jede dieser Fraktionen mit einer externen URL zu verknüpfen<a href="#fn16" class="footnoteRef" id="fnref16"><sup>16</sup></a> und somit erkennbar zu machen, zu welcher Partei diese Fraktion gehört. Ebenso finden sich viele inhaltliche Ähnlichkeiten bei Gremien wie zum Beispiel Ausschüssen (z.B. Hauptausschuss, Verkehrsausschuss etc.) oder bei Arten von Drucksachen (z.B. Anträge, Anfragen, Mitteilungen, Beschlussvorlagen).</p>
+Objekt: http://dbpedia.org/resource/John_(given_name)</code></pre>
+<p>Hierbei macht man von der Tatsache Gebrauch, dass das Subjekt, also die Person, um die es geht, bereits mittels ihrer URI eindeutig identifiziert werden kann und dass bestenfalls unter dieser URI weitere Informationen zu der Person abrufbar sind.<a href="#fn16" class="footnoteRef" id="fnref16"><sup>16</sup></a> Auch für das Prädikat &quot;Person hat den Vornamen&quot; liegt bereits eine Beschreibung in einem gebräuchlichen Vokabular vor, auf das hier verwiesen werden kann. Und schließlich kann sogar der eigentliche Vorname in Form einer URI abgebildet werden, nämlich als Verweis auf eine umfangreiche Beschreibung dieses Namens.</p>
+<p>Das <strong>Ziel</strong> von OParl ist es, mit der vorliegenden Version 1.0 der Spezifikation, die Nutzung solcher allgemeingültigen Vokabulare für die Veröffentlichung von parlamentarischen Informationen zu begünstigen und die automatisierte Verarbeitung und Verknüpfung von Informationen, auch über die Grenzen verschiedener Informationssysteme hinweg, zu erleichtern.</p>
+<p>Beispiele, wo dies sinnvoll ist, sind in der Praxis leicht zu finden. So finden sich beispielsweise in vielen lokalen Parlamenten immer wieder Fraktionen der selben Parteien, beispielsweise CDU und SPD. Mittels Linked Data wäre es möglich, jede dieser Fraktionen mit einer externen URL zu verknüpfen<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a> und somit erkennbar zu machen, zu welcher Partei diese Fraktion gehört. Ebenso finden sich viele inhaltliche Ähnlichkeiten bei Gremien wie zum Beispiel Ausschüssen (z.B. Hauptausschuss, Verkehrsausschuss etc.) oder bei Arten von Drucksachen (z.B. Anträge, Anfragen, Mitteilungen, Beschlussvorlagen).</p>
 <p>OParl lässt in Version 1.0 der Spezifikation noch viele Aufgaben, die die Vereinheitlichung dieses Vokabulars betreffen, offen. Jedoch wird durch die Verwendung von <a href="#jsonld">JSON-LD</a> als Serialisierungsformat der Grundstein für eine Vereinheitlichung im Sinne von Linked Data gelegt.</p>
 </section>
 </section>
@@ -350,15 +339,25 @@ Objekt: https://dbpedia.org/resource/John_(given_name)</code></pre>
 <p>Der Aufwand, den die Betreiber von parlamentarischen Informationssystemen bei der Bereitstellung von OParl-konformen Schnittstellen betreiben, soll auch bei der zukünftigen Weiterentwicklung dieser Spezifikation berücksichtigt werden. Ebenso soll den Entwicklern von Client-Software zukünftig entgegen kommen, dass ihre bestehenden Clients auch mit Servern kommunizieren können, die eine neuere Version der OParl-Spezifikation unterstützen. Dieser Wunsch ist bereits im Designprinzip <a href="#erweiterbarkeit">Erweiterbarkeit</a> ausformuliert.</p>
 <p>Mit anderen Worten: die Autoren der OParl-Spezifikation beabsichtigen größtmögliche Zukunftssicherheit und zukünftige Abwärtskompatibilität. Dieses Ziel wird in Zukunft natürlich abgewägt werden müssen mit dem Wunsch, sich an Veränderungen und neue Erkenntnisse anzupassen. Eine Garantie für Zukunftssicherheit kann insofern niemand aussprechen.</p>
 </section>
-<section id="content-negotiation" class="level2">
+<section id="content_negotiation" class="level2">
 <h2><span class="header-section-number">4.3</span> Content Negotiation</h2>
-<p>Im Abschnitt Designprinzipien wurde bereits erwähnt, dass die &quot;Dereferenzierung&quot; mittels Content Negotiation erfolgt.</p>
+<p>Server im World Wide Web können bestimmte Ressourcen entsprechend RFC2295<a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a> in verschiedenen Formaten vorhalten. Clients haben die Möglichkeit, mittels HTTP-Header schon in der Anfrage eine Vorliebe für ein bestimmtes Format zu übermitteln.</p>
+<p>TODO: Hier muss eine Beschreibung folgen, was mit Content Negotiation erreicht werden soll und wie genau die Anforderungen lauten (vgl. Issue #105).</p>
+<p>TODO: Der nachstehende Text muss noch sauber formuliert werden.</p>
+<p>Auf ein für Linked Data wichtiges Detail sei hier hingewiesen. Wenn man in einem üblichen Web-Browser diesen oben angegebenen Link eingibt und aufruft:</p>
+<pre><code>https://dbpedia.org/resource/John_Doe_(musician)</code></pre>
+<p>dann sieht man anschliessend bei der Anzeige der HTML-Seite diesen Link im Adressfeld:</p>
+<pre><code>https://dbpedia.org/page/John_Doe_(musician)</code></pre>
+<p>Dabei identifiziert der erste Link den abstrakten Begriff des Musikers, während der zweite Link eine Repräsentation dieses Begriffs identifiziert. Ein anderer http-Client, der statt HTML-Seiten z.B. JSON-LD bevorzugt, würde bei Zugriff auf den ersten Link statt der HTML-Seite den Inhalt dieser URL erhalten:</p>
+<pre><code>https://dbpedia.org/data/John_Doe_(musician).jsonld</code></pre>
+<p>Dabei handelt es sich um eine Repräsentation des Musikers in Form von JSON-LD.</p>
+<p>Diese drei Links sind nicht nur verschieden, sondern haben unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL (HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients generell nicht verwendet werden, um auf einfache Weise zu den anderen beiden URLs zu gelangen. Deshalb soll bei Linked Data der erste Link, also der des abstrakten Begriffs angegeben werden. Der Zugriff auf diesen Link wird &quot;Dereferenzierung&quot; genannt. Von dem ersten Link gelangt man zu den beiden anderen mittels &quot;Content Negotiation&quot;.</p>
 <p>So kann der Server beim Zugriff eines Client auf</p>
-<p>https://dbpedia.org/resource/John_Doe_(musician)</p>
+<pre><code>https://dbpedia.org/resource/John_Doe_(musician)</code></pre>
 <p>z.B. entweder diese URL sowie HTML-Inhalt liefern</p>
-<p>https://dbpedia.org/page/John_Doe_(musician)</p>
+<pre><code>https://dbpedia.org/page/John_Doe_(musician)</code></pre>
 <p>oder aber diese URL mit JSON-LD als Inhalt</p>
-<p>https://dbpedia.org/data/John_Doe_(musician).jsonld</p>
+<pre><code>https://dbpedia.org/data/John_Doe_(musician).jsonld</code></pre>
 <p>Die Entscheidung darüber, welche der URLs und welche der Inhaltsformate der Server liefert, wird zwischen Client und Server mittels Content Negotiation ausgehandelt.</p>
 <p>Der Vorgang ist u.a. in http://de.wikipedia.org/wiki/Content_Negotiation erklärt. Content Negotiation ist Bestandteil der HTTP 1.1 Spezifikation. Siehe RFC 2616 (http://tools.ietf.org/html/rfc2616).</p>
 <p>Wichtig ist, dass Client und Server die Möglichkeit haben, das Format auszuhandeln. Deshalb müssen in OParl-Daten format-unspezifische URLs angegeben werden, bei dem Musiker John Doe ist das die erste der oben angegebenen URLs und nicht die letzte.</p>
@@ -375,8 +374,8 @@ Objekt: https://dbpedia.org/resource/John_(given_name)</code></pre>
 <section id="urls" class="level2">
 <h2><span class="header-section-number">4.5</span> URLs, IRIs und URIs</h2>
 <p>Den URLs (für &quot;Uniform Resource Locators&quot;) kommt bei einer OParl-konformen API eine besondere Bedeutung zu und es werden eine Reihe von Anforderungen an die Verarbeitung von URLs gestellt.</p>
-<p>Im Rahmen dieses Dokuments wird aus Gründen der Verständlichkeit generell der allgemein gebräuchlichere Begriff &quot;URL&quot; werwendet, auch wenn damit tatsächlich die internationalisierte Variante nach RFC 3987<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a>, die korrekterweise IRI bzw. &quot;Internationalized Resource Identifier&quot; genannt werden müsste, gemeint ist. In andern Kontexten wiederum wird von URIs bzw. &quot;Uniform Resource Identifier&quot; gesprochen. Das vorliegende Dokumente fasst alle drei Konzepte mit dem Begriff &quot;URL&quot; zusammen und ignoriert damit die Unterschiede der einzelnen Begriffe, da diese im Rahmen dieser Spezifikation ohne bedeutung sind.</p>
-<p>Die grundsätzliche Funktionsweise von URLs ist in RFC 3986 beschrieben<a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a>.</p>
+<p>Im Rahmen dieses Dokuments wird aus Gründen der Verständlichkeit generell der allgemein gebräuchlichere Begriff &quot;URL&quot; werwendet, auch wenn damit tatsächlich die internationalisierte Variante nach RFC 3987<a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a>, die korrekterweise IRI bzw. &quot;Internationalized Resource Identifier&quot; genannt werden müsste, gemeint ist. In andern Kontexten wiederum wird von URIs bzw. &quot;Uniform Resource Identifier&quot; gesprochen. Das vorliegende Dokumente fasst alle drei Konzepte mit dem Begriff &quot;URL&quot; zusammen und ignoriert damit die Unterschiede der einzelnen Begriffe, da diese im Rahmen dieser Spezifikation ohne bedeutung sind.</p>
+<p>Die grundsätzliche Funktionsweise von URLs ist in RFC 3986 beschrieben<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a>.</p>
 <p>Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in diesem Dokument Verwendung finden:</p>
 <pre><code>http://refserv.oparl.org/foo/bar/?skip=234
 \__/   \_______________/\_______/ \______/
@@ -384,7 +383,7 @@ Objekt: https://dbpedia.org/resource/John_(given_name)</code></pre>
 Schema    Host             Pfad  Query-String</code></pre>
 <section id="url-kanonisierung" class="level3">
 <h3><span class="header-section-number">4.5.1</span> URL-Kanonisierung</h3>
-<p>Absicht ist, dass jedes benannte Objekt<a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a>, das ein Server über eine OParl-API anbietet, über genau eine URL identifizierbar und abrufbar ist. Diese Vereinheitlichung der URL nennen wir Kanonisierung.</p>
+<p>Absicht ist, dass jedes benannte Objekt<a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a>, das ein Server über eine OParl-API anbietet, über genau eine URL identifizierbar und abrufbar ist. Diese Vereinheitlichung der URL nennen wir Kanonisierung.</p>
 <p>Die Kanonisierung ist entscheidend, um erkennen zu können, ob zwei URLs das selbe Objekt repräsentieren. Sind zwei URLs identisch, sollen Clients daraus ableiten können, dass diese das selbe Objekt repräsentieren. Sind zwei URLs unterschiedlich, soll im Umkehrschluss die Annahme gelten, dass sie zwei verschiedene Objekte repräsentieren.</p>
 <p>Der OParl-konforme Server MUSS für jedes benannte Objekt eine kanonische URL bestimmen können.</p>
 <p>Die URL-Kanonisierung betrifft sämtliche Bestandteile der URL. Entsprechend beginnt diese schon beim <strong>Schema</strong> und bei der Entscheidung durch den Betreiber, ob eine OParl-API regulär über HTTP oder über HTTPS erreichbar sein soll (vgl. <a href="#http-und-https">HTTP und HTTPS</a>).</p>
@@ -427,18 +426,18 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <li><p><strong>Veränderliche Objekt-Eigenschaften nicht als URL-Bestandteil nutzen.</strong> In URLs sollten nur Eigenschaften des Objekts aufgenommen werden, die keinen Veränderungen unterliegen. Ändert sich beispielsweise die Kennung einer Drucksache im Verlauf ihrer Existenz, dann scheidet sie für die Bildung der URL aus.</p></li>
 <li><p><strong>Technische Eigenschaften der Implementierung verbergen.</strong> Ist ein OParl-Server beispielsweise in PHP implementiert, sollte dies nicht dazu führen, dass im Pfad ein Bestandteil wie &quot;oparl.php/&quot; erscheint. Erfahrungsgemäß überdauern solche URLs nur kurz.</p></li>
 </ul>
-<p>Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a> sowie die Europäische Kommission<a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a>.</p>
+<p>Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee<a href="#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a> sowie die Europäische Kommission<a href="#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a>.</p>
 </section>
 </section>
 <section id="serialisierung-mittels-json-ld-und-jsonp" class="level2">
 <h2><span class="header-section-number">4.6</span> Serialisierung mittels JSON-LD und JSONP</h2>
 <p>Eine OParl-konforme API gibt Objekte in Form von JSON aus. Die Objekte werden dabei entsprechend der JSON-LD Spezifikation um Kontexte erweitert, welche die Selbstbschreibungsfähigkeit der ausgegebenen Daten verbessert. Auf Anforderung des Clients wird darüber hinaus JSONP unterstützt.</p>
-<p>In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung des HTTP <code>Content-type</code>-Headers <code>application/ld+json</code> beantworten. Die Spezifikation von JSON-LD liefert dazu genauere Informationen<a href="#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a>, auch zu dem optionalen Parameter <code>profile</code> für die explizite Anforderung von JSON-LD in einer dieser drei Unterformen: kompakt, expandiert oder flach.</p>
+<p>In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung des HTTP <code>Content-type</code>-Headers <code>application/ld+json</code> beantworten. Die Spezifikation von JSON-LD liefert dazu genauere Informationen<a href="#fn24" class="footnoteRef" id="fnref24"><sup>24</sup></a>, auch zu dem optionalen Parameter <code>profile</code> für die explizite Anforderung von JSON-LD in einer dieser drei Unterformen: kompakt, expandiert oder flach.</p>
 <p>Wenn der Server auch Anfragen nach <code>application/json</code> akzeptiert, dann SOLL er expandierte JSON-LD Dokumente liefern (also solche ohne <code>@context</code>).</p>
 <p>TODO: MUSS der Server solche Legacy-Anfragen akzeptieren? Warum?</p>
 <section id="json" class="level3">
 <h3><span class="header-section-number">4.6.1</span> JSON</h3>
-<p>Die Abkürzung JSON steht für &quot;JavaScript Object Notation&quot;. Das JSON-Format ist in RFC4627<a href="#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a> beschrieben. Nachfolgend werden nur die wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren Verwendung in diesem Dokument zu etablieren.</p>
+<p>Die Abkürzung JSON steht für &quot;JavaScript Object Notation&quot;. Das JSON-Format ist in RFC4627<a href="#fn25" class="footnoteRef" id="fnref25"><sup>25</sup></a> beschrieben. Nachfolgend werden nur die wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren Verwendung in diesem Dokument zu etablieren.</p>
 <p>Das JSON-Format unterstützt die Ausgabe von vier verschiedenen primitiven Datentypen:</p>
 <ul>
 <li><em>Zeichenkette</em> (Unicode)</li>
@@ -465,7 +464,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 <section id="jsonld" class="level3">
 <h3><span class="header-section-number">4.6.2</span> JSON-LD</h3>
-<p>Das Kürzel LD im Namen &quot;JSON-LD&quot; steht für &quot;Linked Data&quot;<a href="#fn24" class="footnoteRef" id="fnref24"><sup>24</sup></a>. Entsprechend erweitert die JSON-LD-Spezifikation<a href="#fn25" class="footnoteRef" id="fnref25"><sup>25</sup></a> das JSON-Format um die Möglichkeit,</p>
+<p>Das Kürzel LD im Namen &quot;JSON-LD&quot; steht für &quot;Linked Data&quot;<a href="#fn26" class="footnoteRef" id="fnref26"><sup>26</sup></a>. Entsprechend erweitert die JSON-LD-Spezifikation<a href="#fn27" class="footnoteRef" id="fnref27"><sup>27</sup></a> das JSON-Format um die Möglichkeit,</p>
 <ul>
 <li>Objekte mit anderen Objekten zu verknüpfen,</li>
 <li>Objekte und Eigenschaften bestimmten Typen zuzuordnen und damit</li>
@@ -498,7 +497,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 }</code></pre>
 <p>Hier sind die Eigenschaften wie <code>image</code> einer URL wie http://schema.org/image zugewiesen. Ein Client, der diese URL kennt, kann daraus folgern, dass über die Objekteigenschaft <code>image</code> immer die URL eines Bildes zu finden ist. Das Schlüssel-Wert-Paar</p>
 <pre><code>&quot;@type&quot;: &quot;@id&quot;</code></pre>
-<p>sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die URL eines anderen Objekts ist<a href="#fn26" class="footnoteRef" id="fnref26"><sup>26</sup></a>. Mittels <code>@type</code>-Deklaration könnte aber auch beispielsweise eine Eigenschaft, die im JSON-Sinn eine Zeichenkette ist, als Datum deklariert werden.</p>
+<p>sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die URL eines anderen Objekts ist<a href="#fn28" class="footnoteRef" id="fnref28"><sup>28</sup></a>. Mittels <code>@type</code>-Deklaration könnte aber auch beispielsweise eine Eigenschaft, die im JSON-Sinn eine Zeichenkette ist, als Datum deklariert werden.</p>
 <p>Am obigen Beispiel fällt auf, dass der <code>@context</code>-Teil des Objekts schon mehr Daten umfasst, als die eigentlichen Objekteigenschaften. Sinnvollerweise kann jedoch der gesamte Inhalt des <code>@context</code>-Teils in eine externe Ressource ausgelagert werden. Das folgende Beispiel verdeutlicht dies:</p>
 <pre class="sourceCode json" id="jsonld_ex3"><code class="sourceCode json">{
   <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;http://json-ld.org/contexts/person.jsonld&quot;</span>,
@@ -546,7 +545,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <section id="jsonp" class="level3">
 <h3><span class="header-section-number">4.6.3</span> JSONP</h3>
 <p>Eine Einschränkung bei der Nutzung von JSON ist das Sicherheitsmodell von Web-Browsern. Die gängigen Browser erlauben es innerhalb von Webanwendungen nicht, JSON-Ressourcen von Domains auszulesen, die nicht der Domain entsprechen, von der die Webanwendung selbst geladen wurde. AnwendungsentwicklerInnen sind dadurch bei der Implementierung von Client-Anwendungen eingeschränkt.</p>
-<p>Diese Einschränkung gilt nicht fürt JSONP<a href="#fn27" class="footnoteRef" id="fnref27"><sup>27</sup></a>. Durch JSONP (TODO: Abkürzung erläutern) wird die JSON-Notation so erweitert, dass der ausgegebene Code ausführbarer JavaScript-Code wird. Damit wird erreicht, dass der JSON-Code über die Grenzen von Domains hinweg direkt von Webanwendungen eingebunden werden kann.</p>
+<p>Diese Einschränkung gilt nicht fürt JSONP<a href="#fn29" class="footnoteRef" id="fnref29"><sup>29</sup></a>. Durch JSONP (TODO: Abkürzung erläutern) wird die JSON-Notation so erweitert, dass der ausgegebene Code ausführbarer JavaScript-Code wird. Damit wird erreicht, dass der JSON-Code über die Grenzen von Domains hinweg direkt von Webanwendungen eingebunden werden kann.</p>
 <p>Das folgende Beispiel verdeutlicht den Unterschied zwischen JSON und JSONP. Zunächst ein einfaches JSON-Beispiel:</p>
 <pre class="sourceCode json" id="jsonp_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;foo&quot;</span>: <span class="st">&quot;bar&quot;</span>
@@ -628,48 +627,95 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>Beispiel:</p>
 <pre class="sourceCode json" id="objektlisten_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;items&quot;</span>: [
-        <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/2&quot;</span>,
-        <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/5&quot;</span>,
-        <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/7&quot;</span>,
+        <span class="st">&quot;https://beispielris.de/bodies/0/papers/2&quot;</span>,
+        <span class="st">&quot;https://beispielris.de/bodies/0/papers/5&quot;</span>,
+        <span class="st">&quot;https://beispielris.de/bodies/0/papers/7&quot;</span>,
     ]
 }</code></pre>
+<p>Die vollständige Listenausgabe SOLL nur für Listen verwendet werden, die bis zu 100 Einträge umfassen.</p>
 </section>
 <section id="paginierung" class="level3">
 <h3><span class="header-section-number">4.8.2</span> Paginierung</h3>
-<p>Für längere Listen ist eine Blätterfunktion bzw. Paginierung vorgesehen. Darunter versteht man die Aufteilung der Liste in kleinere Teilbereiche, die wir hier als &quot;Listenseiten&quot; bezeichnen. Zweck ist, die einzelnen Listenseiten mit je einer eigenen API-Anfrage abrufbar zu machen. Die Aufteilung der Liste in Listenseiten erfolgt durch den Server und kann vom Client nicht beeinflusst werden, sie bleibt jedoch zwischen den einzelnen unverändert.</p>
-<p>Listen mit mehr als 100 Einträgen SOLL der Server nur teilweise ausgeben und dem Client dabei eine <strong>Paginierung</strong> anbieten, um weitere Listenteile abzurufen. Dabei wird EMPFOHLEN, die Zahl der jeweils ausgegebenen Listeneinträge wiederum auf maximal 100 zu begrenzen.</p>
-<p>Das nachstehende Beispiel zeigt, wie dem Client die URL zum &quot;Blättern&quot;, also zum Aufruf der jeweils nächsten Listenseite, angeboten wird.</p>
-<pre class="sourceCode json" id="objektlisten_ex2"><code class="sourceCode json">{
-    <span class="dt">&quot;items&quot;</span>: [
-        <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/2&quot;</span>,
-        <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/5&quot;</span>,
-        <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/7&quot;</span>,
-    ],
-    <span class="dt">&quot;nextPage&quot;</span>: <span class="st">&quot;http://refserv.oparl.org/bodies/0/papers/?skip=7&quot;</span>,
-    <span class="dt">&quot;count&quot;</span>: <span class="dv">118</span>
-}</code></pre>
-<p>Wie oben zu sehen, enthält das Beispiel-Objekt nun eine zusätzliche Eigenschaft <code>nextPage</code>. Der Wert dieser Eigenschaft ist eine URL, die dem Client dazu dient, die weiteren Einträge der Liste abzurufen.</p>
-<p>Die Eigenschaft <code>count</code> DARF bei Listen grundsätzlich ausgegeben werden und SOLL bei mehrseitigen Listen ausgegeben werden. Ihr Wert ist eine Zahl und gibt an, wie viele Einträge die vollständige Liste aller Objekte enthält.</p>
-<p>Ruft der Client die unter <code>nextPage</code> angegebene URL auf, erhält er wiederum ein Listenobjekt. Dieses Objekt MUSS, sofern noch immer mehr Listeneinträge vorhanden sind, als ausgegeben wurden, wiederum die <code>nextPage</code> Eigenschaft mit einer URL enthalten. Um alle Einträge einer Liste zu erfassen, folgt der Client also jeweils der URL, die in der <code>nextpage</code> Eigenschaft angegeben ist.</p>
+<p>Für den Abruf von Listen mit vielen Elementen ist eine Blätterfunktion (Paginierung) vorgesehen. Darunter verstehen wir die Aufteilung einer Liste in kleinere Teilstücke, die wir hier als Listenseiten bezeichnen. Jede Listenseite wird vom Client jeweils mit einer eigenen API-Anfrage abgerufen. Das dient dazu, die bei der jeweiligen Anfrage übertragenen Datenmengen zu begrenzen und damit Antwortzeiten und Systemressourcen sowohl beim Server als auch beim Client zu schonen.</p>
+<p>Die Entscheidung, ob eine Seite teilweise und daher mit Paginierung ausgegeben wird, liegt allein beim Server. Bei Listen mit mehr als 100 Einträgen ist dies EMPFOHLEN. Die Zahl der Einträge, die der Server dabei je Listenseite ausliefert, SOLL dabei maximal 100 betragen. Die Anzahl der Einträge (Obergrenze) MUSS auf allen Listenseiten der selben Liste einheitlich sein, sofern nicht (beispielsweise auf der letzten Listenseite) weniger Listeneinträge vorhanden sind.</p>
+<p>Wird eine Liste in Form von Listenseiten, also mit Paginierung, ausgegeben, teilt der Server dem Client mittels HTTP-Headern in der nachfolgend beschriebenen Form mit, unter welcher URL weitere Listenseiten abgerufen werden können. Dabei wird von dem in RFC5988<a href="#fn30" class="footnoteRef" id="fnref30"><sup>30</sup></a> beschriebenen Header namens <code>Link</code> Gebrauch gemacht.</p>
+<p>Beispiel eines Link-Headers zur Angabe der URL für den Abruf der folgenden Listenseite:</p>
+<pre><code>Link: &lt;https://oparl.beispielris.de/bodies/0/papers/?skip_id=7&gt;;rel=next</code></pre>
+<p>Im oben gezeigten Beispiel besteht der Wert des Link-Headers aus zwei Bestandteilen, die durch Semikolon <code>;</code> von einander getrennt sind:</p>
+<pre><code>&lt;https://oparl.beispielris.de/bodies/0/papers/?skip_id=7&gt;;rel=next
+ \_____________________________________________________/  \______/
+                            |                                |
+                           URL                        Link-Parameter</code></pre>
+<p>Die Bestandteile sind:</p>
+<dl>
+<dt>URL:</dt>
+<dd><p>Die URL zum Abruf der nächsten Listenseite. Die URL wird in spitzen Klammern <code>&lt;</code> und <code>&gt;</code> ausgegeben. <em>Hinweis:</em> Wie diese URL aufgebaut ist, entscheidet allein der Server. Hier wird lediglich ein fiktives Beispiel gegeben.</p>
+</dd>
+<dt>Link-Parameter:</dt>
+<dd><p>Gemäß RFC5988 können belibig viele, auch null, Link-Parameter hinter der URL ausgegeben werden, jeweils durch ein Semikolon von der URL getrennt. Für OParl gilt: Es MUSS bei einer Liste mit Paginierung genau ein Link-Header mit dem Link-Parameter <code>rel=next</code> gegeben sein, sofern es eine nächste Seite mit weiteren Listenelementen gibt. Stellt die mit der aktuellen Anfrage ausgegebene Listenseite das Ende der Liste dar, DARF die Anfrage NICHT den Link-Header mit Link-Parameter <code>rel=next</code> enthalten.</p>
+</dd>
+</dl>
+<p>Es ergibt sich eine typische Abfolge, wie Clients bei Bedarf mit mehreren Anfragen ganze Objektlisten vom Server abrufen:</p>
+<ol type="1">
+<li><p>Der Server stellt eine URL für eine Liste zur Verfügung.</p></li>
+<li><p>Der Client ruft diese URL der Liste auf.</p></li>
+<li><p>Der Server antwortet mit einer Listenseite und stellt im Link-Header mit Link-Parameter <code>rel=next</code> die URL für den Abruf der nächsten Listenseite zur Verfügung.</p></li>
+<li><p>Der Client ruft die im Link-Header übergebene URL für die nächste Listenseite auf.</p></li>
+</ol>
+<p>Die Punkte 3 und 4 können sich nun so oft wiederholen, bis die letzte Listenseite erreicht ist.</p>
+<ol start="5" type="1">
+<li>Der Server liefert die letzte Listenseite ohne Link-Header aus.</li>
+</ol>
+<p>Zusätzlich zu dem für die Paginierung obligatorischen Link-Header für die folgende Listenseite (Link-Parameter <code>rel=next</code>) können Server OPTIONAL weitere Link-Header zum Abruf bestimmter Listenseiten anbieten:</p>
+<dl>
+<dt>Erste Listenseite (<code>first</code>):</dt>
+<dd><p>Sofern die aktuell abgerufene Listenseite nicht den Anfang der Liste wiedergibt, KANN der Server einen Link-Header mit Link-Parameter <code>rel=first</code> und der URL zum Abruf der <em>ersten</em> Listenseite ausgeben.</p>
+</dd>
+<dt>Letzte Listenseite (<code>last</code>):</dt>
+<dd><p>Sofern die aktuell abgerufene Listenseite nicht das Ende der Liste wiedergibt, KANN der Server einen Link-Header mit Link-Parameter <code>rel=last</code> und der URL zum Abruf der <em>letzten</em> Listenseite ausgeben.</p>
+</dd>
+<dt>Vorherige Listenseite (<code>prev</code>):</dt>
+<dd><p>Sofern die aktuell abgerufene Listenseite nicht den Anfang der Liste wiedergibt, KANN der Server einen Link-Header mit Link-Parameter <code>rel=prev</code> und der URL zum Abruf der ersten Listenseite ausgeben.</p>
+</dd>
+</dl>
+<p>Damit eröffnet der Server dem Client zusätzliche Möglichkeiten, die einzelnen Listenseiten abzurufen.</p>
 <figure>
 <img src="images/pagination01.png" alt="Paginierung: Schematische Darstellung" /><figcaption>Paginierung: Schematische Darstellung</figcaption>
 </figure>
-<p>Server-Implementierer entscheiden selbst, wie die <code>nextPage</code>-URL aufgebaut ist und tragen damit selbst Verantwortung für die Funktionsweise der Paginierung. Bei der Entscheidung für eine Form der Implementierung sind weitere Anforderungen zu berücksichtigen:</p>
-<ul>
-<li>Es ist davon auszugehen, dass Clients für den gesamten Abruf aller Seiten einer Liste längere Zeit benötigen. In der Zwischenzeit kann sich der Inhalt der Liste bereits ändern, etwa durch das Hinzukommen neuer Einträge. Die Paginierung ist so zu implementieren, dass sich das Hinzukommen oder Entfernen von Einträgen möglichst nicht auf einen Client auswirkt, der aktuell die Liste paginiert, um alle Einträge abzurufen.</li>
-</ul>
-<p>Eine ungünstige (unstabile) Form der Implementierung soll hier mit Hilfe einer SQL-Abfrage illustriert werden. Gegeben sei eine Tabelle <code>example</code>, die einen numerischen Primärschlüssel <code>id</code> enthält. Nehmen wir an, die erste Seite der Liste wird mit der Abfrage</p>
+<p>Server-Implementierer entscheiden selbst, wie die URLs zum Abruf einzelner Listenseiten aufgebaut ist und tragen damit selbst Verantwortung für die Funktionsweise der Paginierung. Bei der Entscheidung für eine Form der Implementierung sollten die folgenden Anforderungen von Clients berücksichtigt werden.</p>
+<p>Es ist davon auszugehen, dass Clients für den gesamten Abruf aller Seiten einer Liste längere Zeit benötigen. In der Zwischenzeit kann sich der Inhalt der Liste bereits ändern, etwa durch das Hinzukommen neuer Einträge. Die Paginierung ist idealerweise so zu implementieren, dass sich das Hinzukommen oder Entfernen von Einträgen möglichst nicht auf einen Client auswirkt, der aktuell die Liste paginiert, um alle Einträge abzurufen. Wir bezeichnen dies als <strong>stabile Paginierung</strong>.</p>
+<p>Eine wesentliche Anforderung an Listen mit Paginierung ist, dass alle Einträge der Liste in einer konstistenten Reihenfolge sortiert ausgegeben werden SOLLEN. Das bedeutet, dass die Sortierung beim Server im Idealfall anhand einer eindeutigen und unveränderlichen Objekteigenschaft vorgenommen wird. Hierfür eignen sich die Objekt-URLs, da sie genau diese beiden Anforderungen erfüllen sollten.</p>
+<p>Über die Sortierung hinaus können bei der Implementierung einer stabilen Paginierung auf Server-Seite weitere Überlegungen einbezogen werden. Zur Verdeutlichung soll hier eine ungünstige (unstabile) Form der Implementierung mit Hilfe einer SQL-Abfrage illustriert werden. Gegeben sei eine Tabelle <code>example</code>, die einen numerischen Primärschlüssel <code>id</code> enthält. Nehmen wir an, die erste Seite der Liste wird mit der Abfrage</p>
 <pre class="sourceCode sql" id="objektlisten_ex3"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> example <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span> <span class="kw">LIMIT</span> <span class="dv">10</span> OFFSET <span class="dv">0</span></code></pre>
 <p>abgerufen und würde 10 Datensätze mit den <code>id</code>s 1 bis 10 zurück liefern. Dann wird die zweite Seite mit der Abfrage</p>
 <pre class="sourceCode sql" id="objektlisten_ex4"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> example <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span> <span class="kw">LIMIT</span> <span class="dv">10</span> OFFSET <span class="dv">10</span></code></pre>
-<p>abgerufen. Sofern sich an der Tabelle zwischen den beiden Abfragen nichts geändert hat, liefert die zweite Abfrage Datensätze mit <code>id</code> &gt; 10 aus. Sollte zwischen den beiden Abfragen jedoch beispielsweise der Datensätze mit der <code>id</code> 1 gelöscht worden sein, liefert die zweite Abfrage Datensätze mit <code>id</code> &gt; 9. In diesem Fall würde dies nur dazu führen, dass ein Datensatz (<code>id</code> = 10) zweimal ausgegeben wird. Bei ungünstigeren Konstellationen wäre auch denkbar, dass eine instabile Paginierung bewirkt, dass einzelne Datensätze beim Paginieren übergangen werden.</p>
-<p>Besser wäre es, bei der Paginierung die Eintragsgrenze, bei der eine Listenseite beginnen soll, explizit zu benennen. Wurden auf der ersten Listenseite die Datensätze mit den <code>id</code>s 1 bis 10 ausgegeben, so könnte der Folgeaufruf, um beim SQL-Beispiel zu bleiben, so aussehen:</p>
+<p>abgerufen. Sollte nach der ersten, aber vor der zweiten Abfrage beispielsweise der Datensatz mit der <code>id=1</code> gelöscht worden sein, liefert die zweite Abfrage Datensätze mit <code>id</code> &gt; 9. In diesem Fall würde dies nur dazu führen, dass ein Datensatz (<code>id=10</code>) zweimal ausgegeben wird. Bei ungünstigeren Konstellationen wäre auch denkbar, dass eine unstabile Paginierung bewirkt, dass einzelne Datensätze beim Paginieren übergangen werden.</p>
+<p>Besser wäre es, bei der Paginierung die Eintragsgrenze, bei der eine Listenseite beginnen soll, explizit zu benennen. Wurden auf der ersten Listenseite die Datensätze mit den IDs 1 bis 10 ausgegeben, so könnte der Folgeaufruf, um beim SQL-Beispiel zu bleiben, so aussehen:</p>
 <pre class="sourceCode sql" id="objektlisten_ex5"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> example <span class="kw">WHERE</span> <span class="kw">id</span> &gt; <span class="dv">10</span> <span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">id</span> <span class="kw">LIMIT</span> <span class="dv">10</span></code></pre>
-<p>TODO: Bestimmte Listen können mit Einschränkung auf einen Datumsbereich abgefragt werden. Mehr dazu in https://github.com/OParl/specs/issues/30 Fraglich ist, ob das in diesem Kapitel behandelt werden sollte oder in einem anderen.</p>
+<p>Die zuvor beschriebenen Anforderungen für die Paginierung von Listen gelten auch unverändert, wenn der Umfang der Liste durch Abfrageparameter vom Client eingeschränkt wurde.</p>
 </section>
 <section id="listen-als-eigenschaften-von-objekten" class="level3">
 <h3><span class="header-section-number">4.8.3</span> Listen als Eigenschaften von Objekten</h3>
-<p>TODO: Listen können auch als Werte von Objekteigenschaften auftreten. Hierbei gibt es keine Paginierung, sondern es müssen alle URLs aufgelistet werden. Das ist auszuformulieren und mit Beispielen zu zeigen.</p>
+<p>Listen von Objekten können auch als Werte von Objekteigenschaften auftreten. Hierbei kann die oben beschriebene Paginierung nicht angewendet werden, sondern es MÜSSEN die URLs aller Listeneinträge aufgelistet werden.</p>
+<p>Ein Beispiel dafür könnte die Eigenschaft <code>bodies</code> des <code>oparl:System</code> Objekts sein, also die Liste der Körperschaften, die auf einem OParl-Server abgebildet werden:</p>
+<pre class="sourceCode json" id="objektlisten_ex6"><code class="sourceCode json">{
+    <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;oparl:System&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/&quot;</span>,
+    <span class="dt">&quot;bodies&quot;</span>: [
+        <span class="st">&quot;https://oparl.beispielris.de/bodies/1&quot;</span>,
+        <span class="st">&quot;https://oparl.beispielris.de/bodies/2&quot;</span>
+    ],
+    <span class="er">...</span>
+}</code></pre>
+<p>Diese Listenausgabe direkt im Objekt ist nur zu empfehlen, wenn die Anzahl der Einträge klein (weniger als 100 Einträge) ist. Sind mehr Einträge zu erwarten, SOLL die entsprechende Liste über eine eigene URL angeboten werden.</p>
+<p>Das folgende Beispiel verdeutlicht, wie dies die Eigenschaft <code>bodies</code> am vorangegangenen Beispiel beeinflusst:</p>
+<pre class="sourceCode json" id="objektlisten_ex6"><code class="sourceCode json">{
+    <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;oparl:System&quot;</span>,
+    <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/&quot;</span>,
+    <span class="dt">&quot;bodies&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/bodies/&quot;</span>
+    <span class="er">...</span>
+}</code></pre>
+<p>Statt einer JSON-Liste ist der Wert der Eigenschaft nun eine einzige URL.<a href="#fn31" class="footnoteRef" id="fnref31"><sup>31</sup></a></p>
 </section>
 </section>
 <section id="feeds" class="level2">
@@ -862,8 +908,8 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <p>In keinem Fall sollten die Werte von <code>name</code> und <code>nameLong</code> identische sein.</p>
 </section>
 <section id="license" class="level3">
-<h3><span class="header-section-number">5.2.4</span> <code>license</code></h3>
-<p>Die Eigenschaft <code>license</code> erlaubt es, am jeweiligen Objekt die URL einer Lizenz anzugeben. Damit wird gekennzeichnet, welche Lizenz der Veröffentlicher der Daten für das jeweilige Objekt vergibt.</p>
+<h3><span class="header-section-number">5.2.4</span> <code id="eigenschaft_license">license</code></h3>
+<p>Die Eigenschaft <code>license</code> erlaubt es, am jeweiligen Objekt die URL einer Lizenz anzugeben. Damit wird gekennzeichnet, welche Lizenz der Veröffentlicher der Daten für das jeweilige Objekt vergibt.<a href="#fn32" class="footnoteRef" id="fnref32"><sup>32</sup></a></p>
 <p>Eine besondere Bedeutung hat die Eigenschaft <code>license</code>, wenn sie am <code>oparl:System</code> Objekt oder am <code>oparl:Body</code> Objekt vergeben wird. Die hier angegebene Lizenzinformation sagt aus, dass alle Objekte dieses Systems unter der angegebenen Lizenz veröffentlicht werden, sofern dies nicht am jeweiligen Objekt mit einer anders lautenden Lizenz-URL überschrieben wird. Daher wird dringend EMPFOHLEN, die Lizenzinformation global am <code>oparl:System</code> Objekt mitzuteilen und auf redundante Informationen zu verzichten.</p>
 <p>Auf Objekte vom Typ <code>oparl:Document</code> bezogen bezieht sich die Lizenzinformation nicht nur auf die strukturierten Metadaten, die über die API bezogen werden, sondern auch auf den eigentlichen Inhalt der Dateien, die über die angebotene(n) URL(s) abgerufen werden können.</p>
 </section>
@@ -899,7 +945,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://beispielris.de/&quot;</span>,
     <span class="dt">&quot;oparlVersion&quot;</span>: <span class="st">&quot;http://oparl.org/specs/1.0/&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Beispiel-System&quot;</span>,
-    <span class="dt">&quot;risWebsite&quot;</span>: <span class="st">&quot;http://www.beispielris.de/&quot;</span>,
+    <span class="dt">&quot;website&quot;</span>: <span class="st">&quot;http://www.beispielris.de/&quot;</span>,
     <span class="dt">&quot;contactEmail&quot;</span>: <span class="st">&quot;mailto:info@beispielris.de&quot;</span>,
     <span class="dt">&quot;contactName&quot;</span>: <span class="st">&quot;Allgemeiner OParl Kontakt&quot;</span>,
     <span class="dt">&quot;vendor&quot;</span>: <span class="st">&quot;http://example-software.com/&quot;</span>,
@@ -936,7 +982,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;http://beispielris.de/&quot;</span>,
     <span class="dt">&quot;oparlVersion&quot;</span>: <span class="st">&quot;http://oparl.org/specs/1.0/&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Beispiel-System&quot;</span>,
-    <span class="dt">&quot;risWebsite&quot;</span>: <span class="st">&quot;http://www.beispielris.de/&quot;</span>,
+    <span class="dt">&quot;website&quot;</span>: <span class="st">&quot;http://www.beispielris.de/&quot;</span>,
     <span class="dt">&quot;contactEmail&quot;</span>: <span class="st">&quot;mailto:info@beispielris.de&quot;</span>,
     <span class="dt">&quot;contactName&quot;</span>: <span class="st">&quot;Allgemeiner OParl Kontakt&quot;</span>,
     <span class="dt">&quot;vendor&quot;</span>: <span class="st">&quot;http://example-software.com/&quot;</span>,
@@ -996,7 +1042,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dt><code>removedObjects</code></dt>
 <dd><p>URL des Feeds <a href="#feed_entfernte_objekte">&quot;Entfernte Objekte&quot;</a>. Die Eigenschaft ist EMPFOHLEN.</p>
 </dd>
-<dt><code>risWebsite</code></dt>
+<dt><code>website</code></dt>
 <dd><p>URL zur WWW-Oberfläche des parlamentarischen Informationssystem. Diese Eigenschaft ist OPTIONAL.</p>
 </dd>
 <dt><code>vendor</code></dt>
@@ -1039,9 +1085,9 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
         <span class="st">&quot;http://d-nb.info/gnd/2015732-0&quot;</span>,
         <span class="st">&quot;http://dbpedia.org/resource/Cologne&quot;</span>
     ],
-    <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Stadt K\u00f6ln&quot;</span>,
+    <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Stadt Köln&quot;</span>,
     <span class="dt">&quot;nameLong&quot;</span>: { <span class="er">//</span> <span class="er">verwendet</span> <span class="er">eine</span> <span class="dt">&quot;language map&quot;</span>
-        <span class="dt">&quot;de&quot;</span>: <span class="st">&quot;Stadt K\u00f6ln, kreisfreie Stadt&quot;</span>,
+        <span class="dt">&quot;de&quot;</span>: <span class="st">&quot;Stadt Köln, kreisfreie Stadt&quot;</span>,
         <span class="dt">&quot;en&quot;</span>: <span class="st">&quot;City of Cologne&quot;</span>
     }
     <span class="st">&quot;website&quot;</span><span class="er">:</span> <span class="st">&quot;http://www.beispielstadt.de/&quot;</span>,
@@ -1061,28 +1107,28 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <h3><span class="header-section-number">5.4.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>system</code></dt>
-<dd><p>System zu dem dieses Objekt gehört. Typ: <code>oparl:System</code> ZWINGEND.</p>
+<dd><p>System zu dem dieses Objekt gehört. Typ: <code>oparl:System</code>. ZWINGEND.</p>
 </dd>
 <dt><code>name</code></dt>
-<dd><p>Gibt den gebräuchlichen Namen der Körperschaft an. Typ: TODO ZWINGEND.</p>
+<dd><p>Gibt den gebräuchlichen Namen der Körperschaft an. Typ: TODO. ZWINGEND.</p>
 </dd>
 <dt><code>nameLong</code></dt>
-<dd><p>Kann bei Bedarf dazu verwendet werden, eine längere Form des Namens der Körperschaft anzugeben. Typ: TODO OPTIONAL.</p>
+<dd><p>Kann bei Bedarf dazu verwendet werden, eine längere Form des Namens der Körperschaft anzugeben. Typ: TODO. OPTIONAL.</p>
 </dd>
 <dt><code>website</code></dt>
-<dd><p>WWW-URL der Körperschaft. EMPFOHLEN.</p>
+<dd><p>URL der allgemeinen Website der Körperschaft. EMPFOHLEN.</p>
 </dd>
 <dt><code>license</code></dt>
-<dd><p>Lizenz, die für die Daten, die über diese API abgerufen werden können, gilt, sofern nicht am einzelnen Objekt anders angegeben. Verzeichnisse für solche Lizenz-URLs sind insbesondere http://licenses.opendefinition.org/ und https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json Typ: TODO EMPFOHLEN.</p>
+<dd><p>URL der Lizenz, die für die Daten, die über diese API abgerufen werden können, gilt, sofern nicht am einzelnen Objekt anders angegeben. Sie dazu auch die übergreifende Beschreibung zur Eigenschaft <a href="#eigenschaft_license"><code>license</code></a>. EMPFOHLEN.</p>
 </dd>
 <dt><code>licenseValidSinceDay</code></dt>
 <dd><p>Tagesdatum, seit dem die unter license angegebene Lizenz gilt. Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen. Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>rgs</code></dt>
-<dd><p>Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette<a href="#fn28" class="footnoteRef" id="fnref28"><sup>28</sup></a>. Typ: TODO EMPFOHLEN</p>
+<dd><p>Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette<a href="#fn33" class="footnoteRef" id="fnref33"><sup>33</sup></a>. Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>equivalentBody</code></dt>
-<dd><p>Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe Körperschaft repräsentieren. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek<a href="#fn29" class="footnoteRef" id="fnref29"><sup>29</sup></a>, der DBPedia<a href="#fn30" class="footnoteRef" id="fnref30"><sup>30</sup></a> oder der Wikipedia<a href="#fn31" class="footnoteRef" id="fnref31"><sup>31</sup></a> angegeben werden. Typ: TODO EMPFOHLEN</p>
+<dd><p>Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe Körperschaft repräsentieren. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek<a href="#fn34" class="footnoteRef" id="fnref34"><sup>34</sup></a>, der DBPedia<a href="#fn35" class="footnoteRef" id="fnref35"><sup>35</sup></a> oder der Wikipedia<a href="#fn36" class="footnoteRef" id="fnref36"><sup>36</sup></a> angegeben werden. Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>contactEmail</code></dt>
 <dd><p>Dient der Angabe einer Kontakt-E-Mail-Adresse mit &quot;mailto:&quot;-Schema. Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und idealerweise das parlamentarische Informationssystem zuständigen Stelle ermöglichen. Typ: TODO EMPFOHLEN</p>
@@ -1221,12 +1267,12 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;familyName&quot;</span>: { <span class="er">//</span> <span class="er">könnte</span> <span class="er">mehrsprachig</span> <span class="er">sein</span>, <span class="er">z.B.</span> <span class="er">griechisch</span>, <span class="er">russisch</span>, <span class="er">tamilisch</span> 
         <span class="dt">&quot;@value&quot;</span>: <span class="st">&quot;Mustermann&quot;</span>,
         <span class="dt">&quot;@language&quot;</span>: <span class="st">&quot;de&quot;</span>
-    }
-    <span class="st">&quot;givenName&quot;</span><span class="er">:</span> { <span class="er">//</span> <span class="er">könnte</span> <span class="er">mehrsprachig</span> <span class="er">sein</span>
+    },
+    <span class="dt">&quot;givenName&quot;</span>: { <span class="er">//</span> <span class="er">könnte</span> <span class="er">mehrsprachig</span> <span class="er">sein</span>
         <span class="dt">&quot;@value&quot;</span>: <span class="st">&quot;Max&quot;</span>,
         <span class="dt">&quot;@language&quot;</span>: <span class="st">&quot;de&quot;</span>
-    }
-    <span class="st">&quot;title&quot;</span><span class="er">:</span> <span class="st">&quot;Prof. Dr.&quot;</span>, <span class="er">//</span> <span class="er">TODO</span>: <span class="er">nicht</span> <span class="er">mehrsprachig?!</span>
+    },
+    <span class="dt">&quot;title&quot;</span>: <span class="st">&quot;Prof. Dr.&quot;</span>, <span class="er">//</span> <span class="er">TODO</span>: <span class="er">nicht</span> <span class="er">mehrsprachig?!</span>
     <span class="st">&quot;formOfAddress&quot;</span><span class="er">:</span> <span class="st">&quot;http://oparl.beispielris.de/formofaddress/ratsmitglied&quot;</span>,
     <span class="dt">&quot;gender&quot;</span>: <span class="st">&quot;http://www.w3.org/2006/vcard/ns#Male&quot;</span>,
     <span class="dt">&quot;email&quot;</span>: <span class="st">&quot;mailto:max@mustermann.de&quot;</span>,
@@ -1235,17 +1281,17 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;postalCode&quot;</span>: <span class="st">&quot;11111&quot;</span>,
     <span class="dt">&quot;locality&quot;</span>: {
         <span class="dt">&quot;de&quot;</span>: <span class="st">&quot;Musterort&quot;</span>,
-        <span class="dt">&quot;en&quot;</span>: <span class="er">Sample</span> <span class="er">Town</span><span class="st">&quot;</span>
-<span class="st">    }</span>
-<span class="st">    &quot;</span><span class="er">organization</span><span class="st">&quot;: [</span>
-<span class="st">        &quot;</span><span class="er">http://oparl.beispielris.de/organization/</span><span class="dv">11</span><span class="st">&quot;,</span>
-<span class="st">        &quot;</span><span class="er">http://oparl.beispielris.de/organization/</span><span class="dv">34</span><span class="st">&quot;</span>
-<span class="st">    ],</span>
-<span class="st">    &quot;</span><span class="er">status</span><span class="st">&quot;: &quot;</span><span class="er">http://oparl.beispielris.de/status/buergermeister</span><span class="st">&quot;,</span>
-<span class="st">    &quot;</span><span class="er">hasMembership</span><span class="st">&quot;: &quot;</span><span class="er">http://oparl.beispielris.de/membership/</span><span class="dv">34</span><span class="st">&quot;,</span>
-<span class="st">    &quot;</span><span class="er">created</span><span class="st">&quot;: &quot;</span><span class="dv">2011-11-11</span><span class="er">T</span><span class="dv">11</span><span class="er">:</span><span class="dv">11</span><span class="er">:</span><span class="dv">00</span><span class="er">+</span><span class="dv">01</span><span class="er">:</span><span class="dv">00</span><span class="st">&quot;,</span>
-<span class="st">    &quot;</span><span class="er">modified</span><span class="st">&quot;: &quot;</span><span class="dv">2012-08-16</span><span class="er">T</span><span class="dv">14</span><span class="er">:</span><span class="dv">05</span><span class="er">:</span><span class="dv">27</span><span class="er">+</span><span class="dv">02</span><span class="er">:</span><span class="dv">00</span><span class="st">&quot;</span>
-<span class="st">}</span></code></pre>
+        <span class="dt">&quot;en&quot;</span>: <span class="st">&quot;Sample Town&quot;</span>
+    },
+    <span class="dt">&quot;organization&quot;</span>: [
+        <span class="st">&quot;http://oparl.beispielris.de/organization/11&quot;</span>,
+        <span class="st">&quot;http://oparl.beispielris.de/organization/34&quot;</span>
+    ],
+    <span class="dt">&quot;status&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/status/buergermeister&quot;</span>,
+    <span class="dt">&quot;hasMembership&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/membership/34&quot;</span>,
+    <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2011-11-11T11:11:00+01:00&quot;</span>,
+    <span class="dt">&quot;modified&quot;</span>: <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
+}</code></pre>
 <p>Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:</p>
 <pre class="sourceCode json" id="person_ex_context"><code class="sourceCode json">{
     <span class="dt">&quot;@language&quot;</span>: <span class="st">&quot;de&quot;</span>,
@@ -1258,8 +1304,8 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;academic_degree&quot;</span>: {
         <span class="dt">&quot;@language&quot;</span>: <span class="dv">null</span> , <span class="er">//</span> <span class="er">keine</span> <span class="er">Vorgabesprache</span> <span class="er">da</span> <span class="er">nicht</span> <span class="er">mehrsprachig</span>
         <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;foaf:title&quot;</span>
-    }
-    <span class="st">&quot;email&quot;</span><span class="er">:</span> {
+    },
+    <span class="dt">&quot;email&quot;</span>: {
         <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;foaf:mbox&quot;</span>,
         <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;@id&quot;</span>
     },
@@ -1268,8 +1314,8 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;locality&quot;</span>: {
         <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;vcard:locality&quot;</span>,
         <span class="dt">&quot;@container&quot;</span>: <span class="st">&quot;@language&quot;</span> <span class="er">//</span> <span class="er">für</span> <span class="er">eine</span> <span class="st">&quot;language map&quot;</span>
-    }
-    <span class="st">&quot;created&quot;</span><span class="er">:</span> {
+    },
+    <span class="dt">&quot;created&quot;</span>: {
         <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;dc:created&quot;</span>,
         <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;xsd:dateTime&quot;</span>
     },
@@ -1295,8 +1341,8 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;locality&quot;</span>: <span class="st">&quot;Musterort&quot;</span>,
     <span class="dt">&quot;locality&quot;</span>: {
         <span class="dt">&quot;en&quot;</span>: <span class="st">&quot;Sample Town&quot;</span> <span class="er">//</span> <span class="er">TODO</span> <span class="er">prüfen</span>, <span class="er">ob</span> <span class="er">Eigenschaft</span> <span class="er">doppelt</span> <span class="er">erscheinen</span> <span class="er">darf</span>
-    }
-    <span class="st">&quot;organization&quot;</span><span class="er">:</span> [<span class="st">&quot;11&quot;</span>, <span class="st">&quot;34&quot;</span>],
+    },
+    <span class="dt">&quot;organization&quot;</span>: [<span class="st">&quot;11&quot;</span>, <span class="st">&quot;34&quot;</span>],
     <span class="dt">&quot;status&quot;</span>: <span class="st">&quot;beispielris:status/buergermeister&quot;</span>,
     <span class="dt">&quot;hasMembership&quot;</span>: <span class="st">&quot;beispielris:membership/34&quot;</span>,
     <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2011-11-11T11:11:00+01:00&quot;</span>,
@@ -1306,55 +1352,55 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <h3><span class="header-section-number">5.6.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>name</code></dt>
-<dd><p>Der vollständige Name der Person mit akademischem Grad und Vornamen. ZWINGEND</p>
+<dd><p>Der vollständige Name der Person mit akademischem Grad und Vornamen. Typ: TODO ZWINGEND</p>
 </dd>
 <dt><code>familyName</code></dt>
-<dd><p>Familienname bzw. Nachname. OPTIONAL</p>
+<dd><p>Familienname bzw. Nachname. Typ: TODO OPTIONAL</p>
 </dd>
 <dt><code>givenName</code></dt>
-<dd><p>Vorname bzw. Taufname. OPTIONAL</p>
+<dd><p>Vorname bzw. Taufname. Typ: TODO OPTIONAL</p>
 </dd>
 <dt><code>formOfAddress</code></dt>
-<dd><p>Anrede URLs von Objekten mit skos:prefLabel. Ähnlich wie <code>status</code>. Beispiele für die <code>skos:prefLabel</code> sind &quot;Ratsherr | Ratsfrau&quot; und &quot;Herr | Frau&quot;. OPTIONAL</p>
+<dd><p>Anrede Begriff mit <code>skos:prefLabel</code>. Ähnlich wie <code>status</code>. Beispiele für die <code>skos:prefLabel</code> sind &quot;Ratsherr | Ratsfrau&quot; und &quot;Herr | Frau&quot;. Typ: <code>skos:Concept</code> OPTIONAL</p>
 </dd>
 <dt><code>title</code></dt>
-<dd><p>Akademische(r) Titel. TODO: &quot;Dr.&quot;? &quot;Diplom&quot;? OPTIONAL</p>
+<dd><p>Akademische(r) Titel. TODO: &quot;Dr.&quot;? &quot;Diplom&quot;? Typ: <code>skos:Concept</code> OPTIONAL</p>
 </dd>
 <dt><code>gender</code></dt>
-<dd><p>Geschlecht. Zulässige Werte sind <code>vcard:Female</code>, <code>vcard:Male</code>, <code>vcard:None</code>, <code>vcard:Other</code> und <code>vcard:Unknown</code>. OPTIONAL</p>
+<dd><p>Geschlecht. Zulässige Werte sind <code>vcard:Female</code>, <code>vcard:Male</code>, <code>vcard:None</code>, <code>vcard:Other</code> und <code>vcard:Unknown</code>. Typ: <code>vcard:TODO</code> OPTIONAL</p>
 </dd>
 <dt><code>phone</code></dt>
-<dd><p>Telefonnummer mit <code>tel:</code> Schema. OPTIONAL</p>
+<dd><p>Telefonnummer mit <code>tel:</code> Schema. Typ: TODO OPTIONAL</p>
 </dd>
 <dt><code>email</code></dt>
-<dd><p>E-Mail-Adresse mit <code>mailto:</code> Schema. OPTIONAL</p>
+<dd><p>E-Mail-Adresse mit <code>mailto:</code> Schema. Typ: <code>foaf:mbox</code> OPTIONAL</p>
 </dd>
 <dt><code>streetAddress</code></dt>
-<dd><p>Straße und Hausnummer der Kontakt-Anschrift der Person. OPTIONAL</p>
+<dd><p>Straße und Hausnummer der Kontakt-Anschrift der Person. Typ: TODO OPTIONAL</p>
 </dd>
 <dt><code>postalCode</code></dt>
-<dd><p>Postleitzahl der Kontakt-Anschrift der Person. OPTIONAL</p>
+<dd><p>Postleitzahl der Kontakt-Anschrift der Person. Typ: TODO OPTIONAL</p>
 </dd>
 <dt><code>locality</code></dt>
-<dd><p>Ortsangabe der Kontakt-Anschrift der Person. OPTIONAL</p>
+<dd><p>Ortsangabe der Kontakt-Anschrift der Person. Typ: <code>vcard:locality</code> OPTIONAL</p>
 </dd>
 <dt><code>organization</code></dt>
-<dd><p>URLs der Gruppierung oder Liste der URLs der Gruppierungen (Objekte vom Typ <code>oparl:Organization</code>), in der bzw. in denen die Person aktuell Mitglied ist. Sollte die Person Mitglied in keiner Gruppierung sein, enthält die Liste keine Einträge. ZWINGEND</p>
+<dd><p>Gruppierung in der die Person aktuell Mitglied ist. Typ: <code>oparl:Organization</code> ZWINGEND</p>
 </dd>
 <dt><code>status</code></dt>
-<dd><p>URLs von Objekten mit skos:prefLabel. Die Zeichenketten SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster &quot;männliche Form | weibliche Form&quot; (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem &quot;|&quot;) Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden: &quot;Mitglied&quot; und nicht &quot;Mitglied | Mitglied&quot;. Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschecht der Personen vornimmt. z.B. &quot;Bürgermeister | Bürgermeisterin&quot;, &quot;Bezirksbürgermeister | Bezirksbürgermeisterin&quot;, &quot;Stadtverordneter | Stadtverordnete&quot;, &quot;Bezirksverordneter | Bezirksverordnete&quot;, &quot;Sachkundiger Bürger | Sachkundige Bürgerin&quot;, &quot;Einzelstadtverordneter | Einzelstadtverordnete&quot; (Mitglieder des Rates die keiner Fraktion/Organisation angehören -&gt; die Zuordbarkeit einer fiktiven Organisation ermöglichen TODO: warum will man das?). Siehe https://github.com/OParl/specs/issues/45 OPTIONAL</p>
+<dd><p>Status. Begriff mit <code>skos:prefLabel</code>. Die Zeichenketten SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster &quot;männliche Form | weibliche Form&quot; (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem &quot;|&quot;) Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden: &quot;Mitglied&quot; und nicht &quot;Mitglied | Mitglied&quot;. Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschecht der Personen vornimmt. z.B. &quot;Bürgermeister | Bürgermeisterin&quot;, &quot;Bezirksbürgermeister | Bezirksbürgermeisterin&quot;, &quot;Stadtverordneter | Stadtverordnete&quot;, &quot;Bezirksverordneter | Bezirksverordnete&quot;, &quot;Sachkundiger Bürger | Sachkundige Bürgerin&quot;, &quot;Einzelstadtverordneter | Einzelstadtverordnete&quot; (Mitglieder des Rates die keiner Fraktion/Organisation angehören -&gt; die Zuordbarkeit einer fiktiven Organisation ermöglichen TODO: warum will man das?). Siehe https://github.com/OParl/specs/issues/45 Typ: <code>skos:Concept</code> OPTIONAL</p>
 </dd>
 <dt><code>hasMembership</code></dt>
-<dd><p>URLs der Mitgliedschaft oder Liste von URLs der Mitgliedschaften (Objekte vom Typ <code>org:Membership</code>). TODO: Eventuell Unterklasse von org:Membership definieren. OPTIONAL.</p>
+<dd><p>Mitgliedschaft. TODO: Eventuell Unterklasse von <code>org:Membership</code> definieren. Typ: <code>org:Membership</code> OPTIONAL.</p>
 </dd>
 <dt><code>classification</code></dt>
-<dd><p><code>skos:Concept</code> OPTIONAL</p>
+<dd><p>Typ: <code>skos:Concept</code> OPTIONAL</p>
 </dd>
 <dt><code>created</code></dt>
-<dd><p>Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.</p>
+<dd><p>Datum/Uhrzeit der Erzeugung des Objekts. Typ: String mit xsd:dateTime EMPFOHLEN.</p>
 </dd>
 <dt><code>lastModified</code></dt>
-<dd><p>Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN.</p>
+<dd><p>Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ: String mit xsd:dateTime EMPFOHLEN.</p>
 </dd>
 </dl>
 </section>
@@ -1384,7 +1430,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;organization&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/organization/34&quot;</span>,
     <span class="dt">&quot;participant&quot;</span>: [
         <span class="st">&quot;http://oparl.beispielris.de/person/29&quot;</span>,
-        <span class="st">&quot;http://oparl.beispielris.de/person/75&quot;</span>
+        <span class="st">&quot;http://oparl.beispielris.de/person/75&quot;</span>,
         <span class="st">&quot;http://oparl.beispielris.de/person/94&quot;</span>
     ],
     <span class="dt">&quot;invitation&quot;</span>: <span class="st">&quot;http://oparl.beispielris.de/document/586&quot;</span>,
@@ -1402,8 +1448,8 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
             <span class="st">&quot;http://oparl.beispielris.de/agendaitem/1047&quot;</span>,
             <span class="st">&quot;http://oparl.beispielris.de/agendaitem/1048&quot;</span>
         ]
-    }
-    <span class="st">&quot;created&quot;</span><span class="er">:</span> <span class="st">&quot;2012-01-06T12:01:00+01:00&quot;</span>,
+    },
+    <span class="dt">&quot;created&quot;</span>: <span class="st">&quot;2012-01-06T12:01:00+01:00&quot;</span>,
     <span class="dt">&quot;modified&quot;</span>: <span class="st">&quot;2012-01-08T14:05:27+01:00&quot;</span>
 }</code></pre>
 <p>Das selbe Beispiel in kompakter Form:</p>
@@ -1577,8 +1623,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;location&quot;</span>: [
         {
             <span class="dt">&quot;description&quot;</span>: <span class="st">&quot;Theodor-Heuss-Ring 1&quot;</span>,
-            <span class="dt">&quot;lat&quot;</span>: <span class="fl">7.148</span>,
-            <span class="dt">&quot;lon&quot;</span>: <span class="fl">50.023</span>
+            <span class="dt">&quot;geometry&quot;</span>: <span class="st">&quot;POINT(7.148  50.023)&quot;</span>
         }
     ],
     <span class="dt">&quot;creator&quot;</span>: [
@@ -1664,7 +1709,7 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <dd><p>Name des Objekts, der Nutzern angezeigt werden kann. Typ: Zeichenkette. ZWINGEND</p>
 </dd>
 <dt><code>mimeType</code></dt>
-<dd><p>Mime-Typ des Inhalts (vgl. RFC2046<a href="#fn32" class="footnoteRef" id="fnref32"><sup>32</sup></a>). Sollte das System einer Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier &quot;application/octet-stream&quot; zu verwenden. Typ: TODO ZWINGEND</p>
+<dd><p>Mime-Typ des Inhalts (vgl. RFC2046<a href="#fn37" class="footnoteRef" id="fnref37"><sup>37</sup></a>). Sollte das System einer Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier &quot;application/octet-stream&quot; zu verwenden. Typ: TODO ZWINGEND</p>
 </dd>
 <dt><code>date</code></dt>
 <dd><p>Erstellungs- oder Veröffentlichungsdatum und -uhrzeit. Typ: Datum. ZWINGEND</p>
@@ -1733,8 +1778,8 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 }</code></pre>
 <p>Das selbe Beispiel in kompakter Form (ein passender Kontext wird vorausgesetzt):</p>
 <pre class="sourceCode json" id="consultation_ex2"><code class="sourceCode json">{
-    <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;</span>
-    <span class="st">&quot;@type&quot;</span><span class="er">:</span> <span class="st">&quot;oparl:Consultation&quot;</span>,
+    <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;</span>,
+    <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;oparl:Consultation&quot;</span>,
     <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;beispielris:consultation/47594&quot;</span>,
     <span class="dt">&quot;paper&quot;</span>: <span class="st">&quot;beispielris:paper/2396&quot;</span>,
     <span class="dt">&quot;agendaitem&quot;</span>: <span class="st">&quot;beispielris:agendaitem/15569&quot;</span>,
@@ -1805,9 +1850,9 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
     },
     <span class="er">//</span> <span class="er">...</span>
 }</code></pre>
-<p>OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des<br />Well-Known-Text-Formats (WKT) der Simple Feature Access Spezifikation<a href="#fn33" class="footnoteRef" id="fnref33"><sup>33</sup></a> vor. WKT erlaubt die Beschreibung von unterschiedlichen Geometrien wie Punkten (<code>Point</code>), Pfaden (<code>LineString</code>), Polygonen (<code>Polygon</code>) und viele andere mehr.</p>
+<p>OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des<br />Well-Known-Text-Formats (WKT) der Simple Feature Access Spezifikation<a href="#fn38" class="footnoteRef" id="fnref38"><sup>38</sup></a> vor. WKT erlaubt die Beschreibung von unterschiedlichen Geometrien wie Punkten (<code>Point</code>), Pfaden (<code>LineString</code>), Polygonen (<code>Polygon</code>) und viele andere mehr.</p>
 <p>Zum Zeitpunkt der Erstellung der vorliegenden Spezifikation ist Version 1.2.1 der Simple-Feature-Access-Spezifikation aktuell. OParl stellt keine Anforderungen daran, welche Version von Simple-Feature-Access bei der Ausgabe von WKT zu unterstützen ist.</p>
-<p>Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben solcher Geodaten im System WGS84<a href="#fn34" class="footnoteRef" id="fnref34"><sup>34</sup></a> angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.</p>
+<p>Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben solcher Geodaten im System WGS84<a href="#fn39" class="footnoteRef" id="fnref39"><sup>39</sup></a> angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.</p>
 <section id="eigenschaften-9" class="level3">
 <h3><span class="header-section-number">5.12.1</span> Eigenschaften</h3>
 <dl>
@@ -1926,25 +1971,30 @@ http://oparl.meinris.de/members?committee=2&amp;body=1</code></pre>
 <li id="fn13"><p>Fielding, Roy: Architectural Styles and the Design of Network-based Software Architectures, <a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm">http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm</a><a href="#fnref13">↩</a></p></li>
 <li id="fn14"><p><a href="http://patterns.dataincubator.org/book/follow-your-nose.html">http://patterns.dataincubator.org/book/follow-your-nose.html</a><a href="#fnref14">↩</a></p></li>
 <li id="fn15"><p>vgl. Bundesministerium des Innern (Herausg.): Open Government Data Deutschland, Seite 433f., 2012 <a href="http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf">http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf</a><a href="#fnref15">↩</a></p></li>
-<li id="fn16"><p>beispielsweise <a href="http://dbpedia.org/resource/Christian_Democratic_Union_(Germany)">http://dbpedia.org/resource/Christian_Democratic_Union_(Germany)</a> und <a href="http://dbpedia.org/resource/Social_Democratic_Party_of_Germany">http://dbpedia.org/resource/Social_Democratic_Party_of_Germany</a><a href="#fnref16">↩</a></p></li>
-<li id="fn17"><p>RFC 3987: <a href="http://tools.ietf.org/html/rfc3987">http://tools.ietf.org/html/rfc3987</a><a href="#fnref17">↩</a></p></li>
-<li id="fn18"><p>RFC 3986: <a href="http://tools.ietf.org/html/rfc3986">http://tools.ietf.org/html/rfc3986</a><a href="#fnref18">↩</a></p></li>
-<li id="fn19"><p>vgl. <a href="#benannte_anonyme_objekte">Benannte und anonyme Objekte</a><a href="#fnref19">↩</a></p></li>
-<li id="fn20"><p>Berners-Lee, Tim: Cool URIs don't change. <a href="http://www.w3.org/Provider/Style/URI.html">http://www.w3.org/Provider/Style/URI.html</a><a href="#fnref20">↩</a></p></li>
-<li id="fn21"><p>Study on persistent URIs, with identification of best practices and recommendations on the topic for the MSs and the EC. (PDF) <a href="https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf">https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf</a><a href="#fnref21">↩</a></p></li>
-<li id="fn22"><p>JSON-LD 1.0: IANA COnsiderations: <a href="http://www.w3.org/TR/json-ld/#iana-considerations">http://www.w3.org/TR/json-ld/#iana-considerations</a><a href="#fnref22">↩</a></p></li>
-<li id="fn23"><p>RFC4627: <a href="https://tools.ietf.org/html/rfc4627">https://tools.ietf.org/html/rfc4627</a><a href="#fnref23">↩</a></p></li>
-<li id="fn24"><p>siehe dazu <a href="#linked_data">Linked Data</a><a href="#fnref24">↩</a></p></li>
-<li id="fn25"><p><a href="http://www.w3.org/TR/json-ld/">http://www.w3.org/TR/json-ld/</a><a href="#fnref25">↩</a></p></li>
-<li id="fn26"><p>URLs heißen in der JSON-LD-Spezifikation &quot;IRI&quot; (für &quot;Internationalized Resource Identifier&quot;), wir verwenden hier jedoch weiterhin die Bezeichnung &quot;URL&quot;.<a href="#fnref26">↩</a></p></li>
-<li id="fn27"><p>TODO: URL zur Spezifikation<a href="#fnref27">↩</a></p></li>
-<li id="fn28"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref28">↩</a></p></li>
-<li id="fn29"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd">http://www.dnb.de/gnd</a><a href="#fnref29">↩</a></p></li>
-<li id="fn30"><p>DBPedia <a href="http://www.dbpedia.org/">http://www.dbpedia.org/</a><a href="#fnref30">↩</a></p></li>
-<li id="fn31"><p>Wikipedia <a href="http://de.wikipedia.org/">http://de.wikipedia.org/</a><a href="#fnref31">↩</a></p></li>
-<li id="fn32"><p><a href="http://tools.ietf.org/html/rfc2046">http://tools.ietf.org/html/rfc2046</a><a href="#fnref32">↩</a></p></li>
-<li id="fn33"><p>Simple Feature Access Spezifikation: <a href="http://www.opengeospatial.org/standards/sfa">http://www.opengeospatial.org/standards/sfa</a><a href="#fnref33">↩</a></p></li>
-<li id="fn34"><p>WGS84 steht für &quot;World Geodetic System 1984&quot;, es wird unter anderem auch vom Global Positioning System (GPS) verwendet. In geografischen Informationssystemen ist für das System der EPSG-Code 4326 geläufig.<a href="#fnref34">↩</a></p></li>
+<li id="fn16"><p>Ein Aufruf der URL <a href="http://dbpedia.org/resource/John_Doe_(musician)">http://dbpedia.org/resource/John_Doe_(musician)</a> im herkömmlichen Web-Browser führt zu einer Weiterleitung auf die URL <a href="http://dbpedia.org/page/John_Doe_(musician)">http://dbpedia.org/page/John_Doe_(musician)</a>. Siehe dazu auch der Abschnitt <a href="#content_negotiation">Content Negotiation</a><a href="#fnref16">↩</a></p></li>
+<li id="fn17"><p>beispielsweise <a href="http://dbpedia.org/resource/Christian_Democratic_Union_(Germany)">http://dbpedia.org/resource/Christian_Democratic_Union_(Germany)</a> und <a href="http://dbpedia.org/resource/Social_Democratic_Party_of_Germany">http://dbpedia.org/resource/Social_Democratic_Party_of_Germany</a><a href="#fnref17">↩</a></p></li>
+<li id="fn18"><p>RFC2295: <a href="http://tools.ietf.org/html/rfc2295">http://tools.ietf.org/html/rfc2295</a><a href="#fnref18">↩</a></p></li>
+<li id="fn19"><p>RFC 3987: <a href="http://tools.ietf.org/html/rfc3987">http://tools.ietf.org/html/rfc3987</a><a href="#fnref19">↩</a></p></li>
+<li id="fn20"><p>RFC 3986: <a href="http://tools.ietf.org/html/rfc3986">http://tools.ietf.org/html/rfc3986</a><a href="#fnref20">↩</a></p></li>
+<li id="fn21"><p>vgl. <a href="#benannte_anonyme_objekte">Benannte und anonyme Objekte</a><a href="#fnref21">↩</a></p></li>
+<li id="fn22"><p>Berners-Lee, Tim: Cool URIs don't change. <a href="http://www.w3.org/Provider/Style/URI.html">http://www.w3.org/Provider/Style/URI.html</a><a href="#fnref22">↩</a></p></li>
+<li id="fn23"><p>Study on persistent URIs, with identification of best practices and recommendations on the topic for the MSs and the EC. (PDF) <a href="https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf">https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf</a><a href="#fnref23">↩</a></p></li>
+<li id="fn24"><p>JSON-LD 1.0: IANA COnsiderations: <a href="http://www.w3.org/TR/json-ld/#iana-considerations">http://www.w3.org/TR/json-ld/#iana-considerations</a><a href="#fnref24">↩</a></p></li>
+<li id="fn25"><p>RFC4627: <a href="https://tools.ietf.org/html/rfc4627">https://tools.ietf.org/html/rfc4627</a><a href="#fnref25">↩</a></p></li>
+<li id="fn26"><p>siehe dazu <a href="#linked_data">Linked Data</a><a href="#fnref26">↩</a></p></li>
+<li id="fn27"><p><a href="http://www.w3.org/TR/json-ld/">http://www.w3.org/TR/json-ld/</a><a href="#fnref27">↩</a></p></li>
+<li id="fn28"><p>URLs heißen in der JSON-LD-Spezifikation &quot;IRI&quot; (für &quot;Internationalized Resource Identifier&quot;), wir verwenden hier jedoch weiterhin die Bezeichnung &quot;URL&quot;.<a href="#fnref28">↩</a></p></li>
+<li id="fn29"><p>TODO: URL zur Spezifikation<a href="#fnref29">↩</a></p></li>
+<li id="fn30"><p>RFC5988: <a href="http://tools.ietf.org/html/rfc5988">http://tools.ietf.org/html/rfc5988</a><a href="#fnref30">↩</a></p></li>
+<li id="fn31"><p>Wie in vielen anderen Fällen ist diese URL hier wieder nur beispielhaft. Die tatsächliche Gestaltung des Pfads bestimmt der Server-Implementierer.<a href="#fnref31">↩</a></p></li>
+<li id="fn32"><p>Verzeichnisse für Lizenz-URLs sind unter anderem unter <a href="http://licenses.opendefinition.org/">http://licenses.opendefinition.org/</a> und <a href="https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json">https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json</a> zu finden.<a href="#fnref32">↩</a></p></li>
+<li id="fn33"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref33">↩</a></p></li>
+<li id="fn34"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd">http://www.dnb.de/gnd</a><a href="#fnref34">↩</a></p></li>
+<li id="fn35"><p>DBPedia <a href="http://www.dbpedia.org/">http://www.dbpedia.org/</a><a href="#fnref35">↩</a></p></li>
+<li id="fn36"><p>Wikipedia <a href="http://de.wikipedia.org/">http://de.wikipedia.org/</a><a href="#fnref36">↩</a></p></li>
+<li id="fn37"><p><a href="http://tools.ietf.org/html/rfc2046">http://tools.ietf.org/html/rfc2046</a><a href="#fnref37">↩</a></p></li>
+<li id="fn38"><p>Simple Feature Access Spezifikation: <a href="http://www.opengeospatial.org/standards/sfa">http://www.opengeospatial.org/standards/sfa</a><a href="#fnref38">↩</a></p></li>
+<li id="fn39"><p>WGS84 steht für &quot;World Geodetic System 1984&quot;, es wird unter anderem auch vom Global Positioning System (GPS) verwendet. In geografischen Informationssystemen ist für das System der EPSG-Code 4326 geläufig.<a href="#fnref39">↩</a></p></li>
 </ol>
 </section>
 </body>

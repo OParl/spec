@@ -1343,73 +1343,41 @@
         einer Person mit dem folgenden Tripel beschrieben werden:
       </para>
       <programlisting>
-Subjekt: https://dbpedia.org/resource/John_Doe_(musician)
+Subjekt: http://dbpedia.org/resource/John_Doe_(musician)
 Prädikat: http://xmlns.com/foaf/0.1/givenName
-Objekt: https://dbpedia.org/resource/John_(given_name)
+Objekt: http://dbpedia.org/resource/John_(given_name)
 </programlisting>
       <para>
         Hierbei macht man von der Tatsache Gebrauch, dass das Subjekt,
         also die Person, um die es geht, bereits mittels ihrer URI
         eindeutig identifiziert werden kann und dass bestenfalls unter
-        dieser URI weitere Informationen zu der Person abrufbar sind.
-        Auch für das Prädikat &quot;Person hat den Vornamen&quot; liegt
-        bereits eine Beschreibung in einem gebräuchlichen Vokabular vor,
-        auf das hier verwiesen werden kann. Und schließlich kann sogar
-        der eigentliche Vorname in Form einer URI abgebildet werden,
-        nämlich als Verweis auf eine umfangreiche Beschreibung dieses
-        Namens.
+        dieser URI weitere Informationen zu der Person abrufbar
+        sind.<footnote>
+          <para>
+            Ein Aufruf der URL
+            <ulink url="http://dbpedia.org/resource/John_Doe_(musician)">http://dbpedia.org/resource/John_Doe_(musician)</ulink>
+            im herkömmlichen Web-Browser führt zu einer Weiterleitung
+            auf die URL
+            <ulink url="http://dbpedia.org/page/John_Doe_(musician)">http://dbpedia.org/page/John_Doe_(musician)</ulink>.
+            Siehe dazu auch der Abschnitt
+            <link linkend="content_negotiation">Content
+            Negotiation</link>
+          </para>
+        </footnote> Auch für das Prädikat &quot;Person hat den
+        Vornamen&quot; liegt bereits eine Beschreibung in einem
+        gebräuchlichen Vokabular vor, auf das hier verwiesen werden
+        kann. Und schließlich kann sogar der eigentliche Vorname in Form
+        einer URI abgebildet werden, nämlich als Verweis auf eine
+        umfangreiche Beschreibung dieses Namens.
       </para>
       <para>
-        Auf ein für Linked Data wichtiges Detail sei hier hingewiesen.
-        Wenn man in einem üblichen Web-Browser diesen oben angegebenen
-        Link eingibt und aufruft:
-      </para>
-      <programlisting>
-https://dbpedia.org/resource/John_Doe_(musician)
-</programlisting>
-      <para>
-        dann sieht man anschliessend bei der Anzeige der HTML-Seite
-        diesen Link im Adressfeld:
-      </para>
-      <programlisting>
-https://dbpedia.org/page/John_Doe_(musician)
-</programlisting>
-      <para>
-        Dabei identifiziert der erste Link den abstrakten Begriff des
-        Musikers, während der zweite Link eine Repräsentation dieses
-        Begriffs identifiziert. Ein anderer http-Client, der statt
-        HTML-Seiten z.B. JSON-LD bevorzugt, würde bei Zugriff auf den
-        ersten Link statt der HTML-Seite den Inhalt dieser URL erhalten:
-      </para>
-      <programlisting>
-https://dbpedia.org/data/John_Doe_(musician).jsonld
-</programlisting>
-      <para>
-        Dabei handelt es sich um eine Repräsentation des Musikers in
-        Form von JSON-LD.
-      </para>
-      <para>
-        Diese drei Links sind nicht nur verschieden, sondern haben
-        unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL
-        (HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients
-        generell nicht verwendet werden, um auf einfache Weise zu den
-        anderen beiden URLs zu gelangen. Deshalb soll bei Linked Data
-        der erste Link, also der des abstrakten Begriffs angegeben
-        werden. Der Zugriff auf diesen Link wird
-        &quot;Dereferenzierung&quot; genannt. Von dem ersten Link
-        gelangt man zu den beiden anderen mittels &quot;Content
-        Negotiation&quot;.
-      </para>
-    </sect3>
-    <sect3 id="ziel">
-      <title>Ziel</title>
-      <para>
-        Das Ziel von OParl ist es, mit der vorliegenden Version 1.0 der
-        Spezifikation, die Nutzung solcher allgemeingültigen Vokabulare
-        für die Veröffentlichung von parlamentarischen Informationen zu
-        begünstigen und die automatisierte Verarbeitung und Verknüpfung
-        von Informationen, auch über die Grenzen verschiedener
-        Informationssysteme hinweg, zu erleichtern.
+        Das <emphasis role="strong">Ziel</emphasis> von OParl ist es,
+        mit der vorliegenden Version 1.0 der Spezifikation, die Nutzung
+        solcher allgemeingültigen Vokabulare für die Veröffentlichung
+        von parlamentarischen Informationen zu begünstigen und die
+        automatisierte Verarbeitung und Verknüpfung von Informationen,
+        auch über die Grenzen verschiedener Informationssysteme hinweg,
+        zu erleichtern.
       </para>
       <para>
         Beispiele, wo dies sinnvoll ist, sind in der Praxis leicht zu
@@ -1471,30 +1439,85 @@ https://dbpedia.org/data/John_Doe_(musician).jsonld
       kann insofern niemand aussprechen.
     </para>
   </sect2>
-  <sect2 id="content-negotiation">
+  <sect2 id="content_negotiation">
     <title>Content Negotiation</title>
     <para>
-      Im Abschnitt Designprinzipien wurde bereits erwähnt, dass die
-      &quot;Dereferenzierung&quot; mittels Content Negotiation erfolgt.
+      Server im World Wide Web können bestimmte Ressourcen entsprechend
+      RFC2295<footnote>
+        <para>
+          RFC2295:
+          <ulink url="http://tools.ietf.org/html/rfc2295">http://tools.ietf.org/html/rfc2295</ulink>
+        </para>
+      </footnote> in verschiedenen Formaten vorhalten. Clients haben die
+      Möglichkeit, mittels HTTP-Header schon in der Anfrage eine
+      Vorliebe für ein bestimmtes Format zu übermitteln.
+    </para>
+    <para>
+      TODO: Hier muss eine Beschreibung folgen, was mit Content
+      Negotiation erreicht werden soll und wie genau die Anforderungen
+      lauten (vgl. Issue #105).
+    </para>
+    <para>
+      TODO: Der nachstehende Text muss noch sauber formuliert werden.
+    </para>
+    <para>
+      Auf ein für Linked Data wichtiges Detail sei hier hingewiesen.
+      Wenn man in einem üblichen Web-Browser diesen oben angegebenen
+      Link eingibt und aufruft:
+    </para>
+    <programlisting>
+https://dbpedia.org/resource/John_Doe_(musician)
+</programlisting>
+    <para>
+      dann sieht man anschliessend bei der Anzeige der HTML-Seite diesen
+      Link im Adressfeld:
+    </para>
+    <programlisting>
+https://dbpedia.org/page/John_Doe_(musician)
+</programlisting>
+    <para>
+      Dabei identifiziert der erste Link den abstrakten Begriff des
+      Musikers, während der zweite Link eine Repräsentation dieses
+      Begriffs identifiziert. Ein anderer http-Client, der statt
+      HTML-Seiten z.B. JSON-LD bevorzugt, würde bei Zugriff auf den
+      ersten Link statt der HTML-Seite den Inhalt dieser URL erhalten:
+    </para>
+    <programlisting>
+https://dbpedia.org/data/John_Doe_(musician).jsonld
+</programlisting>
+    <para>
+      Dabei handelt es sich um eine Repräsentation des Musikers in Form
+      von JSON-LD.
+    </para>
+    <para>
+      Diese drei Links sind nicht nur verschieden, sondern haben
+      unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL
+      (HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients
+      generell nicht verwendet werden, um auf einfache Weise zu den
+      anderen beiden URLs zu gelangen. Deshalb soll bei Linked Data der
+      erste Link, also der des abstrakten Begriffs angegeben werden. Der
+      Zugriff auf diesen Link wird &quot;Dereferenzierung&quot; genannt.
+      Von dem ersten Link gelangt man zu den beiden anderen mittels
+      &quot;Content Negotiation&quot;.
     </para>
     <para>
       So kann der Server beim Zugriff eines Client auf
     </para>
-    <para>
-      https://dbpedia.org/resource/John_Doe_(musician)
-    </para>
+    <programlisting>
+https://dbpedia.org/resource/John_Doe_(musician)
+</programlisting>
     <para>
       z.B. entweder diese URL sowie HTML-Inhalt liefern
     </para>
-    <para>
-      https://dbpedia.org/page/John_Doe_(musician)
-    </para>
+    <programlisting>
+https://dbpedia.org/page/John_Doe_(musician)
+</programlisting>
     <para>
       oder aber diese URL mit JSON-LD als Inhalt
     </para>
-    <para>
-      https://dbpedia.org/data/John_Doe_(musician).jsonld
-    </para>
+    <programlisting>
+https://dbpedia.org/data/John_Doe_(musician).jsonld
+</programlisting>
     <para>
       Die Entscheidung darüber, welche der URLs und welche der
       Inhaltsformate der Server liefert, wird zwischen Client und Server
@@ -2455,69 +2478,203 @@ http://refserv.oparl.org/bodies/0/committees/1
       <programlisting language="json">
 {
     &quot;items&quot;: [
-        &quot;http://refserv.oparl.org/bodies/0/papers/2&quot;,
-        &quot;http://refserv.oparl.org/bodies/0/papers/5&quot;,
-        &quot;http://refserv.oparl.org/bodies/0/papers/7&quot;,
+        &quot;https://beispielris.de/bodies/0/papers/2&quot;,
+        &quot;https://beispielris.de/bodies/0/papers/5&quot;,
+        &quot;https://beispielris.de/bodies/0/papers/7&quot;,
     ]
 }
 </programlisting>
+      <para>
+        Die vollständige Listenausgabe SOLL nur für Listen verwendet
+        werden, die bis zu 100 Einträge umfassen.
+      </para>
     </sect3>
     <sect3 id="paginierung">
       <title>Paginierung</title>
       <para>
-        Für längere Listen ist eine Blätterfunktion bzw. Paginierung
-        vorgesehen. Darunter versteht man die Aufteilung der Liste in
-        kleinere Teilbereiche, die wir hier als &quot;Listenseiten&quot;
-        bezeichnen. Zweck ist, die einzelnen Listenseiten mit je einer
-        eigenen API-Anfrage abrufbar zu machen. Die Aufteilung der Liste
-        in Listenseiten erfolgt durch den Server und kann vom Client
-        nicht beeinflusst werden, sie bleibt jedoch zwischen den
-        einzelnen unverändert.
+        Für den Abruf von Listen mit vielen Elementen ist eine
+        Blätterfunktion (Paginierung) vorgesehen. Darunter verstehen wir
+        die Aufteilung einer Liste in kleinere Teilstücke, die wir hier
+        als Listenseiten bezeichnen. Jede Listenseite wird vom Client
+        jeweils mit einer eigenen API-Anfrage abgerufen. Das dient dazu,
+        die bei der jeweiligen Anfrage übertragenen Datenmengen zu
+        begrenzen und damit Antwortzeiten und Systemressourcen sowohl
+        beim Server als auch beim Client zu schonen.
       </para>
       <para>
-        Listen mit mehr als 100 Einträgen SOLL der Server nur teilweise
-        ausgeben und dem Client dabei eine
-        <emphasis role="strong">Paginierung</emphasis> anbieten, um
-        weitere Listenteile abzurufen. Dabei wird EMPFOHLEN, die Zahl
-        der jeweils ausgegebenen Listeneinträge wiederum auf maximal 100
-        zu begrenzen.
+        Die Entscheidung, ob eine Seite teilweise und daher mit
+        Paginierung ausgegeben wird, liegt allein beim Server. Bei
+        Listen mit mehr als 100 Einträgen ist dies EMPFOHLEN. Die Zahl
+        der Einträge, die der Server dabei je Listenseite ausliefert,
+        SOLL dabei maximal 100 betragen. Die Anzahl der Einträge
+        (Obergrenze) MUSS auf allen Listenseiten der selben Liste
+        einheitlich sein, sofern nicht (beispielsweise auf der letzten
+        Listenseite) weniger Listeneinträge vorhanden sind.
       </para>
       <para>
-        Das nachstehende Beispiel zeigt, wie dem Client die URL zum
-        &quot;Blättern&quot;, also zum Aufruf der jeweils nächsten
-        Listenseite, angeboten wird.
+        Wird eine Liste in Form von Listenseiten, also mit Paginierung,
+        ausgegeben, teilt der Server dem Client mittels HTTP-Headern in
+        der nachfolgend beschriebenen Form mit, unter welcher URL
+        weitere Listenseiten abgerufen werden können. Dabei wird von dem
+        in RFC5988<footnote>
+          <para>
+            RFC5988:
+            <ulink url="http://tools.ietf.org/html/rfc5988">http://tools.ietf.org/html/rfc5988</ulink>
+          </para>
+        </footnote> beschriebenen Header namens <literal>Link</literal>
+        Gebrauch gemacht.
       </para>
-      <programlisting language="json">
-{
-    &quot;items&quot;: [
-        &quot;http://refserv.oparl.org/bodies/0/papers/2&quot;,
-        &quot;http://refserv.oparl.org/bodies/0/papers/5&quot;,
-        &quot;http://refserv.oparl.org/bodies/0/papers/7&quot;,
-    ],
-    &quot;nextPage&quot;: &quot;http://refserv.oparl.org/bodies/0/papers/?skip=7&quot;,
-    &quot;count&quot;: 118
-}
+      <para>
+        Beispiel eines Link-Headers zur Angabe der URL für den Abruf der
+        folgenden Listenseite:
+      </para>
+      <programlisting>
+Link: &lt;https://oparl.beispielris.de/bodies/0/papers/?skip_id=7&gt;;rel=next
 </programlisting>
       <para>
-        Wie oben zu sehen, enthält das Beispiel-Objekt nun eine
-        zusätzliche Eigenschaft <literal>nextPage</literal>. Der Wert
-        dieser Eigenschaft ist eine URL, die dem Client dazu dient, die
-        weiteren Einträge der Liste abzurufen.
+        Im oben gezeigten Beispiel besteht der Wert des Link-Headers aus
+        zwei Bestandteilen, die durch Semikolon <literal>;</literal> von
+        einander getrennt sind:
       </para>
+      <programlisting>
+&lt;https://oparl.beispielris.de/bodies/0/papers/?skip_id=7&gt;;rel=next
+ \_____________________________________________________/  \______/
+                            |                                |
+                           URL                        Link-Parameter
+</programlisting>
       <para>
-        Die Eigenschaft <literal>count</literal> DARF bei Listen
-        grundsätzlich ausgegeben werden und SOLL bei mehrseitigen Listen
-        ausgegeben werden. Ihr Wert ist eine Zahl und gibt an, wie viele
-        Einträge die vollständige Liste aller Objekte enthält.
+        Die Bestandteile sind:
       </para>
+      <variablelist>
+        <varlistentry>
+          <term>
+            URL:
+          </term>
+          <listitem>
+            <para>
+              Die URL zum Abruf der nächsten Listenseite. Die URL wird
+              in spitzen Klammern <literal>&lt;</literal> und
+              <literal>&gt;</literal> ausgegeben.
+              <emphasis>Hinweis:</emphasis> Wie diese URL aufgebaut ist,
+              entscheidet allein der Server. Hier wird lediglich ein
+              fiktives Beispiel gegeben.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Link-Parameter:
+          </term>
+          <listitem>
+            <para>
+              Gemäß RFC5988 können belibig viele, auch null,
+              Link-Parameter hinter der URL ausgegeben werden, jeweils
+              durch ein Semikolon von der URL getrennt. Für OParl gilt:
+              Es MUSS bei einer Liste mit Paginierung genau ein
+              Link-Header mit dem Link-Parameter
+              <literal>rel=next</literal> gegeben sein, sofern es eine
+              nächste Seite mit weiteren Listenelementen gibt. Stellt
+              die mit der aktuellen Anfrage ausgegebene Listenseite das
+              Ende der Liste dar, DARF die Anfrage NICHT den Link-Header
+              mit Link-Parameter <literal>rel=next</literal> enthalten.
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
       <para>
-        Ruft der Client die unter <literal>nextPage</literal> angegebene
-        URL auf, erhält er wiederum ein Listenobjekt. Dieses Objekt
-        MUSS, sofern noch immer mehr Listeneinträge vorhanden sind, als
-        ausgegeben wurden, wiederum die <literal>nextPage</literal>
-        Eigenschaft mit einer URL enthalten. Um alle Einträge einer
-        Liste zu erfassen, folgt der Client also jeweils der URL, die in
-        der <literal>nextpage</literal> Eigenschaft angegeben ist.
+        Es ergibt sich eine typische Abfolge, wie Clients bei Bedarf mit
+        mehreren Anfragen ganze Objektlisten vom Server abrufen:
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem>
+          <para>
+            Der Server stellt eine URL für eine Liste zur Verfügung.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Der Client ruft diese URL der Liste auf.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Der Server antwortet mit einer Listenseite und stellt im
+            Link-Header mit Link-Parameter <literal>rel=next</literal>
+            die URL für den Abruf der nächsten Listenseite zur
+            Verfügung.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Der Client ruft die im Link-Header übergebene URL für die
+            nächste Listenseite auf.
+          </para>
+        </listitem>
+      </orderedlist>
+      <para>
+        Die Punkte 3 und 4 können sich nun so oft wiederholen, bis die
+        letzte Listenseite erreicht ist.
+      </para>
+      <orderedlist numeration="arabic">
+        <listitem override="5">
+          <para>
+            Der Server liefert die letzte Listenseite ohne Link-Header
+            aus.
+          </para>
+        </listitem>
+      </orderedlist>
+      <para>
+        Zusätzlich zu dem für die Paginierung obligatorischen
+        Link-Header für die folgende Listenseite (Link-Parameter
+        <literal>rel=next</literal>) können Server OPTIONAL weitere
+        Link-Header zum Abruf bestimmter Listenseiten anbieten:
+      </para>
+      <variablelist>
+        <varlistentry>
+          <term>
+            Erste Listenseite (<literal>first</literal>):
+          </term>
+          <listitem>
+            <para>
+              Sofern die aktuell abgerufene Listenseite nicht den Anfang
+              der Liste wiedergibt, KANN der Server einen Link-Header
+              mit Link-Parameter <literal>rel=first</literal> und der
+              URL zum Abruf der <emphasis>ersten</emphasis> Listenseite
+              ausgeben.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Letzte Listenseite (<literal>last</literal>):
+          </term>
+          <listitem>
+            <para>
+              Sofern die aktuell abgerufene Listenseite nicht das Ende
+              der Liste wiedergibt, KANN der Server einen Link-Header
+              mit Link-Parameter <literal>rel=last</literal> und der URL
+              zum Abruf der <emphasis>letzten</emphasis> Listenseite
+              ausgeben.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            Vorherige Listenseite (<literal>prev</literal>):
+          </term>
+          <listitem>
+            <para>
+              Sofern die aktuell abgerufene Listenseite nicht den Anfang
+              der Liste wiedergibt, KANN der Server einen Link-Header
+              mit Link-Parameter <literal>rel=prev</literal> und der URL
+              zum Abruf der ersten Listenseite ausgeben.
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>
+        Damit eröffnet der Server dem Client zusätzliche Möglichkeiten,
+        die einzelnen Listenseiten abzurufen.
       </para>
       <figure>
         <title>Paginierung: Schematische Darstellung</title>
@@ -2530,30 +2687,39 @@ http://refserv.oparl.org/bodies/0/committees/1
         </mediaobject>
       </figure>
       <para>
-        Server-Implementierer entscheiden selbst, wie die
-        <literal>nextPage</literal>-URL aufgebaut ist und tragen damit
-        selbst Verantwortung für die Funktionsweise der Paginierung. Bei
-        der Entscheidung für eine Form der Implementierung sind weitere
-        Anforderungen zu berücksichtigen:
+        Server-Implementierer entscheiden selbst, wie die URLs zum Abruf
+        einzelner Listenseiten aufgebaut ist und tragen damit selbst
+        Verantwortung für die Funktionsweise der Paginierung. Bei der
+        Entscheidung für eine Form der Implementierung sollten die
+        folgenden Anforderungen von Clients berücksichtigt werden.
       </para>
-      <itemizedlist>
-        <listitem>
-          <para>
-            Es ist davon auszugehen, dass Clients für den gesamten Abruf
-            aller Seiten einer Liste längere Zeit benötigen. In der
-            Zwischenzeit kann sich der Inhalt der Liste bereits ändern,
-            etwa durch das Hinzukommen neuer Einträge. Die Paginierung
-            ist so zu implementieren, dass sich das Hinzukommen oder
-            Entfernen von Einträgen möglichst nicht auf einen Client
-            auswirkt, der aktuell die Liste paginiert, um alle Einträge
-            abzurufen.
-          </para>
-        </listitem>
-      </itemizedlist>
       <para>
-        Eine ungünstige (unstabile) Form der Implementierung soll hier
-        mit Hilfe einer SQL-Abfrage illustriert werden. Gegeben sei eine
-        Tabelle <literal>example</literal>, die einen numerischen
+        Es ist davon auszugehen, dass Clients für den gesamten Abruf
+        aller Seiten einer Liste längere Zeit benötigen. In der
+        Zwischenzeit kann sich der Inhalt der Liste bereits ändern, etwa
+        durch das Hinzukommen neuer Einträge. Die Paginierung ist
+        idealerweise so zu implementieren, dass sich das Hinzukommen
+        oder Entfernen von Einträgen möglichst nicht auf einen Client
+        auswirkt, der aktuell die Liste paginiert, um alle Einträge
+        abzurufen. Wir bezeichnen dies als
+        <emphasis role="strong">stabile Paginierung</emphasis>.
+      </para>
+      <para>
+        Eine wesentliche Anforderung an Listen mit Paginierung ist, dass
+        alle Einträge der Liste in einer konstistenten Reihenfolge
+        sortiert ausgegeben werden SOLLEN. Das bedeutet, dass die
+        Sortierung beim Server im Idealfall anhand einer eindeutigen und
+        unveränderlichen Objekteigenschaft vorgenommen wird. Hierfür
+        eignen sich die Objekt-URLs, da sie genau diese beiden
+        Anforderungen erfüllen sollten.
+      </para>
+      <para>
+        Über die Sortierung hinaus können bei der Implementierung einer
+        stabilen Paginierung auf Server-Seite weitere Überlegungen
+        einbezogen werden. Zur Verdeutlichung soll hier eine ungünstige
+        (unstabile) Form der Implementierung mit Hilfe einer SQL-Abfrage
+        illustriert werden. Gegeben sei eine Tabelle
+        <literal>example</literal>, die einen numerischen
         Primärschlüssel <literal>id</literal> enthält. Nehmen wir an,
         die erste Seite der Liste wird mit der Abfrage
       </para>
@@ -2569,42 +2735,84 @@ SELECT * FROM example ORDER BY id LIMIT 10 OFFSET 0
 SELECT * FROM example ORDER BY id LIMIT 10 OFFSET 10
 </programlisting>
       <para>
-        abgerufen. Sofern sich an der Tabelle zwischen den beiden
-        Abfragen nichts geändert hat, liefert die zweite Abfrage
-        Datensätze mit <literal>id</literal> &gt; 10 aus. Sollte
-        zwischen den beiden Abfragen jedoch beispielsweise der
-        Datensätze mit der <literal>id</literal> 1 gelöscht worden sein,
-        liefert die zweite Abfrage Datensätze mit <literal>id</literal>
-        &gt; 9. In diesem Fall würde dies nur dazu führen, dass ein
-        Datensatz (<literal>id</literal> = 10) zweimal ausgegeben wird.
-        Bei ungünstigeren Konstellationen wäre auch denkbar, dass eine
-        instabile Paginierung bewirkt, dass einzelne Datensätze beim
-        Paginieren übergangen werden.
+        abgerufen. Sollte nach der ersten, aber vor der zweiten Abfrage
+        beispielsweise der Datensatz mit der <literal>id=1</literal>
+        gelöscht worden sein, liefert die zweite Abfrage Datensätze mit
+        <literal>id</literal> &gt; 9. In diesem Fall würde dies nur dazu
+        führen, dass ein Datensatz (<literal>id=10</literal>) zweimal
+        ausgegeben wird. Bei ungünstigeren Konstellationen wäre auch
+        denkbar, dass eine unstabile Paginierung bewirkt, dass einzelne
+        Datensätze beim Paginieren übergangen werden.
       </para>
       <para>
         Besser wäre es, bei der Paginierung die Eintragsgrenze, bei der
         eine Listenseite beginnen soll, explizit zu benennen. Wurden auf
-        der ersten Listenseite die Datensätze mit den
-        <literal>id</literal>s 1 bis 10 ausgegeben, so könnte der
-        Folgeaufruf, um beim SQL-Beispiel zu bleiben, so aussehen:
+        der ersten Listenseite die Datensätze mit den IDs 1 bis 10
+        ausgegeben, so könnte der Folgeaufruf, um beim SQL-Beispiel zu
+        bleiben, so aussehen:
       </para>
       <programlisting language="sql">
 SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
 </programlisting>
       <para>
-        TODO: Bestimmte Listen können mit Einschränkung auf einen
-        Datumsbereich abgefragt werden. Mehr dazu in
-        https://github.com/OParl/specs/issues/30 Fraglich ist, ob das in
-        diesem Kapitel behandelt werden sollte oder in einem anderen.
+        Die zuvor beschriebenen Anforderungen für die Paginierung von
+        Listen gelten auch unverändert, wenn der Umfang der Liste durch
+        Abfrageparameter vom Client eingeschränkt wurde.
       </para>
     </sect3>
     <sect3 id="listen-als-eigenschaften-von-objekten">
       <title>Listen als Eigenschaften von Objekten</title>
       <para>
-        TODO: Listen können auch als Werte von Objekteigenschaften
-        auftreten. Hierbei gibt es keine Paginierung, sondern es müssen
-        alle URLs aufgelistet werden. Das ist auszuformulieren und mit
-        Beispielen zu zeigen.
+        Listen von Objekten können auch als Werte von
+        Objekteigenschaften auftreten. Hierbei kann die oben
+        beschriebene Paginierung nicht angewendet werden, sondern es
+        MÜSSEN die URLs aller Listeneinträge aufgelistet werden.
+      </para>
+      <para>
+        Ein Beispiel dafür könnte die Eigenschaft
+        <literal>bodies</literal> des <literal>oparl:System</literal>
+        Objekts sein, also die Liste der Körperschaften, die auf einem
+        OParl-Server abgebildet werden:
+      </para>
+      <programlisting language="json">
+{
+    &quot;@type&quot;: &quot;oparl:System&quot;,
+    &quot;@id&quot;: &quot;https://oparl.beispielris.de/&quot;,
+    &quot;bodies&quot;: [
+        &quot;https://oparl.beispielris.de/bodies/1&quot;,
+        &quot;https://oparl.beispielris.de/bodies/2&quot;
+    ],
+    ...
+}
+</programlisting>
+      <para>
+        Diese Listenausgabe direkt im Objekt ist nur zu empfehlen, wenn
+        die Anzahl der Einträge klein (weniger als 100 Einträge) ist.
+        Sind mehr Einträge zu erwarten, SOLL die entsprechende Liste
+        über eine eigene URL angeboten werden.
+      </para>
+      <para>
+        Das folgende Beispiel verdeutlicht, wie dies die Eigenschaft
+        <literal>bodies</literal> am vorangegangenen Beispiel
+        beeinflusst:
+      </para>
+      <programlisting language="json">
+{
+    &quot;@type&quot;: &quot;oparl:System&quot;,
+    &quot;@id&quot;: &quot;https://oparl.beispielris.de/&quot;,
+    &quot;bodies&quot;: &quot;https://oparl.beispielris.de/bodies/&quot;
+    ...
+}
+</programlisting>
+      <para>
+        Statt einer JSON-Liste ist der Wert der Eigenschaft nun eine
+        einzige URL.<footnote>
+          <para>
+            Wie in vielen anderen Fällen ist diese URL hier wieder nur
+            beispielhaft. Die tatsächliche Gestaltung des Pfads bestimmt
+            der Server-Implementierer.
+          </para>
+        </footnote>
       </para>
     </sect3>
   </sect2>
@@ -3110,7 +3318,15 @@ https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         Die Eigenschaft <literal>license</literal> erlaubt es, am
         jeweiligen Objekt die URL einer Lizenz anzugeben. Damit wird
         gekennzeichnet, welche Lizenz der Veröffentlicher der Daten für
-        das jeweilige Objekt vergibt.
+        das jeweilige Objekt vergibt.<footnote>
+          <para>
+            Verzeichnisse für Lizenz-URLs sind unter anderem unter
+            <ulink url="http://licenses.opendefinition.org/">http://licenses.opendefinition.org/</ulink>
+            und
+            <ulink url="https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json">https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json</ulink>
+            zu finden.
+          </para>
+        </footnote>
       </para>
       <para>
         Eine besondere Bedeutung hat die Eigenschaft
@@ -3225,7 +3441,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     &quot;@id&quot;: &quot;http://beispielris.de/&quot;,
     &quot;oparlVersion&quot;: &quot;http://oparl.org/specs/1.0/&quot;,
     &quot;name&quot;: &quot;Beispiel-System&quot;,
-    &quot;risWebsite&quot;: &quot;http://www.beispielris.de/&quot;,
+    &quot;website&quot;: &quot;http://www.beispielris.de/&quot;,
     &quot;contactEmail&quot;: &quot;mailto:info@beispielris.de&quot;,
     &quot;contactName&quot;: &quot;Allgemeiner OParl Kontakt&quot;,
     &quot;vendor&quot;: &quot;http://example-software.com/&quot;,
@@ -3271,7 +3487,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     &quot;@id&quot;: &quot;http://beispielris.de/&quot;,
     &quot;oparlVersion&quot;: &quot;http://oparl.org/specs/1.0/&quot;,
     &quot;name&quot;: &quot;Beispiel-System&quot;,
-    &quot;risWebsite&quot;: &quot;http://www.beispielris.de/&quot;,
+    &quot;website&quot;: &quot;http://www.beispielris.de/&quot;,
     &quot;contactEmail&quot;: &quot;mailto:info@beispielris.de&quot;,
     &quot;contactName&quot;: &quot;Allgemeiner OParl Kontakt&quot;,
     &quot;vendor&quot;: &quot;http://example-software.com/&quot;,
@@ -3476,7 +3692,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>risWebsite</literal>
+            <literal>website</literal>
           </term>
           <listitem>
             <para>
@@ -3561,9 +3777,9 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
         &quot;http://d-nb.info/gnd/2015732-0&quot;,
         &quot;http://dbpedia.org/resource/Cologne&quot;
     ],
-    &quot;name&quot;: &quot;Stadt K\u00f6ln&quot;,
+    &quot;name&quot;: &quot;Stadt Köln&quot;,
     &quot;nameLong&quot;: { // verwendet eine &quot;language map&quot;
-        &quot;de&quot;: &quot;Stadt K\u00f6ln, kreisfreie Stadt&quot;,
+        &quot;de&quot;: &quot;Stadt Köln, kreisfreie Stadt&quot;,
         &quot;en&quot;: &quot;City of Cologne&quot;
     }
     &quot;website&quot;: &quot;http://www.beispielstadt.de/&quot;,
@@ -3602,7 +3818,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               System zu dem dieses Objekt gehört. Typ:
-              <literal>oparl:System</literal> ZWINGEND.
+              <literal>oparl:System</literal>. ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -3613,7 +3829,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Gibt den gebräuchlichen Namen der Körperschaft an. Typ:
-              TODO ZWINGEND.
+              TODO. ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -3624,7 +3840,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Kann bei Bedarf dazu verwendet werden, eine längere Form
-              des Namens der Körperschaft anzugeben. Typ: TODO OPTIONAL.
+              des Namens der Körperschaft anzugeben. Typ: TODO.
+              OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -3634,7 +3851,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              WWW-URL der Körperschaft. EMPFOHLEN.
+              URL der allgemeinen Website der Körperschaft. EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -3644,12 +3861,12 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Lizenz, die für die Daten, die über diese API abgerufen
-              werden können, gilt, sofern nicht am einzelnen Objekt
-              anders angegeben. Verzeichnisse für solche Lizenz-URLs
-              sind insbesondere http://licenses.opendefinition.org/ und
-              https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json
-              Typ: TODO EMPFOHLEN.
+              URL der Lizenz, die für die Daten, die über diese API
+              abgerufen werden können, gilt, sofern nicht am einzelnen
+              Objekt anders angegeben. Sie dazu auch die übergreifende
+              Beschreibung zur Eigenschaft
+              <link linkend="eigenschaft_license"><literal>license</literal></link>.
+              EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -4072,11 +4289,11 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     &quot;familyName&quot;: { // könnte mehrsprachig sein, z.B. griechisch, russisch, tamilisch 
         &quot;@value&quot;: &quot;Mustermann&quot;,
         &quot;@language&quot;: &quot;de&quot;
-    }
+    },
     &quot;givenName&quot;: { // könnte mehrsprachig sein
         &quot;@value&quot;: &quot;Max&quot;,
         &quot;@language&quot;: &quot;de&quot;
-    }
+    },
     &quot;title&quot;: &quot;Prof. Dr.&quot;, // TODO: nicht mehrsprachig?!
     &quot;formOfAddress&quot;: &quot;http://oparl.beispielris.de/formofaddress/ratsmitglied&quot;,
     &quot;gender&quot;: &quot;http://www.w3.org/2006/vcard/ns#Male&quot;,
@@ -4086,8 +4303,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     &quot;postalCode&quot;: &quot;11111&quot;,
     &quot;locality&quot;: {
         &quot;de&quot;: &quot;Musterort&quot;,
-        &quot;en&quot;: Sample Town&quot;
-    }
+        &quot;en&quot;: &quot;Sample Town&quot;
+    },
     &quot;organization&quot;: [
         &quot;http://oparl.beispielris.de/organization/11&quot;,
         &quot;http://oparl.beispielris.de/organization/34&quot;
@@ -4114,7 +4331,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     &quot;academic_degree&quot;: {
         &quot;@language&quot;: null , // keine Vorgabesprache da nicht mehrsprachig
         &quot;@id&quot;: &quot;foaf:title&quot;
-    }
+    },
     &quot;email&quot;: {
         &quot;@id&quot;: &quot;foaf:mbox&quot;,
         &quot;@type&quot;: &quot;@id&quot;
@@ -4124,7 +4341,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     &quot;locality&quot;: {
         &quot;@id&quot;: &quot;vcard:locality&quot;,
         &quot;@container&quot;: &quot;@language&quot; // für eine &quot;language map&quot;
-    }
+    },
     &quot;created&quot;: {
         &quot;@id&quot;: &quot;dc:created&quot;,
         &quot;@type&quot;: &quot;xsd:dateTime&quot;
@@ -4153,7 +4370,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     &quot;locality&quot;: &quot;Musterort&quot;,
     &quot;locality&quot;: {
         &quot;en&quot;: &quot;Sample Town&quot; // TODO prüfen, ob Eigenschaft doppelt erscheinen darf
-    }
+    },
     &quot;organization&quot;: [&quot;11&quot;, &quot;34&quot;],
     &quot;status&quot;: &quot;beispielris:status/buergermeister&quot;,
     &quot;hasMembership&quot;: &quot;beispielris:membership/34&quot;,
@@ -4171,7 +4388,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Der vollständige Name der Person mit akademischem Grad und
-              Vornamen. ZWINGEND
+              Vornamen. Typ: TODO ZWINGEND
             </para>
           </listitem>
         </varlistentry>
@@ -4181,7 +4398,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Familienname bzw. Nachname. OPTIONAL
+              Familienname bzw. Nachname. Typ: TODO OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4191,7 +4408,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Vorname bzw. Taufname. OPTIONAL
+              Vorname bzw. Taufname. Typ: TODO OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4201,10 +4418,11 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Anrede URLs von Objekten mit skos:prefLabel. Ähnlich wie
-              <literal>status</literal>. Beispiele für die
+              Anrede Begriff mit <literal>skos:prefLabel</literal>.
+              Ähnlich wie <literal>status</literal>. Beispiele für die
               <literal>skos:prefLabel</literal> sind &quot;Ratsherr |
-              Ratsfrau&quot; und &quot;Herr | Frau&quot;. OPTIONAL
+              Ratsfrau&quot; und &quot;Herr | Frau&quot;. Typ:
+              <literal>skos:Concept</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4215,7 +4433,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Akademische(r) Titel. TODO: &quot;Dr.&quot;?
-              &quot;Diplom&quot;? OPTIONAL
+              &quot;Diplom&quot;? Typ: <literal>skos:Concept</literal>
+              OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4230,7 +4449,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               <literal>vcard:Male</literal>,
               <literal>vcard:None</literal>,
               <literal>vcard:Other</literal> und
-              <literal>vcard:Unknown</literal>. OPTIONAL
+              <literal>vcard:Unknown</literal>. Typ:
+              <literal>vcard:TODO</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4240,7 +4460,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Telefonnummer mit <literal>tel:</literal> Schema. OPTIONAL
+              Telefonnummer mit <literal>tel:</literal> Schema. Typ:
+              TODO OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4250,8 +4471,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              E-Mail-Adresse mit <literal>mailto:</literal> Schema.
-              OPTIONAL
+              E-Mail-Adresse mit <literal>mailto:</literal> Schema. Typ:
+              <literal>foaf:mbox</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4262,7 +4483,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Straße und Hausnummer der Kontakt-Anschrift der Person.
-              OPTIONAL
+              Typ: TODO OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4272,7 +4493,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Postleitzahl der Kontakt-Anschrift der Person. OPTIONAL
+              Postleitzahl der Kontakt-Anschrift der Person. Typ: TODO
+              OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4282,7 +4504,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Ortsangabe der Kontakt-Anschrift der Person. OPTIONAL
+              Ortsangabe der Kontakt-Anschrift der Person. Typ:
+              <literal>vcard:locality</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4292,11 +4515,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URLs der Gruppierung oder Liste der URLs der Gruppierungen
-              (Objekte vom Typ <literal>oparl:Organization</literal>),
-              in der bzw. in denen die Person aktuell Mitglied ist.
-              Sollte die Person Mitglied in keiner Gruppierung sein,
-              enthält die Liste keine Einträge. ZWINGEND
+              Gruppierung in der die Person aktuell Mitglied ist. Typ:
+              <literal>oparl:Organization</literal> ZWINGEND
             </para>
           </listitem>
         </varlistentry>
@@ -4306,17 +4526,18 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URLs von Objekten mit skos:prefLabel. Die Zeichenketten
-              SOLLEN sowohl die männliche als auch die weibliche Form
-              enthalten, und zwar in dem Muster &quot;männliche Form |
-              weibliche Form&quot; (genau in der Reihenfolge mit einem
-              Leerzeichen vor und nach dem &quot;|&quot;) Wenn sich
-              beide Formen nicht unterscheiden, dann DARF die Form nur
-              einmal verwendet werden: &quot;Mitglied&quot; und nicht
-              &quot;Mitglied | Mitglied&quot;. Dadurch kann auch solche
-              Software einen sinnvollen Text anzeigen, die keine
-              Fall-Unterscheidung nach Geschecht der Personen vornimmt.
-              z.B. &quot;Bürgermeister | Bürgermeisterin&quot;,
+              Status. Begriff mit <literal>skos:prefLabel</literal>. Die
+              Zeichenketten SOLLEN sowohl die männliche als auch die
+              weibliche Form enthalten, und zwar in dem Muster
+              &quot;männliche Form | weibliche Form&quot; (genau in der
+              Reihenfolge mit einem Leerzeichen vor und nach dem
+              &quot;|&quot;) Wenn sich beide Formen nicht unterscheiden,
+              dann DARF die Form nur einmal verwendet werden:
+              &quot;Mitglied&quot; und nicht &quot;Mitglied |
+              Mitglied&quot;. Dadurch kann auch solche Software einen
+              sinnvollen Text anzeigen, die keine Fall-Unterscheidung
+              nach Geschecht der Personen vornimmt. z.B.
+              &quot;Bürgermeister | Bürgermeisterin&quot;,
               &quot;Bezirksbürgermeister | Bezirksbürgermeisterin&quot;,
               &quot;Stadtverordneter | Stadtverordnete&quot;,
               &quot;Bezirksverordneter | Bezirksverordnete&quot;,
@@ -4325,7 +4546,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               (Mitglieder des Rates die keiner Fraktion/Organisation
               angehören -&gt; die Zuordbarkeit einer fiktiven
               Organisation ermöglichen TODO: warum will man das?). Siehe
-              https://github.com/OParl/specs/issues/45 OPTIONAL
+              https://github.com/OParl/specs/issues/45 Typ:
+              <literal>skos:Concept</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4335,10 +4557,9 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URLs der Mitgliedschaft oder Liste von URLs der
-              Mitgliedschaften (Objekte vom Typ
-              <literal>org:Membership</literal>). TODO: Eventuell
-              Unterklasse von org:Membership definieren. OPTIONAL.
+              Mitgliedschaft. TODO: Eventuell Unterklasse von
+              <literal>org:Membership</literal> definieren. Typ:
+              <literal>org:Membership</literal> OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -4348,7 +4569,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              <literal>skos:Concept</literal> OPTIONAL
+              Typ: <literal>skos:Concept</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4358,7 +4579,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN.
+              Datum/Uhrzeit der Erzeugung des Objekts. Typ: String mit
+              xsd:dateTime EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -4368,8 +4590,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Datum/Uhrzeit der letzten Bearbeitung des Objekts.
-              EMPFOHLEN.
+              Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ:
+              String mit xsd:dateTime EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -4416,7 +4638,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     &quot;organization&quot;: &quot;http://oparl.beispielris.de/organization/34&quot;,
     &quot;participant&quot;: [
         &quot;http://oparl.beispielris.de/person/29&quot;,
-        &quot;http://oparl.beispielris.de/person/75&quot;
+        &quot;http://oparl.beispielris.de/person/75&quot;,
         &quot;http://oparl.beispielris.de/person/94&quot;
     ],
     &quot;invitation&quot;: &quot;http://oparl.beispielris.de/document/586&quot;,
@@ -4434,7 +4656,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             &quot;http://oparl.beispielris.de/agendaitem/1047&quot;,
             &quot;http://oparl.beispielris.de/agendaitem/1048&quot;
         ]
-    }
+    },
     &quot;created&quot;: &quot;2012-01-06T12:01:00+01:00&quot;,
     &quot;modified&quot;: &quot;2012-01-08T14:05:27+01:00&quot;
 }
@@ -4885,8 +5107,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     &quot;location&quot;: [
         {
             &quot;description&quot;: &quot;Theodor-Heuss-Ring 1&quot;,
-            &quot;lat&quot;: 7.148,
-            &quot;lon&quot;: 50.023
+            &quot;geometry&quot;: &quot;POINT(7.148  50.023)&quot;
         }
     ],
     &quot;creator&quot;: [
@@ -5352,7 +5573,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     </para>
     <programlisting language="json">
 {
-    &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;
+    &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;,
     &quot;@type&quot;: &quot;oparl:Consultation&quot;,
     &quot;@id&quot;: &quot;beispielris:consultation/47594&quot;,
     &quot;paper&quot;: &quot;beispielris:paper/2396&quot;,

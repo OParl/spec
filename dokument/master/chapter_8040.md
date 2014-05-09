@@ -16,7 +16,6 @@ Ein Kontext:
 ~~~~~
 {
     "@language": "de",
-    
     "license": {
         "@id": "dc:license",
         "@type": "@id"
@@ -25,7 +24,6 @@ Ein Kontext:
         "@id": "skos:exactMatch",
         "@type": "@id"
     }
-    
     "licenseValidSinceDay": // TODO: datum
 }
 ~~~~~
@@ -35,8 +33,8 @@ Ein expandiertes Beispiel:
 ~~~~~  {#oparlbody_ex1 .json}
 {
     "@type": "http://oparl.org/schema/1.0/Body",
-    "@id": "http://oparl.beispielris.de/body/0",
-    "system": "http://oparl.beispielris.de/",
+    "@id": "https://oparl.beispielris.de/body/0",
+    "system": "https://oparl.beispielris.de/",
     "contactEmail": "mailto:ris@beispielstadt.de",
     "contactName": "RIS-Betreuung",
     "rgs": "053150000000",
@@ -45,18 +43,18 @@ Ein expandiertes Beispiel:
         "http://dbpedia.org/resource/Cologne"
     ],
     "name": "Stadt Köln",
-    "nameLong": { // verwendet eine "language map"
+    "nameLong": {
         "de": "Stadt Köln, kreisfreie Stadt",
         "en": "City of Cologne"
     }
     "website": "http://www.beispielstadt.de/",
     "license": "http://creativecommons.org/licenses/by/4.0/",
     "licenseValidSinceDay": "2014-01-01",
-    "organization": "http://oparl.beispielris.de/body/0/organisation/",
-    "meeting": "http://oparl.beispielris.de/body/0/meeting/",
-    "paper": "http://oparl.beispielris.de/body/0/paper/",
-    "member": "http://oparl.beispielris.de/body/0/person/",
-    "classification": "http://oparl.beispielris.de/vocab/landkreis",
+    "organization": "https://oparl.beispielris.de/body/0/organisation/",
+    "meeting": "https://oparl.beispielris.de/body/0/meeting/",
+    "paper": "https://oparl.beispielris.de/body/0/paper/",
+    "member": "https://oparl.beispielris.de/body/0/person/",
+    "classification": "https://oparl.beispielris.de/vocab/landkreis",
     "created": "2014-01-08T14:28:31.568+0100",
     "modified": "2014-01-08T14:28:31.568+0100"
 }

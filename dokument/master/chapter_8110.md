@@ -11,20 +11,20 @@ Ein Beispiel:
 ~~~~~  {#document_ex1 .json}
 {
     "@type": "oparl:Document",
-    "@id": "http://beispielris.de/document/57739",
+    "@id": "https://oparl.beispielris.de/document/57739",
     "name": "Anlage 1 zur Anfrage",
-    "paper": "http://beispielris.de/paper/2396",
+    "paper": "https://oparl.beispielris.de/paper/2396",
     "mimeType": "application/pdf",
     "date": "2013-01-04T07:54:13+01:00",
     "lastModified": "2013-01-04T07:54:13+01:00",
     "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "size": 82930,
-    "accessUrl": "http://beispielris.de/document/57739.pdf",
-    "downloadUrl": "http://beispielris.de/document/download/57739.pdf",
+    "accessUrl": "https://oparl.beispielris.de/document/57739.pdf",
+    "downloadUrl": "https://oparl.beispielris.de/document/download/57739.pdf",
     "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
-    "masterDocument": "http://beispielris.de/document/57738",
+    "masterDocument": "https://oparl.beispielris.de/document/57738",
     "license": "http://www.opendefinition.org/licenses/cc-by",
-    "documentRole": "http://beispielris.de/document-role/evidence",
+    "documentRole": "https://oparl.beispielris.de/document-role/evidence",
 }
 ~~~~~
 

@@ -80,47 +80,6 @@ zum Zugriff auf andere Informationen in Erfahrung zu bringen.
 Die URL des `oparl:System` Objekts MUSS per Definition identisch mit
 der URL des API-Endpunkts des Servers sein.
 
-### Well-Known URIs
-
-TODO: eventuell in eigenen Abschnitt oder eigenes Kapitel auslagern.
-
-Es gibt eine standardisierte Technik, mit der ein Einstiegspunkt in die OParl-Daten angegeben werden kann: "Well-Known URIs". Dieser kann dann maschinell gefunden werden. Diese Technik wurde durch die IETF und das W3C standardisiert.
-
-Die Spezifikation von "Well-Known URIs" durch die IETF ist:
-
-Defining Well-Known Uniform Resource Identifiers (URIs)
-http://tools.ietf.org/html/rfc5785
-
-Eine Liste der Well-Known URIs wird von der IANA verwaltet:
-
-Well-Known URIs
-http://www.iana.org/assignments/well-known-uris/well-known-uris.xhtml
-
-Für OParl sind gegenwärtig nur "Well-Known URIs" für Beschreibungen von Datasets gemäß dem "Vocabulary of Interlinked Datasets" (VoID) relevant.
-
-BEISPIEL:
-
-Wenn ein RIS unter der Domain "example.com" betrieben wird, dann sieht der "Well-Known URI" so aus (der enthaltene "." ist _kein_ Schreibfehler):
-
-https://example.com/.well-known/void
-
-Forwarding ist erlaubt.
-
-Siehe dazu auch:
-
-Describing Linked Datasets with the VoID Vocabulary
-W3C Interest Group Note 03 March 2011
-http://www.w3.org/TR/void/#well-known
-
-Die über derartige URIs dereferenzierbaren Dokumente sind hier spezifiziert:
-http://www.w3.org/TR/void/#void-file
-
-BEISPIEL:
-
-Bei einem http GET Request auf https://example.com/.well-known/void mit Angabe des bevorzugten MIME-Type "application/ld+json" antwortet das System mit dem URI https://example.com/.well-known/void.jsonld unter welchem dieses JSON-LD Dokument abrufbar ist:
-
-TODO: Beispiele für JSON-LD und exemplarisch auch für HTML.
-
 ### Eigenschaften
 
 `oparlVersion`

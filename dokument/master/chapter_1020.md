@@ -61,3 +61,6 @@ erkennbar. So sollen parlamentarische Informationssysteme vielerorts in
 verschiedenste Prozesse und heterogene Systemlandschaften integriert werden. Durch
 eine einheitliche Schnittstelle bieten sich effiziente Möglichkeiten zur Integration
 der Daten in anderen Systeme, wie beispielsweise Web-Portale.
+
+Ausführlichere Beschreibungen einiger möglicher Anwendungsszenarien finden sich
+im Kapitel [Nutzungsszenarien](#nutzungsszenarien).

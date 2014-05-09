@@ -10,8 +10,8 @@ Ein Beispiel in expandierter Form:
 ~~~~~  {#organization_ex1 .json}
 {
     "@type": "http://oparl.org/schema/1.0/Organization",
-    "@id": "http://oparl.beispielris.de/organization/34",
-    "body": "http://oparl.beispielris.de/body/0",
+    "@id": "https://oparl.beispielris.de/organization/34",
+    "body": "https://oparl.beispielris.de/body/0",
     "name": {
         @language" :"de",
         @value": "Finanzausschuss"
@@ -22,18 +22,17 @@ Ein Beispiel in expandierter Form:
     },
     "post": {
         "@list": [
-        // ohne @list wird in JSON-LD die Reihenfolge nicht festgelegt
-        "http://oparl.beispielris.de/post/chairperson",
-        "http://oparl.beispielris.de/post/deputyChairperson"
+            "https://oparl.beispielris.de/post/chairperson",
+            "https://oparl.beispielris.de/post/deputyChairperson"
         ]
     },
     "member": [
-        "http://oparl.beispielris.de/person/27",
-        "http://oparl.beispielris.de/person/48",
-        "http://oparl.beispielris.de/person/57"
+        "https://oparl.beispielris.de/person/27",
+        "https://oparl.beispielris.de/person/48",
+        "https://oparl.beispielris.de/person/57"
     ],
-    "organizationType": "http://oparl.beispielris.de/vocab/committee",
-    "classification": "http://oparl.beispielris.de/vocab/finance",
+    "organizationType": "https://oparl.beispielris.de/vocab/committee",
+    "classification": "https://oparl.beispielris.de/vocab/finance",
     "modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~

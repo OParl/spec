@@ -1,7 +1,7 @@
 Nomenklatur der Spezifikation und Satzkonventionen
 --------------------------------------------------
 
-### MÜSSEN, SOLLEN und KÖNNEN bzw. ZWINGEND, EMPFOHLEN und OPTIONAL
+### Zwingende, empfohlene und optionale Anforderungen  {#muss_soll_darf}
 
 Dieses Spezifikationsdokument nutzt die Modalverben müssen, können und sollen
 in einer Art und Weise, die bestimmte Anforderungen möglichst unmissverständlich

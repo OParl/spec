@@ -11,7 +11,7 @@ Ein Beispiel:
 ~~~~~  {#system_ex1 .json}
 {
     "@type": "oparl:System",
-    "@id": "http://beispielris.de/",
+    "@id": "https://oparl.beispielris.de/",
     "oparlVersion": "http://oparl.org/specs/1.0/",
     "name": "Beispiel-System",
     "website": "http://www.beispielris.de/",
@@ -19,10 +19,10 @@ Ein Beispiel:
     "contactName": "Allgemeiner OParl Kontakt",
     "vendor": "http://example-software.com/",
     "product": "http://example-software.com/oparl-server/",
-    "bodies": "http://beispielris.de/bodies/",
-    "newObjects": "http://beispielris.de/new_objects/",
-    "updatedObjects": "http://beispielris.de/updated_objects/",
-    "removedObjects": "http://beispielris.de/removed_objects"
+    "bodies": "https://oparl.beispielris.de/bodies/",
+    "newObjects": "https://oparl.beispielris.de/new_objects/",
+    "updatedObjects": "https://oparl.beispielris.de/updated_objects/",
+    "removedObjects": "https://oparl.beispielris.de/removed_objects"
 }
 ~~~~~
 
@@ -31,9 +31,8 @@ Ein Kontext:
 ~~~~~  {#system_ex_context .json}
 {
     "@language": "de",
-
-    "beispielris": "http://beispielris.de/",
-    "oparl": "http://oparl.org/xyz/",
+    "beispielris": "https://oparl.eispielris.de/",
+    "oparl": "http://oparl.org/TODO/",
     "dc": "http://purl.org/dc/terms/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
@@ -56,7 +55,7 @@ Und das System-Objekt in kompakter Form unter Verwendung des Kontext:
 ~~~~~  {#system_ex2 .json}
 {
     "@type": "oparl:System",
-    "@id": "http://beispielris.de/",
+    "@id": "https://oparl.beispielris.de/",
     "oparlVersion": "http://oparl.org/specs/1.0/",
     "name": "Beispiel-System",
     "website": "http://www.beispielris.de/",
@@ -64,7 +63,7 @@ Und das System-Objekt in kompakter Form unter Verwendung des Kontext:
     "contactName": "Allgemeiner OParl Kontakt",
     "vendor": "http://example-software.com/",
     "product": "http://example-software.com/oparl-server/",
-    "bodies": "http://beispielris.de/bodies/",
+    "bodies": "beispielris:bodies/",
     "newObjects": "beispielris:new_objects/",
     "updatedObjects": "beispielris:updated_objects/",
     "removedObjects": "beispielris:removed_objects"

@@ -3,25 +3,36 @@ Feeds  {#feeds}
 
 Feeds sind spezielle Arten von [Objektlisten](#objektlisten), für die
 besondere Anforderungen gelten. Es werden drei verschiedene Feeds
-spezifiziert.
+spezifiziert:
 
-Der Begriff "Feed" ist eine Anlehnung an die weit verbreiteten RSS- oder 
-Atom-Feeds, deren Publikationslogik im Wesentlichen auf der chronologischen
+* Der Feed *Neue Objekte*
+* Der Feed *Geänderte Objekte*
+* Der Feed *Entfernte Objekte*
+
+Der Begriff "Feed" ist eine Anlehnung an die weit verbreiteten RSS-^[RSS
+2.0 Specification: <http://cyber.law.harvard.edu/rss/rss.html>] oder 
+Atom-Feeds^[Atom ist in RFC4287 spezifiziert: <http://www.ietf.org/rfc/rfc4287.txt>],
+deren Publikationslogik im Wesentlichen auf der chronologischen
 Sortierung beruht. Im Unterschied zu Atom oder RSS ist hier jedoch keine
 XML-Ausgabe beabsichtigt.
 
-Die Feeds sollen es Clients ermöglichen, schnelle und ressourcenschonende
+Die Feeds sollen es Clients ermöglichen, schnell und ressourcenschonend
 abzufragen, welche Objekte auf dem Server neu hinzugefügt, geändert oder
-entfernt wurden. Ziel ist, zu verhindern, dass Clients zur Aktualisierung
-ihres Caches den gesamten Datenbestand eines Servers abrufen müssen.
+entfernt wurden. Damit können Clients beispielsweise schnell und einfach
+neue Dokumente auffinden und verarbeiten oder entfernte Objekte aus ihren
+Caches entfernen und dabei nur ein Mindestmaß an Anfragen ausführen.
 
 Ein OParl-Server SOLL jeden der nachfolgend beschriebenen Feeds anbieten,
 sofern möglich.
 
-Für alle Feeds drei gilt, dass mindestens ein Zeitraum von 365 Tagen, 
-gerechnet vom Zeitpunkt der Abfrage, abgedeckt werden SOLL.
+Für alle drei Feeds wird EMPFOHLEN, dass mindestens ein Zeitraum von 365 Tagen
+abgedeckt wird.
 
-### Der Feed "Neue Objekte" ### {#feed_neue_objekte}
+Da Feeds üblicherweise eine große und stetig steigende Anzahl von Objekten
+beinhalten können, ist hier die [Paginierung](#paginierung) anzuwenden, wie
+sie im vorigen Abschnitt über [Objektlisten](#objektlisten) beschrieben wird.
+
+### Der Feed "Neue Objekte"  {#feed_neue_objekte}
 
 Der Feed für neue Objekte listet die URLs neu hinzugekommener Objekte in
 der Reihenfolge des Datums ihrer Erstellung, wobei die jüngsten Objekte
@@ -54,8 +65,7 @@ Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
     		"created": "2014-01-04T11:26:48.638+0100"
     	},
     	...
-    ],
-    "nextPage": "https://oparl.beispielris.de/feeds/new/?t=20140106170100402"
+    ]
 }
 ~~~~~
 
@@ -69,10 +79,6 @@ Eigenschaften besitzen:
 * `@id`: Die URL des neuen Objekts
 * `created`: Der Zeitpunkt der Erzeugung des Objekts
 
-Wie für Objektlisten üblich, SOLL auch für Feeds automatisch eine Aufteilung
-auf mehrere Seiten vorgenommen und ein Paginierungs-Link angeboten werden, um
-die übertragenen Datenmengen je Abruf einzugrenzen.
-
 Der jeweils in der Eigenschaft `created` ausgegebene Zeitpunkt SOLL vom Server
 als Sortierkriterium der Liste genutzt werden. So können Clients den jeweils
 am Anfang der Liste vorgefundenen Zeitpunkt als Begrenzung für die zukünftige
@@ -84,10 +90,10 @@ Grenzwert merkt. Beim nächsten Abruf des Feeds einige Tage später muss der
 Client die Liste nur so weit abarbeiten, so lange der `created`-Zeitpunkt der
 Einträge größer oder gleich dem Grenzwert ist.
 
-### Der Feed "Geänderte Objekte" ### {#feed_geaenderte_objekte}
+### Der Feed "Geänderte Objekte"  {#feed_geaenderte_objekte}
 
 Der Feed für geänderte Objekte listet die URLs geänderter Objekte in
-der Reihenfolge des Datums ihrer Änderung, wobei das zuletzt Objekt
+der Reihenfolge des Datums ihrer Änderung, wobei das zuletzt geänderte Objekt
 zuerst ausgegeben wird.
 
 Die Definition einer "Änderung" kann sich zwischen den Objekttypen
@@ -107,25 +113,24 @@ geführt werden.
     "items": [
     	{
     		"@id": "https://oparl.beispielris.de/bodies/0/papers/0/documents/2",
-    		"last_modified": "2014-01-08T14:28:31.568+0100"
+    		"lastModified": "2014-01-08T14:28:31.568+0100"
     	},
     	{
     		"@id": "https://oparl.beispielris.de/bodies/0/papers/0",
-    		"last_modified": "2014-01-08T12:14:27.958+0100"
+    		"lastModified": "2014-01-08T12:14:27.958+0100"
     	},
     	{
     		"@id": "https://oparl.beispielris.de/bodies/0/papers/0/documents/1",
-    		"last_modified": "2014-01-06T17:01:00.402+0100"
+    		"lastModified": "2014-01-06T17:01:00.402+0100"
     	},
     	...
-    ],
-    "nextPage": "https://oparl.beispielris.de/feeds/updated/?t=20140106170100402"
+    ]
 }
 ~~~~~
 
 Das Ausgabeformat entspricht weitgehend dem des Feeds "Neue Objekte", jedoch
-heißt hier die Eigenschaft für den Zeitpunkt der letzten Änderung `last_modified`. 
-Auch hier gilt, dass der als `last_modified` ausgegebene Zeitpunkt auch als
+heißt hier die Eigenschaft für den Zeitpunkt der letzten Änderung `lastModified`. 
+Auch hier gilt, dass der als `lastModified` ausgegebene Zeitpunkt auch als
 Sortierkriterium der Liste gelten SOLL.
 
 ### Der Feed "Entfernte Objekte" ### {#feed_entfernte_objekte}
@@ -148,11 +153,10 @@ depublizierte Dokumente aus ihren lokalen Caches zu entfernen.
     		"removed": "2013-11-11T11:11:00.000+0100"
     	},
     	...
-    ],
-    "nextPage": "https://oparl.beispielris.de/feeds/updated/?t=20131111111100"
+    ]
 }
 ~~~~~
 
-Die Eigenschaft zur Angabe des Entfernugnszeitpunkts heißt hier `removed` und
+Die Eigenschaft zur Angabe des Entfernungszeitpunkts heißt hier `removed` und
 SOLL, analog zu den beiden anderen Feeds, als Sortierkriterium der Liste
 verwendet werden.

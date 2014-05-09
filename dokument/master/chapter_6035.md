@@ -20,10 +20,10 @@ Die grundsätzliche Funktionsweise von URLs ist in RFC 3986 beschrieben^[RFC 398
 Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in diesem Dokument
 Verwendung finden:
 
-    http://refserv.oparl.org/foo/bar/?skip=234
-    \__/   \_______________/\_______/ \______/
-     |         |                |        |
-    Schema    Host             Pfad  Query-String
+    https://refserv.oparl.org/foo/bar/?skip=234
+    \___/   \_______________/\_______/ \______/
+      |         |                |        |
+    Schema     Host             Pfad  Query-String
 
 
 ### URL-Kanonisierung
@@ -75,11 +75,13 @@ abrufbar ist. Diese Faktoren könnten sein:
 
 * Zusätzliche Domains, die einen A-Record auf den selben Server besitzen
 
-Zu der kanonischen Beispiel-URL http://oparl.stadtrat.stadt-koeln.de/ wären eine Reihe von nicht-kanonischen URL-Varianten denkbar, die technischen auf den selben Server führen könnten:
+Zu der kanonischen Beispiel-URL https://oparl.stadtrat.stadt-koeln.de/ wären 
+eine Reihe von nicht-kanonischen URL-Varianten denkbar, die technischen auf 
+den selben Server führen könnten:
 
-* http://83.123.89.102/
-* http://oparl.stadtrat.stadtkoeln.de/
-* http://risserv.stadt-koeln.de/
+* https://83.123.89.102/
+* https://oparl.stadtrat.stadtkoeln.de/
+* https://risserv.stadt-koeln.de/
 
 Falls es aus technischen Gründen nicht möglich ist, den Zugang auf das OParl-System über nicht-kanonische
 URLs zu unterbinden, SOLL eine entsprechende HTTP-Anfrage mit einer Weiterleitung auf die entsprechende 
@@ -99,8 +101,8 @@ dass für jeden Parameter und jeden Wert im Query-String nur eine kanonische Sch
 Darüber hinaus SOLL der Server-Implementierer darauf achten, bei Verwendung von Query-String-Parametern
 diese in URLs immer nach dem selben Prinzip zu sortieren. Ein Beispiel: die beiden URLs
 
-    http://oparl.meinris.de/members?body=1&committee=2
-    http://oparl.meinris.de/members?committee=2&body=1
+    https://oparl.beispielris.de/members?body=1&committee=2
+    https://oparl.beispielris.de/members?committee=2&body=1
 
 unterscheiden sich lediglich in der Reihenfolge der Query-String-Parameter. Da sie jedoch nicht
 identisch sind, müssen Clients annehmen, dass beide URLs verschiedene Objekte repräsentieren. In der

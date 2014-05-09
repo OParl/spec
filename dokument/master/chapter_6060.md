@@ -38,18 +38,21 @@ Beispiel:
 
 ### Paginierung  {#paginierung}
 
-Für längere Listen ist eine Blätterfunktion bzw.
-Paginierung vorgesehen. Darunter versteht man die Aufteilung der Liste
-in kleinere Teilbereiche, die wir hier als "Listenseiten" bezeichnen.
-Zweck ist, die einzelnen Listenseiten mit je einer eigenen API-Anfrage
-abrufbar zu machen. Die Aufteilung der Liste in Listenseiten erfolgt 
-durch den Server und kann vom Client nicht beeinflusst werden, sie
-bleibt jedoch zwischen den einzelnen unverändert.
+Für den Abruf von Listen mit vielen Elementen ist eine Blätterfunktion,
+(Paginierung) vorgesehen. Darunter verstehen wir die Aufteilung einer Liste
+in kleinere Teilstücke, die wir hier als Listenseiten bezeichnen.
+Jede Listenseite wird vom Client jeweils mit einer eigenen API-Anfrage
+abgerufen. Das dient dazu, die bei der jeweiligen Anfrage übertragenen
+Datenmengen zu begrenzen und damit Antwortzeiten und Systemressourcen
+sowohl beim Server als auch beim Client zu schonen.
 
-Listen mit mehr als 100 Einträgen SOLL der Server nur teilweise
-ausgeben und dem Client dabei eine **Paginierung** anbieten, um weitere
-Listenteile abzurufen. Dabei wird EMPFOHLEN, die Zahl der jeweils
-ausgegebenen Listeneinträge wiederum auf maximal 100 zu begrenzen.
+Die Entscheidung, ob eine Seite teilweise und daher mit Paginierung
+ausgegeben wird, liegt allein beim Server. Bei Listen mit mehr als 100
+Einträgen ist dies EMPFOHLEN. Die Zahl der Einträge, die der
+Server dabei je Listenseite ausliefert, SOLL dabei maximal 100 betragen.
+Die Anzahl der Einträge (Obergrenze) MUSS auf allen Listenseiten der selben
+Liste konstant gehalten werden, sofern nicht (beispielsweise auf der letzten
+Listenseite) weniger Listeneinträge vorhanden sind.
 
 Das nachstehende Beispiel zeigt, wie dem Client die URL zum
 "Blättern", also zum Aufruf der jeweils nächsten Listenseite,

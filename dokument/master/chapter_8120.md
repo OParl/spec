@@ -15,12 +15,12 @@ Ein Beispiel:
 ~~~~~  {#consultation_ex1 .json}
 {
     "@type": "oparl:Consultation",
-    "@id": "http://beispielris.de/consultation/47594",
-    "paper": "http://beispielris.de/paper/2396",
-    "agendaitem": "http://beispielris.de/agendaitem/15569",
-    "committee": "http://beispielris.de/organization/96",
+    "@id": "https://oparl.beispielris.de/consultation/47594",
+    "paper": "https://oparl.beispielris.de/paper/2396",
+    "agendaitem": "https://oparl.beispielris.de/agendaitem/15569",
+    "committee": "https://oparl.beispielris.de/organization/96",
     "authoritative": false,
-    "role": "http://beispielris.de/role/decision"
+    "role": "https://oparl.beispielris.de/role/decision"
 }
 ~~~~~
 

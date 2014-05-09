@@ -15,7 +15,7 @@ Ein Beispiel in expandierter Form:
 ~~~~~  {#person_ex1 .json}
 {
     "@type": "http://oparl.org/schema/1.0/Person",
-    "@id": "http://oparl.beispielris.de/person/29",
+    "@id": "https://oparl.beispielris.de/person/29",
     "name": "Prof. Dr. Max Mustermann",
     "familyName": { // könnte mehrsprachig sein, z.B. griechisch, russisch, tamilisch 
         "@value": "Mustermann",
@@ -26,7 +26,7 @@ Ein Beispiel in expandierter Form:
         "@language": "de"
     },
     "title": "Prof. Dr.", // TODO: nicht mehrsprachig?!
-    "formOfAddress": "http://oparl.beispielris.de/formofaddress/ratsmitglied",
+    "formOfAddress": "https://oparl.beispielris.de/formofaddress/ratsmitglied",
     "gender": "http://www.w3.org/2006/vcard/ns#Male",
     "email": "mailto:max@mustermann.de",
     "phone": "tel:+493012345678",
@@ -37,11 +37,11 @@ Ein Beispiel in expandierter Form:
         "en": "Sample Town"
     },
     "organization": [
-        "http://oparl.beispielris.de/organization/11",
-        "http://oparl.beispielris.de/organization/34"
+        "https://oparl.beispielris.de/organization/11",
+        "https://oparl.beispielris.de/organization/34"
     ],
-    "status": "http://oparl.beispielris.de/status/buergermeister",
-    "hasMembership": "http://oparl.beispielris.de/membership/34",
+    "status": "https://oparl.beispielris.de/status/buergermeister",
+    "hasMembership": "https://oparl.beispielris.de/membership/34",
     "created": "2011-11-11T11:11:00+01:00",
     "modified": "2012-08-16T14:05:27+02:00"
 }
@@ -87,7 +87,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 {
     "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld",
     "@type": "oparl:Person",
-    "@id": "http://oparl.beispielris.de/person/29",
+    "@id": "https://oparl.beispielris.de/person/29",
     "name": "Prof. Dr. Max Mustermann",
     "familyName": "Mustermann", // Kontext gibt deutsche Spache vor
     "givenName": "Max",

@@ -99,30 +99,29 @@ werden, welche Ableitungen einer Datei existieren.
     MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT vorhanden sein.
     TODO: ist das eine Tautologie?
     Typ: `oparl:Paper`
-    
-    
+
 `meeting`
 :   Sitzung, sofern diese Datei zu einer Sitzung gehört. Wenn diese Datei zu einer Sitzung gehört,
     MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT
     vorhanden sein.
     TODO: ist das eine Tautologie?
-    Typ: `oparl:Meeting`
+    Typ: `oparl:Meeting`.
 
 `masterDocument`
 :   Datei von der das aktuelle Objekt abgeleitet wurde.
-    Typ: `oparl:Document`
+    Typ: `oparl:Document`.
     OPTIONAL
 
 `derivativeDocuments`
 :   Abgeleitete Datei die von dem aktuellen Objekt abgeleitet wurde.
-    Typ: `oparl:Document`
+    Typ: `oparl:Document`.
     OPTIONAL
-    
+
 `license`
 :   Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet
-    wird, dann ist sie massgeblich und nicht die globalere Angabe in dem `oparl:Body` Objekt der Körperschaft.
-    Lesenswert zum Thema Lizensierung von Linked Data ist http://linkeddatabook.com/editions/1.0/#htoc48
-    Type: URL
+    wird, dann ist sie anstelle einer globalen Angabe im übergeordneten
+    `oparl:Body` bzw. `oparl:System` Objekt maßgeblich.
+    Typ: URL.
     OPTIONAL
 
 `documentRole`

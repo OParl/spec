@@ -11,13 +11,13 @@ Benannte Objekte sind innerhalb einer JSON-LD-Ausgabe diejenigen Objekte,
 die durch eine eigene URL identifiziert werden. Als Beispiel dient ein
 fiktives Objekt, das ein Client über die URL
 
-    http://refserv.oparl.org/bodies/0/committees/1
+    https://oparl.beispielris.de/bodies/0/committees/1
 
 abruft:
 
 ~~~~~  {#benanntanonym_ex1 .json}
 {
-    "@id": "http://refserv.oparl.org/bodies/0/committees/1",
+    "@id": "https://oparl.beispielris.de/bodies/0/committees/1",
     "@type": "http://oparl.org/schema/1.0/committee",
     "name": "Hauptausschuss"
 }
@@ -54,14 +54,14 @@ umschreiben.
 
 ~~~~~  {#benanntanonym_ex2 .json}
 {
-    "@id": "http://refserv.oparl.org/bodies/0/papers/456",
+    "@id": "https://oparl.beispielris.de/bodies/0/papers/456",
     "@type": "http://oparl.org/schema/1.0/paper",
     "title": "Beschlussvorlage zur Jugendförderung",
     "consultations": [
     	{
     		"@type": "http://oparl.org/schema/1.0/consultation",
-    		"committee": "http://refserv.oparl.org/bodies/0/committees/1",
-    		"meeting": "http://refserv.oparl.org/bodies/0/committees/1/meetings/123",
+    		"committee": "https://oparl.beispielris.de/bodies/0/committees/1",
+    		"meeting": "https://oparl.beispielris.de/bodies/0/committees/1/meetings/123",
     		"agendaitem": "7.2.4",
     		"authoritative": false
     	},

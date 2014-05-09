@@ -1,4 +1,4 @@
-Objektlisten
+Objektlisten  {#objektlisten}
 ------------
 
 Über die OParl-API können entweder einzelne (benannte) Objekte,
@@ -36,7 +36,7 @@ Beispiel:
 }
 ~~~~~
 
-### Paginierung
+### Paginierung  {#paginierung}
 
 Für längere Listen ist eine Blätterfunktion bzw.
 Paginierung vorgesehen. Darunter versteht man die Aufteilung der Liste

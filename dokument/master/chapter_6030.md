@@ -11,7 +11,7 @@ HTTPS gewählt wird, obliegt dem Betreiber bzw. Server-Implementierer.
 Die Wahl des unverschlüsselten oder verschlüsselten HTTP-Zugriffs hat
 Auswirkung auf die im System verwendeten URLs. Wie im Kapitel [URLs](#urls)
 beschrieben, verfolgt diese Spezifikation die Festlegung auf genau eine 
-"kanonische" URL je Ressource (URL-Kanonisierung).
+"kanonische" URL je Ressource (vgl. [URL-Kanonisierung](#url_kanonisierung)).
 
 Bei unverschlüsseltem Zugriff wird allen URLs, die auf das betreffende System
 zeigen, das Schema "http://" voran gestellt, beim verschlüsselten Zugriff
@@ -26,4 +26,6 @@ Weiterleitung antworten (HTTP Status-Code 301).
 Gleiches gilt umgekehrt: beantwortet das System regulär Anfragen über
 unverschlüsseltes HTTP, dann MÜSSEN Anfragen auf die entsprechenden URLs mit
 "https://"-Schema mit einer HTTP-Weiterleitung (HTTP Status-Code 301) beantwortet
-werden. TODO: Geht das, wenn HTTPS nicht unterstützt wird?
+werden.
+
+TODO: Geht das, wenn HTTPS nicht unterstützt wird?

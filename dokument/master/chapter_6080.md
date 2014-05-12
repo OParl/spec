@@ -1,4 +1,4 @@
-Dateizugriff  { #dateizugriff }
+Dateizugriff  {#dateizugriff}
 ------------
 
 Mit dem Begriff "Datei" sind im Sinne dieser Spezifikation alle Ressourcen

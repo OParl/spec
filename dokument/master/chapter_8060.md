@@ -98,9 +98,9 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "phone": "tel:+493012345678",
     "streetAddress": "Musterstraße 5",
     "postalCode": "11111",
-    "locality": "Musterort",
     "locality": {
-        "en": "Sample Town" // TODO prüfen, ob Eigenschaft doppelt erscheinen darf
+        "de": "Musterort",
+        "en": "Sample Town"
     },
     "organization": ["11", "34"],
     "status": "beispielris:status/buergermeister",
@@ -108,6 +108,16 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "created": "2011-11-11T11:11:00+01:00",
     "modified": "2012-08-16T14:05:27+02:00"
 }
+
+Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der Kontext bleibt wie zuvor.
+
+~~~~~  {#person_ex3 .json}
+{
+    // ...
+    "locality": "Musterort",
+    // ...
+}
+
 ~~~~~
 ### Eigenschaften ###
 

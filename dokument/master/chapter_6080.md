@@ -3,7 +3,7 @@ Dateizugriff  { #dateizugriff }
 
 Mit dem Begriff "Datei" sind im Sinne dieser Spezifikation alle Ressourcen
 gemeint, die von einem OParl-Server zur Verfügung gestellt werden und
-deren Metadaten über die JSON-API als `[oparl:Document](#oparl_document)` 
+deren Metadaten über die JSON-API als [`oparl:Document`](#oparl_document) 
 abgerufen werden können. Es handelt sich dabei beispielsweise um Textdokumente 
 im PDF-Format, Abbildungen im JPEG- oder PNG etc., die wesentliche 
 Inhalte der parlamentarischen Informationen im OParl-System ausmachen.
@@ -28,7 +28,7 @@ aus.
 
 Die URLs zum Abruf der einzelnen Datei (wahlweise mittels GET oder HEAD) stellt
 der Server dem Client in den Daten des Metadaten-Objekts zur Verfügung.
-Details finden sich in der Schema-Beschreibung zu `[oparl:Document](#oparl_document)`.
+Details finden sich in der Schema-Beschreibung zu [`oparl:Document`](#oparl_document).
 
 ### Allgemeiner Zugriff und expliziter Download
 

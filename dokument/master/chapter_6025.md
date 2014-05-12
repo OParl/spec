@@ -6,13 +6,19 @@ RFC2295^[RFC2295: <http://tools.ietf.org/html/rfc2295>] in verschiedenen Formate
 vorhalten. Clients haben die Möglichkeit, mittels HTTP-Header schon in
 der Anfrage eine Vorliebe für ein bestimmtes Format zu übermitteln.
 
-TODO: Hier muss eine Beschreibung folgen, was mit Content Negotiation erreicht werden
-soll und wie genau die Anforderungen lauten (vgl. Issue #105).
+Der Vorgang der Content Negotiation ist u.a. in http://de.wikipedia.org/wiki/Content_Negotiation erklärt. Content Negotiation ist Bestandteil der HTTP 1.1 Spezifikation. Siehe RFC 2616 (http://tools.ietf.org/html/rfc2616).
 
-TODO: Der nachstehende Text muss noch sauber formuliert werden.
+Die Idee hinter Content Negotiation ist, dass ein Client die von ihm akzeptierten Repräsentationen im `Accept`-Header des Requests mitgibt, damit der Server gemäß Spezifikation die am besten passende und von ihm unterstützte Repräsentation an den Client ausliefert. 
 
-Auf ein für Linked Data wichtiges Detail sei hier hingewiesen. Wenn man in einem üblichen Web-Browser
-diesen oben angegebenen Link eingibt und aufruft:
+Eine Schwierigkeit ergibt sich, dass auch `*/*` ein valider `Accept`-Header und bedeutet soviel wie "ich nehme alles". Eine Webanwendung würde dann üblicherweise HTML ausgeben, da es die Standard Repräsentation einer Webanwendung ist. Im Falle einer API, die standardmäßig mit JSON-LD arbeitet, würde eventuell `application/ld+json` als Antwort erwartet. Der Server weiss in diesem Fall aufgrund der fehlenden Information durch den Client nicht, was dieser tatsächlich wünscht. Die OParl-Spezifikation kann in diesem Fall für den Server auch nicht zwingend `application/ld+json` vorgeben, da es durchaus sinnvoll sein kann, wenn unter einer URL *sowohl* OParl-Daten z.B. über ein Gremium abrufbar sind als auch eine HTML-Seite mit Informationen über dieses Gremium.
+
+OParl-Clients MÜSSEN den Accept-Header verwenden und darin mindestens `application/ld+json` als akzeptiertes Format angeben.
+
+Ein Server KANN Content Negotiation über einen Redirect auf eine andere URL umsetzen, oder einfach die entsprechende Repräsentation ohne Redirect ausgeben. Beides ist für OParl zulässig. Der OParl-Server MUSS NICHT Content-Negotiation per Redirect unterstützen, aber OParl-Clients MÜSSEN dies.
+
+### httpRange-14
+
+In dem Zusammenhang sei informell auf ein für Linked Data relevantes Detail hingewiesen - auf welches man gelegentlich unter dem Kürzel `httpRange-14 stößt. Wenn man in einem üblichen Web-Browser diesen bereits an anderer Stelle erwähnten Link eingibt und aufruft:
 
     https://dbpedia.org/resource/John_Doe_(musician)
 
@@ -43,11 +49,4 @@ oder aber diese URL mit JSON-LD als Inhalt
 
     https://dbpedia.org/data/John_Doe_(musician).jsonld
 
-Die Entscheidung darüber, welche der URLs und welche der Inhaltsformate der Server liefert, wird zwischen Client und Server
-mittels Content Negotiation ausgehandelt.
-
-Der Vorgang ist u.a. in http://de.wikipedia.org/wiki/Content_Negotiation erklärt. Content Negotiation ist Bestandteil der HTTP 1.1 Spezifikation. Siehe RFC 2616 (http://tools.ietf.org/html/rfc2616).
-
-Wichtig ist, dass Client und Server die Möglichkeit haben, das Format auszuhandeln. Deshalb müssen in OParl-Daten 
-format-unspezifische URLs angegeben werden, bei dem Musiker John Doe ist das die erste der oben angegebenen URLs und nicht
-die letzte.
+Die Entscheidung darüber, welche der URLs und welche der Inhaltsformate der Server liefert, wird zwischen Client und Server mittels Content Negotiation ausgehandelt.

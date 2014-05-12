@@ -87,7 +87,7 @@ Falls es aus technischen Gründen nicht möglich ist, den Zugang auf das OParl-S
 URLs zu unterbinden, SOLL eine entsprechende HTTP-Anfrage mit einer Weiterleitung auf die entsprechende 
 kanonische URL beantwortet werden. Dabei ist der HTTP-Status-Code 301 zu verwenden.
 
-Server-Implementierern wird empfohlen, hierfür den Host-Header der HTTP-Anfrage auszuwerten und mit
+Server-Implementierern wird empfohlen, hierfür den `Host`-Header der HTTP-Anfrage auszuwerten und mit
 der konfigurierten Einstellung für den kanonischen Hostnamen des Systems abzugleichen.
 
 Beim **Pfad**-Bestandteil der URL MÜSSEN Server-Implementierer darüber hinaus beachten, dass

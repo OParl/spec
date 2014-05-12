@@ -108,14 +108,14 @@ Datei-URL mit einer HTTP-Weiterleitung zu beantworten, um dem Client eine
 andere URL zum Zugriff mitzuteilen.
 
 In diesem Fall wird dringend EMPFOHLEN, die Unterscheidung der Bedeutung der
-HTTP-Status-Codes "301" und "302" zu beachten.
+HTTP-Status-Codes `301` und `307` zu beachten.
 
 * `301` SOLL verwendet werden, wenn die vom Client angefragte URL auch zukunftig
   nicht mehr gültig sein wird. Clients erhalten damit das Signal, die bisherige
   URL zu verwerfen und zukünftig die neue, vom Server in der Antwort mitgeteilte
   zu verwenden.
 
-* `302` SOLL verwendet werden, wenn die vom Client genutzte URL nur temporär auf
+* `307` SOLL verwendet werden, wenn die vom Client genutzte URL nur temporär auf
   eine bestimmte andere URL weiter leitet. Clients werden so aufgefordert, die
   vorhandene URL auch bei zukünftigen Anfragen zu nutzen.
 
@@ -123,4 +123,4 @@ HTTP-Status-Codes "301" und "302" zu beachten.
 
 Beim Zugriff auf eine Datei, die zuvor einmal abrufbar war, es inzwischen jedoch
 nicht mehr ist, SOLL die HTTP-Antwort des Servers den spezifischen Status-Code
-"410" tragen.
+`410` tragen.

@@ -51,9 +51,11 @@
     </para>
     <para>
       Die vorligende Version ist die erste verabschiedete Version der
-      Spezifikaiton zum OParl-Standard. Zielsetzung von OParl
-      ---------------------
+      Spezifikaiton zum OParl-Standard.
     </para>
+  </sect2>
+  <sect2 id="zielsetzung-von-oparl">
+    <title>Zielsetzung von OParl</title>
     <para>
       OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:
     </para>
@@ -192,6 +194,11 @@
       zur Integration der Daten in anderen Systeme, wie beispielsweise
       Web-Portale.
     </para>
+    <para>
+      Ausführlichere Beschreibungen einiger möglicher
+      Anwendungsszenarien finden sich im Kapitel
+      <link linkend="nutzungsszenarien">Nutzungsszenarien</link>.
+    </para>
   </sect2>
   <sect2 id="transparenz-und-beteiligung-durch-open-data">
     <title>Transparenz und Beteiligung durch Open Data</title>
@@ -256,7 +263,7 @@
       Datennutzern. Die bloße Bereitstellung einer OParl-konformen API
       wird weder die Einhaltung der technischen Prinzipien, noch der
       weiteren Open-Data-Prinzipien vollständig garantieren. Viele
-      Bestandteile der Oparl Spezifikation, die einen weitgehend
+      Bestandteile der OParl Spezifikation, die einen weitgehend
       barrierearmen Zugang zu Informationen ermöglichen, sind optional
       (Beispiel: Volltexte von Dokumenten über die API abrufbar machen).
       Andere Bestandteile, die von Interesse wären, sind noch gar nicht
@@ -460,9 +467,8 @@
   </sect2>
   <sect2 id="nomenklatur-der-spezifikation-und-satzkonventionen">
     <title>Nomenklatur der Spezifikation und Satzkonventionen</title>
-    <sect3 id="müssen-sollen-und-können-bzw.-zwingend-empfohlen-und-optional">
-      <title>MÜSSEN, SOLLEN und KÖNNEN bzw. ZWINGEND, EMPFOHLEN und
-      OPTIONAL</title>
+    <sect3 id="muss_soll_darf">
+      <title>Zwingende, empfohlene und optionale Anforderungen</title>
       <para>
         Dieses Spezifikationsdokument nutzt die Modalverben müssen,
         können und sollen in einer Art und Weise, die bestimmte
@@ -3170,29 +3176,229 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       </para>
     </sect3>
   </sect2>
-  <sect2 id="dokumentenabruf">
-    <title>Dokumentenabruf</title>
+  <sect2 id="dateizugriff">
+    <title>Dateizugriff</title>
     <para>
-      TODO:
+      Mit dem Begriff &quot;Datei&quot; sind im Sinne dieser
+      Spezifikation alle Ressourcen gemeint, die von einem OParl-Server
+      zur Verfügung gestellt werden und deren Metadaten über die
+      JSON-API als <literal>[oparl:Document](#oparl_document)</literal>
+      abgerufen werden können. Es handelt sich dabei beispielsweise um
+      Textdokumente im PDF-Format, Abbildungen im JPEG- oder PNG etc.,
+      die wesentliche Inhalte der parlamentarischen Informationen im
+      OParl-System ausmachen.
     </para>
-    <itemizedlist>
-      <listitem>
+    <para>
+      In Bezug auf die Datenvolumen, die der Verkehr zwischen OParl
+      Servern und Clients ausmacht, kommt dem Dateizugriff eine
+      besondere Bedeutung zu. Daher formuliert OParl diesbezüglich
+      einige Anforderungen, die helfen sollen, unnötigen Datentransfer
+      zu vermeiden.
+    </para>
+    <para>
+      Detail zu sämtlichen angesprochenen Mechanismen sind in der
+      HTTP-1.1-Spezifikation<footnote>
         <para>
-          HTTP GET Methode MUSS unterstützt werden
+          vgl.
+          <ulink url="http://www.w3.org/Protocols/rfc2616/rfc2616.html">http://www.w3.org/Protocols/rfc2616/rfc2616.html</ulink>
         </para>
-      </listitem>
-      <listitem>
-        <para>
-          HEAD-Methode MUSS unterstützt werden
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          HTTP Last-Modified Header sowie Conditional GET sind zu
-          unterstützen
-        </para>
-      </listitem>
-    </itemizedlist>
+      </footnote> zu finden.
+    </para>
+    <sect3 id="get-und-head-anfragen">
+      <title>GET und HEAD Anfragen</title>
+      <para>
+        Grundsätzlich gilt, dass jede Datei mittels HTTP-Anfrage unter
+        Verwendung der HTTP-Methode <literal>GET</literal> abrufbar sein
+        MUSS. Um Clients zusätzlich die Überprüfung einer Datei zu
+        ermöglichen, MUSS vom Server außerdem die HTTP-Methode
+        <literal>HEAD</literal> unterstützt werden. Gemäß
+        HTTP-Spezifikation gibt der Server in diesem Fall nur die
+        Antwort-Header, nicht aber den eigentlichen Inhalt der
+        angefrgten Ressource, aus.
+      </para>
+      <para>
+        Die URLs zum Abruf der einzelnen Datei (wahlweise mittels GET
+        oder HEAD) stellt der Server dem Client in den Daten des
+        Metadaten-Objekts zur Verfügung. Details finden sich in der
+        Schema-Beschreibung zu
+        <literal>[oparl:Document](#oparl_document)</literal>.
+      </para>
+    </sect3>
+    <sect3 id="allgemeiner-zugriff-und-expliziter-download">
+      <title>Allgemeiner Zugriff und expliziter Download</title>
+      <para>
+        Mit der im <literal>oparl:Document</literal> ZWINGEND
+        anzugebenden Eigenschaft <literal>accessUrl</literal> liefert
+        der Server dem Client eine URL, die wir hier nachfolgend als
+        <emphasis>Zugriffs-URL</emphasis> bezeichnen. Diese URL dient
+        dem allgmeinen Zugriff auf die Datei. Wie der Client dem
+        Endnutzer diesen Zugriff genau ermöglicht, ist nicht Sache der
+        OParl-Spezifikation.
+      </para>
+      <para>
+        Im Unterschied dazu KANN der Server dem Client in der
+        Eigenschaft <literal>downloadUrl</literal> eine weitere URL
+        anbieten, hier <emphasis>Download-URL</emphasis> genannt. Diese
+        dient im Gegensatz zur Zugriffs-URL speziell zum Herunterladen
+        und Speichern der Datei in einem Dateisystem des Endnutzers. Bei
+        Zugriff auf die Download-URL MUSS der Server in der HTTP-Antwort
+        einen <literal>Content-Disposition</literal> Header
+        senden.<footnote>
+          <para>
+            vgl. RFC2138
+            <ulink url="http://www.ietf.org/rfc/rfc2183">http://www.ietf.org/rfc/rfc2183</ulink>
+          </para>
+        </footnote> Dieser Header MUSS als ersten Parameter den Typ
+        <literal>attachment</literal> sowie den
+        <literal>filename</literal>-Parameter mit dem Namen der Datei
+        enthalten.
+      </para>
+      <para>
+        Beispiel:
+      </para>
+      <programlisting>
+Content-Disposition: attachment; filename=&quot;2014-08-22 Rat Wortprotokoll.pdf&quot;
+</programlisting>
+      <para>
+        Der in diesem Header kommunizierte Dateiname ist als Vorschlag
+        an die Nutzerin zu verstehen, die Datei unter diesem Namen zu
+        speichern. Entsprechend sind Abwägungen bezüglich der
+        Verständlichkeit, Leserlichkeit und Einzigartigkeit des
+        Dateinamens, aber auch in Hinblick auf den verwendeten
+        Zeichenumfang zu berücksichtigen. Es wird EMPFOHLEN, den
+        Dateinamen ausschließlich aus dem ASCII-Zeichenvorrat zu bilden.
+      </para>
+      <para>
+        Im Unterschied zum Zugriff auf die Download-URL DARF der Server
+        beim Zugriff auf die Zugriffs-URL KEINEN
+        <literal>Content-Disposition</literal> Header mit Parameter
+        <literal>attachment</literal> senden.
+      </para>
+    </sect3>
+    <sect3 id="empfohlene-header">
+      <title>Empfohlene Header</title>
+      <para>
+        Ziel ist, dem Client möglichst flexible Möglichkeiten zu geben,
+        einen Cache zu überprüfen bzw. zu aktualisieren und vermeidbare
+        Anfragen einer Ressource zu vermeiden. Um dies zu unterstützen,
+        können laut HTTP-Spezifikationen unterschiedliche Header zum
+        Einsatz kommen.
+      </para>
+      <para>
+        Für einen OParl-Server EMPFEHLEN wir, bei Anfrage einer Datei
+        die folgenden Header auszuliefern:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <literal>Content-Length</literal>: Die Größe des
+            Dateiinhalts
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <literal>ETag</literal>: Entity Tag
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <literal>Last-Modified</literal>: Das letzte Änderungsdatum
+            der Datei
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
+    <sect3 id="conditional-get">
+      <title>Conditional GET</title>
+      <para>
+        Unter einem &quot;Conditional GET&quot; versteht man im
+        HTTP-Kontext die Möglichkeit des Clients, die Anfrage einer
+        Ressource mit einer Bedingung zu verknüpfen. Der Server
+        beantwortet die Anfrage nur dann mit einer vollständigen
+        HTTP-Antwort, wenn die Bedingung erfüllt ist. Andernfalls
+        enthält die Anfrage lediglich Header, der HTTP Status-Code SOLL
+        in diesem Fall &quot;304&quot; lauten (für &quot;nicht
+        geändert&quot;). Dies dient der Schonung von Ressourcen.
+      </para>
+      <para>
+        Für einen OParl-Server wird EMPFOHLEN, die nachstehenden
+        Varianten des Conditional GET zu unterstützen:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <literal>If-Modified-Since</literal>: Der Client sendet mit
+            der Anfrage als Bedingung ein Datum. Nur wenn die angefragte
+            Datei zuletzt <emphasis>nach</emphasis> diesem Datum
+            geändert wurde, wird der Dateiinhalt mit der Antwort
+            ausgeliefert.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <literal>If-None-Match</literal>: Erlaubt die Formulierung
+            der Bedingung anhand eines Entity-Tags.
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
+    <sect3 id="zustandsloser-dateizugriff">
+      <title>Zustandsloser Dateizugriff</title>
+      <para>
+        Die Anforderung, dass die OParl API zustandslos arbeitet (vgl.
+        <link linkend="restful">RESTful</link>{#restful}), hat ZWINGEND
+        auch für den Abruf von Dateien zu gelten. Es DÜRFEN daher keine
+        Session-spezifischen URLs oder ähnliches für den Dateizugriff
+        gebildet werden.
+      </para>
+      <para>
+        Damit wird erreicht, dass Clients die Zugriffs-URLs aus dem
+        <literal>oparl:Document</literal> für längere Zeit speichern
+        bzw. cachen können
+      </para>
+    </sect3>
+    <sect3 id="weiterleitungen">
+      <title>Weiterleitungen</title>
+      <para>
+        Es ist im Rahmen dieser Spezifikation problemlos möglich, die
+        Anfrage an eine Datei-URL mit einer HTTP-Weiterleitung zu
+        beantworten, um dem Client eine andere URL zum Zugriff
+        mitzuteilen.
+      </para>
+      <para>
+        In diesem Fall wird dringend EMPFOHLEN, die Unterscheidung der
+        Bedeutung der HTTP-Status-Codes <literal>301</literal> und
+        <literal>307</literal> zu beachten.
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            <literal>301</literal> SOLL verwendet werden, wenn die vom
+            Client angefragte URL auch zukunftig nicht mehr gültig sein
+            wird. Clients erhalten damit das Signal, die bisherige URL
+            zu verwerfen und zukünftig die neue, vom Server in der
+            Antwort mitgeteilte zu verwenden.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <literal>307</literal> SOLL verwendet werden, wenn die vom
+            Client genutzte URL nur temporär auf eine bestimmte andere
+            URL weiter leitet. Clients werden so aufgefordert, die
+            vorhandene URL auch bei zukünftigen Anfragen zu nutzen.
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
+    <sect3 id="entfernte-dateien">
+      <title>Entfernte Dateien</title>
+      <para>
+        Beim Zugriff auf eine Datei, die zuvor einmal abrufbar war, es
+        inzwischen jedoch nicht mehr ist, SOLL die HTTP-Antwort des
+        Servers den spezifischen Status-Code <literal>410</literal>
+        tragen.
+      </para>
+    </sect3>
   </sect2>
   <sect2 id="ausnahmebehandlung">
     <title>Ausnahmebehandlung</title>
@@ -5247,8 +5453,13 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               <literal>skos:prefLabel</literal>-Attribut, dessen Wert
               eine Zeichenkette ist und die Art der Drucksache
               beschreibt, z.B. &quot;Beantwortung einer Anfrage&quot;.
-              Eine weitere Liste mit exemplarischen Drucksachentypen
-              gibt es hier:
+              Für die URLs kommen als letztes Pfadelement z.B.
+              &quot;draft&quot;, &quot;petition&quot;,
+              &quot;request&quot;, &quot;note&quot; und
+              &quot;answer&quot; in Frage. Denkbar ist auch eine
+              Kategorisierung z.B. in drei Arten von Drucksachen:
+              initiierend, beratend und protokollierend. Eine weitere
+              Liste mit exemplarischen Drucksachentypen gibt es hier:
               https://wiki.piratenpartei.de/BE:BVVupdates/Glossar Eine
               zukünftige Version von OParl wird möglicherweise solche
               Werte spezifizieren. Typ: <literal>skos:Concept</literal>
@@ -5611,7 +5822,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
       <itemizedlist>
         <listitem>
           <para>
-            <link linkend="dokumentenabruf">Dokumentenabruf</link>
+            <link linkend="dateizugriff">Dateizugriff</link>
           </para>
         </listitem>
       </itemizedlist>

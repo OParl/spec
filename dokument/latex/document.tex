@@ -116,8 +116,9 @@ dass parlamentarishe Informationen maschinenlesbar als Offene Daten
 (Open Data) veröffentlicht werden.
 
 Die vorligende Version ist die erste verabschiedete Version der
-Spezifikaiton zum OParl-Standard. Zielsetzung von OParl
----------------------
+Spezifikaiton zum OParl-Standard.
+
+\subsection{Zielsetzung von OParl}\label{zielsetzung-von-oparl}
 
 OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:
 
@@ -204,6 +205,9 @@ integriert werden. Durch eine einheitliche Schnittstelle bieten sich
 effiziente Möglichkeiten zur Integration der Daten in anderen Systeme,
 wie beispielsweise Web-Portale.
 
+Ausführlichere Beschreibungen einiger möglicher Anwendungsszenarien
+finden sich im Kapitel \hyperref[nutzungsszenarien]{Nutzungsszenarien}.
+
 \subsection{Transparenz und Beteiligung durch Open
 Data}\label{transparenz-und-beteiligung-durch-open-data}
 
@@ -251,7 +255,7 @@ erreicht werden kann erfordert im Einzelfall häufig eine Zusammenarbeit
 von Datenbereitstellern und potentiellen Datennutzern. Die bloße
 Bereitstellung einer OParl-konformen API wird weder die Einhaltung der
 technischen Prinzipien, noch der weiteren Open-Data-Prinzipien
-vollständig garantieren. Viele Bestandteile der Oparl Spezifikation, die
+vollständig garantieren. Viele Bestandteile der OParl Spezifikation, die
 einen weitgehend barrierearmen Zugang zu Informationen ermöglichen, sind
 optional (Beispiel: Volltexte von Dokumenten über die API abrufbar
 machen). Andere Bestandteile, die von Interesse wären, sind noch gar
@@ -410,8 +414,8 @@ TODO: Popolo, UK, KB Niederlande
 \subsection{Nomenklatur der Spezifikation und
 Satzkonventionen}\label{nomenklatur-der-spezifikation-und-satzkonventionen}
 
-\subsubsection{MÜSSEN, SOLLEN und KÖNNEN bzw. ZWINGEND, EMPFOHLEN und
-OPTIONAL}\label{muxfcssen-sollen-und-kuxf6nnen-bzw.-zwingend-empfohlen-und-optional}
+\subsubsection{Zwingende, empfohlene und optionale
+Anforderungen}\label{mussux5fsollux5fdarf}
 
 Dieses Spezifikationsdokument nutzt die Modalverben müssen, können und
 sollen in einer Art und Weise, die bestimmte Anforderungen möglichst
@@ -621,7 +625,7 @@ vorliegenden Spezifikation beaschrieben wird. Antworten des Servers
 können einzelne Objekte, Listen von Objekten oder Listen von URLs von
 Objekten enthalten.
 
-\section{Nutzungsszenarien}\label{nutzungsszenarien}
+\hyperdef{}{nutzungsszenarien}{\section{Nutzungsszenarien}\label{nutzungsszenarien}}
 
 Die nachfolgenden Nutzungsszenarien dienen dazu, die Architektur und die
 Anwendungsmöglichkeiten anhand konkreter Beispiele zu verdeutlichen. Sie
@@ -939,7 +943,7 @@ herzustellen, um so von einem Dokument zu anderen Dokumenten mit
 identischem Inhalt, aber in anderen technischen Formaten zu verweisen,
 etwa von einer ODT-Datei zu einer PDF-Version.
 
-\subsubsection{RESTful}\label{restful}
+\hyperdef{}{restful}{\subsubsection{RESTful}\label{restful}}
 
 Die Bezeichnung ``REST'' (für ``Representational State Transfer'') wurde
 im Jahr 2000 von Roy Fielding eingeführt\footnote{Fielding, Roy:
@@ -2454,19 +2458,158 @@ Die Eigenschaft zur Angabe des Entfernungszeitpunkts heißt hier
 \texttt{removed} und SOLL, analog zu den beiden anderen Feeds, als
 Sortierkriterium der Liste verwendet werden.
 
-\hyperdef{}{dokumentenabruf}{\subsection{Dokumentenabruf}\label{dokumentenabruf}}
+\hyperdef{}{dateizugriff}{\subsection{Dateizugriff}\label{dateizugriff}}
 
-TODO:
+Mit dem Begriff ``Datei'' sind im Sinne dieser Spezifikation alle
+Ressourcen gemeint, die von einem OParl-Server zur Verfügung gestellt
+werden und deren Metadaten über die JSON-API als
+\texttt{{[}oparl:Document{]}(\#oparl\_document)} abgerufen werden
+können. Es handelt sich dabei beispielsweise um Textdokumente im
+PDF-Format, Abbildungen im JPEG- oder PNG etc., die wesentliche Inhalte
+der parlamentarischen Informationen im OParl-System ausmachen.
+
+In Bezug auf die Datenvolumen, die der Verkehr zwischen OParl Servern
+und Clients ausmacht, kommt dem Dateizugriff eine besondere Bedeutung
+zu. Daher formuliert OParl diesbezüglich einige Anforderungen, die
+helfen sollen, unnötigen Datentransfer zu vermeiden.
+
+Detail zu sämtlichen angesprochenen Mechanismen sind in der
+HTTP-1.1-Spezifikation\footnote{vgl.
+  \url{http://www.w3.org/Protocols/rfc2616/rfc2616.html}} zu finden.
+
+\subsubsection{GET und HEAD Anfragen}\label{get-und-head-anfragen}
+
+Grundsätzlich gilt, dass jede Datei mittels HTTP-Anfrage unter
+Verwendung der HTTP-Methode \texttt{GET} abrufbar sein MUSS. Um Clients
+zusätzlich die Überprüfung einer Datei zu ermöglichen, MUSS vom Server
+außerdem die HTTP-Methode \texttt{HEAD} unterstützt werden. Gemäß
+HTTP-Spezifikation gibt der Server in diesem Fall nur die
+Antwort-Header, nicht aber den eigentlichen Inhalt der angefrgten
+Ressource, aus.
+
+Die URLs zum Abruf der einzelnen Datei (wahlweise mittels GET oder HEAD)
+stellt der Server dem Client in den Daten des Metadaten-Objekts zur
+Verfügung. Details finden sich in der Schema-Beschreibung zu
+\texttt{{[}oparl:Document{]}(\#oparl\_document)}.
+
+\subsubsection{Allgemeiner Zugriff und expliziter
+Download}\label{allgemeiner-zugriff-und-expliziter-download}
+
+Mit der im \texttt{oparl:Document} ZWINGEND anzugebenden Eigenschaft
+\texttt{accessUrl} liefert der Server dem Client eine URL, die wir hier
+nachfolgend als \emph{Zugriffs-URL} bezeichnen. Diese URL dient dem
+allgmeinen Zugriff auf die Datei. Wie der Client dem Endnutzer diesen
+Zugriff genau ermöglicht, ist nicht Sache der OParl-Spezifikation.
+
+Im Unterschied dazu KANN der Server dem Client in der Eigenschaft
+\texttt{downloadUrl} eine weitere URL anbieten, hier \emph{Download-URL}
+genannt. Diese dient im Gegensatz zur Zugriffs-URL speziell zum
+Herunterladen und Speichern der Datei in einem Dateisystem des
+Endnutzers. Bei Zugriff auf die Download-URL MUSS der Server in der
+HTTP-Antwort einen \texttt{Content-Disposition} Header senden.\footnote{vgl.
+  RFC2138 \url{http://www.ietf.org/rfc/rfc2183}} Dieser Header MUSS als
+ersten Parameter den Typ \texttt{attachment} sowie den
+\texttt{filename}-Parameter mit dem Namen der Datei enthalten.
+
+Beispiel:
+
+\begin{verbatim}
+Content-Disposition: attachment; filename="2014-08-22 Rat Wortprotokoll.pdf"
+\end{verbatim}
+
+Der in diesem Header kommunizierte Dateiname ist als Vorschlag an die
+Nutzerin zu verstehen, die Datei unter diesem Namen zu speichern.
+Entsprechend sind Abwägungen bezüglich der Verständlichkeit,
+Leserlichkeit und Einzigartigkeit des Dateinamens, aber auch in Hinblick
+auf den verwendeten Zeichenumfang zu berücksichtigen. Es wird EMPFOHLEN,
+den Dateinamen ausschließlich aus dem ASCII-Zeichenvorrat zu bilden.
+
+Im Unterschied zum Zugriff auf die Download-URL DARF der Server beim
+Zugriff auf die Zugriffs-URL KEINEN \texttt{Content-Disposition} Header
+mit Parameter \texttt{attachment} senden.
+
+\subsubsection{Empfohlene Header}\label{empfohlene-header}
+
+Ziel ist, dem Client möglichst flexible Möglichkeiten zu geben, einen
+Cache zu überprüfen bzw. zu aktualisieren und vermeidbare Anfragen einer
+Ressource zu vermeiden. Um dies zu unterstützen, können laut
+HTTP-Spezifikationen unterschiedliche Header zum Einsatz kommen.
+
+Für einen OParl-Server EMPFEHLEN wir, bei Anfrage einer Datei die
+folgenden Header auszuliefern:
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  HTTP GET Methode MUSS unterstützt werden
+  \texttt{Content-Length}: Die Größe des Dateiinhalts
 \item
-  HEAD-Methode MUSS unterstützt werden
+  \texttt{ETag}: Entity Tag
 \item
-  HTTP Last-Modified Header sowie Conditional GET sind zu unterstützen
+  \texttt{Last-Modified}: Das letzte Änderungsdatum der Datei
 \end{itemize}
+
+\subsubsection{Conditional GET}\label{conditional-get}
+
+Unter einem ``Conditional GET'' versteht man im HTTP-Kontext die
+Möglichkeit des Clients, die Anfrage einer Ressource mit einer Bedingung
+zu verknüpfen. Der Server beantwortet die Anfrage nur dann mit einer
+vollständigen HTTP-Antwort, wenn die Bedingung erfüllt ist. Andernfalls
+enthält die Anfrage lediglich Header, der HTTP Status-Code SOLL in
+diesem Fall ``304'' lauten (für ``nicht geändert''). Dies dient der
+Schonung von Ressourcen.
+
+Für einen OParl-Server wird EMPFOHLEN, die nachstehenden Varianten des
+Conditional GET zu unterstützen:
+
+\begin{itemize}
+\item
+  \texttt{If-Modified-Since}: Der Client sendet mit der Anfrage als
+  Bedingung ein Datum. Nur wenn die angefragte Datei zuletzt \emph{nach}
+  diesem Datum geändert wurde, wird der Dateiinhalt mit der Antwort
+  ausgeliefert.
+\item
+  \texttt{If-None-Match}: Erlaubt die Formulierung der Bedingung anhand
+  eines Entity-Tags.
+\end{itemize}
+
+\subsubsection{Zustandsloser
+Dateizugriff}\label{zustandsloser-dateizugriff}
+
+Die Anforderung, dass die OParl API zustandslos arbeitet (vgl.
+\hyperref[restful]{RESTful}\{\#restful\}), hat ZWINGEND auch für den
+Abruf von Dateien zu gelten. Es DÜRFEN daher keine Session-spezifischen
+URLs oder ähnliches für den Dateizugriff gebildet werden.
+
+Damit wird erreicht, dass Clients die Zugriffs-URLs aus dem
+\texttt{oparl:Document} für längere Zeit speichern bzw. cachen können
+
+\subsubsection{Weiterleitungen}\label{weiterleitungen}
+
+Es ist im Rahmen dieser Spezifikation problemlos möglich, die Anfrage an
+eine Datei-URL mit einer HTTP-Weiterleitung zu beantworten, um dem
+Client eine andere URL zum Zugriff mitzuteilen.
+
+In diesem Fall wird dringend EMPFOHLEN, die Unterscheidung der Bedeutung
+der HTTP-Status-Codes \texttt{301} und \texttt{307} zu beachten.
+
+\begin{itemize}
+\item
+  \texttt{301} SOLL verwendet werden, wenn die vom Client angefragte URL
+  auch zukunftig nicht mehr gültig sein wird. Clients erhalten damit das
+  Signal, die bisherige URL zu verwerfen und zukünftig die neue, vom
+  Server in der Antwort mitgeteilte zu verwenden.
+\item
+  \texttt{307} SOLL verwendet werden, wenn die vom Client genutzte URL
+  nur temporär auf eine bestimmte andere URL weiter leitet. Clients
+  werden so aufgefordert, die vorhandene URL auch bei zukünftigen
+  Anfragen zu nutzen.
+\end{itemize}
+
+\subsubsection{Entfernte Dateien}\label{entfernte-dateien}
+
+Beim Zugriff auf eine Datei, die zuvor einmal abrufbar war, es
+inzwischen jedoch nicht mehr ist, SOLL die HTTP-Antwort des Servers den
+spezifischen Status-Code \texttt{410} tragen.
 
 \subsection{Ausnahmebehandlung}\label{ausnahmebehandlung}
 
@@ -3684,8 +3827,11 @@ Beispiel: ``Antwort auf Anfrage 1200/2014'' Typ: TODO EMPFOHLEN
 \item[\texttt{paperType}]
 Begriff mit einem \texttt{skos:prefLabel}-Attribut, dessen Wert eine
 Zeichenkette ist und die Art der Drucksache beschreibt, z.B.
-``Beantwortung einer Anfrage''. Eine weitere Liste mit exemplarischen
-Drucksachentypen gibt es hier:
+``Beantwortung einer Anfrage''. Für die URLs kommen als letztes
+Pfadelement z.B. ``draft'', ``petition'', ``request'', ``note'' und
+``answer'' in Frage. Denkbar ist auch eine Kategorisierung z.B. in drei
+Arten von Drucksachen: initiierend, beratend und protokollierend. Eine
+weitere Liste mit exemplarischen Drucksachentypen gibt es hier:
 https://wiki.piratenpartei.de/BE:BVVupdates/Glossar Eine zukünftige
 Version von OParl wird möglicherweise solche Werte spezifizieren. Typ:
 \texttt{skos:Concept} OPTIONAL
@@ -3830,7 +3976,7 @@ Begriff mit \texttt{skos:prefLabel}. Hat allgemeinere Bedeutung als
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  \hyperref[dokumentenabruf]{Dokumentenabruf}
+  \hyperref[dateizugriff]{Dateizugriff}
 \end{itemize}
 
 \subsection{oparl:Consultation (Beratung)}\label{oparlux5fconsultation}

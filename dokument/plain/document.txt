@@ -36,7 +36,9 @@ dass parlamentarishe Informationen maschinenlesbar als Offene Daten
 (Open Data) veröffentlicht werden.
 
 Die vorligende Version ist die erste verabschiedete Version der
-Spezifikaiton zum OParl-Standard. Zielsetzung von OParl
+Spezifikaiton zum OParl-Standard.
+
+Zielsetzung von OParl
 ---------------------
 
 OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:
@@ -104,6 +106,9 @@ integriert werden. Durch eine einheitliche Schnittstelle bieten sich
 effiziente Möglichkeiten zur Integration der Daten in anderen Systeme,
 wie beispielsweise Web-Portale.
 
+Ausführlichere Beschreibungen einiger möglicher Anwendungsszenarien
+finden sich im Kapitel Nutzungsszenarien.
+
 Transparenz und Beteiligung durch Open Data
 -------------------------------------------
 
@@ -146,7 +151,7 @@ erreicht werden kann erfordert im Einzelfall häufig eine Zusammenarbeit
 von Datenbereitstellern und potentiellen Datennutzern. Die bloße
 Bereitstellung einer OParl-konformen API wird weder die Einhaltung der
 technischen Prinzipien, noch der weiteren Open-Data-Prinzipien
-vollständig garantieren. Viele Bestandteile der Oparl Spezifikation, die
+vollständig garantieren. Viele Bestandteile der OParl Spezifikation, die
 einen weitgehend barrierearmen Zugang zu Informationen ermöglichen, sind
 optional (Beispiel: Volltexte von Dokumenten über die API abrufbar
 machen). Andere Bestandteile, die von Interesse wären, sind noch gar
@@ -252,7 +257,7 @@ TODO: Popolo, UK, KB Niederlande
 Nomenklatur der Spezifikation und Satzkonventionen
 --------------------------------------------------
 
-MÜSSEN, SOLLEN und KÖNNEN bzw. ZWINGEND, EMPFOHLEN und OPTIONAL
+Zwingende, empfohlene und optionale Anforderungen
 
 Dieses Spezifikationsdokument nutzt die Modalverben müssen, können und
 sollen in einer Art und Weise, die bestimmte Anforderungen möglichst
@@ -2043,14 +2048,140 @@ Die Eigenschaft zur Angabe des Entfernungszeitpunkts heißt hier removed
 und SOLL, analog zu den beiden anderen Feeds, als Sortierkriterium der
 Liste verwendet werden.
 
-Dokumentenabruf
----------------
+Dateizugriff
+------------
 
-TODO:
+Mit dem Begriff "Datei" sind im Sinne dieser Spezifikation alle
+Ressourcen gemeint, die von einem OParl-Server zur Verfügung gestellt
+werden und deren Metadaten über die JSON-API als
+[oparl:Document](#oparl_document) abgerufen werden können. Es handelt
+sich dabei beispielsweise um Textdokumente im PDF-Format, Abbildungen im
+JPEG- oder PNG etc., die wesentliche Inhalte der parlamentarischen
+Informationen im OParl-System ausmachen.
 
--   HTTP GET Methode MUSS unterstützt werden
--   HEAD-Methode MUSS unterstützt werden
--   HTTP Last-Modified Header sowie Conditional GET sind zu unterstützen
+In Bezug auf die Datenvolumen, die der Verkehr zwischen OParl Servern
+und Clients ausmacht, kommt dem Dateizugriff eine besondere Bedeutung
+zu. Daher formuliert OParl diesbezüglich einige Anforderungen, die
+helfen sollen, unnötigen Datentransfer zu vermeiden.
+
+Detail zu sämtlichen angesprochenen Mechanismen sind in der
+HTTP-1.1-Spezifikation[^34] zu finden.
+
+GET und HEAD Anfragen
+
+Grundsätzlich gilt, dass jede Datei mittels HTTP-Anfrage unter
+Verwendung der HTTP-Methode GET abrufbar sein MUSS. Um Clients
+zusätzlich die Überprüfung einer Datei zu ermöglichen, MUSS vom Server
+außerdem die HTTP-Methode HEAD unterstützt werden. Gemäß
+HTTP-Spezifikation gibt der Server in diesem Fall nur die
+Antwort-Header, nicht aber den eigentlichen Inhalt der angefrgten
+Ressource, aus.
+
+Die URLs zum Abruf der einzelnen Datei (wahlweise mittels GET oder HEAD)
+stellt der Server dem Client in den Daten des Metadaten-Objekts zur
+Verfügung. Details finden sich in der Schema-Beschreibung zu
+[oparl:Document](#oparl_document).
+
+Allgemeiner Zugriff und expliziter Download
+
+Mit der im oparl:Document ZWINGEND anzugebenden Eigenschaft accessUrl
+liefert der Server dem Client eine URL, die wir hier nachfolgend als
+Zugriffs-URL bezeichnen. Diese URL dient dem allgmeinen Zugriff auf die
+Datei. Wie der Client dem Endnutzer diesen Zugriff genau ermöglicht, ist
+nicht Sache der OParl-Spezifikation.
+
+Im Unterschied dazu KANN der Server dem Client in der Eigenschaft
+downloadUrl eine weitere URL anbieten, hier Download-URL genannt. Diese
+dient im Gegensatz zur Zugriffs-URL speziell zum Herunterladen und
+Speichern der Datei in einem Dateisystem des Endnutzers. Bei Zugriff auf
+die Download-URL MUSS der Server in der HTTP-Antwort einen
+Content-Disposition Header senden.[^35] Dieser Header MUSS als ersten
+Parameter den Typ attachment sowie den filename-Parameter mit dem Namen
+der Datei enthalten.
+
+Beispiel:
+
+    Content-Disposition: attachment; filename="2014-08-22 Rat Wortprotokoll.pdf"
+
+Der in diesem Header kommunizierte Dateiname ist als Vorschlag an die
+Nutzerin zu verstehen, die Datei unter diesem Namen zu speichern.
+Entsprechend sind Abwägungen bezüglich der Verständlichkeit,
+Leserlichkeit und Einzigartigkeit des Dateinamens, aber auch in Hinblick
+auf den verwendeten Zeichenumfang zu berücksichtigen. Es wird EMPFOHLEN,
+den Dateinamen ausschließlich aus dem ASCII-Zeichenvorrat zu bilden.
+
+Im Unterschied zum Zugriff auf die Download-URL DARF der Server beim
+Zugriff auf die Zugriffs-URL KEINEN Content-Disposition Header mit
+Parameter attachment senden.
+
+Empfohlene Header
+
+Ziel ist, dem Client möglichst flexible Möglichkeiten zu geben, einen
+Cache zu überprüfen bzw. zu aktualisieren und vermeidbare Anfragen einer
+Ressource zu vermeiden. Um dies zu unterstützen, können laut
+HTTP-Spezifikationen unterschiedliche Header zum Einsatz kommen.
+
+Für einen OParl-Server EMPFEHLEN wir, bei Anfrage einer Datei die
+folgenden Header auszuliefern:
+
+-   Content-Length: Die Größe des Dateiinhalts
+-   ETag: Entity Tag
+-   Last-Modified: Das letzte Änderungsdatum der Datei
+
+Conditional GET
+
+Unter einem "Conditional GET" versteht man im HTTP-Kontext die
+Möglichkeit des Clients, die Anfrage einer Ressource mit einer Bedingung
+zu verknüpfen. Der Server beantwortet die Anfrage nur dann mit einer
+vollständigen HTTP-Antwort, wenn die Bedingung erfüllt ist. Andernfalls
+enthält die Anfrage lediglich Header, der HTTP Status-Code SOLL in
+diesem Fall "304" lauten (für "nicht geändert"). Dies dient der Schonung
+von Ressourcen.
+
+Für einen OParl-Server wird EMPFOHLEN, die nachstehenden Varianten des
+Conditional GET zu unterstützen:
+
+-   If-Modified-Since: Der Client sendet mit der Anfrage als Bedingung
+    ein Datum. Nur wenn die angefragte Datei zuletzt nach diesem Datum
+    geändert wurde, wird der Dateiinhalt mit der Antwort ausgeliefert.
+
+-   If-None-Match: Erlaubt die Formulierung der Bedingung anhand eines
+    Entity-Tags.
+
+Zustandsloser Dateizugriff
+
+Die Anforderung, dass die OParl API zustandslos arbeitet (vgl.
+RESTful{#restful}), hat ZWINGEND auch für den Abruf von Dateien zu
+gelten. Es DÜRFEN daher keine Session-spezifischen URLs oder ähnliches
+für den Dateizugriff gebildet werden.
+
+Damit wird erreicht, dass Clients die Zugriffs-URLs aus dem
+oparl:Document für längere Zeit speichern bzw. cachen können
+
+Weiterleitungen
+
+Es ist im Rahmen dieser Spezifikation problemlos möglich, die Anfrage an
+eine Datei-URL mit einer HTTP-Weiterleitung zu beantworten, um dem
+Client eine andere URL zum Zugriff mitzuteilen.
+
+In diesem Fall wird dringend EMPFOHLEN, die Unterscheidung der Bedeutung
+der HTTP-Status-Codes 301 und 307 zu beachten.
+
+-   301 SOLL verwendet werden, wenn die vom Client angefragte URL auch
+    zukunftig nicht mehr gültig sein wird. Clients erhalten damit das
+    Signal, die bisherige URL zu verwerfen und zukünftig die neue, vom
+    Server in der Antwort mitgeteilte zu verwenden.
+
+-   307 SOLL verwendet werden, wenn die vom Client genutzte URL nur
+    temporär auf eine bestimmte andere URL weiter leitet. Clients werden
+    so aufgefordert, die vorhandene URL auch bei zukünftigen Anfragen zu
+    nutzen.
+
+Entfernte Dateien
+
+Beim Zugriff auf eine Datei, die zuvor einmal abrufbar war, es
+inzwischen jedoch nicht mehr ist, SOLL die HTTP-Antwort des Servers den
+spezifischen Status-Code 410 tragen.
 
 Ausnahmebehandlung
 ------------------
@@ -2230,7 +2361,7 @@ license
 
 Die Eigenschaft license erlaubt es, am jeweiligen Objekt die URL einer
 Lizenz anzugeben. Damit wird gekennzeichnet, welche Lizenz der
-Veröffentlicher der Daten für das jeweilige Objekt vergibt.[^34]
+Veröffentlicher der Daten für das jeweilige Objekt vergibt.[^36]
 
 Eine besondere Bedeutung hat die Eigenschaft license, wenn sie am
 oparl:System Objekt oder am oparl:Body Objekt vergeben wird. Die hier
@@ -2248,7 +2379,7 @@ Dateien, die über die angebotene(n) URL(s) abgerufen werden können.
 
 Lesenswert zum Thema Lizensierung von Linked Data ist auch er Abschnitt
 "Licenses, Waivers and Norms for Data" im online zugänglichen Linked
-Data Book.[^35]
+Data Book.[^37]
 
 created
 
@@ -2535,14 +2666,14 @@ licenseValidSinceDay
 
 rgs
     Regionalschlüssel der Körperschaft als zwölfstellige
-    Zeichenkette[^36]. Typ: TODO EMPFOHLEN
+    Zeichenkette[^38]. Typ: TODO EMPFOHLEN
 
 equivalentBody
     Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe
     Körperschaft repräsentieren. Hier können beispielsweise, sofern
     vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der
-    Deutschen Nationalbibliothek[^37], der DBPedia[^38] oder der
-    Wikipedia[^39] angegeben werden. Typ: TODO EMPFOHLEN
+    Deutschen Nationalbibliothek[^39], der DBPedia[^40] oder der
+    Wikipedia[^41] angegeben werden. Typ: TODO EMPFOHLEN
 
 contactEmail
     Dient der Angabe einer Kontakt-E-Mail-Adresse mit "mailto:"-Schema.
@@ -3225,8 +3356,11 @@ name
 paperType
     Begriff mit einem skos:prefLabel-Attribut, dessen Wert eine
     Zeichenkette ist und die Art der Drucksache beschreibt, z.B.
-    "Beantwortung einer Anfrage". Eine weitere Liste mit exemplarischen
-    Drucksachentypen gibt es hier:
+    "Beantwortung einer Anfrage". Für die URLs kommen als letztes
+    Pfadelement z.B. "draft", "petition", "request", "note" und "answer"
+    in Frage. Denkbar ist auch eine Kategorisierung z.B. in drei Arten
+    von Drucksachen: initiierend, beratend und protokollierend. Eine
+    weitere Liste mit exemplarischen Drucksachentypen gibt es hier:
     https://wiki.piratenpartei.de/BE:BVVupdates/Glossar Eine zukünftige
     Version von OParl wird möglicherweise solche Werte spezifizieren.
     Typ: skos:Concept OPTIONAL
@@ -3309,7 +3443,7 @@ name
     Zeichenkette. ZWINGEND
 
 mimeType
-    Mime-Typ des Inhalts (vgl. RFC2046[^40]). Sollte das System einer
+    Mime-Typ des Inhalts (vgl. RFC2046[^42]). Sollte das System einer
     Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier
     "application/octet-stream" zu verwenden. Typ: TODO ZWINGEND
 
@@ -3382,7 +3516,7 @@ classification
 
 Siehe auch
 
--   Dokumentenabruf
+-   Dateizugriff
 
 oparl:Consultation (Beratung) {#oparl_consultation}
 -----------------------------
@@ -3527,7 +3661,7 @@ Und ein Beispiel unter Verwendung des Kontextes:
 
 OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des  
 Well-Known-Text-Formats (WKT) der Simple Feature Access
-Spezifikation[^41] vor. WKT erlaubt die Beschreibung von
+Spezifikation[^43] vor. WKT erlaubt die Beschreibung von
 unterschiedlichen Geometrien wie Punkten (Point), Pfaden (LineString),
 Polygonen (Polygon) und viele andere mehr.
 
@@ -3537,7 +3671,7 @@ keine Anforderungen daran, welche Version von Simple-Feature-Access bei
 der Ausgabe von WKT zu unterstützen ist.
 
 Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben
-solcher Geodaten im System WGS84[^42] angegeben werden, und zwar in Form
+solcher Geodaten im System WGS84[^44] angegeben werden, und zwar in Form
 von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.
 
 Eigenschaften
@@ -3761,30 +3895,34 @@ JSON-LD-Kontextdokumente zu finden sein werden.
 [^33]: Atom ist in RFC4287 spezifiziert:
     http://www.ietf.org/rfc/rfc4287.txt
 
-[^34]: Verzeichnisse für Lizenz-URLs sind unter anderem unter
+[^34]: vgl. http://www.w3.org/Protocols/rfc2616/rfc2616.html
+
+[^35]: vgl. RFC2138 http://www.ietf.org/rfc/rfc2183
+
+[^36]: Verzeichnisse für Lizenz-URLs sind unter anderem unter
     http://licenses.opendefinition.org/ und
     https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json
     zu finden.
 
-[^35]: Tom Heath, Christian Bizer: Linked Data: Evolving the Web into a
+[^37]: Tom Heath, Christian Bizer: Linked Data: Evolving the Web into a
     Global Data Space (1st edition),
     http://linkeddatabook.com/editions/1.0/#htoc48
 
-[^36]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
+[^38]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
     Statistischen Bundesamtes eingesehen werden
 
-[^37]: Gemeinsame Normdatei http://www.dnb.de/gnd
+[^39]: Gemeinsame Normdatei http://www.dnb.de/gnd
 
-[^38]: DBPedia http://www.dbpedia.org/
+[^40]: DBPedia http://www.dbpedia.org/
 
-[^39]: Wikipedia http://de.wikipedia.org/
+[^41]: Wikipedia http://de.wikipedia.org/
 
-[^40]: http://tools.ietf.org/html/rfc2046
+[^42]: http://tools.ietf.org/html/rfc2046
 
-[^41]: Simple Feature Access Spezifikation:
+[^43]: Simple Feature Access Spezifikation:
     http://www.opengeospatial.org/standards/sfa
 
-[^42]: WGS84 steht für "World Geodetic System 1984", es wird unter
+[^44]: WGS84 steht für "World Geodetic System 1984", es wird unter
     anderem auch vom Global Positioning System (GPS) verwendet. In
     geografischen Informationssystemen ist für das System der EPSG-Code
     4326 geläufig.

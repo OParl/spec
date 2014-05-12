@@ -41,7 +41,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h2 id="was-ist-oparl-in-kürze"><span class="header-section-number">1.2</span> Was ist OParl in Kürze?</h2>
 <p>OParl ist die Gruppierung, die Initiator und Herausgeber der vorliegenden Spezifikation ist. An OParl wirken Verbände, Zivilgesellschaftliche Organisationen und Initiativen und Software-Anbieter sowie interessierte Einzelpersonen mit.</p>
 <p>Die vorliegende Spezifikation beschreibt den OParl-Standard. Dieser definiert eine Webservice-Schnittstelle, die den anonymen und lesenden Zugriff auf öffentliche Inhalte aus parlamentarischen Informationssystemen ermöglicht. Wie der Name &quot;Webservice&quot; ausdrückt, setzt diese Schnittstelle auf dem World Wide Web auf. Sie ermöglicht, dass parlamentarishe Informationen maschinenlesbar als Offene Daten (Open Data) veröffentlicht werden.</p>
-<p>Die vorligende Version ist die erste verabschiedete Version der Spezifikaiton zum OParl-Standard. Zielsetzung von OParl ---------------------</p>
+<p>Die vorligende Version ist die erste verabschiedete Version der Spezifikaiton zum OParl-Standard.</p>
+<h2 id="zielsetzung-von-oparl"><span class="header-section-number">1.3</span> Zielsetzung von OParl</h2>
 <p>OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:</p>
 <ul>
 <li>Verwaltung und politische Gremien in Kommunen</li>
@@ -67,11 +68,12 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul>
 <p>Die Standardisierung dieses Zugriffs über die Grenzen einzelner Systeme hinweg erlaubt zudem, diese Entwicklungen grenzüberschreitend zu denken. Damit steigt nicht nur die potenzielle Nutzerschaft einzelner Entwicklungen. Auch das Potenzial für Kooperationen zwischen Anwendungsentwicklern wächst.</p>
 <p>Darüber hinaus sind auch Motivationen innerhalb von Organisationen und Körperschaften erkennbar. So sollen parlamentarische Informationssysteme vielerorts in verschiedenste Prozesse und heterogene Systemlandschaften integriert werden. Durch eine einheitliche Schnittstelle bieten sich effiziente Möglichkeiten zur Integration der Daten in anderen Systeme, wie beispielsweise Web-Portale.</p>
-<h2 id="transparenz-und-beteiligung-durch-open-data"><span class="header-section-number">1.3</span> Transparenz und Beteiligung durch Open Data</h2>
+<p>Ausführlichere Beschreibungen einiger möglicher Anwendungsszenarien finden sich im Kapitel <a href="#nutzungsszenarien">Nutzungsszenarien</a>.</p>
+<h2 id="transparenz-und-beteiligung-durch-open-data"><span class="header-section-number">1.4</span> Transparenz und Beteiligung durch Open Data</h2>
 <p>Öffentliche Stellen verfügen über vielfältige Informationen und Daten. Seit einigen Jahren sind zivilgesellschaftliche Organisationen sowie Politik und Verwaltung unter dem Schlagwort &quot;Open Data&quot; international und auch in Deutschland in unterschiedlichem Maße um eine stärkere Öffnung dieser Daten bemüht<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>. Bei dem Ansatz &quot;Open Data&quot;<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> geht es darum diese Daten so bereitzustellen, dass Dritte diese einfacher finden und weiterverwenden können. Die zehn Open-Data-Prinzipien der Sunlight-Foundation<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a> beschreiben die Offenheit von Datensätzen. Wesentlich dabei sind vor allem die einfache rechtliche und die technische Offenheit. Bei ersterer geht es darum, dass Datensätze unter Nutzungsbestimmungen bereitgestellt werden, die kurz und verständlich formuliert sind und mindestens jegliche weitere Verwendung inklusive der kommerziellen erlauben unter der Voraussetzung, dass bei der Weiterverwendung die Quelle benannt wird. Bei der technischen Offenheit steht die Bereitstellung von Datensätzen in möglichst maschinenlesbaren Formaten im Vordergrund. Dies bedeutet, stärker strukturierte Datensätze sind in der Bereitstellung zu bevorzugen. Liegen Daten innerhalb einer Organisation in einer Datenbank vor, so bietet es sich an, diese soweit möglich über eine Programmierschnittstelle (API) für Außenstehende bereitzustellen.</p>
 <p>Die Erfüllung dieser rechtlichen und technischen Offenheit erlaubt es Dritten, dies können Bürgerinnen und Bürger, Unternehmen, Forschungseinrichtungen oder auch andere Verwaltungseinheiten sein, die Verwaltungsdaten wesentlich unkomplizierter für eigene Vorhaben wie Anwendungen oder Visualisierungen einzusetzen. Mit dem Ansatz offener Verwaltungsdaten soll so erstens mehr Transparenz über Prozesse und Entscheidungen in Politik und Verwaltung erreicht werden. Zweitens können Dritte auf Grundlage dieser Daten leichter eigene Geschäftsmodelle verfeinern oder neue entwickeln. Drittens wird es auch öffentlichen Stellen selbst leichter bereits im öffentlichen Sektor existierende Daten zu finden und weiterzuverwenden.</p>
-<p>Wie das Prinzip offener Daten bzw. offener Verwaltungsdaten über die Minimalprinzipien rechtlicher und technischer Offenheit hinaus am besten erreicht werden kann erfordert im Einzelfall häufig eine Zusammenarbeit von Datenbereitstellern und potentiellen Datennutzern. Die bloße Bereitstellung einer OParl-konformen API wird weder die Einhaltung der technischen Prinzipien, noch der weiteren Open-Data-Prinzipien vollständig garantieren. Viele Bestandteile der Oparl Spezifikation, die einen weitgehend barrierearmen Zugang zu Informationen ermöglichen, sind optional (Beispiel: Volltexte von Dokumenten über die API abrufbar machen). Andere Bestandteile, die von Interesse wären, sind noch gar nicht von OParl abgedeckt (Beispiel: Abstimmungsergebnisse). Grund dafür ist, dass sich OParl in einem frühen Stadium befindet und primär am Status Quo der parlamentarischen Informationssysteme ausgerichtet ist. Es liegt also auch weiterhin an Verwaltung und Politik, durch einen verantwortungsvollen Umgang mit den Systemen die maximal erreichbare Transparenz zu bieten. Das fängt bei Dokumentenformaten an (ein PDF mit digitalem Text weist weit weniger Barrieren auf, als ein gescannter Brief, der ebenfalls als PDF gespeichert wurde) und hört bei der verwendeten Sprache auf.<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a></p>
-<h2 id="werdegang-von-oparl-1.0"><span class="header-section-number">1.4</span> Werdegang von OParl 1.0</h2>
+<p>Wie das Prinzip offener Daten bzw. offener Verwaltungsdaten über die Minimalprinzipien rechtlicher und technischer Offenheit hinaus am besten erreicht werden kann erfordert im Einzelfall häufig eine Zusammenarbeit von Datenbereitstellern und potentiellen Datennutzern. Die bloße Bereitstellung einer OParl-konformen API wird weder die Einhaltung der technischen Prinzipien, noch der weiteren Open-Data-Prinzipien vollständig garantieren. Viele Bestandteile der OParl Spezifikation, die einen weitgehend barrierearmen Zugang zu Informationen ermöglichen, sind optional (Beispiel: Volltexte von Dokumenten über die API abrufbar machen). Andere Bestandteile, die von Interesse wären, sind noch gar nicht von OParl abgedeckt (Beispiel: Abstimmungsergebnisse). Grund dafür ist, dass sich OParl in einem frühen Stadium befindet und primär am Status Quo der parlamentarischen Informationssysteme ausgerichtet ist. Es liegt also auch weiterhin an Verwaltung und Politik, durch einen verantwortungsvollen Umgang mit den Systemen die maximal erreichbare Transparenz zu bieten. Das fängt bei Dokumentenformaten an (ein PDF mit digitalem Text weist weit weniger Barrieren auf, als ein gescannter Brief, der ebenfalls als PDF gespeichert wurde) und hört bei der verwendeten Sprache auf.<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a></p>
+<h2 id="werdegang-von-oparl-1.0"><span class="header-section-number">1.5</span> Werdegang von OParl 1.0</h2>
 <p>Stichpunkte:</p>
 <ul>
 <li><ol start="17" style="list-style-type: decimal">
@@ -97,13 +99,13 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><p>Ende Mai 2014: Telefonkonferenz zum eingegangenen Feedback aus der Review-Phase</p></li>
 <li><p>KW 23 (2. bis 6. Juni): Geplante Veröffentlichung der Spezifikation 1.0</p></li>
 </ul>
-<h2 id="zukunft-von-oparl"><span class="header-section-number">1.5</span> Zukunft von OParl</h2>
+<h2 id="zukunft-von-oparl"><span class="header-section-number">1.6</span> Zukunft von OParl</h2>
 <p>TODO: - Verfeinerung, Lücken schliessen - Erweiterung über die kommunale Ebene hinaus (Land, Bund) - Vereinheitlichung von Kategorien (Drucksachentypen, Arten von Gremien) - Erweiterung von Personendaten, z.B. mit Social Media URLs - Mehr Abfragekriterien - Suchfunktionen (Volltextsuche) - Abstimmungsverhalten und maschinenlesbare Protokolle - Verknüpfung mit verteilten Social Media Plattformen - Schreibender Zugriff. Auch dazu muss das Rad nicht neu erfunden werden. Bestehende bzw. in Entwicklung befindliche Spezifikationen und Techniken aus der Linked Data-Welt können verwendet werden. Dazu gehören insbesondere die Linked Data Platform des W3C und Hydra.</p>
-<h3 id="globalisierung"><span class="header-section-number">1.5.1</span> Globalisierung</h3>
+<h3 id="globalisierung"><span class="header-section-number">1.6.1</span> Globalisierung</h3>
 <p>Es gibt in sehr vielen Ländern Gebietskörperschaften mit politischen Gremien, deren Prozesse ähnlich strukturiert sind wie diejenigen in Deutschland. Auch dort besteht Bedarf an standardisierten Vokabularen zur Veröffentlichung parlamentarischer Informationen. Deshalb sind - teilweise noch vor OParl - auch weitere entsprechende Initiativen entstanden. Eine enge Zusammenarbeit mit diesen Initiativen mit dem Ziel der Wiederverwendung von Arbeitsergebnissen wird deshalb angestrebt. Auch aus diesem Grund wurde bereits in OParl 1.0 die Möglichkeit der Verwendung mit anderen Sprachen und Mehrsprachigkeit eingebaut.</p>
 <p>TODO: Popolo, UK, KB Niederlande</p>
-<h2 id="nomenklatur-der-spezifikation-und-satzkonventionen"><span class="header-section-number">1.6</span> Nomenklatur der Spezifikation und Satzkonventionen</h2>
-<h3 id="müssen-sollen-und-können-bzw.-zwingend-empfohlen-und-optional"><span class="header-section-number">1.6.1</span> MÜSSEN, SOLLEN und KÖNNEN bzw. ZWINGEND, EMPFOHLEN und OPTIONAL</h3>
+<h2 id="nomenklatur-der-spezifikation-und-satzkonventionen"><span class="header-section-number">1.7</span> Nomenklatur der Spezifikation und Satzkonventionen</h2>
+<h3 id="muss_soll_darf"><span class="header-section-number">1.7.1</span> Zwingende, empfohlene und optionale Anforderungen</h3>
 <p>Dieses Spezifikationsdokument nutzt die Modalverben müssen, können und sollen in einer Art und Weise, die bestimmte Anforderungen möglichst unmissverständlich in drei verschiedene Abstufung einteilen lässt. Um ihre normative Bedeutung zu unterstreichen, werden diese Wörter grundsätzlich in Großbuchstaben gesetzt.</p>
 <p>Diese Konvention ist angelehnt an die Definitionen der Begriffe MUST, SHOULD und MAY (bzw. MUST NOT, SHOULD NOT und MAY NOT) aus RFC2119.<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a></p>
 <p>Die Bedeutung im Einzelnen:</p>
@@ -129,16 +131,16 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Die Entsprechung in RFC2119 lautet &quot;MAY&quot; oder &quot;OPTIONAL&quot;.</p>
 </dd>
 </dl>
-<h3 id="geschlechterspezifische-begrifflichkeiten"><span class="header-section-number">1.6.2</span> Geschlechterspezifische Begrifflichkeiten</h3>
+<h3 id="geschlechterspezifische-begrifflichkeiten"><span class="header-section-number">1.7.2</span> Geschlechterspezifische Begrifflichkeiten</h3>
 <p>Um bei Begriffen wie Nutzer, Anwender, Betreiber etc. die sonst übliche Dominanz der männlichen Variante zu vermeiden, werden in diesem Dokument männliche oder weibliche Varianten gemischt. Es wird also beispielsweise mal von einer Nutzerin gesprochen und mal von einem Nutzer. Gemeint sind selbstverständlich in allen Fällen immer weibliche wie auch männliche Personen.</p>
-<h3 id="codebeispiele"><span class="header-section-number">1.6.3</span> Codebeispiele</h3>
+<h3 id="codebeispiele"><span class="header-section-number">1.7.3</span> Codebeispiele</h3>
 <p>Die in diesem Dokument aufgeführten Codebeispiele dienen der Veranschaulichung der beschriebenen Prinzipien. Es handelt sich in der Regel um frei erfundene Daten.</p>
 <p>Codebeispiele erheben insbesondere bei JSON-Code nicht den Anspruch auf hundertprozentige syntaktische Korrektheit. Es kann in Einzelfällen aus Gründen der besseren Lesbarkeit zur Verwendung von Umlauten etc. kommen, die in JSON nicht erlaubt wären.</p>
-<h2 id="initiatoren"><span class="header-section-number">1.7</span> Initiatoren</h2>
+<h2 id="initiatoren"><span class="header-section-number">1.8</span> Initiatoren</h2>
 <p>TODO</p>
-<h2 id="unterstützer"><span class="header-section-number">1.8</span> Unterstützer</h2>
+<h2 id="unterstützer"><span class="header-section-number">1.9</span> Unterstützer</h2>
 <p>TODO</p>
-<h2 id="autoren"><span class="header-section-number">1.9</span> Autoren</h2>
+<h2 id="autoren"><span class="header-section-number">1.10</span> Autoren</h2>
 <p>An diesem Dokument haben mitgewirkt:</p>
 <p>Felix Ebert, Jan Erhardt, Jens Klessmann, Andreas Kuckartz, Babett Schalitz, Ralph Sternberg, Marian Steinbach, Bernd Thiem, Thomas Tursics, Jakob Voss</p>
 <h1 id="architektur"><span class="header-section-number">2</span> Architektur</h1>
@@ -705,13 +707,47 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
     ]
 }</code></pre>
 <p>Die Eigenschaft zur Angabe des Entfernungszeitpunkts heißt hier <code>removed</code> und SOLL, analog zu den beiden anderen Feeds, als Sortierkriterium der Liste verwendet werden.</p>
-<h2 id="dokumentenabruf"><span class="header-section-number">4.10</span> Dokumentenabruf</h2>
-<p>TODO:</p>
+<h2 id="dateizugriff"><span class="header-section-number">4.10</span> Dateizugriff</h2>
+<p>Mit dem Begriff &quot;Datei&quot; sind im Sinne dieser Spezifikation alle Ressourcen gemeint, die von einem OParl-Server zur Verfügung gestellt werden und deren Metadaten über die JSON-API als <code>[oparl:Document](#oparl_document)</code> abgerufen werden können. Es handelt sich dabei beispielsweise um Textdokumente im PDF-Format, Abbildungen im JPEG- oder PNG etc., die wesentliche Inhalte der parlamentarischen Informationen im OParl-System ausmachen.</p>
+<p>In Bezug auf die Datenvolumen, die der Verkehr zwischen OParl Servern und Clients ausmacht, kommt dem Dateizugriff eine besondere Bedeutung zu. Daher formuliert OParl diesbezüglich einige Anforderungen, die helfen sollen, unnötigen Datentransfer zu vermeiden.</p>
+<p>Detail zu sämtlichen angesprochenen Mechanismen sind in der HTTP-1.1-Spezifikation<a href="#fn34" class="footnoteRef" id="fnref34"><sup>34</sup></a> zu finden.</p>
+<h3 id="get-und-head-anfragen"><span class="header-section-number">4.10.1</span> GET und HEAD Anfragen</h3>
+<p>Grundsätzlich gilt, dass jede Datei mittels HTTP-Anfrage unter Verwendung der HTTP-Methode <code>GET</code> abrufbar sein MUSS. Um Clients zusätzlich die Überprüfung einer Datei zu ermöglichen, MUSS vom Server außerdem die HTTP-Methode <code>HEAD</code> unterstützt werden. Gemäß HTTP-Spezifikation gibt der Server in diesem Fall nur die Antwort-Header, nicht aber den eigentlichen Inhalt der angefrgten Ressource, aus.</p>
+<p>Die URLs zum Abruf der einzelnen Datei (wahlweise mittels GET oder HEAD) stellt der Server dem Client in den Daten des Metadaten-Objekts zur Verfügung. Details finden sich in der Schema-Beschreibung zu <code>[oparl:Document](#oparl_document)</code>.</p>
+<h3 id="allgemeiner-zugriff-und-expliziter-download"><span class="header-section-number">4.10.2</span> Allgemeiner Zugriff und expliziter Download</h3>
+<p>Mit der im <code>oparl:Document</code> ZWINGEND anzugebenden Eigenschaft <code>accessUrl</code> liefert der Server dem Client eine URL, die wir hier nachfolgend als <em>Zugriffs-URL</em> bezeichnen. Diese URL dient dem allgmeinen Zugriff auf die Datei. Wie der Client dem Endnutzer diesen Zugriff genau ermöglicht, ist nicht Sache der OParl-Spezifikation.</p>
+<p>Im Unterschied dazu KANN der Server dem Client in der Eigenschaft <code>downloadUrl</code> eine weitere URL anbieten, hier <em>Download-URL</em> genannt. Diese dient im Gegensatz zur Zugriffs-URL speziell zum Herunterladen und Speichern der Datei in einem Dateisystem des Endnutzers. Bei Zugriff auf die Download-URL MUSS der Server in der HTTP-Antwort einen <code>Content-Disposition</code> Header senden.<a href="#fn35" class="footnoteRef" id="fnref35"><sup>35</sup></a> Dieser Header MUSS als ersten Parameter den Typ <code>attachment</code> sowie den <code>filename</code>-Parameter mit dem Namen der Datei enthalten.</p>
+<p>Beispiel:</p>
+<pre><code>Content-Disposition: attachment; filename=&quot;2014-08-22 Rat Wortprotokoll.pdf&quot;</code></pre>
+<p>Der in diesem Header kommunizierte Dateiname ist als Vorschlag an die Nutzerin zu verstehen, die Datei unter diesem Namen zu speichern. Entsprechend sind Abwägungen bezüglich der Verständlichkeit, Leserlichkeit und Einzigartigkeit des Dateinamens, aber auch in Hinblick auf den verwendeten Zeichenumfang zu berücksichtigen. Es wird EMPFOHLEN, den Dateinamen ausschließlich aus dem ASCII-Zeichenvorrat zu bilden.</p>
+<p>Im Unterschied zum Zugriff auf die Download-URL DARF der Server beim Zugriff auf die Zugriffs-URL KEINEN <code>Content-Disposition</code> Header mit Parameter <code>attachment</code> senden.</p>
+<h3 id="empfohlene-header"><span class="header-section-number">4.10.3</span> Empfohlene Header</h3>
+<p>Ziel ist, dem Client möglichst flexible Möglichkeiten zu geben, einen Cache zu überprüfen bzw. zu aktualisieren und vermeidbare Anfragen einer Ressource zu vermeiden. Um dies zu unterstützen, können laut HTTP-Spezifikationen unterschiedliche Header zum Einsatz kommen.</p>
+<p>Für einen OParl-Server EMPFEHLEN wir, bei Anfrage einer Datei die folgenden Header auszuliefern:</p>
 <ul>
-<li>HTTP GET Methode MUSS unterstützt werden</li>
-<li>HEAD-Methode MUSS unterstützt werden</li>
-<li>HTTP Last-Modified Header sowie Conditional GET sind zu unterstützen</li>
+<li><code>Content-Length</code>: Die Größe des Dateiinhalts</li>
+<li><code>ETag</code>: Entity Tag</li>
+<li><code>Last-Modified</code>: Das letzte Änderungsdatum der Datei</li>
 </ul>
+<h3 id="conditional-get"><span class="header-section-number">4.10.4</span> Conditional GET</h3>
+<p>Unter einem &quot;Conditional GET&quot; versteht man im HTTP-Kontext die Möglichkeit des Clients, die Anfrage einer Ressource mit einer Bedingung zu verknüpfen. Der Server beantwortet die Anfrage nur dann mit einer vollständigen HTTP-Antwort, wenn die Bedingung erfüllt ist. Andernfalls enthält die Anfrage lediglich Header, der HTTP Status-Code SOLL in diesem Fall &quot;304&quot; lauten (für &quot;nicht geändert&quot;). Dies dient der Schonung von Ressourcen.</p>
+<p>Für einen OParl-Server wird EMPFOHLEN, die nachstehenden Varianten des Conditional GET zu unterstützen:</p>
+<ul>
+<li><p><code>If-Modified-Since</code>: Der Client sendet mit der Anfrage als Bedingung ein Datum. Nur wenn die angefragte Datei zuletzt <em>nach</em> diesem Datum geändert wurde, wird der Dateiinhalt mit der Antwort ausgeliefert.</p></li>
+<li><p><code>If-None-Match</code>: Erlaubt die Formulierung der Bedingung anhand eines Entity-Tags.</p></li>
+</ul>
+<h3 id="zustandsloser-dateizugriff"><span class="header-section-number">4.10.5</span> Zustandsloser Dateizugriff</h3>
+<p>Die Anforderung, dass die OParl API zustandslos arbeitet (vgl. <a href="#restful">RESTful</a>{#restful}), hat ZWINGEND auch für den Abruf von Dateien zu gelten. Es DÜRFEN daher keine Session-spezifischen URLs oder ähnliches für den Dateizugriff gebildet werden.</p>
+<p>Damit wird erreicht, dass Clients die Zugriffs-URLs aus dem <code>oparl:Document</code> für längere Zeit speichern bzw. cachen können</p>
+<h3 id="weiterleitungen"><span class="header-section-number">4.10.6</span> Weiterleitungen</h3>
+<p>Es ist im Rahmen dieser Spezifikation problemlos möglich, die Anfrage an eine Datei-URL mit einer HTTP-Weiterleitung zu beantworten, um dem Client eine andere URL zum Zugriff mitzuteilen.</p>
+<p>In diesem Fall wird dringend EMPFOHLEN, die Unterscheidung der Bedeutung der HTTP-Status-Codes <code>301</code> und <code>307</code> zu beachten.</p>
+<ul>
+<li><p><code>301</code> SOLL verwendet werden, wenn die vom Client angefragte URL auch zukunftig nicht mehr gültig sein wird. Clients erhalten damit das Signal, die bisherige URL zu verwerfen und zukünftig die neue, vom Server in der Antwort mitgeteilte zu verwenden.</p></li>
+<li><p><code>307</code> SOLL verwendet werden, wenn die vom Client genutzte URL nur temporär auf eine bestimmte andere URL weiter leitet. Clients werden so aufgefordert, die vorhandene URL auch bei zukünftigen Anfragen zu nutzen.</p></li>
+</ul>
+<h3 id="entfernte-dateien"><span class="header-section-number">4.10.7</span> Entfernte Dateien</h3>
+<p>Beim Zugriff auf eine Datei, die zuvor einmal abrufbar war, es inzwischen jedoch nicht mehr ist, SOLL die HTTP-Antwort des Servers den spezifischen Status-Code <code>410</code> tragen.</p>
 <h2 id="ausnahmebehandlung"><span class="header-section-number">4.11</span> Ausnahmebehandlung</h2>
 <p>TODO:</p>
 <p>(Diskussion hierzu unter https://github.com/OParl/specs/issues/89)</p>
@@ -784,10 +820,10 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 <p>Beide Eigenschaften können bei vielen Objekttypen genutzt werden, um den nutzerfreundlichen Namen des Objekts anzugeben. Üblicherweise ist <code>name</code> eine Pflichteigenschaft, während nameLong optional angegeben werden kann. Dies ist dann zu empfehlen, wenn zu einem Namen eine kurze bzw. kompakte und eine längere, aber weniger nutzerfreundliche Variante existieren. Ein Beispiel wäre die Kurzform &quot;CDU&quot; für den Parteinamen &quot;Christlich Demokratische Union Deutschlands&quot;.</p>
 <p>In keinem Fall sollten die Werte von <code>name</code> und <code>nameLong</code> identische sein.</p>
 <h3 id="license"><span class="header-section-number">5.2.4</span> <code id="eigenschaft_license">license</code></h3>
-<p>Die Eigenschaft <code>license</code> erlaubt es, am jeweiligen Objekt die URL einer Lizenz anzugeben. Damit wird gekennzeichnet, welche Lizenz der Veröffentlicher der Daten für das jeweilige Objekt vergibt.<a href="#fn34" class="footnoteRef" id="fnref34"><sup>34</sup></a></p>
+<p>Die Eigenschaft <code>license</code> erlaubt es, am jeweiligen Objekt die URL einer Lizenz anzugeben. Damit wird gekennzeichnet, welche Lizenz der Veröffentlicher der Daten für das jeweilige Objekt vergibt.<a href="#fn36" class="footnoteRef" id="fnref36"><sup>36</sup></a></p>
 <p>Eine besondere Bedeutung hat die Eigenschaft <code>license</code>, wenn sie am <code>oparl:System</code> Objekt oder am <code>oparl:Body</code> Objekt vergeben wird. Die hier angegebene Lizenzinformation sagt aus, dass alle Objekte dieses Systems bzw. der Körperschaft unter der angegebenen Lizenz veröffentlicht werden, sofern dies nicht am jeweiligen Objekt mit einer anders lautenden Lizenz-URL überschrieben wird. Daher wird dringend EMPFOHLEN, die Lizenzinformation global am <code>oparl:System</code> Objekt mitzuteilen und auf redundante Informationen zu verzichten.</p>
 <p>An Objekten vom Typ <code>oparl:Document</code> auftretend, bezieht sich die Lizenzinformation nicht nur auf die strukturierten Metadaten, die über die API bezogen werden, sondern auch auf den eigentlichen Inhalt der Dateien, die über die angebotene(n) URL(s) abgerufen werden können.</p>
-<p>Lesenswert zum Thema Lizensierung von Linked Data ist auch er Abschnitt &quot;Licenses, Waivers and Norms for Data&quot; im online zugänglichen Linked Data Book.<a href="#fn35" class="footnoteRef" id="fnref35"><sup>35</sup></a></p>
+<p>Lesenswert zum Thema Lizensierung von Linked Data ist auch er Abschnitt &quot;Licenses, Waivers and Norms for Data&quot; im online zugänglichen Linked Data Book.<a href="#fn37" class="footnoteRef" id="fnref37"><sup>37</sup></a></p>
 <h3 id="created"><span class="header-section-number">5.2.5</span> <code>created</code></h3>
 <p>Datum und Uhrzeit der Erstellung des jeweiligen Objekts.</p>
 <h3 id="modified"><span class="header-section-number">5.2.6</span> <code>modified</code></h3>
@@ -964,10 +1000,10 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 <dd><p>Tagesdatum, seit dem die unter license angegebene Lizenz gilt. Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen. Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>rgs</code></dt>
-<dd><p>Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette<a href="#fn36" class="footnoteRef" id="fnref36"><sup>36</sup></a>. Typ: TODO EMPFOHLEN</p>
+<dd><p>Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette<a href="#fn38" class="footnoteRef" id="fnref38"><sup>38</sup></a>. Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>equivalentBody</code></dt>
-<dd><p>Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe Körperschaft repräsentieren. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek<a href="#fn37" class="footnoteRef" id="fnref37"><sup>37</sup></a>, der DBPedia<a href="#fn38" class="footnoteRef" id="fnref38"><sup>38</sup></a> oder der Wikipedia<a href="#fn39" class="footnoteRef" id="fnref39"><sup>39</sup></a> angegeben werden. Typ: TODO EMPFOHLEN</p>
+<dd><p>Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe Körperschaft repräsentieren. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek<a href="#fn39" class="footnoteRef" id="fnref39"><sup>39</sup></a>, der DBPedia<a href="#fn40" class="footnoteRef" id="fnref40"><sup>40</sup></a> oder der Wikipedia<a href="#fn41" class="footnoteRef" id="fnref41"><sup>41</sup></a> angegeben werden. Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>contactEmail</code></dt>
 <dd><p>Dient der Angabe einer Kontakt-E-Mail-Adresse mit &quot;mailto:&quot;-Schema. Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und idealerweise das parlamentarische Informationssystem zuständigen Stelle ermöglichen. Typ: TODO EMPFOHLEN</p>
@@ -1466,7 +1502,7 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 <dd><p>Beispiel: &quot;Antwort auf Anfrage 1200/2014&quot; Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>paperType</code></dt>
-<dd><p>Begriff mit einem <code>skos:prefLabel</code>-Attribut, dessen Wert eine Zeichenkette ist und die Art der Drucksache beschreibt, z.B. &quot;Beantwortung einer Anfrage&quot;. Eine weitere Liste mit exemplarischen Drucksachentypen gibt es hier: https://wiki.piratenpartei.de/BE:BVVupdates/Glossar Eine zukünftige Version von OParl wird möglicherweise solche Werte spezifizieren. Typ: <code>skos:Concept</code> OPTIONAL</p>
+<dd><p>Begriff mit einem <code>skos:prefLabel</code>-Attribut, dessen Wert eine Zeichenkette ist und die Art der Drucksache beschreibt, z.B. &quot;Beantwortung einer Anfrage&quot;. Für die URLs kommen als letztes Pfadelement z.B. &quot;draft&quot;, &quot;petition&quot;, &quot;request&quot;, &quot;note&quot; und &quot;answer&quot; in Frage. Denkbar ist auch eine Kategorisierung z.B. in drei Arten von Drucksachen: initiierend, beratend und protokollierend. Eine weitere Liste mit exemplarischen Drucksachentypen gibt es hier: https://wiki.piratenpartei.de/BE:BVVupdates/Glossar Eine zukünftige Version von OParl wird möglicherweise solche Werte spezifizieren. Typ: <code>skos:Concept</code> OPTIONAL</p>
 </dd>
 <dt><code>relatedPaper</code></dt>
 <dd><p>Typ: <code>oparl:Paper</code> OPTIONAL</p>
@@ -1522,7 +1558,7 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 <dd><p>Name des Objekts, der Nutzern angezeigt werden kann. Typ: Zeichenkette. ZWINGEND</p>
 </dd>
 <dt><code>mimeType</code></dt>
-<dd><p>Mime-Typ des Inhalts (vgl. RFC2046<a href="#fn40" class="footnoteRef" id="fnref40"><sup>40</sup></a>). Sollte das System einer Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier &quot;application/octet-stream&quot; zu verwenden. Typ: TODO ZWINGEND</p>
+<dd><p>Mime-Typ des Inhalts (vgl. RFC2046<a href="#fn42" class="footnoteRef" id="fnref42"><sup>42</sup></a>). Sollte das System einer Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier &quot;application/octet-stream&quot; zu verwenden. Typ: TODO ZWINGEND</p>
 </dd>
 <dt><code>date</code></dt>
 <dd><p>Erstellungs- oder Veröffentlichungsdatum und -uhrzeit. Typ: Datum. ZWINGEND</p>
@@ -1569,7 +1605,7 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 </dl>
 <h3 id="siehe-auch"><span class="header-section-number">5.10.2</span> Siehe auch</h3>
 <ul>
-<li><a href="#dokumentenabruf">Dokumentenabruf</a></li>
+<li><a href="#dateizugriff">Dateizugriff</a></li>
 </ul>
 <h2 id="oparl_consultation"><span class="header-section-number">5.11</span> oparl:Consultation (Beratung)</h2>
 <p>Der Objekttyp <code>oparl:Consultation</code> dient dazu, die Beratung einer Drucksache (<a href="#oparl_paper"><code>oparl:Paper</code></a>) in einer Sitzung abzubilden. Dabei ist es nicht entscheidend, ob diese Beratung in der Vergangenheit stattgefunden hat oder diese für die Zukunft geplant ist.</p>
@@ -1654,9 +1690,9 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
     },
     <span class="er">//</span> <span class="er">...</span>
 }</code></pre>
-<p>OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des<br />Well-Known-Text-Formats (WKT) der Simple Feature Access Spezifikation<a href="#fn41" class="footnoteRef" id="fnref41"><sup>41</sup></a> vor. WKT erlaubt die Beschreibung von unterschiedlichen Geometrien wie Punkten (<code>Point</code>), Pfaden (<code>LineString</code>), Polygonen (<code>Polygon</code>) und viele andere mehr.</p>
+<p>OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des<br />Well-Known-Text-Formats (WKT) der Simple Feature Access Spezifikation<a href="#fn43" class="footnoteRef" id="fnref43"><sup>43</sup></a> vor. WKT erlaubt die Beschreibung von unterschiedlichen Geometrien wie Punkten (<code>Point</code>), Pfaden (<code>LineString</code>), Polygonen (<code>Polygon</code>) und viele andere mehr.</p>
 <p>Zum Zeitpunkt der Erstellung der vorliegenden Spezifikation ist Version 1.2.1 der Simple-Feature-Access-Spezifikation aktuell. OParl stellt keine Anforderungen daran, welche Version von Simple-Feature-Access bei der Ausgabe von WKT zu unterstützen ist.</p>
-<p>Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben solcher Geodaten im System WGS84<a href="#fn42" class="footnoteRef" id="fnref42"><sup>42</sup></a> angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.</p>
+<p>Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben solcher Geodaten im System WGS84<a href="#fn44" class="footnoteRef" id="fnref44"><sup>44</sup></a> angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.</p>
 <h3 id="eigenschaften-9"><span class="header-section-number">5.12.1</span> Eigenschaften</h3>
 <dl>
 <dt><code>description</code></dt>
@@ -1777,15 +1813,17 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 <li id="fn31"><p>Wie in vielen anderen Fällen ist diese URL hier wieder nur beispielhaft. Die tatsächliche Gestaltung des Pfads bestimmt der Server-Implementierer.<a href="#fnref31">↩</a></p></li>
 <li id="fn32"><p>RSS 2.0 Specification: <a href="http://cyber.law.harvard.edu/rss/rss.html">http://cyber.law.harvard.edu/rss/rss.html</a><a href="#fnref32">↩</a></p></li>
 <li id="fn33"><p>Atom ist in RFC4287 spezifiziert: <a href="http://www.ietf.org/rfc/rfc4287.txt">http://www.ietf.org/rfc/rfc4287.txt</a><a href="#fnref33">↩</a></p></li>
-<li id="fn34"><p>Verzeichnisse für Lizenz-URLs sind unter anderem unter <a href="http://licenses.opendefinition.org/">http://licenses.opendefinition.org/</a> und <a href="https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json">https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json</a> zu finden.<a href="#fnref34">↩</a></p></li>
-<li id="fn35"><p>Tom Heath, Christian Bizer: Linked Data: Evolving the Web into a Global Data Space (1st edition), <a href="http://linkeddatabook.com/editions/1.0/#htoc48">http://linkeddatabook.com/editions/1.0/#htoc48</a><a href="#fnref35">↩</a></p></li>
-<li id="fn36"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref36">↩</a></p></li>
-<li id="fn37"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd">http://www.dnb.de/gnd</a><a href="#fnref37">↩</a></p></li>
-<li id="fn38"><p>DBPedia <a href="http://www.dbpedia.org/">http://www.dbpedia.org/</a><a href="#fnref38">↩</a></p></li>
-<li id="fn39"><p>Wikipedia <a href="http://de.wikipedia.org/">http://de.wikipedia.org/</a><a href="#fnref39">↩</a></p></li>
-<li id="fn40"><p><a href="http://tools.ietf.org/html/rfc2046">http://tools.ietf.org/html/rfc2046</a><a href="#fnref40">↩</a></p></li>
-<li id="fn41"><p>Simple Feature Access Spezifikation: <a href="http://www.opengeospatial.org/standards/sfa">http://www.opengeospatial.org/standards/sfa</a><a href="#fnref41">↩</a></p></li>
-<li id="fn42"><p>WGS84 steht für &quot;World Geodetic System 1984&quot;, es wird unter anderem auch vom Global Positioning System (GPS) verwendet. In geografischen Informationssystemen ist für das System der EPSG-Code 4326 geläufig.<a href="#fnref42">↩</a></p></li>
+<li id="fn34"><p>vgl. <a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">http://www.w3.org/Protocols/rfc2616/rfc2616.html</a><a href="#fnref34">↩</a></p></li>
+<li id="fn35"><p>vgl. RFC2138 <a href="http://www.ietf.org/rfc/rfc2183">http://www.ietf.org/rfc/rfc2183</a><a href="#fnref35">↩</a></p></li>
+<li id="fn36"><p>Verzeichnisse für Lizenz-URLs sind unter anderem unter <a href="http://licenses.opendefinition.org/">http://licenses.opendefinition.org/</a> und <a href="https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json">https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json</a> zu finden.<a href="#fnref36">↩</a></p></li>
+<li id="fn37"><p>Tom Heath, Christian Bizer: Linked Data: Evolving the Web into a Global Data Space (1st edition), <a href="http://linkeddatabook.com/editions/1.0/#htoc48">http://linkeddatabook.com/editions/1.0/#htoc48</a><a href="#fnref37">↩</a></p></li>
+<li id="fn38"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref38">↩</a></p></li>
+<li id="fn39"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd">http://www.dnb.de/gnd</a><a href="#fnref39">↩</a></p></li>
+<li id="fn40"><p>DBPedia <a href="http://www.dbpedia.org/">http://www.dbpedia.org/</a><a href="#fnref40">↩</a></p></li>
+<li id="fn41"><p>Wikipedia <a href="http://de.wikipedia.org/">http://de.wikipedia.org/</a><a href="#fnref41">↩</a></p></li>
+<li id="fn42"><p><a href="http://tools.ietf.org/html/rfc2046">http://tools.ietf.org/html/rfc2046</a><a href="#fnref42">↩</a></p></li>
+<li id="fn43"><p>Simple Feature Access Spezifikation: <a href="http://www.opengeospatial.org/standards/sfa">http://www.opengeospatial.org/standards/sfa</a><a href="#fnref43">↩</a></p></li>
+<li id="fn44"><p>WGS84 steht für &quot;World Geodetic System 1984&quot;, es wird unter anderem auch vom Global Positioning System (GPS) verwendet. In geografischen Informationssystemen ist für das System der EPSG-Code 4326 geläufig.<a href="#fnref44">↩</a></p></li>
 </ol>
 </div>
 </body>

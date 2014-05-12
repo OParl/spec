@@ -1201,15 +1201,44 @@ verschiedenen Formaten vorhalten. Clients haben die Möglichkeit, mittels
 HTTP-Header schon in der Anfrage eine Vorliebe für ein bestimmtes Format
 zu übermitteln.
 
-TODO: Hier muss eine Beschreibung folgen, was mit Content Negotiation
-erreicht werden soll und wie genau die Anforderungen lauten (vgl. Issue
-\#105).
+Der Vorgang der Content Negotiation ist u.a. in
+http://de.wikipedia.org/wiki/Content\_Negotiation erklärt. Content
+Negotiation ist Bestandteil der HTTP 1.1 Spezifikation. Siehe RFC 2616
+(http://tools.ietf.org/html/rfc2616).
 
-TODO: Der nachstehende Text muss noch sauber formuliert werden.
+Die Idee hinter Content Negotiation ist, dass ein Client die von ihm
+akzeptierten Repräsentationen im \texttt{Accept}-Header des Requests
+mitgibt, damit der Server gemäß Spezifikation die am besten passende und
+von ihm unterstützte Repräsentation an den Client ausliefert.
 
-Auf ein für Linked Data wichtiges Detail sei hier hingewiesen. Wenn man
-in einem üblichen Web-Browser diesen oben angegebenen Link eingibt und
-aufruft:
+Eine Schwierigkeit ergibt sich, dass auch \texttt{*/*} ein valider
+\texttt{Accept}-Header und bedeutet soviel wie ``ich nehme alles''. Eine
+Webanwendung würde dann üblicherweise HTML ausgeben, da es die Standard
+Repräsentation einer Webanwendung ist. Im Falle einer API, die
+standardmäßig mit JSON-LD arbeitet, würde eventuell
+\texttt{application/ld+json} als Antwort erwartet. Der Server weiss in
+diesem Fall aufgrund der fehlenden Information durch den Client nicht,
+was dieser tatsächlich wünscht. Die OParl-Spezifikation kann in diesem
+Fall für den Server auch nicht zwingend \texttt{application/ld+json}
+vorgeben, da es durchaus sinnvoll sein kann, wenn unter einer URL
+\emph{sowohl} OParl-Daten z.B. über ein Gremium abrufbar sind als auch
+eine HTML-Seite mit Informationen über dieses Gremium.
+
+OParl-Clients MÜSSEN den Accept-Header verwenden und darin mindestens
+\texttt{application/ld+json} als akzeptiertes Format angeben.
+
+Ein Server KANN Content Negotiation über einen Redirect auf eine andere
+URL umsetzen, oder einfach die entsprechende Repräsentation ohne
+Redirect ausgeben. Beides ist für OParl zulässig. Der OParl-Server MUSS
+NICHT Content-Negotiation per Redirect unterstützen, aber OParl-Clients
+MÜSSEN dies.
+
+\subsubsection{httpRange-14}\label{httprange-14}
+
+In dem Zusammenhang sei informell auf ein für Linked Data relevantes
+Detail hingewiesen - auf welches man gelegentlich unter dem Kürzel
+`httpRange-14 stößt. Wenn man in einem üblichen Web-Browser diesen
+bereits an anderer Stelle erwähnten Link eingibt und aufruft:
 
 \begin{verbatim}
 https://dbpedia.org/resource/John_Doe_(musician)
@@ -1265,16 +1294,6 @@ https://dbpedia.org/data/John_Doe_(musician).jsonld
 Die Entscheidung darüber, welche der URLs und welche der Inhaltsformate
 der Server liefert, wird zwischen Client und Server mittels Content
 Negotiation ausgehandelt.
-
-Der Vorgang ist u.a. in
-http://de.wikipedia.org/wiki/Content\_Negotiation erklärt. Content
-Negotiation ist Bestandteil der HTTP 1.1 Spezifikation. Siehe RFC 2616
-(http://tools.ietf.org/html/rfc2616).
-
-Wichtig ist, dass Client und Server die Möglichkeit haben, das Format
-auszuhandeln. Deshalb müssen in OParl-Daten format-unspezifische URLs
-angegeben werden, bei dem Musiker John Doe ist das die erste der oben
-angegebenen URLs und nicht die letzte.
 
 \hyperdef{}{http-und-https}{\subsection{HTTP und
 HTTPS}\label{http-und-https}}
@@ -2528,15 +2547,20 @@ Im Unterschied zum Zugriff auf die Download-URL DARF der Server beim
 Zugriff auf die Zugriffs-URL KEINEN \texttt{Content-Disposition} Header
 mit Parameter \texttt{attachment} senden.
 
-\subsubsection{Empfohlene Header}\label{empfohlene-header}
+\subsubsection{Obligatorische und empfohlene
+Header}\label{obligatorische-und-empfohlene-header}
 
 Ziel ist, dem Client möglichst flexible Möglichkeiten zu geben, einen
 Cache zu überprüfen bzw. zu aktualisieren und vermeidbare Anfragen einer
 Ressource zu vermeiden. Um dies zu unterstützen, können laut
 HTTP-Spezifikationen unterschiedliche Header zum Einsatz kommen.
 
-Für einen OParl-Server EMPFEHLEN wir, bei Anfrage einer Datei die
-folgenden Header auszuliefern:
+Die Auslieferung eines \texttt{Last-Modified}-Headers gilt für alle
+OParl-Server beim Zugriff auf eine Datei-URL, sei es Download- oder
+Zugriffs-URL, als ZWINGEND.
+
+Darüber hinaus EMPFEHLEN wir, bei Anfrage einer Datei die folgenden
+Header auszuliefern:
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2544,8 +2568,6 @@ folgenden Header auszuliefern:
   \texttt{Content-Length}: Die Größe des Dateiinhalts
 \item
   \texttt{ETag}: Entity Tag
-\item
-  \texttt{Last-Modified}: Das letzte Änderungsdatum der Datei
 \end{itemize}
 
 \subsubsection{Conditional GET}\label{conditional-get}
@@ -3194,13 +3216,13 @@ Ein Beispiel in expandierter Form:
     \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/Organization"}\NormalTok{,}
     \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/organization/34"}\NormalTok{,}
     \DataTypeTok{"body"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/body/0"}\NormalTok{,}
-    \DataTypeTok{"name"}\NormalTok{: \{}
+    \DataTypeTok{"nameShort"}\NormalTok{: \{}
         \ErrorTok{@language}\DataTypeTok{" :"}\ErrorTok{de}\DataTypeTok{",}
 \DataTypeTok{        @value"}\NormalTok{: }\StringTok{"Finanzausschuss"}
     \NormalTok{\},}
     \DataTypeTok{"nameLong"}\NormalTok{: \{}
         \DataTypeTok{"@language"}\NormalTok{: }\StringTok{"de"}\NormalTok{,}
-        \DataTypeTok{"@value"}\NormalTok{: }\StringTok{"Finanzausschuss des Rates der Stadt Köln"}
+        \DataTypeTok{"@value"}\NormalTok{: }\StringTok{"Ausschuss für Haushalt und Finanzen"}
     \NormalTok{\},}
     \DataTypeTok{"post"}\NormalTok{: \{}
         \DataTypeTok{"@list"}\NormalTok{: [}
@@ -3236,8 +3258,8 @@ Ein Kontext:
     \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"beispielris:organization/34"}\NormalTok{,}
       \ErrorTok{//} \ErrorTok{kann} \ErrorTok{eventuell} \ErrorTok{weiter} \ErrorTok{verkürzt} \ErrorTok{werden}
     \DataTypeTok{"body"}\NormalTok{: }\StringTok{"0"}\NormalTok{,}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Finanzausschuss"}\NormalTok{,}
-    \DataTypeTok{"nameLong"}\NormalTok{: }\StringTok{"Finanzausschuss des Rates der Stadt Köln"}\NormalTok{,}
+    \DataTypeTok{"nameShort"}\NormalTok{: }\StringTok{"Finanzausschuss"}\NormalTok{,}
+    \DataTypeTok{"nameLong"}\NormalTok{: }\StringTok{"Ausschuss für Haushalt und Finanzen"}\NormalTok{,}
     \DataTypeTok{"post:"} \ErrorTok{[}
         \DataTypeTok{"beispielris:post/chairperson"}\NormalTok{,}
         \DataTypeTok{"beispielris:post/deputyChairperson"}
@@ -3259,10 +3281,23 @@ Ein Kontext:
 \begin{description}
 \item[\texttt{body}]
 URL der Körperschaft, zu der diese Gruppierung gehört. ZWINGEND
-\item[\texttt{name}]
-Der Name der Gruppierung. ZWINGEND
+\item[\texttt{nameShort}]
+Der Name der Gruppierung, eine Kurzform. ZWINGEND
+\end{description}
+
+TODO: ZWINGEND/OPTIONAL prüfen
+
+\begin{description}
+\itemsep1pt\parskip0pt\parsep0pt
 \item[\texttt{nameLong}]
-Langform des Namens der Gruppierung. OPTIONAL
+Langform des Namens der Gruppierung, der rechtlich korrekte Name.
+ZWINGEND
+\end{description}
+
+TODO: ZWINGEND/OPTIONAL prüfen
+
+\begin{description}
+\itemsep1pt\parskip0pt\parsep0pt
 \item[\texttt{post}]
 Position oder Positionen, die für diese Gruppierung vorgesehen sind. Die
 Objekte gehören zu der Klasse \texttt{org:Post} oder einer ihrer

@@ -5,6 +5,7 @@ An diesem Dokument haben mitgewirkt:
 
 Felix Ebert,
 Jan Erhardt,
+Jayan Areekadan,
 Jens Klessmann,
 Andreas Kuckartz,
 Babett Schalitz,

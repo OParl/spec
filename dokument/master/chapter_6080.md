@@ -23,7 +23,7 @@ Grundsätzlich gilt, dass jede Datei mittels HTTP-Anfrage unter Verwendung der
 HTTP-Methode `GET` abrufbar sein MUSS. Um Clients zusätzlich die Überprüfung
 einer Datei zu ermöglichen, MUSS vom Server außerdem die HTTP-Methode `HEAD`
 unterstützt werden. Gemäß HTTP-Spezifikation gibt der Server in diesem Fall nur
-die Antwort-Header, nicht aber den eigentlichen Inhalt der angefrgten Ressource,
+die Antwort-Header, nicht aber den eigentlichen Inhalt der angefragten Ressource,
 aus.
 
 Die URLs zum Abruf der einzelnen Datei (wahlweise mittels GET oder HEAD) stellt

@@ -50,30 +50,28 @@ werden.
 Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
 
 ~~~~~  {#feed_ex1 .json}
-{
-    "items": [
-    	{
-    		"@id": "https://oparl.beispielris.de/bodies/0/papers/21/documents/3",
-    		"created": "2014-01-07T12:59:01.038+0100"
-    	},
-    	{
-    		"@id": "https://oparl.beispielris.de/bodies/0/papers/21",
-    		"created": "2014-01-05T18:29:37.123+0100"
-    	},
-    	{
-    		"@id": "https://oparl.beispielris.de/bodies/0/papers/20/documents/5",
-    		"created": "2014-01-04T11:26:48.638+0100"
-    	},
-    	...
-    ]
-}
+[
+    {
+        "@id": "https://oparl.beispielris.de/bodies/0/papers/21/documents/3",
+        "created": "2014-01-07T12:59:01.038+0100"
+    },
+    {
+        "@id": "https://oparl.beispielris.de/bodies/0/papers/21",
+        "created": "2014-01-05T18:29:37.123+0100"
+    },
+    {
+        "@id": "https://oparl.beispielris.de/bodies/0/papers/20/documents/5",
+        "created": "2014-01-04T11:26:48.638+0100"
+    },
+    ...
+]
 ~~~~~
 
-Wie im Beispiel zu sehen ist, enthält die Eigenschaft `items` eine Liste
-mit unbenannten Objekten. Dies ist ein Unterschied zu herkömmlichen Objektlisten,
+Wie im Beispiel zu sehen ist, handelt es sich um eine JSON-Liste, deren Elemente
+unbenannten Objekten sind. Dies ist ein Unterschied zu herkömmlichen Objektlisten,
 bei denen an dieser Stelle lediglich URLs als Listeneinträge erwartet werden.
 
-Jedes der Objekte in der `items`-Liste MUSS seinerseits wiederum zwei
+Jedes der Objekte in der Liste MUSS seinerseits wiederum zwei
 Eigenschaften besitzen:
 
 * `@id`: Die URL des neuen Objekts
@@ -109,23 +107,21 @@ Auch hier SOLL der Feed sämtliche Objekttypen umfassen, die in einem System
 geführt werden.
 
 ~~~~~  {#feed_ex2 .json}
-{
-    "items": [
-    	{
-    		"@id": "https://oparl.beispielris.de/bodies/0/papers/0/documents/2",
-    		"lastModified": "2014-01-08T14:28:31.568+0100"
-    	},
-    	{
-    		"@id": "https://oparl.beispielris.de/bodies/0/papers/0",
-    		"lastModified": "2014-01-08T12:14:27.958+0100"
-    	},
-    	{
-    		"@id": "https://oparl.beispielris.de/bodies/0/papers/0/documents/1",
-    		"lastModified": "2014-01-06T17:01:00.402+0100"
-    	},
-    	...
-    ]
-}
+[
+    {
+        "@id": "https://oparl.beispielris.de/bodies/0/papers/0/documents/2",
+        "lastModified": "2014-01-08T14:28:31.568+0100"
+    },
+    {
+        "@id": "https://oparl.beispielris.de/bodies/0/papers/0",
+        "lastModified": "2014-01-08T12:14:27.958+0100"
+    },
+    {
+        "@id": "https://oparl.beispielris.de/bodies/0/papers/0/documents/1",
+        "lastModified": "2014-01-06T17:01:00.402+0100"
+    },
+    ...
+]
 ~~~~~
 
 Das Ausgabeformat entspricht weitgehend dem des Feeds "Neue Objekte", jedoch
@@ -146,15 +142,13 @@ Client-Implementierer sind angehalten, diesen Feed zu nutzen, um beispielsweise
 depublizierte Dokumente aus ihren lokalen Caches zu entfernen.
 
 ~~~~~  {#feed_ex3 .json}
-{
-    "items": [
-    	{
-    		"@id": "https://oparl.beispielris.de/bodies/0/people/22",
-    		"removed": "2013-11-11T11:11:00.000+0100"
-    	},
-    	...
-    ]
-}
+[
+    {
+        "@id": "https://oparl.beispielris.de/bodies/0/people/22",
+        "removed": "2013-11-11T11:11:00.000+0100"
+    },
+    ...
+]
 ~~~~~
 
 Die Eigenschaft zur Angabe des Entfernungszeitpunkts heißt hier `removed` und

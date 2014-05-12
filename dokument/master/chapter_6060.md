@@ -15,25 +15,18 @@ tatsächlich immer Listen von URLs.
 
 ### Vollständige Listenausgabe
 
-In der einfachsten Form gibt der Server die Liste als Objekt 
-mit nur einer einzigen Eigenschaft `items` aus. Der Wert dieser 
-Eigenschaft ist die **vollständige Liste** der URLs aller 
-in der Liste enthaltenen Objekte.
-
-Diese einfachste Form der Antwort eignet sich nur für Listen mit
-einer begrenzten Anzahl von Einträgen, wie beispielsweise die
-Liste der Mitglieder einer Organisation.
+In der einfachsten Form wird eine Objektliste als JSON-Liste ausgegeben.
+Die Elemente dieser Liste sind **sämtliche URLs** aller
+in der Objektliste enthaltenen Objekte.
 
 Beispiel:
 
 ~~~~~  {#objektlisten_ex1 .json}
-{
-	"items": [
-		"https://beispielris.de/bodies/0/papers/2",
-		"https://beispielris.de/bodies/0/papers/5",
-		"https://beispielris.de/bodies/0/papers/7",
-	]
-}
+[
+	"https://oparl.beispielris.de/bodies/0/papers/2",
+	"https://oparl.beispielris.de/bodies/0/papers/5",
+	"https://oparl.beispielris.de/bodies/0/papers/7"
+]
 ~~~~~
 
 Die vollständige Listenausgabe SOLL nur für Listen verwendet

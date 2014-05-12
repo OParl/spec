@@ -7,8 +7,11 @@ Selbstbschreibungsfähigkeit der ausgegebenen Daten verbessert. Auf Anforderung 
 Clients wird darüber hinaus JSONP unterstützt.
 
 In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung des HTTP
-`Content-type`-Headers `application/ld+json` beantworten. Die Spezifikation von JSON-LD
-liefert dazu genauere Informationen^[JSON-LD 1.0: IANA COnsiderations: 
+`Content-type`-Headers `application/ld+json` beantworten, Ausnahmen davon sind
+lediglich [Dateizugriffe](#dateizugriff).
+
+Die Spezifikation von JSON-LD
+liefert dazu genauere Informationen^[JSON-LD 1.0: IANA Considerations: 
 <http://www.w3.org/TR/json-ld/#iana-considerations>], auch zu dem optionalen Parameter `profile`
 für die explizite Anforderung von JSON-LD in einer dieser drei Unterformen: kompakt,
 expandiert oder flach.

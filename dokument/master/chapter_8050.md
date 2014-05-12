@@ -12,13 +12,13 @@ Ein Beispiel in expandierter Form:
     "@type": "http://oparl.org/schema/1.0/Organization",
     "@id": "https://oparl.beispielris.de/organization/34",
     "body": "https://oparl.beispielris.de/body/0",
-    "name": {
+    "nameShort": {
         @language" :"de",
         @value": "Finanzausschuss"
     },
     "nameLong": {
         "@language": "de",
-        "@value": "Finanzausschuss des Rates der Stadt Köln"
+        "@value": "Ausschuss für Haushalt und Finanzen"
     },
     "post": {
         "@list": [
@@ -55,8 +55,8 @@ Ein Kontext:
     "@id": "beispielris:organization/34",
       // kann eventuell weiter verkürzt werden
     "body": "0",
-    "name": "Finanzausschuss",
-    "nameLong": "Finanzausschuss des Rates der Stadt Köln",
+    "nameShort": "Finanzausschuss",
+    "nameLong": "Ausschuss für Haushalt und Finanzen",
     "post:" [
         "beispielris:post/chairperson",
         "beispielris:post/deputyChairperson"
@@ -78,13 +78,15 @@ Ein Kontext:
 :   URL der Körperschaft, zu der diese Gruppierung gehört. 
     ZWINGEND
 
-`name`
-:   Der Name der Gruppierung.
+`nameShort`
+:   Der Name der Gruppierung, eine Kurzform.
     ZWINGEND
+TODO: ZWINGEND/OPTIONAL prüfen
 
 `nameLong`
-:   Langform des Namens der Gruppierung.
-    OPTIONAL
+:   Langform des Namens der Gruppierung, der rechtlich korrekte Name.
+    ZWINGEND
+TODO: ZWINGEND/OPTIONAL prüfen
 
 `post`
 :   Position oder Positionen, die für diese Gruppierung vorgesehen sind. Die Objekte gehören zu der Klasse `org:Post` oder einer ihrer Unterklassen.

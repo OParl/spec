@@ -19,13 +19,19 @@ stattdessen "https://".
 
 Es ist daher ZWINGEND, dass der Server-Betreiber sich zur URL-Kanonisierung 
 für nur eine von beiden Varianten entscheidet. Beantwortet das System regulär
-Anfragen über HTTPS mit der Auslieferung von Objekten etc., dann MUSS das System
-bei Anfragen an die entsprechenden URLs ohne "https://" Schema mit einer 
-Weiterleitung antworten (HTTP Status-Code 301).
+Anfragen über HTTPS mit der Auslieferung von Objekten etc., dann gilt für
+Anfragen an die entsprechende unverschlüsselte URL ZWINGEND:
 
-Gleiches gilt umgekehrt: beantwortet das System regulär Anfragen über
-unverschlüsseltes HTTP, dann MÜSSEN Anfragen auf die entsprechenden URLs mit
-"https://"-Schema mit einer HTTP-Weiterleitung (HTTP Status-Code 301) beantwortet
-werden.
+* unter der URL ist kein Webserver erreichbar, oder
 
-TODO: Geht das, wenn HTTPS nicht unterstützt wird?
+* der Server unter der URL beantwortet die Anfrage mit einer Weiterleitung
+  an die HTTPS-URL (HTTP Status-Code 301)
+
+Gleiches gilt umgekehrt: hat sich der Betreiber generell für den Betrieb des
+OParl-Servers über unverschlüsseltes HTTP entscheiden, dann MUSS für die
+entsprechenden HTTPS-URLs eine der beiden folgenden Möglichkeiten gelten:
+
+* Entweder ist unter den entsprechenden HTTPS-URLs kein Webserver erreichbar
+
+* oder Anfragen an die HTTPS-URLs werden mit Redirects auf die entsprechenden
+  HTTP-URLs beantwortet.

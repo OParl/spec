@@ -155,6 +155,13 @@ Parlament an.
 :   Typ: `skos:Concept`
     OPTIONAL
 
+`allConcepts`
+:   Alle Schlagworte und Begriffe, die von dieser Körperschaft verwendet werden. Diese Eigenschaft ist insbesondere dann
+    wichtig, wenn Sortierungs-Reihenfolgen verwendet werden.
+    TODO: Beispiel
+    Typ: `skos:Concept`
+    OPTIONAL
+
 `created`
 :   Datum/Uhrzeit der Erzeugung des Objekts.
     Typ: TODO

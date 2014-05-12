@@ -2,7 +2,7 @@ Schema
 ======
 
 Dieses Kapitel beschreibt das Schema von OParl. Das Schema bildet das
-Datzenmodell der OParl-Architektur ab. Es definiert, welche Objekttypen
+Datenmodell der OParl-Architektur ab. Es definiert, welche Objekttypen
 über eine OParl-API abgerufen werden können und welche Eigenschaften
 diese Objekttypen haben dürfen und müssen. Darüber hinaus ist im Schema
 auch festgelegt, in welcher Beziehung verschiedene Objekttypen zu

@@ -37,7 +37,7 @@ rechtlicher und technischer Offenheit hinaus am besten erreicht werden kann erfo
 im Einzelfall häufig eine Zusammenarbeit von Datenbereitstellern und potentiellen
 Datennutzern. Die bloße Bereitstellung einer OParl-konformen API wird weder die
 Einhaltung der technischen Prinzipien, noch der weiteren Open-Data-Prinzipien vollständig
-garantieren. Viele Bestandteile der Oparl Spezifikation, die einen weitgehend
+garantieren. Viele Bestandteile der OParl Spezifikation, die einen weitgehend
 barrierearmen Zugang zu Informationen ermöglichen, sind optional (Beispiel: Volltexte
 von Dokumenten über die API abrufbar machen). Andere Bestandteile, die von Interesse
 wären, sind noch gar nicht von OParl abgedeckt (Beispiel: Abstimmungsergebnisse). Grund

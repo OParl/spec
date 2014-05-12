@@ -72,8 +72,9 @@ Ein Beispiel in kompakter Form:
 `paperType`
 :   Begriff mit einem `skos:prefLabel`-Attribut, dessen Wert eine Zeichenkette ist und 
     die Art der Drucksache beschreibt, z.B. "Beantwortung einer Anfrage".
-    Für die URLs kommen als letztes Pfadelement insbesondere "draft", "petition", "request", "note" und "answer" in
-    Frage.
+    Für die URLs kommen als letztes Pfadelement z.B. "draft", "petition", "request", "note" und "answer" in
+    Frage. Denkbar ist auch eine Kategorisierung z.B. in drei Arten von Drucksachen: initiierend, beratend und
+    protokollierend.
     Eine weitere Liste mit exemplarischen Drucksachentypen gibt es hier:
     https://wiki.piratenpartei.de/BE:BVVupdates/Glossar
     Eine zukünftige Version von OParl wird möglicherweise solche Werte spezifizieren.
@@ -95,7 +96,6 @@ Ein Beispiel in kompakter Form:
 
 `creator`
 :   Typ: `oparl:Person` | `oparl:Organization`
-
 
 `consultation`
 :   Typ: `oparl:Consultation`

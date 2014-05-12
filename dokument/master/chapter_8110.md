@@ -13,6 +13,7 @@ Ein Beispiel:
     "@type": "oparl:Document",
     "@id": "https://oparl.beispielris.de/document/57739",
     "name": "Anlage 1 zur Anfrage",
+    "fileName": "57739.pdf",
     "paper": "https://oparl.beispielris.de/paper/2396",
     "mimeType": "application/pdf",
     "date": "2013-01-04T07:54:13+01:00",
@@ -44,78 +45,93 @@ werden, welche Ableitungen einer Datei existieren.
 
 ### Eigenschaften ###
 
+`fileName`
+:   Dateiname, unter dem die Datei in einem Dateisystem gespeichert werden
+    kann.
+    Typ: ASCII-Zeichenkette.
+    ZWINGEND.
+
 `name`
-:   Name des Objekts, der Nutzern angezeigt werden kann.
+:   Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt.
+    Der Wert SOLL NICHT mit dem Wert der Eigenschaft `fileName` identisch
+    sein.
     Typ: Zeichenkette.
-    ZWINGEND
+    EMPFOHLEN.
 
 `mimeType`
-:   Mime-Typ des Inhalts (vgl. RFC2046^[<http://tools.ietf.org/html/rfc2046>]).
+:   Mime-Typ des Inhalts^[vgl. RFC2046: <http://tools.ietf.org/html/rfc2046>].
     Sollte das System einer Datei keinen
     spezifischen Typ zuweisen können, wird EMPFOHLEN, hier 
-    "application/octet-stream" zu verwenden.
-    Typ: TODO
-    ZWINGEND
+    `application/octet-stream` zu verwenden.
+    Typ: Zeichenkette
+    ZWINGEND.
     
 `date`
-:   Erstellungs- oder Veröffentlichungsdatum und -uhrzeit.
+:   Datum und Zeit der Erstellung der Datei. Wahlweise, falls dies nicht
+    vom System kommuniziert werden kann oder soll, KANN alternativ
+    der Zeitpunkt der Veröffentlichung ausgegeben werden.
     Typ: Datum.
-    ZWINGEND
+    ZWINGEND.
 
 `lastModified`
-:   Datum und Uhrzeit der letzten Änderung der Datei bzw. der Metadaten.
+:   Datum und Zeit der letzten Änderung der Datei bzw. der Metadaten. Als
+    Änderung der Datei gilt alles, was den Inhalt der Datei verändert und
+    beispielsweise zu einer Veränderung der Prüfsumme führen würde, nicht
+    aber die Änderung des Dateinamens (siehe Eigenschaft `name`). Als 
+    Änderung der Metadaten hingegen würde beispielsweise die Änderung des 
+    Dateinamens gelten. Hier soll immer das größere der beiden Daten
+    ausgegeben werden, also der am wenigsten lang zurückliegende
+    Änderungszeitpunkt.
     Typ: Datum.
-    ZWINGEND
+    ZWINGEND.
 
 `size`
 :   Größe der Datei in Bytes.
     Typ: ganze Zahl.
-    ZWINGEND
+    ZWINGEND.
 
 `sha1Checksum`
 :   SHA1-Prüfsumme des Dokumenteninhalts in Hexadezimal-Schreibweise.
     Typ: Zeichenkette.
-    OPTIONAL
+    OPTIONAL.
     
 `text`
 :   Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform
     wiedergegeben werden kann.
     Typ: Zeichenkette.
-    EMPFOHLEN
+    EMPFOHLEN.
 
 `accessUrl`
-:   URL zum gewöhnlichen Abruf der Datei mittels HTTP GET-Aufruf.
+:   URL zum allgemeinen Zugriff auf die Datei. Näheres unter [Dateizugriff](#dateizugriff).
     Typ: URL.
-    ZWINGEND
+    ZWINGEND.
 
 `downloadUrl`
-:   URL zum Download der Datei. Besser ist es, bereits unter `accessUrl` einen "schönen" Dateinamen anzugeben.
-    TODO: Zweck erklären.
+:   URL zum Download der Datei. Näheres unter [Dateizugriff](#dateizugriff).
     Typ: URL.
-    EMPFOHLEN
+    EMPFOHLEN.
 
 `paper`
-:   Drucksache, sofern diese Datei zu einer Drucksache gehört. Wenn diese Datei zu einer Drucksache gehört,
-    MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT vorhanden sein.
-    TODO: ist das eine Tautologie?
-    Typ: `oparl:Paper`
+:   Falls die Datei zu einer Drucksache (oparl:Paper) gehört, MUSS über diese Eigenschaft die
+    URL des Drucksache-Objekts ausgegeben werden. Andernsfalls DARF diese Eigenschaft NICHT
+    vorhanden sein.
+    Typ: `oparl:Paper`.
 
 `meeting`
-:   Sitzung, sofern diese Datei zu einer Sitzung gehört. Wenn diese Datei zu einer Sitzung gehört,
-    MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT
+:   Falls die Datei zu einer Sitzung (oparl:Meeting) gehört, MUSS über diese Eigenschaft
+    die URL des Sitzung-Objekts ausgegeben werden. Andernfalls DARF diese Eigenschaft NICHT
     vorhanden sein.
-    TODO: ist das eine Tautologie?
     Typ: `oparl:Meeting`.
 
 `masterDocument`
 :   Datei von der das aktuelle Objekt abgeleitet wurde.
     Typ: `oparl:Document`.
-    OPTIONAL
+    OPTIONAL.
 
 `derivativeDocuments`
 :   Abgeleitete Datei die von dem aktuellen Objekt abgeleitet wurde.
     Typ: `oparl:Document`.
-    OPTIONAL
+    OPTIONAL.
 
 `license`
 :   Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet
@@ -125,19 +141,20 @@ werden, welche Ableitungen einer Datei existieren.
     OPTIONAL
 
 `documentRole`
-:   Rolle, Funktion, Sorte des Dokuments. Das Objekt enthält ein `skos:prefLabel`. Dessen Werte können z.B. sein:
-    "Einladung", "Protokoll", "Wortprotokoll" oder "Beschlussprotokoll". In einer zukünftigen OParl-Version
-    wird möglicherweise eine Menge der wichtigsten Kategorien vorgegeben.
-    TODO: Besser in `oparl:Paper` oder `oparl:Meeting` ?
-    Siehe Diskussion unter https://github.com/OParl/specs/issues/65
-    Typ: `skos:Concept`
-    OPTIONAL
+:   Rolle, Funktion, Sorte des Dokuments. Das Objekt enthält ein `skos:prefLabel`.
+    Dessen Werte können z.B. sein:
+    "Einladung", "Protokoll", "Wortprotokoll" oder "Beschlussprotokoll". In einer
+    zukünftigen OParl-Version wird möglicherweise eine Menge der wichtigsten
+    Kategorien vorgegeben.
+    Typ: `skos:Concept`.
+    OPTIONAL.
+    TODO: Link auf Erkärungs-Kapitel, damit klar ist, dass hier auf externes
+    Vokabular verlinkt wird.
 
 `classification`
 :   Begriff mit `skos:prefLabel`. Hat allgemeinere Bedeutung als `documentRole`.
-    Typ: `skos:Concept`
-    OPTIONAL
-
-### Siehe auch
-
-* [Dateizugriff](#dateizugriff)
+    Typ: `skos:Concept`.
+    OPTIONAL.
+    TODO: 
+    TODO: Link auf Erkärungs-Kapitel, damit klar ist, dass hier auf externes
+    Vokabular verlinkt wird.

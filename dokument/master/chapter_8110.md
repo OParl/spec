@@ -136,9 +136,9 @@ werden, welche Ableitungen einer Datei existieren.
 `license`
 :   Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet
     wird, dann ist sie anstelle einer globalen Angabe im übergeordneten
-    `oparl:Body` bzw. `oparl:System` Objekt maßgeblich.
+    `oparl:Body` bzw. `oparl:System` Objekt maßgeblich.^[vgl. [license](#eigenschaft_license)]
     Typ: URL.
-    OPTIONAL
+    OPTIONAL.
 
 `documentRole`
 :   Rolle, Funktion, Sorte des Dokuments. Das Objekt enthält ein `skos:prefLabel`.

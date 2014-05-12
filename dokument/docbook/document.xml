@@ -1566,131 +1566,6 @@ Objekt: http://dbpedia.org/resource/John_(given_name)
       von jeglicher vorherigen auf jegliche neue URL weiter leiten.
     </para>
   </sect2>
-  <sect2 id="content_negotiation">
-    <title>Content Negotiation</title>
-    <para>
-      Server im World Wide Web können bestimmte Ressourcen entsprechend
-      RFC2295<footnote>
-        <para>
-          RFC2295:
-          <ulink url="http://tools.ietf.org/html/rfc2295">http://tools.ietf.org/html/rfc2295</ulink>
-        </para>
-      </footnote> in verschiedenen Formaten vorhalten. Clients haben die
-      Möglichkeit, mittels HTTP-Header schon in der Anfrage eine
-      Vorliebe für ein bestimmtes Format zu übermitteln.
-    </para>
-    <para>
-      Der Vorgang der Content Negotiation ist u.a. in
-      http://de.wikipedia.org/wiki/Content_Negotiation erklärt. Content
-      Negotiation ist Bestandteil der HTTP 1.1 Spezifikation. Siehe RFC
-      2616 (http://tools.ietf.org/html/rfc2616).
-    </para>
-    <para>
-      Die Idee hinter Content Negotiation ist, dass ein Client die von
-      ihm akzeptierten Repräsentationen im
-      <literal>Accept</literal>-Header des Requests mitgibt, damit der
-      Server gemäß Spezifikation die am besten passende und von ihm
-      unterstützte Repräsentation an den Client ausliefert.
-    </para>
-    <para>
-      Eine Schwierigkeit ergibt sich, dass auch <literal>*/*</literal>
-      ein valider <literal>Accept</literal>-Header und bedeutet soviel
-      wie &quot;ich nehme alles&quot;. Eine Webanwendung würde dann
-      üblicherweise HTML ausgeben, da es die Standard Repräsentation
-      einer Webanwendung ist. Im Falle einer API, die standardmäßig mit
-      JSON-LD arbeitet, würde eventuell
-      <literal>application/ld+json</literal> als Antwort erwartet. Der
-      Server weiss in diesem Fall aufgrund der fehlenden Information
-      durch den Client nicht, was dieser tatsächlich wünscht. Die
-      OParl-Spezifikation kann in diesem Fall für den Server auch nicht
-      zwingend <literal>application/ld+json</literal> vorgeben, da es
-      durchaus sinnvoll sein kann, wenn unter einer URL
-      <emphasis>sowohl</emphasis> OParl-Daten z.B. über ein Gremium
-      abrufbar sind als auch eine HTML-Seite mit Informationen über
-      dieses Gremium.
-    </para>
-    <para>
-      OParl-Clients MÜSSEN den Accept-Header verwenden und darin
-      mindestens <literal>application/ld+json</literal> als akzeptiertes
-      Format angeben.
-    </para>
-    <para>
-      Ein Server KANN Content Negotiation über einen Redirect auf eine
-      andere URL umsetzen, oder einfach die entsprechende Repräsentation
-      ohne Redirect ausgeben. Beides ist für OParl zulässig. Der
-      OParl-Server MUSS NICHT Content-Negotiation per Redirect
-      unterstützen, aber OParl-Clients MÜSSEN dies.
-    </para>
-    <sect3 id="httprange-14">
-      <title>httpRange-14</title>
-      <para>
-        In dem Zusammenhang sei informell auf ein für Linked Data
-        relevantes Detail hingewiesen - auf welches man gelegentlich
-        unter dem Kürzel `httpRange-14 stößt. Wenn man in einem üblichen
-        Web-Browser diesen bereits an anderer Stelle erwähnten Link
-        eingibt und aufruft:
-      </para>
-      <programlisting>
-https://dbpedia.org/resource/John_Doe_(musician)
-</programlisting>
-      <para>
-        dann sieht man anschliessend bei der Anzeige der HTML-Seite
-        diesen Link im Adressfeld:
-      </para>
-      <programlisting>
-https://dbpedia.org/page/John_Doe_(musician)
-</programlisting>
-      <para>
-        Dabei identifiziert der erste Link den abstrakten Begriff des
-        Musikers, während der zweite Link eine Repräsentation dieses
-        Begriffs identifiziert. Ein anderer http-Client, der statt
-        HTML-Seiten z.B. JSON-LD bevorzugt, würde bei Zugriff auf den
-        ersten Link statt der HTML-Seite den Inhalt dieser URL erhalten:
-      </para>
-      <programlisting>
-https://dbpedia.org/data/John_Doe_(musician).jsonld
-</programlisting>
-      <para>
-        Dabei handelt es sich um eine Repräsentation des Musikers in
-        Form von JSON-LD.
-      </para>
-      <para>
-        Diese drei Links sind nicht nur verschieden, sondern haben
-        unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL
-        (HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients
-        generell nicht verwendet werden, um auf einfache Weise zu den
-        anderen beiden URLs zu gelangen. Deshalb soll bei Linked Data
-        der erste Link, also der des abstrakten Begriffs angegeben
-        werden. Der Zugriff auf diesen Link wird
-        &quot;Dereferenzierung&quot; genannt. Von dem ersten Link
-        gelangt man zu den beiden anderen mittels &quot;Content
-        Negotiation&quot;.
-      </para>
-      <para>
-        So kann der Server beim Zugriff eines Client auf
-      </para>
-      <programlisting>
-https://dbpedia.org/resource/John_Doe_(musician)
-</programlisting>
-      <para>
-        z.B. entweder diese URL sowie HTML-Inhalt liefern
-      </para>
-      <programlisting>
-https://dbpedia.org/page/John_Doe_(musician)
-</programlisting>
-      <para>
-        oder aber diese URL mit JSON-LD als Inhalt
-      </para>
-      <programlisting>
-https://dbpedia.org/data/John_Doe_(musician).jsonld
-</programlisting>
-      <para>
-        Die Entscheidung darüber, welche der URLs und welche der
-        Inhaltsformate der Server liefert, wird zwischen Client und
-        Server mittels Content Negotiation ausgehandelt.
-      </para>
-    </sect3>
-  </sect2>
   <sect2 id="http-und-https">
     <title>HTTP und HTTPS</title>
     <para>
@@ -3209,7 +3084,8 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       Mit dem Begriff &quot;Datei&quot; sind im Sinne dieser
       Spezifikation alle Ressourcen gemeint, die von einem OParl-Server
       zur Verfügung gestellt werden und deren Metadaten über die
-      JSON-API als <literal>[oparl:Document](#oparl_document)</literal>
+      JSON-API als
+      <link linkend="oparl_document"><literal>oparl:Document</literal></link>
       abgerufen werden können. Es handelt sich dabei beispielsweise um
       Textdokumente im PDF-Format, Abbildungen im JPEG- oder PNG etc.,
       die wesentliche Inhalte der parlamentarischen Informationen im
@@ -3241,14 +3117,14 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         <literal>HEAD</literal> unterstützt werden. Gemäß
         HTTP-Spezifikation gibt der Server in diesem Fall nur die
         Antwort-Header, nicht aber den eigentlichen Inhalt der
-        angefrgten Ressource, aus.
+        angefragten Ressource, aus.
       </para>
       <para>
         Die URLs zum Abruf der einzelnen Datei (wahlweise mittels GET
         oder HEAD) stellt der Server dem Client in den Daten des
         Metadaten-Objekts zur Verfügung. Details finden sich in der
         Schema-Beschreibung zu
-        <literal>[oparl:Document](#oparl_document)</literal>.
+        <link linkend="oparl_document"><literal>oparl:Document</literal></link>.
       </para>
     </sect3>
     <sect3 id="allgemeiner-zugriff-und-expliziter-download">
@@ -3423,6 +3299,130 @@ Content-Disposition: attachment; filename=&quot;2014-08-22 Rat Wortprotokoll.pdf
         inzwischen jedoch nicht mehr ist, SOLL die HTTP-Antwort des
         Servers den spezifischen Status-Code <literal>410</literal>
         tragen.
+      </para>
+    </sect3>
+  </sect2>
+  <sect2 id="content_negotiation">
+    <title>Content Negotiation</title>
+    <para>
+      Das Prinzip &quot;Content Negotiation&quot; wird in
+      RFC2295<footnote>
+        <para>
+          RFC2295:
+          <ulink url="http://tools.ietf.org/html/rfc2295">http://tools.ietf.org/html/rfc2295</ulink>
+        </para>
+      </footnote> beschrieben und bedeutet, dass WWW-Server eine
+      Ressource in verschiedenen Formaten bereithalten können und
+      Clients die Möglichkeit haben, eine Vorliebe für ein bestimmtes
+      Format zu übermitteln. Auch die HTTP-1.1-Spezifikation<footnote>
+        <para>
+          RFC2616:
+          <ulink url="http://tools.ietf.org/html/rfc2616">http://tools.ietf.org/html/rfc2616</ulink>
+        </para>
+      </footnote> schließt Content Negotiation ein.
+    </para>
+    <para>
+      Die Idee hinter Content Negotiation ist, dass ein Client die von
+      ihm akzeptierten Repräsentationen im
+      <literal>Accept</literal>-Header der HTTP-Anfrage mitsendet, damit
+      der Server gemäß Spezifikation die am besten passende und von ihm
+      unterstützte Repräsentation an den Client ausliefert.
+    </para>
+    <para>
+      Grundanforderung der vorliegenden Spezifikation an OParl Clients
+      ist, dass sie bei jeder Anfrage an einen OParl-Server einen
+      Accept-Header mit dem Mime-Type
+      <literal>application/ld+json</literal> senden MÜSSEN, es sei denn,
+      es handelt sich um einen
+      <link linkend="dateizugriff">Dateizugriff</link>.
+    </para>
+    <para>
+      Im Kontext von OParl soll durch Unterstützung von Content
+      Negotiation ermöglicht werden, dass die URLs von OParl-Objekten
+      auch von WWW-Clients aufgerufen werden können, die nicht
+      unmittelbar in Kenntnis der OParl-Spezifikation entwickelt wurden.
+    </para>
+    <para>
+      Ein Beispiel für einen solchen Client wäre ein üblicher Browser.
+      Ruft dieser die URL einer Drucksache (OParl-Objekttyp
+      <literal>oparl:Paper</literal>) auf, sendet er entweder keinen
+      <literal>Accept</literal>-Header oder aber einen solchen, der eine
+      Bevorzugung von Inhaltstypen wie HTML angibt.
+    </para>
+    <para>
+      Der Server DARF nun, da kein Accept-Header mit dem Typ
+      <literal>application/ld+json</literal> gesendet wurde, dem Client
+      eine alternative Version der Information über die Drucksache
+      ausliefern, beispielsweise eine HTML-Ansicht.
+    </para>
+    <para>
+      Ein Server DARF eine alternative Inhaltsform auch in Form einer
+      HTTP-Weiterleitung anbieten.
+    </para>
+    <sect3 id="httprange-14">
+      <title>httpRange-14</title>
+      <para>
+        In dem Zusammenhang sei informell auf ein für Linked Data
+        relevantes Detail hingewiesen - auf welches man gelegentlich
+        unter dem Kürzel <literal>httpRange-14</literal> stößt. Wenn man
+        in einem üblichen Web-Browser diese URL aufruft:
+      </para>
+      <para>
+        <ulink url="http://dbpedia.org/resource/John_Doe_(musician)">http://dbpedia.org/resource/John_Doe_(musician)</ulink>
+      </para>
+      <para>
+        dann erfolgt eine Weiterleitung auf diese URL:
+      </para>
+      <para>
+        <ulink url="http://dbpedia.org/page/John_Doe_(musician)">http://dbpedia.org/page/John_Doe_(musician)</ulink>
+      </para>
+      <para>
+        Dabei identifiziert die erste URL den abstrakten Begriff des
+        Musikers, während die zweite eine Repräsentation dieses Begriffs
+        identifiziert. Ein anderer HTTP-Client, der statt HTML-Seiten
+        z.B. JSON-LD bevorzugt, würde bei Zugriff auf die erste URL
+        wiederum zu einer anderen URL weiter geleitet:
+      </para>
+      <para>
+        <ulink url="http://dbpedia.org/data/John_Doe_(musician).jsonld">http://dbpedia.org/data/John_Doe_(musician).jsonld</ulink>
+      </para>
+      <para>
+        Dabei handelt es sich um eine Repräsentation des Musikers in
+        Form von JSON-LD.
+      </para>
+      <para>
+        Diese drei Links sind nicht nur verschieden, sondern haben
+        unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL
+        (HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients
+        generell nicht verwendet werden, um auf einfache Weise zu den
+        anderen beiden URLs zu gelangen. Deshalb soll bei Linked Data
+        der erste Link, also der des abstrakten Begriffs angegeben
+        werden. Der Zugriff auf diesen Link wird
+        &quot;Dereferenzierung&quot; genannt. Von dem ersten Link
+        gelangt man zu den beiden anderen mittels Content Negotiation.
+      </para>
+      <para>
+        So kann der Server beim Zugriff eines Client auf
+      </para>
+      <programlisting>
+https://dbpedia.org/resource/John_Doe_(musician)
+</programlisting>
+      <para>
+        z.B. entweder diese URL sowie HTML-Inhalt liefern
+      </para>
+      <programlisting>
+https://dbpedia.org/page/John_Doe_(musician)
+</programlisting>
+      <para>
+        oder aber diese URL mit JSON-LD als Inhalt
+      </para>
+      <programlisting>
+https://dbpedia.org/data/John_Doe_(musician).jsonld
+</programlisting>
+      <para>
+        Die Entscheidung darüber, welche der URLs und welche der
+        Inhaltsformate der Server liefert, wird zwischen Client und
+        Server mittels Content Negotiation ausgehandelt.
       </para>
     </sect3>
   </sect2>
@@ -5610,6 +5610,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     &quot;@type&quot;: &quot;oparl:Document&quot;,
     &quot;@id&quot;: &quot;https://oparl.beispielris.de/document/57739&quot;,
     &quot;name&quot;: &quot;Anlage 1 zur Anfrage&quot;,
+    &quot;fileName&quot;: &quot;57739.pdf&quot;,
     &quot;paper&quot;: &quot;https://oparl.beispielris.de/paper/2396&quot;,
     &quot;mimeType&quot;: &quot;application/pdf&quot;,
     &quot;date&quot;: &quot;2013-01-04T07:54:13+01:00&quot;,
@@ -5649,12 +5650,26 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
       <variablelist>
         <varlistentry>
           <term>
+            <literal>fileName</literal>
+          </term>
+          <listitem>
+            <para>
+              Dateiname, unter dem die Datei in einem Dateisystem
+              gespeichert werden kann. Typ: ASCII-Zeichenkette.
+              ZWINGEND.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
             <literal>name</literal>
           </term>
           <listitem>
             <para>
-              Name des Objekts, der Nutzern angezeigt werden kann. Typ:
-              Zeichenkette. ZWINGEND
+              Ein zur Anzeige für Endnutzer bestimmter Name für dieses
+              Objekt. Der Wert SOLL NICHT mit dem Wert der Eigenschaft
+              <literal>fileName</literal> identisch sein. Typ:
+              Zeichenkette. EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -5664,14 +5679,15 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Mime-Typ des Inhalts (vgl. RFC2046<footnote>
+              Mime-Typ des Inhalts<footnote>
                 <para>
+                  vgl. RFC2046:
                   <ulink url="http://tools.ietf.org/html/rfc2046">http://tools.ietf.org/html/rfc2046</ulink>
                 </para>
-              </footnote>). Sollte das System einer Datei keinen
+              </footnote>. Sollte das System einer Datei keinen
               spezifischen Typ zuweisen können, wird EMPFOHLEN, hier
-              &quot;application/octet-stream&quot; zu verwenden. Typ:
-              TODO ZWINGEND
+              <literal>application/octet-stream</literal> zu verwenden.
+              Typ: Zeichenkette ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -5681,8 +5697,10 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Erstellungs- oder Veröffentlichungsdatum und -uhrzeit.
-              Typ: Datum. ZWINGEND
+              Datum und Zeit der Erstellung der Datei. Wahlweise, falls
+              dies nicht vom System kommuniziert werden kann oder soll,
+              KANN alternativ der Zeitpunkt der Veröffentlichung
+              ausgegeben werden. Typ: Datum. ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -5692,8 +5710,16 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Datum und Uhrzeit der letzten Änderung der Datei bzw. der
-              Metadaten. Typ: Datum. ZWINGEND
+              Datum und Zeit der letzten Änderung der Datei bzw. der
+              Metadaten. Als Änderung der Datei gilt alles, was den
+              Inhalt der Datei verändert und beispielsweise zu einer
+              Veränderung der Prüfsumme führen würde, nicht aber die
+              Änderung des Dateinamens (siehe Eigenschaft
+              <literal>name</literal>). Als Änderung der Metadaten
+              hingegen würde beispielsweise die Änderung des Dateinamens
+              gelten. Hier soll immer das größere der beiden Daten
+              ausgegeben werden, also der am wenigsten lang
+              zurückliegende Änderungszeitpunkt. Typ: Datum. ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -5703,7 +5729,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Größe der Datei in Bytes. Typ: ganze Zahl. ZWINGEND
+              Größe der Datei in Bytes. Typ: ganze Zahl. ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -5714,7 +5740,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               SHA1-Prüfsumme des Dokumenteninhalts in
-              Hexadezimal-Schreibweise. Typ: Zeichenkette. OPTIONAL
+              Hexadezimal-Schreibweise. Typ: Zeichenkette. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5726,7 +5752,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             <para>
               Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in
               Textform wiedergegeben werden kann. Typ: Zeichenkette.
-              EMPFOHLEN
+              EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -5736,8 +5762,9 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL zum gewöhnlichen Abruf der Datei mittels HTTP
-              GET-Aufruf. Typ: URL. ZWINGEND
+              URL zum allgemeinen Zugriff auf die Datei. Näheres unter
+              <link linkend="dateizugriff">Dateizugriff</link>. Typ:
+              URL. ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -5747,10 +5774,9 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL zum Download der Datei. Besser ist es, bereits unter
-              <literal>accessUrl</literal> einen &quot;schönen&quot;
-              Dateinamen anzugeben. TODO: Zweck erklären. Typ: URL.
-              EMPFOHLEN
+              URL zum Download der Datei. Näheres unter
+              <link linkend="dateizugriff">Dateizugriff</link>. Typ:
+              URL. EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -5760,11 +5786,10 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Drucksache, sofern diese Datei zu einer Drucksache gehört.
-              Wenn diese Datei zu einer Drucksache gehört, MUSS diese
-              Eigenschaft vorhanden sein, andernfalls DARF sie NICHT
-              vorhanden sein. TODO: ist das eine Tautologie? Typ:
-              <literal>oparl:Paper</literal>
+              Falls die Datei zu einer Drucksache (oparl:Paper) gehört,
+              MUSS über diese Eigenschaft die URL des Drucksache-Objekts
+              ausgegeben werden. Andernsfalls DARF diese Eigenschaft
+              NICHT vorhanden sein. Typ: <literal>oparl:Paper</literal>.
             </para>
           </listitem>
         </varlistentry>
@@ -5774,10 +5799,10 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Sitzung, sofern diese Datei zu einer Sitzung gehört. Wenn
-              diese Datei zu einer Sitzung gehört, MUSS diese
-              Eigenschaft vorhanden sein, andernfalls DARF sie NICHT
-              vorhanden sein. TODO: ist das eine Tautologie? Typ:
+              Falls die Datei zu einer Sitzung (oparl:Meeting) gehört,
+              MUSS über diese Eigenschaft die URL des Sitzung-Objekts
+              ausgegeben werden. Andernfalls DARF diese Eigenschaft
+              NICHT vorhanden sein. Typ:
               <literal>oparl:Meeting</literal>.
             </para>
           </listitem>
@@ -5789,7 +5814,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Datei von der das aktuelle Objekt abgeleitet wurde. Typ:
-              <literal>oparl:Document</literal>. OPTIONAL
+              <literal>oparl:Document</literal>. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5800,7 +5825,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Abgeleitete Datei die von dem aktuellen Objekt abgeleitet
-              wurde. Typ: <literal>oparl:Document</literal>. OPTIONAL
+              wurde. Typ: <literal>oparl:Document</literal>. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5814,8 +5839,13 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               Eigenschaft verwendet wird, dann ist sie anstelle einer
               globalen Angabe im übergeordneten
               <literal>oparl:Body</literal> bzw.
-              <literal>oparl:System</literal> Objekt maßgeblich. Typ:
-              URL. OPTIONAL
+              <literal>oparl:System</literal> Objekt
+              maßgeblich.<footnote>
+                <para>
+                  vgl.
+                  <link linkend="eigenschaft_license">license</link>
+                </para>
+              </footnote> Typ: URL. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5831,11 +5861,10 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               &quot;Wortprotokoll&quot; oder
               &quot;Beschlussprotokoll&quot;. In einer zukünftigen
               OParl-Version wird möglicherweise eine Menge der
-              wichtigsten Kategorien vorgegeben. TODO: Besser in
-              <literal>oparl:Paper</literal> oder
-              <literal>oparl:Meeting</literal> ? Siehe Diskussion unter
-              https://github.com/OParl/specs/issues/65 Typ:
-              <literal>skos:Concept</literal> OPTIONAL
+              wichtigsten Kategorien vorgegeben. Typ:
+              <literal>skos:Concept</literal>. OPTIONAL. TODO: Link auf
+              Erkärungs-Kapitel, damit klar ist, dass hier auf externes
+              Vokabular verlinkt wird.
             </para>
           </listitem>
         </varlistentry>
@@ -5848,21 +5877,13 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               Begriff mit <literal>skos:prefLabel</literal>. Hat
               allgemeinere Bedeutung als
               <literal>documentRole</literal>. Typ:
-              <literal>skos:Concept</literal> OPTIONAL
+              <literal>skos:Concept</literal>. OPTIONAL. TODO: TODO:
+              Link auf Erkärungs-Kapitel, damit klar ist, dass hier auf
+              externes Vokabular verlinkt wird.
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
-    </sect3>
-    <sect3 id="siehe-auch">
-      <title>Siehe auch</title>
-      <itemizedlist>
-        <listitem>
-          <para>
-            <link linkend="dateizugriff">Dateizugriff</link>
-          </para>
-        </listitem>
-      </itemizedlist>
     </sect3>
   </sect2>
   <sect2 id="oparl_consultation">

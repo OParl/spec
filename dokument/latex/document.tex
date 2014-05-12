@@ -1192,109 +1192,6 @@ trivial, wenn die restlichen URL-Bestandteile identisch bleiben. In
 diesem Fall können Server mit einer einfachen Regel von jeglicher
 vorherigen auf jegliche neue URL weiter leiten.
 
-\hyperdef{}{contentux5fnegotiation}{\subsection{Content
-Negotiation}\label{contentux5fnegotiation}}
-
-Server im World Wide Web können bestimmte Ressourcen entsprechend
-RFC2295\footnote{RFC2295: \url{http://tools.ietf.org/html/rfc2295}} in
-verschiedenen Formaten vorhalten. Clients haben die Möglichkeit, mittels
-HTTP-Header schon in der Anfrage eine Vorliebe für ein bestimmtes Format
-zu übermitteln.
-
-Der Vorgang der Content Negotiation ist u.a. in
-http://de.wikipedia.org/wiki/Content\_Negotiation erklärt. Content
-Negotiation ist Bestandteil der HTTP 1.1 Spezifikation. Siehe RFC 2616
-(http://tools.ietf.org/html/rfc2616).
-
-Die Idee hinter Content Negotiation ist, dass ein Client die von ihm
-akzeptierten Repräsentationen im \texttt{Accept}-Header des Requests
-mitgibt, damit der Server gemäß Spezifikation die am besten passende und
-von ihm unterstützte Repräsentation an den Client ausliefert.
-
-Eine Schwierigkeit ergibt sich, dass auch \texttt{*/*} ein valider
-\texttt{Accept}-Header und bedeutet soviel wie ``ich nehme alles''. Eine
-Webanwendung würde dann üblicherweise HTML ausgeben, da es die Standard
-Repräsentation einer Webanwendung ist. Im Falle einer API, die
-standardmäßig mit JSON-LD arbeitet, würde eventuell
-\texttt{application/ld+json} als Antwort erwartet. Der Server weiss in
-diesem Fall aufgrund der fehlenden Information durch den Client nicht,
-was dieser tatsächlich wünscht. Die OParl-Spezifikation kann in diesem
-Fall für den Server auch nicht zwingend \texttt{application/ld+json}
-vorgeben, da es durchaus sinnvoll sein kann, wenn unter einer URL
-\emph{sowohl} OParl-Daten z.B. über ein Gremium abrufbar sind als auch
-eine HTML-Seite mit Informationen über dieses Gremium.
-
-OParl-Clients MÜSSEN den Accept-Header verwenden und darin mindestens
-\texttt{application/ld+json} als akzeptiertes Format angeben.
-
-Ein Server KANN Content Negotiation über einen Redirect auf eine andere
-URL umsetzen, oder einfach die entsprechende Repräsentation ohne
-Redirect ausgeben. Beides ist für OParl zulässig. Der OParl-Server MUSS
-NICHT Content-Negotiation per Redirect unterstützen, aber OParl-Clients
-MÜSSEN dies.
-
-\subsubsection{httpRange-14}\label{httprange-14}
-
-In dem Zusammenhang sei informell auf ein für Linked Data relevantes
-Detail hingewiesen - auf welches man gelegentlich unter dem Kürzel
-`httpRange-14 stößt. Wenn man in einem üblichen Web-Browser diesen
-bereits an anderer Stelle erwähnten Link eingibt und aufruft:
-
-\begin{verbatim}
-https://dbpedia.org/resource/John_Doe_(musician)
-\end{verbatim}
-
-dann sieht man anschliessend bei der Anzeige der HTML-Seite diesen Link
-im Adressfeld:
-
-\begin{verbatim}
-https://dbpedia.org/page/John_Doe_(musician)
-\end{verbatim}
-
-Dabei identifiziert der erste Link den abstrakten Begriff des Musikers,
-während der zweite Link eine Repräsentation dieses Begriffs
-identifiziert. Ein anderer http-Client, der statt HTML-Seiten z.B.
-JSON-LD bevorzugt, würde bei Zugriff auf den ersten Link statt der
-HTML-Seite den Inhalt dieser URL erhalten:
-
-\begin{verbatim}
-https://dbpedia.org/data/John_Doe_(musician).jsonld
-\end{verbatim}
-
-Dabei handelt es sich um eine Repräsentation des Musikers in Form von
-JSON-LD.
-
-Diese drei Links sind nicht nur verschieden, sondern haben
-unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL
-(HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients generell
-nicht verwendet werden, um auf einfache Weise zu den anderen beiden URLs
-zu gelangen. Deshalb soll bei Linked Data der erste Link, also der des
-abstrakten Begriffs angegeben werden. Der Zugriff auf diesen Link wird
-``Dereferenzierung'' genannt. Von dem ersten Link gelangt man zu den
-beiden anderen mittels ``Content Negotiation''.
-
-So kann der Server beim Zugriff eines Client auf
-
-\begin{verbatim}
-https://dbpedia.org/resource/John_Doe_(musician)
-\end{verbatim}
-
-z.B. entweder diese URL sowie HTML-Inhalt liefern
-
-\begin{verbatim}
-https://dbpedia.org/page/John_Doe_(musician)
-\end{verbatim}
-
-oder aber diese URL mit JSON-LD als Inhalt
-
-\begin{verbatim}
-https://dbpedia.org/data/John_Doe_(musician).jsonld
-\end{verbatim}
-
-Die Entscheidung darüber, welche der URLs und welche der Inhaltsformate
-der Server liefert, wird zwischen Client und Server mittels Content
-Negotiation ausgehandelt.
-
 \hyperdef{}{http-und-https}{\subsection{HTTP und
 HTTPS}\label{http-und-https}}
 
@@ -2482,7 +2379,7 @@ Sortierkriterium der Liste verwendet werden.
 Mit dem Begriff ``Datei'' sind im Sinne dieser Spezifikation alle
 Ressourcen gemeint, die von einem OParl-Server zur Verfügung gestellt
 werden und deren Metadaten über die JSON-API als
-\texttt{{[}oparl:Document{]}(\#oparl\_document)} abgerufen werden
+\hyperref[oparlux5fdocument]{\texttt{oparl:Document}} abgerufen werden
 können. Es handelt sich dabei beispielsweise um Textdokumente im
 PDF-Format, Abbildungen im JPEG- oder PNG etc., die wesentliche Inhalte
 der parlamentarischen Informationen im OParl-System ausmachen.
@@ -2503,13 +2400,13 @@ Verwendung der HTTP-Methode \texttt{GET} abrufbar sein MUSS. Um Clients
 zusätzlich die Überprüfung einer Datei zu ermöglichen, MUSS vom Server
 außerdem die HTTP-Methode \texttt{HEAD} unterstützt werden. Gemäß
 HTTP-Spezifikation gibt der Server in diesem Fall nur die
-Antwort-Header, nicht aber den eigentlichen Inhalt der angefrgten
+Antwort-Header, nicht aber den eigentlichen Inhalt der angefragten
 Ressource, aus.
 
 Die URLs zum Abruf der einzelnen Datei (wahlweise mittels GET oder HEAD)
 stellt der Server dem Client in den Daten des Metadaten-Objekts zur
 Verfügung. Details finden sich in der Schema-Beschreibung zu
-\texttt{{[}oparl:Document{]}(\#oparl\_document)}.
+\hyperref[oparlux5fdocument]{\texttt{oparl:Document}}.
 
 \subsubsection{Allgemeiner Zugriff und expliziter
 Download}\label{allgemeiner-zugriff-und-expliziter-download}
@@ -2632,6 +2529,101 @@ der HTTP-Status-Codes \texttt{301} und \texttt{307} zu beachten.
 Beim Zugriff auf eine Datei, die zuvor einmal abrufbar war, es
 inzwischen jedoch nicht mehr ist, SOLL die HTTP-Antwort des Servers den
 spezifischen Status-Code \texttt{410} tragen.
+
+\hyperdef{}{contentux5fnegotiation}{\subsection{Content
+Negotiation}\label{contentux5fnegotiation}}
+
+Das Prinzip ``Content Negotiation'' wird in RFC2295\footnote{RFC2295:
+  \url{http://tools.ietf.org/html/rfc2295}} beschrieben und bedeutet,
+dass WWW-Server eine Ressource in verschiedenen Formaten bereithalten
+können und Clients die Möglichkeit haben, eine Vorliebe für ein
+bestimmtes Format zu übermitteln. Auch die
+HTTP-1.1-Spezifikation\footnote{RFC2616:
+  \url{http://tools.ietf.org/html/rfc2616}} schließt Content Negotiation
+ein.
+
+Die Idee hinter Content Negotiation ist, dass ein Client die von ihm
+akzeptierten Repräsentationen im \texttt{Accept}-Header der HTTP-Anfrage
+mitsendet, damit der Server gemäß Spezifikation die am besten passende
+und von ihm unterstützte Repräsentation an den Client ausliefert.
+
+Grundanforderung der vorliegenden Spezifikation an OParl Clients ist,
+dass sie bei jeder Anfrage an einen OParl-Server einen Accept-Header mit
+dem Mime-Type \texttt{application/ld+json} senden MÜSSEN, es sei denn,
+es handelt sich um einen \hyperref[dateizugriff]{Dateizugriff}.
+
+Im Kontext von OParl soll durch Unterstützung von Content Negotiation
+ermöglicht werden, dass die URLs von OParl-Objekten auch von WWW-Clients
+aufgerufen werden können, die nicht unmittelbar in Kenntnis der
+OParl-Spezifikation entwickelt wurden.
+
+Ein Beispiel für einen solchen Client wäre ein üblicher Browser. Ruft
+dieser die URL einer Drucksache (OParl-Objekttyp \texttt{oparl:Paper})
+auf, sendet er entweder keinen \texttt{Accept}-Header oder aber einen
+solchen, der eine Bevorzugung von Inhaltstypen wie HTML angibt.
+
+Der Server DARF nun, da kein Accept-Header mit dem Typ
+\texttt{application/ld+json} gesendet wurde, dem Client eine alternative
+Version der Information über die Drucksache ausliefern, beispielsweise
+eine HTML-Ansicht.
+
+Ein Server DARF eine alternative Inhaltsform auch in Form einer
+HTTP-Weiterleitung anbieten.
+
+\subsubsection{httpRange-14}\label{httprange-14}
+
+In dem Zusammenhang sei informell auf ein für Linked Data relevantes
+Detail hingewiesen - auf welches man gelegentlich unter dem Kürzel
+\texttt{httpRange-14} stößt. Wenn man in einem üblichen Web-Browser
+diese URL aufruft:
+
+\url{http://dbpedia.org/resource/John_Doe_(musician)}
+
+dann erfolgt eine Weiterleitung auf diese URL:
+
+\url{http://dbpedia.org/page/John_Doe_(musician)}
+
+Dabei identifiziert die erste URL den abstrakten Begriff des Musikers,
+während die zweite eine Repräsentation dieses Begriffs identifiziert.
+Ein anderer HTTP-Client, der statt HTML-Seiten z.B. JSON-LD bevorzugt,
+würde bei Zugriff auf die erste URL wiederum zu einer anderen URL weiter
+geleitet:
+
+\url{http://dbpedia.org/data/John_Doe_(musician).jsonld}
+
+Dabei handelt es sich um eine Repräsentation des Musikers in Form von
+JSON-LD.
+
+Diese drei Links sind nicht nur verschieden, sondern haben
+unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL
+(HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients generell
+nicht verwendet werden, um auf einfache Weise zu den anderen beiden URLs
+zu gelangen. Deshalb soll bei Linked Data der erste Link, also der des
+abstrakten Begriffs angegeben werden. Der Zugriff auf diesen Link wird
+``Dereferenzierung'' genannt. Von dem ersten Link gelangt man zu den
+beiden anderen mittels Content Negotiation.
+
+So kann der Server beim Zugriff eines Client auf
+
+\begin{verbatim}
+https://dbpedia.org/resource/John_Doe_(musician)
+\end{verbatim}
+
+z.B. entweder diese URL sowie HTML-Inhalt liefern
+
+\begin{verbatim}
+https://dbpedia.org/page/John_Doe_(musician)
+\end{verbatim}
+
+oder aber diese URL mit JSON-LD als Inhalt
+
+\begin{verbatim}
+https://dbpedia.org/data/John_Doe_(musician).jsonld
+\end{verbatim}
+
+Die Entscheidung darüber, welche der URLs und welche der Inhaltsformate
+der Server liefert, wird zwischen Client und Server mittels Content
+Negotiation ausgehandelt.
 
 \subsection{Ausnahmebehandlung}\label{ausnahmebehandlung}
 
@@ -3892,7 +3884,8 @@ Typ: \texttt{skos:Concept} OPTIONAL
 TODO: * Festlegen: OPTIONAL / EMPFOHLEN / ZWINGEND * Eigenschaft
 ``locations'' im Beispiel ändern
 
-\subsection{oparl:Document (Datei)}\label{oparlux5fdocument}
+\hyperdef{}{oparlux5fdocument}{\subsection{oparl:Document
+(Datei)}\label{oparlux5fdocument}}
 
 Ein Objekt vom Typ \texttt{oparl:Document} repräsentiert eine Datei,
 beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokument, und hält
@@ -3907,6 +3900,7 @@ Ein Beispiel:
     \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:Document"}\NormalTok{,}
     \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/document/57739"}\NormalTok{,}
     \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Anlage 1 zur Anfrage"}\NormalTok{,}
+    \DataTypeTok{"fileName"}\NormalTok{: }\StringTok{"57739.pdf"}\NormalTok{,}
     \DataTypeTok{"paper"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/paper/2396"}\NormalTok{,}
     \DataTypeTok{"mimeType"}\NormalTok{: }\StringTok{"application/pdf"}\NormalTok{,}
     \DataTypeTok{"date"}\NormalTok{: }\StringTok{"2013-01-04T07:54:13+01:00"}\NormalTok{,}
@@ -3942,77 +3936,82 @@ Datei existieren.
 \subsubsection{Eigenschaften}\label{eigenschaften-7}
 
 \begin{description}
+\item[\texttt{fileName}]
+Dateiname, unter dem die Datei in einem Dateisystem gespeichert werden
+kann. Typ: ASCII-Zeichenkette. ZWINGEND.
 \item[\texttt{name}]
-Name des Objekts, der Nutzern angezeigt werden kann. Typ: Zeichenkette.
-ZWINGEND
+Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt. Der
+Wert SOLL NICHT mit dem Wert der Eigenschaft \texttt{fileName} identisch
+sein. Typ: Zeichenkette. EMPFOHLEN.
 \item[\texttt{mimeType}]
-Mime-Typ des Inhalts (vgl. RFC2046\footnote{\url{http://tools.ietf.org/html/rfc2046}}).
-Sollte das System einer Datei keinen spezifischen Typ zuweisen können,
-wird EMPFOHLEN, hier ``application/octet-stream'' zu verwenden. Typ:
-TODO ZWINGEND
+Mime-Typ des Inhalts\footnote{vgl. RFC2046:
+  \url{http://tools.ietf.org/html/rfc2046}}. Sollte das System einer
+Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier
+\texttt{application/octet-stream} zu verwenden. Typ: Zeichenkette
+ZWINGEND.
 \item[\texttt{date}]
-Erstellungs- oder Veröffentlichungsdatum und -uhrzeit. Typ: Datum.
-ZWINGEND
+Datum und Zeit der Erstellung der Datei. Wahlweise, falls dies nicht vom
+System kommuniziert werden kann oder soll, KANN alternativ der Zeitpunkt
+der Veröffentlichung ausgegeben werden. Typ: Datum. ZWINGEND.
 \item[\texttt{lastModified}]
-Datum und Uhrzeit der letzten Änderung der Datei bzw. der Metadaten.
-Typ: Datum. ZWINGEND
+Datum und Zeit der letzten Änderung der Datei bzw. der Metadaten. Als
+Änderung der Datei gilt alles, was den Inhalt der Datei verändert und
+beispielsweise zu einer Veränderung der Prüfsumme führen würde, nicht
+aber die Änderung des Dateinamens (siehe Eigenschaft \texttt{name}). Als
+Änderung der Metadaten hingegen würde beispielsweise die Änderung des
+Dateinamens gelten. Hier soll immer das größere der beiden Daten
+ausgegeben werden, also der am wenigsten lang zurückliegende
+Änderungszeitpunkt. Typ: Datum. ZWINGEND.
 \item[\texttt{size}]
-Größe der Datei in Bytes. Typ: ganze Zahl. ZWINGEND
+Größe der Datei in Bytes. Typ: ganze Zahl. ZWINGEND.
 \item[\texttt{sha1Checksum}]
 SHA1-Prüfsumme des Dokumenteninhalts in Hexadezimal-Schreibweise. Typ:
-Zeichenkette. OPTIONAL
+Zeichenkette. OPTIONAL.
 \item[\texttt{text}]
 Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform
-wiedergegeben werden kann. Typ: Zeichenkette. EMPFOHLEN
+wiedergegeben werden kann. Typ: Zeichenkette. EMPFOHLEN.
 \item[\texttt{accessUrl}]
-URL zum gewöhnlichen Abruf der Datei mittels HTTP GET-Aufruf. Typ: URL.
-ZWINGEND
+URL zum allgemeinen Zugriff auf die Datei. Näheres unter
+\hyperref[dateizugriff]{Dateizugriff}. Typ: URL. ZWINGEND.
 \item[\texttt{downloadUrl}]
-URL zum Download der Datei. Besser ist es, bereits unter
-\texttt{accessUrl} einen ``schönen'' Dateinamen anzugeben. TODO: Zweck
-erklären. Typ: URL. EMPFOHLEN
+URL zum Download der Datei. Näheres unter
+\hyperref[dateizugriff]{Dateizugriff}. Typ: URL. EMPFOHLEN.
 \item[\texttt{paper}]
-Drucksache, sofern diese Datei zu einer Drucksache gehört. Wenn diese
-Datei zu einer Drucksache gehört, MUSS diese Eigenschaft vorhanden sein,
-andernfalls DARF sie NICHT vorhanden sein. TODO: ist das eine
-Tautologie? Typ: \texttt{oparl:Paper}
+Falls die Datei zu einer Drucksache (oparl:Paper) gehört, MUSS über
+diese Eigenschaft die URL des Drucksache-Objekts ausgegeben werden.
+Andernsfalls DARF diese Eigenschaft NICHT vorhanden sein. Typ:
+\texttt{oparl:Paper}.
 \item[\texttt{meeting}]
-Sitzung, sofern diese Datei zu einer Sitzung gehört. Wenn diese Datei zu
-einer Sitzung gehört, MUSS diese Eigenschaft vorhanden sein, andernfalls
-DARF sie NICHT vorhanden sein. TODO: ist das eine Tautologie? Typ:
+Falls die Datei zu einer Sitzung (oparl:Meeting) gehört, MUSS über diese
+Eigenschaft die URL des Sitzung-Objekts ausgegeben werden. Andernfalls
+DARF diese Eigenschaft NICHT vorhanden sein. Typ:
 \texttt{oparl:Meeting}.
 \item[\texttt{masterDocument}]
 Datei von der das aktuelle Objekt abgeleitet wurde. Typ:
-\texttt{oparl:Document}. OPTIONAL
+\texttt{oparl:Document}. OPTIONAL.
 \item[\texttt{derivativeDocuments}]
 Abgeleitete Datei die von dem aktuellen Objekt abgeleitet wurde. Typ:
-\texttt{oparl:Document}. OPTIONAL
+\texttt{oparl:Document}. OPTIONAL.
 \item[\texttt{license}]
 Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft
 verwendet wird, dann ist sie anstelle einer globalen Angabe im
 übergeordneten \texttt{oparl:Body} bzw. \texttt{oparl:System} Objekt
-maßgeblich. Typ: URL. OPTIONAL
+maßgeblich.\footnote{vgl. \hyperref[eigenschaftux5flicense]{license}}
+Typ: URL. OPTIONAL.
 \item[\texttt{documentRole}]
 Rolle, Funktion, Sorte des Dokuments. Das Objekt enthält ein
 \texttt{skos:prefLabel}. Dessen Werte können z.B. sein: ``Einladung'',
 ``Protokoll'', ``Wortprotokoll'' oder ``Beschlussprotokoll''. In einer
 zukünftigen OParl-Version wird möglicherweise eine Menge der wichtigsten
-Kategorien vorgegeben. TODO: Besser in \texttt{oparl:Paper} oder
-\texttt{oparl:Meeting} ? Siehe Diskussion unter
-https://github.com/OParl/specs/issues/65 Typ: \texttt{skos:Concept}
-OPTIONAL
+Kategorien vorgegeben. Typ: \texttt{skos:Concept}. OPTIONAL. TODO: Link
+auf Erkärungs-Kapitel, damit klar ist, dass hier auf externes Vokabular
+verlinkt wird.
 \item[\texttt{classification}]
 Begriff mit \texttt{skos:prefLabel}. Hat allgemeinere Bedeutung als
-\texttt{documentRole}. Typ: \texttt{skos:Concept} OPTIONAL
+\texttt{documentRole}. Typ: \texttt{skos:Concept}. OPTIONAL. TODO: TODO:
+Link auf Erkärungs-Kapitel, damit klar ist, dass hier auf externes
+Vokabular verlinkt wird.
 \end{description}
-
-\subsubsection{Siehe auch}\label{siehe-auch}
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  \hyperref[dateizugriff]{Dateizugriff}
-\end{itemize}
 
 \subsection{oparl:Consultation (Beratung)}\label{oparlux5fconsultation}
 

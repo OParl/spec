@@ -989,95 +989,6 @@ trivial, wenn die restlichen URL-Bestandteile identisch bleiben. In
 diesem Fall können Server mit einer einfachen Regel von jeglicher
 vorherigen auf jegliche neue URL weiter leiten.
 
-Content Negotiation {#content_negotiation}
--------------------
-
-Server im World Wide Web können bestimmte Ressourcen entsprechend
-RFC2295[^18] in verschiedenen Formaten vorhalten. Clients haben die
-Möglichkeit, mittels HTTP-Header schon in der Anfrage eine Vorliebe für
-ein bestimmtes Format zu übermitteln.
-
-Der Vorgang der Content Negotiation ist u.a. in
-http://de.wikipedia.org/wiki/Content_Negotiation erklärt. Content
-Negotiation ist Bestandteil der HTTP 1.1 Spezifikation. Siehe RFC 2616
-(http://tools.ietf.org/html/rfc2616).
-
-Die Idee hinter Content Negotiation ist, dass ein Client die von ihm
-akzeptierten Repräsentationen im Accept-Header des Requests mitgibt,
-damit der Server gemäß Spezifikation die am besten passende und von ihm
-unterstützte Repräsentation an den Client ausliefert.
-
-Eine Schwierigkeit ergibt sich, dass auch */* ein valider Accept-Header
-und bedeutet soviel wie "ich nehme alles". Eine Webanwendung würde dann
-üblicherweise HTML ausgeben, da es die Standard Repräsentation einer
-Webanwendung ist. Im Falle einer API, die standardmäßig mit JSON-LD
-arbeitet, würde eventuell application/ld+json als Antwort erwartet. Der
-Server weiss in diesem Fall aufgrund der fehlenden Information durch den
-Client nicht, was dieser tatsächlich wünscht. Die OParl-Spezifikation
-kann in diesem Fall für den Server auch nicht zwingend
-application/ld+json vorgeben, da es durchaus sinnvoll sein kann, wenn
-unter einer URL sowohl OParl-Daten z.B. über ein Gremium abrufbar sind
-als auch eine HTML-Seite mit Informationen über dieses Gremium.
-
-OParl-Clients MÜSSEN den Accept-Header verwenden und darin mindestens
-application/ld+json als akzeptiertes Format angeben.
-
-Ein Server KANN Content Negotiation über einen Redirect auf eine andere
-URL umsetzen, oder einfach die entsprechende Repräsentation ohne
-Redirect ausgeben. Beides ist für OParl zulässig. Der OParl-Server MUSS
-NICHT Content-Negotiation per Redirect unterstützen, aber OParl-Clients
-MÜSSEN dies.
-
-httpRange-14
-
-In dem Zusammenhang sei informell auf ein für Linked Data relevantes
-Detail hingewiesen - auf welches man gelegentlich unter dem Kürzel
-`httpRange-14 stößt. Wenn man in einem üblichen Web-Browser diesen
-bereits an anderer Stelle erwähnten Link eingibt und aufruft:
-
-    https://dbpedia.org/resource/John_Doe_(musician)
-
-dann sieht man anschliessend bei der Anzeige der HTML-Seite diesen Link
-im Adressfeld:
-
-    https://dbpedia.org/page/John_Doe_(musician)
-
-Dabei identifiziert der erste Link den abstrakten Begriff des Musikers,
-während der zweite Link eine Repräsentation dieses Begriffs
-identifiziert. Ein anderer http-Client, der statt HTML-Seiten z.B.
-JSON-LD bevorzugt, würde bei Zugriff auf den ersten Link statt der
-HTML-Seite den Inhalt dieser URL erhalten:
-
-    https://dbpedia.org/data/John_Doe_(musician).jsonld
-
-Dabei handelt es sich um eine Repräsentation des Musikers in Form von
-JSON-LD.
-
-Diese drei Links sind nicht nur verschieden, sondern haben
-unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL
-(HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients generell
-nicht verwendet werden, um auf einfache Weise zu den anderen beiden URLs
-zu gelangen. Deshalb soll bei Linked Data der erste Link, also der des
-abstrakten Begriffs angegeben werden. Der Zugriff auf diesen Link wird
-"Dereferenzierung" genannt. Von dem ersten Link gelangt man zu den
-beiden anderen mittels "Content Negotiation".
-
-So kann der Server beim Zugriff eines Client auf
-
-    https://dbpedia.org/resource/John_Doe_(musician)
-
-z.B. entweder diese URL sowie HTML-Inhalt liefern
-
-    https://dbpedia.org/page/John_Doe_(musician)
-
-oder aber diese URL mit JSON-LD als Inhalt
-
-    https://dbpedia.org/data/John_Doe_(musician).jsonld
-
-Die Entscheidung darüber, welche der URLs und welche der Inhaltsformate
-der Server liefert, wird zwischen Client und Server mittels Content
-Negotiation ausgehandelt.
-
 HTTP und HTTPS
 --------------
 
@@ -1122,7 +1033,7 @@ von Anforderungen an die Verarbeitung von URLs gestellt.
 Im Rahmen dieses Dokuments wird aus Gründen der Verständlichkeit
 generell der allgemein gebräuchlichere Begriff "URL" werwendet, auch
 wenn damit tatsächlich die internationalisierte Variante nach RFC
-3987[^19], die korrekterweise IRI bzw. "Internationalized Resource
+3987[^18], die korrekterweise IRI bzw. "Internationalized Resource
 Identifier" genannt werden müsste, gemeint ist. In andern Kontexten
 wiederum wird von URIs bzw. "Uniform Resource Identifier" gesprochen.
 Das vorliegende Dokumente fasst alle drei Konzepte mit dem Begriff "URL"
@@ -1130,7 +1041,7 @@ zusammen und ignoriert damit die Unterschiede der einzelnen Begriffe, da
 diese im Rahmen dieser Spezifikation ohne bedeutung sind.
 
 Die grundsätzliche Funktionsweise von URLs ist in RFC 3986
-beschrieben[^20].
+beschrieben[^19].
 
 Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in
 diesem Dokument Verwendung finden:
@@ -1142,7 +1053,7 @@ diesem Dokument Verwendung finden:
 
 URL-Kanonisierung
 
-Absicht ist, dass jedes benannte Objekt[^21], das ein Server über eine
+Absicht ist, dass jedes benannte Objekt[^20], das ein Server über eine
 OParl-API anbietet, über genau eine URL identifizierbar und abrufbar
 ist. Diese Vereinheitlichung der URL nennen wir Kanonisierung.
 
@@ -1268,8 +1179,8 @@ Vollständigkeit erheben:
     dazu führen, dass im Pfad ein Bestandteil wie "oparl.php/"
     erscheint. Erfahrungsgemäß überdauern solche URLs nur kurz.
 
-Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee[^22]
-sowie die Europäische Kommission[^23].
+Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee[^21]
+sowie die Europäische Kommission[^22].
 
 Serialisierung mittels JSON-LD und JSONP
 ----------------------------------------
@@ -1282,7 +1193,7 @@ unterstützt.
 
 In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung
 des HTTP Content-type-Headers application/ld+json beantworten. Die
-Spezifikation von JSON-LD liefert dazu genauere Informationen[^24], auch
+Spezifikation von JSON-LD liefert dazu genauere Informationen[^23], auch
 zu dem optionalen Parameter profile für die explizite Anforderung von
 JSON-LD in einer dieser drei Unterformen: kompakt, expandiert oder
 flach.
@@ -1296,7 +1207,7 @@ TODO: MUSS der Server solche Legacy-Anfragen akzeptieren? Warum?
 JSON
 
 Die Abkürzung JSON steht für "JavaScript Object Notation". Das
-JSON-Format ist in RFC4627[^25] beschrieben. Nachfolgend werden nur die
+JSON-Format ist in RFC4627[^24] beschrieben. Nachfolgend werden nur die
 wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren
 Verwendung in diesem Dokument zu etablieren.
 
@@ -1332,8 +1243,8 @@ Beispiel eines Objekts in JSON-Notation:
 
 JSON-LD
 
-Das Kürzel LD im Namen "JSON-LD" steht für "Linked Data"[^26].
-Entsprechend erweitert die JSON-LD-Spezifikation[^27] das JSON-Format um
+Das Kürzel LD im Namen "JSON-LD" steht für "Linked Data"[^25].
+Entsprechend erweitert die JSON-LD-Spezifikation[^26] das JSON-Format um
 die Möglichkeit,
 
 -   Objekte mit anderen Objekten zu verknüpfen,
@@ -1392,7 +1303,7 @@ eines Bildes zu finden ist. Das Schlüssel-Wert-Paar
     "@type": "@id"
 
 sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die URL eines
-anderen Objekts ist[^28]. Mittels @type-Deklaration könnte aber auch
+anderen Objekts ist[^27]. Mittels @type-Deklaration könnte aber auch
 beispielsweise eine Eigenschaft, die im JSON-Sinn eine Zeichenkette ist,
 als Datum deklariert werden.
 
@@ -1522,7 +1433,7 @@ der Domain entsprechen, von der die Webanwendung selbst geladen wurde.
 AnwendungsentwicklerInnen sind dadurch bei der Implementierung von
 Client-Anwendungen eingeschränkt.
 
-Diese Einschränkung gilt nicht fürt JSONP[^29]. Durch JSONP (TODO:
+Diese Einschränkung gilt nicht fürt JSONP[^28]. Durch JSONP (TODO:
 Abkürzung erläutern) wird die JSON-Notation so erweitert, dass der
 ausgegebene Code ausführbarer JavaScript-Code wird. Damit wird erreicht,
 dass der JSON-Code über die Grenzen von Domains hinweg direkt von
@@ -1722,7 +1633,7 @@ Listenseite) weniger Listeneinträge vorhanden sind.
 Wird eine Liste in Form von Listenseiten, also mit Paginierung,
 ausgegeben, teilt der Server dem Client mittels HTTP-Headern in der
 nachfolgend beschriebenen Form mit, unter welcher URL weitere
-Listenseiten abgerufen werden können. Dabei wird von dem in RFC5988[^30]
+Listenseiten abgerufen werden können. Dabei wird von dem in RFC5988[^29]
 beschriebenen Header namens Link Gebrauch gemacht.
 
 Beispiel eines Link-Headers zur Angabe der URL für den Abruf der
@@ -1900,7 +1811,7 @@ vorangegangenen Beispiel beeinflusst:
 ```
 
 Statt einer JSON-Liste ist der Wert der Eigenschaft nun eine einzige
-URL.[^31]
+URL.[^30]
 
 Feeds
 -----
@@ -1912,8 +1823,8 @@ Anforderungen gelten. Es werden drei verschiedene Feeds spezifiziert:
 -   Der Feed Geänderte Objekte
 -   Der Feed Entfernte Objekte
 
-Der Begriff "Feed" ist eine Anlehnung an die weit verbreiteten RSS-[^32]
-oder Atom-Feeds[^33], deren Publikationslogik im Wesentlichen auf der
+Der Begriff "Feed" ist eine Anlehnung an die weit verbreiteten RSS-[^31]
+oder Atom-Feeds[^32], deren Publikationslogik im Wesentlichen auf der
 chronologischen Sortierung beruht. Im Unterschied zu Atom oder RSS ist
 hier jedoch keine XML-Ausgabe beabsichtigt.
 
@@ -2072,11 +1983,11 @@ Dateizugriff
 
 Mit dem Begriff "Datei" sind im Sinne dieser Spezifikation alle
 Ressourcen gemeint, die von einem OParl-Server zur Verfügung gestellt
-werden und deren Metadaten über die JSON-API als
-[oparl:Document](#oparl_document) abgerufen werden können. Es handelt
-sich dabei beispielsweise um Textdokumente im PDF-Format, Abbildungen im
-JPEG- oder PNG etc., die wesentliche Inhalte der parlamentarischen
-Informationen im OParl-System ausmachen.
+werden und deren Metadaten über die JSON-API als oparl:Document
+abgerufen werden können. Es handelt sich dabei beispielsweise um
+Textdokumente im PDF-Format, Abbildungen im JPEG- oder PNG etc., die
+wesentliche Inhalte der parlamentarischen Informationen im OParl-System
+ausmachen.
 
 In Bezug auf die Datenvolumen, die der Verkehr zwischen OParl Servern
 und Clients ausmacht, kommt dem Dateizugriff eine besondere Bedeutung
@@ -2084,7 +1995,7 @@ zu. Daher formuliert OParl diesbezüglich einige Anforderungen, die
 helfen sollen, unnötigen Datentransfer zu vermeiden.
 
 Detail zu sämtlichen angesprochenen Mechanismen sind in der
-HTTP-1.1-Spezifikation[^34] zu finden.
+HTTP-1.1-Spezifikation[^33] zu finden.
 
 GET und HEAD Anfragen
 
@@ -2093,13 +2004,13 @@ Verwendung der HTTP-Methode GET abrufbar sein MUSS. Um Clients
 zusätzlich die Überprüfung einer Datei zu ermöglichen, MUSS vom Server
 außerdem die HTTP-Methode HEAD unterstützt werden. Gemäß
 HTTP-Spezifikation gibt der Server in diesem Fall nur die
-Antwort-Header, nicht aber den eigentlichen Inhalt der angefrgten
+Antwort-Header, nicht aber den eigentlichen Inhalt der angefragten
 Ressource, aus.
 
 Die URLs zum Abruf der einzelnen Datei (wahlweise mittels GET oder HEAD)
 stellt der Server dem Client in den Daten des Metadaten-Objekts zur
 Verfügung. Details finden sich in der Schema-Beschreibung zu
-[oparl:Document](#oparl_document).
+oparl:Document.
 
 Allgemeiner Zugriff und expliziter Download
 
@@ -2114,7 +2025,7 @@ downloadUrl eine weitere URL anbieten, hier Download-URL genannt. Diese
 dient im Gegensatz zur Zugriffs-URL speziell zum Herunterladen und
 Speichern der Datei in einem Dateisystem des Endnutzers. Bei Zugriff auf
 die Download-URL MUSS der Server in der HTTP-Antwort einen
-Content-Disposition Header senden.[^35] Dieser Header MUSS als ersten
+Content-Disposition Header senden.[^34] Dieser Header MUSS als ersten
 Parameter den Typ attachment sowie den filename-Parameter mit dem Namen
 der Datei enthalten.
 
@@ -2204,6 +2115,92 @@ Entfernte Dateien
 Beim Zugriff auf eine Datei, die zuvor einmal abrufbar war, es
 inzwischen jedoch nicht mehr ist, SOLL die HTTP-Antwort des Servers den
 spezifischen Status-Code 410 tragen.
+
+Content Negotiation {#content_negotiation}
+-------------------
+
+Das Prinzip "Content Negotiation" wird in RFC2295[^35] beschrieben und
+bedeutet, dass WWW-Server eine Ressource in verschiedenen Formaten
+bereithalten können und Clients die Möglichkeit haben, eine Vorliebe für
+ein bestimmtes Format zu übermitteln. Auch die
+HTTP-1.1-Spezifikation[^36] schließt Content Negotiation ein.
+
+Die Idee hinter Content Negotiation ist, dass ein Client die von ihm
+akzeptierten Repräsentationen im Accept-Header der HTTP-Anfrage
+mitsendet, damit der Server gemäß Spezifikation die am besten passende
+und von ihm unterstützte Repräsentation an den Client ausliefert.
+
+Grundanforderung der vorliegenden Spezifikation an OParl Clients ist,
+dass sie bei jeder Anfrage an einen OParl-Server einen Accept-Header mit
+dem Mime-Type application/ld+json senden MÜSSEN, es sei denn, es handelt
+sich um einen Dateizugriff.
+
+Im Kontext von OParl soll durch Unterstützung von Content Negotiation
+ermöglicht werden, dass die URLs von OParl-Objekten auch von WWW-Clients
+aufgerufen werden können, die nicht unmittelbar in Kenntnis der
+OParl-Spezifikation entwickelt wurden.
+
+Ein Beispiel für einen solchen Client wäre ein üblicher Browser. Ruft
+dieser die URL einer Drucksache (OParl-Objekttyp oparl:Paper) auf,
+sendet er entweder keinen Accept-Header oder aber einen solchen, der
+eine Bevorzugung von Inhaltstypen wie HTML angibt.
+
+Der Server DARF nun, da kein Accept-Header mit dem Typ
+application/ld+json gesendet wurde, dem Client eine alternative Version
+der Information über die Drucksache ausliefern, beispielsweise eine
+HTML-Ansicht.
+
+Ein Server DARF eine alternative Inhaltsform auch in Form einer
+HTTP-Weiterleitung anbieten.
+
+httpRange-14
+
+In dem Zusammenhang sei informell auf ein für Linked Data relevantes
+Detail hingewiesen - auf welches man gelegentlich unter dem Kürzel
+httpRange-14 stößt. Wenn man in einem üblichen Web-Browser diese URL
+aufruft:
+
+http://dbpedia.org/resource/John_Doe_(musician)
+
+dann erfolgt eine Weiterleitung auf diese URL:
+
+http://dbpedia.org/page/John_Doe_(musician)
+
+Dabei identifiziert die erste URL den abstrakten Begriff des Musikers,
+während die zweite eine Repräsentation dieses Begriffs identifiziert.
+Ein anderer HTTP-Client, der statt HTML-Seiten z.B. JSON-LD bevorzugt,
+würde bei Zugriff auf die erste URL wiederum zu einer anderen URL weiter
+geleitet:
+
+http://dbpedia.org/data/John_Doe_(musician).jsonld
+
+Dabei handelt es sich um eine Repräsentation des Musikers in Form von
+JSON-LD.
+
+Diese drei Links sind nicht nur verschieden, sondern haben
+unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL
+(HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients generell
+nicht verwendet werden, um auf einfache Weise zu den anderen beiden URLs
+zu gelangen. Deshalb soll bei Linked Data der erste Link, also der des
+abstrakten Begriffs angegeben werden. Der Zugriff auf diesen Link wird
+"Dereferenzierung" genannt. Von dem ersten Link gelangt man zu den
+beiden anderen mittels Content Negotiation.
+
+So kann der Server beim Zugriff eines Client auf
+
+    https://dbpedia.org/resource/John_Doe_(musician)
+
+z.B. entweder diese URL sowie HTML-Inhalt liefern
+
+    https://dbpedia.org/page/John_Doe_(musician)
+
+oder aber diese URL mit JSON-LD als Inhalt
+
+    https://dbpedia.org/data/John_Doe_(musician).jsonld
+
+Die Entscheidung darüber, welche der URLs und welche der Inhaltsformate
+der Server liefert, wird zwischen Client und Server mittels Content
+Negotiation ausgehandelt.
 
 Ausnahmebehandlung
 ------------------
@@ -2383,7 +2380,7 @@ license
 
 Die Eigenschaft license erlaubt es, am jeweiligen Objekt die URL einer
 Lizenz anzugeben. Damit wird gekennzeichnet, welche Lizenz der
-Veröffentlicher der Daten für das jeweilige Objekt vergibt.[^36]
+Veröffentlicher der Daten für das jeweilige Objekt vergibt.[^37]
 
 Eine besondere Bedeutung hat die Eigenschaft license, wenn sie am
 oparl:System Objekt oder am oparl:Body Objekt vergeben wird. Die hier
@@ -2401,7 +2398,7 @@ Dateien, die über die angebotene(n) URL(s) abgerufen werden können.
 
 Lesenswert zum Thema Lizensierung von Linked Data ist auch er Abschnitt
 "Licenses, Waivers and Norms for Data" im online zugänglichen Linked
-Data Book.[^37]
+Data Book.[^38]
 
 created
 
@@ -2688,14 +2685,14 @@ licenseValidSinceDay
 
 rgs
     Regionalschlüssel der Körperschaft als zwölfstellige
-    Zeichenkette[^38]. Typ: TODO EMPFOHLEN
+    Zeichenkette[^39]. Typ: TODO EMPFOHLEN
 
 equivalentBody
     Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe
     Körperschaft repräsentieren. Hier können beispielsweise, sofern
     vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der
-    Deutschen Nationalbibliothek[^39], der DBPedia[^40] oder der
-    Wikipedia[^41] angegeben werden. Typ: TODO EMPFOHLEN
+    Deutschen Nationalbibliothek[^40], der DBPedia[^41] oder der
+    Wikipedia[^42] angegeben werden. Typ: TODO EMPFOHLEN
 
 contactEmail
     Dient der Angabe einer Kontakt-E-Mail-Adresse mit "mailto:"-Schema.
@@ -3434,6 +3431,7 @@ Ein Beispiel:
     "@type": "oparl:Document",
     "@id": "https://oparl.beispielris.de/document/57739",
     "name": "Anlage 1 zur Anfrage",
+    "fileName": "57739.pdf",
     "paper": "https://oparl.beispielris.de/paper/2396",
     "mimeType": "application/pdf",
     "date": "2013-01-04T07:54:13+01:00",
@@ -3465,85 +3463,96 @@ werden, welche Ableitungen einer Datei existieren.
 
 Eigenschaften
 
+fileName
+    Dateiname, unter dem die Datei in einem Dateisystem gespeichert
+    werden kann. Typ: ASCII-Zeichenkette. ZWINGEND.
+
 name
-    Name des Objekts, der Nutzern angezeigt werden kann. Typ:
-    Zeichenkette. ZWINGEND
+    Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt. Der
+    Wert SOLL NICHT mit dem Wert der Eigenschaft fileName identisch
+    sein. Typ: Zeichenkette. EMPFOHLEN.
 
 mimeType
-    Mime-Typ des Inhalts (vgl. RFC2046[^42]). Sollte das System einer
-    Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier
-    "application/octet-stream" zu verwenden. Typ: TODO ZWINGEND
+    Mime-Typ des Inhalts[^43]. Sollte das System einer Datei keinen
+    spezifischen Typ zuweisen können, wird EMPFOHLEN, hier
+    application/octet-stream zu verwenden. Typ: Zeichenkette ZWINGEND.
 
 date
-    Erstellungs- oder Veröffentlichungsdatum und -uhrzeit. Typ: Datum.
-    ZWINGEND
+    Datum und Zeit der Erstellung der Datei. Wahlweise, falls dies nicht
+    vom System kommuniziert werden kann oder soll, KANN alternativ der
+    Zeitpunkt der Veröffentlichung ausgegeben werden. Typ: Datum.
+    ZWINGEND.
 
 lastModified
-    Datum und Uhrzeit der letzten Änderung der Datei bzw. der Metadaten.
-    Typ: Datum. ZWINGEND
+    Datum und Zeit der letzten Änderung der Datei bzw. der Metadaten.
+    Als Änderung der Datei gilt alles, was den Inhalt der Datei
+    verändert und beispielsweise zu einer Veränderung der Prüfsumme
+    führen würde, nicht aber die Änderung des Dateinamens (siehe
+    Eigenschaft name). Als Änderung der Metadaten hingegen würde
+    beispielsweise die Änderung des Dateinamens gelten. Hier soll immer
+    das größere der beiden Daten ausgegeben werden, also der am
+    wenigsten lang zurückliegende Änderungszeitpunkt. Typ: Datum.
+    ZWINGEND.
 
 size
-    Größe der Datei in Bytes. Typ: ganze Zahl. ZWINGEND
+    Größe der Datei in Bytes. Typ: ganze Zahl. ZWINGEND.
 
 sha1Checksum
     SHA1-Prüfsumme des Dokumenteninhalts in Hexadezimal-Schreibweise.
-    Typ: Zeichenkette. OPTIONAL
+    Typ: Zeichenkette. OPTIONAL.
 
 text
     Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform
-    wiedergegeben werden kann. Typ: Zeichenkette. EMPFOHLEN
+    wiedergegeben werden kann. Typ: Zeichenkette. EMPFOHLEN.
 
 accessUrl
-    URL zum gewöhnlichen Abruf der Datei mittels HTTP GET-Aufruf. Typ:
-    URL. ZWINGEND
+    URL zum allgemeinen Zugriff auf die Datei. Näheres unter
+    Dateizugriff. Typ: URL. ZWINGEND.
 
 downloadUrl
-    URL zum Download der Datei. Besser ist es, bereits unter accessUrl
-    einen "schönen" Dateinamen anzugeben. TODO: Zweck erklären. Typ:
-    URL. EMPFOHLEN
+    URL zum Download der Datei. Näheres unter Dateizugriff. Typ: URL.
+    EMPFOHLEN.
 
 paper
-    Drucksache, sofern diese Datei zu einer Drucksache gehört. Wenn
-    diese Datei zu einer Drucksache gehört, MUSS diese Eigenschaft
-    vorhanden sein, andernfalls DARF sie NICHT vorhanden sein. TODO: ist
-    das eine Tautologie? Typ: oparl:Paper
+    Falls die Datei zu einer Drucksache (oparl:Paper) gehört, MUSS über
+    diese Eigenschaft die URL des Drucksache-Objekts ausgegeben werden.
+    Andernsfalls DARF diese Eigenschaft NICHT vorhanden sein. Typ:
+    oparl:Paper.
 
 meeting
-    Sitzung, sofern diese Datei zu einer Sitzung gehört. Wenn diese
-    Datei zu einer Sitzung gehört, MUSS diese Eigenschaft vorhanden
-    sein, andernfalls DARF sie NICHT vorhanden sein. TODO: ist das eine
-    Tautologie? Typ: oparl:Meeting.
+    Falls die Datei zu einer Sitzung (oparl:Meeting) gehört, MUSS über
+    diese Eigenschaft die URL des Sitzung-Objekts ausgegeben werden.
+    Andernfalls DARF diese Eigenschaft NICHT vorhanden sein. Typ:
+    oparl:Meeting.
 
 masterDocument
     Datei von der das aktuelle Objekt abgeleitet wurde. Typ:
-    oparl:Document. OPTIONAL
+    oparl:Document. OPTIONAL.
 
 derivativeDocuments
     Abgeleitete Datei die von dem aktuellen Objekt abgeleitet wurde.
-    Typ: oparl:Document. OPTIONAL
+    Typ: oparl:Document. OPTIONAL.
 
 license
     Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft
     verwendet wird, dann ist sie anstelle einer globalen Angabe im
-    übergeordneten oparl:Body bzw. oparl:System Objekt maßgeblich. Typ:
-    URL. OPTIONAL
+    übergeordneten oparl:Body bzw. oparl:System Objekt maßgeblich.[^44]
+    Typ: URL. OPTIONAL.
 
 documentRole
     Rolle, Funktion, Sorte des Dokuments. Das Objekt enthält ein
     skos:prefLabel. Dessen Werte können z.B. sein: "Einladung",
     "Protokoll", "Wortprotokoll" oder "Beschlussprotokoll". In einer
     zukünftigen OParl-Version wird möglicherweise eine Menge der
-    wichtigsten Kategorien vorgegeben. TODO: Besser in oparl:Paper oder
-    oparl:Meeting ? Siehe Diskussion unter
-    https://github.com/OParl/specs/issues/65 Typ: skos:Concept OPTIONAL
+    wichtigsten Kategorien vorgegeben. Typ: skos:Concept. OPTIONAL.
+    TODO: Link auf Erkärungs-Kapitel, damit klar ist, dass hier auf
+    externes Vokabular verlinkt wird.
 
 classification
     Begriff mit skos:prefLabel. Hat allgemeinere Bedeutung als
-    documentRole. Typ: skos:Concept OPTIONAL
-
-Siehe auch
-
--   Dateizugriff
+    documentRole. Typ: skos:Concept. OPTIONAL. TODO: TODO: Link auf
+    Erkärungs-Kapitel, damit klar ist, dass hier auf externes Vokabular
+    verlinkt wird.
 
 oparl:Consultation (Beratung) {#oparl_consultation}
 -----------------------------
@@ -3688,7 +3697,7 @@ Und ein Beispiel unter Verwendung des Kontextes:
 
 OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des  
 Well-Known-Text-Formats (WKT) der Simple Feature Access
-Spezifikation[^43] vor. WKT erlaubt die Beschreibung von
+Spezifikation[^45] vor. WKT erlaubt die Beschreibung von
 unterschiedlichen Geometrien wie Punkten (Point), Pfaden (LineString),
 Polygonen (Polygon) und viele andere mehr.
 
@@ -3698,7 +3707,7 @@ keine Anforderungen daran, welche Version von Simple-Feature-Access bei
 der Ausgabe von WKT zu unterstützen ist.
 
 Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben
-solcher Geodaten im System WGS84[^44] angegeben werden, und zwar in Form
+solcher Geodaten im System WGS84[^46] angegeben werden, und zwar in Form
 von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.
 
 Eigenschaften
@@ -3881,75 +3890,79 @@ JSON-LD-Kontextdokumente zu finden sein werden.
     http://dbpedia.org/resource/Christian_Democratic_Union_(Germany) und
     http://dbpedia.org/resource/Social_Democratic_Party_of_Germany
 
-[^18]: RFC2295: http://tools.ietf.org/html/rfc2295
+[^18]: RFC 3987: http://tools.ietf.org/html/rfc3987
 
-[^19]: RFC 3987: http://tools.ietf.org/html/rfc3987
+[^19]: RFC 3986: http://tools.ietf.org/html/rfc3986
 
-[^20]: RFC 3986: http://tools.ietf.org/html/rfc3986
+[^20]: vgl. Benannte und anonyme Objekte
 
-[^21]: vgl. Benannte und anonyme Objekte
-
-[^22]: Berners-Lee, Tim: Cool URIs don't change.
+[^21]: Berners-Lee, Tim: Cool URIs don't change.
     http://www.w3.org/Provider/Style/URI.html
 
-[^23]: Study on persistent URIs, with identification of best practices
+[^22]: Study on persistent URIs, with identification of best practices
     and recommendations on the topic for the MSs and the EC. (PDF)
     https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf
 
-[^24]: JSON-LD 1.0: IANA COnsiderations:
+[^23]: JSON-LD 1.0: IANA COnsiderations:
     http://www.w3.org/TR/json-ld/#iana-considerations
 
-[^25]: RFC4627: https://tools.ietf.org/html/rfc4627
+[^24]: RFC4627: https://tools.ietf.org/html/rfc4627
 
-[^26]: siehe dazu Linked Data
+[^25]: siehe dazu Linked Data
 
-[^27]: http://www.w3.org/TR/json-ld/
+[^26]: http://www.w3.org/TR/json-ld/
 
-[^28]: URLs heißen in der JSON-LD-Spezifikation "IRI" (für
+[^27]: URLs heißen in der JSON-LD-Spezifikation "IRI" (für
     "Internationalized Resource Identifier"), wir verwenden hier jedoch
     weiterhin die Bezeichnung "URL".
 
-[^29]: TODO: URL zur Spezifikation
+[^28]: TODO: URL zur Spezifikation
 
-[^30]: RFC5988: http://tools.ietf.org/html/rfc5988
+[^29]: RFC5988: http://tools.ietf.org/html/rfc5988
 
-[^31]: Wie in vielen anderen Fällen ist diese URL hier wieder nur
+[^30]: Wie in vielen anderen Fällen ist diese URL hier wieder nur
     beispielhaft. Die tatsächliche Gestaltung des Pfads bestimmt der
     Server-Implementierer.
 
-[^32]: RSS 2.0 Specification: http://cyber.law.harvard.edu/rss/rss.html
+[^31]: RSS 2.0 Specification: http://cyber.law.harvard.edu/rss/rss.html
 
-[^33]: Atom ist in RFC4287 spezifiziert:
+[^32]: Atom ist in RFC4287 spezifiziert:
     http://www.ietf.org/rfc/rfc4287.txt
 
-[^34]: vgl. http://www.w3.org/Protocols/rfc2616/rfc2616.html
+[^33]: vgl. http://www.w3.org/Protocols/rfc2616/rfc2616.html
 
-[^35]: vgl. RFC2138 http://www.ietf.org/rfc/rfc2183
+[^34]: vgl. RFC2138 http://www.ietf.org/rfc/rfc2183
 
-[^36]: Verzeichnisse für Lizenz-URLs sind unter anderem unter
+[^35]: RFC2295: http://tools.ietf.org/html/rfc2295
+
+[^36]: RFC2616: http://tools.ietf.org/html/rfc2616
+
+[^37]: Verzeichnisse für Lizenz-URLs sind unter anderem unter
     http://licenses.opendefinition.org/ und
     https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json
     zu finden.
 
-[^37]: Tom Heath, Christian Bizer: Linked Data: Evolving the Web into a
+[^38]: Tom Heath, Christian Bizer: Linked Data: Evolving the Web into a
     Global Data Space (1st edition),
     http://linkeddatabook.com/editions/1.0/#htoc48
 
-[^38]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
+[^39]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
     Statistischen Bundesamtes eingesehen werden
 
-[^39]: Gemeinsame Normdatei http://www.dnb.de/gnd
+[^40]: Gemeinsame Normdatei http://www.dnb.de/gnd
 
-[^40]: DBPedia http://www.dbpedia.org/
+[^41]: DBPedia http://www.dbpedia.org/
 
-[^41]: Wikipedia http://de.wikipedia.org/
+[^42]: Wikipedia http://de.wikipedia.org/
 
-[^42]: http://tools.ietf.org/html/rfc2046
+[^43]: vgl. RFC2046: http://tools.ietf.org/html/rfc2046
 
-[^43]: Simple Feature Access Spezifikation:
+[^44]: vgl. license
+
+[^45]: Simple Feature Access Spezifikation:
     http://www.opengeospatial.org/standards/sfa
 
-[^44]: WGS84 steht für "World Geodetic System 1984", es wird unter
+[^46]: WGS84 steht für "World Geodetic System 1984", es wird unter
     anderem auch vom Global Positioning System (GPS) verwendet. In
     geografischen Informationssystemen ist für das System der EPSG-Code
     4326 geläufig.

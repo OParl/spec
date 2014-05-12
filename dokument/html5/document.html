@@ -362,35 +362,8 @@ Objekt: http://dbpedia.org/resource/John_(given_name)</code></pre>
 <p>Zu der Art, wie die OParl-Version sich auf die Endpunkt-URL auswirkt, will diese Spezifikation keine Vorgaben machen. Die Pfad-Elemente im obigen Szenario sind Vorschläge, aber in keiner Weise bindend.</p>
 <p>Die praktische Umsetzung von HTTP-Weiterleitungen ist besonders dann trivial, wenn die restlichen URL-Bestandteile identisch bleiben. In diesem Fall können Server mit einer einfachen Regel von jeglicher vorherigen auf jegliche neue URL weiter leiten.</p>
 </section>
-<section id="content_negotiation" class="level2">
-<h2><span class="header-section-number">4.3</span> Content Negotiation</h2>
-<p>Server im World Wide Web können bestimmte Ressourcen entsprechend RFC2295<a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a> in verschiedenen Formaten vorhalten. Clients haben die Möglichkeit, mittels HTTP-Header schon in der Anfrage eine Vorliebe für ein bestimmtes Format zu übermitteln.</p>
-<p>Der Vorgang der Content Negotiation ist u.a. in http://de.wikipedia.org/wiki/Content_Negotiation erklärt. Content Negotiation ist Bestandteil der HTTP 1.1 Spezifikation. Siehe RFC 2616 (http://tools.ietf.org/html/rfc2616).</p>
-<p>Die Idee hinter Content Negotiation ist, dass ein Client die von ihm akzeptierten Repräsentationen im <code>Accept</code>-Header des Requests mitgibt, damit der Server gemäß Spezifikation die am besten passende und von ihm unterstützte Repräsentation an den Client ausliefert.</p>
-<p>Eine Schwierigkeit ergibt sich, dass auch <code>*/*</code> ein valider <code>Accept</code>-Header und bedeutet soviel wie &quot;ich nehme alles&quot;. Eine Webanwendung würde dann üblicherweise HTML ausgeben, da es die Standard Repräsentation einer Webanwendung ist. Im Falle einer API, die standardmäßig mit JSON-LD arbeitet, würde eventuell <code>application/ld+json</code> als Antwort erwartet. Der Server weiss in diesem Fall aufgrund der fehlenden Information durch den Client nicht, was dieser tatsächlich wünscht. Die OParl-Spezifikation kann in diesem Fall für den Server auch nicht zwingend <code>application/ld+json</code> vorgeben, da es durchaus sinnvoll sein kann, wenn unter einer URL <em>sowohl</em> OParl-Daten z.B. über ein Gremium abrufbar sind als auch eine HTML-Seite mit Informationen über dieses Gremium.</p>
-<p>OParl-Clients MÜSSEN den Accept-Header verwenden und darin mindestens <code>application/ld+json</code> als akzeptiertes Format angeben.</p>
-<p>Ein Server KANN Content Negotiation über einen Redirect auf eine andere URL umsetzen, oder einfach die entsprechende Repräsentation ohne Redirect ausgeben. Beides ist für OParl zulässig. Der OParl-Server MUSS NICHT Content-Negotiation per Redirect unterstützen, aber OParl-Clients MÜSSEN dies.</p>
-<section id="httprange-14" class="level3">
-<h3><span class="header-section-number">4.3.1</span> httpRange-14</h3>
-<p>In dem Zusammenhang sei informell auf ein für Linked Data relevantes Detail hingewiesen - auf welches man gelegentlich unter dem Kürzel `httpRange-14 stößt. Wenn man in einem üblichen Web-Browser diesen bereits an anderer Stelle erwähnten Link eingibt und aufruft:</p>
-<pre><code>https://dbpedia.org/resource/John_Doe_(musician)</code></pre>
-<p>dann sieht man anschliessend bei der Anzeige der HTML-Seite diesen Link im Adressfeld:</p>
-<pre><code>https://dbpedia.org/page/John_Doe_(musician)</code></pre>
-<p>Dabei identifiziert der erste Link den abstrakten Begriff des Musikers, während der zweite Link eine Repräsentation dieses Begriffs identifiziert. Ein anderer http-Client, der statt HTML-Seiten z.B. JSON-LD bevorzugt, würde bei Zugriff auf den ersten Link statt der HTML-Seite den Inhalt dieser URL erhalten:</p>
-<pre><code>https://dbpedia.org/data/John_Doe_(musician).jsonld</code></pre>
-<p>Dabei handelt es sich um eine Repräsentation des Musikers in Form von JSON-LD.</p>
-<p>Diese drei Links sind nicht nur verschieden, sondern haben unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL (HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients generell nicht verwendet werden, um auf einfache Weise zu den anderen beiden URLs zu gelangen. Deshalb soll bei Linked Data der erste Link, also der des abstrakten Begriffs angegeben werden. Der Zugriff auf diesen Link wird &quot;Dereferenzierung&quot; genannt. Von dem ersten Link gelangt man zu den beiden anderen mittels &quot;Content Negotiation&quot;.</p>
-<p>So kann der Server beim Zugriff eines Client auf</p>
-<pre><code>https://dbpedia.org/resource/John_Doe_(musician)</code></pre>
-<p>z.B. entweder diese URL sowie HTML-Inhalt liefern</p>
-<pre><code>https://dbpedia.org/page/John_Doe_(musician)</code></pre>
-<p>oder aber diese URL mit JSON-LD als Inhalt</p>
-<pre><code>https://dbpedia.org/data/John_Doe_(musician).jsonld</code></pre>
-<p>Die Entscheidung darüber, welche der URLs und welche der Inhaltsformate der Server liefert, wird zwischen Client und Server mittels Content Negotiation ausgehandelt.</p>
-</section>
-</section>
 <section id="http-und-https" class="level2">
-<h2><span class="header-section-number">4.4</span> HTTP und HTTPS</h2>
+<h2><span class="header-section-number">4.3</span> HTTP und HTTPS</h2>
 <p>OParl-Server und -Client kommunizieren miteinander über das HTTP-Protokoll.</p>
 <p>Hierbei SOLL eine verschlüsselte Variante des Protokolls, auch HTTPS genannt, zum Einsatz kommen, alternativ kann jedoch auch unverschlüsseltes HTTP verwendet werden. Welche Verschlüsselungstechnologie im Fall von HTTPS gewählt wird, obliegt dem Betreiber bzw. Server-Implementierer.</p>
 <p>Die Wahl des unverschlüsselten oder verschlüsselten HTTP-Zugriffs hat Auswirkung auf die im System verwendeten URLs. Wie im Kapitel <a href="#urls">URLs</a> beschrieben, verfolgt diese Spezifikation die Festlegung auf genau eine &quot;kanonische&quot; URL je Ressource (URL-Kanonisierung).</p>
@@ -399,18 +372,18 @@ Objekt: http://dbpedia.org/resource/John_(given_name)</code></pre>
 <p>Gleiches gilt umgekehrt: beantwortet das System regulär Anfragen über unverschlüsseltes HTTP, dann MÜSSEN Anfragen auf die entsprechenden URLs mit &quot;https://&quot;-Schema mit einer HTTP-Weiterleitung (HTTP Status-Code 301) beantwortet werden. TODO: Geht das, wenn HTTPS nicht unterstützt wird?</p>
 </section>
 <section id="urls" class="level2">
-<h2><span class="header-section-number">4.5</span> URLs, IRIs und URIs</h2>
+<h2><span class="header-section-number">4.4</span> URLs, IRIs und URIs</h2>
 <p>Den URLs (für &quot;Uniform Resource Locators&quot;) kommt bei einer OParl-konformen API eine besondere Bedeutung zu und es werden eine Reihe von Anforderungen an die Verarbeitung von URLs gestellt.</p>
-<p>Im Rahmen dieses Dokuments wird aus Gründen der Verständlichkeit generell der allgemein gebräuchlichere Begriff &quot;URL&quot; werwendet, auch wenn damit tatsächlich die internationalisierte Variante nach RFC 3987<a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a>, die korrekterweise IRI bzw. &quot;Internationalized Resource Identifier&quot; genannt werden müsste, gemeint ist. In andern Kontexten wiederum wird von URIs bzw. &quot;Uniform Resource Identifier&quot; gesprochen. Das vorliegende Dokumente fasst alle drei Konzepte mit dem Begriff &quot;URL&quot; zusammen und ignoriert damit die Unterschiede der einzelnen Begriffe, da diese im Rahmen dieser Spezifikation ohne bedeutung sind.</p>
-<p>Die grundsätzliche Funktionsweise von URLs ist in RFC 3986 beschrieben<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a>.</p>
+<p>Im Rahmen dieses Dokuments wird aus Gründen der Verständlichkeit generell der allgemein gebräuchlichere Begriff &quot;URL&quot; werwendet, auch wenn damit tatsächlich die internationalisierte Variante nach RFC 3987<a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a>, die korrekterweise IRI bzw. &quot;Internationalized Resource Identifier&quot; genannt werden müsste, gemeint ist. In andern Kontexten wiederum wird von URIs bzw. &quot;Uniform Resource Identifier&quot; gesprochen. Das vorliegende Dokumente fasst alle drei Konzepte mit dem Begriff &quot;URL&quot; zusammen und ignoriert damit die Unterschiede der einzelnen Begriffe, da diese im Rahmen dieser Spezifikation ohne bedeutung sind.</p>
+<p>Die grundsätzliche Funktionsweise von URLs ist in RFC 3986 beschrieben<a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a>.</p>
 <p>Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in diesem Dokument Verwendung finden:</p>
 <pre><code>https://refserv.oparl.org/foo/bar/?skip=234
 \___/   \_______________/\_______/ \______/
   |         |                |        |
 Schema     Host             Pfad  Query-String</code></pre>
 <section id="url-kanonisierung" class="level3">
-<h3><span class="header-section-number">4.5.1</span> URL-Kanonisierung</h3>
-<p>Absicht ist, dass jedes benannte Objekt<a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a>, das ein Server über eine OParl-API anbietet, über genau eine URL identifizierbar und abrufbar ist. Diese Vereinheitlichung der URL nennen wir Kanonisierung.</p>
+<h3><span class="header-section-number">4.4.1</span> URL-Kanonisierung</h3>
+<p>Absicht ist, dass jedes benannte Objekt<a href="#fn20" class="footnoteRef" id="fnref20"><sup>20</sup></a>, das ein Server über eine OParl-API anbietet, über genau eine URL identifizierbar und abrufbar ist. Diese Vereinheitlichung der URL nennen wir Kanonisierung.</p>
 <p>Die Kanonisierung ist entscheidend, um erkennen zu können, ob zwei URLs das selbe Objekt repräsentieren. Sind zwei URLs identisch, sollen Clients daraus ableiten können, dass diese das selbe Objekt repräsentieren. Sind zwei URLs unterschiedlich, soll im Umkehrschluss die Annahme gelten, dass sie zwei verschiedene Objekte repräsentieren.</p>
 <p>Der OParl-konforme Server MUSS für jedes benannte Objekt eine kanonische URL bestimmen können.</p>
 <p>Die URL-Kanonisierung betrifft sämtliche Bestandteile der URL. Entsprechend beginnt diese schon beim <strong>Schema</strong> und bei der Entscheidung durch den Betreiber, ob eine OParl-API regulär über HTTP oder über HTTPS erreichbar sein soll (vgl. <a href="#http-und-https">HTTP und HTTPS</a>).</p>
@@ -445,7 +418,7 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 <p>unterscheiden sich lediglich in der Reihenfolge der Query-String-Parameter. Da sie jedoch nicht identisch sind, müssen Clients annehmen, dass beide URLs verschiedene Objekte repräsentieren. In der Konsequenz kann es zu vermeidbarer Ressourcennutzung sowohl auf Client- als auch auf Serverseite kommen.</p>
 </section>
 <section id="langlebigkeit" class="level3">
-<h3><span class="header-section-number">4.5.2</span> Langlebigkeit</h3>
+<h3><span class="header-section-number">4.4.2</span> Langlebigkeit</h3>
 <p>Weiterhin ist es Absicht, dass URLs von Objekten langlebig sind, so dass sie, wenn sie einmal verbreitet wurden, langfristig zur Abfrage des dazugehörigen Objekts verwendet werden können.</p>
 <p>Um dies zu gewährleisten, wird den <strong>Betreibern</strong> empfohlen, die Wahl der Domain, eventuell der Subdomain und letztlich des Host-Namens sorgfältig auf seine längerfristige Verwendbarkeit abzuwägen.</p>
 <p><strong>Server-Implementierer</strong> SOLLEN darüber hinaus dafür sorgen, dass der Pfad-Bestandteil der URLs die Langlebigkeit der URLs unterstützt. Es gelten die folgenden Empfehlungen, die jedoch keinen Anspruch auf Vollständigkeit erheben:</p>
@@ -453,18 +426,18 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 <li><p><strong>Veränderliche Objekt-Eigenschaften nicht als URL-Bestandteil nutzen.</strong> In URLs sollten nur Eigenschaften des Objekts aufgenommen werden, die keinen Veränderungen unterliegen. Ändert sich beispielsweise die Kennung einer Drucksache im Verlauf ihrer Existenz, dann scheidet sie für die Bildung der URL aus.</p></li>
 <li><p><strong>Technische Eigenschaften der Implementierung verbergen.</strong> Ist ein OParl-Server beispielsweise in PHP implementiert, sollte dies nicht dazu führen, dass im Pfad ein Bestandteil wie &quot;oparl.php/&quot; erscheint. Erfahrungsgemäß überdauern solche URLs nur kurz.</p></li>
 </ul>
-<p>Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee<a href="#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a> sowie die Europäische Kommission<a href="#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a>.</p>
+<p>Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee<a href="#fn21" class="footnoteRef" id="fnref21"><sup>21</sup></a> sowie die Europäische Kommission<a href="#fn22" class="footnoteRef" id="fnref22"><sup>22</sup></a>.</p>
 </section>
 </section>
 <section id="serialisierung-mittels-json-ld-und-jsonp" class="level2">
-<h2><span class="header-section-number">4.6</span> Serialisierung mittels JSON-LD und JSONP</h2>
+<h2><span class="header-section-number">4.5</span> Serialisierung mittels JSON-LD und JSONP</h2>
 <p>Eine OParl-konforme API gibt Objekte in Form von JSON aus. Die Objekte werden dabei entsprechend der JSON-LD Spezifikation um Kontexte erweitert, welche die Selbstbschreibungsfähigkeit der ausgegebenen Daten verbessert. Auf Anforderung des Clients wird darüber hinaus JSONP unterstützt.</p>
-<p>In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung des HTTP <code>Content-type</code>-Headers <code>application/ld+json</code> beantworten. Die Spezifikation von JSON-LD liefert dazu genauere Informationen<a href="#fn24" class="footnoteRef" id="fnref24"><sup>24</sup></a>, auch zu dem optionalen Parameter <code>profile</code> für die explizite Anforderung von JSON-LD in einer dieser drei Unterformen: kompakt, expandiert oder flach.</p>
+<p>In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung des HTTP <code>Content-type</code>-Headers <code>application/ld+json</code> beantworten. Die Spezifikation von JSON-LD liefert dazu genauere Informationen<a href="#fn23" class="footnoteRef" id="fnref23"><sup>23</sup></a>, auch zu dem optionalen Parameter <code>profile</code> für die explizite Anforderung von JSON-LD in einer dieser drei Unterformen: kompakt, expandiert oder flach.</p>
 <p>Wenn der Server auch Anfragen nach <code>application/json</code> akzeptiert, dann SOLL er expandierte JSON-LD Dokumente liefern (also solche ohne <code>@context</code>).</p>
 <p>TODO: MUSS der Server solche Legacy-Anfragen akzeptieren? Warum?</p>
 <section id="json" class="level3">
-<h3><span class="header-section-number">4.6.1</span> JSON</h3>
-<p>Die Abkürzung JSON steht für &quot;JavaScript Object Notation&quot;. Das JSON-Format ist in RFC4627<a href="#fn25" class="footnoteRef" id="fnref25"><sup>25</sup></a> beschrieben. Nachfolgend werden nur die wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren Verwendung in diesem Dokument zu etablieren.</p>
+<h3><span class="header-section-number">4.5.1</span> JSON</h3>
+<p>Die Abkürzung JSON steht für &quot;JavaScript Object Notation&quot;. Das JSON-Format ist in RFC4627<a href="#fn24" class="footnoteRef" id="fnref24"><sup>24</sup></a> beschrieben. Nachfolgend werden nur die wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren Verwendung in diesem Dokument zu etablieren.</p>
 <p>Das JSON-Format unterstützt die Ausgabe von vier verschiedenen primitiven Datentypen:</p>
 <ul>
 <li><em>Zeichenkette</em> (Unicode)</li>
@@ -490,8 +463,8 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 }</code></pre>
 </section>
 <section id="jsonld" class="level3">
-<h3><span class="header-section-number">4.6.2</span> JSON-LD</h3>
-<p>Das Kürzel LD im Namen &quot;JSON-LD&quot; steht für &quot;Linked Data&quot;<a href="#fn26" class="footnoteRef" id="fnref26"><sup>26</sup></a>. Entsprechend erweitert die JSON-LD-Spezifikation<a href="#fn27" class="footnoteRef" id="fnref27"><sup>27</sup></a> das JSON-Format um die Möglichkeit,</p>
+<h3><span class="header-section-number">4.5.2</span> JSON-LD</h3>
+<p>Das Kürzel LD im Namen &quot;JSON-LD&quot; steht für &quot;Linked Data&quot;<a href="#fn25" class="footnoteRef" id="fnref25"><sup>25</sup></a>. Entsprechend erweitert die JSON-LD-Spezifikation<a href="#fn26" class="footnoteRef" id="fnref26"><sup>26</sup></a> das JSON-Format um die Möglichkeit,</p>
 <ul>
 <li>Objekte mit anderen Objekten zu verknüpfen,</li>
 <li>Objekte und Eigenschaften bestimmten Typen zuzuordnen und damit</li>
@@ -524,7 +497,7 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 }</code></pre>
 <p>Hier sind die Eigenschaften wie <code>image</code> einer URL wie http://schema.org/image zugewiesen. Ein Client, der diese URL kennt, kann daraus folgern, dass über die Objekteigenschaft <code>image</code> immer die URL eines Bildes zu finden ist. Das Schlüssel-Wert-Paar</p>
 <pre><code>&quot;@type&quot;: &quot;@id&quot;</code></pre>
-<p>sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die URL eines anderen Objekts ist<a href="#fn28" class="footnoteRef" id="fnref28"><sup>28</sup></a>. Mittels <code>@type</code>-Deklaration könnte aber auch beispielsweise eine Eigenschaft, die im JSON-Sinn eine Zeichenkette ist, als Datum deklariert werden.</p>
+<p>sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die URL eines anderen Objekts ist<a href="#fn27" class="footnoteRef" id="fnref27"><sup>27</sup></a>. Mittels <code>@type</code>-Deklaration könnte aber auch beispielsweise eine Eigenschaft, die im JSON-Sinn eine Zeichenkette ist, als Datum deklariert werden.</p>
 <p>Am obigen Beispiel fällt auf, dass der <code>@context</code>-Teil des Objekts schon mehr Daten umfasst, als die eigentlichen Objekteigenschaften. Sinnvollerweise kann jedoch der gesamte Inhalt des <code>@context</code>-Teils in eine externe Ressource ausgelagert werden. Das folgende Beispiel verdeutlicht dies:</p>
 <pre class="sourceCode json" id="jsonld_ex3"><code class="sourceCode json">{
   <span class="dt">&quot;@context&quot;</span>: <span class="st">&quot;http://json-ld.org/contexts/person.jsonld&quot;</span>,
@@ -570,9 +543,9 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 </ul>
 </section>
 <section id="jsonp" class="level3">
-<h3><span class="header-section-number">4.6.3</span> JSONP</h3>
+<h3><span class="header-section-number">4.5.3</span> JSONP</h3>
 <p>Eine Einschränkung bei der Nutzung von JSON ist das Sicherheitsmodell von Web-Browsern. Die gängigen Browser erlauben es innerhalb von Webanwendungen nicht, JSON-Ressourcen von Domains auszulesen, die nicht der Domain entsprechen, von der die Webanwendung selbst geladen wurde. AnwendungsentwicklerInnen sind dadurch bei der Implementierung von Client-Anwendungen eingeschränkt.</p>
-<p>Diese Einschränkung gilt nicht fürt JSONP<a href="#fn29" class="footnoteRef" id="fnref29"><sup>29</sup></a>. Durch JSONP (TODO: Abkürzung erläutern) wird die JSON-Notation so erweitert, dass der ausgegebene Code ausführbarer JavaScript-Code wird. Damit wird erreicht, dass der JSON-Code über die Grenzen von Domains hinweg direkt von Webanwendungen eingebunden werden kann.</p>
+<p>Diese Einschränkung gilt nicht fürt JSONP<a href="#fn28" class="footnoteRef" id="fnref28"><sup>28</sup></a>. Durch JSONP (TODO: Abkürzung erläutern) wird die JSON-Notation so erweitert, dass der ausgegebene Code ausführbarer JavaScript-Code wird. Damit wird erreicht, dass der JSON-Code über die Grenzen von Domains hinweg direkt von Webanwendungen eingebunden werden kann.</p>
 <p>Das folgende Beispiel verdeutlicht den Unterschied zwischen JSON und JSONP. Zunächst ein einfaches JSON-Beispiel:</p>
 <pre class="sourceCode json" id="jsonp_ex1"><code class="sourceCode json">{
     <span class="dt">&quot;foo&quot;</span>: <span class="st">&quot;bar&quot;</span>
@@ -593,10 +566,10 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="benannte_anonyme_objekte" class="level2">
-<h2><span class="header-section-number">4.7</span> Benannte und anonyme Objekte</h2>
+<h2><span class="header-section-number">4.6</span> Benannte und anonyme Objekte</h2>
 <p>Die JSON-LD-Spezifikation unterscheidet zwischen benannten und anonymen Objekten. Da die Unterscheidung auch für OParl von Bedeutung ist, wird sie hier genauer erläutert.</p>
 <section id="benannte-objekte" class="level3">
-<h3><span class="header-section-number">4.7.1</span> Benannte Objekte</h3>
+<h3><span class="header-section-number">4.6.1</span> Benannte Objekte</h3>
 <p>Benannte Objekte sind innerhalb einer JSON-LD-Ausgabe diejenigen Objekte, die durch eine eigene URL identifiziert werden. Als Beispiel dient ein fiktives Objekt, das ein Client über die URL</p>
 <pre><code>https://oparl.beispielris.de/bodies/0/committees/1</code></pre>
 <p>abruft:</p>
@@ -609,7 +582,7 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 <p>Das benannte Objekt kann über seine URL sowohl eindeutig identifiziert als auch direkt abgerufen werden.</p>
 </section>
 <section id="anonyme-objekte-blank-nodes" class="level3">
-<h3><span class="header-section-number">4.7.2</span> Anonyme Objekte (Blank Nodes)</h3>
+<h3><span class="header-section-number">4.6.2</span> Anonyme Objekte (Blank Nodes)</h3>
 <p>Im Gegensatz dazu können Objekte existieren, die keine eigene URL haben.</p>
 <p>Wenn diese im Semantic Web verwendet werden, dann führen sie zu erheblichen Problemen. Sandro Hawke (W3C) hat diese so zusammengefasst:</p>
 <blockquote>
@@ -643,12 +616,12 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="objektlisten" class="level2">
-<h2><span class="header-section-number">4.8</span> Objektlisten</h2>
+<h2><span class="header-section-number">4.7</span> Objektlisten</h2>
 <p>Über die OParl-API können entweder einzelne (benannte) Objekte, beispielsweise eine bestimmte Drucksache, oder Listen von Objekten, etwa die Liste aller Sitzungen einer Körperschaft, abgefragt werden.</p>
 <p>Fragt ein Client eine Liste von Objekten an, hat der Server mehrere Möglichkeiten, diese Anfrage zu beantworten.</p>
 <p>In jedem Fall werden die einzelnen Objekte, die Bestandteile der Liste sind (wie z.B. die einzelnen Drucksachen) durch die URL des jeweiligen Objekts repräsentiert. Objektlisten sind also tatsächlich immer Listen von URLs.</p>
 <section id="vollständige-listenausgabe" class="level3">
-<h3><span class="header-section-number">4.8.1</span> Vollständige Listenausgabe</h3>
+<h3><span class="header-section-number">4.7.1</span> Vollständige Listenausgabe</h3>
 <p>In der einfachsten Form gibt der Server die Liste als Objekt mit nur einer einzigen Eigenschaft <code>items</code> aus. Der Wert dieser Eigenschaft ist die <strong>vollständige Liste</strong> der URLs aller in der Liste enthaltenen Objekte.</p>
 <p>Diese einfachste Form der Antwort eignet sich nur für Listen mit einer begrenzten Anzahl von Einträgen, wie beispielsweise die Liste der Mitglieder einer Organisation.</p>
 <p>Beispiel:</p>
@@ -662,10 +635,10 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 <p>Die vollständige Listenausgabe SOLL nur für Listen verwendet werden, die bis zu 100 Einträge umfassen.</p>
 </section>
 <section id="paginierung" class="level3">
-<h3><span class="header-section-number">4.8.2</span> Paginierung</h3>
+<h3><span class="header-section-number">4.7.2</span> Paginierung</h3>
 <p>Für den Abruf von Listen mit vielen Elementen ist eine Blätterfunktion (Paginierung) vorgesehen. Darunter verstehen wir die Aufteilung einer Liste in kleinere Teilstücke, die wir hier als Listenseiten bezeichnen. Jede Listenseite wird vom Client jeweils mit einer eigenen API-Anfrage abgerufen. Das dient dazu, die bei der jeweiligen Anfrage übertragenen Datenmengen zu begrenzen und damit Antwortzeiten und Systemressourcen sowohl beim Server als auch beim Client zu schonen.</p>
 <p>Die Entscheidung, ob eine Seite teilweise und daher mit Paginierung ausgegeben wird, liegt allein beim Server. Bei Listen mit mehr als 100 Einträgen ist dies EMPFOHLEN. Die Zahl der Einträge, die der Server dabei je Listenseite ausliefert, SOLL dabei maximal 100 betragen. Die Anzahl der Einträge (Obergrenze) MUSS auf allen Listenseiten der selben Liste einheitlich sein, sofern nicht (beispielsweise auf der letzten Listenseite) weniger Listeneinträge vorhanden sind.</p>
-<p>Wird eine Liste in Form von Listenseiten, also mit Paginierung, ausgegeben, teilt der Server dem Client mittels HTTP-Headern in der nachfolgend beschriebenen Form mit, unter welcher URL weitere Listenseiten abgerufen werden können. Dabei wird von dem in RFC5988<a href="#fn30" class="footnoteRef" id="fnref30"><sup>30</sup></a> beschriebenen Header namens <code>Link</code> Gebrauch gemacht.</p>
+<p>Wird eine Liste in Form von Listenseiten, also mit Paginierung, ausgegeben, teilt der Server dem Client mittels HTTP-Headern in der nachfolgend beschriebenen Form mit, unter welcher URL weitere Listenseiten abgerufen werden können. Dabei wird von dem in RFC5988<a href="#fn29" class="footnoteRef" id="fnref29"><sup>29</sup></a> beschriebenen Header namens <code>Link</code> Gebrauch gemacht.</p>
 <p>Beispiel eines Link-Headers zur Angabe der URL für den Abruf der folgenden Listenseite:</p>
 <pre><code>Link: &lt;https://oparl.beispielris.de/bodies/0/papers/?skip_id=7&gt;;rel=next</code></pre>
 <p>Im oben gezeigten Beispiel besteht der Wert des Link-Headers aus zwei Bestandteilen, die durch Semikolon <code>;</code> von einander getrennt sind:</p>
@@ -722,7 +695,7 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 <p>Die zuvor beschriebenen Anforderungen für die Paginierung von Listen gelten auch unverändert, wenn der Umfang der Liste durch Abfrageparameter vom Client eingeschränkt wurde.</p>
 </section>
 <section id="listen-als-eigenschaften-von-objekten" class="level3">
-<h3><span class="header-section-number">4.8.3</span> Listen als Eigenschaften von Objekten</h3>
+<h3><span class="header-section-number">4.7.3</span> Listen als Eigenschaften von Objekten</h3>
 <p>Listen von Objekten können auch als Werte von Objekteigenschaften auftreten. Hierbei kann die oben beschriebene Paginierung nicht angewendet werden, sondern es MÜSSEN die URLs aller Listeneinträge aufgelistet werden.</p>
 <p>Ein Beispiel dafür könnte die Eigenschaft <code>bodies</code> des <code>oparl:System</code> Objekts sein, also die Liste der Körperschaften, die auf einem OParl-Server abgebildet werden:</p>
 <pre class="sourceCode json" id="objektlisten_ex6"><code class="sourceCode json">{
@@ -742,24 +715,24 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;bodies&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/bodies/&quot;</span>
     <span class="er">...</span>
 }</code></pre>
-<p>Statt einer JSON-Liste ist der Wert der Eigenschaft nun eine einzige URL.<a href="#fn31" class="footnoteRef" id="fnref31"><sup>31</sup></a></p>
+<p>Statt einer JSON-Liste ist der Wert der Eigenschaft nun eine einzige URL.<a href="#fn30" class="footnoteRef" id="fnref30"><sup>30</sup></a></p>
 </section>
 </section>
 <section id="feeds" class="level2">
-<h2><span class="header-section-number">4.9</span> Feeds</h2>
+<h2><span class="header-section-number">4.8</span> Feeds</h2>
 <p>Feeds sind spezielle Arten von <a href="#objektlisten">Objektlisten</a>, für die besondere Anforderungen gelten. Es werden drei verschiedene Feeds spezifiziert:</p>
 <ul>
 <li>Der Feed <em>Neue Objekte</em></li>
 <li>Der Feed <em>Geänderte Objekte</em></li>
 <li>Der Feed <em>Entfernte Objekte</em></li>
 </ul>
-<p>Der Begriff &quot;Feed&quot; ist eine Anlehnung an die weit verbreiteten RSS-<a href="#fn32" class="footnoteRef" id="fnref32"><sup>32</sup></a> oder Atom-Feeds<a href="#fn33" class="footnoteRef" id="fnref33"><sup>33</sup></a>, deren Publikationslogik im Wesentlichen auf der chronologischen Sortierung beruht. Im Unterschied zu Atom oder RSS ist hier jedoch keine XML-Ausgabe beabsichtigt.</p>
+<p>Der Begriff &quot;Feed&quot; ist eine Anlehnung an die weit verbreiteten RSS-<a href="#fn31" class="footnoteRef" id="fnref31"><sup>31</sup></a> oder Atom-Feeds<a href="#fn32" class="footnoteRef" id="fnref32"><sup>32</sup></a>, deren Publikationslogik im Wesentlichen auf der chronologischen Sortierung beruht. Im Unterschied zu Atom oder RSS ist hier jedoch keine XML-Ausgabe beabsichtigt.</p>
 <p>Die Feeds sollen es Clients ermöglichen, schnell und ressourcenschonend abzufragen, welche Objekte auf dem Server neu hinzugefügt, geändert oder entfernt wurden. Damit können Clients beispielsweise schnell und einfach neue Dokumente auffinden und verarbeiten oder entfernte Objekte aus ihren Caches entfernen und dabei nur ein Mindestmaß an Anfragen ausführen.</p>
 <p>Ein OParl-Server SOLL jeden der nachfolgend beschriebenen Feeds anbieten, sofern möglich.</p>
 <p>Für alle drei Feeds wird EMPFOHLEN, dass mindestens ein Zeitraum von 365 Tagen abgedeckt wird.</p>
 <p>Da Feeds üblicherweise eine große und stetig steigende Anzahl von Objekten beinhalten können, ist hier die <a href="#paginierung">Paginierung</a> anzuwenden, wie sie im vorigen Abschnitt über <a href="#objektlisten">Objektlisten</a> beschrieben wird.</p>
 <section id="feed_neue_objekte" class="level3">
-<h3><span class="header-section-number">4.9.1</span> Der Feed &quot;Neue Objekte&quot;</h3>
+<h3><span class="header-section-number">4.8.1</span> Der Feed &quot;Neue Objekte&quot;</h3>
 <p>Der Feed für neue Objekte listet die URLs neu hinzugekommener Objekte in der Reihenfolge des Datums ihrer Erstellung, wobei die jüngsten Objekte zuerst ausgegeben werden.</p>
 <p>Die Definition, was ein &quot;neues&quot; Objekt bzw. die &quot;Erstellung&quot; bedeutet, kann zwischen Systemen und Objekttypen variieren. So werden bestimmte Objekte in einigen Systemen zunächst erstellt und erst dann für die Öffentlichkeit freigegeben. In diesem Fall ist im Sinne dieses Feeds die Freigabe als Zeitpunkt der Erstellung zu verwenden.</p>
 <p>Der Feed SOLL sämtliche Objekttypen umfassen, die in einem System geführt werden.</p>
@@ -791,7 +764,7 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 <p>Am 1. April 2014 ruft ein Client den Feed ab und findet im ersten Listeneintrag den <code>created</code>-Zeitpunkt <code>2014-03-31T18:02:34.058+0200</code> vor, den er sich als Grenzwert merkt. Beim nächsten Abruf des Feeds einige Tage später muss der Client die Liste nur so weit abarbeiten, so lange der <code>created</code>-Zeitpunkt der Einträge größer oder gleich dem Grenzwert ist.</p>
 </section>
 <section id="feed_geaenderte_objekte" class="level3">
-<h3><span class="header-section-number">4.9.2</span> Der Feed &quot;Geänderte Objekte&quot;</h3>
+<h3><span class="header-section-number">4.8.2</span> Der Feed &quot;Geänderte Objekte&quot;</h3>
 <p>Der Feed für geänderte Objekte listet die URLs geänderter Objekte in der Reihenfolge des Datums ihrer Änderung, wobei das zuletzt geänderte Objekt zuerst ausgegeben wird.</p>
 <p>Die Definition einer &quot;Änderung&quot; kann sich zwischen den Objekttypen unterscheiden. Tendenziell soll die Definition eher weiter ausgelegt werden, als enger. Als Änderung einer Organisation könnte es beispielsweise verstanden werden, wenn ein neues Mitglied zur Organisation hinzukommt. Das Erstellen eines Objekts (im Sinne des Feeds &quot;Neue Objekte&quot;) sollte hingegen nicht als Änderung gewertet werden, um das redundante Erscheinen eines neuen Objekts sowohl im Feed &quot;Neue Objekte&quot; als auch im Feed &quot;Geänderte Objekte&quot; zu vermeiden.</p>
 <p>Auch hier SOLL der Feed sämtliche Objekttypen umfassen, die in einem System geführt werden.</p>
@@ -815,7 +788,7 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 <p>Das Ausgabeformat entspricht weitgehend dem des Feeds &quot;Neue Objekte&quot;, jedoch heißt hier die Eigenschaft für den Zeitpunkt der letzten Änderung <code>lastModified</code>. Auch hier gilt, dass der als <code>lastModified</code> ausgegebene Zeitpunkt auch als Sortierkriterium der Liste gelten SOLL.</p>
 </section>
 <section id="feed_entfernte_objekte" class="level3">
-<h3><span class="header-section-number">4.9.3</span> Der Feed &quot;Entfernte Objekte&quot;</h3>
+<h3><span class="header-section-number">4.8.3</span> Der Feed &quot;Entfernte Objekte&quot;</h3>
 <p>Der Feed für entferne Objekte listet die URLs entfernter Objekte in der Reihenfolge des Datums ihrer Entfernung auf, wobei die zuletzt entfernten Objekte zuerst ausgegeben werden.</p>
 <p>Mit &quot;Entfernung&quot; ist im Sinne dieses Feeds die Löschung eines Objekts, aber auch die Depublikation oder das Beenden der öffentlichen Verfügbarkeit gemeint.</p>
 <p>Client-Implementierer sind angehalten, diesen Feed zu nutzen, um beispielsweise depublizierte Dokumente aus ihren lokalen Caches zu entfernen.</p>
@@ -832,26 +805,26 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="dateizugriff" class="level2">
-<h2><span class="header-section-number">4.10</span> Dateizugriff</h2>
-<p>Mit dem Begriff &quot;Datei&quot; sind im Sinne dieser Spezifikation alle Ressourcen gemeint, die von einem OParl-Server zur Verfügung gestellt werden und deren Metadaten über die JSON-API als <code>[oparl:Document](#oparl_document)</code> abgerufen werden können. Es handelt sich dabei beispielsweise um Textdokumente im PDF-Format, Abbildungen im JPEG- oder PNG etc., die wesentliche Inhalte der parlamentarischen Informationen im OParl-System ausmachen.</p>
+<h2><span class="header-section-number">4.9</span> Dateizugriff</h2>
+<p>Mit dem Begriff &quot;Datei&quot; sind im Sinne dieser Spezifikation alle Ressourcen gemeint, die von einem OParl-Server zur Verfügung gestellt werden und deren Metadaten über die JSON-API als <a href="#oparl_document"><code>oparl:Document</code></a> abgerufen werden können. Es handelt sich dabei beispielsweise um Textdokumente im PDF-Format, Abbildungen im JPEG- oder PNG etc., die wesentliche Inhalte der parlamentarischen Informationen im OParl-System ausmachen.</p>
 <p>In Bezug auf die Datenvolumen, die der Verkehr zwischen OParl Servern und Clients ausmacht, kommt dem Dateizugriff eine besondere Bedeutung zu. Daher formuliert OParl diesbezüglich einige Anforderungen, die helfen sollen, unnötigen Datentransfer zu vermeiden.</p>
-<p>Detail zu sämtlichen angesprochenen Mechanismen sind in der HTTP-1.1-Spezifikation<a href="#fn34" class="footnoteRef" id="fnref34"><sup>34</sup></a> zu finden.</p>
+<p>Detail zu sämtlichen angesprochenen Mechanismen sind in der HTTP-1.1-Spezifikation<a href="#fn33" class="footnoteRef" id="fnref33"><sup>33</sup></a> zu finden.</p>
 <section id="get-und-head-anfragen" class="level3">
-<h3><span class="header-section-number">4.10.1</span> GET und HEAD Anfragen</h3>
-<p>Grundsätzlich gilt, dass jede Datei mittels HTTP-Anfrage unter Verwendung der HTTP-Methode <code>GET</code> abrufbar sein MUSS. Um Clients zusätzlich die Überprüfung einer Datei zu ermöglichen, MUSS vom Server außerdem die HTTP-Methode <code>HEAD</code> unterstützt werden. Gemäß HTTP-Spezifikation gibt der Server in diesem Fall nur die Antwort-Header, nicht aber den eigentlichen Inhalt der angefrgten Ressource, aus.</p>
-<p>Die URLs zum Abruf der einzelnen Datei (wahlweise mittels GET oder HEAD) stellt der Server dem Client in den Daten des Metadaten-Objekts zur Verfügung. Details finden sich in der Schema-Beschreibung zu <code>[oparl:Document](#oparl_document)</code>.</p>
+<h3><span class="header-section-number">4.9.1</span> GET und HEAD Anfragen</h3>
+<p>Grundsätzlich gilt, dass jede Datei mittels HTTP-Anfrage unter Verwendung der HTTP-Methode <code>GET</code> abrufbar sein MUSS. Um Clients zusätzlich die Überprüfung einer Datei zu ermöglichen, MUSS vom Server außerdem die HTTP-Methode <code>HEAD</code> unterstützt werden. Gemäß HTTP-Spezifikation gibt der Server in diesem Fall nur die Antwort-Header, nicht aber den eigentlichen Inhalt der angefragten Ressource, aus.</p>
+<p>Die URLs zum Abruf der einzelnen Datei (wahlweise mittels GET oder HEAD) stellt der Server dem Client in den Daten des Metadaten-Objekts zur Verfügung. Details finden sich in der Schema-Beschreibung zu <a href="#oparl_document"><code>oparl:Document</code></a>.</p>
 </section>
 <section id="allgemeiner-zugriff-und-expliziter-download" class="level3">
-<h3><span class="header-section-number">4.10.2</span> Allgemeiner Zugriff und expliziter Download</h3>
+<h3><span class="header-section-number">4.9.2</span> Allgemeiner Zugriff und expliziter Download</h3>
 <p>Mit der im <code>oparl:Document</code> ZWINGEND anzugebenden Eigenschaft <code>accessUrl</code> liefert der Server dem Client eine URL, die wir hier nachfolgend als <em>Zugriffs-URL</em> bezeichnen. Diese URL dient dem allgmeinen Zugriff auf die Datei. Wie der Client dem Endnutzer diesen Zugriff genau ermöglicht, ist nicht Sache der OParl-Spezifikation.</p>
-<p>Im Unterschied dazu KANN der Server dem Client in der Eigenschaft <code>downloadUrl</code> eine weitere URL anbieten, hier <em>Download-URL</em> genannt. Diese dient im Gegensatz zur Zugriffs-URL speziell zum Herunterladen und Speichern der Datei in einem Dateisystem des Endnutzers. Bei Zugriff auf die Download-URL MUSS der Server in der HTTP-Antwort einen <code>Content-Disposition</code> Header senden.<a href="#fn35" class="footnoteRef" id="fnref35"><sup>35</sup></a> Dieser Header MUSS als ersten Parameter den Typ <code>attachment</code> sowie den <code>filename</code>-Parameter mit dem Namen der Datei enthalten.</p>
+<p>Im Unterschied dazu KANN der Server dem Client in der Eigenschaft <code>downloadUrl</code> eine weitere URL anbieten, hier <em>Download-URL</em> genannt. Diese dient im Gegensatz zur Zugriffs-URL speziell zum Herunterladen und Speichern der Datei in einem Dateisystem des Endnutzers. Bei Zugriff auf die Download-URL MUSS der Server in der HTTP-Antwort einen <code>Content-Disposition</code> Header senden.<a href="#fn34" class="footnoteRef" id="fnref34"><sup>34</sup></a> Dieser Header MUSS als ersten Parameter den Typ <code>attachment</code> sowie den <code>filename</code>-Parameter mit dem Namen der Datei enthalten.</p>
 <p>Beispiel:</p>
 <pre><code>Content-Disposition: attachment; filename=&quot;2014-08-22 Rat Wortprotokoll.pdf&quot;</code></pre>
 <p>Der in diesem Header kommunizierte Dateiname ist als Vorschlag an die Nutzerin zu verstehen, die Datei unter diesem Namen zu speichern. Entsprechend sind Abwägungen bezüglich der Verständlichkeit, Leserlichkeit und Einzigartigkeit des Dateinamens, aber auch in Hinblick auf den verwendeten Zeichenumfang zu berücksichtigen. Es wird EMPFOHLEN, den Dateinamen ausschließlich aus dem ASCII-Zeichenvorrat zu bilden.</p>
 <p>Im Unterschied zum Zugriff auf die Download-URL DARF der Server beim Zugriff auf die Zugriffs-URL KEINEN <code>Content-Disposition</code> Header mit Parameter <code>attachment</code> senden.</p>
 </section>
 <section id="obligatorische-und-empfohlene-header" class="level3">
-<h3><span class="header-section-number">4.10.3</span> Obligatorische und empfohlene Header</h3>
+<h3><span class="header-section-number">4.9.3</span> Obligatorische und empfohlene Header</h3>
 <p>Ziel ist, dem Client möglichst flexible Möglichkeiten zu geben, einen Cache zu überprüfen bzw. zu aktualisieren und vermeidbare Anfragen einer Ressource zu vermeiden. Um dies zu unterstützen, können laut HTTP-Spezifikationen unterschiedliche Header zum Einsatz kommen.</p>
 <p>Die Auslieferung eines <code>Last-Modified</code>-Headers gilt für alle OParl-Server beim Zugriff auf eine Datei-URL, sei es Download- oder Zugriffs-URL, als ZWINGEND.</p>
 <p>Darüber hinaus EMPFEHLEN wir, bei Anfrage einer Datei die folgenden Header auszuliefern:</p>
@@ -861,7 +834,7 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 </ul>
 </section>
 <section id="conditional-get" class="level3">
-<h3><span class="header-section-number">4.10.4</span> Conditional GET</h3>
+<h3><span class="header-section-number">4.9.4</span> Conditional GET</h3>
 <p>Unter einem &quot;Conditional GET&quot; versteht man im HTTP-Kontext die Möglichkeit des Clients, die Anfrage einer Ressource mit einer Bedingung zu verknüpfen. Der Server beantwortet die Anfrage nur dann mit einer vollständigen HTTP-Antwort, wenn die Bedingung erfüllt ist. Andernfalls enthält die Anfrage lediglich Header, der HTTP Status-Code SOLL in diesem Fall &quot;304&quot; lauten (für &quot;nicht geändert&quot;). Dies dient der Schonung von Ressourcen.</p>
 <p>Für einen OParl-Server wird EMPFOHLEN, die nachstehenden Varianten des Conditional GET zu unterstützen:</p>
 <ul>
@@ -870,12 +843,12 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 </ul>
 </section>
 <section id="zustandsloser-dateizugriff" class="level3">
-<h3><span class="header-section-number">4.10.5</span> Zustandsloser Dateizugriff</h3>
+<h3><span class="header-section-number">4.9.5</span> Zustandsloser Dateizugriff</h3>
 <p>Die Anforderung, dass die OParl API zustandslos arbeitet (vgl. <a href="#restful">RESTful</a>{#restful}), hat ZWINGEND auch für den Abruf von Dateien zu gelten. Es DÜRFEN daher keine Session-spezifischen URLs oder ähnliches für den Dateizugriff gebildet werden.</p>
 <p>Damit wird erreicht, dass Clients die Zugriffs-URLs aus dem <code>oparl:Document</code> für längere Zeit speichern bzw. cachen können</p>
 </section>
 <section id="weiterleitungen" class="level3">
-<h3><span class="header-section-number">4.10.6</span> Weiterleitungen</h3>
+<h3><span class="header-section-number">4.9.6</span> Weiterleitungen</h3>
 <p>Es ist im Rahmen dieser Spezifikation problemlos möglich, die Anfrage an eine Datei-URL mit einer HTTP-Weiterleitung zu beantworten, um dem Client eine andere URL zum Zugriff mitzuteilen.</p>
 <p>In diesem Fall wird dringend EMPFOHLEN, die Unterscheidung der Bedeutung der HTTP-Status-Codes <code>301</code> und <code>307</code> zu beachten.</p>
 <ul>
@@ -884,8 +857,36 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 </ul>
 </section>
 <section id="entfernte-dateien" class="level3">
-<h3><span class="header-section-number">4.10.7</span> Entfernte Dateien</h3>
+<h3><span class="header-section-number">4.9.7</span> Entfernte Dateien</h3>
 <p>Beim Zugriff auf eine Datei, die zuvor einmal abrufbar war, es inzwischen jedoch nicht mehr ist, SOLL die HTTP-Antwort des Servers den spezifischen Status-Code <code>410</code> tragen.</p>
+</section>
+</section>
+<section id="content_negotiation" class="level2">
+<h2><span class="header-section-number">4.10</span> Content Negotiation</h2>
+<p>Das Prinzip &quot;Content Negotiation&quot; wird in RFC2295<a href="#fn35" class="footnoteRef" id="fnref35"><sup>35</sup></a> beschrieben und bedeutet, dass WWW-Server eine Ressource in verschiedenen Formaten bereithalten können und Clients die Möglichkeit haben, eine Vorliebe für ein bestimmtes Format zu übermitteln. Auch die HTTP-1.1-Spezifikation<a href="#fn36" class="footnoteRef" id="fnref36"><sup>36</sup></a> schließt Content Negotiation ein.</p>
+<p>Die Idee hinter Content Negotiation ist, dass ein Client die von ihm akzeptierten Repräsentationen im <code>Accept</code>-Header der HTTP-Anfrage mitsendet, damit der Server gemäß Spezifikation die am besten passende und von ihm unterstützte Repräsentation an den Client ausliefert.</p>
+<p>Grundanforderung der vorliegenden Spezifikation an OParl Clients ist, dass sie bei jeder Anfrage an einen OParl-Server einen Accept-Header mit dem Mime-Type <code>application/ld+json</code> senden MÜSSEN, es sei denn, es handelt sich um einen <a href="#dateizugriff">Dateizugriff</a>.</p>
+<p>Im Kontext von OParl soll durch Unterstützung von Content Negotiation ermöglicht werden, dass die URLs von OParl-Objekten auch von WWW-Clients aufgerufen werden können, die nicht unmittelbar in Kenntnis der OParl-Spezifikation entwickelt wurden.</p>
+<p>Ein Beispiel für einen solchen Client wäre ein üblicher Browser. Ruft dieser die URL einer Drucksache (OParl-Objekttyp <code>oparl:Paper</code>) auf, sendet er entweder keinen <code>Accept</code>-Header oder aber einen solchen, der eine Bevorzugung von Inhaltstypen wie HTML angibt.</p>
+<p>Der Server DARF nun, da kein Accept-Header mit dem Typ <code>application/ld+json</code> gesendet wurde, dem Client eine alternative Version der Information über die Drucksache ausliefern, beispielsweise eine HTML-Ansicht.</p>
+<p>Ein Server DARF eine alternative Inhaltsform auch in Form einer HTTP-Weiterleitung anbieten.</p>
+<section id="httprange-14" class="level3">
+<h3><span class="header-section-number">4.10.1</span> httpRange-14</h3>
+<p>In dem Zusammenhang sei informell auf ein für Linked Data relevantes Detail hingewiesen - auf welches man gelegentlich unter dem Kürzel <code>httpRange-14</code> stößt. Wenn man in einem üblichen Web-Browser diese URL aufruft:</p>
+<p><a href="http://dbpedia.org/resource/John_Doe_(musician)">http://dbpedia.org/resource/John_Doe_(musician)</a></p>
+<p>dann erfolgt eine Weiterleitung auf diese URL:</p>
+<p><a href="http://dbpedia.org/page/John_Doe_(musician)">http://dbpedia.org/page/John_Doe_(musician)</a></p>
+<p>Dabei identifiziert die erste URL den abstrakten Begriff des Musikers, während die zweite eine Repräsentation dieses Begriffs identifiziert. Ein anderer HTTP-Client, der statt HTML-Seiten z.B. JSON-LD bevorzugt, würde bei Zugriff auf die erste URL wiederum zu einer anderen URL weiter geleitet:</p>
+<p><a href="http://dbpedia.org/data/John_Doe_(musician).jsonld">http://dbpedia.org/data/John_Doe_(musician).jsonld</a></p>
+<p>Dabei handelt es sich um eine Repräsentation des Musikers in Form von JSON-LD.</p>
+<p>Diese drei Links sind nicht nur verschieden, sondern haben unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL (HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients generell nicht verwendet werden, um auf einfache Weise zu den anderen beiden URLs zu gelangen. Deshalb soll bei Linked Data der erste Link, also der des abstrakten Begriffs angegeben werden. Der Zugriff auf diesen Link wird &quot;Dereferenzierung&quot; genannt. Von dem ersten Link gelangt man zu den beiden anderen mittels Content Negotiation.</p>
+<p>So kann der Server beim Zugriff eines Client auf</p>
+<pre><code>https://dbpedia.org/resource/John_Doe_(musician)</code></pre>
+<p>z.B. entweder diese URL sowie HTML-Inhalt liefern</p>
+<pre><code>https://dbpedia.org/page/John_Doe_(musician)</code></pre>
+<p>oder aber diese URL mit JSON-LD als Inhalt</p>
+<pre><code>https://dbpedia.org/data/John_Doe_(musician).jsonld</code></pre>
+<p>Die Entscheidung darüber, welche der URLs und welche der Inhaltsformate der Server liefert, wird zwischen Client und Server mittels Content Negotiation ausgehandelt.</p>
 </section>
 </section>
 <section id="ausnahmebehandlung" class="level2">
@@ -990,10 +991,10 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 </section>
 <section id="license" class="level3">
 <h3><span class="header-section-number">5.2.4</span> <code id="eigenschaft_license">license</code></h3>
-<p>Die Eigenschaft <code>license</code> erlaubt es, am jeweiligen Objekt die URL einer Lizenz anzugeben. Damit wird gekennzeichnet, welche Lizenz der Veröffentlicher der Daten für das jeweilige Objekt vergibt.<a href="#fn36" class="footnoteRef" id="fnref36"><sup>36</sup></a></p>
+<p>Die Eigenschaft <code>license</code> erlaubt es, am jeweiligen Objekt die URL einer Lizenz anzugeben. Damit wird gekennzeichnet, welche Lizenz der Veröffentlicher der Daten für das jeweilige Objekt vergibt.<a href="#fn37" class="footnoteRef" id="fnref37"><sup>37</sup></a></p>
 <p>Eine besondere Bedeutung hat die Eigenschaft <code>license</code>, wenn sie am <code>oparl:System</code> Objekt oder am <code>oparl:Body</code> Objekt vergeben wird. Die hier angegebene Lizenzinformation sagt aus, dass alle Objekte dieses Systems bzw. der Körperschaft unter der angegebenen Lizenz veröffentlicht werden, sofern dies nicht am jeweiligen Objekt mit einer anders lautenden Lizenz-URL überschrieben wird. Daher wird dringend EMPFOHLEN, die Lizenzinformation global am <code>oparl:System</code> Objekt mitzuteilen und auf redundante Informationen zu verzichten.</p>
 <p>An Objekten vom Typ <code>oparl:Document</code> auftretend, bezieht sich die Lizenzinformation nicht nur auf die strukturierten Metadaten, die über die API bezogen werden, sondern auch auf den eigentlichen Inhalt der Dateien, die über die angebotene(n) URL(s) abgerufen werden können.</p>
-<p>Lesenswert zum Thema Lizensierung von Linked Data ist auch er Abschnitt &quot;Licenses, Waivers and Norms for Data&quot; im online zugänglichen Linked Data Book.<a href="#fn37" class="footnoteRef" id="fnref37"><sup>37</sup></a></p>
+<p>Lesenswert zum Thema Lizensierung von Linked Data ist auch er Abschnitt &quot;Licenses, Waivers and Norms for Data&quot; im online zugänglichen Linked Data Book.<a href="#fn38" class="footnoteRef" id="fnref38"><sup>38</sup></a></p>
 </section>
 <section id="created" class="level3">
 <h3><span class="header-section-number">5.2.5</span> <code>created</code></h3>
@@ -1184,10 +1185,10 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 <dd><p>Tagesdatum, seit dem die unter license angegebene Lizenz gilt. Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen. Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>rgs</code></dt>
-<dd><p>Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette<a href="#fn38" class="footnoteRef" id="fnref38"><sup>38</sup></a>. Typ: TODO EMPFOHLEN</p>
+<dd><p>Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette<a href="#fn39" class="footnoteRef" id="fnref39"><sup>39</sup></a>. Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>equivalentBody</code></dt>
-<dd><p>Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe Körperschaft repräsentieren. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek<a href="#fn39" class="footnoteRef" id="fnref39"><sup>39</sup></a>, der DBPedia<a href="#fn40" class="footnoteRef" id="fnref40"><sup>40</sup></a> oder der Wikipedia<a href="#fn41" class="footnoteRef" id="fnref41"><sup>41</sup></a> angegeben werden. Typ: TODO EMPFOHLEN</p>
+<dd><p>Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe Körperschaft repräsentieren. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek<a href="#fn40" class="footnoteRef" id="fnref40"><sup>40</sup></a>, der DBPedia<a href="#fn41" class="footnoteRef" id="fnref41"><sup>41</sup></a> oder der Wikipedia<a href="#fn42" class="footnoteRef" id="fnref42"><sup>42</sup></a> angegeben werden. Typ: TODO EMPFOHLEN</p>
 </dd>
 <dt><code>contactEmail</code></dt>
 <dd><p>Dient der Angabe einer Kontakt-E-Mail-Adresse mit &quot;mailto:&quot;-Schema. Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und idealerweise das parlamentarische Informationssystem zuständigen Stelle ermöglichen. Typ: TODO EMPFOHLEN</p>
@@ -1750,6 +1751,7 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;@type&quot;</span>: <span class="st">&quot;oparl:Document&quot;</span>,
     <span class="dt">&quot;@id&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/document/57739&quot;</span>,
     <span class="dt">&quot;name&quot;</span>: <span class="st">&quot;Anlage 1 zur Anfrage&quot;</span>,
+    <span class="dt">&quot;fileName&quot;</span>: <span class="st">&quot;57739.pdf&quot;</span>,
     <span class="dt">&quot;paper&quot;</span>: <span class="st">&quot;https://oparl.beispielris.de/paper/2396&quot;</span>,
     <span class="dt">&quot;mimeType&quot;</span>: <span class="st">&quot;application/pdf&quot;</span>,
     <span class="dt">&quot;date&quot;</span>: <span class="st">&quot;2013-01-04T07:54:13+01:00&quot;</span>,
@@ -1768,61 +1770,58 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 <section id="eigenschaften-7" class="level3">
 <h3><span class="header-section-number">5.10.1</span> Eigenschaften</h3>
 <dl>
+<dt><code>fileName</code></dt>
+<dd><p>Dateiname, unter dem die Datei in einem Dateisystem gespeichert werden kann. Typ: ASCII-Zeichenkette. ZWINGEND.</p>
+</dd>
 <dt><code>name</code></dt>
-<dd><p>Name des Objekts, der Nutzern angezeigt werden kann. Typ: Zeichenkette. ZWINGEND</p>
+<dd><p>Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt. Der Wert SOLL NICHT mit dem Wert der Eigenschaft <code>fileName</code> identisch sein. Typ: Zeichenkette. EMPFOHLEN.</p>
 </dd>
 <dt><code>mimeType</code></dt>
-<dd><p>Mime-Typ des Inhalts (vgl. RFC2046<a href="#fn42" class="footnoteRef" id="fnref42"><sup>42</sup></a>). Sollte das System einer Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier &quot;application/octet-stream&quot; zu verwenden. Typ: TODO ZWINGEND</p>
+<dd><p>Mime-Typ des Inhalts<a href="#fn43" class="footnoteRef" id="fnref43"><sup>43</sup></a>. Sollte das System einer Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier <code>application/octet-stream</code> zu verwenden. Typ: Zeichenkette ZWINGEND.</p>
 </dd>
 <dt><code>date</code></dt>
-<dd><p>Erstellungs- oder Veröffentlichungsdatum und -uhrzeit. Typ: Datum. ZWINGEND</p>
+<dd><p>Datum und Zeit der Erstellung der Datei. Wahlweise, falls dies nicht vom System kommuniziert werden kann oder soll, KANN alternativ der Zeitpunkt der Veröffentlichung ausgegeben werden. Typ: Datum. ZWINGEND.</p>
 </dd>
 <dt><code>lastModified</code></dt>
-<dd><p>Datum und Uhrzeit der letzten Änderung der Datei bzw. der Metadaten. Typ: Datum. ZWINGEND</p>
+<dd><p>Datum und Zeit der letzten Änderung der Datei bzw. der Metadaten. Als Änderung der Datei gilt alles, was den Inhalt der Datei verändert und beispielsweise zu einer Veränderung der Prüfsumme führen würde, nicht aber die Änderung des Dateinamens (siehe Eigenschaft <code>name</code>). Als Änderung der Metadaten hingegen würde beispielsweise die Änderung des Dateinamens gelten. Hier soll immer das größere der beiden Daten ausgegeben werden, also der am wenigsten lang zurückliegende Änderungszeitpunkt. Typ: Datum. ZWINGEND.</p>
 </dd>
 <dt><code>size</code></dt>
-<dd><p>Größe der Datei in Bytes. Typ: ganze Zahl. ZWINGEND</p>
+<dd><p>Größe der Datei in Bytes. Typ: ganze Zahl. ZWINGEND.</p>
 </dd>
 <dt><code>sha1Checksum</code></dt>
-<dd><p>SHA1-Prüfsumme des Dokumenteninhalts in Hexadezimal-Schreibweise. Typ: Zeichenkette. OPTIONAL</p>
+<dd><p>SHA1-Prüfsumme des Dokumenteninhalts in Hexadezimal-Schreibweise. Typ: Zeichenkette. OPTIONAL.</p>
 </dd>
 <dt><code>text</code></dt>
-<dd><p>Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform wiedergegeben werden kann. Typ: Zeichenkette. EMPFOHLEN</p>
+<dd><p>Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform wiedergegeben werden kann. Typ: Zeichenkette. EMPFOHLEN.</p>
 </dd>
 <dt><code>accessUrl</code></dt>
-<dd><p>URL zum gewöhnlichen Abruf der Datei mittels HTTP GET-Aufruf. Typ: URL. ZWINGEND</p>
+<dd><p>URL zum allgemeinen Zugriff auf die Datei. Näheres unter <a href="#dateizugriff">Dateizugriff</a>. Typ: URL. ZWINGEND.</p>
 </dd>
 <dt><code>downloadUrl</code></dt>
-<dd><p>URL zum Download der Datei. Besser ist es, bereits unter <code>accessUrl</code> einen &quot;schönen&quot; Dateinamen anzugeben. TODO: Zweck erklären. Typ: URL. EMPFOHLEN</p>
+<dd><p>URL zum Download der Datei. Näheres unter <a href="#dateizugriff">Dateizugriff</a>. Typ: URL. EMPFOHLEN.</p>
 </dd>
 <dt><code>paper</code></dt>
-<dd><p>Drucksache, sofern diese Datei zu einer Drucksache gehört. Wenn diese Datei zu einer Drucksache gehört, MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT vorhanden sein. TODO: ist das eine Tautologie? Typ: <code>oparl:Paper</code></p>
+<dd><p>Falls die Datei zu einer Drucksache (oparl:Paper) gehört, MUSS über diese Eigenschaft die URL des Drucksache-Objekts ausgegeben werden. Andernsfalls DARF diese Eigenschaft NICHT vorhanden sein. Typ: <code>oparl:Paper</code>.</p>
 </dd>
 <dt><code>meeting</code></dt>
-<dd><p>Sitzung, sofern diese Datei zu einer Sitzung gehört. Wenn diese Datei zu einer Sitzung gehört, MUSS diese Eigenschaft vorhanden sein, andernfalls DARF sie NICHT vorhanden sein. TODO: ist das eine Tautologie? Typ: <code>oparl:Meeting</code>.</p>
+<dd><p>Falls die Datei zu einer Sitzung (oparl:Meeting) gehört, MUSS über diese Eigenschaft die URL des Sitzung-Objekts ausgegeben werden. Andernfalls DARF diese Eigenschaft NICHT vorhanden sein. Typ: <code>oparl:Meeting</code>.</p>
 </dd>
 <dt><code>masterDocument</code></dt>
-<dd><p>Datei von der das aktuelle Objekt abgeleitet wurde. Typ: <code>oparl:Document</code>. OPTIONAL</p>
+<dd><p>Datei von der das aktuelle Objekt abgeleitet wurde. Typ: <code>oparl:Document</code>. OPTIONAL.</p>
 </dd>
 <dt><code>derivativeDocuments</code></dt>
-<dd><p>Abgeleitete Datei die von dem aktuellen Objekt abgeleitet wurde. Typ: <code>oparl:Document</code>. OPTIONAL</p>
+<dd><p>Abgeleitete Datei die von dem aktuellen Objekt abgeleitet wurde. Typ: <code>oparl:Document</code>. OPTIONAL.</p>
 </dd>
 <dt><code>license</code></dt>
-<dd><p>Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet wird, dann ist sie anstelle einer globalen Angabe im übergeordneten <code>oparl:Body</code> bzw. <code>oparl:System</code> Objekt maßgeblich. Typ: URL. OPTIONAL</p>
+<dd><p>Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet wird, dann ist sie anstelle einer globalen Angabe im übergeordneten <code>oparl:Body</code> bzw. <code>oparl:System</code> Objekt maßgeblich.<a href="#fn44" class="footnoteRef" id="fnref44"><sup>44</sup></a> Typ: URL. OPTIONAL.</p>
 </dd>
 <dt><code>documentRole</code></dt>
-<dd><p>Rolle, Funktion, Sorte des Dokuments. Das Objekt enthält ein <code>skos:prefLabel</code>. Dessen Werte können z.B. sein: &quot;Einladung&quot;, &quot;Protokoll&quot;, &quot;Wortprotokoll&quot; oder &quot;Beschlussprotokoll&quot;. In einer zukünftigen OParl-Version wird möglicherweise eine Menge der wichtigsten Kategorien vorgegeben. TODO: Besser in <code>oparl:Paper</code> oder <code>oparl:Meeting</code> ? Siehe Diskussion unter https://github.com/OParl/specs/issues/65 Typ: <code>skos:Concept</code> OPTIONAL</p>
+<dd><p>Rolle, Funktion, Sorte des Dokuments. Das Objekt enthält ein <code>skos:prefLabel</code>. Dessen Werte können z.B. sein: &quot;Einladung&quot;, &quot;Protokoll&quot;, &quot;Wortprotokoll&quot; oder &quot;Beschlussprotokoll&quot;. In einer zukünftigen OParl-Version wird möglicherweise eine Menge der wichtigsten Kategorien vorgegeben. Typ: <code>skos:Concept</code>. OPTIONAL. TODO: Link auf Erkärungs-Kapitel, damit klar ist, dass hier auf externes Vokabular verlinkt wird.</p>
 </dd>
 <dt><code>classification</code></dt>
-<dd><p>Begriff mit <code>skos:prefLabel</code>. Hat allgemeinere Bedeutung als <code>documentRole</code>. Typ: <code>skos:Concept</code> OPTIONAL</p>
+<dd><p>Begriff mit <code>skos:prefLabel</code>. Hat allgemeinere Bedeutung als <code>documentRole</code>. Typ: <code>skos:Concept</code>. OPTIONAL. TODO: TODO: Link auf Erkärungs-Kapitel, damit klar ist, dass hier auf externes Vokabular verlinkt wird.</p>
 </dd>
 </dl>
-</section>
-<section id="siehe-auch" class="level3">
-<h3><span class="header-section-number">5.10.2</span> Siehe auch</h3>
-<ul>
-<li><a href="#dateizugriff">Dateizugriff</a></li>
-</ul>
 </section>
 </section>
 <section id="oparl_consultation" class="level2">
@@ -1913,9 +1912,9 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
     },
     <span class="er">//</span> <span class="er">...</span>
 }</code></pre>
-<p>OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des<br />Well-Known-Text-Formats (WKT) der Simple Feature Access Spezifikation<a href="#fn43" class="footnoteRef" id="fnref43"><sup>43</sup></a> vor. WKT erlaubt die Beschreibung von unterschiedlichen Geometrien wie Punkten (<code>Point</code>), Pfaden (<code>LineString</code>), Polygonen (<code>Polygon</code>) und viele andere mehr.</p>
+<p>OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des<br />Well-Known-Text-Formats (WKT) der Simple Feature Access Spezifikation<a href="#fn45" class="footnoteRef" id="fnref45"><sup>45</sup></a> vor. WKT erlaubt die Beschreibung von unterschiedlichen Geometrien wie Punkten (<code>Point</code>), Pfaden (<code>LineString</code>), Polygonen (<code>Polygon</code>) und viele andere mehr.</p>
 <p>Zum Zeitpunkt der Erstellung der vorliegenden Spezifikation ist Version 1.2.1 der Simple-Feature-Access-Spezifikation aktuell. OParl stellt keine Anforderungen daran, welche Version von Simple-Feature-Access bei der Ausgabe von WKT zu unterstützen ist.</p>
-<p>Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben solcher Geodaten im System WGS84<a href="#fn44" class="footnoteRef" id="fnref44"><sup>44</sup></a> angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.</p>
+<p>Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben solcher Geodaten im System WGS84<a href="#fn46" class="footnoteRef" id="fnref46"><sup>46</sup></a> angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.</p>
 <section id="eigenschaften-9" class="level3">
 <h3><span class="header-section-number">5.12.1</span> Eigenschaften</h3>
 <dl>
@@ -2036,33 +2035,35 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1</code></pre>
 <li id="fn15"><p>vgl. Bundesministerium des Innern (Herausg.): Open Government Data Deutschland, Seite 433f., 2012 <a href="http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf">http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf</a><a href="#fnref15">↩</a></p></li>
 <li id="fn16"><p>Ein Aufruf der URL <a href="http://dbpedia.org/resource/John_Doe_(musician)">http://dbpedia.org/resource/John_Doe_(musician)</a> im herkömmlichen Web-Browser führt zu einer Weiterleitung auf die URL <a href="http://dbpedia.org/page/John_Doe_(musician)">http://dbpedia.org/page/John_Doe_(musician)</a>. Siehe dazu auch der Abschnitt <a href="#content_negotiation">Content Negotiation</a><a href="#fnref16">↩</a></p></li>
 <li id="fn17"><p>beispielsweise <a href="http://dbpedia.org/resource/Christian_Democratic_Union_(Germany)">http://dbpedia.org/resource/Christian_Democratic_Union_(Germany)</a> und <a href="http://dbpedia.org/resource/Social_Democratic_Party_of_Germany">http://dbpedia.org/resource/Social_Democratic_Party_of_Germany</a><a href="#fnref17">↩</a></p></li>
-<li id="fn18"><p>RFC2295: <a href="http://tools.ietf.org/html/rfc2295">http://tools.ietf.org/html/rfc2295</a><a href="#fnref18">↩</a></p></li>
-<li id="fn19"><p>RFC 3987: <a href="http://tools.ietf.org/html/rfc3987">http://tools.ietf.org/html/rfc3987</a><a href="#fnref19">↩</a></p></li>
-<li id="fn20"><p>RFC 3986: <a href="http://tools.ietf.org/html/rfc3986">http://tools.ietf.org/html/rfc3986</a><a href="#fnref20">↩</a></p></li>
-<li id="fn21"><p>vgl. <a href="#benannte_anonyme_objekte">Benannte und anonyme Objekte</a><a href="#fnref21">↩</a></p></li>
-<li id="fn22"><p>Berners-Lee, Tim: Cool URIs don't change. <a href="http://www.w3.org/Provider/Style/URI.html">http://www.w3.org/Provider/Style/URI.html</a><a href="#fnref22">↩</a></p></li>
-<li id="fn23"><p>Study on persistent URIs, with identification of best practices and recommendations on the topic for the MSs and the EC. (PDF) <a href="https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf">https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf</a><a href="#fnref23">↩</a></p></li>
-<li id="fn24"><p>JSON-LD 1.0: IANA COnsiderations: <a href="http://www.w3.org/TR/json-ld/#iana-considerations">http://www.w3.org/TR/json-ld/#iana-considerations</a><a href="#fnref24">↩</a></p></li>
-<li id="fn25"><p>RFC4627: <a href="https://tools.ietf.org/html/rfc4627">https://tools.ietf.org/html/rfc4627</a><a href="#fnref25">↩</a></p></li>
-<li id="fn26"><p>siehe dazu <a href="#linked_data">Linked Data</a><a href="#fnref26">↩</a></p></li>
-<li id="fn27"><p><a href="http://www.w3.org/TR/json-ld/">http://www.w3.org/TR/json-ld/</a><a href="#fnref27">↩</a></p></li>
-<li id="fn28"><p>URLs heißen in der JSON-LD-Spezifikation &quot;IRI&quot; (für &quot;Internationalized Resource Identifier&quot;), wir verwenden hier jedoch weiterhin die Bezeichnung &quot;URL&quot;.<a href="#fnref28">↩</a></p></li>
-<li id="fn29"><p>TODO: URL zur Spezifikation<a href="#fnref29">↩</a></p></li>
-<li id="fn30"><p>RFC5988: <a href="http://tools.ietf.org/html/rfc5988">http://tools.ietf.org/html/rfc5988</a><a href="#fnref30">↩</a></p></li>
-<li id="fn31"><p>Wie in vielen anderen Fällen ist diese URL hier wieder nur beispielhaft. Die tatsächliche Gestaltung des Pfads bestimmt der Server-Implementierer.<a href="#fnref31">↩</a></p></li>
-<li id="fn32"><p>RSS 2.0 Specification: <a href="http://cyber.law.harvard.edu/rss/rss.html">http://cyber.law.harvard.edu/rss/rss.html</a><a href="#fnref32">↩</a></p></li>
-<li id="fn33"><p>Atom ist in RFC4287 spezifiziert: <a href="http://www.ietf.org/rfc/rfc4287.txt">http://www.ietf.org/rfc/rfc4287.txt</a><a href="#fnref33">↩</a></p></li>
-<li id="fn34"><p>vgl. <a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">http://www.w3.org/Protocols/rfc2616/rfc2616.html</a><a href="#fnref34">↩</a></p></li>
-<li id="fn35"><p>vgl. RFC2138 <a href="http://www.ietf.org/rfc/rfc2183">http://www.ietf.org/rfc/rfc2183</a><a href="#fnref35">↩</a></p></li>
-<li id="fn36"><p>Verzeichnisse für Lizenz-URLs sind unter anderem unter <a href="http://licenses.opendefinition.org/">http://licenses.opendefinition.org/</a> und <a href="https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json">https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json</a> zu finden.<a href="#fnref36">↩</a></p></li>
-<li id="fn37"><p>Tom Heath, Christian Bizer: Linked Data: Evolving the Web into a Global Data Space (1st edition), <a href="http://linkeddatabook.com/editions/1.0/#htoc48">http://linkeddatabook.com/editions/1.0/#htoc48</a><a href="#fnref37">↩</a></p></li>
-<li id="fn38"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref38">↩</a></p></li>
-<li id="fn39"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd">http://www.dnb.de/gnd</a><a href="#fnref39">↩</a></p></li>
-<li id="fn40"><p>DBPedia <a href="http://www.dbpedia.org/">http://www.dbpedia.org/</a><a href="#fnref40">↩</a></p></li>
-<li id="fn41"><p>Wikipedia <a href="http://de.wikipedia.org/">http://de.wikipedia.org/</a><a href="#fnref41">↩</a></p></li>
-<li id="fn42"><p><a href="http://tools.ietf.org/html/rfc2046">http://tools.ietf.org/html/rfc2046</a><a href="#fnref42">↩</a></p></li>
-<li id="fn43"><p>Simple Feature Access Spezifikation: <a href="http://www.opengeospatial.org/standards/sfa">http://www.opengeospatial.org/standards/sfa</a><a href="#fnref43">↩</a></p></li>
-<li id="fn44"><p>WGS84 steht für &quot;World Geodetic System 1984&quot;, es wird unter anderem auch vom Global Positioning System (GPS) verwendet. In geografischen Informationssystemen ist für das System der EPSG-Code 4326 geläufig.<a href="#fnref44">↩</a></p></li>
+<li id="fn18"><p>RFC 3987: <a href="http://tools.ietf.org/html/rfc3987">http://tools.ietf.org/html/rfc3987</a><a href="#fnref18">↩</a></p></li>
+<li id="fn19"><p>RFC 3986: <a href="http://tools.ietf.org/html/rfc3986">http://tools.ietf.org/html/rfc3986</a><a href="#fnref19">↩</a></p></li>
+<li id="fn20"><p>vgl. <a href="#benannte_anonyme_objekte">Benannte und anonyme Objekte</a><a href="#fnref20">↩</a></p></li>
+<li id="fn21"><p>Berners-Lee, Tim: Cool URIs don't change. <a href="http://www.w3.org/Provider/Style/URI.html">http://www.w3.org/Provider/Style/URI.html</a><a href="#fnref21">↩</a></p></li>
+<li id="fn22"><p>Study on persistent URIs, with identification of best practices and recommendations on the topic for the MSs and the EC. (PDF) <a href="https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf">https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf</a><a href="#fnref22">↩</a></p></li>
+<li id="fn23"><p>JSON-LD 1.0: IANA COnsiderations: <a href="http://www.w3.org/TR/json-ld/#iana-considerations">http://www.w3.org/TR/json-ld/#iana-considerations</a><a href="#fnref23">↩</a></p></li>
+<li id="fn24"><p>RFC4627: <a href="https://tools.ietf.org/html/rfc4627">https://tools.ietf.org/html/rfc4627</a><a href="#fnref24">↩</a></p></li>
+<li id="fn25"><p>siehe dazu <a href="#linked_data">Linked Data</a><a href="#fnref25">↩</a></p></li>
+<li id="fn26"><p><a href="http://www.w3.org/TR/json-ld/">http://www.w3.org/TR/json-ld/</a><a href="#fnref26">↩</a></p></li>
+<li id="fn27"><p>URLs heißen in der JSON-LD-Spezifikation &quot;IRI&quot; (für &quot;Internationalized Resource Identifier&quot;), wir verwenden hier jedoch weiterhin die Bezeichnung &quot;URL&quot;.<a href="#fnref27">↩</a></p></li>
+<li id="fn28"><p>TODO: URL zur Spezifikation<a href="#fnref28">↩</a></p></li>
+<li id="fn29"><p>RFC5988: <a href="http://tools.ietf.org/html/rfc5988">http://tools.ietf.org/html/rfc5988</a><a href="#fnref29">↩</a></p></li>
+<li id="fn30"><p>Wie in vielen anderen Fällen ist diese URL hier wieder nur beispielhaft. Die tatsächliche Gestaltung des Pfads bestimmt der Server-Implementierer.<a href="#fnref30">↩</a></p></li>
+<li id="fn31"><p>RSS 2.0 Specification: <a href="http://cyber.law.harvard.edu/rss/rss.html">http://cyber.law.harvard.edu/rss/rss.html</a><a href="#fnref31">↩</a></p></li>
+<li id="fn32"><p>Atom ist in RFC4287 spezifiziert: <a href="http://www.ietf.org/rfc/rfc4287.txt">http://www.ietf.org/rfc/rfc4287.txt</a><a href="#fnref32">↩</a></p></li>
+<li id="fn33"><p>vgl. <a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">http://www.w3.org/Protocols/rfc2616/rfc2616.html</a><a href="#fnref33">↩</a></p></li>
+<li id="fn34"><p>vgl. RFC2138 <a href="http://www.ietf.org/rfc/rfc2183">http://www.ietf.org/rfc/rfc2183</a><a href="#fnref34">↩</a></p></li>
+<li id="fn35"><p>RFC2295: <a href="http://tools.ietf.org/html/rfc2295">http://tools.ietf.org/html/rfc2295</a><a href="#fnref35">↩</a></p></li>
+<li id="fn36"><p>RFC2616: <a href="http://tools.ietf.org/html/rfc2616">http://tools.ietf.org/html/rfc2616</a><a href="#fnref36">↩</a></p></li>
+<li id="fn37"><p>Verzeichnisse für Lizenz-URLs sind unter anderem unter <a href="http://licenses.opendefinition.org/">http://licenses.opendefinition.org/</a> und <a href="https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json">https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json</a> zu finden.<a href="#fnref37">↩</a></p></li>
+<li id="fn38"><p>Tom Heath, Christian Bizer: Linked Data: Evolving the Web into a Global Data Space (1st edition), <a href="http://linkeddatabook.com/editions/1.0/#htoc48">http://linkeddatabook.com/editions/1.0/#htoc48</a><a href="#fnref38">↩</a></p></li>
+<li id="fn39"><p>Regionalschlüssel können im <a href="https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html">Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes</a> eingesehen werden<a href="#fnref39">↩</a></p></li>
+<li id="fn40"><p>Gemeinsame Normdatei <a href="http://www.dnb.de/gnd">http://www.dnb.de/gnd</a><a href="#fnref40">↩</a></p></li>
+<li id="fn41"><p>DBPedia <a href="http://www.dbpedia.org/">http://www.dbpedia.org/</a><a href="#fnref41">↩</a></p></li>
+<li id="fn42"><p>Wikipedia <a href="http://de.wikipedia.org/">http://de.wikipedia.org/</a><a href="#fnref42">↩</a></p></li>
+<li id="fn43"><p>vgl. RFC2046: <a href="http://tools.ietf.org/html/rfc2046">http://tools.ietf.org/html/rfc2046</a><a href="#fnref43">↩</a></p></li>
+<li id="fn44"><p>vgl. <a href="#eigenschaft_license">license</a><a href="#fnref44">↩</a></p></li>
+<li id="fn45"><p>Simple Feature Access Spezifikation: <a href="http://www.opengeospatial.org/standards/sfa">http://www.opengeospatial.org/standards/sfa</a><a href="#fnref45">↩</a></p></li>
+<li id="fn46"><p>WGS84 steht für &quot;World Geodetic System 1984&quot;, es wird unter anderem auch vom Global Positioning System (GPS) verwendet. In geografischen Informationssystemen ist für das System der EPSG-Code 4326 geläufig.<a href="#fnref46">↩</a></p></li>
 </ol>
 </section>
 </body>

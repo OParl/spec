@@ -12,8 +12,6 @@ OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:
 
 TODO: Nutzen für jede Stakeholder-Gruppe
 
-TODO: Linked Data erwähnen oder Verweis auf Linked Data Abschnitt
-
 Die Gründe, warum Betreiber von parlamentarischen Informationssystemen den
 Zugriff darauf über eine standardisierte Schnittstelle ermöglichen sollten,
 können vielfältig sein.

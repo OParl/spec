@@ -59,19 +59,21 @@ Im Unterschied zum Zugriff auf die Download-URL DARF der Server beim Zugriff auf
 Zugriffs-URL KEINEN `Content-Disposition` Header mit Parameter `attachment`
 senden.
 
-### Empfohlene Header
+### Obligatorische und empfohlene Header
 
 Ziel ist, dem Client möglichst flexible Möglichkeiten zu geben, einen Cache zu
 überprüfen bzw. zu aktualisieren und vermeidbare Anfragen einer Ressource zu
 vermeiden. Um dies zu unterstützen, können laut HTTP-Spezifikationen unterschiedliche
 Header zum Einsatz kommen.
 
-Für einen OParl-Server EMPFEHLEN wir, bei Anfrage einer Datei die folgenden
+Die Auslieferung eines `Last-Modified`-Headers gilt für alle OParl-Server beim
+Zugriff auf eine Datei-URL, sei es Download- oder Zugriffs-URL, als ZWINGEND.
+
+Darüber hinaus EMPFEHLEN wir, bei Anfrage einer Datei die folgenden
 Header auszuliefern:
 
 * `Content-Length`: Die Größe des Dateiinhalts
 * `ETag`: Entity Tag
-* `Last-Modified`: Das letzte Änderungsdatum der Datei
 
 ### Conditional GET
 

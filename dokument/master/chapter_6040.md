@@ -286,8 +286,4 @@ von 0 bis 9.
 
 Hält sich der Client nicht an diese Einschränkung und wird ein `callback`-Parameter
 mit nicht erlaubten Zeichen verwendet, SOLL der Server die Anfrage
-mit einer HTTP XXX (Bad Request) Antwort bedienen. (TODO: Status Code einfügen
-oder prüfen, welche HTTP-Antwort die geeignetste ist.)
-
-- TODO: Spezifikation finden/verlinken. (RFC gibt es nicht)
-- https://github.com/OParl/specs/issues/67
+mit einer HTTP 400 (_Bad Request_) Antwort bedienen.

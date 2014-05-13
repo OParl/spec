@@ -6,7 +6,7 @@
 SOURCE="*.md"
 DOC_FOLDER=".."
 PWD=`pwd`
-PDFLATEX="/usr/local/texlive/2012basic/bin/universal-darwin/pdflatex"
+PDFLATEX="/usr/local/texlive/2013/bin/x86_64-darwin/pdflatex"
 
 GS="/usr/local/bin/gs"
 
@@ -24,11 +24,12 @@ done
 # PDF
 echo "Generiere PDF-Dokument"
 pandoc --latex-engine=$PDFLATEX --table-of-contents --template $DOC_FOLDER/latex/template.tex -N \
-	-o $DOC_FOLDER/pdf/document.pdf -f markdown+header_attributes $SOURCE
+	-o $DOC_FOLDER/pdf/document.pdf -f markdown+header_attributes+pipe_tables \
+	$SOURCE
 
 # HTML
 echo "Generiere HTML-Dokument"
-pandoc -t html -s -N -o $DOC_FOLDER/html/document.html -f markdown+header_attributes $SOURCE
+pandoc -t html -s -N -o $DOC_FOLDER/html/document.html -f markdown+header_attributes+ $SOURCE
 cp -r images $DOC_FOLDER/html/images
 
 # HTML5
@@ -39,7 +40,7 @@ cp -r images $DOC_FOLDER/html5/images
 # TeX
 echo "Generiere TeX-Dokument"
 pandoc -t latex --template $DOC_FOLDER/latex/template.tex \
-	-o $DOC_FOLDER/latex/document.tex -f markdown+header_attributes $SOURCE
+	-o $DOC_FOLDER/latex/document.tex -f markdown+header_attributes+pipe_tables $SOURCE
 
 # OpenOffice odt
 echo "Generiere OpenOffice/LibreOffice ODT-Dokument"

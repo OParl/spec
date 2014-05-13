@@ -89,25 +89,27 @@ Parlament an.
     OPTIONAL.
 
 `website`
-:   URL der allgemeinen Website der Körperschaft.
+:   allgemeine Website der Körperschaft.
+    Typ: URL
     EMPFOHLEN.
 
 `license`
-:   URL der Lizenz, die für die Daten, die über diese API abgerufen werden
+:   Lizenz, die für die Daten, die über diese API abgerufen werden
     können, gilt, sofern nicht am einzelnen Objekt anders angegeben.
     Sie dazu auch die übergreifende Beschreibung zur Eigenschaft
     [`license`](#eigenschaft_license).
+    Typ: URL
     EMPFOHLEN.
 
 `licenseValidSinceDay`
 :   Tagesdatum, seit dem die unter license angegebene Lizenz gilt.
     Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen.
-    Typ: TODO
+    Typ: Datum mit oder ohne Uhrzeit
     EMPFOHLEN
 
 `rgs`
 :   Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette^[Regionalschlüssel können im [Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes](https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html) eingesehen werden].
-    Typ: TODO
+    Typ: String mit ganzer Zahl
     EMPFOHLEN
 
 `equivalentBody`
@@ -115,7 +117,7 @@ Parlament an.
     repräsentieren. Hier können beispielsweise,
     sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>],
     der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden.
-    Typ: TODO
+    Typ: URL
     EMPFOHLEN
 
 `contactEmail`
@@ -123,12 +125,12 @@ Parlament an.
     Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft
     und idealerweise das parlamentarische Informationssystem zuständigen Stelle
     ermöglichen.
-    Typ: TODO
+    Typ: mail-Adresse inklusive "mailto:"
     EMPFOHLEN
 
 `contactName`
 :   Name oder Bezeichnung der mit `contactEmail` erreichbaren Stelle.
-    Typ: TODO
+    Typ: String
     OPTIONAL.
 
 `paper`
@@ -164,10 +166,10 @@ Parlament an.
 
 `created`
 :   Datum/Uhrzeit der Erzeugung des Objekts.
-    Typ: TODO
+    Typ: Zeitstempel
     EMPFOHLEN.
 
 `lastModified`
 :   Datum/Uhrzeit der letzten Bearbeitung des Objekts.
-    Typ: TODO
+    Typ: Zeitstempel
     EMPFOHLEN

@@ -10,17 +10,6 @@ In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung des HTT
 `Content-type`-Headers `application/ld+json` beantworten, Ausnahmen davon sind
 lediglich [Dateizugriffe](#dateizugriff).
 
-Die Spezifikation von JSON-LD
-liefert dazu genauere Informationen^[JSON-LD 1.0: IANA Considerations: 
-<http://www.w3.org/TR/json-ld/#iana-considerations>], auch zu dem optionalen Parameter `profile`
-für die explizite Anforderung von JSON-LD in einer dieser drei Unterformen: kompakt,
-expandiert oder flach.
-
-Wenn der Server auch Anfragen nach `application/json` akzeptiert, dann SOLL er
-expandierte JSON-LD Dokumente liefern (also solche ohne `@context`).
-
-TODO: MUSS der Server solche Legacy-Anfragen akzeptieren? Warum?
-
 ### JSON
 
 Die Abkürzung JSON steht für "JavaScript Object Notation". Das JSON-Format ist in
@@ -60,15 +49,15 @@ Beispiel eines Objekts in JSON-Notation:
 ### JSON-LD {#jsonld}
 
 Das Kürzel LD im Namen "JSON-LD" steht für "Linked Data"^[siehe dazu [Linked Data](#linked_data)].
-Entsprechend erweitert die JSON-LD-Spezifikation^[<http://www.w3.org/TR/json-ld/>] das JSON-Format um die Möglichkeit,
+Entsprechend erweitert die JSON-LD-Spezifikation^[JSON-LD 1.0: 
+<http://www.w3.org/TR/json-ld/>] das JSON-Format um die Möglichkeit,
 
 * Objekte mit anderen Objekten zu verknüpfen,
 * Objekte und Eigenschaften bestimmten Typen zuzuordnen und damit
 * Auskunft über die semantische Bedeutung von Objekten und Eigenschaften zu geben.
 
-Ein Beispiel aus der JSON-LD-Spezifikation illustriert, wie JSON-LD ein Objekt um zusätzliche
-semantische Informationen erweitert. Als Ausgangspunkt dient eine Personenbeschreibung in
-gewöhnlichem JSON:
+Ein Beispiel aus der JSON-LD-Spezifikation verdeutlicht, wie JSON-LD ein Objekt um zusätzliche
+semantische Informationen erweitert. Als Ausgangspunkt dient ein gewöhnliches JSON-Objekt:
 
 ~~~~~  {#jsonld_ex1 .json}
 {
@@ -107,7 +96,7 @@ direkt im selben Objekt, sozusagen als Unterobjekt, mitgeliefert werden:
 }
 ~~~~~
 
-Hier sind die Eigenschaften wie `image` einer URL wie http://schema.org/image zugewiesen.
+Hier sind die Eigenschaften wie `image` einer URL wie `http://schema.org/image` zugewiesen.
 Ein Client, der diese URL kennt, kann daraus folgern, dass über die Objekteigenschaft
 `image` immer die URL eines Bildes zu finden ist. Das Schlüssel-Wert-Paar
 
@@ -121,31 +110,55 @@ im JSON-Sinn eine Zeichenkette ist, als Datum deklariert werden.
 
 Am obigen Beispiel fällt auf, dass der `@context`-Teil des Objekts schon mehr Daten
 umfasst, als die eigentlichen Objekteigenschaften. Sinnvollerweise kann jedoch der 
-gesamte Inhalt des `@context`-Teils in eine externe Ressource ausgelagert werden. Das
-folgende Beispiel verdeutlicht dies:
+gesamte Inhalt des `@context`-Teils für alle Objekte des selben Typs zusammengefasst
+und in eine externe Ressource ausgelagert werden. Das folgende Beispiel verdeutlicht
+dies:
 
 ~~~~~  {#jsonld_ex3 .json}
 {
-  "@context": "http://json-ld.org/contexts/person.jsonld",
-  "name": "Manu Sporny",
-  "homepage": "http://manu.sporny.org/",
-  "image": "http://manu.sporny.org/images/manu.png"
+    "@context": "http://json-ld.org/contexts/person.jsonld",
+    "name": "Manu Sporny",
+    "homepage": "http://manu.sporny.org/",
+    "image": "http://manu.sporny.org/images/manu.png"
 }
 ~~~~~
 
-Die `@context`-Eigenschaft hat nun als Wert eine URL. Die URL (hier: 
-http://json-ld.org/contexts/person.jsonld) gibt wiederum in JSON kodiert die Beschreibung
-aller möglichen Attribute des Objekts aus. Die Kontext-Beschreibung des JSON-LD-Objekts
-wurde somit in eine externe Ressource ausgelagert. Clients SOLLEN davon ausgehen, dass
-sich diese externen Kontextbeschreibungen nur selten ändern. Somit genügt es, bei Abruf 
-vieler gleichartiger JSON-LD-Objekte vom Server die Kontext-Ressource nur einmal zu laden.
+Die `@context`-Eigenschaft hat nun als Wert eine URL, in diesem Fall: 
+
+`http://json-ld.org/contexts/person.jsonld`
+
+Hinter dieser URL wiederum befindet sich ein JSON-Dokument, dass die Beschreibung
+aller möglichen Attribute des Personen-Objekts enthält. Die Kontext-Beschreibung 
+des JSON-LD-Objekts wurde somit in eine externe Ressource ausgelagert. Clients
+SOLLEN davon ausgehen, dass sich diese externen Kontextbeschreibungen nur selten
+ändern. Somit genügt es, bei Abruf vieler gleichartiger JSON-LD-Objekte vom Server
+die Kontext-Ressource nur einmal zu laden.
 
 Im Sinne der JSON-LD-Spezifikation sind Objekte mit eingebettetem und externem Kontext
-identisch. Den Implementierern eines OParl-konformen Servers wird EMPFOHLEN, grundsätzlich
+inhaltlich identisch.
+Den Implementierern eines OParl-konformen Servers wird EMPFOHLEN, grundsätzlich
 die Kontextinformation mittels externer Ressourcen zu übermitteln. Die OParl Autoren werden
 hierzu die zu dieser Spezifikation passenden Ressourcen auf oparl.org für jegliche Verwendung
-zur Verfügung stellen (mehr dazu im [Anhang](#jsonld_ressourcen_oparlorg)). Sollten Server-Implementierer zusätzliche Objekttypen benötigen, die nicht von dieser Spezifikation abgedeckt sind, SOLL entsprechend zusätzlich auf eigene Kontextressourcen unter geeigneten URLs verwiesen werden. Hierbei können herstellereigene und OParl-spezifische URls gemischt werden, wie in
-einem Beispiel weiter unten verfeutlicht wird.
+zur Verfügung stellen (mehr dazu im [Anhang](#jsonld_ressourcen_oparlorg)). Sollten 
+Server-Implementierer zusätzliche Objekttypen benötigen, die nicht von dieser 
+Spezifikation abgedeckt sind, SOLL entsprechend zusätzlich auf eigene Kontextressourcen 
+unter geeigneten URLs verwiesen werden. Hierbei können herstellereigene und 
+OParl-spezifische URls gemischt werden, wie in
+einem Beispiel weiter unten verdeutlicht wird.
+
+Formell wird bei JSON-LD weiterhin zwischen drei verschiedenen Formaten
+unterschieden, die semantisch gleichbedeutend sind:
+
+* Kompakte Form (_compact_)
+* Expandierte Form (_expanded_)
+* Flache Form (_flat_)
+
+Das vorige Beispiel zeigt die kompakte Form. Die Definitionen können der JSON-LD-Spezifikation
+entnommen werden. OParl-Server MÜSSEN sämtliche Objekte grundsätzlich in der kompakten
+Form ausliefern. Die Umwandlung in die anderen Formen bei Bedarf obliegt dem Client.^[Die
+JSON-LD-Spezifikation enthält Überlegungen, zwischen Client und Server die gewünschte
+Form über einen `Accept`-Header mit zusätzlichem `profile` Parameter auszuhandeln. Diese
+Überlegung ist zur Reduktion der Komplexität auf Serverseite nicht in OParl eingefllossen.]
 
 JSON-LD ermöglicht es auch, für ein Objekt einen **Objekttyp** zu kommunizieren. So könnte
 passend zu unserem Beispiel ausgedrückt werden, um welche Art von Objekt es sich bei den
@@ -192,9 +205,10 @@ Objekttypen eine eindeutige URL ergeben.
 * Aus `oparl:Paper` wird `http://oparl.org/schema/1.0/Paper`
 * Aus `vendor:Drucksache` wird `http://www.vendor.de/oparl/schema/Drucksache`
 
-TODO: Eventuell hier die Anforderung festhalten, dass jedes Objekt, das über eine OParl
-API ausgegeben wird, das `@type`-Schlüsselwort haben MUSS. Das ist noch nicht geklärt, da
-Listen hier eine Ausnahme bilden können.
+Jedes Objekt, dass vom OParl-Server ausgeliefert wird, MUSS die `@type` Eigenschaft
+enthalten und darüber kommunizieren, welchen Typs das Objekt ist.^[Der Abruf von Listen
+wie im Abschnitt [Objektlisten](#objektlisten) beschrieben, ist eine Ausnahme, denn
+hier werden nicht Objekte ausgeliefert, sondern Listen von URLs von Objekten.]
 
 Eine JSON-LD-konforme Ausgabe stellt noch weitere Anforderungen, von denen nachfolgend die 
 wichtigsten zusammen gefasst werden.

@@ -85,49 +85,61 @@ der URL des API-Endpunkts des Servers sein.
 `oparlVersion`
 :   Die URL der OParl-Spezifikation, die von diesem Server unterstützt 
     wird. Der Wert MUSS die URL `http://oparl.org/specs/1.0/` sein.
-    Diese Eigenschaft ist ZWINGEND.
+    Typ: URL
+    ZWINGEND.
 
 `bodies`
 :   Liste der URLs der [`oparl:Body`](#oparl_body)-Objekte, also der 
     Körperschaften, die auf dem System vorliegen. Alternativ kann statt 
-    einer Liste eine einzelne URL zum Abruf der Liste angeboten werden. 
-    Die Eigenschaft ist ZWINGEND.
+    einer Liste eine einzelne URL zum Abruf der Liste angeboten werden.
+    Typ: URL
+    ZWINGEND.
 
 `name`
 :   Nutzerfreundlicher Name für das System, mit dessen Hilfe Nutzer das
-    System erkennen und von anderen unterscheiden können. Diese Eigenschaft
-    wird EMPFOHLEN.
+    System erkennen und von anderen unterscheiden können.
+    Typ: String
+    EMPFOHLEN.
 
 `contactEmail`
-:   E-Mail-Adresse für Anfragen zur OParl-API. Diese Eigenschaft wird 
-    EMPFOHLEN. Die Angabe einer E-Mail-Adresse dient sowohl NutzerInnen
+:   E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe einer E-Mail-Adresse dient sowohl NutzerInnen
     wie auch EntwicklerInnen von Clients zur Kontaktaufnahme mit dem
-    Betreiber. 
+    Betreiber.
+    Typ: mail-Adresse inklusive "mailto:"
+    EMPFOHLEN. 
 
 `contactName`
 :   Name des Ansprechpartners oder der Abteilung, die über die `contactEmail`
-    erreicht werden kann. Die Eigenschaft ist EMPFOHLEN. Typ: Zeichenkette.
+    erreicht werden kann.
+    Typ: Zeichenkette.
+    EMPFOHLEN. 
 
 `newObjects`
-:   URL des Feeds ["Neue Objekte"](#feed_neue_objekte). Die Eigenschaft ist 
+:   URL des Feeds ["Neue Objekte"](#feed_neue_objekte).
     EMPFOHLEN.
+    Typ: URL
 
 `updatedObjects`
-:   URL des Feeds ["Geänderte Objekte"](#feed_geaenderte_objekte). Die 
-    Eigenschaft ist EMPFOHLEN.
+:   URL des Feeds ["Geänderte Objekte"](#feed_geaenderte_objekte).
+    Typ: URL
+    EMPFOHLEN.
 
 `removedObjects`
-:   URL des Feeds ["Entfernte Objekte"](#feed_entfernte_objekte). Die 
-    Eigenschaft ist EMPFOHLEN.
+:   URL des Feeds ["Entfernte Objekte"](#feed_entfernte_objekte).
+    Typ: URL
+    EMPFOHLEN.
 
 `website`
 :   URL zur WWW-Oberfläche des parlamentarischen Informationssystem.
-    Diese Eigenschaft ist OPTIONAL.
+    Typ: URL
+    OPTIONAL.
 
 `vendor`
-:   URL des Software-Anbieters, von dem die OParl-Server-Software stammt.
-    Diese Eigenschaft ist OPTIONAL.
+:   Software-Anbieter, von dem die OParl-Server-Software stammt.
+    Typ: URL
+    OPTIONAL.
 
 `product`
-:   URL mit Informationen zu der auf dem System genutzten OParl-Server-Software.
-    Diese Eigenschaft ist OPTIONAL.
+:   Informationen zu der auf dem System genutzten OParl-Server-Software.
+    Typ: URL
+    OPTIONAL.

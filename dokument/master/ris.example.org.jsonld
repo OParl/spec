@@ -21,16 +21,16 @@
         }
     },
   
-    "@id": "beispielris:membership/",
+    "@id": "beispielris:membership/eins",
     "@type": "oparl:Membership",
 
-    "person" : "beispielris:person/otto",
-    "organization" : "beispielris:organization/kpd",
-    "role" : "beispieris:role/...",
+    "person" : "beispielris:person/max",
+    "organization" : "beispielris:organization/finance",
+    "role" : "beispieris:role/....",
     "post": "beispielris:post/....",
     "onBehalfOf" : "beispielris:organization/eineParteiFraktion",
-    "startDate" : "2014-05-01",
-    "endDate" : "2014-05-02"
+    "startDate" : "2000-05-01",
+    "endDate" : "2013-05-02"
 },
 
 
@@ -95,7 +95,7 @@
        }
     },
     "@type": "oparl:Body",
-    "@id": "https://oparl.beispielris.de/body/0",
+    "@id": "beispielris:body/0",
 
     "system": "https://oparl.beispielris.de/",
     "contactEmail": "mailto:ris@beispielstadt.de",
@@ -105,7 +105,7 @@
         "http://d-nb.info/gnd/2015732-0",
         "http://dbpedia.org/resource/Cologne"
     ],
-    "name": "Stadt Köln",
+    "nameShort": "Stadt Köln",
     "nameLong": {
         "de": "Stadt Köln, kreisfreie Stadt",
         "en": "City of Cologne"
@@ -133,7 +133,7 @@
     },
 
     "@type": "oparl:Organization",
-    "@id": "beispielris:organization/34",
+    "@id": "beispielris:organization/finance",
 
     "body": "beispielris:body/0",
     "nameShort": "Finanzausschuss",
@@ -186,7 +186,7 @@
     },
 
     "@type": "oparl:Person",
-    "@id": "beispielris:person/29",
+    "@id": "beispielris:person/mustermann",
     "name": "Prof. Dr. Max Mustermann",
     "familyName": "Mustermann",
     "givenName": "Max",

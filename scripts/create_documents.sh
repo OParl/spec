@@ -29,7 +29,8 @@ pandoc --latex-engine=$PDFLATEX --table-of-contents --template $DOC_FOLDER/latex
 
 # HTML
 echo "Generiere HTML-Dokument"
-pandoc -t html -s -N -o $DOC_FOLDER/html/document.html -f markdown+header_attributes+ $SOURCE
+pandoc -t html -s -N -o $DOC_FOLDER/html/document.html -f markdown+header_attributes+pipe_tables \
+$SOURCE
 cp -r images $DOC_FOLDER/html/images
 
 # HTML5

@@ -105,14 +105,14 @@ Das selbe Beispiel in kompakter Form:
 :   Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen 
     Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen
     KANN es der tatsächliche Startzeitpunkt sein.
-    Typ: TODO.
+    Typ: Zeitstempel.
     ZWINGEND
 
 `end`
 :   Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen 
     Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen
     KANN es der tatsächliche Endzeitpunkt sein.
-    Typ: TODO.
+    Typ: Zeitstempel.
     EMPFOHLEN
 
 `location`
@@ -171,10 +171,10 @@ Das selbe Beispiel in kompakter Form:
     
 `created`
 :   Datum und Uhrzeit der Erzeugung des Objekts.
-    Typ: TODO.
+    Typ: Zeitstempel.
     EMPFOHLEN
 
 `modified`
 :   Datum und Uhrzeit der letzten Änderung des Objekts.
-    Typ: TODO.
+    Typ: Zeitstempel.
     EMPFOHLEN

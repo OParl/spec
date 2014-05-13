@@ -34,9 +34,6 @@
 },
 
 
-
-
-
 {
     "@context": {
         "beispielris": "https://oparl.beispielris.de",
@@ -75,7 +72,6 @@
     "updatedObjects": "beispielris:updated_objects/",
     "removedObjects": "beispielris:removed_objects"
 },
-
 
 
 {
@@ -151,7 +147,6 @@
     "classification": "beispielris:vocab/finance",
     "modified": "2012-08-16T14:05:27+02:00"
 },
-
 
 
 {
@@ -260,7 +255,6 @@
 },
 
 
-
 {
     "@context": {
     },
@@ -283,7 +277,6 @@
     "paper": "beispielris:paper/2812",
     "modified": "2012-08-16T14:05:27+02:00"
 },
-
 
 
 {
@@ -319,7 +312,6 @@
 },
 
 
-
 {
     "@context": {
     },  
@@ -343,12 +335,7 @@
 },
 
 
-
-
 {
-    "@context": {
-    },
-
     "@type": "oparl:Consultation",
     "@id": "beispielris:consultation/47594",
     "paper": "beispielris:paper/2396",
@@ -360,9 +347,6 @@
 
 
 {
-    "@context": {
-    },
-
     "@id": "beispielris:role/decision",
     "@type": "skos:Concept",
 
@@ -372,9 +356,6 @@
     }
 },
 {
-    "@context": {
-    },
-
     "@id": "beispielris:vocab/committee",
     "@type": "skos:Concept",
 

@@ -267,7 +267,7 @@ mycallback({
 })
 ~~~~~
 
-Der Name der Callback-Funktion (im Beispiel "mycallback") wird grundsätzlich 
+Der Name der Callback-Funktion (im Beispiel `mycallback`) wird grundsätzlich 
 bei der Anfrage vom Client bestimmt, und zwar mittels URL-Parameter.
 
 Für eine OParl-konforme Schnittstelle wird EMPFOHLEN, dass der Server die 

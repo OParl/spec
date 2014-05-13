@@ -4,6 +4,7 @@
 \geometry{a4paper,left=35mm,right=35mm, top=25mm, bottom=25mm}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{longtable}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
@@ -40,6 +41,8 @@
 \newcommand{\RegionMarkerTok}[1]{{#1}}
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
 \newcommand{\NormalTok}[1]{{#1}}
+\usepackage{ctable}
+\usepackage{float} % provides the H option for float placement
 \usepackage{graphicx}
 % We will generate all images so they have a width \maxwidth. This means
 % that they will get their normal width if they fit onto the page, but
@@ -71,7 +74,7 @@
 \setcounter{secnumdepth}{0}
 
 \title{OParl Vokabular und Schnittstellen-Spezifikation (Entwurf)}
-\author{OParl Team - http://oparl.org/}
+\author{OParl Team - \url{http://oparl.org/}}
 \date{}
 
 \begin{document}
@@ -93,12 +96,18 @@ OParl-konformen Server- und Clientanwendungen.
 \subsection{Status}\label{status}
 
 Die Spezifikation befindet sich in Arbeit. Das Dokument enthält
-entsprechend viele Ungenauigkeiten und Hinweise auf offene
-Fragestellungen.
+entsprechend noch Ungenauigkeiten und Hinweise auf offene
+Fragestellungen, die bis zur Fertigstellung mit Hilfe vieler
+Mitwirkender geschlossen werden sollen.
 
-Die Kennzeichnung ``TODO'' markiert Hinweise, die für die Bearbeiter des
-Dokuments gedacht sind. Darunter befinden sich auch Fragen an deren
-Beantwortung durch Reviewer des Dokuments die Autoren interessiert sind.
+Im Dokument befinden sich Fragestellugen an Mitwirkende und Reviewer,
+die mit dem Stichwort ``FRAGE'' markiert sind. Hier bitten wir Sie um
+Mithilfe und laden Sie ein, Ihre Antwort unter
+\url{https://github.com/OParl/specs/issues?milestone=1\&state=open}
+beizusteuern.
+
+Die Kennzeichnung ``TODO'' markiert darüber hinaus Hinweise, die für die
+Bearbeiter des Dokuments gedacht sind.
 
 \subsection{Was ist OParl in Kürze?}\label{was-ist-oparl-in-kuxfcrze}
 
@@ -139,8 +148,6 @@ OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:
 \end{itemize}
 
 TODO: Nutzen für jede Stakeholder-Gruppe
-
-TODO: Linked Data erwähnen oder Verweis auf Linked Data Abschnitt
 
 Die Gründe, warum Betreiber von parlamentarischen Informationssystemen
 den Zugriff darauf über eine standardisierte Schnittstelle ermöglichen
@@ -492,19 +499,71 @@ die in JSON nicht erlaubt wären.
 
 \subsection{Initiatoren}\label{initiatoren}
 
-TODO
+OParl wurde initiiert von Marian Steinbach\footnote{\url{http://www.sendung.de/}},
+Jens Klessmann\footnote{\url{http://www.fokus.fraunhofer.de/}}, Marianne
+Wulff und Christine Siegfried\footnote{beide Vitako
+  \url{http://www.vitako.de/}}.
 
 \subsection{Unterstützer}\label{unterstuxfctzer}
 
-TODO
+Die folgenden Organisationen und Unternehmen zählen zu den Unterstützern
+von OParl:
+
+\begin{longtable}[c]{@{}ll@{}}
+\toprule\addlinespace
+Organisation/Firma & Kategorie
+\\\addlinespace
+\midrule\endhead
+\href{http://www.cc-egov.de/}{CC e-Gov GmbH} & RIS-Hersteller
+\\\addlinespace
+\href{http://www.citeq.de/}{Citeq} (Münster) & Kommunale Dienstleister
+\\\addlinespace
+\href{http://www.itdz-berlin.de/}{ITDZ Berlin} & Kommunale Dienstleister
+\\\addlinespace
+\href{http://www.rz-kiru.de/}{Kiru} (Ulm) & Kommunale Dienstleister
+\\\addlinespace
+\href{http://www.kdvz-frechen.de/}{KDVZ Rhein-Erft-Rur} & Kommunale
+Dienstleister
+\\\addlinespace
+\href{http://www.krzn.de/}{KRZN} & Kommunale Dienstleister
+\\\addlinespace
+\href{http://okfn.de/}{Open Knowledge Foundation e.V.} & Initiativen
+\\\addlinespace
+\href{http://openruhr.de/}{OpenRuhr} & Initiativen
+\\\addlinespace
+\href{http://www.abgeordnetenwatch.de/}{Parlamentwatch e.V.} &
+Initiativen
+\\\addlinespace
+\href{http://www.piratenpartei.de/}{Piratenpartei} & Initiativen
+\\\addlinespace
+\href{http://www.quinscape.de/}{QuinScape GmbH} & RIS-Hersteller
+\\\addlinespace
+\href{http://www.regioit-aachen.de/}{regioIT} (Aachen) & Kommunale
+Dienstleister
+\\\addlinespace
+\href{http://www.somacos.de/}{Somacos GmbH und Co. KG} & RIS-Hersteller
+\\\addlinespace
+\href{http://www.bonn.de/}{Stadt Bonn} & Kommune
+\\\addlinespace
+\href{http://www.stadt-koeln.de/}{Stadt Köln} & Kommune
+\\\addlinespace
+\href{http://www.moers.de/}{Stadt Moers} & Kommune
+\\\addlinespace
+\href{http://www.sitzungsdienst.net/}{Sternberg Software-Technik GmbH} &
+RIS-Hersteller
+\\\addlinespace
+\href{http://www.wikimedia.de/}{Wikimedia Deutschland} & Initiativen
+\\\addlinespace
+\bottomrule
+\end{longtable}
 
 \subsection{Autoren}\label{autoren}
 
 An diesem Dokument haben mitgewirkt:
 
-Felix Ebert, Jan Erhardt, Jens Klessmann, Andreas Kuckartz, Babett
-Schalitz, Ralph Sternberg, Marian Steinbach, Bernd Thiem, Thomas
-Tursics, Jakob Voss
+Felix Ebert, Jan Erhardt, Jayan Areekadan, Jens Klessmann, Andreas
+Kuckartz, Babett Schalitz, Ralph Sternberg, Marian Steinbach, Bernd
+Thiem, Thomas Tursics, Jakob Voss
 
 \section{Architektur}\label{architektur}
 
@@ -1207,8 +1266,8 @@ Betreiber bzw. Server-Implementierer.
 Die Wahl des unverschlüsselten oder verschlüsselten HTTP-Zugriffs hat
 Auswirkung auf die im System verwendeten URLs. Wie im Kapitel
 \hyperref[urls]{URLs} beschrieben, verfolgt diese Spezifikation die
-Festlegung auf genau eine ``kanonische'' URL je Ressource
-(URL-Kanonisierung).
+Festlegung auf genau eine ``kanonische'' URL je Ressource (vgl.
+\hyperref[urlux5fkanonisierung]{URL-Kanonisierung}).
 
 Bei unverschlüsseltem Zugriff wird allen URLs, die auf das betreffende
 System zeigen, das Schema ``http://'' voran gestellt, beim
@@ -1217,15 +1276,30 @@ verschlüsselten Zugriff stattdessen ``https://''.
 Es ist daher ZWINGEND, dass der Server-Betreiber sich zur
 URL-Kanonisierung für nur eine von beiden Varianten entscheidet.
 Beantwortet das System regulär Anfragen über HTTPS mit der Auslieferung
-von Objekten etc., dann MUSS das System bei Anfragen an die
-entsprechenden URLs ohne ``https://'' Schema mit einer Weiterleitung
-antworten (HTTP Status-Code 301).
+von Objekten etc., dann gilt für Anfragen an die entsprechende
+unverschlüsselte URL ZWINGEND:
 
-Gleiches gilt umgekehrt: beantwortet das System regulär Anfragen über
-unverschlüsseltes HTTP, dann MÜSSEN Anfragen auf die entsprechenden URLs
-mit ``https://''-Schema mit einer HTTP-Weiterleitung (HTTP Status-Code
-301) beantwortet werden. TODO: Geht das, wenn HTTPS nicht unterstützt
-wird?
+\begin{itemize}
+\item
+  unter der URL ist kein Webserver erreichbar, oder
+\item
+  der Server unter der URL beantwortet die Anfrage mit einer
+  Weiterleitung an die HTTPS-URL (HTTP Status-Code 301)
+\end{itemize}
+
+Gleiches gilt umgekehrt: hat sich der Betreiber generell für den Betrieb
+des OParl-Servers über unverschlüsseltes HTTP entscheiden, dann MUSS für
+die entsprechenden HTTPS-URLs eine der beiden folgenden Möglichkeiten
+gelten:
+
+\begin{itemize}
+\item
+  Entweder ist unter den entsprechenden HTTPS-URLs kein Webserver
+  erreichbar
+\item
+  oder Anfragen an die HTTPS-URLs werden mit Redirects auf die
+  entsprechenden HTTP-URLs beantwortet.
+\end{itemize}
 
 \hyperdef{}{urls}{\subsection{URLs, IRIs und URIs}\label{urls}}
 
@@ -1257,7 +1331,7 @@ https://refserv.oparl.org/foo/bar/?skip=234
 Schema     Host             Pfad  Query-String
 \end{verbatim}
 
-\subsubsection{URL-Kanonisierung}\label{url-kanonisierung}
+\hyperdef{}{urlux5fkanonisierung}{\subsubsection{URL-Kanonisierung}\label{urlux5fkanonisierung}}
 
 Absicht ist, dass jedes benannte Objekt\footnote{vgl.
   \hyperref[benannteux5fanonymeux5fobjekte]{Benannte und anonyme
@@ -1350,9 +1424,9 @@ entsprechende HTTP-Anfrage mit einer Weiterleitung auf die entsprechende
 kanonische URL beantwortet werden. Dabei ist der HTTP-Status-Code 301 zu
 verwenden.
 
-Server-Implementierern wird empfohlen, hierfür den Host-Header der
-HTTP-Anfrage auszuwerten und mit der konfigurierten Einstellung für den
-kanonischen Hostnamen des Systems abzugleichen.
+Server-Implementierern wird empfohlen, hierfür den \texttt{Host}-Header
+der HTTP-Anfrage auszuwerten und mit der konfigurierten Einstellung für
+den kanonischen Hostnamen des Systems abzugleichen.
 
 Beim \textbf{Pfad}-Bestandteil der URL MÜSSEN Server-Implementierer
 darüber hinaus beachten, dass nur jeweils eine Schreibweise als die
@@ -1428,18 +1502,8 @@ unterstützt.
 
 In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung
 des HTTP \texttt{Content-type}-Headers \texttt{application/ld+json}
-beantworten. Die Spezifikation von JSON-LD liefert dazu genauere
-Informationen\footnote{JSON-LD 1.0: IANA COnsiderations:
-  \url{http://www.w3.org/TR/json-ld/\#iana-considerations}}, auch zu dem
-optionalen Parameter \texttt{profile} für die explizite Anforderung von
-JSON-LD in einer dieser drei Unterformen: kompakt, expandiert oder
-flach.
-
-Wenn der Server auch Anfragen nach \texttt{application/json} akzeptiert,
-dann SOLL er expandierte JSON-LD Dokumente liefern (also solche ohne
-\texttt{@context}).
-
-TODO: MUSS der Server solche Legacy-Anfragen akzeptieren? Warum?
+beantworten, Ausnahmen davon sind lediglich
+\hyperref[dateizugriff]{Dateizugriffe}.
 
 \subsubsection{JSON}\label{json}
 
@@ -1498,8 +1562,9 @@ Beispiel eines Objekts in JSON-Notation:
 
 Das Kürzel LD im Namen ``JSON-LD'' steht für ``Linked Data''\footnote{siehe
   dazu \hyperref[linkedux5fdata]{Linked Data}}. Entsprechend erweitert
-die JSON-LD-Spezifikation\footnote{\url{http://www.w3.org/TR/json-ld/}}
-das JSON-Format um die Möglichkeit,
+die JSON-LD-Spezifikation\footnote{JSON-LD 1.0:
+  \url{http://www.w3.org/TR/json-ld/}} das JSON-Format um die
+Möglichkeit,
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -1512,9 +1577,9 @@ das JSON-Format um die Möglichkeit,
   zu geben.
 \end{itemize}
 
-Ein Beispiel aus der JSON-LD-Spezifikation illustriert, wie JSON-LD ein
+Ein Beispiel aus der JSON-LD-Spezifikation verdeutlicht, wie JSON-LD ein
 Objekt um zusätzliche semantische Informationen erweitert. Als
-Ausgangspunkt dient eine Personenbeschreibung in gewöhnlichem JSON:
+Ausgangspunkt dient ein gewöhnliches JSON-Objekt:
 
 \hyperdef{}{jsonldux5fex1}{\label{jsonldux5fex1}}
 \begin{Shaded}
@@ -1562,9 +1627,10 @@ Unterobjekt, mitgeliefert werden:
 \end{Shaded}
 
 Hier sind die Eigenschaften wie \texttt{image} einer URL wie
-http://schema.org/image zugewiesen. Ein Client, der diese URL kennt,
-kann daraus folgern, dass über die Objekteigenschaft \texttt{image}
-immer die URL eines Bildes zu finden ist. Das Schlüssel-Wert-Paar
+\texttt{http://schema.org/image} zugewiesen. Ein Client, der diese URL
+kennt, kann daraus folgern, dass über die Objekteigenschaft
+\texttt{image} immer die URL eines Bildes zu finden ist. Das
+Schlüssel-Wert-Paar
 
 \begin{verbatim}
 "@type": "@id"
@@ -1581,24 +1647,29 @@ deklariert werden.
 Am obigen Beispiel fällt auf, dass der \texttt{@context}-Teil des
 Objekts schon mehr Daten umfasst, als die eigentlichen
 Objekteigenschaften. Sinnvollerweise kann jedoch der gesamte Inhalt des
-\texttt{@context}-Teils in eine externe Ressource ausgelagert werden.
-Das folgende Beispiel verdeutlicht dies:
+\texttt{@context}-Teils für alle Objekte des selben Typs zusammengefasst
+und in eine externe Ressource ausgelagert werden. Das folgende Beispiel
+verdeutlicht dies:
 
 \hyperdef{}{jsonldux5fex3}{\label{jsonldux5fex3}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
-  \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"http://json-ld.org/contexts/person.jsonld"}\NormalTok{,}
-  \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Manu Sporny"}\NormalTok{,}
-  \DataTypeTok{"homepage"}\NormalTok{: }\StringTok{"http://manu.sporny.org/"}\NormalTok{,}
-  \DataTypeTok{"image"}\NormalTok{: }\StringTok{"http://manu.sporny.org/images/manu.png"}
+    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"http://json-ld.org/contexts/person.jsonld"}\NormalTok{,}
+    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Manu Sporny"}\NormalTok{,}
+    \DataTypeTok{"homepage"}\NormalTok{: }\StringTok{"http://manu.sporny.org/"}\NormalTok{,}
+    \DataTypeTok{"image"}\NormalTok{: }\StringTok{"http://manu.sporny.org/images/manu.png"}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-Die \texttt{@context}-Eigenschaft hat nun als Wert eine URL. Die URL
-(hier: http://json-ld.org/contexts/person.jsonld) gibt wiederum in JSON
-kodiert die Beschreibung aller möglichen Attribute des Objekts aus. Die
+Die \texttt{@context}-Eigenschaft hat nun als Wert eine URL, in diesem
+Fall:
+
+\texttt{http://json-ld.org/contexts/person.jsonld}
+
+Hinter dieser URL wiederum befindet sich ein JSON-Dokument, dass die
+Beschreibung aller möglichen Attribute des Personen-Objekts enthält. Die
 Kontext-Beschreibung des JSON-LD-Objekts wurde somit in eine externe
 Ressource ausgelagert. Clients SOLLEN davon ausgehen, dass sich diese
 externen Kontextbeschreibungen nur selten ändern. Somit genügt es, bei
@@ -1606,17 +1677,40 @@ Abruf vieler gleichartiger JSON-LD-Objekte vom Server die
 Kontext-Ressource nur einmal zu laden.
 
 Im Sinne der JSON-LD-Spezifikation sind Objekte mit eingebettetem und
-externem Kontext identisch. Den Implementierern eines OParl-konformen
-Servers wird EMPFOHLEN, grundsätzlich die Kontextinformation mittels
-externer Ressourcen zu übermitteln. Die OParl Autoren werden hierzu die
-zu dieser Spezifikation passenden Ressourcen auf oparl.org für jegliche
-Verwendung zur Verfügung stellen (mehr dazu im
-\hyperref[jsonldux5fressourcenux5foparlorg]{Anhang}). Sollten
+externem Kontext inhaltlich identisch. Den Implementierern eines
+OParl-konformen Servers wird EMPFOHLEN, grundsätzlich die
+Kontextinformation mittels externer Ressourcen zu übermitteln. Die OParl
+Autoren werden hierzu die zu dieser Spezifikation passenden Ressourcen
+auf oparl.org für jegliche Verwendung zur Verfügung stellen (mehr dazu
+im \hyperref[jsonldux5fressourcenux5foparlorg]{Anhang}). Sollten
 Server-Implementierer zusätzliche Objekttypen benötigen, die nicht von
 dieser Spezifikation abgedeckt sind, SOLL entsprechend zusätzlich auf
 eigene Kontextressourcen unter geeigneten URLs verwiesen werden. Hierbei
 können herstellereigene und OParl-spezifische URls gemischt werden, wie
-in einem Beispiel weiter unten verfeutlicht wird.
+in einem Beispiel weiter unten verdeutlicht wird.
+
+Formell wird bei JSON-LD weiterhin zwischen drei verschiedenen Formaten
+unterschieden, die semantisch gleichbedeutend sind:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Kompakte Form (\emph{compact})
+\item
+  Expandierte Form (\emph{expanded})
+\item
+  Flache Form (\emph{flat})
+\end{itemize}
+
+Das vorige Beispiel zeigt die kompakte Form. Die Definitionen können der
+JSON-LD-Spezifikation entnommen werden. OParl-Server MÜSSEN sämtliche
+Objekte grundsätzlich in dieser kompakten Form ausliefern. Die
+Umwandlung in die anderen Formen bei Bedarf obliegt dem
+Client.\footnote{Die JSON-LD-Spezifikation enthält Überlegungen,
+  zwischen Client und Server die gewünschte Form über einen
+  \texttt{Accept}-Header mit zusätzlichem \texttt{profile} Parameter
+  auszuhandeln. Diese Überlegung ist zur Reduktion der Komplexität auf
+  Serverseite nicht in OParl eingefllossen.}
 
 JSON-LD ermöglicht es auch, für ein Objekt einen \textbf{Objekttyp} zu
 kommunizieren. So könnte passend zu unserem Beispiel ausgedrückt werden,
@@ -1680,10 +1774,12 @@ jeden Objekttypen eine eindeutige URL ergeben.
   \texttt{http://www.vendor.de/oparl/schema/Drucksache}
 \end{itemize}
 
-TODO: Eventuell hier die Anforderung festhalten, dass jedes Objekt, das
-über eine OParl API ausgegeben wird, das \texttt{@type}-Schlüsselwort
-haben MUSS. Das ist noch nicht geklärt, da Listen hier eine Ausnahme
-bilden können.
+Jedes Objekt, dass vom OParl-Server ausgeliefert wird, MUSS die
+\texttt{@type} Eigenschaft enthalten und darüber kommunizieren, welchen
+Typs das Objekt ist.\footnote{Der Abruf von Listen wie im Abschnitt
+  \hyperref[objektlisten]{Objektlisten} beschrieben, ist eine Ausnahme,
+  denn hier werden nicht Objekte ausgeliefert, sondern Listen von URLs
+  von Objekten.}
 
 Eine JSON-LD-konforme Ausgabe stellt noch weitere Anforderungen, von
 denen nachfolgend die wichtigsten zusammen gefasst werden.
@@ -1908,27 +2004,20 @@ von URLs.
 \subsubsection{Vollständige
 Listenausgabe}\label{vollstuxe4ndige-listenausgabe}
 
-In der einfachsten Form gibt der Server die Liste als Objekt mit nur
-einer einzigen Eigenschaft \texttt{items} aus. Der Wert dieser
-Eigenschaft ist die \textbf{vollständige Liste} der URLs aller in der
-Liste enthaltenen Objekte.
-
-Diese einfachste Form der Antwort eignet sich nur für Listen mit einer
-begrenzten Anzahl von Einträgen, wie beispielsweise die Liste der
-Mitglieder einer Organisation.
+In der einfachsten Form wird eine Objektliste als JSON-Liste ausgegeben.
+Die Elemente dieser Liste sind \textbf{sämtliche URLs} aller in der
+Objektliste enthaltenen Objekte.
 
 Beispiel:
 
 \hyperdef{}{objektlistenux5fex1}{\label{objektlistenux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"items"}\NormalTok{: [}
-        \StringTok{"https://beispielris.de/bodies/0/papers/2"}\NormalTok{,}
-        \StringTok{"https://beispielris.de/bodies/0/papers/5"}\NormalTok{,}
-        \StringTok{"https://beispielris.de/bodies/0/papers/7"}\NormalTok{,}
-    \NormalTok{]}
-\NormalTok{\}}
+\NormalTok{[}
+    \StringTok{"https://oparl.beispielris.de/bodies/0/papers/2"}\NormalTok{,}
+    \StringTok{"https://oparl.beispielris.de/bodies/0/papers/5"}\NormalTok{,}
+    \StringTok{"https://oparl.beispielris.de/bodies/0/papers/7"}
+\NormalTok{]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2242,33 +2331,31 @@ Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
 \hyperdef{}{feedux5fex1}{\label{feedux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"items"}\NormalTok{: [}
-        \NormalTok{\{}
-            \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/21/documents/3"}\NormalTok{,}
-            \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2014-01-07T12:59:01.038+0100"}
-        \NormalTok{\},}
-        \NormalTok{\{}
-            \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/21"}\NormalTok{,}
-            \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2014-01-05T18:29:37.123+0100"}
-        \NormalTok{\},}
-        \NormalTok{\{}
-            \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/20/documents/5"}\NormalTok{,}
-            \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2014-01-04T11:26:48.638+0100"}
-        \NormalTok{\},}
-        \ErrorTok{...}
-    \NormalTok{]}
-\NormalTok{\}}
+\NormalTok{[}
+    \NormalTok{\{}
+        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/21/documents/3"}\NormalTok{,}
+        \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2014-01-07T12:59:01.038+0100"}
+    \NormalTok{\},}
+    \NormalTok{\{}
+        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/21"}\NormalTok{,}
+        \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2014-01-05T18:29:37.123+0100"}
+    \NormalTok{\},}
+    \NormalTok{\{}
+        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/20/documents/5"}\NormalTok{,}
+        \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2014-01-04T11:26:48.638+0100"}
+    \NormalTok{\},}
+    \ErrorTok{...}
+\NormalTok{]}
 \end{Highlighting}
 \end{Shaded}
 
-Wie im Beispiel zu sehen ist, enthält die Eigenschaft \texttt{items}
-eine Liste mit unbenannten Objekten. Dies ist ein Unterschied zu
+Wie im Beispiel zu sehen ist, handelt es sich um eine JSON-Liste, deren
+Elemente unbenannten Objekten sind. Dies ist ein Unterschied zu
 herkömmlichen Objektlisten, bei denen an dieser Stelle lediglich URLs
 als Listeneinträge erwartet werden.
 
-Jedes der Objekte in der \texttt{items}-Liste MUSS seinerseits wiederum
-zwei Eigenschaften besitzen:
+Jedes der Objekte in der Liste MUSS seinerseits wiederum zwei
+Eigenschaften besitzen:
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -2314,23 +2401,21 @@ System geführt werden.
 \hyperdef{}{feedux5fex2}{\label{feedux5fex2}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"items"}\NormalTok{: [}
-        \NormalTok{\{}
-            \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/0/documents/2"}\NormalTok{,}
-            \DataTypeTok{"lastModified"}\NormalTok{: }\StringTok{"2014-01-08T14:28:31.568+0100"}
-        \NormalTok{\},}
-        \NormalTok{\{}
-            \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/0"}\NormalTok{,}
-            \DataTypeTok{"lastModified"}\NormalTok{: }\StringTok{"2014-01-08T12:14:27.958+0100"}
-        \NormalTok{\},}
-        \NormalTok{\{}
-            \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/0/documents/1"}\NormalTok{,}
-            \DataTypeTok{"lastModified"}\NormalTok{: }\StringTok{"2014-01-06T17:01:00.402+0100"}
-        \NormalTok{\},}
-        \ErrorTok{...}
-    \NormalTok{]}
-\NormalTok{\}}
+\NormalTok{[}
+    \NormalTok{\{}
+        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/0/documents/2"}\NormalTok{,}
+        \DataTypeTok{"lastModified"}\NormalTok{: }\StringTok{"2014-01-08T14:28:31.568+0100"}
+    \NormalTok{\},}
+    \NormalTok{\{}
+        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/0"}\NormalTok{,}
+        \DataTypeTok{"lastModified"}\NormalTok{: }\StringTok{"2014-01-08T12:14:27.958+0100"}
+    \NormalTok{\},}
+    \NormalTok{\{}
+        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/0/documents/1"}\NormalTok{,}
+        \DataTypeTok{"lastModified"}\NormalTok{: }\StringTok{"2014-01-06T17:01:00.402+0100"}
+    \NormalTok{\},}
+    \ErrorTok{...}
+\NormalTok{]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2358,15 +2443,13 @@ entfernen.
 \hyperdef{}{feedux5fex3}{\label{feedux5fex3}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"items"}\NormalTok{: [}
-        \NormalTok{\{}
-            \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/people/22"}\NormalTok{,}
-            \DataTypeTok{"removed"}\NormalTok{: }\StringTok{"2013-11-11T11:11:00.000+0100"}
-        \NormalTok{\},}
-        \ErrorTok{...}
-    \NormalTok{]}
-\NormalTok{\}}
+\NormalTok{[}
+    \NormalTok{\{}
+        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/people/22"}\NormalTok{,}
+        \DataTypeTok{"removed"}\NormalTok{: }\StringTok{"2013-11-11T11:11:00.000+0100"}
+    \NormalTok{\},}
+    \ErrorTok{...}
+\NormalTok{]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2660,7 +2743,7 @@ einer Zeitangabe.
 \section{Schema}\label{schema}
 
 Dieses Kapitel beschreibt das Schema von OParl. Das Schema bildet das
-Datzenmodell der OParl-Architektur ab. Es definiert, welche Objekttypen
+Datenmodell der OParl-Architektur ab. Es definiert, welche Objekttypen
 über eine OParl-API abgerufen werden können und welche Eigenschaften
 diese Objekttypen haben dürfen und müssen. Darüber hinaus ist im Schema
 auch festgelegt, in welcher Beziehung verschiedene Objekttypen zu
@@ -3186,6 +3269,11 @@ Gruppierung in dieser Körperschaft. Typ: \texttt{oparl:Organization}
 ZWINGEND
 \item[\texttt{classification}]
 Typ: \texttt{skos:Concept} OPTIONAL
+\item[\texttt{allConcepts}]
+Alle Schlagworte und Begriffe, die von dieser Körperschaft verwendet
+werden. Diese Eigenschaft ist insbesondere dann wichtig, wenn
+Sortierungs-Reihenfolgen verwendet werden. TODO: Beispiel Typ:
+\texttt{skos:Concept} OPTIONAL
 \item[\texttt{created}]
 Datum/Uhrzeit der Erzeugung des Objekts. Typ: TODO EMPFOHLEN.
 \item[\texttt{lastModified}]
@@ -3436,32 +3524,33 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 \end{Highlighting}
 \end{Shaded}
 
-\hyperdef{}{personux5fex2}{\label{personux5fex2}}
+\textsubscript{\textasciitilde{}}\textasciitilde{}\textasciitilde{}
+\{\#person\_ex2 .json\} \{ ``@context'':
+``https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld'',
+``@type'': ``oparl:Person'', ``@id'':
+``https://oparl.beispielris.de/person/29'', ``name'': ``Prof.~Dr.~Max
+Mustermann'', ``familyName'': ``Mustermann'', // Kontext gibt deutsche
+Spache vor ``givenName'': ``Max'', ``title'': ``Prof.~Dr.'',
+``formOfAddress'': ``beispielris:formofaddress/ratsmitglied'',
+``gender'': ``vcard:Male'', ``email'': ``mailto:max@mustermann.de'',
+``phone'': ``tel:+493012345678'', ``streetAddress'': ``Musterstraße 5'',
+``postalCode'': ``11111'', ``locality'': \{ ``de'': ``Musterort'',
+``en'': ``Sample Town'' \}, ``organization'': {[}``11'', ``34''{]},
+``status'': ``beispielris:status/buergermeister'', ``hasMembership'':
+``beispielris:membership/34'', ``created'':
+``2011-11-11T11:11:00+01:00'', ``modified'':
+``2012-08-16T14:05:27+02:00'' \}
+
+Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der Kontext
+bleibt wie zuvor.
+
+\hyperdef{}{personux5fex3}{\label{personux5fex3}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{\{}
-    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld"}\NormalTok{,}
-    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:Person"}\NormalTok{,}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/person/29"}\NormalTok{,}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Prof. Dr. Max Mustermann"}\NormalTok{,}
-    \DataTypeTok{"familyName"}\NormalTok{: }\StringTok{"Mustermann"}\NormalTok{, }\ErrorTok{//} \ErrorTok{Kontext} \ErrorTok{gibt} \ErrorTok{deutsche} \ErrorTok{Spache} \ErrorTok{vor}
-    \DataTypeTok{"givenName"}\NormalTok{: }\StringTok{"Max"}\NormalTok{,}
-    \DataTypeTok{"title"}\NormalTok{: }\StringTok{"Prof. Dr."}\NormalTok{,}
-    \DataTypeTok{"formOfAddress"}\NormalTok{: }\StringTok{"beispielris:formofaddress/ratsmitglied"}\NormalTok{,}
-    \DataTypeTok{"gender"}\NormalTok{: }\StringTok{"vcard:Male"}\NormalTok{,}
-    \DataTypeTok{"email"}\NormalTok{: }\StringTok{"mailto:max@mustermann.de"}\NormalTok{,}
-    \DataTypeTok{"phone"}\NormalTok{: }\StringTok{"tel:+493012345678"}\NormalTok{,}
-    \DataTypeTok{"streetAddress"}\NormalTok{: }\StringTok{"Musterstraße 5"}\NormalTok{,}
-    \DataTypeTok{"postalCode"}\NormalTok{: }\StringTok{"11111"}\NormalTok{,}
+    \ErrorTok{//} \ErrorTok{...}
     \DataTypeTok{"locality"}\NormalTok{: }\StringTok{"Musterort"}\NormalTok{,}
-    \DataTypeTok{"locality"}\NormalTok{: \{}
-        \DataTypeTok{"en"}\NormalTok{: }\StringTok{"Sample Town"} \ErrorTok{//} \ErrorTok{TODO} \ErrorTok{prüfen}\NormalTok{, }\ErrorTok{ob} \ErrorTok{Eigenschaft} \ErrorTok{doppelt} \ErrorTok{erscheinen} \ErrorTok{darf}
-    \NormalTok{\},}
-    \DataTypeTok{"organization"}\NormalTok{: [}\StringTok{"11"}\NormalTok{, }\StringTok{"34"}\NormalTok{],}
-    \DataTypeTok{"status"}\NormalTok{: }\StringTok{"beispielris:status/buergermeister"}\NormalTok{,}
-    \DataTypeTok{"hasMembership"}\NormalTok{: }\StringTok{"beispielris:membership/34"}\NormalTok{,}
-    \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2011-11-11T11:11:00+01:00"}\NormalTok{,}
-    \DataTypeTok{"modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
+    \ErrorTok{//} \ErrorTok{...}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}

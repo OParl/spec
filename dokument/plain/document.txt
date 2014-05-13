@@ -12,12 +12,18 @@ Status
 ------
 
 Die Spezifikation befindet sich in Arbeit. Das Dokument enthält
-entsprechend viele Ungenauigkeiten und Hinweise auf offene
-Fragestellungen.
+entsprechend noch Ungenauigkeiten und Hinweise auf offene
+Fragestellungen, die bis zur Fertigstellung mit Hilfe vieler
+Mitwirkender geschlossen werden sollen.
 
-Die Kennzeichnung "TODO" markiert Hinweise, die für die Bearbeiter des
-Dokuments gedacht sind. Darunter befinden sich auch Fragen an deren
-Beantwortung durch Reviewer des Dokuments die Autoren interessiert sind.
+Im Dokument befinden sich Fragestellugen an Mitwirkende und Reviewer,
+die mit dem Stichwort "FRAGE" markiert sind. Hier bitten wir Sie um
+Mithilfe und laden Sie ein, Ihre Antwort unter
+https://github.com/OParl/specs/issues?milestone=1&state=open
+beizusteuern.
+
+Die Kennzeichnung "TODO" markiert darüber hinaus Hinweise, die für die
+Bearbeiter des Dokuments gedacht sind.
 
 Was ist OParl in Kürze?
 -----------------------
@@ -51,8 +57,6 @@ OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:
 -   Anbieter von Linked Data-Plattformen oder -Services
 
 TODO: Nutzen für jede Stakeholder-Gruppe
-
-TODO: Linked Data erwähnen oder Verweis auf Linked Data Abschnitt
 
 Die Gründe, warum Betreiber von parlamentarischen Informationssystemen
 den Zugriff darauf über eine standardisierte Schnittstelle ermöglichen
@@ -335,21 +339,44 @@ die in JSON nicht erlaubt wären.
 Initiatoren
 -----------
 
-TODO
+OParl wurde initiiert von Marian Steinbach[^10], Jens Klessmann[^11],
+Marianne Wulff und Christine Siegfried[^12].
 
 Unterstützer
 ------------
 
-TODO
+Die folgenden Organisationen und Unternehmen zählen zu den Unterstützern
+von OParl:
+
+  Organisation/Firma                Kategorie
+  --------------------------------- -------------------------
+  CC e-Gov GmbH                     RIS-Hersteller
+  Citeq (Münster)                   Kommunale Dienstleister
+  ITDZ Berlin                       Kommunale Dienstleister
+  Kiru (Ulm)                        Kommunale Dienstleister
+  KDVZ Rhein-Erft-Rur               Kommunale Dienstleister
+  KRZN                              Kommunale Dienstleister
+  Open Knowledge Foundation e.V.    Initiativen
+  OpenRuhr                          Initiativen
+  Parlamentwatch e.V.               Initiativen
+  Piratenpartei                     Initiativen
+  QuinScape GmbH                    RIS-Hersteller
+  regioIT (Aachen)                  Kommunale Dienstleister
+  Somacos GmbH und Co. KG           RIS-Hersteller
+  Stadt Bonn                        Kommune
+  Stadt Köln                        Kommune
+  Stadt Moers                       Kommune
+  Sternberg Software-Technik GmbH   RIS-Hersteller
+  Wikimedia Deutschland             Initiativen
 
 Autoren
 -------
 
 An diesem Dokument haben mitgewirkt:
 
-Felix Ebert, Jan Erhardt, Jens Klessmann, Andreas Kuckartz, Babett
-Schalitz, Ralph Sternberg, Marian Steinbach, Bernd Thiem, Thomas
-Tursics, Jakob Voss
+Felix Ebert, Jan Erhardt, Jayan Areekadan, Jens Klessmann, Andreas
+Kuckartz, Babett Schalitz, Ralph Sternberg, Marian Steinbach, Bernd
+Thiem, Thomas Tursics, Jakob Voss
 
 Architektur
 ===========
@@ -362,7 +389,7 @@ API verständlicher und konkreter beschreiben zu können.
 
 Da die Architektur auf der generellen Architektur des World Wide Web
 (WWW) aufbaut, sind einzelne Konzepte direkt den Begriffen der
-Architekturbeschreibung des W3-Konsortiums entlehnt.[^10]
+Architekturbeschreibung des W3-Konsortiums entlehnt.[^13]
 
 Überblick
 ---------
@@ -654,7 +681,7 @@ solchen Suchmaschine sich entschließen, die Informationen aus mehreren
 OParl-konformen Systemen zu indexieren. Nutzern könnte entweder
 angeboten werden, die Suche auf bestimmte Körperschaften, beispielsweise
 auf eine bestimmte Kommune, zu beschränken, oder ohne Beschränkung über
-alle angebotenen Körperschaften zu suchen.[^11]
+alle angebotenen Körperschaften zu suchen.[^14]
 
 Daraus ergeben sich vielfältige Anwendungsszenarien, die hier
 beispielhaft beschrieben werden:
@@ -749,7 +776,7 @@ Ein Beispiel für eine derartige Funktion ist die Abbildung von Geodaten
 im Kontext von Drucksachen (oparl:Paper), um beispielsweise die Lage
 eines Bauvorhabens, das in einer Beschlussvorlage behandelt wird, zu
 beschreiben. Zwar ist den Autoren nur ein einziges parlamentarisches
-Informationssystem[^12] in Deutschland bekannt, das Geoinformationen -
+Informationssystem[^15] in Deutschland bekannt, das Geoinformationen -
 und zwar in Form von Punktdaten, also einer Kombination aus Längen- und
 Breitengradangaben - mit Dokumenten verknüpft. Der Vorteil dieser
 Funktion ist jedoch anhand zahlreicher Anwendungsszenarien belegbar.
@@ -773,7 +800,7 @@ ODT-Datei zu einer PDF-Version.
 RESTful
 
 Die Bezeichnung "REST" (für "Representational State Transfer") wurde im
-Jahr 2000 von Roy Fielding eingeführt[^13]. Die Definition von Fielding
+Jahr 2000 von Roy Fielding eingeführt[^16]. Die Definition von Fielding
 reicht sehr weit und berührt viele Details. In der Praxis wird der
 Begriff häufig genutzt, um eine Schnittstelle zu beschreiben,
 
@@ -843,13 +870,13 @@ Mitglied des Gremiums, dadurch ausgeben, dass im Kontext des Gremiums
 die URL des Mitglieds ausgeben wird. Der Client kann somit ausgehend von
 einem bestimmten Objekt die anderen Objekte im System finden, indem er
 einfach den angebotenen URLs folgt. Dieses Prinzip wird auch "Follow
-Your Nose" genannt[^14].
+Your Nose" genannt[^17].
 
 Linked Data
 
 Der Begriff "Linked Data" steht für die Beschreibung von Daten in einer
 Form, die diese über ihren ursprünglichen Kontext hinaus verständlich
-macht.[^15]
+macht.[^18]
 
 Kern von Linked Data ist die Möglichkeit, alle Bestandteile von Daten in
 Form von Tripeln zu beschreiben, das sind dreiteilige
@@ -867,7 +894,7 @@ Person mit dem folgenden Tripel beschrieben werden:
 Hierbei macht man von der Tatsache Gebrauch, dass das Subjekt, also die
 Person, um die es geht, bereits mittels ihrer URI eindeutig
 identifiziert werden kann und dass bestenfalls unter dieser URI weitere
-Informationen zu der Person abrufbar sind.[^16] Auch für das Prädikat
+Informationen zu der Person abrufbar sind.[^19] Auch für das Prädikat
 "Person hat den Vornamen" liegt bereits eine Beschreibung in einem
 gebräuchlichen Vokabular vor, auf das hier verwiesen werden kann. Und
 schließlich kann sogar der eigentliche Vorname in Form einer URI
@@ -885,7 +912,7 @@ Beispiele, wo dies sinnvoll ist, sind in der Praxis leicht zu finden. So
 finden sich beispielsweise in vielen lokalen Parlamenten immer wieder
 Fraktionen der selben Parteien, beispielsweise CDU und SPD. Mittels
 Linked Data wäre es möglich, jede dieser Fraktionen mit einer externen
-URL zu verknüpfen[^17] und somit erkennbar zu machen, zu welcher Partei
+URL zu verknüpfen[^20] und somit erkennbar zu machen, zu welcher Partei
 diese Fraktion gehört. Ebenso finden sich viele inhaltliche
 Ähnlichkeiten bei Gremien wie zum Beispiel Ausschüssen (z.B.
 Hauptausschuss, Verkehrsausschuss etc.) oder bei Arten von Drucksachen
@@ -1004,7 +1031,7 @@ Betreiber bzw. Server-Implementierer.
 Die Wahl des unverschlüsselten oder verschlüsselten HTTP-Zugriffs hat
 Auswirkung auf die im System verwendeten URLs. Wie im Kapitel URLs
 beschrieben, verfolgt diese Spezifikation die Festlegung auf genau eine
-"kanonische" URL je Ressource (URL-Kanonisierung).
+"kanonische" URL je Ressource (vgl. URL-Kanonisierung).
 
 Bei unverschlüsseltem Zugriff wird allen URLs, die auf das betreffende
 System zeigen, das Schema "http://" voran gestellt, beim verschlüsselten
@@ -1013,15 +1040,24 @@ Zugriff stattdessen "https://".
 Es ist daher ZWINGEND, dass der Server-Betreiber sich zur
 URL-Kanonisierung für nur eine von beiden Varianten entscheidet.
 Beantwortet das System regulär Anfragen über HTTPS mit der Auslieferung
-von Objekten etc., dann MUSS das System bei Anfragen an die
-entsprechenden URLs ohne "https://" Schema mit einer Weiterleitung
-antworten (HTTP Status-Code 301).
+von Objekten etc., dann gilt für Anfragen an die entsprechende
+unverschlüsselte URL ZWINGEND:
 
-Gleiches gilt umgekehrt: beantwortet das System regulär Anfragen über
-unverschlüsseltes HTTP, dann MÜSSEN Anfragen auf die entsprechenden URLs
-mit "https://"-Schema mit einer HTTP-Weiterleitung (HTTP Status-Code
-301) beantwortet werden. TODO: Geht das, wenn HTTPS nicht unterstützt
-wird?
+-   unter der URL ist kein Webserver erreichbar, oder
+
+-   der Server unter der URL beantwortet die Anfrage mit einer
+    Weiterleitung an die HTTPS-URL (HTTP Status-Code 301)
+
+Gleiches gilt umgekehrt: hat sich der Betreiber generell für den Betrieb
+des OParl-Servers über unverschlüsseltes HTTP entscheiden, dann MUSS für
+die entsprechenden HTTPS-URLs eine der beiden folgenden Möglichkeiten
+gelten:
+
+-   Entweder ist unter den entsprechenden HTTPS-URLs kein Webserver
+    erreichbar
+
+-   oder Anfragen an die HTTPS-URLs werden mit Redirects auf die
+    entsprechenden HTTP-URLs beantwortet.
 
 URLs, IRIs und URIs {#urls}
 -------------------
@@ -1033,7 +1069,7 @@ von Anforderungen an die Verarbeitung von URLs gestellt.
 Im Rahmen dieses Dokuments wird aus Gründen der Verständlichkeit
 generell der allgemein gebräuchlichere Begriff "URL" werwendet, auch
 wenn damit tatsächlich die internationalisierte Variante nach RFC
-3987[^18], die korrekterweise IRI bzw. "Internationalized Resource
+3987[^21], die korrekterweise IRI bzw. "Internationalized Resource
 Identifier" genannt werden müsste, gemeint ist. In andern Kontexten
 wiederum wird von URIs bzw. "Uniform Resource Identifier" gesprochen.
 Das vorliegende Dokumente fasst alle drei Konzepte mit dem Begriff "URL"
@@ -1041,7 +1077,7 @@ zusammen und ignoriert damit die Unterschiede der einzelnen Begriffe, da
 diese im Rahmen dieser Spezifikation ohne bedeutung sind.
 
 Die grundsätzliche Funktionsweise von URLs ist in RFC 3986
-beschrieben[^19].
+beschrieben[^22].
 
 Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in
 diesem Dokument Verwendung finden:
@@ -1053,7 +1089,7 @@ diesem Dokument Verwendung finden:
 
 URL-Kanonisierung
 
-Absicht ist, dass jedes benannte Objekt[^20], das ein Server über eine
+Absicht ist, dass jedes benannte Objekt[^23], das ein Server über eine
 OParl-API anbietet, über genau eine URL identifizierbar und abrufbar
 ist. Diese Vereinheitlichung der URL nennen wir Kanonisierung.
 
@@ -1179,8 +1215,8 @@ Vollständigkeit erheben:
     dazu führen, dass im Pfad ein Bestandteil wie "oparl.php/"
     erscheint. Erfahrungsgemäß überdauern solche URLs nur kurz.
 
-Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee[^21]
-sowie die Europäische Kommission[^22].
+Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee[^24]
+sowie die Europäische Kommission[^25].
 
 Serialisierung mittels JSON-LD und JSONP
 ----------------------------------------
@@ -1192,22 +1228,13 @@ verbessert. Auf Anforderung des Clients wird darüber hinaus JSONP
 unterstützt.
 
 In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung
-des HTTP Content-type-Headers application/ld+json beantworten. Die
-Spezifikation von JSON-LD liefert dazu genauere Informationen[^23], auch
-zu dem optionalen Parameter profile für die explizite Anforderung von
-JSON-LD in einer dieser drei Unterformen: kompakt, expandiert oder
-flach.
-
-Wenn der Server auch Anfragen nach application/json akzeptiert, dann
-SOLL er expandierte JSON-LD Dokumente liefern (also solche ohne
-@context).
-
-TODO: MUSS der Server solche Legacy-Anfragen akzeptieren? Warum?
+des HTTP Content-type-Headers application/ld+json beantworten, Ausnahmen
+davon sind lediglich Dateizugriffe.
 
 JSON
 
 Die Abkürzung JSON steht für "JavaScript Object Notation". Das
-JSON-Format ist in RFC4627[^24] beschrieben. Nachfolgend werden nur die
+JSON-Format ist in RFC4627[^26] beschrieben. Nachfolgend werden nur die
 wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren
 Verwendung in diesem Dokument zu etablieren.
 
@@ -1243,8 +1270,8 @@ Beispiel eines Objekts in JSON-Notation:
 
 JSON-LD
 
-Das Kürzel LD im Namen "JSON-LD" steht für "Linked Data"[^25].
-Entsprechend erweitert die JSON-LD-Spezifikation[^26] das JSON-Format um
+Das Kürzel LD im Namen "JSON-LD" steht für "Linked Data"[^27].
+Entsprechend erweitert die JSON-LD-Spezifikation[^28] das JSON-Format um
 die Möglichkeit,
 
 -   Objekte mit anderen Objekten zu verknüpfen,
@@ -1252,9 +1279,9 @@ die Möglichkeit,
 -   Auskunft über die semantische Bedeutung von Objekten und
     Eigenschaften zu geben.
 
-Ein Beispiel aus der JSON-LD-Spezifikation illustriert, wie JSON-LD ein
+Ein Beispiel aus der JSON-LD-Spezifikation verdeutlicht, wie JSON-LD ein
 Objekt um zusätzliche semantische Informationen erweitert. Als
-Ausgangspunkt dient eine Personenbeschreibung in gewöhnlichem JSON:
+Ausgangspunkt dient ein gewöhnliches JSON-Objekt:
 
 ``` {#jsonld_ex1 .json}
 {
@@ -1303,28 +1330,31 @@ eines Bildes zu finden ist. Das Schlüssel-Wert-Paar
     "@type": "@id"
 
 sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die URL eines
-anderen Objekts ist[^27]. Mittels @type-Deklaration könnte aber auch
+anderen Objekts ist[^29]. Mittels @type-Deklaration könnte aber auch
 beispielsweise eine Eigenschaft, die im JSON-Sinn eine Zeichenkette ist,
 als Datum deklariert werden.
 
 Am obigen Beispiel fällt auf, dass der @context-Teil des Objekts schon
 mehr Daten umfasst, als die eigentlichen Objekteigenschaften.
-Sinnvollerweise kann jedoch der gesamte Inhalt des @context-Teils in
-eine externe Ressource ausgelagert werden. Das folgende Beispiel
-verdeutlicht dies:
+Sinnvollerweise kann jedoch der gesamte Inhalt des @context-Teils für
+alle Objekte des selben Typs zusammengefasst und in eine externe
+Ressource ausgelagert werden. Das folgende Beispiel verdeutlicht dies:
 
 ``` {#jsonld_ex3 .json}
 {
-  "@context": "http://json-ld.org/contexts/person.jsonld",
-  "name": "Manu Sporny",
-  "homepage": "http://manu.sporny.org/",
-  "image": "http://manu.sporny.org/images/manu.png"
+    "@context": "http://json-ld.org/contexts/person.jsonld",
+    "name": "Manu Sporny",
+    "homepage": "http://manu.sporny.org/",
+    "image": "http://manu.sporny.org/images/manu.png"
 }
 ```
 
-Die @context-Eigenschaft hat nun als Wert eine URL. Die URL (hier:
-http://json-ld.org/contexts/person.jsonld) gibt wiederum in JSON kodiert
-die Beschreibung aller möglichen Attribute des Objekts aus. Die
+Die @context-Eigenschaft hat nun als Wert eine URL, in diesem Fall:
+
+http://json-ld.org/contexts/person.jsonld
+
+Hinter dieser URL wiederum befindet sich ein JSON-Dokument, dass die
+Beschreibung aller möglichen Attribute des Personen-Objekts enthält. Die
 Kontext-Beschreibung des JSON-LD-Objekts wurde somit in eine externe
 Ressource ausgelagert. Clients SOLLEN davon ausgehen, dass sich diese
 externen Kontextbeschreibungen nur selten ändern. Somit genügt es, bei
@@ -1332,16 +1362,29 @@ Abruf vieler gleichartiger JSON-LD-Objekte vom Server die
 Kontext-Ressource nur einmal zu laden.
 
 Im Sinne der JSON-LD-Spezifikation sind Objekte mit eingebettetem und
-externem Kontext identisch. Den Implementierern eines OParl-konformen
-Servers wird EMPFOHLEN, grundsätzlich die Kontextinformation mittels
-externer Ressourcen zu übermitteln. Die OParl Autoren werden hierzu die
-zu dieser Spezifikation passenden Ressourcen auf oparl.org für jegliche
-Verwendung zur Verfügung stellen (mehr dazu im Anhang). Sollten
-Server-Implementierer zusätzliche Objekttypen benötigen, die nicht von
-dieser Spezifikation abgedeckt sind, SOLL entsprechend zusätzlich auf
-eigene Kontextressourcen unter geeigneten URLs verwiesen werden. Hierbei
-können herstellereigene und OParl-spezifische URls gemischt werden, wie
-in einem Beispiel weiter unten verfeutlicht wird.
+externem Kontext inhaltlich identisch. Den Implementierern eines
+OParl-konformen Servers wird EMPFOHLEN, grundsätzlich die
+Kontextinformation mittels externer Ressourcen zu übermitteln. Die OParl
+Autoren werden hierzu die zu dieser Spezifikation passenden Ressourcen
+auf oparl.org für jegliche Verwendung zur Verfügung stellen (mehr dazu
+im Anhang). Sollten Server-Implementierer zusätzliche Objekttypen
+benötigen, die nicht von dieser Spezifikation abgedeckt sind, SOLL
+entsprechend zusätzlich auf eigene Kontextressourcen unter geeigneten
+URLs verwiesen werden. Hierbei können herstellereigene und
+OParl-spezifische URls gemischt werden, wie in einem Beispiel weiter
+unten verdeutlicht wird.
+
+Formell wird bei JSON-LD weiterhin zwischen drei verschiedenen Formaten
+unterschieden, die semantisch gleichbedeutend sind:
+
+-   Kompakte Form (compact)
+-   Expandierte Form (expanded)
+-   Flache Form (flat)
+
+Das vorige Beispiel zeigt die kompakte Form. Die Definitionen können der
+JSON-LD-Spezifikation entnommen werden. OParl-Server MÜSSEN sämtliche
+Objekte grundsätzlich in dieser kompakten Form ausliefern. Die
+Umwandlung in die anderen Formen bei Bedarf obliegt dem Client.[^30]
 
 JSON-LD ermöglicht es auch, für ein Objekt einen Objekttyp zu
 kommunizieren. So könnte passend zu unserem Beispiel ausgedrückt werden,
@@ -1391,9 +1434,9 @@ jeden Objekttypen eine eindeutige URL ergeben.
 -   Aus vendor:Drucksache wird
     http://www.vendor.de/oparl/schema/Drucksache
 
-TODO: Eventuell hier die Anforderung festhalten, dass jedes Objekt, das
-über eine OParl API ausgegeben wird, das @type-Schlüsselwort haben MUSS.
-Das ist noch nicht geklärt, da Listen hier eine Ausnahme bilden können.
+Jedes Objekt, dass vom OParl-Server ausgeliefert wird, MUSS die @type
+Eigenschaft enthalten und darüber kommunizieren, welchen Typs das Objekt
+ist.[^31]
 
 Eine JSON-LD-konforme Ausgabe stellt noch weitere Anforderungen, von
 denen nachfolgend die wichtigsten zusammen gefasst werden.
@@ -1433,7 +1476,7 @@ der Domain entsprechen, von der die Webanwendung selbst geladen wurde.
 AnwendungsentwicklerInnen sind dadurch bei der Implementierung von
 Client-Anwendungen eingeschränkt.
 
-Diese Einschränkung gilt nicht fürt JSONP[^28]. Durch JSONP (TODO:
+Diese Einschränkung gilt nicht fürt JSONP[^32]. Durch JSONP (TODO:
 Abkürzung erläutern) wird die JSON-Notation so erweitert, dass der
 ausgegebene Code ausführbarer JavaScript-Code wird. Damit wird erreicht,
 dass der JSON-Code über die Grenzen von Domains hinweg direkt von
@@ -1589,24 +1632,18 @@ von URLs.
 
 Vollständige Listenausgabe
 
-In der einfachsten Form gibt der Server die Liste als Objekt mit nur
-einer einzigen Eigenschaft items aus. Der Wert dieser Eigenschaft ist
-die vollständige Liste der URLs aller in der Liste enthaltenen Objekte.
-
-Diese einfachste Form der Antwort eignet sich nur für Listen mit einer
-begrenzten Anzahl von Einträgen, wie beispielsweise die Liste der
-Mitglieder einer Organisation.
+In der einfachsten Form wird eine Objektliste als JSON-Liste ausgegeben.
+Die Elemente dieser Liste sind sämtliche URLs aller in der Objektliste
+enthaltenen Objekte.
 
 Beispiel:
 
 ``` {#objektlisten_ex1 .json}
-{
-    "items": [
-        "https://beispielris.de/bodies/0/papers/2",
-        "https://beispielris.de/bodies/0/papers/5",
-        "https://beispielris.de/bodies/0/papers/7",
-    ]
-}
+[
+    "https://oparl.beispielris.de/bodies/0/papers/2",
+    "https://oparl.beispielris.de/bodies/0/papers/5",
+    "https://oparl.beispielris.de/bodies/0/papers/7"
+]
 ```
 
 Die vollständige Listenausgabe SOLL nur für Listen verwendet werden, die
@@ -1633,7 +1670,7 @@ Listenseite) weniger Listeneinträge vorhanden sind.
 Wird eine Liste in Form von Listenseiten, also mit Paginierung,
 ausgegeben, teilt der Server dem Client mittels HTTP-Headern in der
 nachfolgend beschriebenen Form mit, unter welcher URL weitere
-Listenseiten abgerufen werden können. Dabei wird von dem in RFC5988[^29]
+Listenseiten abgerufen werden können. Dabei wird von dem in RFC5988[^33]
 beschriebenen Header namens Link Gebrauch gemacht.
 
 Beispiel eines Link-Headers zur Angabe der URL für den Abruf der
@@ -1811,7 +1848,7 @@ vorangegangenen Beispiel beeinflusst:
 ```
 
 Statt einer JSON-Liste ist der Wert der Eigenschaft nun eine einzige
-URL.[^30]
+URL.[^34]
 
 Feeds
 -----
@@ -1823,8 +1860,8 @@ Anforderungen gelten. Es werden drei verschiedene Feeds spezifiziert:
 -   Der Feed Geänderte Objekte
 -   Der Feed Entfernte Objekte
 
-Der Begriff "Feed" ist eine Anlehnung an die weit verbreiteten RSS-[^31]
-oder Atom-Feeds[^32], deren Publikationslogik im Wesentlichen auf der
+Der Begriff "Feed" ist eine Anlehnung an die weit verbreiteten RSS-[^35]
+oder Atom-Feeds[^36], deren Publikationslogik im Wesentlichen auf der
 chronologischen Sortierung beruht. Im Unterschied zu Atom oder RSS ist
 hier jedoch keine XML-Ausgabe beabsichtigt.
 
@@ -1863,31 +1900,29 @@ geführt werden.
 Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
 
 ``` {#feed_ex1 .json}
-{
-    "items": [
-        {
-            "@id": "https://oparl.beispielris.de/bodies/0/papers/21/documents/3",
-            "created": "2014-01-07T12:59:01.038+0100"
-        },
-        {
-            "@id": "https://oparl.beispielris.de/bodies/0/papers/21",
-            "created": "2014-01-05T18:29:37.123+0100"
-        },
-        {
-            "@id": "https://oparl.beispielris.de/bodies/0/papers/20/documents/5",
-            "created": "2014-01-04T11:26:48.638+0100"
-        },
-        ...
-    ]
-}
+[
+    {
+        "@id": "https://oparl.beispielris.de/bodies/0/papers/21/documents/3",
+        "created": "2014-01-07T12:59:01.038+0100"
+    },
+    {
+        "@id": "https://oparl.beispielris.de/bodies/0/papers/21",
+        "created": "2014-01-05T18:29:37.123+0100"
+    },
+    {
+        "@id": "https://oparl.beispielris.de/bodies/0/papers/20/documents/5",
+        "created": "2014-01-04T11:26:48.638+0100"
+    },
+    ...
+]
 ```
 
-Wie im Beispiel zu sehen ist, enthält die Eigenschaft items eine Liste
-mit unbenannten Objekten. Dies ist ein Unterschied zu herkömmlichen
-Objektlisten, bei denen an dieser Stelle lediglich URLs als
-Listeneinträge erwartet werden.
+Wie im Beispiel zu sehen ist, handelt es sich um eine JSON-Liste, deren
+Elemente unbenannten Objekten sind. Dies ist ein Unterschied zu
+herkömmlichen Objektlisten, bei denen an dieser Stelle lediglich URLs
+als Listeneinträge erwartet werden.
 
-Jedes der Objekte in der items-Liste MUSS seinerseits wiederum zwei
+Jedes der Objekte in der Liste MUSS seinerseits wiederum zwei
 Eigenschaften besitzen:
 
 -   @id: Die URL des neuen Objekts
@@ -1924,23 +1959,21 @@ Auch hier SOLL der Feed sämtliche Objekttypen umfassen, die in einem
 System geführt werden.
 
 ``` {#feed_ex2 .json}
-{
-    "items": [
-        {
-            "@id": "https://oparl.beispielris.de/bodies/0/papers/0/documents/2",
-            "lastModified": "2014-01-08T14:28:31.568+0100"
-        },
-        {
-            "@id": "https://oparl.beispielris.de/bodies/0/papers/0",
-            "lastModified": "2014-01-08T12:14:27.958+0100"
-        },
-        {
-            "@id": "https://oparl.beispielris.de/bodies/0/papers/0/documents/1",
-            "lastModified": "2014-01-06T17:01:00.402+0100"
-        },
-        ...
-    ]
-}
+[
+    {
+        "@id": "https://oparl.beispielris.de/bodies/0/papers/0/documents/2",
+        "lastModified": "2014-01-08T14:28:31.568+0100"
+    },
+    {
+        "@id": "https://oparl.beispielris.de/bodies/0/papers/0",
+        "lastModified": "2014-01-08T12:14:27.958+0100"
+    },
+    {
+        "@id": "https://oparl.beispielris.de/bodies/0/papers/0/documents/1",
+        "lastModified": "2014-01-06T17:01:00.402+0100"
+    },
+    ...
+]
 ```
 
 Das Ausgabeformat entspricht weitgehend dem des Feeds "Neue Objekte",
@@ -1963,15 +1996,13 @@ beispielsweise depublizierte Dokumente aus ihren lokalen Caches zu
 entfernen.
 
 ``` {#feed_ex3 .json}
-{
-    "items": [
-        {
-            "@id": "https://oparl.beispielris.de/bodies/0/people/22",
-            "removed": "2013-11-11T11:11:00.000+0100"
-        },
-        ...
-    ]
-}
+[
+    {
+        "@id": "https://oparl.beispielris.de/bodies/0/people/22",
+        "removed": "2013-11-11T11:11:00.000+0100"
+    },
+    ...
+]
 ```
 
 Die Eigenschaft zur Angabe des Entfernungszeitpunkts heißt hier removed
@@ -1995,7 +2026,7 @@ zu. Daher formuliert OParl diesbezüglich einige Anforderungen, die
 helfen sollen, unnötigen Datentransfer zu vermeiden.
 
 Detail zu sämtlichen angesprochenen Mechanismen sind in der
-HTTP-1.1-Spezifikation[^33] zu finden.
+HTTP-1.1-Spezifikation[^37] zu finden.
 
 GET und HEAD Anfragen
 
@@ -2025,7 +2056,7 @@ downloadUrl eine weitere URL anbieten, hier Download-URL genannt. Diese
 dient im Gegensatz zur Zugriffs-URL speziell zum Herunterladen und
 Speichern der Datei in einem Dateisystem des Endnutzers. Bei Zugriff auf
 die Download-URL MUSS der Server in der HTTP-Antwort einen
-Content-Disposition Header senden.[^34] Dieser Header MUSS als ersten
+Content-Disposition Header senden.[^38] Dieser Header MUSS als ersten
 Parameter den Typ attachment sowie den filename-Parameter mit dem Namen
 der Datei enthalten.
 
@@ -2119,11 +2150,11 @@ spezifischen Status-Code 410 tragen.
 Content Negotiation {#content_negotiation}
 -------------------
 
-Das Prinzip "Content Negotiation" wird in RFC2295[^35] beschrieben und
+Das Prinzip "Content Negotiation" wird in RFC2295[^39] beschrieben und
 bedeutet, dass WWW-Server eine Ressource in verschiedenen Formaten
 bereithalten können und Clients die Möglichkeit haben, eine Vorliebe für
 ein bestimmtes Format zu übermitteln. Auch die
-HTTP-1.1-Spezifikation[^36] schließt Content Negotiation ein.
+HTTP-1.1-Spezifikation[^40] schließt Content Negotiation ein.
 
 Die Idee hinter Content Negotiation ist, dass ein Client die von ihm
 akzeptierten Repräsentationen im Accept-Header der HTTP-Anfrage
@@ -2232,7 +2263,7 @@ Schema
 ======
 
 Dieses Kapitel beschreibt das Schema von OParl. Das Schema bildet das
-Datzenmodell der OParl-Architektur ab. Es definiert, welche Objekttypen
+Datenmodell der OParl-Architektur ab. Es definiert, welche Objekttypen
 über eine OParl-API abgerufen werden können und welche Eigenschaften
 diese Objekttypen haben dürfen und müssen. Darüber hinaus ist im Schema
 auch festgelegt, in welcher Beziehung verschiedene Objekttypen zu
@@ -2380,7 +2411,7 @@ license
 
 Die Eigenschaft license erlaubt es, am jeweiligen Objekt die URL einer
 Lizenz anzugeben. Damit wird gekennzeichnet, welche Lizenz der
-Veröffentlicher der Daten für das jeweilige Objekt vergibt.[^37]
+Veröffentlicher der Daten für das jeweilige Objekt vergibt.[^41]
 
 Eine besondere Bedeutung hat die Eigenschaft license, wenn sie am
 oparl:System Objekt oder am oparl:Body Objekt vergeben wird. Die hier
@@ -2398,7 +2429,7 @@ Dateien, die über die angebotene(n) URL(s) abgerufen werden können.
 
 Lesenswert zum Thema Lizensierung von Linked Data ist auch er Abschnitt
 "Licenses, Waivers and Norms for Data" im online zugänglichen Linked
-Data Book.[^38]
+Data Book.[^42]
 
 created
 
@@ -2685,14 +2716,14 @@ licenseValidSinceDay
 
 rgs
     Regionalschlüssel der Körperschaft als zwölfstellige
-    Zeichenkette[^39]. Typ: TODO EMPFOHLEN
+    Zeichenkette[^43]. Typ: TODO EMPFOHLEN
 
 equivalentBody
     Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe
     Körperschaft repräsentieren. Hier können beispielsweise, sofern
     vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der
-    Deutschen Nationalbibliothek[^40], der DBPedia[^41] oder der
-    Wikipedia[^42] angegeben werden. Typ: TODO EMPFOHLEN
+    Deutschen Nationalbibliothek[^44], der DBPedia[^45] oder der
+    Wikipedia[^46] angegeben werden. Typ: TODO EMPFOHLEN
 
 contactEmail
     Dient der Angabe einer Kontakt-E-Mail-Adresse mit "mailto:"-Schema.
@@ -2718,6 +2749,12 @@ organization
 
 classification
     Typ: skos:Concept OPTIONAL
+
+allConcepts
+    Alle Schlagworte und Begriffe, die von dieser Körperschaft verwendet
+    werden. Diese Eigenschaft ist insbesondere dann wichtig, wenn
+    Sortierungs-Reihenfolgen verwendet werden. TODO: Beispiel Typ:
+    skos:Concept OPTIONAL
 
 created
     Datum/Uhrzeit der Erzeugung des Objekts. Typ: TODO EMPFOHLEN.
@@ -2949,30 +2986,28 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 }
 ```
 
-``` {#person_ex2 .json}
+~~~ {#person_ex2 .json} { "@context":
+"https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld", "@type":
+"oparl:Person", "@id": "https://oparl.beispielris.de/person/29", "name":
+"Prof. Dr. Max Mustermann", "familyName": "Mustermann", // Kontext gibt
+deutsche Spache vor "givenName": "Max", "title": "Prof. Dr.",
+"formOfAddress": "beispielris:formofaddress/ratsmitglied", "gender":
+"vcard:Male", "email": "mailto:max@mustermann.de", "phone":
+"tel:+493012345678", "streetAddress": "Musterstraße 5", "postalCode":
+"11111", "locality": { "de": "Musterort", "en": "Sample Town" },
+"organization": ["11", "34"], "status":
+"beispielris:status/buergermeister", "hasMembership":
+"beispielris:membership/34", "created": "2011-11-11T11:11:00+01:00",
+"modified": "2012-08-16T14:05:27+02:00" }
+
+Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der Kontext
+bleibt wie zuvor.
+
+``` {#person_ex3 .json}
 {
-    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld",
-    "@type": "oparl:Person",
-    "@id": "https://oparl.beispielris.de/person/29",
-    "name": "Prof. Dr. Max Mustermann",
-    "familyName": "Mustermann", // Kontext gibt deutsche Spache vor
-    "givenName": "Max",
-    "title": "Prof. Dr.",
-    "formOfAddress": "beispielris:formofaddress/ratsmitglied",
-    "gender": "vcard:Male",
-    "email": "mailto:max@mustermann.de",
-    "phone": "tel:+493012345678",
-    "streetAddress": "Musterstraße 5",
-    "postalCode": "11111",
+    // ...
     "locality": "Musterort",
-    "locality": {
-        "en": "Sample Town" // TODO prüfen, ob Eigenschaft doppelt erscheinen darf
-    },
-    "organization": ["11", "34"],
-    "status": "beispielris:status/buergermeister",
-    "hasMembership": "beispielris:membership/34",
-    "created": "2011-11-11T11:11:00+01:00",
-    "modified": "2012-08-16T14:05:27+02:00"
+    // ...
 }
 ```
 
@@ -3473,7 +3508,7 @@ name
     sein. Typ: Zeichenkette. EMPFOHLEN.
 
 mimeType
-    Mime-Typ des Inhalts[^43]. Sollte das System einer Datei keinen
+    Mime-Typ des Inhalts[^47]. Sollte das System einer Datei keinen
     spezifischen Typ zuweisen können, wird EMPFOHLEN, hier
     application/octet-stream zu verwenden. Typ: Zeichenkette ZWINGEND.
 
@@ -3536,7 +3571,7 @@ derivativeDocuments
 license
     Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft
     verwendet wird, dann ist sie anstelle einer globalen Angabe im
-    übergeordneten oparl:Body bzw. oparl:System Objekt maßgeblich.[^44]
+    übergeordneten oparl:Body bzw. oparl:System Objekt maßgeblich.[^48]
     Typ: URL. OPTIONAL.
 
 documentRole
@@ -3697,7 +3732,7 @@ Und ein Beispiel unter Verwendung des Kontextes:
 
 OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des  
 Well-Known-Text-Formats (WKT) der Simple Feature Access
-Spezifikation[^45] vor. WKT erlaubt die Beschreibung von
+Spezifikation[^49] vor. WKT erlaubt die Beschreibung von
 unterschiedlichen Geometrien wie Punkten (Point), Pfaden (LineString),
 Polygonen (Polygon) und viele andere mehr.
 
@@ -3707,7 +3742,7 @@ keine Anforderungen daran, welche Version von Simple-Feature-Access bei
 der Ausgabe von WKT zu unterstützen ist.
 
 Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben
-solcher Geodaten im System WGS84[^46] angegeben werden, und zwar in Form
+solcher Geodaten im System WGS84[^50] angegeben werden, und zwar in Form
 von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.
 
 Eigenschaften
@@ -3862,107 +3897,120 @@ JSON-LD-Kontextdokumente zu finden sein werden.
 
 [^9]: RFC2119 http://tools.ietf.org/html/rfc2119
 
-[^10]: Architecture of the World Wide Web, Volume One.
+[^10]: http://www.sendung.de/
+
+[^11]: http://www.fokus.fraunhofer.de/
+
+[^12]: beide Vitako http://www.vitako.de/
+
+[^13]: Architecture of the World Wide Web, Volume One.
     http://www.w3.org/TR/webarch/
 
-[^11]: Daher der Begriff Meta-Suche
+[^14]: Daher der Begriff Meta-Suche
 
-[^12]: Das Ratsinformationssystem BoRis, eine Eigenentwicklung der Stadt
+[^15]: Das Ratsinformationssystem BoRis, eine Eigenentwicklung der Stadt
     Bonn http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp
 
-[^13]: Fielding, Roy: Architectural Styles and the Design of
+[^16]: Fielding, Roy: Architectural Styles and the Design of
     Network-based Software Architectures,
     http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm
 
-[^14]: http://patterns.dataincubator.org/book/follow-your-nose.html
+[^17]: http://patterns.dataincubator.org/book/follow-your-nose.html
 
-[^15]: vgl. Bundesministerium des Innern (Herausg.): Open Government
+[^18]: vgl. Bundesministerium des Innern (Herausg.): Open Government
     Data Deutschland, Seite 433f., 2012
     http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf
 
-[^16]: Ein Aufruf der URL
+[^19]: Ein Aufruf der URL
     http://dbpedia.org/resource/John_Doe_(musician) im herkömmlichen
     Web-Browser führt zu einer Weiterleitung auf die URL
     http://dbpedia.org/page/John_Doe_(musician). Siehe dazu auch der
     Abschnitt Content Negotiation
 
-[^17]: beispielsweise
+[^20]: beispielsweise
     http://dbpedia.org/resource/Christian_Democratic_Union_(Germany) und
     http://dbpedia.org/resource/Social_Democratic_Party_of_Germany
 
-[^18]: RFC 3987: http://tools.ietf.org/html/rfc3987
+[^21]: RFC 3987: http://tools.ietf.org/html/rfc3987
 
-[^19]: RFC 3986: http://tools.ietf.org/html/rfc3986
+[^22]: RFC 3986: http://tools.ietf.org/html/rfc3986
 
-[^20]: vgl. Benannte und anonyme Objekte
+[^23]: vgl. Benannte und anonyme Objekte
 
-[^21]: Berners-Lee, Tim: Cool URIs don't change.
+[^24]: Berners-Lee, Tim: Cool URIs don't change.
     http://www.w3.org/Provider/Style/URI.html
 
-[^22]: Study on persistent URIs, with identification of best practices
+[^25]: Study on persistent URIs, with identification of best practices
     and recommendations on the topic for the MSs and the EC. (PDF)
     https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf
 
-[^23]: JSON-LD 1.0: IANA COnsiderations:
-    http://www.w3.org/TR/json-ld/#iana-considerations
+[^26]: RFC4627: https://tools.ietf.org/html/rfc4627
 
-[^24]: RFC4627: https://tools.ietf.org/html/rfc4627
+[^27]: siehe dazu Linked Data
 
-[^25]: siehe dazu Linked Data
+[^28]: JSON-LD 1.0: http://www.w3.org/TR/json-ld/
 
-[^26]: http://www.w3.org/TR/json-ld/
-
-[^27]: URLs heißen in der JSON-LD-Spezifikation "IRI" (für
+[^29]: URLs heißen in der JSON-LD-Spezifikation "IRI" (für
     "Internationalized Resource Identifier"), wir verwenden hier jedoch
     weiterhin die Bezeichnung "URL".
 
-[^28]: TODO: URL zur Spezifikation
+[^30]: Die JSON-LD-Spezifikation enthält Überlegungen, zwischen Client
+    und Server die gewünschte Form über einen Accept-Header mit
+    zusätzlichem profile Parameter auszuhandeln. Diese Überlegung ist
+    zur Reduktion der Komplexität auf Serverseite nicht in OParl
+    eingefllossen.
 
-[^29]: RFC5988: http://tools.ietf.org/html/rfc5988
+[^31]: Der Abruf von Listen wie im Abschnitt Objektlisten beschrieben,
+    ist eine Ausnahme, denn hier werden nicht Objekte ausgeliefert,
+    sondern Listen von URLs von Objekten.
 
-[^30]: Wie in vielen anderen Fällen ist diese URL hier wieder nur
+[^32]: TODO: URL zur Spezifikation
+
+[^33]: RFC5988: http://tools.ietf.org/html/rfc5988
+
+[^34]: Wie in vielen anderen Fällen ist diese URL hier wieder nur
     beispielhaft. Die tatsächliche Gestaltung des Pfads bestimmt der
     Server-Implementierer.
 
-[^31]: RSS 2.0 Specification: http://cyber.law.harvard.edu/rss/rss.html
+[^35]: RSS 2.0 Specification: http://cyber.law.harvard.edu/rss/rss.html
 
-[^32]: Atom ist in RFC4287 spezifiziert:
+[^36]: Atom ist in RFC4287 spezifiziert:
     http://www.ietf.org/rfc/rfc4287.txt
 
-[^33]: vgl. http://www.w3.org/Protocols/rfc2616/rfc2616.html
+[^37]: vgl. http://www.w3.org/Protocols/rfc2616/rfc2616.html
 
-[^34]: vgl. RFC2138 http://www.ietf.org/rfc/rfc2183
+[^38]: vgl. RFC2138 http://www.ietf.org/rfc/rfc2183
 
-[^35]: RFC2295: http://tools.ietf.org/html/rfc2295
+[^39]: RFC2295: http://tools.ietf.org/html/rfc2295
 
-[^36]: RFC2616: http://tools.ietf.org/html/rfc2616
+[^40]: RFC2616: http://tools.ietf.org/html/rfc2616
 
-[^37]: Verzeichnisse für Lizenz-URLs sind unter anderem unter
+[^41]: Verzeichnisse für Lizenz-URLs sind unter anderem unter
     http://licenses.opendefinition.org/ und
     https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json
     zu finden.
 
-[^38]: Tom Heath, Christian Bizer: Linked Data: Evolving the Web into a
+[^42]: Tom Heath, Christian Bizer: Linked Data: Evolving the Web into a
     Global Data Space (1st edition),
     http://linkeddatabook.com/editions/1.0/#htoc48
 
-[^39]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
+[^43]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
     Statistischen Bundesamtes eingesehen werden
 
-[^40]: Gemeinsame Normdatei http://www.dnb.de/gnd
+[^44]: Gemeinsame Normdatei http://www.dnb.de/gnd
 
-[^41]: DBPedia http://www.dbpedia.org/
+[^45]: DBPedia http://www.dbpedia.org/
 
-[^42]: Wikipedia http://de.wikipedia.org/
+[^46]: Wikipedia http://de.wikipedia.org/
 
-[^43]: vgl. RFC2046: http://tools.ietf.org/html/rfc2046
+[^47]: vgl. RFC2046: http://tools.ietf.org/html/rfc2046
 
-[^44]: vgl. license
+[^48]: vgl. license
 
-[^45]: Simple Feature Access Spezifikation:
+[^49]: Simple Feature Access Spezifikation:
     http://www.opengeospatial.org/standards/sfa
 
-[^46]: WGS84 steht für "World Geodetic System 1984", es wird unter
+[^50]: WGS84 steht für "World Geodetic System 1984", es wird unter
     anderem auch vom Global Positioning System (GPS) verwendet. In
     geografischen Informationssystemen ist für das System der EPSG-Code
     4326 geläufig.

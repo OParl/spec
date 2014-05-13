@@ -21,14 +21,21 @@
     <title>Status</title>
     <para>
       Die Spezifikation befindet sich in Arbeit. Das Dokument enthält
-      entsprechend viele Ungenauigkeiten und Hinweise auf offene
-      Fragestellungen.
+      entsprechend noch Ungenauigkeiten und Hinweise auf offene
+      Fragestellungen, die bis zur Fertigstellung mit Hilfe vieler
+      Mitwirkender geschlossen werden sollen.
     </para>
     <para>
-      Die Kennzeichnung &quot;TODO&quot; markiert Hinweise, die für die
-      Bearbeiter des Dokuments gedacht sind. Darunter befinden sich auch
-      Fragen an deren Beantwortung durch Reviewer des Dokuments die
-      Autoren interessiert sind.
+      Im Dokument befinden sich Fragestellugen an Mitwirkende und
+      Reviewer, die mit dem Stichwort &quot;FRAGE&quot; markiert sind.
+      Hier bitten wir Sie um Mithilfe und laden Sie ein, Ihre Antwort
+      unter
+      <ulink url="https://github.com/OParl/specs/issues?milestone=1&amp;state=open">https://github.com/OParl/specs/issues?milestone=1&amp;state=open</ulink>
+      beizusteuern.
+    </para>
+    <para>
+      Die Kennzeichnung &quot;TODO&quot; markiert darüber hinaus
+      Hinweise, die für die Bearbeiter des Dokuments gedacht sind.
     </para>
   </sect2>
   <sect2 id="was-ist-oparl-in-kürze">
@@ -93,9 +100,6 @@
     </itemizedlist>
     <para>
       TODO: Nutzen für jede Stakeholder-Gruppe
-    </para>
-    <para>
-      TODO: Linked Data erwähnen oder Verweis auf Linked Data Abschnitt
     </para>
     <para>
       Die Gründe, warum Betreiber von parlamentarischen
@@ -613,14 +617,199 @@
   <sect2 id="initiatoren">
     <title>Initiatoren</title>
     <para>
-      TODO
+      OParl wurde initiiert von Marian Steinbach<footnote>
+        <para>
+          <ulink url="http://www.sendung.de/">http://www.sendung.de/</ulink>
+        </para>
+      </footnote>, Jens Klessmann<footnote>
+        <para>
+          <ulink url="http://www.fokus.fraunhofer.de/">http://www.fokus.fraunhofer.de/</ulink>
+        </para>
+      </footnote>, Marianne Wulff und Christine Siegfried<footnote>
+        <para>
+          beide Vitako
+          <ulink url="http://www.vitako.de/">http://www.vitako.de/</ulink>
+        </para>
+      </footnote>.
     </para>
   </sect2>
   <sect2 id="unterstützer">
     <title>Unterstützer</title>
     <para>
-      TODO
+      Die folgenden Organisationen und Unternehmen zählen zu den
+      Unterstützern von OParl:
     </para>
+    <informaltable>
+      <tgroup cols="2">
+        <colspec align="left" />
+        <colspec align="left" />
+        <thead>
+          <row>
+            <entry>
+              Organisation/Firma
+            </entry>
+            <entry>
+              Kategorie
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <ulink url="http://www.cc-egov.de/">CC e-Gov GmbH</ulink>
+            </entry>
+            <entry>
+              RIS-Hersteller
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <ulink url="http://www.citeq.de/">Citeq</ulink> (Münster)
+            </entry>
+            <entry>
+              Kommunale Dienstleister
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <ulink url="http://www.itdz-berlin.de/">ITDZ
+              Berlin</ulink>
+            </entry>
+            <entry>
+              Kommunale Dienstleister
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <ulink url="http://www.rz-kiru.de/">Kiru</ulink> (Ulm)
+            </entry>
+            <entry>
+              Kommunale Dienstleister
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <ulink url="http://www.kdvz-frechen.de/">KDVZ
+              Rhein-Erft-Rur</ulink>
+            </entry>
+            <entry>
+              Kommunale Dienstleister
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <ulink url="http://www.krzn.de/">KRZN</ulink>
+            </entry>
+            <entry>
+              Kommunale Dienstleister
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <ulink url="http://okfn.de/">Open Knowledge Foundation
+              e.V.</ulink>
+            </entry>
+            <entry>
+              Initiativen
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <ulink url="http://openruhr.de/">OpenRuhr</ulink>
+            </entry>
+            <entry>
+              Initiativen
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <ulink url="http://www.abgeordnetenwatch.de/">Parlamentwatch
+              e.V.</ulink>
+            </entry>
+            <entry>
+              Initiativen
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <ulink url="http://www.piratenpartei.de/">Piratenpartei</ulink>
+            </entry>
+            <entry>
+              Initiativen
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <ulink url="http://www.quinscape.de/">QuinScape
+              GmbH</ulink>
+            </entry>
+            <entry>
+              RIS-Hersteller
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <ulink url="http://www.regioit-aachen.de/">regioIT</ulink>
+              (Aachen)
+            </entry>
+            <entry>
+              Kommunale Dienstleister
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <ulink url="http://www.somacos.de/">Somacos GmbH und Co.
+              KG</ulink>
+            </entry>
+            <entry>
+              RIS-Hersteller
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <ulink url="http://www.bonn.de/">Stadt Bonn</ulink>
+            </entry>
+            <entry>
+              Kommune
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <ulink url="http://www.stadt-koeln.de/">Stadt Köln</ulink>
+            </entry>
+            <entry>
+              Kommune
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <ulink url="http://www.moers.de/">Stadt Moers</ulink>
+            </entry>
+            <entry>
+              Kommune
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <ulink url="http://www.sitzungsdienst.net/">Sternberg
+              Software-Technik GmbH</ulink>
+            </entry>
+            <entry>
+              RIS-Hersteller
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <ulink url="http://www.wikimedia.de/">Wikimedia
+              Deutschland</ulink>
+            </entry>
+            <entry>
+              Initiativen
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
   </sect2>
   <sect2 id="autoren">
     <title>Autoren</title>
@@ -628,9 +817,9 @@
       An diesem Dokument haben mitgewirkt:
     </para>
     <para>
-      Felix Ebert, Jan Erhardt, Jens Klessmann, Andreas Kuckartz, Babett
-      Schalitz, Ralph Sternberg, Marian Steinbach, Bernd Thiem, Thomas
-      Tursics, Jakob Voss
+      Felix Ebert, Jan Erhardt, Jayan Areekadan, Jens Klessmann, Andreas
+      Kuckartz, Babett Schalitz, Ralph Sternberg, Marian Steinbach,
+      Bernd Thiem, Thomas Tursics, Jakob Voss
     </para>
   </sect2>
 </sect1>
@@ -1584,7 +1773,8 @@ Objekt: http://dbpedia.org/resource/John_(given_name)
       hat Auswirkung auf die im System verwendeten URLs. Wie im Kapitel
       <link linkend="urls">URLs</link> beschrieben, verfolgt diese
       Spezifikation die Festlegung auf genau eine &quot;kanonische&quot;
-      URL je Ressource (URL-Kanonisierung).
+      URL je Ressource (vgl.
+      <link linkend="url_kanonisierung">URL-Kanonisierung</link>).
     </para>
     <para>
       Bei unverschlüsseltem Zugriff wird allen URLs, die auf das
@@ -1596,17 +1786,42 @@ Objekt: http://dbpedia.org/resource/John_(given_name)
       Es ist daher ZWINGEND, dass der Server-Betreiber sich zur
       URL-Kanonisierung für nur eine von beiden Varianten entscheidet.
       Beantwortet das System regulär Anfragen über HTTPS mit der
-      Auslieferung von Objekten etc., dann MUSS das System bei Anfragen
-      an die entsprechenden URLs ohne &quot;https://&quot; Schema mit
-      einer Weiterleitung antworten (HTTP Status-Code 301).
+      Auslieferung von Objekten etc., dann gilt für Anfragen an die
+      entsprechende unverschlüsselte URL ZWINGEND:
     </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          unter der URL ist kein Webserver erreichbar, oder
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          der Server unter der URL beantwortet die Anfrage mit einer
+          Weiterleitung an die HTTPS-URL (HTTP Status-Code 301)
+        </para>
+      </listitem>
+    </itemizedlist>
     <para>
-      Gleiches gilt umgekehrt: beantwortet das System regulär Anfragen
-      über unverschlüsseltes HTTP, dann MÜSSEN Anfragen auf die
-      entsprechenden URLs mit &quot;https://&quot;-Schema mit einer
-      HTTP-Weiterleitung (HTTP Status-Code 301) beantwortet werden.
-      TODO: Geht das, wenn HTTPS nicht unterstützt wird?
+      Gleiches gilt umgekehrt: hat sich der Betreiber generell für den
+      Betrieb des OParl-Servers über unverschlüsseltes HTTP entscheiden,
+      dann MUSS für die entsprechenden HTTPS-URLs eine der beiden
+      folgenden Möglichkeiten gelten:
     </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Entweder ist unter den entsprechenden HTTPS-URLs kein
+          Webserver erreichbar
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          oder Anfragen an die HTTPS-URLs werden mit Redirects auf die
+          entsprechenden HTTP-URLs beantwortet.
+        </para>
+      </listitem>
+    </itemizedlist>
   </sect2>
   <sect2 id="urls">
     <title>URLs, IRIs und URIs</title>
@@ -1652,7 +1867,7 @@ https://refserv.oparl.org/foo/bar/?skip=234
   |         |                |        |
 Schema     Host             Pfad  Query-String
 </programlisting>
-    <sect3 id="url-kanonisierung">
+    <sect3 id="url_kanonisierung">
       <title>URL-Kanonisierung</title>
       <para>
         Absicht ist, dass jedes benannte Objekt<footnote>
@@ -1788,10 +2003,10 @@ http://oparl.stadtrat.stadt-koeln.de/
         der HTTP-Status-Code 301 zu verwenden.
       </para>
       <para>
-        Server-Implementierern wird empfohlen, hierfür den Host-Header
-        der HTTP-Anfrage auszuwerten und mit der konfigurierten
-        Einstellung für den kanonischen Hostnamen des Systems
-        abzugleichen.
+        Server-Implementierern wird empfohlen, hierfür den
+        <literal>Host</literal>-Header der HTTP-Anfrage auszuwerten und
+        mit der konfigurierten Einstellung für den kanonischen Hostnamen
+        des Systems abzugleichen.
       </para>
       <para>
         Beim <emphasis role="strong">Pfad</emphasis>-Bestandteil der URL
@@ -1900,26 +2115,9 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1
     <para>
       In jedem Fall MUSS ein Server die Anfrage eines Clients unter
       Verwendung des HTTP <literal>Content-type</literal>-Headers
-      <literal>application/ld+json</literal> beantworten. Die
-      Spezifikation von JSON-LD liefert dazu genauere
-      Informationen<footnote>
-        <para>
-          JSON-LD 1.0: IANA COnsiderations:
-          <ulink url="http://www.w3.org/TR/json-ld/#iana-considerations">http://www.w3.org/TR/json-ld/#iana-considerations</ulink>
-        </para>
-      </footnote>, auch zu dem optionalen Parameter
-      <literal>profile</literal> für die explizite Anforderung von
-      JSON-LD in einer dieser drei Unterformen: kompakt, expandiert oder
-      flach.
-    </para>
-    <para>
-      Wenn der Server auch Anfragen nach
-      <literal>application/json</literal> akzeptiert, dann SOLL er
-      expandierte JSON-LD Dokumente liefern (also solche ohne
-      <literal>@context</literal>).
-    </para>
-    <para>
-      TODO: MUSS der Server solche Legacy-Anfragen akzeptieren? Warum?
+      <literal>application/ld+json</literal> beantworten, Ausnahmen
+      davon sind lediglich
+      <link linkend="dateizugriff">Dateizugriffe</link>.
     </para>
     <sect3 id="json">
       <title>JSON</title>
@@ -2008,6 +2206,7 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1
         </footnote>. Entsprechend erweitert die
         JSON-LD-Spezifikation<footnote>
           <para>
+            JSON-LD 1.0:
             <ulink url="http://www.w3.org/TR/json-ld/">http://www.w3.org/TR/json-ld/</ulink>
           </para>
         </footnote> das JSON-Format um die Möglichkeit,
@@ -2032,10 +2231,9 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1
         </listitem>
       </itemizedlist>
       <para>
-        Ein Beispiel aus der JSON-LD-Spezifikation illustriert, wie
+        Ein Beispiel aus der JSON-LD-Spezifikation verdeutlicht, wie
         JSON-LD ein Objekt um zusätzliche semantische Informationen
-        erweitert. Als Ausgangspunkt dient eine Personenbeschreibung in
-        gewöhnlichem JSON:
+        erweitert. Als Ausgangspunkt dient ein gewöhnliches JSON-Objekt:
       </para>
       <programlisting language="json">
 {
@@ -2079,10 +2277,10 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1
 </programlisting>
       <para>
         Hier sind die Eigenschaften wie <literal>image</literal> einer
-        URL wie http://schema.org/image zugewiesen. Ein Client, der
-        diese URL kennt, kann daraus folgern, dass über die
-        Objekteigenschaft <literal>image</literal> immer die URL eines
-        Bildes zu finden ist. Das Schlüssel-Wert-Paar
+        URL wie <literal>http://schema.org/image</literal> zugewiesen.
+        Ein Client, der diese URL kennt, kann daraus folgern, dass über
+        die Objekteigenschaft <literal>image</literal> immer die URL
+        eines Bildes zu finden ist. Das Schlüssel-Wert-Paar
       </para>
       <programlisting>
 &quot;@type&quot;: &quot;@id&quot;
@@ -2105,32 +2303,38 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1
         <literal>@context</literal>-Teil des Objekts schon mehr Daten
         umfasst, als die eigentlichen Objekteigenschaften.
         Sinnvollerweise kann jedoch der gesamte Inhalt des
-        <literal>@context</literal>-Teils in eine externe Ressource
-        ausgelagert werden. Das folgende Beispiel verdeutlicht dies:
+        <literal>@context</literal>-Teils für alle Objekte des selben
+        Typs zusammengefasst und in eine externe Ressource ausgelagert
+        werden. Das folgende Beispiel verdeutlicht dies:
       </para>
       <programlisting language="json">
 {
-  &quot;@context&quot;: &quot;http://json-ld.org/contexts/person.jsonld&quot;,
-  &quot;name&quot;: &quot;Manu Sporny&quot;,
-  &quot;homepage&quot;: &quot;http://manu.sporny.org/&quot;,
-  &quot;image&quot;: &quot;http://manu.sporny.org/images/manu.png&quot;
+    &quot;@context&quot;: &quot;http://json-ld.org/contexts/person.jsonld&quot;,
+    &quot;name&quot;: &quot;Manu Sporny&quot;,
+    &quot;homepage&quot;: &quot;http://manu.sporny.org/&quot;,
+    &quot;image&quot;: &quot;http://manu.sporny.org/images/manu.png&quot;
 }
 </programlisting>
       <para>
         Die <literal>@context</literal>-Eigenschaft hat nun als Wert
-        eine URL. Die URL (hier:
-        http://json-ld.org/contexts/person.jsonld) gibt wiederum in JSON
-        kodiert die Beschreibung aller möglichen Attribute des Objekts
-        aus. Die Kontext-Beschreibung des JSON-LD-Objekts wurde somit in
-        eine externe Ressource ausgelagert. Clients SOLLEN davon
-        ausgehen, dass sich diese externen Kontextbeschreibungen nur
-        selten ändern. Somit genügt es, bei Abruf vieler gleichartiger
-        JSON-LD-Objekte vom Server die Kontext-Ressource nur einmal zu
-        laden.
+        eine URL, in diesem Fall:
+      </para>
+      <para>
+        <literal>http://json-ld.org/contexts/person.jsonld</literal>
+      </para>
+      <para>
+        Hinter dieser URL wiederum befindet sich ein JSON-Dokument, dass
+        die Beschreibung aller möglichen Attribute des Personen-Objekts
+        enthält. Die Kontext-Beschreibung des JSON-LD-Objekts wurde
+        somit in eine externe Ressource ausgelagert. Clients SOLLEN
+        davon ausgehen, dass sich diese externen Kontextbeschreibungen
+        nur selten ändern. Somit genügt es, bei Abruf vieler
+        gleichartiger JSON-LD-Objekte vom Server die Kontext-Ressource
+        nur einmal zu laden.
       </para>
       <para>
         Im Sinne der JSON-LD-Spezifikation sind Objekte mit
-        eingebettetem und externem Kontext identisch. Den
+        eingebettetem und externem Kontext inhaltlich identisch. Den
         Implementierern eines OParl-konformen Servers wird EMPFOHLEN,
         grundsätzlich die Kontextinformation mittels externer Ressourcen
         zu übermitteln. Die OParl Autoren werden hierzu die zu dieser
@@ -2142,7 +2346,44 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1
         entsprechend zusätzlich auf eigene Kontextressourcen unter
         geeigneten URLs verwiesen werden. Hierbei können
         herstellereigene und OParl-spezifische URls gemischt werden, wie
-        in einem Beispiel weiter unten verfeutlicht wird.
+        in einem Beispiel weiter unten verdeutlicht wird.
+      </para>
+      <para>
+        Formell wird bei JSON-LD weiterhin zwischen drei verschiedenen
+        Formaten unterschieden, die semantisch gleichbedeutend sind:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            Kompakte Form (<emphasis>compact</emphasis>)
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Expandierte Form (<emphasis>expanded</emphasis>)
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            Flache Form (<emphasis>flat</emphasis>)
+          </para>
+        </listitem>
+      </itemizedlist>
+      <para>
+        Das vorige Beispiel zeigt die kompakte Form. Die Definitionen
+        können der JSON-LD-Spezifikation entnommen werden. OParl-Server
+        MÜSSEN sämtliche Objekte grundsätzlich in dieser kompakten Form
+        ausliefern. Die Umwandlung in die anderen Formen bei Bedarf
+        obliegt dem Client.<footnote>
+          <para>
+            Die JSON-LD-Spezifikation enthält Überlegungen, zwischen
+            Client und Server die gewünschte Form über einen
+            <literal>Accept</literal>-Header mit zusätzlichem
+            <literal>profile</literal> Parameter auszuhandeln. Diese
+            Überlegung ist zur Reduktion der Komplexität auf Serverseite
+            nicht in OParl eingefllossen.
+          </para>
+        </footnote>
       </para>
       <para>
         JSON-LD ermöglicht es auch, für ein Objekt einen
@@ -2210,10 +2451,16 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1
         </listitem>
       </itemizedlist>
       <para>
-        TODO: Eventuell hier die Anforderung festhalten, dass jedes
-        Objekt, das über eine OParl API ausgegeben wird, das
-        <literal>@type</literal>-Schlüsselwort haben MUSS. Das ist noch
-        nicht geklärt, da Listen hier eine Ausnahme bilden können.
+        Jedes Objekt, dass vom OParl-Server ausgeliefert wird, MUSS die
+        <literal>@type</literal> Eigenschaft enthalten und darüber
+        kommunizieren, welchen Typs das Objekt ist.<footnote>
+          <para>
+            Der Abruf von Listen wie im Abschnitt
+            <link linkend="objektlisten">Objektlisten</link>
+            beschrieben, ist eine Ausnahme, denn hier werden nicht
+            Objekte ausgeliefert, sondern Listen von URLs von Objekten.
+          </para>
+        </footnote>
       </para>
       <para>
         Eine JSON-LD-konforme Ausgabe stellt noch weitere Anforderungen,
@@ -2490,28 +2737,20 @@ https://oparl.beispielris.de/bodies/0/committees/1
     <sect3 id="vollständige-listenausgabe">
       <title>Vollständige Listenausgabe</title>
       <para>
-        In der einfachsten Form gibt der Server die Liste als Objekt mit
-        nur einer einzigen Eigenschaft <literal>items</literal> aus. Der
-        Wert dieser Eigenschaft ist die
-        <emphasis role="strong">vollständige Liste</emphasis> der URLs
-        aller in der Liste enthaltenen Objekte.
-      </para>
-      <para>
-        Diese einfachste Form der Antwort eignet sich nur für Listen mit
-        einer begrenzten Anzahl von Einträgen, wie beispielsweise die
-        Liste der Mitglieder einer Organisation.
+        In der einfachsten Form wird eine Objektliste als JSON-Liste
+        ausgegeben. Die Elemente dieser Liste sind
+        <emphasis role="strong">sämtliche URLs</emphasis> aller in der
+        Objektliste enthaltenen Objekte.
       </para>
       <para>
         Beispiel:
       </para>
       <programlisting language="json">
-{
-    &quot;items&quot;: [
-        &quot;https://beispielris.de/bodies/0/papers/2&quot;,
-        &quot;https://beispielris.de/bodies/0/papers/5&quot;,
-        &quot;https://beispielris.de/bodies/0/papers/7&quot;,
-    ]
-}
+[
+    &quot;https://oparl.beispielris.de/bodies/0/papers/2&quot;,
+    &quot;https://oparl.beispielris.de/bodies/0/papers/5&quot;,
+    &quot;https://oparl.beispielris.de/bodies/0/papers/7&quot;
+]
 </programlisting>
       <para>
         Die vollständige Listenausgabe SOLL nur für Listen verwendet
@@ -2932,34 +3171,31 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
       </para>
       <programlisting language="json">
-{
-    &quot;items&quot;: [
-        {
-            &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/21/documents/3&quot;,
-            &quot;created&quot;: &quot;2014-01-07T12:59:01.038+0100&quot;
-        },
-        {
-            &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/21&quot;,
-            &quot;created&quot;: &quot;2014-01-05T18:29:37.123+0100&quot;
-        },
-        {
-            &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/20/documents/5&quot;,
-            &quot;created&quot;: &quot;2014-01-04T11:26:48.638+0100&quot;
-        },
-        ...
-    ]
-}
+[
+    {
+        &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/21/documents/3&quot;,
+        &quot;created&quot;: &quot;2014-01-07T12:59:01.038+0100&quot;
+    },
+    {
+        &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/21&quot;,
+        &quot;created&quot;: &quot;2014-01-05T18:29:37.123+0100&quot;
+    },
+    {
+        &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/20/documents/5&quot;,
+        &quot;created&quot;: &quot;2014-01-04T11:26:48.638+0100&quot;
+    },
+    ...
+]
 </programlisting>
       <para>
-        Wie im Beispiel zu sehen ist, enthält die Eigenschaft
-        <literal>items</literal> eine Liste mit unbenannten Objekten.
-        Dies ist ein Unterschied zu herkömmlichen Objektlisten, bei
-        denen an dieser Stelle lediglich URLs als Listeneinträge
-        erwartet werden.
+        Wie im Beispiel zu sehen ist, handelt es sich um eine
+        JSON-Liste, deren Elemente unbenannten Objekten sind. Dies ist
+        ein Unterschied zu herkömmlichen Objektlisten, bei denen an
+        dieser Stelle lediglich URLs als Listeneinträge erwartet werden.
       </para>
       <para>
-        Jedes der Objekte in der <literal>items</literal>-Liste MUSS
-        seinerseits wiederum zwei Eigenschaften besitzen:
+        Jedes der Objekte in der Liste MUSS seinerseits wiederum zwei
+        Eigenschaften besitzen:
       </para>
       <itemizedlist>
         <listitem>
@@ -3016,23 +3252,21 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         einem System geführt werden.
       </para>
       <programlisting language="json">
-{
-    &quot;items&quot;: [
-        {
-            &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/0/documents/2&quot;,
-            &quot;lastModified&quot;: &quot;2014-01-08T14:28:31.568+0100&quot;
-        },
-        {
-            &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/0&quot;,
-            &quot;lastModified&quot;: &quot;2014-01-08T12:14:27.958+0100&quot;
-        },
-        {
-            &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/0/documents/1&quot;,
-            &quot;lastModified&quot;: &quot;2014-01-06T17:01:00.402+0100&quot;
-        },
-        ...
-    ]
-}
+[
+    {
+        &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/0/documents/2&quot;,
+        &quot;lastModified&quot;: &quot;2014-01-08T14:28:31.568+0100&quot;
+    },
+    {
+        &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/0&quot;,
+        &quot;lastModified&quot;: &quot;2014-01-08T12:14:27.958+0100&quot;
+    },
+    {
+        &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/0/documents/1&quot;,
+        &quot;lastModified&quot;: &quot;2014-01-06T17:01:00.402+0100&quot;
+    },
+    ...
+]
 </programlisting>
       <para>
         Das Ausgabeformat entspricht weitgehend dem des Feeds &quot;Neue
@@ -3061,15 +3295,13 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         zu entfernen.
       </para>
       <programlisting language="json">
-{
-    &quot;items&quot;: [
-        {
-            &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/people/22&quot;,
-            &quot;removed&quot;: &quot;2013-11-11T11:11:00.000+0100&quot;
-        },
-        ...
-    ]
-}
+[
+    {
+        &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/people/22&quot;,
+        &quot;removed&quot;: &quot;2013-11-11T11:11:00.000+0100&quot;
+    },
+    ...
+]
 </programlisting>
       <para>
         Die Eigenschaft zur Angabe des Entfernungszeitpunkts heißt hier
@@ -3491,7 +3723,7 @@ https://dbpedia.org/data/John_Doe_(musician).jsonld
   <title>Schema</title>
   <para>
     Dieses Kapitel beschreibt das Schema von OParl. Das Schema bildet
-    das Datzenmodell der OParl-Architektur ab. Es definiert, welche
+    das Datenmodell der OParl-Architektur ab. Es definiert, welche
     Objekttypen über eine OParl-API abgerufen werden können und welche
     Eigenschaften diese Objekttypen haben dürfen und müssen. Darüber
     hinaus ist im Schema auch festgelegt, in welcher Beziehung
@@ -4326,6 +4558,20 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
         </varlistentry>
         <varlistentry>
           <term>
+            <literal>allConcepts</literal>
+          </term>
+          <listitem>
+            <para>
+              Alle Schlagworte und Begriffe, die von dieser Körperschaft
+              verwendet werden. Diese Eigenschaft ist insbesondere dann
+              wichtig, wenn Sortierungs-Reihenfolgen verwendet werden.
+              TODO: Beispiel Typ: <literal>skos:Concept</literal>
+              OPTIONAL
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
             <literal>created</literal>
           </term>
           <listitem>
@@ -4677,30 +4923,39 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     }
 }
 </programlisting>
+    <para>
+      <subscript>~</subscript>~~ {#person_ex2 .json} {
+      &quot;@context&quot;:
+      &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld&quot;,
+      &quot;@type&quot;: &quot;oparl:Person&quot;, &quot;@id&quot;:
+      &quot;https://oparl.beispielris.de/person/29&quot;,
+      &quot;name&quot;: &quot;Prof. Dr. Max Mustermann&quot;,
+      &quot;familyName&quot;: &quot;Mustermann&quot;, // Kontext gibt
+      deutsche Spache vor &quot;givenName&quot;: &quot;Max&quot;,
+      &quot;title&quot;: &quot;Prof. Dr.&quot;,
+      &quot;formOfAddress&quot;:
+      &quot;beispielris:formofaddress/ratsmitglied&quot;,
+      &quot;gender&quot;: &quot;vcard:Male&quot;, &quot;email&quot;:
+      &quot;mailto:max@mustermann.de&quot;, &quot;phone&quot;:
+      &quot;tel:+493012345678&quot;, &quot;streetAddress&quot;:
+      &quot;Musterstraße 5&quot;, &quot;postalCode&quot;:
+      &quot;11111&quot;, &quot;locality&quot;: { &quot;de&quot;:
+      &quot;Musterort&quot;, &quot;en&quot;: &quot;Sample Town&quot; },
+      &quot;organization&quot;: [&quot;11&quot;, &quot;34&quot;],
+      &quot;status&quot;: &quot;beispielris:status/buergermeister&quot;,
+      &quot;hasMembership&quot;: &quot;beispielris:membership/34&quot;,
+      &quot;created&quot;: &quot;2011-11-11T11:11:00+01:00&quot;,
+      &quot;modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot; }
+    </para>
+    <para>
+      Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der
+      Kontext bleibt wie zuvor.
+    </para>
     <programlisting language="json">
 {
-    &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld&quot;,
-    &quot;@type&quot;: &quot;oparl:Person&quot;,
-    &quot;@id&quot;: &quot;https://oparl.beispielris.de/person/29&quot;,
-    &quot;name&quot;: &quot;Prof. Dr. Max Mustermann&quot;,
-    &quot;familyName&quot;: &quot;Mustermann&quot;, // Kontext gibt deutsche Spache vor
-    &quot;givenName&quot;: &quot;Max&quot;,
-    &quot;title&quot;: &quot;Prof. Dr.&quot;,
-    &quot;formOfAddress&quot;: &quot;beispielris:formofaddress/ratsmitglied&quot;,
-    &quot;gender&quot;: &quot;vcard:Male&quot;,
-    &quot;email&quot;: &quot;mailto:max@mustermann.de&quot;,
-    &quot;phone&quot;: &quot;tel:+493012345678&quot;,
-    &quot;streetAddress&quot;: &quot;Musterstraße 5&quot;,
-    &quot;postalCode&quot;: &quot;11111&quot;,
+    // ...
     &quot;locality&quot;: &quot;Musterort&quot;,
-    &quot;locality&quot;: {
-        &quot;en&quot;: &quot;Sample Town&quot; // TODO prüfen, ob Eigenschaft doppelt erscheinen darf
-    },
-    &quot;organization&quot;: [&quot;11&quot;, &quot;34&quot;],
-    &quot;status&quot;: &quot;beispielris:status/buergermeister&quot;,
-    &quot;hasMembership&quot;: &quot;beispielris:membership/34&quot;,
-    &quot;created&quot;: &quot;2011-11-11T11:11:00+01:00&quot;,
-    &quot;modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
+    // ...
 }
 </programlisting>
     <sect3 id="eigenschaften-3">

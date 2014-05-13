@@ -5,7 +5,7 @@ Die JSON-LD-Spezifikation unterscheidet zwischen benannten und anonymen
 Objekten. Da die Unterscheidung auch für OParl von Bedeutung ist, wird
 sie hier genauer erläutert.
 
-### Benannte Objekte
+### Benannte Objekte  {#benannte_objekte}
 
 Benannte Objekte sind innerhalb einer JSON-LD-Ausgabe diejenigen Objekte,
 die durch eine eigene URL identifiziert werden. Als Beispiel dient ein
@@ -29,7 +29,7 @@ als Wert.
 Das benannte Objekt kann über seine URL sowohl eindeutig identifiziert
 als auch direkt abgerufen werden.
 
-### Anonyme Objekte (Blank Nodes)
+### Anonyme Objekte (Blank Nodes) {#anonyme_objekte}
 
 Im Gegensatz dazu können Objekte existieren, die keine eigene URL haben.
 

@@ -26,33 +26,44 @@ einen Wert ungleich `null` besitzen.
 
 ### Datums- und Zeitangaben
 
-Für Datum und Zeit werden die in XML Schema festgelegten Typen verwendet (was nicht bedeutet, dass in OParl XML verwendet wird).
+Für Datum und Zeit werden die in XML Schema festgelegten Typen verwendet
+(was nicht bedeutet, dass in OParl XML verwendet wird).
 
-Für ein Datum wird http://www.w3.org/TR/xmlschema-2/#date verwendet und für eine Zeit http://www.w3.org/TR/xmlschema-2/#dateTime. Dabei wird ein Datum (ein Tag ohne Uhrzeit) ohne Zeitzone und ein Datum mit Zeit mit Zeitzone angegeben, denn nur damit ist die Uhrzeit weltweit eindeutig ohne zusätzlich auf den Ort einer Sitzung o.ä. Bezug nehmen zu müssen.
+Für ein Datum wird http://www.w3.org/TR/xmlschema-2/#date verwendet und
+für eine Zeit http://www.w3.org/TR/xmlschema-2/#dateTime. Dabei wird ein
+Datum (ein Tag ohne Uhrzeit) ohne Zeitzone und ein Datum mit Zeit mit
+Zeitzone angegeben, denn nur damit ist die Uhrzeit weltweit eindeutig
+ohne zusätzlich auf den Ort einer Sitzung o.ä. Bezug nehmen zu müssen.
 
-Diese Spezifikationen stützen sich auf RFC 3339 (http://www.ietf.org/rfc/rfc3339.txt) und RFC 3339 wiederum auf ISO 8601.
+Diese Spezifikationen stützen sich auf RFC 3339^[RFC3339:
+<http://www.ietf.org/rfc/rfc3339.txt>]) und RFC 3339 wiederum auf ISO 8601.
 
-Im JSON-LD Kontext von OParl ist der Präfix 'xsd' so spezifiziert, dass Datums- und Zeittyp durch 'xsd:date' bzw. 'xsd:dateTime' abgekürzt werden können.
+Im JSON-LD Kontext von OParl ist der Präfix `xsd` so spezifiziert, dass 
+Datums- und Zeittyp durch `xsd:date` bzw. `xsd:dateTime` abgekürzt werden 
+können.
 
 ### Mehrsprachigkeit
 
-Für Texte ist durchgehend vorgesehen, dass diese mehrsprachig sein können. Kommunale Anbieter von OParl-Daten in Deutchland müssen aus gesetzlichen Gründen auf jeden Fall die deutsche Sprache unterstützten. Die Unterstützung anderer Sprachen ist dagegen optional. Deshalb wird grundsätzich durch
-~~~~~
-    "@language": "de",
-~~~~~
-im Kontext die deutsche Sprache als Vorgabe eingestellt.
+Für Texte in OParl-Objekten ist durchgehend vorgesehen, dass diese 
+mehrsprachig sein können. JSON-LD sieht das Schlüsselwort
+`@language` vor, um zu einem Attribut mehrere Werte in bestimmten
+Sprachen zu definieren. Diesen Mechanismus SOLLEN Server-Implementierer
+nutzen, um Mehrsprachigkeit von Inhalten zu realisieren.
 
-Es gibt aber möglicherweise auch Zeichenketten, für die keine Mehrsprachigkeit vorgesehen wird. Dazu gehören z.B. Personennamen.
-
-TODO: Stimmt nicht. Tamilische Namen verwenden in der Originalschreibweise sogar ein vollkommen anderes Alphabet.
+In den von OParl bereitgestellten JSON-LD-Kontexten ist die Deutsche Sprache
+(Kürzel `de`) für sämtliche Texteigenschaften voreingestellt. Das `@language`
+Stichwort SOLL daher nur dann eingesetzt werden, wenn ein Inhalt nicht
+deutschsprachig ist.
 
 ### Präfixe in Kontexten
 
-Die Beispiel-Kontexte verwenden eine Reihe von Präfixen. Diese sind hier zusammengestellt und werden in den einzelnen Beispiel-Kontexten nicht jeweils wiederholt:
+Die Beispiel-Kontexte verwenden eine Reihe von Präfixen. Diese sind hier
+zusammengestellt und werden in den einzelnen Beispiel-Kontexten nicht
+jeweils wiederholt:
 
 ~~~~~  {#pcontext_praefixe .json}
     "beispielris": "https://oparl.beispielris.de",
-    "oparl": "http://oparl.org/TODO/",
+    "oparl": "http://oparl.org/specs/1.0/",
     "dc": "http://purl.org/dc/terms/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "skos": "http://www.w3.org/2004/02/skos/core#",

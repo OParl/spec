@@ -3,12 +3,16 @@ Eigenschaften mit Verwendung in mehreren Objekttypen
 
 ### `@id`
 
-URL des Objekts und eindeutiges Identifikationsmerkmal. Siehe dazu auch "Benannte Objekte".
-Dies ist ein ZWINGENDES Merkmal für jedes Objekt.
+Die Eigenschaft `@id` ist durch die JSON-LD-Spezifikation vorgegeben
+und enthält einen eindeutigen Bezeichner des Objekts, nämlich seine URL.
+Siehe dazu auch [Benannte Objekte](#benannte_objekte). Dies ist ein 
+ZWINGENDES Merkmal für jedes Objekt.
 
 ### `@type`
 
-Objekttypenangabe des Objekts. ZWINGEND für jedes Objekt.
+Objekttypenangabe des Objekts im Sinne von JSON-LD. ZWINGEND für jedes Objekt.
+Der Wert ist (in Verbindung mit dem JSON-LD-Kontext eines Objekts) eine URL,
+unter der weitere Informationen über den Objekttyp angeboten werden KÖNNEN.
 
 ### `name` und `nameLong`
 
@@ -19,7 +23,7 @@ eine kurze bzw. kompakte und eine längere, aber weniger nutzerfreundliche Varia
 existieren. Ein Beispiel wäre die Kurzform "CDU" für den Parteinamen "Christlich Demokratische
 Union Deutschlands".
 
-In keinem Fall sollten die Werte von `name` und `nameLong` identische sein.
+In keinem Fall sollten die Werte von `name` und `nameLong` identisch sein.
 
 ### `license` {#eigenschaft_license}
 
@@ -67,7 +71,12 @@ die im `modified` Zeitstempel widerspiegeln sollte.
 
 ### `classification`
 
-Dient der Verschlagwortung und verweist dazu auf ein oder eventuell auch mehrere `skos:Concept`-Objekte mit einer `skos:prefLabel`-Eigenschaft. Der Wert der Eigenschaft ist jeweils eine Zeichenkette. Die verwendete Sprache (in der Regel "de" für Deutsch) MUSS dabei angegeben werden.
+Die Eigenschaft `classification` dient der Kategorisierung von Objekten und ist in
+einer Vielzahl von Objekttypen zu diesem Zweck einsetzbar.
+
+Wert der Eigenschaft ist eine Liste von `skos:Concept`-Objekten mit einer
+`skos:prefLabel`-Eigenschaft. Der Wert der Eigenschaft ist jeweils eine Zeichenkette.
+Die verwendete Sprache (in der Regel "de" für Deutsch) MUSS dabei angegeben werden.
 
 TODO: SKOS darstellen
 
@@ -77,11 +86,18 @@ Siehe u.a.:
 
     https://github.com/OParl/specs/issues/41
 
-Geoportal.de und DeStat.de werden bereits auf Basis von Metadaten-Standards verlinkt. Bei einer Verwendung von Metadaten-Standards für RIS könnten ebenfalls interessante Potenziale durch Verlinkung entstehen.
+Geoportal.de und DeStat.de werden bereits auf Basis von Metadaten-Standards verlinkt.
+Bei einer Verwendung von Metadaten-Standards für RIS könnten ebenfalls interessante
+Potenziale durch Verlinkung entstehen.
 Der GovData-Metadaten-Standard z.B. kann genutzt werden
 
     http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html
 
-und die 14 GovData-Kategorien können dabei durch eine zusätzliche Verschlagwortung auf Basis von Standard-Schlagwortkatalogen für RIS eine Ergänzung erfahren ( LeiKa, Bremer-Katalog, DBpedia, RAMON).
+und die 14 GovData-Kategorien können dabei durch eine zusätzliche Verschlagwortung
+auf Basis von Standard-Schlagwortkatalogen für RIS eine Ergänzung erfahren (LeiKa,
+Bremer-Katalog, DBpedia, RAMON).
 
-Die 14 Werte des GovData-Metadaten-Standard sind bisher nicht als Linked Data existent. TODO: eventuell können diese in OParl als Schlagwort-`skos:Concept`-Objekte als nicht abschliessende Menge von Schlagworten vorgegeben werden.
+Die 14 Werte des GovData-Metadaten-Standard sind bisher nicht als Linked Data
+existent.
+
+TODO: eventuell können diese in OParl als Schlagwort-`skos:Concept`-Objekte als nicht abschliessende Menge von Schlagworten vorgegeben werden.

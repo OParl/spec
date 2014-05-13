@@ -75,16 +75,19 @@ Ein Kontext:
 ### Eigenschaften ###
 
 `body`
-:   URL der Körperschaft, zu der diese Gruppierung gehört. 
+:   Körperschaft, zu der diese Gruppierung gehört.
+    Typ: `oparl:Body`
     ZWINGEND
 
 `nameShort`
 :   Der Name der Gruppierung, eine Kurzform.
+    Typ: String
     ZWINGEND
 TODO: ZWINGEND/OPTIONAL prüfen
 
 `nameLong`
 :   Langform des Namens der Gruppierung, der rechtlich korrekte Name.
+    Typ: String
     ZWINGEND
 TODO: ZWINGEND/OPTIONAL prüfen
 
@@ -104,33 +107,40 @@ TODO: ZWINGEND/OPTIONAL prüfen
     "Ordentliches Mitglied",
     "Stellvertretendes Mitglied"
 Siehe https://github.com/OParl/specs/issues/45
-TODO: "Ordentliches Mitglied", "Stellvertretendes Mitglied" müssen anders behandelt werden!
+    TODO: "Ordentliches Mitglied", "Stellvertretendes Mitglied" müssen anders behandelt werden!
+    Typ: `oparl:Post`
     OPTIONAL
 
 `member`
-:   URLs aller Mitglieder dieser Organisation (Objekte vom Typ `[oparl:Person](#oparl_person)`). Auch alle Personen mit
+:   Mitglieder dieser Organisation (Objekte vom Typ `[oparl:Person](#oparl_person)`). Auch alle Personen mit
     Positionen in der Organisation sind hier anzugeben.
+    Typ: `oparl:Person`
     ZWINGEND (falls es Mitglieder gibt)
     
 `subOrganizationOf`
 :   Ggf. URL der übergeordneten Organisation.
+    Typ: `oparl:Organization`
     OPTIONAL.
 
 `created`
 :   Datum/Uhrzeit der Erzeugung des Objekts.
+    Typ: Zeitstempel
     EMPFOHLEN
 
 `classification`
 :   Schlagworte. Dies sind `skos:Concept`-Objekte mit einem `skos:prefLabel`-Attribut (für jede unterstützte Sprache) mit einer
     Zeichenkette. In einer zukünftigen OParl-Version wird möglicherweise eine Menge solcher Schlagwort-Objekte
     definiert. Anregungen gibt es u.a. in der Tabelle "Kategorien" im unteren Drittel der Seite http://htmlpreview.github.io/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html 
+    Typ: `skos:Concept`
     OPTIONAL
 
 `organizationType`
 :   Objekt mit `skos:prefLabel`, z.B. "Rat", "Hauptausschuss", "Ausschuss"
     "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat"
+    Typ: `skos:Concept`
     OPTIONAL
     
 `modified`
 :   Datum/Uhrzeit der letzten Bearbeitung des Objekts.
+    Typ: Zeitstempel
     EMPFOHLEN

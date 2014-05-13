@@ -56,17 +56,17 @@ Ein Beispiel in kompakter Form:
 
 `reference`
 :   Beispiel: "1234/2014"
-    Typ: TODO
+    Typ: String
     OPTIONAL
 
 `publishedDate`
 :   Beispiel: "2014-04-04T16:42:02+02:00"
-    Typ: TODO
+    Typ: Datum mit oder ohne Zeit
     EMPFOHLEN
 
 `name`
 :   Beispiel: "Antwort auf Anfrage 1200/2014"
-    Typ: TODO
+    Typ: String
     EMPFOHLEN
 
 `paperType`
@@ -101,7 +101,7 @@ Ein Beispiel in kompakter Form:
 :   Typ: `oparl:Consultation`
 
 `modified`
-:   Typ: TODO
+:   Typ: Zeitstempel
     Beispiel: "2013-01-08T12:05:27+01:00"
 
 `classification`

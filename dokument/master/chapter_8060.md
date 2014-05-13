@@ -123,17 +123,17 @@ Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der Kontext bleibt wie
 
 `name`
 :   Der vollständige Name der Person mit akademischem Grad und Vornamen.
-    Typ: TODO
+    Typ: String
     ZWINGEND
 
 `familyName`
 :   Familienname bzw. Nachname.
-    Typ: TODO
+    Typ: String
     OPTIONAL
 
 `givenName`
 :   Vorname bzw. Taufname.
-    Typ: TODO
+    Typ: String
     OPTIONAL
 
 `formOfAddress`
@@ -156,7 +156,7 @@ Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der Kontext bleibt wie
 
 `phone`
 :   Telefonnummer mit `tel:` Schema.
-    Typ: TODO
+    Typ: String mit "tel:" am Anfang, keine Leerzeichen
     OPTIONAL
 
 `email`
@@ -166,12 +166,12 @@ Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der Kontext bleibt wie
 
 `streetAddress`
 :   Straße und Hausnummer der Kontakt-Anschrift der Person.
-    Typ: TODO
+    Typ: String
     OPTIONAL
 
 `postalCode`
 :   Postleitzahl der Kontakt-Anschrift der Person.
-    Typ: TODO
+    Typ: String
     OPTIONAL
 
 `locality`

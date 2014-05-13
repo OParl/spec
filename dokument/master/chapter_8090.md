@@ -41,12 +41,12 @@ Ein Beispiel in kompakter Form:
 :   Nummer des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z.B. "10.", "10.1", "C", "c)" o.ä.
     Die Reihenfolge wird dadurch nicht festgelegt, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut
     von  `oparl:Meeting`
-    Typ: TODO
+    Typ: String
     OPTIONAL
 
 `name`
 :   Das Thema des Tagesordnungspunktes.
-    Typ: TODO
+    Typ: String
     ZWINGEND.
 
 `public`
@@ -78,7 +78,7 @@ Ein Beispiel in kompakter Form:
     wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in der 
     Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) 
     von der Beschlussvorlage abweicht.
-    Typ: TODO
+    Typ: String TODO: Was ist bei sehr langem Text?
     OPTIONAL.
 
 `paper`
@@ -98,10 +98,10 @@ Ein Beispiel in kompakter Form:
 
 `created`
 :   Erzeugungsdatum und -zeit des Objekts.
-    Typ: TODO
+    Typ: Zeitstempel
     EMPFOHLEN
 
 `lastModified`
 :   Datum und Uhrzeit der letzten Änderung.
-    Typ: TODO
+    Typ: Zeitstempel
     EMPFOHLEN

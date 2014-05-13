@@ -2,8 +2,13 @@ Status
 ------
 
 Die Spezifikation befindet sich in Arbeit. Das Dokument enthält entsprechend 
-viele Ungenauigkeiten und Hinweise auf offene Fragestellungen.
+noch Ungenauigkeiten und Hinweise auf offene Fragestellungen, die bis
+zur Fertigstellung mit Hilfe vieler Mitwirkender geschlossen werden sollen.
 
-Die Kennzeichnung "TODO" markiert Hinweise, die für die Bearbeiter des Dokuments
-gedacht sind. Darunter befinden sich auch Fragen an deren Beantwortung durch Reviewer des Dokuments
-die Autoren interessiert sind.
+Im Dokument befinden sich Fragestellugen an Mitwirkende und Reviewer, die mit
+dem Stichwort "FRAGE" markiert sind. Hier bitten wir Sie um Mithilfe und
+laden Sie ein, Ihre Antwort unter <https://github.com/OParl/specs/issues?milestone=1&state=open>
+beizusteuern.
+
+Die Kennzeichnung "TODO" markiert darüber hinaus Hinweise, die für die Bearbeiter
+des Dokuments gedacht sind.

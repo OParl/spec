@@ -61,9 +61,6 @@
             "@id": "foaf:mbox",
             "@type": "@id"
         },
-        "contactName": {
-            "@type": "...."
-        },
         "vendor": {
             "@type": "@id"
         },
@@ -112,24 +109,12 @@
             "@id": "foaf:mbox",
             "@type": "@id"
         },
-        "contactName": {
-            "@type": "xsd:string"
-        },
-        "rgs": {
-            "@type": "xsd:string"
-        },
         "equivalentBody":  {
             "@type": "@id"
         },
         "license": {
             "@id": "dc:license",
             "@type": "@id"
-        },
-        "nameShort": {
-            "@type": "xsd:string"
-        },
-        "nameLong": {
-            "@type": "xsd:string"
         },
         "exactMatch": {
             "@id": "skos:exactMatch",

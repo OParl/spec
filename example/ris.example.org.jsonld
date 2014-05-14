@@ -1,0 +1,439 @@
+[ {
+    "@context": {
+        "beispielris": "https://oparl.beispielris.de",
+        "oparl": "http://oparl.org/TODO/",
+        "dc": "http://purl.org/dc/terms/",
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "vcard": "http://www.w3.org/2006/vcard/ns#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "ogc": "http://www.opengis.net/ont/geosparql#",
+
+        "@language": "de",
+
+        "startDate" : {           
+             "@id": "schema:validFrom",
+             "@type": "xsd:dateTime"
+        },
+        "endDate": {
+             "@id": "schema:validThrough",
+             "@type": "xsd:dateTime"
+        }
+    },
+  
+    "@id": "beispielris:membership/eineMitgliedschaft",
+    "@type": "oparl:Membership",
+
+    "person" : "beispielris:person/max",
+    "organization" : "beispielris:organization/finance",
+    "role" : "beispieris:role/....",
+    "post": "beispielris:post/chair",
+    "onBehalfOf" : "beispielris:organization/eineParteiFraktion",
+    "startDate" : "2000-05-01",
+    "endDate" : "2013-05-02"
+},
+
+
+{
+    "@context": {
+        "beispielris": "https://oparl.beispielris.de",
+        "oparl": "http://oparl.org/TODO/",
+        "dc": "http://purl.org/dc/terms/",
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "vcard": "http://www.w3.org/2006/vcard/ns#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "ogc": "http://www.opengis.net/ont/geosparql#",
+
+        "@language": "de",
+
+        "oparlVersion": {
+           "@type": "@id"
+        },
+        "name": {
+            "@id": "skos:prefLabel",
+            "@type": "@id"
+        },
+        "website": {
+            "@type": "@id"
+        },
+        "contactEmail": {
+            "@id": "foaf:mbox",
+            "@type": "@id"
+        },
+        "vendor": {
+            "@type": "@id"
+        },
+        "product": {
+            "@type": "@id"
+        },
+        "bodies": {
+            "@type": "@id"
+        },
+        "newObjects": {
+            "@type": "@id"
+        },
+        "updatedObjects":  {
+            "@type": "@id"
+        },
+        "removedObjects":  {
+            "@type": "@id"
+        }
+    },
+  
+    "@type": "oparl:System",
+    "@id": "https://oparl.beispielris.de/",
+
+    "oparlVersion": "http://oparl.org/specs/1.0/",
+    "name": "Beispiel-System",
+    "website": "http://www.beispielris.de/",
+    "contactEmail": "mailto:info@beispielris.de",
+    "contactName": "Allgemeiner OParl Kontakt",
+    "vendor": "http://example-software.com/",
+    "product": "http://example-software.com/oparl-server/",
+    "bodies": "beispielris:bodies/",
+    "newObjects": "beispielris:new_objects/",
+    "updatedObjects": "beispielris:updated_objects/",
+    "removedObjects": "beispielris:removed_objects"
+},
+
+
+{
+    "@context": {
+        "@language": "de",
+        
+        "system": {
+            "@type": "@id"
+        },
+        "contactEmail": {
+            "@id": "foaf:mbox",
+            "@type": "@id"
+        },
+        "equivalentBody":  {
+            "@type": "@id"
+        },
+        "license": {
+            "@id": "dc:license",
+            "@type": "@id"
+        },
+        "exactMatch": {
+            "@id": "skos:exactMatch",
+            "@type": "@id"
+        },
+        "licenseValidSinceDay": {
+            "@id": "schema:validFrom",
+            "@type": "xsd:dateTime"
+        },
+        "website": {
+            "@type": "@id"
+        },
+        "license": {
+            "@type": "@id"
+        },
+        "organization": {
+            "@id": "oparl:Organization",
+            "@type": "@id"
+        },
+        "meeting": {
+            "@id": "oparl:Meeting",
+            "@type": "@id"
+        },
+        "paper":  {
+            "@id": "oparl:Paper",
+            "@type": "@id"
+        },
+        "member":  {
+            "@id": "oparl:Person",
+            "@type": "@id"
+        },
+        "classification": {
+            "@id": "skos:Concept",
+            "@type": "@id"
+        },
+        "allConcepts": {
+            "@id": "skos:Concept",
+            "@type": "@id"
+        },
+        "created" : {           
+             "@type": "xsd:dateTime"
+        },
+        "modified": {
+             "@type": "xsd:dateTime"
+        }
+    },
+    "@type": "oparl:Body",
+    "@id": "beispielris:body/0",
+
+    "system": "https://oparl.beispielris.de/",
+    "contactEmail": "mailto:ris@beispielstadt.de",
+    "contactName": "RIS-Betreuung",
+    "rgs": "053150000000",
+    "equivalentBody": [
+        "http://d-nb.info/gnd/2015732-0",
+        "http://dbpedia.org/resource/Cologne"
+    ],
+    "nameShort": "Stadt Köln",
+    "nameLong": {
+        "de": "Stadt Köln, kreisfreie Stadt",
+        "en": "City of Cologne"
+    },
+    "website": "http://www.beispielstadt.de/",
+    "license": "http://creativecommons.org/licenses/by/4.0/",
+    "licenseValidSinceDay": "2014-01-01",
+    "organization": "beispielris:body/0/organisation/",
+    "meeting": "beispielris:body/0/meeting/",
+    "paper": "beispielris:body/0/paper/",
+    "member": "beispielris:body/0/person/",
+    "classification": "beispielris:vocab/landkreis",
+    "allConcepts": [
+        "beispielris:role/decision",
+        "beispielris:vocab/committee"
+    ],
+    "created": "2014-01-08T14:28:31.568+0100",
+    "modified": "2014-01-08T14:28:31.568+0100"
+},
+
+
+{
+    "@context": {
+        "@language": "de"
+    },
+
+    "@type": "oparl:Organization",
+    "@id": "beispielris:organization/finance",
+
+    "body": "beispielris:body/0",
+    "nameShort": "Finanzausschuss",
+    "nameLong": "Ausschuss für Haushalt und Finanzen",
+    "post": [
+        "beispielris:post/chairperson",
+        "beispielris:post/deputyChairperson"
+    ],
+    "members": [
+        "beispielris:person/27",
+        "beispielris:person/48",
+        "beispielris:person/57"
+    ],
+    "organizationType": "beispielris:vocab/committee",
+    "classification": "beispielris:vocab/finance",
+    "modified": "2012-08-16T14:05:27+02:00"
+},
+
+
+{
+    "@context" : {
+        "@language": "de",
+     
+        "gender": "vcard:hasGender",
+        "givenName": "foaf:firstName",
+        "familyName": "foaf:lastName",
+        "academic_degree": {
+            "@language": null ,
+            "@id": "foaf:title"
+        },
+        "email": {
+            "@id": "foaf:mbox",
+            "@type": "@id"
+        },
+        "phone": "foaf:phone",
+        "streetAddress": "vcard:street-address",
+        "locality": {
+            "@id": "vcard:locality",
+            "@container": "@language"
+        },
+        "created": {
+            "@id": "dc:created",
+            "@type": "xsd:dateTime"
+        },
+        "modified": {
+            "@id": "dc:modified",
+            "@type": "xsd:dateTime"
+        }
+    },
+
+    "@type": "oparl:Person",
+    "@id": "beispielris:person/mustermann",
+    "name": "Prof. Dr. Max Mustermann",
+    "familyName": "Mustermann",
+    "givenName": "Max",
+    "title": "Prof. Dr.",
+    "formOfAddress": "beispielris:formofaddress/ratsmitglied",
+    "gender": "vcard:Male",
+    "email": "mailto:max@mustermann.de",
+    "phone": "tel:+493012345678",
+    "streetAddress": "Musterstraße 5",
+    "postalCode": "11111",
+    "locality": {
+        "de": "Musterort",
+        "en": "Sample Town"
+    },
+    "organization": [
+         "beispielris:organization/11",
+         "beispielris:organization/34"
+    ],
+    "status": "beispielris:status/buergermeister",
+    "hasMembership": "beispielris:membership/34",
+    "created": "2011-11-11T11:11:00+01:00",
+    "modified": "2012-08-16T14:05:27+02:00"
+
+},
+
+
+{
+    "@context": {
+      "agendaItem": {
+         "@id": "oparl:AgendaItem",
+         "@container": "@list"
+       }
+    },
+
+    "@type": "oparl:Meeting",
+    "@id": "beispielris:meeting/281",
+    "name": "4. Sitzung des Finanzausschusses",
+    "start": "2013-01-04T08:00:00+01:00",
+    "end": "2013-01-04T12:00:00+01:00",
+    "location": {
+        "description": [
+             {
+                "@value": "Town Hall, room 136",
+                "@language": "en"
+            },{
+                "@value": "Rathaus, Raum 136"
+            }
+        ]
+    },
+    "organization": "beispielris:organization/finazausschuss",
+    "participant": [
+        "beispielris:person/29",
+        "beispielris:person/75",
+        "beispielris:person/94"
+    ],
+    "invitation": "beispielris:document/586",
+    "resultsProtocol": "beispielris:document/628",
+    "verbatimProtocol": "beispielris:document/691",
+    "auxiliaryDocument": [
+        "beispielris:document/588",
+        "beispielris:document/589"
+    ],
+    "agendaItem": [
+        "beispielris:agendaitem/1045",
+        "beispielris:agendaitem/1046",
+        "beispielris:agendaitem/1047",
+        "beispielris:agendaitem/1048"
+    ],
+    "created": "2012-01-06T12:01:00+01:00",
+    "modified": "2012-01-08T14:05:27+01:00"
+},
+
+
+{
+    "@context": {
+    },
+
+    "@type": "oparl:AgendaItem",
+    "@id": "https://oparl.beispielris.de/agendaitem/3271",
+    "meeting": "beispielris:meeting/281",
+    "number": "10.1",
+    "name": "Satzungsänderung für Ausschreibungen",
+    "public": true,
+    "consultation": [
+        "beispielris:consultation/1034",
+        "beispielris:consultation/1235"
+    ],
+    "result": "besipielris:vocab/decided_modified",
+    "resolutionText": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
+    "absentParticipant": [
+        "beispielris:person/75"
+    ],
+    "paper": "beispielris:paper/2812",
+    "modified": "2012-08-16T14:05:27+02:00"
+},
+
+
+{
+    "@context": {
+        "geometry": "ogc:wktLiteral"
+    },
+
+    "@type": "oparl:Paper",
+    "@id": "beispielris:paper/749",
+
+    "reference": "1234/2014",
+    "publishedDate": "2014-04-04T16:42:02+02:00",
+    "name": "Antwort auf Anfrage 1200/2014",
+    "paperType": "beispielris:vocab/answer",
+    "relatedPaper": "beispielris:paper/699",
+    "mainDocument": "beispielris:document/925",
+    "auxiliaryDocument": "beispielris:document/926",
+    "location": [
+        {
+            "description": "Theodor-Heuss-Ring 1",
+            "geometry": "POINT(7.148  50.023)"
+        }
+    ],
+    "creator": [
+        "beispielris:organization/2000",
+        "beispielris:people/1000"
+    ],
+    "consultation": [
+        "beispielris:consultation/5676",
+        "beispielris:consultation/5689"
+    ],
+    "modified": "2013-01-08T12:05:27+01:00"
+},
+
+
+{
+    "@context": {
+    },  
+
+    "@type": "oparl:Document",
+    "@id": "beispielris:document/57739",
+    "name": "Anlage 1 zur Anfrage",
+    "fileName": "57739.pdf",
+    "paper": "beispielris:paper/2396",
+    "mimeType": "application/pdf",
+    "date": "2013-01-04T07:54:13+01:00",
+    "lastModified": "2013-01-04T07:54:13+01:00",
+    "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "size": "82930",
+    "accessUrl": "beispielris:document/57739.pdf",
+    "downloadUrl": "beispielris:document/download/57739.pdf",
+    "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
+    "masterDocument": "beispielris:document/57738",
+    "license": "http://www.opendefinition.org/licenses/cc-by",
+    "documentRole": "beispielris:document-role/evidence"
+},
+
+
+{
+    "@type": "oparl:Consultation",
+    "@id": "beispielris:consultation/47594",
+    "paper": "beispielris:paper/2396",
+    "agendaitem": "beispielris:agendaitem/15569",
+    "committee": "beispielris:organization/96",
+    "authoritative": false,
+    "role": "beispielris:role/decision"
+},
+
+
+{
+    "@id": "beispielris:role/decision",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Entscheidung",
+        "en": "decision"
+    }
+},
+{
+    "@id": "beispielris:vocab/committee",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Ausschuss",
+        "en": "committee"
+    }
+}
+
+

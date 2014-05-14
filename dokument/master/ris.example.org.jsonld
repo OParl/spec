@@ -51,37 +51,37 @@
            "@type": "@id"
         },
         "name": {
-           "@id": "skos:prefLabel",
-           "@type": "@id"
+            "@id": "skos:prefLabel",
+            "@type": "@id"
         },
         "website": {
-           "@type": "@id"
+            "@type": "@id"
         },
         "contactEmail": {
-           "@id": "foaf:mbox",
-           "@type": "@id"
-       },
-       "contactName": {
-           "@type": "@id"
-       },
-       "vendor": {
-           "@type": "@id"
-       },
-       "product": {
-           "@type": "@id"
-       },
-       "bodies": {
-           "@type": "@id"
-       },
-       "newObjects": {
-           "@type": "@id"
-       },
-       "updatedObjects":  {
-           "@type": "@id"
-       },
-       "removedObjects":  {
-           "@type": "@id"
-       }
+            "@id": "foaf:mbox",
+            "@type": "@id"
+        },
+        "contactName": {
+            "@type": "...."
+        },
+        "vendor": {
+            "@type": "@id"
+        },
+        "product": {
+            "@type": "@id"
+        },
+        "bodies": {
+            "@type": "@id"
+        },
+        "newObjects": {
+            "@type": "@id"
+        },
+        "updatedObjects":  {
+            "@type": "@id"
+        },
+        "removedObjects":  {
+            "@type": "@id"
+        }
     },
   
     "@type": "oparl:System",
@@ -104,18 +104,77 @@
 {
     "@context": {
         "@language": "de",
+        
+        "system": {
+            "@type": "@id"
+        },
+        "contactEmail": {
+            "@id": "foaf:mbox",
+            "@type": "@id"
+        },
+        "contactName": {
+            "@type": "xsd:string"
+        },
+        "rgs": {
+            "@type": "xsd:string"
+        },
+        "equivalentBody":  {
+            "@type": "@id"
+        },
         "license": {
             "@id": "dc:license",
             "@type": "@id"
+        },
+        "nameShort": {
+            "@type": "xsd:string"
+        },
+        "nameLong": {
+            "@type": "xsd:string"
         },
         "exactMatch": {
             "@id": "skos:exactMatch",
             "@type": "@id"
         },
-       "licenseValidSinceDay": {
-             "@id": "schema:validFrom",
+        "licenseValidSinceDay": {
+            "@id": "schema:validFrom",
+            "@type": "xsd:dateTime"
+        },
+        "website": {
+            "@type": "@id"
+        },
+        "license": {
+            "@type": "@id"
+        },
+        "organization": {
+            "@id": "oparl:Organization",
+            "@type": "@id"
+        },
+        "meeting": {
+            "@id": "oparl:Meeting",
+            "@type": "@id"
+        },
+        "paper":  {
+            "@id": "oparl:Paper",
+            "@type": "@id"
+        },
+        "member":  {
+            "@id": "oparl:Person",
+            "@type": "@id"
+        },
+        "classification": {
+            "@id": "skos:Concept",
+            "@type": "@id"
+        },
+        "allConcepts": {
+            "@id": "skos:Concept",
+            "@type": "@id"
+        },
+        "created" : {           
              "@type": "xsd:dateTime"
-       }
+        },
+        "modified": {
+             "@type": "xsd:dateTime"
+        }
     },
     "@type": "oparl:Body",
     "@id": "beispielris:body/0",

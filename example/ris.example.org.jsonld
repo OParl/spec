@@ -434,6 +434,23 @@
         "de": "Ausschuss",
         "en": "committee"
     }
+},
+{
+    "@id": "beispielris:post/chairperson",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Vorsitzender | Vorsitzende",
+        "en": "..."
+    }
+},
+{
+    "@id": "beispielris:post/deputyChairperson",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "stellvertretender Vorsitzender | stellvertretende Vorsitzende",
+        "en": "..."
+    }
 }
-
-
+]

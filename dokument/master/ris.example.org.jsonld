@@ -21,13 +21,13 @@
         }
     },
   
-    "@id": "beispielris:membership/eins",
+    "@id": "beispielris:membership/eineMitgliedschaft",
     "@type": "oparl:Membership",
 
     "person" : "beispielris:person/max",
     "organization" : "beispielris:organization/finance",
     "role" : "beispieris:role/....",
-    "post": "beispielris:post/....",
+    "post": "beispielris:post/chair",
     "onBehalfOf" : "beispielris:organization/eineParteiFraktion",
     "startDate" : "2000-05-01",
     "endDate" : "2013-05-02"
@@ -47,12 +47,39 @@
 
         "@language": "de",
 
+        "oparlVersion": {
+           "@type": "@id"
+        },
         "name": {
            "@id": "skos:prefLabel",
            "@type": "@id"
         },
+        "website": {
+           "@type": "@id"
+        },
         "contactEmail": {
            "@id": "foaf:mbox",
+           "@type": "@id"
+       },
+       "contactName": {
+           "@type": "@id"
+       },
+       "vendor": {
+           "@type": "@id"
+       },
+       "product": {
+           "@type": "@id"
+       },
+       "bodies": {
+           "@type": "@id"
+       },
+       "newObjects": {
+           "@type": "@id"
+       },
+       "updatedObjects":  {
+           "@type": "@id"
+       },
+       "removedObjects":  {
            "@type": "@id"
        }
     },

@@ -1,41 +1,6 @@
-[ {
-    "@context": {
-        "beispielris": "https://oparl.beispielris.de",
-        "oparl": "http://oparl.org/TODO/",
-        "dc": "http://purl.org/dc/terms/",
-        "foaf": "http://xmlns.com/foaf/0.1/",
-        "skos": "http://www.w3.org/2004/02/skos/core#",
-        "vcard": "http://www.w3.org/2006/vcard/ns#",
-        "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "ogc": "http://www.opengis.net/ont/geosparql#",
-
-        "@language": "de",
-
-        "startDate" : {           
-             "@id": "schema:validFrom",
-             "@type": "xsd:dateTime"
-        },
-        "endDate": {
-             "@id": "schema:validThrough",
-             "@type": "xsd:dateTime"
-        }
-    },
-  
-    "@id": "beispielris:membership/eineMitgliedschaft",
-    "@type": "oparl:Membership",
-
-    "person" : "beispielris:person/max",
-    "organization" : "beispielris:organization/finance",
-    "role" : "beispieris:role/....",
-    "post": "beispielris:post/chair",
-    "onBehalfOf" : "beispielris:organization/eineParteiFraktion",
-    "startDate" : "2000-05-01",
-    "endDate" : "2013-05-02"
-},
-
-
 {
-    "@context": {
+    "@context":
+    {
         "beispielris": "https://oparl.beispielris.de",
         "oparl": "http://oparl.org/TODO/",
         "dc": "http://purl.org/dc/terms/",
@@ -47,61 +12,38 @@
 
         "@language": "de",
 
-        "oparlVersion": {
-           "@type": "@id"
+        "agendaItem": {
+            "@id": "oparl:AgendaItem",
+            "@container": "@list"
         },
-        "name": {
-            "@id": "skos:prefLabel",
-            "@type": "@id"
+
+        "gender": "vcard:hasGender",
+        "givenName": "foaf:firstName",
+        "familyName": "foaf:lastName",
+        "academic_degree": {
+            "@language": null ,
+            "@id": "foaf:title"
         },
-        "website": {
-            "@type": "@id"
-        },
-        "contactEmail": {
+        "email": {
             "@id": "foaf:mbox",
             "@type": "@id"
         },
-        "vendor": {
-            "@type": "@id"
+        "phone": "foaf:phone",
+        "streetAddress": "vcard:street-address",
+        "locality": {
+            "@id": "vcard:locality",
+            "@container": "@language"
         },
-        "product": {
-            "@type": "@id"
+        "created": {
+            "@id": "dc:created",
+            "@type": "xsd:dateTime"
         },
-        "bodies": {
-            "@type": "@id"
+        "modified": {
+            "@id": "dc:modified",
+            "@type": "xsd:dateTime"
         },
-        "newObjects": {
-            "@type": "@id"
-        },
-        "updatedObjects":  {
-            "@type": "@id"
-        },
-        "removedObjects":  {
-            "@type": "@id"
-        }
-    },
-  
-    "@type": "oparl:System",
-    "@id": "https://oparl.beispielris.de/",
-
-    "oparlVersion": "http://oparl.org/specs/1.0/",
-    "name": "Beispiel-System",
-    "website": "http://www.beispielris.de/",
-    "contactEmail": "mailto:info@beispielris.de",
-    "contactName": "Allgemeiner OParl Kontakt",
-    "vendor": "http://example-software.com/",
-    "product": "http://example-software.com/oparl-server/",
-    "bodies": "beispielris:bodies/",
-    "newObjects": "beispielris:new_objects/",
-    "updatedObjects": "beispielris:updated_objects/",
-    "removedObjects": "beispielris:removed_objects"
-},
 
 
-{
-    "@context": {
-        "@language": "de",
-        
         "system": {
             "@type": "@id"
         },
@@ -154,13 +96,85 @@
             "@id": "skos:Concept",
             "@type": "@id"
         },
-        "created" : {           
+
+        "oparlVersion": {
+           "@type": "@id"
+        },
+        "name": {
+            "@id": "skos:prefLabel",
+            "@type": "@id"
+        },
+        "website": {
+            "@type": "@id"
+        },
+        "contactEmail": {
+            "@id": "foaf:mbox",
+            "@type": "@id"
+        },
+        "vendor": {
+            "@type": "@id"
+        },
+        "product": {
+            "@type": "@id"
+        },
+        "bodies": {
+            "@type": "@id"
+        },
+        "newObjects": {
+            "@type": "@id"
+        },
+        "updatedObjects":  {
+            "@type": "@id"
+        },
+        "removedObjects":  {
+            "@type": "@id"
+        },
+
+        "startDate" : {           
+             "@id": "schema:validFrom",
              "@type": "xsd:dateTime"
         },
-        "modified": {
+        "endDate": {
+             "@id": "schema:validThrough",
              "@type": "xsd:dateTime"
-        }
+        },
+        "geometry": "ogc:wktLiteral"
+
     },
+    "@graph": [
+{
+    "@id": "beispielris:membership/eineMitgliedschaft",
+    "@type": "oparl:Membership",
+
+    "person" : "beispielris:person/max",
+    "organization" : "beispielris:organization/finance",
+    "role" : "beispieris:role/....",
+    "post": "beispielris:post/chair",
+    "onBehalfOf" : "beispielris:organization/eineParteiFraktion",
+    "startDate" : "2000-05-01",
+    "endDate" : "2013-05-02"
+},
+
+
+{
+    "@type": "oparl:System",
+    "@id": "https://oparl.beispielris.de/",
+
+    "oparlVersion": "http://oparl.org/specs/1.0/",
+    "name": "Beispiel-System",
+    "website": "http://www.beispielris.de/",
+    "contactEmail": "mailto:info@beispielris.de",
+    "contactName": "Allgemeiner OParl Kontakt",
+    "vendor": "http://example-software.com/",
+    "product": "http://example-software.com/oparl-server/",
+    "bodies": "beispielris:bodies/",
+    "newObjects": "beispielris:new_objects/",
+    "updatedObjects": "beispielris:updated_objects/",
+    "removedObjects": "beispielris:removed_objects"
+},
+
+
+{
     "@type": "oparl:Body",
     "@id": "beispielris:body/0",
 
@@ -195,10 +209,6 @@
 
 
 {
-    "@context": {
-        "@language": "de"
-    },
-
     "@type": "oparl:Organization",
     "@id": "beispielris:organization/finance",
 
@@ -221,36 +231,6 @@
 
 
 {
-    "@context" : {
-        "@language": "de",
-     
-        "gender": "vcard:hasGender",
-        "givenName": "foaf:firstName",
-        "familyName": "foaf:lastName",
-        "academic_degree": {
-            "@language": null ,
-            "@id": "foaf:title"
-        },
-        "email": {
-            "@id": "foaf:mbox",
-            "@type": "@id"
-        },
-        "phone": "foaf:phone",
-        "streetAddress": "vcard:street-address",
-        "locality": {
-            "@id": "vcard:locality",
-            "@container": "@language"
-        },
-        "created": {
-            "@id": "dc:created",
-            "@type": "xsd:dateTime"
-        },
-        "modified": {
-            "@id": "dc:modified",
-            "@type": "xsd:dateTime"
-        }
-    },
-
     "@type": "oparl:Person",
     "@id": "beispielris:person/mustermann",
     "name": "Prof. Dr. Max Mustermann",
@@ -275,18 +255,10 @@
     "hasMembership": "beispielris:membership/34",
     "created": "2011-11-11T11:11:00+01:00",
     "modified": "2012-08-16T14:05:27+02:00"
-
 },
 
 
 {
-    "@context": {
-      "agendaItem": {
-         "@id": "oparl:AgendaItem",
-         "@container": "@list"
-       }
-    },
-
     "@type": "oparl:Meeting",
     "@id": "beispielris:meeting/281",
     "name": "4. Sitzung des Finanzausschusses",
@@ -327,9 +299,6 @@
 
 
 {
-    "@context": {
-    },
-
     "@type": "oparl:AgendaItem",
     "@id": "https://oparl.beispielris.de/agendaitem/3271",
     "meeting": "beispielris:meeting/281",
@@ -351,10 +320,6 @@
 
 
 {
-    "@context": {
-        "geometry": "ogc:wktLiteral"
-    },
-
     "@type": "oparl:Paper",
     "@id": "beispielris:paper/749",
 
@@ -384,9 +349,6 @@
 
 
 {
-    "@context": {
-    },  
-
     "@type": "oparl:Document",
     "@id": "beispielris:document/57739",
     "name": "Anlage 1 zur Anfrage",
@@ -454,3 +416,4 @@
     }
 }
 ]
+}

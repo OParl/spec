@@ -92,7 +92,7 @@ Ein Beispiel in kompakter Form:
     Typ: `oparl:Document`
     OPTIONAL
 
-`classification`
+`keyword`
 :   Typ: `skos:Concept`
     OPTIONAL
 

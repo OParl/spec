@@ -39,7 +39,7 @@
             "@id": "foaf:mbox",
             "@type": "@id"
         },
-                "endDate": {
+        "endDate": {
              "@id": "schema:validThrough",
              "@type": "xsd:dateTime"
         },
@@ -78,12 +78,23 @@
             "@id": "oparl:Person",
             "@type": "@id"
         },
+        "memberList": {
+            "@container": "@list"
+        },
         "modified": {
             "@id": "dc:modified",
             "@type": "xsd:dateTime"
         },
-        "name": {
+        "nameLong": {
             "@id": "skos:prefLabel",
+            "@type": "@id"
+        },
+        "nameShort": {
+            "@id": "skos:altLabel",
+            "@type": "@id"
+        },
+        "note": {
+            "@id": "skos:note",
             "@type": "@id"
         },
         "oparlVersion": {
@@ -395,6 +406,21 @@
         "en": "committees"
     }
 },
+{
+    "@id": "beispielris:vocab/workingGroup",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Arbeitsgruppe",
+        "en": "working group"
+    }
+    "pluralLabel": {
+        "de": "Arbeitsgruppen",
+        "en": "workng groups"
+    }
+},
+
+
 
 {
     "@id": "beispielris:post/chairperson",
@@ -608,7 +634,8 @@
     "@id": "beispielris:result/forwarded",
     "@type": "skos:Concept",
 
-    "prefLabel": "Ohne Votum in nachfolgende Gremien überwiesen TODO: Wohin?"
+    "prefLabel": "Ohne Votum in nachfolgende Gremien überwiesen TODO: Wohin?",
+    "note": "TODO: Wie kann angegeben werden, wohin überwiesen wurde?"
 },
 
 
@@ -669,8 +696,16 @@
     "@type": "skos:Concept",
 
     "prefLabel": "Einzelstadtverordneter | Einzelstadtverordnete"
-}
+},
 
+{
+    "@id": "beispielris:conceptSchema/groupTypes",
+    "@type": "skos:OrderedCollection",
 
+    "note": "Kann u.a. für die Reihenfolge der Anzeige verwendet werden. Ausschüsse sind wichtiger als Arbeitsgruppen",
+    "memberList": [
+        "beispielris:vocab/committee",
+        "beispielris:vocab/workingGroup"
+    ]
 ]
 }

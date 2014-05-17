@@ -69,12 +69,12 @@ wird, umfasst das Objekt aus Sicht des Clients eben auch die Liste der Mitgliede
 Fall wäre eine Veränderung der Liste der Mitglieder als Änderung des Objekts zu verstehen,
 die im `modified` Zeitstempel widerspiegeln sollte.
 
-### `classification`
+### `keyword`
 
-Die Eigenschaft `classification` dient der Kategorisierung von Objekten und ist in
+Die Eigenschaft `keyword` dient der Kategorisierung von Objekten und ist in
 einer Vielzahl von Objekttypen zu diesem Zweck einsetzbar.
 
-Wert der Eigenschaft ist eine Liste von `skos:Concept`-Objekten mit einer
+Wert der Eigenschaft sind ein oder mehrere `skos:Concept`-Objekte mit einer
 `skos:prefLabel`-Eigenschaft. Der Wert der Eigenschaft ist jeweils eine Zeichenkette.
 Die verwendete Sprache (in der Regel "de" für Deutsch) MUSS dabei angegeben werden.
 

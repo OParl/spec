@@ -435,6 +435,24 @@
     }
 },
 
+
+{
+    "@id": "beispielris:formOfAddress/ratsherr",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Ratsherr | Ratsfrau"
+    }
+},
+{
+    "@id": "beispielris:formOfAddress/herr",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Herr | Frau"
+    }
+},
+
 {
     "@id": "beispielris:name/member",
     "@type": "skos:Concept",

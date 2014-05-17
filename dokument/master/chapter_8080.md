@@ -165,7 +165,7 @@ Das selbe Beispiel in kompakter Form:
     Typ: `oparl:AgendaItem`.
     OPTIONAL
 
-`classification`
+`keyword`
 :   Typ: `skos:Concept`.
     OPTIONAL
     

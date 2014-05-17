@@ -151,10 +151,9 @@ werden, welche Ableitungen einer Datei existieren.
     TODO: Link auf Erkärungs-Kapitel, damit klar ist, dass hier auf externes
     Vokabular verlinkt wird.
 
-`classification`
+`keyword`
 :   Begriff mit `skos:prefLabel`. Hat allgemeinere Bedeutung als `documentRole`.
     Typ: `skos:Concept`.
     OPTIONAL.
-    TODO: 
     TODO: Link auf Erkärungs-Kapitel, damit klar ist, dass hier auf externes
     Vokabular verlinkt wird.

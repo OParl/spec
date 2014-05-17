@@ -387,6 +387,10 @@
         "de": "Entscheidung",
         "en": "decision"
     }
+    "pluralLabel": {
+        "de": "Entscheidungen",
+        "en": "decisions"
+    }
 },
 {
     "@id": "beispielris:vocab/committee",
@@ -396,7 +400,12 @@
         "de": "Ausschuss",
         "en": "committee"
     }
+    "pluralLabel": {
+        "de": "Ausschüsse",
+        "en": "committees"
+    }
 },
+
 {
     "@id": "beispielris:post/chairperson",
     "@type": "skos:Concept",
@@ -414,6 +423,76 @@
         "de": "stellvertretender Vorsitzender | stellvertretende Vorsitzende",
         "en": "..."
     }
+},
+
+{
+    "@id": "beispielris:keyword/ogpdxy",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "http://htmlpreview.github.io/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html",
+        "en": "...not complete..."
+    }
+},
+
+{
+    "@id": "beispielris:name/member",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Mitglied",
+        "en": "member"
+    }
+},
+{
+    "@id": "beispielris:name/mayor",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Bürgermeister | Bürgermeisterin"
+    }
+},
+{
+    "@id": "beispielris:name/mayorForPart",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Bezirksbürgermeister | Bezirksbürgermeisterin"
+    }
+},
+{
+    "@id": "beispielris:name/memberOfCityCouncil",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Stadtverordneter | Stadtverordnete"
+    }
+},
+{
+    "@id": "beispielris:name/memberOfPart",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Bezirksverordneter | Bezirksverordnete"
+    }
+},
+{
+    "@id": "beispielris:name/personWithKnowledge",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Sachkundiger Bürger | Sachkundige Bürgerin"
+    }
+},
+{
+    "@id": "beispielris:name/memberWithoutParty",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Einzelstadtverordneter | Einzelstadtverordnete"
+    }
 }
+
+
 ]
 }

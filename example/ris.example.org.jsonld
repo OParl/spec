@@ -12,134 +12,123 @@
 
         "@language": "de",
 
-        "agendaItem": {
-            "@id": "oparl:AgendaItem",
-            "@container": "@list"
-        },
-
-        "gender": "vcard:hasGender",
-        "givenName": "foaf:firstName",
-        "familyName": "foaf:lastName",
         "academic_degree": {
             "@language": null ,
             "@id": "foaf:title"
         },
-        "email": {
-            "@id": "foaf:mbox",
+        "agendaItem": {
+            "@id": "oparl:AgendaItem",
+            "@container": "@list"
+        },
+        "allConcepts": {
+            "@id": "skos:Concept",
             "@type": "@id"
         },
-        "phone": "foaf:phone",
-        "streetAddress": "vcard:street-address",
-        "locality": {
-            "@id": "vcard:locality",
-            "@container": "@language"
-        },
-        "created": {
-            "@id": "dc:created",
-            "@type": "xsd:dateTime"
-        },
-        "modified": {
-            "@id": "dc:modified",
-            "@type": "xsd:dateTime"
-        },
-
-
-        "system": {
+        "body": {
             "@type": "@id"
         },
         "contactEmail": {
             "@id": "foaf:mbox",
             "@type": "@id"
         },
-        "equivalentBody":  {
+        "created": {
+            "@id": "dc:created",
+            "@type": "xsd:dateTime"
+        },
+        "email": {
+            "@id": "foaf:mbox",
             "@type": "@id"
         },
-        "license": {
-            "@id": "dc:license",
+                "endDate": {
+             "@id": "schema:validThrough",
+             "@type": "xsd:dateTime"
+        },
+        "equivalentBody":  {
             "@type": "@id"
         },
         "exactMatch": {
             "@id": "skos:exactMatch",
             "@type": "@id"
         },
+        "familyName": "foaf:lastName",
+        "gender": "vcard:hasGender",
+        "geometry": "ogc:wktLiteral",
+        "givenName": "foaf:firstName",
+        "keyword": {
+            "@id": "skos:Concept",
+            "@type": "@id"
+        },
+        "license": {
+            "@id": "dc:license",
+            "@type": "@id"
+        },
         "licenseValidSinceDay": {
             "@id": "schema:validFrom",
             "@type": "xsd:dateTime"
         },
-        "website": {
-            "@type": "@id"
-        },
-        "license": {
-            "@type": "@id"
-        },
-        "organization": {
-            "@id": "oparl:Organization",
-            "@type": "@id"
+        "locality": {
+            "@id": "vcard:locality",
+            "@container": "@language"
         },
         "meeting": {
             "@id": "oparl:Meeting",
-            "@type": "@id"
-        },
-        "paper":  {
-            "@id": "oparl:Paper",
             "@type": "@id"
         },
         "member":  {
             "@id": "oparl:Person",
             "@type": "@id"
         },
-        "classification": {
-            "@id": "skos:Concept",
-            "@type": "@id"
-        },
-        "allConcepts": {
-            "@id": "skos:Concept",
-            "@type": "@id"
-        },
-
-        "oparlVersion": {
-           "@type": "@id"
+        "modified": {
+            "@id": "dc:modified",
+            "@type": "xsd:dateTime"
         },
         "name": {
             "@id": "skos:prefLabel",
             "@type": "@id"
         },
-        "website": {
+        "oparlVersion": {
+           "@type": "@id"
+        },
+        "organization": {
+            "@id": "oparl:Organization",
             "@type": "@id"
         },
-        "contactEmail": {
-            "@id": "foaf:mbox",
+        "paper":  {
+            "@id": "oparl:Paper",
+            "@type": "@id"
+        },
+        "phone": "foaf:phone",
+        "product": {
+            "@type": "@id"
+        },
+        "startDate" : {           
+             "@id": "schema:validFrom",
+             "@type": "xsd:dateTime"
+        },
+        "streetAddress": "vcard:street-address",
+        "system": {
             "@type": "@id"
         },
         "vendor": {
             "@type": "@id"
         },
-        "product": {
+        "website": {
             "@type": "@id"
         },
+
+
         "bodies": {
             "@type": "@id"
         },
         "newObjects": {
             "@type": "@id"
         },
-        "updatedObjects":  {
-            "@type": "@id"
-        },
         "removedObjects":  {
             "@type": "@id"
         },
-
-        "startDate" : {           
-             "@id": "schema:validFrom",
-             "@type": "xsd:dateTime"
-        },
-        "endDate": {
-             "@id": "schema:validThrough",
-             "@type": "xsd:dateTime"
-        },
-        "geometry": "ogc:wktLiteral"
-
+        "updatedObjects":  {
+            "@type": "@id"
+        }
     },
     "@graph": [
 {

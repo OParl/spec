@@ -127,7 +127,7 @@ Siehe https://github.com/OParl/specs/issues/45
     Typ: Zeitstempel
     EMPFOHLEN
 
-`classification`
+`keyword`
 :   Schlagworte. Dies sind `skos:Concept`-Objekte mit einem `skos:prefLabel`-Attribut (für jede unterstützte Sprache) mit einer
     Zeichenkette. In einer zukünftigen OParl-Version wird möglicherweise eine Menge solcher Schlagwort-Objekte
     definiert. Anregungen gibt es u.a. in der Tabelle "Kategorien" im unteren Drittel der Seite http://htmlpreview.github.io/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html 

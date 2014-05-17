@@ -392,6 +392,7 @@
         "en": "decisions"
     }
 },
+
 {
     "@id": "beispielris:vocab/committee",
     "@type": "skos:Concept",
@@ -426,13 +427,162 @@
 },
 
 {
-    "@id": "beispielris:keyword/ogpdxy",
+    "@id": "beispielris:ogpd/bevoelkerung",
     "@type": "skos:Concept",
 
     "prefLabel": {
-        "de": "http://htmlpreview.github.io/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html",
+        "de": "Bevölkerung",
         "en": "...not complete..."
     }
+},
+{
+    "@id": "beispielris:ogpd/bildung_wissenschaft",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Bildung und Wissenschaft",
+        "en": "...not complete..."
+    }
+},
+{
+    "@id": "beispielris:ogpd/geo",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Geographie, Geologie und Geobasisdaten",
+        "en": "...not complete..."
+    }
+},
+{
+    "@id": "beispielris:ogpd/gesetze_justiz",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Gesetze und Justiz",
+        "en": "...not complete..."
+    }
+},
+{
+    "@id": "beispielris:ogpd/gesundheit",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Gesundheit",
+        "en": "...not complete..."
+    }
+},
+{
+    "@id": "beispielris:ogpd/infrastruktur_bauen_wohnen",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Infrastruktur, Bauen und Wohnen",
+        "en": "...not complete..."
+    }
+},
+{
+    "@id": "beispielris:ogpd/kultur_freizeit_sport_tourismus",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Kultur, Freizeit, Sport und Tourismus",
+        "en": "...not complete..."
+    }
+},
+{
+    "@id": "beispielris:ogpd/politik_wahlen",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Politik und Wahlen",
+        "en": "...not complete..."
+    }
+},
+{
+    "@id": "beispielris:ogpd/soziales",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Soziales",
+        "en": "...not complete..."
+    }
+},
+{
+    "@id": "beispielris:ogpd/transport_verkehr",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Transport und Verkehr",
+        "en": "...not complete..."
+    }
+},
+{
+    "@id": "beispielris:ogpd/umwelt_klima",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Umwelt und Klima",
+        "en": "...not complete..."
+    }
+},
+{
+    "@id": "beispielris:ogpd/verbraucher",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Verbraucherschutz",
+        "en": "...not complete..."
+    }
+},
+{
+    "@id": "beispielris:ogpd/verwaltung",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Öffentliche Verwaltung, Haushalt und Steuern",
+        "en": "...not complete..."
+    }
+},
+{
+    "@id": "beispielris:ogpd/wirtschaft_arbeit",
+    "@type": "skos:Concept",
+
+    "prefLabel": {
+        "de": "Wirtschaft und Arbeit",
+        "en": "...not complete..."
+    }
+},
+
+{
+    "@id": "beispielris:result/acceptedUnmodified",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Unverändert beschlossen"
+    }
+},
+{
+    "@id": "beispielris:result/acceptedModified",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Geändert beschlossen"
+},
+{
+    "@id": "beispielris:result/rejectedFinal",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Endgültig abgelehnt"
+},
+{
+    "@id": "beispielris:result/acknowledged",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Zur Kenntnis genommen"
+},
+{
+    "@id": "beispielris:result/forwarded",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Ohne Votum in nachfolgende Gremien überwiesen TODO: Wohin?"
 },
 
 

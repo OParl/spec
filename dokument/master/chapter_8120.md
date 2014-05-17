@@ -89,7 +89,7 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
     Typ: `skos:Concept`
     OPTIONAL
 
-`classification`
+`keyword`
 :   Schlagwort, Begriff mit `skos:prefLabel`. Allgemeiner verwendbar als `role`.
     Typ: `skos:Concept`
     OPTIONAL

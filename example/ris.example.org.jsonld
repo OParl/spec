@@ -606,6 +606,32 @@
 },
 
 {
+    "@id": "beispielris:documentRole/invitation",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Einladung"
+},
+{
+    "@id": "beispielris:documentRole/minutes",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Protokoll"
+},
+{
+    "@id": "beispielris:documentRole/wordMinutesWord",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Wortprotokoll"
+},
+{
+    "@id": "beispielris:documentRole/decisionMinutes",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Beschlussprotokoll"
+},
+
+
+{
     "@id": "beispielris:result/acceptedUnmodified",
     "@type": "skos:Concept",
 

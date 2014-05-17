@@ -82,7 +82,7 @@ für Längen- und Breitengrad.
     Typ: Zeichenkette (TODO: Stimmt das?).
     OPTIONAL
 
-`classification`
+`keyword`
 :   Schlagwort mit `skos:prefLabel`
     Typ: `skos:Concept`
     OPTIONAL

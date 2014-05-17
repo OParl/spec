@@ -104,7 +104,7 @@ Ein Beispiel in kompakter Form:
 :   Typ: Zeitstempel
     Beispiel: "2013-01-08T12:05:27+01:00"
 
-`classification`
+`keyword`
 :   Begriff mit `skos:prefLabel`. Allgemeiner als `paperType`
     Typ: `skos:Concept`
     OPTIONAL

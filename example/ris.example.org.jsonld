@@ -632,6 +632,32 @@
 
 
 {
+    "@id": "beispielris:consultationRole/hearing",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Anhörung"
+},
+{
+    "@id": "beispielris:consultationRole/decision",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Entscheidung"
+},
+{
+    "@id": "beispielris:consultationRole/notice",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Kenntnisnahme"
+},
+{
+    "@id": "beispielris:consultationRole/counseling",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Vorberatung"
+},
+
+
+{
     "@id": "beispielris:result/acceptedUnmodified",
     "@type": "skos:Concept",
 

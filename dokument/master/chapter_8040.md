@@ -153,8 +153,9 @@ Parlament an.
     Typ: `oparl:Organization`
     ZWINGEND
 
-`classification`
+`keyword`
 :   Typ: `skos:Concept`
+    Anzahl: beliebig
     OPTIONAL
 
 `allConcepts`

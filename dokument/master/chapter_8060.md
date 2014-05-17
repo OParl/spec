@@ -209,7 +209,7 @@ Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der Kontext bleibt wie
     Typ: `org:Membership`
     OPTIONAL.
 
-`classification`
+`keyword`
 :   Typ: `skos:Concept`
     OPTIONAL
 

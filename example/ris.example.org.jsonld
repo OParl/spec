@@ -554,6 +554,43 @@
 },
 
 {
+    "@id": "beispielris:paperType/draft",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Entwurf"
+},
+{
+    "@id": "beispielris:paperType/answer",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Beantwortung einer Anfrage"
+},
+{
+    "@id": "beispielris:paperType/petition",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Petition"
+},
+{
+    "@id": "beispielris:paperType/request",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Anfrage"
+},
+{
+    "@id": "beispielris:paperType/note",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Anmerkungen"
+},
+{
+    "@id": "beispielris:paperType/answer",
+    "@type": "skos:Concept",
+
+    "prefLabel": "Beantwortung einer Anfrage"
+},
+
+{
     "@id": "beispielris:result/acceptedUnmodified",
     "@type": "skos:Concept",
 
@@ -590,17 +627,13 @@
     "@id": "beispielris:formOfAddress/ratsherr",
     "@type": "skos:Concept",
 
-    "prefLabel": {
-        "de": "Ratsherr | Ratsfrau"
-    }
+    "prefLabel": "Ratsherr | Ratsfrau"
 },
 {
     "@id": "beispielris:formOfAddress/herr",
     "@type": "skos:Concept",
 
-    "prefLabel": {
-        "de": "Herr | Frau"
-    }
+    "prefLabel": "Herr | Frau"
 },
 
 {
@@ -616,49 +649,37 @@
     "@id": "beispielris:name/mayor",
     "@type": "skos:Concept",
 
-    "prefLabel": {
-        "de": "Bürgermeister | Bürgermeisterin"
-    }
+    "prefLabel": "Bürgermeister | Bürgermeisterin"
 },
 {
     "@id": "beispielris:name/mayorForPart",
     "@type": "skos:Concept",
 
-    "prefLabel": {
-        "de": "Bezirksbürgermeister | Bezirksbürgermeisterin"
-    }
+    "prefLabel": "Bezirksbürgermeister | Bezirksbürgermeisterin"
 },
 {
     "@id": "beispielris:name/memberOfCityCouncil",
     "@type": "skos:Concept",
 
-    "prefLabel": {
-        "de": "Stadtverordneter | Stadtverordnete"
-    }
+    "prefLabel": "Stadtverordneter | Stadtverordnete"
 },
 {
     "@id": "beispielris:name/memberOfPart",
     "@type": "skos:Concept",
 
-    "prefLabel": {
-        "de": "Bezirksverordneter | Bezirksverordnete"
-    }
+    "prefLabel": "Bezirksverordneter | Bezirksverordnete"
 },
 {
     "@id": "beispielris:name/personWithKnowledge",
     "@type": "skos:Concept",
 
-    "prefLabel": {
-        "de": "Sachkundiger Bürger | Sachkundige Bürgerin"
-    }
+    "prefLabel": "Sachkundiger Bürger | Sachkundige Bürgerin"
 },
 {
     "@id": "beispielris:name/memberWithoutParty",
     "@type": "skos:Concept",
 
-    "prefLabel": {
-        "de": "Einzelstadtverordneter | Einzelstadtverordnete"
-    }
+    "prefLabel": "Einzelstadtverordneter | Einzelstadtverordnete"
 }
 
 

@@ -17,7 +17,7 @@ Ein Beispiel:
     "paper": "https://oparl.beispielris.de/paper/2396",
     "mimeType": "application/pdf",
     "date": "2013-01-04T07:54:13+01:00",
-    "lastModified": "2013-01-04T07:54:13+01:00",
+    "modified": "2013-01-04T07:54:13+01:00",
     "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "size": 82930,
     "accessUrl": "https://oparl.beispielris.de/document/57739.pdf",
@@ -73,7 +73,7 @@ werden, welche Ableitungen einer Datei existieren.
     Typ: Datum.
     ZWINGEND.
 
-`lastModified`
+`modified`
 :   Datum und Zeit der letzten Änderung der Datei bzw. der Metadaten. Als
     Änderung der Datei gilt alles, was den Inhalt der Datei verändert und
     beispielsweise zu einer Veränderung der Prüfsumme führen würde, nicht
@@ -82,7 +82,7 @@ werden, welche Ableitungen einer Datei existieren.
     Dateinamens gelten. Hier soll immer das größere der beiden Daten
     ausgegeben werden, also der am wenigsten lang zurückliegende
     Änderungszeitpunkt.
-    Typ: Datum.
+    Typ: Datum und Uhrzeit.
     ZWINGEND.
 
 `size`

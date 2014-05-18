@@ -110,15 +110,15 @@ geführt werden.
 [
     {
         "@id": "https://oparl.beispielris.de/bodies/0/papers/0/documents/2",
-        "lastModified": "2014-01-08T14:28:31.568+0100"
+        "modified": "2014-01-08T14:28:31.568+0100"
     },
     {
         "@id": "https://oparl.beispielris.de/bodies/0/papers/0",
-        "lastModified": "2014-01-08T12:14:27.958+0100"
+        "modified": "2014-01-08T12:14:27.958+0100"
     },
     {
         "@id": "https://oparl.beispielris.de/bodies/0/papers/0/documents/1",
-        "lastModified": "2014-01-06T17:01:00.402+0100"
+        "modified": "2014-01-06T17:01:00.402+0100"
     },
     ...
 ]

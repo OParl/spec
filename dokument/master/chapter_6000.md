@@ -1,15 +1,11 @@
 Prinzipien und Funktionen des Schnittstelle
 ===========================================
 
-TODO
-
-(In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen 
-Schnittstelle beschrieben. Hierzu gehören alle chapter-Dateien, deren
-Nummerierung mit der Ziffer 6 beginnnt.)
+In diesem Kapitel werden grundlegende Funktionsprinzipien einer
+OParl-Schnittstelle beschrieben.
 
 
-Stichpunkte:
+TODO:
 
-* Optional gzip Encoding und andere Kodierungen, wenn Client und Server dies 
-unterstützen
-* Authentifizierung wird nicht benötigt.
+* EMPFEHLUNG für Kompression mittels gzip, deflate etc., wenn Client dies unterstützt
+* Nur Lesezugriff. Authentifizierung wird nicht benötigt.

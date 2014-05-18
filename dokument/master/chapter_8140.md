@@ -24,7 +24,7 @@ https://github.com/OParl/specs/issues/109
     Popolo: "The role that the person fulfills in the organization".
     normale Mitglieder haben in der Regel keine eigene Funktion, aber auch eine Unterscheidung zwischen z.B.
     "Sachkundige Bürger | Sachkundige Bürgerin" und "Ratsherr | Ratsfrau" bei einfachen Mitgliedern ist hiermit möglich.
-    TODO: was ist mit einem sachkundigen Bürger, der gleichzeitig Vorsitzender ist?
+    FRAGE: Wie soll bei einem sachkundigen Bürger verfahren werden, der gleichzeitig Vorsitzender ist?
     Typ: `org:Role`
     OPTIONAL
 
@@ -36,7 +36,8 @@ https://github.com/OParl/specs/issues/109
 `onBehalfOf`
 :   Entsendende Organization - Fraktion, fraktionslos oder externes Gremium
     Dies entspricht `opengov:onBehalfOf` in Popolo.
-    TODO: wie wird fraktionslos kodiert?
+    Es kann auch Mitglieder geben, die von keiner anderen Organisation entsendet wurden (z.B. fraktionslose Abgeordnete).
+    FRAGE: Muss diese Situation vom Fehlen von Informationen über Entsendungen unterschieden werden?
     Typ: `oparl:Organization`
     OPTIONAL
 

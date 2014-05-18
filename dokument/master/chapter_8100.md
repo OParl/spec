@@ -27,6 +27,7 @@ Ein Beispiel in kompakter Form:
     "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld",
     "@type": "oparl:Paper",
     "@id": "https://oparl.beispielris.de/paper/749",
+    "body": "beispielris:bodies/1",
     "name": "Antwort auf Anfrage 1200/2014",
     "reference": "1234/2014",
     "publishedDate": "2014-04-04T16:42:02+02:00",
@@ -47,12 +48,18 @@ Ein Beispiel in kompakter Form:
     "consultation": [
         "beispielris:consultation/5676",
         "beispielris:consultation/5689"
-    ]
+    ],
     "modified": "2013-01-08T12:05:27+01:00"
 }
 ~~~~~
 
 ### Eigenschaften
+
+`body`
+:   Körperschaft, zu der die Drucksache gehört.
+    Typ: `oparl:Body`.
+    Kardinalität: 1.
+    Diese Eigenschaft ist ZWINGEND.
 
 `name`
 :   Titel der Drucksache.
@@ -86,7 +93,7 @@ Ein Beispiel in kompakter Form:
     Diese Eigenschaft ist EMPFOHLEN.
 
 `relatedPaper`
-:   Inhaltlich verwandte Drucksachen.
+:   Inhaltlich verwandte Drucksache(n).
     Typ: `oparl:Paper`.
     Kardinalität: 0 bis *.
     Die Eigenschaft ist OPTIONAL.

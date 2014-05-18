@@ -1,4 +1,4 @@
-% OParl Vokabular und Schnittstellen-Spezifikation (Entwurf)
+% OParl Schnittstellen-Spezifikation (Entwurf)
 % OParl Team - <http://oparl.org/>
 
 

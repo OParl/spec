@@ -6,7 +6,7 @@ kommt bei einer OParl-konformen API eine besondere Bedeutung zu und es werden ei
 Reihe von Anforderungen an die Verarbeitung von URLs gestellt.
 
 Im Rahmen dieses Dokuments wird aus Gründen der Verständlichkeit generell der allgemein
-gebräuchlichere Begriff _URL_ werwendet, auch wenn damit tatsächlich die
+gebräuchliche Begriff _URL_ werwendet, auch wenn damit tatsächlich die
 internationalisierte Variante nach RFC 3987^[RFC 3987: 
 <http://tools.ietf.org/html/rfc3987>], die korrekterweise _IRI_ bzw. _Internationalized
 Resource Identifier_ genannt werden müsste, gemeint ist. Einige Quellen wiederum nutzen den

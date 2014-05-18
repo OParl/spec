@@ -25,7 +25,7 @@ mit denen sie in diesem Dokument benannt werden:
       |         |                |        |
     Schema     Host             Pfad  Query-String
 
-Der optionale _Query-String_ besteht dabei aus mehreren _Query-Parametern_, die
+Der optionale _Query-String_ besteht dabei aus beliebig vielen _Query-Parametern_, die
 jeweils einen Namen (links des Gleichheitszeichens) und einen Wert haben können.
 
 ### URL-Kanonisierung {#url_kanonisierung}

@@ -31,8 +31,8 @@ jeweils einen Namen (links des Gleichheitszeichens) und einen Wert haben können
 ### URL-Kanonisierung {#url_kanonisierung}
 
 Absicht ist, dass jedes benannte Objekt^[vgl. [Benannte und anonyme Objekte](#benannte_anonyme_objekte)], das ein Server über eine OParl-API anbietet, über genau
-eine URL identifizierbar und abrufbar ist. Diese Vereinheitlichung der URL nennen
-wir Kanonisierung.
+eine URL identifizierbar und abrufbar ist. Diese Vereinheitlichung der URL wird
+nachfolgend _Kanonisierung_ genannt.
 
 Die Kanonisierung ist entscheidend, um erkennen zu können, ob zwei URLs das selbe
 Objekt repräsentieren. Sind zwei URLs identisch, sollen Clients daraus ableiten können,
@@ -109,6 +109,10 @@ diese in URLs immer nach dem selben Prinzip zu sortieren. Ein Beispiel: die beid
 unterscheiden sich lediglich in der Reihenfolge der Query-String-Parameter. Da sie jedoch nicht
 identisch sind, müssen Clients annehmen, dass beide URLs verschiedene Objekte repräsentieren. In der
 Konsequenz kann es zu vermeidbarer Ressourcennutzung sowohl auf Client- als auch auf Serverseite kommen.
+
+Von Clients wird erwartet, dass sie die URLs, die ihnen von Servern angeboten werden,
+unverändert verwenden. Clients SOLLEN NICHT versuchen, Schreibweisen von URLs zu ändern,
+Query-String-Parameter umzusortieren oder ähnliches.
 
 ### Langlebigkeit
 

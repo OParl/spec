@@ -42,12 +42,12 @@ https://github.com/OParl/specs/issues/109
 
 `startDate`
 :   `schema:validFrom` wie in Popolo. The date on which the relationship began
-    Typ: TODO
+    Typ: String im Format `xsd:dateTime` 
     OPTIONAL
 
 `endDate`
 :   `schema:validThrough` wie in Popolo. The date on which the relationship ended
-    Typ: TODO
+    Typ: String im Format `xsd:dateTime`
     OPTIONAL
 
 ### Hinweise

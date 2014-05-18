@@ -31,20 +31,17 @@ eine URL, eine Zahl) oder alternativ ein JSON-Array mit mehreren Elementen des
 jeweils erlaubten Typs auszugeben. Die entsprechende Regel ist in der Schema-Beschreibung
 am Stichwort _Kardinalität_ angegeben. Dabei sind verschiedene Angaben möglich:
 
-0 bis 1
-:   Die Eigenschaft ist optional und muss nicht gesetzt sein. Wenn sie gesetzt ist,
-    darf sie genau einen Wert haben.
+* 0 bis 1: Die Eigenschaft ist optional und muss nicht gesetzt sein. Wenn sie gesetzt ist,
+  darf sie genau einen Wert haben.
 
-1
-:   Die Eigenschaft muss gesetzt sein, sie muss genau einen Wert haben
+* 1: Die Eigenschaft muss gesetzt sein,
+  sie muss genau einen Wert haben.
 
-0 bis *
-:   Die Eigenschaft ist optional und muss nicht gesetzt sein. Wenn sie gesetzt ist,
-    darf sie beliebig viele Werte haben.
+* 0 bis *: Die Eigenschaft ist optional und muss nicht gesetzt sein. Wenn sie gesetzt ist,
+  darf sie beliebig viele Werte haben.
 
-1 bis *
-:   Die Eigenschaft muss vorhanden sein, es muss mindestens ein Wert gesetzt sein.
-    Es dürfen auch mehrere Werte vorhanden sein.
+* 1 bis *: Die Eigenschaft muss vorhanden sein, es muss mindestens ein Wert gesetzt sein.
+  Es dürfen auch mehrere Werte vorhanden sein.
 
 ### Datums- und Zeitangaben
 

@@ -1,5 +1,5 @@
-Prinzipien und Funktionen des Vokabulars und der API
-====================================================
+Prinzipien und Funktionen des Schnittstelle
+===========================================
 
 TODO
 

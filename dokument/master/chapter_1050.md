@@ -64,8 +64,9 @@ DÜRFEN/DARF bzw. OPTIONAL:
 Um bei Begriffen wie Nutzer, Anwender, Betreiber etc. die sonst übliche Dominanz
 der männlichen Variante zu vermeiden, werden in diesem Dokument
 männliche oder weibliche Varianten gemischt. Es wird also beispielsweise mal
-von einer Nutzerin gesprochen und mal von einem Nutzer. Gemeint sind selbstverständlich
-in allen Fällen immer weibliche wie auch männliche Personen.
+von einer Nutzerin gesprochen und mal von einem Nutzer. Alternativ kommt auch die
+Kurzform _NutzerInnen_ für _Nutzerinnen und Nutzer_ zum Einsatz. Gemeint sind
+selbstverständlich in allen Fällen immer weibliche wie auch männliche Personen.
 
 ### Codebeispiele
 
@@ -76,4 +77,5 @@ Daten.
 Codebeispiele erheben insbesondere bei JSON-Code nicht den Anspruch auf
 hundertprozentige syntaktische Korrektheit. Es kann in Einzelfällen aus Gründen
 der besseren Lesbarkeit zur Verwendung von Umlauten etc. kommen, die in JSON nicht
-erlaubt wären.
+erlaubt wären. Auch können in Codebeispielen Auslassungen vorkommen, die mit `...`
+gekennzeichnet werden.

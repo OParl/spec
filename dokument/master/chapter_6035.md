@@ -12,19 +12,21 @@ internationalisierte Variante nach RFC 3987^[RFC 3987:
 Resource Identifier_ genannt werden müsste, gemeint ist. Einige Quellen wiederum nutzen den
 Begriff _URI_ bzw. _Uniform Resource Identifier_. Das vorliegende Dokumente fasst
 alle drei Konzepte mit dem Begriff _URL_ zusammen und ignoriert damit die
-Unterschiede der einzelnen Begriffe, da diese im Rahmen dieser Spezifikation ohne
-bedeutung sind.
+Unterschiede der einzelnen Begriffe, da diese im Rahmen dieser Spezifikation nicht von
+Bedeutung sind.
 
-Die grundsätzliche Funktionsweise von URLs ist in RFC 3986 beschrieben^[RFC 3986: <http://tools.ietf.org/html/rfc3986>].
-
-Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in diesem Dokument
-Verwendung finden:
+Die grundsätzliche Funktionsweise von URLs ist in RFC 3986 
+beschrieben^[RFC 3986: <http://tools.ietf.org/html/rfc3986>]. Darauf aufbauend sind
+hier die Bestandteile einer beispielhaften URL mit den Bezeichnungen beschriftet, 
+mit denen sie in diesem Dokument benannt werden:
 
     https://refserv.oparl.org/foo/bar/?skip=234
     \___/   \_______________/\_______/ \______/
       |         |                |        |
     Schema     Host             Pfad  Query-String
 
+Der optionale _Query-String_ besteht dabei aus mehreren _Query-Parametern_, die
+jeweils einen Namen (links des Gleichheitszeichens) und einen Wert haben können.
 
 ### URL-Kanonisierung {#url_kanonisierung}
 

@@ -91,6 +91,18 @@ jeweils wiederholt:
     "ogc": "http://www.opengis.net/ont/geosparql#",
 ~~~~~
 
+### Vokabulare zur Klassifizierung  {#vokabulare_klassifizierung}
+
+Einige Objekttypen besitzen Eigenschaften zum Zweck der Klassifizierung von Objekten.
+Beispiele dafür sind die Eigenschaft `paperType` des Objekttyps `oparl:Paper` und
+`documentRole` des Objekttyps `oparl:Document`.
+
+Diese Eigenschaften können wahlweise mit einfachen Zeichenketten befüllt werden
+(z.B. "Beantwortung einer Anfrage") oder mit beliebigen URLs.
+
+TODO: Erläuterung zu `skos:Concept` und `skos:prefLabel`, was diese bringen
+und evtl. Empfehlung.
+
 ### Herstellerspezifische Erweiterungen
 
 Diese sind - falls tatsächlich erforderlich - mit den JSON-LD Mitteln einfach möglich. z.B.

@@ -228,7 +228,25 @@
     "classification": "beispielris:vocab/finance",
     "modified": "2012-08-16T14:05:27+02:00"
 },
+{
+    "@type": "oparl:Organization",
+    "@id": "beispielris:organization/main",
 
+    "body": "beispielris:body/1",
+    "nameLong": "Hauptausschuss",
+    "post": [
+        "beispielris:post/chairperson",
+        "beispielris:post/deputyChairperson"
+    ],
+    "members": [
+        "beispielris:person/11",
+        "beispielris:person/12",
+        "beispielris:person/13"
+    ],
+    "organizationType": "beispielris:vocab/committee",
+    "classification": "beispielris:vocab/main",
+    "modified": "2012-08-16T14:05:27+02:00"
+},
 
 {
     "@type": "oparl:Person",
@@ -377,6 +395,7 @@
     "authoritative": false,
     "role": "beispielris:role/decision"
 },
+
 
 
 {
@@ -759,5 +778,17 @@
         "beispielris:vocab/committee",
         "beispielris:vocab/workingGroup"
     ]
+},
+{
+    "@id": "beispielris:conceptScheme/commitees",
+    "@type": "skos:OrderedCollection",
+
+    "note": "Kann u.a. für die Reihenfolge der Anzeige verwendet werden. Hauptausschuss ist wichtiger als Finanzausschuss",
+    "memberList": [
+        "beispielris:vocab/main",
+        "beispielris:vocab/finance"
+    ]
+}
+
 ]
 }

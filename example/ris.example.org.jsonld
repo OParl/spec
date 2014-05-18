@@ -2,13 +2,13 @@
     "@context":
     {
         "beispielris": "https://oparl.beispielris.de",
-        "oparl": "http://oparl.org/TODO/",
         "dc": "http://purl.org/dc/terms/",
         "foaf": "http://xmlns.com/foaf/0.1/",
+        "ogc": "http://www.opengis.net/ont/geosparql#",
+        "oparl": "http://oparl.org/TODO/",
         "skos": "http://www.w3.org/2004/02/skos/core#",
         "vcard": "http://www.w3.org/2006/vcard/ns#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "ogc": "http://www.opengis.net/ont/geosparql#",
 
         "@language": "de",
 

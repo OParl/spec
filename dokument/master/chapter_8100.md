@@ -24,12 +24,12 @@ Ein Beispiel in kompakter Form:
 
 ~~~~~  {#paper_ex1 .json}
 {
-    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
+    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld",
     "@type": "oparl:Paper",
     "@id": "https://oparl.beispielris.de/paper/749",
+    "name": "Antwort auf Anfrage 1200/2014",
     "reference": "1234/2014",
     "publishedDate": "2014-04-04T16:42:02+02:00",
-    "name": "Antwort auf Anfrage 1200/2014",
     "paperType": "beispielris:vocab/answer",
     "relatedPaper": "beispielris:paper/699",
     "mainDocument": "beispielris:document/925",
@@ -40,7 +40,7 @@ Ein Beispiel in kompakter Form:
             "geometry": "POINT(7.148  50.023)"
         }
     ],
-    "creator": [
+    "originator": [
         "beispielris:organization/2000",
         "beispielris:people/1000"
     ],
@@ -54,61 +54,85 @@ Ein Beispiel in kompakter Form:
 
 ### Eigenschaften
 
+`name`
+:   Titel der Drucksache.
+    Typ: Zeichenkette.
+    Kardinalität: 1.
+    Diese Eigenschaft ist ZWINGEND.
+
 `reference`
-:   Beispiel: "1234/2014"
-    Typ: String
-    OPTIONAL
+:   Kennung bzw. Aktenzeichen der Drucksache, mit der sie in der parlamentarischen
+    Arbeit eindeutig referenziert werden kann.
+    Typ: Zeichenkette.
+    Kardinalität: 0 - 1.
+    Die Eigenschaft ist OPTIONAL.
 
 `publishedDate`
-:   Beispiel: "2014-04-04T16:42:02+02:00"
-    Typ: Datum mit oder ohne Zeit
-    EMPFOHLEN
-
-`name`
-:   Beispiel: "Antwort auf Anfrage 1200/2014"
-    Typ: String
-    EMPFOHLEN
+:   Veröffentlichungsdatum der Drucksache.
+    Typ: Datum mit oder ohne Zeit.
+    Kardinalität: 0 - 1.
+    Diese Eigenschaft ist EMPFOHLEN.
 
 `paperType`
-:   Begriff mit einem `skos:prefLabel`-Attribut, dessen Wert eine Zeichenkette ist und 
-    die Art der Drucksache beschreibt, z.B. "Beantwortung einer Anfrage".
-    Für die URLs kommen als letztes Pfadelement z.B. "draft", "petition", "request", "note" und "answer" in
-    Frage. Denkbar ist auch eine Kategorisierung z.B. in drei Arten von Drucksachen: initiierend, beratend und
-    protokollierend.
+:   Begriff mit einem `skos:prefLabel`-Attribut, dessen Wert eine Zeichenkette
+    ist und die Art der Drucksache beschreibt, z.B. "Beantwortung einer Anfrage".
+    Für die URLs kommen als letztes Pfadelement z.B. "draft", "petition", "request",
+    "note" und "answer" in Frage. Denkbar ist auch eine Kategorisierung z.B. in
+    drei Arten von Drucksachen: initiierend, beratend und protokollierend.
     Eine weitere Liste mit exemplarischen Drucksachentypen gibt es hier:
     https://wiki.piratenpartei.de/BE:BVVupdates/Glossar
     Eine zukünftige Version von OParl wird möglicherweise solche Werte spezifizieren.
-    Typ: `skos:Concept`
-    OPTIONAL
+    Kardinalität: 0 bis 1.
+    Typ: `skos:Concept`.
+    Diese Eigenschaft ist EMPFOHLEN.
 
 `relatedPaper`
-:   Typ: `oparl:Paper`
-    OPTIONAL
+:   Inhaltlich verwandte Drucksachen.
+    Typ: `oparl:Paper`.
+    Kardinalität: 0 bis *.
+    Die Eigenschaft ist OPTIONAL.
 
 `mainDocument`
-:   Typ: `oparl:Document`
+:   Das Hauptdokument zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert
+    eine Beschlussvorlage, das Hauptdokument enthält den Text der Beschlussvorlage.
+    Typ: `oparl:Document`.
+    Kardinalität: 1.
+    Diese Eigenschaft ist ZWINGEND.
     
 `auxiliaryDocument`
-:   Typ: `oparl:Document`
+:   Anhänge zur Drucksache. Diese sind, in Abgrenzung zum Hauptdokument
+    (`mainDocument`) untergeordnet und es kann beliebig viele davon geben.
+    Typ: `oparl:Document`.
+    Kardinalität: 0 bis *.
+    Die Eigenschaft ist OPTIONAL.
     
 `location`
-:   Typ: `oparl:Location`
+:   Sofern die Drucksache einen inhaltlichen Ortsbezug hat, beschreibt diese
+    Eigenschaft den Ort in Textform und/oder in Form von Geodaten.
+    Typ: `oparl:Location`.
+    Kardinalität: 0 bis *.
+    Die Eigenschaft ist OPTIONAL.
 
-`creator`
-:   Typ: `oparl:Person` | `oparl:Organization`
+`originator`
+:   Urheber der Drucksache, kann eine oder mehrere Person(en) bzw. Gruppierung(en)
+    sein.
+    Typ: `oparl:Person` | `oparl:Organization`.
+    Kardinalität: 0 bis *.
+    Die Eigenschaft ist EMPFOHLEN.
 
 `consultation`
-:   Typ: `oparl:Consultation`
+:   Beratungen der Drucksache.
+    Typ: `oparl:Consultation`.
+    Kardinalität: 0 bis *.
+    Die Eigenschaft ist OPTIONAL.
 
 `modified`
-:   Typ: Zeitstempel
-    Beispiel: "2013-01-08T12:05:27+01:00"
+:   Letzter Änderungszeitpunkt des Objekts.
+    Typ: Zeitstempel.
+    Kardinalität: 1.
 
 `keyword`
 :   Begriff mit `skos:prefLabel`. Allgemeiner als `paperType`
-    Typ: `skos:Concept`
-    OPTIONAL
-
-TODO:
-* Festlegen: OPTIONAL / EMPFOHLEN / ZWINGEND
-* Eigenschaft "locations" im Beispiel ändern
+    Typ: `skos:Concept`.
+    Kardinalität: 0 bis *.
+    Die Eigenschaft ist OPTIONAL.

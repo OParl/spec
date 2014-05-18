@@ -3,7 +3,7 @@ Nomenklatur der Spezifikation und Satzkonventionen
 
 ### Zwingende, empfohlene und optionale Anforderungen  {#muss_soll_darf}
 
-Dieses Spezifikationsdokument nutzt die Modalverben müssen, können und sollen
+Dieses Spezifikationsdokument nutzt die Modalverben _müssen_, _können_ und _sollen_
 in einer Art und Weise, die bestimmte Anforderungen möglichst unmissverständlich
 in drei verschiedene Abstufung einteilen lässt. Um ihre normative Bedeutung
 zu unterstreichen, werden diese Wörter grundsätzlich in Großbuchstaben gesetzt.

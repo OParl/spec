@@ -1,17 +1,17 @@
 URLs, IRIs und URIs  {#urls}
 -------------------
 
-Den URLs (für "Uniform Resource Locators")
+Den URLs (für _Uniform Resource Locators_)
 kommt bei einer OParl-konformen API eine besondere Bedeutung zu und es werden eine 
 Reihe von Anforderungen an die Verarbeitung von URLs gestellt.
 
 Im Rahmen dieses Dokuments wird aus Gründen der Verständlichkeit generell der allgemein
-gebräuchlichere Begriff "URL" werwendet, auch wenn damit tatsächlich die
+gebräuchlichere Begriff _URL_ werwendet, auch wenn damit tatsächlich die
 internationalisierte Variante nach RFC 3987^[RFC 3987: 
-<http://tools.ietf.org/html/rfc3987>], die korrekterweise IRI bzw. "Internationalized
-Resource Identifier" genannt werden müsste, gemeint ist. In andern Kontexten wiederum wird von
-URIs bzw. "Uniform Resource Identifier" gesprochen. Das vorliegende Dokumente fasst
-alle drei Konzepte mit dem Begriff "URL" zusammen und ignoriert damit die
+<http://tools.ietf.org/html/rfc3987>], die korrekterweise _IRI_ bzw. _Internationalized
+Resource Identifier_ genannt werden müsste, gemeint ist. Einige Quellen wiederum nutzen den
+Begriff _URI_ bzw. _Uniform Resource Identifier_. Das vorliegende Dokumente fasst
+alle drei Konzepte mit dem Begriff _URL_ zusammen und ignoriert damit die
 Unterschiede der einzelnen Begriffe, da diese im Rahmen dieser Spezifikation ohne
 bedeutung sind.
 

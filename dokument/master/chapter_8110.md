@@ -29,7 +29,7 @@ Ein Beispiel:
 }
 ~~~~~
 
-Objekt vom Typ `oparl:Document` können mit Drucksachen (`oparl:Paper`)
+Objekte vom Typ `oparl:Document` können mit Drucksachen (`oparl:Paper`)
 oder Sitzungen (`oparl:Meeting`) in Beziehung stehen. Dies wird durch 
 die Eigenschaft `paper` bzw. `meeting` angezeigt.
 
@@ -49,6 +49,7 @@ werden, welche Ableitungen einer Datei existieren.
 :   Dateiname, unter dem die Datei in einem Dateisystem gespeichert werden
     kann.
     Typ: ASCII-Zeichenkette.
+    Kardinalität: 1.
     ZWINGEND.
 
 `name`
@@ -56,6 +57,7 @@ werden, welche Ableitungen einer Datei existieren.
     Der Wert SOLL NICHT mit dem Wert der Eigenschaft `fileName` identisch
     sein.
     Typ: Zeichenkette.
+    Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
 `mimeType`
@@ -63,7 +65,8 @@ werden, welche Ableitungen einer Datei existieren.
     Sollte das System einer Datei keinen
     spezifischen Typ zuweisen können, wird EMPFOHLEN, hier 
     `application/octet-stream` zu verwenden.
-    Typ: Zeichenkette
+    Typ: Zeichenkette.
+    Kardinalität: 1.
     ZWINGEND.
     
 `date`
@@ -71,6 +74,7 @@ werden, welche Ableitungen einer Datei existieren.
     vom System kommuniziert werden kann oder soll, KANN alternativ
     der Zeitpunkt der Veröffentlichung ausgegeben werden.
     Typ: Datum.
+    Kardinalität: 1.
     ZWINGEND.
 
 `modified`
@@ -83,32 +87,38 @@ werden, welche Ableitungen einer Datei existieren.
     ausgegeben werden, also der am wenigsten lang zurückliegende
     Änderungszeitpunkt.
     Typ: Datum und Uhrzeit.
+    Kardinalität: 1.
     ZWINGEND.
 
 `size`
 :   Größe der Datei in Bytes.
     Typ: ganze Zahl.
+    Kardinalität: 1.
     ZWINGEND.
 
 `sha1Checksum`
 :   SHA1-Prüfsumme des Dokumenteninhalts in Hexadezimal-Schreibweise.
     Typ: Zeichenkette.
+    Kardinalität: 0 bis 1.
     OPTIONAL.
     
 `text`
 :   Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform
     wiedergegeben werden kann.
     Typ: Zeichenkette.
+    Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
 `accessUrl`
 :   URL zum allgemeinen Zugriff auf die Datei. Näheres unter [Dateizugriff](#dateizugriff).
     Typ: URL.
+    Kardinalität: 1.
     ZWINGEND.
 
 `downloadUrl`
 :   URL zum Download der Datei. Näheres unter [Dateizugriff](#dateizugriff).
     Typ: URL.
+    Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
 `paper`
@@ -116,21 +126,27 @@ werden, welche Ableitungen einer Datei existieren.
     URL des Drucksache-Objekts ausgegeben werden. Andernsfalls DARF diese Eigenschaft NICHT
     vorhanden sein.
     Typ: `oparl:Paper`.
+    Kardinalität: 0 bis *.
 
 `meeting`
 :   Falls die Datei zu einer Sitzung (oparl:Meeting) gehört, MUSS über diese Eigenschaft
     die URL des Sitzung-Objekts ausgegeben werden. Andernfalls DARF diese Eigenschaft NICHT
     vorhanden sein.
     Typ: `oparl:Meeting`.
+    Kardinalität: 0 bis *.
 
 `masterDocument`
-:   Datei von der das aktuelle Objekt abgeleitet wurde.
+:   Datei von der das aktuelle Objekt abgeleitet wurde. Details dazu in der
+    allgemeinen Beschreibung weiter oben.
     Typ: `oparl:Document`.
+    Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `derivativeDocuments`
-:   Abgeleitete Datei die von dem aktuellen Objekt abgeleitet wurde.
+:   Abgeleitete Datei die von dem aktuellen Objekt abgeleitet wurde. Details dazu in der
+    allgemeinen Beschreibung weiter oben.
     Typ: `oparl:Document`.
+    Kardinalität: 0 bis *.
     OPTIONAL.
 
 `license`
@@ -138,22 +154,20 @@ werden, welche Ableitungen einer Datei existieren.
     wird, dann ist sie anstelle einer globalen Angabe im übergeordneten
     `oparl:Body` bzw. `oparl:System` Objekt maßgeblich.^[vgl. [license](#eigenschaft_license)]
     Typ: URL.
+    Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `documentRole`
-:   Rolle, Funktion, Sorte des Dokuments. Das Objekt enthält ein `skos:prefLabel`.
-    Dessen Werte können z.B. sein:
-    "Einladung", "Protokoll", "Wortprotokoll" oder "Beschlussprotokoll". In einer
-    zukünftigen OParl-Version wird möglicherweise eine Menge der wichtigsten
-    Kategorien vorgegeben.
+:   Rolle, Funktion, Sorte des Dokuments in Bezug auf eine Sitzung. Die Eigenschaft
+    SOLL entsprechend nur in Verbindung mit der Eigenschaft `meeting` gesetzt sein.
+    Siehe dazu [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
     Typ: `skos:Concept`.
+    Kardinalität: 0 bis 1.
     OPTIONAL.
-    TODO: Link auf Erkärungs-Kapitel, damit klar ist, dass hier auf externes
-    Vokabular verlinkt wird.
 
 `keyword`
 :   Begriff mit `skos:prefLabel`. Hat allgemeinere Bedeutung als `documentRole`.
+    Siehe dazu [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
     Typ: `skos:Concept`.
+    Kardinalität: 0 bis *.
     OPTIONAL.
-    TODO: Link auf Erkärungs-Kapitel, damit klar ist, dass hier auf externes
-    Vokabular verlinkt wird.

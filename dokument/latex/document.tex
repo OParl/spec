@@ -63,7 +63,7 @@
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={OParl Team - http://oparl.org/},
-            pdftitle={OParl Vokabular und Schnittstellen-Spezifikation (Entwurf)},
+            pdftitle={OParl Schnittstellen-Spezifikation (Entwurf)},
             colorlinks=true,
             urlcolor=blue,
             linkcolor=magenta,
@@ -73,7 +73,7 @@
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \setcounter{secnumdepth}{0}
 
-\title{OParl Vokabular und Schnittstellen-Spezifikation (Entwurf)}
+\title{OParl Schnittstellen-Spezifikation (Entwurf)}
 \author{OParl Team - \url{http://oparl.org/}}
 \date{}
 
@@ -103,11 +103,17 @@ Mitwirkender geschlossen werden sollen.
 Im Dokument befinden sich Fragestellugen an Mitwirkende und Reviewer,
 die mit dem Stichwort ``FRAGE'' markiert sind. Hier bitten wir Sie um
 Mithilfe und laden Sie ein, Ihre Antwort unter
+
 \url{https://github.com/OParl/specs/issues?milestone=1\&state=open}
+
 beizusteuern.
 
 Die Kennzeichnung ``TODO'' markiert darüber hinaus Hinweise, die für die
 Bearbeiter des Dokuments gedacht sind.
+
+Das Ziel ist selbstverständlich, zur Verabschiedung der Version 1.0
+keine derartigen Bearbeitungshinweise und Fragen mehr im Dokument zu
+haben.
 
 \subsection{Was ist OParl in Kürze?}\label{was-ist-oparl-in-kuxfcrze}
 
@@ -134,7 +140,7 @@ OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  Verwaltung und politische Gremien in Kommunen
+  Verwaltung und politische Gremien in Gebietskörperschaften
 \item
   Bürger, politische Parteien und Organisationen
 \item
@@ -147,19 +153,19 @@ OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:
   Anbieter von Linked Data-Plattformen oder -Services
 \end{itemize}
 
-TODO: Nutzen für jede Stakeholder-Gruppe
-
 Die Gründe, warum Betreiber von parlamentarischen Informationssystemen
 den Zugriff darauf über eine standardisierte Schnittstelle ermöglichen
-sollten, können vielfältig sein.
+sollten, können vielfältig sein und je nach Nutzergruppe
+unterschiedlich.
 
-Ein zentrales Argument ist die Verpflichtung der Parlamente gegenüber
-der Bevölkerung, diese über die Fortschritte der parlamentarischen
-Arbeit zu informieren und auf dem Laufenden zu halten. Ein erster
-Schritt, der Bevölkerung Einblicke in die Arbeit und Zugriff auf
-Dokumente zu gewähren, ist vielerorts in den letzten Jahren durch
-Einführung von Ratsinformationssystemen mit anonymem, lesenden Zugriff
-über das World Wide Web gemacht worden.
+Ein zentrales Argument für Verwaltung und politische Gremien in
+Gebietskörperschaften ist die Verpflichtung der Parlamente gegenüber der
+Bevölkerung, diese über die Fortschritte der parlamentarischen Arbeit zu
+informieren und auf dem Laufenden zu halten. Ein erster Schritt, der
+Bevölkerung Einblicke in die Arbeit und Zugriff auf Dokumente zu
+gewähren, ist vielerorts in den letzten Jahren durch Einführung von
+Ratsinformationssystemen mit anonymem, lesenden Zugriff über das World
+Wide Web gemacht worden.
 
 Die damit eingeschlagene Richtung konsequent weiter zu gehen, bedeutet,
 die Daten der parlamentarischen Informationssystemen gänzlich offen zu
@@ -168,6 +174,19 @@ Inhalte so universell weiterverwendbar und so barrierearm wie möglich
 anzubieten, dass jegliche weitere Verwendung durch Dritte technisch
 möglich ist. Der seit einiger Zeit etablierte Begriff für dieses Prinzip
 heißt ``Open Data''.
+
+Open-Data-Initiativen können unter Rückgriff auf RIS mit
+OParl-Schnittstelle einfacher Dokumente und Daten aus unterschiedlichen
+Gebietskörperschaften in Open-Data-Katalogen verzeichnen und so
+einfacher auffindbar machen für die Weiterverwendung durch Dritte.
+
+Bürgerinnen und Bürger, politische Parteien und zivilgesellschaftliche
+Organisationen können einfacher auf Inhalte parlamentarischer
+Informationssysteme zugreifen und diese entsprechend ihren Interessen
+aufbereiten. Dies können beispielsweise Visualisierungen von enthaltenen
+Daten, die Anreicherung von Informationsangeboten für spezielle
+Nutzergruppen oder die Schaffung von Benutzeroberflächen mit besonderen
+Funktionen für verschiedene Endgeräte sein.
 
 Das Interesse an parlamentarischen Informationen und an Anwendungen, die
 diese nutzbar und auswertbar machen, ist offensichtlich vorhanden. Die
@@ -205,12 +224,25 @@ Damit steigt nicht nur die potenzielle Nutzerschaft einzelner
 Entwicklungen. Auch das Potenzial für Kooperationen zwischen
 Anwendungsentwicklern wächst.
 
+Für Wissenschaftler, die z.B. an vergleichenden Untersuchungen zu
+Vorgängen in verschiedenen Gebietskörperschaften interessiert sind,
+ergeben sich ebenso vielfältige Möglichkeiten über mehrere RIS-Instanzen
+hinweg auf entsprechende Informationen zuzugreifen und diese so
+einfacher in ihre Analysen einzubeziehen.
+
 Darüber hinaus sind auch Motivationen innerhalb von Organisationen und
 Körperschaften erkennbar. So sollen parlamentarische Informationssysteme
 vielerorts in verschiedenste Prozesse und heterogene Systemlandschaften
 integriert werden. Durch eine einheitliche Schnittstelle bieten sich
 effiziente Möglichkeiten zur Integration der Daten in anderen Systeme,
 wie beispielsweise Web-Portale.
+
+Anbieter von Server- und Softwareprodukten, die RIS-Lösungen anbieten
+können mit der Implementation der OParl-Schnittstelle ihren Kunden eine
+entsprechende einheitliche Schnittstelle anbieten. Für Anbieter von
+Linked-Data-Plattformen ergeben sich u.a. Möglichkeiten zur
+vereinfachten Zusammenführung und Anreicherung von Inhalten
+parlamentarischer Informationssysteme.
 
 Ausführlichere Beschreibungen einiger möglicher Anwendungsszenarien
 finden sich im Kapitel \hyperref[nutzungsszenarien]{Nutzungsszenarien}.
@@ -291,132 +323,140 @@ verwendeten Sprache auf.\footnote{Weitere generelle Informationen zur
 
 \subsection{Werdegang von OParl 1.0}\label{werdegang-von-oparl-1.0}
 
-Stichpunkte:
+Die Vorüberlegungen für die Erarbeitung eines offenen Standards für
+parlamentarische Informationssysteme, die letztlich zu OParl geführt
+haben, begannen auf einer Veranstaltung der Open Knowledge Foundation
+(OKF) Deutschland am 17. und 18. November 2012. Unter dem Titel ``Stadt
+Land Code'' lud die OKF EntwicklerInnen von Anwendungen ein, die das
+Ziel haben, einen gesellschaftlichen Nutzen zu schaffen. Die
+Veranstaltung in den Räumen der Heinrich-Böll-Stiftung wurde unter
+anderem von VITAKO, der Bundes-Arbeitsgemeinschaft der Kommunalen
+IT-Dienstleister, gesponsort. Die Geschäftsführerin, Dr.~Marianne Wulff,
+war selbst anwesend. Marian Steinbach, Entwickler von Offenes Köln, war
+eingeladen, um über die Erfahrungen mit seinem Projekt zu berichten und
+sprach dabei auch über die Problematik, das Prinzip der offenen
+Ratsinformationen für die BürgerInnen aller Kommunen nutzbar zu machen.
+Es kam zum Austausch zwischen Marianne Wulff und Marian Steinbach über
+Möglichkeiten, dies gemeinsam voran zu treiben.
 
-\begin{itemize}
-\item
-  \begin{enumerate}
-  \def\labelenumi{\arabic{enumi}.}
-  \setcounter{enumi}{16}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    und 18. November 2012: Die Open Knowledge Foundation Deutschland
-    veranstaltet in den Räumen der Heinrich-Böll-Stiftung in Berlin
-    einen Workshop für Entwickler von Anwendungen, die einen
-    gesellschaftlichen Nutzen bringen sollen. Hier ist VITAKO, die
-    Bundes-Arbeitsgemeinschaft der Kommunalen IT-Dienstleister, als
-    Sponsor engagiert. Die Geschäftsführerin, Dr.~Marianne Wulff, ist
-    persönlich vor Ort. Auch das Projekt Offenes Köln wird in einem
-    Vortrag von Marian Steinbach präsentiert. Es kommt zum Austausch
-    über die Frage, wie das Prinzip der offenen Ratsinformationen
-    effektiv auf weitere Kommunen ausgeweitet werden könnte.
-  \end{enumerate}
-\item
-  \begin{enumerate}
-  \def\labelenumi{\arabic{enumi}.}
-  \setcounter{enumi}{5}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    Dezember 2012: Anhörung im Landtag NRW in Düsseldorf zu einer
-    Open-Data-Strategie der Landesregierung, wo Jens Klessmann und
-    Marian Steinbach als Sachverständige gehört werden. Danach Gespräch
-    über Möglichkeiten der Standardisierung offener
-    Ratsinformationssysteme.
-  \end{enumerate}
-\item
-  Dezember 2012: Dr.~Marianne Wulff, Jens Klessmann und Marian Steinbach
-  beginnen mit der Abstimmung über einen Workshop mit Vertreterinnen und
-  Vertretern von Kommunen, kommunalen IT-Dienstleistern, RIS-Anbietern
-  und Zivilgesellschaft. Ziel: Die Bereitschaft zur Zusammenarbeit an
-  einem gemeinsamen Standard ermitteln. Unterdessen beginnt Marian
-  Steinbach mit der Formulierung eines Standard-Entwurfs als
-  Diskussionsgrundlage. Der Entwurf wird von Beginn an öffentlich auf
-  GitHub.com bereit gestellt.
-\item
-  \begin{enumerate}
-  \def\labelenumi{\arabic{enumi}.}
-  \setcounter{enumi}{16}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    April 2013: Insgesamt 30 Teilnehmer versammeln sich in Köln, um sich
-    in einem ersten Treffen über Ziele und Chancen einer
-    Standardisierung für offene Ratsinformationen auszutauschen. Als
-    Ergebnis wird ein großes Interesse an der weiteren Zusammenarbeit
-    auf Basis des vorliegenden Standardentwurfs festgestellt. Als Termin
-    für die Fertigstellung der ersten Version der Spezifikation wird der
-    30. Juni 2013 festgelegt. Die Initiatoren präsentieren den
-    Anwesenden hier erstmals den Namen ``OParl'', der künftig als Marke
-    für die Bemühungen der Gruppe stehen soll.
-  \end{enumerate}
-\item
-  \begin{enumerate}
-  \def\labelenumi{\arabic{enumi}.}
-  \setcounter{enumi}{21}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    Januar 2014: Nachdem sich die verteilte Zusammenarbeit am
-    Standard-Entwurf seit April 2013 als nicht zielführend erwiesen hat,
-    laden Jens Klessmann und Marian Steinbach und VITAKO zu einem
-    eintägigen OParl-Workshop in Bielefeld ein. Das Ziel ist, die
-    Spezifikation so weit wie möglich voran zu treiben und eine gute
-    Basis für die baldige Fertigstellung zu legen.
-  \end{enumerate}
-\item
-  \begin{enumerate}
-  \def\labelenumi{\arabic{enumi}.}
-  \setcounter{enumi}{25}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    Januar 2014: In Düsseldorf findet ein weiterer Workshop zur Arbeit
-    am Entwurf der Spezifikation statt.
-  \end{enumerate}
-\item
-  April 2014: Verfeinerung des Vokabular-Teils durch Andreas Kuckartz,
-  finanziert durch das FP7-Projekt Fusepool aus Mitteln der Europäischen
-  Union.
-\item
-  \begin{enumerate}
-  \def\labelenumi{\arabic{enumi}.}
-  \setcounter{enumi}{5}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    Mai 2014: Beginn der Review-Phase. Interessierte sind aufgerufen,
-    den vorliegenden Entwurf bis Ende Mai zu kommentieren.
-  \end{enumerate}
-\item
-  Ende Mai 2014: Telefonkonferenz zum eingegangenen Feedback aus der
-  Review-Phase
-\item
-  KW 23 (2. bis 6. Juni): Geplante Veröffentlichung der Spezifikation
-  1.0
-\end{itemize}
+Im Rahmen einer Anhörung des Landtags von Nordrhein-Westfalen zu einem
+Antrag der Regierungskoalition zum Thema Open Government und Open Data
+waren am 6. Dezember 2012 sowohl Jens Klessmann (Frainhofer FOKUS) und
+Marian Steinbach als Sachverständige eingeladen. Sie beschließen, die
+Bemühungen um eine Standardisierung offenert Ratsinformationen gemeinsam
+mit Unterstützung von VITAKO voranzutreiben. Im selben Monat beginnen
+Marianne Wulff, Jens Klessmann und Marian Steinbach mit der Planung
+eines initalen Workshops mit Vertreterinnen und Vertretern von Kommunen,
+kommunalen IT-Dienstleistern, RIS-Anbietern und Zivilgesellschaft. Ziel:
+Die Bereitschaft zur Zusammenarbeit an einem gemeinsamen Standard
+ermitteln. Unterdessen beginnt Marian Steinbach mit der Formulierung
+eines Standard-Entwurfs als Diskussionsgrundlage. Der Entwurf wird von
+Beginn an öffentlich auf GitHub.com bereit gestellt.
+
+Insgesamt 30 Teilnehmer versammeln sich am 17. April 2013 zum ersten
+Workshop in Köln, um sich über Ziele und Chancen einer Standardisierung
+für offene Ratsinformationen auszutauschen. Als Ergebnis wird ein großes
+Interesse an der weiteren Zusammenarbeit auf Basis des vorliegenden
+Standardentwurfs festgestellt. Als Termin für die Fertigstellung der
+ersten Version der Spezifikation wird der 30. Juni 2013 festgelegt. Die
+Initiatoren präsentieren den Anwesenden hier erstmals den Namen OParl,
+der künftig als Name für die Bemühungen der Gruppe stehen soll.
+
+Die verteilte Arbeit am Standard-Entwurf läuft nach dem Workshop in Köln
+nur schleppend, der ursprünglich gesetze Termin kann nicht gehalten
+werdne. Für den 22. Januar 2014 laden die Initiatoren zu einem
+eintägigen OParl-Workshop in Bielefeld ein, um die Spezifikation in
+intensiver Zusammenarbeit vor Ort so weit wie möglich voran zu treiben
+und eine baldige Fertigstellung zu ermöglichen. Am 26. Januar 2014
+findet in Düsseldorf ein weiterer tehnischer Workshop zur Arbeit an der
+Spezifikation statt.
+
+TODO: April 2014: Verfeinerung des Vokabular-Teils durch Andreas
+Kuckartz, finanziert durch das FP7-Projekt Fusepool aus Mitteln der
+Europäischen Union.
+
+Am 19. Mai 2014 wurde mit einem Redaktionsschluss für die Spezifikation
+der Beginn der Review-Phase eingeleitet. Interessierte waren bis Mitte
+Juni eingeladen, den vorliegenden Entwurf bis Ende Mai zu kommentieren.
+
+TODO: Ende Mai 2014: Telefonkonferenz zum eingegangenen Feedback aus der
+Review-Phase
+
+TODO: KW 23 (2. bis 6. Juni): Geplante Veröffentlichung der
+Spezifikation 1.0
 
 \subsection{Zukunft von OParl}\label{zukunft-von-oparl}
 
-TODO: - Verfeinerung, Lücken schliessen - Erweiterung über die kommunale
-Ebene hinaus (Land, Bund) - Vereinheitlichung von Kategorien
-(Drucksachentypen, Arten von Gremien) - Erweiterung von Personendaten,
-z.B. mit Social Media URLs - Mehr Abfragekriterien - Suchfunktionen
-(Volltextsuche) - Abstimmungsverhalten und maschinenlesbare Protokolle -
-Verknüpfung mit verteilten Social Media Plattformen - Schreibender
-Zugriff. Auch dazu muss das Rad nicht neu erfunden werden. Bestehende
-bzw. in Entwicklung befindliche Spezifikationen und Techniken aus der
-Linked Data-Welt können verwendet werden. Dazu gehören insbesondere die
-Linked Data Platform des W3C und Hydra.
+Die vorliegende Version 1.0 der OParl-Spezifikation erhebt keineswegs
+den Anspruch, ein aktuell und für die ferne Zukunft vollständige Lösung
+alle Problemstellungen rund um die Veröffentlichung parlamentarischer
+Informationen zu sein. Viele Funktionen, die denkbar und bestimmt
+sinnvoll wären, sind aus verschiedensten Gründen in dieser Version noch
+nicht berücksichtigt. Einige der Gründe, die dazu führten, ein Thema
+nicht auszuspezifizieren, waren:
 
-\subsubsection{Globalisierung}\label{globalisierung}
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Zu wenig detaillierte Anforderungen aus der Praxis
+\item
+  Zu großer Arbeitsaufwand für die Spezifikations-Entwicklung
+\item
+  Hohe Aufwände bei den Server-Implementierern
+\end{itemize}
 
-Es gibt in sehr vielen Ländern Gebietskörperschaften mit politischen
-Gremien, deren Prozesse ähnlich strukturiert sind wie diejenigen in
-Deutschland. Auch dort besteht Bedarf an standardisierten Vokabularen
-zur Veröffentlichung parlamentarischer Informationen. Deshalb sind -
-teilweise noch vor OParl - auch weitere entsprechende Initiativen
-entstanden. Eine enge Zusammenarbeit mit diesen Initiativen mit dem Ziel
-der Wiederverwendung von Arbeitsergebnissen wird deshalb angestrebt.
-Auch aus diesem Grund wurde bereits in OParl 1.0 die Möglichkeit der
-Verwendung mit anderen Sprachen und Mehrsprachigkeit eingebaut.
+Zu den Themen, die in zukünftigen Versionen adressiert werden könne,
+zählen:
 
-TODO: Popolo, UK, KB Niederlande
+\begin{itemize}
+\item
+  Loslösung von der kommunalen Ebene: Es ist möglich, dass OParl mit nur
+  geringfügigen Änderungen oder Erweiterungen auch für die Ebene von
+  Bundesländern (Landtage) oder des Bundes (Bundestag, Bundesrat)
+  nutzbar wäre.
+\item
+  Flexible Abfragemöglichkeiten für Objekte: Aufgrund der unklaren
+  Anforderungslage sind in Version 1.0 nur sehr beschränkte
+  Möglichkeiten vorgesehen, Listen von Drucksachen etc. nach bestimmten
+  Kriterien einzuschränken. Zukünftig könnten hier weitere Möglichkeiten
+  definiert werden, bis hin zur Suche nach Stichworten in Volltexten.
+\item
+  Detaillierte Wiedergabe von Abstimmungen: Das Thema ist vom
+  Datenmodell/Schema der vieliegenden Version noch nicht abgedeckt, da
+  es vielerorts nicht üblich ist, Abstimmungen über die Fraktionsebene
+  genau zu erfassen. Zukünftig könnte es ein Ziel sein, das
+  Abstimmungsverhalten einzelner Parlamentarier und Fraktionen genau zu
+  dokumentieren.
+\item
+  Strukturierte Protokolle: Während Protokolle in der Praxis in der
+  Regel als unstrukturierte Fließtexte angelegt werden, könnte eine
+  Strukturierung der Inhalte die Nachvollziehbarkeit des
+  parlamentarischen Geschehens deutlich verbessern.
+\item
+  Vokabular für Drucksachentypen: In der Praxis wird eine Vielzahl von
+  Drucksachentypen genutzt. Um eine Vergleichbarkeit, beispielsweise
+  zwischen Anträgen, innerhalb der Parlamente zu schaffen, könnte
+  zukünftig eine Erweiterung des OParl-Vokabulars im Sinne von Linked
+  Data angestrebt werden.\footnote{Das gesagte lässt sich auch auf viele
+    andere Informationen, nicht nur auf Drucksachen, anwenden.}
+\item
+  Schreibender Zugriff: Denkbar ist auch, dass OParl von der derzeitigen
+  Ausrichtung auf den reinen lesenden Informationszugriff um die
+  Möglichkeit, Inhalte anzulegen, zu verändern und zu entfernen sowie um
+  das Konzept von authentifizierten Nutzern erweitert wird.
+\item
+  Internationalisierung: Es gibt in sehr vielen Ländern
+  Gebietskörperschaften mit politischen Gremien, deren Prozesse ähnlich
+  strukturiert sind wie diejenigen in Deutschland. Auch dort besteht
+  Bedarf an standardisierten Vokabularen zur Veröffentlichung
+  parlamentarischer Informationen. Deshalb sind - teilweise noch vor
+  OParl - auch weitere entsprechende Initiativen entstanden.\footnote{Vgl.
+    dazu beispielsweise \url{http://popoloproject.com/}, TODO: UK, KB
+    Niederlande} Eine Zusammenarbeit mit derartigen Initiativen mit dem
+  Ziel der Wiederverwendung von Arbeitsergebnissen ist vorstellbar. Auch
+  aus diesem Grund wurde bereits in OParl 1.0 die Möglichkeit der
+  Verwendung mit anderen Sprachen und Mehrsprachigkeit eingebaut.
+\end{itemize}
 
 \subsection{Nomenklatur der Spezifikation und
 Satzkonventionen}\label{nomenklatur-der-spezifikation-und-satzkonventionen}
@@ -424,11 +464,12 @@ Satzkonventionen}\label{nomenklatur-der-spezifikation-und-satzkonventionen}
 \subsubsection{Zwingende, empfohlene und optionale
 Anforderungen}\label{mussux5fsollux5fdarf}
 
-Dieses Spezifikationsdokument nutzt die Modalverben müssen, können und
-sollen in einer Art und Weise, die bestimmte Anforderungen möglichst
-unmissverständlich in drei verschiedene Abstufung einteilen lässt. Um
-ihre normative Bedeutung zu unterstreichen, werden diese Wörter
-grundsätzlich in Großbuchstaben gesetzt.
+Dieses Spezifikationsdokument nutzt die Modalverben \emph{müssen},
+\emph{können} und \emph{sollen} in einer Art und Weise, die bestimmte
+Anforderungen möglichst unmissverständlich in drei verschiedene
+Abstufung einteilen lässt. Um ihre normative Bedeutung zu
+unterstreichen, werden diese Wörter grundsätzlich in Großbuchstaben
+gesetzt.
 
 Diese Konvention ist angelehnt an die Definitionen der Begriffe MUST,
 SHOULD und MAY (bzw. MUST NOT, SHOULD NOT und MAY NOT) aus
@@ -482,9 +523,10 @@ Begrifflichkeiten}\label{geschlechterspezifische-begrifflichkeiten}
 Um bei Begriffen wie Nutzer, Anwender, Betreiber etc. die sonst übliche
 Dominanz der männlichen Variante zu vermeiden, werden in diesem Dokument
 männliche oder weibliche Varianten gemischt. Es wird also beispielsweise
-mal von einer Nutzerin gesprochen und mal von einem Nutzer. Gemeint sind
-selbstverständlich in allen Fällen immer weibliche wie auch männliche
-Personen.
+mal von einer Nutzerin gesprochen und mal von einem Nutzer. Alternativ
+kommt auch die Kurzform \emph{NutzerInnen} für \emph{Nutzerinnen und
+Nutzer} zum Einsatz. Gemeint sind selbstverständlich in allen Fällen
+immer weibliche wie auch männliche Personen.
 
 \subsubsection{Codebeispiele}\label{codebeispiele}
 
@@ -495,7 +537,8 @@ Regel um frei erfundene Daten.
 Codebeispiele erheben insbesondere bei JSON-Code nicht den Anspruch auf
 hundertprozentige syntaktische Korrektheit. Es kann in Einzelfällen aus
 Gründen der besseren Lesbarkeit zur Verwendung von Umlauten etc. kommen,
-die in JSON nicht erlaubt wären.
+die in JSON nicht erlaubt wären. Auch können in Codebeispielen
+Auslassungen vorkommen, die mit \texttt{...} gekennzeichnet werden.
 
 \subsection{Initiatoren}\label{initiatoren}
 
@@ -561,7 +604,7 @@ RIS-Hersteller
 
 An diesem Dokument haben mitgewirkt:
 
-Felix Ebert, Jan Erhardt, Jayan Areekadan, Jens Klessmann, Andreas
+Jayan Areekadan, Felix Ebert, Jan Erhardt, Jens Klessmann, Andreas
 Kuckartz, Babett Schalitz, Ralph Sternberg, Marian Steinbach, Bernd
 Thiem, Thomas Tursics, Jakob Voss
 
@@ -689,6 +732,21 @@ Objekten enthalten.
 Die nachfolgenden Nutzungsszenarien dienen dazu, die Architektur und die
 Anwendungsmöglichkeiten anhand konkreter Beispiele zu verdeutlichen. Sie
 erheben keinen Anspruch auf Vollständigkeit.
+
+Überblick der Szenarien:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Mobile Client-Anwendung
+\item
+  Integration in Web-Portal
+\item
+  Meta-Suche
+\item
+  Forschungsprojekt Themen- und Sprachanalyse
+\end{enumerate}
 
 \subsection{Szenario 1: Mobile
 Client-Anwendung}\label{szenarioux5fmobileux5fclient}
@@ -926,24 +984,21 @@ qualitativen Datenanalyse lokal verarbeiten. Im Ergebnis ließe sich auch
 erkennen, wie ähnlich oder wie unterschiedlich die Argumente in
 rhetorischer Hinsicht vorgetragen werden.
 
-\section{Prinzipien und Funktionen des Vokabulars und der
-API}\label{prinzipien-und-funktionen-des-vokabulars-und-der-api}
+\section{Prinzipien und Funktionen des
+Schnittstelle}\label{prinzipien-und-funktionen-des-schnittstelle}
 
-TODO
+In diesem Kapitel werden grundlegende Funktionsprinzipien einer
+OParl-Schnittstelle beschrieben.
 
-(In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen
-Schnittstelle beschrieben. Hierzu gehören alle chapter-Dateien, deren
-Nummerierung mit der Ziffer 6 beginnnt.)
-
-Stichpunkte:
+TODO:
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  Optional gzip Encoding und andere Kodierungen, wenn Client und Server
-  dies unterstützen
+  EMPFEHLUNG für Kompression mittels gzip, deflate etc., wenn Client
+  dies unterstützt
 \item
-  Authentifizierung wird nicht benötigt.
+  Nur Lesezugriff. Authentifizierung wird nicht benötigt.
 \end{itemize}
 
 \hyperdef{}{designprinzipien}{\subsection{Designprinzipien}\label{designprinzipien}}
@@ -1070,12 +1125,12 @@ vollständige Kenntnis der angebotenen Einstiegspunkte und
 Zugriffsmethoden, gepaart mit sämtlichen unterstützten URL-Parametern,
 um den vollen Funktionsumfang der Schnittstelle ausschöpfen zu können.
 
-Parlamentarische Informationen sind weitgehend graphartig aufgebaut. Das
-bedeutet, dass Objekte häufig mit einer Vielzahl anderer Objekte
-verknüpft sind. So ist eine Person beispielsweise Mitglied in mehreren
-Gremien, das Gremium hat mehrere Sitzungen abgehalten und zu diesen
-Sitzungen gibt es jeweils zahlreiche Drucksachen, die ihrerseits wieder
-zahlreiche Dokumente enthalten.
+Parlamentarische Informationen sind weitgehend in Form von Graphen
+aufgebaut. Das bedeutet, dass Objekte häufig mit einer Vielzahl anderer
+Objekte verknüpft sind. So ist eine Person beispielsweise Mitglied in
+mehreren Gremien, das Gremium hat mehrere Sitzungen abgehalten und zu
+diesen Sitzungen gibt es jeweils zahlreiche Drucksachen, die ihrerseits
+wieder zahlreiche Dokumente enthalten.
 
 Eine OParl-Schnittstelle gibt jedem einzelnen Objekt eine eindeutige
 Adresse, eine URL. Somit kann die Schnittstelle den Verweis von einem
@@ -1104,11 +1159,15 @@ Objekt. Alle drei Bestandteile können in Form global eindeutiger
 Nach dem Linked-Data-Prinzip könnte beispielsweise der Vorname einer
 Person mit dem folgenden Tripel beschrieben werden:
 
-\begin{verbatim}
-Subjekt: http://dbpedia.org/resource/John_Doe_(musician)
-Prädikat: http://xmlns.com/foaf/0.1/givenName
-Objekt: http://dbpedia.org/resource/John_(given_name)
-\end{verbatim}
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \textbf{Subjekt}: http://dbpedia.org/resource/John\_Doe\_(musician)
+\item
+  \textbf{Prädikat}: http://xmlns.com/foaf/0.1/givenName
+\item
+  \textbf{Objekt}: http://dbpedia.org/resource/John\_(given\_name)
+\end{itemize}
 
 Hierbei macht man von der Tatsache Gebrauch, dass das Subjekt, also die
 Person, um die es geht, bereits mittels ihrer URI eindeutig
@@ -1303,26 +1362,27 @@ gelten:
 
 \hyperdef{}{urls}{\subsection{URLs, IRIs und URIs}\label{urls}}
 
-Den URLs (für ``Uniform Resource Locators'') kommt bei einer
+Den URLs (für \emph{Uniform Resource Locators}) kommt bei einer
 OParl-konformen API eine besondere Bedeutung zu und es werden eine Reihe
 von Anforderungen an die Verarbeitung von URLs gestellt.
 
 Im Rahmen dieses Dokuments wird aus Gründen der Verständlichkeit
-generell der allgemein gebräuchlichere Begriff ``URL'' werwendet, auch
+generell der allgemein gebräuchliche Begriff \emph{URL} werwendet, auch
 wenn damit tatsächlich die internationalisierte Variante nach RFC
 3987\footnote{RFC 3987: \url{http://tools.ietf.org/html/rfc3987}}, die
-korrekterweise IRI bzw. ``Internationalized Resource Identifier''
-genannt werden müsste, gemeint ist. In andern Kontexten wiederum wird
-von URIs bzw. ``Uniform Resource Identifier'' gesprochen. Das
-vorliegende Dokumente fasst alle drei Konzepte mit dem Begriff ``URL''
-zusammen und ignoriert damit die Unterschiede der einzelnen Begriffe, da
-diese im Rahmen dieser Spezifikation ohne bedeutung sind.
+korrekterweise \emph{IRI} bzw. \emph{Internationalized Resource
+Identifier} genannt werden müsste, gemeint ist. Einige Quellen wiederum
+nutzen den Begriff \emph{URI} bzw. \emph{Uniform Resource Identifier}.
+Das vorliegende Dokumente fasst alle drei Konzepte mit dem Begriff
+\emph{URL} zusammen und ignoriert damit die Unterschiede der einzelnen
+Begriffe, da diese im Rahmen dieser Spezifikation nicht von Bedeutung
+sind.
 
 Die grundsätzliche Funktionsweise von URLs ist in RFC 3986
 beschrieben\footnote{RFC 3986: \url{http://tools.ietf.org/html/rfc3986}}.
-
-Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie in
-diesem Dokument Verwendung finden:
+Darauf aufbauend sind hier die Bestandteile einer beispielhaften URL mit
+den Bezeichnungen beschriftet, mit denen sie in diesem Dokument benannt
+werden:
 
 \begin{verbatim}
 https://refserv.oparl.org/foo/bar/?skip=234
@@ -1331,13 +1391,17 @@ https://refserv.oparl.org/foo/bar/?skip=234
 Schema     Host             Pfad  Query-String
 \end{verbatim}
 
+Der optionale \emph{Query-String} besteht dabei aus beliebig vielen
+\emph{Query-Parametern}, die jeweils einen Namen (links des
+Gleichheitszeichens) und einen Wert haben können.
+
 \hyperdef{}{urlux5fkanonisierung}{\subsubsection{URL-Kanonisierung}\label{urlux5fkanonisierung}}
 
 Absicht ist, dass jedes benannte Objekt\footnote{vgl.
   \hyperref[benannteux5fanonymeux5fobjekte]{Benannte und anonyme
   Objekte}}, das ein Server über eine OParl-API anbietet, über genau
 eine URL identifizierbar und abrufbar ist. Diese Vereinheitlichung der
-URL nennen wir Kanonisierung.
+URL wird nachfolgend \emph{Kanonisierung} genannt.
 
 Die Kanonisierung ist entscheidend, um erkennen zu können, ob zwei URLs
 das selbe Objekt repräsentieren. Sind zwei URLs identisch, sollen
@@ -1454,6 +1518,11 @@ Clients annehmen, dass beide URLs verschiedene Objekte repräsentieren.
 In der Konsequenz kann es zu vermeidbarer Ressourcennutzung sowohl auf
 Client- als auch auf Serverseite kommen.
 
+Von Clients wird erwartet, dass sie die URLs, die ihnen von Servern
+angeboten werden, unverändert verwenden. Clients SOLLEN NICHT versuchen,
+Schreibweisen von URLs zu ändern, Query-String-Parameter umzusortieren
+oder ähnliches.
+
 \subsubsection{Langlebigkeit}\label{langlebigkeit}
 
 Weiterhin ist es Absicht, dass URLs von Objekten langlebig sind, so dass
@@ -1545,16 +1614,16 @@ Beispiel eines Objekts in JSON-Notation:
 \hyperdef{}{jsonux5fex1}{\label{jsonux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"zeichenkette"}\NormalTok{: }\StringTok{"Das ist eine Zeichenkette"}\NormalTok{,}
-    \DataTypeTok{"zahl"}\NormalTok{: }\FloatTok{1.23456789}\NormalTok{,}
-    \DataTypeTok{"wahrheitswert"}\NormalTok{: }\DecValTok{true}\NormalTok{,}
-    \DataTypeTok{"null"}\NormalTok{: }\DecValTok{null}\NormalTok{,}
-    \DataTypeTok{"objekt"}\NormalTok{: \{}
-        \DataTypeTok{"foo"}\NormalTok{: }\StringTok{"bar"}
-    \NormalTok{\},}
-    \DataTypeTok{"array"}\NormalTok{: [}\StringTok{"foo"}\NormalTok{, }\StringTok{"bar"}\NormalTok{]}
-\NormalTok{\}}
+\FunctionTok{\{}
+    \DataTypeTok{"zeichenkette"}\FunctionTok{:} \StringTok{"Das ist eine Zeichenkette"}\FunctionTok{,}
+    \DataTypeTok{"zahl"}\FunctionTok{:} \FloatTok{1.23456789}\FunctionTok{,}
+    \DataTypeTok{"wahrheitswert"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"null"}\FunctionTok{:} \KeywordTok{null}\FunctionTok{,}
+    \DataTypeTok{"objekt"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"foo"}\FunctionTok{:} \StringTok{"bar"}
+    \FunctionTok{\},}
+    \DataTypeTok{"array"}\FunctionTok{:} \OtherTok{[}\StringTok{"foo"}\OtherTok{,} \StringTok{"bar"}\OtherTok{]}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1584,11 +1653,11 @@ Ausgangspunkt dient ein gewöhnliches JSON-Objekt:
 \hyperdef{}{jsonldux5fex1}{\label{jsonldux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-  \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Manu Sporny"}\NormalTok{,}
-  \DataTypeTok{"homepage"}\NormalTok{: }\StringTok{"http://manu.sporny.org/"}\NormalTok{,}
-  \DataTypeTok{"image"}\NormalTok{: }\StringTok{"http://manu.sporny.org/images/manu.png"}
-\NormalTok{\}}
+\FunctionTok{\{}
+  \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Manu Sporny"}\FunctionTok{,}
+  \DataTypeTok{"homepage"}\FunctionTok{:} \StringTok{"http://manu.sporny.org/"}\FunctionTok{,}
+  \DataTypeTok{"image"}\FunctionTok{:} \StringTok{"http://manu.sporny.org/images/manu.png"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1606,23 +1675,23 @@ Unterobjekt, mitgeliefert werden:
 \hyperdef{}{jsonldux5fex2}{\label{jsonldux5fex2}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-  \DataTypeTok{"@context"}\NormalTok{:}
-  \NormalTok{\{}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"http://xmlns.com/foaf/0.1/name"}\NormalTok{,}
-    \DataTypeTok{"image"}\NormalTok{: \{}
-      \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://xmlns.com/foaf/0.1/img"}\NormalTok{,}
-      \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"@id"}
-    \NormalTok{\},}
-    \DataTypeTok{"homepage"}\NormalTok{: \{}
-      \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"http://xmlns.com/foaf/0.1/homepage"}\NormalTok{,}
-      \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"@id"}
-    \NormalTok{\}}
-  \NormalTok{\},}
-  \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Manu Sporny"}\NormalTok{,}
-  \DataTypeTok{"homepage"}\NormalTok{: }\StringTok{"http://manu.sporny.org/"}\NormalTok{,}
-  \DataTypeTok{"image"}\NormalTok{: }\StringTok{"http://manu.sporny.org/images/manu.png"}
-\NormalTok{\}}
+\FunctionTok{\{}
+  \DataTypeTok{"@context"}\FunctionTok{:}
+  \FunctionTok{\{}
+    \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"http://xmlns.com/foaf/0.1/name"}\FunctionTok{,}
+    \DataTypeTok{"image"}\FunctionTok{:} \FunctionTok{\{}
+      \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"http://xmlns.com/foaf/0.1/img"}\FunctionTok{,}
+      \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"@id"}
+    \FunctionTok{\},}
+    \DataTypeTok{"homepage"}\FunctionTok{:} \FunctionTok{\{}
+      \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"http://xmlns.com/foaf/0.1/homepage"}\FunctionTok{,}
+      \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"@id"}
+    \FunctionTok{\}}
+  \FunctionTok{\},}
+  \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Manu Sporny"}\FunctionTok{,}
+  \DataTypeTok{"homepage"}\FunctionTok{:} \StringTok{"http://manu.sporny.org/"}\FunctionTok{,}
+  \DataTypeTok{"image"}\FunctionTok{:} \StringTok{"http://manu.sporny.org/images/manu.png"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1654,12 +1723,12 @@ verdeutlicht dies:
 \hyperdef{}{jsonldux5fex3}{\label{jsonldux5fex3}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"http://json-ld.org/contexts/person.jsonld"}\NormalTok{,}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Manu Sporny"}\NormalTok{,}
-    \DataTypeTok{"homepage"}\NormalTok{: }\StringTok{"http://manu.sporny.org/"}\NormalTok{,}
-    \DataTypeTok{"image"}\NormalTok{: }\StringTok{"http://manu.sporny.org/images/manu.png"}
-\NormalTok{\}}
+\FunctionTok{\{}
+    \DataTypeTok{"@context"}\FunctionTok{:} \StringTok{"http://json-ld.org/contexts/person.jsonld"}\FunctionTok{,}
+    \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Manu Sporny"}\FunctionTok{,}
+    \DataTypeTok{"homepage"}\FunctionTok{:} \StringTok{"http://manu.sporny.org/"}\FunctionTok{,}
+    \DataTypeTok{"image"}\FunctionTok{:} \StringTok{"http://manu.sporny.org/images/manu.png"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1704,13 +1773,13 @@ unterschieden, die semantisch gleichbedeutend sind:
 
 Das vorige Beispiel zeigt die kompakte Form. Die Definitionen können der
 JSON-LD-Spezifikation entnommen werden. OParl-Server MÜSSEN sämtliche
-Objekte grundsätzlich in dieser kompakten Form ausliefern. Die
-Umwandlung in die anderen Formen bei Bedarf obliegt dem
-Client.\footnote{Die JSON-LD-Spezifikation enthält Überlegungen,
-  zwischen Client und Server die gewünschte Form über einen
-  \texttt{Accept}-Header mit zusätzlichem \texttt{profile} Parameter
-  auszuhandeln. Diese Überlegung ist zur Reduktion der Komplexität auf
-  Serverseite nicht in OParl eingefllossen.}
+Objekte grundsätzlich in der kompakten Form ausliefern. Die Umwandlung
+in die anderen Formen bei Bedarf obliegt dem Client.\footnote{Die
+  JSON-LD-Spezifikation enthält Überlegungen, zwischen Client und Server
+  die gewünschte Form über einen \texttt{Accept}-Header mit zusätzlichem
+  \texttt{profile} Parameter auszuhandeln. Diese Überlegung ist zur
+  Reduktion der Komplexität auf Serverseite nicht in OParl
+  eingefllossen.}
 
 JSON-LD ermöglicht es auch, für ein Objekt einen \textbf{Objekttyp} zu
 kommunizieren. So könnte passend zu unserem Beispiel ausgedrückt werden,
@@ -1721,13 +1790,13 @@ ist:
 \hyperdef{}{jsonldux5fex4}{\label{jsonldux5fex4}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-  \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"http://json-ld.org/contexts/person.jsonld"}\NormalTok{,}
-  \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://schema.org/Person"}\NormalTok{,}
-  \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Manu Sporny"}\NormalTok{,}
-  \DataTypeTok{"homepage"}\NormalTok{: }\StringTok{"http://manu.sporny.org/"}\NormalTok{,}
-  \DataTypeTok{"image"}\NormalTok{: }\StringTok{"http://manu.sporny.org/images/manu.png"}
-\NormalTok{\}}
+\FunctionTok{\{}
+  \DataTypeTok{"@context"}\FunctionTok{:} \StringTok{"http://json-ld.org/contexts/person.jsonld"}\FunctionTok{,}
+  \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"http://schema.org/Person"}\FunctionTok{,}
+  \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Manu Sporny"}\FunctionTok{,}
+  \DataTypeTok{"homepage"}\FunctionTok{:} \StringTok{"http://manu.sporny.org/"}\FunctionTok{,}
+  \DataTypeTok{"image"}\FunctionTok{:} \StringTok{"http://manu.sporny.org/images/manu.png"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1739,16 +1808,16 @@ des OParl-Schemas sind.
 \hyperdef{}{jsonldux5fex5}{\label{jsonldux5fex5}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-  \DataTypeTok{"@context"}\NormalTok{: \{}
-    \DataTypeTok{"oparl"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/"}\NormalTok{,}
-    \DataTypeTok{"vendor"}\NormalTok{: }\StringTok{"http://www.vendor.de/oparl/schema/"}
-  \NormalTok{\},}
-  \DataTypeTok{"@type"}\NormalTok{: [}\StringTok{"oparl:Paper"}\NormalTok{, }\StringTok{"vendor:Drucksache"}\NormalTok{],}
-  \DataTypeTok{"title"}\NormalTok{: }\StringTok{"Beschlussvorlage zum Haushalt"}\NormalTok{,}
-  \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2013-05-29T14:17:39+02:00"}\NormalTok{,}
-  \DataTypeTok{"aktenzeichen"}\NormalTok{: }\StringTok{"ABC123"}
-\NormalTok{\}}
+\FunctionTok{\{}
+  \DataTypeTok{"@context"}\FunctionTok{:} \FunctionTok{\{}
+    \DataTypeTok{"oparl"}\FunctionTok{:} \StringTok{"http://oparl.org/schema/1.0/"}\FunctionTok{,}
+    \DataTypeTok{"vendor"}\FunctionTok{:} \StringTok{"http://www.vendor.de/oparl/schema/"}
+  \FunctionTok{\},}
+  \DataTypeTok{"@type"}\FunctionTok{:} \OtherTok{[}\StringTok{"oparl:Paper"}\OtherTok{,} \StringTok{"vendor:Drucksache"}\OtherTok{]}\FunctionTok{,}
+  \DataTypeTok{"title"}\FunctionTok{:} \StringTok{"Beschlussvorlage zum Haushalt"}\FunctionTok{,}
+  \DataTypeTok{"created"}\FunctionTok{:} \StringTok{"2013-05-29T14:17:39+02:00"}\FunctionTok{,}
+  \DataTypeTok{"aktenzeichen"}\FunctionTok{:} \StringTok{"ABC123"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1821,12 +1890,13 @@ der Domain entsprechen, von der die Webanwendung selbst geladen wurde.
 AnwendungsentwicklerInnen sind dadurch bei der Implementierung von
 Client-Anwendungen eingeschränkt.
 
-Diese Einschränkung gilt nicht fürt JSONP\footnote{TODO: URL zur
-  Spezifikation}. Durch JSONP (TODO: Abkürzung erläutern) wird die
-JSON-Notation so erweitert, dass der ausgegebene Code ausführbarer
-JavaScript-Code wird. Damit wird erreicht, dass der JSON-Code über die
-Grenzen von Domains hinweg direkt von Webanwendungen eingebunden werden
-kann.
+Diese Einschränkung gilt nicht für JSONP\footnote{JSONP steht für ``JSON
+  with padding''. Eine formelle Spezifikation existiert nicht. Der
+  Wikipedia-Artikel \url{http://en.wikipedia.org/wiki/JSONP} fasst viele
+  Quellen zusammen.}. Durch JSONP wird die JSON-Notation so erweitert,
+dass der ausgegebene Code ausführbarer JavaScript-Code wird. Damit wird
+erreicht, dass der JSON-Code über die Grenzen von Domains hinweg direkt
+von Webanwendungen eingebunden werden kann.
 
 Das folgende Beispiel verdeutlicht den Unterschied zwischen JSON und
 JSONP. Zunächst ein einfaches JSON-Beispiel:
@@ -1834,9 +1904,9 @@ JSONP. Zunächst ein einfaches JSON-Beispiel:
 \hyperdef{}{jsonpux5fex1}{\label{jsonpux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"foo"}\NormalTok{: }\StringTok{"bar"}
-\NormalTok{\}}
+\FunctionTok{\{}
+    \DataTypeTok{"foo"}\FunctionTok{:} \StringTok{"bar"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1845,13 +1915,13 @@ Durch Einbettung in eine sogenannte Callback-Funktion wird daraus JSONP:
 \hyperdef{}{jsonpux5fex2}{\label{jsonpux5fex2}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\ErrorTok{mycallback(}\NormalTok{\{}
-    \DataTypeTok{"foo"}\NormalTok{: }\StringTok{"bar"}
-\NormalTok{\}}\ErrorTok{)}
+\ErrorTok{mycallback(}\FunctionTok{\{}
+    \DataTypeTok{"foo"}\FunctionTok{:} \StringTok{"bar"}
+\FunctionTok{\}}\ErrorTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-Der Name der Callback-Funktion (im Beispiel ``mycallback'') wird
+Der Name der Callback-Funktion (im Beispiel \texttt{mycallback}) wird
 grundsätzlich bei der Anfrage vom Client bestimmt, und zwar mittels
 URL-Parameter.
 
@@ -1872,17 +1942,8 @@ bis z bzw. A bis Z sowie die Ziffern von 0 bis 9.
 
 Hält sich der Client nicht an diese Einschränkung und wird ein
 \texttt{callback}-Parameter mit nicht erlaubten Zeichen verwendet, SOLL
-der Server die Anfrage mit einer HTTP XXX (Bad Request) Antwort
-bedienen. (TODO: Status Code einfügen oder prüfen, welche HTTP-Antwort
-die geeignetste ist.)
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  TODO: Spezifikation finden/verlinken. (RFC gibt es nicht)
-\item
-  https://github.com/OParl/specs/issues/67
-\end{itemize}
+der Server die Anfrage mit einer HTTP 400 (\emph{Bad Request}) Antwort
+bedienen.
 
 \hyperdef{}{benannteux5fanonymeux5fobjekte}{\subsection{Benannte und
 anonyme Objekte}\label{benannteux5fanonymeux5fobjekte}}
@@ -1891,7 +1952,8 @@ Die JSON-LD-Spezifikation unterscheidet zwischen benannten und anonymen
 Objekten. Da die Unterscheidung auch für OParl von Bedeutung ist, wird
 sie hier genauer erläutert.
 
-\subsubsection{Benannte Objekte}\label{benannte-objekte}
+\hyperdef{}{benannteux5fobjekte}{\subsubsection{Benannte
+Objekte}\label{benannteux5fobjekte}}
 
 Benannte Objekte sind innerhalb einer JSON-LD-Ausgabe diejenigen
 Objekte, die durch eine eigene URL identifiziert werden. Als Beispiel
@@ -1906,11 +1968,11 @@ abruft:
 \hyperdef{}{benanntanonymux5fex1}{\label{benanntanonymux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/committees/1"}\NormalTok{,}
-    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/committee"}\NormalTok{,}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Hauptausschuss"}
-\NormalTok{\}}
+\FunctionTok{\{}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/bodies/0/committees/1"}\FunctionTok{,}
+    \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"http://oparl.org/schema/1.0/committee"}\FunctionTok{,}
+    \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Hauptausschuss"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1920,8 +1982,7 @@ als Wert.
 Das benannte Objekt kann über seine URL sowohl eindeutig identifiziert
 als auch direkt abgerufen werden.
 
-\subsubsection{Anonyme Objekte (Blank
-Nodes)}\label{anonyme-objekte-blank-nodes}
+\subsubsection{Anonyme Objekte (Blank Nodes)}\label{anonymeux5fobjekte}
 
 Im Gegensatz dazu können Objekte existieren, die keine eigene URL haben.
 
@@ -1954,23 +2015,23 @@ umschreiben.
 \hyperdef{}{benanntanonymux5fex2}{\label{benanntanonymux5fex2}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/456"}\NormalTok{,}
-    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/paper"}\NormalTok{,}
-    \DataTypeTok{"title"}\NormalTok{: }\StringTok{"Beschlussvorlage zur Jugendförderung"}\NormalTok{,}
-    \DataTypeTok{"consultations"}\NormalTok{: [}
-        \NormalTok{\{}
-            \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/consultation"}\NormalTok{,}
-            \DataTypeTok{"committee"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/committees/1"}\NormalTok{,}
-            \DataTypeTok{"meeting"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/committees/1/meetings/123"}\NormalTok{,}
-            \DataTypeTok{"agendaitem"}\NormalTok{: }\StringTok{"7.2.4"}\NormalTok{,}
-            \DataTypeTok{"authoritative"}\NormalTok{: }\DecValTok{false}
-        \NormalTok{\},}
-        \NormalTok{\{}
+\FunctionTok{\{}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/bodies/0/papers/456"}\FunctionTok{,}
+    \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"http://oparl.org/schema/1.0/paper"}\FunctionTok{,}
+    \DataTypeTok{"title"}\FunctionTok{:} \StringTok{"Beschlussvorlage zur Jugendförderung"}\FunctionTok{,}
+    \DataTypeTok{"consultations"}\FunctionTok{:} \OtherTok{[}
+        \FunctionTok{\{}
+            \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"http://oparl.org/schema/1.0/consultation"}\FunctionTok{,}
+            \DataTypeTok{"committee"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/bodies/0/committees/1"}\FunctionTok{,}
+            \DataTypeTok{"meeting"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/bodies/0/committees/1/meetings/123"}\FunctionTok{,}
+            \DataTypeTok{"agendaitem"}\FunctionTok{:} \StringTok{"7.2.4"}\FunctionTok{,}
+            \DataTypeTok{"authoritative"}\FunctionTok{:} \KeywordTok{false}
+        \FunctionTok{\}}\OtherTok{,}
+        \FunctionTok{\{}
             \ErrorTok{...}
-        \NormalTok{\}}
-    \NormalTok{]}
-\NormalTok{\}}
+        \FunctionTok{\}}
+    \OtherTok{]}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2013,11 +2074,11 @@ Beispiel:
 \hyperdef{}{objektlistenux5fex1}{\label{objektlistenux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{[}
-    \StringTok{"https://oparl.beispielris.de/bodies/0/papers/2"}\NormalTok{,}
-    \StringTok{"https://oparl.beispielris.de/bodies/0/papers/5"}\NormalTok{,}
+\OtherTok{[}
+    \StringTok{"https://oparl.beispielris.de/bodies/0/papers/2"}\OtherTok{,}
+    \StringTok{"https://oparl.beispielris.de/bodies/0/papers/5"}\OtherTok{,}
     \StringTok{"https://oparl.beispielris.de/bodies/0/papers/7"}
-\NormalTok{]}
+\OtherTok{]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2231,15 +2292,15 @@ die auf einem OParl-Server abgebildet werden:
 \hyperdef{}{objektlistenux5fex6}{\label{objektlistenux5fex6}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:System"}\NormalTok{,}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/"}\NormalTok{,}
-    \DataTypeTok{"bodies"}\NormalTok{: [}
-        \StringTok{"https://oparl.beispielris.de/bodies/1"}\NormalTok{,}
+\FunctionTok{\{}
+    \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"oparl:System"}\FunctionTok{,}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/"}\FunctionTok{,}
+    \DataTypeTok{"bodies"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"https://oparl.beispielris.de/bodies/1"}\OtherTok{,}
         \StringTok{"https://oparl.beispielris.de/bodies/2"}
-    \NormalTok{],}
+    \OtherTok{]}\FunctionTok{,}
     \ErrorTok{...}
-\NormalTok{\}}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2254,12 +2315,12 @@ Das folgende Beispiel verdeutlicht, wie dies die Eigenschaft
 \hyperdef{}{objektlistenux5fex6}{\label{objektlistenux5fex6}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:System"}\NormalTok{,}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/"}\NormalTok{,}
-    \DataTypeTok{"bodies"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/"}
+\FunctionTok{\{}
+    \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"oparl:System"}\FunctionTok{,}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/"}\FunctionTok{,}
+    \DataTypeTok{"bodies"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/bodies/"}
     \ErrorTok{...}
-\NormalTok{\}}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2331,21 +2392,21 @@ Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
 \hyperdef{}{feedux5fex1}{\label{feedux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{[}
-    \NormalTok{\{}
-        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/21/documents/3"}\NormalTok{,}
-        \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2014-01-07T12:59:01.038+0100"}
-    \NormalTok{\},}
-    \NormalTok{\{}
-        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/21"}\NormalTok{,}
-        \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2014-01-05T18:29:37.123+0100"}
-    \NormalTok{\},}
-    \NormalTok{\{}
-        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/20/documents/5"}\NormalTok{,}
-        \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2014-01-04T11:26:48.638+0100"}
-    \NormalTok{\},}
+\OtherTok{[}
+    \FunctionTok{\{}
+        \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/bodies/0/papers/21/documents/3"}\FunctionTok{,}
+        \DataTypeTok{"created"}\FunctionTok{:} \StringTok{"2014-01-07T12:59:01.038+0100"}
+    \FunctionTok{\}}\OtherTok{,}
+    \FunctionTok{\{}
+        \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/bodies/0/papers/21"}\FunctionTok{,}
+        \DataTypeTok{"created"}\FunctionTok{:} \StringTok{"2014-01-05T18:29:37.123+0100"}
+    \FunctionTok{\}}\OtherTok{,}
+    \FunctionTok{\{}
+        \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/bodies/0/papers/20/documents/5"}\FunctionTok{,}
+        \DataTypeTok{"created"}\FunctionTok{:} \StringTok{"2014-01-04T11:26:48.638+0100"}
+    \FunctionTok{\}}\OtherTok{,}
     \ErrorTok{...}
-\NormalTok{]}
+\OtherTok{]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2401,21 +2462,21 @@ System geführt werden.
 \hyperdef{}{feedux5fex2}{\label{feedux5fex2}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{[}
-    \NormalTok{\{}
-        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/0/documents/2"}\NormalTok{,}
-        \DataTypeTok{"lastModified"}\NormalTok{: }\StringTok{"2014-01-08T14:28:31.568+0100"}
-    \NormalTok{\},}
-    \NormalTok{\{}
-        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/0"}\NormalTok{,}
-        \DataTypeTok{"lastModified"}\NormalTok{: }\StringTok{"2014-01-08T12:14:27.958+0100"}
-    \NormalTok{\},}
-    \NormalTok{\{}
-        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/papers/0/documents/1"}\NormalTok{,}
-        \DataTypeTok{"lastModified"}\NormalTok{: }\StringTok{"2014-01-06T17:01:00.402+0100"}
-    \NormalTok{\},}
+\OtherTok{[}
+    \FunctionTok{\{}
+        \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/bodies/0/papers/0/documents/2"}\FunctionTok{,}
+        \DataTypeTok{"modified"}\FunctionTok{:} \StringTok{"2014-01-08T14:28:31.568+0100"}
+    \FunctionTok{\}}\OtherTok{,}
+    \FunctionTok{\{}
+        \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/bodies/0/papers/0"}\FunctionTok{,}
+        \DataTypeTok{"modified"}\FunctionTok{:} \StringTok{"2014-01-08T12:14:27.958+0100"}
+    \FunctionTok{\}}\OtherTok{,}
+    \FunctionTok{\{}
+        \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/bodies/0/papers/0/documents/1"}\FunctionTok{,}
+        \DataTypeTok{"modified"}\FunctionTok{:} \StringTok{"2014-01-06T17:01:00.402+0100"}
+    \FunctionTok{\}}\OtherTok{,}
     \ErrorTok{...}
-\NormalTok{]}
+\OtherTok{]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2443,13 +2504,13 @@ entfernen.
 \hyperdef{}{feedux5fex3}{\label{feedux5fex3}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{[}
-    \NormalTok{\{}
-        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/0/people/22"}\NormalTok{,}
-        \DataTypeTok{"removed"}\NormalTok{: }\StringTok{"2013-11-11T11:11:00.000+0100"}
-    \NormalTok{\},}
+\OtherTok{[}
+    \FunctionTok{\{}
+        \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/bodies/0/people/22"}\FunctionTok{,}
+        \DataTypeTok{"removed"}\FunctionTok{:} \StringTok{"2013-11-11T11:11:00.000+0100"}
+    \FunctionTok{\}}\OtherTok{,}
     \ErrorTok{...}
-\NormalTok{]}
+\OtherTok{]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2616,7 +2677,7 @@ spezifischen Status-Code \texttt{410} tragen.
 \hyperdef{}{contentux5fnegotiation}{\subsection{Content
 Negotiation}\label{contentux5fnegotiation}}
 
-Das Prinzip ``Content Negotiation'' wird in RFC2295\footnote{RFC2295:
+Das Prinzip \emph{Content Negotiation} wird in RFC2295\footnote{RFC2295:
   \url{http://tools.ietf.org/html/rfc2295}} beschrieben und bedeutet,
 dass WWW-Server eine Ressource in verschiedenen Formaten bereithalten
 können und Clients die Möglichkeit haben, eine Vorliebe für ein
@@ -2655,16 +2716,22 @@ HTTP-Weiterleitung anbieten.
 
 \subsubsection{httpRange-14}\label{httprange-14}
 
-In dem Zusammenhang sei informell auf ein für Linked Data relevantes
-Detail hingewiesen - auf welches man gelegentlich unter dem Kürzel
-\texttt{httpRange-14} stößt. Wenn man in einem üblichen Web-Browser
-diese URL aufruft:
+Im Zusammenhang von Content Negotiation soll als Exkurs auf ein für
+Linked Data relevantes Detail hingewiesen werden, das in Fachkreisen
+\emph{httpRange-14} genannt wird. Dabei geht es um das im folgenden
+beschriebenePhänomen.
 
-\url{http://dbpedia.org/resource/John_Doe_(musician)}
+Wenn man in einem üblichen Web-Browser diese URL aufruft:
+
+\begin{verbatim}
+<http://dbpedia.org/resource/John_Doe_(musician)>
+\end{verbatim}
 
 dann erfolgt eine Weiterleitung auf diese URL:
 
-\url{http://dbpedia.org/page/John_Doe_(musician)}
+\begin{verbatim}
+<http://dbpedia.org/page/John_Doe_(musician)>
+\end{verbatim}
 
 Dabei identifiziert die erste URL den abstrakten Begriff des Musikers,
 während die zweite eine Repräsentation dieses Begriffs identifiziert.
@@ -2672,7 +2739,9 @@ Ein anderer HTTP-Client, der statt HTML-Seiten z.B. JSON-LD bevorzugt,
 würde bei Zugriff auf die erste URL wiederum zu einer anderen URL weiter
 geleitet:
 
-\url{http://dbpedia.org/data/John_Doe_(musician).jsonld}
+\begin{verbatim}
+<http://dbpedia.org/data/John_Doe_(musician).jsonld>
+\end{verbatim}
 
 Dabei handelt es sich um eine Repräsentation des Musikers in Form von
 JSON-LD.
@@ -2689,30 +2758,57 @@ beiden anderen mittels Content Negotiation.
 So kann der Server beim Zugriff eines Client auf
 
 \begin{verbatim}
-https://dbpedia.org/resource/John_Doe_(musician)
+<https://dbpedia.org/resource/John_Doe_(musician)>
 \end{verbatim}
 
 z.B. entweder diese URL sowie HTML-Inhalt liefern
 
 \begin{verbatim}
-https://dbpedia.org/page/John_Doe_(musician)
+<https://dbpedia.org/page/John_Doe_(musician)>
 \end{verbatim}
 
 oder aber diese URL mit JSON-LD als Inhalt
 
 \begin{verbatim}
-https://dbpedia.org/data/John_Doe_(musician).jsonld
+<https://dbpedia.org/data/John_Doe_(musician).jsonld>
 \end{verbatim}
 
 Die Entscheidung darüber, welche der URLs und welche der Inhaltsformate
 der Server liefert, wird zwischen Client und Server mittels Content
 Negotiation ausgehandelt.
 
+Das Phänomen verdeutlicht zum einen, dass URLs im Kontext von Linked
+Data eine wichtige Bedeutung haben und außerdem, dass es auch vom
+aufrufenden Client abhängen kann, bei welcher URL eine bestimmte Anfrage
+letztlich ``landet''.
+
 \subsection{Ausnahmebehandlung}\label{ausnahmebehandlung}
 
-TODO:
+Nicht immer kann ein Server die Anfrage eines Clients erfolgreich, also
+im Sinne der Anfrage, behandeln und eine entsprechende Antwort liefern.
+Beispiele für solche Ausnahmefälle könnten sein (ohne Anspruch auf
+Vollstängikeit):
 
-(Diskussion hierzu unter https://github.com/OParl/specs/issues/89)
+\begin{itemize}
+\item
+  Eine angefragte Ressource existiert nicht
+\item
+  Der Client nutzt eine nicht unterstützte HTTP-Methode, z.B.
+  \texttt{POST}
+\item
+  Der Client nutzt einen nicht interpretierbaren URL-Parameter
+\end{itemize}
+
+Die HTTP-1.1-Spezifikation sieht für derartige und weitere Ausnahmefälle
+zahlreiche spezifische Status-Codes vor, die hier nicht wiederholt
+werden sollen. Verallgemeinernd lautet die Anforderung an jeden
+OParl-Server, dass diese Ausnahmen mit den entsprechenden
+HTTP-Status-Codes beantworten SOLLEN. Damit wird Client-Entwicklern die
+Möglichkeit gegeben, diese Fälle entsprechend zu behandeln.
+
+Clients DÜRFEN darüber hinaus nicht davon ausgehen, dass mit der
+HTTP-Antwort im Fall einer Ausnahme noch weitere verwertbare
+Informationen wie z.B. eine Fehlermeldung gesendet werden.
 
 \subsection{Liste reservierter
 URL-Parameter}\label{liste-reservierter-url-parameter}
@@ -2766,6 +2862,28 @@ Eigenschaften der Fall sein, die als OPTIONAL oder EMPFOHLEN
 gekennzeichnet sind. ZWINGENDE Eigenschaften müssen einen Wert ungleich
 \texttt{null} besitzen.
 
+\subsubsection{Kardinalität}\label{kardinalituxe4t}
+
+Viele Eigenschaften erlauben es, entweder einen einzelnen Wert (z.B.
+eine Zeichenkette, eine URL, eine Zahl) oder alternativ ein JSON-Array
+mit mehreren Elementen des jeweils erlaubten Typs auszugeben. Die
+entsprechende Regel ist in der Schema-Beschreibung am Stichwort
+\emph{Kardinalität} angegeben. Dabei sind verschiedene Angaben möglich:
+
+\begin{itemize}
+\item
+  0 bis 1: Die Eigenschaft ist optional und muss nicht gesetzt sein.
+  Wenn sie gesetzt ist, darf sie genau einen Wert haben.
+\item
+  1: Die Eigenschaft muss gesetzt sein, sie muss genau einen Wert haben.
+\item
+  0 bis *: Die Eigenschaft ist optional und muss nicht gesetzt sein.
+  Wenn sie gesetzt ist, darf sie beliebig viele Werte haben.
+\item
+  1 bis *: Die Eigenschaft muss vorhanden sein, es muss mindestens ein
+  Wert gesetzt sein. Es dürfen auch mehrere Werte vorhanden sein.
+\end{itemize}
+
 \subsubsection{Datums- und Zeitangaben}\label{datums--und-zeitangaben}
 
 Für Datum und Zeit werden die in XML Schema festgelegten Typen verwendet
@@ -2778,31 +2896,26 @@ mit Zeitzone angegeben, denn nur damit ist die Uhrzeit weltweit
 eindeutig ohne zusätzlich auf den Ort einer Sitzung o.ä. Bezug nehmen zu
 müssen.
 
-Diese Spezifikationen stützen sich auf RFC 3339
-(http://www.ietf.org/rfc/rfc3339.txt) und RFC 3339 wiederum auf ISO
-8601.
+Diese Spezifikationen stützen sich auf RFC 3339\footnote{RFC3339:
+  \url{http://www.ietf.org/rfc/rfc3339.txt}}) und RFC 3339 wiederum auf
+ISO 8601.
 
-Im JSON-LD Kontext von OParl ist der Präfix `xsd' so spezifiziert, dass
-Datums- und Zeittyp durch `xsd:date' bzw. `xsd:dateTime' abgekürzt
-werden können.
+Im JSON-LD Kontext von OParl ist der Präfix \texttt{xsd} so
+spezifiziert, dass Datums- und Zeittyp durch \texttt{xsd:date} bzw.
+\texttt{xsd:dateTime} abgekürzt werden können.
 
 \subsubsection{Mehrsprachigkeit}\label{mehrsprachigkeit}
 
-Für Texte ist durchgehend vorgesehen, dass diese mehrsprachig sein
-können. Kommunale Anbieter von OParl-Daten in Deutchland müssen aus
-gesetzlichen Gründen auf jeden Fall die deutsche Sprache unterstützten.
-Die Unterstützung anderer Sprachen ist dagegen optional. Deshalb wird
-grundsätzich durch
-\textsubscript{\textasciitilde{}}\textasciitilde{}\textasciitilde{}
-``@language'': ``de'',
-\textsubscript{\textasciitilde{}}\textasciitilde{}\textasciitilde{} im
-Kontext die deutsche Sprache als Vorgabe eingestellt.
+Für Texte in OParl-Objekten ist durchgehend vorgesehen, dass diese
+mehrsprachig sein können. JSON-LD sieht das Schlüsselwort
+\texttt{@language} vor, um zu einem Attribut mehrere Werte in bestimmten
+Sprachen zu definieren. Diesen Mechanismus SOLLEN Server-Implementierer
+nutzen, um Mehrsprachigkeit von Inhalten zu realisieren.
 
-Es gibt aber möglicherweise auch Zeichenketten, für die keine
-Mehrsprachigkeit vorgesehen wird. Dazu gehören z.B. Personennamen.
-
-TODO: Stimmt nicht. Tamilische Namen verwenden in der
-Originalschreibweise sogar ein vollkommen anderes Alphabet.
+In den von OParl bereitgestellten JSON-LD-Kontexten ist die Deutsche
+Sprache (Kürzel \texttt{de}) für sämtliche Texteigenschaften
+voreingestellt. Das \texttt{@language} Stichwort SOLL daher nur dann
+eingesetzt werden, wenn ein Inhalt nicht deutschsprachig ist.
 
 \subsubsection{Präfixe in Kontexten}\label{pruxe4fixe-in-kontexten}
 
@@ -2814,7 +2927,7 @@ jeweils wiederholt:
 \begin{Shaded}
 \begin{Highlighting}[]
     \ErrorTok{"beispielris":} \ErrorTok{"https://oparl.beispielris.de",}
-    \ErrorTok{"oparl":} \ErrorTok{"http://oparl.org/TODO/",}
+    \ErrorTok{"oparl":} \ErrorTok{"http://oparl.org/specs/1.0/",}
     \ErrorTok{"dc":} \ErrorTok{"http://purl.org/dc/terms/",}
     \ErrorTok{"foaf":} \ErrorTok{"http://xmlns.com/foaf/0.1/",}
     \ErrorTok{"skos":} \ErrorTok{"http://www.w3.org/2004/02/skos/core#",}
@@ -2823,6 +2936,20 @@ jeweils wiederholt:
     \ErrorTok{"ogc":} \ErrorTok{"http://www.opengis.net/ont/geosparql#",}
 \end{Highlighting}
 \end{Shaded}
+
+\hyperdef{}{vokabulareux5fklassifizierung}{\subsubsection{Vokabulare zur
+Klassifizierung}\label{vokabulareux5fklassifizierung}}
+
+Einige Objekttypen besitzen Eigenschaften zum Zweck der Klassifizierung
+von Objekten. Beispiele dafür sind die Eigenschaft \texttt{paperType}
+des Objekttyps \texttt{oparl:Paper} und \texttt{documentRole} des
+Objekttyps \texttt{oparl:Document}.
+
+Diese Eigenschaften können wahlweise mit einfachen Zeichenketten befüllt
+werden (z.B. ``Beantwortung einer Anfrage'') oder mit beliebigen URLs.
+
+TODO: Erläuterung zu \texttt{skos:Concept} und \texttt{skos:prefLabel},
+was diese bringen und evtl. Empfehlung.
 
 \subsubsection{Herstellerspezifische
 Erweiterungen}\label{herstellerspezifische-erweiterungen}
@@ -2889,12 +3016,17 @@ Objekttypen}\label{eigenschaften-mit-verwendung-in-mehreren-objekttypen}
 
 \subsubsection{\texttt{@id}}\label{id}
 
-URL des Objekts und eindeutiges Identifikationsmerkmal. Siehe dazu auch
-``Benannte Objekte''. Dies ist ein ZWINGENDES Merkmal für jedes Objekt.
+Die Eigenschaft \texttt{@id} ist durch die JSON-LD-Spezifikation
+vorgegeben und enthält einen eindeutigen Bezeichner des Objekts, nämlich
+seine URL. Siehe dazu auch \hyperref[benannteux5fobjekte]{Benannte
+Objekte}. Dies ist ein ZWINGENDES Merkmal für jedes Objekt.
 
 \subsubsection{\texttt{@type}}\label{type}
 
-Objekttypenangabe des Objekts. ZWINGEND für jedes Objekt.
+Objekttypenangabe des Objekts im Sinne von JSON-LD. ZWINGEND für jedes
+Objekt. Der Wert ist (in Verbindung mit dem JSON-LD-Kontext eines
+Objekts) eine URL, unter der weitere Informationen über den Objekttyp
+angeboten werden KÖNNEN.
 
 \subsubsection{\texttt{name} und
 \texttt{nameLong}}\label{name-und-namelong}
@@ -2909,7 +3041,7 @@ nutzerfreundliche Variante existieren. Ein Beispiel wäre die Kurzform
 Deutschlands''.
 
 In keinem Fall sollten die Werte von \texttt{name} und \texttt{nameLong}
-identische sein.
+identisch sein.
 
 \subsubsection{\texttt{license}}\label{license}
 
@@ -2964,13 +3096,15 @@ des Clients eben auch die Liste der Mitglieder. In diesem Fall wäre eine
 Veränderung der Liste der Mitglieder als Änderung des Objekts zu
 verstehen, die im \texttt{modified} Zeitstempel widerspiegeln sollte.
 
-\subsubsection{\texttt{classification}}\label{classification}
+\subsubsection{\texttt{keyword}}\label{keyword}
 
-Dient der Verschlagwortung und verweist dazu auf ein oder eventuell auch
-mehrere \texttt{skos:Concept}-Objekte mit einer
-\texttt{skos:prefLabel}-Eigenschaft. Der Wert der Eigenschaft ist
-jeweils eine Zeichenkette. Die verwendete Sprache (in der Regel ``de''
-für Deutsch) MUSS dabei angegeben werden.
+Die Eigenschaft \texttt{keyword} dient der Kategorisierung von Objekten
+und ist in einer Vielzahl von Objekttypen zu diesem Zweck einsetzbar.
+
+Wert der Eigenschaft sind ein oder mehrere \texttt{skos:Concept}-Objekte
+mit einer \texttt{skos:prefLabel}-Eigenschaft. Der Wert der Eigenschaft
+ist jeweils eine Zeichenkette. Die verwendete Sprache (in der Regel
+``de'' für Deutsch) MUSS dabei angegeben werden.
 
 TODO: SKOS darstellen
 
@@ -2994,10 +3128,12 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
 
 und die 14 GovData-Kategorien können dabei durch eine zusätzliche
 Verschlagwortung auf Basis von Standard-Schlagwortkatalogen für RIS eine
-Ergänzung erfahren ( LeiKa, Bremer-Katalog, DBpedia, RAMON).
+Ergänzung erfahren (LeiKa, Bremer-Katalog, DBpedia, RAMON).
 
 Die 14 Werte des GovData-Metadaten-Standard sind bisher nicht als Linked
-Data existent. TODO: eventuell können diese in OParl als
+Data existent.
+
+TODO: eventuell können diese in OParl als
 Schlagwort-\texttt{skos:Concept}-Objekte als nicht abschliessende Menge
 von Schlagworten vorgegeben werden.
 
@@ -3013,21 +3149,21 @@ Ein Beispiel:
 \hyperdef{}{systemux5fex1}{\label{systemux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:System"}\NormalTok{,}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/"}\NormalTok{,}
-    \DataTypeTok{"oparlVersion"}\NormalTok{: }\StringTok{"http://oparl.org/specs/1.0/"}\NormalTok{,}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Beispiel-System"}\NormalTok{,}
-    \DataTypeTok{"website"}\NormalTok{: }\StringTok{"http://www.beispielris.de/"}\NormalTok{,}
-    \DataTypeTok{"contactEmail"}\NormalTok{: }\StringTok{"mailto:info@beispielris.de"}\NormalTok{,}
-    \DataTypeTok{"contactName"}\NormalTok{: }\StringTok{"Allgemeiner OParl Kontakt"}\NormalTok{,}
-    \DataTypeTok{"vendor"}\NormalTok{: }\StringTok{"http://example-software.com/"}\NormalTok{,}
-    \DataTypeTok{"product"}\NormalTok{: }\StringTok{"http://example-software.com/oparl-server/"}\NormalTok{,}
-    \DataTypeTok{"bodies"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/bodies/"}\NormalTok{,}
-    \DataTypeTok{"newObjects"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/new_objects/"}\NormalTok{,}
-    \DataTypeTok{"updatedObjects"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/updated_objects/"}\NormalTok{,}
-    \DataTypeTok{"removedObjects"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/removed_objects"}
-\NormalTok{\}}
+\FunctionTok{\{}
+    \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"oparl:System"}\FunctionTok{,}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/"}\FunctionTok{,}
+    \DataTypeTok{"oparlVersion"}\FunctionTok{:} \StringTok{"http://oparl.org/specs/1.0/"}\FunctionTok{,}
+    \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Beispiel-System"}\FunctionTok{,}
+    \DataTypeTok{"website"}\FunctionTok{:} \StringTok{"http://www.beispielris.de/"}\FunctionTok{,}
+    \DataTypeTok{"contactEmail"}\FunctionTok{:} \StringTok{"mailto:info@beispielris.de"}\FunctionTok{,}
+    \DataTypeTok{"contactName"}\FunctionTok{:} \StringTok{"Allgemeiner OParl Kontakt"}\FunctionTok{,}
+    \DataTypeTok{"vendor"}\FunctionTok{:} \StringTok{"http://example-software.com/"}\FunctionTok{,}
+    \DataTypeTok{"product"}\FunctionTok{:} \StringTok{"http://example-software.com/oparl-server/"}\FunctionTok{,}
+    \DataTypeTok{"bodies"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/bodies/"}\FunctionTok{,}
+    \DataTypeTok{"newObjects"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/new_objects/"}\FunctionTok{,}
+    \DataTypeTok{"updatedObjects"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/updated_objects/"}\FunctionTok{,}
+    \DataTypeTok{"removedObjects"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/removed_objects"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3036,25 +3172,25 @@ Ein Kontext:
 \hyperdef{}{systemux5fexux5fcontext}{\label{systemux5fexux5fcontext}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@language"}\NormalTok{: }\StringTok{"de"}\NormalTok{,}
-    \DataTypeTok{"beispielris"}\NormalTok{: }\StringTok{"https://oparl.eispielris.de/"}\NormalTok{,}
-    \DataTypeTok{"oparl"}\NormalTok{: }\StringTok{"http://oparl.org/TODO/"}\NormalTok{,}
-    \DataTypeTok{"dc"}\NormalTok{: }\StringTok{"http://purl.org/dc/terms/"}\NormalTok{,}
-    \DataTypeTok{"foaf"}\NormalTok{: }\StringTok{"http://xmlns.com/foaf/0.1/"}\NormalTok{,}
-    \DataTypeTok{"skos"}\NormalTok{: }\StringTok{"http://www.w3.org/2004/02/skos/core#"}\NormalTok{,}
-    \DataTypeTok{"vcard"}\NormalTok{: }\StringTok{"http://www.w3.org/2006/vcard/ns#"}\NormalTok{,}
-    \DataTypeTok{"xsd"}\NormalTok{: }\StringTok{"http://www.w3.org/2001/XMLSchema#"}\NormalTok{,}
+\FunctionTok{\{}
+    \DataTypeTok{"@language"}\FunctionTok{:} \StringTok{"de"}\FunctionTok{,}
+    \DataTypeTok{"beispielris"}\FunctionTok{:} \StringTok{"https://oparl.eispielris.de/"}\FunctionTok{,}
+    \DataTypeTok{"oparl"}\FunctionTok{:} \StringTok{"http://oparl.org/TODO/"}\FunctionTok{,}
+    \DataTypeTok{"dc"}\FunctionTok{:} \StringTok{"http://purl.org/dc/terms/"}\FunctionTok{,}
+    \DataTypeTok{"foaf"}\FunctionTok{:} \StringTok{"http://xmlns.com/foaf/0.1/"}\FunctionTok{,}
+    \DataTypeTok{"skos"}\FunctionTok{:} \StringTok{"http://www.w3.org/2004/02/skos/core#"}\FunctionTok{,}
+    \DataTypeTok{"vcard"}\FunctionTok{:} \StringTok{"http://www.w3.org/2006/vcard/ns#"}\FunctionTok{,}
+    \DataTypeTok{"xsd"}\FunctionTok{:} \StringTok{"http://www.w3.org/2001/XMLSchema#"}\FunctionTok{,}
 
-    \DataTypeTok{"name"}\NormalTok{: \{}
-        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"skos:prefLabel"}\NormalTok{,}
-        \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"@id"}
-    \NormalTok{\},}
-    \DataTypeTok{"contactEmail"}\NormalTok{: \{}
-        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"foaf:mbox"}\NormalTok{,}
-        \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"@id"}
-    \NormalTok{\},}
-\NormalTok{\}}
+    \DataTypeTok{"name"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"skos:prefLabel"}\FunctionTok{,}
+        \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"@id"}
+    \FunctionTok{\},}
+    \DataTypeTok{"contactEmail"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"foaf:mbox"}\FunctionTok{,}
+        \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"@id"}
+    \FunctionTok{\},}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3063,21 +3199,21 @@ Und das System-Objekt in kompakter Form unter Verwendung des Kontext:
 \hyperdef{}{systemux5fex2}{\label{systemux5fex2}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:System"}\NormalTok{,}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/"}\NormalTok{,}
-    \DataTypeTok{"oparlVersion"}\NormalTok{: }\StringTok{"http://oparl.org/specs/1.0/"}\NormalTok{,}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Beispiel-System"}\NormalTok{,}
-    \DataTypeTok{"website"}\NormalTok{: }\StringTok{"http://www.beispielris.de/"}\NormalTok{,}
-    \DataTypeTok{"contactEmail"}\NormalTok{: }\StringTok{"mailto:info@beispielris.de"}\NormalTok{,}
-    \DataTypeTok{"contactName"}\NormalTok{: }\StringTok{"Allgemeiner OParl Kontakt"}\NormalTok{,}
-    \DataTypeTok{"vendor"}\NormalTok{: }\StringTok{"http://example-software.com/"}\NormalTok{,}
-    \DataTypeTok{"product"}\NormalTok{: }\StringTok{"http://example-software.com/oparl-server/"}\NormalTok{,}
-    \DataTypeTok{"bodies"}\NormalTok{: }\StringTok{"beispielris:bodies/"}\NormalTok{,}
-    \DataTypeTok{"newObjects"}\NormalTok{: }\StringTok{"beispielris:new_objects/"}\NormalTok{,}
-    \DataTypeTok{"updatedObjects"}\NormalTok{: }\StringTok{"beispielris:updated_objects/"}\NormalTok{,}
-    \DataTypeTok{"removedObjects"}\NormalTok{: }\StringTok{"beispielris:removed_objects"}
-\NormalTok{\}}
+\FunctionTok{\{}
+    \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"oparl:System"}\FunctionTok{,}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/"}\FunctionTok{,}
+    \DataTypeTok{"oparlVersion"}\FunctionTok{:} \StringTok{"http://oparl.org/specs/1.0/"}\FunctionTok{,}
+    \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Beispiel-System"}\FunctionTok{,}
+    \DataTypeTok{"website"}\FunctionTok{:} \StringTok{"http://www.beispielris.de/"}\FunctionTok{,}
+    \DataTypeTok{"contactEmail"}\FunctionTok{:} \StringTok{"mailto:info@beispielris.de"}\FunctionTok{,}
+    \DataTypeTok{"contactName"}\FunctionTok{:} \StringTok{"Allgemeiner OParl Kontakt"}\FunctionTok{,}
+    \DataTypeTok{"vendor"}\FunctionTok{:} \StringTok{"http://example-software.com/"}\FunctionTok{,}
+    \DataTypeTok{"product"}\FunctionTok{:} \StringTok{"http://example-software.com/oparl-server/"}\FunctionTok{,}
+    \DataTypeTok{"bodies"}\FunctionTok{:} \StringTok{"beispielris:bodies/"}\FunctionTok{,}
+    \DataTypeTok{"newObjects"}\FunctionTok{:} \StringTok{"beispielris:new_objects/"}\FunctionTok{,}
+    \DataTypeTok{"updatedObjects"}\FunctionTok{:} \StringTok{"beispielris:updated_objects/"}\FunctionTok{,}
+    \DataTypeTok{"removedObjects"}\FunctionTok{:} \StringTok{"beispielris:removed_objects"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3098,44 +3234,45 @@ mit der URL des API-Endpunkts des Servers sein.
 \begin{description}
 \item[\texttt{oparlVersion}]
 Die URL der OParl-Spezifikation, die von diesem Server unterstützt wird.
-Der Wert MUSS die URL \texttt{http://oparl.org/specs/1.0/} sein. Diese
-Eigenschaft ist ZWINGEND.
+Der Wert MUSS die URL \texttt{http://oparl.org/specs/1.0/} sein. Typ:
+URL ZWINGEND.
 \item[\texttt{bodies}]
 Liste der URLs der
 \hyperref[oparlux5fbody]{\texttt{oparl:Body}}-Objekte, also der
 Körperschaften, die auf dem System vorliegen. Alternativ kann statt
-einer Liste eine einzelne URL zum Abruf der Liste angeboten werden. Die
-Eigenschaft ist ZWINGEND.
+einer Liste eine einzelne URL zum Abruf der Liste angeboten werden. Typ:
+URL ZWINGEND.
 \item[\texttt{name}]
 Nutzerfreundlicher Name für das System, mit dessen Hilfe Nutzer das
-System erkennen und von anderen unterscheiden können. Diese Eigenschaft
-wird EMPFOHLEN.
+System erkennen und von anderen unterscheiden können. Typ: String
+EMPFOHLEN.
 \item[\texttt{contactEmail}]
-E-Mail-Adresse für Anfragen zur OParl-API. Diese Eigenschaft wird
-EMPFOHLEN. Die Angabe einer E-Mail-Adresse dient sowohl NutzerInnen wie
-auch EntwicklerInnen von Clients zur Kontaktaufnahme mit dem Betreiber.
+E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe einer
+E-Mail-Adresse dient sowohl NutzerInnen wie auch EntwicklerInnen von
+Clients zur Kontaktaufnahme mit dem Betreiber. Typ: mail-Adresse
+inklusive ``mailto:'' EMPFOHLEN.
 \item[\texttt{contactName}]
 Name des Ansprechpartners oder der Abteilung, die über die
-\texttt{contactEmail} erreicht werden kann. Die Eigenschaft ist
-EMPFOHLEN. Typ: Zeichenkette.
+\texttt{contactEmail} erreicht werden kann. Typ: Zeichenkette.
+EMPFOHLEN.
 \item[\texttt{newObjects}]
-URL des Feeds \hyperref[feedux5fneueux5fobjekte]{``Neue Objekte''}. Die
-Eigenschaft ist EMPFOHLEN.
+URL des Feeds \hyperref[feedux5fneueux5fobjekte]{``Neue Objekte''}.
+EMPFOHLEN. Typ: URL
 \item[\texttt{updatedObjects}]
 URL des Feeds \hyperref[feedux5fgeaenderteux5fobjekte]{``Geänderte
-Objekte''}. Die Eigenschaft ist EMPFOHLEN.
+Objekte''}. Typ: URL EMPFOHLEN.
 \item[\texttt{removedObjects}]
 URL des Feeds \hyperref[feedux5fentfernteux5fobjekte]{``Entfernte
-Objekte''}. Die Eigenschaft ist EMPFOHLEN.
+Objekte''}. Typ: URL EMPFOHLEN.
 \item[\texttt{website}]
-URL zur WWW-Oberfläche des parlamentarischen Informationssystem. Diese
-Eigenschaft ist OPTIONAL.
+URL zur WWW-Oberfläche des parlamentarischen Informationssystem. Typ:
+URL OPTIONAL.
 \item[\texttt{vendor}]
-URL des Software-Anbieters, von dem die OParl-Server-Software stammt.
-Diese Eigenschaft ist OPTIONAL.
+Software-Anbieter, von dem die OParl-Server-Software stammt. Typ: URL
+OPTIONAL.
 \item[\texttt{product}]
-URL mit Informationen zu der auf dem System genutzten
-OParl-Server-Software. Diese Eigenschaft ist OPTIONAL.
+Informationen zu der auf dem System genutzten OParl-Server-Software.
+Typ: URL OPTIONAL.
 \end{description}
 
 \hyperdef{}{oparlux5fbody}{\subsection{oparl:Body
@@ -3173,33 +3310,33 @@ Ein expandiertes Beispiel:
 \hyperdef{}{oparlbodyux5fex1}{\label{oparlbodyux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/Body"}\NormalTok{,}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/body/0"}\NormalTok{,}
-    \DataTypeTok{"system"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/"}\NormalTok{,}
-    \DataTypeTok{"contactEmail"}\NormalTok{: }\StringTok{"mailto:ris@beispielstadt.de"}\NormalTok{,}
-    \DataTypeTok{"contactName"}\NormalTok{: }\StringTok{"RIS-Betreuung"}\NormalTok{,}
-    \DataTypeTok{"rgs"}\NormalTok{: }\StringTok{"053150000000"}\NormalTok{,}
-    \DataTypeTok{"equivalentBody"}\NormalTok{: [}
-        \StringTok{"http://d-nb.info/gnd/2015732-0"}\NormalTok{,}
+\FunctionTok{\{}
+    \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"http://oparl.org/schema/1.0/Body"}\FunctionTok{,}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/body/0"}\FunctionTok{,}
+    \DataTypeTok{"system"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/"}\FunctionTok{,}
+    \DataTypeTok{"contactEmail"}\FunctionTok{:} \StringTok{"mailto:ris@beispielstadt.de"}\FunctionTok{,}
+    \DataTypeTok{"contactName"}\FunctionTok{:} \StringTok{"RIS-Betreuung"}\FunctionTok{,}
+    \DataTypeTok{"rgs"}\FunctionTok{:} \StringTok{"053150000000"}\FunctionTok{,}
+    \DataTypeTok{"equivalentBody"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"http://d-nb.info/gnd/2015732-0"}\OtherTok{,}
         \StringTok{"http://dbpedia.org/resource/Cologne"}
-    \NormalTok{],}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Stadt Köln"}\NormalTok{,}
-    \DataTypeTok{"nameLong"}\NormalTok{: \{}
-        \DataTypeTok{"de"}\NormalTok{: }\StringTok{"Stadt Köln, kreisfreie Stadt"}\NormalTok{,}
-        \DataTypeTok{"en"}\NormalTok{: }\StringTok{"City of Cologne"}
-    \NormalTok{\}}
-    \StringTok{"website"}\ErrorTok{:} \StringTok{"http://www.beispielstadt.de/"}\NormalTok{,}
-    \DataTypeTok{"license"}\NormalTok{: }\StringTok{"http://creativecommons.org/licenses/by/4.0/"}\NormalTok{,}
-    \DataTypeTok{"licenseValidSinceDay"}\NormalTok{: }\StringTok{"2014-01-01"}\NormalTok{,}
-    \DataTypeTok{"organization"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/body/0/organisation/"}\NormalTok{,}
-    \DataTypeTok{"meeting"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/body/0/meeting/"}\NormalTok{,}
-    \DataTypeTok{"paper"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/body/0/paper/"}\NormalTok{,}
-    \DataTypeTok{"member"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/body/0/person/"}\NormalTok{,}
-    \DataTypeTok{"classification"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/vocab/landkreis"}\NormalTok{,}
-    \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2014-01-08T14:28:31.568+0100"}\NormalTok{,}
-    \DataTypeTok{"modified"}\NormalTok{: }\StringTok{"2014-01-08T14:28:31.568+0100"}
-\NormalTok{\}}
+    \OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Stadt Köln"}\FunctionTok{,}
+    \DataTypeTok{"nameLong"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"de"}\FunctionTok{:} \StringTok{"Stadt Köln, kreisfreie Stadt"}\FunctionTok{,}
+        \DataTypeTok{"en"}\FunctionTok{:} \StringTok{"City of Cologne"}
+    \FunctionTok{\}}
+    \StringTok{"website"}\ErrorTok{:} \StringTok{"http://www.beispielstadt.de/"}\FunctionTok{,}
+    \DataTypeTok{"license"}\FunctionTok{:} \StringTok{"http://creativecommons.org/licenses/by/4.0/"}\FunctionTok{,}
+    \DataTypeTok{"licenseValidSinceDay"}\FunctionTok{:} \StringTok{"2014-01-01"}\FunctionTok{,}
+    \DataTypeTok{"organization"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/body/0/organisation/"}\FunctionTok{,}
+    \DataTypeTok{"meeting"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/body/0/meeting/"}\FunctionTok{,}
+    \DataTypeTok{"paper"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/body/0/paper/"}\FunctionTok{,}
+    \DataTypeTok{"member"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/body/0/person/"}\FunctionTok{,}
+    \DataTypeTok{"classification"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/vocab/landkreis"}\FunctionTok{,}
+    \DataTypeTok{"created"}\FunctionTok{:} \StringTok{"2014-01-08T14:28:31.568+0100"}\FunctionTok{,}
+    \DataTypeTok{"modified"}\FunctionTok{:} \StringTok{"2014-01-08T14:28:31.568+0100"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3225,22 +3362,22 @@ Gibt den gebräuchlichen Namen der Körperschaft an. Typ: TODO. ZWINGEND.
 Kann bei Bedarf dazu verwendet werden, eine längere Form des Namens der
 Körperschaft anzugeben. Typ: TODO. OPTIONAL.
 \item[\texttt{website}]
-URL der allgemeinen Website der Körperschaft. EMPFOHLEN.
+allgemeine Website der Körperschaft. Typ: URL EMPFOHLEN.
 \item[\texttt{license}]
-URL der Lizenz, die für die Daten, die über diese API abgerufen werden
-können, gilt, sofern nicht am einzelnen Objekt anders angegeben. Sie
-dazu auch die übergreifende Beschreibung zur Eigenschaft
-\hyperref[eigenschaftux5flicense]{\texttt{license}}. EMPFOHLEN.
+Lizenz, die für die Daten, die über diese API abgerufen werden können,
+gilt, sofern nicht am einzelnen Objekt anders angegeben. Sie dazu auch
+die übergreifende Beschreibung zur Eigenschaft
+\hyperref[eigenschaftux5flicense]{\texttt{license}}. Typ: URL EMPFOHLEN.
 \item[\texttt{licenseValidSinceDay}]
 Tagesdatum, seit dem die unter license angegebene Lizenz gilt. Vorsicht
 bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen. Typ:
-TODO EMPFOHLEN
+Datum mit oder ohne Uhrzeit EMPFOHLEN
 \item[\texttt{rgs}]
 Regionalschlüssel der Körperschaft als zwölfstellige
 Zeichenkette\footnote{Regionalschlüssel können im
   \href{https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html}{Gemeindeverzeichnis
-  (GV-ISys) des Statistischen Bundesamtes} eingesehen werden}. Typ: TODO
-EMPFOHLEN
+  (GV-ISys) des Statistischen Bundesamtes} eingesehen werden}. Typ:
+String mit ganzer Zahl EMPFOHLEN
 \item[\texttt{equivalentBody}]
 Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe
 Körperschaft repräsentieren. Hier können beispielsweise, sofern
@@ -3248,15 +3385,15 @@ vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der
 Deutschen Nationalbibliothek\footnote{Gemeinsame Normdatei
   \url{http://www.dnb.de/gnd}}, der DBPedia\footnote{DBPedia
   \url{http://www.dbpedia.org/}} oder der Wikipedia\footnote{Wikipedia
-  \url{http://de.wikipedia.org/}} angegeben werden. Typ: TODO EMPFOHLEN
+  \url{http://de.wikipedia.org/}} angegeben werden. Typ: URL EMPFOHLEN
 \item[\texttt{contactEmail}]
 Dient der Angabe einer Kontakt-E-Mail-Adresse mit ``mailto:''-Schema.
 Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und
 idealerweise das parlamentarische Informationssystem zuständigen Stelle
-ermöglichen. Typ: TODO EMPFOHLEN
+ermöglichen. Typ: mail-Adresse inklusive ``mailto:'' EMPFOHLEN
 \item[\texttt{contactName}]
 Name oder Bezeichnung der mit \texttt{contactEmail} erreichbaren Stelle.
-Typ: TODO OPTIONAL.
+Typ: String OPTIONAL.
 \item[\texttt{paper}]
 Drucksachen unter dieser Körperschaft. Typ: \texttt{oparl:Paper}
 ZWINGEND.
@@ -3267,17 +3404,18 @@ Sitzungen dieser Körperschaft. Typ: \texttt{oparl:Meeting} ZWINGEND
 \item[\texttt{organization}]
 Gruppierung in dieser Körperschaft. Typ: \texttt{oparl:Organization}
 ZWINGEND
-\item[\texttt{classification}]
-Typ: \texttt{skos:Concept} OPTIONAL
+\item[\texttt{keyword}]
+Typ: \texttt{skos:Concept} Anzahl: beliebig OPTIONAL
 \item[\texttt{allConcepts}]
 Alle Schlagworte und Begriffe, die von dieser Körperschaft verwendet
 werden. Diese Eigenschaft ist insbesondere dann wichtig, wenn
 Sortierungs-Reihenfolgen verwendet werden. TODO: Beispiel Typ:
 \texttt{skos:Concept} OPTIONAL
 \item[\texttt{created}]
-Datum/Uhrzeit der Erzeugung des Objekts. Typ: TODO EMPFOHLEN.
+Datum/Uhrzeit der Erzeugung des Objekts. Typ: Zeitstempel EMPFOHLEN.
 \item[\texttt{lastModified}]
-Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ: TODO EMPFOHLEN
+Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ: Zeitstempel
+EMPFOHLEN
 \end{description}
 
 \hyperdef{}{oparlux5forganization}{\subsection{oparl:Organization
@@ -3292,33 +3430,33 @@ Ein Beispiel in expandierter Form:
 \hyperdef{}{organizationux5fex1}{\label{organizationux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/Organization"}\NormalTok{,}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/organization/34"}\NormalTok{,}
-    \DataTypeTok{"body"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/body/0"}\NormalTok{,}
-    \DataTypeTok{"nameShort"}\NormalTok{: \{}
+\FunctionTok{\{}
+    \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"http://oparl.org/schema/1.0/Organization"}\FunctionTok{,}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/organization/34"}\FunctionTok{,}
+    \DataTypeTok{"body"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/body/0"}\FunctionTok{,}
+    \DataTypeTok{"nameShort"}\FunctionTok{:} \FunctionTok{\{}
         \ErrorTok{@language}\DataTypeTok{" :"}\ErrorTok{de}\DataTypeTok{",}
-\DataTypeTok{        @value"}\NormalTok{: }\StringTok{"Finanzausschuss"}
-    \NormalTok{\},}
-    \DataTypeTok{"nameLong"}\NormalTok{: \{}
-        \DataTypeTok{"@language"}\NormalTok{: }\StringTok{"de"}\NormalTok{,}
-        \DataTypeTok{"@value"}\NormalTok{: }\StringTok{"Ausschuss für Haushalt und Finanzen"}
-    \NormalTok{\},}
-    \DataTypeTok{"post"}\NormalTok{: \{}
-        \DataTypeTok{"@list"}\NormalTok{: [}
-            \StringTok{"https://oparl.beispielris.de/post/chairperson"}\NormalTok{,}
+\DataTypeTok{        @value"}\FunctionTok{:} \StringTok{"Finanzausschuss"}
+    \FunctionTok{\},}
+    \DataTypeTok{"nameLong"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"@language"}\FunctionTok{:} \StringTok{"de"}\FunctionTok{,}
+        \DataTypeTok{"@value"}\FunctionTok{:} \StringTok{"Ausschuss für Haushalt und Finanzen"}
+    \FunctionTok{\},}
+    \DataTypeTok{"post"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"@list"}\FunctionTok{:} \OtherTok{[}
+            \StringTok{"https://oparl.beispielris.de/post/chairperson"}\OtherTok{,}
             \StringTok{"https://oparl.beispielris.de/post/deputyChairperson"}
-        \NormalTok{]}
-    \NormalTok{\},}
-    \DataTypeTok{"member"}\NormalTok{: [}
-        \StringTok{"https://oparl.beispielris.de/person/27"}\NormalTok{,}
-        \StringTok{"https://oparl.beispielris.de/person/48"}\NormalTok{,}
+        \OtherTok{]}
+    \FunctionTok{\},}
+    \DataTypeTok{"member"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"https://oparl.beispielris.de/person/27"}\OtherTok{,}
+        \StringTok{"https://oparl.beispielris.de/person/48"}\OtherTok{,}
         \StringTok{"https://oparl.beispielris.de/person/57"}
-    \NormalTok{],}
-    \DataTypeTok{"organizationType"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/vocab/committee"}\NormalTok{,}
-    \DataTypeTok{"classification"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/vocab/finance"}\NormalTok{,}
-    \DataTypeTok{"modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
-\NormalTok{\}}
+    \OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"organizationType"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/vocab/committee"}\FunctionTok{,}
+    \DataTypeTok{"classification"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/vocab/finance"}\FunctionTok{,}
+    \DataTypeTok{"modified"}\FunctionTok{:} \StringTok{"2012-08-16T14:05:27+02:00"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3332,24 +3470,24 @@ Ein Kontext:
 \hyperdef{}{organizationux5fex2}{\label{organizationux5fex2}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/organization.jsonld"}\NormalTok{,}
-    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:Organization"}\NormalTok{,}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"beispielris:organization/34"}\NormalTok{,}
+\FunctionTok{\{}
+    \DataTypeTok{"@context"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/organization.jsonld"}\FunctionTok{,}
+    \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"oparl:Organization"}\FunctionTok{,}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"beispielris:organization/34"}\FunctionTok{,}
       \ErrorTok{//} \ErrorTok{kann} \ErrorTok{eventuell} \ErrorTok{weiter} \ErrorTok{verkürzt} \ErrorTok{werden}
-    \DataTypeTok{"body"}\NormalTok{: }\StringTok{"0"}\NormalTok{,}
-    \DataTypeTok{"nameShort"}\NormalTok{: }\StringTok{"Finanzausschuss"}\NormalTok{,}
-    \DataTypeTok{"nameLong"}\NormalTok{: }\StringTok{"Ausschuss für Haushalt und Finanzen"}\NormalTok{,}
+    \DataTypeTok{"body"}\FunctionTok{:} \StringTok{"0"}\FunctionTok{,}
+    \DataTypeTok{"nameShort"}\FunctionTok{:} \StringTok{"Finanzausschuss"}\FunctionTok{,}
+    \DataTypeTok{"nameLong"}\FunctionTok{:} \StringTok{"Ausschuss für Haushalt und Finanzen"}\FunctionTok{,}
     \DataTypeTok{"post:"} \ErrorTok{[}
-        \DataTypeTok{"beispielris:post/chairperson"}\NormalTok{,}
+        \DataTypeTok{"beispielris:post/chairperson"}\FunctionTok{,}
         \DataTypeTok{"beispielris:post/deputyChairperson"}
-    \ErrorTok{]}\NormalTok{,}
+    \ErrorTok{]}\FunctionTok{,}
     \DataTypeTok{"members: [}
 \DataTypeTok{        "}\ErrorTok{27}\DataTypeTok{",}
 \DataTypeTok{        "}\ErrorTok{48}\DataTypeTok{",}
 \DataTypeTok{        "}\ErrorTok{57}\DataTypeTok{"}
 \DataTypeTok{    ],}
-\DataTypeTok{    "}\ErrorTok{organizationType}\DataTypeTok{": "}\ErrorTok{beispielris}\NormalTok{:}\ErrorTok{vocab/committee}\StringTok{",}
+\DataTypeTok{    "}\ErrorTok{organizationType}\DataTypeTok{": "}\ErrorTok{beispielris}\FunctionTok{:}\ErrorTok{vocab/committee}\StringTok{",}
 \StringTok{    "}\ErrorTok{classification}\StringTok{": "}\ErrorTok{beispielris:vocab/finance}\StringTok{",}
 \StringTok{    "}\ErrorTok{modified}\StringTok{": "}\DecValTok{2012-08-16}\ErrorTok{T}\DecValTok{14}\ErrorTok{:}\DecValTok{05}\ErrorTok{:}\DecValTok{27}\ErrorTok{+}\DecValTok{02}\ErrorTok{:}\DecValTok{00}\StringTok{"}
 \StringTok{\}}
@@ -3360,9 +3498,10 @@ Ein Kontext:
 
 \begin{description}
 \item[\texttt{body}]
-URL der Körperschaft, zu der diese Gruppierung gehört. ZWINGEND
+Körperschaft, zu der diese Gruppierung gehört. Typ: \texttt{oparl:Body}
+ZWINGEND
 \item[\texttt{nameShort}]
-Der Name der Gruppierung, eine Kurzform. ZWINGEND
+Der Name der Gruppierung, eine Kurzform. Typ: String ZWINGEND
 \end{description}
 
 TODO: ZWINGEND/OPTIONAL prüfen
@@ -3370,8 +3509,8 @@ TODO: ZWINGEND/OPTIONAL prüfen
 \begin{description}
 \itemsep1pt\parskip0pt\parsep0pt
 \item[\texttt{nameLong}]
-Langform des Namens der Gruppierung, der rechtlich korrekte Name.
-ZWINGEND
+Langform des Namens der Gruppierung, der rechtlich korrekte Name. Typ:
+String ZWINGEND
 \end{description}
 
 TODO: ZWINGEND/OPTIONAL prüfen
@@ -3399,19 +3538,20 @@ Mitglied'', ``Stellvertretendes Mitglied''
 
 Siehe https://github.com/OParl/specs/issues/45 TODO: ``Ordentliches
 Mitglied'', ``Stellvertretendes Mitglied'' müssen anders behandelt
-werden! OPTIONAL
+werden! Typ: \texttt{oparl:Post} OPTIONAL
 
 \begin{description}
 \item[\texttt{member}]
-URLs aller Mitglieder dieser Organisation (Objekte vom Typ
+Mitglieder dieser Organisation (Objekte vom Typ
 \texttt{{[}oparl:Person{]}(\#oparl\_person)}). Auch alle Personen mit
-Positionen in der Organisation sind hier anzugeben. ZWINGEND (falls es
-Mitglieder gibt)
+Positionen in der Organisation sind hier anzugeben. Typ:
+\texttt{oparl:Person} ZWINGEND (falls es Mitglieder gibt)
 \item[\texttt{subOrganizationOf}]
-Ggf. URL der übergeordneten Organisation. OPTIONAL.
+Ggf. URL der übergeordneten Organisation. Typ:
+\texttt{oparl:Organization} OPTIONAL.
 \item[\texttt{created}]
-Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN
-\item[\texttt{classification}]
+Datum/Uhrzeit der Erzeugung des Objekts. Typ: Zeitstempel EMPFOHLEN
+\item[\texttt{keyword}]
 Schlagworte. Dies sind \texttt{skos:Concept}-Objekte mit einem
 \texttt{skos:prefLabel}-Attribut (für jede unterstützte Sprache) mit
 einer Zeichenkette. In einer zukünftigen OParl-Version wird
@@ -3419,13 +3559,14 @@ möglicherweise eine Menge solcher Schlagwort-Objekte definiert.
 Anregungen gibt es u.a. in der Tabelle ``Kategorien'' im unteren Drittel
 der Seite
 http://htmlpreview.github.io/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD\_JSON\_Schema.html
-OPTIONAL
+Typ: \texttt{skos:Concept} OPTIONAL
 \item[\texttt{organizationType}]
 Objekt mit \texttt{skos:prefLabel}, z.B. ``Rat'', ``Hauptausschuss'',
 ``Ausschuss'' ``Beirat'', ``Projektbeirat'', ``Kommission'', ``AG'',
-``Verwaltungsrat'' OPTIONAL
+``Verwaltungsrat'' Typ: \texttt{skos:Concept} OPTIONAL
 \item[\texttt{modified}]
-Datum/Uhrzeit der letzten Bearbeitung des Objekts. EMPFOHLEN
+Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ: Zeitstempel
+EMPFOHLEN
 \end{description}
 
 \subsection{oparl:Person (Person)}\label{oparlux5fperson}
@@ -3450,38 +3591,38 @@ Ein Beispiel in expandierter Form:
 \hyperdef{}{personux5fex1}{\label{personux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/Person"}\NormalTok{,}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/person/29"}\NormalTok{,}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Prof. Dr. Max Mustermann"}\NormalTok{,}
-    \DataTypeTok{"familyName"}\NormalTok{: \{ }\ErrorTok{//} \ErrorTok{könnte} \ErrorTok{mehrsprachig} \ErrorTok{sein}\NormalTok{, }\ErrorTok{z.B.} \ErrorTok{griechisch}\NormalTok{, }\ErrorTok{russisch}\NormalTok{, }\ErrorTok{tamilisch} 
-        \DataTypeTok{"@value"}\NormalTok{: }\StringTok{"Mustermann"}\NormalTok{,}
-        \DataTypeTok{"@language"}\NormalTok{: }\StringTok{"de"}
-    \NormalTok{\},}
-    \DataTypeTok{"givenName"}\NormalTok{: \{ }\ErrorTok{//} \ErrorTok{könnte} \ErrorTok{mehrsprachig} \ErrorTok{sein}
-        \DataTypeTok{"@value"}\NormalTok{: }\StringTok{"Max"}\NormalTok{,}
-        \DataTypeTok{"@language"}\NormalTok{: }\StringTok{"de"}
-    \NormalTok{\},}
-    \DataTypeTok{"title"}\NormalTok{: }\StringTok{"Prof. Dr."}\NormalTok{, }\ErrorTok{//} \ErrorTok{TODO}\NormalTok{: }\ErrorTok{nicht} \ErrorTok{mehrsprachig?!}
-    \StringTok{"formOfAddress"}\ErrorTok{:} \StringTok{"https://oparl.beispielris.de/formofaddress/ratsmitglied"}\NormalTok{,}
-    \DataTypeTok{"gender"}\NormalTok{: }\StringTok{"http://www.w3.org/2006/vcard/ns#Male"}\NormalTok{,}
-    \DataTypeTok{"email"}\NormalTok{: }\StringTok{"mailto:max@mustermann.de"}\NormalTok{,}
-    \DataTypeTok{"phone"}\NormalTok{: }\StringTok{"tel:+493012345678"}\NormalTok{,}
-    \DataTypeTok{"streetAddress"}\NormalTok{: }\StringTok{"Musterstraße 5"}\NormalTok{, }\ErrorTok{//} \ErrorTok{nicht} \ErrorTok{mehrsprachig}
-    \DataTypeTok{"postalCode"}\NormalTok{: }\StringTok{"11111"}\NormalTok{,}
-    \DataTypeTok{"locality"}\NormalTok{: \{}
-        \DataTypeTok{"de"}\NormalTok{: }\StringTok{"Musterort"}\NormalTok{,}
-        \DataTypeTok{"en"}\NormalTok{: }\StringTok{"Sample Town"}
-    \NormalTok{\},}
-    \DataTypeTok{"organization"}\NormalTok{: [}
-        \StringTok{"https://oparl.beispielris.de/organization/11"}\NormalTok{,}
+\FunctionTok{\{}
+    \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"http://oparl.org/schema/1.0/Person"}\FunctionTok{,}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/person/29"}\FunctionTok{,}
+    \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Prof. Dr. Max Mustermann"}\FunctionTok{,}
+    \DataTypeTok{"familyName"}\FunctionTok{:} \FunctionTok{\{} \ErrorTok{//} \ErrorTok{könnte} \ErrorTok{mehrsprachig} \ErrorTok{sein}\FunctionTok{,} \ErrorTok{z.B.} \ErrorTok{griechisch}\FunctionTok{,} \ErrorTok{russisch}\FunctionTok{,} \ErrorTok{tamilisch} 
+        \DataTypeTok{"@value"}\FunctionTok{:} \StringTok{"Mustermann"}\FunctionTok{,}
+        \DataTypeTok{"@language"}\FunctionTok{:} \StringTok{"de"}
+    \FunctionTok{\},}
+    \DataTypeTok{"givenName"}\FunctionTok{:} \FunctionTok{\{} \ErrorTok{//} \ErrorTok{könnte} \ErrorTok{mehrsprachig} \ErrorTok{sein}
+        \DataTypeTok{"@value"}\FunctionTok{:} \StringTok{"Max"}\FunctionTok{,}
+        \DataTypeTok{"@language"}\FunctionTok{:} \StringTok{"de"}
+    \FunctionTok{\},}
+    \DataTypeTok{"title"}\FunctionTok{:} \StringTok{"Prof. Dr."}\FunctionTok{,} \ErrorTok{//} \ErrorTok{TODO}\FunctionTok{:} \ErrorTok{nicht} \ErrorTok{mehrsprachig?!}
+    \StringTok{"formOfAddress"}\ErrorTok{:} \StringTok{"https://oparl.beispielris.de/formofaddress/ratsmitglied"}\FunctionTok{,}
+    \DataTypeTok{"gender"}\FunctionTok{:} \StringTok{"http://www.w3.org/2006/vcard/ns#Male"}\FunctionTok{,}
+    \DataTypeTok{"email"}\FunctionTok{:} \StringTok{"mailto:max@mustermann.de"}\FunctionTok{,}
+    \DataTypeTok{"phone"}\FunctionTok{:} \StringTok{"tel:+493012345678"}\FunctionTok{,}
+    \DataTypeTok{"streetAddress"}\FunctionTok{:} \StringTok{"Musterstraße 5"}\FunctionTok{,} \ErrorTok{//} \ErrorTok{nicht} \ErrorTok{mehrsprachig}
+    \DataTypeTok{"postalCode"}\FunctionTok{:} \StringTok{"11111"}\FunctionTok{,}
+    \DataTypeTok{"locality"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"de"}\FunctionTok{:} \StringTok{"Musterort"}\FunctionTok{,}
+        \DataTypeTok{"en"}\FunctionTok{:} \StringTok{"Sample Town"}
+    \FunctionTok{\},}
+    \DataTypeTok{"organization"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"https://oparl.beispielris.de/organization/11"}\OtherTok{,}
         \StringTok{"https://oparl.beispielris.de/organization/34"}
-    \NormalTok{],}
-    \DataTypeTok{"status"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/status/buergermeister"}\NormalTok{,}
-    \DataTypeTok{"hasMembership"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/membership/34"}\NormalTok{,}
-    \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2011-11-11T11:11:00+01:00"}\NormalTok{,}
-    \DataTypeTok{"modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
-\NormalTok{\}}
+    \OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"status"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/status/buergermeister"}\FunctionTok{,}
+    \DataTypeTok{"hasMembership"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/membership/34"}\FunctionTok{,}
+    \DataTypeTok{"created"}\FunctionTok{:} \StringTok{"2011-11-11T11:11:00+01:00"}\FunctionTok{,}
+    \DataTypeTok{"modified"}\FunctionTok{:} \StringTok{"2012-08-16T14:05:27+02:00"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3490,37 +3631,37 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 \hyperdef{}{personux5fexux5fcontext}{\label{personux5fexux5fcontext}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@language"}\NormalTok{: }\StringTok{"de"}\NormalTok{,}
+\FunctionTok{\{}
+    \DataTypeTok{"@language"}\FunctionTok{:} \StringTok{"de"}\FunctionTok{,}
     
     \ErrorTok{//} \ErrorTok{Präfixe} \ErrorTok{siehe} \ErrorTok{Abschnitt} \ErrorTok{8000}
 
-    \DataTypeTok{"gender"}\NormalTok{: }\StringTok{"vcard:hasGender"}\NormalTok{,}
-    \DataTypeTok{"givenName"}\NormalTok{: }\StringTok{"foaf:firstName"}\NormalTok{,}
-    \DataTypeTok{"familyName"}\NormalTok{: }\StringTok{"foaf:lastName"}\NormalTok{,}
-    \DataTypeTok{"academic_degree"}\NormalTok{: \{}
-        \DataTypeTok{"@language"}\NormalTok{: }\DecValTok{null} \NormalTok{, }\ErrorTok{//} \ErrorTok{keine} \ErrorTok{Vorgabesprache} \ErrorTok{da} \ErrorTok{nicht} \ErrorTok{mehrsprachig}
-        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"foaf:title"}
-    \NormalTok{\},}
-    \DataTypeTok{"email"}\NormalTok{: \{}
-        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"foaf:mbox"}\NormalTok{,}
-        \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"@id"}
-    \NormalTok{\},}
-    \DataTypeTok{"phone"}\NormalTok{: }\StringTok{"foaf:phone"}\NormalTok{,}
-    \DataTypeTok{"streetAddress"}\NormalTok{: }\StringTok{"vcard:street-address"}\NormalTok{,}
-    \DataTypeTok{"locality"}\NormalTok{: \{}
-        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"vcard:locality"}\NormalTok{,}
-        \DataTypeTok{"@container"}\NormalTok{: }\StringTok{"@language"} \ErrorTok{//} \ErrorTok{für} \ErrorTok{eine} \StringTok{"language map"}
-    \NormalTok{\},}
-    \DataTypeTok{"created"}\NormalTok{: \{}
-        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"dc:created"}\NormalTok{,}
-        \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"xsd:dateTime"}
-    \NormalTok{\},}
-    \DataTypeTok{"modified"}\NormalTok{: \{}
-        \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"dc:modified"}\NormalTok{,}
-        \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"xsd:dateTime"}
-    \NormalTok{\}}
-\NormalTok{\}}
+    \DataTypeTok{"gender"}\FunctionTok{:} \StringTok{"vcard:hasGender"}\FunctionTok{,}
+    \DataTypeTok{"givenName"}\FunctionTok{:} \StringTok{"foaf:firstName"}\FunctionTok{,}
+    \DataTypeTok{"familyName"}\FunctionTok{:} \StringTok{"foaf:lastName"}\FunctionTok{,}
+    \DataTypeTok{"academic_degree"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"@language"}\FunctionTok{:} \KeywordTok{null} \FunctionTok{,} \ErrorTok{//} \ErrorTok{keine} \ErrorTok{Vorgabesprache} \ErrorTok{da} \ErrorTok{nicht} \ErrorTok{mehrsprachig}
+        \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"foaf:title"}
+    \FunctionTok{\},}
+    \DataTypeTok{"email"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"foaf:mbox"}\FunctionTok{,}
+        \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"@id"}
+    \FunctionTok{\},}
+    \DataTypeTok{"phone"}\FunctionTok{:} \StringTok{"foaf:phone"}\FunctionTok{,}
+    \DataTypeTok{"streetAddress"}\FunctionTok{:} \StringTok{"vcard:street-address"}\FunctionTok{,}
+    \DataTypeTok{"locality"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"vcard:locality"}\FunctionTok{,}
+        \DataTypeTok{"@container"}\FunctionTok{:} \StringTok{"@language"} \ErrorTok{//} \ErrorTok{für} \ErrorTok{eine} \StringTok{"language map"}
+    \FunctionTok{\},}
+    \DataTypeTok{"created"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"dc:created"}\FunctionTok{,}
+        \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"xsd:dateTime"}
+    \FunctionTok{\},}
+    \DataTypeTok{"modified"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"dc:modified"}\FunctionTok{,}
+        \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"xsd:dateTime"}
+    \FunctionTok{\}}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3547,11 +3688,11 @@ bleibt wie zuvor.
 \hyperdef{}{personux5fex3}{\label{personux5fex3}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
+\FunctionTok{\{}
     \ErrorTok{//} \ErrorTok{...}
-    \DataTypeTok{"locality"}\NormalTok{: }\StringTok{"Musterort"}\NormalTok{,}
+    \DataTypeTok{"locality"}\FunctionTok{:} \StringTok{"Musterort"}\FunctionTok{,}
     \ErrorTok{//} \ErrorTok{...}
-\NormalTok{\}}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3560,11 +3701,11 @@ bleibt wie zuvor.
 \begin{description}
 \item[\texttt{name}]
 Der vollständige Name der Person mit akademischem Grad und Vornamen.
-Typ: TODO ZWINGEND
+Typ: String ZWINGEND
 \item[\texttt{familyName}]
-Familienname bzw. Nachname. Typ: TODO OPTIONAL
+Familienname bzw. Nachname. Typ: String OPTIONAL
 \item[\texttt{givenName}]
-Vorname bzw. Taufname. Typ: TODO OPTIONAL
+Vorname bzw. Taufname. Typ: String OPTIONAL
 \item[\texttt{formOfAddress}]
 Anrede Begriff mit \texttt{skos:prefLabel}. Ähnlich wie \texttt{status}.
 Beispiele für die \texttt{skos:prefLabel} sind ``Ratsherr \textbar{}
@@ -3578,15 +3719,16 @@ Geschlecht. Zulässige Werte sind \texttt{vcard:Female},
 \texttt{vcard:Male}, \texttt{vcard:None}, \texttt{vcard:Other} und
 \texttt{vcard:Unknown}. Typ: \texttt{vcard:TODO} OPTIONAL
 \item[\texttt{phone}]
-Telefonnummer mit \texttt{tel:} Schema. Typ: TODO OPTIONAL
+Telefonnummer mit \texttt{tel:} Schema. Typ: String mit ``tel:'' am
+Anfang, keine Leerzeichen OPTIONAL
 \item[\texttt{email}]
 E-Mail-Adresse mit \texttt{mailto:} Schema. Typ: \texttt{foaf:mbox}
 OPTIONAL
 \item[\texttt{streetAddress}]
-Straße und Hausnummer der Kontakt-Anschrift der Person. Typ: TODO
+Straße und Hausnummer der Kontakt-Anschrift der Person. Typ: String
 OPTIONAL
 \item[\texttt{postalCode}]
-Postleitzahl der Kontakt-Anschrift der Person. Typ: TODO OPTIONAL
+Postleitzahl der Kontakt-Anschrift der Person. Typ: String OPTIONAL
 \item[\texttt{locality}]
 Ortsangabe der Kontakt-Anschrift der Person. Typ:
 \texttt{vcard:locality} OPTIONAL
@@ -3615,7 +3757,7 @@ OPTIONAL
 \item[\texttt{hasMembership}]
 Mitgliedschaft. TODO: Eventuell Unterklasse von \texttt{org:Membership}
 definieren. Typ: \texttt{org:Membership} OPTIONAL.
-\item[\texttt{classification}]
+\item[\texttt{keyword}]
 Typ: \texttt{skos:Concept} OPTIONAL
 \item[\texttt{created}]
 Datum/Uhrzeit der Erzeugung des Objekts. Typ: String mit xsd:dateTime
@@ -3644,46 +3786,46 @@ Ein Beispiel in expandierter Form:
 \hyperdef{}{meetingux5fex1}{\label{meetingux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"http://oparl.org/schema/1.0/Meeting"}\NormalTok{,}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/meeting/281"}\NormalTok{,}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"4. Sitzung des Finanzausschusses"}\NormalTok{,}
-    \DataTypeTok{"start"}\NormalTok{: }\StringTok{"2013-01-04T08:00:00+01:00"}\NormalTok{,}
-    \DataTypeTok{"end"}\NormalTok{: }\StringTok{"2013-01-04T12:00:00+01:00"}\NormalTok{,}
-    \DataTypeTok{"location"}\NormalTok{: \{}
-        \DataTypeTok{"description"}\NormalTok{: \{}
-            \DataTypeTok{"@value"}\NormalTok{: }\StringTok{"Rathaus, Raum 136"}\NormalTok{,}
-            \DataTypeTok{"@language"}\NormalTok{: }\StringTok{"de"}
-        \NormalTok{\},}
-        \DataTypeTok{"description"}\NormalTok{: \{}
-            \DataTypeTok{"@value"}\NormalTok{: }\StringTok{"Town Hall, room 136"}\NormalTok{,}
-            \DataTypeTok{"@language"}\NormalTok{: }\StringTok{"en"}
-        \NormalTok{\}}
-    \NormalTok{\},}
-    \DataTypeTok{"organization"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/organization/34"}\NormalTok{,}
-    \DataTypeTok{"participant"}\NormalTok{: [}
-        \StringTok{"https://oparl.beispielris.de/person/29"}\NormalTok{,}
-        \StringTok{"https://oparl.beispielris.de/person/75"}\NormalTok{,}
+\FunctionTok{\{}
+    \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"http://oparl.org/schema/1.0/Meeting"}\FunctionTok{,}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/meeting/281"}\FunctionTok{,}
+    \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"4. Sitzung des Finanzausschusses"}\FunctionTok{,}
+    \DataTypeTok{"start"}\FunctionTok{:} \StringTok{"2013-01-04T08:00:00+01:00"}\FunctionTok{,}
+    \DataTypeTok{"end"}\FunctionTok{:} \StringTok{"2013-01-04T12:00:00+01:00"}\FunctionTok{,}
+    \DataTypeTok{"location"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"description"}\FunctionTok{:} \FunctionTok{\{}
+            \DataTypeTok{"@value"}\FunctionTok{:} \StringTok{"Rathaus, Raum 136"}\FunctionTok{,}
+            \DataTypeTok{"@language"}\FunctionTok{:} \StringTok{"de"}
+        \FunctionTok{\},}
+        \DataTypeTok{"description"}\FunctionTok{:} \FunctionTok{\{}
+            \DataTypeTok{"@value"}\FunctionTok{:} \StringTok{"Town Hall, room 136"}\FunctionTok{,}
+            \DataTypeTok{"@language"}\FunctionTok{:} \StringTok{"en"}
+        \FunctionTok{\}}
+    \FunctionTok{\},}
+    \DataTypeTok{"organization"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/organization/34"}\FunctionTok{,}
+    \DataTypeTok{"participant"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"https://oparl.beispielris.de/person/29"}\OtherTok{,}
+        \StringTok{"https://oparl.beispielris.de/person/75"}\OtherTok{,}
         \StringTok{"https://oparl.beispielris.de/person/94"}
-    \NormalTok{],}
-    \DataTypeTok{"invitation"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/document/586"}\NormalTok{,}
-    \DataTypeTok{"resultsProtocol"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/document/628"}\NormalTok{,}
-    \DataTypeTok{"verbatimProtocol"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/document/691"}\NormalTok{,}
-    \DataTypeTok{"auxiliaryDocument"}\NormalTok{: [}
-        \StringTok{"https://oparl.beispielris.de/document/588"}\NormalTok{,}
+    \OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"invitation"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/document/586"}\FunctionTok{,}
+    \DataTypeTok{"resultsProtocol"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/document/628"}\FunctionTok{,}
+    \DataTypeTok{"verbatimProtocol"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/document/691"}\FunctionTok{,}
+    \DataTypeTok{"auxiliaryDocument"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"https://oparl.beispielris.de/document/588"}\OtherTok{,}
         \StringTok{"https://oparl.beispielris.de/document/589"}
-    \NormalTok{],}
-    \DataTypeTok{"agendaItem"}\NormalTok{: \{}
-        \DataTypeTok{"@list"}\NormalTok{: [}
-            \StringTok{"https://oparl.beispielris.de/agendaitem/1045"}\NormalTok{,}
-            \StringTok{"https://oparl.beispielris.de/agendaitem/1046"}\NormalTok{,}
-            \StringTok{"https://oparl.beispielris.de/agendaitem/1047"}\NormalTok{,}
+    \OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"agendaItem"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"@list"}\FunctionTok{:} \OtherTok{[}
+            \StringTok{"https://oparl.beispielris.de/agendaitem/1045"}\OtherTok{,}
+            \StringTok{"https://oparl.beispielris.de/agendaitem/1046"}\OtherTok{,}
+            \StringTok{"https://oparl.beispielris.de/agendaitem/1047"}\OtherTok{,}
             \StringTok{"https://oparl.beispielris.de/agendaitem/1048"}
-        \NormalTok{]}
-    \NormalTok{\},}
-    \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2012-01-06T12:01:00+01:00"}\NormalTok{,}
-    \DataTypeTok{"modified"}\NormalTok{: }\StringTok{"2012-01-08T14:05:27+01:00"}
-\NormalTok{\}}
+        \OtherTok{]}
+    \FunctionTok{\},}
+    \DataTypeTok{"created"}\FunctionTok{:} \StringTok{"2012-01-06T12:01:00+01:00"}\FunctionTok{,}
+    \DataTypeTok{"modified"}\FunctionTok{:} \StringTok{"2012-01-08T14:05:27+01:00"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3692,43 +3834,43 @@ Das selbe Beispiel in kompakter Form:
 \hyperdef{}{meetingux5fex2}{\label{meetingux5fex2}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}
-    \StringTok{"@type"}\ErrorTok{:} \StringTok{"oparl:Meeting"}\NormalTok{,}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/meeting/281"}\NormalTok{,}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"4. Sitzung des Finanzausschusses"}\NormalTok{,}
-    \DataTypeTok{"start"}\NormalTok{: }\StringTok{"2013-01-04T08:00:00+01:00"}\NormalTok{,}
-    \DataTypeTok{"end"}\NormalTok{: }\StringTok{"2013-01-04T12:00:00+01:00"}\NormalTok{,}
-    \DataTypeTok{"location"}\NormalTok{: \{}
-        \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Rathaus, Raum 136"}\NormalTok{, }\ErrorTok{//} \ErrorTok{default-Sprache} \ErrorTok{ist} \ErrorTok{im} \ErrorTok{Kontext} \ErrorTok{als} \DataTypeTok{"de"} \ErrorTok{angegeben}
-        \DataTypeTok{"description"}\NormalTok{: \{}
-            \DataTypeTok{"@value"}\NormalTok{: }\StringTok{"Town Hall, room 136"}\NormalTok{,}
-            \DataTypeTok{"@language"}\NormalTok{: }\StringTok{"en"}
-        \NormalTok{\}}
-    \NormalTok{\},}
-    \DataTypeTok{"organization"}\NormalTok{: }\StringTok{"beispielris:organization/34"}\NormalTok{,}
-    \DataTypeTok{"participant"}\NormalTok{: [}
-        \StringTok{"beispielris:person/29"}\NormalTok{,}
-        \StringTok{"beispielris:person/75"}\NormalTok{,}
+\FunctionTok{\{}
+    \DataTypeTok{"@context"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}
+    \StringTok{"@type"}\ErrorTok{:} \StringTok{"oparl:Meeting"}\FunctionTok{,}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/meeting/281"}\FunctionTok{,}
+    \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"4. Sitzung des Finanzausschusses"}\FunctionTok{,}
+    \DataTypeTok{"start"}\FunctionTok{:} \StringTok{"2013-01-04T08:00:00+01:00"}\FunctionTok{,}
+    \DataTypeTok{"end"}\FunctionTok{:} \StringTok{"2013-01-04T12:00:00+01:00"}\FunctionTok{,}
+    \DataTypeTok{"location"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"description"}\FunctionTok{:} \StringTok{"Rathaus, Raum 136"}\FunctionTok{,} \ErrorTok{//} \ErrorTok{default-Sprache} \ErrorTok{ist} \ErrorTok{im} \ErrorTok{Kontext} \ErrorTok{als} \DataTypeTok{"de"} \ErrorTok{angegeben}
+        \DataTypeTok{"description"}\FunctionTok{:} \FunctionTok{\{}
+            \DataTypeTok{"@value"}\FunctionTok{:} \StringTok{"Town Hall, room 136"}\FunctionTok{,}
+            \DataTypeTok{"@language"}\FunctionTok{:} \StringTok{"en"}
+        \FunctionTok{\}}
+    \FunctionTok{\},}
+    \DataTypeTok{"organization"}\FunctionTok{:} \StringTok{"beispielris:organization/34"}\FunctionTok{,}
+    \DataTypeTok{"participant"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"beispielris:person/29"}\OtherTok{,}
+        \StringTok{"beispielris:person/75"}\OtherTok{,}
         \StringTok{"beispielris:person/94"}
-    \NormalTok{],}
-    \DataTypeTok{"invitation"}\NormalTok{: }\StringTok{"beispielris:document/586"}\NormalTok{,}
-    \DataTypeTok{"resultsProtocol"}\NormalTok{: }\StringTok{"beispielris:document/628"}\NormalTok{,}
-    \DataTypeTok{"verbatimProtocol"}\NormalTok{: }\StringTok{"beispielris:document/691"}\NormalTok{,}
-    \DataTypeTok{"auxiliaryDocument"}\NormalTok{: [}
-        \StringTok{"beispielris:document/588"}\NormalTok{,}
+    \OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"invitation"}\FunctionTok{:} \StringTok{"beispielris:document/586"}\FunctionTok{,}
+    \DataTypeTok{"resultsProtocol"}\FunctionTok{:} \StringTok{"beispielris:document/628"}\FunctionTok{,}
+    \DataTypeTok{"verbatimProtocol"}\FunctionTok{:} \StringTok{"beispielris:document/691"}\FunctionTok{,}
+    \DataTypeTok{"auxiliaryDocument"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"beispielris:document/588"}\OtherTok{,}
         \StringTok{"beispielris:document/589"}
-    \NormalTok{],}
-    \DataTypeTok{"agendaItem"}\NormalTok{: [}
-    \ErrorTok{//} \ErrorTok{Reihenfolge} \ErrorTok{ist} \ErrorTok{wichtig}\NormalTok{, }\ErrorTok{deshalb} \ErrorTok{@list} \ErrorTok{im} \ErrorTok{Kontext} \ErrorTok{angeben}
-        \StringTok{"beispielris:agendaitem/1045"}\NormalTok{,}
-        \StringTok{"beispielris:agendaitem/1046"}\NormalTok{,}
-        \StringTok{"beispielris:agendaitem/1047"}\NormalTok{,}
+    \OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"agendaItem"}\FunctionTok{:} \OtherTok{[}
+    \ErrorTok{//} \ErrorTok{Reihenfolge} \ErrorTok{ist} \ErrorTok{wichtig}\OtherTok{,} \ErrorTok{deshalb} \ErrorTok{@list} \ErrorTok{im} \ErrorTok{Kontext} \ErrorTok{angeben}
+        \StringTok{"beispielris:agendaitem/1045"}\OtherTok{,}
+        \StringTok{"beispielris:agendaitem/1046"}\OtherTok{,}
+        \StringTok{"beispielris:agendaitem/1047"}\OtherTok{,}
         \StringTok{"beispielris:agendaitem/1048"}
-    \NormalTok{],}
-    \DataTypeTok{"created"}\NormalTok{: }\StringTok{"2012-01-06T12:01:00+01:00"}\NormalTok{,}
-    \DataTypeTok{"modified"}\NormalTok{: }\StringTok{"2012-01-08T14:05:27+01:00"}
-\NormalTok{\}}
+    \OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"created"}\FunctionTok{:} \StringTok{"2012-01-06T12:01:00+01:00"}\FunctionTok{,}
+    \DataTypeTok{"modified"}\FunctionTok{:} \StringTok{"2012-01-08T14:05:27+01:00"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3738,12 +3880,12 @@ Das selbe Beispiel in kompakter Form:
 \item[\texttt{start}]
 Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer
 zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer
-stattgefundenen KANN es der tatsächliche Startzeitpunkt sein. Typ: TODO.
-ZWINGEND
+stattgefundenen KANN es der tatsächliche Startzeitpunkt sein. Typ:
+Zeitstempel. ZWINGEND
 \item[\texttt{end}]
 Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen
 Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN
-es der tatsächliche Endzeitpunkt sein. Typ: TODO. EMPFOHLEN
+es der tatsächliche Endzeitpunkt sein. Typ: Zeitstempel. EMPFOHLEN
 \item[\texttt{location}]
 Sitzungsort. Typ: \texttt{oparl:Location}. EMPFOHLEN
 \item[\texttt{organization}]
@@ -3773,12 +3915,13 @@ nicht bereits über einzelne Tagesordnungspunkte referenziert sind. Typ:
 \item[\texttt{agendaItem}]
 Tagesordnungspunkte der Sitzung. Die Reihenfolge ist relevant. Es kann
 Sitzungen ohne TOPs geben. Typ: \texttt{oparl:AgendaItem}. OPTIONAL
-\item[\texttt{classification}]
+\item[\texttt{keyword}]
 Typ: \texttt{skos:Concept}. OPTIONAL
 \item[\texttt{created}]
-Datum und Uhrzeit der Erzeugung des Objekts. Typ: TODO. EMPFOHLEN
+Datum und Uhrzeit der Erzeugung des Objekts. Typ: Zeitstempel. EMPFOHLEN
 \item[\texttt{modified}]
-Datum und Uhrzeit der letzten Änderung des Objekts. Typ: TODO. EMPFOHLEN
+Datum und Uhrzeit der letzten Änderung des Objekts. Typ: Zeitstempel.
+EMPFOHLEN
 \end{description}
 
 \subsection{oparl:AgendaItem
@@ -3794,26 +3937,26 @@ Ein Beispiel in kompakter Form:
 \hyperdef{}{agendaitemux5fex1}{\label{agendaitemux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}
-    \StringTok{"@type"}\ErrorTok{:} \StringTok{"oparl:AgendaItem"}\NormalTok{,}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/agendaitem/3271"}\NormalTok{,}
-    \DataTypeTok{"meeting"}\NormalTok{: }\StringTok{"beispielris:meeting/281"}\NormalTok{,}
-    \DataTypeTok{"number"}\NormalTok{: }\StringTok{"10.1"}\NormalTok{,}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Satzungsänderung für Ausschreibungen"}\NormalTok{,}
-    \DataTypeTok{"public"}\NormalTok{: }\DecValTok{true}\NormalTok{,}
-    \DataTypeTok{"consultations"}\NormalTok{: [}
-        \StringTok{"beispielris:consultation/1034"}\NormalTok{,}
+\FunctionTok{\{}
+    \DataTypeTok{"@context"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}
+    \StringTok{"@type"}\ErrorTok{:} \StringTok{"oparl:AgendaItem"}\FunctionTok{,}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/agendaitem/3271"}\FunctionTok{,}
+    \DataTypeTok{"meeting"}\FunctionTok{:} \StringTok{"beispielris:meeting/281"}\FunctionTok{,}
+    \DataTypeTok{"number"}\FunctionTok{:} \StringTok{"10.1"}\FunctionTok{,}
+    \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Satzungsänderung für Ausschreibungen"}\FunctionTok{,}
+    \DataTypeTok{"public"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+    \DataTypeTok{"consultations"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"beispielris:consultation/1034"}\OtherTok{,}
         \StringTok{"beispielris:consultation/1235"}
-    \NormalTok{],}
-    \DataTypeTok{"result"}\NormalTok{: }\StringTok{"besipielris:vocab/decided_modified"}\NormalTok{,}
-    \DataTypeTok{"resolutionText"}\NormalTok{: }\StringTok{"Der Beschluss weicht wie folgt vom Antrag ab: ..."}\NormalTok{,}
-    \DataTypeTok{"absentParticipant"}\NormalTok{: [}
+    \OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"result"}\FunctionTok{:} \StringTok{"besipielris:vocab/decided_modified"}\FunctionTok{,}
+    \DataTypeTok{"resolutionText"}\FunctionTok{:} \StringTok{"Der Beschluss weicht wie folgt vom Antrag ab: ..."}\FunctionTok{,}
+    \DataTypeTok{"absentParticipant"}\FunctionTok{:} \OtherTok{[}
         \StringTok{"beispielris:person/75"}
-    \NormalTok{],}
-    \DataTypeTok{"paper"}\NormalTok{: }\StringTok{"beispielris:paper/2812"}\NormalTok{,}
-    \DataTypeTok{"modified"}\NormalTok{: }\StringTok{"2012-08-16T14:05:27+02:00"}
-\NormalTok{\}}
+    \OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"paper"}\FunctionTok{:} \StringTok{"beispielris:paper/2812"}\FunctionTok{,}
+    \DataTypeTok{"modified"}\FunctionTok{:} \StringTok{"2012-08-16T14:05:27+02:00"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3827,10 +3970,10 @@ Sitzung, der der Tagesordnungspunkt zugeordnet ist. Typ:
 Nummer des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z.B.
 ``10.'', ``10.1'', ``C'', ``c)'' o.ä. Die Reihenfolge wird dadurch nicht
 festgelegt, sondern durch die Reihenfolge der TOPs im
-\texttt{agendaItem}-Attribut von \texttt{oparl:Meeting} Typ: TODO
+\texttt{agendaItem}-Attribut von \texttt{oparl:Meeting} Typ: String
 OPTIONAL
 \item[\texttt{name}]
-Das Thema des Tagesordnungspunktes. Typ: TODO ZWINGEND.
+Das Thema des Tagesordnungspunktes. Typ: String ZWINGEND.
 \item[\texttt{public}]
 Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher
 Sitzung vorgesehen ist/war. Es wird ein Wahrheitswert (\texttt{true}
@@ -3854,7 +3997,8 @@ EMPFOHLEN
 Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann der
 Text hier hinterlegt werden. Das ist besonders dann in der Praxis
 relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) von
-der Beschlussvorlage abweicht. Typ: TODO OPTIONAL.
+der Beschlussvorlage abweicht. Typ: String TODO: Was ist bei sehr langem
+Text? OPTIONAL.
 \item[\texttt{paper}]
 Drucksache. Zwar kann auch das \texttt{oparl:Meeting} darauf verweisen,
 aber hier sind solche Verweise in der Regel präziser, da Drucksachen
@@ -3862,12 +4006,12 @@ regelmäßig nur für einen TOP relevant sind und nicht für alle TOPs. Typ:
 \texttt{oparl:Paper} OPTIONAL
 \item[\texttt{auxiliaryDocument}]
 eine weitere relevante Datei. Typ: \texttt{oparl:Document} OPTIONAL
-\item[\texttt{classification}]
+\item[\texttt{keyword}]
 Typ: \texttt{skos:Concept} OPTIONAL
 \item[\texttt{created}]
-Erzeugungsdatum und -zeit des Objekts. Typ: TODO EMPFOHLEN
+Erzeugungsdatum und -zeit des Objekts. Typ: Zeitstempel EMPFOHLEN
 \item[\texttt{lastModified}]
-Datum und Uhrzeit der letzten Änderung. Typ: TODO EMPFOHLEN
+Datum und Uhrzeit der letzten Änderung. Typ: Zeitstempel EMPFOHLEN
 \end{description}
 
 \hyperdef{}{oparlux5fpaper}{\subsection{oparl:Paper
@@ -3887,91 +4031,104 @@ Bezug genommen wird. Hierbei kommen in parlamentarischen
 Informationssystemen unveränderliche Kennungen der Drucksachen zum
 Einsatz.
 
-Zunächst ein Kontext:
-
-\hyperdef{}{paperux5fcontextux5fex}{\label{paperux5fcontextux5fex}}
-\begin{Shaded}
-\begin{Highlighting}[]
-\ErrorTok{//} \ErrorTok{consultations} \ErrorTok{als} \ErrorTok{@list} \ErrorTok{deklarieren!}
-\end{Highlighting}
-\end{Shaded}
-
 Ein Beispiel in kompakter Form:
 
 \hyperdef{}{paperux5fex1}{\label{paperux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}
-    \StringTok{"@type"}\ErrorTok{:} \StringTok{"oparl:Paper"}\NormalTok{,}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/paper/749"}\NormalTok{,}
-    \DataTypeTok{"reference"}\NormalTok{: }\StringTok{"1234/2014"}\NormalTok{,}
-    \DataTypeTok{"publishedDate"}\NormalTok{: }\StringTok{"2014-04-04T16:42:02+02:00"}\NormalTok{,}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Antwort auf Anfrage 1200/2014"}\NormalTok{,}
-    \DataTypeTok{"paperType"}\NormalTok{: }\StringTok{"beispielris:vocab/answer"}\NormalTok{,}
-    \DataTypeTok{"relatedPaper"}\NormalTok{: }\StringTok{"beispielris:paper/699"}\NormalTok{,}
-    \DataTypeTok{"mainDocument"}\NormalTok{: }\StringTok{"beispielris:document/925"}\NormalTok{,}
-    \DataTypeTok{"auxiliaryDocument"}\NormalTok{: }\StringTok{"beispielris:document/926"}\NormalTok{,}
-    \DataTypeTok{"location"}\NormalTok{: [}
-        \NormalTok{\{}
-            \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Theodor-Heuss-Ring 1"}\NormalTok{,}
-            \DataTypeTok{"geometry"}\NormalTok{: }\StringTok{"POINT(7.148  50.023)"}
-        \NormalTok{\}}
-    \NormalTok{],}
-    \DataTypeTok{"creator"}\NormalTok{: [}
-        \StringTok{"beispielris:organization/2000"}\NormalTok{,}
+\FunctionTok{\{}
+    \DataTypeTok{"@context"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}\FunctionTok{,}
+    \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"oparl:Paper"}\FunctionTok{,}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/paper/749"}\FunctionTok{,}
+    \DataTypeTok{"body"}\FunctionTok{:} \StringTok{"beispielris:bodies/1"}\FunctionTok{,}
+    \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Antwort auf Anfrage 1200/2014"}\FunctionTok{,}
+    \DataTypeTok{"reference"}\FunctionTok{:} \StringTok{"1234/2014"}\FunctionTok{,}
+    \DataTypeTok{"publishedDate"}\FunctionTok{:} \StringTok{"2014-04-04T16:42:02+02:00"}\FunctionTok{,}
+    \DataTypeTok{"paperType"}\FunctionTok{:} \StringTok{"beispielris:vocab/answer"}\FunctionTok{,}
+    \DataTypeTok{"relatedPaper"}\FunctionTok{:} \StringTok{"beispielris:paper/699"}\FunctionTok{,}
+    \DataTypeTok{"mainDocument"}\FunctionTok{:} \StringTok{"beispielris:document/925"}\FunctionTok{,}
+    \DataTypeTok{"auxiliaryDocument"}\FunctionTok{:} \StringTok{"beispielris:document/926"}\FunctionTok{,}
+    \DataTypeTok{"location"}\FunctionTok{:} \OtherTok{[}
+        \FunctionTok{\{}
+            \DataTypeTok{"description"}\FunctionTok{:} \StringTok{"Theodor-Heuss-Ring 1"}\FunctionTok{,}
+            \DataTypeTok{"geometry"}\FunctionTok{:} \StringTok{"POINT(7.148  50.023)"}
+        \FunctionTok{\}}
+    \OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"originator"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"beispielris:organization/2000"}\OtherTok{,}
         \StringTok{"beispielris:people/1000"}
-    \NormalTok{],}
-    \DataTypeTok{"consultation"}\NormalTok{: [}
-        \StringTok{"beispielris:consultation/5676"}\NormalTok{,}
+    \OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"consultation"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"beispielris:consultation/5676"}\OtherTok{,}
         \StringTok{"beispielris:consultation/5689"}
-    \NormalTok{]}
-    \StringTok{"modified"}\ErrorTok{:} \StringTok{"2013-01-08T12:05:27+01:00"}
-\NormalTok{\}}
+    \OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"modified"}\FunctionTok{:} \StringTok{"2013-01-08T12:05:27+01:00"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
 \subsubsection{Eigenschaften}\label{eigenschaften-6}
 
 \begin{description}
-\item[\texttt{reference}]
-Beispiel: ``1234/2014'' Typ: TODO OPTIONAL
-\item[\texttt{publishedDate}]
-Beispiel: ``2014-04-04T16:42:02+02:00'' Typ: TODO EMPFOHLEN
+\item[\texttt{body}]
+Körperschaft, zu der die Drucksache gehört. Typ: \texttt{oparl:Body}.
+Kardinalität: 1. Diese Eigenschaft ist ZWINGEND.
 \item[\texttt{name}]
-Beispiel: ``Antwort auf Anfrage 1200/2014'' Typ: TODO EMPFOHLEN
+Titel der Drucksache. Typ: Zeichenkette. Kardinalität: 1. Diese
+Eigenschaft ist ZWINGEND.
+\item[\texttt{reference}]
+Kennung bzw. Aktenzeichen der Drucksache, mit der sie in der
+parlamentarischen Arbeit eindeutig referenziert werden kann. Typ:
+Zeichenkette. Kardinalität: 0 - 1. Die Eigenschaft ist OPTIONAL.
+\item[\texttt{publishedDate}]
+Veröffentlichungsdatum der Drucksache. Typ: Datum mit oder ohne Zeit.
+Kardinalität: 0 - 1. Diese Eigenschaft ist EMPFOHLEN.
 \item[\texttt{paperType}]
 Begriff mit einem \texttt{skos:prefLabel}-Attribut, dessen Wert eine
 Zeichenkette ist und die Art der Drucksache beschreibt, z.B.
 ``Beantwortung einer Anfrage''. Für die URLs kommen als letztes
 Pfadelement z.B. ``draft'', ``petition'', ``request'', ``note'' und
 ``answer'' in Frage. Denkbar ist auch eine Kategorisierung z.B. in drei
-Arten von Drucksachen: initiierend, beratend und protokollierend. Eine
-weitere Liste mit exemplarischen Drucksachentypen gibt es hier:
-https://wiki.piratenpartei.de/BE:BVVupdates/Glossar Eine zukünftige
-Version von OParl wird möglicherweise solche Werte spezifizieren. Typ:
-\texttt{skos:Concept} OPTIONAL
+Arten von Drucksachen: initiierend, beratend und
+protokollierend.\footnote{Eine Liste mit exemplarischen
+  Drucksachentypen:
+  \url{https://wiki.piratenpartei.de/BE:BVVupdates/Glossar}}
+Kardinalität: 0 bis 1. Typ: \texttt{skos:Concept}. Diese Eigenschaft ist
+EMPFOHLEN.
 \item[\texttt{relatedPaper}]
-Typ: \texttt{oparl:Paper} OPTIONAL
+Inhaltlich verwandte Drucksache(n). Typ: \texttt{oparl:Paper}.
+Kardinalität: 0 bis *. Die Eigenschaft ist OPTIONAL.
 \item[\texttt{mainDocument}]
-Typ: \texttt{oparl:Document}
+Das Hauptdokument zu dieser Drucksache. Beispiel: Die Drucksache
+repräsentiert eine Beschlussvorlage, das Hauptdokument enthält den Text
+der Beschlussvorlage. Typ: \texttt{oparl:Document}. Kardinalität: 1.
+Diese Eigenschaft ist ZWINGEND.
 \item[\texttt{auxiliaryDocument}]
-Typ: \texttt{oparl:Document}
+Anhänge zur Drucksache. Diese sind, in Abgrenzung zum Hauptdokument
+(\texttt{mainDocument}) untergeordnet und es kann beliebig viele davon
+geben. Typ: \texttt{oparl:Document}. Kardinalität: 0 bis *. Die
+Eigenschaft ist OPTIONAL.
 \item[\texttt{location}]
-Typ: \texttt{oparl:Location}
-\item[\texttt{creator}]
-Typ: \texttt{oparl:Person} \textbar{} \texttt{oparl:Organization}
+Sofern die Drucksache einen inhaltlichen Ortsbezug hat, beschreibt diese
+Eigenschaft den Ort in Textform und/oder in Form von Geodaten. Typ:
+\texttt{oparl:Location}. Kardinalität: 0 bis *. Die Eigenschaft ist
+OPTIONAL.
+\item[\texttt{originator}]
+Urheber der Drucksache, kann eine oder mehrere Person(en) bzw.
+Gruppierung(en) sein. Typ: \texttt{oparl:Person} \textbar{}
+\texttt{oparl:Organization}. Kardinalität: 0 bis *. Die Eigenschaft ist
+EMPFOHLEN.
 \item[\texttt{consultation}]
-Typ: \texttt{oparl:Consultation}
+Beratungen der Drucksache. Typ: \texttt{oparl:Consultation}.
+Kardinalität: 0 bis *. Die Eigenschaft ist OPTIONAL.
 \item[\texttt{modified}]
-Typ: TODO Beispiel: ``2013-01-08T12:05:27+01:00''
-\item[\texttt{classification}]
+Letzter Änderungszeitpunkt des Objekts. Typ: Zeitstempel. Kardinalität:
+1.
+\item[\texttt{keyword}]
 Begriff mit \texttt{skos:prefLabel}. Allgemeiner als \texttt{paperType}
-Typ: \texttt{skos:Concept} OPTIONAL
+Typ: \texttt{skos:Concept}. Kardinalität: 0 bis *. Die Eigenschaft ist
+OPTIONAL.
 \end{description}
-
-TODO: * Festlegen: OPTIONAL / EMPFOHLEN / ZWINGEND * Eigenschaft
-``locations'' im Beispiel ändern
 
 \hyperdef{}{oparlux5fdocument}{\subsection{oparl:Document
 (Datei)}\label{oparlux5fdocument}}
@@ -3985,28 +4142,28 @@ Ein Beispiel:
 \hyperdef{}{documentux5fex1}{\label{documentux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:Document"}\NormalTok{,}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/document/57739"}\NormalTok{,}
-    \DataTypeTok{"name"}\NormalTok{: }\StringTok{"Anlage 1 zur Anfrage"}\NormalTok{,}
-    \DataTypeTok{"fileName"}\NormalTok{: }\StringTok{"57739.pdf"}\NormalTok{,}
-    \DataTypeTok{"paper"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/paper/2396"}\NormalTok{,}
-    \DataTypeTok{"mimeType"}\NormalTok{: }\StringTok{"application/pdf"}\NormalTok{,}
-    \DataTypeTok{"date"}\NormalTok{: }\StringTok{"2013-01-04T07:54:13+01:00"}\NormalTok{,}
-    \DataTypeTok{"lastModified"}\NormalTok{: }\StringTok{"2013-01-04T07:54:13+01:00"}\NormalTok{,}
-    \DataTypeTok{"sha1Checksum"}\NormalTok{: }\StringTok{"da39a3ee5e6b4b0d3255bfef95601890afd80709"}\NormalTok{,}
-    \DataTypeTok{"size"}\NormalTok{: }\DecValTok{82930}\NormalTok{,}
-    \DataTypeTok{"accessUrl"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/document/57739.pdf"}\NormalTok{,}
-    \DataTypeTok{"downloadUrl"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/document/download/57739.pdf"}\NormalTok{,}
-    \DataTypeTok{"text"}\NormalTok{: }\StringTok{"Der Übersichtsplan zeigt alle Ebenen des ..."}\NormalTok{,}
-    \DataTypeTok{"masterDocument"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/document/57738"}\NormalTok{,}
-    \DataTypeTok{"license"}\NormalTok{: }\StringTok{"http://www.opendefinition.org/licenses/cc-by"}\NormalTok{,}
-    \DataTypeTok{"documentRole"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/document-role/evidence"}\NormalTok{,}
-\NormalTok{\}}
+\FunctionTok{\{}
+    \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"oparl:Document"}\FunctionTok{,}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/document/57739"}\FunctionTok{,}
+    \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Anlage 1 zur Anfrage"}\FunctionTok{,}
+    \DataTypeTok{"fileName"}\FunctionTok{:} \StringTok{"57739.pdf"}\FunctionTok{,}
+    \DataTypeTok{"paper"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/paper/2396"}\FunctionTok{,}
+    \DataTypeTok{"mimeType"}\FunctionTok{:} \StringTok{"application/pdf"}\FunctionTok{,}
+    \DataTypeTok{"date"}\FunctionTok{:} \StringTok{"2013-01-04T07:54:13+01:00"}\FunctionTok{,}
+    \DataTypeTok{"modified"}\FunctionTok{:} \StringTok{"2013-01-04T07:54:13+01:00"}\FunctionTok{,}
+    \DataTypeTok{"sha1Checksum"}\FunctionTok{:} \StringTok{"da39a3ee5e6b4b0d3255bfef95601890afd80709"}\FunctionTok{,}
+    \DataTypeTok{"size"}\FunctionTok{:} \DecValTok{82930}\FunctionTok{,}
+    \DataTypeTok{"accessUrl"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/document/57739.pdf"}\FunctionTok{,}
+    \DataTypeTok{"downloadUrl"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/document/download/57739.pdf"}\FunctionTok{,}
+    \DataTypeTok{"text"}\FunctionTok{:} \StringTok{"Der Übersichtsplan zeigt alle Ebenen des ..."}\FunctionTok{,}
+    \DataTypeTok{"masterDocument"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/document/57738"}\FunctionTok{,}
+    \DataTypeTok{"license"}\FunctionTok{:} \StringTok{"http://www.opendefinition.org/licenses/cc-by"}\FunctionTok{,}
+    \DataTypeTok{"documentRole"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/document-role/evidence"}\FunctionTok{,}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-Objekt vom Typ \texttt{oparl:Document} können mit Drucksachen
+Objekte vom Typ \texttt{oparl:Document} können mit Drucksachen
 (\texttt{oparl:Paper}) oder Sitzungen (\texttt{oparl:Meeting}) in
 Beziehung stehen. Dies wird durch die Eigenschaft \texttt{paper} bzw.
 \texttt{meeting} angezeigt.
@@ -4027,22 +4184,23 @@ Datei existieren.
 \begin{description}
 \item[\texttt{fileName}]
 Dateiname, unter dem die Datei in einem Dateisystem gespeichert werden
-kann. Typ: ASCII-Zeichenkette. ZWINGEND.
+kann. Typ: ASCII-Zeichenkette. Kardinalität: 1. ZWINGEND.
 \item[\texttt{name}]
 Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt. Der
 Wert SOLL NICHT mit dem Wert der Eigenschaft \texttt{fileName} identisch
-sein. Typ: Zeichenkette. EMPFOHLEN.
+sein. Typ: Zeichenkette. Kardinalität: 0 bis 1. EMPFOHLEN.
 \item[\texttt{mimeType}]
 Mime-Typ des Inhalts\footnote{vgl. RFC2046:
   \url{http://tools.ietf.org/html/rfc2046}}. Sollte das System einer
 Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier
-\texttt{application/octet-stream} zu verwenden. Typ: Zeichenkette
-ZWINGEND.
+\texttt{application/octet-stream} zu verwenden. Typ: Zeichenkette.
+Kardinalität: 1. ZWINGEND.
 \item[\texttt{date}]
 Datum und Zeit der Erstellung der Datei. Wahlweise, falls dies nicht vom
 System kommuniziert werden kann oder soll, KANN alternativ der Zeitpunkt
-der Veröffentlichung ausgegeben werden. Typ: Datum. ZWINGEND.
-\item[\texttt{lastModified}]
+der Veröffentlichung ausgegeben werden. Typ: Datum. Kardinalität: 1.
+ZWINGEND.
+\item[\texttt{modified}]
 Datum und Zeit der letzten Änderung der Datei bzw. der Metadaten. Als
 Änderung der Datei gilt alles, was den Inhalt der Datei verändert und
 beispielsweise zu einer Veränderung der Prüfsumme führen würde, nicht
@@ -4050,56 +4208,61 @@ aber die Änderung des Dateinamens (siehe Eigenschaft \texttt{name}). Als
 Änderung der Metadaten hingegen würde beispielsweise die Änderung des
 Dateinamens gelten. Hier soll immer das größere der beiden Daten
 ausgegeben werden, also der am wenigsten lang zurückliegende
-Änderungszeitpunkt. Typ: Datum. ZWINGEND.
+Änderungszeitpunkt. Typ: Datum und Uhrzeit. Kardinalität: 1. ZWINGEND.
 \item[\texttt{size}]
-Größe der Datei in Bytes. Typ: ganze Zahl. ZWINGEND.
+Größe der Datei in Bytes. Typ: ganze Zahl. Kardinalität: 1. ZWINGEND.
 \item[\texttt{sha1Checksum}]
 SHA1-Prüfsumme des Dokumenteninhalts in Hexadezimal-Schreibweise. Typ:
-Zeichenkette. OPTIONAL.
+Zeichenkette. Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{text}]
 Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform
-wiedergegeben werden kann. Typ: Zeichenkette. EMPFOHLEN.
+wiedergegeben werden kann. Typ: Zeichenkette. Kardinalität: 0 bis 1.
+EMPFOHLEN.
 \item[\texttt{accessUrl}]
 URL zum allgemeinen Zugriff auf die Datei. Näheres unter
-\hyperref[dateizugriff]{Dateizugriff}. Typ: URL. ZWINGEND.
+\hyperref[dateizugriff]{Dateizugriff}. Typ: URL. Kardinalität: 1.
+ZWINGEND.
 \item[\texttt{downloadUrl}]
 URL zum Download der Datei. Näheres unter
-\hyperref[dateizugriff]{Dateizugriff}. Typ: URL. EMPFOHLEN.
+\hyperref[dateizugriff]{Dateizugriff}. Typ: URL. Kardinalität: 0 bis 1.
+EMPFOHLEN.
 \item[\texttt{paper}]
 Falls die Datei zu einer Drucksache (oparl:Paper) gehört, MUSS über
 diese Eigenschaft die URL des Drucksache-Objekts ausgegeben werden.
 Andernsfalls DARF diese Eigenschaft NICHT vorhanden sein. Typ:
-\texttt{oparl:Paper}.
+\texttt{oparl:Paper}. Kardinalität: 0 bis *.
 \item[\texttt{meeting}]
 Falls die Datei zu einer Sitzung (oparl:Meeting) gehört, MUSS über diese
 Eigenschaft die URL des Sitzung-Objekts ausgegeben werden. Andernfalls
 DARF diese Eigenschaft NICHT vorhanden sein. Typ:
-\texttt{oparl:Meeting}.
+\texttt{oparl:Meeting}. Kardinalität: 0 bis *.
 \item[\texttt{masterDocument}]
-Datei von der das aktuelle Objekt abgeleitet wurde. Typ:
-\texttt{oparl:Document}. OPTIONAL.
+Datei von der das aktuelle Objekt abgeleitet wurde. Details dazu in der
+allgemeinen Beschreibung weiter oben. Typ: \texttt{oparl:Document}.
+Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{derivativeDocuments}]
-Abgeleitete Datei die von dem aktuellen Objekt abgeleitet wurde. Typ:
-\texttt{oparl:Document}. OPTIONAL.
+Abgeleitete Datei die von dem aktuellen Objekt abgeleitet wurde. Details
+dazu in der allgemeinen Beschreibung weiter oben. Typ:
+\texttt{oparl:Document}. Kardinalität: 0 bis *. OPTIONAL.
 \item[\texttt{license}]
 Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft
 verwendet wird, dann ist sie anstelle einer globalen Angabe im
 übergeordneten \texttt{oparl:Body} bzw. \texttt{oparl:System} Objekt
 maßgeblich.\footnote{vgl. \hyperref[eigenschaftux5flicense]{license}}
-Typ: URL. OPTIONAL.
+Typ: URL. Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{documentRole}]
-Rolle, Funktion, Sorte des Dokuments. Das Objekt enthält ein
-\texttt{skos:prefLabel}. Dessen Werte können z.B. sein: ``Einladung'',
-``Protokoll'', ``Wortprotokoll'' oder ``Beschlussprotokoll''. In einer
-zukünftigen OParl-Version wird möglicherweise eine Menge der wichtigsten
-Kategorien vorgegeben. Typ: \texttt{skos:Concept}. OPTIONAL. TODO: Link
-auf Erkärungs-Kapitel, damit klar ist, dass hier auf externes Vokabular
-verlinkt wird.
-\item[\texttt{classification}]
+Rolle, Funktion, Sorte des Dokuments in Bezug auf eine Sitzung. Die
+Eigenschaft SOLL entsprechend nur in Verbindung mit der Eigenschaft
+\texttt{meeting} gesetzt sein. Siehe dazu
+\hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}. Typ: \texttt{skos:Concept}. Kardinalität: 0 bis 1.
+OPTIONAL.
+\item[\texttt{keyword}]
 Begriff mit \texttt{skos:prefLabel}. Hat allgemeinere Bedeutung als
-\texttt{documentRole}. Typ: \texttt{skos:Concept}. OPTIONAL. TODO: TODO:
-Link auf Erkärungs-Kapitel, damit klar ist, dass hier auf externes
-Vokabular verlinkt wird.
+\texttt{documentRole}. Siehe dazu
+\hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}. Typ: \texttt{skos:Concept}. Kardinalität: 0 bis *.
+OPTIONAL.
 \end{description}
 
 \subsection{oparl:Consultation (Beratung)}\label{oparlux5fconsultation}
@@ -4119,15 +4282,15 @@ Ein Beispiel:
 \hyperdef{}{consultationux5fex1}{\label{consultationux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:Consultation"}\NormalTok{,}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/consultation/47594"}\NormalTok{,}
-    \DataTypeTok{"paper"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/paper/2396"}\NormalTok{,}
-    \DataTypeTok{"agendaitem"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/agendaitem/15569"}\NormalTok{,}
-    \DataTypeTok{"committee"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/organization/96"}\NormalTok{,}
-    \DataTypeTok{"authoritative"}\NormalTok{: }\DecValTok{false}\NormalTok{,}
-    \DataTypeTok{"role"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/role/decision"}
-\NormalTok{\}}
+\FunctionTok{\{}
+    \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"oparl:Consultation"}\FunctionTok{,}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/consultation/47594"}\FunctionTok{,}
+    \DataTypeTok{"paper"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/paper/2396"}\FunctionTok{,}
+    \DataTypeTok{"agendaitem"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/agendaitem/15569"}\FunctionTok{,}
+    \DataTypeTok{"committee"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/organization/96"}\FunctionTok{,}
+    \DataTypeTok{"authoritative"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"role"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/role/decision"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4137,16 +4300,16 @@ vorausgesetzt):
 \hyperdef{}{consultationux5fex2}{\label{consultationux5fex2}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}\NormalTok{,}
-    \DataTypeTok{"@type"}\NormalTok{: }\StringTok{"oparl:Consultation"}\NormalTok{,}
-    \DataTypeTok{"@id"}\NormalTok{: }\StringTok{"beispielris:consultation/47594"}\NormalTok{,}
-    \DataTypeTok{"paper"}\NormalTok{: }\StringTok{"beispielris:paper/2396"}\NormalTok{,}
-    \DataTypeTok{"agendaitem"}\NormalTok{: }\StringTok{"beispielris:agendaitem/15569"}\NormalTok{,}
-    \DataTypeTok{"committee"}\NormalTok{: }\StringTok{"beispielris:organization/96"}\NormalTok{,}
-    \DataTypeTok{"authoritative"}\NormalTok{: }\DecValTok{false}\NormalTok{,}
-    \DataTypeTok{"role"}\NormalTok{: }\StringTok{"beispielris:role/decision"}
-\NormalTok{\}}
+\FunctionTok{\{}
+    \DataTypeTok{"@context"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}\FunctionTok{,}
+    \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"oparl:Consultation"}\FunctionTok{,}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"beispielris:consultation/47594"}\FunctionTok{,}
+    \DataTypeTok{"paper"}\FunctionTok{:} \StringTok{"beispielris:paper/2396"}\FunctionTok{,}
+    \DataTypeTok{"agendaitem"}\FunctionTok{:} \StringTok{"beispielris:agendaitem/15569"}\FunctionTok{,}
+    \DataTypeTok{"committee"}\FunctionTok{:} \StringTok{"beispielris:organization/96"}\FunctionTok{,}
+    \DataTypeTok{"authoritative"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+    \DataTypeTok{"role"}\FunctionTok{:} \StringTok{"beispielris:role/decision"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4155,14 +4318,14 @@ Das Objekt ``beispielris:roles/decision'' kann so aussehen:
 \hyperdef{}{roleux5fex1}{\label{roleux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"@context"}\NormalTok{: }\StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}
-    \StringTok{"@id"}\ErrorTok{:} \StringTok{"beispielris:role/decision"}\NormalTok{,}
-    \DataTypeTok{"prefLabel"}\NormalTok{: \{}
-        \DataTypeTok{"de"}\NormalTok{: }\StringTok{"Entscheidung"}\NormalTok{,}
-        \DataTypeTok{"en"}\NormalTok{: }\StringTok{"decision"}
-    \NormalTok{\}}
-\NormalTok{\}}
+\FunctionTok{\{}
+    \DataTypeTok{"@context"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}
+    \StringTok{"@id"}\ErrorTok{:} \StringTok{"beispielris:role/decision"}\FunctionTok{,}
+    \DataTypeTok{"prefLabel"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"de"}\FunctionTok{:} \StringTok{"Entscheidung"}\FunctionTok{,}
+        \DataTypeTok{"en"}\FunctionTok{:} \StringTok{"decision"}
+    \FunctionTok{\}}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4193,7 +4356,7 @@ verwenden. Die Rollenobjekte haben nur eine festgelegte Eigenschaft:
 \texttt{skos:prefLabel} für den Namen. In einer zukünftigen Version von
 OParl können gegebenenfalls die am stärksten benötigten Rollen
 standardisiert werden. Typ: \texttt{skos:Concept} OPTIONAL
-\item[\texttt{classification}]
+\item[\texttt{keyword}]
 Schlagwort, Begriff mit \texttt{skos:prefLabel}. Allgemeiner verwendbar
 als \texttt{role}. Typ: \texttt{skos:Concept} OPTIONAL
 \end{description}
@@ -4218,14 +4381,14 @@ Ein einfaches Beispiel:
 \hyperdef{}{locationux5fex1}{\label{locationux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
+\FunctionTok{\{}
     \ErrorTok{...}
-    \DataTypeTok{"location"}\NormalTok{: \{}
-        \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Honschaftsstraße 312, Köln"}\NormalTok{,}
-        \DataTypeTok{"geometry"}\NormalTok{: }\StringTok{"POINT (7.03291 50.98249)"}
-    \NormalTok{\},}
+    \DataTypeTok{"location"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"description"}\FunctionTok{:} \StringTok{"Honschaftsstraße 312, Köln"}\FunctionTok{,}
+        \DataTypeTok{"geometry"}\FunctionTok{:} \StringTok{"POINT (7.03291 50.98249)"}
+    \FunctionTok{\},}
     \ErrorTok{...}
-\NormalTok{\}}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4245,14 +4408,14 @@ Und ein Beispiel unter Verwendung des Kontextes:
 \hyperdef{}{locationux5fex2}{\label{locationux5fex2}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
+\FunctionTok{\{}
     \ErrorTok{//} \ErrorTok{...}
-    \DataTypeTok{"location"}\NormalTok{: \{}
-        \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Honschaftsstraße 312, Köln"}\NormalTok{,}
-        \DataTypeTok{"geometry"}\NormalTok{: }\StringTok{"POINT (7.03291 50.98249)"}
-    \NormalTok{\},}
+    \DataTypeTok{"location"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"description"}\FunctionTok{:} \StringTok{"Honschaftsstraße 312, Köln"}\FunctionTok{,}
+        \DataTypeTok{"geometry"}\FunctionTok{:} \StringTok{"POINT (7.03291 50.98249)"}
+    \FunctionTok{\},}
     \ErrorTok{//} \ErrorTok{...}
-\NormalTok{\}}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4287,7 +4450,7 @@ Zeichenkette. EMPFOHLEN
 Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt, MUSS
 ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen. Typ:
 Zeichenkette (TODO: Stimmt das?). OPTIONAL
-\item[\texttt{classification}]
+\item[\texttt{keyword}]
 Schlagwort mit \texttt{skos:prefLabel} Typ: \texttt{skos:Concept}
 OPTIONAL
 \end{description}
@@ -4299,16 +4462,16 @@ Ortsangabe mit Polygon-Objekt:
 \hyperdef{}{locationux5fex3}{\label{locationux5fex3}}
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{\{}
-    \DataTypeTok{"description"}\NormalTok{: }\StringTok{"Rechtes Rheinufer zwischen Deutzer}
-\StringTok{        Brücke und Hohenzollernbrücke"}\NormalTok{,}
-    \DataTypeTok{"geometry"}\NormalTok{: }\StringTok{"POLYGON ((}
+\FunctionTok{\{}
+    \DataTypeTok{"description"}\FunctionTok{:} \StringTok{"Rechtes Rheinufer zwischen Deutzer}
+\StringTok{        Brücke und Hohenzollernbrücke"}\FunctionTok{,}
+    \DataTypeTok{"geometry"}\FunctionTok{:} \StringTok{"POLYGON ((}
 \StringTok{                6.9681106 50.9412137,}
 \StringTok{                6.9690940 50.9412137,}
 \StringTok{                6.9692169 50.9368270,}
 \StringTok{                6.9681218 50.9368270,}
 \StringTok{                6.9681106 50.9412137))"}
-\NormalTok{\}}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4333,22 +4496,25 @@ Vertreterin''. Popolo: ``The role that the person fulfills in the
 organization''. normale Mitglieder haben in der Regel keine eigene
 Funktion, aber auch eine Unterscheidung zwischen z.B. ``Sachkundige
 Bürger \textbar{} Sachkundige Bürgerin'' und ``Ratsherr \textbar{}
-Ratsfrau'' bei einfachen Mitgliedern ist hiermit möglich. TODO: was ist
-mit einem sachkundigen Bürger, der gleichzeitig Vorsitzender ist? Typ:
-\texttt{org:Role} OPTIONAL
+Ratsfrau'' bei einfachen Mitgliedern ist hiermit möglich. FRAGE: Wie
+soll bei einem sachkundigen Bürger verfahren werden, der gleichzeitig
+Vorsitzender ist? Typ: \texttt{org:Role} OPTIONAL
 \item[\texttt{post}]
 The post held by the person in the organization Typ: \texttt{org:Post}
 OPTIONAL
 \item[\texttt{onBehalfOf}]
 Entsendende Organization - Fraktion, fraktionslos oder externes Gremium
-Dies entspricht \texttt{opengov:onBehalfOf} in Popolo. TODO: wie wird
-fraktionslos kodiert? Typ: \texttt{oparl:Organization} OPTIONAL
+Dies entspricht \texttt{opengov:onBehalfOf} in Popolo. Es kann auch
+Mitglieder geben, die von keiner anderen Organisation entsendet wurden
+(z.B. fraktionslose Abgeordnete). FRAGE: Muss diese Situation vom Fehlen
+von Informationen über Entsendungen unterschieden werden? Typ:
+\texttt{oparl:Organization} OPTIONAL
 \item[\texttt{startDate}]
 \texttt{schema:validFrom} wie in Popolo. The date on which the
-relationship began Typ: TODO OPTIONAL
+relationship began Typ: String im Format \texttt{xsd:dateTime} OPTIONAL
 \item[\texttt{endDate}]
 \texttt{schema:validThrough} wie in Popolo. The date on which the
-relationship ended Typ: TODO OPTIONAL
+relationship ended Typ: String im Format \texttt{xsd:dateTime} OPTIONAL
 \end{description}
 
 \subsubsection{Hinweise}\label{hinweise}

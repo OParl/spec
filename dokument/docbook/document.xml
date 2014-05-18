@@ -30,12 +30,21 @@
       Reviewer, die mit dem Stichwort &quot;FRAGE&quot; markiert sind.
       Hier bitten wir Sie um Mithilfe und laden Sie ein, Ihre Antwort
       unter
+    </para>
+    <para>
       <ulink url="https://github.com/OParl/specs/issues?milestone=1&amp;state=open">https://github.com/OParl/specs/issues?milestone=1&amp;state=open</ulink>
+    </para>
+    <para>
       beizusteuern.
     </para>
     <para>
       Die Kennzeichnung &quot;TODO&quot; markiert darüber hinaus
       Hinweise, die für die Bearbeiter des Dokuments gedacht sind.
+    </para>
+    <para>
+      Das Ziel ist selbstverständlich, zur Verabschiedung der Version
+      1.0 keine derartigen Bearbeitungshinweise und Fragen mehr im
+      Dokument zu haben.
     </para>
   </sect2>
   <sect2 id="was-ist-oparl-in-kürze">
@@ -66,10 +75,10 @@
     <para>
       OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:
     </para>
-    <itemizedlist>
+    <itemizedlist spacing="compact">
       <listitem>
         <para>
-          Verwaltung und politische Gremien in Kommunen
+          Verwaltung und politische Gremien in Gebietskörperschaften
         </para>
       </listitem>
       <listitem>
@@ -99,15 +108,14 @@
       </listitem>
     </itemizedlist>
     <para>
-      TODO: Nutzen für jede Stakeholder-Gruppe
-    </para>
-    <para>
       Die Gründe, warum Betreiber von parlamentarischen
       Informationssystemen den Zugriff darauf über eine standardisierte
-      Schnittstelle ermöglichen sollten, können vielfältig sein.
+      Schnittstelle ermöglichen sollten, können vielfältig sein und je
+      nach Nutzergruppe unterschiedlich.
     </para>
     <para>
-      Ein zentrales Argument ist die Verpflichtung der Parlamente
+      Ein zentrales Argument für Verwaltung und politische Gremien in
+      Gebietskörperschaften ist die Verpflichtung der Parlamente
       gegenüber der Bevölkerung, diese über die Fortschritte der
       parlamentarischen Arbeit zu informieren und auf dem Laufenden zu
       halten. Ein erster Schritt, der Bevölkerung Einblicke in die
@@ -125,6 +133,23 @@
       Verwendung durch Dritte technisch möglich ist. Der seit einiger
       Zeit etablierte Begriff für dieses Prinzip heißt &quot;Open
       Data&quot;.
+    </para>
+    <para>
+      Open-Data-Initiativen können unter Rückgriff auf RIS mit
+      OParl-Schnittstelle einfacher Dokumente und Daten aus
+      unterschiedlichen Gebietskörperschaften in Open-Data-Katalogen
+      verzeichnen und so einfacher auffindbar machen für die
+      Weiterverwendung durch Dritte.
+    </para>
+    <para>
+      Bürgerinnen und Bürger, politische Parteien und
+      zivilgesellschaftliche Organisationen können einfacher auf Inhalte
+      parlamentarischer Informationssysteme zugreifen und diese
+      entsprechend ihren Interessen aufbereiten. Dies können
+      beispielsweise Visualisierungen von enthaltenen Daten, die
+      Anreicherung von Informationsangeboten für spezielle Nutzergruppen
+      oder die Schaffung von Benutzeroberflächen mit besonderen
+      Funktionen für verschiedene Endgeräte sein.
     </para>
     <para>
       Das Interesse an parlamentarischen Informationen und an
@@ -154,7 +179,7 @@
       wenn sie über eine Schnittstelle schnell und einfach abgerufen
       werden können, sind vielfältig. Beispiele sind:
     </para>
-    <itemizedlist>
+    <itemizedlist spacing="compact">
       <listitem>
         <para>
           Apps für den Abruf auf mobilen Endgeräten
@@ -190,6 +215,13 @@
       Potenzial für Kooperationen zwischen Anwendungsentwicklern wächst.
     </para>
     <para>
+      Für Wissenschaftler, die z.B. an vergleichenden Untersuchungen zu
+      Vorgängen in verschiedenen Gebietskörperschaften interessiert
+      sind, ergeben sich ebenso vielfältige Möglichkeiten über mehrere
+      RIS-Instanzen hinweg auf entsprechende Informationen zuzugreifen
+      und diese so einfacher in ihre Analysen einzubeziehen.
+    </para>
+    <para>
       Darüber hinaus sind auch Motivationen innerhalb von Organisationen
       und Körperschaften erkennbar. So sollen parlamentarische
       Informationssysteme vielerorts in verschiedenste Prozesse und
@@ -197,6 +229,14 @@
       einheitliche Schnittstelle bieten sich effiziente Möglichkeiten
       zur Integration der Daten in anderen Systeme, wie beispielsweise
       Web-Portale.
+    </para>
+    <para>
+      Anbieter von Server- und Softwareprodukten, die RIS-Lösungen
+      anbieten können mit der Implementation der OParl-Schnittstelle
+      ihren Kunden eine entsprechende einheitliche Schnittstelle
+      anbieten. Für Anbieter von Linked-Data-Plattformen ergeben sich
+      u.a. Möglichkeiten zur vereinfachten Zusammenführung und
+      Anreicherung von Inhalten parlamentarischer Informationssysteme.
     </para>
     <para>
       Ausführlichere Beschreibungen einiger möglicher
@@ -285,7 +325,7 @@
           Weitere generelle Informationen zur Bereitstellung offener
           Verwaltungsdaten bieten bspw.
         </para>
-        <itemizedlist>
+        <itemizedlist spacing="compact">
           <listitem>
             <para>
               Praktische Informationen: Open-Data-Handbook der Open
@@ -308,178 +348,211 @@
   <sect2 id="werdegang-von-oparl-1.0">
     <title>Werdegang von OParl 1.0</title>
     <para>
-      Stichpunkte:
+      Die Vorüberlegungen für die Erarbeitung eines offenen Standards
+      für parlamentarische Informationssysteme, die letztlich zu OParl
+      geführt haben, begannen auf einer Veranstaltung der Open Knowledge
+      Foundation (OKF) Deutschland am 17. und 18. November 2012. Unter
+      dem Titel &quot;Stadt Land Code&quot; lud die OKF EntwicklerInnen
+      von Anwendungen ein, die das Ziel haben, einen gesellschaftlichen
+      Nutzen zu schaffen. Die Veranstaltung in den Räumen der
+      Heinrich-Böll-Stiftung wurde unter anderem von VITAKO, der
+      Bundes-Arbeitsgemeinschaft der Kommunalen IT-Dienstleister,
+      gesponsort. Die Geschäftsführerin, Dr. Marianne Wulff, war selbst
+      anwesend. Marian Steinbach, Entwickler von Offenes Köln, war
+      eingeladen, um über die Erfahrungen mit seinem Projekt zu
+      berichten und sprach dabei auch über die Problematik, das Prinzip
+      der offenen Ratsinformationen für die BürgerInnen aller Kommunen
+      nutzbar zu machen. Es kam zum Austausch zwischen Marianne Wulff
+      und Marian Steinbach über Möglichkeiten, dies gemeinsam voran zu
+      treiben.
     </para>
-    <itemizedlist>
-      <listitem>
-        <orderedlist numeration="arabic">
-          <listitem override="17">
-            <para>
-              und 18. November 2012: Die Open Knowledge Foundation
-              Deutschland veranstaltet in den Räumen der
-              Heinrich-Böll-Stiftung in Berlin einen Workshop für
-              Entwickler von Anwendungen, die einen gesellschaftlichen
-              Nutzen bringen sollen. Hier ist VITAKO, die
-              Bundes-Arbeitsgemeinschaft der Kommunalen
-              IT-Dienstleister, als Sponsor engagiert. Die
-              Geschäftsführerin, Dr. Marianne Wulff, ist persönlich vor
-              Ort. Auch das Projekt Offenes Köln wird in einem Vortrag
-              von Marian Steinbach präsentiert. Es kommt zum Austausch
-              über die Frage, wie das Prinzip der offenen
-              Ratsinformationen effektiv auf weitere Kommunen
-              ausgeweitet werden könnte.
-            </para>
-          </listitem>
-        </orderedlist>
-      </listitem>
-      <listitem>
-        <orderedlist numeration="arabic">
-          <listitem override="6">
-            <para>
-              Dezember 2012: Anhörung im Landtag NRW in Düsseldorf zu
-              einer Open-Data-Strategie der Landesregierung, wo Jens
-              Klessmann und Marian Steinbach als Sachverständige gehört
-              werden. Danach Gespräch über Möglichkeiten der
-              Standardisierung offener Ratsinformationssysteme.
-            </para>
-          </listitem>
-        </orderedlist>
-      </listitem>
-      <listitem>
-        <para>
-          Dezember 2012: Dr. Marianne Wulff, Jens Klessmann und Marian
-          Steinbach beginnen mit der Abstimmung über einen Workshop mit
-          Vertreterinnen und Vertretern von Kommunen, kommunalen
-          IT-Dienstleistern, RIS-Anbietern und Zivilgesellschaft. Ziel:
-          Die Bereitschaft zur Zusammenarbeit an einem gemeinsamen
-          Standard ermitteln. Unterdessen beginnt Marian Steinbach mit
-          der Formulierung eines Standard-Entwurfs als
-          Diskussionsgrundlage. Der Entwurf wird von Beginn an
-          öffentlich auf GitHub.com bereit gestellt.
-        </para>
-      </listitem>
-      <listitem>
-        <orderedlist numeration="arabic">
-          <listitem override="17">
-            <para>
-              April 2013: Insgesamt 30 Teilnehmer versammeln sich in
-              Köln, um sich in einem ersten Treffen über Ziele und
-              Chancen einer Standardisierung für offene
-              Ratsinformationen auszutauschen. Als Ergebnis wird ein
-              großes Interesse an der weiteren Zusammenarbeit auf Basis
-              des vorliegenden Standardentwurfs festgestellt. Als Termin
-              für die Fertigstellung der ersten Version der
-              Spezifikation wird der 30. Juni 2013 festgelegt. Die
-              Initiatoren präsentieren den Anwesenden hier erstmals den
-              Namen &quot;OParl&quot;, der künftig als Marke für die
-              Bemühungen der Gruppe stehen soll.
-            </para>
-          </listitem>
-        </orderedlist>
-      </listitem>
-      <listitem>
-        <orderedlist numeration="arabic">
-          <listitem override="22">
-            <para>
-              Januar 2014: Nachdem sich die verteilte Zusammenarbeit am
-              Standard-Entwurf seit April 2013 als nicht zielführend
-              erwiesen hat, laden Jens Klessmann und Marian Steinbach
-              und VITAKO zu einem eintägigen OParl-Workshop in Bielefeld
-              ein. Das Ziel ist, die Spezifikation so weit wie möglich
-              voran zu treiben und eine gute Basis für die baldige
-              Fertigstellung zu legen.
-            </para>
-          </listitem>
-        </orderedlist>
-      </listitem>
-      <listitem>
-        <orderedlist numeration="arabic">
-          <listitem override="26">
-            <para>
-              Januar 2014: In Düsseldorf findet ein weiterer Workshop
-              zur Arbeit am Entwurf der Spezifikation statt.
-            </para>
-          </listitem>
-        </orderedlist>
-      </listitem>
-      <listitem>
-        <para>
-          April 2014: Verfeinerung des Vokabular-Teils durch Andreas
-          Kuckartz, finanziert durch das FP7-Projekt Fusepool aus
-          Mitteln der Europäischen Union.
-        </para>
-      </listitem>
-      <listitem>
-        <orderedlist numeration="arabic">
-          <listitem override="6">
-            <para>
-              Mai 2014: Beginn der Review-Phase. Interessierte sind
-              aufgerufen, den vorliegenden Entwurf bis Ende Mai zu
-              kommentieren.
-            </para>
-          </listitem>
-        </orderedlist>
-      </listitem>
-      <listitem>
-        <para>
-          Ende Mai 2014: Telefonkonferenz zum eingegangenen Feedback aus
-          der Review-Phase
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          KW 23 (2. bis 6. Juni): Geplante Veröffentlichung der
-          Spezifikation 1.0
-        </para>
-      </listitem>
-    </itemizedlist>
+    <para>
+      Im Rahmen einer Anhörung des Landtags von Nordrhein-Westfalen zu
+      einem Antrag der Regierungskoalition zum Thema Open Government und
+      Open Data waren am 6. Dezember 2012 sowohl Jens Klessmann
+      (Frainhofer FOKUS) und Marian Steinbach als Sachverständige
+      eingeladen. Sie beschließen, die Bemühungen um eine
+      Standardisierung offenert Ratsinformationen gemeinsam mit
+      Unterstützung von VITAKO voranzutreiben. Im selben Monat beginnen
+      Marianne Wulff, Jens Klessmann und Marian Steinbach mit der
+      Planung eines initalen Workshops mit Vertreterinnen und Vertretern
+      von Kommunen, kommunalen IT-Dienstleistern, RIS-Anbietern und
+      Zivilgesellschaft. Ziel: Die Bereitschaft zur Zusammenarbeit an
+      einem gemeinsamen Standard ermitteln. Unterdessen beginnt Marian
+      Steinbach mit der Formulierung eines Standard-Entwurfs als
+      Diskussionsgrundlage. Der Entwurf wird von Beginn an öffentlich
+      auf GitHub.com bereit gestellt.
+    </para>
+    <para>
+      Insgesamt 30 Teilnehmer versammeln sich am 17. April 2013 zum
+      ersten Workshop in Köln, um sich über Ziele und Chancen einer
+      Standardisierung für offene Ratsinformationen auszutauschen. Als
+      Ergebnis wird ein großes Interesse an der weiteren Zusammenarbeit
+      auf Basis des vorliegenden Standardentwurfs festgestellt. Als
+      Termin für die Fertigstellung der ersten Version der Spezifikation
+      wird der 30. Juni 2013 festgelegt. Die Initiatoren präsentieren
+      den Anwesenden hier erstmals den Namen OParl, der künftig als Name
+      für die Bemühungen der Gruppe stehen soll.
+    </para>
+    <para>
+      Die verteilte Arbeit am Standard-Entwurf läuft nach dem Workshop
+      in Köln nur schleppend, der ursprünglich gesetze Termin kann nicht
+      gehalten werdne. Für den 22. Januar 2014 laden die Initiatoren zu
+      einem eintägigen OParl-Workshop in Bielefeld ein, um die
+      Spezifikation in intensiver Zusammenarbeit vor Ort so weit wie
+      möglich voran zu treiben und eine baldige Fertigstellung zu
+      ermöglichen. Am 26. Januar 2014 findet in Düsseldorf ein weiterer
+      tehnischer Workshop zur Arbeit an der Spezifikation statt.
+    </para>
+    <para>
+      TODO: April 2014: Verfeinerung des Vokabular-Teils durch Andreas
+      Kuckartz, finanziert durch das FP7-Projekt Fusepool aus Mitteln
+      der Europäischen Union.
+    </para>
+    <para>
+      Am 19. Mai 2014 wurde mit einem Redaktionsschluss für die
+      Spezifikation der Beginn der Review-Phase eingeleitet.
+      Interessierte waren bis Mitte Juni eingeladen, den vorliegenden
+      Entwurf bis Ende Mai zu kommentieren.
+    </para>
+    <para>
+      TODO: Ende Mai 2014: Telefonkonferenz zum eingegangenen Feedback
+      aus der Review-Phase
+    </para>
+    <para>
+      TODO: KW 23 (2. bis 6. Juni): Geplante Veröffentlichung der
+      Spezifikation 1.0
+    </para>
   </sect2>
   <sect2 id="zukunft-von-oparl">
     <title>Zukunft von OParl</title>
     <para>
-      TODO: - Verfeinerung, Lücken schliessen - Erweiterung über die
-      kommunale Ebene hinaus (Land, Bund) - Vereinheitlichung von
-      Kategorien (Drucksachentypen, Arten von Gremien) - Erweiterung von
-      Personendaten, z.B. mit Social Media URLs - Mehr Abfragekriterien
-      - Suchfunktionen (Volltextsuche) - Abstimmungsverhalten und
-      maschinenlesbare Protokolle - Verknüpfung mit verteilten Social
-      Media Plattformen - Schreibender Zugriff. Auch dazu muss das Rad
-      nicht neu erfunden werden. Bestehende bzw. in Entwicklung
-      befindliche Spezifikationen und Techniken aus der Linked Data-Welt
-      können verwendet werden. Dazu gehören insbesondere die Linked Data
-      Platform des W3C und Hydra.
+      Die vorliegende Version 1.0 der OParl-Spezifikation erhebt
+      keineswegs den Anspruch, ein aktuell und für die ferne Zukunft
+      vollständige Lösung alle Problemstellungen rund um die
+      Veröffentlichung parlamentarischer Informationen zu sein. Viele
+      Funktionen, die denkbar und bestimmt sinnvoll wären, sind aus
+      verschiedensten Gründen in dieser Version noch nicht
+      berücksichtigt. Einige der Gründe, die dazu führten, ein Thema
+      nicht auszuspezifizieren, waren:
     </para>
-    <sect3 id="globalisierung">
-      <title>Globalisierung</title>
-      <para>
-        Es gibt in sehr vielen Ländern Gebietskörperschaften mit
-        politischen Gremien, deren Prozesse ähnlich strukturiert sind
-        wie diejenigen in Deutschland. Auch dort besteht Bedarf an
-        standardisierten Vokabularen zur Veröffentlichung
-        parlamentarischer Informationen. Deshalb sind - teilweise noch
-        vor OParl - auch weitere entsprechende Initiativen entstanden.
-        Eine enge Zusammenarbeit mit diesen Initiativen mit dem Ziel der
-        Wiederverwendung von Arbeitsergebnissen wird deshalb angestrebt.
-        Auch aus diesem Grund wurde bereits in OParl 1.0 die Möglichkeit
-        der Verwendung mit anderen Sprachen und Mehrsprachigkeit
-        eingebaut.
-      </para>
-      <para>
-        TODO: Popolo, UK, KB Niederlande
-      </para>
-    </sect3>
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para>
+          Zu wenig detaillierte Anforderungen aus der Praxis
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Zu großer Arbeitsaufwand für die Spezifikations-Entwicklung
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Hohe Aufwände bei den Server-Implementierern
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      Zu den Themen, die in zukünftigen Versionen adressiert werden
+      könne, zählen:
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Loslösung von der kommunalen Ebene: Es ist möglich, dass OParl
+          mit nur geringfügigen Änderungen oder Erweiterungen auch für
+          die Ebene von Bundesländern (Landtage) oder des Bundes
+          (Bundestag, Bundesrat) nutzbar wäre.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Flexible Abfragemöglichkeiten für Objekte: Aufgrund der
+          unklaren Anforderungslage sind in Version 1.0 nur sehr
+          beschränkte Möglichkeiten vorgesehen, Listen von Drucksachen
+          etc. nach bestimmten Kriterien einzuschränken. Zukünftig
+          könnten hier weitere Möglichkeiten definiert werden, bis hin
+          zur Suche nach Stichworten in Volltexten.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Detaillierte Wiedergabe von Abstimmungen: Das Thema ist vom
+          Datenmodell/Schema der vieliegenden Version noch nicht
+          abgedeckt, da es vielerorts nicht üblich ist, Abstimmungen
+          über die Fraktionsebene genau zu erfassen. Zukünftig könnte es
+          ein Ziel sein, das Abstimmungsverhalten einzelner
+          Parlamentarier und Fraktionen genau zu dokumentieren.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Strukturierte Protokolle: Während Protokolle in der Praxis in
+          der Regel als unstrukturierte Fließtexte angelegt werden,
+          könnte eine Strukturierung der Inhalte die Nachvollziehbarkeit
+          des parlamentarischen Geschehens deutlich verbessern.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Vokabular für Drucksachentypen: In der Praxis wird eine
+          Vielzahl von Drucksachentypen genutzt. Um eine
+          Vergleichbarkeit, beispielsweise zwischen Anträgen, innerhalb
+          der Parlamente zu schaffen, könnte zukünftig eine Erweiterung
+          des OParl-Vokabulars im Sinne von Linked Data angestrebt
+          werden.<footnote>
+            <para>
+              Das gesagte lässt sich auch auf viele andere
+              Informationen, nicht nur auf Drucksachen, anwenden.
+            </para>
+          </footnote>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Schreibender Zugriff: Denkbar ist auch, dass OParl von der
+          derzeitigen Ausrichtung auf den reinen lesenden
+          Informationszugriff um die Möglichkeit, Inhalte anzulegen, zu
+          verändern und zu entfernen sowie um das Konzept von
+          authentifizierten Nutzern erweitert wird.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Internationalisierung: Es gibt in sehr vielen Ländern
+          Gebietskörperschaften mit politischen Gremien, deren Prozesse
+          ähnlich strukturiert sind wie diejenigen in Deutschland. Auch
+          dort besteht Bedarf an standardisierten Vokabularen zur
+          Veröffentlichung parlamentarischer Informationen. Deshalb sind
+          - teilweise noch vor OParl - auch weitere entsprechende
+          Initiativen entstanden.<footnote>
+            <para>
+              Vgl. dazu beispielsweise
+              <ulink url="http://popoloproject.com/">http://popoloproject.com/</ulink>,
+              TODO: UK, KB Niederlande
+            </para>
+          </footnote> Eine Zusammenarbeit mit derartigen Initiativen mit
+          dem Ziel der Wiederverwendung von Arbeitsergebnissen ist
+          vorstellbar. Auch aus diesem Grund wurde bereits in OParl 1.0
+          die Möglichkeit der Verwendung mit anderen Sprachen und
+          Mehrsprachigkeit eingebaut.
+        </para>
+      </listitem>
+    </itemizedlist>
   </sect2>
   <sect2 id="nomenklatur-der-spezifikation-und-satzkonventionen">
     <title>Nomenklatur der Spezifikation und Satzkonventionen</title>
     <sect3 id="muss_soll_darf">
       <title>Zwingende, empfohlene und optionale Anforderungen</title>
       <para>
-        Dieses Spezifikationsdokument nutzt die Modalverben müssen,
-        können und sollen in einer Art und Weise, die bestimmte
-        Anforderungen möglichst unmissverständlich in drei verschiedene
-        Abstufung einteilen lässt. Um ihre normative Bedeutung zu
-        unterstreichen, werden diese Wörter grundsätzlich in
-        Großbuchstaben gesetzt.
+        Dieses Spezifikationsdokument nutzt die Modalverben
+        <emphasis>müssen</emphasis>, <emphasis>können</emphasis> und
+        <emphasis>sollen</emphasis> in einer Art und Weise, die
+        bestimmte Anforderungen möglichst unmissverständlich in drei
+        verschiedene Abstufung einteilen lässt. Um ihre normative
+        Bedeutung zu unterstreichen, werden diese Wörter grundsätzlich
+        in Großbuchstaben gesetzt.
       </para>
       <para>
         Diese Konvention ist angelehnt an die Definitionen der Begriffe
@@ -594,8 +667,10 @@
         übliche Dominanz der männlichen Variante zu vermeiden, werden in
         diesem Dokument männliche oder weibliche Varianten gemischt. Es
         wird also beispielsweise mal von einer Nutzerin gesprochen und
-        mal von einem Nutzer. Gemeint sind selbstverständlich in allen
-        Fällen immer weibliche wie auch männliche Personen.
+        mal von einem Nutzer. Alternativ kommt auch die Kurzform
+        <emphasis>NutzerInnen</emphasis> für <emphasis>Nutzerinnen und
+        Nutzer</emphasis> zum Einsatz. Gemeint sind selbstverständlich
+        in allen Fällen immer weibliche wie auch männliche Personen.
       </para>
     </sect3>
     <sect3 id="codebeispiele">
@@ -610,7 +685,8 @@
         Anspruch auf hundertprozentige syntaktische Korrektheit. Es kann
         in Einzelfällen aus Gründen der besseren Lesbarkeit zur
         Verwendung von Umlauten etc. kommen, die in JSON nicht erlaubt
-        wären.
+        wären. Auch können in Codebeispielen Auslassungen vorkommen, die
+        mit <literal>...</literal> gekennzeichnet werden.
       </para>
     </sect3>
   </sect2>
@@ -817,7 +893,7 @@
       An diesem Dokument haben mitgewirkt:
     </para>
     <para>
-      Felix Ebert, Jan Erhardt, Jayan Areekadan, Jens Klessmann, Andreas
+      Jayan Areekadan, Felix Ebert, Jan Erhardt, Jens Klessmann, Andreas
       Kuckartz, Babett Schalitz, Ralph Sternberg, Marian Steinbach,
       Bernd Thiem, Thomas Tursics, Jakob Voss
     </para>
@@ -869,7 +945,7 @@
       Diese Systeme unterstützen in der Regel mehrere der folgenden
       Funktionen:
     </para>
-    <itemizedlist>
+    <itemizedlist spacing="compact">
       <listitem>
         <para>
           Das Erzeugen, Bearbeiten und Darstellen von Sitzungen und
@@ -997,6 +1073,31 @@
     die Anwendungsmöglichkeiten anhand konkreter Beispiele zu
     verdeutlichen. Sie erheben keinen Anspruch auf Vollständigkeit.
   </para>
+  <para>
+    Überblick der Szenarien:
+  </para>
+  <orderedlist numeration="arabic" spacing="compact">
+    <listitem>
+      <para>
+        Mobile Client-Anwendung
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Integration in Web-Portal
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Meta-Suche
+      </para>
+    </listitem>
+    <listitem>
+      <para>
+        Forschungsprojekt Themen- und Sprachanalyse
+      </para>
+    </listitem>
+  </orderedlist>
   <sect2 id="szenario_mobile_client">
     <title>Szenario 1: Mobile Client-Anwendung</title>
     <para>
@@ -1294,29 +1395,25 @@
     </para>
   </sect2>
 </sect1>
-<sect1 id="prinzipien-und-funktionen-des-vokabulars-und-der-api">
-  <title>Prinzipien und Funktionen des Vokabulars und der API</title>
+<sect1 id="prinzipien-und-funktionen-des-schnittstelle">
+  <title>Prinzipien und Funktionen des Schnittstelle</title>
   <para>
-    TODO
+    In diesem Kapitel werden grundlegende Funktionsprinzipien einer
+    OParl-Schnittstelle beschrieben.
   </para>
   <para>
-    (In diesem Kapitel werden die Zugriffsmethoden der OParl-konformen
-    Schnittstelle beschrieben. Hierzu gehören alle chapter-Dateien,
-    deren Nummerierung mit der Ziffer 6 beginnnt.)
+    TODO:
   </para>
-  <para>
-    Stichpunkte:
-  </para>
-  <itemizedlist>
+  <itemizedlist spacing="compact">
     <listitem>
       <para>
-        Optional gzip Encoding und andere Kodierungen, wenn Client und
-        Server dies unterstützen
+        EMPFEHLUNG für Kompression mittels gzip, deflate etc., wenn
+        Client dies unterstützt
       </para>
     </listitem>
     <listitem>
       <para>
-        Authentifizierung wird nicht benötigt.
+        Nur Lesezugriff. Authentifizierung wird nicht benötigt.
       </para>
     </listitem>
   </itemizedlist>
@@ -1406,7 +1503,7 @@
         berührt viele Details. In der Praxis wird der Begriff häufig
         genutzt, um eine Schnittstelle zu beschreiben,
       </para>
-      <itemizedlist>
+      <itemizedlist spacing="compact">
         <listitem>
           <para>
             die auf WWW-Technologie aufbaut, insbesondere dem
@@ -1488,9 +1585,9 @@
         Schnittstelle ausschöpfen zu können.
       </para>
       <para>
-        Parlamentarische Informationen sind weitgehend graphartig
-        aufgebaut. Das bedeutet, dass Objekte häufig mit einer Vielzahl
-        anderer Objekte verknüpft sind. So ist eine Person
+        Parlamentarische Informationen sind weitgehend in Form von
+        Graphen aufgebaut. Das bedeutet, dass Objekte häufig mit einer
+        Vielzahl anderer Objekte verknüpft sind. So ist eine Person
         beispielsweise Mitglied in mehreren Gremien, das Gremium hat
         mehrere Sitzungen abgehalten und zu diesen Sitzungen gibt es
         jeweils zahlreiche Drucksachen, die ihrerseits wieder zahlreiche
@@ -1537,11 +1634,26 @@
         Nach dem Linked-Data-Prinzip könnte beispielsweise der Vorname
         einer Person mit dem folgenden Tripel beschrieben werden:
       </para>
-      <programlisting>
-Subjekt: http://dbpedia.org/resource/John_Doe_(musician)
-Prädikat: http://xmlns.com/foaf/0.1/givenName
-Objekt: http://dbpedia.org/resource/John_(given_name)
-</programlisting>
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>
+            <emphasis role="strong">Subjekt</emphasis>:
+            http://dbpedia.org/resource/John_Doe_(musician)
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <emphasis role="strong">Prädikat</emphasis>:
+            http://xmlns.com/foaf/0.1/givenName
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            <emphasis role="strong">Objekt</emphasis>:
+            http://dbpedia.org/resource/John_(given_name)
+          </para>
+        </listitem>
+      </itemizedlist>
       <para>
         Hierbei macht man von der Tatsache Gebrauch, dass das Subjekt,
         also die Person, um die es geht, bereits mittels ihrer URI
@@ -1826,27 +1938,28 @@ Objekt: http://dbpedia.org/resource/John_(given_name)
   <sect2 id="urls">
     <title>URLs, IRIs und URIs</title>
     <para>
-      Den URLs (für &quot;Uniform Resource Locators&quot;) kommt bei
-      einer OParl-konformen API eine besondere Bedeutung zu und es
-      werden eine Reihe von Anforderungen an die Verarbeitung von URLs
-      gestellt.
+      Den URLs (für <emphasis>Uniform Resource Locators</emphasis>)
+      kommt bei einer OParl-konformen API eine besondere Bedeutung zu
+      und es werden eine Reihe von Anforderungen an die Verarbeitung von
+      URLs gestellt.
     </para>
     <para>
       Im Rahmen dieses Dokuments wird aus Gründen der Verständlichkeit
-      generell der allgemein gebräuchlichere Begriff &quot;URL&quot;
-      werwendet, auch wenn damit tatsächlich die internationalisierte
-      Variante nach RFC 3987<footnote>
+      generell der allgemein gebräuchliche Begriff
+      <emphasis>URL</emphasis> werwendet, auch wenn damit tatsächlich
+      die internationalisierte Variante nach RFC 3987<footnote>
         <para>
           RFC 3987:
           <ulink url="http://tools.ietf.org/html/rfc3987">http://tools.ietf.org/html/rfc3987</ulink>
         </para>
-      </footnote>, die korrekterweise IRI bzw. &quot;Internationalized
-      Resource Identifier&quot; genannt werden müsste, gemeint ist. In
-      andern Kontexten wiederum wird von URIs bzw. &quot;Uniform
-      Resource Identifier&quot; gesprochen. Das vorliegende Dokumente
-      fasst alle drei Konzepte mit dem Begriff &quot;URL&quot; zusammen
-      und ignoriert damit die Unterschiede der einzelnen Begriffe, da
-      diese im Rahmen dieser Spezifikation ohne bedeutung sind.
+      </footnote>, die korrekterweise <emphasis>IRI</emphasis> bzw.
+      <emphasis>Internationalized Resource Identifier</emphasis> genannt
+      werden müsste, gemeint ist. Einige Quellen wiederum nutzen den
+      Begriff <emphasis>URI</emphasis> bzw. <emphasis>Uniform Resource
+      Identifier</emphasis>. Das vorliegende Dokumente fasst alle drei
+      Konzepte mit dem Begriff <emphasis>URL</emphasis> zusammen und
+      ignoriert damit die Unterschiede der einzelnen Begriffe, da diese
+      im Rahmen dieser Spezifikation nicht von Bedeutung sind.
     </para>
     <para>
       Die grundsätzliche Funktionsweise von URLs ist in RFC 3986
@@ -1855,11 +1968,9 @@ Objekt: http://dbpedia.org/resource/John_(given_name)
           RFC 3986:
           <ulink url="http://tools.ietf.org/html/rfc3986">http://tools.ietf.org/html/rfc3986</ulink>
         </para>
-      </footnote>.
-    </para>
-    <para>
-      Der Aufbau einer beispielhaften URL mit den Bezeichnungen, wie sie
-      in diesem Dokument Verwendung finden:
+      </footnote>. Darauf aufbauend sind hier die Bestandteile einer
+      beispielhaften URL mit den Bezeichnungen beschriftet, mit denen
+      sie in diesem Dokument benannt werden:
     </para>
     <programlisting>
 https://refserv.oparl.org/foo/bar/?skip=234
@@ -1867,6 +1978,12 @@ https://refserv.oparl.org/foo/bar/?skip=234
   |         |                |        |
 Schema     Host             Pfad  Query-String
 </programlisting>
+    <para>
+      Der optionale <emphasis>Query-String</emphasis> besteht dabei aus
+      beliebig vielen <emphasis>Query-Parametern</emphasis>, die jeweils
+      einen Namen (links des Gleichheitszeichens) und einen Wert haben
+      können.
+    </para>
     <sect3 id="url_kanonisierung">
       <title>URL-Kanonisierung</title>
       <para>
@@ -1877,7 +1994,8 @@ Schema     Host             Pfad  Query-String
           </para>
         </footnote>, das ein Server über eine OParl-API anbietet, über
         genau eine URL identifizierbar und abrufbar ist. Diese
-        Vereinheitlichung der URL nennen wir Kanonisierung.
+        Vereinheitlichung der URL wird nachfolgend
+        <emphasis>Kanonisierung</emphasis> genannt.
       </para>
       <para>
         Die Kanonisierung ist entscheidend, um erkennen zu können, ob
@@ -1908,7 +2026,7 @@ Schema     Host             Pfad  Query-String
         dieser Lösung gegenüber der Verwendung einer IP-Adresse sind
         vielfältig:
       </para>
-      <itemizedlist>
+      <itemizedlist spacing="compact">
         <listitem>
           <para>
             NutzerInnen können Host-Namen lesen und interpretieren
@@ -1978,7 +2096,7 @@ http://oparl.stadtrat.stadt-koeln.de/
         nicht-kanonischen URL-Varianten denkbar, die technischen auf den
         selben Server führen könnten:
       </para>
-      <itemizedlist>
+      <itemizedlist spacing="compact">
         <listitem>
           <para>
             https://83.123.89.102/
@@ -2040,6 +2158,12 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1
         repräsentieren. In der Konsequenz kann es zu vermeidbarer
         Ressourcennutzung sowohl auf Client- als auch auf Serverseite
         kommen.
+      </para>
+      <para>
+        Von Clients wird erwartet, dass sie die URLs, die ihnen von
+        Servern angeboten werden, unverändert verwenden. Clients SOLLEN
+        NICHT versuchen, Schreibweisen von URLs zu ändern,
+        Query-String-Parameter umzusortieren oder ähnliches.
       </para>
     </sect3>
     <sect3 id="langlebigkeit">
@@ -2136,7 +2260,7 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1
         Das JSON-Format unterstützt die Ausgabe von vier verschiedenen
         primitiven Datentypen:
       </para>
-      <itemizedlist>
+      <itemizedlist spacing="compact">
         <listitem>
           <para>
             <emphasis>Zeichenkette</emphasis> (Unicode)
@@ -2163,7 +2287,7 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1
       <para>
         Darüber hinaus werden zwei komplexe Datentypen unterstützt:
       </para>
-      <itemizedlist>
+      <itemizedlist spacing="compact">
         <listitem>
           <para>
             <emphasis>Objekt</emphasis>: Eine Sammlung von
@@ -2211,7 +2335,7 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1
           </para>
         </footnote> das JSON-Format um die Möglichkeit,
       </para>
-      <itemizedlist>
+      <itemizedlist spacing="compact">
         <listitem>
           <para>
             Objekte mit anderen Objekten zu verknüpfen,
@@ -2352,7 +2476,7 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1
         Formell wird bei JSON-LD weiterhin zwischen drei verschiedenen
         Formaten unterschieden, die semantisch gleichbedeutend sind:
       </para>
-      <itemizedlist>
+      <itemizedlist spacing="compact">
         <listitem>
           <para>
             Kompakte Form (<emphasis>compact</emphasis>)
@@ -2372,7 +2496,7 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1
       <para>
         Das vorige Beispiel zeigt die kompakte Form. Die Definitionen
         können der JSON-LD-Spezifikation entnommen werden. OParl-Server
-        MÜSSEN sämtliche Objekte grundsätzlich in dieser kompakten Form
+        MÜSSEN sämtliche Objekte grundsätzlich in der kompakten Form
         ausliefern. Die Umwandlung in die anderen Formen bei Bedarf
         obliegt dem Client.<footnote>
           <para>
@@ -2436,7 +2560,7 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1
         Typenbezeichnung so, dass diese letztlich für jeden Objekttypen
         eine eindeutige URL ergeben.
       </para>
-      <itemizedlist>
+      <itemizedlist spacing="compact">
         <listitem>
           <para>
             Aus <literal>oparl:Paper</literal> wird
@@ -2525,15 +2649,18 @@ https://oparl.beispielris.de/members?committee=2&amp;body=1
         von Client-Anwendungen eingeschränkt.
       </para>
       <para>
-        Diese Einschränkung gilt nicht fürt JSONP<footnote>
+        Diese Einschränkung gilt nicht für JSONP<footnote>
           <para>
-            TODO: URL zur Spezifikation
+            JSONP steht für &quot;JSON with padding&quot;. Eine formelle
+            Spezifikation existiert nicht. Der Wikipedia-Artikel
+            <ulink url="http://en.wikipedia.org/wiki/JSONP">http://en.wikipedia.org/wiki/JSONP</ulink>
+            fasst viele Quellen zusammen.
           </para>
-        </footnote>. Durch JSONP (TODO: Abkürzung erläutern) wird die
-        JSON-Notation so erweitert, dass der ausgegebene Code
-        ausführbarer JavaScript-Code wird. Damit wird erreicht, dass der
-        JSON-Code über die Grenzen von Domains hinweg direkt von
-        Webanwendungen eingebunden werden kann.
+        </footnote>. Durch JSONP wird die JSON-Notation so erweitert,
+        dass der ausgegebene Code ausführbarer JavaScript-Code wird.
+        Damit wird erreicht, dass der JSON-Code über die Grenzen von
+        Domains hinweg direkt von Webanwendungen eingebunden werden
+        kann.
       </para>
       <para>
         Das folgende Beispiel verdeutlicht den Unterschied zwischen JSON
@@ -2555,8 +2682,8 @@ mycallback({
 </programlisting>
       <para>
         Der Name der Callback-Funktion (im Beispiel
-        &quot;mycallback&quot;) wird grundsätzlich bei der Anfrage vom
-        Client bestimmt, und zwar mittels URL-Parameter.
+        <literal>mycallback</literal>) wird grundsätzlich bei der
+        Anfrage vom Client bestimmt, und zwar mittels URL-Parameter.
       </para>
       <para>
         Für eine OParl-konforme Schnittstelle wird EMPFOHLEN, dass der
@@ -2582,21 +2709,8 @@ mycallback({
         Hält sich der Client nicht an diese Einschränkung und wird ein
         <literal>callback</literal>-Parameter mit nicht erlaubten
         Zeichen verwendet, SOLL der Server die Anfrage mit einer HTTP
-        XXX (Bad Request) Antwort bedienen. (TODO: Status Code einfügen
-        oder prüfen, welche HTTP-Antwort die geeignetste ist.)
+        400 (<emphasis>Bad Request</emphasis>) Antwort bedienen.
       </para>
-      <itemizedlist>
-        <listitem>
-          <para>
-            TODO: Spezifikation finden/verlinken. (RFC gibt es nicht)
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            https://github.com/OParl/specs/issues/67
-          </para>
-        </listitem>
-      </itemizedlist>
     </sect3>
   </sect2>
   <sect2 id="benannte_anonyme_objekte">
@@ -2606,7 +2720,7 @@ mycallback({
       anonymen Objekten. Da die Unterscheidung auch für OParl von
       Bedeutung ist, wird sie hier genauer erläutert.
     </para>
-    <sect3 id="benannte-objekte">
+    <sect3 id="benannte_objekte">
       <title>Benannte Objekte</title>
       <para>
         Benannte Objekte sind innerhalb einer JSON-LD-Ausgabe diejenigen
@@ -2635,7 +2749,7 @@ https://oparl.beispielris.de/bodies/0/committees/1
         identifiziert als auch direkt abgerufen werden.
       </para>
     </sect3>
-    <sect3 id="anonyme-objekte-blank-nodes">
+    <sect3 id="anonyme_objekte">
       <title>Anonyme Objekte (Blank Nodes)</title>
       <para>
         Im Gegensatz dazu können Objekte existieren, die keine eigene
@@ -2883,7 +2997,7 @@ Link: &lt;https://oparl.beispielris.de/bodies/0/papers/?skip_id=7&gt;;rel=next
         Die Punkte 3 und 4 können sich nun so oft wiederholen, bis die
         letzte Listenseite erreicht ist.
       </para>
-      <orderedlist numeration="arabic">
+      <orderedlist numeration="arabic" spacing="compact">
         <listitem override="5">
           <para>
             Der Server liefert die letzte Listenseite ohne Link-Header
@@ -3092,7 +3206,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       besondere Anforderungen gelten. Es werden drei verschiedene Feeds
       spezifiziert:
     </para>
-    <itemizedlist>
+    <itemizedlist spacing="compact">
       <listitem>
         <para>
           Der Feed <emphasis>Neue Objekte</emphasis>
@@ -3197,7 +3311,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         Jedes der Objekte in der Liste MUSS seinerseits wiederum zwei
         Eigenschaften besitzen:
       </para>
-      <itemizedlist>
+      <itemizedlist spacing="compact">
         <listitem>
           <para>
             <literal>@id</literal>: Die URL des neuen Objekts
@@ -3255,15 +3369,15 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
 [
     {
         &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/0/documents/2&quot;,
-        &quot;lastModified&quot;: &quot;2014-01-08T14:28:31.568+0100&quot;
+        &quot;modified&quot;: &quot;2014-01-08T14:28:31.568+0100&quot;
     },
     {
         &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/0&quot;,
-        &quot;lastModified&quot;: &quot;2014-01-08T12:14:27.958+0100&quot;
+        &quot;modified&quot;: &quot;2014-01-08T12:14:27.958+0100&quot;
     },
     {
         &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/0/documents/1&quot;,
-        &quot;lastModified&quot;: &quot;2014-01-06T17:01:00.402+0100&quot;
+        &quot;modified&quot;: &quot;2014-01-06T17:01:00.402+0100&quot;
     },
     ...
 ]
@@ -3428,7 +3542,7 @@ Content-Disposition: attachment; filename=&quot;2014-08-22 Rat Wortprotokoll.pdf
         Darüber hinaus EMPFEHLEN wir, bei Anfrage einer Datei die
         folgenden Header auszuliefern:
       </para>
-      <itemizedlist>
+      <itemizedlist spacing="compact">
         <listitem>
           <para>
             <literal>Content-Length</literal>: Die Größe des
@@ -3537,7 +3651,7 @@ Content-Disposition: attachment; filename=&quot;2014-08-22 Rat Wortprotokoll.pdf
   <sect2 id="content_negotiation">
     <title>Content Negotiation</title>
     <para>
-      Das Prinzip &quot;Content Negotiation&quot; wird in
+      Das Prinzip <emphasis>Content Negotiation</emphasis> wird in
       RFC2295<footnote>
         <para>
           RFC2295:
@@ -3594,20 +3708,23 @@ Content-Disposition: attachment; filename=&quot;2014-08-22 Rat Wortprotokoll.pdf
     <sect3 id="httprange-14">
       <title>httpRange-14</title>
       <para>
-        In dem Zusammenhang sei informell auf ein für Linked Data
-        relevantes Detail hingewiesen - auf welches man gelegentlich
-        unter dem Kürzel <literal>httpRange-14</literal> stößt. Wenn man
-        in einem üblichen Web-Browser diese URL aufruft:
+        Im Zusammenhang von Content Negotiation soll als Exkurs auf ein
+        für Linked Data relevantes Detail hingewiesen werden, das in
+        Fachkreisen <emphasis>httpRange-14</emphasis> genannt wird.
+        Dabei geht es um das im folgenden beschriebenePhänomen.
       </para>
       <para>
-        <ulink url="http://dbpedia.org/resource/John_Doe_(musician)">http://dbpedia.org/resource/John_Doe_(musician)</ulink>
+        Wenn man in einem üblichen Web-Browser diese URL aufruft:
       </para>
+      <programlisting>
+&lt;http://dbpedia.org/resource/John_Doe_(musician)&gt;
+</programlisting>
       <para>
         dann erfolgt eine Weiterleitung auf diese URL:
       </para>
-      <para>
-        <ulink url="http://dbpedia.org/page/John_Doe_(musician)">http://dbpedia.org/page/John_Doe_(musician)</ulink>
-      </para>
+      <programlisting>
+&lt;http://dbpedia.org/page/John_Doe_(musician)&gt;
+</programlisting>
       <para>
         Dabei identifiziert die erste URL den abstrakten Begriff des
         Musikers, während die zweite eine Repräsentation dieses Begriffs
@@ -3615,9 +3732,9 @@ Content-Disposition: attachment; filename=&quot;2014-08-22 Rat Wortprotokoll.pdf
         z.B. JSON-LD bevorzugt, würde bei Zugriff auf die erste URL
         wiederum zu einer anderen URL weiter geleitet:
       </para>
-      <para>
-        <ulink url="http://dbpedia.org/data/John_Doe_(musician).jsonld">http://dbpedia.org/data/John_Doe_(musician).jsonld</ulink>
-      </para>
+      <programlisting>
+&lt;http://dbpedia.org/data/John_Doe_(musician).jsonld&gt;
+</programlisting>
       <para>
         Dabei handelt es sich um eine Repräsentation des Musikers in
         Form von JSON-LD.
@@ -3637,34 +3754,72 @@ Content-Disposition: attachment; filename=&quot;2014-08-22 Rat Wortprotokoll.pdf
         So kann der Server beim Zugriff eines Client auf
       </para>
       <programlisting>
-https://dbpedia.org/resource/John_Doe_(musician)
+&lt;https://dbpedia.org/resource/John_Doe_(musician)&gt;
 </programlisting>
       <para>
         z.B. entweder diese URL sowie HTML-Inhalt liefern
       </para>
       <programlisting>
-https://dbpedia.org/page/John_Doe_(musician)
+&lt;https://dbpedia.org/page/John_Doe_(musician)&gt;
 </programlisting>
       <para>
         oder aber diese URL mit JSON-LD als Inhalt
       </para>
       <programlisting>
-https://dbpedia.org/data/John_Doe_(musician).jsonld
+&lt;https://dbpedia.org/data/John_Doe_(musician).jsonld&gt;
 </programlisting>
       <para>
         Die Entscheidung darüber, welche der URLs und welche der
         Inhaltsformate der Server liefert, wird zwischen Client und
         Server mittels Content Negotiation ausgehandelt.
       </para>
+      <para>
+        Das Phänomen verdeutlicht zum einen, dass URLs im Kontext von
+        Linked Data eine wichtige Bedeutung haben und außerdem, dass es
+        auch vom aufrufenden Client abhängen kann, bei welcher URL eine
+        bestimmte Anfrage letztlich &quot;landet&quot;.
+      </para>
     </sect3>
   </sect2>
   <sect2 id="ausnahmebehandlung">
     <title>Ausnahmebehandlung</title>
     <para>
-      TODO:
+      Nicht immer kann ein Server die Anfrage eines Clients erfolgreich,
+      also im Sinne der Anfrage, behandeln und eine entsprechende
+      Antwort liefern. Beispiele für solche Ausnahmefälle könnten sein
+      (ohne Anspruch auf Vollstängikeit):
+    </para>
+    <itemizedlist>
+      <listitem>
+        <para>
+          Eine angefragte Ressource existiert nicht
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Der Client nutzt eine nicht unterstützte HTTP-Methode, z.B.
+          <literal>POST</literal>
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Der Client nutzt einen nicht interpretierbaren URL-Parameter
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      Die HTTP-1.1-Spezifikation sieht für derartige und weitere
+      Ausnahmefälle zahlreiche spezifische Status-Codes vor, die hier
+      nicht wiederholt werden sollen. Verallgemeinernd lautet die
+      Anforderung an jeden OParl-Server, dass diese Ausnahmen mit den
+      entsprechenden HTTP-Status-Codes beantworten SOLLEN. Damit wird
+      Client-Entwicklern die Möglichkeit gegeben, diese Fälle
+      entsprechend zu behandeln.
     </para>
     <para>
-      (Diskussion hierzu unter https://github.com/OParl/specs/issues/89)
+      Clients DÜRFEN darüber hinaus nicht davon ausgehen, dass mit der
+      HTTP-Antwort im Fall einer Ausnahme noch weitere verwertbare
+      Informationen wie z.B. eine Fehlermeldung gesendet werden.
     </para>
   </sect2>
   <sect2 id="liste-reservierter-url-parameter">
@@ -3675,7 +3830,7 @@ https://dbpedia.org/data/John_Doe_(musician).jsonld
       OParl-Servers nicht mehr für die freie Verwendung in URLs zur
       Verfügung.
     </para>
-    <variablelist>
+    <variablelist spacing="compact">
       <varlistentry>
         <term>
           callback:
@@ -3710,7 +3865,7 @@ https://dbpedia.org/data/John_Doe_(musician).jsonld
         </listitem>
       </varlistentry>
     </variablelist>
-    <itemizedlist>
+    <itemizedlist spacing="compact">
       <listitem>
         <para>
           (Parameter für Datums-/Zeitbereichsfilter)
@@ -3750,6 +3905,46 @@ https://dbpedia.org/data/John_Doe_(musician).jsonld
         <literal>null</literal> besitzen.
       </para>
     </sect3>
+    <sect3 id="kardinalität">
+      <title>Kardinalität</title>
+      <para>
+        Viele Eigenschaften erlauben es, entweder einen einzelnen Wert
+        (z.B. eine Zeichenkette, eine URL, eine Zahl) oder alternativ
+        ein JSON-Array mit mehreren Elementen des jeweils erlaubten Typs
+        auszugeben. Die entsprechende Regel ist in der
+        Schema-Beschreibung am Stichwort
+        <emphasis>Kardinalität</emphasis> angegeben. Dabei sind
+        verschiedene Angaben möglich:
+      </para>
+      <itemizedlist>
+        <listitem>
+          <para>
+            0 bis 1: Die Eigenschaft ist optional und muss nicht gesetzt
+            sein. Wenn sie gesetzt ist, darf sie genau einen Wert haben.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            1: Die Eigenschaft muss gesetzt sein, sie muss genau einen
+            Wert haben.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            0 bis *: Die Eigenschaft ist optional und muss nicht gesetzt
+            sein. Wenn sie gesetzt ist, darf sie beliebig viele Werte
+            haben.
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            1 bis *: Die Eigenschaft muss vorhanden sein, es muss
+            mindestens ein Wert gesetzt sein. Es dürfen auch mehrere
+            Werte vorhanden sein.
+          </para>
+        </listitem>
+      </itemizedlist>
+    </sect3>
     <sect3 id="datums--und-zeitangaben">
       <title>Datums- und Zeitangaben</title>
       <para>
@@ -3767,36 +3962,36 @@ https://dbpedia.org/data/John_Doe_(musician).jsonld
         nehmen zu müssen.
       </para>
       <para>
-        Diese Spezifikationen stützen sich auf RFC 3339
-        (http://www.ietf.org/rfc/rfc3339.txt) und RFC 3339 wiederum auf
-        ISO 8601.
+        Diese Spezifikationen stützen sich auf RFC 3339<footnote>
+          <para>
+            RFC3339:
+            <ulink url="http://www.ietf.org/rfc/rfc3339.txt">http://www.ietf.org/rfc/rfc3339.txt</ulink>
+          </para>
+        </footnote>) und RFC 3339 wiederum auf ISO 8601.
       </para>
       <para>
-        Im JSON-LD Kontext von OParl ist der Präfix 'xsd' so
-        spezifiziert, dass Datums- und Zeittyp durch 'xsd:date' bzw.
-        'xsd:dateTime' abgekürzt werden können.
+        Im JSON-LD Kontext von OParl ist der Präfix
+        <literal>xsd</literal> so spezifiziert, dass Datums- und Zeittyp
+        durch <literal>xsd:date</literal> bzw.
+        <literal>xsd:dateTime</literal> abgekürzt werden können.
       </para>
     </sect3>
     <sect3 id="mehrsprachigkeit">
       <title>Mehrsprachigkeit</title>
       <para>
-        Für Texte ist durchgehend vorgesehen, dass diese mehrsprachig
-        sein können. Kommunale Anbieter von OParl-Daten in Deutchland
-        müssen aus gesetzlichen Gründen auf jeden Fall die deutsche
-        Sprache unterstützten. Die Unterstützung anderer Sprachen ist
-        dagegen optional. Deshalb wird grundsätzich durch
-        <subscript>~</subscript>~~ &quot;@language&quot;:
-        &quot;de&quot;, <subscript>~</subscript>~~ im Kontext die
-        deutsche Sprache als Vorgabe eingestellt.
+        Für Texte in OParl-Objekten ist durchgehend vorgesehen, dass
+        diese mehrsprachig sein können. JSON-LD sieht das Schlüsselwort
+        <literal>@language</literal> vor, um zu einem Attribut mehrere
+        Werte in bestimmten Sprachen zu definieren. Diesen Mechanismus
+        SOLLEN Server-Implementierer nutzen, um Mehrsprachigkeit von
+        Inhalten zu realisieren.
       </para>
       <para>
-        Es gibt aber möglicherweise auch Zeichenketten, für die keine
-        Mehrsprachigkeit vorgesehen wird. Dazu gehören z.B.
-        Personennamen.
-      </para>
-      <para>
-        TODO: Stimmt nicht. Tamilische Namen verwenden in der
-        Originalschreibweise sogar ein vollkommen anderes Alphabet.
+        In den von OParl bereitgestellten JSON-LD-Kontexten ist die
+        Deutsche Sprache (Kürzel <literal>de</literal>) für sämtliche
+        Texteigenschaften voreingestellt. Das
+        <literal>@language</literal> Stichwort SOLL daher nur dann
+        eingesetzt werden, wenn ein Inhalt nicht deutschsprachig ist.
       </para>
     </sect3>
     <sect3 id="präfixe-in-kontexten">
@@ -3808,7 +4003,7 @@ https://dbpedia.org/data/John_Doe_(musician).jsonld
       </para>
       <programlisting language="json">
     &quot;beispielris&quot;: &quot;https://oparl.beispielris.de&quot;,
-    &quot;oparl&quot;: &quot;http://oparl.org/TODO/&quot;,
+    &quot;oparl&quot;: &quot;http://oparl.org/specs/1.0/&quot;,
     &quot;dc&quot;: &quot;http://purl.org/dc/terms/&quot;,
     &quot;foaf&quot;: &quot;http://xmlns.com/foaf/0.1/&quot;,
     &quot;skos&quot;: &quot;http://www.w3.org/2004/02/skos/core#&quot;,
@@ -3816,6 +4011,27 @@ https://dbpedia.org/data/John_Doe_(musician).jsonld
     &quot;xsd&quot;: &quot;http://www.w3.org/2001/XMLSchema#&quot;,
     &quot;ogc&quot;: &quot;http://www.opengis.net/ont/geosparql#&quot;,
 </programlisting>
+    </sect3>
+    <sect3 id="vokabulare_klassifizierung">
+      <title>Vokabulare zur Klassifizierung</title>
+      <para>
+        Einige Objekttypen besitzen Eigenschaften zum Zweck der
+        Klassifizierung von Objekten. Beispiele dafür sind die
+        Eigenschaft <literal>paperType</literal> des Objekttyps
+        <literal>oparl:Paper</literal> und
+        <literal>documentRole</literal> des Objekttyps
+        <literal>oparl:Document</literal>.
+      </para>
+      <para>
+        Diese Eigenschaften können wahlweise mit einfachen Zeichenketten
+        befüllt werden (z.B. &quot;Beantwortung einer Anfrage&quot;)
+        oder mit beliebigen URLs.
+      </para>
+      <para>
+        TODO: Erläuterung zu <literal>skos:Concept</literal> und
+        <literal>skos:prefLabel</literal>, was diese bringen und evtl.
+        Empfehlung.
+      </para>
     </sect3>
     <sect3 id="herstellerspezifische-erweiterungen">
       <title>Herstellerspezifische Erweiterungen</title>
@@ -3893,15 +4109,20 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
     <sect3 id="id">
       <title><literal>@id</literal></title>
       <para>
-        URL des Objekts und eindeutiges Identifikationsmerkmal. Siehe
-        dazu auch &quot;Benannte Objekte&quot;. Dies ist ein ZWINGENDES
-        Merkmal für jedes Objekt.
+        Die Eigenschaft <literal>@id</literal> ist durch die
+        JSON-LD-Spezifikation vorgegeben und enthält einen eindeutigen
+        Bezeichner des Objekts, nämlich seine URL. Siehe dazu auch
+        <link linkend="benannte_objekte">Benannte Objekte</link>. Dies
+        ist ein ZWINGENDES Merkmal für jedes Objekt.
       </para>
     </sect3>
     <sect3 id="type">
       <title><literal>@type</literal></title>
       <para>
-        Objekttypenangabe des Objekts. ZWINGEND für jedes Objekt.
+        Objekttypenangabe des Objekts im Sinne von JSON-LD. ZWINGEND für
+        jedes Objekt. Der Wert ist (in Verbindung mit dem
+        JSON-LD-Kontext eines Objekts) eine URL, unter der weitere
+        Informationen über den Objekttyp angeboten werden KÖNNEN.
       </para>
     </sect3>
     <sect3 id="name-und-namelong">
@@ -3920,7 +4141,7 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
       </para>
       <para>
         In keinem Fall sollten die Werte von <literal>name</literal> und
-        <literal>nameLong</literal> identische sein.
+        <literal>nameLong</literal> identisch sein.
       </para>
     </sect3>
     <sect3 id="license">
@@ -4000,15 +4221,20 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         im <literal>modified</literal> Zeitstempel widerspiegeln sollte.
       </para>
     </sect3>
-    <sect3 id="classification">
-      <title><literal>classification</literal></title>
+    <sect3 id="keyword">
+      <title><literal>keyword</literal></title>
       <para>
-        Dient der Verschlagwortung und verweist dazu auf ein oder
-        eventuell auch mehrere <literal>skos:Concept</literal>-Objekte
-        mit einer <literal>skos:prefLabel</literal>-Eigenschaft. Der
-        Wert der Eigenschaft ist jeweils eine Zeichenkette. Die
-        verwendete Sprache (in der Regel &quot;de&quot; für Deutsch)
-        MUSS dabei angegeben werden.
+        Die Eigenschaft <literal>keyword</literal> dient der
+        Kategorisierung von Objekten und ist in einer Vielzahl von
+        Objekttypen zu diesem Zweck einsetzbar.
+      </para>
+      <para>
+        Wert der Eigenschaft sind ein oder mehrere
+        <literal>skos:Concept</literal>-Objekte mit einer
+        <literal>skos:prefLabel</literal>-Eigenschaft. Der Wert der
+        Eigenschaft ist jeweils eine Zeichenkette. Die verwendete
+        Sprache (in der Regel &quot;de&quot; für Deutsch) MUSS dabei
+        angegeben werden.
       </para>
       <para>
         TODO: SKOS darstellen
@@ -4035,13 +4261,16 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
       <para>
         und die 14 GovData-Kategorien können dabei durch eine
         zusätzliche Verschlagwortung auf Basis von
-        Standard-Schlagwortkatalogen für RIS eine Ergänzung erfahren (
-        LeiKa, Bremer-Katalog, DBpedia, RAMON).
+        Standard-Schlagwortkatalogen für RIS eine Ergänzung erfahren
+        (LeiKa, Bremer-Katalog, DBpedia, RAMON).
       </para>
       <para>
         Die 14 Werte des GovData-Metadaten-Standard sind bisher nicht
-        als Linked Data existent. TODO: eventuell können diese in OParl
-        als Schlagwort-<literal>skos:Concept</literal>-Objekte als nicht
+        als Linked Data existent.
+      </para>
+      <para>
+        TODO: eventuell können diese in OParl als
+        Schlagwort-<literal>skos:Concept</literal>-Objekte als nicht
         abschliessende Menge von Schlagworten vorgegeben werden.
       </para>
     </sect3>
@@ -4146,8 +4375,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             <para>
               Die URL der OParl-Spezifikation, die von diesem Server
               unterstützt wird. Der Wert MUSS die URL
-              <literal>http://oparl.org/specs/1.0/</literal> sein. Diese
-              Eigenschaft ist ZWINGEND.
+              <literal>http://oparl.org/specs/1.0/</literal> sein. Typ:
+              URL ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -4161,8 +4390,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               <link linkend="oparl_body"><literal>oparl:Body</literal></link>-Objekte,
               also der Körperschaften, die auf dem System vorliegen.
               Alternativ kann statt einer Liste eine einzelne URL zum
-              Abruf der Liste angeboten werden. Die Eigenschaft ist
-              ZWINGEND.
+              Abruf der Liste angeboten werden. Typ: URL ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -4174,7 +4402,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             <para>
               Nutzerfreundlicher Name für das System, mit dessen Hilfe
               Nutzer das System erkennen und von anderen unterscheiden
-              können. Diese Eigenschaft wird EMPFOHLEN.
+              können. Typ: String EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -4184,11 +4412,11 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              E-Mail-Adresse für Anfragen zur OParl-API. Diese
-              Eigenschaft wird EMPFOHLEN. Die Angabe einer
-              E-Mail-Adresse dient sowohl NutzerInnen wie auch
+              E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe
+              einer E-Mail-Adresse dient sowohl NutzerInnen wie auch
               EntwicklerInnen von Clients zur Kontaktaufnahme mit dem
-              Betreiber.
+              Betreiber. Typ: mail-Adresse inklusive &quot;mailto:&quot;
+              EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -4199,8 +4427,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Name des Ansprechpartners oder der Abteilung, die über die
-              <literal>contactEmail</literal> erreicht werden kann. Die
-              Eigenschaft ist EMPFOHLEN. Typ: Zeichenkette.
+              <literal>contactEmail</literal> erreicht werden kann. Typ:
+              Zeichenkette. EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -4211,7 +4439,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               URL des Feeds <link linkend="feed_neue_objekte">&quot;Neue
-              Objekte&quot;</link>. Die Eigenschaft ist EMPFOHLEN.
+              Objekte&quot;</link>. EMPFOHLEN. Typ: URL
             </para>
           </listitem>
         </varlistentry>
@@ -4223,7 +4451,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             <para>
               URL des Feeds
               <link linkend="feed_geaenderte_objekte">&quot;Geänderte
-              Objekte&quot;</link>. Die Eigenschaft ist EMPFOHLEN.
+              Objekte&quot;</link>. Typ: URL EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -4235,7 +4463,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             <para>
               URL des Feeds
               <link linkend="feed_entfernte_objekte">&quot;Entfernte
-              Objekte&quot;</link>. Die Eigenschaft ist EMPFOHLEN.
+              Objekte&quot;</link>. Typ: URL EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -4246,7 +4474,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               URL zur WWW-Oberfläche des parlamentarischen
-              Informationssystem. Diese Eigenschaft ist OPTIONAL.
+              Informationssystem. Typ: URL OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -4256,9 +4484,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL des Software-Anbieters, von dem die
-              OParl-Server-Software stammt. Diese Eigenschaft ist
-              OPTIONAL.
+              Software-Anbieter, von dem die OParl-Server-Software
+              stammt. Typ: URL OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -4268,8 +4495,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL mit Informationen zu der auf dem System genutzten
-              OParl-Server-Software. Diese Eigenschaft ist OPTIONAL.
+              Informationen zu der auf dem System genutzten
+              OParl-Server-Software. Typ: URL OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -4398,7 +4625,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL der allgemeinen Website der Körperschaft. EMPFOHLEN.
+              allgemeine Website der Körperschaft. Typ: URL EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -4408,12 +4635,12 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL der Lizenz, die für die Daten, die über diese API
-              abgerufen werden können, gilt, sofern nicht am einzelnen
-              Objekt anders angegeben. Sie dazu auch die übergreifende
+              Lizenz, die für die Daten, die über diese API abgerufen
+              werden können, gilt, sofern nicht am einzelnen Objekt
+              anders angegeben. Sie dazu auch die übergreifende
               Beschreibung zur Eigenschaft
               <link linkend="eigenschaft_license"><literal>license</literal></link>.
-              EMPFOHLEN.
+              Typ: URL EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -4425,7 +4652,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             <para>
               Tagesdatum, seit dem die unter license angegebene Lizenz
               gilt. Vorsicht bei Änderungen der Lizenz die zu
-              restriktiveren Bedingungen führen. Typ: TODO EMPFOHLEN
+              restriktiveren Bedingungen führen. Typ: Datum mit oder
+              ohne Uhrzeit EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4443,7 +4671,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
                   (GV-ISys) des Statistischen Bundesamtes</ulink>
                   eingesehen werden
                 </para>
-              </footnote>. Typ: TODO EMPFOHLEN
+              </footnote>. Typ: String mit ganzer Zahl EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4472,7 +4700,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
                   Wikipedia
                   <ulink url="http://de.wikipedia.org/">http://de.wikipedia.org/</ulink>
                 </para>
-              </footnote> angegeben werden. Typ: TODO EMPFOHLEN
+              </footnote> angegeben werden. Typ: URL EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4486,7 +4714,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               &quot;mailto:&quot;-Schema. Die Adresse soll die
               Kontaktaufnahme zu einer für die Körperschaft und
               idealerweise das parlamentarische Informationssystem
-              zuständigen Stelle ermöglichen. Typ: TODO EMPFOHLEN
+              zuständigen Stelle ermöglichen. Typ: mail-Adresse
+              inklusive &quot;mailto:&quot; EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4498,7 +4727,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             <para>
               Name oder Bezeichnung der mit
               <literal>contactEmail</literal> erreichbaren Stelle. Typ:
-              TODO OPTIONAL.
+              String OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -4548,11 +4777,12 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>classification</literal>
+            <literal>keyword</literal>
           </term>
           <listitem>
             <para>
-              Typ: <literal>skos:Concept</literal> OPTIONAL
+              Typ: <literal>skos:Concept</literal> Anzahl: beliebig
+              OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4576,7 +4806,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Datum/Uhrzeit der Erzeugung des Objekts. Typ: TODO
+              Datum/Uhrzeit der Erzeugung des Objekts. Typ: Zeitstempel
               EMPFOHLEN.
             </para>
           </listitem>
@@ -4588,7 +4818,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ:
-              TODO EMPFOHLEN
+              Zeitstempel EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4675,8 +4905,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URL der Körperschaft, zu der diese Gruppierung gehört.
-              ZWINGEND
+              Körperschaft, zu der diese Gruppierung gehört. Typ:
+              <literal>oparl:Body</literal> ZWINGEND
             </para>
           </listitem>
         </varlistentry>
@@ -4686,7 +4916,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Der Name der Gruppierung, eine Kurzform. ZWINGEND
+              Der Name der Gruppierung, eine Kurzform. Typ: String
+              ZWINGEND
             </para>
           </listitem>
         </varlistentry>
@@ -4694,7 +4925,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
       <para>
         TODO: ZWINGEND/OPTIONAL prüfen
       </para>
-      <variablelist>
+      <variablelist spacing="compact">
         <varlistentry>
           <term>
             <literal>nameLong</literal>
@@ -4702,7 +4933,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Langform des Namens der Gruppierung, der rechtlich
-              korrekte Name. ZWINGEND
+              korrekte Name. Typ: String ZWINGEND
             </para>
           </listitem>
         </varlistentry>
@@ -4710,7 +4941,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
       <para>
         TODO: ZWINGEND/OPTIONAL prüfen
       </para>
-      <variablelist>
+      <variablelist spacing="compact">
         <varlistentry>
           <term>
             <literal>post</literal>
@@ -4744,7 +4975,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
       <para>
         Siehe https://github.com/OParl/specs/issues/45 TODO:
         &quot;Ordentliches Mitglied&quot;, &quot;Stellvertretendes
-        Mitglied&quot; müssen anders behandelt werden! OPTIONAL
+        Mitglied&quot; müssen anders behandelt werden! Typ:
+        <literal>oparl:Post</literal> OPTIONAL
       </para>
       <variablelist>
         <varlistentry>
@@ -4753,10 +4985,11 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              URLs aller Mitglieder dieser Organisation (Objekte vom Typ
+              Mitglieder dieser Organisation (Objekte vom Typ
               <literal>[oparl:Person](#oparl_person)</literal>). Auch
               alle Personen mit Positionen in der Organisation sind hier
-              anzugeben. ZWINGEND (falls es Mitglieder gibt)
+              anzugeben. Typ: <literal>oparl:Person</literal> ZWINGEND
+              (falls es Mitglieder gibt)
             </para>
           </listitem>
         </varlistentry>
@@ -4766,7 +4999,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Ggf. URL der übergeordneten Organisation. OPTIONAL.
+              Ggf. URL der übergeordneten Organisation. Typ:
+              <literal>oparl:Organization</literal> OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -4776,13 +5010,14 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Datum/Uhrzeit der Erzeugung des Objekts. EMPFOHLEN
+              Datum/Uhrzeit der Erzeugung des Objekts. Typ: Zeitstempel
+              EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>classification</literal>
+            <literal>keyword</literal>
           </term>
           <listitem>
             <para>
@@ -4795,7 +5030,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               u.a. in der Tabelle &quot;Kategorien&quot; im unteren
               Drittel der Seite
               http://htmlpreview.github.io/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html
-              OPTIONAL
+              Typ: <literal>skos:Concept</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4809,7 +5044,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               &quot;Rat&quot;, &quot;Hauptausschuss&quot;,
               &quot;Ausschuss&quot; &quot;Beirat&quot;,
               &quot;Projektbeirat&quot;, &quot;Kommission&quot;,
-              &quot;AG&quot;, &quot;Verwaltungsrat&quot; OPTIONAL
+              &quot;AG&quot;, &quot;Verwaltungsrat&quot; Typ:
+              <literal>skos:Concept</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4819,8 +5055,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Datum/Uhrzeit der letzten Bearbeitung des Objekts.
-              EMPFOHLEN
+              Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ:
+              Zeitstempel EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4968,7 +5204,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Der vollständige Name der Person mit akademischem Grad und
-              Vornamen. Typ: TODO ZWINGEND
+              Vornamen. Typ: String ZWINGEND
             </para>
           </listitem>
         </varlistentry>
@@ -4978,7 +5214,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Familienname bzw. Nachname. Typ: TODO OPTIONAL
+              Familienname bzw. Nachname. Typ: String OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -4988,7 +5224,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Vorname bzw. Taufname. Typ: TODO OPTIONAL
+              Vorname bzw. Taufname. Typ: String OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5041,7 +5277,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Telefonnummer mit <literal>tel:</literal> Schema. Typ:
-              TODO OPTIONAL
+              String mit &quot;tel:&quot; am Anfang, keine Leerzeichen
+              OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5063,7 +5300,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Straße und Hausnummer der Kontakt-Anschrift der Person.
-              Typ: TODO OPTIONAL
+              Typ: String OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5073,7 +5310,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Postleitzahl der Kontakt-Anschrift der Person. Typ: TODO
+              Postleitzahl der Kontakt-Anschrift der Person. Typ: String
               OPTIONAL
             </para>
           </listitem>
@@ -5145,7 +5382,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>classification</literal>
+            <literal>keyword</literal>
           </term>
           <listitem>
             <para>
@@ -5294,7 +5531,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei
               einer zukünftigen Sitzung ist dies der geplante Zeitpunkt,
               bei einer stattgefundenen KANN es der tatsächliche
-              Startzeitpunkt sein. Typ: TODO. ZWINGEND
+              Startzeitpunkt sein. Typ: Zeitstempel. ZWINGEND
             </para>
           </listitem>
         </varlistentry>
@@ -5307,7 +5544,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer
               zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei
               einer stattgefundenen KANN es der tatsächliche
-              Endzeitpunkt sein. Typ: TODO. EMPFOHLEN
+              Endzeitpunkt sein. Typ: Zeitstempel. EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -5415,7 +5652,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>classification</literal>
+            <literal>keyword</literal>
           </term>
           <listitem>
             <para>
@@ -5429,8 +5666,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Datum und Uhrzeit der Erzeugung des Objekts. Typ: TODO.
-              EMPFOHLEN
+              Datum und Uhrzeit der Erzeugung des Objekts. Typ:
+              Zeitstempel. EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -5441,7 +5678,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Datum und Uhrzeit der letzten Änderung des Objekts. Typ:
-              TODO. EMPFOHLEN
+              Zeitstempel. EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -5506,7 +5743,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               &quot;C&quot;, &quot;c)&quot; o.ä. Die Reihenfolge wird
               dadurch nicht festgelegt, sondern durch die Reihenfolge
               der TOPs im <literal>agendaItem</literal>-Attribut von
-              <literal>oparl:Meeting</literal> Typ: TODO OPTIONAL
+              <literal>oparl:Meeting</literal> Typ: String OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5516,7 +5753,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Das Thema des Tagesordnungspunktes. Typ: TODO ZWINGEND.
+              Das Thema des Tagesordnungspunktes. Typ: String ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -5579,7 +5816,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               wurde, kann der Text hier hinterlegt werden. Das ist
               besonders dann in der Praxis relevant, wenn der gefasste
               Beschluss (z.B. durch Änderungsantrag) von der
-              Beschlussvorlage abweicht. Typ: TODO OPTIONAL.
+              Beschlussvorlage abweicht. Typ: String TODO: Was ist bei
+              sehr langem Text? OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5611,7 +5849,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>classification</literal>
+            <literal>keyword</literal>
           </term>
           <listitem>
             <para>
@@ -5625,7 +5863,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Erzeugungsdatum und -zeit des Objekts. Typ: TODO EMPFOHLEN
+              Erzeugungsdatum und -zeit des Objekts. Typ: Zeitstempel
+              EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -5635,7 +5874,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Datum und Uhrzeit der letzten Änderung. Typ: TODO
+              Datum und Uhrzeit der letzten Änderung. Typ: Zeitstempel
               EMPFOHLEN
             </para>
           </listitem>
@@ -5663,22 +5902,17 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
       der Drucksachen zum Einsatz.
     </para>
     <para>
-      Zunächst ein Kontext:
-    </para>
-    <programlisting language="json">
-// consultations als @list deklarieren!
-</programlisting>
-    <para>
       Ein Beispiel in kompakter Form:
     </para>
     <programlisting language="json">
 {
-    &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;
+    &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;,
     &quot;@type&quot;: &quot;oparl:Paper&quot;,
     &quot;@id&quot;: &quot;https://oparl.beispielris.de/paper/749&quot;,
+    &quot;body&quot;: &quot;beispielris:bodies/1&quot;,
+    &quot;name&quot;: &quot;Antwort auf Anfrage 1200/2014&quot;,
     &quot;reference&quot;: &quot;1234/2014&quot;,
     &quot;publishedDate&quot;: &quot;2014-04-04T16:42:02+02:00&quot;,
-    &quot;name&quot;: &quot;Antwort auf Anfrage 1200/2014&quot;,
     &quot;paperType&quot;: &quot;beispielris:vocab/answer&quot;,
     &quot;relatedPaper&quot;: &quot;beispielris:paper/699&quot;,
     &quot;mainDocument&quot;: &quot;beispielris:document/925&quot;,
@@ -5689,14 +5923,14 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             &quot;geometry&quot;: &quot;POINT(7.148  50.023)&quot;
         }
     ],
-    &quot;creator&quot;: [
+    &quot;originator&quot;: [
         &quot;beispielris:organization/2000&quot;,
         &quot;beispielris:people/1000&quot;
     ],
     &quot;consultation&quot;: [
         &quot;beispielris:consultation/5676&quot;,
         &quot;beispielris:consultation/5689&quot;
-    ]
+    ],
     &quot;modified&quot;: &quot;2013-01-08T12:05:27+01:00&quot;
 }
 </programlisting>
@@ -5705,22 +5939,13 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
       <variablelist>
         <varlistentry>
           <term>
-            <literal>reference</literal>
+            <literal>body</literal>
           </term>
           <listitem>
             <para>
-              Beispiel: &quot;1234/2014&quot; Typ: TODO OPTIONAL
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            <literal>publishedDate</literal>
-          </term>
-          <listitem>
-            <para>
-              Beispiel: &quot;2014-04-04T16:42:02+02:00&quot; Typ: TODO
-              EMPFOHLEN
+              Körperschaft, zu der die Drucksache gehört. Typ:
+              <literal>oparl:Body</literal>. Kardinalität: 1. Diese
+              Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -5730,8 +5955,33 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Beispiel: &quot;Antwort auf Anfrage 1200/2014&quot; Typ:
-              TODO EMPFOHLEN
+              Titel der Drucksache. Typ: Zeichenkette. Kardinalität: 1.
+              Diese Eigenschaft ist ZWINGEND.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>reference</literal>
+          </term>
+          <listitem>
+            <para>
+              Kennung bzw. Aktenzeichen der Drucksache, mit der sie in
+              der parlamentarischen Arbeit eindeutig referenziert werden
+              kann. Typ: Zeichenkette. Kardinalität: 0 - 1. Die
+              Eigenschaft ist OPTIONAL.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>publishedDate</literal>
+          </term>
+          <listitem>
+            <para>
+              Veröffentlichungsdatum der Drucksache. Typ: Datum mit oder
+              ohne Zeit. Kardinalität: 0 - 1. Diese Eigenschaft ist
+              EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -5750,12 +6000,14 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               &quot;request&quot;, &quot;note&quot; und
               &quot;answer&quot; in Frage. Denkbar ist auch eine
               Kategorisierung z.B. in drei Arten von Drucksachen:
-              initiierend, beratend und protokollierend. Eine weitere
-              Liste mit exemplarischen Drucksachentypen gibt es hier:
-              https://wiki.piratenpartei.de/BE:BVVupdates/Glossar Eine
-              zukünftige Version von OParl wird möglicherweise solche
-              Werte spezifizieren. Typ: <literal>skos:Concept</literal>
-              OPTIONAL
+              initiierend, beratend und protokollierend.<footnote>
+                <para>
+                  Eine Liste mit exemplarischen Drucksachentypen:
+                  <ulink url="https://wiki.piratenpartei.de/BE:BVVupdates/Glossar">https://wiki.piratenpartei.de/BE:BVVupdates/Glossar</ulink>
+                </para>
+              </footnote> Kardinalität: 0 bis 1. Typ:
+              <literal>skos:Concept</literal>. Diese Eigenschaft ist
+              EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -5765,7 +6017,9 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Typ: <literal>oparl:Paper</literal> OPTIONAL
+              Inhaltlich verwandte Drucksache(n). Typ:
+              <literal>oparl:Paper</literal>. Kardinalität: 0 bis *. Die
+              Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5775,7 +6029,11 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Typ: <literal>oparl:Document</literal>
+              Das Hauptdokument zu dieser Drucksache. Beispiel: Die
+              Drucksache repräsentiert eine Beschlussvorlage, das
+              Hauptdokument enthält den Text der Beschlussvorlage. Typ:
+              <literal>oparl:Document</literal>. Kardinalität: 1. Diese
+              Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -5785,7 +6043,11 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Typ: <literal>oparl:Document</literal>
+              Anhänge zur Drucksache. Diese sind, in Abgrenzung zum
+              Hauptdokument (<literal>mainDocument</literal>)
+              untergeordnet und es kann beliebig viele davon geben. Typ:
+              <literal>oparl:Document</literal>. Kardinalität: 0 bis *.
+              Die Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5795,18 +6057,25 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Typ: <literal>oparl:Location</literal>
+              Sofern die Drucksache einen inhaltlichen Ortsbezug hat,
+              beschreibt diese Eigenschaft den Ort in Textform und/oder
+              in Form von Geodaten. Typ:
+              <literal>oparl:Location</literal>. Kardinalität: 0 bis *.
+              Die Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>creator</literal>
+            <literal>originator</literal>
           </term>
           <listitem>
             <para>
-              Typ: <literal>oparl:Person</literal> |
-              <literal>oparl:Organization</literal>
+              Urheber der Drucksache, kann eine oder mehrere Person(en)
+              bzw. Gruppierung(en) sein. Typ:
+              <literal>oparl:Person</literal> |
+              <literal>oparl:Organization</literal>. Kardinalität: 0 bis
+              *. Die Eigenschaft ist EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -5816,7 +6085,9 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Typ: <literal>oparl:Consultation</literal>
+              Beratungen der Drucksache. Typ:
+              <literal>oparl:Consultation</literal>. Kardinalität: 0 bis
+              *. Die Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5826,27 +6097,25 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Typ: TODO Beispiel: &quot;2013-01-08T12:05:27+01:00&quot;
+              Letzter Änderungszeitpunkt des Objekts. Typ: Zeitstempel.
+              Kardinalität: 1.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>classification</literal>
+            <literal>keyword</literal>
           </term>
           <listitem>
             <para>
               Begriff mit <literal>skos:prefLabel</literal>. Allgemeiner
               als <literal>paperType</literal> Typ:
-              <literal>skos:Concept</literal> OPTIONAL
+              <literal>skos:Concept</literal>. Kardinalität: 0 bis *.
+              Die Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
-      <para>
-        TODO: * Festlegen: OPTIONAL / EMPFOHLEN / ZWINGEND * Eigenschaft
-        &quot;locations&quot; im Beispiel ändern
-      </para>
     </sect3>
   </sect2>
   <sect2 id="oparl_document">
@@ -5869,7 +6138,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     &quot;paper&quot;: &quot;https://oparl.beispielris.de/paper/2396&quot;,
     &quot;mimeType&quot;: &quot;application/pdf&quot;,
     &quot;date&quot;: &quot;2013-01-04T07:54:13+01:00&quot;,
-    &quot;lastModified&quot;: &quot;2013-01-04T07:54:13+01:00&quot;,
+    &quot;modified&quot;: &quot;2013-01-04T07:54:13+01:00&quot;,
     &quot;sha1Checksum&quot;: &quot;da39a3ee5e6b4b0d3255bfef95601890afd80709&quot;,
     &quot;size&quot;: 82930,
     &quot;accessUrl&quot;: &quot;https://oparl.beispielris.de/document/57739.pdf&quot;,
@@ -5881,7 +6150,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
 }
 </programlisting>
     <para>
-      Objekt vom Typ <literal>oparl:Document</literal> können mit
+      Objekte vom Typ <literal>oparl:Document</literal> können mit
       Drucksachen (<literal>oparl:Paper</literal>) oder Sitzungen
       (<literal>oparl:Meeting</literal>) in Beziehung stehen. Dies wird
       durch die Eigenschaft <literal>paper</literal> bzw.
@@ -5911,7 +6180,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             <para>
               Dateiname, unter dem die Datei in einem Dateisystem
               gespeichert werden kann. Typ: ASCII-Zeichenkette.
-              ZWINGEND.
+              Kardinalität: 1. ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -5924,7 +6193,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               Ein zur Anzeige für Endnutzer bestimmter Name für dieses
               Objekt. Der Wert SOLL NICHT mit dem Wert der Eigenschaft
               <literal>fileName</literal> identisch sein. Typ:
-              Zeichenkette. EMPFOHLEN.
+              Zeichenkette. Kardinalität: 0 bis 1. EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -5942,7 +6211,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               </footnote>. Sollte das System einer Datei keinen
               spezifischen Typ zuweisen können, wird EMPFOHLEN, hier
               <literal>application/octet-stream</literal> zu verwenden.
-              Typ: Zeichenkette ZWINGEND.
+              Typ: Zeichenkette. Kardinalität: 1. ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -5955,13 +6224,13 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               Datum und Zeit der Erstellung der Datei. Wahlweise, falls
               dies nicht vom System kommuniziert werden kann oder soll,
               KANN alternativ der Zeitpunkt der Veröffentlichung
-              ausgegeben werden. Typ: Datum. ZWINGEND.
+              ausgegeben werden. Typ: Datum. Kardinalität: 1. ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>lastModified</literal>
+            <literal>modified</literal>
           </term>
           <listitem>
             <para>
@@ -5974,7 +6243,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               hingegen würde beispielsweise die Änderung des Dateinamens
               gelten. Hier soll immer das größere der beiden Daten
               ausgegeben werden, also der am wenigsten lang
-              zurückliegende Änderungszeitpunkt. Typ: Datum. ZWINGEND.
+              zurückliegende Änderungszeitpunkt. Typ: Datum und Uhrzeit.
+              Kardinalität: 1. ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -5984,7 +6254,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Größe der Datei in Bytes. Typ: ganze Zahl. ZWINGEND.
+              Größe der Datei in Bytes. Typ: ganze Zahl. Kardinalität:
+              1. ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -5995,7 +6266,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               SHA1-Prüfsumme des Dokumenteninhalts in
-              Hexadezimal-Schreibweise. Typ: Zeichenkette. OPTIONAL.
+              Hexadezimal-Schreibweise. Typ: Zeichenkette. Kardinalität:
+              0 bis 1. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -6007,7 +6279,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             <para>
               Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in
               Textform wiedergegeben werden kann. Typ: Zeichenkette.
-              EMPFOHLEN.
+              Kardinalität: 0 bis 1. EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -6019,7 +6291,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             <para>
               URL zum allgemeinen Zugriff auf die Datei. Näheres unter
               <link linkend="dateizugriff">Dateizugriff</link>. Typ:
-              URL. ZWINGEND.
+              URL. Kardinalität: 1. ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -6031,7 +6303,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             <para>
               URL zum Download der Datei. Näheres unter
               <link linkend="dateizugriff">Dateizugriff</link>. Typ:
-              URL. EMPFOHLEN.
+              URL. Kardinalität: 0 bis 1. EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -6045,6 +6317,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               MUSS über diese Eigenschaft die URL des Drucksache-Objekts
               ausgegeben werden. Andernsfalls DARF diese Eigenschaft
               NICHT vorhanden sein. Typ: <literal>oparl:Paper</literal>.
+              Kardinalität: 0 bis *.
             </para>
           </listitem>
         </varlistentry>
@@ -6058,7 +6331,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               MUSS über diese Eigenschaft die URL des Sitzung-Objekts
               ausgegeben werden. Andernfalls DARF diese Eigenschaft
               NICHT vorhanden sein. Typ:
-              <literal>oparl:Meeting</literal>.
+              <literal>oparl:Meeting</literal>. Kardinalität: 0 bis *.
             </para>
           </listitem>
         </varlistentry>
@@ -6068,8 +6341,10 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Datei von der das aktuelle Objekt abgeleitet wurde. Typ:
-              <literal>oparl:Document</literal>. OPTIONAL.
+              Datei von der das aktuelle Objekt abgeleitet wurde.
+              Details dazu in der allgemeinen Beschreibung weiter oben.
+              Typ: <literal>oparl:Document</literal>. Kardinalität: 0
+              bis 1. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -6080,7 +6355,9 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Abgeleitete Datei die von dem aktuellen Objekt abgeleitet
-              wurde. Typ: <literal>oparl:Document</literal>. OPTIONAL.
+              wurde. Details dazu in der allgemeinen Beschreibung weiter
+              oben. Typ: <literal>oparl:Document</literal>.
+              Kardinalität: 0 bis *. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -6100,7 +6377,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
                   vgl.
                   <link linkend="eigenschaft_license">license</link>
                 </para>
-              </footnote> Typ: URL. OPTIONAL.
+              </footnote> Typ: URL. Kardinalität: 0 bis 1. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -6110,31 +6387,30 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Rolle, Funktion, Sorte des Dokuments. Das Objekt enthält
-              ein <literal>skos:prefLabel</literal>. Dessen Werte können
-              z.B. sein: &quot;Einladung&quot;, &quot;Protokoll&quot;,
-              &quot;Wortprotokoll&quot; oder
-              &quot;Beschlussprotokoll&quot;. In einer zukünftigen
-              OParl-Version wird möglicherweise eine Menge der
-              wichtigsten Kategorien vorgegeben. Typ:
-              <literal>skos:Concept</literal>. OPTIONAL. TODO: Link auf
-              Erkärungs-Kapitel, damit klar ist, dass hier auf externes
-              Vokabular verlinkt wird.
+              Rolle, Funktion, Sorte des Dokuments in Bezug auf eine
+              Sitzung. Die Eigenschaft SOLL entsprechend nur in
+              Verbindung mit der Eigenschaft <literal>meeting</literal>
+              gesetzt sein. Siehe dazu
+              <link linkend="vokabulare_klassifizierung">Vokabulare zur
+              Klassifizierung</link>. Typ:
+              <literal>skos:Concept</literal>. Kardinalität: 0 bis 1.
+              OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>classification</literal>
+            <literal>keyword</literal>
           </term>
           <listitem>
             <para>
               Begriff mit <literal>skos:prefLabel</literal>. Hat
               allgemeinere Bedeutung als
-              <literal>documentRole</literal>. Typ:
-              <literal>skos:Concept</literal>. OPTIONAL. TODO: TODO:
-              Link auf Erkärungs-Kapitel, damit klar ist, dass hier auf
-              externes Vokabular verlinkt wird.
+              <literal>documentRole</literal>. Siehe dazu
+              <link linkend="vokabulare_klassifizierung">Vokabulare zur
+              Klassifizierung</link>. Typ:
+              <literal>skos:Concept</literal>. Kardinalität: 0 bis *.
+              OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -6276,7 +6552,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>classification</literal>
+            <literal>keyword</literal>
           </term>
           <listitem>
             <para>
@@ -6344,20 +6620,13 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     // ...
 }
 </programlisting>
-    <para>
-      OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des<literallayout>
-</literallayout>Well-Known-Text-Formats (WKT) der Simple Feature Access
-      Spezifikation<footnote>
-        <para>
-          Simple Feature Access Spezifikation:
-          <ulink url="http://www.opengeospatial.org/standards/sfa">http://www.opengeospatial.org/standards/sfa</ulink>
-        </para>
-      </footnote> vor. WKT erlaubt die Beschreibung von
-      unterschiedlichen Geometrien wie Punkten
-      (<literal>Point</literal>), Pfaden
-      (<literal>LineString</literal>), Polygonen
-      (<literal>Polygon</literal>) und viele andere mehr.
-    </para>
+<literallayout>OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des
+Well-Known-Text-Formats (WKT) der Simple Feature Access Spezifikation<footnote>
+<para>
+Simple Feature Access Spezifikation:
+<ulink url="http://www.opengeospatial.org/standards/sfa">http://www.opengeospatial.org/standards/sfa</ulink>
+</para>
+</footnote> vor. WKT erlaubt die Beschreibung von unterschiedlichen Geometrien wie Punkten (<literal>Point</literal>), Pfaden (<literal>LineString</literal>), Polygonen (<literal>Polygon</literal>) und viele andere mehr.</literallayout>
     <para>
       Zum Zeitpunkt der Erstellung der vorliegenden Spezifikation ist
       Version 1.2.1 der Simple-Feature-Access-Spezifikation aktuell.
@@ -6405,7 +6674,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>classification</literal>
+            <literal>keyword</literal>
           </term>
           <listitem>
             <para>
@@ -6481,9 +6750,10 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               Funktion, aber auch eine Unterscheidung zwischen z.B.
               &quot;Sachkundige Bürger | Sachkundige Bürgerin&quot; und
               &quot;Ratsherr | Ratsfrau&quot; bei einfachen Mitgliedern
-              ist hiermit möglich. TODO: was ist mit einem sachkundigen
-              Bürger, der gleichzeitig Vorsitzender ist? Typ:
-              <literal>org:Role</literal> OPTIONAL
+              ist hiermit möglich. FRAGE: Wie soll bei einem
+              sachkundigen Bürger verfahren werden, der gleichzeitig
+              Vorsitzender ist? Typ: <literal>org:Role</literal>
+              OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -6506,8 +6776,11 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
             <para>
               Entsendende Organization - Fraktion, fraktionslos oder
               externes Gremium Dies entspricht
-              <literal>opengov:onBehalfOf</literal> in Popolo. TODO: wie
-              wird fraktionslos kodiert? Typ:
+              <literal>opengov:onBehalfOf</literal> in Popolo. Es kann
+              auch Mitglieder geben, die von keiner anderen Organisation
+              entsendet wurden (z.B. fraktionslose Abgeordnete). FRAGE:
+              Muss diese Situation vom Fehlen von Informationen über
+              Entsendungen unterschieden werden? Typ:
               <literal>oparl:Organization</literal> OPTIONAL
             </para>
           </listitem>
@@ -6519,7 +6792,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               <literal>schema:validFrom</literal> wie in Popolo. The
-              date on which the relationship began Typ: TODO OPTIONAL
+              date on which the relationship began Typ: String im Format
+              <literal>xsd:dateTime</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -6530,7 +6804,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               <literal>schema:validThrough</literal> wie in Popolo. The
-              date on which the relationship ended Typ: TODO OPTIONAL
+              date on which the relationship ended Typ: String im Format
+              <literal>xsd:dateTime</literal> OPTIONAL
             </para>
           </listitem>
         </varlistentry>

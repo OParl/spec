@@ -78,10 +78,9 @@ Ein Beispiel in kompakter Form:
     ist und die Art der Drucksache beschreibt, z.B. "Beantwortung einer Anfrage".
     Für die URLs kommen als letztes Pfadelement z.B. "draft", "petition", "request",
     "note" und "answer" in Frage. Denkbar ist auch eine Kategorisierung z.B. in
-    drei Arten von Drucksachen: initiierend, beratend und protokollierend.
-    Eine weitere Liste mit exemplarischen Drucksachentypen gibt es hier:
-    https://wiki.piratenpartei.de/BE:BVVupdates/Glossar
-    Eine zukünftige Version von OParl wird möglicherweise solche Werte spezifizieren.
+    drei Arten von Drucksachen: initiierend, beratend und protokollierend.^[Eine
+    Liste mit exemplarischen Drucksachentypen:
+    <https://wiki.piratenpartei.de/BE:BVVupdates/Glossar>]
     Kardinalität: 0 bis 1.
     Typ: `skos:Concept`.
     Diese Eigenschaft ist EMPFOHLEN.

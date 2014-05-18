@@ -3,9 +3,9 @@ Autoren
 
 An diesem Dokument haben mitgewirkt:
 
+Jayan Areekadan,
 Felix Ebert,
 Jan Erhardt,
-Jayan Areekadan,
 Jens Klessmann,
 Andreas Kuckartz,
 Babett Schalitz,

@@ -101,7 +101,7 @@ Klassische Webservice-Schnittstellen erfordern von den Entwicklern vollständige
 der angebotenen Einstiegspunkte und Zugriffsmethoden, gepaart mit sämtlichen unterstützten
 URL-Parametern, um den vollen Funktionsumfang der Schnittstelle ausschöpfen zu können.
 
-Parlamentarische Informationen sind weitgehend graphartig aufgebaut. Das bedeutet, dass
+Parlamentarische Informationen sind weitgehend in Form von Graphen aufgebaut. Das bedeutet, dass
 Objekte häufig mit einer Vielzahl anderer Objekte verknüpft sind. So ist eine Person
 beispielsweise Mitglied in mehreren Gremien, das Gremium hat mehrere Sitzungen abgehalten
 und zu diesen Sitzungen gibt es jeweils zahlreiche Drucksachen, die ihrerseits wieder

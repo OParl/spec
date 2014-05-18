@@ -128,9 +128,9 @@ Nach dem Linked-Data-Prinzip könnte beispielsweise der Vorname einer Person mit
 folgenden Tripel beschrieben werden:
 
 
-    Subjekt: http://dbpedia.org/resource/John_Doe_(musician)
-    Prädikat: http://xmlns.com/foaf/0.1/givenName
-    Objekt: http://dbpedia.org/resource/John_(given_name)
+* **Subjekt**: http://dbpedia.org/resource/John_Doe_(musician)
+* **Prädikat**: http://xmlns.com/foaf/0.1/givenName
+* **Objekt**: http://dbpedia.org/resource/John_(given_name)
 
 Hierbei macht man von der Tatsache Gebrauch, dass das Subjekt, also die Person, um die es 
 geht, bereits mittels ihrer URI eindeutig identifiziert werden kann und dass bestenfalls 

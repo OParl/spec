@@ -243,7 +243,7 @@ JSON-Ressourcen von Domains auszulesen, die nicht der Domain entsprechen, von de
 die Webanwendung selbst geladen wurde. AnwendungsentwicklerInnen sind dadurch bei
 der Implementierung von Client-Anwendungen eingeschränkt.
 
-Diese Einschränkung gilt nicht fürt JSONP^[JSONP steht für "JSON with padding".
+Diese Einschränkung gilt nicht für JSONP^[JSONP steht für "JSON with padding".
 Eine formelle Spezifikation existiert nicht. Der Wikipedia-Artikel <http://en.wikipedia.org/wiki/JSONP> fasst viele Quellen zusammen.]. Durch 
 JSONP wird die JSON-Notation so erweitert, dass der 
 ausgegebene Code ausführbarer JavaScript-Code wird. Damit wird erreicht, dass 

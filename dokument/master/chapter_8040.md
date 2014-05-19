@@ -24,7 +24,7 @@ Ein Kontext:
         "@id": "skos:exactMatch",
         "@type": "@id"
     }
-    "licenseValidSinceDay": // TODO: datum
+    "licenseValidSinceDay": "2013-04-01T12:00:00+00:00"
 }
 ~~~~~
 
@@ -80,7 +80,7 @@ Parlament an.
 
 `name`
 :   Gibt den gebräuchlichen Namen der Körperschaft an.
-    Typ: TODO.
+    Typ: Zeichenkette.
     Kardinalität: 1.
     Die Eigenschaft ist ZWINGEND.
 

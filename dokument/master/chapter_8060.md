@@ -122,67 +122,77 @@ Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der Kontext bleibt wie
 ### Eigenschaften ###
 
 `name`
-:   Der vollständige Name der Person mit akademischem Grad und Vornamen.
-    Typ: String
-    ZWINGEND
+:   Der vollständige Name der Person mit akademischem Grad und dem gebräuchlichen Vornamen.
+    Typ: Zeichenkette.
+    Kardinalität: 1.
+    Die Eigenschaft ist ZWINGEND.
 
 `familyName`
 :   Familienname bzw. Nachname.
-    Typ: String
+    Typ: Zeichenkette.
     OPTIONAL
 
 `givenName`
 :   Vorname bzw. Taufname.
-    Typ: String
+    Typ: Zeichenkette.
     OPTIONAL
 
 `formOfAddress`
 :   Anrede
     Begriff mit `skos:prefLabel`. Ähnlich wie `status`. Beispiele für die `skos:prefLabel` sind
     "Ratsherr | Ratsfrau" und "Herr | Frau".
-    Typ: `skos:Concept`
-    OPTIONAL
+    Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
+    Typ: `skos:Concept`.
+    Kardinalität: 0 bis 1.
+    OPTIONAL.
 
 `title`
-:   Akademische(r) Titel.
-    TODO: "Dr."? "Diplom"?
-    Typ: `skos:Concept`
-    OPTIONAL
+:   Akademische(r) Titel. Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
+    Typ: `skos:Concept`.
+    Kardinalität: 0 bis *.
+    OPTIONAL.
 
 `gender`
 :   Geschlecht. Zulässige Werte sind `vcard:Female`, `vcard:Male`, `vcard:None`, `vcard:Other` und `vcard:Unknown`.
-    Typ: `vcard:TODO`
+    Typ: Zeichenkette (TODO: Entsprechende `vcard:`-Eigenschaft angeben).
+    Kardinalität: 0 bis *.
     OPTIONAL
 
 `phone`
 :   Telefonnummer mit `tel:` Schema.
-    Typ: String mit "tel:" am Anfang, keine Leerzeichen
-    OPTIONAL
+    Typ: Zeichenkette mit "tel:" am Anfang, keine Leerzeichen
+    Kardinalität: 0 bis 1.
+    OPTIONAL.
 
 `email`
 :   E-Mail-Adresse mit `mailto:` Schema.
-    Typ: `foaf:mbox`
-    OPTIONAL
+    Typ: `foaf:mbox`.
+    Kardinalität: 0 bis 1.
+    OPTIONAL.
 
 `streetAddress`
 :   Straße und Hausnummer der Kontakt-Anschrift der Person.
-    Typ: String
-    OPTIONAL
+    Typ: Zeichenkette.
+    Kardinalität: 0 bis 1.
+    OPTIONAL.
 
 `postalCode`
 :   Postleitzahl der Kontakt-Anschrift der Person.
-    Typ: String
-    OPTIONAL
+    Typ: Zeichenkette.
+    Kardinalität: 0 bis 1.
+    OPTIONAL.
 
 `locality`
 :   Ortsangabe der Kontakt-Anschrift der Person.
     Typ: `vcard:locality`
-    OPTIONAL
+    Kardinalität: 0 bis 1.
+    OPTIONAL.
 
 `organization`
-:   Gruppierung in der die Person aktuell Mitglied ist.
-    Typ: `oparl:Organization`
-    ZWINGEND
+:   Gruppierung(en) in der/denen die Person aktuell Mitglied ist.
+    Typ: `oparl:Organization`.
+    Kardinalität: 0 bis *.
+    EMPFOHLEN.
 
 `status`
 :   Status. Begriff mit `skos:prefLabel`.
@@ -198,27 +208,32 @@ Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der Kontext bleibt wie
     "Bezirksverordneter | Bezirksverordnete",
     "Sachkundiger Bürger | Sachkundige Bürgerin",
     "Einzelstadtverordneter | Einzelstadtverordnete" (Mitglieder des Rates die keiner Fraktion/Organisation
-    angehören -> die Zuordbarkeit einer fiktiven Organisation ermöglichen TODO: warum will man das?).
-    Siehe https://github.com/OParl/specs/issues/45
-    Typ: `skos:Concept`
-    OPTIONAL
+    angehören).
+    Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
+    Typ: `skos:Concept`.
+    Kardinalität: 0 bis *.
+    OPTIONAL.
 
 `hasMembership`
-:   Mitgliedschaft.
-    TODO: Eventuell Unterklasse von `org:Membership` definieren.
-    Typ: `org:Membership`
+:   Mitgliedschaft(en) der Person in Gruppierungen (oparl:Organization), z.B. Gremien und
+    Fraktionen.
+    Typ: `org:Membership`.
+    Kardinalität: 0 bis *.
     OPTIONAL.
 
 `keyword`
 :   Typ: `skos:Concept`
-    OPTIONAL
+    Kardinalität: 0 bis *.
+    OPTIONAL.
 
 `created`
 :   Datum/Uhrzeit der Erzeugung des Objekts.
-    Typ: String mit xsd:dateTime
+    Typ: `xsd:dateTime`
+    Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
 `lastModified`
 :   Datum/Uhrzeit der letzten Bearbeitung des Objekts.
-    Typ: String mit xsd:dateTime
+    Typ: `xsd:dateTime`.
+    Kardinalität: 0 bis 1.
     EMPFOHLEN.

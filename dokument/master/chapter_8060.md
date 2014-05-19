@@ -30,8 +30,8 @@ Ein Beispiel in expandierter Form:
         "@language": "de"
     },
     "title": [
-        "besipielris:vocab/prof",
-        "besipielris:vocab/dr"
+        "https://oparl.beispielris.de/vocab/prof",
+        "https://oparl.beispielris.de/vocab/dr"
     ],
     "formOfAddress": "https://oparl.beispielris.de/formofaddress/ratsmitglied",
     "gender": "http://www.w3.org/2006/vcard/ns#Male",
@@ -62,9 +62,8 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "gender": "vcard:hasGender",
     "givenName": "foaf:firstName",
     "familyName": "foaf:lastName",
-    "academic_degree": {
-        "@language": null,
-        "@id": "foaf:title"
+    "title": {
+        "TODO": "Hier context für title einfügen."
     },
     "email": {
         "@id": "foaf:mbox",
@@ -95,7 +94,10 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "name": "Prof. Dr. Max Mustermann",
     "familyName": "Mustermann",
     "givenName": "Max",
-    "title": "Prof. Dr.",
+    "title": [
+        "besipielris:vocab/prof",
+        "besipielris:vocab/dr"
+    ],
     "formOfAddress": "beispielris:formofaddress/ratsmitglied",
     "gender": "vcard:Male",
     "email": "mailto:max@mustermann.de",

@@ -1401,22 +1401,6 @@
     In diesem Kapitel werden grundlegende Funktionsprinzipien einer
     OParl-Schnittstelle beschrieben.
   </para>
-  <para>
-    TODO:
-  </para>
-  <itemizedlist spacing="compact">
-    <listitem>
-      <para>
-        EMPFEHLUNG für Kompression mittels gzip, deflate etc., wenn
-        Client dies unterstützt
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-        Nur Lesezugriff. Authentifizierung wird nicht benötigt.
-      </para>
-    </listitem>
-  </itemizedlist>
   <sect2 id="designprinzipien">
     <title>Designprinzipien</title>
     <sect3 id="aufbauen-auf-gängiger-praxis">
@@ -2753,80 +2737,68 @@ https://oparl.beispielris.de/bodies/0/committees/1
       <title>Anonyme Objekte (Blank Nodes)</title>
       <para>
         Im Gegensatz dazu können Objekte existieren, die keine eigene
-        URL haben.
+        URL haben. Solche Objekte werden über die Werte von
+        Eigenschaften anderer Objekte ausgegeben.
       </para>
       <para>
-        Wenn diese im Semantic Web verwendet werden, dann führen sie zu
-        erheblichen Problemen. Sandro Hawke (W3C) hat diese so
-        zusammengefasst:
-      </para>
-      <blockquote>
-        <para>
-          In general, blank nodes are a convenience for the content
-          provider and a burden on the content consumer. Higher quality
-          data feeds use fewer blank nodes, or none. Instead, they have
-          a clear concept of identity and service for every entity in
-          their data.
-        </para>
-      </blockquote>
-      <blockquote>
-        <para>
-          If someone in the middle tries to convert (Skolemize) blank
-          nodes, it’s a large burden on them. Specifically, they should
-          provide web service for those new URIs, and if they get
-          updated data from their sources, they’re going to have a very
-          hard [perhaps impossible] time understanding what really
-          changed. (Zitiert nach
-          http://richard.cyganiak.de/blog/2011/03/blank-nodes-considered-harmful/)
-        </para>
-      </blockquote>
-      <para>
-        Ein Beispiel dafür findet sich in der Beratungsfolge einer
-        Drucksache. Das nachfolgende Beispiel zeigt eine Drucksache,
-        deren Beratungsfolge über die Eigenschaft
-        <literal>consultations</literal> kodiert ist.
-      </para>
-      <para>
-        TODO: Nachstehendes Beispiel und Text dazu auf stimmiges Paper
-        Objekt umschreiben.
+        Ein Beispiel dafür ist die Eigenschaft
+        <literal>location</literal> innerhalb einer Drucksache
+        (`oparl:Paper):
       </para>
       <programlisting language="json">
 {
-    &quot;@id&quot;: &quot;https://oparl.beispielris.de/bodies/0/papers/456&quot;,
-    &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/paper&quot;,
-    &quot;title&quot;: &quot;Beschlussvorlage zur Jugendförderung&quot;,
-    &quot;consultations&quot;: [
+    &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld&quot;,
+    &quot;@type&quot;: &quot;oparl:Paper&quot;,
+    &quot;@id&quot;: &quot;https://oparl.beispielris.de/paper/749&quot;,
+    &quot;body&quot;: &quot;beispielris:bodies/1&quot;,
+    &quot;name&quot;: &quot;Antwort auf Anfrage 1200/2014&quot;,
+    &quot;reference&quot;: &quot;1234/2014&quot;,
+    &quot;location&quot;: [
         {
-            &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/consultation&quot;,
-            &quot;committee&quot;: &quot;https://oparl.beispielris.de/bodies/0/committees/1&quot;,
-            &quot;meeting&quot;: &quot;https://oparl.beispielris.de/bodies/0/committees/1/meetings/123&quot;,
-            &quot;agendaitem&quot;: &quot;7.2.4&quot;,
-            &quot;authoritative&quot;: false
-        },
-        {
-            ...
+            &quot;description&quot;: &quot;Theodor-Heuss-Ring 1&quot;,
+            &quot;geometry&quot;: &quot;POINT(7.148  50.023)&quot;
         }
-    ]
+    ],
+    ...
 }
 </programlisting>
       <para>
-        Die Eigenschaft <literal>consultations</literal> ist eine Liste
-        mit einem oder mehreren Objekten vom Typ
-        <literal>consultation</literal>. Diese Objekte spiegeln wieder,
-        in welchen Sitzungen die vorliegende Drucksache beraten wurde
-        bzw. wird.
+        Die Eigenschaft <literal>location</literal> ist eine Liste mit
+        einem oder mehreren Objekten vom Typ
+        <literal>oparl:Location</literal>. Diese Objekte spiegeln
+        wieder, mit welchen Orten sich eine Drucksache befasst.
       </para>
       <para>
-        Die einzelnen <literal>consultation</literal>-Objekte haben
-        keine <literal>@id</literal>-Eigenschaft, daher handelt es sich
-        dabei um anonyme Objekte, auch <emphasis>Blank Nodes</emphasis>
-        genannt. Diese Objekte können nicht einzeln, sondern nur im
-        Kontext verbundener Objekte, wie hier im Beispiel im Kontext
-        einer Drucksache, abgerufen werden.
+        Die einzelnen <literal>location</literal>-Objekte innerhalb der
+        Liste haben keine <literal>@id</literal>-Eigenschaft, daher
+        handelt es sich dabei um anonyme Objekte, auch <emphasis>Blank
+        Nodes</emphasis> genannt. Diese Objekte können nicht einzeln,
+        sondern nur im Kontext verbundener Objekte, wie hier im Beispiel
+        im Kontext einer Drucksache, abgerufen werden.
       </para>
       <para>
-        TODO: Weitere Objekttypen nennen, in denen Blank Nodes
-        vorkommen.
+        Wenn solche Blank Nodes im Semantic Web verwendet werden, dann
+        führen sie zu erheblichen Problemen. Sandro Hawke (W3C) hat
+        diese so zusammengefasst:
+      </para>
+      <programlisting>
+In general, blank nodes are a convenience for the content
+provider and a burden on the content consumer. Higher quality
+data feeds use fewer blank nodes, or none. Instead, they have
+a clear concept of identity and service for every entity in 
+their data.
+
+If someone in the middle tries to convert (Skolemize) blank 
+nodes, it’s a large burden on them. Specifically, they should
+provide web service for those new URIs, and if they get updated
+data from their sources, they’re going to have a very hard
+[perhaps impossible] time understanding what really changed.^[Zitiert
+nach &lt;http://richard.cyganiak.de/blog/2011/03/blank-nodes-considered-harmful/&gt;]
+</programlisting>
+      <para>
+        Ein Ziel bei der Entwicklung der Spezifikation war es, möglichst
+        wenige Blank Nodes zu erzeugen. Zukünftige Versionen können hier
+        sicherlich noch einen weiteren Veitrag leisten.
       </para>
     </sect3>
   </sect2>
@@ -3705,81 +3677,58 @@ Content-Disposition: attachment; filename=&quot;2014-08-22 Rat Wortprotokoll.pdf
       Ein Server DARF eine alternative Inhaltsform auch in Form einer
       HTTP-Weiterleitung anbieten.
     </para>
-    <sect3 id="httprange-14">
-      <title>httpRange-14</title>
-      <para>
-        Im Zusammenhang von Content Negotiation soll als Exkurs auf ein
-        für Linked Data relevantes Detail hingewiesen werden, das in
-        Fachkreisen <emphasis>httpRange-14</emphasis> genannt wird.
-        Dabei geht es um das im folgenden beschriebenePhänomen.
-      </para>
-      <para>
-        Wenn man in einem üblichen Web-Browser diese URL aufruft:
-      </para>
-      <programlisting>
-&lt;http://dbpedia.org/resource/John_Doe_(musician)&gt;
-</programlisting>
-      <para>
-        dann erfolgt eine Weiterleitung auf diese URL:
-      </para>
-      <programlisting>
-&lt;http://dbpedia.org/page/John_Doe_(musician)&gt;
-</programlisting>
-      <para>
-        Dabei identifiziert die erste URL den abstrakten Begriff des
-        Musikers, während die zweite eine Repräsentation dieses Begriffs
-        identifiziert. Ein anderer HTTP-Client, der statt HTML-Seiten
-        z.B. JSON-LD bevorzugt, würde bei Zugriff auf die erste URL
-        wiederum zu einer anderen URL weiter geleitet:
-      </para>
-      <programlisting>
-&lt;http://dbpedia.org/data/John_Doe_(musician).jsonld&gt;
-</programlisting>
-      <para>
-        Dabei handelt es sich um eine Repräsentation des Musikers in
-        Form von JSON-LD.
-      </para>
-      <para>
-        Diese drei Links sind nicht nur verschieden, sondern haben
-        unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL
-        (HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients
-        generell nicht verwendet werden, um auf einfache Weise zu den
-        anderen beiden URLs zu gelangen. Deshalb soll bei Linked Data
-        der erste Link, also der des abstrakten Begriffs angegeben
-        werden. Der Zugriff auf diesen Link wird
-        &quot;Dereferenzierung&quot; genannt. Von dem ersten Link
-        gelangt man zu den beiden anderen mittels Content Negotiation.
-      </para>
-      <para>
-        So kann der Server beim Zugriff eines Client auf
-      </para>
-      <programlisting>
-&lt;https://dbpedia.org/resource/John_Doe_(musician)&gt;
-</programlisting>
-      <para>
-        z.B. entweder diese URL sowie HTML-Inhalt liefern
-      </para>
-      <programlisting>
-&lt;https://dbpedia.org/page/John_Doe_(musician)&gt;
-</programlisting>
-      <para>
-        oder aber diese URL mit JSON-LD als Inhalt
-      </para>
-      <programlisting>
-&lt;https://dbpedia.org/data/John_Doe_(musician).jsonld&gt;
-</programlisting>
-      <para>
-        Die Entscheidung darüber, welche der URLs und welche der
-        Inhaltsformate der Server liefert, wird zwischen Client und
-        Server mittels Content Negotiation ausgehandelt.
-      </para>
-      <para>
-        Das Phänomen verdeutlicht zum einen, dass URLs im Kontext von
-        Linked Data eine wichtige Bedeutung haben und außerdem, dass es
-        auch vom aufrufenden Client abhängen kann, bei welcher URL eine
-        bestimmte Anfrage letztlich &quot;landet&quot;.
-      </para>
-    </sect3>
+  </sect2>
+  <sect2 id="http-kompression">
+    <title>HTTP-Kompression</title>
+    <para>
+      Die zwischen Servern und Clients übertragenen Datenvolumen SOLLEN
+      mit Hilfe von Kompressionsverfahren reduziert werden, wenn sowohl
+      der Client als auch der Server dies unterstützen. Dabei kommt das
+      in HTTP 1.1<footnote>
+        <para>
+          RFC2616 Section 14.3:
+          <ulink url="http://tools.ietf.org/html/rfc2616#section-14.3">http://tools.ietf.org/html/rfc2616#section-14.3</ulink>
+        </para>
+      </footnote> beschriebene Verfahren zum Einsatz.
+    </para>
+    <para>
+      HTTP 1.1 stellt drei komprimierte Kodierungen vor, wobei die Liste
+      durch Registrierung neuer Verfahren bei der IANA erweitert werden
+      kann. Diese sind:
+    </para>
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para>
+          gzip
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          compress
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          deflate
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      Server-Implementierer SOLLEN mindestens eines dieser drei
+      Verfahren unterstützen, wenn Clients dies mittels
+      Accept-Encoding-Header anfragen.
+    </para>
+    <para>
+      Die Verwendung von HTTP-Kompression ist grundsätzlich sowohl bei
+      JSON-Daten als auch bei Dateizugriffen möglich. Bei Dateizugriffen
+      sind die zu erwartenden Einsparungen beim Datenvolumen stark
+      abhängig vom jeweiligen Dateifomat. Bei bereits komprimierte
+      Dateien wie beispielsweise OpenOffice oder PDF lassen sich oft nur
+      geringe oder gar keine weiteren Ersparnisse erzielen. Daher DARF
+      grundsätzlich der Server in solchen Fällen eine unkomprimierte
+      HTTP-Antwort senden, auch wenn der Client ein unterstütztes
+      Kompressionsverfahren angefragt hat.
+    </para>
   </sect2>
   <sect2 id="ausnahmebehandlung">
     <title>Ausnahmebehandlung</title>
@@ -4016,21 +3965,82 @@ Content-Disposition: attachment; filename=&quot;2014-08-22 Rat Wortprotokoll.pdf
       <title>Vokabulare zur Klassifizierung</title>
       <para>
         Einige Objekttypen besitzen Eigenschaften zum Zweck der
-        Klassifizierung von Objekten. Beispiele dafür sind die
-        Eigenschaft <literal>paperType</literal> des Objekttyps
-        <literal>oparl:Paper</literal> und
-        <literal>documentRole</literal> des Objekttyps
-        <literal>oparl:Document</literal>.
+        Klassifizierung von Objekten. Im Einzelnen sind dies:
       </para>
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>
+            die Eigenschaft <literal>paperType</literal> des Objekttyps
+            <link linkend="oparl_paper"><literal>oparl:Paper</literal></link>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            die Eigenschaft <literal>documentRole</literal> des
+            Objekttyps
+            <link linkend="oparl_document"><literal>oparl:Document</literal></link>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            die Eigenschaft <literal>organizationType</literal> des
+            Objekttyps
+            <link linkend="oparl_organization"><literal>oparl:Organization</literal></link>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            die Eigenschaft <literal>result</literal> des Objekttyps
+            <link linkend="oparl_agendaitem"><literal>oparl:AgendaItem</literal></link>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            die Eigenschaft <literal>status</literal> des Objekttyps
+            <link linkend="oparl_person"><literal>oparl:Person</literal></link>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            die Eigenschaft <literal>title</literal> des Objekttyps
+            <link linkend="oparl_person"><literal>oparl:Person</literal></link>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            die Eigenschaft <literal>keyword</literal> in mehreren
+            Objekttypen
+          </para>
+        </listitem>
+      </itemizedlist>
       <para>
         Diese Eigenschaften können wahlweise mit einfachen Zeichenketten
         befüllt werden (z.B. &quot;Beantwortung einer Anfrage&quot;)
-        oder mit beliebigen URLs.
+        oder mit URLs zu Begriffen aus Vokabularen. Ein Begriff SOLL,
+        wenn er per URL referenziert wird, in Form eines
+        <literal>skos:Concept</literal> Objekts vorliegen, das über eine
+        <literal>skos:prefLabel</literal> Eigenschaft verfügt. Diese
+        Konstrukte entstammen dem <emphasis>Simple Knowledge
+        Organization System</emphasis> (SKOS).<footnote>
+          <para>
+            SKOS:
+            <ulink url="http://www.w3.org/2009/08/skos-reference/skos.html">http://www.w3.org/2009/08/skos-reference/skos.html</ulink>
+          </para>
+        </footnote>
       </para>
       <para>
-        TODO: Erläuterung zu <literal>skos:Concept</literal> und
-        <literal>skos:prefLabel</literal>, was diese bringen und evtl.
-        Empfehlung.
+        Die Verwendung eines übergreifenden Vokabulars soll dazu
+        beitragen, dass die automatisierte Auswertung von
+        parlamentarischen Informationen über die Grenzen einzelner
+        Systeme hinweg deutlich erleichtert wird. So könnte
+        beispielsweise eine bestimmte Art von Antrag über Systemgrenzen
+        hinweg als solcher erkannt werden, wenn die Systeme auf das
+        selbe <literal>skos:Concept</literal> verweisen.
+      </para>
+      <para>
+        Zukünftig ist vorstellbar, dass OParl hierzu Vokabulare mit
+        entsprechenden SKOS-Objekten zur Verfügung stellt, die dann von
+        Datenanbietern per URL referenziert werden können.
       </para>
     </sect3>
     <sect3 id="herstellerspezifische-erweiterungen">
@@ -4177,7 +4187,7 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         An Objekten vom Typ <literal>oparl:Document</literal>
         auftretend, bezieht sich die Lizenzinformation nicht nur auf die
         strukturierten Metadaten, die über die API bezogen werden,
-        sondern auch auf den eigentlichen Inhalt der Dateien, die über
+        sondern auch auf den eigentlichen Inhalt der Datei(en), die über
         die angebotene(n) URL(s) abgerufen werden können.
       </para>
       <para>
@@ -4229,49 +4239,9 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         Objekttypen zu diesem Zweck einsetzbar.
       </para>
       <para>
-        Wert der Eigenschaft sind ein oder mehrere
-        <literal>skos:Concept</literal>-Objekte mit einer
-        <literal>skos:prefLabel</literal>-Eigenschaft. Der Wert der
-        Eigenschaft ist jeweils eine Zeichenkette. Die verwendete
-        Sprache (in der Regel &quot;de&quot; für Deutsch) MUSS dabei
-        angegeben werden.
-      </para>
-      <para>
-        TODO: SKOS darstellen
-      </para>
-      <para>
-        TODO: Beispiel
-      </para>
-      <para>
-        Siehe u.a.:
-      </para>
-      <programlisting>
-https://github.com/OParl/specs/issues/41
-</programlisting>
-      <para>
-        Geoportal.de und DeStat.de werden bereits auf Basis von
-        Metadaten-Standards verlinkt. Bei einer Verwendung von
-        Metadaten-Standards für RIS könnten ebenfalls interessante
-        Potenziale durch Verlinkung entstehen. Der
-        GovData-Metadaten-Standard z.B. kann genutzt werden
-      </para>
-      <programlisting>
-http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html
-</programlisting>
-      <para>
-        und die 14 GovData-Kategorien können dabei durch eine
-        zusätzliche Verschlagwortung auf Basis von
-        Standard-Schlagwortkatalogen für RIS eine Ergänzung erfahren
-        (LeiKa, Bremer-Katalog, DBpedia, RAMON).
-      </para>
-      <para>
-        Die 14 Werte des GovData-Metadaten-Standard sind bisher nicht
-        als Linked Data existent.
-      </para>
-      <para>
-        TODO: eventuell können diese in OParl als
-        Schlagwort-<literal>skos:Concept</literal>-Objekte als nicht
-        abschliessende Menge von Schlagworten vorgegeben werden.
+        Mehr zur Funktionsweise dieser Eigenschaft wird im Abschnitt
+        <link linkend="vokabulare_klassifizierung">Vokabulare zur
+        Klassifizierung</link> beschrieben.
       </para>
     </sect3>
   </sect2>
@@ -4842,8 +4812,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
     &quot;@id&quot;: &quot;https://oparl.beispielris.de/organization/34&quot;,
     &quot;body&quot;: &quot;https://oparl.beispielris.de/body/0&quot;,
     &quot;nameShort&quot;: {
-        @language&quot; :&quot;de&quot;,
-        @value&quot;: &quot;Finanzausschuss&quot;
+        &quot;@language&quot; :&quot;de&quot;,
+        &quot;@value&quot;: &quot;Finanzausschuss&quot;
     },
     &quot;nameLong&quot;: {
         &quot;@language&quot;: &quot;de&quot;,
@@ -5204,7 +5174,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Der vollständige Name der Person mit akademischem Grad und
-              Vornamen. Typ: String ZWINGEND
+              dem gebräuchlichen Vornamen. Typ: Zeichenkette.
+              Kardinalität: 1. Die Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -5214,7 +5185,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Familienname bzw. Nachname. Typ: String OPTIONAL
+              Familienname bzw. Nachname. Typ: Zeichenkette. OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5224,7 +5195,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Vorname bzw. Taufname. Typ: String OPTIONAL
+              Vorname bzw. Taufname. Typ: Zeichenkette. OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5237,8 +5208,11 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               Anrede Begriff mit <literal>skos:prefLabel</literal>.
               Ähnlich wie <literal>status</literal>. Beispiele für die
               <literal>skos:prefLabel</literal> sind &quot;Ratsherr |
-              Ratsfrau&quot; und &quot;Herr | Frau&quot;. Typ:
-              <literal>skos:Concept</literal> OPTIONAL
+              Ratsfrau&quot; und &quot;Herr | Frau&quot;. Vgl.
+              <link linkend="vokabulare_klassifizierung">Vokabulare zur
+              Klassifizierung</link>. Typ:
+              <literal>skos:Concept</literal>. Kardinalität: 0 bis 1.
+              OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5248,9 +5222,11 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Akademische(r) Titel. TODO: &quot;Dr.&quot;?
-              &quot;Diplom&quot;? Typ: <literal>skos:Concept</literal>
-              OPTIONAL
+              Akademische(r) Titel. Vgl.
+              <link linkend="vokabulare_klassifizierung">Vokabulare zur
+              Klassifizierung</link>. Typ:
+              <literal>skos:Concept</literal>. Kardinalität: 0 bis *.
+              OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5265,8 +5241,9 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               <literal>vcard:Male</literal>,
               <literal>vcard:None</literal>,
               <literal>vcard:Other</literal> und
-              <literal>vcard:Unknown</literal>. Typ:
-              <literal>vcard:TODO</literal> OPTIONAL
+              <literal>vcard:Unknown</literal>. Typ: Zeichenkette (TODO:
+              Entsprechende <literal>vcard:</literal>-Eigenschaft
+              angeben). Kardinalität: 0 bis *. OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -5277,8 +5254,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Telefonnummer mit <literal>tel:</literal> Schema. Typ:
-              String mit &quot;tel:&quot; am Anfang, keine Leerzeichen
-              OPTIONAL
+              Zeichenkette mit &quot;tel:&quot; am Anfang, keine
+              Leerzeichen Kardinalität: 0 bis 1. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5289,7 +5266,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               E-Mail-Adresse mit <literal>mailto:</literal> Schema. Typ:
-              <literal>foaf:mbox</literal> OPTIONAL
+              <literal>foaf:mbox</literal>. Kardinalität: 0 bis 1.
+              OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5300,7 +5278,7 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Straße und Hausnummer der Kontakt-Anschrift der Person.
-              Typ: String OPTIONAL
+              Typ: Zeichenkette. Kardinalität: 0 bis 1. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5310,8 +5288,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Postleitzahl der Kontakt-Anschrift der Person. Typ: String
-              OPTIONAL
+              Postleitzahl der Kontakt-Anschrift der Person. Typ:
+              Zeichenkette. Kardinalität: 0 bis 1. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5322,7 +5300,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Ortsangabe der Kontakt-Anschrift der Person. Typ:
-              <literal>vcard:locality</literal> OPTIONAL
+              <literal>vcard:locality</literal> Kardinalität: 0 bis 1.
+              OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5332,8 +5311,9 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Gruppierung in der die Person aktuell Mitglied ist. Typ:
-              <literal>oparl:Organization</literal> ZWINGEND
+              Gruppierung(en) in der/denen die Person aktuell Mitglied
+              ist. Typ: <literal>oparl:Organization</literal>.
+              Kardinalität: 0 bis *. EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -5361,10 +5341,11 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               &quot;Sachkundiger Bürger | Sachkundige Bürgerin&quot;,
               &quot;Einzelstadtverordneter | Einzelstadtverordnete&quot;
               (Mitglieder des Rates die keiner Fraktion/Organisation
-              angehören -&gt; die Zuordbarkeit einer fiktiven
-              Organisation ermöglichen TODO: warum will man das?). Siehe
-              https://github.com/OParl/specs/issues/45 Typ:
-              <literal>skos:Concept</literal> OPTIONAL
+              angehören). Vgl.
+              <link linkend="vokabulare_klassifizierung">Vokabulare zur
+              Klassifizierung</link>. Typ:
+              <literal>skos:Concept</literal>. Kardinalität: 0 bis *.
+              OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5374,9 +5355,10 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Mitgliedschaft. TODO: Eventuell Unterklasse von
-              <literal>org:Membership</literal> definieren. Typ:
-              <literal>org:Membership</literal> OPTIONAL.
+              Mitgliedschaft(en) der Person in Gruppierungen
+              (oparl:Organization), z.B. Gremien und Fraktionen. Typ:
+              <literal>org:Membership</literal>. Kardinalität: 0 bis *.
+              OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5386,7 +5368,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Typ: <literal>skos:Concept</literal> OPTIONAL
+              Typ: <literal>skos:Concept</literal> Kardinalität: 0 bis
+              *. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5396,8 +5379,9 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Datum/Uhrzeit der Erzeugung des Objekts. Typ: String mit
-              xsd:dateTime EMPFOHLEN.
+              Datum/Uhrzeit der Erzeugung des Objekts. Typ:
+              <literal>xsd:dateTime</literal> Kardinalität: 0 bis 1.
+              EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -5408,7 +5392,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ:
-              String mit xsd:dateTime EMPFOHLEN.
+              <literal>xsd:dateTime</literal>. Kardinalität: 0 bis 1.
+              EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -5728,7 +5713,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Sitzung, der der Tagesordnungspunkt zugeordnet ist. Typ:
-              <literal>oparl:Meeting</literal> ZWINGEND.
+              <literal>oparl:Meeting</literal>. Kardinalität: 1. Die
+              Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -5741,9 +5727,11 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               Nummer des Tagesordnungspunktes. Eine beliebige
               Zeichenkette, wie z.B. &quot;10.&quot;, &quot;10.1&quot;,
               &quot;C&quot;, &quot;c)&quot; o.ä. Die Reihenfolge wird
-              dadurch nicht festgelegt, sondern durch die Reihenfolge
-              der TOPs im <literal>agendaItem</literal>-Attribut von
-              <literal>oparl:Meeting</literal> Typ: String OPTIONAL
+              nicht dadruch, sondern durch die Reihenfolge der TOPs im
+              <literal>agendaItem</literal>-Attribut von
+              <literal>oparl:Meeting</literal> festgelegt. Typ:
+              Zeichenkette. Kardinalität: 0 bis 1. Die Eigenschaft ist
+              OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5753,7 +5741,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Das Thema des Tagesordnungspunktes. Typ: String ZWINGEND.
+              Das Thema des Tagesordnungspunktes. Typ: String Die
+              Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -5766,8 +5755,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in
               öffentlicher Sitzung vorgesehen ist/war. Es wird ein
               Wahrheitswert (<literal>true</literal> oder
-              <literal>false</literal>) erwartet. Typ: boolean
-              EMPFOHLEN.
+              <literal>false</literal>) erwartet. Typ: boolean.
+              Kardinalität: 0 bis 1. Die Eigenschaft ist EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -5778,7 +5767,10 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Beratung, die diesem Tagesordnungspunkt zugewiesen ist.
-              Typ: <literal>oparl:Consultation</literal> ZWINGEND.
+              Typ: <literal>oparl:Consultation</literal>. Kardinalität:
+              1. Die Eigenschaft ist ZWINGEND. FRAGE: Bedeutet das
+              nicht, dass jeder Tagesordnungspunkt immer eine Drucksache
+              behandeln muss? Ist das sinnvoll?
             </para>
           </listitem>
         </varlistentry>
@@ -5789,20 +5781,14 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Kategorische Information darüber, welches Ergebnis die
-              Beratung des Tagesordnungspunktes erbracht hat. Es wird zu
-              einem Objekt verlinkt, welches ein
-              <literal>skos:prefLabel</literal>-Attribut mit einer
-              Zeichenkette hat. In der Praxis sind hier Kategorien wie
-              &quot;Unverändert beschlossen&quot;, &quot;Geändert
-              beschlossen&quot;, &quot;Endgültig abgelehnt&quot;,
-              &quot;Zur Kenntnis genommen&quot;, &quot;Ohne Votum in
-              nachfolgende Gremien überwiesen&quot; und weitere zu
-              erwarten. Alternativ können, sobald dieses zur Verfügung
-              steht, URLs aus einem OParl Vokabular verwendet werden,
-              wie im Beispiel oben zu sehen. Diese dienen dazu,
-              Kategorien über Systemgrenzen hinweg maschinenlesbar zu
-              vereinheitlichen. Typ: <literal>skos:Concept</literal>
-              EMPFOHLEN
+              Beratung des Tagesordnungspunktes erbracht hat, in der
+              Bedeutung etwa &quot;Unverändert beschlossen&quot; oder
+              &quot;Geändert beschlossen&quot;. Mehr zur Funktionsweise
+              dieses Attributs unter
+              <link linkend="vokabulare_klassifizierung">Vokabulare zur
+              Klassifizierung</link>. Typ:
+              <literal>skos:Concept</literal>. kardinalität: 0 bis 1.
+              Die Eigenschaft ist EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -5816,8 +5802,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               wurde, kann der Text hier hinterlegt werden. Das ist
               besonders dann in der Praxis relevant, wenn der gefasste
               Beschluss (z.B. durch Änderungsantrag) von der
-              Beschlussvorlage abweicht. Typ: String TODO: Was ist bei
-              sehr langem Text? OPTIONAL.
+              Beschlussvorlage abweicht. Typ: Zeichenkette.
+              Kardinalität: 0 bis 1. Die Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5831,8 +5817,9 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
               <literal>oparl:Meeting</literal> darauf verweisen, aber
               hier sind solche Verweise in der Regel präziser, da
               Drucksachen regelmäßig nur für einen TOP relevant sind und
-              nicht für alle TOPs. Typ: <literal>oparl:Paper</literal>
-              OPTIONAL
+              nicht für alle TOPs. Typ: <literal>oparl:Paper</literal>.
+              OPTIONAL. FRAGE: Ist das nicht eine Doppelung mit
+              <literal>consultation</literal>?
             </para>
           </listitem>
         </varlistentry>
@@ -5842,8 +5829,9 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              eine weitere relevante Datei. Typ:
-              <literal>oparl:Document</literal> OPTIONAL
+              Dateianhang zum Tagesordnungspunkt. Typ:
+              <literal>oparl:Document</literal>. Kardinalität: 0 bis *.
+              Die Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5853,7 +5841,10 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Typ: <literal>skos:Concept</literal> OPTIONAL
+              Vgl. <link linkend="vokabulare_klassifizierung">Vokabulare
+              zur Klassifizierung</link>. Typ:
+              <literal>skos:Concept</literal>. Kardinalität: 0 bis *.
+              Die Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5863,8 +5854,8 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           </term>
           <listitem>
             <para>
-              Erzeugungsdatum und -zeit des Objekts. Typ: Zeitstempel
-              EMPFOHLEN
+              Erzeugungsdatum und -zeit des Objekts. Typ: Zeitstempel.
+              Kardinalität: 0 bis 1. Die Eigenschaft ist EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -5875,7 +5866,20 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
           <listitem>
             <para>
               Datum und Uhrzeit der letzten Änderung. Typ: Zeitstempel
-              EMPFOHLEN
+              Kardinalität: 0 bis 1. Die Eigenschaft ist EMPFOHLEN
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>absentParticipant</literal>
+          </term>
+          <listitem>
+            <para>
+              Person(en), die bei der Behandlung dieses
+              Tagesordnungspunkts nicht anwesend war(en). Typ:
+              <literal>oparl:Person</literal>. Kardinalität: 0 bis *.
+              Die Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -6571,7 +6575,9 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
       Dieser Objekttyp dient dazu, den Ortsbezug einer Drucksache formal
       abzubilden. Ortsangaben können sowohl aus Textinformationen
       bestehen (beispielsweise dem Namen einer Straße/eines Platzes oder
-      eine genaue Adresse) als auch aus Geodaten.
+      eine genaue Adresse) als auch aus Geodaten. Ortsangaben sind auch
+      nicht auf einzelne Positionen beschränkt, sondern können eine
+      Vielzahl von Positionen, Flächen, Strecken etc. abdecken.
     </para>
     <para>
       In der Praxis soll dies dazu dienen, den geografischen Bezug eines
@@ -6597,13 +6603,14 @@ http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/b
 }
 </programlisting>
     <para>
-      Ein Kontext (TODO: Kann das weg?):
+      Der JSON-LD-Kontext für die Eigenschaft
+      <literal>geometry</literal>:
     </para>
     <programlisting>
 {
    &quot;geometry&quot;:
    {
-     &quot;@type&quot;: &quot;ogc:wktLiteral&quot; 
+     &quot;@type&quot;: &quot;ogc:wktLiteral&quot;
    }
 }
 </programlisting>
@@ -6655,7 +6662,8 @@ Simple Feature Access Spezifikation:
           <listitem>
             <para>
               Textliche Beschreibung eines Orts, z.B. in Form einer
-              Adresse. Typ: Zeichenkette. EMPFOHLEN
+              Adresse. Typ: Zeichenkette. Kardinalität: 0 bis 1. Die
+              Eigenschaft ist EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -6667,8 +6675,8 @@ Simple Feature Access Spezifikation:
             <para>
               Geodaten-Repräsentation des Orts. Ist diese Eigenschaft
               gesetzt, MUSS ihr Wert der Spezifikation von Well-Known
-              Text (WKT) entsprechen. Typ: Zeichenkette (TODO: Stimmt
-              das?). OPTIONAL
+              Text (WKT) entsprechen. Typ: Zeichenkette. Kardinalität: 0
+              bis 1. Die Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -6678,8 +6686,11 @@ Simple Feature Access Spezifikation:
           </term>
           <listitem>
             <para>
-              Schlagwort mit <literal>skos:prefLabel</literal> Typ:
-              <literal>skos:Concept</literal> OPTIONAL
+              Schlagwort mit <literal>skos:prefLabel</literal>. Vgl.
+              dazu <link linkend="vokabulare_klassifizierung">Vokabulare
+              zur Klassifizierung</link>. Typ:
+              <literal>skos:Concept</literal>. Kardinalität: 0 bis *.
+              Die Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>

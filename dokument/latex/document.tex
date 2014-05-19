@@ -990,17 +990,6 @@ Schnittstelle}\label{prinzipien-und-funktionen-des-schnittstelle}
 In diesem Kapitel werden grundlegende Funktionsprinzipien einer
 OParl-Schnittstelle beschrieben.
 
-TODO:
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  EMPFEHLUNG für Kompression mittels gzip, deflate etc., wenn Client
-  dies unterstützt
-\item
-  Nur Lesezugriff. Authentifizierung wird nicht benötigt.
-\end{itemize}
-
 \hyperdef{}{designprinzipien}{\subsection{Designprinzipien}\label{designprinzipien}}
 
 \subsubsection{Aufbauen auf gängiger
@@ -1985,68 +1974,65 @@ als auch direkt abgerufen werden.
 \subsubsection{Anonyme Objekte (Blank Nodes)}\label{anonymeux5fobjekte}
 
 Im Gegensatz dazu können Objekte existieren, die keine eigene URL haben.
+Solche Objekte werden über die Werte von Eigenschaften anderer Objekte
+ausgegeben.
 
-Wenn diese im Semantic Web verwendet werden, dann führen sie zu
-erheblichen Problemen. Sandro Hawke (W3C) hat diese so zusammengefasst:
-
-\begin{quote}
-In general, blank nodes are a convenience for the content provider and a
-burden on the content consumer. Higher quality data feeds use fewer
-blank nodes, or none. Instead, they have a clear concept of identity and
-service for every entity in their data.
-\end{quote}
-
-\begin{quote}
-If someone in the middle tries to convert (Skolemize) blank nodes, it's
-a large burden on them. Specifically, they should provide web service
-for those new URIs, and if they get updated data from their sources,
-they're going to have a very hard {[}perhaps impossible{]} time
-understanding what really changed. (Zitiert nach
-http://richard.cyganiak.de/blog/2011/03/blank-nodes-considered-harmful/)
-\end{quote}
-
-Ein Beispiel dafür findet sich in der Beratungsfolge einer Drucksache.
-Das nachfolgende Beispiel zeigt eine Drucksache, deren Beratungsfolge
-über die Eigenschaft \texttt{consultations} kodiert ist.
-
-TODO: Nachstehendes Beispiel und Text dazu auf stimmiges Paper Objekt
-umschreiben.
+Ein Beispiel dafür ist die Eigenschaft \texttt{location} innerhalb einer
+Drucksache (`oparl:Paper):
 
 \hyperdef{}{benanntanonymux5fex2}{\label{benanntanonymux5fex2}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{\{}
-    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/bodies/0/papers/456"}\FunctionTok{,}
-    \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"http://oparl.org/schema/1.0/paper"}\FunctionTok{,}
-    \DataTypeTok{"title"}\FunctionTok{:} \StringTok{"Beschlussvorlage zur Jugendförderung"}\FunctionTok{,}
-    \DataTypeTok{"consultations"}\FunctionTok{:} \OtherTok{[}
+    \DataTypeTok{"@context"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"}\FunctionTok{,}
+    \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"oparl:Paper"}\FunctionTok{,}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/paper/749"}\FunctionTok{,}
+    \DataTypeTok{"body"}\FunctionTok{:} \StringTok{"beispielris:bodies/1"}\FunctionTok{,}
+    \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Antwort auf Anfrage 1200/2014"}\FunctionTok{,}
+    \DataTypeTok{"reference"}\FunctionTok{:} \StringTok{"1234/2014"}\FunctionTok{,}
+    \DataTypeTok{"location"}\FunctionTok{:} \OtherTok{[}
         \FunctionTok{\{}
-            \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"http://oparl.org/schema/1.0/consultation"}\FunctionTok{,}
-            \DataTypeTok{"committee"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/bodies/0/committees/1"}\FunctionTok{,}
-            \DataTypeTok{"meeting"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/bodies/0/committees/1/meetings/123"}\FunctionTok{,}
-            \DataTypeTok{"agendaitem"}\FunctionTok{:} \StringTok{"7.2.4"}\FunctionTok{,}
-            \DataTypeTok{"authoritative"}\FunctionTok{:} \KeywordTok{false}
-        \FunctionTok{\}}\OtherTok{,}
-        \FunctionTok{\{}
-            \ErrorTok{...}
+            \DataTypeTok{"description"}\FunctionTok{:} \StringTok{"Theodor-Heuss-Ring 1"}\FunctionTok{,}
+            \DataTypeTok{"geometry"}\FunctionTok{:} \StringTok{"POINT(7.148  50.023)"}
         \FunctionTok{\}}
-    \OtherTok{]}
+    \OtherTok{]}\FunctionTok{,}
+    \ErrorTok{...}
 \FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-Die Eigenschaft \texttt{consultations} ist eine Liste mit einem oder
-mehreren Objekten vom Typ \texttt{consultation}. Diese Objekte spiegeln
-wieder, in welchen Sitzungen die vorliegende Drucksache beraten wurde
-bzw. wird.
+Die Eigenschaft \texttt{location} ist eine Liste mit einem oder mehreren
+Objekten vom Typ \texttt{oparl:Location}. Diese Objekte spiegeln wieder,
+mit welchen Orten sich eine Drucksache befasst.
 
-Die einzelnen \texttt{consultation}-Objekte haben keine
+Die einzelnen \texttt{location}-Objekte innerhalb der Liste haben keine
 \texttt{@id}-Eigenschaft, daher handelt es sich dabei um anonyme
 Objekte, auch \emph{Blank Nodes} genannt. Diese Objekte können nicht
 einzeln, sondern nur im Kontext verbundener Objekte, wie hier im
 Beispiel im Kontext einer Drucksache, abgerufen werden.
 
-TODO: Weitere Objekttypen nennen, in denen Blank Nodes vorkommen.
+Wenn solche Blank Nodes im Semantic Web verwendet werden, dann führen
+sie zu erheblichen Problemen. Sandro Hawke (W3C) hat diese so
+zusammengefasst:
+
+\begin{verbatim}
+In general, blank nodes are a convenience for the content
+provider and a burden on the content consumer. Higher quality
+data feeds use fewer blank nodes, or none. Instead, they have
+a clear concept of identity and service for every entity in 
+their data.
+
+If someone in the middle tries to convert (Skolemize) blank 
+nodes, it’s a large burden on them. Specifically, they should
+provide web service for those new URIs, and if they get updated
+data from their sources, they’re going to have a very hard
+[perhaps impossible] time understanding what really changed.^[Zitiert
+nach <http://richard.cyganiak.de/blog/2011/03/blank-nodes-considered-harmful/>]
+\end{verbatim}
+
+Ein Ziel bei der Entwicklung der Spezifikation war es, möglichst wenige
+Blank Nodes zu erzeugen. Zukünftige Versionen können hier sicherlich
+noch einen weiteren Veitrag leisten.
 
 \hyperdef{}{objektlisten}{\subsection{Objektlisten}\label{objektlisten}}
 
@@ -2714,73 +2700,40 @@ eine HTML-Ansicht.
 Ein Server DARF eine alternative Inhaltsform auch in Form einer
 HTTP-Weiterleitung anbieten.
 
-\subsubsection{httpRange-14}\label{httprange-14}
+\subsection{HTTP-Kompression}\label{http-kompression}
 
-Im Zusammenhang von Content Negotiation soll als Exkurs auf ein für
-Linked Data relevantes Detail hingewiesen werden, das in Fachkreisen
-\emph{httpRange-14} genannt wird. Dabei geht es um das im folgenden
-beschriebenePhänomen.
+Die zwischen Servern und Clients übertragenen Datenvolumen SOLLEN mit
+Hilfe von Kompressionsverfahren reduziert werden, wenn sowohl der Client
+als auch der Server dies unterstützen. Dabei kommt das in HTTP
+1.1\footnote{RFC2616 Section 14.3:
+  \url{http://tools.ietf.org/html/rfc2616\#section-14.3}} beschriebene
+Verfahren zum Einsatz.
 
-Wenn man in einem üblichen Web-Browser diese URL aufruft:
+HTTP 1.1 stellt drei komprimierte Kodierungen vor, wobei die Liste durch
+Registrierung neuer Verfahren bei der IANA erweitert werden kann. Diese
+sind:
 
-\begin{verbatim}
-<http://dbpedia.org/resource/John_Doe_(musician)>
-\end{verbatim}
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  gzip
+\item
+  compress
+\item
+  deflate
+\end{itemize}
 
-dann erfolgt eine Weiterleitung auf diese URL:
+Server-Implementierer SOLLEN mindestens eines dieser drei Verfahren
+unterstützen, wenn Clients dies mittels Accept-Encoding-Header anfragen.
 
-\begin{verbatim}
-<http://dbpedia.org/page/John_Doe_(musician)>
-\end{verbatim}
-
-Dabei identifiziert die erste URL den abstrakten Begriff des Musikers,
-während die zweite eine Repräsentation dieses Begriffs identifiziert.
-Ein anderer HTTP-Client, der statt HTML-Seiten z.B. JSON-LD bevorzugt,
-würde bei Zugriff auf die erste URL wiederum zu einer anderen URL weiter
-geleitet:
-
-\begin{verbatim}
-<http://dbpedia.org/data/John_Doe_(musician).jsonld>
-\end{verbatim}
-
-Dabei handelt es sich um eine Repräsentation des Musikers in Form von
-JSON-LD.
-
-Diese drei Links sind nicht nur verschieden, sondern haben
-unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL
-(HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients generell
-nicht verwendet werden, um auf einfache Weise zu den anderen beiden URLs
-zu gelangen. Deshalb soll bei Linked Data der erste Link, also der des
-abstrakten Begriffs angegeben werden. Der Zugriff auf diesen Link wird
-``Dereferenzierung'' genannt. Von dem ersten Link gelangt man zu den
-beiden anderen mittels Content Negotiation.
-
-So kann der Server beim Zugriff eines Client auf
-
-\begin{verbatim}
-<https://dbpedia.org/resource/John_Doe_(musician)>
-\end{verbatim}
-
-z.B. entweder diese URL sowie HTML-Inhalt liefern
-
-\begin{verbatim}
-<https://dbpedia.org/page/John_Doe_(musician)>
-\end{verbatim}
-
-oder aber diese URL mit JSON-LD als Inhalt
-
-\begin{verbatim}
-<https://dbpedia.org/data/John_Doe_(musician).jsonld>
-\end{verbatim}
-
-Die Entscheidung darüber, welche der URLs und welche der Inhaltsformate
-der Server liefert, wird zwischen Client und Server mittels Content
-Negotiation ausgehandelt.
-
-Das Phänomen verdeutlicht zum einen, dass URLs im Kontext von Linked
-Data eine wichtige Bedeutung haben und außerdem, dass es auch vom
-aufrufenden Client abhängen kann, bei welcher URL eine bestimmte Anfrage
-letztlich ``landet''.
+Die Verwendung von HTTP-Kompression ist grundsätzlich sowohl bei
+JSON-Daten als auch bei Dateizugriffen möglich. Bei Dateizugriffen sind
+die zu erwartenden Einsparungen beim Datenvolumen stark abhängig vom
+jeweiligen Dateifomat. Bei bereits komprimierte Dateien wie
+beispielsweise OpenOffice oder PDF lassen sich oft nur geringe oder gar
+keine weiteren Ersparnisse erzielen. Daher DARF grundsätzlich der Server
+in solchen Fällen eine unkomprimierte HTTP-Antwort senden, auch wenn der
+Client ein unterstütztes Kompressionsverfahren angefragt hat.
 
 \subsection{Ausnahmebehandlung}\label{ausnahmebehandlung}
 
@@ -2941,15 +2894,50 @@ jeweils wiederholt:
 Klassifizierung}\label{vokabulareux5fklassifizierung}}
 
 Einige Objekttypen besitzen Eigenschaften zum Zweck der Klassifizierung
-von Objekten. Beispiele dafür sind die Eigenschaft \texttt{paperType}
-des Objekttyps \texttt{oparl:Paper} und \texttt{documentRole} des
-Objekttyps \texttt{oparl:Document}.
+von Objekten. Im Einzelnen sind dies:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  die Eigenschaft \texttt{paperType} des Objekttyps
+  \hyperref[oparlux5fpaper]{\texttt{oparl:Paper}}
+\item
+  die Eigenschaft \texttt{documentRole} des Objekttyps
+  \hyperref[oparlux5fdocument]{\texttt{oparl:Document}}
+\item
+  die Eigenschaft \texttt{organizationType} des Objekttyps
+  \hyperref[oparlux5forganization]{\texttt{oparl:Organization}}
+\item
+  die Eigenschaft \texttt{result} des Objekttyps
+  \hyperref[oparlux5fagendaitem]{\texttt{oparl:AgendaItem}}
+\item
+  die Eigenschaft \texttt{status} des Objekttyps
+  \hyperref[oparlux5fperson]{\texttt{oparl:Person}}
+\item
+  die Eigenschaft \texttt{title} des Objekttyps
+  \hyperref[oparlux5fperson]{\texttt{oparl:Person}}
+\item
+  die Eigenschaft \texttt{keyword} in mehreren Objekttypen
+\end{itemize}
 
 Diese Eigenschaften können wahlweise mit einfachen Zeichenketten befüllt
-werden (z.B. ``Beantwortung einer Anfrage'') oder mit beliebigen URLs.
+werden (z.B. ``Beantwortung einer Anfrage'') oder mit URLs zu Begriffen
+aus Vokabularen. Ein Begriff SOLL, wenn er per URL referenziert wird, in
+Form eines \texttt{skos:Concept} Objekts vorliegen, das über eine
+\texttt{skos:prefLabel} Eigenschaft verfügt. Diese Konstrukte entstammen
+dem \emph{Simple Knowledge Organization System} (SKOS).\footnote{SKOS:
+  \url{http://www.w3.org/2009/08/skos-reference/skos.html}}
 
-TODO: Erläuterung zu \texttt{skos:Concept} und \texttt{skos:prefLabel},
-was diese bringen und evtl. Empfehlung.
+Die Verwendung eines übergreifenden Vokabulars soll dazu beitragen, dass
+die automatisierte Auswertung von parlamentarischen Informationen über
+die Grenzen einzelner Systeme hinweg deutlich erleichtert wird. So
+könnte beispielsweise eine bestimmte Art von Antrag über Systemgrenzen
+hinweg als solcher erkannt werden, wenn die Systeme auf das selbe
+\texttt{skos:Concept} verweisen.
+
+Zukünftig ist vorstellbar, dass OParl hierzu Vokabulare mit
+entsprechenden SKOS-Objekten zur Verfügung stellt, die dann von
+Datenanbietern per URL referenziert werden können.
 
 \subsubsection{Herstellerspezifische
 Erweiterungen}\label{herstellerspezifische-erweiterungen}
@@ -3066,7 +3054,7 @@ Informationen zu verzichten.
 An Objekten vom Typ \texttt{oparl:Document} auftretend, bezieht sich die
 Lizenzinformation nicht nur auf die strukturierten Metadaten, die über
 die API bezogen werden, sondern auch auf den eigentlichen Inhalt der
-Dateien, die über die angebotene(n) URL(s) abgerufen werden können.
+Datei(en), die über die angebotene(n) URL(s) abgerufen werden können.
 
 Lesenswert zum Thema Lizensierung von Linked Data ist auch er Abschnitt
 ``Licenses, Waivers and Norms for Data'' im online zugänglichen Linked
@@ -3101,41 +3089,9 @@ verstehen, die im \texttt{modified} Zeitstempel widerspiegeln sollte.
 Die Eigenschaft \texttt{keyword} dient der Kategorisierung von Objekten
 und ist in einer Vielzahl von Objekttypen zu diesem Zweck einsetzbar.
 
-Wert der Eigenschaft sind ein oder mehrere \texttt{skos:Concept}-Objekte
-mit einer \texttt{skos:prefLabel}-Eigenschaft. Der Wert der Eigenschaft
-ist jeweils eine Zeichenkette. Die verwendete Sprache (in der Regel
-``de'' für Deutsch) MUSS dabei angegeben werden.
-
-TODO: SKOS darstellen
-
-TODO: Beispiel
-
-Siehe u.a.:
-
-\begin{verbatim}
-https://github.com/OParl/specs/issues/41
-\end{verbatim}
-
-Geoportal.de und DeStat.de werden bereits auf Basis von
-Metadaten-Standards verlinkt. Bei einer Verwendung von
-Metadaten-Standards für RIS könnten ebenfalls interessante Potenziale
-durch Verlinkung entstehen. Der GovData-Metadaten-Standard z.B. kann
-genutzt werden
-
-\begin{verbatim}
-http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html
-\end{verbatim}
-
-und die 14 GovData-Kategorien können dabei durch eine zusätzliche
-Verschlagwortung auf Basis von Standard-Schlagwortkatalogen für RIS eine
-Ergänzung erfahren (LeiKa, Bremer-Katalog, DBpedia, RAMON).
-
-Die 14 Werte des GovData-Metadaten-Standard sind bisher nicht als Linked
-Data existent.
-
-TODO: eventuell können diese in OParl als
-Schlagwort-\texttt{skos:Concept}-Objekte als nicht abschliessende Menge
-von Schlagworten vorgegeben werden.
+Mehr zur Funktionsweise dieser Eigenschaft wird im Abschnitt
+\hyperref[vokabulareux5fklassifizierung]{Vokabulare zur Klassifizierung}
+beschrieben.
 
 \subsection{oparl:System (System)}\label{oparlux5fsystem}
 
@@ -3435,8 +3391,8 @@ Ein Beispiel in expandierter Form:
     \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/organization/34"}\FunctionTok{,}
     \DataTypeTok{"body"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/body/0"}\FunctionTok{,}
     \DataTypeTok{"nameShort"}\FunctionTok{:} \FunctionTok{\{}
-        \ErrorTok{@language}\DataTypeTok{" :"}\ErrorTok{de}\DataTypeTok{",}
-\DataTypeTok{        @value"}\FunctionTok{:} \StringTok{"Finanzausschuss"}
+        \DataTypeTok{"@language"} \FunctionTok{:}\StringTok{"de"}\FunctionTok{,}
+        \DataTypeTok{"@value"}\FunctionTok{:} \StringTok{"Finanzausschuss"}
     \FunctionTok{\},}
     \DataTypeTok{"nameLong"}\FunctionTok{:} \FunctionTok{\{}
         \DataTypeTok{"@language"}\FunctionTok{:} \StringTok{"de"}\FunctionTok{,}
@@ -3569,7 +3525,8 @@ Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ: Zeitstempel
 EMPFOHLEN
 \end{description}
 
-\subsection{oparl:Person (Person)}\label{oparlux5fperson}
+\hyperdef{}{oparlux5fperson}{\subsection{oparl:Person
+(Person)}\label{oparlux5fperson}}
 
 Jede natürliche Person, die in der parlamentarischen Arbeit tätig ist
 und insbesondere Mitglied in einer Gruppierung
@@ -3700,41 +3657,48 @@ bleibt wie zuvor.
 
 \begin{description}
 \item[\texttt{name}]
-Der vollständige Name der Person mit akademischem Grad und Vornamen.
-Typ: String ZWINGEND
+Der vollständige Name der Person mit akademischem Grad und dem
+gebräuchlichen Vornamen. Typ: Zeichenkette. Kardinalität: 1. Die
+Eigenschaft ist ZWINGEND.
 \item[\texttt{familyName}]
-Familienname bzw. Nachname. Typ: String OPTIONAL
+Familienname bzw. Nachname. Typ: Zeichenkette. OPTIONAL
 \item[\texttt{givenName}]
-Vorname bzw. Taufname. Typ: String OPTIONAL
+Vorname bzw. Taufname. Typ: Zeichenkette. OPTIONAL
 \item[\texttt{formOfAddress}]
 Anrede Begriff mit \texttt{skos:prefLabel}. Ähnlich wie \texttt{status}.
 Beispiele für die \texttt{skos:prefLabel} sind ``Ratsherr \textbar{}
-Ratsfrau'' und ``Herr \textbar{} Frau''. Typ: \texttt{skos:Concept}
-OPTIONAL
+Ratsfrau'' und ``Herr \textbar{} Frau''. Vgl.
+\hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}. Typ: \texttt{skos:Concept}. Kardinalität: 0 bis 1.
+OPTIONAL.
 \item[\texttt{title}]
-Akademische(r) Titel. TODO: ``Dr.''? ``Diplom''? Typ:
-\texttt{skos:Concept} OPTIONAL
+Akademische(r) Titel. Vgl.
+\hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}. Typ: \texttt{skos:Concept}. Kardinalität: 0 bis *.
+OPTIONAL.
 \item[\texttt{gender}]
 Geschlecht. Zulässige Werte sind \texttt{vcard:Female},
 \texttt{vcard:Male}, \texttt{vcard:None}, \texttt{vcard:Other} und
-\texttt{vcard:Unknown}. Typ: \texttt{vcard:TODO} OPTIONAL
+\texttt{vcard:Unknown}. Typ: Zeichenkette (TODO: Entsprechende
+\texttt{vcard:}-Eigenschaft angeben). Kardinalität: 0 bis *. OPTIONAL
 \item[\texttt{phone}]
-Telefonnummer mit \texttt{tel:} Schema. Typ: String mit ``tel:'' am
-Anfang, keine Leerzeichen OPTIONAL
+Telefonnummer mit \texttt{tel:} Schema. Typ: Zeichenkette mit ``tel:''
+am Anfang, keine Leerzeichen Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{email}]
-E-Mail-Adresse mit \texttt{mailto:} Schema. Typ: \texttt{foaf:mbox}
-OPTIONAL
+E-Mail-Adresse mit \texttt{mailto:} Schema. Typ: \texttt{foaf:mbox}.
+Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{streetAddress}]
-Straße und Hausnummer der Kontakt-Anschrift der Person. Typ: String
-OPTIONAL
+Straße und Hausnummer der Kontakt-Anschrift der Person. Typ:
+Zeichenkette. Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{postalCode}]
-Postleitzahl der Kontakt-Anschrift der Person. Typ: String OPTIONAL
+Postleitzahl der Kontakt-Anschrift der Person. Typ: Zeichenkette.
+Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{locality}]
 Ortsangabe der Kontakt-Anschrift der Person. Typ:
-\texttt{vcard:locality} OPTIONAL
+\texttt{vcard:locality} Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{organization}]
-Gruppierung in der die Person aktuell Mitglied ist. Typ:
-\texttt{oparl:Organization} ZWINGEND
+Gruppierung(en) in der/denen die Person aktuell Mitglied ist. Typ:
+\texttt{oparl:Organization}. Kardinalität: 0 bis *. EMPFOHLEN.
 \item[\texttt{status}]
 Status. Begriff mit \texttt{skos:prefLabel}. Die Zeichenketten SOLLEN
 sowohl die männliche als auch die weibliche Form enthalten, und zwar in
@@ -3750,21 +3714,22 @@ vornimmt. z.B. ``Bürgermeister \textbar{} Bürgermeisterin'',
 \textbar{} Bezirksverordnete'', ``Sachkundiger Bürger \textbar{}
 Sachkundige Bürgerin'', ``Einzelstadtverordneter \textbar{}
 Einzelstadtverordnete'' (Mitglieder des Rates die keiner
-Fraktion/Organisation angehören -\textgreater{} die Zuordbarkeit einer
-fiktiven Organisation ermöglichen TODO: warum will man das?). Siehe
-https://github.com/OParl/specs/issues/45 Typ: \texttt{skos:Concept}
-OPTIONAL
+Fraktion/Organisation angehören). Vgl.
+\hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}. Typ: \texttt{skos:Concept}. Kardinalität: 0 bis *.
+OPTIONAL.
 \item[\texttt{hasMembership}]
-Mitgliedschaft. TODO: Eventuell Unterklasse von \texttt{org:Membership}
-definieren. Typ: \texttt{org:Membership} OPTIONAL.
+Mitgliedschaft(en) der Person in Gruppierungen (oparl:Organization),
+z.B. Gremien und Fraktionen. Typ: \texttt{org:Membership}. Kardinalität:
+0 bis *. OPTIONAL.
 \item[\texttt{keyword}]
-Typ: \texttt{skos:Concept} OPTIONAL
+Typ: \texttt{skos:Concept} Kardinalität: 0 bis *. OPTIONAL.
 \item[\texttt{created}]
-Datum/Uhrzeit der Erzeugung des Objekts. Typ: String mit xsd:dateTime
-EMPFOHLEN.
+Datum/Uhrzeit der Erzeugung des Objekts. Typ: \texttt{xsd:dateTime}
+Kardinalität: 0 bis 1. EMPFOHLEN.
 \item[\texttt{lastModified}]
-Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ: String mit
-xsd:dateTime EMPFOHLEN.
+Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ:
+\texttt{xsd:dateTime}. Kardinalität: 0 bis 1. EMPFOHLEN.
 \end{description}
 
 \subsection{oparl:Meeting (Sitzung)}\label{oparlux5fmeeting}
@@ -3924,8 +3889,8 @@ Datum und Uhrzeit der letzten Änderung des Objekts. Typ: Zeitstempel.
 EMPFOHLEN
 \end{description}
 
-\subsection{oparl:AgendaItem
-(Tagesordnungspunkt)}\label{oparlux5fagendaitem}
+\hyperdef{}{oparlux5fagendaitem}{\subsection{oparl:AgendaItem
+(Tagesordnungspunkt)}\label{oparlux5fagendaitem}}
 
 Tagesordnungspunkte sind die Bestandteile von Sitzungen
 (\texttt{oparl:Meeting}). Jeder Tagesordnungspunkt widmet sich
@@ -3965,53 +3930,63 @@ Ein Beispiel in kompakter Form:
 \begin{description}
 \item[\texttt{meeting}]
 Sitzung, der der Tagesordnungspunkt zugeordnet ist. Typ:
-\texttt{oparl:Meeting} ZWINGEND.
+\texttt{oparl:Meeting}. Kardinalität: 1. Die Eigenschaft ist ZWINGEND.
 \item[\texttt{number}]
 Nummer des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z.B.
-``10.'', ``10.1'', ``C'', ``c)'' o.ä. Die Reihenfolge wird dadurch nicht
-festgelegt, sondern durch die Reihenfolge der TOPs im
-\texttt{agendaItem}-Attribut von \texttt{oparl:Meeting} Typ: String
-OPTIONAL
+``10.'', ``10.1'', ``C'', ``c)'' o.ä. Die Reihenfolge wird nicht
+dadruch, sondern durch die Reihenfolge der TOPs im
+\texttt{agendaItem}-Attribut von \texttt{oparl:Meeting} festgelegt. Typ:
+Zeichenkette. Kardinalität: 0 bis 1. Die Eigenschaft ist OPTIONAL.
 \item[\texttt{name}]
-Das Thema des Tagesordnungspunktes. Typ: String ZWINGEND.
+Das Thema des Tagesordnungspunktes. Typ: String Die Eigenschaft ist
+ZWINGEND.
 \item[\texttt{public}]
 Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher
 Sitzung vorgesehen ist/war. Es wird ein Wahrheitswert (\texttt{true}
-oder \texttt{false}) erwartet. Typ: boolean EMPFOHLEN.
+oder \texttt{false}) erwartet. Typ: boolean. Kardinalität: 0 bis 1. Die
+Eigenschaft ist EMPFOHLEN.
 \item[\texttt{consultation}]
 Beratung, die diesem Tagesordnungspunkt zugewiesen ist. Typ:
-\texttt{oparl:Consultation} ZWINGEND.
+\texttt{oparl:Consultation}. Kardinalität: 1. Die Eigenschaft ist
+ZWINGEND. FRAGE: Bedeutet das nicht, dass jeder Tagesordnungspunkt immer
+eine Drucksache behandeln muss? Ist das sinnvoll?
 \item[\texttt{result}]
 Kategorische Information darüber, welches Ergebnis die Beratung des
-Tagesordnungspunktes erbracht hat. Es wird zu einem Objekt verlinkt,
-welches ein \texttt{skos:prefLabel}-Attribut mit einer Zeichenkette hat.
-In der Praxis sind hier Kategorien wie ``Unverändert beschlossen'',
-``Geändert beschlossen'', ``Endgültig abgelehnt'', ``Zur Kenntnis
-genommen'', ``Ohne Votum in nachfolgende Gremien überwiesen'' und
-weitere zu erwarten. Alternativ können, sobald dieses zur Verfügung
-steht, URLs aus einem OParl Vokabular verwendet werden, wie im Beispiel
-oben zu sehen. Diese dienen dazu, Kategorien über Systemgrenzen hinweg
-maschinenlesbar zu vereinheitlichen. Typ: \texttt{skos:Concept}
-EMPFOHLEN
+Tagesordnungspunktes erbracht hat, in der Bedeutung etwa ``Unverändert
+beschlossen'' oder ``Geändert beschlossen''. Mehr zur Funktionsweise
+dieses Attributs unter
+\hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}. Typ: \texttt{skos:Concept}. kardinalität: 0 bis 1. Die
+Eigenschaft ist EMPFOHLEN.
 \item[\texttt{resolutionText}]
 Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann der
 Text hier hinterlegt werden. Das ist besonders dann in der Praxis
 relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) von
-der Beschlussvorlage abweicht. Typ: String TODO: Was ist bei sehr langem
-Text? OPTIONAL.
+der Beschlussvorlage abweicht. Typ: Zeichenkette. Kardinalität: 0 bis 1.
+Die Eigenschaft ist OPTIONAL.
 \item[\texttt{paper}]
 Drucksache. Zwar kann auch das \texttt{oparl:Meeting} darauf verweisen,
 aber hier sind solche Verweise in der Regel präziser, da Drucksachen
 regelmäßig nur für einen TOP relevant sind und nicht für alle TOPs. Typ:
-\texttt{oparl:Paper} OPTIONAL
+\texttt{oparl:Paper}. OPTIONAL. FRAGE: Ist das nicht eine Doppelung mit
+\texttt{consultation}?
 \item[\texttt{auxiliaryDocument}]
-eine weitere relevante Datei. Typ: \texttt{oparl:Document} OPTIONAL
+Dateianhang zum Tagesordnungspunkt. Typ: \texttt{oparl:Document}.
+Kardinalität: 0 bis *. Die Eigenschaft ist OPTIONAL.
 \item[\texttt{keyword}]
-Typ: \texttt{skos:Concept} OPTIONAL
+Vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}. Typ: \texttt{skos:Concept}. Kardinalität: 0 bis *. Die
+Eigenschaft ist OPTIONAL.
 \item[\texttt{created}]
-Erzeugungsdatum und -zeit des Objekts. Typ: Zeitstempel EMPFOHLEN
+Erzeugungsdatum und -zeit des Objekts. Typ: Zeitstempel. Kardinalität: 0
+bis 1. Die Eigenschaft ist EMPFOHLEN
 \item[\texttt{lastModified}]
-Datum und Uhrzeit der letzten Änderung. Typ: Zeitstempel EMPFOHLEN
+Datum und Uhrzeit der letzten Änderung. Typ: Zeitstempel Kardinalität: 0
+bis 1. Die Eigenschaft ist EMPFOHLEN
+\item[\texttt{absentParticipant}]
+Person(en), die bei der Behandlung dieses Tagesordnungspunkts nicht
+anwesend war(en). Typ: \texttt{oparl:Person}. Kardinalität: 0 bis *. Die
+Eigenschaft ist OPTIONAL.
 \end{description}
 
 \hyperdef{}{oparlux5fpaper}{\subsection{oparl:Paper
@@ -4366,7 +4341,9 @@ als \texttt{role}. Typ: \texttt{skos:Concept} OPTIONAL
 Dieser Objekttyp dient dazu, den Ortsbezug einer Drucksache formal
 abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen
 (beispielsweise dem Namen einer Straße/eines Platzes oder eine genaue
-Adresse) als auch aus Geodaten.
+Adresse) als auch aus Geodaten. Ortsangaben sind auch nicht auf einzelne
+Positionen beschränkt, sondern können eine Vielzahl von Positionen,
+Flächen, Strecken etc. abdecken.
 
 In der Praxis soll dies dazu dienen, den geografischen Bezug eines
 politischen Vorgangs, wie zum Beispiel eines Bauvorhabens oder der
@@ -4392,13 +4369,13 @@ Ein einfaches Beispiel:
 \end{Highlighting}
 \end{Shaded}
 
-Ein Kontext (TODO: Kann das weg?):
+Der JSON-LD-Kontext für die Eigenschaft \texttt{geometry}:
 
 \begin{verbatim}
 {
    "geometry":
    {
-     "@type": "ogc:wktLiteral" 
+     "@type": "ogc:wktLiteral"
    }
 }
 \end{verbatim}
@@ -4445,14 +4422,16 @@ für Längen- und Breitengrad.
 \begin{description}
 \item[\texttt{description}]
 Textliche Beschreibung eines Orts, z.B. in Form einer Adresse. Typ:
-Zeichenkette. EMPFOHLEN
+Zeichenkette. Kardinalität: 0 bis 1. Die Eigenschaft ist EMPFOHLEN.
 \item[\texttt{geometry}]
 Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt, MUSS
 ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen. Typ:
-Zeichenkette (TODO: Stimmt das?). OPTIONAL
+Zeichenkette. Kardinalität: 0 bis 1. Die Eigenschaft ist OPTIONAL.
 \item[\texttt{keyword}]
-Schlagwort mit \texttt{skos:prefLabel} Typ: \texttt{skos:Concept}
-OPTIONAL
+Schlagwort mit \texttt{skos:prefLabel}. Vgl. dazu
+\hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}. Typ: \texttt{skos:Concept}. Kardinalität: 0 bis *. Die
+Eigenschaft ist OPTIONAL.
 \end{description}
 
 \subsubsection{Weitere Beispiele}\label{weitere-beispiele}

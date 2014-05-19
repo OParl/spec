@@ -817,12 +817,6 @@ Prinzipien und Funktionen des Schnittstelle
 In diesem Kapitel werden grundlegende Funktionsprinzipien einer
 OParl-Schnittstelle beschrieben.
 
-TODO:
-
--   EMPFEHLUNG für Kompression mittels gzip, deflate etc., wenn Client
-    dies unterstützt
--   Nur Lesezugriff. Authentifizierung wird nicht benötigt.
-
 Designprinzipien
 ----------------
 
@@ -1642,60 +1636,60 @@ als auch direkt abgerufen werden.
 Anonyme Objekte (Blank Nodes)
 
 Im Gegensatz dazu können Objekte existieren, die keine eigene URL haben.
+Solche Objekte werden über die Werte von Eigenschaften anderer Objekte
+ausgegeben.
 
-Wenn diese im Semantic Web verwendet werden, dann führen sie zu
-erheblichen Problemen. Sandro Hawke (W3C) hat diese so zusammengefasst:
-
-  In general, blank nodes are a convenience for the content provider and
-  a burden on the content consumer. Higher quality data feeds use fewer
-  blank nodes, or none. Instead, they have a clear concept of identity
-  and service for every entity in their data.
-
-  If someone in the middle tries to convert (Skolemize) blank nodes,
-  it’s a large burden on them. Specifically, they should provide web
-  service for those new URIs, and if they get updated data from their
-  sources, they’re going to have a very hard [perhaps impossible] time
-  understanding what really changed. (Zitiert nach
-  http://richard.cyganiak.de/blog/2011/03/blank-nodes-considered-harmful/)
-
-Ein Beispiel dafür findet sich in der Beratungsfolge einer Drucksache.
-Das nachfolgende Beispiel zeigt eine Drucksache, deren Beratungsfolge
-über die Eigenschaft consultations kodiert ist.
-
-TODO: Nachstehendes Beispiel und Text dazu auf stimmiges Paper Objekt
-umschreiben.
+Ein Beispiel dafür ist die Eigenschaft location innerhalb einer
+Drucksache (`oparl:Paper):
 
 ``` {#benanntanonym_ex2 .json}
 {
-    "@id": "https://oparl.beispielris.de/bodies/0/papers/456",
-    "@type": "http://oparl.org/schema/1.0/paper",
-    "title": "Beschlussvorlage zur Jugendförderung",
-    "consultations": [
+    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld",
+    "@type": "oparl:Paper",
+    "@id": "https://oparl.beispielris.de/paper/749",
+    "body": "beispielris:bodies/1",
+    "name": "Antwort auf Anfrage 1200/2014",
+    "reference": "1234/2014",
+    "location": [
         {
-            "@type": "http://oparl.org/schema/1.0/consultation",
-            "committee": "https://oparl.beispielris.de/bodies/0/committees/1",
-            "meeting": "https://oparl.beispielris.de/bodies/0/committees/1/meetings/123",
-            "agendaitem": "7.2.4",
-            "authoritative": false
-        },
-        {
-            ...
+            "description": "Theodor-Heuss-Ring 1",
+            "geometry": "POINT(7.148  50.023)"
         }
-    ]
+    ],
+    ...
 }
 ```
 
-Die Eigenschaft consultations ist eine Liste mit einem oder mehreren
-Objekten vom Typ consultation. Diese Objekte spiegeln wieder, in welchen
-Sitzungen die vorliegende Drucksache beraten wurde bzw. wird.
+Die Eigenschaft location ist eine Liste mit einem oder mehreren Objekten
+vom Typ oparl:Location. Diese Objekte spiegeln wieder, mit welchen Orten
+sich eine Drucksache befasst.
 
-Die einzelnen consultation-Objekte haben keine @id-Eigenschaft, daher
-handelt es sich dabei um anonyme Objekte, auch Blank Nodes genannt.
-Diese Objekte können nicht einzeln, sondern nur im Kontext verbundener
-Objekte, wie hier im Beispiel im Kontext einer Drucksache, abgerufen
-werden.
+Die einzelnen location-Objekte innerhalb der Liste haben keine
+@id-Eigenschaft, daher handelt es sich dabei um anonyme Objekte, auch
+Blank Nodes genannt. Diese Objekte können nicht einzeln, sondern nur im
+Kontext verbundener Objekte, wie hier im Beispiel im Kontext einer
+Drucksache, abgerufen werden.
 
-TODO: Weitere Objekttypen nennen, in denen Blank Nodes vorkommen.
+Wenn solche Blank Nodes im Semantic Web verwendet werden, dann führen
+sie zu erheblichen Problemen. Sandro Hawke (W3C) hat diese so
+zusammengefasst:
+
+    In general, blank nodes are a convenience for the content
+    provider and a burden on the content consumer. Higher quality
+    data feeds use fewer blank nodes, or none. Instead, they have
+    a clear concept of identity and service for every entity in 
+    their data.
+
+    If someone in the middle tries to convert (Skolemize) blank 
+    nodes, it’s a large burden on them. Specifically, they should
+    provide web service for those new URIs, and if they get updated
+    data from their sources, they’re going to have a very hard
+    [perhaps impossible] time understanding what really changed.^[Zitiert
+    nach <http://richard.cyganiak.de/blog/2011/03/blank-nodes-considered-harmful/>]
+
+Ein Ziel bei der Entwicklung der Spezifikation war es, möglichst wenige
+Blank Nodes zu erzeugen. Zukünftige Versionen können hier sicherlich
+noch einen weiteren Veitrag leisten.
 
 Objektlisten
 ------------
@@ -2266,61 +2260,33 @@ HTML-Ansicht.
 Ein Server DARF eine alternative Inhaltsform auch in Form einer
 HTTP-Weiterleitung anbieten.
 
-httpRange-14
+HTTP-Kompression
+----------------
 
-Im Zusammenhang von Content Negotiation soll als Exkurs auf ein für
-Linked Data relevantes Detail hingewiesen werden, das in Fachkreisen
-httpRange-14 genannt wird. Dabei geht es um das im folgenden
-beschriebenePhänomen.
+Die zwischen Servern und Clients übertragenen Datenvolumen SOLLEN mit
+Hilfe von Kompressionsverfahren reduziert werden, wenn sowohl der Client
+als auch der Server dies unterstützen. Dabei kommt das in HTTP 1.1[^43]
+beschriebene Verfahren zum Einsatz.
 
-Wenn man in einem üblichen Web-Browser diese URL aufruft:
+HTTP 1.1 stellt drei komprimierte Kodierungen vor, wobei die Liste durch
+Registrierung neuer Verfahren bei der IANA erweitert werden kann. Diese
+sind:
 
-    <http://dbpedia.org/resource/John_Doe_(musician)>
+-   gzip
+-   compress
+-   deflate
 
-dann erfolgt eine Weiterleitung auf diese URL:
+Server-Implementierer SOLLEN mindestens eines dieser drei Verfahren
+unterstützen, wenn Clients dies mittels Accept-Encoding-Header anfragen.
 
-    <http://dbpedia.org/page/John_Doe_(musician)>
-
-Dabei identifiziert die erste URL den abstrakten Begriff des Musikers,
-während die zweite eine Repräsentation dieses Begriffs identifiziert.
-Ein anderer HTTP-Client, der statt HTML-Seiten z.B. JSON-LD bevorzugt,
-würde bei Zugriff auf die erste URL wiederum zu einer anderen URL weiter
-geleitet:
-
-    <http://dbpedia.org/data/John_Doe_(musician).jsonld>
-
-Dabei handelt es sich um eine Repräsentation des Musikers in Form von
-JSON-LD.
-
-Diese drei Links sind nicht nur verschieden, sondern haben
-unterschiedliche Bedeutungen. Eine Angabe z.B. der zweiten URL
-(HTML-Seite) oder der dritten URL (JSON-LD) kann von Clients generell
-nicht verwendet werden, um auf einfache Weise zu den anderen beiden URLs
-zu gelangen. Deshalb soll bei Linked Data der erste Link, also der des
-abstrakten Begriffs angegeben werden. Der Zugriff auf diesen Link wird
-"Dereferenzierung" genannt. Von dem ersten Link gelangt man zu den
-beiden anderen mittels Content Negotiation.
-
-So kann der Server beim Zugriff eines Client auf
-
-    <https://dbpedia.org/resource/John_Doe_(musician)>
-
-z.B. entweder diese URL sowie HTML-Inhalt liefern
-
-    <https://dbpedia.org/page/John_Doe_(musician)>
-
-oder aber diese URL mit JSON-LD als Inhalt
-
-    <https://dbpedia.org/data/John_Doe_(musician).jsonld>
-
-Die Entscheidung darüber, welche der URLs und welche der Inhaltsformate
-der Server liefert, wird zwischen Client und Server mittels Content
-Negotiation ausgehandelt.
-
-Das Phänomen verdeutlicht zum einen, dass URLs im Kontext von Linked
-Data eine wichtige Bedeutung haben und außerdem, dass es auch vom
-aufrufenden Client abhängen kann, bei welcher URL eine bestimmte Anfrage
-letztlich "landet".
+Die Verwendung von HTTP-Kompression ist grundsätzlich sowohl bei
+JSON-Daten als auch bei Dateizugriffen möglich. Bei Dateizugriffen sind
+die zu erwartenden Einsparungen beim Datenvolumen stark abhängig vom
+jeweiligen Dateifomat. Bei bereits komprimierte Dateien wie
+beispielsweise OpenOffice oder PDF lassen sich oft nur geringe oder gar
+keine weiteren Ersparnisse erzielen. Daher DARF grundsätzlich der Server
+in solchen Fällen eine unkomprimierte HTTP-Antwort senden, auch wenn der
+Client ein unterstütztes Kompressionsverfahren angefragt hat.
 
 Ausnahmebehandlung
 ------------------
@@ -2424,7 +2390,7 @@ Datum (ein Tag ohne Uhrzeit) ohne Zeitzone und ein Datum mit Zeit mit
 Zeitzone angegeben, denn nur damit ist die Uhrzeit weltweit eindeutig
 ohne zusätzlich auf den Ort einer Sitzung o.ä. Bezug nehmen zu müssen.
 
-Diese Spezifikationen stützen sich auf RFC 3339[^43]) und RFC 3339
+Diese Spezifikationen stützen sich auf RFC 3339[^44]) und RFC 3339
 wiederum auf ISO 8601.
 
 Im JSON-LD Kontext von OParl ist der Präfix xsd so spezifiziert, dass
@@ -2464,14 +2430,33 @@ jeweils wiederholt:
 Vokabulare zur Klassifizierung
 
 Einige Objekttypen besitzen Eigenschaften zum Zweck der Klassifizierung
-von Objekten. Beispiele dafür sind die Eigenschaft paperType des
-Objekttyps oparl:Paper und documentRole des Objekttyps oparl:Document.
+von Objekten. Im Einzelnen sind dies:
+
+-   die Eigenschaft paperType des Objekttyps oparl:Paper
+-   die Eigenschaft documentRole des Objekttyps oparl:Document
+-   die Eigenschaft organizationType des Objekttyps oparl:Organization
+-   die Eigenschaft result des Objekttyps oparl:AgendaItem
+-   die Eigenschaft status des Objekttyps oparl:Person
+-   die Eigenschaft title des Objekttyps oparl:Person
+-   die Eigenschaft keyword in mehreren Objekttypen
 
 Diese Eigenschaften können wahlweise mit einfachen Zeichenketten befüllt
-werden (z.B. "Beantwortung einer Anfrage") oder mit beliebigen URLs.
+werden (z.B. "Beantwortung einer Anfrage") oder mit URLs zu Begriffen
+aus Vokabularen. Ein Begriff SOLL, wenn er per URL referenziert wird, in
+Form eines skos:Concept Objekts vorliegen, das über eine skos:prefLabel
+Eigenschaft verfügt. Diese Konstrukte entstammen dem Simple Knowledge
+Organization System (SKOS).[^45]
 
-TODO: Erläuterung zu skos:Concept und skos:prefLabel, was diese bringen
-und evtl. Empfehlung.
+Die Verwendung eines übergreifenden Vokabulars soll dazu beitragen, dass
+die automatisierte Auswertung von parlamentarischen Informationen über
+die Grenzen einzelner Systeme hinweg deutlich erleichtert wird. So
+könnte beispielsweise eine bestimmte Art von Antrag über Systemgrenzen
+hinweg als solcher erkannt werden, wenn die Systeme auf das selbe
+skos:Concept verweisen.
+
+Zukünftig ist vorstellbar, dass OParl hierzu Vokabulare mit
+entsprechenden SKOS-Objekten zur Verfügung stellt, die dann von
+Datenanbietern per URL referenziert werden können.
 
 Herstellerspezifische Erweiterungen
 
@@ -2552,7 +2537,7 @@ license
 
 Die Eigenschaft license erlaubt es, am jeweiligen Objekt die URL einer
 Lizenz anzugeben. Damit wird gekennzeichnet, welche Lizenz der
-Veröffentlicher der Daten für das jeweilige Objekt vergibt.[^44]
+Veröffentlicher der Daten für das jeweilige Objekt vergibt.[^46]
 
 Eine besondere Bedeutung hat die Eigenschaft license, wenn sie am
 oparl:System Objekt oder am oparl:Body Objekt vergeben wird. Die hier
@@ -2566,11 +2551,11 @@ redundante Informationen zu verzichten.
 An Objekten vom Typ oparl:Document auftretend, bezieht sich die
 Lizenzinformation nicht nur auf die strukturierten Metadaten, die über
 die API bezogen werden, sondern auch auf den eigentlichen Inhalt der
-Dateien, die über die angebotene(n) URL(s) abgerufen werden können.
+Datei(en), die über die angebotene(n) URL(s) abgerufen werden können.
 
 Lesenswert zum Thema Lizensierung von Linked Data ist auch er Abschnitt
 "Licenses, Waivers and Norms for Data" im online zugänglichen Linked
-Data Book.[^45]
+Data Book.[^47]
 
 created
 
@@ -2599,37 +2584,8 @@ keyword
 Die Eigenschaft keyword dient der Kategorisierung von Objekten und ist
 in einer Vielzahl von Objekttypen zu diesem Zweck einsetzbar.
 
-Wert der Eigenschaft sind ein oder mehrere skos:Concept-Objekte mit
-einer skos:prefLabel-Eigenschaft. Der Wert der Eigenschaft ist jeweils
-eine Zeichenkette. Die verwendete Sprache (in der Regel "de" für
-Deutsch) MUSS dabei angegeben werden.
-
-TODO: SKOS darstellen
-
-TODO: Beispiel
-
-Siehe u.a.:
-
-    https://github.com/OParl/specs/issues/41
-
-Geoportal.de und DeStat.de werden bereits auf Basis von
-Metadaten-Standards verlinkt. Bei einer Verwendung von
-Metadaten-Standards für RIS könnten ebenfalls interessante Potenziale
-durch Verlinkung entstehen. Der GovData-Metadaten-Standard z.B. kann
-genutzt werden
-
-    http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html
-
-und die 14 GovData-Kategorien können dabei durch eine zusätzliche
-Verschlagwortung auf Basis von Standard-Schlagwortkatalogen für RIS eine
-Ergänzung erfahren (LeiKa, Bremer-Katalog, DBpedia, RAMON).
-
-Die 14 Werte des GovData-Metadaten-Standard sind bisher nicht als Linked
-Data existent.
-
-TODO: eventuell können diese in OParl als
-Schlagwort-skos:Concept-Objekte als nicht abschliessende Menge von
-Schlagworten vorgegeben werden.
+Mehr zur Funktionsweise dieser Eigenschaft wird im Abschnitt Vokabulare
+zur Klassifizierung beschrieben.
 
 oparl:System (System) {#oparl_system}
 ---------------------
@@ -2861,14 +2817,14 @@ licenseValidSinceDay
 
 rgs
     Regionalschlüssel der Körperschaft als zwölfstellige
-    Zeichenkette[^46]. Typ: String mit ganzer Zahl EMPFOHLEN
+    Zeichenkette[^48]. Typ: String mit ganzer Zahl EMPFOHLEN
 
 equivalentBody
     Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe
     Körperschaft repräsentieren. Hier können beispielsweise, sofern
     vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der
-    Deutschen Nationalbibliothek[^47], der DBPedia[^48] oder der
-    Wikipedia[^49] angegeben werden. Typ: URL EMPFOHLEN
+    Deutschen Nationalbibliothek[^49], der DBPedia[^50] oder der
+    Wikipedia[^51] angegeben werden. Typ: URL EMPFOHLEN
 
 contactEmail
     Dient der Angabe einer Kontakt-E-Mail-Adresse mit "mailto:"-Schema.
@@ -2923,8 +2879,8 @@ Ein Beispiel in expandierter Form:
     "@id": "https://oparl.beispielris.de/organization/34",
     "body": "https://oparl.beispielris.de/body/0",
     "nameShort": {
-        @language" :"de",
-        @value": "Finanzausschuss"
+        "@language" :"de",
+        "@value": "Finanzausschuss"
     },
     "nameLong": {
         "@language": "de",
@@ -3162,49 +3118,55 @@ bleibt wie zuvor.
 Eigenschaften
 
 name
-    Der vollständige Name der Person mit akademischem Grad und Vornamen.
-    Typ: String ZWINGEND
+    Der vollständige Name der Person mit akademischem Grad und dem
+    gebräuchlichen Vornamen. Typ: Zeichenkette. Kardinalität: 1. Die
+    Eigenschaft ist ZWINGEND.
 
 familyName
-    Familienname bzw. Nachname. Typ: String OPTIONAL
+    Familienname bzw. Nachname. Typ: Zeichenkette. OPTIONAL
 
 givenName
-    Vorname bzw. Taufname. Typ: String OPTIONAL
+    Vorname bzw. Taufname. Typ: Zeichenkette. OPTIONAL
 
 formOfAddress
     Anrede Begriff mit skos:prefLabel. Ähnlich wie status. Beispiele für
     die skos:prefLabel sind "Ratsherr | Ratsfrau" und "Herr | Frau".
-    Typ: skos:Concept OPTIONAL
+    Vgl. Vokabulare zur Klassifizierung. Typ: skos:Concept.
+    Kardinalität: 0 bis 1. OPTIONAL.
 
 title
-    Akademische(r) Titel. TODO: "Dr."? "Diplom"? Typ: skos:Concept
-    OPTIONAL
+    Akademische(r) Titel. Vgl. Vokabulare zur Klassifizierung. Typ:
+    skos:Concept. Kardinalität: 0 bis *. OPTIONAL.
 
 gender
     Geschlecht. Zulässige Werte sind vcard:Female, vcard:Male,
-    vcard:None, vcard:Other und vcard:Unknown. Typ: vcard:TODO OPTIONAL
-
-phone
-    Telefonnummer mit tel: Schema. Typ: String mit "tel:" am Anfang,
-    keine Leerzeichen OPTIONAL
-
-email
-    E-Mail-Adresse mit mailto: Schema. Typ: foaf:mbox OPTIONAL
-
-streetAddress
-    Straße und Hausnummer der Kontakt-Anschrift der Person. Typ: String
+    vcard:None, vcard:Other und vcard:Unknown. Typ: Zeichenkette (TODO:
+    Entsprechende vcard:-Eigenschaft angeben). Kardinalität: 0 bis *.
     OPTIONAL
 
+phone
+    Telefonnummer mit tel: Schema. Typ: Zeichenkette mit "tel:" am
+    Anfang, keine Leerzeichen Kardinalität: 0 bis 1. OPTIONAL.
+
+email
+    E-Mail-Adresse mit mailto: Schema. Typ: foaf:mbox. Kardinalität: 0
+    bis 1. OPTIONAL.
+
+streetAddress
+    Straße und Hausnummer der Kontakt-Anschrift der Person. Typ:
+    Zeichenkette. Kardinalität: 0 bis 1. OPTIONAL.
+
 postalCode
-    Postleitzahl der Kontakt-Anschrift der Person. Typ: String OPTIONAL
+    Postleitzahl der Kontakt-Anschrift der Person. Typ: Zeichenkette.
+    Kardinalität: 0 bis 1. OPTIONAL.
 
 locality
     Ortsangabe der Kontakt-Anschrift der Person. Typ: vcard:locality
-    OPTIONAL
+    Kardinalität: 0 bis 1. OPTIONAL.
 
 organization
-    Gruppierung in der die Person aktuell Mitglied ist. Typ:
-    oparl:Organization ZWINGEND
+    Gruppierung(en) in der/denen die Person aktuell Mitglied ist. Typ:
+    oparl:Organization. Kardinalität: 0 bis *. EMPFOHLEN.
 
 status
     Status. Begriff mit skos:prefLabel. Die Zeichenketten SOLLEN sowohl
@@ -3220,24 +3182,24 @@ status
     "Bezirksverordneter | Bezirksverordnete", "Sachkundiger Bürger |
     Sachkundige Bürgerin", "Einzelstadtverordneter |
     Einzelstadtverordnete" (Mitglieder des Rates die keiner
-    Fraktion/Organisation angehören -> die Zuordbarkeit einer fiktiven
-    Organisation ermöglichen TODO: warum will man das?). Siehe
-    https://github.com/OParl/specs/issues/45 Typ: skos:Concept OPTIONAL
+    Fraktion/Organisation angehören). Vgl. Vokabulare zur
+    Klassifizierung. Typ: skos:Concept. Kardinalität: 0 bis *. OPTIONAL.
 
 hasMembership
-    Mitgliedschaft. TODO: Eventuell Unterklasse von org:Membership
-    definieren. Typ: org:Membership OPTIONAL.
+    Mitgliedschaft(en) der Person in Gruppierungen (oparl:Organization),
+    z.B. Gremien und Fraktionen. Typ: org:Membership. Kardinalität: 0
+    bis *. OPTIONAL.
 
 keyword
-    Typ: skos:Concept OPTIONAL
+    Typ: skos:Concept Kardinalität: 0 bis *. OPTIONAL.
 
 created
-    Datum/Uhrzeit der Erzeugung des Objekts. Typ: String mit
-    xsd:dateTime EMPFOHLEN.
+    Datum/Uhrzeit der Erzeugung des Objekts. Typ: xsd:dateTime
+    Kardinalität: 0 bis 1. EMPFOHLEN.
 
 lastModified
-    Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ: String mit
-    xsd:dateTime EMPFOHLEN.
+    Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ:
+    xsd:dateTime. Kardinalität: 0 bis 1. EMPFOHLEN.
 
 oparl:Meeting (Sitzung) {#oparl_meeting}
 -----------------------
@@ -3439,63 +3401,73 @@ Eigenschaften
 
 meeting
     Sitzung, der der Tagesordnungspunkt zugeordnet ist. Typ:
-    oparl:Meeting ZWINGEND.
+    oparl:Meeting. Kardinalität: 1. Die Eigenschaft ist ZWINGEND.
 
 number
     Nummer des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie
-    z.B. "10.", "10.1", "C", "c)" o.ä. Die Reihenfolge wird dadurch
-    nicht festgelegt, sondern durch die Reihenfolge der TOPs im
-    agendaItem-Attribut von oparl:Meeting Typ: String OPTIONAL
+    z.B. "10.", "10.1", "C", "c)" o.ä. Die Reihenfolge wird nicht
+    dadruch, sondern durch die Reihenfolge der TOPs im
+    agendaItem-Attribut von oparl:Meeting festgelegt. Typ: Zeichenkette.
+    Kardinalität: 0 bis 1. Die Eigenschaft ist OPTIONAL.
 
 name
-    Das Thema des Tagesordnungspunktes. Typ: String ZWINGEND.
+    Das Thema des Tagesordnungspunktes. Typ: String Die Eigenschaft ist
+    ZWINGEND.
 
 public
     Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in
     öffentlicher Sitzung vorgesehen ist/war. Es wird ein Wahrheitswert
-    (true oder false) erwartet. Typ: boolean EMPFOHLEN.
+    (true oder false) erwartet. Typ: boolean. Kardinalität: 0 bis 1. Die
+    Eigenschaft ist EMPFOHLEN.
 
 consultation
     Beratung, die diesem Tagesordnungspunkt zugewiesen ist. Typ:
-    oparl:Consultation ZWINGEND.
+    oparl:Consultation. Kardinalität: 1. Die Eigenschaft ist ZWINGEND.
+    FRAGE: Bedeutet das nicht, dass jeder Tagesordnungspunkt immer eine
+    Drucksache behandeln muss? Ist das sinnvoll?
 
 result
     Kategorische Information darüber, welches Ergebnis die Beratung des
-    Tagesordnungspunktes erbracht hat. Es wird zu einem Objekt verlinkt,
-    welches ein skos:prefLabel-Attribut mit einer Zeichenkette hat. In
-    der Praxis sind hier Kategorien wie "Unverändert beschlossen",
-    "Geändert beschlossen", "Endgültig abgelehnt", "Zur Kenntnis
-    genommen", "Ohne Votum in nachfolgende Gremien überwiesen" und
-    weitere zu erwarten. Alternativ können, sobald dieses zur Verfügung
-    steht, URLs aus einem OParl Vokabular verwendet werden, wie im
-    Beispiel oben zu sehen. Diese dienen dazu, Kategorien über
-    Systemgrenzen hinweg maschinenlesbar zu vereinheitlichen. Typ:
-    skos:Concept EMPFOHLEN
+    Tagesordnungspunktes erbracht hat, in der Bedeutung etwa
+    "Unverändert beschlossen" oder "Geändert beschlossen". Mehr zur
+    Funktionsweise dieses Attributs unter Vokabulare zur
+    Klassifizierung. Typ: skos:Concept. kardinalität: 0 bis 1. Die
+    Eigenschaft ist EMPFOHLEN.
 
 resolutionText
     Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann
     der Text hier hinterlegt werden. Das ist besonders dann in der
     Praxis relevant, wenn der gefasste Beschluss (z.B. durch
-    Änderungsantrag) von der Beschlussvorlage abweicht. Typ: String
-    TODO: Was ist bei sehr langem Text? OPTIONAL.
+    Änderungsantrag) von der Beschlussvorlage abweicht. Typ:
+    Zeichenkette. Kardinalität: 0 bis 1. Die Eigenschaft ist OPTIONAL.
 
 paper
     Drucksache. Zwar kann auch das oparl:Meeting darauf verweisen, aber
     hier sind solche Verweise in der Regel präziser, da Drucksachen
     regelmäßig nur für einen TOP relevant sind und nicht für alle TOPs.
-    Typ: oparl:Paper OPTIONAL
+    Typ: oparl:Paper. OPTIONAL. FRAGE: Ist das nicht eine Doppelung mit
+    consultation?
 
 auxiliaryDocument
-    eine weitere relevante Datei. Typ: oparl:Document OPTIONAL
+    Dateianhang zum Tagesordnungspunkt. Typ: oparl:Document.
+    Kardinalität: 0 bis *. Die Eigenschaft ist OPTIONAL.
 
 keyword
-    Typ: skos:Concept OPTIONAL
+    Vgl. Vokabulare zur Klassifizierung. Typ: skos:Concept.
+    Kardinalität: 0 bis *. Die Eigenschaft ist OPTIONAL.
 
 created
-    Erzeugungsdatum und -zeit des Objekts. Typ: Zeitstempel EMPFOHLEN
+    Erzeugungsdatum und -zeit des Objekts. Typ: Zeitstempel.
+    Kardinalität: 0 bis 1. Die Eigenschaft ist EMPFOHLEN
 
 lastModified
-    Datum und Uhrzeit der letzten Änderung. Typ: Zeitstempel EMPFOHLEN
+    Datum und Uhrzeit der letzten Änderung. Typ: Zeitstempel
+    Kardinalität: 0 bis 1. Die Eigenschaft ist EMPFOHLEN
+
+absentParticipant
+    Person(en), die bei der Behandlung dieses Tagesordnungspunkts nicht
+    anwesend war(en). Typ: oparl:Person. Kardinalität: 0 bis *. Die
+    Eigenschaft ist OPTIONAL.
 
 oparl:Paper (Drucksache) {#oparl_paper}
 ------------------------
@@ -3572,7 +3544,7 @@ paperType
     "Beantwortung einer Anfrage". Für die URLs kommen als letztes
     Pfadelement z.B. "draft", "petition", "request", "note" und "answer"
     in Frage. Denkbar ist auch eine Kategorisierung z.B. in drei Arten
-    von Drucksachen: initiierend, beratend und protokollierend.[^50]
+    von Drucksachen: initiierend, beratend und protokollierend.[^52]
     Kardinalität: 0 bis 1. Typ: skos:Concept. Diese Eigenschaft ist
     EMPFOHLEN.
 
@@ -3671,7 +3643,7 @@ name
     sein. Typ: Zeichenkette. Kardinalität: 0 bis 1. EMPFOHLEN.
 
 mimeType
-    Mime-Typ des Inhalts[^51]. Sollte das System einer Datei keinen
+    Mime-Typ des Inhalts[^53]. Sollte das System einer Datei keinen
     spezifischen Typ zuweisen können, wird EMPFOHLEN, hier
     application/octet-stream zu verwenden. Typ: Zeichenkette.
     Kardinalität: 1. ZWINGEND.
@@ -3739,7 +3711,7 @@ derivativeDocuments
 license
     Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft
     verwendet wird, dann ist sie anstelle einer globalen Angabe im
-    übergeordneten oparl:Body bzw. oparl:System Objekt maßgeblich.[^52]
+    übergeordneten oparl:Body bzw. oparl:System Objekt maßgeblich.[^54]
     Typ: URL. Kardinalität: 0 bis 1. OPTIONAL.
 
 documentRole
@@ -3849,7 +3821,9 @@ oparl:Location (Ort) {#oparl_location}
 Dieser Objekttyp dient dazu, den Ortsbezug einer Drucksache formal
 abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen
 (beispielsweise dem Namen einer Straße/eines Platzes oder eine genaue
-Adresse) als auch aus Geodaten.
+Adresse) als auch aus Geodaten. Ortsangaben sind auch nicht auf einzelne
+Positionen beschränkt, sondern können eine Vielzahl von Positionen,
+Flächen, Strecken etc. abdecken.
 
 In der Praxis soll dies dazu dienen, den geografischen Bezug eines
 politischen Vorgangs, wie zum Beispiel eines Bauvorhabens oder der
@@ -3872,12 +3846,12 @@ Ein einfaches Beispiel:
 }
 ```
 
-Ein Kontext (TODO: Kann das weg?):
+Der JSON-LD-Kontext für die Eigenschaft geometry:
 
     {
        "geometry":
        {
-         "@type": "ogc:wktLiteral" 
+         "@type": "ogc:wktLiteral"
        }
     }
 
@@ -3896,7 +3870,7 @@ Und ein Beispiel unter Verwendung des Kontextes:
 
 OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des  
 Well-Known-Text-Formats (WKT) der Simple Feature Access
-Spezifikation[^53] vor. WKT erlaubt die Beschreibung von
+Spezifikation[^55] vor. WKT erlaubt die Beschreibung von
 unterschiedlichen Geometrien wie Punkten (Point), Pfaden (LineString),
 Polygonen (Polygon) und viele andere mehr.
 
@@ -3906,22 +3880,25 @@ keine Anforderungen daran, welche Version von Simple-Feature-Access bei
 der Ausgabe von WKT zu unterstützen ist.
 
 Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben
-solcher Geodaten im System WGS84[^54] angegeben werden, und zwar in Form
+solcher Geodaten im System WGS84[^56] angegeben werden, und zwar in Form
 von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.
 
 Eigenschaften
 
 description
     Textliche Beschreibung eines Orts, z.B. in Form einer Adresse. Typ:
-    Zeichenkette. EMPFOHLEN
+    Zeichenkette. Kardinalität: 0 bis 1. Die Eigenschaft ist EMPFOHLEN.
 
 geometry
     Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt,
     MUSS ihr Wert der Spezifikation von Well-Known Text (WKT)
-    entsprechen. Typ: Zeichenkette (TODO: Stimmt das?). OPTIONAL
+    entsprechen. Typ: Zeichenkette. Kardinalität: 0 bis 1. Die
+    Eigenschaft ist OPTIONAL.
 
 keyword
-    Schlagwort mit skos:prefLabel Typ: skos:Concept OPTIONAL
+    Schlagwort mit skos:prefLabel. Vgl. dazu Vokabulare zur
+    Klassifizierung. Typ: skos:Concept. Kardinalität: 0 bis *. Die
+    Eigenschaft ist OPTIONAL.
 
 Weitere Beispiele
 
@@ -4160,37 +4137,42 @@ JSON-LD-Kontextdokumente zu finden sein werden.
 
 [^42]: RFC2616: http://tools.ietf.org/html/rfc2616
 
-[^43]: RFC3339: http://www.ietf.org/rfc/rfc3339.txt
+[^43]: RFC2616 Section 14.3:
+    http://tools.ietf.org/html/rfc2616#section-14.3
 
-[^44]: Verzeichnisse für Lizenz-URLs sind unter anderem unter
+[^44]: RFC3339: http://www.ietf.org/rfc/rfc3339.txt
+
+[^45]: SKOS: http://www.w3.org/2009/08/skos-reference/skos.html
+
+[^46]: Verzeichnisse für Lizenz-URLs sind unter anderem unter
     http://licenses.opendefinition.org/ und
     https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json
     zu finden.
 
-[^45]: Tom Heath, Christian Bizer: Linked Data: Evolving the Web into a
+[^47]: Tom Heath, Christian Bizer: Linked Data: Evolving the Web into a
     Global Data Space (1st edition),
     http://linkeddatabook.com/editions/1.0/#htoc48
 
-[^46]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
+[^48]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
     Statistischen Bundesamtes eingesehen werden
 
-[^47]: Gemeinsame Normdatei http://www.dnb.de/gnd
+[^49]: Gemeinsame Normdatei http://www.dnb.de/gnd
 
-[^48]: DBPedia http://www.dbpedia.org/
+[^50]: DBPedia http://www.dbpedia.org/
 
-[^49]: Wikipedia http://de.wikipedia.org/
+[^51]: Wikipedia http://de.wikipedia.org/
 
-[^50]: Eine Liste mit exemplarischen Drucksachentypen:
+[^52]: Eine Liste mit exemplarischen Drucksachentypen:
     https://wiki.piratenpartei.de/BE:BVVupdates/Glossar
 
-[^51]: vgl. RFC2046: http://tools.ietf.org/html/rfc2046
+[^53]: vgl. RFC2046: http://tools.ietf.org/html/rfc2046
 
-[^52]: vgl. license
+[^54]: vgl. license
 
-[^53]: Simple Feature Access Spezifikation:
+[^55]: Simple Feature Access Spezifikation:
     http://www.opengeospatial.org/standards/sfa
 
-[^54]: WGS84 steht für "World Geodetic System 1984", es wird unter
+[^56]: WGS84 steht für "World Geodetic System 1984", es wird unter
     anderem auch vom Global Positioning System (GPS) verwendet. In
     geografischen Informationssystemen ist für das System der EPSG-Code
     4326 geläufig.

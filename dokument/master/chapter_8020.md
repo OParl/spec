@@ -43,7 +43,7 @@ Objekt mitzuteilen und auf redundante Informationen zu verzichten.
 
 An Objekten vom Typ `oparl:Document` auftretend, bezieht sich die Lizenzinformation
 nicht nur auf die strukturierten Metadaten, die über die API bezogen werden, sondern
-auch auf den eigentlichen Inhalt der Dateien, die über die angebotene(n) URL(s)
+auch auf den eigentlichen Inhalt der Datei(en), die über die angebotene(n) URL(s)
 abgerufen werden können.
 
 Lesenswert zum Thema Lizensierung von Linked Data ist auch er Abschnitt "Licenses,

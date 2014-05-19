@@ -11,7 +11,7 @@ hinaus hält der XÖV-Standard ein XML-Schema für natürliche Personen bereit.
 Für `oparl:Person` wurde daraus und basierend auf dem Input der OParl-Stakeholder
 eine Auswahl von Eigenschaften zusammengestellt.
 
-TODO: für Personen-Namen und Titel wird keine Mehrsprachigkeit benötigt. Dies im
+TODO: für Personennamen wird keine Mehrsprachigkeit benötigt. Dies im
 Kontext berücksichtigen. Dies spricht auch für je einen Kontext pro Klasse.
 
 Ein Beispiel in expandierter Form:
@@ -21,11 +21,11 @@ Ein Beispiel in expandierter Form:
     "@type": "http://oparl.org/schema/1.0/Person",
     "@id": "https://oparl.beispielris.de/person/29",
     "name": "Prof. Dr. Max Mustermann",
-    "familyName": { // könnte mehrsprachig sein, z.B. griechisch, russisch, tamilisch 
+    "familyName": { 
         "@value": "Mustermann",
         "@language": "de"
     },
-    "givenName": { // könnte mehrsprachig sein
+    "givenName": {
         "@value": "Max",
         "@language": "de"
     },

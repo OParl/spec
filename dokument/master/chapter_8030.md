@@ -32,7 +32,7 @@ Ein Kontext:
 {
     "@language": "de",
     "beispielris": "https://oparl.eispielris.de/",
-    "oparl": "http://oparl.org/TODO/",
+    "oparl": "http://oparl.org/specs/1.0/schema/",
     "dc": "http://purl.org/dc/terms/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "skos": "http://www.w3.org/2004/02/skos/core#",

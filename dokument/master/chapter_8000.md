@@ -99,6 +99,7 @@ Im Einzelnen sind dies:
 * die Eigenschaft `paperType` des Objekttyps [`oparl:Paper`](#oparl_paper)
 * die Eigenschaft `documentRole` des Objekttyps [`oparl:Document`](#oparl_document)
 * die Eigenschaft `organizationType` des Objekttyps [`oparl:Organization`](#oparl_organization)
+* die Eigenschaft `result` des Objekttyps [`oparl:AgendaItem`](#oparl_agendaitem)
 * die Eigenschaft `keyword` in mehreren Objekttypen
 
 Diese Eigenschaften können wahlweise mit einfachen Zeichenketten befüllt werden

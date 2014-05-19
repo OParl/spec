@@ -6888,6 +6888,10 @@ Simple Feature Access Spezifikation:
 </sect1>
 <sect1 id="glossar">
   <title>Glossar</title>
+  <para>
+    FRAGE: Sollte es ein Glossar geben? Wenn ja, müsste es ergänzt
+    werden. Sonst wird es entfernt.
+  </para>
   <variablelist>
     <varlistentry>
       <term>

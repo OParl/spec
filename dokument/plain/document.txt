@@ -4013,6 +4013,9 @@ TODO: Folgende Verweise einbauen oder entfernen:
 Glossar
 =======
 
+FRAGE: Sollte es ein Glossar geben? Wenn ja, müsste es ergänzt werden.
+Sonst wird es entfernt.
+
 IRI
     Internationalized Resource Identifier ist die internationalisierte
     Form der Uniform Resource Identifier (URI). Diese sind in RFC 3987

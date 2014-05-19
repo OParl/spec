@@ -99,6 +99,7 @@ Im Einzelnen sind dies:
 * die Eigenschaft `paperType` des Objekttyps [`oparl:Paper`](#oparl_paper)
 * die Eigenschaft `documentRole` des Objekttyps [`oparl:Document`](#oparl_document)
 * die Eigenschaft `organizationType` des Objekttyps [`oparl:Organization`](#oparl_organization)
+* die Eigenschaft `keyword` in mehreren Objekttypen
 
 Diese Eigenschaften können wahlweise mit einfachen Zeichenketten befüllt werden
 (z.B. "Beantwortung einer Anfrage") oder mit URLs zu Begriffen aus
@@ -106,6 +107,13 @@ Vokabularen. Ein Begriff SOLL, wenn er per URL referenziert wird,
 in Form eines `skos:Concept` Objekts vorliegen, das über eine `skos:prefLabel`
 Eigenschaft verfügt. Diese Konstrukte entstammen dem _Simple Knowledge
 Organization System_ (SKOS).^[SKOS: <http://www.w3.org/2009/08/skos-reference/skos.html>]
+
+Die Verwendung eines übergreifenden Vokabulars soll dazu beitragen, dass
+die automatisierte Auswertung von parlamentarischen Informationen über die
+Grenzen einzelner Systeme hinweg deutlich erleichtert wird. So könnte
+beispielsweise eine bestimmte Art von Antrag über Systemgrenzen hinweg als
+solcher erkannt werden, wenn die Systeme auf das selbe `skos:Concept`
+verweisen.
 
 Zukünftig ist vorstellbar, dass OParl hierzu Vokabulare mit entsprechenden
 SKOS-Objekten zur Verfügung stellt, die dann von Datenanbietern per URL

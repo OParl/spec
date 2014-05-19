@@ -102,6 +102,7 @@ Im Einzelnen sind dies:
 * die Eigenschaft `result` des Objekttyps [`oparl:AgendaItem`](#oparl_agendaitem)
 * die Eigenschaft `status` des Objekttyps [`oparl:Person`](#oparl_person)
 * die Eigenschaft `title` des Objekttyps [`oparl:Person`](#oparl_person)
+* die Eigenschaft `role` des Objekttyps [`oparl:Membership`](#oparl_membership)
 * die Eigenschaft `keyword` in mehreren Objekttypen
 
 Diese Eigenschaften können wahlweise mit einfachen Zeichenketten befüllt werden

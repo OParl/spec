@@ -13,8 +13,8 @@ Ein Beispiel in expandierter Form:
     "@id": "https://oparl.beispielris.de/organization/34",
     "body": "https://oparl.beispielris.de/body/0",
     "nameShort": {
-        @language" :"de",
-        @value": "Finanzausschuss"
+        "@language" :"de",
+        "@value": "Finanzausschuss"
     },
     "nameLong": {
         "@language": "de",

@@ -5,10 +5,14 @@ Jede natürliche Person, die in der parlamentarischen Arbeit tätig ist
 und insbesondere Mitglied in einer Gruppierung ([oparl:Organization](#oparl_organization)),
 wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
 
-Es gibt existieren bereits eine ganze Reihe von Vokabularen für Personen. Dazu gehören FOAF (Friend of a Friend) und vCard. Es gibt aber auch der XÖV-Standard für natürliche Personen, ein XML Schema. Für `oparl:Person` wurde daraus
-und basierend auf dem Input der OParl-Stakeholder eine Auswahl von Eigenschaften zusammengestellt.
+Es existieren bereits eine ganze Reihe von Vokabularen für Personenobjekte
+außerhalb von OParl. Dazu gehören FOAF (_Friend of a Friend_) und vCard. Darüber
+hinaus hält der XÖV-Standard ein XML-Schema für natürliche Personen bereit.
+Für `oparl:Person` wurde daraus und basierend auf dem Input der OParl-Stakeholder
+eine Auswahl von Eigenschaften zusammengestellt.
 
-TODO: für Personen-Namen und Titel wird keine Mehrsprachigkeit benötigt. Dies im Kontext berücksichtigen. Dies spricht auch für je einen Kontext pro Klasse.
+TODO: für Personen-Namen und Titel wird keine Mehrsprachigkeit benötigt. Dies im
+Kontext berücksichtigen. Dies spricht auch für je einen Kontext pro Klasse.
 
 Ein Beispiel in expandierter Form:
 

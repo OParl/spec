@@ -4,7 +4,9 @@ oparl:Location (Ort)  {#oparl_location}
 Dieser Objekttyp dient dazu, den Ortsbezug einer Drucksache formal 
 abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen 
 (beispielsweise dem Namen einer Straße/eines Platzes oder eine genaue 
-Adresse) als auch aus Geodaten.
+Adresse) als auch aus Geodaten. Ortsangaben sind auch nicht auf einzelne
+Positionen beschränkt, sondern können eine Vielzahl von Positionen,
+Flächen, Strecken etc. abdecken.
 
 In der Praxis soll dies dazu dienen, den geografischen Bezug eines
 politischen Vorgangs, wie zum Beispiel eines Bauvorhabens oder der 
@@ -75,17 +77,21 @@ für Längen- und Breitengrad.
 `description`
 :   Textliche Beschreibung eines Orts, z.B. in Form einer Adresse.
     Typ: Zeichenkette.
-    EMPFOHLEN
+    Kardinalität: 0 bis 1.
+    Die Eigenschaft ist EMPFOHLEN.
 
 `geometry`
-:   Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt, MUSS ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen.
-    Typ: Zeichenkette (TODO: Stimmt das?).
-    OPTIONAL
+:   Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt,
+    MUSS ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen.
+    Typ: Zeichenkette.
+    Kardinalität: 0 bis 1.
+    Die Eigenschaft ist OPTIONAL.
 
 `keyword`
-:   Schlagwort mit `skos:prefLabel`
-    Typ: `skos:Concept`
-    OPTIONAL
+:   Schlagwort mit `skos:prefLabel`. Vgl. dazu [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
+    Typ: `skos:Concept`.
+    Kardinalität: 0 bis *.
+    Die Eigenschaft ist OPTIONAL.
 
 ### Weitere Beispiele
 

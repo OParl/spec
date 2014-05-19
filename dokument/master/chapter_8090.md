@@ -34,74 +34,89 @@ Ein Beispiel in kompakter Form:
 
 `meeting`
 :   Sitzung, der der Tagesordnungspunkt zugeordnet ist.
-    Typ: `oparl:Meeting`
-    ZWINGEND.
+    Typ: `oparl:Meeting`.
+    Kardinalität: 1.
+    Die Eigenschaft ist ZWINGEND.
 
 `number`
 :   Nummer des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z.B. "10.", "10.1", "C", "c)" o.ä.
-    Die Reihenfolge wird dadurch nicht festgelegt, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut
-    von  `oparl:Meeting`
-    Typ: String
-    OPTIONAL
+    Die Reihenfolge wird nicht dadruch, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting` festgelegt.
+    Typ: Zeichenkette.
+    Kardinalität: 0 bis 1.
+    Die Eigenschaft ist OPTIONAL.
 
 `name`
 :   Das Thema des Tagesordnungspunktes.
     Typ: String
-    ZWINGEND.
+    Die Eigenschaft ist ZWINGEND.
 
 `public`
 :   Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher Sitzung 
     vorgesehen ist/war. Es wird ein Wahrheitswert (`true` oder `false`) erwartet.
-    Typ: boolean
-    EMPFOHLEN.
+    Typ: boolean.
+    Kardinalität: 0 bis 1.
+    Die Eigenschaft ist EMPFOHLEN.
 
 `consultation`
 :   Beratung, die diesem Tagesordnungspunkt zugewiesen ist.
-    Typ: `oparl:Consultation`
-    ZWINGEND. 
+    Typ: `oparl:Consultation`.
+    Kardinalität: 1.
+    Die Eigenschaft ist ZWINGEND.
+    FRAGE: Bedeutet das nicht, dass jeder Tagesordnungspunkt immer eine Drucksache behandeln muss? Ist das sinnvoll?
 
 `result`
 :   Kategorische Information darüber, welches Ergebnis die Beratung des
-    Tagesordnungspunktes erbracht hat. Es wird zu einem Objekt verlinkt, welches ein `skos:prefLabel`-Attribut
-    mit einer Zeichenkette hat. In der Praxis sind hier Kategorien wie
-    "Unverändert beschlossen", "Geändert beschlossen", "Endgültig abgelehnt",
-    "Zur Kenntnis genommen", "Ohne Votum in nachfolgende Gremien überwiesen"
-    und weitere zu erwarten.
-    Alternativ können, sobald dieses zur Verfügung steht, URLs aus einem OParl
-    Vokabular verwendet werden, wie im Beispiel oben zu sehen. Diese dienen dazu,
-    Kategorien über Systemgrenzen hinweg maschinenlesbar zu vereinheitlichen.
-    Typ: `skos:Concept`
-    EMPFOHLEN
+    Tagesordnungspunktes erbracht hat, in der Bedeutung etwa
+    "Unverändert beschlossen" oder "Geändert beschlossen". Mehr zur
+    Funktionsweise dieses Attributs unter [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
+    Typ: `skos:Concept`.
+    kardinalität: 0 bis 1.
+    Die Eigenschaft ist EMPFOHLEN.
 
 `resolutionText`
 :   Falls in diesem Tagesordnungspunkt ein Beschluss gefasst 
     wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in der 
     Praxis relevant, wenn der gefasste Beschluss (z.B. durch Änderungsantrag) 
     von der Beschlussvorlage abweicht.
-    Typ: String TODO: Was ist bei sehr langem Text?
-    OPTIONAL.
+    Typ: Zeichenkette.
+    Kardinalität: 0 bis 1.
+    Die Eigenschaft ist OPTIONAL.
 
 `paper`
-:   Drucksache. Zwar kann auch das `oparl:Meeting` darauf verweisen, aber hier sind solche Verweise in der
-    Regel präziser, da Drucksachen regelmäßig nur für einen TOP relevant sind und nicht für alle TOPs.
-    Typ: `oparl:Paper`
-    OPTIONAL
+:   Drucksache. Zwar kann auch das `oparl:Meeting` darauf verweisen, aber hier
+    sind solche Verweise in der Regel präziser, da Drucksachen regelmäßig nur
+    für einen TOP relevant sind und nicht für alle TOPs.
+    Typ: `oparl:Paper`.
+    OPTIONAL.
+    FRAGE: Ist das nicht eine Doppelung mit `consultation`?
 
 `auxiliaryDocument`
-:   eine weitere relevante Datei.
-    Typ: `oparl:Document`
-    OPTIONAL
+:   Dateianhang zum Tagesordnungspunkt.
+    Typ: `oparl:Document`.
+    Kardinalität: 0 bis *.
+    Die Eigenschaft ist OPTIONAL.
 
 `keyword`
-:   Typ: `skos:Concept`
-    OPTIONAL
+:   Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
+    Typ: `skos:Concept`.
+    Kardinalität: 0 bis *.
+    Die Eigenschaft ist OPTIONAL.
 
 `created`
 :   Erzeugungsdatum und -zeit des Objekts.
-    Typ: Zeitstempel
-    EMPFOHLEN
+    Typ: Zeitstempel.
+    Kardinalität: 0 bis 1.
+    Die Eigenschaft ist EMPFOHLEN
 
 `lastModified`
 :   Datum und Uhrzeit der letzten Änderung.
     Typ: Zeitstempel
-    EMPFOHLEN
+    Kardinalität: 0 bis 1.
+    Die Eigenschaft ist EMPFOHLEN
+
+`absentParticipant`
+:   Person(en), die bei der Behandlung dieses Tagesordnungspunkts nicht
+    anwesend war(en).
+    Typ: `oparl:Person`.
+    Kardinalität: 0 bis *.
+    Die Eigenschaft ist OPTIONAL.

@@ -60,6 +60,7 @@ OParl Spezifikation 1.0 Gliederung
         Entfernte Objekte
     6080 Dokumentenabruf
     6090 Content Negotiation
+    6095 HTTP-Kompression
     6100 Ausnahmebehandlung
     6900 Reservierte URL-Parameter
 8000 Schema

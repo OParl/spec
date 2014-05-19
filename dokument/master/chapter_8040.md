@@ -185,8 +185,6 @@ Parlament an.
     Kardinalität: 0 bis *.
     Die Eigenschaft ist OPTIONAL.
 
-TODO: Beispiel zu `allConcepts` einfügen.
-
 `created`
 :   Datum/Uhrzeit der Erzeugung des Objekts.
     Typ: `xsd:DateTime`.
@@ -198,3 +196,5 @@ TODO: Beispiel zu `allConcepts` einfügen.
     Typ: `xsd:DateTime`.
     Kardinalität: 0 bis 1.
     Die Eigenschaft ist EMPFOHLEN.
+
+TODO: Beispiel zu `allConcepts` einfügen.

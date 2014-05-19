@@ -25,7 +25,10 @@ Ein Beispiel in expandierter Form:
         "@value": "Max",
         "@language": "de"
     },
-    "title": "Prof. Dr.", // TODO: nicht mehrsprachig?!
+    "title": [
+        "besipielris:vocab/prof",
+        "besipielris:vocab/dr"
+    ],
     "formOfAddress": "https://oparl.beispielris.de/formofaddress/ratsmitglied",
     "gender": "http://www.w3.org/2006/vcard/ns#Male",
     "email": "mailto:max@mustermann.de",

@@ -45,7 +45,6 @@ Das entsprechende Beispiel in kompakter Form:
     "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/organization.jsonld",
     "@type": "oparl:Organization",
     "@id": "beispielris:organization/34",
-      // kann eventuell weiter verkürzt werden
     "body": "0",
     "nameShort": "Finanzausschuss",
     "nameLong": "Ausschuss für Haushalt und Finanzen",
@@ -53,7 +52,7 @@ Das entsprechende Beispiel in kompakter Form:
         "beispielris:post/chairperson",
         "beispielris:post/deputyChairperson"
     ],
-    "members: [
+    "member": [
         "27",
         "48",
         "57"

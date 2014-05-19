@@ -75,42 +75,49 @@ Parlament an.
 `system`
 :   System zu dem dieses Objekt gehört.
     Typ: `oparl:System`.
-    ZWINGEND.
+    Kardinalität: 1.
+    Die Eigenschaft ist ZWINGEND.
 
 `name`
 :   Gibt den gebräuchlichen Namen der Körperschaft an.
     Typ: TODO.
-    ZWINGEND.
+    Kardinalität: 1.
+    Die Eigenschaft ist ZWINGEND.
 
 `nameLong`
 :   Kann bei Bedarf dazu verwendet werden, eine längere Form des 
     Namens der Körperschaft anzugeben.
-    Typ: TODO.
-    OPTIONAL.
+    Typ: Zeichenkette.
+    Kardinalität: 0 bis 1.
+    Die Eigenschaft ist OPTIONAL.
 
 `website`
 :   allgemeine Website der Körperschaft.
-    Typ: URL
-    EMPFOHLEN.
+    Typ: URL.
+    Kardinalität: 0 bis 1.
+    Die Eigenschaft ist EMPFOHLEN.
 
 `license`
 :   Lizenz, die für die Daten, die über diese API abgerufen werden
     können, gilt, sofern nicht am einzelnen Objekt anders angegeben.
     Sie dazu auch die übergreifende Beschreibung zur Eigenschaft
     [`license`](#eigenschaft_license).
-    Typ: URL
-    EMPFOHLEN.
+    Typ: URL.
+    Kardinalität: 0 bis 1.
+    Die Eigenschaft ist EMPFOHLEN.
 
 `licenseValidSinceDay`
-:   Tagesdatum, seit dem die unter license angegebene Lizenz gilt.
+:   Zeitpunkt, seit dem die unter `license` angegebene Lizenz gilt.
     Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen.
-    Typ: Datum mit oder ohne Uhrzeit
-    EMPFOHLEN
+    Typ: `xsd:DateTime`.
+    Kardinalität: 0 bis 1.
+    Die Eigenschaft ist EMPFOHLEN.
 
 `rgs`
 :   Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette^[Regionalschlüssel können im [Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes](https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html) eingesehen werden].
-    Typ: String mit ganzer Zahl
-    EMPFOHLEN
+    Typ: Zeichenkette.
+    Kardinalität: 0 bis 1.
+    Die Eigenschaft ist EMPFOHLEN
 
 `equivalentBody`
 :   Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe Körperschaft
@@ -118,59 +125,76 @@ Parlament an.
     sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>],
     der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden.
     Typ: URL
-    EMPFOHLEN
+    Kardinalität: 0 bis *.
+    Die Eigenschaft ist EMPFOHLEN
 
 `contactEmail`
 :   Dient der Angabe einer Kontakt-E-Mail-Adresse mit "mailto:"-Schema.
     Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft
     und idealerweise das parlamentarische Informationssystem zuständigen Stelle
     ermöglichen.
-    Typ: mail-Adresse inklusive "mailto:"
-    EMPFOHLEN
+    Typ: mail-Adresse inklusive "mailto:".
+    Kardinalität: 0 bis 1.
+    Die Eigenschaft ist EMPFOHLEN.
 
 `contactName`
 :   Name oder Bezeichnung der mit `contactEmail` erreichbaren Stelle.
-    Typ: String
-    OPTIONAL.
+    Typ: String.
+    Kardinalität: 0 bis 1.
+    Die Eigenschaft ist OPTIONAL.
 
 `paper`
-:   Drucksachen unter dieser Körperschaft.
-    Typ: `oparl:Paper`
-    ZWINGEND.
+:   Drucksachen unter dieser Körperschaft als Liste unter einer eigenen URL.
+    Vgl. [Objektlisten](#objektlisten).
+    Typ: `oparl:Paper`.
+    Kardinalität: 0 bis *.
+    Die Eigenschaft ist ZWINGEND.
 
 `member`
-:   Personen in dieser Körperschaft.
-    Typ: `oparl:Person`
-    ZWINGEND.
+:   Personen in dieser Körperschaft als Liste unter einer eigenen URL.
+    Vgl. [Objektlisten](#objektlisten).
+    Typ: `oparl:Person`,
+    Kardinalität: 0 bis *.
+    Die Eigenschaft ist ZWINGEND.
 
 `meeting`
-:   Sitzungen dieser Körperschaft.
-    Typ: `oparl:Meeting`
-    ZWINGEND
+:   Sitzungen dieser Körperschaft als Liste unter einer eigenen URL.
+    Vgl. [Objektlisten](#objektlisten).
+    Typ: `oparl:Meeting`.
+    Kardinalität: 0 bis *.
+    Die Eigenschaft ist ZWINGEND.
 
 `organization`
-:   Gruppierung in dieser Körperschaft.
-    Typ: `oparl:Organization`
-    ZWINGEND
+:   Gruppierung in dieser Körperschaft als Liste unter einer eigenen URL.
+    Vgl. [Objektlisten](#objektlisten).
+    Typ: `oparl:Organization`.
+    Kardinalität: 0 bis *.
+    Die Eigenschaft ist ZWINGEND.
 
 `keyword`
-:   Typ: `skos:Concept`
-    Anzahl: beliebig
-    OPTIONAL
+:   Schlagwort(e). Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
+    Typ: `skos:Concept`.
+    Kardinalität: 0 bis *.
+    Die Eigenschaft ist OPTIONAL.
 
 `allConcepts`
-:   Alle Schlagworte und Begriffe, die von dieser Körperschaft verwendet werden. Diese Eigenschaft ist insbesondere dann
+:   Alle Schlagworte und Begriffe, die von dieser Körperschaft verwendet werden.
+    Diese Eigenschaft ist insbesondere dann
     wichtig, wenn Sortierungs-Reihenfolgen verwendet werden.
-    TODO: Beispiel
-    Typ: `skos:Concept`
-    OPTIONAL
+    Typ: `skos:Concept`.
+    Kardinalität: 0 bis *.
+    Die Eigenschaft ist OPTIONAL.
+
+TODO: Beispiel zu `allConcepts` einfügen.
 
 `created`
 :   Datum/Uhrzeit der Erzeugung des Objekts.
-    Typ: Zeitstempel
-    EMPFOHLEN.
+    Typ: `xsd:DateTime`.
+    Kardinalität: 0 bis 1.
+    Die Eigenschaft ist EMPFOHLEN.
 
 `lastModified`
 :   Datum/Uhrzeit der letzten Bearbeitung des Objekts.
-    Typ: Zeitstempel
-    EMPFOHLEN
+    Typ: `xsd:DateTime`.
+    Kardinalität: 0 bis 1.
+    Die Eigenschaft ist EMPFOHLEN.

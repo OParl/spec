@@ -2438,6 +2438,7 @@ von Objekten. Im Einzelnen sind dies:
 -   die Eigenschaft result des Objekttyps oparl:AgendaItem
 -   die Eigenschaft status des Objekttyps oparl:Person
 -   die Eigenschaft title des Objekttyps oparl:Person
+-   die Eigenschaft role des Objekttyps oparl:Membership
 -   die Eigenschaft keyword in mehreren Objekttypen
 
 Diese Eigenschaften können wahlweise mit einfachen Zeichenketten befüllt
@@ -2621,7 +2622,7 @@ Ein Kontext:
 {
     "@language": "de",
     "beispielris": "https://oparl.eispielris.de/",
-    "oparl": "http://oparl.org/TODO/",
+    "oparl": "http://oparl.org/specs/1.0/schema/",
     "dc": "http://purl.org/dc/terms/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
@@ -2743,7 +2744,7 @@ Ein Kontext:
             "@id": "skos:exactMatch",
             "@type": "@id"
         }
-        "licenseValidSinceDay": // TODO: datum
+        "licenseValidSinceDay": "2013-04-01T12:00:00+00:00"
     }
 
 Ein expandiertes Beispiel:
@@ -2791,78 +2792,97 @@ Parlament an.
 Eigenschaften
 
 system
-    System zu dem dieses Objekt gehört. Typ: oparl:System. ZWINGEND.
+    System zu dem dieses Objekt gehört. Typ: oparl:System. Kardinalität:
+    1. Die Eigenschaft ist ZWINGEND.
 
 name
-    Gibt den gebräuchlichen Namen der Körperschaft an. Typ: TODO.
-    ZWINGEND.
+    Gibt den gebräuchlichen Namen der Körperschaft an. Typ:
+    Zeichenkette. Kardinalität: 1. Die Eigenschaft ist ZWINGEND.
 
 nameLong
     Kann bei Bedarf dazu verwendet werden, eine längere Form des Namens
-    der Körperschaft anzugeben. Typ: TODO. OPTIONAL.
+    der Körperschaft anzugeben. Typ: Zeichenkette. Kardinalität: 0 bis
+    1. Die Eigenschaft ist OPTIONAL.
 
 website
-    allgemeine Website der Körperschaft. Typ: URL EMPFOHLEN.
+    allgemeine Website der Körperschaft. Typ: URL. Kardinalität: 0 bis
+    1. Die Eigenschaft ist EMPFOHLEN.
 
 license
     Lizenz, die für die Daten, die über diese API abgerufen werden
     können, gilt, sofern nicht am einzelnen Objekt anders angegeben. Sie
     dazu auch die übergreifende Beschreibung zur Eigenschaft license.
-    Typ: URL EMPFOHLEN.
+    Typ: URL. Kardinalität: 0 bis 1. Die Eigenschaft ist EMPFOHLEN.
 
 licenseValidSinceDay
-    Tagesdatum, seit dem die unter license angegebene Lizenz gilt.
+    Zeitpunkt, seit dem die unter license angegebene Lizenz gilt.
     Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen
-    führen. Typ: Datum mit oder ohne Uhrzeit EMPFOHLEN
+    führen. Typ: xsd:DateTime. Kardinalität: 0 bis 1. Die Eigenschaft
+    ist EMPFOHLEN.
 
 rgs
     Regionalschlüssel der Körperschaft als zwölfstellige
-    Zeichenkette[^48]. Typ: String mit ganzer Zahl EMPFOHLEN
+    Zeichenkette[^48]. Typ: Zeichenkette. Kardinalität: 0 bis 1. Die
+    Eigenschaft ist EMPFOHLEN
 
 equivalentBody
     Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe
     Körperschaft repräsentieren. Hier können beispielsweise, sofern
     vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der
     Deutschen Nationalbibliothek[^49], der DBPedia[^50] oder der
-    Wikipedia[^51] angegeben werden. Typ: URL EMPFOHLEN
+    Wikipedia[^51] angegeben werden. Typ: URL Kardinalität: 0 bis *. Die
+    Eigenschaft ist EMPFOHLEN
 
 contactEmail
     Dient der Angabe einer Kontakt-E-Mail-Adresse mit "mailto:"-Schema.
     Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft
     und idealerweise das parlamentarische Informationssystem zuständigen
-    Stelle ermöglichen. Typ: mail-Adresse inklusive "mailto:" EMPFOHLEN
+    Stelle ermöglichen. Typ: mail-Adresse inklusive "mailto:".
+    Kardinalität: 0 bis 1. Die Eigenschaft ist EMPFOHLEN.
 
 contactName
     Name oder Bezeichnung der mit contactEmail erreichbaren Stelle. Typ:
-    String OPTIONAL.
+    String. Kardinalität: 0 bis 1. Die Eigenschaft ist OPTIONAL.
 
 paper
-    Drucksachen unter dieser Körperschaft. Typ: oparl:Paper ZWINGEND.
+    Drucksachen unter dieser Körperschaft als Liste unter einer eigenen
+    URL. Vgl. Objektlisten. Typ: oparl:Paper. Kardinalität: 0 bis *. Die
+    Eigenschaft ist ZWINGEND.
 
 member
-    Personen in dieser Körperschaft. Typ: oparl:Person ZWINGEND.
+    Personen in dieser Körperschaft als Liste unter einer eigenen URL.
+    Vgl. Objektlisten. Typ: oparl:Person, Kardinalität: 0 bis *. Die
+    Eigenschaft ist ZWINGEND.
 
 meeting
-    Sitzungen dieser Körperschaft. Typ: oparl:Meeting ZWINGEND
+    Sitzungen dieser Körperschaft als Liste unter einer eigenen URL.
+    Vgl. Objektlisten. Typ: oparl:Meeting. Kardinalität: 0 bis *. Die
+    Eigenschaft ist ZWINGEND.
 
 organization
-    Gruppierung in dieser Körperschaft. Typ: oparl:Organization ZWINGEND
+    Gruppierung in dieser Körperschaft als Liste unter einer eigenen
+    URL. Vgl. Objektlisten. Typ: oparl:Organization. Kardinalität: 0 bis
+    *. Die Eigenschaft ist ZWINGEND.
 
 keyword
-    Typ: skos:Concept Anzahl: beliebig OPTIONAL
+    Schlagwort(e). Vgl. Vokabulare zur Klassifizierung. Typ:
+    skos:Concept. Kardinalität: 0 bis *. Die Eigenschaft ist OPTIONAL.
 
 allConcepts
     Alle Schlagworte und Begriffe, die von dieser Körperschaft verwendet
     werden. Diese Eigenschaft ist insbesondere dann wichtig, wenn
-    Sortierungs-Reihenfolgen verwendet werden. TODO: Beispiel Typ:
-    skos:Concept OPTIONAL
+    Sortierungs-Reihenfolgen verwendet werden. Typ: skos:Concept.
+    Kardinalität: 0 bis *. Die Eigenschaft ist OPTIONAL.
 
 created
-    Datum/Uhrzeit der Erzeugung des Objekts. Typ: Zeitstempel EMPFOHLEN.
+    Datum/Uhrzeit der Erzeugung des Objekts. Typ: xsd:DateTime.
+    Kardinalität: 0 bis 1. Die Eigenschaft ist EMPFOHLEN.
 
 lastModified
-    Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ: Zeitstempel
-    EMPFOHLEN
+    Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ:
+    xsd:DateTime. Kardinalität: 0 bis 1. Die Eigenschaft ist EMPFOHLEN.
+
+TODO: Beispiel zu allConcepts einfügen.
 
 oparl:Organization (Gruppierung) {#oparl_organization}
 --------------------------------
@@ -2903,24 +2923,21 @@ Ein Beispiel in expandierter Form:
 }
 ```
 
-Das selbe Beispiel in kompakter Form.
-
-Ein Kontext: ~~~~ { "@language": "de", ... } ~~~~
+Das entsprechende Beispiel in kompakter Form:
 
 ``` {#organization_ex2 .json}
 {
     "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/organization.jsonld",
     "@type": "oparl:Organization",
     "@id": "beispielris:organization/34",
-      // kann eventuell weiter verkürzt werden
     "body": "0",
     "nameShort": "Finanzausschuss",
     "nameLong": "Ausschuss für Haushalt und Finanzen",
-    "post:" [
+    "post": [
         "beispielris:post/chairperson",
         "beispielris:post/deputyChairperson"
     ],
-    "members: [
+    "member": [
         "27",
         "48",
         "57"
@@ -2934,19 +2951,16 @@ Ein Kontext: ~~~~ { "@language": "de", ... } ~~~~
 Eigenschaften
 
 body
-    Körperschaft, zu der diese Gruppierung gehört. Typ: oparl:Body
-    ZWINGEND
-
-nameShort
-    Der Name der Gruppierung, eine Kurzform. Typ: String ZWINGEND
-
-TODO: ZWINGEND/OPTIONAL prüfen
+    Körperschaft, zu der diese Gruppierung gehört. Typ: oparl:Body.
+    Kardinalität: 1. ZWINGEND
 
 nameLong
-    Langform des Namens der Gruppierung, der rechtlich korrekte Name.
-    Typ: String ZWINGEND
+    Offizielle (lange) Form des Namens der Gruppierung. Typ:
+    Zeichenkette. Kardinalität: 1. Diese Eigenschaft ist ZWINGEND.
 
-TODO: ZWINGEND/OPTIONAL prüfen
+nameShort
+    Der Name der Gruppierung als Kurzform. Typ: String. Kardinalität: 1.
+    Die Eigenschaft ist OPTIONAL.
 
 post
     Position oder Positionen, die für diese Gruppierung vorgesehen sind.
@@ -2958,7 +2972,7 @@ post
     beide Formen nicht unterscheiden, dann DARF die Form nur einmal
     verwendet werden: "Mitglied" und nicht "Mitglied | Mitglied".
     Dadurch kann auch solche Software einen sinnvollen Text anzeigen,
-    die keine Fall-Unterscheidung nach Geschecht der Personen vornimmt.
+    die keine Fall-Unterscheidung nach Geschlecht der Personen vornimmt.
     z.B. "Vorsitzender | Vorsitzende", "1. Stellvertreter | 1.
     Stellvertreterin", "2. Stellvertreter | 2. Stellvertreterin",
     "Schriftführer | Schriftführerin", "Stellvertretender Schriftführer
@@ -2967,38 +2981,34 @@ post
 
 Siehe https://github.com/OParl/specs/issues/45 TODO: "Ordentliches
 Mitglied", "Stellvertretendes Mitglied" müssen anders behandelt werden!
-Typ: oparl:Post OPTIONAL
+Typ: oparl:Post. Kardinalität: 0 bis *. Die Eigenschaft ist OPTIONAL.
 
 member
-    Mitglieder dieser Organisation (Objekte vom Typ
-    [oparl:Person](#oparl_person)). Auch alle Personen mit Positionen in
-    der Organisation sind hier anzugeben. Typ: oparl:Person ZWINGEND
-    (falls es Mitglieder gibt)
+    Mitglieder dieser Organisation. Auch alle Personen mit Positionen in
+    der Organisation sind hier anzugeben. Typ: oparl:Person.
+    Kardinalität: 0 bis *. Diese Eigenschaft ist ZWINGEND.
 
 subOrganizationOf
-    Ggf. URL der übergeordneten Organisation. Typ: oparl:Organization
-    OPTIONAL.
-
-created
-    Datum/Uhrzeit der Erzeugung des Objekts. Typ: Zeitstempel EMPFOHLEN
-
-keyword
-    Schlagworte. Dies sind skos:Concept-Objekte mit einem
-    skos:prefLabel-Attribut (für jede unterstützte Sprache) mit einer
-    Zeichenkette. In einer zukünftigen OParl-Version wird möglicherweise
-    eine Menge solcher Schlagwort-Objekte definiert. Anregungen gibt es
-    u.a. in der Tabelle "Kategorien" im unteren Drittel der Seite
-    http://htmlpreview.github.io/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html
-    Typ: skos:Concept OPTIONAL
+    Ggf. URL der übergeordneten Organisation. Typ: oparl:Organization.
+    Kardinalität: 0 bis 1. OPTIONAL.
 
 organizationType
-    Objekt mit skos:prefLabel, z.B. "Rat", "Hauptausschuss", "Ausschuss"
-    "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat" Typ:
-    skos:Concept OPTIONAL
+    Objekt mit skos:prefLabel, z.B. für "Rat", "Hauptausschuss",
+    "Ausschuss" "Beirat", "Projektbeirat", "Kommission", "AG",
+    "Verwaltungsrat". Vgl. Vokabulare zur Klassifizierung. Typ:
+    skos:Concept. Kardinalität: 0 bis 1. OPTIONAL.
+
+keyword
+    Schlagworte. Vgl. Vokabulare zur Klassifizierung. Typ: skos:Concept.
+    Kardinalität: 0 bis *. OPTIONAL.
+
+created
+    Datum/Uhrzeit der Erzeugung des Objekts. Typ: xsd:dateTime.
+    Kardinalität: 0 bis 1. EMPFOHLEN.
 
 modified
-    Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ: Zeitstempel
-    EMPFOHLEN
+    Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ:
+    xsd:dateTime. Kardinalität: 0 bis 1. EMPFOHLEN.
 
 oparl:Person (Person) {#oparl_person}
 ---------------------
@@ -3007,15 +3017,16 @@ Jede natürliche Person, die in der parlamentarischen Arbeit tätig ist
 und insbesondere Mitglied in einer Gruppierung (oparl:Organization),
 wird mit einem Objekt vom Typ oparl:Person abgebildet.
 
-Es gibt existieren bereits eine ganze Reihe von Vokabularen für
-Personen. Dazu gehören FOAF (Friend of a Friend) und vCard. Es gibt aber
-auch der XÖV-Standard für natürliche Personen, ein XML Schema. Für
-oparl:Person wurde daraus und basierend auf dem Input der
-OParl-Stakeholder eine Auswahl von Eigenschaften zusammengestellt.
+Es existieren bereits eine ganze Reihe von Vokabularen für
+Personenobjekte außerhalb von OParl. Dazu gehören FOAF (Friend of a
+Friend) und vCard. Darüber hinaus hält der XÖV-Standard ein XML-Schema
+für natürliche Personen bereit. Für oparl:Person wurde daraus und
+basierend auf dem Input der OParl-Stakeholder eine Auswahl von
+Eigenschaften zusammengestellt.
 
-TODO: für Personen-Namen und Titel wird keine Mehrsprachigkeit benötigt.
-Dies im Kontext berücksichtigen. Dies spricht auch für je einen Kontext
-pro Klasse.
+TODO: für Personennamen wird keine Mehrsprachigkeit benötigt. Dies im
+Kontext berücksichtigen. Dies spricht auch für je einen Kontext pro
+Klasse.
 
 Ein Beispiel in expandierter Form:
 
@@ -3024,20 +3035,23 @@ Ein Beispiel in expandierter Form:
     "@type": "http://oparl.org/schema/1.0/Person",
     "@id": "https://oparl.beispielris.de/person/29",
     "name": "Prof. Dr. Max Mustermann",
-    "familyName": { // könnte mehrsprachig sein, z.B. griechisch, russisch, tamilisch 
+    "familyName": { 
         "@value": "Mustermann",
         "@language": "de"
     },
-    "givenName": { // könnte mehrsprachig sein
+    "givenName": {
         "@value": "Max",
         "@language": "de"
     },
-    "title": "Prof. Dr.", // TODO: nicht mehrsprachig?!
+    "title": [
+        "https://oparl.beispielris.de/vocab/prof",
+        "https://oparl.beispielris.de/vocab/dr"
+    ],
     "formOfAddress": "https://oparl.beispielris.de/formofaddress/ratsmitglied",
     "gender": "http://www.w3.org/2006/vcard/ns#Male",
     "email": "mailto:max@mustermann.de",
     "phone": "tel:+493012345678",
-    "streetAddress": "Musterstraße 5", // nicht mehrsprachig
+    "streetAddress": "Musterstraße 5",
     "postalCode": "11111",
     "locality": {
         "de": "Musterort",
@@ -3059,15 +3073,11 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 ``` {#person_ex_context .json}
 {
     "@language": "de",
-    
-    // Präfixe siehe Abschnitt 8000
-
     "gender": "vcard:hasGender",
     "givenName": "foaf:firstName",
     "familyName": "foaf:lastName",
-    "academic_degree": {
-        "@language": null , // keine Vorgabesprache da nicht mehrsprachig
-        "@id": "foaf:title"
+    "title": {
+        "TODO": "Hier context für title einfügen."
     },
     "email": {
         "@id": "foaf:mbox",
@@ -3077,7 +3087,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "streetAddress": "vcard:street-address",
     "locality": {
         "@id": "vcard:locality",
-        "@container": "@language" // für eine "language map"
+        "@container": "@language"
     },
     "created": {
         "@id": "dc:created",
@@ -3090,28 +3100,44 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 }
 ```
 
-~~~ {#person_ex2 .json} { "@context":
-"https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld", "@type":
-"oparl:Person", "@id": "https://oparl.beispielris.de/person/29", "name":
-"Prof. Dr. Max Mustermann", "familyName": "Mustermann", // Kontext gibt
-deutsche Spache vor "givenName": "Max", "title": "Prof. Dr.",
-"formOfAddress": "beispielris:formofaddress/ratsmitglied", "gender":
-"vcard:Male", "email": "mailto:max@mustermann.de", "phone":
-"tel:+493012345678", "streetAddress": "Musterstraße 5", "postalCode":
-"11111", "locality": { "de": "Musterort", "en": "Sample Town" },
-"organization": ["11", "34"], "status":
-"beispielris:status/buergermeister", "hasMembership":
-"beispielris:membership/34", "created": "2011-11-11T11:11:00+01:00",
-"modified": "2012-08-16T14:05:27+02:00" }
+``` {#person_ex2 .json}
+{
+    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld",
+    "@type": "oparl:Person",
+    "@id": "https://oparl.beispielris.de/person/29",
+    "name": "Prof. Dr. Max Mustermann",
+    "familyName": "Mustermann",
+    "givenName": "Max",
+    "title": [
+        "besipielris:vocab/prof",
+        "besipielris:vocab/dr"
+    ],
+    "formOfAddress": "beispielris:formofaddress/ratsmitglied",
+    "gender": "vcard:Male",
+    "email": "mailto:max@mustermann.de",
+    "phone": "tel:+493012345678",
+    "streetAddress": "Musterstraße 5",
+    "postalCode": "11111",
+    "locality": {
+        "de": "Musterort",
+        "en": "Sample Town"
+    },
+    "organization": ["11", "34"],
+    "status": "beispielris:status/buergermeister",
+    "hasMembership": "beispielris:membership/34",
+    "created": "2011-11-11T11:11:00+01:00",
+    "modified": "2012-08-16T14:05:27+02:00"
+}
+```
 
 Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der Kontext
 bleibt wie zuvor.
 
 ``` {#person_ex3 .json}
 {
-    // ...
+    ...
     "locality": "Musterort",
-    // ...
+    ...
 }
 ```
 
@@ -3917,34 +3943,48 @@ Ortsangabe mit Polygon-Objekt:
 }
 ```
 
-org:Membership oder oparl:Membership {#oparl_membership}
-------------------------------------
+oparl:Membership {#oparl_membership}
+----------------
 
-TODO. Siehe: https://github.com/OParl/specs/issues/122
-https://github.com/OParl/specs/issues/109
+Über Objekte diesen Typs wird die Mitgliedschaft von Personen in
+Gruppierungen dargestellt. Diese Mitgliedschaften können zeitlich
+begrenzt sein. Zudem kann abgebildet werden, dass eine Person eine
+besimmte Rolle bzw. Position innerhalb der Gruppierung inne hat,
+beispielsweise den Vorsitz einer Fraktion.
+
+``` {#location_ex1 .json}
+{
+    "person": "beispielris:people/862",
+    "organization": "beispielris:organizations/5",
+    "role": "beispielris:vocab/chair",
+    "startDate": "2013-12-03T16:30:00+01:00"
+}
+```
 
 Eigenschaften
 
 person
-    Person. Typ: oparl:Person OPTIONAL
+    Die betreffende Person, die Mitglied einer Gruppierung ist oder war.
+    Typ: oparl:Person. Kardinalität: 1. Die Eigenschaft ist ZWINGEND.
 
 organization
-    Organization. Typ: oparl:Organization OPTIONAL
+    Die Organisation, in der die Person Mitglied ist oder war. Typ:
+    oparl:Organization. Kardinalität: 1. Die Eigenschaft ist ZWINGEND.
 
 role
-    Rolle. Das Objekt hat eine skos:prefLabel-Eigenschaft, deren Wert
-    eine Funktionsbezeichnung ist, z.B. "1. pers. Vertreter | 1. pers.
-    Vertreterin" oder "2. pers. Vertreter | 2. pers. Vertreterin".
-    Popolo: "The role that the person fulfills in the organization".
-    normale Mitglieder haben in der Regel keine eigene Funktion, aber
-    auch eine Unterscheidung zwischen z.B. "Sachkundige Bürger |
-    Sachkundige Bürgerin" und "Ratsherr | Ratsfrau" bei einfachen
-    Mitgliedern ist hiermit möglich. FRAGE: Wie soll bei einem
-    sachkundigen Bürger verfahren werden, der gleichzeitig Vorsitzender
-    ist? Typ: org:Role OPTIONAL
+    Rolle der Person für die Gruppierung. Das Objekt hat eine
+    skos:prefLabel-Eigenschaft, deren Wert eine Funktionsbezeichnung
+    ist, z.B. "1. pers. Vertreter | 1. pers. Vertreterin" oder "2. pers.
+    Vertreter | 2. pers. Vertreterin". Gewöhnliche Mitglieder haben in
+    der Regel keine besondere Rolle, aber auch eine Unterscheidung
+    zwischen z.B. "Sachkundige Bürger | Sachkundige Bürgerin" und
+    "Ratsherr | Ratsfrau" bei einfachen Mitgliedern ist hiermit möglich.
+    FRAGE: Wie soll bei einem sachkundigen Bürger verfahren werden, der
+    gleichzeitig Vorsitzender ist? Typ: org:Role. Kardinalität: 0 bis 1.
+    Die Eigenschaft ist OPTIONAL.
 
 post
-    The post held by the person in the organization Typ: org:Post
+    The post held by the person in the organization. Typ: org:Post.
     OPTIONAL
 
 onBehalfOf
@@ -3953,21 +3993,22 @@ onBehalfOf
     Mitglieder geben, die von keiner anderen Organisation entsendet
     wurden (z.B. fraktionslose Abgeordnete). FRAGE: Muss diese Situation
     vom Fehlen von Informationen über Entsendungen unterschieden werden?
-    Typ: oparl:Organization OPTIONAL
+    Typ: oparl:Organization. Kardinalität: 0 bis 1. OPTIONAL.
 
 startDate
     schema:validFrom wie in Popolo. The date on which the relationship
-    began Typ: String im Format xsd:dateTime OPTIONAL
+    began Typ: xsd:dateTime. Kardinalität: 0 bis 1. OPTIONAL.
 
 endDate
     schema:validThrough wie in Popolo. The date on which the
-    relationship ended Typ: String im Format xsd:dateTime OPTIONAL
+    relationship ended Typ: xsd:dateTime. Kardinalität: 0 bis 1.
+    OPTIONAL.
 
-Hinweise
+TODO: Folgende Verweise einbauen oder entfernen:
 
-http://www.w3.org/TR/vocab-org/#membership-roles-posts-and-reporting
-
-http://popoloproject.com/specs/membership.html
+-   https://github.com/OParl/specs/issues/122
+-   http://www.w3.org/TR/vocab-org/#membership-roles-posts-and-reporting
+-   http://popoloproject.com/specs/membership.html
 
 Glossar
 =======

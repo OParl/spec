@@ -2917,6 +2917,9 @@ von Objekten. Im Einzelnen sind dies:
   die Eigenschaft \texttt{title} des Objekttyps
   \hyperref[oparlux5fperson]{\texttt{oparl:Person}}
 \item
+  die Eigenschaft \texttt{role} des Objekttyps
+  \hyperref[oparlux5fmembership]{\texttt{oparl:Membership}}
+\item
   die Eigenschaft \texttt{keyword} in mehreren Objekttypen
 \end{itemize}
 
@@ -3131,7 +3134,7 @@ Ein Kontext:
 \FunctionTok{\{}
     \DataTypeTok{"@language"}\FunctionTok{:} \StringTok{"de"}\FunctionTok{,}
     \DataTypeTok{"beispielris"}\FunctionTok{:} \StringTok{"https://oparl.eispielris.de/"}\FunctionTok{,}
-    \DataTypeTok{"oparl"}\FunctionTok{:} \StringTok{"http://oparl.org/TODO/"}\FunctionTok{,}
+    \DataTypeTok{"oparl"}\FunctionTok{:} \StringTok{"http://oparl.org/specs/1.0/schema/"}\FunctionTok{,}
     \DataTypeTok{"dc"}\FunctionTok{:} \StringTok{"http://purl.org/dc/terms/"}\FunctionTok{,}
     \DataTypeTok{"foaf"}\FunctionTok{:} \StringTok{"http://xmlns.com/foaf/0.1/"}\FunctionTok{,}
     \DataTypeTok{"skos"}\FunctionTok{:} \StringTok{"http://www.w3.org/2004/02/skos/core#"}\FunctionTok{,}
@@ -3257,7 +3260,7 @@ Ein Kontext:
         "@id": "skos:exactMatch",
         "@type": "@id"
     }
-    "licenseValidSinceDay": // TODO: datum
+    "licenseValidSinceDay": "2013-04-01T12:00:00+00:00"
 }
 \end{verbatim}
 
@@ -3311,29 +3314,34 @@ einem bestimmten Parlament an.
 \begin{description}
 \item[\texttt{system}]
 System zu dem dieses Objekt gehört. Typ: \texttt{oparl:System}.
-ZWINGEND.
+Kardinalität: 1. Die Eigenschaft ist ZWINGEND.
 \item[\texttt{name}]
-Gibt den gebräuchlichen Namen der Körperschaft an. Typ: TODO. ZWINGEND.
+Gibt den gebräuchlichen Namen der Körperschaft an. Typ: Zeichenkette.
+Kardinalität: 1. Die Eigenschaft ist ZWINGEND.
 \item[\texttt{nameLong}]
 Kann bei Bedarf dazu verwendet werden, eine längere Form des Namens der
-Körperschaft anzugeben. Typ: TODO. OPTIONAL.
+Körperschaft anzugeben. Typ: Zeichenkette. Kardinalität: 0 bis 1. Die
+Eigenschaft ist OPTIONAL.
 \item[\texttt{website}]
-allgemeine Website der Körperschaft. Typ: URL EMPFOHLEN.
+allgemeine Website der Körperschaft. Typ: URL. Kardinalität: 0 bis 1.
+Die Eigenschaft ist EMPFOHLEN.
 \item[\texttt{license}]
 Lizenz, die für die Daten, die über diese API abgerufen werden können,
 gilt, sofern nicht am einzelnen Objekt anders angegeben. Sie dazu auch
 die übergreifende Beschreibung zur Eigenschaft
-\hyperref[eigenschaftux5flicense]{\texttt{license}}. Typ: URL EMPFOHLEN.
+\hyperref[eigenschaftux5flicense]{\texttt{license}}. Typ: URL.
+Kardinalität: 0 bis 1. Die Eigenschaft ist EMPFOHLEN.
 \item[\texttt{licenseValidSinceDay}]
-Tagesdatum, seit dem die unter license angegebene Lizenz gilt. Vorsicht
-bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen. Typ:
-Datum mit oder ohne Uhrzeit EMPFOHLEN
+Zeitpunkt, seit dem die unter \texttt{license} angegebene Lizenz gilt.
+Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen
+führen. Typ: \texttt{xsd:DateTime}. Kardinalität: 0 bis 1. Die
+Eigenschaft ist EMPFOHLEN.
 \item[\texttt{rgs}]
 Regionalschlüssel der Körperschaft als zwölfstellige
 Zeichenkette\footnote{Regionalschlüssel können im
   \href{https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html}{Gemeindeverzeichnis
   (GV-ISys) des Statistischen Bundesamtes} eingesehen werden}. Typ:
-String mit ganzer Zahl EMPFOHLEN
+Zeichenkette. Kardinalität: 0 bis 1. Die Eigenschaft ist EMPFOHLEN
 \item[\texttt{equivalentBody}]
 Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe
 Körperschaft repräsentieren. Hier können beispielsweise, sofern
@@ -3341,38 +3349,53 @@ vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der
 Deutschen Nationalbibliothek\footnote{Gemeinsame Normdatei
   \url{http://www.dnb.de/gnd}}, der DBPedia\footnote{DBPedia
   \url{http://www.dbpedia.org/}} oder der Wikipedia\footnote{Wikipedia
-  \url{http://de.wikipedia.org/}} angegeben werden. Typ: URL EMPFOHLEN
+  \url{http://de.wikipedia.org/}} angegeben werden. Typ: URL
+Kardinalität: 0 bis *. Die Eigenschaft ist EMPFOHLEN
 \item[\texttt{contactEmail}]
 Dient der Angabe einer Kontakt-E-Mail-Adresse mit ``mailto:''-Schema.
 Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und
 idealerweise das parlamentarische Informationssystem zuständigen Stelle
-ermöglichen. Typ: mail-Adresse inklusive ``mailto:'' EMPFOHLEN
+ermöglichen. Typ: mail-Adresse inklusive ``mailto:''. Kardinalität: 0
+bis 1. Die Eigenschaft ist EMPFOHLEN.
 \item[\texttt{contactName}]
 Name oder Bezeichnung der mit \texttt{contactEmail} erreichbaren Stelle.
-Typ: String OPTIONAL.
+Typ: String. Kardinalität: 0 bis 1. Die Eigenschaft ist OPTIONAL.
 \item[\texttt{paper}]
-Drucksachen unter dieser Körperschaft. Typ: \texttt{oparl:Paper}
-ZWINGEND.
+Drucksachen unter dieser Körperschaft als Liste unter einer eigenen URL.
+Vgl. \hyperref[objektlisten]{Objektlisten}. Typ: \texttt{oparl:Paper}.
+Kardinalität: 0 bis *. Die Eigenschaft ist ZWINGEND.
 \item[\texttt{member}]
-Personen in dieser Körperschaft. Typ: \texttt{oparl:Person} ZWINGEND.
+Personen in dieser Körperschaft als Liste unter einer eigenen URL. Vgl.
+\hyperref[objektlisten]{Objektlisten}. Typ: \texttt{oparl:Person},
+Kardinalität: 0 bis *. Die Eigenschaft ist ZWINGEND.
 \item[\texttt{meeting}]
-Sitzungen dieser Körperschaft. Typ: \texttt{oparl:Meeting} ZWINGEND
+Sitzungen dieser Körperschaft als Liste unter einer eigenen URL. Vgl.
+\hyperref[objektlisten]{Objektlisten}. Typ: \texttt{oparl:Meeting}.
+Kardinalität: 0 bis *. Die Eigenschaft ist ZWINGEND.
 \item[\texttt{organization}]
-Gruppierung in dieser Körperschaft. Typ: \texttt{oparl:Organization}
-ZWINGEND
+Gruppierung in dieser Körperschaft als Liste unter einer eigenen URL.
+Vgl. \hyperref[objektlisten]{Objektlisten}. Typ:
+\texttt{oparl:Organization}. Kardinalität: 0 bis *. Die Eigenschaft ist
+ZWINGEND.
 \item[\texttt{keyword}]
-Typ: \texttt{skos:Concept} Anzahl: beliebig OPTIONAL
+Schlagwort(e). Vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare
+zur Klassifizierung}. Typ: \texttt{skos:Concept}. Kardinalität: 0 bis *.
+Die Eigenschaft ist OPTIONAL.
 \item[\texttt{allConcepts}]
 Alle Schlagworte und Begriffe, die von dieser Körperschaft verwendet
 werden. Diese Eigenschaft ist insbesondere dann wichtig, wenn
-Sortierungs-Reihenfolgen verwendet werden. TODO: Beispiel Typ:
-\texttt{skos:Concept} OPTIONAL
+Sortierungs-Reihenfolgen verwendet werden. Typ: \texttt{skos:Concept}.
+Kardinalität: 0 bis *. Die Eigenschaft ist OPTIONAL.
 \item[\texttt{created}]
-Datum/Uhrzeit der Erzeugung des Objekts. Typ: Zeitstempel EMPFOHLEN.
+Datum/Uhrzeit der Erzeugung des Objekts. Typ: \texttt{xsd:DateTime}.
+Kardinalität: 0 bis 1. Die Eigenschaft ist EMPFOHLEN.
 \item[\texttt{lastModified}]
-Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ: Zeitstempel
-EMPFOHLEN
+Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ:
+\texttt{xsd:DateTime}. Kardinalität: 0 bis 1. Die Eigenschaft ist
+EMPFOHLEN.
 \end{description}
+
+TODO: Beispiel zu \texttt{allConcepts} einfügen.
 
 \hyperdef{}{oparlux5forganization}{\subsection{oparl:Organization
 (Gruppierung)}\label{oparlux5forganization}}
@@ -3416,12 +3439,7 @@ Ein Beispiel in expandierter Form:
 \end{Highlighting}
 \end{Shaded}
 
-Das selbe Beispiel in kompakter Form.
-
-Ein Kontext:
-\textsubscript{\textsubscript{\textasciitilde{}}\textasciitilde{}}\textasciitilde{}\textasciitilde{}
-\{ ``@language'': ``de'', \ldots{} \}
-\textsubscript{\textsubscript{\textasciitilde{}}\textasciitilde{}}\textasciitilde{}\textasciitilde{}
+Das entsprechende Beispiel in kompakter Form:
 
 \hyperdef{}{organizationux5fex2}{\label{organizationux5fex2}}
 \begin{Shaded}
@@ -3430,23 +3448,22 @@ Ein Kontext:
     \DataTypeTok{"@context"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/organization.jsonld"}\FunctionTok{,}
     \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"oparl:Organization"}\FunctionTok{,}
     \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"beispielris:organization/34"}\FunctionTok{,}
-      \ErrorTok{//} \ErrorTok{kann} \ErrorTok{eventuell} \ErrorTok{weiter} \ErrorTok{verkürzt} \ErrorTok{werden}
     \DataTypeTok{"body"}\FunctionTok{:} \StringTok{"0"}\FunctionTok{,}
     \DataTypeTok{"nameShort"}\FunctionTok{:} \StringTok{"Finanzausschuss"}\FunctionTok{,}
     \DataTypeTok{"nameLong"}\FunctionTok{:} \StringTok{"Ausschuss für Haushalt und Finanzen"}\FunctionTok{,}
-    \DataTypeTok{"post:"} \ErrorTok{[}
-        \DataTypeTok{"beispielris:post/chairperson"}\FunctionTok{,}
-        \DataTypeTok{"beispielris:post/deputyChairperson"}
-    \ErrorTok{]}\FunctionTok{,}
-    \DataTypeTok{"members: [}
-\DataTypeTok{        "}\ErrorTok{27}\DataTypeTok{",}
-\DataTypeTok{        "}\ErrorTok{48}\DataTypeTok{",}
-\DataTypeTok{        "}\ErrorTok{57}\DataTypeTok{"}
-\DataTypeTok{    ],}
-\DataTypeTok{    "}\ErrorTok{organizationType}\DataTypeTok{": "}\ErrorTok{beispielris}\FunctionTok{:}\ErrorTok{vocab/committee}\StringTok{",}
-\StringTok{    "}\ErrorTok{classification}\StringTok{": "}\ErrorTok{beispielris:vocab/finance}\StringTok{",}
-\StringTok{    "}\ErrorTok{modified}\StringTok{": "}\DecValTok{2012-08-16}\ErrorTok{T}\DecValTok{14}\ErrorTok{:}\DecValTok{05}\ErrorTok{:}\DecValTok{27}\ErrorTok{+}\DecValTok{02}\ErrorTok{:}\DecValTok{00}\StringTok{"}
-\StringTok{\}}
+    \DataTypeTok{"post"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"beispielris:post/chairperson"}\OtherTok{,}
+        \StringTok{"beispielris:post/deputyChairperson"}
+    \OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"member"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"27"}\OtherTok{,}
+        \StringTok{"48"}\OtherTok{,}
+        \StringTok{"57"}
+    \OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"organizationType"}\FunctionTok{:} \StringTok{"beispielris:vocab/committee"}\FunctionTok{,}
+    \DataTypeTok{"classification"}\FunctionTok{:} \StringTok{"beispielris:vocab/finance"}\FunctionTok{,}
+    \DataTypeTok{"modified"}\FunctionTok{:} \StringTok{"2012-08-16T14:05:27+02:00"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3454,25 +3471,14 @@ Ein Kontext:
 
 \begin{description}
 \item[\texttt{body}]
-Körperschaft, zu der diese Gruppierung gehört. Typ: \texttt{oparl:Body}
-ZWINGEND
-\item[\texttt{nameShort}]
-Der Name der Gruppierung, eine Kurzform. Typ: String ZWINGEND
-\end{description}
-
-TODO: ZWINGEND/OPTIONAL prüfen
-
-\begin{description}
-\itemsep1pt\parskip0pt\parsep0pt
+Körperschaft, zu der diese Gruppierung gehört. Typ: \texttt{oparl:Body}.
+Kardinalität: 1. ZWINGEND
 \item[\texttt{nameLong}]
-Langform des Namens der Gruppierung, der rechtlich korrekte Name. Typ:
-String ZWINGEND
-\end{description}
-
-TODO: ZWINGEND/OPTIONAL prüfen
-
-\begin{description}
-\itemsep1pt\parskip0pt\parsep0pt
+Offizielle (lange) Form des Namens der Gruppierung. Typ: Zeichenkette.
+Kardinalität: 1. Diese Eigenschaft ist ZWINGEND.
+\item[\texttt{nameShort}]
+Der Name der Gruppierung als Kurzform. Typ: String. Kardinalität: 1. Die
+Eigenschaft ist OPTIONAL.
 \item[\texttt{post}]
 Position oder Positionen, die für diese Gruppierung vorgesehen sind. Die
 Objekte gehören zu der Klasse \texttt{org:Post} oder einer ihrer
@@ -3483,7 +3489,7 @@ in der Reihenfolge mit einem Leerzeichen vor und nach dem
 ``\textbar{}'') Wenn sich beide Formen nicht unterscheiden, dann DARF
 die Form nur einmal verwendet werden: ``Mitglied'' und nicht ``Mitglied
 \textbar{} Mitglied''. Dadurch kann auch solche Software einen
-sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschecht
+sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschlecht
 der Personen vornimmt. z.B. ``Vorsitzender \textbar{} Vorsitzende'',
 ``1. Stellvertreter \textbar{} 1. Stellvertreterin'', ``2.
 Stellvertreter \textbar{} 2. Stellvertreterin'', ``Schriftführer
@@ -3494,35 +3500,34 @@ Mitglied'', ``Stellvertretendes Mitglied''
 
 Siehe https://github.com/OParl/specs/issues/45 TODO: ``Ordentliches
 Mitglied'', ``Stellvertretendes Mitglied'' müssen anders behandelt
-werden! Typ: \texttt{oparl:Post} OPTIONAL
+werden! Typ: \texttt{oparl:Post}. Kardinalität: 0 bis *. Die Eigenschaft
+ist OPTIONAL.
 
 \begin{description}
 \item[\texttt{member}]
-Mitglieder dieser Organisation (Objekte vom Typ
-\texttt{{[}oparl:Person{]}(\#oparl\_person)}). Auch alle Personen mit
-Positionen in der Organisation sind hier anzugeben. Typ:
-\texttt{oparl:Person} ZWINGEND (falls es Mitglieder gibt)
+Mitglieder dieser Organisation. Auch alle Personen mit Positionen in der
+Organisation sind hier anzugeben. Typ: \texttt{oparl:Person}.
+Kardinalität: 0 bis *. Diese Eigenschaft ist ZWINGEND.
 \item[\texttt{subOrganizationOf}]
 Ggf. URL der übergeordneten Organisation. Typ:
-\texttt{oparl:Organization} OPTIONAL.
-\item[\texttt{created}]
-Datum/Uhrzeit der Erzeugung des Objekts. Typ: Zeitstempel EMPFOHLEN
-\item[\texttt{keyword}]
-Schlagworte. Dies sind \texttt{skos:Concept}-Objekte mit einem
-\texttt{skos:prefLabel}-Attribut (für jede unterstützte Sprache) mit
-einer Zeichenkette. In einer zukünftigen OParl-Version wird
-möglicherweise eine Menge solcher Schlagwort-Objekte definiert.
-Anregungen gibt es u.a. in der Tabelle ``Kategorien'' im unteren Drittel
-der Seite
-http://htmlpreview.github.io/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD\_JSON\_Schema.html
-Typ: \texttt{skos:Concept} OPTIONAL
+\texttt{oparl:Organization}. Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{organizationType}]
-Objekt mit \texttt{skos:prefLabel}, z.B. ``Rat'', ``Hauptausschuss'',
-``Ausschuss'' ``Beirat'', ``Projektbeirat'', ``Kommission'', ``AG'',
-``Verwaltungsrat'' Typ: \texttt{skos:Concept} OPTIONAL
+Objekt mit \texttt{skos:prefLabel}, z.B. für ``Rat'',
+``Hauptausschuss'', ``Ausschuss'' ``Beirat'', ``Projektbeirat'',
+``Kommission'', ``AG'', ``Verwaltungsrat''. Vgl.
+\hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}. Typ: \texttt{skos:Concept}. Kardinalität: 0 bis 1.
+OPTIONAL.
+\item[\texttt{keyword}]
+Schlagworte. Vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare
+zur Klassifizierung}. Typ: \texttt{skos:Concept}. Kardinalität: 0 bis *.
+OPTIONAL.
+\item[\texttt{created}]
+Datum/Uhrzeit der Erzeugung des Objekts. Typ: \texttt{xsd:dateTime}.
+Kardinalität: 0 bis 1. EMPFOHLEN.
 \item[\texttt{modified}]
-Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ: Zeitstempel
-EMPFOHLEN
+Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ:
+\texttt{xsd:dateTime}. Kardinalität: 0 bis 1. EMPFOHLEN.
 \end{description}
 
 \hyperdef{}{oparlux5fperson}{\subsection{oparl:Person
@@ -3533,15 +3538,16 @@ und insbesondere Mitglied in einer Gruppierung
 (\hyperref[oparlux5forganization]{oparl:Organization}), wird mit einem
 Objekt vom Typ \texttt{oparl:Person} abgebildet.
 
-Es gibt existieren bereits eine ganze Reihe von Vokabularen für
-Personen. Dazu gehören FOAF (Friend of a Friend) und vCard. Es gibt aber
-auch der XÖV-Standard für natürliche Personen, ein XML Schema. Für
-\texttt{oparl:Person} wurde daraus und basierend auf dem Input der
-OParl-Stakeholder eine Auswahl von Eigenschaften zusammengestellt.
+Es existieren bereits eine ganze Reihe von Vokabularen für
+Personenobjekte außerhalb von OParl. Dazu gehören FOAF (\emph{Friend of
+a Friend}) und vCard. Darüber hinaus hält der XÖV-Standard ein
+XML-Schema für natürliche Personen bereit. Für \texttt{oparl:Person}
+wurde daraus und basierend auf dem Input der OParl-Stakeholder eine
+Auswahl von Eigenschaften zusammengestellt.
 
-TODO: für Personen-Namen und Titel wird keine Mehrsprachigkeit benötigt.
-Dies im Kontext berücksichtigen. Dies spricht auch für je einen Kontext
-pro Klasse.
+TODO: für Personennamen wird keine Mehrsprachigkeit benötigt. Dies im
+Kontext berücksichtigen. Dies spricht auch für je einen Kontext pro
+Klasse.
 
 Ein Beispiel in expandierter Form:
 
@@ -3552,20 +3558,23 @@ Ein Beispiel in expandierter Form:
     \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"http://oparl.org/schema/1.0/Person"}\FunctionTok{,}
     \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/person/29"}\FunctionTok{,}
     \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Prof. Dr. Max Mustermann"}\FunctionTok{,}
-    \DataTypeTok{"familyName"}\FunctionTok{:} \FunctionTok{\{} \ErrorTok{//} \ErrorTok{könnte} \ErrorTok{mehrsprachig} \ErrorTok{sein}\FunctionTok{,} \ErrorTok{z.B.} \ErrorTok{griechisch}\FunctionTok{,} \ErrorTok{russisch}\FunctionTok{,} \ErrorTok{tamilisch} 
+    \DataTypeTok{"familyName"}\FunctionTok{:} \FunctionTok{\{} 
         \DataTypeTok{"@value"}\FunctionTok{:} \StringTok{"Mustermann"}\FunctionTok{,}
         \DataTypeTok{"@language"}\FunctionTok{:} \StringTok{"de"}
     \FunctionTok{\},}
-    \DataTypeTok{"givenName"}\FunctionTok{:} \FunctionTok{\{} \ErrorTok{//} \ErrorTok{könnte} \ErrorTok{mehrsprachig} \ErrorTok{sein}
+    \DataTypeTok{"givenName"}\FunctionTok{:} \FunctionTok{\{}
         \DataTypeTok{"@value"}\FunctionTok{:} \StringTok{"Max"}\FunctionTok{,}
         \DataTypeTok{"@language"}\FunctionTok{:} \StringTok{"de"}
     \FunctionTok{\},}
-    \DataTypeTok{"title"}\FunctionTok{:} \StringTok{"Prof. Dr."}\FunctionTok{,} \ErrorTok{//} \ErrorTok{TODO}\FunctionTok{:} \ErrorTok{nicht} \ErrorTok{mehrsprachig?!}
-    \StringTok{"formOfAddress"}\ErrorTok{:} \StringTok{"https://oparl.beispielris.de/formofaddress/ratsmitglied"}\FunctionTok{,}
+    \DataTypeTok{"title"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"https://oparl.beispielris.de/vocab/prof"}\OtherTok{,}
+        \StringTok{"https://oparl.beispielris.de/vocab/dr"}
+    \OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"formOfAddress"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/formofaddress/ratsmitglied"}\FunctionTok{,}
     \DataTypeTok{"gender"}\FunctionTok{:} \StringTok{"http://www.w3.org/2006/vcard/ns#Male"}\FunctionTok{,}
     \DataTypeTok{"email"}\FunctionTok{:} \StringTok{"mailto:max@mustermann.de"}\FunctionTok{,}
     \DataTypeTok{"phone"}\FunctionTok{:} \StringTok{"tel:+493012345678"}\FunctionTok{,}
-    \DataTypeTok{"streetAddress"}\FunctionTok{:} \StringTok{"Musterstraße 5"}\FunctionTok{,} \ErrorTok{//} \ErrorTok{nicht} \ErrorTok{mehrsprachig}
+    \DataTypeTok{"streetAddress"}\FunctionTok{:} \StringTok{"Musterstraße 5"}\FunctionTok{,}
     \DataTypeTok{"postalCode"}\FunctionTok{:} \StringTok{"11111"}\FunctionTok{,}
     \DataTypeTok{"locality"}\FunctionTok{:} \FunctionTok{\{}
         \DataTypeTok{"de"}\FunctionTok{:} \StringTok{"Musterort"}\FunctionTok{,}
@@ -3590,15 +3599,11 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 \begin{Highlighting}[]
 \FunctionTok{\{}
     \DataTypeTok{"@language"}\FunctionTok{:} \StringTok{"de"}\FunctionTok{,}
-    
-    \ErrorTok{//} \ErrorTok{Präfixe} \ErrorTok{siehe} \ErrorTok{Abschnitt} \ErrorTok{8000}
-
     \DataTypeTok{"gender"}\FunctionTok{:} \StringTok{"vcard:hasGender"}\FunctionTok{,}
     \DataTypeTok{"givenName"}\FunctionTok{:} \StringTok{"foaf:firstName"}\FunctionTok{,}
     \DataTypeTok{"familyName"}\FunctionTok{:} \StringTok{"foaf:lastName"}\FunctionTok{,}
-    \DataTypeTok{"academic_degree"}\FunctionTok{:} \FunctionTok{\{}
-        \DataTypeTok{"@language"}\FunctionTok{:} \KeywordTok{null} \FunctionTok{,} \ErrorTok{//} \ErrorTok{keine} \ErrorTok{Vorgabesprache} \ErrorTok{da} \ErrorTok{nicht} \ErrorTok{mehrsprachig}
-        \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"foaf:title"}
+    \DataTypeTok{"title"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"TODO"}\FunctionTok{:} \StringTok{"Hier context für title einfügen."}
     \FunctionTok{\},}
     \DataTypeTok{"email"}\FunctionTok{:} \FunctionTok{\{}
         \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"foaf:mbox"}\FunctionTok{,}
@@ -3608,7 +3613,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     \DataTypeTok{"streetAddress"}\FunctionTok{:} \StringTok{"vcard:street-address"}\FunctionTok{,}
     \DataTypeTok{"locality"}\FunctionTok{:} \FunctionTok{\{}
         \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"vcard:locality"}\FunctionTok{,}
-        \DataTypeTok{"@container"}\FunctionTok{:} \StringTok{"@language"} \ErrorTok{//} \ErrorTok{für} \ErrorTok{eine} \StringTok{"language map"}
+        \DataTypeTok{"@container"}\FunctionTok{:} \StringTok{"@language"}
     \FunctionTok{\},}
     \DataTypeTok{"created"}\FunctionTok{:} \FunctionTok{\{}
         \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"dc:created"}\FunctionTok{,}
@@ -3622,22 +3627,38 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 \end{Highlighting}
 \end{Shaded}
 
-\textsubscript{\textasciitilde{}}\textasciitilde{}\textasciitilde{}
-\{\#person\_ex2 .json\} \{ ``@context'':
-``https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld'',
-``@type'': ``oparl:Person'', ``@id'':
-``https://oparl.beispielris.de/person/29'', ``name'': ``Prof.~Dr.~Max
-Mustermann'', ``familyName'': ``Mustermann'', // Kontext gibt deutsche
-Spache vor ``givenName'': ``Max'', ``title'': ``Prof.~Dr.'',
-``formOfAddress'': ``beispielris:formofaddress/ratsmitglied'',
-``gender'': ``vcard:Male'', ``email'': ``mailto:max@mustermann.de'',
-``phone'': ``tel:+493012345678'', ``streetAddress'': ``Musterstraße 5'',
-``postalCode'': ``11111'', ``locality'': \{ ``de'': ``Musterort'',
-``en'': ``Sample Town'' \}, ``organization'': {[}``11'', ``34''{]},
-``status'': ``beispielris:status/buergermeister'', ``hasMembership'':
-``beispielris:membership/34'', ``created'':
-``2011-11-11T11:11:00+01:00'', ``modified'':
-``2012-08-16T14:05:27+02:00'' \}
+\hyperdef{}{personux5fex2}{\label{personux5fex2}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"@context"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld"}\FunctionTok{,}
+    \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"oparl:Person"}\FunctionTok{,}
+    \DataTypeTok{"@id"}\FunctionTok{:} \StringTok{"https://oparl.beispielris.de/person/29"}\FunctionTok{,}
+    \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Prof. Dr. Max Mustermann"}\FunctionTok{,}
+    \DataTypeTok{"familyName"}\FunctionTok{:} \StringTok{"Mustermann"}\FunctionTok{,}
+    \DataTypeTok{"givenName"}\FunctionTok{:} \StringTok{"Max"}\FunctionTok{,}
+    \DataTypeTok{"title"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"besipielris:vocab/prof"}\OtherTok{,}
+        \StringTok{"besipielris:vocab/dr"}
+    \OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"formOfAddress"}\FunctionTok{:} \StringTok{"beispielris:formofaddress/ratsmitglied"}\FunctionTok{,}
+    \DataTypeTok{"gender"}\FunctionTok{:} \StringTok{"vcard:Male"}\FunctionTok{,}
+    \DataTypeTok{"email"}\FunctionTok{:} \StringTok{"mailto:max@mustermann.de"}\FunctionTok{,}
+    \DataTypeTok{"phone"}\FunctionTok{:} \StringTok{"tel:+493012345678"}\FunctionTok{,}
+    \DataTypeTok{"streetAddress"}\FunctionTok{:} \StringTok{"Musterstraße 5"}\FunctionTok{,}
+    \DataTypeTok{"postalCode"}\FunctionTok{:} \StringTok{"11111"}\FunctionTok{,}
+    \DataTypeTok{"locality"}\FunctionTok{:} \FunctionTok{\{}
+        \DataTypeTok{"de"}\FunctionTok{:} \StringTok{"Musterort"}\FunctionTok{,}
+        \DataTypeTok{"en"}\FunctionTok{:} \StringTok{"Sample Town"}
+    \FunctionTok{\},}
+    \DataTypeTok{"organization"}\FunctionTok{:} \OtherTok{[}\StringTok{"11"}\OtherTok{,} \StringTok{"34"}\OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"status"}\FunctionTok{:} \StringTok{"beispielris:status/buergermeister"}\FunctionTok{,}
+    \DataTypeTok{"hasMembership"}\FunctionTok{:} \StringTok{"beispielris:membership/34"}\FunctionTok{,}
+    \DataTypeTok{"created"}\FunctionTok{:} \StringTok{"2011-11-11T11:11:00+01:00"}\FunctionTok{,}
+    \DataTypeTok{"modified"}\FunctionTok{:} \StringTok{"2012-08-16T14:05:27+02:00"}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der Kontext
 bleibt wie zuvor.
@@ -3646,9 +3667,9 @@ bleibt wie zuvor.
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{\{}
-    \ErrorTok{//} \ErrorTok{...}
+    \ErrorTok{...}
     \DataTypeTok{"locality"}\FunctionTok{:} \StringTok{"Musterort"}\FunctionTok{,}
-    \ErrorTok{//} \ErrorTok{...}
+    \ErrorTok{...}
 \FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -4454,32 +4475,51 @@ Ortsangabe mit Polygon-Objekt:
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{org:Membership oder
-oparl:Membership}\label{oparlux5fmembership}
+\hyperdef{}{oparlux5fmembership}{\subsection{oparl:Membership}\label{oparlux5fmembership}}
 
-TODO. Siehe: https://github.com/OParl/specs/issues/122
-https://github.com/OParl/specs/issues/109
+Über Objekte diesen Typs wird die Mitgliedschaft von Personen in
+Gruppierungen dargestellt. Diese Mitgliedschaften können zeitlich
+begrenzt sein. Zudem kann abgebildet werden, dass eine Person eine
+besimmte Rolle bzw. Position innerhalb der Gruppierung inne hat,
+beispielsweise den Vorsitz einer Fraktion.
+
+\hyperdef{}{locationux5fex1}{\label{locationux5fex1}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \DataTypeTok{"person"}\FunctionTok{:} \StringTok{"beispielris:people/862"}\FunctionTok{,}
+    \DataTypeTok{"organization"}\FunctionTok{:} \StringTok{"beispielris:organizations/5"}\FunctionTok{,}
+    \DataTypeTok{"role"}\FunctionTok{:} \StringTok{"beispielris:vocab/chair"}\FunctionTok{,}
+    \DataTypeTok{"startDate"}\FunctionTok{:} \StringTok{"2013-12-03T16:30:00+01:00"}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 \subsubsection{Eigenschaften}\label{eigenschaften-10}
 
 \begin{description}
 \item[\texttt{person}]
-Person. Typ: \texttt{oparl:Person} OPTIONAL
+Die betreffende Person, die Mitglied einer Gruppierung ist oder war.
+Typ: \texttt{oparl:Person}. Kardinalität: 1. Die Eigenschaft ist
+ZWINGEND.
 \item[\texttt{organization}]
-Organization. Typ: \texttt{oparl:Organization} OPTIONAL
+Die Organisation, in der die Person Mitglied ist oder war. Typ:
+\texttt{oparl:Organization}. Kardinalität: 1. Die Eigenschaft ist
+ZWINGEND.
 \item[\texttt{role}]
-Rolle. Das Objekt hat eine \texttt{skos:prefLabel}-Eigenschaft, deren
-Wert eine Funktionsbezeichnung ist, z.B. ``1. pers. Vertreter \textbar{}
-1. pers. Vertreterin'' oder ``2. pers. Vertreter \textbar{} 2. pers.
-Vertreterin''. Popolo: ``The role that the person fulfills in the
-organization''. normale Mitglieder haben in der Regel keine eigene
-Funktion, aber auch eine Unterscheidung zwischen z.B. ``Sachkundige
-Bürger \textbar{} Sachkundige Bürgerin'' und ``Ratsherr \textbar{}
-Ratsfrau'' bei einfachen Mitgliedern ist hiermit möglich. FRAGE: Wie
-soll bei einem sachkundigen Bürger verfahren werden, der gleichzeitig
-Vorsitzender ist? Typ: \texttt{org:Role} OPTIONAL
+Rolle der Person für die Gruppierung. Das Objekt hat eine
+\texttt{skos:prefLabel}-Eigenschaft, deren Wert eine
+Funktionsbezeichnung ist, z.B. ``1. pers. Vertreter \textbar{} 1. pers.
+Vertreterin'' oder ``2. pers. Vertreter \textbar{} 2. pers.
+Vertreterin''. Gewöhnliche Mitglieder haben in der Regel keine besondere
+Rolle, aber auch eine Unterscheidung zwischen z.B. ``Sachkundige Bürger
+\textbar{} Sachkundige Bürgerin'' und ``Ratsherr \textbar{} Ratsfrau''
+bei einfachen Mitgliedern ist hiermit möglich. FRAGE: Wie soll bei einem
+sachkundigen Bürger verfahren werden, der gleichzeitig Vorsitzender ist?
+Typ: \texttt{org:Role}. Kardinalität: 0 bis 1. Die Eigenschaft ist
+OPTIONAL.
 \item[\texttt{post}]
-The post held by the person in the organization Typ: \texttt{org:Post}
+The post held by the person in the organization. Typ: \texttt{org:Post}.
 OPTIONAL
 \item[\texttt{onBehalfOf}]
 Entsendende Organization - Fraktion, fraktionslos oder externes Gremium
@@ -4487,20 +4527,28 @@ Dies entspricht \texttt{opengov:onBehalfOf} in Popolo. Es kann auch
 Mitglieder geben, die von keiner anderen Organisation entsendet wurden
 (z.B. fraktionslose Abgeordnete). FRAGE: Muss diese Situation vom Fehlen
 von Informationen über Entsendungen unterschieden werden? Typ:
-\texttt{oparl:Organization} OPTIONAL
+\texttt{oparl:Organization}. Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{startDate}]
 \texttt{schema:validFrom} wie in Popolo. The date on which the
-relationship began Typ: String im Format \texttt{xsd:dateTime} OPTIONAL
+relationship began Typ: \texttt{xsd:dateTime}. Kardinalität: 0 bis 1.
+OPTIONAL.
 \item[\texttt{endDate}]
 \texttt{schema:validThrough} wie in Popolo. The date on which the
-relationship ended Typ: String im Format \texttt{xsd:dateTime} OPTIONAL
+relationship ended Typ: \texttt{xsd:dateTime}. Kardinalität: 0 bis 1.
+OPTIONAL.
 \end{description}
 
-\subsubsection{Hinweise}\label{hinweise}
+TODO: Folgende Verweise einbauen oder entfernen:
 
-http://www.w3.org/TR/vocab-org/\#membership-roles-posts-and-reporting
-
-http://popoloproject.com/specs/membership.html
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  https://github.com/OParl/specs/issues/122
+\item
+  http://www.w3.org/TR/vocab-org/\#membership-roles-posts-and-reporting
+\item
+  http://popoloproject.com/specs/membership.html
+\end{itemize}
 
 \section{Glossar}\label{glossar}
 

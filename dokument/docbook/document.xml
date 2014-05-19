@@ -4008,6 +4008,12 @@ Content-Disposition: attachment; filename=&quot;2014-08-22 Rat Wortprotokoll.pdf
         </listitem>
         <listitem>
           <para>
+            die Eigenschaft <literal>role</literal> des Objekttyps
+            <link linkend="oparl_membership"><literal>oparl:Membership</literal></link>
+          </para>
+        </listitem>
+        <listitem>
+          <para>
             die Eigenschaft <literal>keyword</literal> in mehreren
             Objekttypen
           </para>
@@ -4280,7 +4286,7 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
 {
     &quot;@language&quot;: &quot;de&quot;,
     &quot;beispielris&quot;: &quot;https://oparl.eispielris.de/&quot;,
-    &quot;oparl&quot;: &quot;http://oparl.org/TODO/&quot;,
+    &quot;oparl&quot;: &quot;http://oparl.org/specs/1.0/schema/&quot;,
     &quot;dc&quot;: &quot;http://purl.org/dc/terms/&quot;,
     &quot;foaf&quot;: &quot;http://xmlns.com/foaf/0.1/&quot;,
     &quot;skos&quot;: &quot;http://www.w3.org/2004/02/skos/core#&quot;,
@@ -4503,7 +4509,7 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         &quot;@id&quot;: &quot;skos:exactMatch&quot;,
         &quot;@type&quot;: &quot;@id&quot;
     }
-    &quot;licenseValidSinceDay&quot;: // TODO: datum
+    &quot;licenseValidSinceDay&quot;: &quot;2013-04-01T12:00:00+00:00&quot;
 }
 </programlisting>
     <para>
@@ -4562,7 +4568,8 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           <listitem>
             <para>
               System zu dem dieses Objekt gehört. Typ:
-              <literal>oparl:System</literal>. ZWINGEND.
+              <literal>oparl:System</literal>. Kardinalität: 1. Die
+              Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -4573,7 +4580,8 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           <listitem>
             <para>
               Gibt den gebräuchlichen Namen der Körperschaft an. Typ:
-              TODO. ZWINGEND.
+              Zeichenkette. Kardinalität: 1. Die Eigenschaft ist
+              ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -4584,8 +4592,8 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           <listitem>
             <para>
               Kann bei Bedarf dazu verwendet werden, eine längere Form
-              des Namens der Körperschaft anzugeben. Typ: TODO.
-              OPTIONAL.
+              des Namens der Körperschaft anzugeben. Typ: Zeichenkette.
+              Kardinalität: 0 bis 1. Die Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -4595,7 +4603,8 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              allgemeine Website der Körperschaft. Typ: URL EMPFOHLEN.
+              allgemeine Website der Körperschaft. Typ: URL.
+              Kardinalität: 0 bis 1. Die Eigenschaft ist EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -4610,7 +4619,8 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
               anders angegeben. Sie dazu auch die übergreifende
               Beschreibung zur Eigenschaft
               <link linkend="eigenschaft_license"><literal>license</literal></link>.
-              Typ: URL EMPFOHLEN.
+              Typ: URL. Kardinalität: 0 bis 1. Die Eigenschaft ist
+              EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -4620,10 +4630,11 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Tagesdatum, seit dem die unter license angegebene Lizenz
-              gilt. Vorsicht bei Änderungen der Lizenz die zu
-              restriktiveren Bedingungen führen. Typ: Datum mit oder
-              ohne Uhrzeit EMPFOHLEN
+              Zeitpunkt, seit dem die unter <literal>license</literal>
+              angegebene Lizenz gilt. Vorsicht bei Änderungen der Lizenz
+              die zu restriktiveren Bedingungen führen. Typ:
+              <literal>xsd:DateTime</literal>. Kardinalität: 0 bis 1.
+              Die Eigenschaft ist EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -4641,7 +4652,8 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
                   (GV-ISys) des Statistischen Bundesamtes</ulink>
                   eingesehen werden
                 </para>
-              </footnote>. Typ: String mit ganzer Zahl EMPFOHLEN
+              </footnote>. Typ: Zeichenkette. Kardinalität: 0 bis 1. Die
+              Eigenschaft ist EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4670,7 +4682,8 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
                   Wikipedia
                   <ulink url="http://de.wikipedia.org/">http://de.wikipedia.org/</ulink>
                 </para>
-              </footnote> angegeben werden. Typ: URL EMPFOHLEN
+              </footnote> angegeben werden. Typ: URL Kardinalität: 0 bis
+              *. Die Eigenschaft ist EMPFOHLEN
             </para>
           </listitem>
         </varlistentry>
@@ -4685,7 +4698,8 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
               Kontaktaufnahme zu einer für die Körperschaft und
               idealerweise das parlamentarische Informationssystem
               zuständigen Stelle ermöglichen. Typ: mail-Adresse
-              inklusive &quot;mailto:&quot; EMPFOHLEN
+              inklusive &quot;mailto:&quot;. Kardinalität: 0 bis 1. Die
+              Eigenschaft ist EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -4697,7 +4711,8 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
             <para>
               Name oder Bezeichnung der mit
               <literal>contactEmail</literal> erreichbaren Stelle. Typ:
-              String OPTIONAL.
+              String. Kardinalität: 0 bis 1. Die Eigenschaft ist
+              OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -4707,8 +4722,11 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Drucksachen unter dieser Körperschaft. Typ:
-              <literal>oparl:Paper</literal> ZWINGEND.
+              Drucksachen unter dieser Körperschaft als Liste unter
+              einer eigenen URL. Vgl.
+              <link linkend="objektlisten">Objektlisten</link>. Typ:
+              <literal>oparl:Paper</literal>. Kardinalität: 0 bis *. Die
+              Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -4718,8 +4736,11 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Personen in dieser Körperschaft. Typ:
-              <literal>oparl:Person</literal> ZWINGEND.
+              Personen in dieser Körperschaft als Liste unter einer
+              eigenen URL. Vgl.
+              <link linkend="objektlisten">Objektlisten</link>. Typ:
+              <literal>oparl:Person</literal>, Kardinalität: 0 bis *.
+              Die Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -4729,8 +4750,11 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Sitzungen dieser Körperschaft. Typ:
-              <literal>oparl:Meeting</literal> ZWINGEND
+              Sitzungen dieser Körperschaft als Liste unter einer
+              eigenen URL. Vgl.
+              <link linkend="objektlisten">Objektlisten</link>. Typ:
+              <literal>oparl:Meeting</literal>. Kardinalität: 0 bis *.
+              Die Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -4740,8 +4764,11 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Gruppierung in dieser Körperschaft. Typ:
-              <literal>oparl:Organization</literal> ZWINGEND
+              Gruppierung in dieser Körperschaft als Liste unter einer
+              eigenen URL. Vgl.
+              <link linkend="objektlisten">Objektlisten</link>. Typ:
+              <literal>oparl:Organization</literal>. Kardinalität: 0 bis
+              *. Die Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -4751,8 +4778,11 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Typ: <literal>skos:Concept</literal> Anzahl: beliebig
-              OPTIONAL
+              Schlagwort(e). Vgl.
+              <link linkend="vokabulare_klassifizierung">Vokabulare zur
+              Klassifizierung</link>. Typ:
+              <literal>skos:Concept</literal>. Kardinalität: 0 bis *.
+              Die Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -4765,8 +4795,8 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
               Alle Schlagworte und Begriffe, die von dieser Körperschaft
               verwendet werden. Diese Eigenschaft ist insbesondere dann
               wichtig, wenn Sortierungs-Reihenfolgen verwendet werden.
-              TODO: Beispiel Typ: <literal>skos:Concept</literal>
-              OPTIONAL
+              Typ: <literal>skos:Concept</literal>. Kardinalität: 0 bis
+              *. Die Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -4776,8 +4806,9 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Datum/Uhrzeit der Erzeugung des Objekts. Typ: Zeitstempel
-              EMPFOHLEN.
+              Datum/Uhrzeit der Erzeugung des Objekts. Typ:
+              <literal>xsd:DateTime</literal>. Kardinalität: 0 bis 1.
+              Die Eigenschaft ist EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -4788,11 +4819,15 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           <listitem>
             <para>
               Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ:
-              Zeitstempel EMPFOHLEN
+              <literal>xsd:DateTime</literal>. Kardinalität: 0 bis 1.
+              Die Eigenschaft ist EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
+      <para>
+        TODO: Beispiel zu <literal>allConcepts</literal> einfügen.
+      </para>
     </sect3>
   </sect2>
   <sect2 id="oparl_organization">
@@ -4836,27 +4871,21 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
 }
 </programlisting>
     <para>
-      Das selbe Beispiel in kompakter Form.
-    </para>
-    <para>
-      Ein Kontext: <subscript><subscript>~</subscript>~</subscript>~~ {
-      &quot;@language&quot;: &quot;de&quot;, ... }
-      <subscript><subscript>~</subscript>~</subscript>~~
+      Das entsprechende Beispiel in kompakter Form:
     </para>
     <programlisting language="json">
 {
     &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/organization.jsonld&quot;,
     &quot;@type&quot;: &quot;oparl:Organization&quot;,
     &quot;@id&quot;: &quot;beispielris:organization/34&quot;,
-      // kann eventuell weiter verkürzt werden
     &quot;body&quot;: &quot;0&quot;,
     &quot;nameShort&quot;: &quot;Finanzausschuss&quot;,
     &quot;nameLong&quot;: &quot;Ausschuss für Haushalt und Finanzen&quot;,
-    &quot;post:&quot; [
+    &quot;post&quot;: [
         &quot;beispielris:post/chairperson&quot;,
         &quot;beispielris:post/deputyChairperson&quot;
     ],
-    &quot;members: [
+    &quot;member&quot;: [
         &quot;27&quot;,
         &quot;48&quot;,
         &quot;57&quot;
@@ -4876,7 +4905,19 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           <listitem>
             <para>
               Körperschaft, zu der diese Gruppierung gehört. Typ:
-              <literal>oparl:Body</literal> ZWINGEND
+              <literal>oparl:Body</literal>. Kardinalität: 1. ZWINGEND
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>nameLong</literal>
+          </term>
+          <listitem>
+            <para>
+              Offizielle (lange) Form des Namens der Gruppierung. Typ:
+              Zeichenkette. Kardinalität: 1. Diese Eigenschaft ist
+              ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -4886,32 +4927,11 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Der Name der Gruppierung, eine Kurzform. Typ: String
-              ZWINGEND
+              Der Name der Gruppierung als Kurzform. Typ: String.
+              Kardinalität: 1. Die Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
-      </variablelist>
-      <para>
-        TODO: ZWINGEND/OPTIONAL prüfen
-      </para>
-      <variablelist spacing="compact">
-        <varlistentry>
-          <term>
-            <literal>nameLong</literal>
-          </term>
-          <listitem>
-            <para>
-              Langform des Namens der Gruppierung, der rechtlich
-              korrekte Name. Typ: String ZWINGEND
-            </para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-      <para>
-        TODO: ZWINGEND/OPTIONAL prüfen
-      </para>
-      <variablelist spacing="compact">
         <varlistentry>
           <term>
             <literal>post</literal>
@@ -4930,7 +4950,7 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
               nur einmal verwendet werden: &quot;Mitglied&quot; und
               nicht &quot;Mitglied | Mitglied&quot;. Dadurch kann auch
               solche Software einen sinnvollen Text anzeigen, die keine
-              Fall-Unterscheidung nach Geschecht der Personen vornimmt.
+              Fall-Unterscheidung nach Geschlecht der Personen vornimmt.
               z.B. &quot;Vorsitzender | Vorsitzende&quot;, &quot;1.
               Stellvertreter | 1. Stellvertreterin&quot;, &quot;2.
               Stellvertreter | 2. Stellvertreterin&quot;,
@@ -4946,7 +4966,8 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         Siehe https://github.com/OParl/specs/issues/45 TODO:
         &quot;Ordentliches Mitglied&quot;, &quot;Stellvertretendes
         Mitglied&quot; müssen anders behandelt werden! Typ:
-        <literal>oparl:Post</literal> OPTIONAL
+        <literal>oparl:Post</literal>. Kardinalität: 0 bis *. Die
+        Eigenschaft ist OPTIONAL.
       </para>
       <variablelist>
         <varlistentry>
@@ -4955,11 +4976,10 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Mitglieder dieser Organisation (Objekte vom Typ
-              <literal>[oparl:Person](#oparl_person)</literal>). Auch
-              alle Personen mit Positionen in der Organisation sind hier
-              anzugeben. Typ: <literal>oparl:Person</literal> ZWINGEND
-              (falls es Mitglieder gibt)
+              Mitglieder dieser Organisation. Auch alle Personen mit
+              Positionen in der Organisation sind hier anzugeben. Typ:
+              <literal>oparl:Person</literal>. Kardinalität: 0 bis *.
+              Diese Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -4970,37 +4990,8 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           <listitem>
             <para>
               Ggf. URL der übergeordneten Organisation. Typ:
-              <literal>oparl:Organization</literal> OPTIONAL.
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            <literal>created</literal>
-          </term>
-          <listitem>
-            <para>
-              Datum/Uhrzeit der Erzeugung des Objekts. Typ: Zeitstempel
-              EMPFOHLEN
-            </para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>
-            <literal>keyword</literal>
-          </term>
-          <listitem>
-            <para>
-              Schlagworte. Dies sind
-              <literal>skos:Concept</literal>-Objekte mit einem
-              <literal>skos:prefLabel</literal>-Attribut (für jede
-              unterstützte Sprache) mit einer Zeichenkette. In einer
-              zukünftigen OParl-Version wird möglicherweise eine Menge
-              solcher Schlagwort-Objekte definiert. Anregungen gibt es
-              u.a. in der Tabelle &quot;Kategorien&quot; im unteren
-              Drittel der Seite
-              http://htmlpreview.github.io/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html
-              Typ: <literal>skos:Concept</literal> OPTIONAL
+              <literal>oparl:Organization</literal>. Kardinalität: 0 bis
+              1. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5010,12 +5001,41 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Objekt mit <literal>skos:prefLabel</literal>, z.B.
+              Objekt mit <literal>skos:prefLabel</literal>, z.B. für
               &quot;Rat&quot;, &quot;Hauptausschuss&quot;,
               &quot;Ausschuss&quot; &quot;Beirat&quot;,
               &quot;Projektbeirat&quot;, &quot;Kommission&quot;,
-              &quot;AG&quot;, &quot;Verwaltungsrat&quot; Typ:
-              <literal>skos:Concept</literal> OPTIONAL
+              &quot;AG&quot;, &quot;Verwaltungsrat&quot;. Vgl.
+              <link linkend="vokabulare_klassifizierung">Vokabulare zur
+              Klassifizierung</link>. Typ:
+              <literal>skos:Concept</literal>. Kardinalität: 0 bis 1.
+              OPTIONAL.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>keyword</literal>
+          </term>
+          <listitem>
+            <para>
+              Schlagworte. Vgl.
+              <link linkend="vokabulare_klassifizierung">Vokabulare zur
+              Klassifizierung</link>. Typ:
+              <literal>skos:Concept</literal>. Kardinalität: 0 bis *.
+              OPTIONAL.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <literal>created</literal>
+          </term>
+          <listitem>
+            <para>
+              Datum/Uhrzeit der Erzeugung des Objekts. Typ:
+              <literal>xsd:dateTime</literal>. Kardinalität: 0 bis 1.
+              EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -5026,7 +5046,8 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           <listitem>
             <para>
               Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ:
-              Zeitstempel EMPFOHLEN
+              <literal>xsd:dateTime</literal>. Kardinalität: 0 bis 1.
+              EMPFOHLEN.
             </para>
           </listitem>
         </varlistentry>
@@ -5043,17 +5064,18 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
       abgebildet.
     </para>
     <para>
-      Es gibt existieren bereits eine ganze Reihe von Vokabularen für
-      Personen. Dazu gehören FOAF (Friend of a Friend) und vCard. Es
-      gibt aber auch der XÖV-Standard für natürliche Personen, ein XML
-      Schema. Für <literal>oparl:Person</literal> wurde daraus und
-      basierend auf dem Input der OParl-Stakeholder eine Auswahl von
+      Es existieren bereits eine ganze Reihe von Vokabularen für
+      Personenobjekte außerhalb von OParl. Dazu gehören FOAF
+      (<emphasis>Friend of a Friend</emphasis>) und vCard. Darüber
+      hinaus hält der XÖV-Standard ein XML-Schema für natürliche
+      Personen bereit. Für <literal>oparl:Person</literal> wurde daraus
+      und basierend auf dem Input der OParl-Stakeholder eine Auswahl von
       Eigenschaften zusammengestellt.
     </para>
     <para>
-      TODO: für Personen-Namen und Titel wird keine Mehrsprachigkeit
-      benötigt. Dies im Kontext berücksichtigen. Dies spricht auch für
-      je einen Kontext pro Klasse.
+      TODO: für Personennamen wird keine Mehrsprachigkeit benötigt. Dies
+      im Kontext berücksichtigen. Dies spricht auch für je einen Kontext
+      pro Klasse.
     </para>
     <para>
       Ein Beispiel in expandierter Form:
@@ -5063,20 +5085,23 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
     &quot;@type&quot;: &quot;http://oparl.org/schema/1.0/Person&quot;,
     &quot;@id&quot;: &quot;https://oparl.beispielris.de/person/29&quot;,
     &quot;name&quot;: &quot;Prof. Dr. Max Mustermann&quot;,
-    &quot;familyName&quot;: { // könnte mehrsprachig sein, z.B. griechisch, russisch, tamilisch 
+    &quot;familyName&quot;: { 
         &quot;@value&quot;: &quot;Mustermann&quot;,
         &quot;@language&quot;: &quot;de&quot;
     },
-    &quot;givenName&quot;: { // könnte mehrsprachig sein
+    &quot;givenName&quot;: {
         &quot;@value&quot;: &quot;Max&quot;,
         &quot;@language&quot;: &quot;de&quot;
     },
-    &quot;title&quot;: &quot;Prof. Dr.&quot;, // TODO: nicht mehrsprachig?!
+    &quot;title&quot;: [
+        &quot;https://oparl.beispielris.de/vocab/prof&quot;,
+        &quot;https://oparl.beispielris.de/vocab/dr&quot;
+    ],
     &quot;formOfAddress&quot;: &quot;https://oparl.beispielris.de/formofaddress/ratsmitglied&quot;,
     &quot;gender&quot;: &quot;http://www.w3.org/2006/vcard/ns#Male&quot;,
     &quot;email&quot;: &quot;mailto:max@mustermann.de&quot;,
     &quot;phone&quot;: &quot;tel:+493012345678&quot;,
-    &quot;streetAddress&quot;: &quot;Musterstraße 5&quot;, // nicht mehrsprachig
+    &quot;streetAddress&quot;: &quot;Musterstraße 5&quot;,
     &quot;postalCode&quot;: &quot;11111&quot;,
     &quot;locality&quot;: {
         &quot;de&quot;: &quot;Musterort&quot;,
@@ -5099,15 +5124,11 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
     <programlisting language="json">
 {
     &quot;@language&quot;: &quot;de&quot;,
-    
-    // Präfixe siehe Abschnitt 8000
-
     &quot;gender&quot;: &quot;vcard:hasGender&quot;,
     &quot;givenName&quot;: &quot;foaf:firstName&quot;,
     &quot;familyName&quot;: &quot;foaf:lastName&quot;,
-    &quot;academic_degree&quot;: {
-        &quot;@language&quot;: null , // keine Vorgabesprache da nicht mehrsprachig
-        &quot;@id&quot;: &quot;foaf:title&quot;
+    &quot;title&quot;: {
+        &quot;TODO&quot;: &quot;Hier context für title einfügen.&quot;
     },
     &quot;email&quot;: {
         &quot;@id&quot;: &quot;foaf:mbox&quot;,
@@ -5117,7 +5138,7 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
     &quot;streetAddress&quot;: &quot;vcard:street-address&quot;,
     &quot;locality&quot;: {
         &quot;@id&quot;: &quot;vcard:locality&quot;,
-        &quot;@container&quot;: &quot;@language&quot; // für eine &quot;language map&quot;
+        &quot;@container&quot;: &quot;@language&quot;
     },
     &quot;created&quot;: {
         &quot;@id&quot;: &quot;dc:created&quot;,
@@ -5129,39 +5150,44 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
     }
 }
 </programlisting>
-    <para>
-      <subscript>~</subscript>~~ {#person_ex2 .json} {
-      &quot;@context&quot;:
-      &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld&quot;,
-      &quot;@type&quot;: &quot;oparl:Person&quot;, &quot;@id&quot;:
-      &quot;https://oparl.beispielris.de/person/29&quot;,
-      &quot;name&quot;: &quot;Prof. Dr. Max Mustermann&quot;,
-      &quot;familyName&quot;: &quot;Mustermann&quot;, // Kontext gibt
-      deutsche Spache vor &quot;givenName&quot;: &quot;Max&quot;,
-      &quot;title&quot;: &quot;Prof. Dr.&quot;,
-      &quot;formOfAddress&quot;:
-      &quot;beispielris:formofaddress/ratsmitglied&quot;,
-      &quot;gender&quot;: &quot;vcard:Male&quot;, &quot;email&quot;:
-      &quot;mailto:max@mustermann.de&quot;, &quot;phone&quot;:
-      &quot;tel:+493012345678&quot;, &quot;streetAddress&quot;:
-      &quot;Musterstraße 5&quot;, &quot;postalCode&quot;:
-      &quot;11111&quot;, &quot;locality&quot;: { &quot;de&quot;:
-      &quot;Musterort&quot;, &quot;en&quot;: &quot;Sample Town&quot; },
-      &quot;organization&quot;: [&quot;11&quot;, &quot;34&quot;],
-      &quot;status&quot;: &quot;beispielris:status/buergermeister&quot;,
-      &quot;hasMembership&quot;: &quot;beispielris:membership/34&quot;,
-      &quot;created&quot;: &quot;2011-11-11T11:11:00+01:00&quot;,
-      &quot;modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot; }
-    </para>
+    <programlisting language="json">
+{
+    &quot;@context&quot;: &quot;https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld&quot;,
+    &quot;@type&quot;: &quot;oparl:Person&quot;,
+    &quot;@id&quot;: &quot;https://oparl.beispielris.de/person/29&quot;,
+    &quot;name&quot;: &quot;Prof. Dr. Max Mustermann&quot;,
+    &quot;familyName&quot;: &quot;Mustermann&quot;,
+    &quot;givenName&quot;: &quot;Max&quot;,
+    &quot;title&quot;: [
+        &quot;besipielris:vocab/prof&quot;,
+        &quot;besipielris:vocab/dr&quot;
+    ],
+    &quot;formOfAddress&quot;: &quot;beispielris:formofaddress/ratsmitglied&quot;,
+    &quot;gender&quot;: &quot;vcard:Male&quot;,
+    &quot;email&quot;: &quot;mailto:max@mustermann.de&quot;,
+    &quot;phone&quot;: &quot;tel:+493012345678&quot;,
+    &quot;streetAddress&quot;: &quot;Musterstraße 5&quot;,
+    &quot;postalCode&quot;: &quot;11111&quot;,
+    &quot;locality&quot;: {
+        &quot;de&quot;: &quot;Musterort&quot;,
+        &quot;en&quot;: &quot;Sample Town&quot;
+    },
+    &quot;organization&quot;: [&quot;11&quot;, &quot;34&quot;],
+    &quot;status&quot;: &quot;beispielris:status/buergermeister&quot;,
+    &quot;hasMembership&quot;: &quot;beispielris:membership/34&quot;,
+    &quot;created&quot;: &quot;2011-11-11T11:11:00+01:00&quot;,
+    &quot;modified&quot;: &quot;2012-08-16T14:05:27+02:00&quot;
+}
+</programlisting>
     <para>
       Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der
       Kontext bleibt wie zuvor.
     </para>
     <programlisting language="json">
 {
-    // ...
+    ...
     &quot;locality&quot;: &quot;Musterort&quot;,
-    // ...
+    ...
 }
 </programlisting>
     <sect3 id="eigenschaften-3">
@@ -6716,11 +6742,22 @@ Simple Feature Access Spezifikation:
     </sect3>
   </sect2>
   <sect2 id="oparl_membership">
-    <title>org:Membership oder oparl:Membership</title>
+    <title>oparl:Membership</title>
     <para>
-      TODO. Siehe: https://github.com/OParl/specs/issues/122
-      https://github.com/OParl/specs/issues/109
+      Über Objekte diesen Typs wird die Mitgliedschaft von Personen in
+      Gruppierungen dargestellt. Diese Mitgliedschaften können zeitlich
+      begrenzt sein. Zudem kann abgebildet werden, dass eine Person eine
+      besimmte Rolle bzw. Position innerhalb der Gruppierung inne hat,
+      beispielsweise den Vorsitz einer Fraktion.
     </para>
+    <programlisting language="json">
+{
+    &quot;person&quot;: &quot;beispielris:people/862&quot;,
+    &quot;organization&quot;: &quot;beispielris:organizations/5&quot;,
+    &quot;role&quot;: &quot;beispielris:vocab/chair&quot;,
+    &quot;startDate&quot;: &quot;2013-12-03T16:30:00+01:00&quot;
+}
+</programlisting>
     <sect3 id="eigenschaften-10">
       <title>Eigenschaften</title>
       <variablelist>
@@ -6730,7 +6767,9 @@ Simple Feature Access Spezifikation:
           </term>
           <listitem>
             <para>
-              Person. Typ: <literal>oparl:Person</literal> OPTIONAL
+              Die betreffende Person, die Mitglied einer Gruppierung ist
+              oder war. Typ: <literal>oparl:Person</literal>.
+              Kardinalität: 1. Die Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -6740,8 +6779,9 @@ Simple Feature Access Spezifikation:
           </term>
           <listitem>
             <para>
-              Organization. Typ: <literal>oparl:Organization</literal>
-              OPTIONAL
+              Die Organisation, in der die Person Mitglied ist oder war.
+              Typ: <literal>oparl:Organization</literal>. Kardinalität:
+              1. Die Eigenschaft ist ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -6751,20 +6791,19 @@ Simple Feature Access Spezifikation:
           </term>
           <listitem>
             <para>
-              Rolle. Das Objekt hat eine
+              Rolle der Person für die Gruppierung. Das Objekt hat eine
               <literal>skos:prefLabel</literal>-Eigenschaft, deren Wert
               eine Funktionsbezeichnung ist, z.B. &quot;1. pers.
               Vertreter | 1. pers. Vertreterin&quot; oder &quot;2. pers.
-              Vertreter | 2. pers. Vertreterin&quot;. Popolo: &quot;The
-              role that the person fulfills in the organization&quot;.
-              normale Mitglieder haben in der Regel keine eigene
-              Funktion, aber auch eine Unterscheidung zwischen z.B.
-              &quot;Sachkundige Bürger | Sachkundige Bürgerin&quot; und
-              &quot;Ratsherr | Ratsfrau&quot; bei einfachen Mitgliedern
-              ist hiermit möglich. FRAGE: Wie soll bei einem
-              sachkundigen Bürger verfahren werden, der gleichzeitig
-              Vorsitzender ist? Typ: <literal>org:Role</literal>
-              OPTIONAL
+              Vertreter | 2. pers. Vertreterin&quot;. Gewöhnliche
+              Mitglieder haben in der Regel keine besondere Rolle, aber
+              auch eine Unterscheidung zwischen z.B. &quot;Sachkundige
+              Bürger | Sachkundige Bürgerin&quot; und &quot;Ratsherr |
+              Ratsfrau&quot; bei einfachen Mitgliedern ist hiermit
+              möglich. FRAGE: Wie soll bei einem sachkundigen Bürger
+              verfahren werden, der gleichzeitig Vorsitzender ist? Typ:
+              <literal>org:Role</literal>. Kardinalität: 0 bis 1. Die
+              Eigenschaft ist OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -6774,8 +6813,8 @@ Simple Feature Access Spezifikation:
           </term>
           <listitem>
             <para>
-              The post held by the person in the organization Typ:
-              <literal>org:Post</literal> OPTIONAL
+              The post held by the person in the organization. Typ:
+              <literal>org:Post</literal>. OPTIONAL
             </para>
           </listitem>
         </varlistentry>
@@ -6792,7 +6831,8 @@ Simple Feature Access Spezifikation:
               entsendet wurden (z.B. fraktionslose Abgeordnete). FRAGE:
               Muss diese Situation vom Fehlen von Informationen über
               Entsendungen unterschieden werden? Typ:
-              <literal>oparl:Organization</literal> OPTIONAL
+              <literal>oparl:Organization</literal>. Kardinalität: 0 bis
+              1. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -6803,8 +6843,9 @@ Simple Feature Access Spezifikation:
           <listitem>
             <para>
               <literal>schema:validFrom</literal> wie in Popolo. The
-              date on which the relationship began Typ: String im Format
-              <literal>xsd:dateTime</literal> OPTIONAL
+              date on which the relationship began Typ:
+              <literal>xsd:dateTime</literal>. Kardinalität: 0 bis 1.
+              OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -6815,21 +6856,33 @@ Simple Feature Access Spezifikation:
           <listitem>
             <para>
               <literal>schema:validThrough</literal> wie in Popolo. The
-              date on which the relationship ended Typ: String im Format
-              <literal>xsd:dateTime</literal> OPTIONAL
+              date on which the relationship ended Typ:
+              <literal>xsd:dateTime</literal>. Kardinalität: 0 bis 1.
+              OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
       </variablelist>
-    </sect3>
-    <sect3 id="hinweise">
-      <title>Hinweise</title>
       <para>
-        http://www.w3.org/TR/vocab-org/#membership-roles-posts-and-reporting
+        TODO: Folgende Verweise einbauen oder entfernen:
       </para>
-      <para>
-        http://popoloproject.com/specs/membership.html
-      </para>
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>
+            https://github.com/OParl/specs/issues/122
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            http://www.w3.org/TR/vocab-org/#membership-roles-posts-and-reporting
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            http://popoloproject.com/specs/membership.html
+          </para>
+        </listitem>
+      </itemizedlist>
     </sect3>
   </sect2>
 </sect1>

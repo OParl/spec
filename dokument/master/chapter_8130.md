@@ -29,13 +29,13 @@ Ein einfaches Beispiel:
 }
 ~~~~~
 
-Ein Kontext (TODO: Kann das weg?):
+Der JSON-LD-Kontext für die Eigenschaft `geometry`:
 
 ~~~~~
 {
    "geometry":
    {
-     "@type": "ogc:wktLiteral" 
+     "@type": "ogc:wktLiteral"
    }
 }
 ~~~~~

@@ -1,6 +1,8 @@
 Glossar
 =======
 
+FRAGE: Sollte es ein Glossar geben? Wenn ja, müsste es ergänzt werden. Sonst wird es entfernt.
+
 IRI
 
 :   Internationalized Resource Identifier ist die internationalisierte Form der Uniform Resource Identifier (URI). Diese sind in RFC 3987 spezifiziert (http://tools.ietf.org/html/rfc3987). In der OParl-Spezifikation sind grundsätzlich auch dann IRIs gemeint, wenn die Bezeichnungen URI oder URL verwendet werden. Dies dient der Lesbarkeit, auch wenn es technisch nicht korrekt ist.

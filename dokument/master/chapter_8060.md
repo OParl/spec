@@ -37,7 +37,7 @@ Ein Beispiel in expandierter Form:
     "gender": "http://www.w3.org/2006/vcard/ns#Male",
     "email": "mailto:max@mustermann.de",
     "phone": "tel:+493012345678",
-    "streetAddress": "Musterstraße 5", // nicht mehrsprachig
+    "streetAddress": "Musterstraße 5",
     "postalCode": "11111",
     "locality": {
         "de": "Musterort",
@@ -59,14 +59,11 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 ~~~~~  {#person_ex_context .json}
 {
     "@language": "de",
-    
-    // Präfixe siehe Abschnitt 8000
-
     "gender": "vcard:hasGender",
     "givenName": "foaf:firstName",
     "familyName": "foaf:lastName",
     "academic_degree": {
-        "@language": null , // keine Vorgabesprache da nicht mehrsprachig
+        "@language": null,
         "@id": "foaf:title"
     },
     "email": {
@@ -77,7 +74,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "streetAddress": "vcard:street-address",
     "locality": {
         "@id": "vcard:locality",
-        "@container": "@language" // für eine "language map"
+        "@container": "@language"
     },
     "created": {
         "@id": "dc:created",
@@ -96,7 +93,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "@type": "oparl:Person",
     "@id": "https://oparl.beispielris.de/person/29",
     "name": "Prof. Dr. Max Mustermann",
-    "familyName": "Mustermann", // Kontext gibt deutsche Spache vor
+    "familyName": "Mustermann",
     "givenName": "Max",
     "title": "Prof. Dr.",
     "formOfAddress": "beispielris:formofaddress/ratsmitglied",
@@ -115,17 +112,18 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     "created": "2011-11-11T11:11:00+01:00",
     "modified": "2012-08-16T14:05:27+02:00"
 }
+~~~~~
 
 Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der Kontext bleibt wie zuvor.
 
 ~~~~~  {#person_ex3 .json}
 {
-    // ...
+    ...
     "locality": "Musterort",
-    // ...
+    ...
 }
-
 ~~~~~
+
 ### Eigenschaften ###
 
 `name`

@@ -48,7 +48,7 @@ Das entsprechende Beispiel in kompakter Form:
     "body": "0",
     "nameShort": "Finanzausschuss",
     "nameLong": "Ausschuss für Haushalt und Finanzen",
-    "post:" [
+    "post": [
         "beispielris:post/chairperson",
         "beispielris:post/deputyChairperson"
     ],

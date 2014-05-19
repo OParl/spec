@@ -37,15 +37,7 @@ Ein Beispiel in expandierter Form:
 }
 ~~~~~
 
-Das selbe Beispiel in kompakter Form.
-
-Ein Kontext:
-~~~~~~~~~~
-{
-    "@language": "de",
-    ...
-}
-~~~~~~~~~~
+Das entsprechende Beispiel in kompakter Form:
 
 
 ~~~~~  {#organization_ex2 .json}
@@ -76,20 +68,21 @@ Ein Kontext:
 
 `body`
 :   Körperschaft, zu der diese Gruppierung gehört.
-    Typ: `oparl:Body`
+    Typ: `oparl:Body`.
+    Kardinalität: 1.
     ZWINGEND
-
-`nameShort`
-:   Der Name der Gruppierung, eine Kurzform.
-    Typ: String
-    ZWINGEND
-TODO: ZWINGEND/OPTIONAL prüfen
 
 `nameLong`
-:   Langform des Namens der Gruppierung, der rechtlich korrekte Name.
-    Typ: String
-    ZWINGEND
-TODO: ZWINGEND/OPTIONAL prüfen
+:   Offizielle (lange) Form des Namens der Gruppierung.
+    Typ: Zeichenkette.
+    Kardinalität: 1.
+    Diese Eigenschaft ist ZWINGEND.
+
+`nameShort`
+:   Der Name der Gruppierung als Kurzform.
+    Typ: String.
+    Kardinalität: 1.
+    Die Eigenschaft ist OPTIONAL.
 
 `post`
 :   Position oder Positionen, die für diese Gruppierung vorgesehen sind. Die Objekte gehören zu der Klasse `org:Post` oder einer ihrer Unterklassen.
@@ -97,7 +90,7 @@ TODO: ZWINGEND/OPTIONAL prüfen
     "männliche Form | weibliche Form" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem "|")
     Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden:
     "Mitglied" und nicht "Mitglied | Mitglied".
-    Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschecht
+    Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschlecht
     der Personen vornimmt.
     z.B. "Vorsitzender | Vorsitzende",
     "1. Stellvertreter | 1. Stellvertreterin",
@@ -108,39 +101,45 @@ TODO: ZWINGEND/OPTIONAL prüfen
     "Stellvertretendes Mitglied"
 Siehe https://github.com/OParl/specs/issues/45
     TODO: "Ordentliches Mitglied", "Stellvertretendes Mitglied" müssen anders behandelt werden!
-    Typ: `oparl:Post`
-    OPTIONAL
+    Typ: `oparl:Post`.
+    Kardinalität: 0 bis *.
+    Die Eigenschaft ist OPTIONAL.
 
 `member`
-:   Mitglieder dieser Organisation (Objekte vom Typ `[oparl:Person](#oparl_person)`). Auch alle Personen mit
+:   Mitglieder dieser Organisation. Auch alle Personen mit
     Positionen in der Organisation sind hier anzugeben.
-    Typ: `oparl:Person`
-    ZWINGEND (falls es Mitglieder gibt)
+    Typ: `oparl:Person`.
+    Kardinalität: 0 bis *.
+    Diese Eigenschaft ist ZWINGEND.
     
 `subOrganizationOf`
 :   Ggf. URL der übergeordneten Organisation.
-    Typ: `oparl:Organization`
+    Typ: `oparl:Organization`.
+    Kardinalität: 0 bis 1.
+    OPTIONAL.
+
+`organizationType`
+:   Objekt mit `skos:prefLabel`, z.B. für "Rat", "Hauptausschuss", "Ausschuss"
+    "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat".
+    Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
+    Typ: `skos:Concept`.
+    Kardinalität: 0 bis 1.
+    OPTIONAL.
+    
+`keyword`
+:   Schlagworte. Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
+    Typ: `skos:Concept`.
+    Kardinalität: 0 bis *.
     OPTIONAL.
 
 `created`
 :   Datum/Uhrzeit der Erzeugung des Objekts.
-    Typ: Zeitstempel
-    EMPFOHLEN
+    Typ: `xsd:dateTime`.
+    Kardinalität: 0 bis 1.
+    EMPFOHLEN.
 
-`keyword`
-:   Schlagworte. Dies sind `skos:Concept`-Objekte mit einem `skos:prefLabel`-Attribut (für jede unterstützte Sprache) mit einer
-    Zeichenkette. In einer zukünftigen OParl-Version wird möglicherweise eine Menge solcher Schlagwort-Objekte
-    definiert. Anregungen gibt es u.a. in der Tabelle "Kategorien" im unteren Drittel der Seite http://htmlpreview.github.io/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html 
-    Typ: `skos:Concept`
-    OPTIONAL
-
-`organizationType`
-:   Objekt mit `skos:prefLabel`, z.B. "Rat", "Hauptausschuss", "Ausschuss"
-    "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat"
-    Typ: `skos:Concept`
-    OPTIONAL
-    
 `modified`
 :   Datum/Uhrzeit der letzten Bearbeitung des Objekts.
-    Typ: Zeitstempel
-    EMPFOHLEN
+    Typ: `xsd:dateTime`.
+    Kardinalität: 0 bis 1.
+    EMPFOHLEN.

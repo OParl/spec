@@ -74,30 +74,5 @@ die im `modified` Zeitstempel widerspiegeln sollte.
 Die Eigenschaft `keyword` dient der Kategorisierung von Objekten und ist in
 einer Vielzahl von Objekttypen zu diesem Zweck einsetzbar.
 
-Wert der Eigenschaft sind ein oder mehrere `skos:Concept`-Objekte mit einer
-`skos:prefLabel`-Eigenschaft. Der Wert der Eigenschaft ist jeweils eine Zeichenkette.
-Die verwendete Sprache (in der Regel "de" für Deutsch) MUSS dabei angegeben werden.
-
-TODO: SKOS darstellen
-
-TODO: Beispiel
-
-Siehe u.a.:
-
-    https://github.com/OParl/specs/issues/41
-
-Geoportal.de und DeStat.de werden bereits auf Basis von Metadaten-Standards verlinkt.
-Bei einer Verwendung von Metadaten-Standards für RIS könnten ebenfalls interessante
-Potenziale durch Verlinkung entstehen.
-Der GovData-Metadaten-Standard z.B. kann genutzt werden
-
-    http://htmlpreview.github.com/?https://github.com/fraunhoferfokus/ogd-metadata/blob/master/OGPD_JSON_Schema.html
-
-und die 14 GovData-Kategorien können dabei durch eine zusätzliche Verschlagwortung
-auf Basis von Standard-Schlagwortkatalogen für RIS eine Ergänzung erfahren (LeiKa,
-Bremer-Katalog, DBpedia, RAMON).
-
-Die 14 Werte des GovData-Metadaten-Standard sind bisher nicht als Linked Data
-existent.
-
-TODO: eventuell können diese in OParl als Schlagwort-`skos:Concept`-Objekte als nicht abschliessende Menge von Schlagworten vorgegeben werden.
+Mehr zur Funktionsweise dieser Eigenschaft wird im Abschnitt
+[Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben.

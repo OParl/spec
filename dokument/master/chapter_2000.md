@@ -102,6 +102,6 @@ Objekt  {#objekt}
 
 Der Server beantwortet Anfragen eines Clients im Regelfall, indem bestimmte Objekte
 ausgegeben werden. Objekte sind im Fall einer OParl-konformen API JSON-Objekte, die
-das Schema einhalten, das in der vorliegenden Spezifikation beaschrieben wird.
+das Schema einhalten, das in der vorliegenden Spezifikation beschrieben wird.
 Antworten des Servers können einzelne Objekte, Listen von Objekten oder Listen von
 URLs von Objekten enthalten.

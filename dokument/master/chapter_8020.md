@@ -18,7 +18,7 @@ unter der weitere Informationen über den Objekttyp angeboten werden KÖNNEN.
 
 Beide Eigenschaften können bei vielen Objekttypen genutzt werden, um den nutzerfreundlichen
 Namen des Objekts anzugeben. Üblicherweise ist `name` eine Pflichteigenschaft, während
-nameLong optional angegeben werden kann. Dies ist dann zu empfehlen, wenn zu einem Namen
+`nameLong` optional angegeben werden kann. Dies ist dann zu empfehlen, wenn zu einem Namen
 eine kurze bzw. kompakte und eine längere, aber weniger nutzerfreundliche Variante
 existieren. Ein Beispiel wäre die Kurzform "CDU" für den Parteinamen "Christlich Demokratische
 Union Deutschlands".

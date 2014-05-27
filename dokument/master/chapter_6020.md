@@ -54,14 +54,14 @@ zu haben:
 * Einzelne Client-NutzerInnen werden von den Anbietern ihrer Clients darauf
   aufmerksam gemacht, dass eine neue Version ihres Produkts für eine neue
   OParl-Version zur Verfügung steht. Mit dieser Version könnten die Nutzer
-  in den Genuss der Vorteile von OParl Version 1.1 kommen.
+  in den Genuss der Vorteile von OParl-Version 1.1 kommen.
 
-* Nach einiger Zeit erscheint eine neue Version 2.0 der OParl Spezifikation.
+* Nach einiger Zeit erscheint eine neue Version 2.0 der OParl-Spezifikation.
   Hier haben sich größere Änderungen ergeben. Das Schema ist nicht kompatibel
   mit dem von Version 1.0 und 1.1. Clients, die für eine Version 1.* entwickelt
   wurden, werden nicht sinnvoll mit einem Server der Version 2 kommunizieren können.
 
-* Der Server-Entwickler bietet das entsprechende Produkt zu OParl Version 2 an,
+* Der Server-Entwickler bietet das entsprechende Produkt zu OParl-Version 2 an,
   Beispielstadt entschließt sich zum Einsatz der neuen Version. Da das Server-Produkt
   gleichzeitig OParl 1.* und OParl 2.0 bedienen kann, kann Beispielstadt gleichzeitig
   einen Endpunkt für 1.1 und einen für 2.0 betreiben. Die URL des neuen Endpunkts
@@ -83,4 +83,4 @@ Vorschläge, aber in keiner Weise bindend.
 Die praktische Umsetzung von HTTP-Weiterleitungen ist besonders dann trivial,
 wenn die restlichen URL-Bestandteile identisch bleiben. In diesem Fall
 können Server mit einer einfachen Regel von jeglicher vorherigen auf jegliche neue
-URL weiter leiten.
+URL weiterleiten.

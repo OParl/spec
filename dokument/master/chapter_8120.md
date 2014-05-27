@@ -1,5 +1,5 @@
 oparl:Consultation (Beratung)  {#oparl_consultation}
-----------------------------
+-----------------------------
 
 Der Objekttyp `oparl:Consultation` dient dazu, die Beratung einer Drucksache
 ([`oparl:Paper`](#oparl_paper)) in einer Sitzung abzubilden. Dabei ist es nicht entscheidend,
@@ -43,7 +43,7 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
 
 ~~~~~  {#role_ex1 .json}
 {
-    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
+    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld",
     "@id": "beispielris:role/decision",
     "prefLabel": {
         "de": "Entscheidung",
@@ -57,12 +57,12 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
 
 `paper`
 :   Drucksache, die beraten wird.
-    Typ: `oparl:Paper`
+    Typ: `oparl:Paper`.
     ZWINGEND.
 
 `agendaitem`
 :   Tagesordnungspunkt, unter dem die Drucksache beraten wird.
-    Typ: `oparl:AgendaItem`
+    Typ: `oparl:AgendaItem`.
     ZWINGEND.
 
 `committee`
@@ -71,25 +71,25 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
     angehören können).
     Die Liste ist dann geordnet.
     Das erste Gremium der Liste ist federführend.
-    Typ: `oparl:Organization`
+    Typ: `oparl:Organization`.
     ZWINGEND.
 
 `authoritative`
 :   Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst 
     wird (`true`) wird oder nicht (`false`).
-    Typ: boolean.
+    Typ: Boolean.
     Diese Eigenschaft ist OPTIONAL.
 
 `role`
-:   Rolle oder Funktion der Beratung. z.B. Anhörung (hearing), Entscheidung (decision), 
+:   Rolle oder Funktion der Beratung. Zum Beispiel Anhörung (hearing), Entscheidung (decision), 
     Kenntnisnahme (notice), Vorberatung (counseling) usw. Es wird empfohlen in den URLs entsprechende englische
     Bestandteile zu verwenden. Die Rollenobjekte haben nur eine festgelegte Eigenschaft: `skos:prefLabel` für den Namen.
     In einer zukünftigen Version von OParl können gegebenenfalls die am stärksten benötigten Rollen
     standardisiert werden.
-    Typ: `skos:Concept`
-    OPTIONAL
+    Typ: `skos:Concept`.
+    OPTIONAL.
 
 `keyword`
 :   Schlagwort, Begriff mit `skos:prefLabel`. Allgemeiner verwendbar als `role`.
-    Typ: `skos:Concept`
-    OPTIONAL
+    Typ: `skos:Concept`.
+    OPTIONAL.

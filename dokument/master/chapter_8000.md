@@ -17,7 +17,7 @@ einander stehen.
 Wenn in der nachfolgenden Schema-Beschreibung nicht anders angegeben, werden bei
 den Werten grundsätzlich Unicode-Zeichenketten (Strings) erwartet.
 
-### null-Werte
+### `null`-Werte
 
 JSON erlaubt es grundsätzlich, dass Eigenschaften den Wert `null` haben können.
 Im Rahmen dieser Spezifikation DARF das jedoch nur bei Eigenschaften der Fall sein,
@@ -26,7 +26,7 @@ einen Wert ungleich `null` besitzen.
 
 ### Kardinalität
 
-Viele Eigenschaften erlauben es, entweder einen einzelnen Wert (z.B. eine Zeichenkette,
+Viele Eigenschaften erlauben es, entweder einen einzelnen Wert (z. B. eine Zeichenkette,
 eine URL, eine Zahl) oder alternativ ein JSON-Array mit mehreren Elementen des
 jeweils erlaubten Typs auszugeben. Die entsprechende Regel ist in der Schema-Beschreibung
 am Stichwort _Kardinalität_ angegeben. Dabei sind verschiedene Angaben möglich:
@@ -52,7 +52,7 @@ Für ein Datum wird http://www.w3.org/TR/xmlschema-2/#date verwendet und
 für eine Zeit http://www.w3.org/TR/xmlschema-2/#dateTime. Dabei wird ein
 Datum (ein Tag ohne Uhrzeit) ohne Zeitzone und ein Datum mit Zeit mit
 Zeitzone angegeben, denn nur damit ist die Uhrzeit weltweit eindeutig
-ohne zusätzlich auf den Ort einer Sitzung o.ä. Bezug nehmen zu müssen.
+ohne zusätzlich auf den Ort einer Sitzung o. ä. Bezug nehmen zu müssen.
 
 Diese Spezifikationen stützen sich auf RFC 3339^[RFC3339:
 <http://www.ietf.org/rfc/rfc3339.txt>]) und RFC 3339 wiederum auf ISO 8601.
@@ -69,7 +69,7 @@ mehrsprachig sein können. JSON-LD sieht das Schlüsselwort
 Sprachen zu definieren. Diesen Mechanismus SOLLEN Server-Implementierer
 nutzen, um Mehrsprachigkeit von Inhalten zu realisieren.
 
-In den von OParl bereitgestellten JSON-LD-Kontexten ist die Deutsche Sprache
+In den von OParl bereitgestellten JSON-LD-Kontexten ist die deutsche Sprache
 (Kürzel `de`) für sämtliche Texteigenschaften voreingestellt. Das `@language`
 Stichwort SOLL daher nur dann eingesetzt werden, wenn ein Inhalt nicht
 deutschsprachig ist.
@@ -106,7 +106,7 @@ Im Einzelnen sind dies:
 * die Eigenschaft `keyword` in mehreren Objekttypen
 
 Diese Eigenschaften können wahlweise mit einfachen Zeichenketten befüllt werden
-(z.B. "Beantwortung einer Anfrage") oder mit URLs zu Begriffen aus
+(z. B. "Beantwortung einer Anfrage") oder mit URLs zu Begriffen aus
 Vokabularen. Ein Begriff SOLL, wenn er per URL referenziert wird,
 in Form eines `skos:Concept` Objekts vorliegen, das über eine `skos:prefLabel`
 Eigenschaft verfügt. Diese Konstrukte entstammen dem _Simple Knowledge
@@ -125,17 +125,17 @@ referenziert werden können.
 
 ### Herstellerspezifische Erweiterungen
 
-Diese sind - falls tatsächlich erforderlich - mit den JSON-LD Mitteln einfach möglich. z.B.
+Diese sind – falls tatsächlich erforderlich – mit den JSON-LD-Mitteln einfach möglich. z. B.
 
 ~~~~~
-"herstellera:newWonderProperty": "Dies ist ein Feature
+"herstellera:newWonderProperty": "Dies ist ein Feature,
     welches noch kein anderer Hersteller bietet!"
 ~~~~~
 
 ### URL-Pfade in den Beispielen
 
 OParl-Clients wissen *nichts* vom Aufbau von Pfaden innerhalb von URLs,
-müssen dies nicht wissen und es gibt deshalb in der OParl-Spezifikation
+müssen dies nicht wissen, und es gibt deshalb in der OParl-Spezifikation
 *keine* Festlegungen dazu.
 
 Wenn der Betreiber eines OParl-Systems beispielsweise meint, dass eine
@@ -158,7 +158,7 @@ bodies/0/peoples/
 auftaucht, dann bedeutet das nicht, dass genau solche Pfade durch
 die OParl-Spezifikation vorgeschrieben sind.
 
-Auch dies wäre als absoluter Link z.B. für eine Person verwendbar:
+Auch dies wäre als absoluter Link z. B. für eine Person verwendbar:
 
 ~~~~~~~~~~
 https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
@@ -170,7 +170,7 @@ Dies käme dann als relativer Link für die Person in Frage:
 personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
 ~~~~~~~~~~
 
-oder auch z.B. dies
+oder auch z. B. dies
 ~~~~~~~~~~
 LfyIfvCWq8SpBQj0MiyHaxDZwGJ
 ~~~~~~~~~~

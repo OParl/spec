@@ -7,7 +7,7 @@ begannen auf einer Veranstaltung der Open Knowledge Foundation (OKF) Deutschland
 am 17. und 18. November 2012. Unter dem Titel "Stadt Land Code" lud die
 OKF EntwicklerInnen von Anwendungen ein, die das Ziel haben, einen gesellschaftlichen
 Nutzen zu schaffen. Die Veranstaltung in den Räumen der Heinrich-Böll-Stiftung
-wurde unter anderem von VITAKO, der Bundes-Arbeitsgemeinschaft der Kommunalen
+wurde unter anderem von VITAKO, der Bundesarbeitsgemeinschaft der kommunalen
 IT-Dienstleister, gesponsort. Die Geschäftsführerin, Dr. Marianne Wulff, war selbst
 anwesend. Marian Steinbach, Entwickler von Offenes Köln, war eingeladen, um über
 die Erfahrungen mit seinem Projekt zu berichten und sprach dabei auch über die
@@ -17,11 +17,11 @@ Marian Steinbach über Möglichkeiten, dies gemeinsam voran zu treiben.
 
 Im Rahmen einer Anhörung des Landtags von Nordrhein-Westfalen zu einem Antrag der
 Regierungskoalition zum Thema Open Government und Open Data waren am 6. Dezember 2012
-sowohl Jens Klessmann (Frainhofer FOKUS) und Marian Steinbach als Sachverständige
-eingeladen. Sie beschließen, die Bemühungen um eine Standardisierung offenert
+sowohl Jens Klessmann (Fraunhofer FOKUS) und Marian Steinbach als Sachverständige
+eingeladen. Sie beschließen, die Bemühungen um eine Standardisierung offener
 Ratsinformationen gemeinsam mit Unterstützung von VITAKO voranzutreiben. Im selben Monat
 beginnen Marianne Wulff, Jens Klessmann und Marian Steinbach mit der Planung eines
-initalen Workshops mit Vertreterinnen und Vertretern von Kommunen, kommunalen
+initialen Workshops mit Vertreterinnen und Vertretern von Kommunen, kommunalen
 IT-Dienstleistern, RIS-Anbietern und Zivilgesellschaft. Ziel: Die Bereitschaft zur
 Zusammenarbeit an einem gemeinsamen Standard ermitteln. Unterdessen beginnt Marian
 Steinbach mit der Formulierung eines Standard-Entwurfs als Diskussionsgrundlage. Der
@@ -35,11 +35,11 @@ Fertigstellung der ersten Version der Spezifikation wird der 30. Juni 2013 festg
 Die Initiatoren präsentieren den Anwesenden hier erstmals den Namen OParl, der künftig
 als Name für die Bemühungen der Gruppe stehen soll.
 
-Die verteilte Arbeit am Standard-Entwurf läuft nach dem Workshop in Köln nur schleppend,
-der ursprünglich gesetze Termin kann nicht gehalten werdne. Für den 22. Januar 2014 laden
+Die verteilte Arbeit am Standard-Entwurf läuft nach dem Workshop in Köln nur schleppend;
+der ursprünglich gesetzte Termin kann nicht gehalten werden. Für den 22. Januar 2014 laden
 die Initiatoren zu einem eintägigen OParl-Workshop in Bielefeld ein, um die Spezifikation
 in intensiver Zusammenarbeit vor Ort so weit wie möglich voran zu treiben und eine baldige
-Fertigstellung zu ermöglichen. Am 26. Januar 2014 findet in Düsseldorf ein weiterer tehnischer
+Fertigstellung zu ermöglichen. Am 26. Januar 2014 findet in Düsseldorf ein weiterer technischer
 Workshop zur Arbeit an der Spezifikation statt.
 
 TODO: April 2014: Verfeinerung des Vokabular-Teils durch Andreas Kuckartz, finanziert durch das

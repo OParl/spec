@@ -50,7 +50,7 @@ Ein Kontext:
 }
 ~~~~~
 
-Und das System-Objekt in kompakter Form unter Verwendung des Kontext:
+Und das System-Objekt in kompakter Form unter Verwendung des Kontexts:
 
 ~~~~~  {#system_ex2 .json}
 {
@@ -70,14 +70,14 @@ Und das System-Objekt in kompakter Form unter Verwendung des Kontext:
 }
 ~~~~~
 
-Auf jedem OParl Server MUSS ein Objekt vom Typ `oparl:System` vorgehalten
+Auf jedem OParl-Server MUSS ein Objekt vom Typ `oparl:System` vorgehalten
 werden. Es DARF nur ein einziges solches Objekt je Server existieren.
 
 Für Clients ist das `oparl:System` Objekt ein geeigneter Einstiegspunkt,
-um grundlegende Informationen über das Sytem zu bekommen und die URLs
+um grundlegende Informationen über das System zu bekommen und die URLs
 zum Zugriff auf andere Informationen in Erfahrung zu bringen.
 
-Die URL des `oparl:System` Objekts MUSS per Definition identisch mit
+Die URL des `oparl:System`-Objekts MUSS per Definition identisch mit
 der URL des API-Endpunkts des Servers sein.
 
 ### Eigenschaften
@@ -105,7 +105,7 @@ der URL des API-Endpunkts des Servers sein.
 :   E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe einer E-Mail-Adresse dient sowohl NutzerInnen
     wie auch EntwicklerInnen von Clients zur Kontaktaufnahme mit dem
     Betreiber.
-    Typ: mail-Adresse inklusive "mailto:"
+    Typ: E-Mail-Adresse inklusive "mailto:"
     EMPFOHLEN. 
 
 `contactName`
@@ -116,8 +116,8 @@ der URL des API-Endpunkts des Servers sein.
 
 `newObjects`
 :   URL des Feeds ["Neue Objekte"](#feed_neue_objekte).
-    EMPFOHLEN.
     Typ: URL
+    EMPFOHLEN.
 
 `updatedObjects`
 :   URL des Feeds ["Geänderte Objekte"](#feed_geaenderte_objekte).
@@ -130,7 +130,7 @@ der URL des API-Endpunkts des Servers sein.
     EMPFOHLEN.
 
 `website`
-:   URL zur WWW-Oberfläche des parlamentarischen Informationssystem.
+:   URL zur WWW-Oberfläche des parlamentarischen Informationssystems.
     Typ: URL
     OPTIONAL.
 

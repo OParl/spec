@@ -39,7 +39,7 @@ Regel einem geschlossenen Nutzerkreis vorbehalten. Die Darstellung und der Abruf
 von Informationen und Dokumenten hingegen ist in vielen Fällen für die
 Öffentlichkeit freigegeben.
 
-Die OParl Spezifikation beschreibt eine Schnittstelle, die den maschinellen,
+Die OParl-Spezifikation beschreibt eine Schnittstelle, die den maschinellen,
 lesenden Zugriff auf derartige Informationen ermöglicht.
 
 Server {#server}
@@ -56,7 +56,7 @@ desjenigen, der das parlamentarischen Informationssystem betreibt.
 
 Von einem Server, der die OParl-Spezifikation erfüllt, wird erwartet, dass er
 bestimmte parlamentarische Informationen in einem bestimmten Format zur Verfügung
-stellt und auf bestimmte Anfragen von so genannten Clients über die OParl API
+stellt und auf bestimmte Anfragen von so genannten Clients über die OParl-API
 entsprechend dieser Spezifikation reagiert.
 
 API {#api}
@@ -76,7 +76,7 @@ erfolgen kann.
 Client {#client}
 ------
 
-Der Begriff "Client" steht für eine Software, die über die OParl API mit dem Server
+Der Begriff "Client" steht für eine Software, die über die OParl-API mit dem Server
 kommuniziert. Da die API auf dem HTTP-Protokoll aufbaut, handelt es sich bei dem
 Client um eine spezielle Form eines HTTP-Clients.
 
@@ -86,7 +86,7 @@ Cache {#cache}
 Ein Cache ist ein Speicher, der einem Client dazu dienen kann, von einem
 Server abgerufene Informationen längerfristig vorzuhalten. Dies kann beispielsweise
 dazu dienen, mehrfache Anfragen der selben Informationen zu vermeiden, wodurch
-sowohl Ressourcen auf Seite des Servers geschohnt als auch die Nutzung von
+sowohl Ressourcen auf Seite des Servers geschont als auch die Nutzung von
 Netzwerkbandbreite reduziert werden kann. Die Nutzung eines Cache kann auch
 zur Verbesserung der Nutzerfreundlichkeit eines Clients beitragen, indem
 Wartezeiten zur Bereitstellung einer Ressource verkürzt werden.

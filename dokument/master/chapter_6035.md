@@ -90,7 +90,7 @@ URLs zu unterbinden, SOLL eine entsprechende HTTP-Anfrage mit einer Weiterleitun
 kanonische URL beantwortet werden. Dabei ist der HTTP-Status-Code 301 zu verwenden.
 
 Server-Implementierern wird empfohlen, hierfür den `Host`-Header der HTTP-Anfrage auszuwerten und mit
-der konfigurierten Einstellung für den kanonischen Hostnamen des Systems abzugleichen.
+der konfigurierten Einstellung für den kanonischen Host-Namen des Systems abzugleichen.
 
 Beim **Pfad**-Bestandteil der URL MÜSSEN Server-Implementierer darüber hinaus beachten, dass
 nur jeweils eine Schreibweise als die kanonische Schreibweise gelten kann. Dazu gehört auch
@@ -112,7 +112,7 @@ Konsequenz kann es zu vermeidbarer Ressourcennutzung sowohl auf Client- als auch
 
 Von Clients wird erwartet, dass sie die URLs, die ihnen von Servern angeboten werden,
 unverändert verwenden. Clients SOLLEN NICHT versuchen, Schreibweisen von URLs zu ändern,
-Query-String-Parameter umzusortieren oder ähnliches.
+Query-String-Parameter umzusortieren oder Ähnliches.
 
 ### Langlebigkeit
 

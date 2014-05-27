@@ -25,7 +25,7 @@ Ein Beispiel:
     "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
     "masterDocument": "https://oparl.beispielris.de/document/57738",
     "license": "http://www.opendefinition.org/licenses/cc-by",
-    "documentRole": "https://oparl.beispielris.de/document-role/evidence",
+    "documentRole": "https://oparl.beispielris.de/document-role/evidence"
 }
 ~~~~~
 
@@ -61,7 +61,7 @@ werden, welche Ableitungen einer Datei existieren.
     EMPFOHLEN.
 
 `mimeType`
-:   Mime-Typ des Inhalts^[vgl. RFC2046: <http://tools.ietf.org/html/rfc2046>].
+:   MIME-Type des Inhalts^[vgl. RFC2046: <http://tools.ietf.org/html/rfc2046>].
     Sollte das System einer Datei keinen
     spezifischen Typ zuweisen können, wird EMPFOHLEN, hier 
     `application/octet-stream` zu verwenden.
@@ -123,7 +123,7 @@ werden, welche Ableitungen einer Datei existieren.
 
 `paper`
 :   Falls die Datei zu einer Drucksache (oparl:Paper) gehört, MUSS über diese Eigenschaft die
-    URL des Drucksache-Objekts ausgegeben werden. Andernsfalls DARF diese Eigenschaft NICHT
+    URL des Drucksache-Objekts ausgegeben werden. Andernfalls DARF diese Eigenschaft NICHT
     vorhanden sein.
     Typ: `oparl:Paper`.
     Kardinalität: 0 bis *.
@@ -136,23 +136,23 @@ werden, welche Ableitungen einer Datei existieren.
     Kardinalität: 0 bis *.
 
 `masterDocument`
-:   Datei von der das aktuelle Objekt abgeleitet wurde. Details dazu in der
+:   Datei, von der das aktuelle Objekt abgeleitet wurde. Details dazu in der
     allgemeinen Beschreibung weiter oben.
     Typ: `oparl:Document`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `derivativeDocuments`
-:   Abgeleitete Datei die von dem aktuellen Objekt abgeleitet wurde. Details dazu in der
+:   Datei, die von dem aktuellen Objekt abgeleitet wurde. Details dazu in der
     allgemeinen Beschreibung weiter oben.
     Typ: `oparl:Document`.
     Kardinalität: 0 bis *.
     OPTIONAL.
 
 `license`
-:   Lizenz unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet
+:   Lizenz, unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet
     wird, dann ist sie anstelle einer globalen Angabe im übergeordneten
-    `oparl:Body` bzw. `oparl:System` Objekt maßgeblich.^[vgl. [license](#eigenschaft_license)]
+    `oparl:Body`- bzw. `oparl:System`-Objekt maßgeblich.^[vgl. [license](#eigenschaft_license)]
     Typ: URL.
     Kardinalität: 0 bis 1.
     OPTIONAL.

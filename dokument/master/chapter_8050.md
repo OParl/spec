@@ -69,11 +69,11 @@ Das entsprechende Beispiel in kompakter Form:
 :   Körperschaft, zu der diese Gruppierung gehört.
     Typ: `oparl:Body`.
     Kardinalität: 1.
-    ZWINGEND
+    ZWINGEND.
 
 `nameLong`
 :   Offizielle (lange) Form des Namens der Gruppierung.
-    Typ: Zeichenkette.
+    Typ: String.
     Kardinalität: 1.
     Diese Eigenschaft ist ZWINGEND.
 
@@ -86,12 +86,12 @@ Das entsprechende Beispiel in kompakter Form:
 `post`
 :   Position oder Positionen, die für diese Gruppierung vorgesehen sind. Die Objekte gehören zu der Klasse `org:Post` oder einer ihrer Unterklassen.
     Die `skos:prefLabel`-Eigenschaften der Objekte SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster
-    "männliche Form | weibliche Form" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem "|")
+    "männliche Form | weibliche Form" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem "|").
     Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden:
     "Mitglied" und nicht "Mitglied | Mitglied".
     Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschlecht
     der Personen vornimmt.
-    z.B. "Vorsitzender | Vorsitzende",
+    z. B. "Vorsitzender | Vorsitzende",
     "1. Stellvertreter | 1. Stellvertreterin",
     "2. Stellvertreter | 2. Stellvertreterin",
     "Schriftführer | Schriftführerin",
@@ -118,7 +118,7 @@ Siehe https://github.com/OParl/specs/issues/45
     OPTIONAL.
 
 `organizationType`
-:   Objekt mit `skos:prefLabel`, z.B. für "Rat", "Hauptausschuss", "Ausschuss"
+:   Objekt mit `skos:prefLabel`, z. B. für "Rat", "Hauptausschuss", "Ausschuss",
     "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat".
     Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
     Typ: `skos:Concept`.

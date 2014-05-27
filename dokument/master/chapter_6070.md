@@ -68,7 +68,7 @@ Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
 ~~~~~
 
 Wie im Beispiel zu sehen ist, handelt es sich um eine JSON-Liste, deren Elemente
-unbenannten Objekten sind. Dies ist ein Unterschied zu herkömmlichen Objektlisten,
+unbenannte Objekten sind. Dies ist ein Unterschied zu herkömmlichen Objektlisten,
 bei denen an dieser Stelle lediglich URLs als Listeneinträge erwartet werden.
 
 Jedes der Objekte in der Liste MUSS seinerseits wiederum zwei

@@ -1,5 +1,5 @@
 oparl:Location (Ort)  {#oparl_location}
--------------------
+--------------------
 
 Dieser Objekttyp dient dazu, den Ortsbezug einer Drucksache formal 
 abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen 
@@ -33,8 +33,7 @@ Der JSON-LD-Kontext für die Eigenschaft `geometry`:
 
 ~~~~~
 {
-   "geometry":
-   {
+   "geometry": {
      "@type": "ogc:wktLiteral"
    }
 }
@@ -44,12 +43,12 @@ Und ein Beispiel unter Verwendung des Kontextes:
 
 ~~~~~  {#location_ex2 .json}
 {
-    // ...
+    ...
     "location": {
         "description": "Honschaftsstraße 312, Köln",
         "geometry": "POINT (7.03291 50.98249)"
     },
-    // ...
+    ...
 }
 ~~~~~
 
@@ -65,7 +64,7 @@ der Simple-Feature-Access-Spezifikation aktuell. OParl stellt keine Anforderunge
 daran, welche Version von Simple-Feature-Access bei der Ausgabe von WKT zu
 unterstützen ist.
 
-Für die Ausgabe über eine OParl API MÜSSEN sämtliche Koordinatenangaben solcher
+Für die Ausgabe über eine OParl-API MÜSSEN sämtliche Koordinatenangaben solcher
 Geodaten im System WGS84^[WGS84 steht für "World Geodetic System 1984",
 es wird unter anderem auch vom Global Positioning System (GPS) verwendet.
 In geografischen Informationssystemen ist für das System der EPSG-Code 4326 
@@ -75,7 +74,7 @@ für Längen- und Breitengrad.
 ### Eigenschaften ###
 
 `description`
-:   Textliche Beschreibung eines Orts, z.B. in Form einer Adresse.
+:   Textliche Beschreibung eines Orts, z. B. in Form einer Adresse.
     Typ: Zeichenkette.
     Kardinalität: 0 bis 1.
     Die Eigenschaft ist EMPFOHLEN.

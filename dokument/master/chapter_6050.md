@@ -84,4 +84,4 @@ zu erheblichen Problemen. Sandro Hawke (W3C) hat diese so zusammengefasst:
 
 Ein Ziel bei der Entwicklung der Spezifikation war es, möglichst wenige
 Blank Nodes zu erzeugen. Zukünftige Versionen können hier sicherlich noch einen
-weiteren Veitrag leisten.
+weiteren Beitrag leisten.

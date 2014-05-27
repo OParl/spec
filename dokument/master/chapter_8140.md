@@ -4,7 +4,7 @@ oparl:Membership {#oparl_membership}
 Über Objekte diesen Typs wird die Mitgliedschaft von Personen in
 Gruppierungen dargestellt. Diese Mitgliedschaften können zeitlich
 begrenzt sein. Zudem kann abgebildet werden, dass eine Person
-eine besimmte Rolle bzw. Position innerhalb der Gruppierung
+eine bestimmte Rolle bzw. Position innerhalb der Gruppierung
 inne hat, beispielsweise den Vorsitz einer Fraktion.
 
 ~~~~~  {#location_ex1 .json}
@@ -32,10 +32,10 @@ inne hat, beispielsweise den Vorsitz einer Fraktion.
 
 `role`
 :   Rolle der Person für die Gruppierung. Das Objekt hat eine `skos:prefLabel`-Eigenschaft,
-    deren Wert eine Funktionsbezeichnung ist, z.B.
+    deren Wert eine Funktionsbezeichnung ist, z. B.
     "1. pers. Vertreter | 1. pers. Vertreterin" oder "2. pers. Vertreter | 2. pers. Vertreterin".
     Gewöhnliche Mitglieder haben in der Regel keine besondere Rolle,
-    aber auch eine Unterscheidung zwischen z.B. "Sachkundige Bürger | Sachkundige Bürgerin"
+    aber auch eine Unterscheidung zwischen z. B. "Sachkundige Bürger | Sachkundige Bürgerin"
     und "Ratsherr | Ratsfrau" bei einfachen Mitgliedern ist hiermit möglich.
     FRAGE: Wie soll bei einem sachkundigen Bürger verfahren werden, der gleichzeitig Vorsitzender ist?
     Typ: `org:Role`.
@@ -45,25 +45,25 @@ inne hat, beispielsweise den Vorsitz einer Fraktion.
 `post`
 :   The post held by the person in the organization.
     Typ: `org:Post`.
-    OPTIONAL
+    OPTIONAL.
 
 `onBehalfOf`
-:   Entsendende Organization - Fraktion, fraktionslos oder externes Gremium
+:   Entsendende Organisation, Fraktion, fraktionsloses oder externes Gremium.
     Dies entspricht `opengov:onBehalfOf` in Popolo.
-    Es kann auch Mitglieder geben, die von keiner anderen Organisation entsendet wurden (z.B. fraktionslose Abgeordnete).
+    Es kann auch Mitglieder geben, die von keiner anderen Organisation entsendet wurden (z. B. fraktionslose Abgeordnete).
     FRAGE: Muss diese Situation vom Fehlen von Informationen über Entsendungen unterschieden werden?
     Typ: `oparl:Organization`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `startDate`
-:   `schema:validFrom` wie in Popolo. The date on which the relationship began
+:   `schema:validFrom` wie in Popolo. The date on which the relationship began.
     Typ: `xsd:dateTime`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `endDate`
-:   `schema:validThrough` wie in Popolo. The date on which the relationship ended
+:   `schema:validThrough` wie in Popolo. The date on which the relationship ended.
     Typ: `xsd:dateTime`.
     Kardinalität: 0 bis 1.
     OPTIONAL.

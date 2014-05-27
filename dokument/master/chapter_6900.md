@@ -15,5 +15,4 @@ enddate:
 :    Parameter für die Einschränkung einer Abfrage anhand eines Datums bzw.
      einer Zeitangabe.
 
-
 - (Parameter für Datums-/Zeitbereichsfilter)

@@ -2,8 +2,8 @@ Serialisierung mittels JSON-LD und JSONP
 ----------------------------------------
 
 Eine OParl-konforme API gibt Objekte in Form von JSON aus. Die Objekte werden dabei 
-entsprechend der JSON-LD Spezifikation um Kontexte erweitert, welche die
-Selbstbschreibungsfähigkeit der ausgegebenen Daten verbessert. Auf Anforderung des
+entsprechend der JSON-LD-Spezifikation um Kontexte erweitert, welche die
+Selbstbeschreibungsfähigkeit der ausgegebenen Daten verbessert. Auf Anforderung des
 Clients wird darüber hinaus JSONP unterstützt.
 
 In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung des HTTP
@@ -68,7 +68,7 @@ semantische Informationen erweitert. Als Ausgangspunkt dient ein gewöhnliches J
 ~~~~~
 
 Als menschlicher Betrachter kann man leicht erkennen, dass die Eigenschaft `name` den 
-Namen der Person enthält, dass `homepage` die Website der Person sein könnte und dass 
+Namen der Person enthält, dass `homepage` die Website der Person sein könnte, und dass 
 `image` die URL einer Bilddatei der Person sein könnte. Ein automatisierter Client jedoch,
 dem die Objekteigenschaften nicht bekannt sind, kann die Bedeutung dieser Eigenschaften
 nicht entschlüsseln.
@@ -137,13 +137,13 @@ die Kontext-Ressource nur einmal zu laden.
 Im Sinne der JSON-LD-Spezifikation sind Objekte mit eingebettetem und externem Kontext
 inhaltlich identisch.
 Den Implementierern eines OParl-konformen Servers wird EMPFOHLEN, grundsätzlich
-die Kontextinformation mittels externer Ressourcen zu übermitteln. Die OParl Autoren werden
+die Kontextinformation mittels externer Ressourcen zu übermitteln. Die OParl-Autoren werden
 hierzu die zu dieser Spezifikation passenden Ressourcen auf oparl.org für jegliche Verwendung
 zur Verfügung stellen (mehr dazu im [Anhang](#jsonld_ressourcen_oparlorg)). Sollten 
 Server-Implementierer zusätzliche Objekttypen benötigen, die nicht von dieser 
 Spezifikation abgedeckt sind, SOLL entsprechend zusätzlich auf eigene Kontextressourcen 
 unter geeigneten URLs verwiesen werden. Hierbei können herstellereigene und 
-OParl-spezifische URls gemischt werden, wie in
+OParl-spezifische URLs gemischt werden, wie in
 einem Beispiel weiter unten verdeutlicht wird.
 
 Formell wird bei JSON-LD weiterhin zwischen drei verschiedenen Formaten
@@ -158,7 +158,7 @@ entnommen werden. OParl-Server MÜSSEN sämtliche Objekte grundsätzlich in der 
 Form ausliefern. Die Umwandlung in die anderen Formen bei Bedarf obliegt dem Client.^[Die
 JSON-LD-Spezifikation enthält Überlegungen, zwischen Client und Server die gewünschte
 Form über einen `Accept`-Header mit zusätzlichem `profile` Parameter auszuhandeln. Diese
-Überlegung ist zur Reduktion der Komplexität auf Serverseite nicht in OParl eingefllossen.]
+Überlegung ist zur Reduktion der Komplexität auf Serverseite nicht in OParl eingeflossen.]
 
 JSON-LD ermöglicht es auch, für ein Objekt einen **Objekttyp** zu kommunizieren. So könnte
 passend zu unserem Beispiel ausgedrückt werden, um welche Art von Objekt es sich bei den
@@ -175,7 +175,7 @@ eine URL ist:
 }
 ~~~~~
 
-Objekte können mehreren Typen zugeordnet sein und damit die Eigenschafen mehrerer
+Objekte können mehreren Typen zugeordnet sein und damit die Eigenschaften mehrerer
 Objekttypen nutzen. Im Fall von OParl kann diese Möglichkeit genutzt werden, um
 über die API Eigenschaften auszugeben, die nicht Teil des OParl-Schemas sind.
 
@@ -211,7 +211,7 @@ wie im Abschnitt [Objektlisten](#objektlisten) beschrieben, ist eine Ausnahme, d
 hier werden nicht Objekte ausgeliefert, sondern Listen von URLs von Objekten.]
 
 Eine JSON-LD-konforme Ausgabe stellt noch weitere Anforderungen, von denen nachfolgend die 
-wichtigsten zusammen gefasst werden.
+wichtigsten zusammengefasst werden.
 
 * **Schlüssel MÜSSEN einzigartig sein**: Es ist nicht zulässig, in einem JSON-LD-Objekt
 mehrmals den selben Schlüssel für ein Attribut zu verwenden.

@@ -5,16 +5,16 @@ Transparenz und Beteiligung durch Open Data
 Jahren sind zivilgesellschaftliche Organisationen sowie Politik und Verwaltung unter
 dem Schlagwort "Open Data" international und auch in Deutschland in unterschiedlichem
 Maße um eine stärkere Öffnung dieser Daten bemüht^[Eine weltweite Übersicht zu
-Open-Data-Projekten bietet z.B. der Open-Data-Showroom <http://opendata-showroom.org/de/>].
+Open-Data-Projekten bietet z. B. der Open-Data-Showroom <http://opendata-showroom.org/de/>].
 Bei dem Ansatz "Open Data"^[vgl. <https://de.wikipedia.org/wiki/Open_data>] geht es
-darum diese Daten so bereitzustellen, dass Dritte diese einfacher finden und
+darum, diese Daten so bereitzustellen, dass Dritte diese einfacher finden und
 weiterverwenden können. Die zehn Open-Data-Prinzipien der Sunlight-Foundation^[Ten
 Principles for Opening Up Open Government Information,
 <https://sunlightfoundation.com/policy/documents/ten-open-data-principles>] beschreiben
 die Offenheit von Datensätzen. Wesentlich dabei sind vor allem die einfache rechtliche
 und die technische Offenheit. Bei ersterer geht es darum, dass Datensätze unter
 Nutzungsbestimmungen bereitgestellt werden, die kurz und verständlich formuliert
-sind und mindestens jegliche weitere Verwendung inklusive der kommerziellen erlauben
+sind und mindestens jegliche weitere Verwendung inklusive der kommerziellen erlauben,
 unter der Voraussetzung, dass bei der Weiterverwendung die Quelle benannt wird. Bei
 der technischen Offenheit steht die Bereitstellung von Datensätzen in möglichst
 maschinenlesbaren Formaten im Vordergrund. Dies bedeutet, stärker strukturierte
@@ -37,7 +37,7 @@ rechtlicher und technischer Offenheit hinaus am besten erreicht werden kann erfo
 im Einzelfall häufig eine Zusammenarbeit von Datenbereitstellern und potentiellen
 Datennutzern. Die bloße Bereitstellung einer OParl-konformen API wird weder die
 Einhaltung der technischen Prinzipien, noch der weiteren Open-Data-Prinzipien vollständig
-garantieren. Viele Bestandteile der OParl Spezifikation, die einen weitgehend
+garantieren. Viele Bestandteile der OParl-Spezifikation, die einen weitgehend
 barrierearmen Zugang zu Informationen ermöglichen, sind optional (Beispiel: Volltexte
 von Dokumenten über die API abrufbar machen). Andere Bestandteile, die von Interesse
 wären, sind noch gar nicht von OParl abgedeckt (Beispiel: Abstimmungsergebnisse). Grund

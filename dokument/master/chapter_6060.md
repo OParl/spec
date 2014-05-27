@@ -9,7 +9,7 @@ Fragt ein Client eine Liste von Objekten an, hat der Server mehrere
 Möglichkeiten, diese Anfrage zu beantworten.
 
 In jedem Fall werden die einzelnen Objekte, die Bestandteile der
-Liste sind (wie z.B. die einzelnen Drucksachen) durch die URL
+Liste sind (wie z. B. die einzelnen Drucksachen) durch die URL
 des jeweiligen Objekts repräsentiert. Objektlisten sind also 
 tatsächlich immer Listen von URLs.
 
@@ -60,12 +60,10 @@ Gebrauch gemacht.
 Beispiel eines Link-Headers zur Angabe der URL für den Abruf der
 folgenden Listenseite:
 
-
     Link: <https://oparl.beispielris.de/bodies/0/papers/?skip_id=7>;rel=next
 
 Im oben gezeigten Beispiel besteht der Wert des Link-Headers aus zwei
-Bestandteilen, die durch Semikolon `;` von einander getrennt sind:
-
+Bestandteilen, die durch ein Semikolon von einander getrennt sind:
 
     <https://oparl.beispielris.de/bodies/0/papers/?skip_id=7>;rel=next
      \_____________________________________________________/  \______/
@@ -76,12 +74,12 @@ Die Bestandteile sind:
 
 URL:
 :   Die URL zum Abruf der nächsten Listenseite. Die URL wird
-    in spitzen Klammern `<` und `>` ausgegeben.
+    in spitzen Klammern, `<` und `>`, ausgegeben.
     *Hinweis:* Wie diese URL aufgebaut ist, entscheidet allein
     der Server. Hier wird lediglich ein fiktives Beispiel gegeben.
 
 Link-Parameter:
-:   Gemäß RFC5988 können belibig viele, auch null, Link-Parameter
+:   Gemäß RFC5988 können beliebig viele, auch null, Link-Parameter
 	hinter der URL ausgegeben werden, jeweils durch ein Semikolon
 	von der URL getrennt. Für OParl gilt: Es MUSS bei einer Liste
 	mit Paginierung genau ein Link-Header mit dem Link-Parameter
@@ -154,7 +152,7 @@ auswirkt, der aktuell die Liste paginiert, um alle Einträge abzurufen. Wir
 bezeichnen dies als **stabile Paginierung**.
 
 Eine wesentliche Anforderung an Listen mit Paginierung ist, dass alle
-Einträge der Liste in einer konstistenten Reihenfolge sortiert ausgegeben
+Einträge der Liste in einer konsistenten Reihenfolge sortiert ausgegeben
 werden SOLLEN. Das bedeutet, dass die Sortierung beim Server im Idealfall
 anhand einer eindeutigen und unveränderlichen Objekteigenschaft vorgenommen
 wird. Hierfür eignen sich die Objekt-URLs, da sie genau diese beiden
@@ -172,7 +170,7 @@ Liste wird mit der Abfrage
 SELECT * FROM example ORDER BY id LIMIT 10 OFFSET 0
 ~~~~~
 
-abgerufen und würde 10 Datensätze mit den `id`s 1 bis 10 zurück liefern. Dann wird
+abgerufen und würde 10 Datensätze mit den `id`s 1 bis 10 zurückliefern. Dann wird
 die zweite Seite mit der Abfrage
 
 ~~~~~  {#objektlisten_ex4 .sql}
@@ -205,7 +203,7 @@ Listen von Objekten können auch als Werte von Objekteigenschaften auftreten.
 Hierbei kann die oben beschriebene Paginierung nicht angewendet werden, sondern
 es MÜSSEN die URLs aller Listeneinträge aufgelistet werden.
 
-Ein Beispiel dafür könnte die Eigenschaft `bodies` des `oparl:System` Objekts
+Ein Beispiel dafür könnte die Eigenschaft `bodies` des `oparl:System`-Objekts
 sein, also die Liste der Körperschaften, die auf einem OParl-Server abgebildet
 werden:
 

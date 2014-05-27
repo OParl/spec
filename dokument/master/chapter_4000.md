@@ -61,7 +61,7 @@ dabei ein neues Objekt auf, wird die Nutzerin darüber benachrichtigt. Sie kann 
 beispielsweise entscheiden, Dokumente direkt zu öffnen oder für den späteren 
 Offline-Zugriff zu speichern.
 
-Einem derartigen Szenario kommt das Graph-orientierte Datenmodell der OParl API
+Einem derartigen Szenario kommt das Graph-orientierte Datenmodell der OParl-API
 entgegen. Ausgehend von einer Sitzung eines bestimmten Gremiums beispielsweise
 ist es damit einfach möglich, die in Verbindung stehenden Mitglieder des Gremiums,
 Teilnehmer der Sitzung, Tagesordnungspunkte der Sitzung oder Drucksachen zu den
@@ -69,10 +69,10 @@ Tagesordnungspunkten und letztlich Dokumente zu Drucksachen und Sitzung abzurufe
 
 Für die Nutzer einer mobilen Client-Anwendung könnte es sich als besonders hilfreich
 erweisen, wenn Dokumente auf dem Server in verschiedenen Formaten zur Verfügung
-gestellt werden. Denn nicht jedes Endgerät mit kleinem Bildaschirm bietet eine
+gestellt werden. Denn nicht jedes Endgerät mit kleinem Bildschirm bietet eine
 nutzerfreundliche Möglichkeit, beispielsweise Dokumente im weit verbreiteten PDF-Format 
 darzustellen. Hier könnte schon der Entwickler der mobilen App Mechanismen vorsehen,
-die, sofern vorhanden, besser geeignete Formate wie z.B. HTML abrufen.
+die, sofern vorhanden, besser geeignete Formate wie z. B. HTML abrufen.
 
 Neben dem kleinen Display kann für einige mobile Endgeräte auch die im Vergleich zu
 einem zeitgemäßen Desktop-PC geringere CPU-Leistung eine Einschränkung darstellen.
@@ -82,7 +82,7 @@ auf dem Endgerät indexiert werden kann. So wiederum kann auf dem Client eine
 Suchfunktion realisiert werden, welche die OParl-API selbst nicht zur Verfügung
 stellt.
 
-Eine solche Suchfunktion kann auch über die reine Volltxtsuche
+Eine solche Suchfunktion kann auch über die reine Volltextsuche
 und über die Suche mittels Text- oder Spracheingabe hinaus gehen. Denn ein Client
 könnte von einem [Server](#server)-System, das Drucksachen mit Geoinformationen
 anbietet, diese abrufen und räumlich indexieren. Anhand der Position des Geräts,
@@ -99,15 +99,15 @@ bereitgestellt werden. Inhalte werden dabei häufig als sogenannte "Portlets" in
 Seiten integriert.
 
 Ein Beispiel für die Realisierung eines solchen Integrations-Ansatzes wäre eine Kommune,
-die für ihre allgemeine Website eine Portallösung einsezt und hier auch Inhalte aus
-dem kommunalen Ratsinforamtionssystem einspeisen und darstellen möchte. Die Inhalte könnten
+die für ihre allgemeine Website eine Portallösung einsetzt und hier auch Inhalte aus
+dem kommunalen Ratsinformationssystem einspeisen und darstellen möchte. Die Inhalte könnten
 als Module mit anderen Inhalten, beispielsweise aus einem Web Content Management System
-(WCMS) gemeinsam auf einer Seite dargestellt werden.
+(WCMS), gemeinsam auf einer Seite dargestellt werden.
 
 Eine Seite über den Gemeinderat beispielsweise könnte durch ein Portlet ergänzt
 werden, in dem die nächsten Sitzungstermine des Gemeinderats aufgelistet werden. Eine
 Pressemeldung über ein bestimmtes Bauvorhaben, in dem ein Beschluss erwähnt wird,
-könnte direkt ein Portlet mit einer Detailsansicht der entsprechenden Drucksache
+könnte direkt ein Portlet mit einer Detailansicht der entsprechenden Drucksache
 einbinden.
 
 Die Portlets, die von einem Portalserver zur Verfügung gestellt werden, stellen damit
@@ -124,21 +124,21 @@ Informationssystems gewöhnen zu müssen.
 Die denkbaren Szenarien einer solchen Integration beschränken sich nicht auf
 anonyme Nutzer von öffentlichen Websites. In einem authentifizierten Umfeld wie beispielsweise
 einem kommunalen Intranet lassen sich weitere Arten von Portlets und damit Mehrwerte für die
-Nutzer realisieren. So könnte beispielswiese eine eingeloggte Nutzerin eine personalisierte
+Nutzer realisieren. So könnte beispielsweise eine eingeloggte Nutzerin eine personalisierte
 Liste der Sitzungstermine, zu der sie eingeladen ist, angezeigt bekommen.
 
 Die Standardisierung durch OParl sorgt im Rahmen der Portal-Szenarios dazu, dass Portlets,
 die für ein bestimmtes parlamentarisches Informationssystem entwickelt wurden, leichter auf
-andere Systeme - auch verschiedener Anbieter - ausgeweitet werden könne, sofern diese ebenfalls
-OParl-konform sind. Dies ermöglicht es beispielsweise verschiedenen Kommunen, ihre
-bei der Entwicklung von Portlets zusammen zu arbeiten und ihre Ergebnisse auszutauschen. Denkbar
+andere Systeme – auch verschiedener Anbieter – ausgeweitet werden können, sofern diese ebenfalls
+OParl-konform sind. Dies ermöglicht es beispielsweise verschiedenen Kommunen,
+bei der Entwicklung von Portlets zusammenzuarbeiten und ihre Ergebnisse auszutauschen. Denkbar
 sind auch Portlet-Entwicklungen als Open-Source-Projekte.
 
 ## Szenario 3: Meta-Suche  {#szenario_meta_suche}
 
-Die Ermöglichung einer nutzerfreundliche Suche, die damit verbundene Indexierung von
+Die Ermöglichung einer nutzerfreundlichen Suche, die damit verbundene Indexierung von
 verschiedensten Dokumenteninhalten und die Kategorisierung von Inhalten kann eine
-sowohl konzeptionell als auch technisch Anspruchsvolle Aufgabe sein. Auch im Hinblick
+sowohl konzeptionell als auch technisch anspruchsvolle Aufgabe sein. Auch im Hinblick
 auf die Server-Ressourcen sind damit nennenswerte Aufwände verbunden. Andererseits
 liegt auf der Hand, dass die effiziente Arbeit mit großen Informationsmengen nach
 intelligenten Möglichkeiten der Einschränkung von Informationsmengen auf das jeweils
@@ -149,7 +149,7 @@ derart beschränkt werden können. Damit ist die Realisation von Such- und Filte
 im OParl-Umfeld eine Aufgabe, die bis auf weiteres lediglich auf Seite der Clients
 angeboten werden kann.
 
-Angelehnt an das seit den Anfängen des Web etablierte Modell der externen Web-Suchmaschine
+Angelehnt an das seit den Anfängen des Webs etablierte Modell der externen Web-Suchmaschine
 sind spezielle Suchmaschinen für OParl-konforme parlamentarische Informationssysteme
 denkbar. Diese können auch von dritten, beispielsweise zivilgesellschaftlichen
 Organisationen betrieben werden, die nicht Betreiber des Server-Systems sind. Solche
@@ -177,7 +177,7 @@ automatisch über neue Vorgänge informiert wird.
 
 * Ein Einwohner eines Ballungsraums will sich über aktuelle Vorgänge rund um seine
 Mietwohnung in Stadt A, sein Gartengrundstück in einer Kleingartenkolonie in der
-Nachbarstadt B und seinen Arbeitsplatz in Stadt C auf dem laufenden halten. Dazu abonniert
+Nachbarstadt B und seinen Arbeitsplatz in Stadt C auf dem Laufenden halten. Dazu abonniert
 er im regionalen Meta-Such-Portal parlamentarische Vorgänge mit räumlichem Bezug zu diesen
 drei Standorten und wird so automatisch über neue Aktivitäten informiert, die Relevanz
 für ihn haben könnten.
@@ -193,7 +193,7 @@ Gremiensitzungen und die Themen dieser Sitzungen informiert.
 
 In einem Forschungsprojekt sollen Pro- und Contra-Argumentationen bei Ratsdiskussionen zum
 Ausbau von Stromtrassen identifiziert werden. Über die Analyse in mehreren Gebietskörperschaften
-sollen die gefundenen Argumentationen zu wiederkehrenden Mustern verdichtet und festgestellt
+sollen die gefundenen Argumentationen zu wiederkehrenden Mustern verdichtet werden und festgestellt
 werden, wie diese Muster regional abweichen.
 
 Dazu nutzen die Mitarbeitenden des Forschungsprojektes die OParl-Schnittstellen der

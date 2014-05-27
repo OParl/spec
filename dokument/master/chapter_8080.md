@@ -1,5 +1,5 @@
 oparl:Meeting (Sitzung)  {#oparl_meeting}
-----------------------
+-----------------------
 
 Eine Sitzung ist die Versammlung einer oder mehrerer Gruppierungen
 (oparl:Organization) zu einem bestimmten Zeitpunkt an einem bestimmten Ort.
@@ -61,7 +61,7 @@ Das selbe Beispiel in kompakter Form:
 
 ~~~~~  {#meeting_ex2 .json}
 {
-    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld"
+    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld",
     "@type": "oparl:Meeting",
     "@id": "https://oparl.beispielris.de/meeting/281",
     "name": "4. Sitzung des Finanzausschusses",
@@ -106,25 +106,25 @@ Das selbe Beispiel in kompakter Form:
     Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen
     KANN es der tatsächliche Startzeitpunkt sein.
     Typ: Zeitstempel.
-    ZWINGEND
+    ZWINGEND.
 
 `end`
 :   Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen 
     Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen
     KANN es der tatsächliche Endzeitpunkt sein.
     Typ: Zeitstempel.
-    EMPFOHLEN
+    EMPFOHLEN.
 
 `location`
 :   Sitzungsort.
     Typ: `oparl:Location`.
-    EMPFOHLEN
+    EMPFOHLEN.
 
 `organization`
 :   Gruppierung der die Sitzung zugeordnet ist. Wenn eine Liste angegeben wird, dann ist diese geordnet. Das erste
     Element ist dann das federführende Gremium.
     Typ: `oparl:Organization`.
-    ZWINGEND
+    ZWINGEND.
 
 `participant`
 :   Teilnehmer der Sitzung.
@@ -142,39 +142,39 @@ Das selbe Beispiel in kompakter Form:
 :   Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach
     dem Stattfinden der Sitzung vorkommen.
     Typ: `oparl:Document`.
-    EMPFOHLEN
+    EMPFOHLEN.
 
 `verbatimProtocol`
 :   Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach
     dem Stattfinden der Sitzung vorkommen.
     Typ: `oparl:Document`.
-    EMPFOHLEN
+    EMPFOHLEN.
     
 `auxiliaryDocument`
 :   Dokumentenanhang zur Sitzung.
     Hiermit sind Dokumente gemeint, die üblicherweise mit der Einladung
-    zu einer Sitzung verteilt werden und die nicht bereits über einzelne
+    zu einer Sitzung verteilt werden, und die nicht bereits über einzelne
     Tagesordnungspunkte referenziert sind.
     Typ: `oparl:Document`.
-    OPTIONAL
+    OPTIONAL.
 
 `agendaItem`
 :   Tagesordnungspunkte der Sitzung.
     Die Reihenfolge ist relevant.
     Es kann Sitzungen ohne TOPs geben.
     Typ: `oparl:AgendaItem`.
-    OPTIONAL
+    OPTIONAL.
 
 `keyword`
 :   Typ: `skos:Concept`.
-    OPTIONAL
+    OPTIONAL.
     
 `created`
 :   Datum und Uhrzeit der Erzeugung des Objekts.
     Typ: Zeitstempel.
-    EMPFOHLEN
+    EMPFOHLEN.
 
 `modified`
 :   Datum und Uhrzeit der letzten Änderung des Objekts.
     Typ: Zeitstempel.
-    EMPFOHLEN
+    EMPFOHLEN.

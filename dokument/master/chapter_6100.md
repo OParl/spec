@@ -3,11 +3,11 @@ Ausnahmebehandlung
 
 Nicht immer kann ein Server die Anfrage eines Clients erfolgreich, also im Sinne
 der Anfrage, behandeln und eine entsprechende Antwort liefern. Beispiele für solche
-Ausnahmefälle könnten sein (ohne Anspruch auf Vollstängikeit):
+Ausnahmefälle könnten sein (ohne Anspruch auf Vollständigkeit):
 
 * Eine angefragte Ressource existiert nicht
 
-* Der Client nutzt eine nicht unterstützte HTTP-Methode, z.B. `POST`
+* Der Client nutzt eine nicht unterstützte HTTP-Methode, z. B. `POST`
 
 * Der Client nutzt einen nicht interpretierbaren URL-Parameter
 
@@ -19,5 +19,5 @@ SOLLEN. Damit wird Client-Entwicklern die Möglichkeit gegeben, diese Fälle
 entsprechend zu behandeln.
 
 Clients DÜRFEN darüber hinaus nicht davon ausgehen, dass mit der HTTP-Antwort
-im Fall einer Ausnahme noch weitere verwertbare Informationen wie z.B. eine
+im Fall einer Ausnahme noch weitere verwertbare Informationen wie z. B. eine
 Fehlermeldung gesendet werden.

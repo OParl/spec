@@ -13,7 +13,7 @@ die Stadt Köln repräsentiert.
 
 Ein Kontext:
 
-~~~~~
+~~~~~  {#body_ex_context .json}
 {
     "@language": "de",
     "license": {
@@ -23,7 +23,7 @@ Ein Kontext:
     "exactMatch": {
         "@id": "skos:exactMatch",
         "@type": "@id"
-    }
+    },
     "licenseValidSinceDay": "2013-04-01T12:00:00+00:00"
 }
 ~~~~~
@@ -46,7 +46,7 @@ Ein expandiertes Beispiel:
     "nameLong": {
         "de": "Stadt Köln, kreisfreie Stadt",
         "en": "City of Cologne"
-    }
+    },
     "website": "http://www.beispielstadt.de/",
     "license": "http://creativecommons.org/licenses/by/4.0/",
     "licenseValidSinceDay": "2014-01-01",
@@ -65,7 +65,7 @@ ein Objekt vom Typ `oparl:Body` bereit hält. Teilen sich mehrere Körperschafte
 das selbe technische System, können auf demselben Server auch mehrere
 Objekte vom Typ `oparl:Body` beherbergt werden.
 
-Über die Zuordnung zu einem bestimmten `oparl:Body` Objekt zeigen andere
+Über die Zuordnung zu einem bestimmten `oparl:Body`-Objekt zeigen andere
 Objekte, wie beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit
 zu einer bestimmten Körperschaft und damit implizit zu einem bestimmten
 Parlament an.
@@ -73,7 +73,7 @@ Parlament an.
 ### Eigenschaften
 
 `system`
-:   System zu dem dieses Objekt gehört.
+:   System, zu dem dieses Objekt gehört.
     Typ: `oparl:System`.
     Kardinalität: 1.
     Die Eigenschaft ist ZWINGEND.
@@ -92,7 +92,7 @@ Parlament an.
     Die Eigenschaft ist OPTIONAL.
 
 `website`
-:   allgemeine Website der Körperschaft.
+:   Allgemeine Website der Körperschaft.
     Typ: URL.
     Kardinalität: 0 bis 1.
     Die Eigenschaft ist EMPFOHLEN.
@@ -100,7 +100,7 @@ Parlament an.
 `license`
 :   Lizenz, die für die Daten, die über diese API abgerufen werden
     können, gilt, sofern nicht am einzelnen Objekt anders angegeben.
-    Sie dazu auch die übergreifende Beschreibung zur Eigenschaft
+    Siehe dazu auch die übergreifende Beschreibung zur Eigenschaft
     [`license`](#eigenschaft_license).
     Typ: URL.
     Kardinalität: 0 bis 1.
@@ -117,23 +117,23 @@ Parlament an.
 :   Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette^[Regionalschlüssel können im [Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes](https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html) eingesehen werden].
     Typ: Zeichenkette.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist EMPFOHLEN
+    Die Eigenschaft ist EMPFOHLEN.
 
 `equivalentBody`
 :   Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe Körperschaft
     repräsentieren. Hier können beispielsweise,
     sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>],
     der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden.
-    Typ: URL
+    Typ: URL.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist EMPFOHLEN
+    Die Eigenschaft ist EMPFOHLEN.
 
 `contactEmail`
 :   Dient der Angabe einer Kontakt-E-Mail-Adresse mit "mailto:"-Schema.
     Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft
     und idealerweise das parlamentarische Informationssystem zuständigen Stelle
     ermöglichen.
-    Typ: mail-Adresse inklusive "mailto:".
+    Typ: E-Mail-Adresse inklusive "mailto:".
     Kardinalität: 0 bis 1.
     Die Eigenschaft ist EMPFOHLEN.
 
@@ -153,7 +153,7 @@ Parlament an.
 `member`
 :   Personen in dieser Körperschaft als Liste unter einer eigenen URL.
     Vgl. [Objektlisten](#objektlisten).
-    Typ: `oparl:Person`,
+    Typ: `oparl:Person`.
     Kardinalität: 0 bis *.
     Die Eigenschaft ist ZWINGEND.
 

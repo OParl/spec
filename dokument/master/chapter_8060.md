@@ -1,14 +1,14 @@
 oparl:Person (Person)  {#oparl_person}
 --------------------
 
-Jede natürliche Person, die in der parlamentarischen Arbeit tätig ist
-und insbesondere Mitglied in einer Gruppierung ([oparl:Organization](#oparl_organization)),
+Jede natürliche Person, die in der parlamentarischen Arbeit tätig
+und insbesondere Mitglied in einer Gruppierung ([oparl:Organization](#oparl_organization)) ist,
 wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
 
 Es existieren bereits eine ganze Reihe von Vokabularen für Personenobjekte
 außerhalb von OParl. Dazu gehören FOAF (_Friend of a Friend_) und vCard. Darüber
 hinaus hält der XÖV-Standard ein XML-Schema für natürliche Personen bereit.
-Für `oparl:Person` wurde daraus und basierend auf dem Input der OParl-Stakeholder
+Für `oparl:Person` wurde daraus, und basierend auf dem Input der OParl-Stakeholder,
 eine Auswahl von Eigenschaften zusammengestellt.
 
 TODO: für Personennamen wird keine Mehrsprachigkeit benötigt. Dies im
@@ -116,7 +116,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 }
 ~~~~~
 
-Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der Kontext bleibt wie zuvor.
+Und das selbe Beispiel ohne Mehrsprachigkeit für den Ort. Der Kontext bleibt wie zuvor.
 
 ~~~~~  {#person_ex3 .json}
 {
@@ -137,12 +137,12 @@ Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der Kontext bleibt wie
 `familyName`
 :   Familienname bzw. Nachname.
     Typ: Zeichenkette.
-    OPTIONAL
+    OPTIONAL.
 
 `givenName`
 :   Vorname bzw. Taufname.
     Typ: Zeichenkette.
-    OPTIONAL
+    OPTIONAL.
 
 `formOfAddress`
 :   Anrede
@@ -163,11 +163,11 @@ Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der Kontext bleibt wie
 :   Geschlecht. Zulässige Werte sind `vcard:Female`, `vcard:Male`, `vcard:None`, `vcard:Other` und `vcard:Unknown`.
     Typ: Zeichenkette (TODO: Entsprechende `vcard:`-Eigenschaft angeben).
     Kardinalität: 0 bis *.
-    OPTIONAL
+    OPTIONAL.
 
 `phone`
 :   Telefonnummer mit `tel:` Schema.
-    Typ: Zeichenkette mit "tel:" am Anfang, keine Leerzeichen
+    Typ: Zeichenkette mit "tel:" am Anfang, keine Leerzeichen.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
@@ -196,7 +196,7 @@ Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der Kontext bleibt wie
     OPTIONAL.
 
 `organization`
-:   Gruppierung(en) in der/denen die Person aktuell Mitglied ist.
+:   Gruppierung(en), in der/denen die Person aktuell Mitglied ist.
     Typ: `oparl:Organization`.
     Kardinalität: 0 bis *.
     EMPFOHLEN.
@@ -204,12 +204,12 @@ Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der Kontext bleibt wie
 `status`
 :   Status. Begriff mit `skos:prefLabel`.
     Die Zeichenketten SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster
-    "männliche Form | weibliche Form" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem "|")
+    "männliche Form | weibliche Form" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem "|").
     Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden:
     "Mitglied" und nicht "Mitglied | Mitglied".
-    Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschecht
+    Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschlecht
     der Personen vornimmt.
-    z.B. "Bürgermeister | Bürgermeisterin",
+    z. B. "Bürgermeister | Bürgermeisterin",
     "Bezirksbürgermeister | Bezirksbürgermeisterin",
     "Stadtverordneter | Stadtverordnete",
     "Bezirksverordneter | Bezirksverordnete",
@@ -222,14 +222,14 @@ Und das selbe Beispiel ohne Mehrspachigkeit für den Ort. Der Kontext bleibt wie
     OPTIONAL.
 
 `hasMembership`
-:   Mitgliedschaft(en) der Person in Gruppierungen (oparl:Organization), z.B. Gremien und
+:   Mitgliedschaft(en) der Person in Gruppierungen (oparl:Organization), z. B. Gremien und
     Fraktionen.
     Typ: `org:Membership`.
     Kardinalität: 0 bis *.
     OPTIONAL.
 
 `keyword`
-:   Typ: `skos:Concept`
+:   Typ: `skos:Concept`.
     Kardinalität: 0 bis *.
     OPTIONAL.
 

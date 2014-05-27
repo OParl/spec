@@ -14,7 +14,7 @@ akzeptierten Repräsentationen im `Accept`-Header der HTTP-Anfrage mitsendet,
 damit der Server gemäß Spezifikation die am besten passende und von ihm
 unterstützte Repräsentation an den Client ausliefert.
 
-Grundanforderung der vorliegenden Spezifikation an OParl Clients ist,
+Grundanforderung der vorliegenden Spezifikation an OParl-Clients ist,
 dass sie bei jeder Anfrage an einen OParl-Server einen Accept-Header
 mit dem Mime-Type `application/ld+json` senden MÜSSEN, es sei denn,
 es handelt sich um einen [Dateizugriff](#dateizugriff).
@@ -24,7 +24,7 @@ ermöglicht werden, dass die URLs von OParl-Objekten auch von WWW-Clients
 aufgerufen werden können, die nicht unmittelbar in Kenntnis der
 OParl-Spezifikation entwickelt wurden.
 
-Ein Beispiel für einen solchen  Client wäre ein üblicher Browser. Ruft
+Ein Beispiel für einen solchen Client wäre ein üblicher Browser. Ruft
 dieser die URL einer Drucksache (OParl-Objekttyp `oparl:Paper`) auf, 
 sendet er entweder keinen `Accept`-Header oder aber einen solchen,
 der eine Bevorzugung von Inhaltstypen wie HTML angibt.

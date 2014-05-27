@@ -8,7 +8,7 @@ ist eine Analyse von aktuell (2012 bis 2014) in Deutschland etablierten
 parlamentarischen Informationssystemen und ihrer Nutzung. Erklärtes Ziel für diese erste
 Version ist es, mit möglichst geringem Entwicklungsaufwand auf Seite der Softwareanbieter und 
 Migrationsaufwand auf Seite der Betreiber zu einer Bereitstellung von parlamentarischen 
-Informationen über eine OParl API zu gelangen. Hierbei war es von entscheidender 
+Informationen über eine OParl-API zu gelangen. Hierbei war es von entscheidender 
 Bedeutung, dass sich die Informationsmodelle der einschlägigen Softwareprodukte stark
 ähneln. Für die OParl-Spezifikation wurde sozusagen ein Datenmodell als "gemeinsamer Nenner"
 auf Basis der gängigen Praxis beschrieben.
@@ -28,8 +28,8 @@ einer Beschlussvorlage behandelt wird, zu beschreiben. Zwar ist den Autoren nur 
 einziges parlamentarisches Informationssystem^[Das Ratsinformationssystem BoRis, eine
 Eigenentwicklung der Stadt Bonn <http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp>]
 in Deutschland bekannt, das 
-Geoinformationen - und zwar in Form von Punktdaten, also einer Kombination aus 
-Längen- und Breitengradangaben - mit Dokumenten verknüpft. Der Vorteil dieser
+Geoinformationen – und zwar in Form von Punktdaten, also einer Kombination aus 
+Längen- und Breitengradangaben – mit Dokumenten verknüpft. Der Vorteil dieser
 Funktion ist jedoch anhand zahlreicher Anwendungsszenarien belegbar. Somit ist der
 vorliegenden OParl-Spezifikation die Möglichkeit beschrieben, Geodaten-Objekte
 einzubetten.
@@ -81,13 +81,13 @@ Begrifflichkeiten gesetzt.
 Implementierer sollen in der Lage sein, über eine OParl-konforme Schnittstelle auch
 solche Informationen auszugeben, die nicht im Rahmen des OParl-Schemas abgebildet werden
 können. Dies bedeutet zum einen, dass ein System Objekttypen unterstützen und ausliefern
-darf, die nicht (oder noch nicht) im OParl Schema beschrieben sind. Das bedeutet auch,
+darf, die nicht (oder noch nicht) im OParl-Schema beschrieben sind. Das bedeutet auch,
 dass Objekttypen so um eigene Eigenschaften erweitert werden können, die nicht im OParl 
 Schema beschrieben sind.
 
-Ein weiterer Aspekt betrifft die Abwärtskompatiblität, also die Kompatibilität von
+Ein weiterer Aspekt betrifft die Abwärtskompatibilität, also die Kompatibilität von
 OParl-Clients mit zukünftigen Schnittstellen. So können beispielsweise zukünftige Erweiterungen
-des OParl Schemas, etwa um neue Objekttypen, genau so durchgeführt werden wie die Erweiterungen
+des OParl-Schemas, etwa um neue Objekttypen, genau so durchgeführt werden, wie die Erweiterungen
 um herstellerspezifische Objekttypen. Ein Client muss diese Anteile nicht auswerten, sofern
 sie nicht für die Aufgabe des Clients relevant sind.
 
@@ -112,7 +112,7 @@ Somit kann die Schnittstelle den Verweis von einem Objekt, beispielsweise einem 
 auf ein anderes Objekt, etwa ein Mitglied des Gremiums, dadurch ausgeben, dass im Kontext
 des Gremiums die URL des Mitglieds ausgeben wird. Der Client kann somit ausgehend von einem
 bestimmten Objekt die anderen Objekte im System finden, indem er einfach den angebotenen
-URLs folgt. Dieses Prinzip wird auch "Follow Your Nose" genannt^[<http://patterns.dataincubator.org/book/follow-your-nose.html>].
+URLs folgt. Dieses Prinzip wird auch "Follow Your Nose"^[<http://patterns.dataincubator.org/book/follow-your-nose.html>] genannt.
 
 ### Linked Data {#linked_data}
 
@@ -127,13 +127,12 @@ Resource Identifier" (URI) abgebildet werden.
 Nach dem Linked-Data-Prinzip könnte beispielsweise der Vorname einer Person mit dem
 folgenden Tripel beschrieben werden:
 
-
 * **Subjekt**: http://dbpedia.org/resource/John_Doe_(musician)
 * **Prädikat**: http://xmlns.com/foaf/0.1/givenName
 * **Objekt**: http://dbpedia.org/resource/John_(given_name)
 
 Hierbei macht man von der Tatsache Gebrauch, dass das Subjekt, also die Person, um die es 
-geht, bereits mittels ihrer URI eindeutig identifiziert werden kann und dass bestenfalls 
+geht, bereits mittels ihrer URI eindeutig identifiziert werden kann, und dass bestenfalls 
 unter dieser URI weitere Informationen zu der Person abrufbar 
 sind.^[Ein Aufruf der URL <http://dbpedia.org/resource/John_Doe_(musician)> im herkömmlichen
 Web-Browser führt zu einer Weiterleitung auf die URL <http://dbpedia.org/page/John_Doe_(musician)>.
@@ -152,8 +151,8 @@ Beispiele, wo dies sinnvoll ist, sind in der Praxis leicht zu finden. So finden 
 beispielsweise in vielen lokalen Parlamenten immer wieder Fraktionen der selben Parteien,
 beispielsweise CDU und SPD. Mittels Linked Data wäre es möglich, jede dieser Fraktionen mit einer externen URL zu verknüpfen^[beispielsweise <http://dbpedia.org/resource/Christian_Democratic_Union_(Germany)> und <http://dbpedia.org/resource/Social_Democratic_Party_of_Germany>] und somit erkennbar zu machen, zu welcher 
 Partei diese Fraktion gehört. Ebenso finden sich viele inhaltliche Ähnlichkeiten bei
-Gremien wie zum Beispiel Ausschüssen (z.B. Hauptausschuss, Verkehrsausschuss etc.) oder bei
-Arten von Drucksachen (z.B. Anträge, Anfragen, Mitteilungen, Beschlussvorlagen).
+Gremien wie zum Beispiel Ausschüssen (z. B. Hauptausschuss, Verkehrsausschuss etc.) oder bei
+Arten von Drucksachen (z. B. Anträge, Anfragen, Mitteilungen, Beschlussvorlagen).
 
 OParl lässt in Version 1.0 der Spezifikation noch viele Aufgaben, die die Vereinheitlichung 
 dieses Vokabulars betreffen, offen. Jedoch wird durch die Verwendung von [JSON-LD](#jsonld) als

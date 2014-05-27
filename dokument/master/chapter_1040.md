@@ -25,7 +25,7 @@ Zu den Themen, die in zukünftigen Versionen adressiert werden könne, zählen:
   in Volltexten.
 
 * Detaillierte Wiedergabe von Abstimmungen: Das Thema ist vom Datenmodell/Schema
-  der vieliegenden Version noch nicht abgedeckt, da es vielerorts nicht üblich ist,
+  der vorliegenden Version noch nicht abgedeckt, da es vielerorts nicht üblich ist,
   Abstimmungen über die Fraktionsebene genau zu erfassen. Zukünftig könnte es ein
   Ziel sein, das Abstimmungsverhalten einzelner Parlamentarier und Fraktionen genau
   zu dokumentieren.
@@ -46,10 +46,10 @@ Zu den Themen, die in zukünftigen Versionen adressiert werden könne, zählen:
   erweitert wird.
 
 * Internationalisierung: Es gibt in sehr vielen Ländern Gebietskörperschaften mit 
-  politischen Gremien, deren Prozesse ähnlich strukturiert sind wie diejenigen in 
+  politischen Gremien, deren Prozesse ähnlich strukturiert sind, wie diejenigen in 
   Deutschland. Auch dort besteht Bedarf an standardisierten Vokabularen zur 
-  Veröffentlichung parlamentarischer Informationen. Deshalb sind - teilweise noch 
-  vor OParl - auch weitere entsprechende Initiativen entstanden.^[Vgl. dazu 
+  Veröffentlichung parlamentarischer Informationen. Deshalb sind – teilweise noch 
+  vor OParl – auch weitere entsprechende Initiativen entstanden.^[Vgl. dazu 
   beispielsweise <http://popoloproject.com/>, TODO: UK, KB Niederlande] Eine
   Zusammenarbeit mit derartigen Initiativen mit dem Ziel der Wiederverwendung von
   Arbeitsergebnissen ist vorstellbar. Auch aus diesem Grund wurde bereits in OParl 

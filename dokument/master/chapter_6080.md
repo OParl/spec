@@ -5,10 +5,10 @@ Mit dem Begriff "Datei" sind im Sinne dieser Spezifikation alle Ressourcen
 gemeint, die von einem OParl-Server zur Verfügung gestellt werden und
 deren Metadaten über die JSON-API als [`oparl:Document`](#oparl_document) 
 abgerufen werden können. Es handelt sich dabei beispielsweise um Textdokumente 
-im PDF-Format, Abbildungen im JPEG- oder PNG etc., die wesentliche 
+im PDF-Format, Abbildungen im JPEG- oder PNG-Format etc., die wesentliche 
 Inhalte der parlamentarischen Informationen im OParl-System ausmachen.
 
-In Bezug auf die Datenvolumen, die der Verkehr zwischen OParl Servern und Clients
+In Bezug auf die Datenvolumen, die der Verkehr zwischen OParl-Servern und -Clients
 ausmacht, kommt dem Dateizugriff eine besondere Bedeutung zu. Daher formuliert
 OParl diesbezüglich einige Anforderungen, die helfen sollen, unnötigen
 Datentransfer zu vermeiden.
@@ -34,7 +34,7 @@ Details finden sich in der Schema-Beschreibung zu [`oparl:Document`](#oparl_docu
 
 Mit der im `oparl:Document` ZWINGEND anzugebenden Eigenschaft `accessUrl` liefert der
 Server dem Client eine URL, die wir hier nachfolgend als *Zugriffs-URL* bezeichnen.
-Diese URL dient dem allgmeinen Zugriff auf die Datei. Wie der Client dem Endnutzer
+Diese URL dient dem allgemeinen Zugriff auf die Datei. Wie der Client dem Endnutzer
 diesen Zugriff genau ermöglicht, ist nicht Sache der OParl-Spezifikation.
 
 Im Unterschied dazu KANN der Server dem Client in der Eigenschaft `downloadUrl`
@@ -80,7 +80,7 @@ Header auszuliefern:
 Unter einem "Conditional GET" versteht man im HTTP-Kontext die Möglichkeit des
 Clients, die Anfrage einer Ressource mit einer Bedingung zu verknüpfen. Der Server
 beantwortet die Anfrage nur dann mit einer vollständigen HTTP-Antwort, wenn die
-Bedingung erfüllt ist. Andernfalls enthält die Anfrage lediglich Header, der 
+Bedingung erfüllt ist. Andernfalls enthält die Anfrage lediglich den Header; der 
 HTTP Status-Code SOLL in diesem Fall "304" lauten (für "nicht geändert"). Dies
 dient der Schonung von Ressourcen.
 
@@ -96,12 +96,12 @@ Conditional GET zu unterstützen:
 
 ### Zustandsloser Dateizugriff
 
-Die Anforderung, dass die OParl API zustandslos arbeitet (vgl. [RESTful]{#restful}),
+Die Anforderung, dass die OParl-API zustandslos arbeitet (vgl. [RESTful]{#restful}),
 hat ZWINGEND auch für den Abruf von Dateien zu gelten. Es DÜRFEN daher keine
-Session-spezifischen URLs oder ähnliches für den Dateizugriff gebildet werden.
+Session-spezifischen URLs oder Ähnliches für den Dateizugriff gebildet werden.
 
 Damit wird erreicht, dass Clients die Zugriffs-URLs aus dem `oparl:Document` für
-längere Zeit speichern bzw. cachen können
+längere Zeit speichern bzw. cachen können.
 
 ### Weiterleitungen
 
@@ -112,7 +112,7 @@ andere URL zum Zugriff mitzuteilen.
 In diesem Fall wird dringend EMPFOHLEN, die Unterscheidung der Bedeutung der
 HTTP-Status-Codes `301` und `307` zu beachten.
 
-* `301` SOLL verwendet werden, wenn die vom Client angefragte URL auch zukunftig
+* `301` SOLL verwendet werden, wenn die vom Client angefragte URL auch zukünftig
   nicht mehr gültig sein wird. Clients erhalten damit das Signal, die bisherige
   URL zu verwerfen und zukünftig die neue, vom Server in der Antwort mitgeteilte
   zu verwenden.

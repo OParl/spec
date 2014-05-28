@@ -203,7 +203,7 @@ Listen von Objekten können auch als Werte von Objekteigenschaften auftreten.
 Hierbei kann die oben beschriebene Paginierung nicht angewendet werden, sondern
 es MÜSSEN die URLs aller Listeneinträge aufgelistet werden.
 
-Ein Beispiel dafür könnte die Eigenschaft `bodies` des `oparl:System`-Objekts
+Ein Beispiel dafür könnte die Eigenschaft `body` des `oparl:System`-Objekts
 sein, also die Liste der Körperschaften, die auf einem OParl-Server abgebildet
 werden:
 
@@ -211,7 +211,7 @@ werden:
 {
     "@type": "oparl:System",
     "@id": "https://oparl.beispielris.de/",
-    "bodies": [
+    "body": [
     	"https://oparl.beispielris.de/bodies/1",
     	"https://oparl.beispielris.de/bodies/2"
     ],
@@ -230,7 +230,7 @@ vorangegangenen Beispiel beeinflusst:
 {
     "@type": "oparl:System",
     "@id": "https://oparl.beispielris.de/",
-    "bodies": "https://oparl.beispielris.de/bodies/"
+    "body": "https://oparl.beispielris.de/bodies/"
     ...
 }
 ~~~~~

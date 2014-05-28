@@ -19,7 +19,7 @@ Ein Beispiel:
     "contactName": "Allgemeiner OParl Kontakt",
     "vendor": "http://example-software.com/",
     "product": "http://example-software.com/oparl-server/",
-    "bodies": "https://oparl.beispielris.de/bodies/",
+    "body": "https://oparl.beispielris.de/bodies/",
     "newObjects": "https://oparl.beispielris.de/new_objects/",
     "updatedObjects": "https://oparl.beispielris.de/updated_objects/",
     "removedObjects": "https://oparl.beispielris.de/removed_objects"
@@ -63,7 +63,7 @@ Und das System-Objekt in kompakter Form unter Verwendung des Kontexts:
     "contactName": "Allgemeiner OParl Kontakt",
     "vendor": "http://example-software.com/",
     "product": "http://example-software.com/oparl-server/",
-    "bodies": "beispielris:bodies/",
+    "body": "beispielris:bodies/",
     "newObjects": "beispielris:new_objects/",
     "updatedObjects": "beispielris:updated_objects/",
     "removedObjects": "beispielris:removed_objects"
@@ -88,7 +88,7 @@ der URL des API-Endpunkts des Servers sein.
     Typ: URL
     ZWINGEND.
 
-`bodies`
+`body`
 :   Liste der URLs der [`oparl:Body`](#oparl_body)-Objekte, also der 
     Körperschaften, die auf dem System vorliegen. Alternativ kann statt 
     einer Liste eine einzelne URL zum Abruf der Liste angeboten werden.

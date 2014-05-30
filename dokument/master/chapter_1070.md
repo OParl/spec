@@ -15,6 +15,7 @@ Organisation/Firma|Kategorie
 [OpenRuhr](http://openruhr.de/)|Initiativen
 [Parlamentwatch e. V.](http://www.abgeordnetenwatch.de/)|Initiativen
 [Piratenpartei](http://www.piratenpartei.de/)|Initiativen
+[PROVOX Systemplanung GmbH](http://www.provox.de/)
 [QuinScape GmbH](http://www.quinscape.de/)|RIS-Hersteller
 [regioIT](http://www.regioit-aachen.de/) (Aachen)|Kommunale Dienstleister
 [Somacos GmbH und Co. KG](http://www.somacos.de/)|RIS-Hersteller

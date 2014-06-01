@@ -43,12 +43,11 @@ Ein Beispiel in expandierter Form:
         "de": "Musterort",
         "en": "Sample Town"
     },
-    "organization": [
-        "https://oparl.beispielris.de/organization/11",
-        "https://oparl.beispielris.de/organization/34"
-    ],
     "status": "https://oparl.beispielris.de/status/buergermeister",
-    "hasMembership": "https://oparl.beispielris.de/membership/34",
+    "hasMembership": [
+        "https://oparl.beispielris.de/membership/11",
+        "https://oparl.beispielris.de/membership/34"
+    ],
     "created": "2011-11-11T11:11:00+01:00",
     "modified": "2012-08-16T14:05:27+02:00"
 }
@@ -108,9 +107,11 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
         "de": "Musterort",
         "en": "Sample Town"
     },
-    "organization": ["11", "34"],
     "status": "beispielris:status/buergermeister",
-    "hasMembership": "beispielris:membership/34",
+    "hasMembership": [
+        "https://oparl.beispielris.de/membership/11",
+        "https://oparl.beispielris.de/membership/34"
+    ],
     "created": "2011-11-11T11:11:00+01:00",
     "modified": "2012-08-16T14:05:27+02:00"
 }
@@ -194,12 +195,6 @@ Und das selbe Beispiel ohne Mehrsprachigkeit für den Ort. Der Kontext bleibt wi
     Typ: `vcard:locality`
     Kardinalität: 0 bis 1.
     OPTIONAL.
-
-`organization`
-:   Gruppierung(en), in der/denen die Person aktuell Mitglied ist.
-    Typ: `oparl:Organization`.
-    Kardinalität: 0 bis *.
-    EMPFOHLEN.
 
 `status`
 :   Status. Begriff mit `skos:prefLabel`.

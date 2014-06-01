@@ -131,7 +131,7 @@ Das selbe Beispiel in kompakter Form:
     Bei einer Sitzung in der Zukunft sind dies die geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die
     Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung teilgenommen haben.
     Typ: `oparl:Person`.
-    ZWINGEND.
+    OPTIONAL.
 
 `invitation`
 :   Einladungsdokument zur Sitzung.

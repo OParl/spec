@@ -18,7 +18,7 @@ Ein Beispiel:
     "@id": "https://oparl.beispielris.de/consultation/47594",
     "paper": "https://oparl.beispielris.de/paper/2396",
     "agendaitem": "https://oparl.beispielris.de/agendaitem/15569",
-    "committee": "https://oparl.beispielris.de/organization/96",
+    "organization": "https://oparl.beispielris.de/organization/96",
     "authoritative": false,
     "role": "https://oparl.beispielris.de/role/decision"
 }
@@ -33,7 +33,7 @@ Das selbe Beispiel in kompakter Form (ein passender Kontext wird vorausgesetzt):
     "@id": "beispielris:consultation/47594",
     "paper": "beispielris:paper/2396",
     "agendaitem": "beispielris:agendaitem/15569",
-    "committee": "beispielris:organization/96",
+    "organization": "beispielris:organization/96",
     "authoritative": false,
     "role": "beispielris:role/decision"
 }
@@ -65,7 +65,7 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
     Typ: `oparl:AgendaItem`.
     ZWINGEND.
 
-`committee`
+`organization`
 :   Gremium, dem die Sitzung zugewiesen ist, zu welcher der zuvor genannte Tagesordnungspunkt gehört.
     Hier kann auch eine mit Liste von Gremien angegeben werden (die verschiedenen `oparl:Body` und `oparl:System`
     angehören können).

@@ -163,7 +163,7 @@ Und das selbe Beispiel ohne Mehrsprachigkeit für den Ort. Der Kontext bleibt wi
 `gender`
 :   Geschlecht. Zulässige Werte sind `vcard:Female`, `vcard:Male`, `vcard:None`, `vcard:Other` und `vcard:Unknown`.
     Typ: Zeichenkette (TODO: Entsprechende `vcard:`-Eigenschaft angeben).
-    Kardinalität: 0 bis *.
+    Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `phone`

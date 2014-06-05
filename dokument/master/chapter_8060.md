@@ -201,10 +201,10 @@ Und das selbe Beispiel ohne Mehrsprachigkeit für den Ort. Der Kontext bleibt wi
     Die Zeichenketten SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster
     "männliche Form | weibliche Form" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem "|").
     Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden:
-    "Mitglied" und nicht "Mitglied | Mitglied".
+    "Ratsmitglied" und nicht "Ratsmitglied | Ratsmitglied".
     Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschlecht
     der Personen vornimmt.
-    z. B. "Bürgermeister | Bürgermeisterin",
+    Weitere Beispiele: "Bürgermeister | Bürgermeisterin",
     "Bezirksbürgermeister | Bezirksbürgermeisterin",
     "Stadtverordneter | Stadtverordnete",
     "Bezirksverordneter | Bezirksverordnete",

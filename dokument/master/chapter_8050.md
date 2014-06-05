@@ -131,6 +131,19 @@ Siehe https://github.com/OParl/specs/issues/45
     Kardinalität: 0 bis *.
     OPTIONAL.
 
+`startDate`
+:   Datum des ersten Tages der Existenz der Organisation.
+    FRAGE: Muss zwischen Konstituierung und Beschluss zur Gründung unterschieden werden? 
+    Typ:`xsd:date`.
+    Kardinalität: 0 bis 1.
+    EMPFOHLEN.
+    
+`endDate`
+:   Datum des letzten Tages der Existenz der Organisation.
+    Typ: `xsd:date`.
+    Kardinalität: 0 bis 1.
+    OPTIONAL.
+
 `created`
 :   Datum/Uhrzeit der Erzeugung des Objekts.
     Typ: `xsd:dateTime`.

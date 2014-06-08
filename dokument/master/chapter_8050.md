@@ -71,6 +71,14 @@ Das entsprechende Beispiel in kompakter Form:
     Kardinalität: 1.
     ZWINGEND.
 
+`meeting`
+:   Sitzung dieser Gruppierung.
+    Typ: `oparl:Meeting`.
+    Kardinalität: 0 bis *.
+    Constraint: Diese Eigenschaft ist invers zur Eigenschaft `organization` der Klasse `oparl:Meeting`
+    (In OWL: `oparl:organization owl:inverseOf oparl:meeting .`)
+    EMPFOHLEN.
+
 `nameLong`
 :   Offizielle (lange) Form des Namens der Gruppierung.
     Typ: String.

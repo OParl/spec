@@ -53,6 +53,8 @@ Waivers and Norms for Data" im online zugänglichen Linked Data Book.^[Tom Heath
 
 Datum und Uhrzeit der Erstellung des jeweiligen Objekts.
 
+Datentyp: `xsd:dateTime`.
+
 ### `modified`
 
 Diese Eigenschaft kennzeichnet stets Datum und Uhrzeit der letzten Änderung des
@@ -68,6 +70,8 @@ eine Gruppierung vom Server grundsätzlich mit der Liste der URLs aller Mitglied
 wird, umfasst das Objekt aus Sicht des Clients eben auch die Liste der Mitglieder. In diesem
 Fall wäre eine Veränderung der Liste der Mitglieder als Änderung des Objekts zu verstehen,
 die im `modified` Zeitstempel widerspiegeln sollte.
+
+Datentyp: `xsd:dateTime`.
 
 ### `keyword`
 

@@ -75,7 +75,5 @@ der beschriebenen Prinzipien. Es handelt sich in der Regel um frei erfundene
 Daten.
 
 Codebeispiele erheben insbesondere bei JSON-Code nicht den Anspruch auf
-hundertprozentige syntaktische Korrektheit. Es kann in Einzelfällen aus Gründen
-der besseren Lesbarkeit zur Verwendung von Umlauten etc. kommen, die in JSON nicht
-erlaubt wären. Auch können in Codebeispielen Auslassungen vorkommen, die mit `...`
-gekennzeichnet werden.
+hundertprozentige syntaktische Korrektheit. Insbesondere können in Codebeispielen Auslassungen vorkommen, die mit `...`
+gekennzeichnet werden (die JSON-Spezifikation sieht leider keine Kommentare vor).

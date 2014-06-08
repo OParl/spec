@@ -69,7 +69,7 @@ Ein Beispiel in kompakter Form:
 
 `publishedDate`
 :   Veröffentlichungsdatum der Drucksache.
-    Typ: Datum mit oder ohne Zeit.
+    Typ: Datentyp `xsd:dateTime` | Datentyp `xsd:date`.
     Kardinalität: 0 bis 1.
     Diese Eigenschaft ist EMPFOHLEN.
 
@@ -127,7 +127,7 @@ Ein Beispiel in kompakter Form:
 
 `modified`
 :   Letzter Änderungszeitpunkt des Objekts.
-    Typ: Zeitstempel.
+    Typ: Datentyp `xsd:dateTime`.
     Kardinalität: 1.
 
 `keyword`

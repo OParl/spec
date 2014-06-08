@@ -129,9 +129,17 @@ Ein Beispiel in kompakter Form:
 :   Letzter Änderungszeitpunkt des Objekts.
     Typ: Datentyp `xsd:dateTime`.
     Kardinalität: 1.
-
+    TODO: EMPFOHLEN ?
+    
 `keyword`
 :   Begriff mit `skos:prefLabel`. Allgemeiner als `paperType`.
     Typ: `skos:Concept`.
     Kardinalität: 0 bis *.
     Die Eigenschaft ist OPTIONAL.
+
+`underDirectionOf`
+:   Federführung. Amt oder Abteilung, für die Inhalte oder Beantwortung der Drucksache verantwortlich.
+    Typ: `oparl:Organization`.
+    Kardinalität: 0 bis *.
+    OPTIONAL.
+    

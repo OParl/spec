@@ -104,13 +104,13 @@ Ein Beispiel in kompakter Form:
 
 `created`
 :   Erzeugungsdatum und -zeit des Objekts.
-    Typ: Zeitstempel.
+    Typ: Datentyp `xsd:dateTime`.
     Kardinalität: 0 bis 1.
     Die Eigenschaft ist EMPFOHLEN.
 
 `lastModified`
 :   Datum und Uhrzeit der letzten Änderung.
-    Typ: Zeitstempel.
+    Typ: Datentyp `xsd:dateTime`.
     Kardinalität: 0 bis 1.
     Die Eigenschaft ist EMPFOHLEN.
 

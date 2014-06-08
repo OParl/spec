@@ -75,11 +75,11 @@ Ein Beispiel in kompakter Form:
 
 `resolutionText`
 :   Falls in diesem Tagesordnungspunkt ein Beschluss gefasst 
-    wurde, kann der Text hier hinterlegt werden. Das ist besonders dann in der 
+    wurde, kann der Text hier angegeben werden. Das ist besonders dann in der 
     Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag) 
-    von der Beschlussvorlage abweicht.
-    Typ: Zeichenkette.
-    Kardinalität: 0 bis 1.
+    von der Beschlussvorlage abweicht. Der Text kann als Zeichenkette oder auch als Dokument angegeben werden.
+    Typ: Datentyp `xsd:string` | `oparl:Document`.
+    Kardinalität: 0 bis 2.
     Die Eigenschaft ist OPTIONAL.
 
 `paper`

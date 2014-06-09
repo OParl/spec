@@ -73,7 +73,7 @@ werden, welche Ableitungen einer Datei existieren.
 :   Datum und Zeit der Erstellung der Datei. Wahlweise, falls dies nicht
     vom System kommuniziert werden kann oder soll, KANN alternativ
     der Zeitpunkt der Veröffentlichung ausgegeben werden.
-    Typ: Datum.
+    Typ: xsd:dateTime.
     Kardinalität: 1.
     ZWINGEND.
 

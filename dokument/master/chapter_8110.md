@@ -86,7 +86,7 @@ werden, welche Ableitungen einer Datei existieren.
     Dateinamens gelten. Hier soll immer das größere der beiden Daten
     ausgegeben werden, also der am wenigsten lang zurückliegende
     Änderungszeitpunkt.
-    Typ: Datum und Uhrzeit.
+    Typ: xsd:dateTime.
     Kardinalität: 1.
     ZWINGEND.
 

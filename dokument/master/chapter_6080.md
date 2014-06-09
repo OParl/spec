@@ -13,8 +13,9 @@ ausmacht, kommt dem Dateizugriff eine besondere Bedeutung zu. Daher formuliert
 OParl diesbezüglich einige Anforderungen, die helfen sollen, unnötigen
 Datentransfer zu vermeiden.
 
-Detail zu sämtlichen angesprochenen Mechanismen sind in der
-HTTP-1.1-Spezifikation^[vgl. <http://www.w3.org/Protocols/rfc2616/rfc2616.html>]
+Detail zu sämtlichen angesprochenen Mechanismen sind in den verschiedenen Teilen der 
+HTTP-1.1-Spezifikation^[vgl. <http://tools.ietf.org/html/rfc7230>,
+<http://tools.ietf.org/html/rfc7231>, <http://tools.ietf.org/html/rfc7232>]
 zu finden.
 
 ### GET und HEAD Anfragen

@@ -12,11 +12,11 @@ Ein Beispiel in expandierter Form:
     "@type": "http://oparl.org/schema/1.0/Organization",
     "@id": "https://oparl.beispielris.de/organization/34",
     "body": "https://oparl.beispielris.de/body/0",
-    "nameShort": {
+    "shortName": {
         "@language" :"de",
         "@value": "Finanzausschuss"
     },
-    "nameLong": {
+    "name": {
         "@language": "de",
         "@value": "Ausschuss für Haushalt und Finanzen"
     },
@@ -46,8 +46,8 @@ Das entsprechende Beispiel in kompakter Form:
     "@type": "oparl:Organization",
     "@id": "beispielris:organization/34",
     "body": "0",
-    "nameShort": "Finanzausschuss",
-    "nameLong": "Ausschuss für Haushalt und Finanzen",
+    "shortName": "Finanzausschuss",
+    "name": "Ausschuss für Haushalt und Finanzen",
     "post": [
         "beispielris:post/chairperson",
         "beispielris:post/deputyChairperson"
@@ -79,16 +79,16 @@ Das entsprechende Beispiel in kompakter Form:
     (In OWL: `oparl:organization owl:inverseOf oparl:meeting .`)
     EMPFOHLEN.
 
-`nameLong`
+`name`
 :   Offizielle (lange) Form des Namens der Gruppierung.
-    Typ: String.
+    Typ: Datentyp `xsd:string`.
     Kardinalität: 1.
     Diese Eigenschaft ist ZWINGEND.
 
-`nameShort`
+`shortName`
 :   Der Name der Gruppierung als Kurzform.
-    Typ: String.
-    Kardinalität: 1.
+    Typ: Datentyp `xsd:string`.
+    Kardinalität: 0 bis 1.
     Die Eigenschaft ist OPTIONAL.
 
 `post`

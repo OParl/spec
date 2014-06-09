@@ -14,16 +14,16 @@ Objekttypenangabe des Objekts im Sinne von JSON-LD. ZWINGEND für jedes Objekt.
 Der Wert ist (in Verbindung mit dem JSON-LD-Kontext eines Objekts) eine URL,
 unter der weitere Informationen über den Objekttyp angeboten werden KÖNNEN.
 
-### `name` und `nameLong`
+### `name` und `shortName`
 
-Beide Eigenschaften können bei vielen Objekttypen genutzt werden, um den nutzerfreundlichen
-Namen des Objekts anzugeben. Üblicherweise ist `name` eine Pflichteigenschaft, während
-`nameLong` optional angegeben werden kann. Dies ist dann zu empfehlen, wenn zu einem Namen
-eine kurze bzw. kompakte und eine längere, aber weniger nutzerfreundliche Variante
-existieren. Ein Beispiel wäre die Kurzform "CDU" für den Parteinamen "Christlich Demokratische
-Union Deutschlands".
+Beide Eigenschaften können bei vielen Objekttypen genutzt werden, um den
+Namen des Objekts anzugeben. Üblicherweise ist `name` eine Pflichteigenschaft
+für den ausgeschriebenen offiziellen Namen, während `shortName` optional angegeben werden kann.
+Dies ist dann zu empfehlen, wenn zu einem Namen eine kurze bzw. kompakte und eine
+längere, aber weniger nutzerfreundliche Variante existieren. Ein Beispiel wäre
+die offizielle Kurzform "CDU" für den offiziellen Parteinamen "Christlich Demokratische Union Deutschlands".
 
-In keinem Fall sollten die Werte von `name` und `nameLong` identisch sein.
+Die Werte von `name` und `shortName` SOLLEN nicht identisch sein.
 
 ### `license` {#eigenschaft_license}
 

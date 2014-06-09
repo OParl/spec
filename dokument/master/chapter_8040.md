@@ -42,8 +42,8 @@ Ein expandiertes Beispiel:
         "http://d-nb.info/gnd/2015732-0",
         "http://dbpedia.org/resource/Cologne"
     ],
-    "name": "Stadt Köln",
-    "nameLong": {
+    "shortName": "Stadt Köln",
+    "name": {
         "de": "Stadt Köln, kreisfreie Stadt",
         "en": "City of Cologne"
     },
@@ -78,18 +78,17 @@ Parlament an.
     Kardinalität: 1.
     Die Eigenschaft ist ZWINGEND.
 
+`shortName`
+:   Kurzer Name der Körperschaft.
+    Typ: Datentyp `xsd:string`.
+    Kardinalität: 0 bis 1.
+    Die Eigenschaft ist EMPFOHLEN.
+
 `name`
-:   Gibt den gebräuchlichen Namen der Körperschaft an.
-    Typ: Zeichenkette.
+:   Der offizielle lange Name der Körperschaft.
+    Typ: Datentyp `xsd:string`.
     Kardinalität: 1.
     Die Eigenschaft ist ZWINGEND.
-
-`nameLong`
-:   Kann bei Bedarf dazu verwendet werden, eine längere Form des 
-    Namens der Körperschaft anzugeben.
-    Typ: Zeichenkette.
-    Kardinalität: 0 bis 1.
-    Die Eigenschaft ist OPTIONAL.
 
 `website`
 :   Allgemeine Website der Körperschaft.

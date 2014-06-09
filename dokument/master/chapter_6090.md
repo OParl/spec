@@ -5,8 +5,7 @@ Das Prinzip _Content Negotiation_ wurde bereits in RFC2295^[RFC2295:
 <http://tools.ietf.org/html/rfc2295>] beschrieben und bedeutet, dass
 WWW-Server eine Ressource in verschiedenen Formaten bereithalten
 können und Clients die Möglichkeit haben, eine Vorliebe für ein
-bestimmtes Format zu übermitteln. Auch die HTTP-1.1-Spezifikation^[
-RFC7231: <http://tools.ietf.org/html/rfc7231#section-3.4>] schließt Content
+bestimmtes Format zu übermitteln. Auch die HTTP-1.1-Spezifikation^[RFC7231: <http://tools.ietf.org/html/rfc7231#section-3.4>] schließt Content
 Negotiation ein.
 
 Die Idee hinter Content Negotiation ist, dass ein Client die von ihm

@@ -234,7 +234,7 @@ Und das selbe Beispiel ohne Mehrsprachigkeit für den Ort. Der Kontext bleibt wi
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
-`lastModified`
+`modified`
 :   Datum/Uhrzeit der letzten Bearbeitung des Objekts.
     Typ: `xsd:dateTime`.
     Kardinalität: 0 bis 1.

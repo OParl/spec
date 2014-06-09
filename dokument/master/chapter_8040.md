@@ -190,7 +190,7 @@ Parlament an.
     Kardinalität: 0 bis 1.
     Die Eigenschaft ist EMPFOHLEN.
 
-`lastModified`
+`modified`
 :   Datum/Uhrzeit der letzten Bearbeitung des Objekts.
     Typ: `xsd:DateTime`.
     Kardinalität: 0 bis 1.

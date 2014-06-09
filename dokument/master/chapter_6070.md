@@ -125,8 +125,8 @@ geführt werden.
 ~~~~~
 
 Das Ausgabeformat entspricht weitgehend dem des Feeds "Neue Objekte", jedoch
-heißt hier die Eigenschaft für den Zeitpunkt der letzten Änderung `lastModified`. 
-Auch hier gilt, dass der als `lastModified` ausgegebene Zeitpunkt auch als
+heißt hier die Eigenschaft für den Zeitpunkt der letzten Änderung `modified`. 
+Auch hier gilt, dass der als `modified` ausgegebene Zeitpunkt auch als
 Sortierkriterium der Liste gelten SOLL.
 
 ### Der Feed "Entfernte Objekte" ### {#feed_entfernte_objekte}

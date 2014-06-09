@@ -108,7 +108,7 @@ Ein Beispiel in kompakter Form:
     Kardinalität: 0 bis 1.
     Die Eigenschaft ist EMPFOHLEN.
 
-`lastModified`
+`modified`
 :   Datum und Uhrzeit der letzten Änderung.
     Typ: Datentyp `xsd:dateTime`.
     Kardinalität: 0 bis 1.

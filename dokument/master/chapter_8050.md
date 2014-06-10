@@ -5,6 +5,11 @@ Dieser Objekttyp dient dazu, Gruppierungen von Personen abzubilden,
 die in der parlamentarischen Arbeit eine Rolle spielen. Dazu zählen
 in der Praxis insbesondere Fraktionen und Gremien.
 
+Ein Teil der Eigenschaften ist der "Organization" Ontologie des W3C entnommen
+(kurz: `org:Organization`)^[The Organization Ontology, W3C Recommendation 16 January 2014,
+http://www.w3.org/TR/vocab-org/]. Deren Bezeichnungen wurden deshalb beibehalten.
+Das betrifft z.B. die Verwendung von `classification`.
+
 Ein Beispiel in expandierter Form:
 
 ~~~~~  {#organization_ex1 .json}
@@ -31,7 +36,6 @@ Ein Beispiel in expandierter Form:
         "https://oparl.beispielris.de/person/48",
         "https://oparl.beispielris.de/person/57"
     ],
-    "organizationType": "https://oparl.beispielris.de/vocab/committee",
     "classification": "https://oparl.beispielris.de/vocab/finance",
     "modified": "2012-08-16T14:05:27+02:00"
 }
@@ -57,7 +61,6 @@ Das entsprechende Beispiel in kompakter Form:
         "48",
         "57"
     ],
-    "organizationType": "beispielris:vocab/committee",
     "classification": "beispielris:vocab/finance",
     "modified": "2012-08-16T14:05:27+02:00"
 }
@@ -105,8 +108,8 @@ Das entsprechende Beispiel in kompakter Form:
     "Schriftführer | Schriftführerin",
     "Stellvertretender Schriftführer | Stellvertretende Schriftführerin",
     "Ordentliches Mitglied",
-    "Stellvertretendes Mitglied"
-Siehe https://github.com/OParl/specs/issues/45
+    "Stellvertretendes Mitglied".
+    Siehe https://github.com/OParl/specs/issues/45
     TODO: "Ordentliches Mitglied", "Stellvertretendes Mitglied" müssen anders behandelt werden!
     Typ: `oparl:Post`.
     Kardinalität: 0 bis *.
@@ -125,7 +128,7 @@ Siehe https://github.com/OParl/specs/issues/45
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
-`organizationType`
+`classification`
 :   Die Art der Organisation. In Frage kommen z.B. "Rat", "Hauptausschuss", "Ausschuss",
     "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat". Die Angabe soll möglichst präzise erfolgen.
     So ist die Angabe "Hauptausschuss" präziser als "Ausschuss". Im Vokabular SOLL dann dieses

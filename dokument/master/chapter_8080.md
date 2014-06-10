@@ -106,6 +106,7 @@ Das selbe Beispiel in kompakter Form:
     Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen
     KANN es der tatsächliche Startzeitpunkt sein.
     Typ: Datentyp `xsd:dateTime`.
+    Kardinalität: 1.
     ZWINGEND.
 
 `end`
@@ -113,18 +114,22 @@ Das selbe Beispiel in kompakter Form:
     Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen
     KANN es der tatsächliche Endzeitpunkt sein.
     Typ: Datentyp `xsd:dateTime`.
+    Kardinalität: 0 bis 1.
+    FRAGE: Kommen in Sitzungen Unterbrechungen vor, die in RIS festgehalten werden (sollen)?
     EMPFOHLEN.
 
 `location`
 :   Sitzungsort.
     Typ: `oparl:Location`.
+    Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
 `organization`
 :   Gruppierung der die Sitzung zugeordnet ist. Wenn eine Liste angegeben wird, dann ist diese geordnet. Das erste
     Element ist dann das federführende Gremium.
-    Diese Eigenschaft ist invers zur Eigenschaft `meeting` der Klasse `oparl:Organization` (In OWL: `oparl:organization owl:inverseOf oparl:meeting .`) 
+    Diese Eigenschaft ist invers zur Eigenschaft `meeting` der Klasse `oparl:Organization` (In OWL: `oparl:organization owl:inverseOf oparl:meeting .`).
     Typ: `oparl:Organization`.
+    Kardinalität: 1 bis *.
     ZWINGEND.
 
 `participant`
@@ -132,23 +137,28 @@ Das selbe Beispiel in kompakter Form:
     Bei einer Sitzung in der Zukunft sind dies die geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die
     Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung teilgenommen haben.
     Typ: `oparl:Person`.
+    Kardinalität: 0 bis *.
     OPTIONAL.
 
 `invitation`
 :   Einladungsdokument zur Sitzung.
+    FRAGE: Kann es mehr als ein solches Dokument geben?
     Typ: `oparl:Document`.
+    Kardinalität: 0 bis *.
     EMPFOHLEN.
 
 `resultsProtocol`
 :   Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach
     dem Stattfinden der Sitzung vorkommen.
     Typ: `oparl:Document`.
+    Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
 `verbatimProtocol`
 :   Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach
     dem Stattfinden der Sitzung vorkommen.
     Typ: `oparl:Document`.
+    Kardinalität: 0 bis 1.
     EMPFOHLEN.
     
 `auxiliaryDocument`
@@ -157,6 +167,7 @@ Das selbe Beispiel in kompakter Form:
     zu einer Sitzung verteilt werden, und die nicht bereits über einzelne
     Tagesordnungspunkte referenziert sind.
     Typ: `oparl:Document`.
+    Kardinalität: 0 bis *.
     OPTIONAL.
 
 `agendaItem`
@@ -164,18 +175,23 @@ Das selbe Beispiel in kompakter Form:
     Die Reihenfolge ist relevant.
     Es kann Sitzungen ohne TOPs geben.
     Typ: `oparl:AgendaItem`.
+    Kardinalität: 0 bis *.
     OPTIONAL.
 
 `keyword`
-:   Typ: `skos:Concept`.
+:   Schlagwort.
+    Typ: `skos:Concept`.
+    Kardinalität: 0 bis *.
     OPTIONAL.
     
 `created`
 :   Datum und Uhrzeit der Erzeugung des Objekts.
     Typ: Datentyp `xsd:dateTime`.
+    Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
 `modified`
 :   Datum und Uhrzeit der letzten Änderung des Objekts.
     Typ: Datentyp `xsd:dateTime`.
+    Kardinalität: 0 bis 1.
     EMPFOHLEN.

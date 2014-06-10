@@ -60,7 +60,7 @@ Ein Beispiel in kompakter Form:
 `consultation`
 :   Beratung, die diesem Tagesordnungspunkt zugewiesen ist.
     Typ: `oparl:Consultation`.
-    Kardinalität: 1.
+    Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
 `result`

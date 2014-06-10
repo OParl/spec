@@ -118,10 +118,12 @@ Das entsprechende Beispiel in kompakter Form:
 `member`
 :   Mitglieder dieser Organisation. Auch alle Personen mit
     Positionen in der Organisation sind hier anzugeben.
+    In der Eigenschaft member werden nur die Personen aufgezählt, ohne weitere Daten,
+    in den `oparl:Membership`-Objekten sind zusätzliche Eigenschaften wie Start- und Endedatum oder Rolle vorhanden.
     Typ: `oparl:Person`.
     Kardinalität: 0 bis *.
-    Diese Eigenschaft ist ZWINGEND.
-    
+    DEPRECATED.
+
 `subOrganizationOf`
 :   Ggf. URL der übergeordneten Organisation.
     Typ: `oparl:Organization`.

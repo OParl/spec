@@ -126,12 +126,14 @@ Siehe https://github.com/OParl/specs/issues/45
     OPTIONAL.
 
 `organizationType`
-:   Objekt mit `skos:prefLabel`, z. B. für "Rat", "Hauptausschuss", "Ausschuss",
-    "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat".
+:   Die Art der Organisation. In Frage kommen z.B. "Rat", "Hauptausschuss", "Ausschuss",
+    "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat". Die Angabe soll möglichst präzise erfolgen.
+    So ist die Angabe "Hauptausschuss" präziser als "Ausschuss". Im Vokabular SOLL dann dieses
+    Verhältnis zwischen "Ausschuss" und "Hauptausschuss" kodiert sein ("beispielris:hautausschuss skos:broader beispielris:ausschuss").
     Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
     Typ: `skos:Concept`.
     Kardinalität: 0 bis 1.
-    OPTIONAL.
+    EMPFOHLEN.
     
 `keyword`
 :   Schlagworte. Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).

@@ -17,7 +17,7 @@ Ein Beispiel:
     "@type": "oparl:Consultation",
     "@id": "https://oparl.beispielris.de/consultation/47594",
     "paper": "https://oparl.beispielris.de/paper/2396",
-    "agendaitem": "https://oparl.beispielris.de/agendaitem/15569",
+    "agendaItem": "https://oparl.beispielris.de/agendaitem/15569",
     "organization": "https://oparl.beispielris.de/organization/96",
     "authoritative": false,
     "role": "https://oparl.beispielris.de/role/decision"
@@ -32,7 +32,7 @@ Das selbe Beispiel in kompakter Form (ein passender Kontext wird vorausgesetzt):
     "@type": "oparl:Consultation",
     "@id": "beispielris:consultation/47594",
     "paper": "beispielris:paper/2396",
-    "agendaitem": "beispielris:agendaitem/15569",
+    "agendaItem": "beispielris:agendaitem/15569",
     "organization": "beispielris:organization/96",
     "authoritative": false,
     "role": "beispielris:role/decision"
@@ -58,12 +58,14 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
 `paper`
 :   Drucksache, die beraten wird.
     Typ: `oparl:Paper`.
+    Kardinalität: 1.
     ZWINGEND.
 
-`agendaitem`
+`agendaItem`
 :   Tagesordnungspunkt, unter dem die Drucksache beraten wird.
     Typ: `oparl:AgendaItem`.
-    ZWINGEND.
+    Kardinalität: 0 bis *.
+    EMPFOHLEN.
 
 `organization`
 :   Gremium, dem die Sitzung zugewiesen ist, zu welcher der zuvor genannte Tagesordnungspunkt gehört.
@@ -72,12 +74,14 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
     Die Liste ist dann geordnet.
     Das erste Gremium der Liste ist federführend.
     Typ: `oparl:Organization`.
+    Kardinalität: 1 bis *.
     ZWINGEND.
 
 `authoritative`
 :   Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst 
     wird (`true`) wird oder nicht (`false`).
     Typ: Boolean.
+    Kardinalität: 1.
     Diese Eigenschaft ist OPTIONAL.
 
 `role`
@@ -87,9 +91,11 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
     In einer zukünftigen Version von OParl können gegebenenfalls die am stärksten benötigten Rollen
     standardisiert werden.
     Typ: `skos:Concept`.
+    Kardinalität: 1.
     OPTIONAL.
 
 `keyword`
 :   Schlagwort, Begriff mit `skos:prefLabel`. Allgemeiner verwendbar als `role`.
     Typ: `skos:Concept`.
+    Kardinalität: 0 bis *.
     OPTIONAL.

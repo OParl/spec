@@ -16,7 +16,7 @@ Ein Beispiel in kompakter Form:
     "number": "10.1",
     "name": "Satzungsänderung für Ausschreibungen",
     "public": true,
-    "consultations": [
+    "consultation": [
         "beispielris:consultation/1034",
         "beispielris:consultation/1235"
     ],
@@ -36,33 +36,32 @@ Ein Beispiel in kompakter Form:
 :   Sitzung, der der Tagesordnungspunkt zugeordnet ist.
     Typ: `oparl:Meeting`.
     Kardinalität: 1.
-    Die Eigenschaft ist ZWINGEND.
+    ZWINGEND.
 
 `number`
 :   Nummer des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z. B. "10.", "10.1", "C", "c)" o. ä.
     Die Reihenfolge wird nicht dadurch, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting` festgelegt.
     Typ: Zeichenkette.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.
 
 `name`
 :   Das Thema des Tagesordnungspunktes.
     Typ: String.
-    Die Eigenschaft ist ZWINGEND.
+    ZWINGEND.
 
 `public`
 :   Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher Sitzung 
     vorgesehen ist/war. Es wird ein Wahrheitswert (`true` oder `false`) erwartet.
     Typ: Boolean.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 `consultation`
 :   Beratung, die diesem Tagesordnungspunkt zugewiesen ist.
     Typ: `oparl:Consultation`.
     Kardinalität: 1.
-    Die Eigenschaft ist ZWINGEND.
-    FRAGE: Bedeutet das nicht, dass jeder Tagesordnungspunkt immer eine Drucksache behandeln muss? Ist das sinnvoll?
+    EMPFOHLEN.
 
 `result`
 :   Kategorische Information darüber, welches Ergebnis die Beratung des
@@ -71,7 +70,7 @@ Ein Beispiel in kompakter Form:
     Funktionsweise dieses Attributs unter [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
     Typ: `skos:Concept`.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 `resolutionText`
 :   Falls in diesem Tagesordnungspunkt ein Beschluss gefasst 
@@ -79,8 +78,9 @@ Ein Beispiel in kompakter Form:
     Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag) 
     von der Beschlussvorlage abweicht. Der Text kann als Zeichenkette oder auch als Dokument angegeben werden.
     Typ: Datentyp `xsd:string` | `oparl:Document`.
+    FRAGE: Dies ist noch nicht optimal. Gibt es Redundanz? Weitere Eigenschaft notwendig oder sinnvoll?
     Kardinalität: 0 bis 2.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.
 
 `paper`
 :   Drucksache. Zwar kann auch das `oparl:Meeting` darauf verweisen, aber hier
@@ -94,29 +94,29 @@ Ein Beispiel in kompakter Form:
 :   Dateianhang zum Tagesordnungspunkt.
     Typ: `oparl:Document`.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.
 
 `keyword`
 :   Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
     Typ: `skos:Concept`.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.
 
 `created`
 :   Erzeugungsdatum und -zeit des Objekts.
     Typ: Datentyp `xsd:dateTime`.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 `modified`
 :   Datum und Uhrzeit der letzten Änderung.
     Typ: Datentyp `xsd:dateTime`.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 `absentParticipant`
 :   Person(en), die bei der Behandlung dieses Tagesordnungspunkts nicht
     anwesend war(en).
     Typ: `oparl:Person`.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.

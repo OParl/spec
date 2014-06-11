@@ -68,3 +68,7 @@ Zu den Themen, die in zukünftigen Versionen adressiert werden könne, zählen:
   bund-länderübergreifenden Datenaustausch oder zur Vereinheitlichung des 
   Datenaustauschs der öffentlichen Verwaltung mit Bürgern und Wirtschaft notwendig 
   ist."
+
+Generell gilt auch für OParl: "Completion is a state that a good specification never
+reaches before it's irrelevant."^[http://www.w3.org/community/oilgaschem/wiki/OGCWG_-_Lessons_Learned] - Ian Hickson
+

@@ -5,8 +5,9 @@ Objektlisten  {#objektlisten}
 beispielsweise eine bestimmte Drucksache, oder Listen von Objekten,
 etwa die Liste aller Sitzungen einer Körperschaft, abgefragt werden.
 
-Fragt ein Client eine Liste von Objekten an, hat der Server mehrere
-Möglichkeiten, diese Anfrage zu beantworten.
+Es gibt mehrere Möglichkeiten, Listen von Objekten auszugeben. Welche
+gewählt wird, hängt von verschiedenen Kriterien ab, die nachfolgend
+beschrieben werden.
 
 In jedem Fall werden die einzelnen Objekte, die Bestandteile der
 Liste sind (wie z. B. die einzelnen Drucksachen) durch die URL

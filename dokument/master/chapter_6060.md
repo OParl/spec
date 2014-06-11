@@ -44,13 +44,16 @@ Beispiel:
     "generatedAt": ""2014-06-11T12:59:11.038+0100"",
     "member": [
         {
-            "@id": "beispielris:bodies/0/papers/2"
+            "@id": "beispielris:bodies/0/papers/2",
+            "@type": "oparl:Paper"
         },
         {
             "@id": "beispielris:bodies/0/papers/5"
+            "@type": "oparl:Paper"
         },
         {
             "@id": "beispielris:bodies/0/papers/7"
+            "@type": "oparl:Paper"
         }
     ]
 }

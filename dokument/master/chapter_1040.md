@@ -12,7 +12,7 @@ nicht auszuspezifizieren, waren:
 * Zu großer Arbeitsaufwand für die Spezifikations-Entwicklung
 * Hohe Aufwände bei den Server-Implementierern
 
-Zu den Themen, die in zukünftigen Versionen adressiert werden könne, zählen:
+Zu den Themen, die in zukünftigen Versionen adressiert werden können, zählen:
 
 * Loslösung von der kommunalen Ebene: Es ist möglich, dass OParl mit nur geringfügigen
   Änderungen oder Erweiterungen auch für die Ebene von Bundesländern (Landtage) oder
@@ -23,7 +23,7 @@ Zu den Themen, die in zukünftigen Versionen adressiert werden könne, zählen:
   Drucksachen etc. nach bestimmten Kriterien einzuschränken. Zukünftig könnten
   hier weitere Möglichkeiten definiert werden, bis hin zur Suche nach Stichworten
   in Volltexten. Ein möglicher Ansatz ist die Verwendung von Linked Data
-  Fragements^[http://linkeddatafragments.org/]. Dies ermöglichst mächtige
+  Fragements^[http://linkeddatafragments.org/]. Dies ermöglicht mächtige
   Abfragemöglichkeiten in Clients ohne dabei zu Überlastungen der Server zu führen.
 
 * Detaillierte Wiedergabe von Abstimmungen: Das Thema ist vom Datenmodell/Schema

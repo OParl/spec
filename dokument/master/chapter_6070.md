@@ -70,7 +70,7 @@ Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
         "@id": "beispielris:collection2349",
 // TODO: @id ZWINGEND, OPTIONAL, EMPFOHLEN ?
         "@type": "hydra:Collection",
-        "generatedAt": "2014-06-11",
+        "generatedAt": "2014-06-11T12:59:01.038+0100",
         "member": [
 		{
 			"@id": "https://oparl.example.org/bodies/0/papers/21/documents/3",

@@ -31,14 +31,14 @@ Beispiel:
 
         "generatedAt": {
             "@id": "prov:generatedAtTime",
-            "@type": [ "xsd:date", "xsd:dateTime"]
+            "@type":"xsd:dateTime"
         },
         "member": { "@id": "hydra:member", "@type": "@id" }
     },
     "@id": "beispielris:collection2345",
 // TODO: @id ZWINGEND, OPTIONAL, EMPFOHLEN ?
     "@type": "hydra:Collection",
-    "generatedAt": "2014-06-11",
+    "generatedAt": ""2014-06-11T12:59:11.038+0100"",
     "member": [
         {
             "@id": "beispielris:bodies/0/papers/2"

@@ -84,7 +84,7 @@ zusammengestellt und werden in den einzelnen Beispiel-Kontexten nicht
 jeweils wiederholt:
 
 ~~~~~  {#pcontext_praefixe .json}
-    "beispielris": "https://oparl.beispielris.de",
+    "beispielris": "https://oparl.example.org",
     "oparl": "http://oparl.org/specs/1.0/",
     "dc": "http://purl.org/dc/terms/",
     "foaf": "http://xmlns.com/foaf/0.1/",
@@ -146,7 +146,7 @@ Person eine eigene Domain verdient, dann ist dies aus Sicht der OParl-Spezifikat
 völlig in Ordnung:
 
 ~~~~~~~~~~
-https://ratsmitglied-max-mustermann.beispielris.de/mein-oparl-datensatz
+https://ratsmitglied-max-mustermann.example.org/mein-oparl-datensatz
 ~~~~~~~~~~
 
 Noch etwas extremer: selbst eine eigene Domain für jedes einzelne 

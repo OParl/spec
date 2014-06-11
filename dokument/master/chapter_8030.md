@@ -11,18 +11,18 @@ Ein Beispiel:
 ~~~~~  {#system_ex1 .json}
 {
     "@type": "oparl:System",
-    "@id": "https://oparl.beispielris.de/",
+    "@id": "https://oparl.example.org/",
     "oparlVersion": "http://oparl.org/specs/1.0/",
     "name": "Beispiel-System",
-    "website": "http://www.beispielris.de/",
-    "contactEmail": "mailto:info@beispielris.de",
+    "website": "http://www.example.org/",
+    "contactEmail": "mailto:info@example.org",
     "contactName": "Allgemeiner OParl Kontakt",
     "vendor": "http://example-software.com/",
     "product": "http://example-software.com/oparl-server/",
-    "body": "https://oparl.beispielris.de/bodies/",
-    "newObjects": "https://oparl.beispielris.de/new_objects/",
-    "updatedObjects": "https://oparl.beispielris.de/updated_objects/",
-    "removedObjects": "https://oparl.beispielris.de/removed_objects"
+    "body": "https://oparl.example.org/bodies/",
+    "newObjects": "https://oparl.example.org/new_objects/",
+    "updatedObjects": "https://oparl.example.org/updated_objects/",
+    "removedObjects": "https://oparl.example.org/removed_objects"
 }
 ~~~~~
 
@@ -55,11 +55,11 @@ Und das System-Objekt in kompakter Form unter Verwendung des Kontexts:
 ~~~~~  {#system_ex2 .json}
 {
     "@type": "oparl:System",
-    "@id": "https://oparl.beispielris.de/",
+    "@id": "https://oparl.example.org/",
     "oparlVersion": "http://oparl.org/specs/1.0/",
     "name": "Beispiel-System",
-    "website": "http://www.beispielris.de/",
-    "contactEmail": "mailto:info@beispielris.de",
+    "website": "http://www.example.org/",
+    "contactEmail": "mailto:info@example.org",
     "contactName": "Allgemeiner OParl Kontakt",
     "vendor": "http://example-software.com/",
     "product": "http://example-software.com/oparl-server/",

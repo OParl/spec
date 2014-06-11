@@ -11,21 +11,21 @@ Ein Beispiel:
 ~~~~~  {#document_ex1 .json}
 {
     "@type": "oparl:Document",
-    "@id": "https://oparl.beispielris.de/document/57739",
+    "@id": "https://oparl.example.org/document/57739",
     "name": "Anlage 1 zur Anfrage",
     "fileName": "57739.pdf",
-    "paper": "https://oparl.beispielris.de/paper/2396",
+    "paper": "https://oparl.example.org/paper/2396",
     "mimeType": "application/pdf",
     "date": "2013-01-04T07:54:13+01:00",
     "modified": "2013-01-04T07:54:13+01:00",
     "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "size": 82930,
-    "accessUrl": "https://oparl.beispielris.de/document/57739.pdf",
-    "downloadUrl": "https://oparl.beispielris.de/document/download/57739.pdf",
+    "accessUrl": "https://oparl.example.org/document/57739.pdf",
+    "downloadUrl": "https://oparl.example.org/document/download/57739.pdf",
     "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
-    "masterDocument": "https://oparl.beispielris.de/document/57738",
+    "masterDocument": "https://oparl.example.org/document/57738",
     "license": "http://www.opendefinition.org/licenses/cc-by",
-    "documentRole": "https://oparl.beispielris.de/document-role/evidence"
+    "documentRole": "https://oparl.example.org/document-role/evidence"
 }
 ~~~~~
 

@@ -23,9 +23,9 @@ Beispiel:
 
 ~~~~~  {#objektlisten_ex1 .json}
 [
-	"https://oparl.beispielris.de/bodies/0/papers/2",
-	"https://oparl.beispielris.de/bodies/0/papers/5",
-	"https://oparl.beispielris.de/bodies/0/papers/7"
+	"https://oparl.example.org/bodies/0/papers/2",
+	"https://oparl.example.org/bodies/0/papers/5",
+	"https://oparl.example.org/bodies/0/papers/7"
 ]
 ~~~~~
 
@@ -60,12 +60,12 @@ Gebrauch gemacht.
 Beispiel eines Link-Headers zur Angabe der URL für den Abruf der
 folgenden Listenseite:
 
-    Link: <https://oparl.beispielris.de/bodies/0/papers/?skip_id=7>;rel=next
+    Link: <https://oparl.example.org/bodies/0/papers/?skip_id=7>;rel=next
 
 Im oben gezeigten Beispiel besteht der Wert des Link-Headers aus zwei
 Bestandteilen, die durch ein Semikolon von einander getrennt sind:
 
-    <https://oparl.beispielris.de/bodies/0/papers/?skip_id=7>;rel=next
+    <https://oparl.example.org/bodies/0/papers/?skip_id=7>;rel=next
      \_____________________________________________________/  \______/
                                 |                                |
                                URL                        Link-Parameter
@@ -210,10 +210,10 @@ werden:
 ~~~~~  {#objektlisten_ex6 .json}
 {
     "@type": "oparl:System",
-    "@id": "https://oparl.beispielris.de/",
+    "@id": "https://oparl.example.org/",
     "body": [
-    	"https://oparl.beispielris.de/bodies/1",
-    	"https://oparl.beispielris.de/bodies/2"
+    	"https://oparl.example.org/bodies/1",
+    	"https://oparl.example.org/bodies/2"
     ],
     ...
 }
@@ -229,8 +229,8 @@ vorangegangenen Beispiel beeinflusst:
 ~~~~~  {#objektlisten_ex6 .json}
 {
     "@type": "oparl:System",
-    "@id": "https://oparl.beispielris.de/",
-    "body": "https://oparl.beispielris.de/bodies/"
+    "@id": "https://oparl.example.org/",
+    "body": "https://oparl.example.org/bodies/"
     ...
 }
 ~~~~~

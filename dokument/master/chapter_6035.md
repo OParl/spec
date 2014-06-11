@@ -103,8 +103,8 @@ dass für jeden Parameter und jeden Wert im Query-String nur eine kanonische Sch
 Darüber hinaus SOLL der Server-Implementierer darauf achten, bei Verwendung von Query-String-Parametern
 diese in URLs immer nach dem selben Prinzip zu sortieren. Ein Beispiel: die beiden URLs
 
-    https://oparl.beispielris.de/members?body=1&committee=2
-    https://oparl.beispielris.de/members?committee=2&body=1
+    https://oparl.example.org/members?body=1&committee=2
+    https://oparl.example.org/members?committee=2&body=1
 
 unterscheiden sich lediglich in der Reihenfolge der Query-String-Parameter. Da sie jedoch nicht
 identisch sind, müssen Clients annehmen, dass beide URLs verschiedene Objekte repräsentieren. In der

@@ -33,8 +33,8 @@ Ein expandiertes Beispiel:
 ~~~~~  {#oparlbody_ex1 .json}
 {
     "@type": "http://oparl.org/schema/1.0/Body",
-    "@id": "https://oparl.beispielris.de/body/0",
-    "system": "https://oparl.beispielris.de/",
+    "@id": "https://oparl.example.org/body/0",
+    "system": "https://oparl.example.org/",
     "contactEmail": "mailto:ris@beispielstadt.de",
     "contactName": "RIS-Betreuung",
     "rgs": "053150000000",
@@ -50,11 +50,11 @@ Ein expandiertes Beispiel:
     "website": "http://www.beispielstadt.de/",
     "license": "http://creativecommons.org/licenses/by/4.0/",
     "licenseValidSinceDay": "2014-01-01",
-    "organization": "https://oparl.beispielris.de/body/0/organisation/",
-    "meeting": "https://oparl.beispielris.de/body/0/meeting/",
-    "paper": "https://oparl.beispielris.de/body/0/paper/",
-    "member": "https://oparl.beispielris.de/body/0/person/",
-    "classification": "https://oparl.beispielris.de/vocab/landkreis",
+    "organization": "https://oparl.example.org/body/0/organisation/",
+    "meeting": "https://oparl.example.org/body/0/meeting/",
+    "paper": "https://oparl.example.org/body/0/paper/",
+    "member": "https://oparl.example.org/body/0/person/",
+    "classification": "https://oparl.example.org/vocab/landkreis",
     "created": "2014-01-08T14:28:31.568+0100",
     "modified": "2014-01-08T14:28:31.568+0100"
 }

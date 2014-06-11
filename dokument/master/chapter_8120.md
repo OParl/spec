@@ -15,12 +15,12 @@ Ein Beispiel:
 ~~~~~  {#consultation_ex1 .json}
 {
     "@type": "oparl:Consultation",
-    "@id": "https://oparl.beispielris.de/consultation/47594",
-    "paper": "https://oparl.beispielris.de/paper/2396",
-    "agendaItem": "https://oparl.beispielris.de/agendaitem/15569",
-    "organization": "https://oparl.beispielris.de/organization/96",
+    "@id": "https://oparl.example.org/consultation/47594",
+    "paper": "https://oparl.example.org/paper/2396",
+    "agendaItem": "https://oparl.example.org/agendaitem/15569",
+    "organization": "https://oparl.example.org/organization/96",
     "authoritative": false,
-    "role": "https://oparl.beispielris.de/role/decision"
+    "role": "https://oparl.example.org/role/decision"
 }
 ~~~~~
 
@@ -28,7 +28,7 @@ Das selbe Beispiel in kompakter Form (ein passender Kontext wird vorausgesetzt):
 
 ~~~~~  {#consultation_ex2 .json}
 {
-    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld",
+    "@context": "https://oparl.example.org/Pfad/zum/Kontext/oparl.jsonld",
     "@type": "oparl:Consultation",
     "@id": "beispielris:consultation/47594",
     "paper": "beispielris:paper/2396",
@@ -43,7 +43,7 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
 
 ~~~~~  {#role_ex1 .json}
 {
-    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld",
+    "@context": "https://oparl.example.org/Pfad/zum/Kontext/oparl.jsonld",
     "@id": "beispielris:role/decision",
     "prefLabel": {
         "de": "Entscheidung",

@@ -52,15 +52,15 @@ Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
 ~~~~~  {#feed_ex1 .json}
 [
     {
-        "@id": "https://oparl.beispielris.de/bodies/0/papers/21/documents/3",
+        "@id": "https://oparl.example.org/bodies/0/papers/21/documents/3",
         "created": "2014-01-07T12:59:01.038+0100"
     },
     {
-        "@id": "https://oparl.beispielris.de/bodies/0/papers/21",
+        "@id": "https://oparl.example.org/bodies/0/papers/21",
         "created": "2014-01-05T18:29:37.123+0100"
     },
     {
-        "@id": "https://oparl.beispielris.de/bodies/0/papers/20/documents/5",
+        "@id": "https://oparl.example.org/bodies/0/papers/20/documents/5",
         "created": "2014-01-04T11:26:48.638+0100"
     },
     ...
@@ -109,15 +109,15 @@ geführt werden.
 ~~~~~  {#feed_ex2 .json}
 [
     {
-        "@id": "https://oparl.beispielris.de/bodies/0/papers/0/documents/2",
+        "@id": "https://oparl.example.org/bodies/0/papers/0/documents/2",
         "modified": "2014-01-08T14:28:31.568+0100"
     },
     {
-        "@id": "https://oparl.beispielris.de/bodies/0/papers/0",
+        "@id": "https://oparl.example.org/bodies/0/papers/0",
         "modified": "2014-01-08T12:14:27.958+0100"
     },
     {
-        "@id": "https://oparl.beispielris.de/bodies/0/papers/0/documents/1",
+        "@id": "https://oparl.example.org/bodies/0/papers/0/documents/1",
         "modified": "2014-01-06T17:01:00.402+0100"
     },
     ...
@@ -144,7 +144,7 @@ depublizierte Dokumente aus ihren lokalen Caches zu entfernen.
 ~~~~~  {#feed_ex3 .json}
 [
     {
-        "@id": "https://oparl.beispielris.de/bodies/0/people/22",
+        "@id": "https://oparl.example.org/bodies/0/people/22",
         "removed": "2013-11-11T11:11:00.000+0100"
     },
     ...

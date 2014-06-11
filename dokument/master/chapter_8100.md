@@ -17,9 +17,9 @@ Ein Beispiel in kompakter Form:
 
 ~~~~~  {#paper_ex1 .json}
 {
-    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld",
+    "@context": "https://oparl.example.org/Pfad/zum/Kontext/oparl.jsonld",
     "@type": "oparl:Paper",
-    "@id": "https://oparl.beispielris.de/paper/749",
+    "@id": "https://oparl.example.org/paper/749",
     "body": "beispielris:bodies/1",
     "name": "Antwort auf Anfrage 1200/2014",
     "reference": "1234/2014",

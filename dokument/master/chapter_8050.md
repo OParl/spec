@@ -15,8 +15,8 @@ Ein Beispiel in expandierter Form:
 ~~~~~  {#organization_ex1 .json}
 {
     "@type": "http://oparl.org/schema/1.0/Organization",
-    "@id": "https://oparl.beispielris.de/organization/34",
-    "body": "https://oparl.beispielris.de/body/0",
+    "@id": "https://oparl.example.org/organization/34",
+    "body": "https://oparl.example.org/body/0",
     "shortName": {
         "@language" :"de",
         "@value": "Finanzausschuss"
@@ -27,16 +27,16 @@ Ein Beispiel in expandierter Form:
     },
     "post": {
         "@list": [
-            "https://oparl.beispielris.de/post/chairperson",
-            "https://oparl.beispielris.de/post/deputyChairperson"
+            "https://oparl.example.org/post/chairperson",
+            "https://oparl.example.org/post/deputyChairperson"
         ]
     },
     "member": [
-        "https://oparl.beispielris.de/person/27",
-        "https://oparl.beispielris.de/person/48",
-        "https://oparl.beispielris.de/person/57"
+        "https://oparl.example.org/person/27",
+        "https://oparl.example.org/person/48",
+        "https://oparl.example.org/person/57"
     ],
-    "classification": "https://oparl.beispielris.de/vocab/finance",
+    "classification": "https://oparl.example.org/vocab/finance",
     "modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
@@ -46,7 +46,7 @@ Das entsprechende Beispiel in kompakter Form:
 
 ~~~~~  {#organization_ex2 .json}
 {
-    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/organization.jsonld",
+    "@context": "https://oparl.example.org/Pfad/zum/Kontext/organization.jsonld",
     "@type": "oparl:Organization",
     "@id": "beispielris:organization/34",
     "body": "0",

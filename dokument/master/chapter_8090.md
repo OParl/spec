@@ -9,9 +9,9 @@ Ein Beispiel in kompakter Form:
 
 ~~~~~  {#agendaitem_ex1 .json}
 {
-    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/oparl.jsonld",
+    "@context": "https://oparl.example.org/Pfad/zum/Kontext/oparl.jsonld",
     "@type": "oparl:AgendaItem",
-    "@id": "https://oparl.beispielris.de/agendaitem/3271",
+    "@id": "https://oparl.example.org/agendaitem/3271",
     "meeting": "beispielris:meeting/281",
     "number": "10.1",
     "name": "Satzungsänderung für Ausschreibungen",

@@ -19,7 +19,7 @@ Ein Beispiel in expandierter Form:
 ~~~~~  {#person_ex1 .json}
 {
     "@type": "http://oparl.org/schema/1.0/Person",
-    "@id": "https://oparl.beispielris.de/person/29",
+    "@id": "https://oparl.example.org/person/29",
     "name": "Prof. Dr. Max Mustermann",
     "familyName": { 
         "@value": "Mustermann",
@@ -30,10 +30,10 @@ Ein Beispiel in expandierter Form:
         "@language": "de"
     },
     "title": [
-        "https://oparl.beispielris.de/vocab/prof",
-        "https://oparl.beispielris.de/vocab/dr"
+        "https://oparl.example.org/vocab/prof",
+        "https://oparl.example.org/vocab/dr"
     ],
-    "formOfAddress": "https://oparl.beispielris.de/formofaddress/ratsmitglied",
+    "formOfAddress": "https://oparl.example.org/formofaddress/ratsmitglied",
     "gender": "http://www.w3.org/2006/vcard/ns#Male",
     "email": "mailto:max@mustermann.de",
     "phone": "tel:+493012345678",
@@ -43,10 +43,10 @@ Ein Beispiel in expandierter Form:
         "de": "Musterort",
         "en": "Sample Town"
     },
-    "status": "https://oparl.beispielris.de/status/buergermeister",
+    "status": "https://oparl.example.org/status/buergermeister",
     "hasMembership": [
-        "https://oparl.beispielris.de/membership/11",
-        "https://oparl.beispielris.de/membership/34"
+        "https://oparl.example.org/membership/11",
+        "https://oparl.example.org/membership/34"
     ],
     "created": "2011-11-11T11:11:00+01:00",
     "modified": "2012-08-16T14:05:27+02:00"
@@ -87,9 +87,9 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 
 ~~~~~  {#person_ex2 .json}
 {
-    "@context": "https://oparl.beispielris.de/Pfad/zum/Kontext/person.jsonld",
+    "@context": "https://oparl.example.org/Pfad/zum/Kontext/person.jsonld",
     "@type": "oparl:Person",
-    "@id": "https://oparl.beispielris.de/person/29",
+    "@id": "https://oparl.example.org/person/29",
     "name": "Prof. Dr. Max Mustermann",
     "familyName": "Mustermann",
     "givenName": "Max",
@@ -109,8 +109,8 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
     },
     "status": "beispielris:status/buergermeister",
     "hasMembership": [
-        "https://oparl.beispielris.de/membership/11",
-        "https://oparl.beispielris.de/membership/34"
+        "https://oparl.example.org/membership/11",
+        "https://oparl.example.org/membership/34"
     ],
     "created": "2011-11-11T11:11:00+01:00",
     "modified": "2012-08-16T14:05:27+02:00"

@@ -24,7 +24,7 @@ Beispiel:
 
 ~~~~~  {#objektlisten_ex1 .json}
 {
-        "@context": {
+    "@context": {
         "beispielris": "https://oparl.example.org/",
         "hydra": "http://www.w3.org/ns/hydra/core#",
         "prov": "http://www.w3.org/ns/prov#",

@@ -50,21 +50,43 @@ werden.
 Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
 
 ~~~~~  {#feed_ex1 .json}
-[
-    {
-        "@id": "https://oparl.example.org/bodies/0/papers/21/documents/3",
-        "created": "2014-01-07T12:59:01.038+0100"
-    },
-    {
-        "@id": "https://oparl.example.org/bodies/0/papers/21",
-        "created": "2014-01-05T18:29:37.123+0100"
-    },
-    {
-        "@id": "https://oparl.example.org/bodies/0/papers/20/documents/5",
-        "created": "2014-01-04T11:26:48.638+0100"
-    },
-    ...
-]
+{
+        "@context": {
+                "beispielris": "https://oparl.example.org/",
+                "hydra": "http://www.w3.org/ns/hydra/core#",
+                "prov": "http://www.w3.org/ns/prov#",
+                "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+                "created": {
+                        "@id": "prov:generatedAtTime",
+                        "@type": "xsd:dateTime"
+                },
+		"generatedAt": {
+                        "@id": "prov:generatedAtTime",
+                        "@type": "xsd:dateTime"
+                },
+                "member": { "@id": "hydra:member", "@type": "@id" }
+        },
+        "@id": "beispielris:collection2349",
+// TODO: @id ZWINGEND, OPTIONAL, EMPFOHLEN ?
+        "@type": "hydra:Collection",
+        "generatedAt": "2014-06-11",
+        "member": [
+		{
+			"@id": "https://oparl.example.org/bodies/0/papers/21/documents/3",
+			"created": "2014-01-07T12:59:01.038+0100"
+		},
+    		{
+        		"@id": "https://oparl.example.org/bodies/0/papers/21",
+        		"created": "2014-01-05T18:29:37.123+0100"
+    		},
+    		{
+        		"@id": "https://oparl.example.org/bodies/0/papers/20/documents/5",
+        		"created": "2014-01-04T11:26:48.638+0100"
+    		},
+...
+	]
+}
 ~~~~~
 
 Wie im Beispiel zu sehen ist, handelt es sich um eine JSON-Liste, deren Elemente
@@ -107,7 +129,7 @@ Auch hier SOLL der Feed sämtliche Objekttypen umfassen, die in einem System
 geführt werden.
 
 ~~~~~  {#feed_ex2 .json}
-[
+...
     {
         "@id": "https://oparl.example.org/bodies/0/papers/0/documents/2",
         "modified": "2014-01-08T14:28:31.568+0100"
@@ -120,8 +142,7 @@ geführt werden.
         "@id": "https://oparl.example.org/bodies/0/papers/0/documents/1",
         "modified": "2014-01-06T17:01:00.402+0100"
     },
-    ...
-]
+...
 ~~~~~
 
 Das Ausgabeformat entspricht weitgehend dem des Feeds "Neue Objekte", jedoch
@@ -142,12 +163,12 @@ Client-Implementierer sind angehalten, diesen Feed zu nutzen, um beispielsweise
 depublizierte Dokumente aus ihren lokalen Caches zu entfernen.
 
 ~~~~~  {#feed_ex3 .json}
-[
+...
     {
         "@id": "https://oparl.example.org/bodies/0/people/22",
         "removed": "2013-11-11T11:11:00.000+0100"
     },
-    ...
+...
 ]
 ~~~~~
 

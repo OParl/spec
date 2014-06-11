@@ -16,17 +16,41 @@ tatsächlich immer Listen von URLs.
 ### Vollständige Listenausgabe
 
 In der einfachsten Form wird eine Objektliste als JSON-Liste ausgegeben.
-Die Elemente dieser Liste sind **sämtliche URLs** aller
+Die Elemente dieser nicht geordneten Liste (Menge) sind **sämtliche URLs** aller
 in der Objektliste enthaltenen Objekte.
 
 Beispiel:
 
 ~~~~~  {#objektlisten_ex1 .json}
-[
-	"https://oparl.example.org/bodies/0/papers/2",
-	"https://oparl.example.org/bodies/0/papers/5",
-	"https://oparl.example.org/bodies/0/papers/7"
-]
+{
+        "@context": {
+        "beispielris": "https://oparl.example.org/",
+        "hydra": "http://www.w3.org/ns/hydra/core#",
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+        "generatedAt": {
+            "@id": "prov:generatedAtTime",
+            "@type": [ "xsd:date", "xsd:dateTime"]
+        },
+        "member": { "@id": "hydra:member", "@type": "@id" }
+    },
+    "@id": "beispielris:collection2345",
+// TODO: @id ZWINGEND, OPTIONAL, EMPFOHLEN ?
+    "@type": "hydra:Collection",
+    "generatedAt": "2014-06-11",
+    "member": [
+        {
+            "@id": "beispielris:bodies/0/papers/2"
+        },
+        {
+            "@id": "beispielris:bodies/0/papers/5"
+        },
+        {
+            "@id": "beispielris:bodies/0/papers/7"
+        }
+    ]
+}
 ~~~~~
 
 Die vollständige Listenausgabe SOLL nur für Listen verwendet
@@ -80,14 +104,14 @@ URL:
 
 Link-Parameter:
 :   Gemäß RFC5988 können beliebig viele, auch null, Link-Parameter
-	hinter der URL ausgegeben werden, jeweils durch ein Semikolon
-	von der URL getrennt. Für OParl gilt: Es MUSS bei einer Liste
-	mit Paginierung genau ein Link-Header mit dem Link-Parameter
-	`rel=next` gegeben sein, sofern es eine nächste Seite mit
-	weiteren Listenelementen gibt. Stellt die mit der aktuellen
-	Anfrage ausgegebene Listenseite das Ende der Liste dar, DARF
-	die Anfrage NICHT den Link-Header mit Link-Parameter `rel=next`
-	enthalten.
+    hinter der URL ausgegeben werden, jeweils durch ein Semikolon
+    von der URL getrennt. Für OParl gilt: Es MUSS bei einer Liste
+    mit Paginierung genau ein Link-Header mit dem Link-Parameter
+    `rel=next` gegeben sein, sofern es eine nächste Seite mit
+    weiteren Listenelementen gibt. Stellt die mit der aktuellen
+    Anfrage ausgegebene Listenseite das Ende der Liste dar, DARF
+    die Anfrage NICHT den Link-Header mit Link-Parameter `rel=next`
+    enthalten.
 
 Es ergibt sich eine typische Abfolge, wie Clients bei Bedarf
 mit mehreren Anfragen ganze Objektlisten vom Server abrufen:
@@ -212,8 +236,8 @@ werden:
     "@type": "oparl:System",
     "@id": "https://oparl.example.org/",
     "body": [
-    	"https://oparl.example.org/bodies/1",
-    	"https://oparl.example.org/bodies/2"
+        "https://oparl.example.org/bodies/1",
+        "https://oparl.example.org/bodies/2"
     ],
     ...
 }
@@ -230,6 +254,7 @@ vorangegangenen Beispiel beeinflusst:
 {
     "@type": "oparl:System",
     "@id": "https://oparl.example.org/",
+// TODO hier wird noch eine Indirektionseigenschaft benötigt.
     "body": "https://oparl.example.org/bodies/"
     ...
 }

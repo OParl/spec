@@ -67,10 +67,10 @@ Zu den Themen, die in zukünftigen Versionen adressiert werden könne, zählen:
   1.0 die Möglichkeit der Verwendung mit anderen Sprachen und Mehrsprachigkeit
   eingebaut.
 
-* IT-Planungsrat: Dieser kann die Verbindlichkeit von Standards wie OParl beschliessen.
-  Der "Vertrag über die Errichtung des IT-Planungsrats und über die 
-  Grundlagen der Zusammenarbeit beim Einsatz der Informationstechnologie in den 
-  Verwaltungen von Bund und Ländern – Vertrag zur Ausführung von Artikel 91c 
+* IT-Planungsrat: Dieser kann die Verbindlichkeit von Standards wie OParl für
+  Deutschland beschliessen. Der "Vertrag über die Errichtung des IT-Planungsrats 
+  und über die Grundlagen der Zusammenarbeit beim Einsatz der Informationstechnologie
+  in den Verwaltungen von Bund und Ländern – Vertrag zur Ausführung von Artikel 91c 
   GG"^[http://www.it-planungsrat.de/SharedDocs/Downloads/DE/ITPlanungsrat/Staatsvertrag/Staatsvertrag.html]
   enthält in § 3 Absatz 2 diese Aussage: "Beschlüsse über Standards im Sinne des
   Absatz 1 werden vom IT-Planungsrat ... gefasst, soweit dies zum 

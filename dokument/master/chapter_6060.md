@@ -34,7 +34,10 @@ Beispiel:
             "@id": "prov:generatedAtTime",
             "@type":"xsd:dateTime"
         },
-        "member": { "@id": "hydra:member", "@type": "@id" }
+        "member": {
+            "@id": "hydra:member",
+            "@type": "@id"
+        }
     },
     "@id": "beispielris:collection2345",
 // TODO: @id ZWINGEND, OPTIONAL, EMPFOHLEN ?

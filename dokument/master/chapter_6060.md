@@ -29,7 +29,6 @@ Beispiel:
         "hydra": "http://www.w3.org/ns/hydra/core#",
         "prov": "http://www.w3.org/ns/prov#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
-
         "generatedAt": {
             "@id": "prov:generatedAtTime",
             "@type":"xsd:dateTime"

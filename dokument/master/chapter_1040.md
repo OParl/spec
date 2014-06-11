@@ -22,7 +22,9 @@ Zu den Themen, die in zukünftigen Versionen adressiert werden könne, zählen:
   sind in Version 1.0 nur sehr beschränkte Möglichkeiten vorgesehen, Listen von
   Drucksachen etc. nach bestimmten Kriterien einzuschränken. Zukünftig könnten
   hier weitere Möglichkeiten definiert werden, bis hin zur Suche nach Stichworten
-  in Volltexten.
+  in Volltexten. Ein möglicher Ansatz ist die Verwendung von Linked Data
+  Fragements^[http://linkeddatafragments.org/]. Dies ermöglichst mächtige
+  Abfragemöglichkeiten in Clients ohne dabei zu Überlastungen der Server zu führen.
 
 * Detaillierte Wiedergabe von Abstimmungen: Das Thema ist vom Datenmodell/Schema
   der vorliegenden Version noch nicht abgedeckt, da es vielerorts nicht üblich ist,

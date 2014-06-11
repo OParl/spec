@@ -42,6 +42,15 @@ Zu den Themen, die in zukünftigen Versionen adressiert werden könne, zählen:
   im Sinne von Linked Data angestrebt werden.^[Das gesagte lässt sich auch auf viele
   andere Informationen, nicht nur auf Drucksachen, anwenden.]
 
+* Weitere externe Standards, insbesondere zu Paginierung:
+  Teile der Spezifikation beziehen sich auf technische
+  Anforderungen die nicht nur für OParl relevant sind. Das betrifft insbesondere die
+  Paginierung-Mechanismen. Idealerweise sollte OParl hierfür externe Standards verwenden.
+  Deshalb werden entsprechende Standardisierungsvorhaben wie Linked Data Platform
+  Paging^[https://dvcs.w3.org/hg/ldpwg/raw-file/default/ldp-paging.html] des W3C
+  und das Hydra Core Vocabulary^[http://hydra-cg.com/spec/latest/core/#collections]
+  beobachtet.
+
 * Schreibender Zugriff: Denkbar ist auch, dass OParl von der derzeitigen Ausrichtung
   auf den reinen lesenden Informationszugriff um die Möglichkeit, Inhalte anzulegen,
   zu verändern und zu entfernen sowie um das Konzept von authentifizierten Nutzern

@@ -75,11 +75,12 @@ Das entsprechende Beispiel in kompakter Form:
     ZWINGEND.
 
 `meeting`
-:   Sitzung dieser Gruppierung.
+:   Sitzungen dieser Gruppierung. Diese Eigenschaft ist invers zur
+    Eigenschaft `organization` der Klasse `oparl:Meeting`. Da die Anzahl der
+    Sitzungen stetig wachsen kann, wird EMPFOHLEN, die Liste unter
+    einer eigenen URL auszugeben und damit Paginierung zu ermöglichen.
     Typ: `oparl:Meeting`.
     Kardinalität: 0 bis *.
-    Constraint: Diese Eigenschaft ist invers zur Eigenschaft `organization` der Klasse `oparl:Meeting`
-    (In OWL: `oparl:organization owl:inverseOf oparl:meeting .`)
     EMPFOHLEN.
 
 `name`

@@ -96,11 +96,13 @@ Das entsprechende Beispiel in kompakter Form:
     Die Eigenschaft ist OPTIONAL.
 
 `post`
-:   Position oder Positionen, die für diese Gruppierung vorgesehen sind. Die Objekte gehören zu der Klasse `org:Post` oder einer ihrer Unterklassen.
-    Die `skos:prefLabel`-Eigenschaften der Objekte SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster
-    "männliche Form | weibliche Form" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem "|").
-    Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden:
-    "Mitglied" und nicht "Mitglied | Mitglied".
+:   Position oder Positionen, die für diese Gruppierung vorgesehen sind.
+    Die Objekte gehören zu der Klasse `org:Post` oder einer ihrer Unterklassen.
+    Die `skos:prefLabel`-Eigenschaften der Objekte SOLLEN sowohl die männliche
+    als auch die weibliche Form enthalten, und zwar in dem Muster
+    "männliche Form | weibliche Form" (genau in der Reihenfolge mit einem 
+    Leerzeichen vor und nach dem "|"). Wenn sich beide Formen nicht unterscheiden,
+    dann DARF die Form nur einmal verwendet werden: "Mitglied" und nicht "Mitglied | Mitglied".
     Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschlecht
     der Personen vornimmt.
     z. B. "Vorsitzender | Vorsitzende",

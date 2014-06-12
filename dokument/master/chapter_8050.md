@@ -120,8 +120,8 @@ Das entsprechende Beispiel in kompakter Form:
     Die Eigenschaft ist OPTIONAL.
 
 `member`
-:   Mitglieder dieser Organisation. Auch alle Personen mit
-    Positionen in der Organisation sind hier anzugeben.
+:   Mitglieder dieser Gruppierung. Auch alle Personen mit
+    Positionen in der Gruppierung sind hier anzugeben.
     In der Eigenschaft member werden nur die Personen aufgezählt, ohne weitere
     Daten, in den `oparl:Membership`-Objekten sind zusätzliche Eigenschaften
     wie Start- und Endedatum oder Rolle vorhanden.
@@ -130,13 +130,13 @@ Das entsprechende Beispiel in kompakter Form:
     DEPRECATED.
 
 `subOrganizationOf`
-:   Ggf. URL der übergeordneten Organisation.
+:   Ggf. URL der übergeordneten Gruppierung.
     Typ: `oparl:Organization`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `classification`
-:   Die Art der Organisation. In Frage kommen z.B. "Rat", "Hauptausschuss", "Ausschuss",
+:   Die Art der Gruppierung. In Frage kommen z.B. "Rat", "Hauptausschuss", "Ausschuss",
     "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat". Die Angabe soll
     möglichst präzise erfolgen. So ist die Angabe "Hauptausschuss" präziser als
     "Ausschuss". Im Vokabular SOLL dann dieses Verhältnis zwischen "Ausschuss" und
@@ -153,14 +153,14 @@ Das entsprechende Beispiel in kompakter Form:
     OPTIONAL.
 
 `startDate`
-:   Gründungsdatum der Organisation. Kann z. B. das Datum der konstituierenden
+:   Gründungsdatum der Gruppierung. Kann z. B. das Datum der konstituierenden
     Sitzung sein.
     Typ:`xsd:date`.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
     
 `endDate`
-:   Datum des letzten Tages der Existenz der Organisation.
+:   Datum des letzten Tages der Existenz der Gruppierung.
     Typ: `xsd:date`.
     Kardinalität: 0 bis 1.
     OPTIONAL.

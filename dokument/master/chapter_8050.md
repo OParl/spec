@@ -103,7 +103,8 @@ Das entsprechende Beispiel in kompakter Form:
     "männliche Form | weibliche Form" (genau in der Reihenfolge mit einem 
     Leerzeichen vor und nach dem "|"). Wenn sich beide Formen nicht unterscheiden,
     dann DARF die Form nur einmal verwendet werden: "Mitglied" und nicht "Mitglied | Mitglied".
-    Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschlecht
+    Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine
+    Fall-Unterscheidung nach Geschlecht
     der Personen vornimmt.
     z. B. "Vorsitzender | Vorsitzende",
     "1. Stellvertreter | 1. Stellvertreterin",
@@ -121,8 +122,9 @@ Das entsprechende Beispiel in kompakter Form:
 `member`
 :   Mitglieder dieser Organisation. Auch alle Personen mit
     Positionen in der Organisation sind hier anzugeben.
-    In der Eigenschaft member werden nur die Personen aufgezählt, ohne weitere Daten,
-    in den `oparl:Membership`-Objekten sind zusätzliche Eigenschaften wie Start- und Endedatum oder Rolle vorhanden.
+    In der Eigenschaft member werden nur die Personen aufgezählt, ohne weitere
+    Daten, in den `oparl:Membership`-Objekten sind zusätzliche Eigenschaften
+    wie Start- und Endedatum oder Rolle vorhanden.
     Typ: `oparl:Person`.
     Kardinalität: 0 bis *.
     DEPRECATED.
@@ -135,10 +137,11 @@ Das entsprechende Beispiel in kompakter Form:
 
 `classification`
 :   Die Art der Organisation. In Frage kommen z.B. "Rat", "Hauptausschuss", "Ausschuss",
-    "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat". Die Angabe soll möglichst präzise erfolgen.
-    So ist die Angabe "Hauptausschuss" präziser als "Ausschuss". Im Vokabular SOLL dann dieses
-    Verhältnis zwischen "Ausschuss" und "Hauptausschuss" kodiert sein ("beispielris:hautausschuss skos:broader beispielris:ausschuss").
-    Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
+    "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat". Die Angabe soll
+    möglichst präzise erfolgen. So ist die Angabe "Hauptausschuss" präziser als
+    "Ausschuss". Im Vokabular SOLL dann dieses Verhältnis zwischen "Ausschuss" und
+    "Hauptausschuss" kodiert sein ("beispielris:hautausschuss skos:broader
+    beispielris:ausschuss"). Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
     Typ: `skos:Concept`.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.

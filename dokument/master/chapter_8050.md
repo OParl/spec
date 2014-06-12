@@ -153,8 +153,8 @@ Das entsprechende Beispiel in kompakter Form:
     OPTIONAL.
 
 `startDate`
-:   Datum des ersten Tages der Existenz der Organisation.
-    FRAGE: Muss zwischen Konstituierung und Beschluss zur Gründung unterschieden werden? 
+:   Gründungsdatum der Organisation. Kann z. B. das Datum der konstituierenden
+    Sitzung sein.
     Typ:`xsd:date`.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.

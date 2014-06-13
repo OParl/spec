@@ -14,8 +14,12 @@ einander stehen.
 
 ### Unicode-Zeichenketten als Standard  {#unicode_zeichenketten}
 
-Wenn in der nachfolgenden Schema-Beschreibung nicht anders angegeben, werden bei
-den Werten grundsätzlich Unicode-Zeichenketten (Strings) erwartet.
+Die Schema-Beschreibung gibt zu jeder Eigenschaft eines Objekttypen an,
+welchen Typ der Wert dieser Eigenschaft haben muss.
+
+Sofern keine Typ-Angabe zu einer Eigenschaft vorhanden ist, oder die
+Typ-Angabe `String` lautet, werden Unicode-Zeichenketten als Datentyp
+erwartet.
 
 ### `null`-Werte und "leere" Werte
 

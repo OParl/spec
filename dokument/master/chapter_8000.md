@@ -23,7 +23,7 @@ erwartet.
 
 ### `null`-Werte und "leere" Werte
 
-JSON erlaubt es grundsätzlich, dass Eigenschaften den Wert `null` haben können.
+JSON erlaubt es grundsätzlich, Eigenschaften mit dem Wert `null` zu versehen.
 Im Rahmen dieser Spezifikation DARF das bei durch einen _Server_ gelieferten 
 Objekten für keine Eigenschaft der Fall sein, auch nicht bei OPTIONALEN oder
 EMPFOHLENEN Eigenschaften. Ein _Client_ MUSS dagegen `null`-Werte tolerieren

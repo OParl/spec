@@ -12,7 +12,7 @@ einander stehen.
 Übergreifende Aspekte
 ---------------------
 
-### Unicode-Zeichenketten als Standard
+### Unicode-Zeichenketten als Standard  {#unicode_zeichenketten}
 
 Wenn in der nachfolgenden Schema-Beschreibung nicht anders angegeben, werden bei
 den Werten grundsätzlich Unicode-Zeichenketten (Strings) erwartet.
@@ -38,7 +38,7 @@ enthalten solche Leerkonstruktionen keine verwendbare Information.
 Viele Eigenschaften erlauben es, entweder einen einzelnen Wert (z. B. eine Zeichenkette,
 eine URL, eine Zahl) oder alternativ ein JSON-Array mit mehreren Elementen des
 jeweils erlaubten Typs auszugeben. Die entsprechende Regel ist in der Schema-Beschreibung
-am Stichwort _Kardinalität_ angegeben. Dabei sind verschiedene Angaben möglich:
+unter dem Stichwort *Kardinalität* angegeben. Dabei sind verschiedene Angaben möglich:
 
 * 0 bis 1: Die Eigenschaft ist optional und muss nicht gesetzt sein. Wenn sie gesetzt ist,
   darf sie genau einen Wert haben.

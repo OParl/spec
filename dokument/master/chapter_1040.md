@@ -62,7 +62,7 @@ Zu den Themen, die in zukünftigen Versionen adressiert werden können, zählen:
   Veröffentlichung parlamentarischer Informationen. Deshalb sind – teilweise noch 
   vor OParl – auch weitere entsprechende Initiativen entstanden.^[Vgl. dazu 
   beispielsweise <http://popoloproject.com/>, TODO: UK, KB Niederlande,
-  Italienisches Parlament: http://data.camera.it/data/en/] Eine
+  Italienisches Parlament: <http://data.camera.it/data/en/>] Eine
   Zusammenarbeit mit derartigen Initiativen mit dem Ziel der Wiederverwendung von
   Arbeitsergebnissen ist vorstellbar. Auch aus diesem Grund wurde bereits in OParl 
   1.0 die Möglichkeit der Verwendung mit anderen Sprachen und Mehrsprachigkeit

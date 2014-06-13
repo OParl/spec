@@ -127,7 +127,7 @@ Die `@context`-Eigenschaft hat nun als Wert eine URL, in diesem Fall:
 
 `http://json-ld.org/contexts/person.jsonld`
 
-Hinter dieser URL wiederum befindet sich ein JSON-Dokument, dass die Beschreibung
+Diese URL steht für ein JSON-Dokument, das die Beschreibung
 aller möglichen Attribute des Personen-Objekts enthält. Die Kontext-Beschreibung 
 des JSON-LD-Objekts wurde somit in eine externe Ressource ausgelagert. Clients
 SOLLEN davon ausgehen, dass sich diese externen Kontextbeschreibungen nur selten

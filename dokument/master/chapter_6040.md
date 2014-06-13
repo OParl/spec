@@ -48,7 +48,7 @@ Beispiel eines Objekts in JSON-Notation:
 
 ### JSON-LD {#jsonld}
 
-Das Kürzel LD im Namen "JSON-LD" steht für "Linked Data"^[siehe dazu [Linked Data](#linked_data)].
+Das Kürzel *LD* im Namen *JSON-LD* steht für *Linked Data*^[siehe dazu [Linked Data](#linked_data)].
 Entsprechend erweitert die JSON-LD-Spezifikation^[JSON-LD 1.0: 
 <http://www.w3.org/TR/json-ld/>] das JSON-Format um die Möglichkeit,
 

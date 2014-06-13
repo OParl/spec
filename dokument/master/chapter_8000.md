@@ -36,7 +36,7 @@ enthalten solche Leerkonstruktionen keine verwendbare Information.
 ### Kardinalität
 
 Viele Eigenschaften erlauben es, entweder einen einzelnen Wert (z. B. eine Zeichenkette,
-eine URL, eine Zahl) oder alternativ ein JSON-Array mit mehreren Elementen des
+eine URL, eine Zahl) oder alternativ eine Liste mit mehreren Elementen des
 jeweils erlaubten Typs auszugeben. Die entsprechende Regel ist in der Schema-Beschreibung
 unter dem Stichwort *Kardinalität* angegeben. Dabei sind verschiedene Angaben möglich:
 
@@ -51,6 +51,9 @@ unter dem Stichwort *Kardinalität* angegeben. Dabei sind verschiedene Angaben m
 
 * 1 bis *: Die Eigenschaft muss vorhanden sein, es muss mindestens ein Wert gesetzt sein.
   Es dürfen auch mehrere Werte vorhanden sein.
+
+Zur Ausgabe von Listen innerhalb eines Objekts sowie über eigene URLs finden sich
+ausführlichere Erläuterungen im Abschnitt [Objektlisten](#objektlisten).
 
 ### Datums- und Zeitangaben
 

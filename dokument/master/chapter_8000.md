@@ -20,12 +20,18 @@ den Werten grundsätzlich Unicode-Zeichenketten (Strings) erwartet.
 ### `null`-Werte und "leere" Werte
 
 JSON erlaubt es grundsätzlich, dass Eigenschaften den Wert `null` haben können.
-Im Rahmen dieser Spezifikation DARF das bei durch einen _Server_ gelieferten Objekten für keine Eigenschaft der Fall sein, auch nicht bei OPTIONALEN oder EMPFOHLENEN Eigenschaften. Ein _Client_ MUSS dagegen `null`-Werte tolerieren und SOLL diese Eigenschaften nicht anders anzeigen, als nicht vorhandene Eigenschaften.
+Im Rahmen dieser Spezifikation DARF das bei durch einen _Server_ gelieferten 
+Objekten für keine Eigenschaft der Fall sein, auch nicht bei OPTIONALEN oder
+EMPFOHLENEN Eigenschaften. Ein _Client_ MUSS dagegen `null`-Werte tolerieren
+und SOLL diese Eigenschaften nicht anders anzeigen, als nicht vorhandene
+Eigenschaften.
 
-Entsprechendes gilt für leere Wertemengen oder -listen, also `[]`.
+Entsprechendes gilt für leere Wertemengen oder -listen, also `[]`, und leere
+Objekte, also `{}`.
 
-Dafür gibt es zwei Gründe. Einerseits wird dadurch die Umgehung des Zwangs zur Angabe von Werten
-bei ZWINGENDEN Eigenschaften ausgeschlossen. Andererseits enthalten solche Leerkonstruktionen keine verwendbare Information.
+Dafür gibt es zwei Gründe. Einerseits wird dadurch die Umgehung des Zwangs zur
+Angabe von Werten bei ZWINGENDEN Eigenschaften ausgeschlossen. Andererseits
+enthalten solche Leerkonstruktionen keine verwendbare Information.
 
 ### Kardinalität
 

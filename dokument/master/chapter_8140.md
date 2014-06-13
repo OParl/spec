@@ -25,7 +25,7 @@ inne hat, beispielsweise den Vorsitz einer Fraktion.
     Die Eigenschaft ist ZWINGEND.
     
 `organization`
-:   Die Organisation, in der die Person Mitglied ist oder war.
+:   Die Gruppierung, in der die Person Mitglied ist oder war.
     Typ: `oparl:Organization`.
     Kardinalität: 1.
     Die Eigenschaft ist ZWINGEND.
@@ -48,9 +48,9 @@ inne hat, beispielsweise den Vorsitz einer Fraktion.
     OPTIONAL.
 
 `onBehalfOf`
-:   Entsendende Organisation, Fraktion, fraktionsloses oder externes Gremium.
+:   Entsendende Gruppierung, Fraktion, fraktionsloses oder externes Gremium.
     Dies entspricht `opengov:onBehalfOf` in Popolo.
-    Es kann auch Mitglieder geben, die von keiner anderen Organisation entsendet wurden (z. B. fraktionslose Abgeordnete).
+    Es kann auch Mitglieder geben, die von keiner anderen Gruppierung entsendet wurden (z. B. fraktionslose Abgeordnete).
     FRAGE: Muss diese Situation vom Fehlen von Informationen über Entsendungen unterschieden werden?
     Typ: `oparl:Organization`.
     Kardinalität: 0 bis 1.

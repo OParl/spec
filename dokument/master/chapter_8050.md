@@ -75,11 +75,12 @@ Das entsprechende Beispiel in kompakter Form:
     ZWINGEND.
 
 `meeting`
-:   Sitzung dieser Gruppierung.
+:   Sitzungen dieser Gruppierung. Diese Eigenschaft ist invers zur
+    Eigenschaft `organization` der Klasse `oparl:Meeting`. Da die Anzahl der
+    Sitzungen stetig wachsen kann, wird EMPFOHLEN, die Liste unter
+    einer eigenen URL auszugeben und damit Paginierung zu ermöglichen.
     Typ: `oparl:Meeting`.
     Kardinalität: 0 bis *.
-    Constraint: Diese Eigenschaft ist invers zur Eigenschaft `organization` der Klasse `oparl:Meeting`
-    (In OWL: `oparl:organization owl:inverseOf oparl:meeting .`)
     EMPFOHLEN.
 
 `name`
@@ -95,12 +96,15 @@ Das entsprechende Beispiel in kompakter Form:
     Die Eigenschaft ist OPTIONAL.
 
 `post`
-:   Position oder Positionen, die für diese Gruppierung vorgesehen sind. Die Objekte gehören zu der Klasse `org:Post` oder einer ihrer Unterklassen.
-    Die `skos:prefLabel`-Eigenschaften der Objekte SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster
-    "männliche Form | weibliche Form" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem "|").
-    Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden:
-    "Mitglied" und nicht "Mitglied | Mitglied".
-    Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschlecht
+:   Position oder Positionen, die für diese Gruppierung vorgesehen sind.
+    Die Objekte gehören zu der Klasse `org:Post` oder einer ihrer Unterklassen.
+    Die `skos:prefLabel`-Eigenschaften der Objekte SOLLEN sowohl die männliche
+    als auch die weibliche Form enthalten, und zwar in dem Muster
+    "männliche Form | weibliche Form" (genau in der Reihenfolge mit einem 
+    Leerzeichen vor und nach dem "|"). Wenn sich beide Formen nicht unterscheiden,
+    dann DARF die Form nur einmal verwendet werden: "Mitglied" und nicht "Mitglied | Mitglied".
+    Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine
+    Fall-Unterscheidung nach Geschlecht
     der Personen vornimmt.
     z. B. "Vorsitzender | Vorsitzende",
     "1. Stellvertreter | 1. Stellvertreterin",
@@ -116,26 +120,28 @@ Das entsprechende Beispiel in kompakter Form:
     Die Eigenschaft ist OPTIONAL.
 
 `member`
-:   Mitglieder dieser Organisation. Auch alle Personen mit
-    Positionen in der Organisation sind hier anzugeben.
-    In der Eigenschaft member werden nur die Personen aufgezählt, ohne weitere Daten,
-    in den `oparl:Membership`-Objekten sind zusätzliche Eigenschaften wie Start- und Endedatum oder Rolle vorhanden.
+:   Mitglieder dieser Gruppierung. Auch alle Personen mit
+    Positionen in der Gruppierung sind hier anzugeben.
+    In der Eigenschaft member werden nur die Personen aufgezählt, ohne weitere
+    Daten, in den `oparl:Membership`-Objekten sind zusätzliche Eigenschaften
+    wie Start- und Endedatum oder Rolle vorhanden.
     Typ: `oparl:Person`.
     Kardinalität: 0 bis *.
     DEPRECATED.
 
 `subOrganizationOf`
-:   Ggf. URL der übergeordneten Organisation.
+:   Ggf. URL der übergeordneten Gruppierung.
     Typ: `oparl:Organization`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `classification`
-:   Die Art der Organisation. In Frage kommen z.B. "Rat", "Hauptausschuss", "Ausschuss",
-    "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat". Die Angabe soll möglichst präzise erfolgen.
-    So ist die Angabe "Hauptausschuss" präziser als "Ausschuss". Im Vokabular SOLL dann dieses
-    Verhältnis zwischen "Ausschuss" und "Hauptausschuss" kodiert sein ("beispielris:hautausschuss skos:broader beispielris:ausschuss").
-    Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
+:   Die Art der Gruppierung. In Frage kommen z.B. "Rat", "Hauptausschuss", "Ausschuss",
+    "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat". Die Angabe soll
+    möglichst präzise erfolgen. So ist die Angabe "Hauptausschuss" präziser als
+    "Ausschuss". Im Vokabular SOLL dann dieses Verhältnis zwischen "Ausschuss" und
+    "Hauptausschuss" kodiert sein ("beispielris:hautausschuss skos:broader
+    beispielris:ausschuss"). Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
     Typ: `skos:Concept`.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
@@ -147,14 +153,14 @@ Das entsprechende Beispiel in kompakter Form:
     OPTIONAL.
 
 `startDate`
-:   Datum des ersten Tages der Existenz der Organisation.
-    FRAGE: Muss zwischen Konstituierung und Beschluss zur Gründung unterschieden werden? 
+:   Gründungsdatum der Gruppierung. Kann z. B. das Datum der konstituierenden
+    Sitzung sein.
     Typ:`xsd:date`.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
     
 `endDate`
-:   Datum des letzten Tages der Existenz der Organisation.
+:   Datum des letzten Tages der Existenz der Gruppierung.
     Typ: `xsd:date`.
     Kardinalität: 0 bis 1.
     OPTIONAL.

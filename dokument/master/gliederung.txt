@@ -77,7 +77,7 @@ OParl Spezifikation 1.0 Gliederung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    8050 oparl:Organization (Organisation)
+    8050 oparl:Organization (Gruppierung)
         Bedeutung
         Eigenschaften
         Besonderheiten

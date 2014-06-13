@@ -5,8 +5,9 @@ Objektlisten  {#objektlisten}
 beispielsweise eine bestimmte Drucksache, oder Listen von Objekten,
 etwa die Liste aller Sitzungen einer Körperschaft, abgefragt werden.
 
-Fragt ein Client eine Liste von Objekten an, hat der Server mehrere
-Möglichkeiten, diese Anfrage zu beantworten.
+Es gibt mehrere Möglichkeiten, Listen von Objekten auszugeben. Welche
+gewählt wird, hängt von verschiedenen Kriterien ab, die nachfolgend
+beschrieben werden.
 
 In jedem Fall werden die einzelnen Objekte, die Bestandteile der
 Liste sind (wie z. B. die einzelnen Drucksachen) durch die URL
@@ -23,31 +24,36 @@ Beispiel:
 
 ~~~~~  {#objektlisten_ex1 .json}
 {
-        "@context": {
+    "@context": {
         "beispielris": "https://oparl.example.org/",
         "hydra": "http://www.w3.org/ns/hydra/core#",
         "prov": "http://www.w3.org/ns/prov#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
-
         "generatedAt": {
             "@id": "prov:generatedAtTime",
             "@type":"xsd:dateTime"
         },
-        "member": { "@id": "hydra:member", "@type": "@id" }
+        "member": {
+            "@id": "hydra:member",
+            "@type": "@id"
+        }
     },
     "@id": "beispielris:collection2345",
 // TODO: @id ZWINGEND, OPTIONAL, EMPFOHLEN ?
     "@type": "hydra:Collection",
-    "generatedAt": ""2014-06-11T12:59:11.038+0100"",
+    "generatedAt": "2014-06-11T12:59:11.038+0100",
     "member": [
         {
-            "@id": "beispielris:bodies/0/papers/2"
+            "@id": "beispielris:bodies/0/papers/2",
+            "@type": "oparl:Paper"
         },
         {
             "@id": "beispielris:bodies/0/papers/5"
+            "@type": "oparl:Paper"
         },
         {
             "@id": "beispielris:bodies/0/papers/7"
+            "@type": "oparl:Paper"
         }
     ]
 }

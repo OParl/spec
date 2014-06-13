@@ -12,7 +12,7 @@ nicht auszuspezifizieren, waren:
 * Zu großer Arbeitsaufwand für die Spezifikations-Entwicklung
 * Hohe Aufwände bei den Server-Implementierern
 
-Zu den Themen, die in zukünftigen Versionen adressiert werden könne, zählen:
+Zu den Themen, die in zukünftigen Versionen adressiert werden können, zählen:
 
 * Loslösung von der kommunalen Ebene: Es ist möglich, dass OParl mit nur geringfügigen
   Änderungen oder Erweiterungen auch für die Ebene von Bundesländern (Landtage) oder
@@ -22,9 +22,9 @@ Zu den Themen, die in zukünftigen Versionen adressiert werden könne, zählen:
   sind in Version 1.0 nur sehr beschränkte Möglichkeiten vorgesehen, Listen von
   Drucksachen etc. nach bestimmten Kriterien einzuschränken. Zukünftig könnten
   hier weitere Möglichkeiten definiert werden, bis hin zur Suche nach Stichworten
-  in Volltexten. Ein möglicher Ansatz ist die Verwendung von Linked Data
-  Fragements^[http://linkeddatafragments.org/]. Dies ermöglichst mächtige
-  Abfragemöglichkeiten in Clients ohne dabei zu Überlastungen der Server zu führen.
+  in Volltexten. Ein möglicher Ansatz hierfür wäre die Verwendung von Linked Data
+  Fragements^[http://linkeddatafragments.org/]. Diese ermöglichen Clients mächtige
+  Abfragen, ohne dabei zu übermäßiger Last auf Serverseite zu führen.
 
 * Detaillierte Wiedergabe von Abstimmungen: Das Thema ist vom Datenmodell/Schema
   der vorliegenden Version noch nicht abgedeckt, da es vielerorts nicht üblich ist,
@@ -67,10 +67,10 @@ Zu den Themen, die in zukünftigen Versionen adressiert werden könne, zählen:
   1.0 die Möglichkeit der Verwendung mit anderen Sprachen und Mehrsprachigkeit
   eingebaut.
 
-* IT-Planungsrat: Dieser kann die Verbindlichkeit von Standards wie OParl beschliessen.
-  Der "Vertrag über die Errichtung des IT-Planungsrats und über die 
-  Grundlagen der Zusammenarbeit beim Einsatz der Informationstechnologie in den 
-  Verwaltungen von Bund und Ländern – Vertrag zur Ausführung von Artikel 91c 
+* IT-Planungsrat: Dieser kann die Verbindlichkeit von Standards wie OParl für
+  Deutschland beschliessen. Der "Vertrag über die Errichtung des IT-Planungsrats 
+  und über die Grundlagen der Zusammenarbeit beim Einsatz der Informationstechnologie
+  in den Verwaltungen von Bund und Ländern – Vertrag zur Ausführung von Artikel 91c 
   GG"^[http://www.it-planungsrat.de/SharedDocs/Downloads/DE/ITPlanungsrat/Staatsvertrag/Staatsvertrag.html]
   enthält in § 3 Absatz 2 diese Aussage: "Beschlüsse über Standards im Sinne des
   Absatz 1 werden vom IT-Planungsrat ... gefasst, soweit dies zum 

@@ -129,7 +129,7 @@ Ein Beispiel in kompakter Form:
 :   Letzter Änderungszeitpunkt des Objekts.
     Typ: Datentyp `xsd:dateTime`.
     Kardinalität: 1.
-    TODO: EMPFOHLEN ?
+    Diese Eigenschaft ist EMPFOHLEN.
     
 `keyword`
 :   Begriff mit `skos:prefLabel`. Allgemeiner als `paperType`.

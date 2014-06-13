@@ -39,7 +39,7 @@ Ein Beispiel in kompakter Form:
     ZWINGEND.
 
 `number`
-:   Nummer des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z. B. "10.", "10.1", "C", "c)" o. ä.
+:   Nummer des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z. B. "10.", "10.1", "C", "c)" o. ä.
     Die Reihenfolge wird nicht dadurch, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting` festgelegt.
     Typ: Zeichenkette.
     Kardinalität: 0 bis 1.
@@ -75,7 +75,7 @@ Ein Beispiel in kompakter Form:
 `resolution`
 :   Falls in diesem Tagesordnungspunkt ein Beschluss gefasst
     wurde, kann hier ein Text oder Dokument angegeben werden. Das ist besonders dann in der
-    Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag)
+    Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag)
     von der Beschlussvorlage abweicht.
     Typ: `oparl:Document` | Datentyp `xsd:string`.
     Kardinalität: 0 bis 1.

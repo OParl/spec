@@ -151,8 +151,8 @@ Beispiele, wo dies sinnvoll ist, sind in der Praxis leicht zu finden. So finden 
 beispielsweise in vielen lokalen Parlamenten immer wieder Fraktionen der selben Parteien,
 beispielsweise CDU und SPD. Mittels Linked Data wäre es möglich, jede dieser Fraktionen mit einer externen URL zu verknüpfen^[beispielsweise <http://dbpedia.org/resource/Christian_Democratic_Union_(Germany)> und <http://dbpedia.org/resource/Social_Democratic_Party_of_Germany>] und somit erkennbar zu machen, zu welcher 
 Partei diese Fraktion gehört. Ebenso finden sich viele inhaltliche Ähnlichkeiten bei
-Gremien wie zum Beispiel Ausschüssen (z. B. Hauptausschuss, Verkehrsausschuss etc.) oder bei
-Arten von Drucksachen (z. B. Anträge, Anfragen, Mitteilungen, Beschlussvorlagen).
+Gremien wie zum Beispiel Ausschüssen (z. B. Hauptausschuss, Verkehrsausschuss etc.) oder bei
+Arten von Drucksachen (z. B. Anträge, Anfragen, Mitteilungen, Beschlussvorlagen).
 
 OParl lässt in Version 1.0 der Spezifikation noch viele Aufgaben, die die Vereinheitlichung 
 dieses Vokabulars betreffen, offen. Jedoch wird durch die Verwendung von [JSON-LD](#jsonld) als

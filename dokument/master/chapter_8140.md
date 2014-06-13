@@ -32,10 +32,10 @@ inne hat, beispielsweise den Vorsitz einer Fraktion.
 
 `role`
 :   Rolle der Person für die Gruppierung. Das Objekt hat eine `skos:prefLabel`-Eigenschaft,
-    deren Wert eine Funktionsbezeichnung ist, z. B.
+    deren Wert eine Funktionsbezeichnung ist, z. B.
     "1. pers. Vertreter | 1. pers. Vertreterin" oder "2. pers. Vertreter | 2. pers. Vertreterin".
     Gewöhnliche Mitglieder haben in der Regel keine besondere Rolle,
-    aber auch eine Unterscheidung zwischen z. B. "Sachkundige Bürger | Sachkundige Bürgerin"
+    aber auch eine Unterscheidung zwischen z. B. "Sachkundige Bürger | Sachkundige Bürgerin"
     und "Ratsherr | Ratsfrau" bei einfachen Mitgliedern ist hiermit möglich.
     FRAGE: Wie soll bei einem sachkundigen Bürger verfahren werden, der gleichzeitig Vorsitzender ist?
     Typ: `org:Role`.
@@ -50,7 +50,7 @@ inne hat, beispielsweise den Vorsitz einer Fraktion.
 `onBehalfOf`
 :   Entsendende Gruppierung, Fraktion, fraktionsloses oder externes Gremium.
     Dies entspricht `opengov:onBehalfOf` in Popolo.
-    Es kann auch Mitglieder geben, die von keiner anderen Gruppierung entsendet wurden (z. B. fraktionslose Abgeordnete).
+    Es kann auch Mitglieder geben, die von keiner anderen Gruppierung entsendet wurden (z. B. fraktionslose Abgeordnete).
     Da eine solche Person sich selbst "entsendet" hat, SOLL in dem Fall hier der
     selbe Wert angegeben werden wie bei der Eigenschaft `person`.
     Typ: `oparl:Organization` | `oparl:Person`.

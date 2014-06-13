@@ -217,7 +217,7 @@ Und das selbe Beispiel ohne Mehrsprachigkeit für den Ort. Der Kontext bleibt wi
     OPTIONAL.
 
 `hasMembership`
-:   Mitgliedschaft(en) der Person in Gruppierungen (oparl:Organization), z. B. Gremien und
+:   Mitgliedschaft(en) der Person in Gruppierungen (oparl:Organization), z. B. Gremien und
     Fraktionen.
     Typ: `org:Membership`.
     Kardinalität: 0 bis *.

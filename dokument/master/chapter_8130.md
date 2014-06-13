@@ -74,7 +74,7 @@ für Längen- und Breitengrad.
 ### Eigenschaften ###
 
 `description`
-:   Textliche Beschreibung eines Orts, z. B. in Form einer Adresse.
+:   Textliche Beschreibung eines Orts, z. B. in Form einer Adresse.
     Typ: Zeichenkette.
     Kardinalität: 0 bis 1.
     Die Eigenschaft ist EMPFOHLEN.

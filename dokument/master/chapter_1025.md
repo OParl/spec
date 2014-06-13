@@ -5,7 +5,7 @@ Transparenz und Beteiligung durch Open Data
 Jahren sind zivilgesellschaftliche Organisationen sowie Politik und Verwaltung unter
 dem Schlagwort "Open Data" international und auch in Deutschland in unterschiedlichem
 Maße um eine stärkere Öffnung dieser Daten bemüht^[Eine weltweite Übersicht zu
-Open-Data-Projekten bietet z. B. der Open-Data-Showroom <http://opendata-showroom.org/de/>].
+Open-Data-Projekten bietet z. B. der Open-Data-Showroom <http://opendata-showroom.org/de/>].
 Bei dem Ansatz "Open Data"^[vgl. <https://de.wikipedia.org/wiki/Open_data>] geht es
 darum, diese Daten so bereitzustellen, dass Dritte diese einfacher finden und
 weiterverwenden können. Die zehn Open-Data-Prinzipien der Sunlight-Foundation^[Ten

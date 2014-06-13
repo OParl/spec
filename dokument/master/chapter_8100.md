@@ -75,9 +75,9 @@ Ein Beispiel in kompakter Form:
 
 `paperType`
 :   Begriff mit einem `skos:prefLabel`-Attribut, dessen Wert eine Zeichenkette
-    ist und die Art der Drucksache beschreibt, z. B. "Beantwortung einer Anfrage".
-    Für die URLs kommen als letztes Pfadelement z. B. "draft", "petition", "request",
-    "note" und "answer" in Frage. Denkbar ist auch eine Kategorisierung z. B. in
+    ist und die Art der Drucksache beschreibt, z. B. "Beantwortung einer Anfrage".
+    Für die URLs kommen als letztes Pfadelement z. B. "draft", "petition", "request",
+    "note" und "answer" in Frage. Denkbar ist auch eine Kategorisierung z. B. in
     drei Arten von Drucksachen: initiierend, beratend und protokollierend.^[Eine
     Liste mit exemplarischen Drucksachentypen:
     <https://wiki.piratenpartei.de/BE:BVVupdates/Glossar>]

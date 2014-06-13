@@ -106,7 +106,7 @@ Das entsprechende Beispiel in kompakter Form:
     Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine
     Fall-Unterscheidung nach Geschlecht
     der Personen vornimmt.
-    z. B. "Vorsitzender | Vorsitzende",
+    z. B. "Vorsitzender | Vorsitzende",
     "1. Stellvertreter | 1. Stellvertreterin",
     "2. Stellvertreter | 2. Stellvertreterin",
     "Schriftführer | Schriftführerin",

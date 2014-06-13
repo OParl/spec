@@ -72,7 +72,7 @@ erweisen, wenn Dokumente auf dem Server in verschiedenen Formaten zur Verfügung
 gestellt werden. Denn nicht jedes Endgerät mit kleinem Bildschirm bietet eine
 nutzerfreundliche Möglichkeit, beispielsweise Dokumente im weit verbreiteten PDF-Format 
 darzustellen. Hier könnte schon der Entwickler der mobilen App Mechanismen vorsehen,
-die, sofern vorhanden, besser geeignete Formate wie z. B. HTML abrufen.
+die, sofern vorhanden, besser geeignete Formate wie z. B. HTML abrufen.
 
 Neben dem kleinen Display kann für einige mobile Endgeräte auch die im Vergleich zu
 einem zeitgemäßen Desktop-PC geringere CPU-Leistung eine Einschränkung darstellen.

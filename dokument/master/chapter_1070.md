@@ -11,9 +11,9 @@ Organisation/Firma|Kategorie
 [Kiru](http://www.rz-kiru.de/) (Ulm)|Kommunale Dienstleister
 [KDVZ Rhein-Erft-Rur](http://www.kdvz-frechen.de/)|Kommunale Dienstleister
 [KRZN](http://www.krzn.de/)|Kommunale Dienstleister
-[Open Knowledge Foundation e. V.](http://okfn.de/)|Initiativen
+[Open Knowledge Foundation e. V.](http://okfn.de/)|Initiativen
 [OpenRuhr](http://openruhr.de/)|Initiativen
-[Parlamentwatch e. V.](http://www.abgeordnetenwatch.de/)|Initiativen
+[Parlamentwatch e. V.](http://www.abgeordnetenwatch.de/)|Initiativen
 [Piratenpartei](http://www.piratenpartei.de/)|Initiativen
 [PROVOX Systemplanung GmbH](http://www.provox.de/)|RIS-Hersteller
 [QuinScape GmbH](http://www.quinscape.de/)|RIS-Hersteller

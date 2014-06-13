@@ -10,7 +10,7 @@ gewählt wird, hängt von verschiedenen Kriterien ab, die nachfolgend
 beschrieben werden.
 
 In jedem Fall werden die einzelnen Objekte, die Bestandteile der
-Liste sind (wie z. B. die einzelnen Drucksachen) durch die URL
+Liste sind (wie z. B. die einzelnen Drucksachen) durch die URL
 des jeweiligen Objekts repräsentiert. Objektlisten sind also 
 tatsächlich immer Listen von URLs.
 

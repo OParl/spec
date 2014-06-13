@@ -67,7 +67,7 @@ erlaubt zudem, diese Entwicklungen grenzüberschreitend zu denken. Damit steigt
 nicht nur die potenzielle Nutzerschaft einzelner Entwicklungen. Auch das
 Potenzial für Kooperationen zwischen Anwendungsentwicklern wächst.
 
-Für Wissenschaftler, die z. B. an vergleichenden Untersuchungen zu Vorgängen
+Für Wissenschaftler, die z. B. an vergleichenden Untersuchungen zu Vorgängen
 in verschiedenen Gebietskörperschaften interessiert sind, ergeben sich ebenso
 vielfältige Möglichkeiten über mehrere RIS-Instanzen hinweg auf entsprechende
 Informationen zuzugreifen und diese so einfacher in ihre Analysen einzubeziehen.
@@ -81,7 +81,7 @@ der Daten in anderen Systeme, wie beispielsweise Web-Portale.
 Anbieter von Server- und Softwareprodukten, die RIS-Lösungen anbieten, können
 mit der Implementation der OParl-Schnittstelle ihren Kunden eine entsprechende
 einheitliche Schnittstelle anbieten. Für Anbieter von Linked-Data-Plattformen
-ergeben sich u. a. Möglichkeiten zur vereinfachten Zusammenführung und
+ergeben sich u. a. Möglichkeiten zur vereinfachten Zusammenführung und
 Anreicherung von Inhalten parlamentarischer Informationssysteme.
 
 Ausführlichere Beschreibungen einiger möglicher Anwendungsszenarien finden sich

@@ -51,8 +51,9 @@ inne hat, beispielsweise den Vorsitz einer Fraktion.
 :   Entsendende Gruppierung, Fraktion, fraktionsloses oder externes Gremium.
     Dies entspricht `opengov:onBehalfOf` in Popolo.
     Es kann auch Mitglieder geben, die von keiner anderen Gruppierung entsendet wurden (z. B. fraktionslose Abgeordnete).
-    FRAGE: Muss diese Situation vom Fehlen von Informationen über Entsendungen unterschieden werden?
-    Typ: `oparl:Organization`.
+    Da eine solche Person sich selbst "entsendet" hat, SOLL in dem Fall hier der
+    selbe Wert angegeben werden wie bei der Eigenschaft `person`.
+    Typ: `oparl:Organization` | `oparl:Person`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 

@@ -59,7 +59,7 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 {
     "@language": "de",
     "gender": "vcard:hasGender",
-    "givenName": "foaf:firstName",
+    "givenName": "foaf:givenName",
     "familyName": "foaf:familyName",
     "title": {
         "TODO": "Hier context für title einfügen."

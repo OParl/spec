@@ -80,5 +80,5 @@ Zu den Themen, die in zukünftigen Versionen adressiert werden können, zählen:
   ist."
 
 Generell gilt auch für OParl: "Completion is a state that a good specification never
-reaches before it's irrelevant."^[http://www.w3.org/community/oilgaschem/wiki/OGCWG_-_Lessons_Learned] - Ian Hickson
+reaches before it's irrelevant."^[OGCWG - Lessons Learned: <http://www.w3.org/community/oilgaschem/wiki/OGCWG_-_Lessons_Learned>] - Ian Hickson
 

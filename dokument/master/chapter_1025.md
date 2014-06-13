@@ -32,8 +32,8 @@ Daten leichter eigene Geschäftsmodelle verfeinern oder neue entwickeln. Dritten
 es auch öffentlichen Stellen selbst leichter bereits im öffentlichen Sektor existierende
 Daten zu finden und weiterzuverwenden.
 
-Wie das Prinzip offener Daten bzw. offener Verwaltungsdaten über die Minimalprinzipien
-rechtlicher und technischer Offenheit hinaus am besten erreicht werden kann erfordert
+Das Prinzip offener Daten bzw. offener Verwaltungsdaten über die Minimalprinzipien
+rechtlicher und technischer Offenheit hinaus in die Tat umzusetzen, erfordert
 im Einzelfall häufig eine Zusammenarbeit von Datenbereitstellern und potentiellen
 Datennutzern. Die bloße Bereitstellung einer OParl-konformen API wird weder die
 Einhaltung der technischen Prinzipien, noch der weiteren Open-Data-Prinzipien vollständig

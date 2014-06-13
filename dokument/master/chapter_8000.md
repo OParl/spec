@@ -104,6 +104,7 @@ Präfix       |URL
 `dc`         |`http://purl.org/dc/terms/`
 `foaf`       |`http://xmlns.com/foaf/0.1/`
 `prov`       |`http://www.w3.org/ns/prov#`
+`schmorg`    |`http://schema.org/`
 `skos`       |`http://www.w3.org/2004/02/skos/core#`
 `vcard`      |`http://www.w3.org/2006/vcard/ns#`
 `xsd`        |`http://www.w3.org/2001/XMLSchema#`

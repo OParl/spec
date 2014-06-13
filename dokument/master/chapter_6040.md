@@ -205,7 +205,7 @@ Objekttypen eine eindeutige URL ergeben.
 * Aus `oparl:Paper` wird `http://oparl.org/schema/1.0/Paper`
 * Aus `vendor:Drucksache` wird `http://www.vendor.de/oparl/schema/Drucksache`
 
-Jedes Objekt, dass vom OParl-Server ausgeliefert wird, MUSS die `@type` Eigenschaft
+Jedes Objekt, das vom OParl-Server ausgeliefert wird, MUSS die `@type` Eigenschaft
 enthalten und darüber kommunizieren, welchen Typs das Objekt ist.^[Der Abruf von Listen
 wie im Abschnitt [Objektlisten](#objektlisten) beschrieben, ist eine Ausnahme, denn
 hier werden nicht Objekte ausgeliefert, sondern Listen von URLs von Objekten.]

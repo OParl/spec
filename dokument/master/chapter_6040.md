@@ -282,7 +282,7 @@ OParl-Server MÜSSEN JSON-LD-Daten grundsätzlich in der komprimierten Form
 
 Das folgende Beispiel zeigt ein JSON-LD-Objekt zur Beschreibung eines
 OParl-Systems (`oparl:System`), wie es von einem Server unter der URL
-`https://oparl.example.org/` ausgegeben würde:
+`https://oparl.example.org/` ausgegeben werden könnte:
 
 ~~~~~  {#jsonld_oparl_ex1 .json}
 {

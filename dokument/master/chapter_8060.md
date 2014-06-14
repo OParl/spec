@@ -16,6 +16,8 @@ Kontext berücksichtigen. Dies spricht auch für je einen Kontext pro Klasse.
 
 Ein Beispiel in expandierter Form:
 
+TODO: Das ist nicht wirklich die expandierte Form. Sollte geändert werden, so wie es der Playground ausgibt.
+
 ~~~~~  {#person_ex1 .json}
 {
     "@type": "http://oparl.org/schema/1.0/Person",

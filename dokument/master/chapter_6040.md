@@ -278,7 +278,7 @@ Durch Verwendung dieser URL-Präfixe SOLLEN die entsprechenden URLs wo immer mö
 abgekürzt werden.
 
 OParl-Server MÜSSEN JSON-LD-Daten grundsätzlich in der komprimierten Form
-(engl. "compacted form") ausgeben.
+(engl. *compacted form*) ausgeben.
 
 Das folgende Beispiel zeigt ein JSON-LD-Objekt zur Beschreibung eines
 OParl-Systems (`oparl:System`), wie es von einem Server unter der URL
@@ -307,7 +307,7 @@ OParl-Systems (`oparl:System`), wie es von einem Server unter der URL
 ~~~~~
 
 Wie im Beispiel zu sehen, werden im `@context`-Teil zwei URLs eingebunden. Die eine
-ist die zum jeweils ausgelieferten OParl Objekttyp gehörige. Die zweite ist eine
+ist die zum jeweils ausgelieferten OParl-Objekttyp gehörige. Die zweite ist eine
 vom Server bestimmte URL einer zusätzlichen Kontext-Ressource. Wie der Inhalt dieser
 zusätzlichen Kontext-Ressource aussehen könnte, zeigt das folgende Beispiel:
 
@@ -321,8 +321,8 @@ zusätzlichen Kontext-Ressource aussehen könnte, zeigt das folgende Beispiel:
 
 Hier wird ein URL-Präfix `beispielris:` definiert, das dazu dient, die ausgegebenen
 URLs innerhalb dieses Systems zu verkürzen. Es wird grundsätzlich EMPFOHLEN, dass
-jeder Server durch Einbindung einr eigenen Kontext-Ressource die URL des eigenen
-Systems durch einen URL-Präfix verkürzt.
+jeder Server durch Einbindung einer eigenen Kontext-Ressource einen URL-Präfix für
+die URL des eigenen Systems definiert.
 
 Betreiber oder Implementierer von OParl-Servern haben die Möglichkeit, Objekte mit
 Eigenschaften auszugeben, die nicht im Schema-Teil dieser Spezifikation beschrieben

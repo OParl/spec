@@ -90,26 +90,6 @@ In den von OParl bereitgestellten JSON-LD-Kontexten ist die deutsche Sprache
 Stichwort SOLL daher nur dann eingesetzt werden, wenn ein Inhalt nicht
 deutschsprachig ist.
 
-### Präfixe in Kontexten
-
-Die Beispiel-Kontexte verwenden eine Reihe von Präfixen. Diese sind hier
-zusammengestellt und werden in den einzelnen Beispiel-Kontexten nicht
-jeweils wiederholt:
-
-
-Präfix       |URL
--------------|--------------------------------------
-`beispielris`|`https://oparl.example.org`
-`oparl`      |`http://oparl.org/specs/1.0/`
-`dc`         |`http://purl.org/dc/terms/`
-`foaf`       |`http://xmlns.com/foaf/0.1/`
-`prov`       |`http://www.w3.org/ns/prov#`
-`schmorg`    |`http://schema.org/`
-`skos`       |`http://www.w3.org/2004/02/skos/core#`
-`vcard`      |`http://www.w3.org/2006/vcard/ns#`
-`xsd`        |`http://www.w3.org/2001/XMLSchema#`
-`ogc`        |`http://www.opengis.net/ont/geosparql#`
-
 ### Vokabulare zur Klassifizierung  {#vokabulare_klassifizierung}
 
 Einige Objekttypen besitzen Eigenschaften zum Zweck der Klassifizierung von Objekten.

@@ -6,10 +6,6 @@ entsprechend der JSON-LD-Spezifikation um Kontexte erweitert, welche die
 Selbstbeschreibungsfähigkeit der ausgegebenen Daten verbessert. Auf Anforderung des
 Clients wird darüber hinaus JSONP unterstützt.
 
-In jedem Fall MUSS ein Server die Anfrage eines Clients unter Verwendung des HTTP
-`Content-type`-Headers `application/ld+json` beantworten, Ausnahmen davon sind
-lediglich [Dateizugriffe](#dateizugriff).
-
 ### JSON
 
 Die Abkürzung JSON steht für "JavaScript Object Notation". Das JSON-Format ist in
@@ -48,6 +44,10 @@ Beispiel eines Objekts in JSON-Notation:
 
 ### JSON-LD {#jsonld}
 
+OParl nutzt JSON-LD als Ausgabeformat. In diesem Abschnitt werden einige
+grundlegenden Prinzipien von JSON-LD erläutert. Im nächsten Abschnitt werden
+dann spezifische Anforderungen an JSON-LD im Einsatz für OParl beschrieben.
+
 Das Kürzel *LD* im Namen *JSON-LD* steht für *Linked Data*^[siehe dazu [Linked Data](#linked_data)].
 Entsprechend erweitert die JSON-LD-Spezifikation^[JSON-LD 1.0: 
 <http://www.w3.org/TR/json-ld/>] das JSON-Format um die Möglichkeit,
@@ -73,8 +73,11 @@ Namen der Person enthält, dass `homepage` die Website der Person sein könnte, 
 dem die Objekteigenschaften nicht bekannt sind, kann die Bedeutung dieser Eigenschaften
 nicht entschlüsseln.
 
-Entsprechend der JSON-LD-Spezifikation kann diese Erläuterung über die `@context`-Eigenschaft
-direkt im selben Objekt, sozusagen als Unterobjekt, mitgeliefert werden:
+Entsprechend der JSON-LD-Spezifikation kann ein solches Dokument um einen oder mehrere
+sogenannte Kontexte erweitert werden. Diese lassen sich als Meta-Informationen zu den
+Eigenschaften des JSON-Dokuments verstehen. Integriert werden diese Kontexte über
+eine zusätzliche Eigenschaft mit dem Namen `@context`. Nachfolgend wird das zuvor
+gezeigte JSON-Beispiel um einen solchen JSON-LD-Kontext erweitert:
 
 ~~~~~  {#jsonld_ex2 .json}
 {
@@ -96,23 +99,17 @@ direkt im selben Objekt, sozusagen als Unterobjekt, mitgeliefert werden:
 }
 ~~~~~
 
-Hier sind die Eigenschaften wie `image` einer URL wie `http://schema.org/image` zugewiesen.
-Ein Client, der diese URL kennt, kann daraus folgern, dass über die Objekteigenschaft
-`image` immer die URL eines Bildes zu finden ist. Das Schlüssel-Wert-Paar
+Der Kontext weist jedem der Schlüssel des JSON-Dokuments weitere Informationen zu.
+So wird beispielsweise die Eigenschaft `name` mit der URL `http://xmlns.com/foaf/0.1/name`
+gleichgesetzt. Dies teilt dem Client mit, dass die Eigenschaft `name` dieses Objekts
+dieselbe Bedeutung hat, wie die Eigenschaft `name` des FOAF
+Schemas^[The Friend of a Friend (FOAF) project: <http://www.foaf-project.org/>]. 
 
-    "@type": "@id"
-
-sagt darüber hinaus aus, dass der Wert dieser Eigenschaft die URL eines anderen
-Objekts ist^[URLs heißen in der JSON-LD-Spezifikation "IRI" (für "Internationalized
-Resource Identifier"), wir verwenden hier jedoch weiterhin die Bezeichnung "URL".].
-Mittels `@type`-Deklaration könnte aber auch beispielsweise eine Eigenschaft, die 
-im JSON-Sinn eine Zeichenkette ist, als Datum deklariert werden.
-
-Am obigen Beispiel fällt auf, dass der `@context`-Teil des Objekts schon mehr Daten
-umfasst, als die eigentlichen Objekteigenschaften. Sinnvollerweise kann jedoch der 
-gesamte Inhalt des `@context`-Teils für alle Objekte des selben Typs zusammengefasst
-und in eine externe Ressource ausgelagert werden. Das folgende Beispiel verdeutlicht
-dies:
+Der Inhalt der `@context`-Eigenschaft darf laut JSON-LD-Spezifikation in eine externe
+Ressource ausgelagert werden, die wiederum über eine URL eingebunden wird. Damit können
+mehrere Objekte, die denselben JSON-LD-Kontext benötigen, auf eine gemeinsame
+Kontext-URL verweise. Clients können diese im Cache vorhalten und nur bei Bedarf neu laden.
+Das folgende Beispiel zeigt dies:
 
 ~~~~~  {#jsonld_ex3 .json}
 {
@@ -123,95 +120,88 @@ dies:
 }
 ~~~~~
 
-Die `@context`-Eigenschaft hat nun als Wert eine URL, in diesem Fall: 
-
-`http://json-ld.org/contexts/person.jsonld`
-
-Diese URL steht für ein JSON-Dokument, das die Beschreibung
-aller möglichen Attribute des Personen-Objekts enthält. Die Kontext-Beschreibung 
-des JSON-LD-Objekts wurde somit in eine externe Ressource ausgelagert. Clients
-SOLLEN davon ausgehen, dass sich diese externen Kontextbeschreibungen nur selten
-ändern. Somit genügt es, bei Abruf vieler gleichartiger JSON-LD-Objekte vom Server
-die Kontext-Ressource nur einmal zu laden.
-
 Im Sinne der JSON-LD-Spezifikation sind Objekte mit eingebettetem und externem Kontext
 inhaltlich identisch.
-Den Implementierern eines OParl-konformen Servers wird EMPFOHLEN, grundsätzlich
-die Kontextinformation mittels externer Ressourcen zu übermitteln. Die OParl-Autoren werden
-hierzu die zu dieser Spezifikation passenden Ressourcen auf oparl.org für jegliche Verwendung
-zur Verfügung stellen (mehr dazu im [Anhang](#jsonld_ressourcen_oparlorg)). Sollten 
-Server-Implementierer zusätzliche Objekttypen benötigen, die nicht von dieser 
-Spezifikation abgedeckt sind, SOLL entsprechend zusätzlich auf eigene Kontextressourcen 
-unter geeigneten URLs verwiesen werden. Hierbei können herstellereigene und 
-OParl-spezifische URLs gemischt werden, wie in
-einem Beispiel weiter unten verdeutlicht wird.
 
-Formell wird bei JSON-LD weiterhin zwischen drei verschiedenen Formaten
-unterschieden, die semantisch gleichbedeutend sind:
-
-* Kompakte Form (_compact_)
-* Expandierte Form (_expanded_)
-* Flache Form (_flat_)
-
-Das vorige Beispiel zeigt die kompakte Form. Die Definitionen können der JSON-LD-Spezifikation
-entnommen werden. OParl-Server MÜSSEN sämtliche Objekte grundsätzlich in der kompakten
-Form ausliefern. Die Umwandlung in die anderen Formen bei Bedarf obliegt dem Client.^[Die
-JSON-LD-Spezifikation enthält Überlegungen, zwischen Client und Server die gewünschte
-Form über einen `Accept`-Header mit zusätzlichem `profile` Parameter auszuhandeln. Diese
-Überlegung ist zur Reduktion der Komplexität auf Serverseite nicht in OParl eingeflossen.]
-
-JSON-LD ermöglicht es auch, für ein Objekt einen **Objekttyp** zu kommunizieren. So könnte
-passend zu unserem Beispiel ausgedrückt werden, um welche Art von Objekt es sich bei den
-vorliegenden Daten handelt. Dazu wird die `@type`-Eigenschaft verwendet, deren Wert
-eine URL ist:
+JSON-LD ermöglicht es, für ein Objekt einen **Objekttyp** zu kommunizieren. Dazu wird
+eine Eigenschaft mit dem Schlüssel `@type` gesetzt, deren Wert eine URL ist. Das
+folgende Beispiel zeigt, wie mit dieser Methode das bereits gezeigte Objekt mit einem
+Typ versehen wird:
 
 ~~~~~  {#jsonld_ex4 .json}
 {
-  "@context": "http://json-ld.org/contexts/person.jsonld",
-  "@type": "http://schema.org/Person",
-  "name": "Manu Sporny",
-  "homepage": "http://manu.sporny.org/",
-  "image": "http://manu.sporny.org/images/manu.png"
+    "@context": "http://json-ld.org/contexts/person.jsonld",
+    "@type": "http://schema.org/Person",
+    "name": "Manu Sporny",
+    "homepage": "http://manu.sporny.org/",
+    "image": "http://manu.sporny.org/images/manu.png"
 }
 ~~~~~
 
-Objekte können mehreren Typen zugeordnet sein und damit die Eigenschaften mehrerer
-Objekttypen nutzen. Im Fall von OParl kann diese Möglichkeit genutzt werden, um
-über die API Eigenschaften auszugeben, die nicht Teil des OParl-Schemas sind.
+JSON-LD kennt für dieselbe Information verschiedene **syntaktische Formen**. Das obige
+Beispiel zeigt die *komprimierte Form* (engl.: "Compacted Form"). Die Daten dieses
+Dokuments lassen durch Anwenden des sich  Information im obigen Beispiel ließe sich mit
+der in JSON-LD-Spezifikation als *Expanded Form* (hier: *expandierte Form*) bezeichneten
+Form ausführlich so darstellen:
 
 ~~~~~  {#jsonld_ex5 .json}
-{
-  "@context": {
-  	"oparl": "http://oparl.org/schema/1.0/",
-  	"vendor": "http://www.vendor.de/oparl/schema/"
-  },
-  "@type": ["oparl:Paper", "vendor:Drucksache"],
-  "title": "Beschlussvorlage zum Haushalt",
-  "created": "2013-05-29T14:17:39+02:00",
-  "aktenzeichen": "ABC123"
-}
+[
+    {
+        "@type": [
+            "http://schema.org/Person"
+        ],
+        "http://xmlns.com/foaf/0.1/homepage": [
+            {
+                "@id": "http://manu.sporny.org/"
+            }
+        ],
+        "http://xmlns.com/foaf/0.1/img": [
+            {
+                "@id": "http://manu.sporny.org/images/manu.png"
+            }
+        ],
+        "http://xmlns.com/foaf/0.1/name": [
+            {
+                "@value": "Manu Sporny"
+            }
+        ]
+    }
+]
 ~~~~~
 
-Das Beispiel oben zeigt ein Objekt, das über die `@context`-Eigenschaft zwei verschiedene
-URLs als sogenannte Vokabulare referenziert. Das eine Vokabular wird durch das 
-Namensraum-Präfix `oparl` repräsentiert, das zweite (herstellereigene) durch das 
-Namensraum-Präfix `vendor`.
+Wie zu sehen ist, entfällt in der expandierten Form die `@context`-Eigenschaft.
+Sämtliche für das Objekt relevanten Informationen aus dem Kontext sind stattdessen 
+direkt in das Objekt selbst eingebunden. Beispielsweise trägt der Schlüssel, der in
+der komprimierten Form `name` heißt, hier die ausführliche URL 
+`http://xmlns.com/foaf/0.1/name` als Namen, wie es der Gleichsetzung im Kontext,
+weiter oben beschrieben, entspricht.
 
-Durch das Schlüsselwort `@type` wird nun dem Objekt ein oder mehrere Objekttypen zugewiesen.
-Dabei werden die zuvor beschriebenen Namensraum-Präfixe genutzt. Ein JSON-LD-Client 
-verarbeitet Namensraum-Präfixe und Typenbezeichnung so, dass diese letztlich für jeden
-Objekttypen eine eindeutige URL ergeben.
+Die obige Darstellung der expandierten Form zeigt auch, dass alle Eigenschaften
+in JSON-LD als Arrays interpretiert werden, also mehrere Werte haben können.
 
-* Aus `oparl:Paper` wird `http://oparl.org/schema/1.0/Paper`
-* Aus `vendor:Drucksache` wird `http://www.vendor.de/oparl/schema/Drucksache`
+Zuvor wurde gezeigt, wie die Namen von Eigenschaften in JSON-LD-Objekten tatsächlich
+URLs sind, die in der komprimierten Form mit Hilfe der Kontext-Informationen gegen
+kürzere Namen ausgetauscht werden. Auch auf der Seite der Werte von Eigenschaften
+gibt es in JSON-LD die Möglichkeit, ausführliche URLs zu verkürzen und somit die
+Ausgabe kompakter oder leserlicher zu gestalten. Hierzu dienen **Präfixe**.
 
-Jedes Objekt, das vom OParl-Server ausgeliefert wird, MUSS die `@type` Eigenschaft
-enthalten und darüber kommunizieren, welchen Typs das Objekt ist.^[Der Abruf von Listen
-wie im Abschnitt [Objektlisten](#objektlisten) beschrieben, ist eine Ausnahme, denn
-hier werden nicht Objekte ausgeliefert, sondern Listen von URLs von Objekten.]
+Diese Präfixe werden im JSON-LD-Kontext definiert und können dann sowohl in den
+Schlüsseln (Namen) als auch den Werten von Eigenschaften eingesetzt werden. Eine
+Präfix-Definition kann beispielsweise so aussehen:
 
-Eine JSON-LD-konforme Ausgabe stellt noch weitere Anforderungen, von denen nachfolgend die 
-wichtigsten zusammengefasst werden.
+~~~~~
+    "foaf": "http://xmlns.com/foaf/0.1/"
+~~~~~
+
+An anderer Stelle kann der so definierte Präfix `foaf` so eingesetzt werden, um
+die URL `http://xmlns.com/foaf/0.1/name` zu repräsentieren:
+
+~~~~~
+    "foaf:name"
+~~~~~
+
+Die JSON-LD-Spezifikation stellt noch weitere Anforderungen, von denen nachfolgend
+die wichtigsten zusammengefasst werden.
 
 * **Schlüssel MÜSSEN einzigartig sein**: Es ist nicht zulässig, in einem JSON-LD-Objekt
 mehrmals den selben Schlüssel für ein Attribut zu verwenden.
@@ -234,6 +224,166 @@ entsprechenden Stelle das Schlüsselwort `@list` verwenden.
 * **Listen DÜRFEN NICHT verschachtelt werden**: JSON-LD erlaubt keine Listen, die
 wiederum Listen als Werte enthalten.
 
+
+### JSON-LD in OParl {#jsonld_oparl}
+
+Ein OParl-Server MUSS in der Regel als Antwort auf eine Anfrage ein valides
+JSON-LD-Objekt ausgeben. Ausnahmen von dieser Regel sind:
+
+* Zugriffe auf Dateien (vgl. [Dateizugriffe](#dateizugriff))
+* Fehlerfälle, in denen der Server kein Objekt ausgeben kann
+  (vgl. [Ausnahmebehandlung](#ausnahmebehandlung))
+
+Jede Anfrage eines Clients, die mit einem JSON-LD-Objekt beantwortet wird,
+MUSS unter Verwendung des HTTP `Content-type`-Headers `application/ld+json`
+beantwortet werden.
+
+Im Abschnitt [Schema](#schema) der Spezifikation werden die von OParl
+definierten Objekttypen beschrieben. Zur eindeutigen Kennzeichnung über
+die `@type`-Eigenschaft wird jeder Objekttyp mit einer eigenen URL versehen.
+Z. B. wird der Objekttyp für eine Körperschaft (Body) durch die URL
+
+~~~~~
+    http://oparl.org/schema/1.0/Body
+~~~~~
+
+gekennzeichnet^[Eine vollständige Liste ist im Anhang
+[JSON-LD-Ressourcen auf oparl.org](#jsonld_ressourcen_oparlorg) zu finden.].
+So erkennen Clients leicht, welche Informationen sie in einem Objekt erwarten
+können und welche Eigenschaften verpflichtend gesetzt sein müssen. Ein Server
+MUSS deshalb den Typ des Objekts durch Ausgabe der entsprechenden URL angeben.
+
+Ferner werden unter `oparl.org` für jeden Objekttypen eigene
+Kontext-Ressourcen vorgehalten, die Auskunft über die Bedeutung der Eigenschaften
+des jeweiligen Objekttyps geben. Auch diese werden im Anhang aufgelistet. Ein
+Server MUSS von diesen Ressourcen durch Einbindung ihrer URLs im `@context`-Teil
+Gebrauch machen.
+
+Diese auf `oparl.org` vorgehaltenen Kontext-Ressourcen enthalten auch grundsätzlich
+die folgenden Definitionen von URL-Präfixen:
+
+Präfix       |URL
+-------------|--------------------------------------
+`oparl`      |`http://oparl.org/specs/1.0/`
+`dc`         |`http://purl.org/dc/terms/`
+`foaf`       |`http://xmlns.com/foaf/0.1/`
+`prov`       |`http://www.w3.org/ns/prov#`
+`schmorg`    |`http://schema.org/`
+`skos`       |`http://www.w3.org/2004/02/skos/core#`
+`vcard`      |`http://www.w3.org/2006/vcard/ns#`
+`xsd`        |`http://www.w3.org/2001/XMLSchema#`
+`ogc`        |`http://www.opengis.net/ont/geosparql#`
+
+Durch Verwendung dieser URL-Präfixe SOLLEN die entsprechenden URLs wo immer möglich
+abgekürzt werden.
+
+OParl-Server MÜSSEN JSON-LD-Daten grundsätzlich in der komprimierten Form
+(engl. "compacted form") ausgeben.
+
+Das folgende Beispiel zeigt ein JSON-LD-Objekt zur Beschreibung eines
+OParl-Systems (`oparl:System`), wie es von einem Server unter der URL
+`https://oparl.example.org/` ausgegeben würde:
+
+~~~~~  {#jsonld_oparl_ex1 .json}
+{
+    "@id": "https://oparl.example.org/",
+    "@context": [
+        "http://oparl.org/schema/1.0/System",
+        "https://oparl.example.org/oparl-context"
+    ]
+    "@type": "oparl:System",
+    "oparlVersion": "http://oparl.org/specs/1.0/",
+    "name": "Beispiel-System",
+    "website": "http://www.example.org/",
+    "contactEmail": "mailto:info@example.org",
+    "contactName": "Allgemeiner OParl Kontakt",
+    "vendor": "http://example-software.com/",
+    "product": "http://example-software.com/oparl-server/",
+    "body": "beispielris:bodies/",
+    "newObjects": "beispielris:new_objects/",
+    "updatedObjects": "beispielris:updated_objects/",
+    "removedObjects": "beispielris:removed_objects"
+}
+~~~~~
+
+Wie im Beispiel zu sehen, werden im `@context`-Teil zwei URLs eingebunden. Die eine
+ist die zum jeweils ausgelieferten OParl Objekttyp gehörige. Die zweite ist eine
+vom Server bestimmte URL einer zusätzlichen Kontext-Ressource. Wie der Inhalt dieser
+zusätzlichen Kontext-Ressource aussehen könnte, zeigt das folgende Beispiel:
+
+~~~~~  {#jsonld_oparl_ex2 .json}
+{
+    "@context": {
+        "beispielris": "https://oparl.example.org/"
+    }
+}
+~~~~~
+
+Hier wird ein URL-Präfix `beispielris:` definiert, das dazu dient, die ausgegebenen
+URLs innerhalb dieses Systems zu verkürzen. Es wird grundsätzlich EMPFOHLEN, dass
+jeder Server durch Einbindung einr eigenen Kontext-Ressource die URL des eigenen
+Systems durch einen URL-Präfix verkürzt.
+
+Betreiber oder Implementierer von OParl-Servern haben die Möglichkeit, Objekte mit
+Eigenschaften auszugeben, die nicht im Schema-Teil dieser Spezifikation beschrieben
+sind. So können zusätzliche Anforderungen umgesetzt werden. Hierzu muss zum einen
+ein zusätzlicher Objekttyp über die Eigenschaft `@type` angegeben werden und außerdem
+die eingebundene(n) Kontext-Ressource(n) die zusätzlichen Eigenschaften beschreiben.
+
+Für das folgende Beispiel nehmen wir an, dass der Betreiber das System-Objekt um eine
+weitere Eigenschaft erweitern möchte, welche die aktuelle Uhrzeit auf dem Server
+ausgibt. Das Objekt selbst könnte (verkürzt) so aussehen:
+
+~~~~~  {#jsonld_oparl_ex3 .json}
+{
+    "@id": "https://oparl.example.org/",
+    "@context": [
+        "http://oparl.org/schema/1.0/System",
+        "https://oparl.example.org/oparl-context"
+    ],
+    "@type": [
+        "oparl:System",
+        "beispielris:BeispielRisSystem"
+    ],
+    "oparlVersion": "http://oparl.org/specs/1.0/",
+    ...
+    "beispielris:currentTime": "2014-07-03T12:41:28.402+0200"
+}
+~~~~~
+
+Der Inhalt der eigenen Kontext-Ressource (`https://oparl.example.org/oparl-context`)
+könnte nun so aussehen:
+
+~~~~~  {#jsonld_oparl_ex2 .json}
+{
+    "@context": {
+        "beispielris": "https://oparl.example.org/",
+        "beispielris:currentTime": {
+            "@type": "xsd:dateTime"
+        }
+    }
+}
+~~~~~
+
+Besonders zu beachten ist hier die Kombination aus zwei Angaben innerhalb der
+Eigenschaft `@type`. Die Typangabe `beispielris:BeispielRisSystem` wird vom Server
+frei definiert. Durch Auflösung des URL-Präfix `beispielris:` wird daraus die
+URL `https://oparl.example.org/BeispielRisSystem`.
+
+Clients DÜRFEN NICHT erwarten, dass unter einer solchen Typ-URL tatsächlich
+verwertbare Informationen abrufbar sind. Die URL dient zunächst lediglich der
+eindeutigen Festlegung von Objekttypen.
+
+Bei der Definition eigener Eigenschaften über eine Kontext-Ressource DARF der
+Server NICHT die bereits von OParl definierten Schlüsselwörter (URL-Präfixe,
+Eigenschaften etc.) verwenden. Dies könnte, abhängig von der Reihenfolge, in der
+die Kontext-Ressourcen eingebunden werden, zu einem Überschreiben der Definitionen
+aus dem OParl-Kontext führen. Dies würde für Clients zu nicht vorhersagbaren
+Ergebnissen führen und ist daher ausgeschlossen. Um dies zu vermeiden, wird
+EMPFOHLEN, die Namen der selbstd efinierten Eigenschaften (die Schlüssel) mit
+einem eigenen Präfix zu versehen, wie auch im obigen Beispiel gezeigt. Damit wird
+auch dem Problem vorgebeugt, dass bestimmte Schlüssel von zukünftigen
+OParl-Versionen vereinnamt werden und damit ein Namenskonflikt entsteht.
 
 ### JSONP
 

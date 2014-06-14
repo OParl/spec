@@ -380,7 +380,7 @@ Eigenschaften etc.) verwenden. Dies könnte, abhängig von der Reihenfolge, in d
 die Kontext-Ressourcen eingebunden werden, zu einem Überschreiben der Definitionen
 aus dem OParl-Kontext führen. Dies würde für Clients zu nicht vorhersagbaren
 Ergebnissen führen und ist daher ausgeschlossen. Um dies zu vermeiden, wird
-EMPFOHLEN, die Namen der selbstd efinierten Eigenschaften (die Schlüssel) mit
+EMPFOHLEN, die Namen der selbst definierten Eigenschaften (die Schlüssel) mit
 einem eigenen Präfix zu versehen, wie auch im obigen Beispiel gezeigt. Damit wird
 auch dem Problem vorgebeugt, dass bestimmte Schlüssel von zukünftigen
 OParl-Versionen vereinnamt werden und damit ein Namenskonflikt entsteht.

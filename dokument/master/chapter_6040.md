@@ -290,7 +290,7 @@ OParl-Systems (`oparl:System`), wie es von einem Server unter der URL
     "@context": [
         "http://oparl.org/schema/1.0/System",
         "https://oparl.example.org/oparl-context"
-    ]
+    ],
     "@type": "oparl:System",
     "oparlVersion": "http://oparl.org/specs/1.0/",
     "name": "Beispiel-System",

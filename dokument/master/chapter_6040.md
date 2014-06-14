@@ -411,7 +411,7 @@ Zunächst ein einfaches JSON-Beispiel:
 
 Durch Einbettung in eine sogenannte Callback-Funktion wird daraus JSONP:
 
-~~~~~  {#jsonp_ex2 .json}
+~~~~~  {#jsonp_ex2 .jsonp}
 mycallback({
     "foo": "bar"
 })
@@ -422,7 +422,7 @@ bei der Anfrage vom Client bestimmt, und zwar mittels URL-Parameter.
 
 Für eine OParl-konforme Schnittstelle wird EMPFOHLEN, dass der Server die 
 JSONP-Ausgabe unterstützt. Die JSONP-Ausgabe MUSS in diesem Fall für sämtliche
-Abfragen möglich sein. Eine JSONP-Unterstzung nur für bestimmte Anfragen ist
+Abfragen möglich sein. Eine JSONP-Unterstützung nur für bestimmte Anfragen ist
 nicht vorgesehen.
 
 Der URL-Parameter, den Clients zur Aktivierung der JSONP-Ausgabe verwenden,

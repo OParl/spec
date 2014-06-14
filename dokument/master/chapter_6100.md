@@ -1,4 +1,4 @@
-Ausnahmebehandlung
+Ausnahmebehandlung  {#ausnahmebehandlung}
 ------------------
 
 Nicht immer kann ein Server die Anfrage eines Clients erfolgreich, also im Sinne

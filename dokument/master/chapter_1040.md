@@ -19,6 +19,7 @@ Zu den Themen, die in zukünftigen Versionen adressiert werden können, zählen:
   des Bundes (Bundestag, Bundesrat) nutzbar wäre.
 
 * Flexible Abfragemöglichkeiten für Objekte: Aufgrund der unklaren Anforderungslage
+  sowie dem Bestreben möglichst wenige spezielle Lösungen nur für OParl zu schaffen
   sind in Version 1.0 nur sehr beschränkte Möglichkeiten vorgesehen, Listen von
   Drucksachen etc. nach bestimmten Kriterien einzuschränken. Zukünftig könnten
   hier weitere Möglichkeiten definiert werden, bis hin zur Suche nach Stichworten

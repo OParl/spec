@@ -60,7 +60,8 @@ Beispiel:
 ~~~~~
 
 Die vollständige Listenausgabe SOLL nur für Listen verwendet
-werden, die bis zu 100 Einträge umfassen.
+werden, die bis zu 100 Einträge umfassen. Links zu solch kurzen Listen
+wir jedoch in OParl-Objekten in der Regel nicht enthalten.
 
 ### Paginierung  {#paginierung}
 
@@ -168,10 +169,10 @@ die einzelnen Listenseiten abzurufen.
 ![Paginierung: Schematische Darstellung](images/pagination01.png)
 
 Server-Implementierer entscheiden selbst, wie die URLs zum Abruf einzelner
-Listenseiten
-aufgebaut ist und tragen damit selbst Verantwortung für die Funktionsweise
-der Paginierung. Bei der Entscheidung für eine Form der Implementierung
-sollten die folgenden Anforderungen von Clients berücksichtigt werden.
+Listenseiten aufgebaut sind und tragen damit selbst Verantwortung für die
+Funktionsweise der Paginierung. Bei der Entscheidung für eine Form der
+Implementierung sollten die folgenden Anforderungen von Clients
+berücksichtigt werden.
 
 Es ist davon auszugehen, dass Clients für den gesamten Abruf aller
 Seiten einer Liste längere Zeit benötigen. In der Zwischenzeit kann sich
@@ -212,7 +213,8 @@ der Datensatz mit der `id=1` gelöscht worden sein, liefert die zweite Abfrage
 Datensätze mit `id` > 9. In diesem Fall würde dies nur dazu führen, dass ein
 Datensatz (`id=10`) zweimal ausgegeben wird. Bei ungünstigeren Konstellationen
 wäre auch denkbar, dass eine unstabile Paginierung bewirkt, dass einzelne 
-Datensätze beim Paginieren übergangen werden.
+Datensätze beim Paginieren übergangen werden. Je nach Bedeutung der fehlenden
+Datensätze können splche Inkonsistenzen erhebliche Auswirkungen haben.
 
 Besser wäre es, bei der Paginierung die Eintragsgrenze, bei der eine Listenseite
 beginnen soll, explizit zu benennen. Wurden auf der ersten
@@ -229,7 +231,9 @@ vom Client eingeschränkt wurde.
 
 ### Listen als Eigenschaften von Objekten
 
-Listen von Objekten können auch als Werte von Objekteigenschaften auftreten. 
+Listen von Objekten können auch als Werte von Objekteigenschaften
+auftreten^[Genaugenommen ist dann nicht die Liste der Wert der
+Eigenschaft, sondern jedes Element ist selbst Wert der Eigenschaft.].
 Hierbei kann die oben beschriebene Paginierung nicht angewendet werden, sondern
 es MÜSSEN die URLs aller Listeneinträge aufgelistet werden.
 

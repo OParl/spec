@@ -11,8 +11,8 @@ definiert eine Webservice-Schnittstelle,
 die den anonymen und lesenden Zugriff auf öffentliche Inhalte aus 
 parlamentarischen Informationssystemen ermöglicht. Wie der Name
 "Webservice" ausdrückt, setzt diese Schnittstelle auf dem World Wide
-Web auf. Sie ermöglicht, dass parlamentarishe Informationen
+Web auf. Sie ermöglicht, dass parlamentarische Informationen
 maschinenlesbar als Offene Daten (Open Data) veröffentlicht werden.
 
-Die vorligende Version ist die erste verabschiedete Version
+Die vorliegende Version ist die erste verabschiedete Version
 der Spezifikaiton zum OParl-Standard.

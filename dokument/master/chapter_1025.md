@@ -8,7 +8,9 @@ Maße um eine stärkere Öffnung dieser Daten bemüht^[Eine weltweite Übersicht
 Open-Data-Projekten bietet z. B. der Open-Data-Showroom <http://opendata-showroom.org/de/>].
 Bei dem Ansatz Open Data^[vgl. <https://de.wikipedia.org/wiki/Open_data>] geht es
 darum, diese Daten so bereitzustellen, dass Dritte diese einfacher finden und
-weiterverwenden können. Die zehn Open-Data-Prinzipien der Sunlight-Foundation^[Ten
+weiterverwenden können.
+
+Die zehn Open-Data-Prinzipien der Sunlight-Foundation^[Ten
 Principles for Opening Up Open Government Information,
 <https://sunlightfoundation.com/policy/documents/ten-open-data-principles>] beschreiben
 die Offenheit von Datensätzen. Wesentlich dabei sind vor allem die einfache rechtliche

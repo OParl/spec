@@ -4,7 +4,7 @@ Nomenklatur der Spezifikation und Satzkonventionen
 ### Zwingende, empfohlene und optionale Anforderungen  {#muss_soll_darf}
 
 Dieses Spezifikationsdokument nutzt die Modalverben _müssen_, _können_ und _sollen_
-in einer Art und Weise, die bestimmte Anforderungen möglichst unmissverständlich
+in einer Art und Weise, die bestimmte Anforderungen unmissverständlich
 in drei verschiedene Abstufung einteilen lässt. Um ihre normative Bedeutung
 zu unterstreichen, werden diese Wörter grundsätzlich in Großbuchstaben gesetzt.
 
@@ -64,8 +64,7 @@ DÜRFEN/DARF bzw. OPTIONAL:
 Um bei Begriffen wie Nutzer, Anwender, Betreiber etc. die sonst übliche Dominanz
 der männlichen Variante zu vermeiden, werden in diesem Dokument
 männliche oder weibliche Varianten gemischt. Es wird also beispielsweise mal
-von einer Nutzerin gesprochen und mal von einem Nutzer. Alternativ kommt auch die
-Kurzform _NutzerInnen_ für _Nutzerinnen und Nutzer_ zum Einsatz. Gemeint sind
+von einer Nutzerin gesprochen und mal von einem Nutzer. Gemeint sind
 selbstverständlich in allen Fällen immer weibliche wie auch männliche Personen.
 
 ### Codebeispiele

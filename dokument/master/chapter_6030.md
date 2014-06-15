@@ -3,8 +3,10 @@ HTTP und HTTPS
 
 OParl-Server und -Client kommunizieren miteinander über das HTTP-Protokoll.
 
-Hierbei SOLL eine verschlüsselte Variante des Protokolls, auch HTTPS 
-genannt, zum Einsatz kommen, alternativ kann jedoch auch unverschlüsseltes
+Hierbei SOLL eine verschlüsselte Variante des Protokolls, HTTPS,
+zum Einsatz kommen. Dabei werden auch die URLs verschlüsselt,
+deren Kenntnis möglicherweise Rückschlüsse auf Interessen von Nutzer
+ermöglicht. Alternativ kann jedoch auch unverschlüsseltes
 HTTP verwendet werden. Welche Verschlüsselungstechnologie im Fall von
 HTTPS gewählt wird, obliegt dem Betreiber bzw. Server-Implementierer.
 
@@ -34,4 +36,4 @@ entsprechenden HTTPS-URLs eine der beiden folgenden Möglichkeiten gelten:
 * Entweder ist unter den entsprechenden HTTPS-URLs kein Webserver erreichbar
 
 * oder Anfragen an die HTTPS-URLs werden mit Redirects auf die entsprechenden
-  HTTP-URLs beantwortet.
+  HTTP-URLs beantwortet (FRAGE: ist das ein sinnvolles Szenario?).

@@ -102,8 +102,8 @@ der URL des API-Endpunkts des Servers sein.
     EMPFOHLEN.
 
 `contactEmail`
-:   E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe einer E-Mail-Adresse dient sowohl NutzerInnen
-    wie auch EntwicklerInnen von Clients zur Kontaktaufnahme mit dem
+:   E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe einer E-Mail-Adresse dient sowohl Nutzerinnen
+    wie auch Entwicklerinnen von Clients zur Kontaktaufnahme mit dem
     Betreiber.
     Typ: E-Mail-Adresse inklusive "mailto:"
     EMPFOHLEN. 

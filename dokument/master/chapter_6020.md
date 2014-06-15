@@ -25,12 +25,12 @@ beim Betrieb eines OParl 1.0 Servers die zukünftige Entwicklung im Blick
 zu haben:
 
 * Die Kommune *Beispielstadt* betreibt ihren OParl-1.0-Server unter
-  der URL `https://oparl.bstadt.de/1.0/`.
+  der URL `https://oparl.example.org/1.0/`.
 
 * Verschiedene Clients, die für OParl Version 1.0 entwickelt wurden, kommen
   bei Nutzerinnen und Nutzern, die sich für den Stadtrat in Beispielstadt
   intressieren, zum Einsatz. Jeder Client-Nutzer hat dazu lediglich die 
-  URL `https://oparl.bstadt.de/1.0/` des OParl-Servers in der Client-Konfiguration
+  URL `https://oparl.example.org/1.0/` des OParl-Servers in der Client-Konfiguration
   hinterlegt.
 
 * Die OParl-Spezifikation wird aktualisiert, es erscheint
@@ -43,15 +43,16 @@ zu haben:
   liefert ein Update.
 
 * Der OParl-Server von Beispielstadt ist nun über eine neue URL
-  `https://oparl.bstadt.de/1.1/` zu erreichen. Alle Anfragen an `https://oparl.bstadt.de/1.0/...`
-  werden auf die entsprechende URL unter `https://oparl.bstadt.de/1.1/` mit
+  `https://oparl.example.org/1.1/` zu erreichen.
+  Alle Anfragen an `https://oparl.example.org/1.0/...`
+  werden auf die entsprechende URL unter `https://oparl.example.org/1.1/` mit
   HTTP-Redirects und Status-Code 301 weiter geleitet.
 
 * Die Nutzer der Clients, die mit dem OParl-Server von Beispielstadt
   arbeiten, können weiter arbeiten wie bisher. Sie erhalten vom Client
   höchstens einmalig eine Information, dass sich die Server-URL geändert hat.
 
-* Einzelne Client-NutzerInnen werden von den Anbietern ihrer Clients darauf
+* Einzelne Client-Nutzerinnen werden von den Anbietern ihrer Clients darauf
   aufmerksam gemacht, dass eine neue Version ihres Produkts für eine neue
   OParl-Version zur Verfügung steht. Mit dieser Version könnten die Nutzer
   in den Genuss der Vorteile von OParl-Version 1.1 kommen.
@@ -65,7 +66,7 @@ zu haben:
   Beispielstadt entschließt sich zum Einsatz der neuen Version. Da das Server-Produkt
   gleichzeitig OParl 1.* und OParl 2.0 bedienen kann, kann Beispielstadt gleichzeitig
   einen Endpunkt für 1.1 und einen für 2.0 betreiben. Die URL des neuen Endpunkts
-  lautet `https://oparl.bstadt.de/2.0/`.
+  lautet `https://oparl.example.org/2.0/`.
 
 Das Szenario verdeutlicht, wie insbesondere zwei Aspekte für eine möglichst
 sanfte Migration zwischen den OParl-Versionen sorgen können:
@@ -80,7 +81,7 @@ Zu der Art, wie die OParl-Version sich auf die Endpunkt-URL auswirkt, will diese
 Spezifikation keine Vorgaben machen. Die Pfad-Elemente im obigen Szenario sind
 Vorschläge, aber in keiner Weise bindend.
 
-Die praktische Umsetzung von HTTP-Weiterleitungen ist besonders dann trivial,
+Die praktische Umsetzung von HTTP-Weiterleitungen ist besonders dann einfach,
 wenn die restlichen URL-Bestandteile identisch bleiben. In diesem Fall
 können Server mit einer einfachen Regel von jeglicher vorherigen auf jegliche neue
 URL weiterleiten.

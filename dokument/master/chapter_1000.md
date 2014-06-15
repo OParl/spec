@@ -1,7 +1,8 @@
-Einleitung
+Einleitung:wq
+
 ==========
 
-Dieses Dokument wird bei seiner Fertigstellung die Spezifikation des OParl 
+Dieses Dokument enthält die Spezifikation des OParl 
 Schnittstellen-Standards für parlamentarische Informationssysteme^[In Deutschland
 hat sich auf kommunaler Ebene der Begriff "Ratsinformationssystem"
 etabliert. OParl ist in seiner Anwendung jedoch nicht auf Gemeinderäte eingeschränkt

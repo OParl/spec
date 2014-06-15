@@ -20,13 +20,14 @@ Die Feeds sollen es Clients ermöglichen, schnell und ressourcenschonend
 abzufragen, welche Objekte auf dem Server neu hinzugefügt, geändert oder
 entfernt wurden. Damit können Clients beispielsweise schnell und einfach
 neue Dokumente auffinden und verarbeiten oder entfernte Objekte aus ihren
-Caches entfernen und dabei nur ein Mindestmaß an Anfragen ausführen.
+Caches entfernen und dabei nur ein Mindestmaß an Anfragen ausführen. Die
+Feeds unterstützen oder ermöglichen also die Synchronisation.
 
-Ein OParl-Server SOLL jeden der nachfolgend beschriebenen Feeds anbieten,
-sofern möglich.
+Ein OParl-Server SOLL jeden der nachfolgend beschriebenen Feeds anbieten.
 
 Für alle drei Feeds wird EMPFOHLEN, dass mindestens ein Zeitraum von 365 Tagen
-abgedeckt wird.
+abgedeckt wird. (FRAGE: Wie werden Clients darüber informiert, wie weit
+ein Feed zurück reicht?)
 
 Da Feeds üblicherweise eine große und stetig steigende Anzahl von Objekten
 beinhalten können, ist hier die [Paginierung](#paginierung) anzuwenden, wie
@@ -90,11 +91,8 @@ Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
 ~~~~~
 
 Wie im Beispiel zu sehen ist, handelt es sich um eine JSON-Liste, deren Elemente
-unbenannte Objekten sind. Dies ist ein Unterschied zu herkömmlichen Objektlisten,
-bei denen an dieser Stelle lediglich URLs als Listeneinträge erwartet werden.
-
-Jedes der Objekte in der Liste MUSS seinerseits wiederum zwei
-Eigenschaften besitzen:
+benannte Objekte sind. Jedes der Objekte in der Liste MUSS seinerseits wiederum
+zwei Eigenschaften besitzen:
 
 * `@id`: Die URL des neuen Objekts
 * `created`: Der Zeitpunkt der Erzeugung des Objekts

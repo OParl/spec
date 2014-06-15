@@ -79,8 +79,9 @@ zu erheblichen Problemen. Sandro Hawke (W3C) hat diese so zusammengefasst:
     nodes, it’s a large burden on them. Specifically, they should
     provide web service for those new URIs, and if they get updated
     data from their sources, they’re going to have a very hard
-    [perhaps impossible] time understanding what really changed.^[Zitiert
-    nach <http://richard.cyganiak.de/blog/2011/03/blank-nodes-considered-harmful/>]
+    [perhaps impossible] time understanding what really changed.
+^[Zitiert nach
+<http://richard.cyganiak.de/blog/2011/03/blank-nodes-considered-harmful/>]
 
 Ein Ziel bei der Entwicklung der Spezifikation war es, möglichst wenige
 Blank Nodes zu erzeugen. Zukünftige Versionen können hier sicherlich noch einen

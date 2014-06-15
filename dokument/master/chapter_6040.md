@@ -277,7 +277,7 @@ Präfix       |URL
 Durch Verwendung dieser URL-Präfixe SOLLEN die entsprechenden URLs wo immer möglich
 abgekürzt werden.
 
-OParl-Server MÜSSEN JSON-LD-Daten grundsätzlich in der komprimierten Form
+OParl-Server MÜSSEN JSON-LD-Daten in der komprimierten Form
 (engl. *compacted form*) ausgeben.
 
 Das folgende Beispiel zeigt ein JSON-LD-Objekt zur Beschreibung eines
@@ -432,7 +432,7 @@ MUSS vom Server unverändert als Callback-Funktionsname verwendet werden.
 Aus Sicherheitsgründen MUSS der Client den Wert des `callback`-Parameters
 aus einem eingeschränkten Zeichenvorrat bilden, erlaubt sind ausschließlich
 die Klein- und Großbuchstaben von a bis z bzw. A bis Z sowie die Ziffern 
-von 0 bis 9.
+von 0 bis 9. (FRAGE: Sind Umlaute erlaubt?)
 
 Hält sich der Client nicht an diese Einschränkung und wird ein `callback`-Parameter
 mit nicht erlaubten Zeichen verwendet, SOLL der Server die Anfrage

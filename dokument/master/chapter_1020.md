@@ -11,11 +11,12 @@ OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:
 * Anbieter von Linked-Data-Plattformen oder -Services
 
 Die Gründe, warum Betreiber von parlamentarischen Informationssystemen den
-Zugriff darauf über eine standardisierte Schnittstelle ermöglichen sollten,
-können vielfältig sein und je nach Nutzergruppe unterschiedlich.
+Zugriff darauf über eine standardisierte Schnittstelle ermöglichen sollten
+oder möchten, können vielfältig sein und je nach Nutzergruppe unterschiedlich.
 
-Ein zentrales Argument für Verwaltung und politische Gremien in
-Gebietskörperschaften ist die Verpflichtung der Parlamente gegenüber der
+Ein zentrales Argument für Verwaltung und politische Gremieni, sei es in
+Gebietskörperschaften oder auf Landes- oder Bundesebene,
+ist die Verpflichtung der Parlamente gegenüber der
 Bevölkerung, diese über die Fortschritte der parlamentarischen Arbeit zu
 informieren und auf dem Laufenden zu halten. Ein erster Schritt, der
 Bevölkerung Einblicke in die Arbeit und Zugriff auf Dokumente zu gewähren,

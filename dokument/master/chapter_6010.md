@@ -68,7 +68,7 @@ OParl-konforme Server-Schnittstelle auch als "RESTful" gelten darf.
 
 ### Selbstbeschreibungsfähigkeit
 
-Ausgaben des Servers sollten so beschaffen sein, dass sie für menschliche NutzerInnen
+Ausgaben des Servers sollten so beschaffen sein, dass sie für menschliche Nutzerinnen
 weitgehend selbsterklärend sein können. Dies betrifft besonders die Benennung von
 Objekten und Objekteigenschaften.
 

@@ -50,7 +50,7 @@ Obwohl technisch auch die Verwendung einer IP-Adresse (z.B. "123.123.123.123") m
 SOLL der Betreiber einen mit Bedacht gewählten Host-Namen einsetzen. Die Vorteile dieser Lösung
 gegenüber der Verwendung einer IP-Adresse sind vielfältig:
 
-* NutzerInnen können Host-Namen lesen und interpretieren
+* Nutzerinnen können Host-Namen lesen und interpretieren
 * In Kombination mit der richtigen Domain (oder Subdomain) kann der Hostname
   kommunizieren, wer der Betreiber ist.
 * Host-Namen können zwischen verschiedenen technischen Systemen (bzw. von IP-Adresse zu IP-Adresse)
@@ -63,11 +63,13 @@ Eine URL wie
 kommuniziert beispielsweise direkt die Zugehörigkeit zur Stadt Köln als Betreiber des Systems. Die
 Bezeichnung "stadtrat" in der Subdomain zeigt den Zweck des Systems allgemein verständlich an.
 Der Host-Name "oparl.stadtrat.stadt-koeln.de" deutet an, dass diese URL zu einer 
-OParl-Schnittstelle zu diesem System gehört.
+OParl-Schnittstelle zu diesem System gehört. Eine technische Notwendigkeit zur Verwendung einer
+eigenen Domain für OParl besteht jedoch nicht, da JSON-LD Dokumente und HTML-Seiten
+mittels Content Negotiation über eine gemeinsame Domain ausgeliefert werden können.
 
-Um die Kanonisierung zu gewährleisten, sind vom Betreiber alle notwendigen Faktoren auszuschließen,
+Um die Kanonisierung zu gewährleisten, SOLLEN Betreiber alle Möglichkeiten ausschließen,
 die dazu führen können, dass eine Ressource neben der kanonischen URL noch über andere URLs
-abrufbar ist. Diese Faktoren könnten sein:
+abrufbar ist. Diese Faktoren können sein:
 
 * Der selbe Server antwortet nicht nur über den kanonischen Host-Namen, sondern auch noch über andere
   Host-Namen. Das könnte zum Beispiel der Fall sein, wenn der Host-Name als CNAME für einen anderen

@@ -5,7 +5,7 @@ Die Vorüberlegungen für die Erarbeitung eines offenen Standards für
 parlamentarische Informationssysteme, die letztlich zu OParl geführt haben,
 begannen auf einer Veranstaltung der Open Knowledge Foundation (OKF) Deutschland
 am 17. und 18. November 2012. Unter dem Titel "Stadt Land Code" lud die
-OKF EntwicklerInnen von Anwendungen ein, die das Ziel haben, einen gesellschaftlichen
+OKF Entwicklerinnen von Anwendungen ein, die das Ziel haben, einen gesellschaftlichen
 Nutzen zu schaffen. Die Veranstaltung in den Räumen der Heinrich-Böll-Stiftung
 wurde unter anderem von VITAKO, der Bundesarbeitsgemeinschaft der kommunalen
 IT-Dienstleister, gesponsort. Die Geschäftsführerin, Dr. Marianne Wulff, war selbst
@@ -42,7 +42,7 @@ in intensiver Zusammenarbeit vor Ort so weit wie möglich voran zu treiben und e
 Fertigstellung zu ermöglichen. Am 26. Januar 2014 findet in Düsseldorf ein weiterer technischer
 Workshop zur Arbeit an der Spezifikation statt.
 
-TODO: April 2014: Verfeinerung des Vokabular-Teils durch Andreas Kuckartz, finanziert durch das
+TODO: April bis Juni 2014: Verfeinerung des Vokabular-Teils durch Andreas Kuckartz, finanziert durch das
 FP7-Projekt Fusepool aus Mitteln der Europäischen Union.
 
 Am 19. Mai 2014 wurde mit einem Redaktionsschluss für die Spezifikation der Beginn 

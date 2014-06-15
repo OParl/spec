@@ -25,7 +25,7 @@ Parlamentarische Informationssysteme sind Software-Systeme, die von
 verschiedensten Körperschaften eingesetzt werden, um die Zusammenarbeit
 von Parlamenten zu organisieren, zu dokumentieren und öffentlich nachvollziehbar
 zu machen. Zu den Körperschaften können beispielsweise Kommunen, Landkreise,
-Regierungsbezirke und Zweckverbänden gehören.
+Regierungsbezirke und Zweckverbände gehören.
 
 Diese Systeme unterstützen in der Regel mehrere der folgenden Funktionen:
 
@@ -64,8 +64,8 @@ API {#api}
 
 Der Begriff API steht in diesem Dokument für die Webservice-Schnittstelle, die der
 Server anbietet. Die Schnittstelle basiert auf dem HTTP-Protokoll. Mittels HTTPS
-ist wahlweise auch die verschlüsselte Nutzung der API möglich, sofern Server dies
-unterstützt.
+ist die verschlüsselte Nutzung der API möglich, sofern Server dies
+unterstützen.
 
 Die API steht im Mittelpunkt dieser Spezifikation. Server und Clients sind
 als Kommunikationspartner zu verstehen, die über das Internet als Kommunikationskanal

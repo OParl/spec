@@ -88,8 +88,8 @@ könnte von einem [Server](#server)-System, das Drucksachen mit Geoinformationen
 anbietet, diese abrufen und räumlich indexieren. Anhand der Position des Geräts,
 die mittels GPS genau bestimmt werden kann, könnte so der lokale Cache nach
 Objekten in der Umgebung durchsucht werden. Das Ergebnis könnte auf einer Karte
-dargestellt oder in einer Ergebnisliste angezeigt werden, die nach Distanz zum
-Objekt sortiert werden könnte.
+dargestellt oder in einer Ergebnisliste angezeigt werden, die z. B. nach Distanz zum
+Objekt sortiert werden kann.
 
 ## Szenario 2: Integration in Web-Portal  {#szenario_web_portal}
 
@@ -123,9 +123,9 @@ Informationssystems gewöhnen zu müssen.
 
 Die denkbaren Szenarien einer solchen Integration beschränken sich nicht auf
 anonyme Nutzer von öffentlichen Websites. In einem authentifizierten Umfeld wie beispielsweise
-einem kommunalen Intranet lassen sich weitere Arten von Portlets und damit Mehrwerte für die
-Nutzer realisieren. So könnte beispielsweise eine eingeloggte Nutzerin eine personalisierte
-Liste der Sitzungstermine, zu der sie eingeladen ist, angezeigt bekommen.
+einem kommunalen Intranet oder Extranet lassen sich weitere Arten von Portlets und damit
+Mehrwerte für die Nutzer realisieren. So könnte beispielsweise eine eingeloggte Nutzerin eine
+personalisierte Liste der Sitzungstermine, zu der sie eingeladen ist, angezeigt bekommen.
 
 Die Standardisierung durch OParl sorgt im Rahmen der Portal-Szenarios dazu, dass Portlets,
 die für ein bestimmtes parlamentarisches Informationssystem entwickelt wurden, leichter auf
@@ -141,7 +141,7 @@ verschiedensten Dokumenteninhalten und die Kategorisierung von Inhalten kann ein
 sowohl konzeptionell als auch technisch anspruchsvolle Aufgabe sein. Auch im Hinblick
 auf die Server-Ressourcen sind damit nennenswerte Aufwände verbunden. Andererseits
 liegt auf der Hand, dass die effiziente Arbeit mit großen Informationsmengen nach
-intelligenten Möglichkeiten der Einschränkung von Informationsmengen auf das jeweils
+intelligenten Möglichkeiten der Einschränkung von Informationsmengen auf jeweils
 im Anwendungsfall relevante Treffer verlangt. Beispiel wäre ein Nutzer, der sich für
 alle Dokumente zum Thema Kreisverkehre interessiert. Die OParl-Spezifikation sieht
 keine Methoden vor, wie die Ausgabe des Servers schon bei der Anfrage von Dokumenten

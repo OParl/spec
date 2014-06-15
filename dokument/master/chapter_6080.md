@@ -50,11 +50,15 @@ Beispiel:
 
     Content-Disposition: attachment; filename="2014-08-22 Rat Wortprotokoll.pdf"
 
+FRAGE: Sind in Dateinamen sinnvoll?
+
 Der in diesem Header kommunizierte Dateiname ist als Vorschlag an die Nutzerin
 zu verstehen, die Datei unter diesem Namen zu speichern. Entsprechend sind Abwägungen
 bezüglich der Verständlichkeit, Leserlichkeit und Einzigartigkeit des Dateinamens,
 aber auch in Hinblick auf den verwendeten Zeichenumfang zu berücksichtigen. Es
 wird EMPFOHLEN, den Dateinamen ausschließlich aus dem ASCII-Zeichenvorrat zu bilden.
+FRAGE: Ist die Beschränkung auf ASCII und damit der Verzicht z.B. auf Umlaute
+erforderlich?
 
 Im Unterschied zum Zugriff auf die Download-URL DARF der Server beim Zugriff auf die
 Zugriffs-URL KEINEN `Content-Disposition` Header mit Parameter `attachment`

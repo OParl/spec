@@ -24,7 +24,7 @@ Ein Kontext:
         "@id": "skos:exactMatch",
         "@type": "@id"
     },
-    "licenseValidSinceDay": "2013-04-01T12:00:00+00:00"
+    "licenseValidSince": "2013-04-01T12:00:00+00:00"
 }
 ~~~~~
 
@@ -49,7 +49,7 @@ Ein expandiertes Beispiel:
     },
     "website": "http://www.beispielstadt.de/",
     "license": "http://creativecommons.org/licenses/by/4.0/",
-    "licenseValidSinceDay": "2014-01-01",
+    "licenseValidSince": "2014-01-01",
     "organization": "https://oparl.example.org/body/0/organisation/",
     "meeting": "https://oparl.example.org/body/0/meeting/",
     "paper": "https://oparl.example.org/body/0/paper/",
@@ -105,7 +105,7 @@ Parlament an.
     Kardinalität: 0 bis 1.
     Die Eigenschaft ist EMPFOHLEN.
 
-`licenseValidSinceDay`
+`licenseValidSince`
 :   Zeitpunkt, seit dem die unter `license` angegebene Lizenz gilt.
     Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen.
     Typ: `xsd:DateTime`.
@@ -143,29 +143,25 @@ Parlament an.
     Die Eigenschaft ist OPTIONAL.
 
 `paper`
-:   Drucksachen unter dieser Körperschaft als Liste unter einer eigenen URL.
-    Vgl. [Objektlisten](#objektlisten).
+:   Drucksache unter dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
     Typ: `oparl:Paper`.
     Kardinalität: 0 bis *.
     Die Eigenschaft ist ZWINGEND.
 
 `member`
-:   Personen in dieser Körperschaft als Liste unter einer eigenen URL.
-    Vgl. [Objektlisten](#objektlisten).
+:   Person in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
     Typ: `oparl:Person`.
     Kardinalität: 0 bis *.
     Die Eigenschaft ist ZWINGEND.
 
 `meeting`
-:   Sitzungen dieser Körperschaft als Liste unter einer eigenen URL.
-    Vgl. [Objektlisten](#objektlisten).
+:   Sitzung dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
     Typ: `oparl:Meeting`.
     Kardinalität: 0 bis *.
     Die Eigenschaft ist ZWINGEND.
 
 `organization`
-:   Gruppierung in dieser Körperschaft als Liste unter einer eigenen URL.
-    Vgl. [Objektlisten](#objektlisten).
+:   Gruppierung in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
     Typ: `oparl:Organization`.
     Kardinalität: 0 bis *.
     Die Eigenschaft ist ZWINGEND.
@@ -186,13 +182,13 @@ Parlament an.
 
 `created`
 :   Datum/Uhrzeit der Erzeugung des Objekts.
-    Typ: `xsd:DateTime`.
+    Typ: `xsd:dateTime`.
     Kardinalität: 0 bis 1.
     Die Eigenschaft ist EMPFOHLEN.
 
 `modified`
 :   Datum/Uhrzeit der letzten Bearbeitung des Objekts.
-    Typ: `xsd:DateTime`.
+    Typ: `xsd:dateTime`.
     Kardinalität: 0 bis 1.
     Die Eigenschaft ist EMPFOHLEN.
 

@@ -18,8 +18,8 @@ Die Schema-Beschreibung gibt zu jeder Eigenschaft eines Objekttypen an,
 welchen Typ der Wert dieser Eigenschaft haben muss.
 
 Sofern keine Typ-Angabe zu einer Eigenschaft vorhanden ist, oder die
-Typ-Angabe `String` lautet, werden Unicode-Zeichenketten als Datentyp
-erwartet.
+Typ-Angabe `String` oder `xsd:string` lautet, werden Unicode-Zeichenketten
+als Datentyp erwartet.
 
 ### `null`-Werte und "leere" Werte
 
@@ -171,7 +171,7 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
 
 oder auch z. B. dies
 ~~~~~~~~~~
-LfyIfvCWq8SpBQj0MiyHaxDZwGJ
+ LfyIfvCWq8SpBQj0MiyHaxDZwGJ
 ~~~~~~~~~~
 
 Gleichzeitig ist aber aus verschiedenen Gründen ein strukturierter Aufbau

@@ -23,7 +23,7 @@ anfragen.
 Die Verwendung von HTTP-Kompression ist grundsätzlich sowohl bei
 JSON-Daten als auch bei Dateizugriffen möglich. Bei Dateizugriffen
 sind die zu erwartenden Einsparungen beim Datenvolumen stark
-abhängig vom jeweiligen Dateifomat. Bei bereits komprimierte Dateien
+abhängig vom jeweiligen Dateifomat. Bei bereits komprimierten Dateien
 wie beispielsweise OpenOffice oder PDF lassen sich oft nur geringe
 oder gar keine weiteren Ersparnisse erzielen. Daher DARF grundsätzlich
 der Server in solchen Fällen eine unkomprimierte HTTP-Antwort senden,

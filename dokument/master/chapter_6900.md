@@ -15,4 +15,3 @@ freie Verwendung in URLs zur Verfügung.
 :    Parameter für die Einschränkung einer Abfrage anhand eines Datums bzw.
      einer Zeitangabe.
 
-- (Parameter für Datums-/Zeitbereichsfilter) - TODO: Wegräumen oder ausformulieren.

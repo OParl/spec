@@ -68,7 +68,9 @@ Das selbe Beispiel in kompakter Form:
     "start": "2013-01-04T08:00:00+01:00",
     "end": "2013-01-04T12:00:00+01:00",
     "location": {
-        "description": "Rathaus, Raum 136", // default-Sprache ist im Kontext als "de" angegeben
+        "description": "Rathaus, Raum 136",
+            // default-Sprache ist im Kontext als "de" angegeben
+            // TODO: doppelter Schlüssel
         "description": {
             "@value": "Town Hall, room 136",
             "@language": "en"
@@ -105,6 +107,7 @@ Das selbe Beispiel in kompakter Form:
 :   Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen 
     Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen
     KANN es der tatsächliche Startzeitpunkt sein.
+    TODO: besser zwei Eigenschaften?
     Typ: Datentyp `xsd:dateTime`.
     Kardinalität: 1.
     ZWINGEND.
@@ -113,6 +116,7 @@ Das selbe Beispiel in kompakter Form:
 :   Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen 
     Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen
     KANN es der tatsächliche Endzeitpunkt sein.
+    TODO: besser zwei Eigenschaften?
     Typ: Datentyp `xsd:dateTime`.
     Kardinalität: 0 bis 1.
     FRAGE: Kommen in Sitzungen Unterbrechungen vor, die in RIS festgehalten werden (sollen)?
@@ -127,6 +131,7 @@ Das selbe Beispiel in kompakter Form:
 `organization`
 :   Gruppierung der die Sitzung zugeordnet ist. Wenn eine Liste angegeben wird, dann ist diese geordnet. Das erste
     Element ist dann das federführende Gremium.
+    TODO: Eigenschaft für federführendes Gremium ergänzen und dann Ordnung entfernen
     Diese Eigenschaft ist invers zur Eigenschaft `meeting` der Klasse `oparl:Organization` (In OWL: `oparl:organization owl:inverseOf oparl:meeting .`).
     Typ: `oparl:Organization`.
     Kardinalität: 1 bis *.
@@ -136,6 +141,7 @@ Das selbe Beispiel in kompakter Form:
 :   Teilnehmer der Sitzung.
     Bei einer Sitzung in der Zukunft sind dies die geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die
     Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung teilgenommen haben.
+    TODO: besser `attendant` und `ìnvited` ?
     Typ: `oparl:Person`.
     Kardinalität: 0 bis *.
     OPTIONAL.

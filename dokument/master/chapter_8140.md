@@ -58,13 +58,15 @@ inne hat, beispielsweise den Vorsitz einer Fraktion.
     OPTIONAL.
 
 `startDate`
-:   `schema:validFrom` wie in Popolo. The date on which the relationship began.
+:   Der Anfangszeitpunkt der Mitgliedschaft.
+    Abgeleitet von: `schema:validFrom` wie bei Popolo^[<http://popoloproject.com/specs/membership.html>].
     Typ: `xsd:dateTime`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `endDate`
-:   `schema:validThrough` wie in Popolo. The date on which the relationship ended.
+:   Der Endzeitpunkt der Mitgliedschaft.
+    Abgeleitet von: `schema:validThrough` wie bei Popolo^[<http://popoloproject.com/specs/membership.html>]..
     Typ: `xsd:dateTime`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
@@ -73,4 +75,3 @@ TODO: Folgende Verweise einbauen oder entfernen:
 
 * https://github.com/OParl/specs/issues/122
 * http://www.w3.org/TR/vocab-org/#membership-roles-posts-and-reporting
-* http://popoloproject.com/specs/membership.html

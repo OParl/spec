@@ -20,7 +20,7 @@ ist.
 https://oparl.example.org/ldf?subject=&predicate=&object=
 ~~~~~
 
-Zum Vergleich: Bei eine Abfrage von [Objektlisten](#objektlisten) sind
+Zum Vergleich: Bei einer Abfrage von [Objektlisten](#objektlisten) sind
 Subjekt und Prädikat durch die Abfrage festgelegt, nur das Objekt ist variabel.
 
 Für die Spezifikation des Formats der downloadbaren Dateien wird also
@@ -28,7 +28,7 @@ auf das Objektlisten-Format zurückgegriffen.
 
 Wenn das Ergebnis dieser Abfrage in eine Datei geschrieben und als solche zum
 Download angeboten wird, dann kann und soll auf [Paginierung](#paginierung)
-in dieser Datei jedoch verzichtet werden, da diese nur stören würde.
+in dieser Datei jedoch verzichtet werden, da diesei Daten nur stören würden.
 
 TODO: Beispiel und Besonderheiten
 TODO: SOLL-Anforderung
@@ -36,3 +36,4 @@ TODO: SOLL-Anforderung
 In dieser Version von OParl werden keine Festlegungen getroffen, wie
 ein Client über die URLs der downloadbaren Dateien informiert wird.
 In Frage kommen aber z. B. Links, die auf HTML-Seiten plaziert werden.
+

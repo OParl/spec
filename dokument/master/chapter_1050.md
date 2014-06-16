@@ -65,7 +65,7 @@ Um bei Begriffen wie Nutzer, Anwender, Betreiber etc. die sonst übliche Dominan
 der männlichen Variante zu vermeiden, werden in diesem Dokument
 männliche oder weibliche Varianten gemischt. Es wird also beispielsweise mal
 von einer Nutzerin gesprochen und mal von einem Nutzer. Gemeint sind
-selbstverständlich in allen Fällen immer weibliche wie auch männliche Personen.
+in allen Fällen Personen jeglichen Geschlechts.
 
 ### Codebeispiele
 

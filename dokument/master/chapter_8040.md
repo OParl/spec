@@ -114,7 +114,7 @@ Parlament an.
 
 `rgs`
 :   Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette^[Regionalschlüssel können im [Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes](https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html) eingesehen werden].
-    Typ: Zeichenkette.
+    Typ: String.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
 

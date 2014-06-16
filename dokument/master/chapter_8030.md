@@ -111,7 +111,7 @@ der URL des API-Endpunkts des Servers sein.
 `contactName`
 :   Name des Ansprechpartners oder der Abteilung, die über die `contactEmail`
     erreicht werden kann.
-    Typ: Zeichenkette.
+    Typ: String.
     EMPFOHLEN. 
 
 `newObjects`

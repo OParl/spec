@@ -68,14 +68,14 @@ Ein Beispiel in kompakter Form:
 
 `name`
 :   Titel der Drucksache.
-    Typ: Zeichenkette.
+    Typ: String.
     Kardinalität: 1.
     ZWINGEND.
 
 `reference`
 :   Kennung bzw. Aktenzeichen der Drucksache, mit der sie in der parlamentarischen
     Arbeit eindeutig referenziert werden kann.
-    Typ: Zeichenkette.
+    Typ: String.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 

@@ -76,7 +76,7 @@ werden, welche Ableitungen einer Datei existieren.
     NICHT enthalten sein.
     Der Wert SOLL NICHT mit dem Wert der Eigenschaft `fileName` identisch
     sein.
-    Typ: Zeichenkette.
+    Typ: String.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
@@ -85,7 +85,7 @@ werden, welche Ableitungen einer Datei existieren.
     Sollte das System einer Datei keinen
     spezifischen Typ zuweisen können, wird EMPFOHLEN, hier 
     `application/octet-stream` zu verwenden.
-    Typ: Zeichenkette.
+    Typ: String.
     Kardinalität: 1.
     EMPFOHLEN.
 
@@ -118,14 +118,14 @@ werden, welche Ableitungen einer Datei existieren.
 
 `sha1Checksum`
 :   SHA1-Prüfsumme des Dokumenteninhalts in Hexadezimal-Schreibweise.
-    Typ: Zeichenkette.
+    Typ: String.
     Kardinalität: 0 bis 1.
     OPTIONAL.
     
 `text`
 :   Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform
     wiedergegeben werden kann.
-    Typ: Zeichenkette.
+    Typ: String.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
 

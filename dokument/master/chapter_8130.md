@@ -75,14 +75,14 @@ für Längen- und Breitengrad.
 
 `description`
 :   Textliche Beschreibung eines Orts, z. B. in Form einer Adresse.
-    Typ: Zeichenkette.
+    Typ: String.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
 `geometry`
 :   Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt,
     MUSS ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen.
-    Typ: Zeichenkette.
+    Typ: String.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 

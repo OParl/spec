@@ -41,7 +41,7 @@ Ein Beispiel in kompakter Form:
 `number`
 :   Gliederungs-"Nummer" des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z. B. "10.", "10.1", "C", "c)" o. ä.
     Die Reihenfolge wird nicht dadurch, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting` festgelegt.
-    Typ: Zeichenkette.
+    Typ: String.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 

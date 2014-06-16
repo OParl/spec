@@ -235,7 +235,7 @@ JSON-LD-Objekt ausgeben. Ausnahmen von dieser Regel sind:
   (vgl. [Ausnahmebehandlung](#ausnahmebehandlung))
 
 Jede Anfrage eines Clients, die mit einem JSON-LD-Objekt beantwortet wird,
-MUSS unter Verwendung des HTTP `Content-type`-Headers `application/ld+json`
+MUSS unter Verwendung des HTTP `Content-Type`-Headers `application/ld+json`
 beantwortet werden.
 
 Im Abschnitt [Schema](#schema) der Spezifikation werden die von OParl

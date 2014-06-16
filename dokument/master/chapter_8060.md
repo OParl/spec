@@ -133,18 +133,18 @@ Und das selbe Beispiel ohne Mehrsprachigkeit für den Ort. Der Kontext bleibt wi
 
 `name`
 :   Der vollständige Name der Person mit akademischem Grad und dem gebräuchlichen Vornamen.
-    Typ: Zeichenkette.
+    Typ: String.
     Kardinalität: 1.
     ZWINGEND.
 
 `familyName`
 :   Familienname bzw. Nachname.
-    Typ: Zeichenkette.
+    Typ: String.
     OPTIONAL.
 
 `givenName`
 :   Vorname bzw. Taufname.
-    Typ: Zeichenkette.
+    Typ: String.
     OPTIONAL.
 
 `formOfAddress`
@@ -164,13 +164,13 @@ Und das selbe Beispiel ohne Mehrsprachigkeit für den Ort. Der Kontext bleibt wi
 
 `gender`
 :   Geschlecht. Zulässige Werte sind `vcard:Female`, `vcard:Male`, `vcard:None`, `vcard:Other` und `vcard:Unknown`.
-    Typ: Zeichenkette (TODO: Entsprechende `vcard:`-Eigenschaft angeben).
+    Typ: String (TODO: Entsprechende `vcard:`-Eigenschaft angeben).
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `phone`
 :   Telefonnummer mit `tel:` Schema.
-    Typ: Zeichenkette mit "tel:" am Anfang, keine Leerzeichen.
+    Typ: String mit "tel:" am Anfang, keine Leerzeichen.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
@@ -182,13 +182,13 @@ Und das selbe Beispiel ohne Mehrsprachigkeit für den Ort. Der Kontext bleibt wi
 
 `streetAddress`
 :   Straße und Hausnummer der Kontakt-Anschrift der Person.
-    Typ: Zeichenkette.
+    Typ: String.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `postalCode`
 :   Postleitzahl der Kontakt-Anschrift der Person.
-    Typ: Zeichenkette.
+    Typ: String.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 

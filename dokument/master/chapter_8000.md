@@ -61,7 +61,7 @@ ausführlichere Erläuterungen im Abschnitt [Objektlisten](#objektlisten).
 
 ### Datums- und Zeitangaben
 
-Für Datum und Zeit werden die in XML Schema festgelegten Typen verwendet
+Für Datum und Zeit werden die in XML-Schema festgelegten Typen verwendet
 (was nicht bedeutet, dass in OParl XML verwendet wird).
 
 Für ein Datum wird http://www.w3.org/TR/xmlschema-2/#date verwendet und

@@ -124,18 +124,19 @@ werden, welche Ableitungen einer Datei existieren.
     EMPFOHLEN.
 
 `paper`
-:   Falls die Datei zu einer Drucksache (oparl:Paper) gehört, MUSS über diese Eigenschaft die
-    URL des Drucksache-Objekts ausgegeben werden. Andernfalls DARF diese Eigenschaft NICHT
+:   Falls die Datei zu einer Drucksache (`oparl:Paper`) gehört, MUSS über diese Eigenschaft die
+    URL des Drucksache-Objekts ausgegeben werden.
     vorhanden sein.
     Typ: `oparl:Paper`.
     Kardinalität: 0 bis *.
+    EMPFOHLEN.
 
 `meeting`
-:   Falls die Datei zu einer Sitzung (oparl:Meeting) gehört, MUSS über diese Eigenschaft
-    die URL des Sitzung-Objekts ausgegeben werden. Andernfalls DARF diese Eigenschaft NICHT
-    vorhanden sein.
+:   Falls die Datei zu einer Sitzung (`oparl:Meeting`) gehört, MUSS über diese Eigenschaft
+    die URL des Sitzung-Objekts ausgegeben werden.
     Typ: `oparl:Meeting`.
     Kardinalität: 0 bis *.
+    EMPFOHLEN.
 
 `masterDocument`
 :   Datei, von der das aktuelle Objekt abgeleitet wurde. Details dazu in der
@@ -168,7 +169,7 @@ werden, welche Ableitungen einer Datei existieren.
     OPTIONAL.
 
 `keyword`
-:   Begriff mit `skos:prefLabel`. Hat allgemeinere Bedeutung als `documentRole`.
+:   Schlagwort. Hat allgemeinere Bedeutung als `documentRole`.
     Siehe dazu [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
     Typ: `skos:Concept`.
     Kardinalität: 0 bis *.

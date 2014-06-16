@@ -102,7 +102,7 @@ OParl Spezifikation 1.0 Gliederung
         Eigenschaften
         Besonderheiten
         Beispiel(e)
-    8110 oparl:Document (Dokument)
+    8110 oparl:File (Dokument)
         Bedeutung
         Eigenschaften
         Besonderheiten

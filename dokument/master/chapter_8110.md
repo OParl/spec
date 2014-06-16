@@ -1,7 +1,7 @@
-oparl:Document (Datei)  {#oparl_document}
+oparl:File (Datei)  {#oparl_document}
 ----------------------
 
-Ein Objekt vom Typ `oparl:Document` repräsentiert eine Datei,
+Ein Objekt vom Typ `oparl:File` repräsentiert eine Datei,
 beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokument,
 und hält Metadaten zu der Datei sowie URLs zum Zugriff auf 
 die Datei bereit.
@@ -10,7 +10,7 @@ Ein Beispiel:
 
 ~~~~~  {#document_ex1 .json}
 {
-    "@type": "oparl:Document",
+    "@type": "oparl:File",
     "@id": "https://oparl.example.org/document/57739",
     "name": "Anlage 1 zur Anfrage",
     "fileName": "57739.pdf",
@@ -29,11 +29,11 @@ Ein Beispiel:
 }
 ~~~~~
 
-Objekte vom Typ `oparl:Document` können mit Drucksachen (`oparl:Paper`)
+Objekte vom Typ `oparl:File` können mit Drucksachen (`oparl:Paper`)
 oder Sitzungen (`oparl:Meeting`) in Beziehung stehen. Dies wird durch 
 die Eigenschaft `paper` bzw. `meeting` angezeigt.
 
-Mehrere Objekte vom Typ `oparl:Document` können mit einander in direkter
+Mehrere Objekte vom Typ `oparl:File` können mit einander in direkter
 Beziehung stehen, wenn sie den selben Inhalt in unterschiedlichen
 technischen Formaten wiedergeben. Hierfür werden die Eigenschaften
 `masterDocument` bzw. `derivativeDocuments` eingesetzt. Das oben angezeigte
@@ -141,14 +141,14 @@ werden, welche Ableitungen einer Datei existieren.
 `masterDocument`
 :   Datei, von der das aktuelle Objekt abgeleitet wurde. Details dazu in der
     allgemeinen Beschreibung weiter oben.
-    Typ: `oparl:Document`.
+    Typ: `oparl:File`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `derivativeDocuments`
 :   Datei, die von dem aktuellen Objekt abgeleitet wurde. Details dazu in der
     allgemeinen Beschreibung weiter oben.
-    Typ: `oparl:Document`.
+    Typ: `oparl:File`.
     Kardinalität: 0 bis *.
     OPTIONAL.
 

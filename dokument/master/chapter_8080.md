@@ -149,21 +149,21 @@ Das selbe Beispiel in kompakter Form:
 `invitation`
 :   Einladungsdokument zur Sitzung.
     FRAGE: Kann es mehr als ein solches Dokument geben?
-    Typ: `oparl:Document`.
+    Typ: `oparl:File`.
     Kardinalität: 0 bis *.
     EMPFOHLEN.
 
 `resultsProtocol`
 :   Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach
     dem Stattfinden der Sitzung vorkommen.
-    Typ: `oparl:Document`.
+    Typ: `oparl:File`.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
 `verbatimProtocol`
 :   Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach
     dem Stattfinden der Sitzung vorkommen.
-    Typ: `oparl:Document`.
+    Typ: `oparl:File`.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
     
@@ -172,7 +172,7 @@ Das selbe Beispiel in kompakter Form:
     Hiermit sind Dokumente gemeint, die üblicherweise mit der Einladung
     zu einer Sitzung verteilt werden, und die nicht bereits über einzelne
     Tagesordnungspunkte referenziert sind.
-    Typ: `oparl:Document`.
+    Typ: `oparl:File`.
     Kardinalität: 0 bis *.
     OPTIONAL.
 

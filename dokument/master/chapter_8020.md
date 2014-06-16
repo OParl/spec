@@ -41,7 +41,7 @@ dies nicht am jeweiligen Objekt mit einer anders lautenden Lizenz-URL überschri
 wird. Daher wird dringend EMPFOHLEN, die Lizenzinformation global am `oparl:System`
 Objekt mitzuteilen und auf redundante Informationen zu verzichten.
 
-An Objekten vom Typ `oparl:Document` auftretend, bezieht sich die Lizenzinformation
+An Objekten vom Typ `oparl:File` auftretend, bezieht sich die Lizenzinformation
 nicht nur auf die strukturierten Metadaten, die über die API bezogen werden, sondern
 auch auf den eigentlichen Inhalt der Datei(en), die über die angebotene(n) URL(s)
 abgerufen werden können.

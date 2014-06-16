@@ -77,7 +77,7 @@ Ein Beispiel in kompakter Form:
     wurde, kann hier ein Text oder Dokument angegeben werden. Das ist besonders dann in der
     Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag)
     von der Beschlussvorlage abweicht.
-    Typ: `oparl:Document` | Datentyp `xsd:string`.
+    Typ: `oparl:File` | Datentyp `xsd:string`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
@@ -91,7 +91,7 @@ Ein Beispiel in kompakter Form:
 
 `auxiliaryDocument`
 :   Dateianhang zum Tagesordnungspunkt.
-    Typ: `oparl:Document`.
+    Typ: `oparl:File`.
     Kardinalität: 0 bis *.
     OPTIONAL.
 

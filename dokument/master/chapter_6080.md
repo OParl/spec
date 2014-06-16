@@ -3,7 +3,7 @@ Dateizugriff  {#dateizugriff}
 
 Mit dem Begriff "Datei" sind im Sinne dieser Spezifikation alle Ressourcen
 gemeint, die von einem OParl-Server zur Verfügung gestellt werden und
-deren Metadaten über die JSON-API als [`oparl:Document`](#oparl_document) 
+deren Metadaten über die JSON-API als [`oparl:File`](#oparl_document) 
 abgerufen werden können. Es handelt sich dabei beispielsweise um Textdokumente 
 im PDF-Format, Abbildungen im JPEG- oder PNG-Format etc., die wesentliche 
 Inhalte der parlamentarischen Informationen im OParl-System ausmachen.
@@ -29,11 +29,11 @@ aus.
 
 Die URLs zum Abruf der einzelnen Datei (wahlweise mittels GET oder HEAD) stellt
 der Server dem Client in den Daten des Metadaten-Objekts zur Verfügung.
-Details finden sich in der Schema-Beschreibung zu [`oparl:Document`](#oparl_document).
+Details finden sich in der Schema-Beschreibung zu [`oparl:File`](#oparl_document).
 
 ### Allgemeiner Zugriff und expliziter Download
 
-Mit der im `oparl:Document` ZWINGEND anzugebenden Eigenschaft `accessUrl` liefert der
+Mit der im `oparl:File` ZWINGEND anzugebenden Eigenschaft `accessUrl` liefert der
 Server dem Client eine URL, die wir hier nachfolgend als *Zugriffs-URL* bezeichnen.
 Diese URL dient dem allgemeinen Zugriff auf die Datei. Wie der Client dem Endnutzer
 diesen Zugriff genau ermöglicht, ist nicht Sache der OParl-Spezifikation.
@@ -105,7 +105,7 @@ Die Anforderung, dass die OParl-API zustandslos arbeitet (vgl. [RESTful]{#restfu
 hat ZWINGEND auch für den Abruf von Dateien zu gelten. Es DÜRFEN daher keine
 Session-spezifischen URLs oder Ähnliches für den Dateizugriff gebildet werden.
 
-Damit wird erreicht, dass Clients die Zugriffs-URLs aus dem `oparl:Document` für
+Damit wird erreicht, dass Clients die Zugriffs-URLs aus dem `oparl:File` für
 längere Zeit speichern bzw. cachen können.
 
 ### Weiterleitungen

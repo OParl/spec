@@ -94,14 +94,14 @@ Ein Beispiel in kompakter Form:
 `mainDocument`
 :   Das Hauptdokument zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert
     eine Beschlussvorlage und das Hauptdokument enthält den Text der Beschlussvorlage.
-    Typ: `oparl:Document`.
+    Typ: `oparl:File`.
     Kardinalität: 1.
     Diese Eigenschaft ist ZWINGEND.
     
 `auxiliaryDocument`
 :   Anhänge zur Drucksache. Diese sind, in Abgrenzung zum Hauptdokument
     (`mainDocument`), untergeordnet und es kann beliebig viele davon geben.
-    Typ: `oparl:Document`.
+    Typ: `oparl:File`.
     Kardinalität: 0 bis *.
     Die Eigenschaft ist OPTIONAL.
     

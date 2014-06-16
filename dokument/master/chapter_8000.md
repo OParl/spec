@@ -96,7 +96,7 @@ Einige Objekttypen besitzen Eigenschaften zum Zweck der Klassifizierung von Obje
 Im Einzelnen sind dies:
 
 * die Eigenschaft `paperType` des Objekttyps [`oparl:Paper`](#oparl_paper)
-* die Eigenschaft `documentRole` des Objekttyps [`oparl:Document`](#oparl_document)
+* die Eigenschaft `documentRole` des Objekttyps [`oparl:File`](#oparl_document)
 * die Eigenschaft `classification` des Objekttyps [`oparl:Organization`](#oparl_organization)
 * die Eigenschaft `result` des Objekttyps [`oparl:AgendaItem`](#oparl_agendaitem)
 * die Eigenschaft `status` des Objekttyps [`oparl:Person`](#oparl_person)

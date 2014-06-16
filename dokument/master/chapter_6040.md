@@ -262,17 +262,17 @@ Gebrauch machen.
 Diese auf `oparl.org` vorgehaltenen Kontext-Ressourcen enthalten auch grundsätzlich
 die folgenden Definitionen von URL-Präfixen:
 
-Präfix       |URL
--------------|--------------------------------------
-`oparl`      |`http://oparl.org/specs/1.0/`
-`dc`         |`http://purl.org/dc/terms/`
-`foaf`       |`http://xmlns.com/foaf/0.1/`
-`prov`       |`http://www.w3.org/ns/prov#`
-`schmorg`    |`http://schema.org/`
-`skos`       |`http://www.w3.org/2004/02/skos/core#`
-`vcard`      |`http://www.w3.org/2006/vcard/ns#`
-`xsd`        |`http://www.w3.org/2001/XMLSchema#`
-`ogc`        |`http://www.opengis.net/ont/geosparql#`
+Präfix       |URL                                    |Bedeutung
+-------------|-------------------------------------- |-------------
+`oparl`      |`http://oparl.org/specs/1.0/`          |
+`dc`         |`http://purl.org/dc/terms/`            |Dublin Core
+`foaf`       |`http://xmlns.com/foaf/0.1/`           |Friend Of A Friend
+`prov`       |`http://www.w3.org/ns/prov#`           |PROV Ontology^[PROV-O: The PROV Ontology, W3C Recommendation: <http://www.w3.org/TR/prov-o/>]
+`schmorg`    |`http://schema.org/`                   |
+`skos`       |`http://www.w3.org/2004/02/skos/core#` |
+`vcard`      |`http://www.w3.org/2006/vcard/ns#`     |
+`xsd`        |`http://www.w3.org/2001/XMLSchema#`    |
+`ogc`        |`http://www.opengis.net/ont/geosparql#`|
 
 Durch Verwendung dieser URL-Präfixe SOLLEN die entsprechenden URLs wo immer möglich
 abgekürzt werden.

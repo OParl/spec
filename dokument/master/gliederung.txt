@@ -58,6 +58,7 @@ OParl Spezifikation 1.0 Gliederung
         Neue Objekte
         Geänderte Objekte
         Entfernte Objekte
+    6075 Daten Dump / bulk download
     6080 Dokumentenabruf
     6090 Content Negotiation
     6095 HTTP-Kompression

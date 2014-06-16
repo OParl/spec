@@ -13,6 +13,18 @@ besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen
 wird. Hierbei kommen in parlamentarischen Informationssystemen unveränderliche
 Kennungen der Drucksachen zum Einsatz.
 
+Zunächst ein Kontext:
+
+~~~~~
+{
+...
+    "originator": {
+      "@id": "prov:wasAttributedTo",
+      "@type": "@id"
+    },
+...
+}
+
 Ein Beispiel in kompakter Form:
 
 ~~~~~  {#paper_ex1 .json}

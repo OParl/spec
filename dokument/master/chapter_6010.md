@@ -157,3 +157,32 @@ Arten von Drucksachen (z. B. Anträge, Anfragen, Mitteilungen, Beschlussvorlagen
 OParl lässt in Version 1.0 der Spezifikation noch viele Aufgaben, die die Vereinheitlichung 
 dieses Vokabulars betreffen, offen. Jedoch wird durch die Verwendung von [JSON-LD](#jsonld) als
 Serialisierungsformat der Grundstein für eine Vereinheitlichung im Sinne von Linked Data gelegt.
+
+### Kriterien für die Aufnahme von Klassen und Eigenschaften
+
+Bei der Erstellung des Vokabulars (Klassen und Eigenschaften) gab
+es viel Input von mehreren RIS-Herstellern und Anwendern der
+berücksichtigt werden musste.
+
+Dies ist eine keineswegs abschliessende Liste von Kriterien die dabei eine
+Rolle gespielt haben:
+
+* Erforderlichkeit für Formulierung relevanter Informationen
+* Verständlichkeit der Semantik
+* Vermeidung von Redundanzen
+* Kompatibilität mit anderen Vokabularen und Spezifikationen
+* Konsistenz der Benennung
+* Konsistenz verwendeter Mechanismen
+* Speicherbedarf auf Client-Seite (Cache)
+* benötigte Netz-Bandbreite
+* Anzahl http-Requests bis Client alle benötigten Daten hat
+
+Diese Kriterien können je nach Einsatzszenario von sehr unterschiedlichem
+Gewicht sein und sich widersprechen. Bei den Entscheidungen mussten deshalb
+regelmääßig Abwägungen vorgenommen werden und auch neue Lösungen entwickelt
+werden, die so bisher in keinem RIS umgesetzt sind - aber nach Überzeugung
+der Autoren mit akzeptablem Aufwand umsetzbar sind.
+
+Bei der Erstellung der Spezifikation wurde auch versucht, ein Dokument des W3C zur
+Erstellung hochwertiger Spezifikationen^[QA Framework: Specification Guidelines: <http://www.w3.org/TR/qaframe-spec/>]
+zu berücksichtigen.

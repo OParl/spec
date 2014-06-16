@@ -166,6 +166,12 @@ Parlament an.
     Kardinalität: 0 bis *.
     Die Eigenschaft ist ZWINGEND.
 
+`legislativeTerm`
+:   Wahlperiode.
+    Typ: `oparl:LegislativeTerm`.
+    Kardinalität: 0 bis *.
+    EMPFOHLEN.
+
 `keyword`
 :   Schlagwort(e). Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
     Typ: `skos:Concept`.

@@ -6,6 +6,19 @@ beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokument,
 und hält Metadaten zu der Datei sowie URLs zum Zugriff auf 
 die Datei bereit.
 
+Ein Kontext:
+
+~~~~~
+{
+...
+    "masterDocument": {
+        "@id": "prov:wasDerivedFrom",
+        "@type": "@id"
+    }
+...
+}
+~~~~~
+
 Ein Beispiel:
 
 ~~~~~  {#document_ex1 .json}

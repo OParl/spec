@@ -64,26 +64,26 @@ Ein Beispiel in kompakter Form:
 :   Körperschaft, zu der die Drucksache gehört.
     Typ: `oparl:Body`.
     Kardinalität: 1.
-    Diese Eigenschaft ist ZWINGEND.
+    ZWINGEND.
 
 `name`
 :   Titel der Drucksache.
     Typ: Zeichenkette.
     Kardinalität: 1.
-    Diese Eigenschaft ist ZWINGEND.
+    ZWINGEND.
 
 `reference`
 :   Kennung bzw. Aktenzeichen der Drucksache, mit der sie in der parlamentarischen
     Arbeit eindeutig referenziert werden kann.
     Typ: Zeichenkette.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.
 
 `publishedDate`
 :   Veröffentlichungsdatum der Drucksache.
     Typ: Datentyp `xsd:dateTime` | Datentyp `xsd:date`.
     Kardinalität: 0 bis 1.
-    Diese Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 `paperType`
 :   Begriff mit einem `skos:prefLabel`-Attribut, dessen Wert eine Zeichenkette
@@ -95,59 +95,59 @@ Ein Beispiel in kompakter Form:
     <https://wiki.piratenpartei.de/BE:BVVupdates/Glossar>]
     Kardinalität: 0 bis 1.
     Typ: `skos:Concept`.
-    Diese Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 `relatedPaper`
 :   Inhaltlich verwandte Drucksache(n).
     Typ: `oparl:Paper`.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.
 
 `mainDocument`
 :   Das Hauptdokument zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert
     eine Beschlussvorlage und das Hauptdokument enthält den Text der Beschlussvorlage.
     Typ: `oparl:File`.
     Kardinalität: 1.
-    Diese Eigenschaft ist ZWINGEND.
+    ZWINGEND.
     
 `auxiliaryDocument`
 :   Anhänge zur Drucksache. Diese sind, in Abgrenzung zum Hauptdokument
     (`mainDocument`), untergeordnet und es kann beliebig viele davon geben.
     Typ: `oparl:File`.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.
     
 `location`
 :   Sofern die Drucksache einen inhaltlichen Ortsbezug hat, beschreibt diese
     Eigenschaft den Ort in Textform und/oder in Form von Geodaten.
     Typ: `oparl:Location`.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.
 
 `originator`
 :   Urheber der Drucksache, kann eine oder mehrere Person(en) bzw. Gruppierung(en)
     sein.
     Typ: `oparl:Person` | `oparl:Organization`.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 `consultation`
 :   Beratungen der Drucksache.
     Typ: `oparl:Consultation`.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.
 
 `modified`
 :   Letzter Änderungszeitpunkt des Objekts.
     Typ: Datentyp `xsd:dateTime`.
     Kardinalität: 1.
-    Diese Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
     
 `keyword`
 :   Begriff mit `skos:prefLabel`. Allgemeiner als `paperType`.
     Typ: `skos:Concept`.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.
 
 `underDirectionOf`
 :   Federführung. Amt oder Abteilung, für die Inhalte oder Beantwortung der Drucksache verantwortlich.

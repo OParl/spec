@@ -76,25 +76,25 @@ Parlament an.
 :   System, zu dem dieses Objekt gehört.
     Typ: `oparl:System`.
     Kardinalität: 1.
-    Die Eigenschaft ist ZWINGEND.
+    ZWINGEND.
 
 `shortName`
 :   Kurzer Name der Körperschaft.
     Typ: Datentyp `xsd:string`.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 `name`
 :   Der offizielle lange Name der Körperschaft.
     Typ: Datentyp `xsd:string`.
     Kardinalität: 1.
-    Die Eigenschaft ist ZWINGEND.
+    ZWINGEND.
 
 `website`
 :   Allgemeine Website der Körperschaft.
     Typ: URL.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 `license`
 :   Lizenz, die für die Daten, die über diese API abgerufen werden
@@ -103,20 +103,20 @@ Parlament an.
     [`license`](#eigenschaft_license).
     Typ: URL.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 `licenseValidSince`
 :   Zeitpunkt, seit dem die unter `license` angegebene Lizenz gilt.
     Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen.
     Typ: `xsd:DateTime`.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 `rgs`
 :   Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette^[Regionalschlüssel können im [Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes](https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html) eingesehen werden].
     Typ: Zeichenkette.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 `equivalentBody`
 :   Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe Körperschaft
@@ -125,7 +125,7 @@ Parlament an.
     der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden.
     Typ: URL.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 `contactEmail`
 :   Dient der Angabe einer Kontakt-E-Mail-Adresse mit "mailto:"-Schema.
@@ -134,37 +134,37 @@ Parlament an.
     ermöglichen.
     Typ: E-Mail-Adresse inklusive "mailto:".
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 `contactName`
 :   Name oder Bezeichnung der mit `contactEmail` erreichbaren Stelle.
     Typ: String.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.
 
 `paper`
 :   Drucksache unter dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
     Typ: `oparl:Paper`.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist ZWINGEND.
+    ZWINGEND.
 
 `member`
 :   Person in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
     Typ: `oparl:Person`.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist ZWINGEND.
+    ZWINGEND.
 
 `meeting`
 :   Sitzung dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
     Typ: `oparl:Meeting`.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist ZWINGEND.
+    ZWINGEND.
 
 `organization`
 :   Gruppierung in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
     Typ: `oparl:Organization`.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist ZWINGEND.
+    ZWINGEND.
 
 `legislativeTerm`
 :   Wahlperiode.
@@ -176,26 +176,26 @@ Parlament an.
 :   Schlagwort(e). Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
     Typ: `skos:Concept`.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.
 
 `allConcepts`
 :   Alle Schlagworte und Begriffe, die von dieser Körperschaft verwendet werden.
-    Diese Eigenschaft ist insbesondere dann
+    insbesondere dann
     wichtig, wenn Sortierungs-Reihenfolgen verwendet werden.
     Typ: `skos:Concept`.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.
 
 `created`
 :   Datum/Uhrzeit der Erzeugung des Objekts.
     Typ: `xsd:dateTime`.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 `modified`
 :   Datum/Uhrzeit der letzten Bearbeitung des Objekts.
     Typ: `xsd:dateTime`.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 TODO: Beispiel zu `allConcepts` einfügen.

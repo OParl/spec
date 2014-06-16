@@ -132,7 +132,7 @@ Das selbe Beispiel in kompakter Form:
 :   Gruppierung der die Sitzung zugeordnet ist. Wenn eine Liste angegeben wird, dann ist diese geordnet. Das erste
     Element ist dann das federführende Gremium.
     TODO: Eigenschaft für federführendes Gremium ergänzen und dann Ordnung entfernen
-    Diese Eigenschaft ist invers zur Eigenschaft `meeting` der Klasse `oparl:Organization` (In OWL: `oparl:organization owl:inverseOf oparl:meeting .`).
+    invers zur Eigenschaft `meeting` der Klasse `oparl:Organization` (In OWL: `oparl:organization owl:inverseOf oparl:meeting .`).
     Typ: `oparl:Organization`.
     Kardinalität: 1 bis *.
     ZWINGEND.

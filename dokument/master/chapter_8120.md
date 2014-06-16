@@ -82,7 +82,7 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
     wird (`true`) wird oder nicht (`false`).
     Typ: Boolean.
     Kardinalität: 1.
-    Diese Eigenschaft ist OPTIONAL.
+    OPTIONAL.
 
 `role`
 :   Rolle oder Funktion der Beratung. Zum Beispiel Anhörung (hearing), Entscheidung (decision), 

@@ -75,7 +75,7 @@ Das entsprechende Beispiel in kompakter Form:
     ZWINGEND.
 
 `meeting`
-:   Sitzungen dieser Gruppierung. Diese Eigenschaft ist invers zur
+:   Sitzungen dieser Gruppierung. Invers zur
     Eigenschaft `organization` der Klasse `oparl:Meeting`. Da die Anzahl der
     Sitzungen stetig wachsen kann, wird EMPFOHLEN, die Liste unter
     einer eigenen URL auszugeben und damit Paginierung zu ermöglichen.
@@ -87,13 +87,13 @@ Das entsprechende Beispiel in kompakter Form:
 :   Offizielle (lange) Form des Namens der Gruppierung.
     Typ: Datentyp `xsd:string`.
     Kardinalität: 1.
-    Diese Eigenschaft ist ZWINGEND.
+    ZWINGEND.
 
 `shortName`
 :   Der Name der Gruppierung als Kurzform.
     Typ: Datentyp `xsd:string`.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.
 
 `post`
 :   Position oder Positionen, die für diese Gruppierung vorgesehen sind.
@@ -117,7 +117,7 @@ Das entsprechende Beispiel in kompakter Form:
     TODO: "Ordentliches Mitglied", "Stellvertretendes Mitglied" müssen anders behandelt werden!
     Typ: `oparl:Post`.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.
 
 `member`
 :   Mitglieder dieser Gruppierung. Auch alle Personen mit

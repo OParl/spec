@@ -22,13 +22,13 @@ inne hat, beispielsweise den Vorsitz einer Fraktion.
 :   Die betreffende Person, die Mitglied einer Gruppierung ist oder war.
     Typ: `oparl:Person`.
     Kardinalität: 1.
-    Die Eigenschaft ist ZWINGEND.
+    ZWINGEND.
     
 `organization`
 :   Die Gruppierung, in der die Person Mitglied ist oder war.
     Typ: `oparl:Organization`.
     Kardinalität: 1.
-    Die Eigenschaft ist ZWINGEND.
+    ZWINGEND.
 
 `role`
 :   Rolle der Person für die Gruppierung. Das Objekt hat eine `skos:prefLabel`-Eigenschaft,
@@ -40,7 +40,7 @@ inne hat, beispielsweise den Vorsitz einer Fraktion.
     FRAGE: Wie soll bei einem sachkundigen Bürger verfahren werden, der gleichzeitig Vorsitzender ist?
     Typ: `org:Role`.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.
 
 `post`
 :   The post held by the person in the organization.

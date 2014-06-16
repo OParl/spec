@@ -77,20 +77,20 @@ für Längen- und Breitengrad.
 :   Textliche Beschreibung eines Orts, z. B. in Form einer Adresse.
     Typ: Zeichenkette.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist EMPFOHLEN.
+    EMPFOHLEN.
 
 `geometry`
 :   Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt,
     MUSS ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen.
     Typ: Zeichenkette.
     Kardinalität: 0 bis 1.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.
 
 `keyword`
 :   Schlagwort mit `skos:prefLabel`. Vgl. dazu [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
     Typ: `skos:Concept`.
     Kardinalität: 0 bis *.
-    Die Eigenschaft ist OPTIONAL.
+    OPTIONAL.
 
 ### Weitere Beispiele
 

@@ -135,7 +135,7 @@ Und das selbe Beispiel ohne Mehrsprachigkeit für den Ort. Der Kontext bleibt wi
 :   Der vollständige Name der Person mit akademischem Grad und dem gebräuchlichen Vornamen.
     Typ: Zeichenkette.
     Kardinalität: 1.
-    Die Eigenschaft ist ZWINGEND.
+    ZWINGEND.
 
 `familyName`
 :   Familienname bzw. Nachname.

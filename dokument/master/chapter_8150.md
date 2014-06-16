@@ -26,7 +26,7 @@ die mehr oder weniger ausgeprägt sein können.
 :   Name der Wahlperiode.
     Typ: `xsd:string`.
     Kardinalität: 1.
-    Die Eigenschaft ist ZWINGEND.
+    ZWINGEND.
 
 `startDate`
 :   Der erste Tag der Wahlperiode.

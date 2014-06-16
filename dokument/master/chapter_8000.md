@@ -42,19 +42,19 @@ enthalten solche Leerkonstruktionen keine verwendbare Information.
 Viele Eigenschaften erlauben es, entweder einen einzelnen Wert (z. B. eine Zeichenkette,
 eine URL, eine Zahl) oder alternativ eine Liste mit mehreren Elementen des
 jeweils erlaubten Typs auszugeben. Die entsprechende Regel ist in der Schema-Beschreibung
-unter dem Stichwort *Kardinalität* angegeben. Dabei sind verschiedene Angaben möglich:
+unter dem Stichwort *Kardinalität* angegeben. Dabei sind verschiedene Angaben
+zur Eigenschaft möglich:
 
-* 0 bis 1: Die Eigenschaft ist optional und muss nicht gesetzt sein. Wenn sie gesetzt ist,
-  darf sie genau einen Wert haben.
+* 0 bis 1: OPTIONAL und MUSS NICHT gesetzt sein. Wenn sie gesetzt ist,
+  DARF sie genau einen Wert haben.
 
-* 1: Die Eigenschaft muss gesetzt sein,
-  sie muss genau einen Wert haben.
+* 1: MUSS gesetzt sein und genau einen Wert haben.
 
-* 0 bis *: Die Eigenschaft ist optional und muss nicht gesetzt sein. Wenn sie gesetzt ist,
-  darf sie beliebig viele Werte haben.
+* 0 bis *: OPTIONAL und MUSS NICHT gesetzt sein. Wenn sie gesetzt ist,
+  DARF sie beliebig viele Werte haben.
 
-* 1 bis *: Die Eigenschaft muss vorhanden sein, es muss mindestens ein Wert gesetzt sein.
-  Es dürfen auch mehrere Werte vorhanden sein.
+* 1 bis *: MUSS vorhanden sein, es MUSS mindestens ein Wert gesetzt sein.
+  Es DÜRFEN auch mehrere Werte vorhanden sein.
 
 Zur Ausgabe von Listen innerhalb eines Objekts sowie über eigene URLs finden sich
 ausführlichere Erläuterungen im Abschnitt [Objektlisten](#objektlisten).

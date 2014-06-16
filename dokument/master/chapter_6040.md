@@ -266,6 +266,8 @@ Präfix       |URL                                    |Bedeutung
 -------------|-------------------------------------- |-------------
 `oparl`      |`http://oparl.org/specs/1.0/`          |
 `dc`         |`http://purl.org/dc/terms/`            |Dublin Core
+`dcat`       |`http://www.w3.org/ns/dcat#`           |Data Catalog Vocabulary (DCAT)^[Data Catalog Vocabulary (DCAT), W3C Recommendation: <http://www.w3.org/TR/vocab-dcat/>, DCAT application profile for data portals in Europe: <https://joinup.ec.europa.eu/asset/dcat_application_profile/description>
+]
 `foaf`       |`http://xmlns.com/foaf/0.1/`           |Friend Of A Friend
 `prov`       |`http://www.w3.org/ns/prov#`           |PROV Ontology^[PROV-O: The PROV Ontology, W3C Recommendation: <http://www.w3.org/TR/prov-o/>]
 `schmorg`    |`http://schema.org/`                   |

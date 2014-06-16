@@ -47,13 +47,15 @@ werden, welche Ableitungen einer Datei existieren.
 
 `fileName`
 :   Dateiname, unter dem die Datei in einem Dateisystem gespeichert werden
-    kann.
-    Typ: ASCII-Zeichenkette.
+    kann. Beispiel: "einedatei.pdf"
+    Typ: ASCII-Zeichenkette, aber als Unicode-String
     Kardinalität: 1.
     ZWINGEND.
 
 `name`
 :   Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt.
+    Leerzeichen DÜRFEN enthalten sein werden, Datei-Extension wie ".pdf" SOLLEN
+    NICHT enthalten sein.
     Der Wert SOLL NICHT mit dem Wert der Eigenschaft `fileName` identisch
     sein.
     Typ: Zeichenkette.
@@ -67,8 +69,8 @@ werden, welche Ableitungen einer Datei existieren.
     `application/octet-stream` zu verwenden.
     Typ: Zeichenkette.
     Kardinalität: 1.
-    ZWINGEND.
-    
+    EMPFOHLEN.
+
 `date`
 :   Datum und Zeit der Erstellung der Datei. Wahlweise, falls dies nicht
     vom System kommuniziert werden kann oder soll, KANN alternativ

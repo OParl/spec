@@ -3,11 +3,11 @@
     
     "@language": "de",
     "beispielris": "https://oparl.example.org/",
-    "oparl": "http://oparl.org/specs/1.0/schema/",
-    "dc": "http://purl.org/dc/terms/",
-    "foaf": "http://xmlns.com/foaf/0.1/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "oparl":       "http://oparl.org/specs/1.0/schema/",
+    "dc":          "http://purl.org/dc/terms/",
+    "xsd":         "http://www.w3.org/2001/XMLSchema#",
+    "skos":        "http://www.w3.org/2004/02/skos/core#",
+    "foaf":        "http://xmlns.com/foaf/0.1/",
 
     "absentParticipant":  {
         "@id": "oparl:absentParticipant",
@@ -61,7 +61,7 @@
     },
     "derivativeDocument": {
         "@id": "prov:hadDerivation",
-        "TODO": invers zu masterDocument, deshalb nicht verwenden
+        "TODO": "invers zu masterDocument, deshalb nicht verwenden"
         "@type": "@id"
     },  
     "documentRole": {
@@ -127,7 +127,7 @@
     "location": {
         "@id": "oparl:location",
         "@container": "@language"
-        "TODO" "prüfen!",
+        "TODO": "prüfen!",
         "@type": "@id"
     },
     "masterDocument": {
@@ -241,7 +241,7 @@
     "resolution": {
         "@id": "oparl:resolution",
         "@type": ["@id", "xsd:string"],
-        "TODO": " Semantik ?!"
+        "TODO": "Semantik ?!"
     }
     "rgs": "oparl:rgs",
     "role": {

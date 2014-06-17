@@ -31,7 +31,7 @@ Ein Beispiel in kompakter Form:
 {
     "@context": "https://oparl.example.org/Pfad/zum/Kontext/oparl.jsonld",
     "@type": "oparl:Paper",
-    "@id": "https://oparl.example.org/paper/749",
+    "@id": "beispielris:paper/749",
     "body": "beispielris:bodies/1",
     "name": "Antwort auf Anfrage 1200/2014",
     "reference": "1234/2014",

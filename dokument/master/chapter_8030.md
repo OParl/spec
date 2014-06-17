@@ -54,9 +54,10 @@ Und das System-Objekt in kompakter Form unter Verwendung des Kontexts:
 
 ~~~~~  {#system_ex2 .json}
 {
+    "@context": "TODO",
     "@type": "oparl:System",
-    "@id": "https://oparl.example.org/",
-    "oparlVersion": "http://oparl.org/specs/1.0/",
+    "@id": "beispielris:",
+    "oparlVersion": "beispielris:specs/1.0/",
     "name": "Beispiel-System",
     "website": "http://www.example.org/",
     "contactEmail": "mailto:info@example.org",

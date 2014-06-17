@@ -63,7 +63,7 @@ Das selbe Beispiel in kompakter Form:
 {
     "@context": "https://oparl.example.org/Pfad/zum/Kontext/oparl.jsonld",
     "@type": "oparl:Meeting",
-    "@id": "https://oparl.example.org/meeting/281",
+    "@id": "beispielris:meeting/281",
     "name": "4. Sitzung des Finanzausschusses",
     "start": "2013-01-04T08:00:00+01:00",
     "end": "2013-01-04T12:00:00+01:00",

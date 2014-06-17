@@ -43,7 +43,6 @@ Ein Beispiel in expandierter Form:
 
 Das entsprechende Beispiel in kompakter Form:
 
-
 ~~~~~  {#organization_ex2 .json}
 {
     "@context": "https://oparl.example.org/Pfad/zum/Kontext/organization.jsonld",

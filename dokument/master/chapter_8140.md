@@ -7,12 +7,14 @@ begrenzt sein. Zudem kann abgebildet werden, dass eine Person
 eine bestimmte Rolle bzw. Position innerhalb der Gruppierung
 inne hat, beispielsweise den Vorsitz einer Fraktion.
 
-~~~~~  {#location_ex1 .json}
+~~~~~  {#membership_ex1 .json}
 {
+...
     "person": "beispielris:people/862",
     "organization": "beispielris:organizations/5",
     "role": "beispielris:vocab/chair",
     "startDate": "2013-12-03T16:30:00+01:00"
+...
 }
 ~~~~~
 

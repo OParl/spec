@@ -43,6 +43,39 @@ Ein Beispiel in expandierter Form:
 
 Das entsprechende Beispiel in kompakter Form:
 
+Zunächst ein Kontext:
+
+~~~~~
+    "body": {
+        "@id": "oparl:body",
+        "@type": "@id"
+    },
+    "shortName": {
+        "@id": "oparl:shortName",
+        "@type": "xsd:string"
+    },
+    "name": {
+        "@id": "oparl:name",
+        "@type": "xsd:string"
+    },
+    "post": {
+        "@id": "oparl:post",
+        "@type": "@id"
+    },
+    "member": {
+        "@id": "oparl:member",
+        "@type": "@id"
+    },
+    "classification": {
+        "@id": "oparl:classification",
+        "@type": "@id"
+    },
+    "modified": {
+        "@id": "dc:modified",
+        "@type": "xsd:dateTime"
+    }   
+~~~~~
+
 ~~~~~  {#organization_ex2 .json}
 {
     "@context": "https://oparl.example.org/Pfad/zum/Kontext/organization.jsonld",

@@ -7,7 +7,28 @@ Englische Übersetzungen sind "legislative term" und "electoral term".
 Beide betonen unterschiedliche Aspekte von Wahlperioden
 die mehr oder weniger ausgeprägt sein können.
 
+Ein Beispiel, zunächst der Kontext:
+
+
 ~~~~~  {#legislative_term_ex1 .json}
+{
+    "name": {
+        "@id": "oparl:name",
+        "@type": "xsd:string"
+    },
+    "startDate": {
+        "@id": "schorg:startDate",
+        "@type": "xsd:dateTime"
+    },
+    "endDate": {
+        "@id": "schorg:endDate",
+        "@type": "xsd:dateTime"
+    }   
+}
+~~~~~
+
+
+~~~~~  {#legislative_term_ex2 .json}
 {
     "@context": {
         TODO: `schema:validFrom` und `schema:validThrough` verwenden

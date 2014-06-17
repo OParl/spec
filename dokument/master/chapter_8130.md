@@ -34,6 +34,7 @@ Der JSON-LD-Kontext für die Eigenschaft `geometry`:
 ~~~~~
 {
    "geometry": {
+     // TODO wird @id benötigt?
      "@type": "ogc:wktLiteral"
    }
 }

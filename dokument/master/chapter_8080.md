@@ -59,6 +59,61 @@ Ein Beispiel in expandierter Form:
 
 Das selbe Beispiel in kompakter Form:
 
+Zunächst der Kontext:
+
+~~~~~
+{
+    "name": "rdfs:label",
+    "start": {
+        "@id": "schmorg:startDate",
+        "@type": "xsd:dateTime"
+    },
+    "end": {
+        "@id": "schmorg:endDate",
+        "@type": "xsd:dateTime"
+    },
+    "location": {
+        "@container": "@language"
+    },
+    "organization": {
+        "@id": "oparl:organization",
+        "@type": "@id"
+    }, 
+    "participant": {
+        "@id": "oparl:participant",
+        "@type": "@id"
+    },
+    "invitation": {
+        "@id": "oparl:invitation",
+        "@type": "@id"
+    },
+    "resultsProtocol": {
+        "@id": "oparl:resultsProtocol",
+        "@type": "@id"
+    },
+    "verbatimProtocol": {
+        "@id": "oparl:verbatimProtocol",
+        "@type": "@id"
+    },
+    "auxiliaryDocument": {
+        "@id": "oparl:auxiliaryDocument",
+        "@type": "@id"
+    },
+    "agendaItem": {
+        "@id": "oparl:agandaItem",
+        "@container": "@list",
+    },
+    "created": {
+        "@id": "dc:created",
+        "@type": "xsd:dateTime"
+    },  
+    "modified": {
+        "@id": "dc:modified",
+        "@type": "xsd:dateTime"
+    }
+}
+~~~~~
+
 ~~~~~  {#meeting_ex2 .json}
 {
     "@context": "https://oparl.example.org/Pfad/zum/Kontext/oparl.jsonld",

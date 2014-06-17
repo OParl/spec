@@ -7,6 +7,50 @@ wozu in der Regel auch die Beratung bestimmter Drucksachen gehört.
 
 Ein Beispiel in kompakter Form:
 
+Zunächst ein Kontext:
+
+~~~~~
+{   
+    "meeting":  {
+        "@id": "oparl:meeting",
+        "@type": "@id"
+    },
+    "number": {
+        "@id": "oparl:number"
+    },
+    "name": {
+        "@id": "rdfs:label",
+        "@type": "xsd:string"
+    },
+    "public": "xsd:boolean",
+    "consultation":  {
+        "@id": "oparl:consultation",
+        "@type": "@id"
+    },
+    "result":  {
+        "@id": "oparl:result",
+        "@type": "@id"
+    },
+    "resolution": {
+        "@id": "oparl:resolution",
+        "@type": ["@id", "xsd:string"] TODO Semantik ?!
+    }
+    "absentParticipant":  {
+        "@id": "oparl:absentParticipant",
+        "@type": "@id"
+    },
+    "paper":  {
+        "@id": "oparl:paper",
+        "@type": "@id"
+    },
+    "modified": {
+        "@id": "dc:modified",
+        "@type": "xsd:dateTime"
+    }   
+}
+~~~~~
+
+
 ~~~~~  {#agendaitem_ex1 .json}
 {
     "@context": "https://oparl.example.org/Pfad/zum/Kontext/oparl.jsonld",
@@ -20,11 +64,9 @@ Ein Beispiel in kompakter Form:
         "beispielris:consultation/1034",
         "beispielris:consultation/1235"
     ],
-    "result": "besipielris:vocab/decided_modified",
+    "result": "beispielris:vocab/decided_modified",
     "resolutionText": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
-    "absentParticipant": [
-        "beispielris:person/75"
-    ],
+    "absentParticipant": "beispielris:person/75",
     "paper": "beispielris:paper/2812",
     "modified": "2012-08-16T14:05:27+02:00"
 }

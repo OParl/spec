@@ -60,21 +60,33 @@ Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
 ~~~~~  {#person_ex_context .json}
 {
     "@language": "de",
-    "gender": "vcard:hasGender",
+    "gender": {
+        "@id": "vcard:hasGender",
+        "@type": "@id"
+    }
+    "name": "foaf:name",
     "givenName": "foaf:givenName",
     "familyName": "foaf:familyName",
-    "title": {
-        "TODO": "Hier context für title einfügen."
-    },
+    "title": "foaf:title",
     "email": {
         "@id": "foaf:mbox",
         "@type": "@id"
     },
+    "formOfAddress": "oparl:formOfAddress",
     "phone": "foaf:phone",
     "streetAddress": "vcard:street-address",
+    "postalCode": "vcard:postal-code",
     "locality": {
         "@id": "vcard:locality",
         "@container": "@language"
+    },
+    "status": {
+        "@id": "oparl:status",
+        "@type": "@id"
+    },
+    "hasMembership": {
+        "@id": "org:hasMembership",
+        "@type": "@id"
     },
     "created": {
         "@id": "dc:created",

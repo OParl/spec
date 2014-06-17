@@ -17,12 +17,52 @@ Zunächst ein Kontext:
 
 ~~~~~
 {
-...
+    "body": {
+        "@id": "oparl:body",
+        "@type": "@id"
+    },
+    "name": {
+        "@id": "rdfs:label"
+    }
+    "reference":
+        "@id": "oparl:reference"
+    }
+    "publishedDate": {
+        "@id": "schorg:datePublished", // TODO
+        "@type": "xsd:dateTime"
+    },  
+    "paperType": {
+        "@id": "oparl:paperType",
+        "@type": "@id"
+    },  
+    "relatedPaper": {
+        "@id": "oparl:relatedPaper",
+        "@type": "@id"
+    },
+    "mainDocument": {
+        "@id": "oparl:mainDocument",
+        "@type": "@id"
+    },
+    "auxiliaryDocument": {
+        "@id": "oparl:auxiliaryDocument",
+        "@type": "@id"
+    },
+    "location": {
+        "@id": "oparl:location", TODO prüfen!
+        "@type": "@id"
+    },
     "originator": {
       "@id": "prov:wasAttributedTo",
       "@type": "@id"
     },
-...
+    "consultation": {
+        "@id": "oparl:consultation",
+        "@type": "@id"
+    },
+    "modified": {
+        "@id": "dc:modified",
+        "@type": "xsd:dateTime"
+    }
 }
 
 Ein Beispiel in kompakter Form:

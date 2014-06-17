@@ -7,7 +7,43 @@ begrenzt sein. Zudem kann abgebildet werden, dass eine Person
 eine bestimmte Rolle bzw. Position innerhalb der Gruppierung
 inne hat, beispielsweise den Vorsitz einer Fraktion.
 
+Ein Beispiel, zunächst ein Kontext:
+
 ~~~~~  {#membership_ex1 .json}
+{
+    "person": {
+        "@id": "oparl:person",
+        "@type": "@id"
+    },
+    "organization": {
+        "@id": "oparl:organization",
+        "@type": "@id"
+    },
+    "role": {
+        "@id": "oparl:role",
+        "@type": "@id"
+    },
+    "post": {
+        "@id": "oparl:post",
+        "@type": "@id"
+    },  
+    "onBehalfOf": {
+        "@id": "oparl:onBehalfOf",
+        "@type": "@id"
+    },
+    "startDate": {
+        "@id": "schorg:startDate",
+        "@type": "xsd:dateTime"
+    },
+    "endDate": {
+        "@id": "schorg:endDate",
+        "@type": "xsd:dateTime"
+    }
+}
+~~~~~
+
+
+~~~~~  {#membership_ex2 .json}
 {
 ...
     "person": "beispielris:people/862",

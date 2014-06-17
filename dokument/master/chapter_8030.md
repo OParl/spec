@@ -36,7 +36,6 @@ Ein Kontext:
     "dc": "http://purl.org/dc/terms/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "vcard": "http://www.w3.org/2006/vcard/ns#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
 
     "name": {
@@ -47,6 +46,46 @@ Ein Kontext:
         "@id": "foaf:mbox",
         "@type": "@id"
     },
+    "oparlVersion": {
+        "@id": "oparl:oparlVersion",
+        "@type": "@id"
+    },
+    "website": {
+        "@id": "oparl:website",
+        "@type": "@id"
+    },
+    "contactEmail": {
+        "@id": "foaf:mbox",
+        "@type": "@id"
+    },
+    "contactName": {
+        "@id": "oparl:contactName",
+        "@type": "xsd:string"
+    },
+    "vendor": {
+        "@id": "oparl:vendor",
+        "@type": "@id"
+    },
+    "product": {
+        "@id": "oparl:product",
+        "@type": "@id"
+    },
+    "body": {
+        "@id": "oparl:body",
+        "@type": "@id"
+    },
+    "newObjects": {
+        "@id": "oparl:newObjects",
+        "@type": "@id"
+    },
+    "updatedObjects": {
+        "@id": "oparl:updatedObjects",
+        "@type": "@id"
+    },  
+    "removedObjects": {
+        "@id": "oparl:removedObjects",
+        "@type": "@id"
+    },  
 }
 ~~~~~
 

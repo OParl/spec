@@ -10,7 +10,34 @@ Ein Kontext:
 
 ~~~~~
 {
-...
+    "name": "rdfs:label",
+    "fileName": "oparl:fileName",
+    "paper": {
+        "@id": "oparl:paper",
+        "@type": "@id"
+    },
+    "mimeType": "oparl:mimeType",
+    "date": {
+        "@id": "oparl:date",
+        "@type": "xsd:dateTime"
+    },
+    "modified": {
+        "@id": "dc:modified",
+        "@type": "xsd:dateTime"
+    },
+    "sha1Checksum": "oparl:sha1Checksum",
+    "size": {
+        "@type": "xsd:integer" TODO ausreichend?
+    }
+    "accessUrl": {
+        "@id": "oparl:accessUrl",
+        "@type": "@id"
+    },
+    "downloadUrl": {
+        "@id": "oparl:downloadUrl",
+        "@type": "@id"
+    },
+    "text": "oparl:text",
     "masterDocument": {
         "@id": "prov:wasDerivedFrom",
         "@type": "@id"
@@ -19,8 +46,15 @@ Ein Kontext:
         "@id": "prov:hadDerivation",
             TODO: invers zu masterDocument, deshalb nicht verwenden
         "@type": "@id"
+    },  
+    "license": {
+        "@id": "oparl:",
+        "@type": "@id"
     },
-...
+    "documentRole": {
+        "@id": "oparl:downloadRole",
+        "@type": "@id"
+    }
 }
 ~~~~~
 

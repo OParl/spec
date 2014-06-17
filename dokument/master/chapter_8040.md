@@ -16,15 +16,74 @@ Ein Kontext:
 ~~~~~  {#body_ex_context .json}
 {
     "@language": "de",
+    "system": {
+        "@id": "oparl:system",
+        "@type": "@id"
+    },
+    "contactEmail": {
+        "@id": "foaf:mbox",
+        "@type": "@id"
+    },
+    "contactName": {
+        "@id": "oparl:contactName",
+        "@type": "xsd:string"
+    }
+    "rgs": { 
+        "@id": "oparl:rgs",
+        "@type": "xsd:string"
+    },
+    "equivalentBody": {
+        "@id": "skos:exactMatch",
+        "@type": "@id" 
+    },
+    "shortName": {
+        "@id": "oparl:shortName",
+        "@type": "xsd:string"
+    },
+    "name": {
+        "@type": "xsd:sting",
+        "@container": "@language" TODO wirklich?
+    },
+    "website": {
+        "@id": "oparl:website",
+        "@type": "@id"
+    },
     "license": {
         "@id": "dc:license",
         "@type": "@id"
     },
-    "exactMatch": {
-        "@id": "skos:exactMatch",
-        "@type": "@id"
+    "licenseValidSince": {
+        "@id": "oparl:licenseValidSince",
+        "@type": "xsd:dateTime"
+    },  
+    "organization": {
+        "@type": "@id",
+        "@id": "oparl:organization"
     },
-    "licenseValidSince": "2013-04-01T12:00:00+00:00"
+    "meeting": {
+        "@type": "@id",
+        "@id": "oparl:meeting"
+    },
+    "paper": {
+        "@type": "@id",
+        "@id": "oparl:paper"
+    },
+    "member": {
+        "@type": "@id",
+        "@id": "oparl:member"
+    },
+    "classification": {
+        "@type": "@id",
+        "@id": "oparl:classification"
+    },
+    "created": {
+        "@id": "dc:created",
+        "@type": "xsd:dateTime"
+    },  
+    "modified": {
+        "@id": "dc:modified",
+        "@type": "xsd:dateTime"
+    }   
 }
 ~~~~~
 

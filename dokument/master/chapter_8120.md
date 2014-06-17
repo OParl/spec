@@ -24,7 +24,33 @@ Ein Beispiel:
 }
 ~~~~~
 
-Das selbe Beispiel in kompakter Form (ein passender Kontext wird vorausgesetzt):
+Das selbe Beispiel in kompakter Form zunächst ein passender Kontext:
+
+~~~~~
+{   
+    "paper": {
+        "@id": "oparl:paper",
+        "@type": "@id"
+    },
+    "agendaItem": {
+        "@id": "oparl:agendaItem",
+        "@type": "@id"
+    },
+    "organization": {
+        "@id": "oparl:organization",
+        "@type": "@id"
+    },
+    "authoritative": {
+        "@id": "oparl:authoritative",
+        "@type": "xsd:boolean"
+    },
+    "role": {
+        "@id": "oparl:role",
+        "@type": "@id"
+    }
+}
+~~~~~
+
 
 ~~~~~  {#consultation_ex2 .json}
 {

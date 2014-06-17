@@ -7,7 +7,9 @@ begrenzt sein. Zudem kann abgebildet werden, dass eine Person
 eine bestimmte Rolle bzw. Position innerhalb der Gruppierung
 inne hat, beispielsweise den Vorsitz einer Fraktion.
 
-Ein Beispiel, zunächst ein Kontext:
+### Beispiel ###
+
+Ein Kontext:
 
 ~~~~~  {#membership_ex1 .json}
 {

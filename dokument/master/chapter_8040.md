@@ -11,6 +11,8 @@ Parlament der Stadt Köln, namentlich den Rat der Stadt Köln, abzubilden,
 dann müsste dieses System dazu ein Objekt vom Typ `oparl:Body` führen, welches
 die Stadt Köln repräsentiert.
 
+### Beispiel ###
+
 Ein Kontext:
 
 ~~~~~  {#body_ex_context .json}
@@ -54,7 +56,7 @@ Ein Kontext:
     },
     "licenseValidSince": {
         "@id": "oparl:licenseValidSince",
-        "@type": "xsd:dateTime"
+        "@type": "xsd:date"
     },  
     "organization": {
         "@type": "@id",
@@ -87,13 +89,12 @@ Ein Kontext:
 }
 ~~~~~
 
-Ein expandiertes Beispiel:
 
 ~~~~~  {#oparlbody_ex1 .json}
 {
-    "@type": "http://oparl.org/schema/1.0/Body",
-    "@id": "https://oparl.example.org/body/0",
-    "system": "https://oparl.example.org/",
+    "@type": "oparl:Body",
+    "@id": "beispielris:body/0",
+    "system": "beispielris:",
     "contactEmail": "mailto:ris@beispielstadt.de",
     "contactName": "RIS-Betreuung",
     "rgs": "053150000000",
@@ -109,15 +110,17 @@ Ein expandiertes Beispiel:
     "website": "http://www.beispielstadt.de/",
     "license": "http://creativecommons.org/licenses/by/4.0/",
     "licenseValidSince": "2014-01-01",
-    "organization": "https://oparl.example.org/body/0/organisation/",
-    "meeting": "https://oparl.example.org/body/0/meeting/",
-    "paper": "https://oparl.example.org/body/0/paper/",
-    "member": "https://oparl.example.org/body/0/person/",
-    "classification": "https://oparl.example.org/vocab/landkreis",
+    "organization": "beispielris:body/0/organisation/",
+    "meeting": "beispielris:body/0/meeting/",
+    "paper": "beispielris:body/0/paper/",
+    "member": "beispielris:body/0/person/",
+    "classification": "beispielris:vocab/landkreis",
     "created": "2014-01-08T14:28:31.568+0100",
     "modified": "2014-01-08T14:28:31.568+0100"
 }
 ~~~~~
+
+### Anmerkungen ###
 
 Vom OParl-Server wird erwartet, dass er mindestens
 ein Objekt vom Typ `oparl:Body` bereit hält. Teilen sich mehrere Körperschaften
@@ -167,7 +170,7 @@ Parlament an.
 `licenseValidSince`
 :   Zeitpunkt, seit dem die unter `license` angegebene Lizenz gilt.
     Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen.
-    Typ: `xsd:DateTime`.
+    Typ: `xsd:Date`.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
 

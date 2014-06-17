@@ -13,6 +13,8 @@ besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen
 wird. Hierbei kommen in parlamentarischen Informationssystemen unveränderliche
 Kennungen der Drucksachen zum Einsatz.
 
+### Beispiel ###
+
 Zunächst ein Kontext:
 
 ~~~~~
@@ -64,8 +66,7 @@ Zunächst ein Kontext:
         "@type": "xsd:dateTime"
     }
 }
-
-Ein Beispiel in kompakter Form:
+~~~~~
 
 ~~~~~  {#paper_ex1 .json}
 {

@@ -6,25 +6,7 @@ parlamentarischen Informationssystem ab. Das Objekt repräsentiert
 das technische System, unabhängig von der Frage, welche Körperschaften
 auf diesem System vertreten sind.
 
-Ein Beispiel:
-
-~~~~~  {#system_ex1 .json}
-{
-    "@type": "oparl:System",
-    "@id": "https://oparl.example.org/",
-    "oparlVersion": "http://oparl.org/specs/1.0/",
-    "name": "Beispiel-System",
-    "website": "http://www.example.org/",
-    "contactEmail": "mailto:info@example.org",
-    "contactName": "Allgemeiner OParl Kontakt",
-    "vendor": "http://example-software.com/",
-    "product": "http://example-software.com/oparl-server/",
-    "body": "https://oparl.example.org/bodies/",
-    "newObjects": "https://oparl.example.org/new_objects/",
-    "updatedObjects": "https://oparl.example.org/updated_objects/",
-    "removedObjects": "https://oparl.example.org/removed_objects"
-}
-~~~~~
+### Beispiel ###
 
 Ein Kontext:
 
@@ -109,6 +91,8 @@ Und das System-Objekt in kompakter Form unter Verwendung des Kontexts:
     "removedObjects": "beispielris:removed_objects"
 }
 ~~~~~
+
+### Anmerkungen ###
 
 Auf jedem OParl-Server MUSS ein Objekt vom Typ `oparl:System` vorgehalten
 werden. Es DARF nur ein einziges solches Objekt je Server existieren.

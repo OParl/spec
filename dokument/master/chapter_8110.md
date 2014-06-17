@@ -6,6 +6,8 @@ beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokument,
 und hält Metadaten zu der Datei sowie URLs zum Zugriff auf 
 die Datei bereit.
 
+### Beispiel ###
+
 Ein Kontext:
 
 ~~~~~
@@ -58,7 +60,6 @@ Ein Kontext:
 }
 ~~~~~
 
-Ein Beispiel:
 
 ~~~~~  {#document_ex1 .json}
 {
@@ -80,6 +81,8 @@ Ein Beispiel:
     "documentRole": "beispielris:document-role/evidence"
 }
 ~~~~~
+
+### Anmerkungen ###
 
 Objekte vom Typ `oparl:File` können mit Drucksachen (`oparl:Paper`)
 oder Sitzungen (`oparl:Meeting`) in Beziehung stehen. Dies wird durch 

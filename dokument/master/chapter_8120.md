@@ -10,21 +10,9 @@ Die Gesamtheit aller Objekte des Typs `oparl:Consultation` zu einer bestimmten
 Drucksache bildet das ab, was in der Praxis als "Beratungsfolge" der Drucksache
 bezeichnet wird.
 
-Ein Beispiel:
+### Beispiel ###
 
-~~~~~  {#consultation_ex1 .json}
-{
-    "@type": "oparl:Consultation",
-    "@id": "https://oparl.example.org/consultation/47594",
-    "paper": "https://oparl.example.org/paper/2396",
-    "agendaItem": "https://oparl.example.org/agendaitem/15569",
-    "organization": "https://oparl.example.org/organization/96",
-    "authoritative": false,
-    "role": "https://oparl.example.org/role/decision"
-}
-~~~~~
-
-Das selbe Beispiel in kompakter Form zunächst ein passender Kontext:
+Ein passender Kontext:
 
 ~~~~~
 {   

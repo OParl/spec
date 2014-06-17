@@ -10,40 +10,9 @@ Ein Teil der Eigenschaften ist der "Organization" Ontologie des W3C entnommen
 http://www.w3.org/TR/vocab-org/]. Deren Bezeichnungen wurden deshalb beibehalten.
 Das betrifft z.B. die Verwendung von `classification`.
 
-Ein Beispiel in expandierter Form:
+### Beispiel ###
 
-~~~~~  {#organization_ex1 .json}
-{
-    "@type": "http://oparl.org/schema/1.0/Organization",
-    "@id": "https://oparl.example.org/organization/34",
-    "body": "https://oparl.example.org/body/0",
-    "shortName": {
-        "@language" :"de",
-        "@value": "Finanzausschuss"
-    },
-    "name": {
-        "@language": "de",
-        "@value": "Ausschuss für Haushalt und Finanzen"
-    },
-    "post": {
-        "@list": [
-            "https://oparl.example.org/post/chairperson",
-            "https://oparl.example.org/post/deputyChairperson"
-        ]
-    },
-    "member": [
-        "https://oparl.example.org/person/27",
-        "https://oparl.example.org/person/48",
-        "https://oparl.example.org/person/57"
-    ],
-    "classification": "https://oparl.example.org/vocab/finance",
-    "modified": "2012-08-16T14:05:27+02:00"
-}
-~~~~~
-
-Das entsprechende Beispiel in kompakter Form:
-
-Zunächst ein Kontext:
+Der Kontext:
 
 ~~~~~
     "body": {
@@ -60,6 +29,7 @@ Zunächst ein Kontext:
     },
     "post": {
         "@id": "oparl:post",
+        "@container": "@list",
         "@type": "@id"
     },
     "member": {
@@ -89,9 +59,9 @@ Zunächst ein Kontext:
         "beispielris:post/deputyChairperson"
     ],
     "member": [
-        "27",
-        "48",
-        "57"
+        "beispielris:person/27",
+        "beispielris:person/48",
+        "beispielris:person/57"
     ],
     "classification": "beispielris:vocab/finance",
     "modified": "2012-08-16T14:05:27+02:00"

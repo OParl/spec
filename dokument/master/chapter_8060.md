@@ -11,51 +11,12 @@ hinaus hält der XÖV-Standard ein XML-Schema für natürliche Personen bereit.
 Für `oparl:Person` wurde daraus, und basierend auf dem Input der OParl-Stakeholder,
 eine Auswahl von Eigenschaften zusammengestellt.
 
-TODO: für Personennamen wird m Noprmalfall keine Mehrsprachigkeit benötigt. Dies im
+TODO: für Personennamen wird m Normalfall keine Mehrsprachigkeit benötigt. Dies im
 Kontext berücksichtigen. Dies spricht auch für je einen Kontext pro Klasse.
 
-Ein Beispiel in expandierter Form:
+### Beispiel ###
 
-TODO: Das ist nicht wirklich die expandierte Form. Sollte geändert werden, so wie es der Playground ausgibt.
-
-~~~~~  {#person_ex1 .json}
-{
-    "@type": "http://oparl.org/schema/1.0/Person",
-    "@id": "https://oparl.example.org/person/29",
-    "name": "Prof. Dr. Max Mustermann",
-    "familyName": { 
-        "@value": "Mustermann",
-        "@language": "de"
-    },
-    "givenName": {
-        "@value": "Max",
-        "@language": "de"
-    },
-    "title": [
-        "https://oparl.example.org/vocab/prof",
-        "https://oparl.example.org/vocab/dr"
-    ],
-    "formOfAddress": "https://oparl.example.org/formofaddress/ratsmitglied",
-    "gender": "http://www.w3.org/2006/vcard/ns#Male",
-    "email": "mailto:max@mustermann.de",
-    "phone": "tel:+493012345678",
-    "streetAddress": "Musterstraße 5",
-    "postalCode": "11111",
-    "locality": {
-        "de": "Musterort",
-        "en": "Sample Town"
-    },
-    "status": "https://oparl.example.org/status/buergermeister",
-    "hasMembership": [
-        "https://oparl.example.org/membership/11",
-        "https://oparl.example.org/membership/34"
-    ],
-    "created": "2011-11-11T11:11:00+01:00",
-    "modified": "2012-08-16T14:05:27+02:00"
-}
-~~~~~
-
-Das selbe Beispiel in kompakter Form. Zunächst der verwendete Kontext:
+Der Kontext:
 
 ~~~~~  {#person_ex_context .json}
 {

@@ -12,52 +12,7 @@ Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.
 Die Inhalte einer Sitzung werden durch Tagesordnungspunkte (oparl:AgendaItem)
 abgebildet.
 
-Ein Beispiel in expandierter Form:
-
-~~~~~  {#meeting_ex1 .json}
-{
-    "@type": "http://oparl.org/schema/1.0/Meeting",
-    "@id": "https://oparl.example.org/meeting/281",
-    "name": "4. Sitzung des Finanzausschusses",
-    "start": "2013-01-04T08:00:00+01:00",
-    "end": "2013-01-04T12:00:00+01:00",
-    "location": {
-        "description": {
-            "@value": "Rathaus, Raum 136",
-            "@language": "de"
-        },
-        "description": {
-            "@value": "Town Hall, room 136",
-            "@language": "en"
-        }
-    },
-    "organization": "https://oparl.example.org/organization/34",
-    "participant": [
-        "https://oparl.example.org/person/29",
-        "https://oparl.example.org/person/75",
-        "https://oparl.example.org/person/94"
-    ],
-    "invitation": "https://oparl.example.org/document/586",
-    "resultsProtocol": "https://oparl.example.org/document/628",
-    "verbatimProtocol": "https://oparl.example.org/document/691",
-    "auxiliaryDocument": [
-        "https://oparl.example.org/document/588",
-        "https://oparl.example.org/document/589"
-    ],
-    "agendaItem": {
-        "@list": [
-            "https://oparl.example.org/agendaitem/1045",
-            "https://oparl.example.org/agendaitem/1046",
-            "https://oparl.example.org/agendaitem/1047",
-            "https://oparl.example.org/agendaitem/1048"
-        ]
-    },
-    "created": "2012-01-06T12:01:00+01:00",
-    "modified": "2012-01-08T14:05:27+01:00"
-}
-~~~~~
-
-Das selbe Beispiel in kompakter Form:
+### Beispiel ###
 
 Zunächst der Kontext:
 

@@ -7,8 +7,9 @@ Englische Übersetzungen sind "legislative term" und "electoral term".
 Beide betonen unterschiedliche Aspekte von Wahlperioden
 die mehr oder weniger ausgeprägt sein können.
 
-Ein Beispiel, zunächst der Kontext:
+### Beispiel ###
 
+Ein Kontext:
 
 ~~~~~  {#legislative_term_ex1 .json}
 {

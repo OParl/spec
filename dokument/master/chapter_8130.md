@@ -16,18 +16,7 @@ zu machen.
 Dieser Objekttyp kann für Objekte im Kontext des Objekttyps
 `oparl:Paper` verwendet werden.
 
-Ein einfaches Beispiel:
-
-~~~~~  {#location_ex1 .json}
-{
-    ...
-    "location": {
-        "description": "Honschaftsstraße 312, Köln",
-        "geometry": "POINT (7.03291 50.98249)"
-    },
-    ...
-}
-~~~~~
+### Beispiel ###
 
 Der JSON-LD-Kontext für die Eigenschaft `geometry`:
 
@@ -52,6 +41,8 @@ Und ein Beispiel unter Verwendung des Kontextes:
     ...
 }
 ~~~~~
+
+### Anmerkungen ###
 
 OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des  
 Well-Known-Text-Formats (WKT) der Simple Feature Access Spezifikation^[Simple

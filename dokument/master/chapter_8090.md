@@ -5,7 +5,7 @@ Tagesordnungspunkte sind die Bestandteile von Sitzungen (`oparl:Meeting`).
 Jeder Tagesordnungspunkt widmet sich inhaltlich einem bestimmten Thema,
 wozu in der Regel auch die Beratung bestimmter Drucksachen gehört.
 
-Ein Beispiel in kompakter Form:
+### Beispiel ###
 
 Zunächst ein Kontext:
 

@@ -1,0 +1,293 @@
+{
+    "TODO": "Teilweise mehrere verschiedene Definitionen, Präfixe ergänzen",
+    
+    "@language": "de",
+    "beispielris": "https://oparl.example.org/",
+    "oparl": "http://oparl.org/specs/1.0/schema/",
+    "dc": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "absentParticipant":  {
+        "@id": "oparl:absentParticipant",
+        "@type": "@id"
+    },
+    "accessUrl": {
+        "@id": "oparl:accessUrl",
+        "@type": "@id"
+    },
+    "agendaItem": {
+        "@id": "oparl:agandaItem",
+        "@type": "@id"
+        "@container": "@list",
+    },
+    "agendaItem": {
+        "@id": "oparl:agendaItem",
+        "@type": "@id"
+    },
+    "authoritative": {
+        "@id": "oparl:authoritative",
+        "@type": "xsd:boolean"
+    },
+    "auxiliaryDocument": {
+        "@id": "oparl:auxiliaryDocument",
+        "@type": "@id"
+    },  
+    "body": {
+        "@id": "oparl:body",
+        "@type": "@id"
+    },
+    "classification": {
+        "@type": "@id",
+        "@id": "oparl:classification"
+    },
+    "consultation": {
+        "@id": "oparl:consultation",
+        "@type": "@id"
+    },
+    "contactEmail": {
+        "@id": "foaf:mbox",
+        "@type": "@id"
+    },
+    "contactName": "oparl:contactName",
+    "created": {
+        "@id": "dc:created",
+        "@type": "xsd:dateTime"
+    },
+    "date": {
+        "@id": "oparl:date",
+        "@type": "xsd:dateTime"
+    },
+    "derivativeDocument": {
+        "@id": "prov:hadDerivation",
+        "TODO": invers zu masterDocument, deshalb nicht verwenden
+        "@type": "@id"
+    },  
+    "documentRole": {
+        "@id": "oparl:downloadRole",
+        "@type": "@id"
+    },
+    "downloadUrl": {
+        "@id": "oparl:downloadUrl",
+        "@type": "@id"
+    },
+    "email": {
+        "@id": "foaf:mbox",
+        "@type": "@id"
+    },
+    "end": {
+        "@id": "schmorg:endDate",
+        "@type": "xsd:dateTime"
+    },
+    "endDate": {
+        "@id": "schorg:endDate",
+        "@type": "xsd:dateTime"
+    },
+    "equivalentBody": {
+        "@id": "skos:exactMatch",
+        "@type": "@id"
+    },
+    "familyName": "foaf:familyName",
+    "fileName": "oparl:fileName",
+    "formOfAddress": "oparl:formOfAddress",
+    "geometry": { 
+        "TODO": "wird @id benötigt?"
+        "@type": "ogc:wktLiteral"
+    },
+    "gender": {
+        "@id": "vcard:hasGender",
+        "@type": "@id"
+    },
+    "givenName": "foaf:givenName",
+    "hasMembership": {
+        "@id": "org:hasMembership",
+        "@type": "@id"
+    },
+    "invitation": {
+        "@id": "oparl:invitation",
+        "@type": "@id"
+    },
+    "license": {
+        "@id": "dc:license",
+        "@type": "@id"
+    },
+    "license": {
+        "@id": "oparl:",
+        "@type": "@id"
+    },  
+    "licenseValidSince": {
+        "@id": "oparl:licenseValidSince",
+        "@type": "xsd:date"
+    },
+    "locality": {
+        "@id": "vcard:locality",
+        "@container": "@language"
+    },
+    "location": {
+        "@id": "oparl:location",
+        "@container": "@language"
+        "TODO" "prüfen!",
+        "@type": "@id"
+    },
+    "masterDocument": {
+        "@id": "prov:wasDerivedFrom",
+        "@type": "@id"
+    },
+    "mainDocument": {
+        "@id": "oparl:mainDocument",
+        "@type": "@id"
+    },
+    "meeting": {
+        "@type": "@id",
+        "@id": "oparl:meeting"
+    },
+    "member": {
+        "@type": "@id",
+        "@id": "oparl:member"
+    },
+    "mimeType": "oparl:mimeType",
+    "modified": {
+        "@id": "dc:modified",
+        "@type": "xsd:dateTime"
+    },
+    "name": {
+        "@id": "skos:prefLabel",
+        "@type": "@id"
+    },
+    "name": "rdfs:label",
+    "name": "oparl:name",
+    "name": "foaf:name",
+    "name": {
+        "@id": "oparl:name",
+        "@container": "@language",
+        "TODO": "wirklich?"
+    },
+    "newObjects": {
+        "@id": "oparl:newObjects",
+        "@type": "@id"
+    },
+    "number": "oparl:number",
+    "onBehalfOf": {
+        "@id": "oparl:onBehalfOf",
+        "@type": "@id"
+    },
+    "oparlVersion": {
+        "@id": "oparl:oparlVersion",
+        "@type": "@id"
+    },
+    "organization": {
+        "@id": "oparl:organization",
+        "@type": "@id"
+    },
+    "originator": {
+        "@id": "prov:wasAttributedTo",
+        "@type": "@id"
+    },
+    "paper": {
+        "@id": "oparl:paper",
+        "@type": "@id"
+    },
+    "paperType": {
+        "@id": "oparl:paperType",
+        "@type": "@id"
+    },
+    "participant": {
+        "@id": "oparl:participant",
+        "@type": "@id"
+    },
+    "person": {
+        "@id": "oparl:person",
+        "@type": "@id"
+    },
+    "phone": "foaf:phone",
+    "post": {
+        "@id": "oparl:post",
+        "@type": "@id"
+    },
+    "post": {
+        "@id": "oparl:post",
+        "@container": "@list",
+        "@type": "@id"
+    },
+    "postalCode": "vcard:postal-code",
+    "product": {
+        "@id": "oparl:product",
+        "@type": "@id"
+    },
+    "public": "xsd:boolean",
+    "publishedDate": {
+        "@id": "schorg:datePublished",
+        "TODO": "schorg ?",
+        "@type": "xsd:dateTime"
+    },
+    "reference": "oparl:reference",
+    "relatedPaper": {
+        "@id": "oparl:relatedPaper",
+        "@type": "@id"
+    },
+    "removedObjects": {
+        "@id": "oparl:removedObjects",
+        "@type": "@id"
+    },
+    "result":  {
+        "@id": "oparl:result",
+        "@type": "@id"
+    },
+    "resultsProtocol": {
+        "@id": "oparl:resultsProtocol",
+        "@type": "@id"
+    },
+    "resolution": {
+        "@id": "oparl:resolution",
+        "@type": ["@id", "xsd:string"],
+        "TODO": " Semantik ?!"
+    }
+    "rgs": "oparl:rgs",
+    "role": {
+        "@id": "oparl:role",
+        "@type": "@id"
+    },
+    "shortName": "oparl:shortName",
+    "sha1Checksum": "oparl:sha1Checksum",
+    "shortName": "oparl:shortName",
+    "size": {
+        "@type": "xsd:integer",
+        "TODO": "ausreichend?"
+    },
+    "start": {
+        "@id": "schorg:startDate",
+        "@type": "xsd:dateTime"
+    },
+    "startDate": {
+        "@id": "schorg:startDate",
+        "@type": "xsd:dateTime"
+    },
+    "status": {
+        "@id": "oparl:status",
+        "@type": "@id"
+    },
+    "streetAddress": "vcard:street-address",
+    "system": {
+        "@id": "oparl:system",
+        "@type": "@id"
+    },
+    "text": "oparl:text",
+    "title": "foaf:title",
+    "updatedObjects": {
+        "@id": "oparl:updatedObjects",
+        "@type": "@id"
+    },
+    "vendor": {
+        "@id": "oparl:vendor",
+        "@type": "@id"
+    },
+    "verbatimProtocol": {
+        "@id": "oparl:verbatimProtocol",
+        "@type": "@id"
+    },
+    "website": {
+        "@id": "oparl:website",
+        "@type": "@id"
+    }
+}

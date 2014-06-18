@@ -65,7 +65,7 @@ Zunächst ein Kontext:
         "beispielris:consultation/1235"
     ],
     "result": "beispielris:vocab/decided_modified",
-    "resolutionText": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
+    "resolution": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
     "absentParticipant": "beispielris:person/75",
     "paper": "beispielris:paper/2812",
     "modified": "2012-08-16T14:05:27+02:00"

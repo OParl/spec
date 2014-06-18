@@ -30,7 +30,7 @@ Zunächst ein Kontext:
         "@id": "oparl:reference"
     }
     "publishedDate": {
-        "@id": "schorg:datePublished", // TODO
+        "@id": "schorg:datePublished",
         "@type": "xsd:dateTime"
     },  
     "paperType": {
@@ -50,12 +50,12 @@ Zunächst ein Kontext:
         "@type": "@id"
     },
     "location": {
-        "@id": "oparl:location", TODO prüfen!
+        "@id": "oparl:location",
         "@type": "@id"
     },
     "originator": {
-      "@id": "prov:wasAttributedTo",
-      "@type": "@id"
+        "@id": "prov:wasAttributedTo",
+        "@type": "@id"
     },
     "consultation": {
         "@id": "oparl:consultation",

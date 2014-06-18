@@ -106,7 +106,7 @@ Ein Kontext:
 
 `endDate`
 :   Der Endzeitpunkt der Mitgliedschaft.
-    Abgeleitet von: `schema:validThrough` wie bei Popolo^[<http://popoloproject.com/specs/membership.html>]..
+    Abgeleitet von: `schema:validThrough` wie bei Popolo^[<http://popoloproject.com/specs/membership.html>].
     Typ: `xsd:dateTime`.
     Kardinalität: 0 bis 1.
     OPTIONAL.

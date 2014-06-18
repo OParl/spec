@@ -183,6 +183,6 @@ regelmääßig Abwägungen vorgenommen werden und auch neue Lösungen entwickelt
 werden, die so bisher in keinem RIS umgesetzt sind - aber nach Überzeugung
 der Autoren mit akzeptablem Aufwand umsetzbar sind.
 
-Bei der Erstellung der Spezifikation wurde auch versucht, ein Dokument des W3C zur
-Erstellung hochwertiger Spezifikationen^[QA Framework: Specification Guidelines: <http://www.w3.org/TR/qaframe-spec/>]
+Bei der Erstellung der Spezifikation wurde auch versucht, Dokumente des W3C zur
+Erstellung hochwertiger Spezifikationen^[QA Framework: Specification Guidelines: <http://www.w3.org/TR/qaframe-spec/>, W3C Manual of Style: <http://www.w3.org/2001/06/manual/>]
 zu berücksichtigen.

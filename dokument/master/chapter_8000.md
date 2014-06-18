@@ -25,10 +25,11 @@ als Datentyp erwartet.
 
 JSON erlaubt es grundsätzlich, Eigenschaften mit dem Wert `null` zu versehen.
 Im Rahmen dieser Spezifikation DARF das bei durch einen _Server_ gelieferten 
-Objekten für keine Eigenschaft der Fall sein, auch nicht bei OPTIONALEN oder
-EMPFOHLENEN Eigenschaften. Ein _Client_ MUSS dagegen `null`-Werte tolerieren
-und SOLL diese Eigenschaften nicht anders anzeigen, als nicht vorhandene
-Eigenschaften.
+Objekten nur dann der Fall sein, wenn es gemäß JSON-LD-Spezifikation
+erfolgt. Das gilt auch für OPTIONALE oder EMPFOHLENE Eigenschaften.
+
+Ein _Client_ MUSS `null`-Werte tolerieren und SOLL diese Eigenschaften
+nicht anders anzeigen, als nicht vorhandene Eigenschaften.
 
 Entsprechendes gilt für leere Wertemengen oder -listen, also `[]`, und leere
 Objekte, also `{}`.

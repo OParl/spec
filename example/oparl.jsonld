@@ -38,6 +38,10 @@
         "@id": "oparl:body",
         "@type": "@id"
     },
+    "chairPerson": {
+        "@id": "oparl:chairPerson",
+        "@type": "@id"
+    },
     "classification": {
         "@type": "@id",
         "@id": "oparl:classification"
@@ -246,6 +250,10 @@
     "rgs": "oparl:rgs",
     "role": {
         "@id": "oparl:role",
+        "@type": "@id"
+    },
+    "scribe": {
+        "@id": "oparl:scribe",
         "@type": "@id"
     },
     "shortName": "oparl:shortName",

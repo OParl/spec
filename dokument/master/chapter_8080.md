@@ -33,7 +33,15 @@ Zunächst der Kontext:
     "organization": {
         "@id": "oparl:organization",
         "@type": "@id"
-    }, 
+    },
+    "chairPerson": {
+        "@id": "oparl:chairPerson",
+        "@type": "@id"
+    },
+    "scribe": {
+        "@id": "oparl:scribe",
+        "@type": "@id"
+    },
     "participant": {
         "@id": "oparl:participant",
         "@type": "@id"
@@ -147,11 +155,25 @@ Zunächst der Kontext:
     Kardinalität: 1 bis *.
     ZWINGEND.
 
+`chairPerson`
+:   Vorsitz der Sitzung
+    Typ: `oparl:Person`.
+    FRAGE: Was ist bei Wechsel des Vorsitzes während der Sitzung?
+    Kardinalität: 0 bis 1.
+    EMPFOHLEN.
+
+`scribe`
+:   Schriftführer, Protokollant. 
+    Typ: `oparl:Person`.
+    FRAGE: Können mehrere Personen vorkommen? Was ist bei Wechsel während der Sitzung?
+    Kardinalität: 0 bis 1.
+    EMPFOHLEN.
+
 `participant`
 :   Teilnehmer der Sitzung.
     Bei einer Sitzung in der Zukunft sind dies die geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die
     Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung teilgenommen haben.
-    TODO: besser `attendant` und `ìnvited` ?
+    FRAGE: besser zwei separate Eigenschaften `attendant` und `ìnvited` ?
     Typ: `oparl:Person`.
     Kardinalität: 0 bis *.
     OPTIONAL.

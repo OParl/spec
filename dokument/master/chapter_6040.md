@@ -279,7 +279,7 @@ Präfix       |URL                                    |Bedeutung
 Durch Verwendung dieser URL-Präfixe SOLLEN die entsprechenden URLs wo immer möglich
 abgekürzt werden.
 
-OParl-Server MÜSSEN JSON-LD-Daten in der komprimierten Form
+OParl-Server SOLLEN JSON-LD-Daten in der komprimierten Form
 (engl. *compacted form*) ausgeben.
 
 Das folgende Beispiel zeigt ein JSON-LD-Objekt zur Beschreibung eines

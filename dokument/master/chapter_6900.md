@@ -14,4 +14,10 @@ freie Verwendung in URLs zur Verfügung.
 `enddate`:
 :    Parameter für die Einschränkung einer Abfrage anhand eines Datums bzw.
      einer Zeitangabe.
+`subject`:
+:    Eventuelle Verwendung für Linked Data Fragments
+`predicate`:
+:    Eventuelle Verwendung für Linked Data Fragments
+`object`:
+:    Eventuelle Verwendung für Linked Data Fragments
 

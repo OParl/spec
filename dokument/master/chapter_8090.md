@@ -61,10 +61,7 @@ Zunächst ein Kontext:
     "number": "10.1",
     "name": "Satzungsänderung für Ausschreibungen",
     "public": true,
-    "consultation": [
-        "beispielris:consultation/1034",
-        "beispielris:consultation/1235"
-    ],
+    "consultation": "beispielris:consultation/1034",
     "result": "beispielris:vocab/decided_modified",
     "resolution": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
     "absentParticipant": "beispielris:person/75",

@@ -91,11 +91,11 @@ die Eigenschaft `paper` bzw. `meeting` angezeigt.
 Mehrere Objekte vom Typ `oparl:File` können mit einander in direkter
 Beziehung stehen, wenn sie den selben Inhalt in unterschiedlichen
 technischen Formaten wiedergeben. Hierfür werden die Eigenschaften
-`masterDocument` bzw. `derivativeDocuments` eingesetzt. Das oben angezeigte
+`masterDocument` bzw. `derivativeDocument` eingesetzt. Das oben angezeigte
 Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der
 Eigenschaft `mimeType`) und zeigt außerdem über die Eigenschaft 
 `masterDocument` an, von welcher anderen Datei es abgeleitet wurde.
-Umgekehrt KANN über die Eigenschaft `derivativeDocuments` angezeigt
+Umgekehrt KANN über die Eigenschaft `derivativeDocument` angezeigt
 werden, welche Ableitungen einer Datei existieren.
 
 ### Eigenschaften ###
@@ -200,7 +200,7 @@ werden, welche Ableitungen einer Datei existieren.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
-`derivativeDocuments`
+`derivativeDocument`
 :   Datei, die von dem aktuellen Objekt abgeleitet wurde. Details dazu in der
     allgemeinen Beschreibung weiter oben.
     TODO: invers zu `masterDocument`. Von der Verwendung

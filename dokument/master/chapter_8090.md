@@ -33,7 +33,8 @@ Zunächst ein Kontext:
     },
     "resolution": {
         "@id": "oparl:resolution",
-        "@type": ["@id", "xsd:string"] TODO Semantik ?!
+        "@type": ["@id", "xsd:string"],
+        "TODO": "Geht so leider nicht. Issue #212"
     }
     "absentParticipant":  {
         "@id": "oparl:absentParticipant",
@@ -119,6 +120,7 @@ Zunächst ein Kontext:
     wurde, kann hier ein Text oder Dokument angegeben werden. Das ist besonders dann in der
     Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag)
     von der Beschlussvorlage abweicht.
+    TODO: Issue #212
     Typ: `oparl:File` | Datentyp `xsd:string`.
     Kardinalität: 0 bis 1.
     OPTIONAL.

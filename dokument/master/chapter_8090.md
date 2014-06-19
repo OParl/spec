@@ -104,6 +104,7 @@ Zunächst ein Kontext:
 :   Beratung, die diesem Tagesordnungspunkt zugewiesen ist.
     Typ: `oparl:Consultation`.
     Kardinalität: 0 bis 1.
+    FRAGE: Wirklich immer nur maximal 1 ?
     EMPFOHLEN.
 
 `result`

@@ -294,11 +294,6 @@
         ]
     },
     "organization": "beispielris:organization/finazausschuss",
-    "participant": [
-        "beispielris:person/29",
-        "beispielris:person/75",
-        "beispielris:person/94"
-    ],
     "invitation": "beispielris:document/586",
     "resultsProtocol": "beispielris:document/628",
     "verbatimProtocol": "beispielris:document/691",

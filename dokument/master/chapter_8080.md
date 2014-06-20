@@ -42,10 +42,6 @@ Zunächst der Kontext:
         "@id": "oparl:scribe",
         "@type": "@id"
     },
-    "participant": {
-        "@id": "oparl:participant",
-        "@type": "@id"
-    },
     "invitation": {
         "@id": "oparl:invitation",
         "@type": "@id"
@@ -95,11 +91,6 @@ Zunächst der Kontext:
         }
     },
     "organization": "beispielris:organization/34",
-    "participant": [
-        "beispielris:person/29",
-        "beispielris:person/75",
-        "beispielris:person/94"
-    ],
     "invitation": "beispielris:document/586",
     "resultsProtocol": "beispielris:document/628",
     "verbatimProtocol": "beispielris:document/691",
@@ -176,7 +167,7 @@ Zunächst der Kontext:
     FRAGE: besser zwei separate Eigenschaften `attendant` und `ìnvited` ?
     Typ: `oparl:Person`.
     Kardinalität: 0 bis *.
-    OPTIONAL.
+    DEPRECATED.
 
 `invitation`
 :   Einladungsdokument zur Sitzung.

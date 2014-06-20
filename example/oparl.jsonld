@@ -198,7 +198,8 @@
     },
     "participant": {
         "@id": "oparl:participant",
-        "@type": "@id"
+        "@type": "@id",
+        "status": "DEPRECATED: #214"
     },
     "person": {
         "@id": "oparl:person",

@@ -22,7 +22,7 @@
     },
     "subClassOf": {
       "@id": "rdfs:subClassOf",
-      "@type": "@id",
+      "@type": "@id"
     },
     "subPropertyOf": {
       "@id": "rdfs:subPropertyOf",

@@ -36,10 +36,6 @@ Zunächst ein Kontext:
         "@type": ["@id", "xsd:string"],
         "TODO": "Geht so leider nicht. Issue #212"
     }
-    "absentParticipant":  {
-        "@id": "oparl:absentParticipant",
-        "@type": "@id"
-    },
     "paper":  {
         "@id": "oparl:paper",
         "@type": "@id"
@@ -64,7 +60,6 @@ Zunächst ein Kontext:
     "consultation": "beispielris:consultation/1034",
     "result": "beispielris:vocab/decided_modified",
     "resolution": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
-    "absentParticipant": "beispielris:person/75",
     "paper": "beispielris:paper/2812",
     "modified": "2012-08-16T14:05:27+02:00"
 }
@@ -160,4 +155,4 @@ Zunächst ein Kontext:
     anwesend war(en).
     Typ: `oparl:Person`.
     Kardinalität: 0 bis *.
-    OPTIONAL.
+    DEPRECATED issue #213.

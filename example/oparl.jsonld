@@ -37,7 +37,7 @@
     "absentParticipant":  {
         "@id": "oparl:absentParticipant",
         "@type": "@id",
-        "status": "depracated",
+        "status": "deprecated",
         "comment": "see issue #213"
     },
     "accessUrl": {

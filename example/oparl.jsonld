@@ -8,24 +8,47 @@
     "xsd":         "http://www.w3.org/2001/XMLSchema#",
     "skos":        "http://www.w3.org/2004/02/skos/core#",
     "foaf":        "http://xmlns.com/foaf/0.1/",
+    "vs":          "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+
+    "comment": "rdfs:comment",
+    "label": "rdfs:label",
+    "domain": {
+      "@id": "rdfs:domain",
+      "@type": "@id"
+    },
+    "range": {
+      "@id": "rdfs:range",
+      "@type": "@id"
+    },
+    "subClassOf": {
+      "@id": "rdfs:subClassOf",
+      "@type": "@id",
+    },
+    "subPropertyOf": {
+      "@id": "rdfs:subPropertyOf",
+      "@type": "@id",
+    },
+    "seeAlso": {
+      "@id": "rdfs:seeAlso",
+      "@type": "@id"
+    },
+    "status": "vs:term_status",
 
     "absentParticipant":  {
         "@id": "oparl:absentParticipant",
         "@type": "@id",
-        "status": "DEPRECATED: issue #213"
+        "status": "depracated",
+        "comment": "see issue #213"
     },
     "accessUrl": {
         "@id": "oparl:accessUrl",
         "@type": "@id"
     },
     "agendaItem": {
+        "comment": "TODO: Prüfen ob mit oder ohne @list",
         "@id": "oparl:agandaItem",
         "@type": "@id"
         "@container": "@list",
-    },
-    "agendaItem": {
-        "@id": "oparl:agendaItem",
-        "@type": "@id"
     },
     "authoritative": {
         "@id": "oparl:authoritative",
@@ -66,8 +89,9 @@
     },
     "derivativeDocument": {
         "@id": "prov:hadDerivation",
-        "TODO": "invers zu masterDocument, deshalb nicht verwenden"
-        "@type": "@id"
+        "@type": "@id",
+        "status": "deprecated",
+        "comment": "TODO: invers zu masterDocument, deshalb nicht verwenden"
     },  
     "documentRole": {
         "@id": "oparl:downloadRole",
@@ -97,7 +121,7 @@
     "fileName": "oparl:fileName",
     "formOfAddress": "oparl:formOfAddress",
     "geometry": { 
-        "TODO": "wird @id benötigt?"
+        "comment": "TODO: wird @id benötigt?"
         "@type": "ogc:wktLiteral"
     },
     "gender": {
@@ -130,9 +154,9 @@
         "@container": "@language"
     },
     "location": {
+        "comment": "TODO: prüfen!",
         "@id": "oparl:location",
         "@container": "@language"
-        "TODO": "prüfen!",
         "@type": "@id"
     },
     "masterDocument": {
@@ -157,16 +181,9 @@
         "@type": "xsd:dateTime"
     },
     "name": {
-        "@id": "skos:prefLabel",
-        "@type": "@id"
-    },
-    "name": "rdfs:label",
-    "name": "oparl:name",
-    "name": "foaf:name",
-    "name": {
         "@id": "oparl:name",
         "@container": "@language",
-        "TODO": "wirklich?"
+        "comment": "TODO: @language ?; rdfs:label, oparl:name, foaf:name oder skos:prefLabel ?"
     },
     "newObjects": {
         "@id": "oparl:newObjects",
@@ -200,7 +217,8 @@
     "participant": {
         "@id": "oparl:participant",
         "@type": "@id",
-        "status": "DEPRECATED: #214"
+        "status": "deprecated",
+        "comment": "See issue #214"
     },
     "person": {
         "@id": "oparl:person",
@@ -224,7 +242,7 @@
     "public": "xsd:boolean",
     "publishedDate": {
         "@id": "schorg:datePublished",
-        "TODO": "schorg ?",
+        "comment": "TODO: schorg ?",
         "@type": "xsd:dateTime"
     },
     "reference": "oparl:reference",
@@ -247,7 +265,8 @@
     "resolution": {
         "@id": "oparl:resolution",
         "@type": ["@id", "xsd:string"],
-        "TODO": "Semantik ?!"
+        "status": "unstable",
+        "comment": "TODO: Konflikt mit OWL DL ?"
     }
     "rgs": "oparl:rgs",
     "role": {
@@ -263,7 +282,7 @@
     "shortName": "oparl:shortName",
     "size": {
         "@type": "xsd:integer",
-        "TODO": "ausreichend?"
+        "comment": "TODO: Wertebereich ausreichend?"
     },
     "start": {
         "@id": "schorg:startDate",

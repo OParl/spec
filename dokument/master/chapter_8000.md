@@ -8,6 +8,8 @@ diese Objekttypen haben dürfen und müssen. Darüber hinaus ist im Schema
 auch festgelegt, in welcher Beziehung verschiedene Objekttypen zu
 einander stehen.
 
+![OParl Objekttypen: Ein Überblick](images/objekttypen_graph.png)
+
 
 Übergreifende Aspekte
 ---------------------

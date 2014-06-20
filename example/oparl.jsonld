@@ -26,7 +26,7 @@
     },
     "subPropertyOf": {
       "@id": "rdfs:subPropertyOf",
-      "@type": "@id",
+      "@type": "@id"
     },
     "seeAlso": {
       "@id": "rdfs:seeAlso",
@@ -47,8 +47,8 @@
     "agendaItem": {
         "comment": "TODO: Prüfen ob mit oder ohne @list",
         "@id": "oparl:agandaItem",
-        "@type": "@id"
-        "@container": "@list",
+        "@type": "@id",
+        "@container": "@list"
     },
     "authoritative": {
         "@id": "oparl:authoritative",
@@ -122,7 +122,7 @@
     "fileName": "oparl:fileName",
     "formOfAddress": "oparl:formOfAddress",
     "geometry": { 
-        "comment": "TODO: wird @id benötigt?"
+        "comment": "TODO: wird @id benötigt?",
         "@type": "ogc:wktLiteral"
     },
     "gender": {
@@ -158,7 +158,7 @@
         "status": "unstable",
         "comment": "TODO: prüfen!",
         "@id": "oparl:location",
-        "@container": "@language"
+        "@container": "@language",
         "@type": "@id"
     },
     "masterDocument": {
@@ -269,7 +269,7 @@
         "@type": ["@id", "xsd:string"],
         "status": "unstable",
         "comment": "TODO: Konflikt mit OWL DL"
-    }
+    },
     "rgs": "oparl:rgs",
     "role": {
         "@id": "oparl:role",

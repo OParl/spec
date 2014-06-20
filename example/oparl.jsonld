@@ -131,6 +131,8 @@
     },
     "givenName": "foaf:givenName",
     "hasMembership": {
+        "status": "unstable",
+        "comment": "TODO: Siehe Issue #175",
         "@id": "org:hasMembership",
         "@type": "@id"
     },
@@ -139,6 +141,7 @@
         "@type": "@id"
     },
     "license": {
+        "status": "unstable",
         "comment": "TODO: dc:license oder oparl:license ?",
         "@id": "dc:license",
         "@type": "@id"
@@ -152,6 +155,7 @@
         "@container": "@language"
     },
     "location": {
+        "status": "unstable",
         "comment": "TODO: prüfen!",
         "@id": "oparl:location",
         "@container": "@language"
@@ -179,6 +183,7 @@
         "@type": "xsd:dateTime"
     },
     "name": {
+        "status": "unstable",
         "@id": "oparl:name",
         "@container": "@language",
         "comment": "TODO: @language ?; rdfs:label, oparl:name, foaf:name oder skos:prefLabel ?"
@@ -199,7 +204,7 @@
     "organization": {
         "@id": "oparl:organization",
         "@type": "@id",
-        "comment": "TODO: org:organization hat Domain org:Membership, ist das ein Problem?",
+        "comment": "TODO: org:organization hat Domain org:Membership, ist das ein Problem?; oparl:Person Issue #175",
         "subPropertyOf": "org:organization"
     },
     "originator": {
@@ -263,7 +268,7 @@
         "@id": "oparl:resolution",
         "@type": ["@id", "xsd:string"],
         "status": "unstable",
-        "comment": "TODO: Konflikt mit OWL DL ?"
+        "comment": "TODO: Konflikt mit OWL DL"
     }
     "rgs": "oparl:rgs",
     "role": {

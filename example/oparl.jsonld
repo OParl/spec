@@ -1,14 +1,14 @@
 {
-    "TODO": "Teilweise mehrere verschiedene Definitionen, Präfixe ergänzen",
-    
     "@language": "de",
     "beispielris": "https://oparl.example.org/",
     "oparl":       "http://oparl.org/specs/1.0/schema/",
     "dc":          "http://purl.org/dc/terms/",
+    "rdf":         "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs":        "http://www.w3.org/2000/01/rdf-schema#",
     "xsd":         "http://www.w3.org/2001/XMLSchema#",
+    "vs":          "http://www.w3.org/2003/06/sw-vocab-status/ns#",
     "skos":        "http://www.w3.org/2004/02/skos/core#",
     "foaf":        "http://xmlns.com/foaf/0.1/",
-    "vs":          "http://www.w3.org/2003/06/sw-vocab-status/ns#",
 
     "comment": "rdfs:comment",
     "label": "rdfs:label",

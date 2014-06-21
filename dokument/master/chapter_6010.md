@@ -72,6 +72,11 @@ Ausgaben des Servers sollten so beschaffen sein, dass sie für menschliche Nutze
 weitgehend selbsterklärend sein können. Dies betrifft besonders die Benennung von
 Objekten und Objekteigenschaften.
 
+Aber auch für die maschinelle Verarbeitung der Daten durch Clients kann die
+Selbstbeschreibung wichtig sein. Dies stellt allerdings erhöhte Anforderungen
+an die verwendeten Datenformate, da dafür formalisierte semantische
+Informationen enthalten sein müssen.
+
 Um den Kreis der Entwicklerinnen und Entwickler, die mit einer OParl-API arbeiten
 können, nicht unnötig einzuschränken, wird hierbei grundsätzlich auf englischsprachige
 Begrifflichkeiten gesetzt.

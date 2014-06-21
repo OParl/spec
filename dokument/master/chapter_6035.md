@@ -20,10 +20,7 @@ beschrieben^[RFC 3986: <http://tools.ietf.org/html/rfc3986>]. Darauf aufbauend s
 hier die Bestandteile einer beispielhaften URL mit den Bezeichnungen beschriftet, 
 mit denen sie in diesem Dokument benannt werden:
 
-    https://refserv.oparl.org/foo/bar/?skip=234
-    \___/   \_______________/\_______/ \______/
-      |         |                |        |
-    Schema     Host             Pfad  Query-String
+![Benennung von URL-Bestandteilen](images/url.png)
 
 Der optionale _Query-String_ besteht dabei aus beliebig vielen _Query-Parametern_, die
 jeweils einen Namen (links des Gleichheitszeichens) und einen Wert haben können.

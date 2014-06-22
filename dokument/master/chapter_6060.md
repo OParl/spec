@@ -245,6 +245,7 @@ werden:
 {
     "@type": "oparl:System",
     "@id": "https://oparl.example.org/",
+
     "body": [
         "https://oparl.example.org/bodies/1",
         "https://oparl.example.org/bodies/2"
@@ -257,19 +258,39 @@ Diese Listenausgabe direkt im Objekt ist nur zu empfehlen, wenn die Anzahl der
 Einträge klein (weniger als 100 Einträge) ist. Sind mehr Einträge zu erwarten,
 SOLL die entsprechende Liste über eine eigene URL angeboten werden.
 
-Das folgende Beispiel verdeutlicht, wie dies die Eigenschaft `bodies` am 
-vorangegangenen Beispiel beeinflusst:
+Das folgende Beispiel verdeutlicht, wie die Ausgabe des vorangegangenen
+Beispiel dann aussieht. Diese Konstruktion wurde durch
+das Hydra Projekt erarbeitet^[<https://www.w3.org/community/hydra/wiki/Collection_Design>]:
 
-~~~~~  {#objektlisten_ex6 .json}
+~~~~~  {#objektlisten_ex7 .json}
 {
     "@type": "oparl:System",
     "@id": "https://oparl.example.org/",
-// TODO hier wird noch eine Indirektionseigenschaft benötigt.
-    "body": "https://oparl.example.org/bodies/"
+
+    "hydra:hasCollection": {
+        "@id": "https://oparl.example.org/bodies/",
+        "@type": "hydra:Collection",
+        "hydra:manages": {
+            "hydra:property": "body",
+            "hydra:subject": "https://oparl.example.org/"
+        }
+    },
     ...
 }
 ~~~~~
 
-Statt einer JSON-Liste ist der Wert der Eigenschaft nun eine einzige URL.^[Wie
+Die Konstruktion sieht auf den ersten Blick möglicherweise unnötig
+komplex aus. Dies ist jedoch u.a. ein Ergebnis davon, dass die semantischen
+Informationen so auch maschinenlesbar sind.
+
+"hydra:property" hat als Wert den Namen der Eigenschaft, die
+auf eine Liste verweisen soll.
+
+Der Wert der `subject`-Eigenschaft muss identisch zum Identifikator
+des äußeren Objekts (also des "Subjekts") sein. Dass
+"https://oparl.example.org/" an zwei Stellen auftritt ist deshalb
+zwingend.
+
+"https://oparl.example.org/bodies/" verweist auf eine Objekt-Liste.^[Wie
 in vielen anderen Fällen ist diese URL hier wieder nur beispielhaft. Die
 tatsächliche Gestaltung des Pfads bestimmt der Server-Implementierer.]

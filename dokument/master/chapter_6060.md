@@ -281,7 +281,7 @@ das Hydra Projekt erarbeitet^[<https://www.w3.org/community/hydra/wiki/Collectio
 
 Die Konstruktion sieht auf den ersten Blick möglicherweise unnötig
 komplex aus. Dies ist jedoch u.a. ein Ergebnis davon, dass die semantischen
-Informationen so auch maschinenlesbar sind.
+Informationen so auch maschinenlesbar sind^[Eine Darstellung der Problematik: <https://www.w3.org/community/hydra/wiki/Avoid_that_collections_%22break%22_relationships#Problem_description>].
 
 "hydra:property" hat als Wert den Namen der Eigenschaft, die
 auf eine Liste verweisen soll.

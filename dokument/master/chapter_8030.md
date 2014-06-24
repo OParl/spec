@@ -13,7 +13,7 @@ Ein Kontext:
 ~~~~~  {#system_ex_context .json}
 {
     "@language": "de",
-    "beispielris": "https://oparl.eispielris.de/",
+    "beispielris": "https://oparl.beispielris.de/",
     "oparl": "http://oparl.org/specs/1.0/schema/",
     "dc": "http://purl.org/dc/terms/",
     "foaf": "http://xmlns.com/foaf/0.1/",

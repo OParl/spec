@@ -51,6 +51,7 @@ Ein Kontext:
     "person": "beispielris:people/862",
     "organization": "beispielris:organizations/5",
     "role": "beispielris:vocab/chair",
+    "votingRight": true,
     "startDate": "2013-12-03T16:30:00+01:00"
 ...
 }
@@ -94,6 +95,12 @@ Ein Kontext:
     Da eine solche Person sich selbst "entsendet" hat, SOLL in dem Fall hier der
     selbe Wert angegeben werden wie bei der Eigenschaft `person`.
     Typ: `oparl:Organization` | `oparl:Person`.
+    Kardinalität: 0 bis 1.
+    OPTIONAL.
+
+`votingRight`
+:   Gibt an, ob die Person in der Gruppierung stimmberechtites Mitglied ist.
+    Typ: `boolean`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 

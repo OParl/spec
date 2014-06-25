@@ -1,11 +1,7 @@
 oparl:LegislativeTerm {#oparl_legislative_term}
 ---------------------
 
-Wahlperioden
-
-Englische Übersetzungen sind "legislative term" und "electoral term".
-Beide betonen unterschiedliche Aspekte von Wahlperioden
-die mehr oder weniger ausgeprägt sein können.
+Dieser Objekttyp dient der Beschreibung einer Wahlperiode.
 
 ### Beispiel ###
 
@@ -45,7 +41,7 @@ Ein Kontext:
 ### Eigenschaften
 
 `name`
-:   Name der Wahlperiode.
+:   Nutzerfreundliche Bezeichnung der Wahlperiode.
     Typ: `xsd:string`.
     Kardinalität: 1.
     ZWINGEND.

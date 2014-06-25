@@ -11,9 +11,6 @@ hinaus hält der XÖV-Standard ein XML-Schema für natürliche Personen bereit.
 Für `oparl:Person` wurde daraus, und basierend auf dem Input der OParl-Stakeholder,
 eine Auswahl von Eigenschaften zusammengestellt.
 
-TODO: für Personennamen wird m Normalfall keine Mehrsprachigkeit benötigt. Dies im
-Kontext berücksichtigen. Dies spricht auch für je einen Kontext pro Klasse.
-
 ### Beispiel ###
 
 Der Kontext:

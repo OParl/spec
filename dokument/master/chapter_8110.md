@@ -226,8 +226,9 @@ werden, welche Ableitungen einer Datei existieren.
     OPTIONAL.
 
 `keyword`
-:   Schlagwort. Hat allgemeinere Bedeutung als `documentRole`.
-    Siehe dazu [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
-    Typ: `skos:Concept`.
+:   Schlagworte. Diese Eigenschaft funktioniert wie in 
+    [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben 
+    entweder als URL zu einem `skos:Concept` oder als String.
+    Typ: Liste von Strings oder URLs zu `skos:Concept` Objekten.
     Kardinalität: 0 bis *.
     OPTIONAL.

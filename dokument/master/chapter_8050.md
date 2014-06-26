@@ -77,15 +77,6 @@ Der Kontext:
     Kardinalität: 1.
     ZWINGEND.
 
-`meeting`
-:   Sitzungen dieser Gruppierung. Invers zur
-    Eigenschaft `organization` der Klasse `oparl:Meeting`. Da die Anzahl der
-    Sitzungen stetig wachsen kann, wird EMPFOHLEN, die Liste unter
-    einer eigenen URL auszugeben und damit Paginierung zu ermöglichen.
-    Typ: `oparl:Meeting`.
-    Kardinalität: 0 bis *.
-    EMPFOHLEN.
-
 `name`
 :   Offizielle (lange) Form des Namens der Gruppierung.
     Typ: Datentyp `xsd:string`.
@@ -97,6 +88,17 @@ Der Kontext:
     Typ: Liste der URLs von `oparl:Membership` Objekten.
     Kardinalität: 0 bis *.
     ZWINGEND.
+
+`meeting`
+:   Sitzungen dieser Gruppierung. Invers zur
+    Eigenschaft `organization` der Klasse `oparl:Meeting`. Da die Anzahl der
+    Sitzungen stetig wachsen kann, wird EMPFOHLEN, die Liste über
+    eine eigene URL verfügbar zu machen und damit Paginierung sowie die Filterung
+    mittels startDate und endDate Parametern zu ermöglichen.
+    Typ: Liste mit URLs von Objekten des Typs `oparl:Meeting`.
+    Kardinalität: 0 bis *.
+    ZWINGEND.
+
 `shortName`
 :   Der Name der Gruppierung als Kurzform.
     Typ: Datentyp `xsd:string`.

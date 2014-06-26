@@ -1,5 +1,4 @@
-Einleitung:wq
-
+Einleitung
 ==========
 
 Dieses Dokument enthält die Spezifikation des OParl 

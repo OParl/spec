@@ -15,8 +15,8 @@ abgebildet.
 
 ~~~~~  {#meeting_ex2 .json}
 {
-    "type": "http://oparl.org/schema/1.0/Meeting",
     "id": "https://oparl.example.org/meeting/281",
+    "type": "http://oparl.org/schema/1.0/Meeting",
     "name": "4. Sitzung des Finanzausschusses",
     "start": "2013-01-04T08:00:00+01:00",
     "end": "2013-01-04T12:00:00+01:00",

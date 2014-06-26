@@ -140,10 +140,3 @@ Zunächst ein Kontext:
     Typ: Datentyp `xsd:dateTime`.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
-
-`absentParticipant`
-:   Person(en), die bei der Behandlung dieses Tagesordnungspunkts nicht
-    anwesend war(en).
-    Typ: `oparl:Person`.
-    Kardinalität: 0 bis *.
-    DEPRECATED issue #213.

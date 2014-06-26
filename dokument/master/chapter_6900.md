@@ -14,6 +14,9 @@ freie Verwendung in URLs zur Verfügung.
 `enddate`:
 :    Parameter für die Einschränkung einer Abfrage anhand eines Datums bzw.
      einer Zeitangabe.
+`listformat`:
+:    Parameter zur Steuerung der Listenausgabe.
+     Siehe dazu: [Objektlisten: Kompakte und vollständige Form](#objektlisten_listformat)
 `subject`:
 :    Eventuelle Verwendung für Linked Data Fragments
 `predicate`:

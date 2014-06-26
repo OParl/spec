@@ -10,61 +10,46 @@ des W3C entnommen. Quelle: The Organization Ontology, W3C Recommendation
 wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
 `classification`.]
 
+**Beispiel 1**
 
-### Beispiel ###
-
-Der Kontext:
-
-~~~~~
-    "body": {
-        "@id": "oparl:body",
-        "@type": "@id"
-    },
-    "shortName": {
-        "@id": "oparl:shortName",
-        "@type": "xsd:string"
-    },
-    "name": {
-        "@id": "oparl:name",
-        "@type": "xsd:string"
-    },
-    "post": {
-        "@id": "oparl:post",
-        "@container": "@list",
-        "@type": "@id"
-    },
-    "member": {
-        "@id": "oparl:member",
-        "@type": "@id"
-    },
-    "classification": {
-        "@id": "oparl:classification",
-        "@type": "@id"
-    },
-    "modified": {
-        "@id": "dc:modified",
-        "@type": "xsd:dateTime"
-    }   
-~~~~~
-
-~~~~~  {#organization_ex2 .json}
+~~~~~  {#organization_ex1 .json}
 {
-    "@context": "https://oparl.example.org/Pfad/zum/Kontext/organization.jsonld",
-    "@type": "oparl:Organization",
-    "@id": "beispielris:organization/34",
-    "body": "0",
-    "shortName": "Finanzausschuss",
+    "id": "https://oparl.example.org/organization/34",
+    "type": "http://oparl.org/schema/1.0/Organization",
+    "body": "https://oparl.example.org/bodies/1",
     "name": "Ausschuss für Haushalt und Finanzen",
+    "shortName": "Finanzausschuss",
     "post": [
-        "beispielris:post/chairperson",
-        "beispielris:post/deputyChairperson"
+        "https://oparl.example.org/post/chairperson",
+        "https://oparl.example.org/post/deputyChairperson"
     ],
+    "meeting": "https://oparl.example.org/meetings_for_org/34",
     "membership": [
         "https://oparl.example.org/memberships/27",
         "https://oparl.example.org/memberships/48",
         "https://oparl.example.org/memberships/57"
     ],
-    "classification": "beispielris:vocab/finance",
+    "classification": "https://oparl.example.org/vocab/finance",
+    "keyword": [
+        "finanzen",
+        "haushalt"
+    ]
+    "created": "2012-07-16T16:01:44+02:00",
+    "startDate": "2012-07-17T00:00:00+02:00",
+    "modified": "2012-08-16T14:05:27+02:00"
+}
+~~~~~
+
+**Beispiel 2**
+
+~~~~~  {#organization_ex1 .json}
+{
+    "id": "https://oparl.example.org/organization/34",
+    "type": "http://oparl.org/schema/1.0/Organization",
+    "body": "https://oparl.example.org/bodies/1",
+    "name": "Ausschuss für Haushalt und Finanzen",
+    "meeting": "https://oparl.example.org/meetings_for_org/34",
+    "membership": "https://oparl.example.org/meetings_for_org/34",
     "modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
@@ -73,7 +58,7 @@ Der Kontext:
 
 `body`
 :   Körperschaft, zu der diese Gruppierung gehört.
-    Typ: `oparl:Body`.
+    Typ: URL eines `oparl:Body` Objekts.
     Kardinalität: 1.
     ZWINGEND.
 
@@ -140,8 +125,8 @@ Der Kontext:
     "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat". Die Angabe soll
     möglichst präzise erfolgen. So ist die Angabe "Hauptausschuss" präziser als
     "Ausschuss". Im Vokabular SOLL dann dieses Verhältnis zwischen "Ausschuss" und
-    "Hauptausschuss" kodiert sein ("beispielris:hautausschuss skos:broader
-    beispielris:ausschuss"). Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
+    "Hauptausschuss" kodiert sein ("https://oparl.example.org/hautausschuss skos:broader
+    https://oparl.example.org/ausschuss"). Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
     Typ: `skos:Concept`.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.

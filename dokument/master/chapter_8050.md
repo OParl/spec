@@ -3,12 +3,13 @@ oparl:Organization (Gruppierung)  {#oparl_organization}
 
 Dieser Objekttyp dient dazu, Gruppierungen von Personen abzubilden,
 die in der parlamentarischen Arbeit eine Rolle spielen. Dazu zählen
-in der Praxis insbesondere Fraktionen und Gremien.
+in der Praxis insbesondere Fraktionen und Gremien.^[Ein Teil der 
+Eigenschaften ist der "Organization" Ontologie (kurz: `org:Organization`)
+des W3C entnommen. Quelle: The Organization Ontology, W3C Recommendation
+16 January 2014, <http://www.w3.org/TR/vocab-org/>. Deren Bezeichnungen
+wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
+`classification`.]
 
-Ein Teil der Eigenschaften ist der "Organization" Ontologie des W3C entnommen
-(kurz: `org:Organization`)^[The Organization Ontology, W3C Recommendation 16 January 2014,
-http://www.w3.org/TR/vocab-org/]. Deren Bezeichnungen wurden deshalb beibehalten.
-Das betrifft z.B. die Verwendung von `classification`.
 
 ### Beispiel ###
 

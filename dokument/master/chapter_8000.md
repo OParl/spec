@@ -104,19 +104,6 @@ Im JSON-LD Kontext von OParl ist der Präfix `xsd` so spezifiziert, dass
 Datums- und Zeittyp durch `xsd:date` bzw. `xsd:dateTime` abgekürzt werden 
 können.
 
-### Mehrsprachigkeit
-
-Für Texte in OParl-Objekten ist durchgehend vorgesehen, dass diese 
-mehrsprachig sein können. JSON-LD sieht das Schlüsselwort
-`@language` vor, um zu einem Attribut mehrere Werte in bestimmten
-Sprachen zu definieren. Diesen Mechanismus SOLLEN Server-Implementierer
-nutzen, um Mehrsprachigkeit von Inhalten zu realisieren.
-
-In den von OParl bereitgestellten JSON-LD-Kontexten ist die deutsche Sprache
-(Kürzel `de`) für sämtliche Texteigenschaften voreingestellt. Das `@language`
-Stichwort SOLL daher nur dann eingesetzt werden, wenn ein Inhalt nicht
-deutschsprachig ist.
-
 ### Vokabulare zur Klassifizierung  {#vokabulare_klassifizierung}
 
 Einige Objekttypen besitzen Eigenschaften zum Zweck der Klassifizierung von Objekten.

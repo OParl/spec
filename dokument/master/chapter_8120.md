@@ -54,17 +54,16 @@ bezeichnet wird.
 :   Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst 
     wird (`true`) wird oder nicht (`false`).
     Typ: Boolean.
-    Kardinalität: 1.
+    Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `role`
-:   Rolle oder Funktion der Beratung. Zum Beispiel Anhörung (hearing), Entscheidung (decision), 
-    Kenntnisnahme (notice), Vorberatung (counseling) usw. Es wird empfohlen in den URLs entsprechende englische
-    Bestandteile zu verwenden. Die Rollenobjekte haben nur eine festgelegte Eigenschaft: `skos:prefLabel` für den Namen.
-    In einer zukünftigen Version von OParl können gegebenenfalls die am stärksten benötigten Rollen
-    standardisiert werden.
-    Typ: `skos:Concept`.
-    Kardinalität: 1.
+:   Rolle oder Funktion der Beratung. Zum Beispiel Anhörung, Entscheidung, 
+    Kenntnisnahme, Vorberatung usw. Diese Eigenschaft funktioniert wie in 
+    [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben 
+    entweder als URL zu einem `skos:Concept` oder als String.
+    Typ: String oder URL eines `skos:Concept` Objekts.
+    Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `keyword`

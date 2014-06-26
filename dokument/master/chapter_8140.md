@@ -51,9 +51,10 @@ inne hat, beispielsweise den Vorsitz einer Fraktion.
 
 `role`
 :   Rolle der Person für die Gruppierung. Kann genutzt werden, um verschiedene
-    Arten von Mitgliedschaften zum Beispiel in Gremien zu unterscheiden. Diese 
-    Eigenschaft funktioniert wie in (TODO: Klassifizierungs-Eigenschaften) 
-    beschrieben entweder als URL zu einem skos:Concept oder als String. Der
+    Arten von Mitgliedschaften zum Beispiel in Gremien zu unterscheiden. Diese
+    Eigenschaft funktioniert wie in
+    [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben
+    entweder als URL zu einem skos:Concept oder als String. Der
     String (oder entsprechend das prefLabel des verlinkten Objekts) SOLL in 
     dieser Form sowohl die männliche als auch die weibliche Rollenbezeichnung 
     enthalten: `"Vorsitzender | Vorsitzende"`.

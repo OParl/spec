@@ -77,8 +77,8 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
 
 `agendaItem`
 :   Tagesordnungspunkt, unter dem die Drucksache beraten wird.
-    Typ: `oparl:AgendaItem`.
-    Kardinalität: 0 bis *.
+    Typ: URL eines Objekts vom Typ `oparl:AgendaItem`.
+    Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
 `organization`

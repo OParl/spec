@@ -124,7 +124,7 @@ Zunächst ein Kontext:
 :   Veröffentlichungsdatum der Drucksache.
     Typ: Datentyp `xsd:dateTime` | Datentyp `xsd:date`.
     Kardinalität: 0 bis 1.
-    EMPFOHLEN.
+    ZWINGEND.
 
 `paperType`
 :   Begriff mit einem `skos:prefLabel`-Attribut, dessen Wert eine Zeichenkette

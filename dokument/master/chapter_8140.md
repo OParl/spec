@@ -12,7 +12,7 @@ inne hat, beispielsweise den Vorsitz einer Fraktion.
 ~~~~~  {#membership_ex1 .json}
 {
     "id": "https://oparl.example.org/memberships/385",
-    "type": "http://oparl.org/schema/Membership",
+    "type": "http://oparl.org/schema/1.0/Membership",
     "person": "https://oparl.example.org/people/862",
     "organization": "https://oparl.example.org/organizations/5",
     "role": "http://oparl.org/vocab/membership/role/chair",

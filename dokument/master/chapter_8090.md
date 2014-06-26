@@ -60,7 +60,6 @@ Zunächst ein Kontext:
     "consultation": "beispielris:consultation/1034",
     "result": "beispielris:vocab/decided_modified",
     "resolution": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
-    "paper": "beispielris:paper/2812",
     "modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
@@ -117,14 +116,6 @@ Zunächst ein Kontext:
     Typ: `oparl:File` | Datentyp `xsd:string`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
-
-`paper`
-:   Drucksache. Zwar kann auch das `oparl:Meeting` darauf verweisen, aber hier
-    sind solche Verweise in der Regel präziser, da Drucksachen regelmäßig nur
-    für einen TOP relevant sind und nicht für alle TOPs.
-    Typ: `oparl:Paper`.
-    OPTIONAL.
-    FRAGE: Ist das nicht eine Doppelung mit `consultation`?
 
 `auxiliaryDocument`
 :   Dateianhang zum Tagesordnungspunkt.

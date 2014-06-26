@@ -109,32 +109,61 @@ können.
 Einige Objekttypen besitzen Eigenschaften zum Zweck der Klassifizierung von Objekten.
 Im Einzelnen sind dies:
 
-* die Eigenschaft `paperType` des Objekttyps [`oparl:Paper`](#oparl_paper)
-* die Eigenschaft `documentRole` des Objekttyps [`oparl:File`](#oparl_document)
-* die Eigenschaft `classification` des Objekttyps [`oparl:Organization`](#oparl_organization)
-* die Eigenschaft `result` des Objekttyps [`oparl:AgendaItem`](#oparl_agendaitem)
-* die Eigenschaft `status` des Objekttyps [`oparl:Person`](#oparl_person)
-* die Eigenschaft `title` des Objekttyps [`oparl:Person`](#oparl_person)
-* die Eigenschaft `role` des Objekttyps [`oparl:Membership`](#oparl_membership)
-* die Eigenschaft `keyword` in mehreren Objekttypen
+* `paperType` des Objekttyps [`oparl:Paper`](#oparl_paper)
+* `documentRole` des Objekttyps [`oparl:File`](#oparl_document)
+* `classification` des Objekttyps [`oparl:Organization`](#oparl_organization)
+* `result` des Objekttyps [`oparl:AgendaItem`](#oparl_agendaitem)
+* `formOfAddres` des Objekttyps [`oparl:Person`](#oparl_person)
+* `status` des Objekttyps [`oparl:Person`](#oparl_person)
+* `title` des Objekttyps [`oparl:Person`](#oparl_person)
+* `role` des Objekttyps [`oparl:Membership`](#oparl_membership)
+* `keyword` in mehreren Objekttypen
 
-Diese Eigenschaften können wahlweise mit einfachen Zeichenketten befüllt werden
-(z. B. "Beantwortung einer Anfrage") oder mit URLs zu Begriffen aus
-Vokabularen. Ein Begriff SOLL, wenn er per URL referenziert wird,
-in Form eines `skos:Concept` Objekts vorliegen, das über eine `skos:prefLabel`
-Eigenschaft verfügt. Diese Konstrukte entstammen dem _Simple Knowledge
-Organization System_ (SKOS).^[SKOS: <http://www.w3.org/2009/08/skos-reference/skos.html>]
+Diese Eigenschaften können als Wert wahlweise einfache Zeichenketten (Strings)
+haben, z. B. `"Beantwortung einer Anfrage"` oder aber URLs. Wenn eine URL
+verwendet wird, MUSS diese auf ein JSON-LD-Objekt vom Typ `skos:Concept` zeigen.
+Dieses Objekt MUSS eine Eigenschaft `prefLabel` besitzen, in dem die
+benutzerfreundliche Benennung des Konzepts wiedergegeben wird.^[
+Diese Konstrukte entstammen dem _Simple Knowledge Organization System_ (SKOS):
+<http://www.w3.org/2009/08/skos-reference/skos.html>]
 
+Ein Beispiel für ein `skos:Concept` Objekt, wie es für die Eigenschaft
+`status` eines Objekts vom Typ `oparl:Person` genutzt werden kann:
+
+~~~~~  {#skosconcept_ex1 .json}
+{
+	"@context": {
+		"prefLabel": {
+			"@id": "http://www.w3.org/2004/02/skos/core#prefLabel"
+		}
+	},
+	"@type": "http://www.w3.org/2004/02/skos/core#Concept",
+	"prefLabel": "Ratsherr | Ratsfrau"
+}
+~~~~~
+
+Das Objekt darf unter einer beliebigen URL abglegt werden. Diese kann, muss
+aber nicht Teil des jeweiligen OParl-Systems sein.
+
+Sinnvoll wird die
+Verwendung von URLs zur Klasifizierung, wenn mehrere Systeme auf die selben
+URLs verweisen, damit also ein gemeinsames Vokabular zur Klassifizierung nutzen.
 Die Verwendung eines übergreifenden Vokabulars soll dazu beitragen, dass
 die automatisierte Auswertung von parlamentarischen Informationen über die
 Grenzen einzelner Systeme hinweg deutlich erleichtert wird. So könnte
-beispielsweise eine bestimmte Art von Antrag über Systemgrenzen hinweg als
-solcher erkannt werden, wenn die Systeme auf das selbe `skos:Concept`
+beispielsweise eine bestimmte Art von Drucksache über Systemgrenzen hinweg als
+solche erkannt werden, wenn die Systeme auf das selbe `skos:Concept` Objekt
 verweisen.
 
-Zukünftig ist vorstellbar, dass OParl hierzu Vokabulare mit entsprechenden
+Für die Zukunft ist geplant, dass OParl hierzu Vokabulare mit entsprechenden
 SKOS-Objekten zur Verfügung stellt, die dann von Datenanbietern per URL
 referenziert werden können.
+
+Da die `skos:Concept` Objekte, die über eine URL verlinkt werden, praktisch
+keinen Änderungen unterliegen, SOLLEN Clients diese Ressourcen nur selten
+abrufen und das Ergebnis der Anfragen in ihrem eigenen Cache speichern. Server
+SOLLEN das Caching unterstützen, indem Sie die üblichen Mechanismen von
+HTTP-Headern wie `Expires` und `Max-age` nutzen.
 
 ### Herstellerspezifische Erweiterungen
 

@@ -58,10 +58,10 @@ Der Kontext:
         "beispielris:post/chairperson",
         "beispielris:post/deputyChairperson"
     ],
-    "member": [
-        "beispielris:person/27",
-        "beispielris:person/48",
-        "beispielris:person/57"
+    "membership": [
+        "https://oparl.example.org/memberships/27",
+        "https://oparl.example.org/memberships/48",
+        "https://oparl.example.org/memberships/57"
     ],
     "classification": "beispielris:vocab/finance",
     "modified": "2012-08-16T14:05:27+02:00"
@@ -91,6 +91,11 @@ Der Kontext:
     Kardinalität: 1.
     ZWINGEND.
 
+`membership`
+:   Mitgliedschaften dieser Gruppierung.
+    Typ: Liste der URLs von `oparl:Membership` Objekten.
+    Kardinalität: 0 bis *.
+    ZWINGEND.
 `shortName`
 :   Der Name der Gruppierung als Kurzform.
     Typ: Datentyp `xsd:string`.
@@ -120,16 +125,6 @@ Der Kontext:
     Typ: `oparl:Post`.
     Kardinalität: 0 bis *.
     OPTIONAL.
-
-`member`
-:   Mitglieder dieser Gruppierung. Auch alle Personen mit
-    Positionen in der Gruppierung sind hier anzugeben.
-    In der Eigenschaft member werden nur die Personen aufgezählt, ohne weitere
-    Daten, in den `oparl:Membership`-Objekten sind zusätzliche Eigenschaften
-    wie Start- und Endedatum oder Rolle vorhanden.
-    Typ: `oparl:Person`.
-    Kardinalität: 0 bis *.
-    DEPRECATED.
 
 `subOrganizationOf`
 :   Ggf. URL der übergeordneten Gruppierung.

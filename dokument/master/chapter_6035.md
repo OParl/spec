@@ -61,7 +61,7 @@ kommuniziert beispielsweise direkt die Zugehörigkeit zur Stadt Köln als Betrei
 Bezeichnung "stadtrat" in der Subdomain zeigt den Zweck des Systems allgemein verständlich an.
 Der Host-Name "oparl.stadtrat.stadt-koeln.de" deutet an, dass diese URL zu einer 
 OParl-Schnittstelle zu diesem System gehört. Eine technische Notwendigkeit zur Verwendung einer
-eigenen Domain für OParl besteht jedoch nicht, da JSON-LD Dokumente und HTML-Seiten
+eigenen Domain für OParl besteht jedoch nicht, da JSON-Dokumente und HTML-Seiten
 mittels Content Negotiation über eine gemeinsame Domain ausgeliefert werden können.
 
 Um die Kanonisierung zu gewährleisten, SOLLEN Betreiber alle Möglichkeiten ausschließen,

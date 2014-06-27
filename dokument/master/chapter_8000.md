@@ -140,7 +140,7 @@ Ein Beispiel für ein `skos:Concept` Objekt, wie es für die Eigenschaft
 }
 ~~~~~
 
-Das Objekt darf unter einer beliebigen URL abglegt werden. Diese kann, muss
+Das Objekt darf unter einer beliebigen URL abgelegt werden. Diese kann, muss
 aber nicht Teil des jeweiligen OParl-Systems sein.
 
 Sinnvoll wird die

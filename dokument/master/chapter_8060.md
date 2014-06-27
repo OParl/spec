@@ -61,7 +61,7 @@ wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
     [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben 
     entweder als URL zu einem `skos:Concept` oder als String.
     Der String bzw. `prefLabel` SOLL sowohl die männliche als auch die weibliche Bezeichnung
-    enthalten. Beispiele: `"Herr | Frau"`, `"Ratsherr | Ratsfrau"`.
+    enthalten. Beispiele: "Herr | Frau", "Ratsherr | Ratsfrau".
     Typ: URL eines `skos:Concept` Objekts oder String.
     Kardinalität: 0 bis 1.
     OPTIONAL.

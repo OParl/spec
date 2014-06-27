@@ -120,7 +120,7 @@ wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
     "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat". Die Angabe soll
     möglichst präzise erfolgen. So ist die Angabe "Hauptausschuss" präziser als
     "Ausschuss". Im Vokabular SOLL dann dieses Verhältnis zwischen "Ausschuss" und
-    "Hauptausschuss" kodiert sein ("https://oparl.example.org/hautausschuss skos:broader
+    "Hauptausschuss" kodiert sein ("https://oparl.example.org/hauptausschuss skos:broader
     https://oparl.example.org/ausschuss"). Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
     Typ: `skos:Concept`.
     Kardinalität: 0 bis 1.

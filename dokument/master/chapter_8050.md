@@ -21,7 +21,7 @@ wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
     "shortName": "Finanzausschuss",
     "post": [
         "https://oparl.example.org/post/chairperson",
-        "https://oparl.example.org/post/deputyChairperson"
+        "https://oparl.example.org/post/deputychairperson"
     ],
     "meeting": "https://oparl.example.org/meetings_for_org/34",
     "membership": [
@@ -92,25 +92,20 @@ wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
 
 `post`
 :   Position oder Positionen, die für diese Gruppierung vorgesehen sind.
-    Die Objekte gehören zu der Klasse `org:Post` oder einer ihrer Unterklassen.
-    Die `skos:prefLabel`-Eigenschaften der Objekte SOLLEN sowohl die männliche
+    Diese Eigenschaft funktioniert wie in 
+    [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder
+    als URL zu einem `skos:Concept` oder als String.
+    Die Strings bzw. `prefLabel`-Eigenschaften der Objekte SOLLEN sowohl die männliche
     als auch die weibliche Form enthalten, und zwar in dem Muster
     "männliche Form | weibliche Form" (genau in der Reihenfolge mit einem 
     Leerzeichen vor und nach dem "|"). Wenn sich beide Formen nicht unterscheiden,
     dann DARF die Form nur einmal verwendet werden: "Mitglied" und nicht "Mitglied | Mitglied".
-    Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine
-    Fall-Unterscheidung nach Geschlecht
-    der Personen vornimmt.
-    z. B. "Vorsitzender | Vorsitzende",
-    "1. Stellvertreter | 1. Stellvertreterin",
-    "2. Stellvertreter | 2. Stellvertreterin",
-    "Schriftführer | Schriftführerin",
+    Weitere Beispiele: "Vorsitzender | Vorsitzende", "1. Stellvertreter | 1. Stellvertreterin",
+    "2. Stellvertreter | 2. Stellvertreterin", "Schriftführer | Schriftführerin",
     "Stellvertretender Schriftführer | Stellvertretende Schriftführerin",
-    "Ordentliches Mitglied",
-    "Stellvertretendes Mitglied".
-    Siehe https://github.com/OParl/specs/issues/45
+    "Ordentliches Mitglied", "Stellvertretendes Mitglied".
     TODO: "Ordentliches Mitglied", "Stellvertretendes Mitglied" müssen anders behandelt werden!
-    Typ: `oparl:Post`.
+    Typ: String oder URL zu `skos:Concept` Objekt.
     Kardinalität: 0 bis *.
     OPTIONAL.
 

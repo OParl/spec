@@ -136,9 +136,9 @@ wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
     OPTIONAL.
 
 `hasMembership`
-:   Mitgliedschaft(en) der Person in Gruppierungen (oparl:Organization), z. B. Gremien und
+:   Mitgliedschaften der Person in Gruppierungen, z. B. Gremien und
     Fraktionen.
-    Typ: URL eines `org:Membership` Objekts.
+    Typ: Liste von `org:Membership` Objekten.
     Kardinalität: 0 bis *.
     OPTIONAL.
 

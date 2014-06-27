@@ -107,17 +107,18 @@ und Zeittyp werden entsprechend in diesem Dokument als `xsd:date` bzw.
 Einige Objekttypen besitzen Eigenschaften zum Zweck der Klassifizierung von Objekten.
 Im Einzelnen sind dies:
 
-* `paperType` des Objekttyps [`oparl:Paper`](#oparl_paper)
-* `documentRole` des Objekttyps [`oparl:File`](#oparl_document)
 * `classification` des Objekttyps [`oparl:Organization`](#oparl_organization)
+* `documentRole` des Objekttyps [`oparl:File`](#oparl_document)
+* `formOfAddress` des Objekttyps [`oparl:Person`](#oparl_person)
+* `keyword` in mehreren Objekttypen
+* `paperType` des Objekttyps [`oparl:Paper`](#oparl_paper)
+* `post` des Objekttyps [`oparl:Organization`](#oparl_organization)
 * `result` des Objekttyps [`oparl:AgendaItem`](#oparl_agendaitem)
-* `formOfAddres` des Objekttyps [`oparl:Person`](#oparl_person)
+* `role` des Objekttyps [`oparl:Consultation`](#oparl_consultation)
+* `role` des Objekttyps [`oparl:Membership`](#oparl_membership)
+* `role` des Objekttyps [`oparl:Person`](#oparl_person)
 * `status` des Objekttyps [`oparl:Person`](#oparl_person)
 * `title` des Objekttyps [`oparl:Person`](#oparl_person)
-* `role` des Objekttyps [`oparl:Membership`](#oparl_membership)
-* `keyword` in mehreren Objekttypen
-
-TODO: Liste vervollständigen.
 
 Diese Eigenschaften können als Wert wahlweise einfache Zeichenketten (Strings)
 haben, z. B. `"Beantwortung einer Anfrage"` oder aber URLs. Wenn eine URL

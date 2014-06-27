@@ -79,6 +79,3 @@ Auslassungen vorkommen, die mit `...` gekennzeichnet werden. Darüber hinaus
 werden zugunsten der einfacheren Lesbarkeit Umlaute verwendet, obwohl OParl
 grundsätzlichlich die Verwendung von Unicode-Zeichneketten vorsieht.
 
-In JSON-LD-Beispielen wird der URL-Präfix `beispielris:` genutzt, um die
-Beispiel-URL `https://oparl.example.org/` abzukürzen.
-

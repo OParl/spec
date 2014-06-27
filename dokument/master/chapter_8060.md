@@ -73,14 +73,16 @@ wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
     OPTIONAL.
 
 `gender`
-:   Geschlecht. Zulässige Werte sind `vcard:Female`, `vcard:Male`, `vcard:None`, `vcard:Other` und `vcard:Unknown`.
-    Typ: String im Format (TODO: Entsprechende `vcard:`-Eigenschaft angeben).
+:   Geschlecht. Zulässige Werte sind `vcard:Female`, `vcard:Male`, `vcard:None` und `vcard:Other`.
+    Für den Fall, dass das geschlecht der Person unbekannt ist, SOLL die Eigenschaft nicht
+    ausgegeben werden.
+    Typ: String im Format `vcard:Gender`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `phone`
-:   Telefonnummer mit `tel:` Schema.
-    Typ: String mit "tel:" am Anfang, keine Leerzeichen.
+:   Telefonnummer der Person mit `tel:` Schema, ohne Leerzeichen.
+    Typ: String
     Kardinalität: 0 bis 1.
     OPTIONAL.
 

@@ -135,13 +135,13 @@ wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
 `startDate`
 :   Gründungsdatum der Gruppierung. Kann z. B. das Datum der konstituierenden
     Sitzung sein.
-    Typ:`xsd:date`.
+    Typ: `xsd:date` oder `xsd:dateTime`.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
     
 `endDate`
 :   Datum des letzten Tages der Existenz der Gruppierung.
-    Typ: `xsd:date`.
+    Typ: `xsd:date` oder `xsd:dateTime`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 

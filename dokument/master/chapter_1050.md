@@ -118,6 +118,5 @@ Präfix  |Beschreibung                        |Namespace-URL
 --------|------------------------------------|-------------------------------
 `xsd`   |XML Schema                          |http://www.w3.org/2001/XMLSchema#
 `foaf`  |Friend of a Friend                  |http://xmlns.com/foaf/0.1/
-`dc`    |Dublin Core Metadata Initiative     |http://purl.org/dc/terms/
 `skos`  |Simple Knowledge Organization System|http://www.w3.org/2004/02/skos/core#
 `vcard` |vCard                               |http://www.w3.org/2006/vcard/ns#

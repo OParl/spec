@@ -117,6 +117,8 @@ Im Einzelnen sind dies:
 * `role` des Objekttyps [`oparl:Membership`](#oparl_membership)
 * `keyword` in mehreren Objekttypen
 
+TODO: Liste vervollständigen.
+
 Diese Eigenschaften können als Wert wahlweise einfache Zeichenketten (Strings)
 haben, z. B. `"Beantwortung einer Anfrage"` oder aber URLs. Wenn eine URL
 verwendet wird, MUSS diese auf ein JSON-LD-Objekt^[JSON-LD 1.0:

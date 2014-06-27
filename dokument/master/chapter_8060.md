@@ -74,7 +74,7 @@ wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
 
 `gender`
 :   Geschlecht. Zulässige Werte sind `vcard:Female`, `vcard:Male`, `vcard:None`, `vcard:Other` und `vcard:Unknown`.
-    Typ: String (TODO: Entsprechende `vcard:`-Eigenschaft angeben).
+    Typ: String im Format (TODO: Entsprechende `vcard:`-Eigenschaft angeben).
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
@@ -86,7 +86,7 @@ wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
 
 `email`
 :   E-Mail-Adresse mit `mailto:` Schema.
-    Typ: `foaf:mbox`.
+    Typ: String im Format `foaf:mbox`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 

@@ -65,7 +65,7 @@ der URL des API-Endpunkts des Servers sein.
 :   E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe einer E-Mail-Adresse dient sowohl Nutzerinnen
     wie auch Entwicklerinnen von Clients zur Kontaktaufnahme mit dem
     Betreiber.
-    Typ: E-Mail-Adresse inklusive "mailto:"
+    Typ: String im Format `foaf:mbox`
     Kardinalität: 0 bis 1.
     EMPFOHLEN. 
 

@@ -117,7 +117,7 @@ Parlament an.
     Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft
     und idealerweise das parlamentarische Informationssystem zuständigen Stelle
     ermöglichen.
-    Typ: E-Mail-Adresse inklusive "mailto:".
+    Typ: String im Format `foaf:mbox`.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
 

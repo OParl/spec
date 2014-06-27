@@ -77,6 +77,3 @@ OParl Spezifikation 1.0 Gliederung
     8130 oparl:Location (Ort)
     8140 org:Membership / oparl:Membership (Mitgliedschaft)
     8150 oparl:LegislativeTerm
-9000 Anhang
-    9010 Glossar
-    9020 JSON-LD-Ressourcen auf oparl.org

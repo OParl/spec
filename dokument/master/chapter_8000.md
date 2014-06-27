@@ -39,11 +39,11 @@ enthalten solche Leerkonstruktionen keine verwendbare Information.
 
 ### Kardinalität
 
-Viele Eigenschaften erlauben es, entweder einen einzelnen Wert (z. B. eine Zeichenkette,
-eine URL, eine Zahl) oder alternativ eine Liste mit mehreren Elementen des
-jeweils erlaubten Typs auszugeben. Die entsprechende Regel ist in der Schema-Beschreibung
-unter dem Stichwort *Kardinalität* angegeben. Dabei sind verschiedene Angaben
-zur Eigenschaft möglich:
+Zur expliziten Unterscheidung, ob eine Eigenschaft einen einzelnen Wert
+(z. B. eine Zeichenkette, eine URL, eine Zahl) oder alternativ eine Liste mit
+mehreren Elementen als Wert haben darf, ist in der Schema-Beschreibung 
+zu jeder Eigenschaft die *Kardinalität* angegeben. Dabei sind verschiedene
+Angaben zur Eigenschaft möglich:
 
 * 0 bis 1: OPTIONAL und MUSS NICHT gesetzt sein. Wenn sie gesetzt ist,
   DARF sie genau einen Wert haben.

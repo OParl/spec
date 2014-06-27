@@ -70,7 +70,7 @@ wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
 
 `membership`
 :   Mitgliedschaften dieser Gruppierung.
-    Typ: Liste der URLs von `oparl:Membership` Objekten.
+    Typ: Liste von `oparl:Membership` Objekten.
     Kardinalität: 0 bis *.
     ZWINGEND.
 
@@ -91,8 +91,8 @@ wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
     OPTIONAL.
 
 `post`
-:   Position oder Positionen, die für diese Gruppierung vorgesehen sind.
-    Diese Eigenschaft funktioniert wie in 
+:   Positionen, die für diese Gruppierung vorgesehen sind.
+    Die Werte dieser Eigenschaft funktioniert wie in 
     [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder
     als URL zu einem `skos:Concept` oder als String.
     Die Strings bzw. `prefLabel`-Eigenschaften der Objekte SOLLEN sowohl die männliche
@@ -105,7 +105,7 @@ wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
     "Stellvertretender Schriftführer | Stellvertretende Schriftführerin",
     "Ordentliches Mitglied", "Stellvertretendes Mitglied".
     TODO: "Ordentliches Mitglied", "Stellvertretendes Mitglied" müssen anders behandelt werden!
-    Typ: String oder URL zu `skos:Concept` Objekt.
+    Typ: Liste von Strings oder URLs zu `skos:Concept` Objekten.
     Kardinalität: 0 bis *.
     OPTIONAL.
 

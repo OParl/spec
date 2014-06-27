@@ -20,9 +20,9 @@ abgebildet.
     "name": "4. Sitzung des Finanzausschusses",
     "start": "2013-01-04T08:00:00+01:00",
     "end": "2013-01-04T12:00:00+01:00",
-    "location": {
-        "description": "Rathaus, Raum 136"
-    },
+    "streetAddress": "Musterstraße 5, Raum 136",
+    "postalCode": "11111",
+    "locality": "Musterort",
     "organization": "https://oparl.example.org/organization/34",
     "invitation": [
         "https://oparl.example.org/document/586"
@@ -62,11 +62,29 @@ abgebildet.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
-`location`
-:   Sitzungsort.
-    Typ: Objekt vom Typ `oparl:Location`.
+`streetAddress`
+:   Straße und Hausnummer der Kontakt-Anschrift der Person.
+    Typ: String.
     Kardinalität: 0 bis 1.
-    EMPFOHLEN.
+    OPTIONAL.
+
+`postalCode`
+:   Postleitzahl der Kontakt-Anschrift der Person.
+    Typ: String.
+    Kardinalität: 0 bis 1.
+    OPTIONAL.
+
+`locality`
+:   Ortsangabe der Kontakt-Anschrift der Person.
+    Typ: `vcard:locality`
+    Kardinalität: 0 bis 1.
+    OPTIONAL.
+
+`location`
+:   Sitzungsort in Form von Geodaten.
+    Typ: URL eines `oparl:Location` Objekts.
+    Kardinalität: 0 bis 1.
+    OPTIONAL.
 
 `organization`
 :   Gruppierung der die Sitzung zugeordnet ist. Wenn eine Liste angegeben wird, dann ist

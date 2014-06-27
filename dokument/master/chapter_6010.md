@@ -96,9 +96,6 @@ des OParl-Schemas, etwa um neue Objekttypen, genau so durchgeführt werden, wie 
 um herstellerspezifische Objekttypen. Ein Client muss diese Anteile nicht auswerten, sofern
 sie nicht für die Aufgabe des Clients relevant sind.
 
-Diese angestrebte Erweiterbarkeit wird durch weitgehend durch das [JSON-LD-Format](#jsonld)
-gewährleistet. Es erlaubt die Verflechtung von Objekttypen-Definitionen
-aus verschiedenen Schemata.
 
 ### Browseability/Verlinkung {#browseability_verlinkung}
 
@@ -122,7 +119,9 @@ URLs folgt. Dieses Prinzip wird auch "Follow Your Nose"^[<http://patterns.datain
 ### Linked Data {#linked_data}
 
 Der Begriff "Linked Data" steht für die Beschreibung von Daten in einer Form, die diese 
-über ihren ursprünglichen Kontext hinaus verständlich macht.^[vgl. Bundesministerium des Innern (Herausg.): Open Government Data Deutschland, Seite 433f., 2012 <http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf>]
+über ihren ursprünglichen Kontext hinaus verständlich macht.^[vgl. Bundesministerium 
+des Innern (Herausg.): Open Government Data Deutschland, Seite 433f., 2012 
+<http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf>]
 
 Kern von Linked Data ist die Möglichkeit, alle Bestandteile von Daten in Form von
 Tripeln zu beschreiben, das sind dreiteilige Informationseinheiten aus einem Subjekt, einem
@@ -159,9 +158,11 @@ Partei diese Fraktion gehört. Ebenso finden sich viele inhaltliche Ähnlichkeit
 Gremien wie zum Beispiel Ausschüssen (z. B. Hauptausschuss, Verkehrsausschuss etc.) oder bei
 Arten von Drucksachen (z. B. Anträge, Anfragen, Mitteilungen, Beschlussvorlagen).
 
-OParl lässt in Version 1.0 der Spezifikation noch viele Aufgaben, die die Vereinheitlichung 
-dieses Vokabulars betreffen, offen. Jedoch wird durch die Verwendung von [JSON-LD](#jsonld) als
-Serialisierungsformat der Grundstein für eine Vereinheitlichung im Sinne von Linked Data gelegt.
+Mit der Möglichkeit, Objekte mit Hilfe von URLs zu
+klassifizieren (vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung)), geht
+diese Version von OParl einen ersten Schritt in Richtung Linked Data. Die Aufgabe, ein
+übergreifend nutzbares Vokabular anhand von Anforderungen aus der Praxis zu erstellen,
+kann damit als logischer nächster Schritt in naher Zukunft angegangen werden.
 
 ### Kriterien für die Aufnahme von Klassen und Eigenschaften
 
@@ -184,7 +185,7 @@ Rolle gespielt haben:
 
 Diese Kriterien können je nach Einsatzszenario von sehr unterschiedlichem
 Gewicht sein und sich widersprechen. Bei den Entscheidungen mussten deshalb
-regelmääßig Abwägungen vorgenommen werden und auch neue Lösungen entwickelt
+regelmäßig Abwägungen vorgenommen werden und auch neue Lösungen entwickelt
 werden, die so bisher in keinem RIS umgesetzt sind - aber nach Überzeugung
 der Autoren mit akzeptablem Aufwand umsetzbar sind.
 

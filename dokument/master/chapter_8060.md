@@ -15,11 +15,11 @@ wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
     "familyName": "Mustermann",
     "givenName": "Max",
     "title": [
-        "http://oparl.org/vocab/person/title/prof",
-        "http://oparl.org/vocab/person/title/dr"
+        "https://oparl.example.org/vocab/person/title/prof",
+        "https://oparl.example.org/vocab/person/title/dr"
     ],
     "formOfAddress": "https://oparl.example.org/vocab/foa/ratsmitglied",
-    "gender": "http://oparl.org/vocab/person/gender/male",
+    "gender": "https://oparl.example.org/vocab/person/gender/male",
     "email": "mailto:max@mustermann.de",
     "phone": "tel:+493012345678",
     "streetAddress": "Musterstraße 5",

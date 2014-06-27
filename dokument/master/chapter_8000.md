@@ -36,29 +36,6 @@ Dafür gibt es zwei Gründe. Einerseits wird dadurch die Umgehung des Zwangs zur
 Angabe von Werten bei ZWINGENDEN Eigenschaften ausgeschlossen. Andererseits
 enthalten solche Leerkonstruktionen keine verwendbare Information.
 
-### URLs der Eigenschaften
-
-Jede Eigenschaft ist unter einer URL identifizierbar.
-
-### Verwendung externer Eigenschaften / abgeleitete Eigenschaften
-
-Verschiedene Eigenschaften sind nicht in OParl selbst definiert, sondern
-in anderen externen Vokabularen. Dabei legt die Oparl-Spezifikation jeweils
-fest, ob die Original-Eigenschaft verwendet wird oder ob für OParl eine
-abgeleitete Eigenschaft verwendet wird.
-
-So ist für eine Eigenschaft `classification" von Gruppierungen eine
-Verwendung von `org:classification` ebenso denkbar wir die Verwendung von
-`oparl:classification`. Im zweiten Fall wird die Eigenschaft als
-Untereigenschaft der Ausgangseigenschaft definiert. Die Ausgangseigenschaft
-wird dann jeweils hinter "Abgeleitet von:" angeben.
-
-Auf die Bedeutung dieses Unterschiedes und der Untereigenschafts-Beziehung
-wird an dieser Stelle nicht weiter eingegangen  Stichwort: `owl:subPropertyOf`).
-Unterschiede kann es z.B. bei den Wertebereichen geben.
-
-Der Name der Ausdgangseigenschaft muss nicht übernommen werden.
-In OParl wird aber in der Regel der jeweilige Ausgangsname verwendet.
 
 ### Kardinalität
 

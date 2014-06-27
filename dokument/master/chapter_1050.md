@@ -67,6 +67,7 @@ männliche oder weibliche Varianten gemischt. Es wird also beispielsweise mal
 von einer Nutzerin gesprochen und mal von einem Nutzer. Gemeint sind
 in allen Fällen Personen jeglichen Geschlechts.
 
+
 ### Codebeispiele
 
 Die in diesem Dokument aufgeführten Codebeispiele dienen der Veranschaulichung
@@ -79,3 +80,44 @@ Auslassungen vorkommen, die mit `...` gekennzeichnet werden. Darüber hinaus
 werden zugunsten der einfacheren Lesbarkeit Umlaute verwendet, obwohl OParl
 grundsätzlichlich die Verwendung von Unicode-Zeichneketten vorsieht.
 
+
+### Namespace-Präfixe für Objekt- und Datentypen
+
+Bei der Erwähnung von Objekttypen, die in dieser Spezifikation beschrieben
+werden, wird in der Regel ein Präfix `oparl:` vor den Namen gesetzt, z. B.
+"oparl:Organization". Damit soll verdeutlicht werden, dass dieser Objekttyp
+innerhalb der OParl-Spezifikation beschrieben wird.
+
+Das Präfix `oparl:` steht hierbei für die folgende Namespace-URL:
+
+    http://oparl.org/schema/1.0/
+
+Dadurch kann eine Typenangabe wie `oparl:Organization` eindeutig in die
+folgende URL übersetzt werden:
+
+    http://oparl.org/schema/1.0/Organization
+
+In einigen Fällen nutzt OParl Objekttypen oder Datentypen, die
+in anderen Spezifikationen beschrieben wurden, um so von bereits getaner Arbeit
+und etablierten Standards zu profitieren. Ein Beispiel dafür ist das Datumsformat,
+das in der XML-Schema-Spezifikation beschrieben wird. Der Namespace von
+XML-Schema hat die URL
+
+    http://www.w3.org/2001/XMLSchema
+
+und wird im vorliegenden Dokument mit dem Präfix `xsd:` abgekürzt. Somit ist,
+wenn beispielsweise von der Eigenschaft `xsd:date` die Rede ist, tatsächlich
+diese Namespace-URL gemeint:
+
+    http://www.w3.org/2001/XMLSchema#date
+
+Nachfolgend eine Aufstellung der weiteren in diesem Dokument verwendeten
+Namespace-Präfixe.
+
+Präfix  |Beschreibung                        |Namespace-URL
+--------|------------------------------------|-------------------------------
+`xsd`   |XML Schema                          |http://www.w3.org/2001/XMLSchema#
+`foaf`  |Friend of a Friend                  |http://xmlns.com/foaf/0.1/
+`dc`    |Dublin Core Metadata Initiative     |http://purl.org/dc/terms/
+`skos`  |Simple Knowledge Organization System|http://www.w3.org/2004/02/skos/core#
+`vcard` |vCard                               |http://www.w3.org/2006/vcard/ns#

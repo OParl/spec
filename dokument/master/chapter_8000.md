@@ -119,7 +119,8 @@ Im Einzelnen sind dies:
 
 Diese Eigenschaften können als Wert wahlweise einfache Zeichenketten (Strings)
 haben, z. B. `"Beantwortung einer Anfrage"` oder aber URLs. Wenn eine URL
-verwendet wird, MUSS diese auf ein JSON-LD-Objekt vom Typ `skos:Concept` zeigen.
+verwendet wird, MUSS diese auf ein JSON-LD-Objekt^[JSON-LD 1.0:
+<http://www.w3.org/TR/json-ld/>] vom Typ `skos:Concept` zeigen.
 Dieses Objekt MUSS eine Eigenschaft `prefLabel` besitzen, in dem die
 benutzerfreundliche Benennung des Konzepts wiedergegeben wird.^[
 Diese Konstrukte entstammen dem _Simple Knowledge Organization System_ (SKOS):

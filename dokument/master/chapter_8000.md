@@ -26,10 +26,6 @@ als Datentyp erwartet.
 ### `null`-Werte und "leere" Werte
 
 JSON erlaubt es grundsätzlich, Eigenschaften mit dem Wert `null` zu versehen.
-Im Rahmen dieser Spezifikation DARF das bei durch einen _Server_ gelieferten 
-Objekten nur dann der Fall sein, wenn es gemäß JSON-LD-Spezifikation
-erfolgt. Das gilt auch für OPTIONALE oder EMPFOHLENE Eigenschaften.
-
 Ein _Client_ MUSS `null`-Werte tolerieren und SOLL diese Eigenschaften
 nicht anders anzeigen, als nicht vorhandene Eigenschaften.
 
@@ -100,9 +96,11 @@ ohne zusätzlich auf den Ort einer Sitzung o. ä. Bezug nehmen zu müssen.
 Diese Spezifikationen stützen sich auf RFC 3339^[RFC3339:
 <http://www.ietf.org/rfc/rfc3339.txt>]) und RFC 3339 wiederum auf ISO 8601.
 
-Im JSON-LD Kontext von OParl ist der Präfix `xsd` so spezifiziert, dass 
-Datums- und Zeittyp durch `xsd:date` bzw. `xsd:dateTime` abgekürzt werden 
-können.
+In der vorliegenden Spezifikation verwenden wir den Präfix `xsd`, um
+Eigenschaften aus der XMLSchema-Spezifikation zu referenzieren.^[Der Präfix
+"xsd" steht somit für die URL <http://www.w3.org/2001/XMLSchema#>]. Datums-
+und Zeittyp werden entsprechend in diesem Dokument als `xsd:date` bzw.
+`xsd:dateTime` bezeichnet.
 
 ### Vokabulare zur Klassifizierung  {#vokabulare_klassifizierung}
 

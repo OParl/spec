@@ -26,16 +26,19 @@ als Datentyp erwartet.
 ### `null`-Werte und "leere" Werte
 
 JSON erlaubt es grundsätzlich, Eigenschaften mit dem Wert `null` zu versehen.
-Ein _Client_ MUSS `null`-Werte tolerieren und SOLL diese Eigenschaften
-nicht anders anzeigen, als nicht vorhandene Eigenschaften.
 
-Entsprechendes gilt für leere Wertemengen oder -listen, also `[]`, und leere
-Objekte, also `{}`.
+Clients MÜSSEN eine Eigenschaft mit dem Wert `null` so behandeln, als
+wäre die Eigenschaft nicht im Objekt vorhanden. OParl-Server SOLLEN die
+Ausgabe von Eigenschaften mit dem Wert `null` grundsätzlich vermeiden.
 
-Dafür gibt es zwei Gründe. Einerseits wird dadurch die Umgehung des Zwangs zur
-Angabe von Werten bei ZWINGENDEN Eigenschaften ausgeschlossen. Andererseits
-enthalten solche Leerkonstruktionen keine verwendbare Information.
+Analog dazu SOLLEN Server vermeiden, leere JSON-Arrays und -Objekte 
+(`[]` und `{}`) auszugeben. Auch hier sind Clients dazu angehalten, diese
+wie nicht existierende Eigenschaften zu behandeln.
 
+Ausnahmen bilden hier Eigenschaften, die ihrerseits als Pflichteigenschaften
+("ZWINGEND") deklariert sind und die Kardinalität "1 bis *" besitzen,
+also eine Liste als Wert haben können. Diese Eigenschaften DÜRFEN auch dann
+gesetzt sein, wenn ihr Wert eine leere Liste ist.
 
 ### Kardinalität
 

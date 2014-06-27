@@ -33,7 +33,7 @@ wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
     "keyword": [
         "finanzen",
         "haushalt"
-    ]
+    ],
     "created": "2012-07-16T16:01:44+02:00",
     "startDate": "2012-07-17T00:00:00+02:00",
     "modified": "2012-08-16T14:05:27+02:00"

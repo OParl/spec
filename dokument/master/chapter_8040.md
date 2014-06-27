@@ -163,16 +163,6 @@ Parlament an.
     Kardinalität: 0 bis *.
     OPTIONAL.
 
-TODO: allConcepts rauswerfen. Hat vermutlich geringen Nutzen.
-
-`allConcepts`
-:   Alle Schlagworte und Begriffe, die von dieser Körperschaft verwendet werden.
-    insbesondere dann
-    wichtig, wenn Sortierungs-Reihenfolgen verwendet werden.
-    Typ: `skos:Concept`.
-    Kardinalität: 0 bis *.
-    OPTIONAL.
-
 `created`
 :   Datum/Uhrzeit der Erzeugung des Objekts.
     Typ: `xsd:dateTime`.

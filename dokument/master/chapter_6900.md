@@ -17,10 +17,7 @@ freie Verwendung in URLs zur Verfügung.
 `listformat`:
 :    Parameter zur Steuerung der Listenausgabe.
      Siehe dazu: [Objektlisten: Kompakte und vollständige Form](#objektlisten_listformat)
-`subject`:
-:    Eventuelle Verwendung für Linked Data Fragments
-`predicate`:
-:    Eventuelle Verwendung für Linked Data Fragments
-`object`:
-:    Eventuelle Verwendung für Linked Data Fragments
-
+`subject`, `predicate`, `object`:
+:    Reserviert für eine eventuelle zukünftige Verwendung
+     von Linked Data Fragments^[Linked Data Fragments: <http://linkeddatafragments.org/>]
+     in OParl.

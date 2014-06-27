@@ -6,84 +6,6 @@ beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokument,
 und hält Metadaten zu der Datei sowie URLs zum Zugriff auf 
 die Datei bereit.
 
-### Beispiel ###
-
-Ein Kontext:
-
-~~~~~
-{
-    "name": "rdfs:label",
-    "fileName": "oparl:fileName",
-    "paper": {
-        "@id": "oparl:paper",
-        "@type": "@id"
-    },
-    "mimeType": "oparl:mimeType",
-    "date": {
-        "@id": "oparl:date",
-        "@type": "xsd:dateTime"
-    },
-    "modified": {
-        "@id": "dc:modified",
-        "@type": "xsd:dateTime"
-    },
-    "sha1Checksum": "oparl:sha1Checksum",
-    "size": {
-        "@type": "xsd:integer" TODO ausreichend?
-    }
-    "accessUrl": {
-        "@id": "oparl:accessUrl",
-        "@type": "@id"
-    },
-    "downloadUrl": {
-        "@id": "oparl:downloadUrl",
-        "@type": "@id"
-    },
-    "text": "oparl:text",
-    "masterDocument": {
-        "@id": "prov:wasDerivedFrom",
-        "@type": "@id"
-    },
-    "derivativeDocument": {
-        "@id": "prov:hadDerivation",
-            TODO: invers zu masterDocument, deshalb nicht verwenden
-        "@type": "@id"
-    },  
-    "license": {
-        "@id": "oparl:",
-        "@type": "@id"
-    },
-    "documentRole": {
-        "@id": "oparl:downloadRole",
-        "@type": "@id"
-    }
-}
-~~~~~
-
-
-~~~~~  {#document_ex1 .json}
-{
-    "@type": "oparl:File",
-    "@id": "beispielris:document/57739",
-    "name": "Anlage 1 zur Anfrage",
-    "fileName": "57739.pdf",
-    "paper": "https://oparl.example.org/paper/2396",
-    "mimeType": "application/pdf",
-    "date": "2013-01-04T07:54:13+01:00",
-    "modified": "2013-01-04T07:54:13+01:00",
-    "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
-    "size": 82930,
-    "accessUrl": "beispielris:document/57739.pdf",
-    "downloadUrl": "beispielris:document/download/57739.pdf",
-    "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
-    "masterDocument": "beispielris:document/57738",
-    "license": "http://www.opendefinition.org/licenses/cc-by",
-    "documentRole": "beispielris:document-role/evidence"
-}
-~~~~~
-
-### Anmerkungen ###
-
 Objekte vom Typ `oparl:File` können mit Drucksachen (`oparl:Paper`)
 oder Sitzungen (`oparl:Meeting`) in Beziehung stehen. Dies wird durch 
 die Eigenschaft `paper` bzw. `meeting` angezeigt.
@@ -98,6 +20,31 @@ Eigenschaft `mimeType`) und zeigt außerdem über die Eigenschaft
 Umgekehrt KANN über die Eigenschaft `derivativeDocument` angezeigt
 werden, welche Ableitungen einer Datei existieren.
 
+**Beispiel**
+
+~~~~~  {#document_ex1 .json}
+{
+    "id": "https://oparl.example.org/document/57739",
+    "type": "http://oparl.org/schema/1.0/File",
+    "name": "Anlage 1 zur Anfrage",
+    "fileName": "57739.pdf",
+    "paper": [
+        "https://oparl.example.org/paper/2396"
+    ],
+    "mimeType": "application/pdf",
+    "date": "2013-01-04T07:54:13+01:00",
+    "modified": "2013-01-04T07:54:13+01:00",
+    "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "size": 82930,
+    "accessUrl": "https://oparl.example.org/document/57739.pdf",
+    "downloadUrl": "https://oparl.example.org/document/download/57739.pdf",
+    "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
+    "masterDocument": "https://oparl.example.org/document/57738",
+    "license": "http://www.opendefinition.org/licenses/cc-by",
+    "documentRole": "https://oparl.example.org/vocab/file/role/evidence"
+}
+~~~~~
+
 ### Eigenschaften ###
 
 `fileName`
@@ -109,10 +56,9 @@ werden, welche Ableitungen einer Datei existieren.
 
 `name`
 :   Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt.
-    Leerzeichen DÜRFEN enthalten sein werden, Datei-Extension wie ".pdf" SOLLEN
-    NICHT enthalten sein.
-    Der Wert SOLL NICHT mit dem Wert der Eigenschaft `fileName` identisch
-    sein.
+    Leerzeichen DÜRFEN enthalten sein, Datei-Endungen wie ".pdf" SOLLEN
+    NICHT enthalten sein. Der Wert SOLL NICHT mit dem Wert der Eigenschaft
+    `fileName` identisch sein.
     Typ: String.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
@@ -179,24 +125,23 @@ werden, welche Ableitungen einer Datei existieren.
     EMPFOHLEN.
 
 `paper`
-:   Falls die Datei zu einer Drucksache (`oparl:Paper`) gehört, MUSS über diese Eigenschaft die
-    URL des Drucksache-Objekts ausgegeben werden.
-    vorhanden sein.
-    Typ: `oparl:Paper`.
+:   Falls die Datei zu einer oder mehreren Drucksaches (`oparl:Paper`) gehört, MÜSSEN
+    diese Drucksachen über diese Eigenschaft angegeben werden.
+    Typ: Liste von `oparl:Paper` Objekten.
     Kardinalität: 0 bis *.
     EMPFOHLEN.
 
 `meeting`
-:   Falls die Datei zu einer Sitzung (`oparl:Meeting`) gehört, MUSS über diese Eigenschaft
-    die URL des Sitzung-Objekts ausgegeben werden.
-    Typ: `oparl:Meeting`.
+:   Falls die Datei zu einer oder mehreren Sitzungen (`oparl:Meeting`) gehört, MÜSSEN
+    diese Sitzungen über diese Eigenschaft angegeben werden.
+    Typ: Liste von `oparl:Meeting` Objekten.
     Kardinalität: 0 bis *.
     EMPFOHLEN.
 
 `masterDocument`
 :   Datei, von der das aktuelle Objekt abgeleitet wurde. Details dazu in der
     allgemeinen Beschreibung weiter oben.
-    Typ: `oparl:File`.
+    Typ: URl eines Objekts vom Typ `oparl:File`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
@@ -205,7 +150,7 @@ werden, welche Ableitungen einer Datei existieren.
     allgemeinen Beschreibung weiter oben.
     TODO: invers zu `masterDocument`. Von der Verwendung
     wird deshalb in der `prov`-Spezifikation abgeraten^[<http://www.w3.org/TR/prov-o/#inverse-names>].
-    Typ: `oparl:File`.
+    Typ: Liste von `oparl:File` Objekten.
     Kardinalität: 0 bis *.
     OPTIONAL.
 
@@ -221,7 +166,7 @@ werden, welche Ableitungen einer Datei existieren.
 :   Rolle, Funktion, Sorte des Dokuments in Bezug auf eine Sitzung. Die Eigenschaft
     SOLL entsprechend nur in Verbindung mit der Eigenschaft `meeting` gesetzt sein.
     Siehe dazu [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
-    Typ: `skos:Concept`.
+    Typ: String oder URL eines `skos:Concept` Objekts.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 

@@ -32,10 +32,7 @@ Kennungen der Drucksachen zum Einsatz.
         "https://oparl.example.org/document/926"
     ],
     "location": [
-        {
-            "description": "Theodor-Heuss-Ring 1",
-            "geometry": "POINT(7.148  50.023)"
-        }
+        "https://oparl.example.org/locations/4472"
     ],
     "originator": [
         "https://oparl.example.org/organization/2000",

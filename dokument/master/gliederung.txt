@@ -47,9 +47,6 @@ OParl Spezifikation 1.0 Gliederung
         Empfehlungen für langlebige IRIs/URIs/URLs
         Empfehlungen für eindeutige URLs
     6040 JSON-Ausgabe
-    6050 Benannte und anonyme Objekte
-        Benannte Objekte
-        Anonyme Objekte (Blank Nodes)
     6060 Objektlisten
     6070 Feeds
         Neue Objekte

@@ -116,79 +116,25 @@ des Gremiums die URL des Mitglieds ausgeben wird. Der Client kann somit ausgehen
 bestimmten Objekt die anderen Objekte im System finden, indem er einfach den angebotenen
 URLs folgt. Dieses Prinzip wird auch "Follow Your Nose"^[<http://patterns.dataincubator.org/book/follow-your-nose.html>] genannt.
 
-### Linked Data {#linked_data}
+### Schritte in Richtung Linked Data {#linked_data}
 
 Der Begriff "Linked Data" steht für die Beschreibung von Daten in einer Form, die diese 
 über ihren ursprünglichen Kontext hinaus verständlich macht.^[vgl. Bundesministerium 
 des Innern (Herausg.): Open Government Data Deutschland, Seite 433f., 2012 
 <http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf>]
 
-Kern von Linked Data ist die Möglichkeit, alle Bestandteile von Daten in Form von
-Tripeln zu beschreiben, das sind dreiteilige Informationseinheiten aus einem Subjekt, einem
-Prädikat und einem Objekt. Alle drei Bestandteile können in Form global eindeutiger "Uniform
-Resource Identifier" (URI) abgebildet werden.
+OParl unterstützt mit der vorliegenden Version 1.0 der Spezifikation die Anwendung
+einiger Linked-Data-Prinzipien. Damit soll die automatisierte Verarbeitung
+und Verknüpfung von Informationen aus parlamentarischen Informationnssystemen, auch über
+deren Grenzen hinweg, erleichtert werden.
 
-Nach dem Linked-Data-Prinzip könnte beispielsweise der Vorname einer Person mit dem
-folgenden Tripel beschrieben werden:
+Ein grundlegender Baustein der Linked-Data-Unterstützung in OParl ist die Tatsache, dass
+jedes Objekt durch eine URL identifiziert wird. So eignen sich OParl-Objekte für die
+Verknüpfung durch externe Anwendungen.
 
-* **Subjekt**: http://dbpedia.org/resource/John_Doe_(musician)
-* **Prädikat**: http://xmlns.com/foaf/0.1/givenName
-* **Objekt**: http://dbpedia.org/resource/John_(given_name)
-
-Hierbei macht man von der Tatsache Gebrauch, dass das Subjekt, also die Person, um die es 
-geht, bereits mittels ihrer URI eindeutig identifiziert werden kann, und dass bestenfalls 
-unter dieser URI weitere Informationen zu der Person abrufbar 
-sind.^[Ein Aufruf der URL <http://dbpedia.org/resource/John_Doe_(musician)> im herkömmlichen
-Web-Browser führt zu einer Weiterleitung auf die URL <http://dbpedia.org/page/John_Doe_(musician)>.
-Siehe dazu auch der Abschnitt [Content Negotiation](#content_negotiation)] Auch für das Prädikat
-"Person hat den Vornamen" liegt bereits eine Beschreibung in einem gebräuchlichen Vokabular
-vor, auf das hier verwiesen werden kann. Und schließlich kann sogar der eigentliche Vorname
-in Form einer URI abgebildet werden, nämlich als Verweis auf eine umfangreiche Beschreibung
-dieses Namens.
-
-Das **Ziel** von OParl ist es, mit der vorliegenden Version 1.0 der Spezifikation, die Nutzung
-solcher allgemeingültigen Vokabulare für die Veröffentlichung von parlamentarischen
-Informationen zu begünstigen und die automatisierte Verarbeitung und Verknüpfung von
-Informationen, auch über die Grenzen verschiedener Informationssysteme hinweg, zu erleichtern.
-
-Beispiele, wo dies sinnvoll ist, sind in der Praxis leicht zu finden. So finden sich
-beispielsweise in vielen lokalen Parlamenten immer wieder Fraktionen der selben Parteien,
-beispielsweise CDU und SPD. Mittels Linked Data wäre es möglich, jede dieser Fraktionen mit einer externen URL zu verknüpfen^[beispielsweise <http://dbpedia.org/resource/Christian_Democratic_Union_(Germany)> und <http://dbpedia.org/resource/Social_Democratic_Party_of_Germany>] und somit erkennbar zu machen, zu welcher 
-Partei diese Fraktion gehört. Ebenso finden sich viele inhaltliche Ähnlichkeiten bei
-Gremien wie zum Beispiel Ausschüssen (z. B. Hauptausschuss, Verkehrsausschuss etc.) oder bei
-Arten von Drucksachen (z. B. Anträge, Anfragen, Mitteilungen, Beschlussvorlagen).
-
-Mit der Möglichkeit, Objekte mit Hilfe von URLs zu
-klassifizieren (vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung)), geht
-diese Version von OParl einen ersten Schritt in Richtung Linked Data. Die Aufgabe, ein
-übergreifend nutzbares Vokabular anhand von Anforderungen aus der Praxis zu erstellen,
-kann damit als logischer nächster Schritt in naher Zukunft angegangen werden.
-
-### Kriterien für die Aufnahme von Klassen und Eigenschaften
-
-Bei der Erstellung des Vokabulars (Klassen und Eigenschaften) gab
-es viel Input von mehreren RIS-Herstellern und Anwendern der
-berücksichtigt werden musste.
-
-Dies ist eine keineswegs abschliessende Liste von Kriterien die dabei eine
-Rolle gespielt haben:
-
-* Erforderlichkeit für Formulierung relevanter Informationen
-* Verständlichkeit der Semantik
-* Vermeidung von Redundanzen
-* Kompatibilität mit anderen Vokabularen und Spezifikationen
-* Konsistenz der Benennung
-* Konsistenz verwendeter Mechanismen
-* Speicherbedarf auf Client-Seite (Cache)
-* benötigte Netz-Bandbreite
-* Anzahl http-Requests bis Client alle benötigten Daten hat
-
-Diese Kriterien können je nach Einsatzszenario von sehr unterschiedlichem
-Gewicht sein und sich widersprechen. Bei den Entscheidungen mussten deshalb
-regelmäßig Abwägungen vorgenommen werden und auch neue Lösungen entwickelt
-werden, die so bisher in keinem RIS umgesetzt sind - aber nach Überzeugung
-der Autoren mit akzeptablem Aufwand umsetzbar sind.
-
-Bei der Erstellung der Spezifikation wurde auch versucht, Dokumente des W3C zur
-Erstellung hochwertiger Spezifikationen^[QA Framework: Specification Guidelines: <http://www.w3.org/TR/qaframe-spec/>, W3C Manual of Style: <http://www.w3.org/2001/06/manual/>]
-zu berücksichtigen.
+Ein weiteres wesentliches Linked-Data-Konzept in OParl ist die Möglichkeit, externe Vokabulare
+zur Klassifizierung von Objekten zu nutzen. So können beispielsweise Gruppierungen (d. h.
+Objekte des Typs `oparl:Organization`) als Ausschuss oder als Fraktion klassifiziert werden,
+wobei der Begriff "Ausschuss" oder "Fraktion" durch eine URL repräsentiert wird, die auf
+ein Konzept in einem externen Vokabular zeigt. Weitere Informationen hierzu sind in
+[Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben.

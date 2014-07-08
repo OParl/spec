@@ -46,9 +46,7 @@ OParl Spezifikation 1.0 Gliederung
     6035 URLs
         Empfehlungen für langlebige IRIs/URIs/URLs
         Empfehlungen für eindeutige URLs
-    6040 Serialisierung mittels JSON und JSONP
-        JSON
-        JSONP
+    6040 JSON-Ausgabe
     6050 Benannte und anonyme Objekte
         Benannte Objekte
         Anonyme Objekte (Blank Nodes)

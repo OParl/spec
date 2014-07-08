@@ -5,81 +5,27 @@ Jede natürliche Person, die in der parlamentarischen Arbeit tätig
 und insbesondere Mitglied in einer Gruppierung ([oparl:Organization](#oparl_organization)) ist,
 wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
 
-Es existieren bereits eine ganze Reihe von Vokabularen für Personenobjekte
-außerhalb von OParl. Dazu gehören FOAF (_Friend of a Friend_) und vCard. Darüber
-hinaus hält der XÖV-Standard ein XML-Schema für natürliche Personen bereit.
-Für `oparl:Person` wurde daraus, und basierend auf dem Input der OParl-Stakeholder,
-eine Auswahl von Eigenschaften zusammengestellt.
-
-### Beispiel ###
-
-Der Kontext:
-
-~~~~~  {#person_ex_context .json}
-{
-    "@language": "de",
-    "gender": {
-        "@id": "vcard:hasGender",
-        "@type": "@id"
-    }
-    "name": "foaf:name",
-    "givenName": "foaf:givenName",
-    "familyName": "foaf:familyName",
-    "title": "foaf:title",
-    "email": {
-        "@id": "foaf:mbox",
-        "@type": "@id"
-    },
-    "formOfAddress": "oparl:formOfAddress",
-    "phone": "foaf:phone",
-    "streetAddress": "vcard:street-address",
-    "postalCode": "vcard:postal-code",
-    "locality": {
-        "@id": "vcard:locality",
-        "@container": "@language"
-    },
-    "status": {
-        "@id": "oparl:status",
-        "@type": "@id"
-    },
-    "hasMembership": {
-        "@id": "org:hasMembership",
-        "@type": "@id"
-    },
-    "created": {
-        "@id": "dc:created",
-        "@type": "xsd:dateTime"
-    },
-    "modified": {
-        "@id": "dc:modified",
-        "@type": "xsd:dateTime"
-    }
-}
-~~~~~
+**Beispiel**
 
 ~~~~~  {#person_ex2 .json}
 {
-    "@context": "https://oparl.example.org/Pfad/zum/Kontext/person.jsonld",
-    "@type": "oparl:Person",
-    "@id": "beispielris:person/29",
+    "id": "https://oparl.example.org/person/29",
+    "type": "http://oparl.org/schema/1.0/Person",
     "name": "Prof. Dr. Max Mustermann",
     "familyName": "Mustermann",
     "givenName": "Max",
     "title": [
-        "besipielris:vocab/prof",
-        "besipielris:vocab/dr"
+        "https://oparl.example.org/vocab/person/title/prof",
+        "https://oparl.example.org/vocab/person/title/dr"
     ],
-    "formOfAddress": "beispielris:formofaddress/ratsmitglied",
-    "gender": "vcard:Male",
+    "formOfAddress": "https://oparl.example.org/vocab/foa/ratsmitglied",
+    "gender": "https://oparl.example.org/vocab/person/gender/male",
     "email": "mailto:max@mustermann.de",
     "phone": "tel:+493012345678",
     "streetAddress": "Musterstraße 5",
     "postalCode": "11111",
-    "locality": {
-        "de": "Musterort",
-        "en": "Sample Town"
-    },
-    "status": "beispielris:status/buergermeister",
+    "locality": "Musterort",
+    "status": "https://oparl.example.org/status/buergermeister",
     "hasMembership": [
         "https://oparl.example.org/membership/11",
         "https://oparl.example.org/membership/34"
@@ -89,20 +35,11 @@ Der Kontext:
 }
 ~~~~~
 
-Und das selbe Beispiel ohne Mehrsprachigkeit für den Ort. Der Kontext bleibt wie zuvor.
-
-~~~~~  {#person_ex3 .json}
-{
-    ...
-    "locality": "Musterort",
-    ...
-}
-~~~~~
-
 ### Eigenschaften ###
 
 `name`
-:   Der vollständige Name der Person mit akademischem Grad und dem gebräuchlichen Vornamen.
+:   Der vollständige Name der Person mit akademischem Grad und dem gebräuchlichen Vornamen,
+    wie er zur Anzeige durch den Client genutzt werden kann.
     Typ: String.
     Kardinalität: 1.
     ZWINGEND.
@@ -110,43 +47,48 @@ Und das selbe Beispiel ohne Mehrsprachigkeit für den Ort. Der Kontext bleibt wi
 `familyName`
 :   Familienname bzw. Nachname.
     Typ: String.
+    Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `givenName`
 :   Vorname bzw. Taufname.
     Typ: String.
+    Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `formOfAddress`
-:   Anrede
-    Begriff mit `skos:prefLabel`. Ähnlich wie `status`. Beispiele für die `skos:prefLabel` sind
-    "Ratsherr | Ratsfrau" und "Herr | Frau".
-    Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
-    Typ: `skos:Concept`.
+:   Anrede. Diese Eigenschaft funktioniert wie in 
+    [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben 
+    entweder als URL zu einem `skos:Concept` oder als String.
+    Der String bzw. `prefLabel` SOLL sowohl die männliche als auch die weibliche Bezeichnung
+    enthalten. Beispiele: "Herr | Frau", "Ratsherr | Ratsfrau".
+    Typ: URL eines `skos:Concept` Objekts oder String.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `title`
 :   Akademische(r) Titel. Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
-    Typ: `skos:Concept`.
+    Typ: URL eines `skos:Concept` Objekts oder String.
     Kardinalität: 0 bis *.
     OPTIONAL.
 
 `gender`
-:   Geschlecht. Zulässige Werte sind `vcard:Female`, `vcard:Male`, `vcard:None`, `vcard:Other` und `vcard:Unknown`.
-    Typ: String (TODO: Entsprechende `vcard:`-Eigenschaft angeben).
+:   Geschlecht. Zulässige Werte sind `vcard:Female`, `vcard:Male`, `vcard:None` und `vcard:Other`.
+    Für den Fall, dass das geschlecht der Person unbekannt ist, SOLL die Eigenschaft nicht
+    ausgegeben werden.
+    Typ: String im Format `vcard:Gender`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `phone`
-:   Telefonnummer mit `tel:` Schema.
-    Typ: String mit "tel:" am Anfang, keine Leerzeichen.
+:   Telefonnummer der Person mit `tel:` Schema, ohne Leerzeichen.
+    Typ: String
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `email`
 :   E-Mail-Adresse mit `mailto:` Schema.
-    Typ: `foaf:mbox`.
+    Typ: String im Format `foaf:mbox`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
@@ -169,12 +111,17 @@ Und das selbe Beispiel ohne Mehrsprachigkeit für den Ort. Der Kontext bleibt wi
     OPTIONAL.
 
 `status`
-:   Status. Begriff mit `skos:prefLabel`.
-    Die Zeichenketten SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster
-    "männliche Form | weibliche Form" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem "|").
+:   Status. Diese Eigenschaft funktioniert wie in 
+    [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder
+    als URL zu einem `skos:Concept` oder als String.
+    Die Strings bzw. `prefLabel` SOLLEN sowohl die männliche als auch die weibliche
+    Form enthalten, und zwar in dem Muster
+    "männliche Form | weibliche Form" (genau in der Reihenfolge mit einem Leerzeichen
+    vor und nach dem "|").
     Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden:
     "Ratsmitglied" und nicht "Ratsmitglied | Ratsmitglied".
-    Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschlecht
+    Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine
+    Fall-Unterscheidung nach Geschlecht
     der Personen vornimmt.
     Weitere Beispiele: "Bürgermeister | Bürgermeisterin",
     "Bezirksbürgermeister | Bezirksbürgermeisterin",
@@ -184,19 +131,22 @@ Und das selbe Beispiel ohne Mehrsprachigkeit für den Ort. Der Kontext bleibt wi
     "Einzelstadtverordneter | Einzelstadtverordnete" (Mitglieder des Rates die keiner Fraktion/Organisation
     angehören).
     Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
-    Typ: `skos:Concept`.
+    Typ: URL eines `skos:Concept` Objekts oder String.
     Kardinalität: 0 bis *.
     OPTIONAL.
 
 `hasMembership`
-:   Mitgliedschaft(en) der Person in Gruppierungen (oparl:Organization), z. B. Gremien und
+:   Mitgliedschaften der Person in Gruppierungen, z. B. Gremien und
     Fraktionen.
-    Typ: `org:Membership`.
+    Typ: Liste von `org:Membership` Objekten.
     Kardinalität: 0 bis *.
     OPTIONAL.
 
 `keyword`
-:   Typ: `skos:Concept`.
+:   Diese Eigenschaft funktioniert wie in 
+    [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder
+    als URL zu einem `skos:Concept` oder als String.
+    Typ: URL eines `skos:Concept` Objekts oder String.
     Kardinalität: 0 bis *.
     OPTIONAL.
 

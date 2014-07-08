@@ -52,6 +52,8 @@ Zu den Themen, die in zukünftigen Versionen adressiert werden können, zählen:
   und das Hydra Core Vocabulary^[http://hydra-cg.com/spec/latest/core/#collections]
   beobachtet.
 
+* Mehrsprachigkeit: Die Unterstützung von mehrsprachigen Inhalten.
+
 * Schreibender Zugriff: Denkbar ist auch, dass OParl von der derzeitigen Ausrichtung
   auf den reinen lesenden Informationszugriff um die Möglichkeit, Inhalte anzulegen,
   zu verändern und zu entfernen sowie um das Konzept von authentifizierten Nutzern
@@ -65,9 +67,7 @@ Zu den Themen, die in zukünftigen Versionen adressiert werden können, zählen:
   beispielsweise <http://popoloproject.com/>, TODO: UK, KB Niederlande,
   Italienisches Parlament: <http://data.camera.it/data/en/>] Eine
   Zusammenarbeit mit derartigen Initiativen mit dem Ziel der Wiederverwendung von
-  Arbeitsergebnissen ist vorstellbar. Auch aus diesem Grund wurde bereits in OParl 
-  1.0 die Möglichkeit der Verwendung mit anderen Sprachen und Mehrsprachigkeit
-  eingebaut.
+  Arbeitsergebnissen ist vorstellbar.
 
 * IT-Planungsrat: Dieser kann die Verbindlichkeit von Standards wie OParl für
   Deutschland beschliessen. Der "Vertrag über die Errichtung des IT-Planungsrats 

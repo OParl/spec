@@ -5,62 +5,23 @@ Tagesordnungspunkte sind die Bestandteile von Sitzungen (`oparl:Meeting`).
 Jeder Tagesordnungspunkt widmet sich inhaltlich einem bestimmten Thema,
 wozu in der Regel auch die Beratung bestimmter Drucksachen gehört.
 
-### Beispiel ###
+Die Beziehung zwischen einem Tagesordnungspunkt und einer Drucksache wird
+über ein Objekt vom Typ `oparl:Consultation` hergestellt, das über die 
+Eigenschaft `consultation` referenziert werden kann.
 
-Zunächst ein Kontext:
-
-~~~~~
-{   
-    "meeting":  {
-        "@id": "oparl:meeting",
-        "@type": "@id"
-    },
-    "number": {
-        "@id": "oparl:number"
-    },
-    "name": {
-        "@id": "rdfs:label",
-        "@type": "xsd:string"
-    },
-    "public": "xsd:boolean",
-    "consultation":  {
-        "@id": "oparl:consultation",
-        "@type": "@id"
-    },
-    "result":  {
-        "@id": "oparl:result",
-        "@type": "@id"
-    },
-    "resolution": {
-        "@id": "oparl:resolution",
-        "@type": ["@id", "xsd:string"],
-        "TODO": "Geht so leider nicht. Issue #212"
-    }
-    "paper":  {
-        "@id": "oparl:paper",
-        "@type": "@id"
-    },
-    "modified": {
-        "@id": "dc:modified",
-        "@type": "xsd:dateTime"
-    }   
-}
-~~~~~
-
+**Beispiel**
 
 ~~~~~  {#agendaitem_ex1 .json}
 {
-    "@context": "https://oparl.example.org/Pfad/zum/Kontext/oparl.jsonld",
-    "@type": "oparl:AgendaItem",
-    "@id": "beispielris:agendaitem/3271",
-    "meeting": "beispielris:meeting/281",
+    "id": "https://oparl.example.org/agendaitem/3271",
+    "type": "http://oparl.org/schema/1.0/AgendaItem",
+    "meeting": "https://oparl.example.org/meeting/281",
     "number": "10.1",
     "name": "Satzungsänderung für Ausschreibungen",
     "public": true,
-    "consultation": "beispielris:consultation/1034",
-    "result": "beispielris:vocab/decided_modified",
+    "consultation": "https://oparl.example.org/consultation/1034",
+    "result": "https://oparl.example.org/vocab/decided_modified",
     "resolution": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
-    "paper": "beispielris:paper/2812",
     "modified": "2012-08-16T14:05:27+02:00"
 }
 ~~~~~
@@ -69,7 +30,7 @@ Zunächst ein Kontext:
 
 `meeting`
 :   Sitzung, der der Tagesordnungspunkt zugeordnet ist.
-    Typ: `oparl:Meeting`.
+    Typ: URL eines Objekts vom Typ `oparl:Meeting`.
     Kardinalität: 1.
     ZWINGEND.
 
@@ -94,7 +55,7 @@ Zunächst ein Kontext:
 
 `consultation`
 :   Beratung, die diesem Tagesordnungspunkt zugewiesen ist.
-    Typ: `oparl:Consultation`.
+    Typ: URL eines Objekts vom Typ `oparl:Consultation`.
     Kardinalität: 0 bis 1.
     FRAGE: Wirklich immer nur maximal 1 ?
     EMPFOHLEN.
@@ -102,9 +63,10 @@ Zunächst ein Kontext:
 `result`
 :   Kategorische Information darüber, welches Ergebnis die Beratung des
     Tagesordnungspunktes erbracht hat, in der Bedeutung etwa
-    "Unverändert beschlossen" oder "Geändert beschlossen". Mehr zur
-    Funktionsweise dieses Attributs unter [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
-    Typ: `skos:Concept`.
+    "Unverändert beschlossen" oder "Geändert beschlossen". Diese Eigenschaft 
+    funktioniert wie in [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) 
+    beschrieben entweder als URL zu einem `skos:Concept` oder als String.
+    Typ: String oder URL eines `skos:Concept` Objekts.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
@@ -113,46 +75,32 @@ Zunächst ein Kontext:
     wurde, kann hier ein Text oder Dokument angegeben werden. Das ist besonders dann in der
     Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag)
     von der Beschlussvorlage abweicht.
-    TODO: Issue #212
-    Typ: `oparl:File` | Datentyp `xsd:string`.
+    Typ: String oder URL eines Objekts vom Typ `oparl:File`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
-`paper`
-:   Drucksache. Zwar kann auch das `oparl:Meeting` darauf verweisen, aber hier
-    sind solche Verweise in der Regel präziser, da Drucksachen regelmäßig nur
-    für einen TOP relevant sind und nicht für alle TOPs.
-    Typ: `oparl:Paper`.
-    OPTIONAL.
-    FRAGE: Ist das nicht eine Doppelung mit `consultation`?
-
 `auxiliaryDocument`
-:   Dateianhang zum Tagesordnungspunkt.
-    Typ: `oparl:File`.
+:   Dateianhänge zum Tagesordnungspunkt.
+    Typ: Liste von Objekten des Typs `oparl:File`. Vgl. [Objektlisten](#objektlisten).
     Kardinalität: 0 bis *.
     OPTIONAL.
 
 `keyword`
-:   Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
-    Typ: `skos:Concept`.
+:   Schlagwort. Diese Eigenschaft funktioniert wie in 
+    [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben 
+    entweder als URL zu einem `skos:Concept` oder als String.
+    Typ: Liste von Strings oder URLs zu `skos:Concept` Objekten.
     Kardinalität: 0 bis *.
     OPTIONAL.
 
 `created`
 :   Erzeugungsdatum und -zeit des Objekts.
-    Typ: Datentyp `xsd:dateTime`.
+    Typ: `xsd:dateTime`.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
 `modified`
 :   Datum und Uhrzeit der letzten Änderung.
-    Typ: Datentyp `xsd:dateTime`.
+    Typ: `xsd:dateTime`.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
-
-`absentParticipant`
-:   Person(en), die bei der Behandlung dieses Tagesordnungspunkts nicht
-    anwesend war(en).
-    Typ: `oparl:Person`.
-    Kardinalität: 0 bis *.
-    DEPRECATED issue #213.

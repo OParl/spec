@@ -26,8 +26,7 @@ Feeds unterstützen oder ermöglichen also die Synchronisation.
 Ein OParl-Server SOLL jeden der nachfolgend beschriebenen Feeds anbieten.
 
 Für alle drei Feeds wird EMPFOHLEN, dass mindestens ein Zeitraum von 365 Tagen
-abgedeckt wird. (FRAGE: Wie werden Clients darüber informiert, wie weit
-ein Feed zurück reicht?)
+abgedeckt wird.
 
 Da Feeds üblicherweise eine große und stetig steigende Anzahl von Objekten
 beinhalten können, ist hier die [Paginierung](#paginierung) anzuwenden, wie
@@ -52,61 +51,41 @@ Das nachstehende Beispiel zeigt die mögliche Ausgabe des Feeds:
 
 ~~~~~  {#feed_ex1 .json}
 {
-        "@context": {
-                "beispielris": "https://oparl.example.org/",
-                "hydra": "http://www.w3.org/ns/hydra/core#",
-                "prov": "http://www.w3.org/ns/prov#",
-                "xsd": "http://www.w3.org/2001/XMLSchema#",
-
-                "created": {
-                        "@id": "prov:generatedAtTime",
-                        "@type": "xsd:dateTime"
-                },
-		"generatedAt": {
-                        "@id": "prov:generatedAtTime",
-                        "@type": "xsd:dateTime"
-                },
-                "member": { "@id": "hydra:member", "@type": "@id" }
+    "items": [
+        {
+            "id": "https://oparl.example.org/files/3",
+            "type": "http://oparl.org/schema/1.0/File",
+            "created": "2014-01-07T12:59:01+01:00"
         },
-        "@id": "beispielris:collection2349",
-// TODO: @id ZWINGEND, OPTIONAL, EMPFOHLEN ?
-        "@type": "hydra:Collection",
-        "generatedAt": "2014-06-11T12:59:01.038+0100",
-        "member": [
-		{
-			"@id": "https://oparl.example.org/bodies/0/papers/21/documents/3",
-			"created": "2014-01-07T12:59:01.038+0100"
-		},
-    		{
-        		"@id": "https://oparl.example.org/bodies/0/papers/21",
-        		"created": "2014-01-05T18:29:37.123+0100"
-    		},
-    		{
-        		"@id": "https://oparl.example.org/bodies/0/papers/20/documents/5",
-        		"created": "2014-01-04T11:26:48.638+0100"
-    		},
-...
-	]
+        {
+            "id": "https://oparl.example.org/papers/21",
+            "type": "http://oparl.org/schema/1.0/Paper",
+            "created": "2014-01-05T18:29:37+01:00"
+        },
+        {
+            "id": "https://oparl.example.org/files/5",
+            "type": "http://oparl.org/schema/1.0/File",
+            "created": "2014-01-04T11:26:48+01:00"
+        },
+        ...
+    ],
+    "itemsPerPage": ...,
+    "nextPage": ...
 }
 ~~~~~
 
-Wie im Beispiel zu sehen ist, handelt es sich um eine JSON-Liste, deren Elemente
-benannte Objekte sind. Jedes der Objekte in der Liste MUSS seinerseits wiederum
-zwei Eigenschaften besitzen:
+Die Funktionsweise entspricht grundsätzlich der von gewöhnlichen Listen
+mit Paginierung, wie im Kapitel [Objektlisten](#objektlisten) beschrieben.
 
-* `@id`: Die URL des neuen Objekts
+Davon abweichend gibt der Feed zu jedem neuen Objekt in der Liste unter
+`items` ein JSON-Objekt mit drei Eigenschaften aus:
+
+* `id`: Die URL des neuen Objekts
+* `type`: Die URL des Typs des neuen Objekts
 * `created`: Der Zeitpunkt der Erzeugung des Objekts
 
 Der jeweils in der Eigenschaft `created` ausgegebene Zeitpunkt SOLL vom Server
-als Sortierkriterium der Liste genutzt werden. So können Clients den jeweils
-am Anfang der Liste vorgefundenen Zeitpunkt als Begrenzung für die zukünftige
-Abfrage des Feeds nutzen. Ein Beispiel zur Erläuterung:
-
-Am 1. April 2014 ruft ein Client den Feed ab und findet im ersten Listeneintrag
-den `created`-Zeitpunkt `2014-03-31T18:02:34.058+0200` vor, den er sich als
-Grenzwert merkt. Beim nächsten Abruf des Feeds einige Tage später muss der 
-Client die Liste nur so weit abarbeiten, so lange der `created`-Zeitpunkt der
-Einträge größer oder gleich dem Grenzwert ist.
+als Sortierkriterium des Feeds genutzt werden.
 
 ### Der Feed "Geänderte Objekte"  {#feed_geaenderte_objekte}
 
@@ -116,8 +95,8 @@ zuerst ausgegeben wird.
 
 Die Definition einer "Änderung" kann sich zwischen den Objekttypen
 unterscheiden. Tendenziell soll die Definition eher weiter ausgelegt werden,
-als enger. Als Änderung einer Organisation könnte es beispielsweise
-verstanden werden, wenn ein neues Mitglied zur Organisation hinzukommt.
+als enger. Als Änderung einer Gruppierung (oparl:Organization) könnte es beispielsweise
+verstanden werden, wenn eine neue Mitgliedschaft zur Organisation hinzukommt.
 Das Erstellen eines Objekts (im Sinne des Feeds "Neue Objekte") sollte
 hingegen nicht als Änderung gewertet werden, um das redundante Erscheinen
 eines neuen Objekts sowohl im Feed "Neue Objekte" als auch im Feed "Geänderte
@@ -127,25 +106,32 @@ Auch hier SOLL der Feed sämtliche Objekttypen umfassen, die in einem System
 geführt werden.
 
 ~~~~~  {#feed_ex2 .json}
-...
-    {
-        "@id": "https://oparl.example.org/bodies/0/papers/0/documents/2",
-        "modified": "2014-01-08T14:28:31.568+0100"
-    },
-    {
-        "@id": "https://oparl.example.org/bodies/0/papers/0",
-        "modified": "2014-01-08T12:14:27.958+0100"
-    },
-    {
-        "@id": "https://oparl.example.org/bodies/0/papers/0/documents/1",
-        "modified": "2014-01-06T17:01:00.402+0100"
-    },
-...
+{
+    "items": [
+        {
+            "id": "https://oparl.example.org/files/2",
+            "type": "http://oparl.org/schema/1.0/File",
+            "modified": "2014-01-08T14:28:31+01:00"
+        },
+        {
+            "id": "https://oparl.example.org/papers/0",
+            "type": "http://oparl.org/schema/1.0/Paper",
+            "modified": "2014-01-08T12:14:27+01:00"
+        },
+        {
+            "id": "https://oparl.example.org/files/1",
+            "type": "http://oparl.org/schema/1.0/File",
+            "modified": "2014-01-06T17:01:00+01:00"
+        },
+    ],
+    "itemsPerPage": ...,
+    "nextPage": ...
+}
 ~~~~~
 
 Das Ausgabeformat entspricht weitgehend dem des Feeds "Neue Objekte", jedoch
 heißt hier die Eigenschaft für den Zeitpunkt der letzten Änderung `modified`. 
-Auch hier gilt, dass der als `modified` ausgegebene Zeitpunkt auch als
+Entsprechend gilt, dass der als `modified` ausgegebene Zeitpunkt als
 Sortierkriterium der Liste gelten SOLL.
 
 ### Der Feed "Entfernte Objekte" ### {#feed_entfernte_objekte}
@@ -161,15 +147,24 @@ Client-Implementierer sind angehalten, diesen Feed zu nutzen, um beispielsweise
 depublizierte Dokumente aus ihren lokalen Caches zu entfernen.
 
 ~~~~~  {#feed_ex3 .json}
-...
-    {
-        "@id": "https://oparl.example.org/bodies/0/people/22",
-        "removed": "2013-11-11T11:11:00.000+0100"
-    },
-...
+{
+    "items": [
+        {
+            "id": "https://oparl.example.org/people/22",
+            "removed": "2013-11-11T11:11:00+01:00"
+        },
+        ...
+    ],
+    "itemsPerPage": ...,
+    "nextPage": ...
 ]
 ~~~~~
 
 Die Eigenschaft zur Angabe des Entfernungszeitpunkts heißt hier `removed` und
 SOLL, analog zu den beiden anderen Feeds, als Sortierkriterium der Liste
 verwendet werden.
+
+Im Unterschied zu den beiden zuvor beschriebenen Feeds wird im Feed "Gelöschte
+Objekte" keine Eigenschaft `type` am jeweiligen Objekt ausgegeben.
+
+Clients SOLLEN vermeiden, die URLs der jeweiligen Einträge erneut aufzurufen.

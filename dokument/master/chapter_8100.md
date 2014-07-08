@@ -13,87 +13,37 @@ besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen
 wird. Hierbei kommen in parlamentarischen Informationssystemen unveränderliche
 Kennungen der Drucksachen zum Einsatz.
 
-### Beispiel ###
-
-Zunächst ein Kontext:
-
-~~~~~
-{
-    "body": {
-        "@id": "oparl:body",
-        "@type": "@id"
-    },
-    "name": {
-        "@id": "rdfs:label"
-    }
-    "reference":
-        "@id": "oparl:reference"
-    }
-    "publishedDate": {
-        "@id": "schorg:datePublished",
-        "@type": "xsd:dateTime"
-    },  
-    "paperType": {
-        "@id": "oparl:paperType",
-        "@type": "@id"
-    },  
-    "relatedPaper": {
-        "@id": "oparl:relatedPaper",
-        "@type": "@id"
-    },
-    "mainDocument": {
-        "@id": "oparl:mainDocument",
-        "@type": "@id"
-    },
-    "auxiliaryDocument": {
-        "@id": "oparl:auxiliaryDocument",
-        "@type": "@id"
-    },
-    "location": {
-        "@id": "oparl:location",
-        "@type": "@id"
-    },
-    "originator": {
-        "@id": "prov:wasAttributedTo",
-        "@type": "@id"
-    },
-    "consultation": {
-        "@id": "oparl:consultation",
-        "@type": "@id"
-    },
-    "modified": {
-        "@id": "dc:modified",
-        "@type": "xsd:dateTime"
-    }
-}
-~~~~~
+**Beispiel**
 
 ~~~~~  {#paper_ex1 .json}
 {
-    "@context": "https://oparl.example.org/Pfad/zum/Kontext/oparl.jsonld",
-    "@type": "oparl:Paper",
-    "@id": "beispielris:paper/749",
-    "body": "beispielris:bodies/1",
+    "id": "https://oparl.example.org/paper/749",
+    "type": "http://oparl.org/schema/1.0/Paper",
+    "body": "https://oparl.example.org/bodies/1",
     "name": "Antwort auf Anfrage 1200/2014",
     "reference": "1234/2014",
     "publishedDate": "2014-04-04T16:42:02+02:00",
-    "paperType": "beispielris:vocab/answer",
-    "relatedPaper": "beispielris:paper/699",
-    "mainDocument": "beispielris:document/925",
-    "auxiliaryDocument": "beispielris:document/926",
+    "paperType": "https://oparl.example.org/vocab/answer",
+    "relatedPaper": [
+        "https://oparl.example.org/paper/699"
+    ],
+    "mainDocument": "https://oparl.example.org/document/925",
+    "auxiliaryDocument": [
+        "https://oparl.example.org/document/926"
+    ],
     "location": [
-        {
-            "description": "Theodor-Heuss-Ring 1",
-            "geometry": "POINT(7.148  50.023)"
-        }
+        "https://oparl.example.org/locations/4472"
     ],
     "originator": [
-        "beispielris:organization/2000",
-        "beispielris:people/1000"
+        "https://oparl.example.org/organization/2000",
+        "https://oparl.example.org/people/1000"
     ],
     "consultation": [
-        "beispielris:consultation/5676",
-        "beispielris:consultation/5689"
+        "https://oparl.example.org/consultation/5676",
+        "https://oparl.example.org/consultation/5689"
+    ],
+    "underDirectionOf": [
+        "https://oparl.example.org/organization/2000"
     ],
     "modified": "2013-01-08T12:05:27+01:00"
 }
@@ -122,46 +72,43 @@ Zunächst ein Kontext:
 
 `publishedDate`
 :   Veröffentlichungsdatum der Drucksache.
-    Typ: Datentyp `xsd:dateTime` | Datentyp `xsd:date`.
+    Typ: `xsd:dateTime` oder `xsd:date`.
     Kardinalität: 0 bis 1.
-    EMPFOHLEN.
+    ZWINGEND.
 
 `paperType`
-:   Begriff mit einem `skos:prefLabel`-Attribut, dessen Wert eine Zeichenkette
-    ist und die Art der Drucksache beschreibt, z. B. "Beantwortung einer Anfrage".
-    Für die URLs kommen als letztes Pfadelement z. B. "draft", "petition", "request",
-    "note" und "answer" in Frage. Denkbar ist auch eine Kategorisierung z. B. in
-    drei Arten von Drucksachen: initiierend, beratend und protokollierend.^[Eine
-    Liste mit exemplarischen Drucksachentypen:
-    <https://wiki.piratenpartei.de/BE:BVVupdates/Glossar>]
+:   Art der Drucksache, z. B. "Beantwortung einer Anfrage".
+    Diese Eigenschaft funktioniert wie in 
+    [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben 
+    entweder als URL zu einem `skos:Concept` oder als String.
     Kardinalität: 0 bis 1.
-    Typ: `skos:Concept`.
+    Typ: String oder URL eines `skos:Concept` Objekts.
     EMPFOHLEN.
 
 `relatedPaper`
-:   Inhaltlich verwandte Drucksache(n).
-    Typ: `oparl:Paper`.
+:   Inhaltlich verwandte Drucksachen.
+    Typ: Liste von Objekten des Typs `oparl:Paper`. Vgl. [Objektlisten](#objektlisten).
     Kardinalität: 0 bis *.
     OPTIONAL.
 
 `mainDocument`
 :   Das Hauptdokument zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert
     eine Beschlussvorlage und das Hauptdokument enthält den Text der Beschlussvorlage.
-    Typ: `oparl:File`.
+    Typ: URL eines Objekts vom Typ `oparl:File`.
     Kardinalität: 1.
     ZWINGEND.
     
 `auxiliaryDocument`
 :   Anhänge zur Drucksache. Diese sind, in Abgrenzung zum Hauptdokument
     (`mainDocument`), untergeordnet und es kann beliebig viele davon geben.
-    Typ: `oparl:File`.
+    Typ: Liste von Objekten des Typs `oparl:File`. Vgl. [Objektlisten](#objektlisten).
     Kardinalität: 0 bis *.
     OPTIONAL.
     
 `location`
 :   Sofern die Drucksache einen inhaltlichen Ortsbezug hat, beschreibt diese
     Eigenschaft den Ort in Textform und/oder in Form von Geodaten.
-    Typ: `oparl:Location`.
+    Typ: Liste von Objekten des Typs `oparl:Location`. Vgl. [Objektlisten](#objektlisten).
     Kardinalität: 0 bis *.
     OPTIONAL.
 
@@ -185,14 +132,16 @@ Zunächst ein Kontext:
     EMPFOHLEN.
     
 `keyword`
-:   Begriff mit `skos:prefLabel`. Allgemeiner als `paperType`.
-    Typ: `skos:Concept`.
+:   Schlagworte. Diese Eigenschaft funktioniert wie in 
+    [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben 
+    entweder als URL zu einem `skos:Concept` oder als String.
+    Typ: Liste von Strings oder URLs zu `skos:Concept` Objekten.
     Kardinalität: 0 bis *.
     OPTIONAL.
 
 `underDirectionOf`
 :   Federführung. Amt oder Abteilung, für die Inhalte oder Beantwortung der Drucksache verantwortlich.
-    Typ: `oparl:Organization`.
+    Typ: Liste von Objekten des Typs `oparl:Organization`.
     Kardinalität: 0 bis *.
     OPTIONAL.
     

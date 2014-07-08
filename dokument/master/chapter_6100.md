@@ -7,6 +7,8 @@ Ausnahmefälle könnten sein (ohne Anspruch auf Vollständigkeit):
 
 * Eine angefragte Ressource existiert nicht
 
+* Eine angefragte Ressource existiert nicht mehr
+
 * Der Client nutzt eine nicht unterstützte HTTP-Methode, z. B. `POST`
 
 * Der Client nutzt einen nicht interpretierbaren URL-Parameter

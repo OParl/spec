@@ -14,10 +14,10 @@ freie Verwendung in URLs zur Verfügung.
 `enddate`:
 :    Parameter für die Einschränkung einer Abfrage anhand eines Datums bzw.
      einer Zeitangabe.
-`subject`:
-:    Eventuelle Verwendung für Linked Data Fragments
-`predicate`:
-:    Eventuelle Verwendung für Linked Data Fragments
-`object`:
-:    Eventuelle Verwendung für Linked Data Fragments
-
+`listformat`:
+:    Parameter zur Steuerung der Listenausgabe.
+     Siehe dazu: [Objektlisten: Kompakte und vollständige Form](#objektlisten_listformat)
+`subject`, `predicate`, `object`:
+:    Reserviert für eine eventuelle zukünftige Verwendung
+     von Linked Data Fragments^[Linked Data Fragments: <http://linkeddatafragments.org/>]
+     in OParl.

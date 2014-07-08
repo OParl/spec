@@ -16,34 +16,6 @@ zu machen.
 Dieser Objekttyp kann für Objekte im Kontext des Objekttyps
 `oparl:Paper` verwendet werden.
 
-### Beispiel ###
-
-Der JSON-LD-Kontext für die Eigenschaft `geometry`:
-
-~~~~~
-{
-   "geometry": {
-     // TODO wird @id benötigt?
-     "@type": "ogc:wktLiteral"
-   }
-}
-~~~~~
-
-Und ein Beispiel unter Verwendung des Kontextes:
-
-~~~~~  {#location_ex2 .json}
-{
-    ...
-    "location": {
-        "description": "Honschaftsstraße 312, Köln",
-        "geometry": "POINT (7.03291 50.98249)"
-    },
-    ...
-}
-~~~~~
-
-### Anmerkungen ###
-
 OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des  
 Well-Known-Text-Formats (WKT) der Simple Feature Access Spezifikation^[Simple
 Feature Access Spezifikation: <http://www.opengeospatial.org/standards/sfa>]
@@ -63,6 +35,37 @@ In geografischen Informationssystemen ist für das System der EPSG-Code 4326
 geläufig.] angegeben werden, und zwar in Form von Zahlenwerten (Fließkommazahlen)
 für Längen- und Breitengrad.
 
+**Beispiele**
+
+Ein einfaches Objekt mit Punktkordinate:
+
+~~~~~  {#location_ex1 .json}
+{
+    "id": "https://oparl.example.org/locations/29856",
+    "type": "http://oparl.org/schema/1.0/Location",
+    "description": "Honschaftsstraße 312, Köln",
+    "geometry": "POINT (7.03291 50.98249)"
+}
+~~~~~
+
+Ortsangabe mit Polygon-Objekt:
+
+~~~~~  {#location_ex2 .json}
+{
+    "id": "https://oparl.example.org/locations/29856",
+    "type": "http://oparl.org/schema/1.0/Location",
+    "description": "Rechtes Rheinufer zwischen Deutzer
+        Brücke und Hohenzollernbrücke",
+    "geometry": "POLYGON ((
+                6.9681106 50.9412137,
+                6.9690940 50.9412137,
+                6.9692169 50.9368270,
+                6.9681218 50.9368270,
+                6.9681106 50.9412137))"
+}
+~~~~~
+
+
 ### Eigenschaften ###
 
 `description`
@@ -76,27 +79,10 @@ für Längen- und Breitengrad.
     MUSS ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen.
     Typ: String.
     Kardinalität: 0 bis 1.
-    OPTIONAL.
+    EMPFOHLEN.
 
 `keyword`
-:   Schlagwort mit `skos:prefLabel`. Vgl. dazu [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
-    Typ: `skos:Concept`.
+:   Schlagworte mit `skos:prefLabel`. Vgl. dazu [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
+    Typ: Array mit Strings oder URLs zu `skos:Concept` Objekten.
     Kardinalität: 0 bis *.
     OPTIONAL.
-
-### Weitere Beispiele
-
-Ortsangabe mit Polygon-Objekt:
-
-~~~~~  {#location_ex3 .json}
-{
-    "description": "Rechtes Rheinufer zwischen Deutzer
-        Brücke und Hohenzollernbrücke",
-    "geometry": "POLYGON ((
-                6.9681106 50.9412137,
-                6.9690940 50.9412137,
-                6.9692169 50.9368270,
-                6.9681218 50.9368270,
-                6.9681106 50.9412137))"
-}
-~~~~~

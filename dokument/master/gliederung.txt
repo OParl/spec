@@ -46,9 +46,8 @@ OParl Spezifikation 1.0 Gliederung
     6035 URLs
         Empfehlungen für langlebige IRIs/URIs/URLs
         Empfehlungen für eindeutige URLs
-    6040 Serialisierung mittels JSON-LD und JSONP
+    6040 Serialisierung mittels JSON und JSONP
         JSON
-        JSON-LD
         JSONP
     6050 Benannte und anonyme Objekte
         Benannte Objekte
@@ -58,7 +57,6 @@ OParl Spezifikation 1.0 Gliederung
         Neue Objekte
         Geänderte Objekte
         Entfernte Objekte
-    6075 Daten Dump / bulk download
     6080 Dokumentenabruf
     6090 Content Negotiation
     6095 HTTP-Kompression
@@ -66,60 +64,16 @@ OParl Spezifikation 1.0 Gliederung
     6900 Reservierte URL-Parameter
 8000 Schema
     8010 Überblick
-        - Überblick mit Graph-Darstellung
     8020 Attribute mit Verwendung in mehreren Objekttypen
     8030 oparl:System (System)
-        Bedeutung
-        Eigenschaften
-        Besonderheiten
-        Beispiel(e)
     8040 oparl:Body (Körperschaft)
-        Bedeutung
-        Eigenschaften
-        Besonderheiten
-        Beispiel(e)
     8050 oparl:Organization (Gruppierung)
-        Bedeutung
-        Eigenschaften
-        Besonderheiten
-        Beispiel(e)
     8060 oparl:Person (Person)
-        Bedeutung
-        Eigenschaften
-        Besonderheiten
-        Beispiel(e)
     8080 oparl:Meeting (Sitzung)
-        Bedeutung
-        Eigenschaften
-        Besonderheiten
-        Beispiel(e)
     8090 oparl:Agendaitem (Tagesordnungspunkt)
-        Bedeutung
-        Eigenschaften
-        Besonderheiten
-        Beispiel(e)
     8100 oparl:Paper (Drucksache)
-        Bedeutung
-        Eigenschaften
-        Besonderheiten
-        Beispiel(e)
     8110 oparl:File (Dokument)
-        Bedeutung
-        Eigenschaften
-        Besonderheiten
-        Beispiel(e)
     8120 oparl:Consultation (Beratung)
-        Bedeutung
-        Eigenschaften
-        Besonderheiten
-        Beispiel(e)
     8130 oparl:Location (Ort)
-        Bedeutung
-        Eigenschaften
-        Besonderheiten
-        Beispiel(e)
     8140 org:Membership / oparl:Membership (Mitgliedschaft)
     8150 oparl:LegislativeTerm
-9000 Anhang
-    9010 Glossar
-    9020 JSON-LD-Ressourcen auf oparl.org

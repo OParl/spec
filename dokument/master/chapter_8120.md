@@ -10,59 +10,17 @@ Die Gesamtheit aller Objekte des Typs `oparl:Consultation` zu einer bestimmten
 Drucksache bildet das ab, was in der Praxis als "Beratungsfolge" der Drucksache
 bezeichnet wird.
 
-### Beispiel ###
-
-Ein passender Kontext:
-
-~~~~~
-{   
-    "paper": {
-        "@id": "oparl:paper",
-        "@type": "@id"
-    },
-    "agendaItem": {
-        "@id": "oparl:agendaItem",
-        "@type": "@id"
-    },
-    "organization": {
-        "@id": "oparl:organization",
-        "@type": "@id"
-    },
-    "authoritative": {
-        "@id": "oparl:authoritative",
-        "@type": "xsd:boolean"
-    },
-    "role": {
-        "@id": "oparl:role",
-        "@type": "@id"
-    }
-}
-~~~~~
-
+**Beispiel**
 
 ~~~~~  {#consultation_ex2 .json}
 {
-    "@context": "https://oparl.example.org/Pfad/zum/Kontext/oparl.jsonld",
-    "@type": "oparl:Consultation",
-    "@id": "beispielris:consultation/47594",
-    "paper": "beispielris:paper/2396",
-    "agendaItem": "beispielris:agendaitem/15569",
-    "organization": "beispielris:organization/96",
+    "id": "https://oparl.example.org/consultation/47594",
+    "type": "http://oparl.org/schema/1.0/Consultation",
+    "paper": "https://oparl.example.org/paper/2396",
+    "agendaItem": "https://oparl.example.org/agendaitem/15569",
+    "organization": "https://oparl.example.org/organization/96",
     "authoritative": false,
-    "role": "beispielris:role/decision"
-}
-~~~~~
-
-Das Objekt "beispielris:roles/decision" kann so aussehen:
-
-~~~~~  {#role_ex1 .json}
-{
-    "@context": "https://oparl.example.org/Pfad/zum/Kontext/oparl.jsonld",
-    "@id": "beispielris:role/decision",
-    "prefLabel": {
-        "de": "Entscheidung",
-        "en": "decision"
-    }
+    "role": "https://oparl.example.org/role/decision"
 }
 ~~~~~
 
@@ -71,18 +29,19 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
 
 `paper`
 :   Drucksache, die beraten wird.
-    Typ: `oparl:Paper`.
+    Typ: URL eines Objekts vom Typ `oparl:Paper`.
     Kardinalität: 1.
     ZWINGEND.
 
 `agendaItem`
 :   Tagesordnungspunkt, unter dem die Drucksache beraten wird.
-    Typ: `oparl:AgendaItem`.
-    Kardinalität: 0 bis *.
+    Typ: URL eines Objekts vom Typ `oparl:AgendaItem`.
+    Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
 `organization`
-:   Gremium, dem die Sitzung zugewiesen ist, zu welcher der zuvor genannte Tagesordnungspunkt gehört.
+:   Gremium, dem die Sitzung zugewiesen ist, zu welcher der zuvor genannte
+    Tagesordnungspunkt gehört.
     Hier kann auch eine mit Liste von Gremien angegeben werden (die verschiedenen `oparl:Body` und `oparl:System`
     angehören können).
     Die Liste ist dann geordnet.
@@ -95,21 +54,22 @@ Das Objekt "beispielris:roles/decision" kann so aussehen:
 :   Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst 
     wird (`true`) wird oder nicht (`false`).
     Typ: Boolean.
-    Kardinalität: 1.
+    Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `role`
-:   Rolle oder Funktion der Beratung. Zum Beispiel Anhörung (hearing), Entscheidung (decision), 
-    Kenntnisnahme (notice), Vorberatung (counseling) usw. Es wird empfohlen in den URLs entsprechende englische
-    Bestandteile zu verwenden. Die Rollenobjekte haben nur eine festgelegte Eigenschaft: `skos:prefLabel` für den Namen.
-    In einer zukünftigen Version von OParl können gegebenenfalls die am stärksten benötigten Rollen
-    standardisiert werden.
-    Typ: `skos:Concept`.
-    Kardinalität: 1.
+:   Rolle oder Funktion der Beratung. Zum Beispiel Anhörung, Entscheidung, 
+    Kenntnisnahme, Vorberatung usw. Diese Eigenschaft funktioniert wie in 
+    [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben 
+    entweder als URL zu einem `skos:Concept` oder als String.
+    Typ: String oder URL eines `skos:Concept` Objekts.
+    Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `keyword`
-:   Schlagwort, Begriff mit `skos:prefLabel`. Allgemeiner verwendbar als `role`.
-    Typ: `skos:Concept`.
+:   Schlagworte. Diese Eigenschaft funktioniert wie in 
+    [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben 
+    entweder als URL zu einem `skos:Concept` oder als String.
+    Typ: Liste von Strings oder URLs zu `skos:Concept` Objekten.
     Kardinalität: 0 bis *.
     OPTIONAL.

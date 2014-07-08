@@ -11,90 +11,23 @@ Parlament der Stadt Köln, namentlich den Rat der Stadt Köln, abzubilden,
 dann müsste dieses System dazu ein Objekt vom Typ `oparl:Body` führen, welches
 die Stadt Köln repräsentiert.
 
-### Beispiel ###
+Vom OParl-Server wird erwartet, dass er mindestens
+ein Objekt vom Typ `oparl:Body` bereit hält. Teilen sich mehrere Körperschaften
+das selbe technische System, können auf demselben Server auch mehrere
+Objekte vom Typ `oparl:Body` beherbergt werden.
 
-Ein Kontext:
+Über die Zuordnung zu einem bestimmten `oparl:Body`-Objekt zeigen andere
+Objekte, wie beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit
+zu einer bestimmten Körperschaft und damit implizit zu einem bestimmten
+Parlament an.
 
-~~~~~  {#body_ex_context .json}
-{
-    "@language": "de",
-    "system": {
-        "@id": "oparl:system",
-        "@type": "@id"
-    },
-    "contactEmail": {
-        "@id": "foaf:mbox",
-        "@type": "@id"
-    },
-    "contactName": {
-        "@id": "oparl:contactName",
-        "@type": "xsd:string"
-    }
-    "rgs": { 
-        "@id": "oparl:rgs",
-        "@type": "xsd:string"
-    },
-    "equivalentBody": {
-        "@id": "skos:exactMatch",
-        "@type": "@id" 
-    },
-    "shortName": {
-        "@id": "oparl:shortName",
-        "@type": "xsd:string"
-    },
-    "name": {
-        "@type": "xsd:sting",
-        "@container": "@language" TODO wirklich?
-    },
-    "website": {
-        "@id": "oparl:website",
-        "@type": "@id"
-    },
-    "license": {
-        "@id": "dc:license",
-        "@type": "@id"
-    },
-    "licenseValidSince": {
-        "@id": "oparl:licenseValidSince",
-        "@type": "xsd:date"
-    },  
-    "organization": {
-        "@type": "@id",
-        "@id": "oparl:organization"
-    },
-    "meeting": {
-        "@type": "@id",
-        "@id": "oparl:meeting"
-    },
-    "paper": {
-        "@type": "@id",
-        "@id": "oparl:paper"
-    },
-    "member": {
-        "@type": "@id",
-        "@id": "oparl:member"
-    },
-    "classification": {
-        "@type": "@id",
-        "@id": "oparl:classification"
-    },
-    "created": {
-        "@id": "dc:created",
-        "@type": "xsd:dateTime"
-    },  
-    "modified": {
-        "@id": "dc:modified",
-        "@type": "xsd:dateTime"
-    }   
-}
-~~~~~
-
+**Beispiel**
 
 ~~~~~  {#oparlbody_ex1 .json}
 {
-    "@type": "oparl:Body",
-    "@id": "beispielris:body/0",
-    "system": "beispielris:",
+    "id": "https://oparl.example.org/body/0",
+    "type": "http://oparl.org/schema/1.0/Body",
+    "system": "https://oparl.example.org/",
     "contactEmail": "mailto:ris@beispielstadt.de",
     "contactName": "RIS-Betreuung",
     "rgs": "053150000000",
@@ -110,33 +43,23 @@ Ein Kontext:
     "website": "http://www.beispielstadt.de/",
     "license": "http://creativecommons.org/licenses/by/4.0/",
     "licenseValidSince": "2014-01-01",
-    "organization": "beispielris:body/0/organisation/",
-    "meeting": "beispielris:body/0/meeting/",
-    "paper": "beispielris:body/0/paper/",
-    "member": "beispielris:body/0/person/",
-    "classification": "beispielris:vocab/landkreis",
+    "organization": "https://oparl.example.org/body/0/organizations/",
+    "meeting": "https://oparl.example.org/body/0/meetings/",
+    "paper": "https://oparl.example.org/body/0/papers/",
+    "member": "https://oparl.example.org/body/0/people/",
+    "legislativeTerm": "https://oparl.example.org/body/0/terms/",
+    "classification": "https://oparl.example.org/vocab/landkreis",
     "created": "2014-01-08T14:28:31.568+0100",
     "modified": "2014-01-08T14:28:31.568+0100"
 }
 ~~~~~
 
-### Anmerkungen ###
-
-Vom OParl-Server wird erwartet, dass er mindestens
-ein Objekt vom Typ `oparl:Body` bereit hält. Teilen sich mehrere Körperschaften
-das selbe technische System, können auf demselben Server auch mehrere
-Objekte vom Typ `oparl:Body` beherbergt werden.
-
-Über die Zuordnung zu einem bestimmten `oparl:Body`-Objekt zeigen andere
-Objekte, wie beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit
-zu einer bestimmten Körperschaft und damit implizit zu einem bestimmten
-Parlament an.
 
 ### Eigenschaften
 
 `system`
 :   System, zu dem dieses Objekt gehört.
-    Typ: `oparl:System`.
+    Typ: URL des `oparl:System` Objekts.
     Kardinalität: 1.
     ZWINGEND.
 
@@ -185,7 +108,7 @@ Parlament an.
     repräsentieren. Hier können beispielsweise,
     sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>],
     der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden.
-    Typ: URL.
+    Typ: Array mit URLs.
     Kardinalität: 0 bis *.
     EMPFOHLEN.
 
@@ -194,7 +117,7 @@ Parlament an.
     Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft
     und idealerweise das parlamentarische Informationssystem zuständigen Stelle
     ermöglichen.
-    Typ: E-Mail-Adresse inklusive "mailto:".
+    Typ: String im Format `foaf:mbox`.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
@@ -205,46 +128,38 @@ Parlament an.
     OPTIONAL.
 
 `paper`
-:   Drucksache unter dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
-    Typ: `oparl:Paper`.
+:   Drucksacheen unter dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
+    Typ: Liste von `oparl:Paper` Objekten.
     Kardinalität: 0 bis *.
     ZWINGEND.
 
 `member`
-:   Person in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
-    Typ: `oparl:Person`.
+:   Personen in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
+    Typ: Liste von `oparl:Person` Objekten.
     Kardinalität: 0 bis *.
     ZWINGEND.
 
 `meeting`
-:   Sitzung dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
-    Typ: `oparl:Meeting`.
+:   Sitzungen dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
+    Typ: Liste von `oparl:Meeting` Objekten.
     Kardinalität: 0 bis *.
     ZWINGEND.
 
 `organization`
-:   Gruppierung in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
-    Typ: `oparl:Organization`.
+:   Gruppierungen in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
+    Typ: Liste von `oparl:Organization` Objekten.
     Kardinalität: 0 bis *.
     ZWINGEND.
 
 `legislativeTerm`
-:   Wahlperiode.
-    Typ: `oparl:LegislativeTerm`.
+:   Wahlperioden in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
+    Typ: Liste von `oparl:LegislativeTerm` Objekten.
     Kardinalität: 0 bis *.
     EMPFOHLEN.
 
 `keyword`
 :   Schlagwort(e). Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
-    Typ: `skos:Concept`.
-    Kardinalität: 0 bis *.
-    OPTIONAL.
-
-`allConcepts`
-:   Alle Schlagworte und Begriffe, die von dieser Körperschaft verwendet werden.
-    insbesondere dann
-    wichtig, wenn Sortierungs-Reihenfolgen verwendet werden.
-    Typ: `skos:Concept`.
+    Typ: Array mit Strings oder URLs zu `skos:Concept` Objekten.
     Kardinalität: 0 bis *.
     OPTIONAL.
 
@@ -259,5 +174,3 @@ Parlament an.
     Typ: `xsd:dateTime`.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
-
-TODO: Beispiel zu `allConcepts` einfügen.

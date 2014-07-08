@@ -26,51 +26,27 @@ als Datentyp erwartet.
 ### `null`-Werte und "leere" Werte
 
 JSON erlaubt es grundsätzlich, Eigenschaften mit dem Wert `null` zu versehen.
-Im Rahmen dieser Spezifikation DARF das bei durch einen _Server_ gelieferten 
-Objekten nur dann der Fall sein, wenn es gemäß JSON-LD-Spezifikation
-erfolgt. Das gilt auch für OPTIONALE oder EMPFOHLENE Eigenschaften.
 
-Ein _Client_ MUSS `null`-Werte tolerieren und SOLL diese Eigenschaften
-nicht anders anzeigen, als nicht vorhandene Eigenschaften.
+Clients MÜSSEN eine Eigenschaft mit dem Wert `null` so behandeln, als
+wäre die Eigenschaft nicht im Objekt vorhanden. OParl-Server SOLLEN die
+Ausgabe von Eigenschaften mit dem Wert `null` grundsätzlich vermeiden.
 
-Entsprechendes gilt für leere Wertemengen oder -listen, also `[]`, und leere
-Objekte, also `{}`.
+Analog dazu SOLLEN Server vermeiden, leere JSON-Arrays und -Objekte 
+(`[]` und `{}`) auszugeben. Auch hier sind Clients dazu angehalten, diese
+wie nicht existierende Eigenschaften zu behandeln.
 
-Dafür gibt es zwei Gründe. Einerseits wird dadurch die Umgehung des Zwangs zur
-Angabe von Werten bei ZWINGENDEN Eigenschaften ausgeschlossen. Andererseits
-enthalten solche Leerkonstruktionen keine verwendbare Information.
-
-### URLs der Eigenschaften
-
-Jede Eigenschaft ist unter einer URL identifizierbar.
-
-### Verwendung externer Eigenschaften / abgeleitete Eigenschaften
-
-Verschiedene Eigenschaften sind nicht in OParl selbst definiert, sondern
-in anderen externen Vokabularen. Dabei legt die Oparl-Spezifikation jeweils
-fest, ob die Original-Eigenschaft verwendet wird oder ob für OParl eine
-abgeleitete Eigenschaft verwendet wird.
-
-So ist für eine Eigenschaft `classification" von Gruppierungen eine
-Verwendung von `org:classification` ebenso denkbar wir die Verwendung von
-`oparl:classification`. Im zweiten Fall wird die Eigenschaft als
-Untereigenschaft der Ausgangseigenschaft definiert. Die Ausgangseigenschaft
-wird dann jeweils hinter "Abgeleitet von:" angeben.
-
-Auf die Bedeutung dieses Unterschiedes und der Untereigenschafts-Beziehung
-wird an dieser Stelle nicht weiter eingegangen  Stichwort: `owl:subPropertyOf`).
-Unterschiede kann es z.B. bei den Wertebereichen geben.
-
-Der Name der Ausdgangseigenschaft muss nicht übernommen werden.
-In OParl wird aber in der Regel der jeweilige Ausgangsname verwendet.
+Ausnahmen bilden hier Eigenschaften, die ihrerseits als Pflichteigenschaften
+("ZWINGEND") deklariert sind und die Kardinalität "1 bis *" besitzen,
+also eine Liste als Wert haben können. Diese Eigenschaften DÜRFEN auch dann
+gesetzt sein, wenn ihr Wert eine leere Liste ist.
 
 ### Kardinalität
 
-Viele Eigenschaften erlauben es, entweder einen einzelnen Wert (z. B. eine Zeichenkette,
-eine URL, eine Zahl) oder alternativ eine Liste mit mehreren Elementen des
-jeweils erlaubten Typs auszugeben. Die entsprechende Regel ist in der Schema-Beschreibung
-unter dem Stichwort *Kardinalität* angegeben. Dabei sind verschiedene Angaben
-zur Eigenschaft möglich:
+Zur expliziten Unterscheidung, ob eine Eigenschaft einen einzelnen Wert
+(z. B. eine Zeichenkette, eine URL, eine Zahl) oder alternativ eine Liste mit
+mehreren Elementen als Wert haben darf, ist in der Schema-Beschreibung 
+zu jeder Eigenschaft die *Kardinalität* angegeben. Dabei sind verschiedene
+Angaben zur Eigenschaft möglich:
 
 * 0 bis 1: OPTIONAL und MUSS NICHT gesetzt sein. Wenn sie gesetzt ist,
   DARF sie genau einen Wert haben.
@@ -86,7 +62,7 @@ zur Eigenschaft möglich:
 Zur Ausgabe von Listen innerhalb eines Objekts sowie über eigene URLs finden sich
 ausführlichere Erläuterungen im Abschnitt [Objektlisten](#objektlisten).
 
-### Datums- und Zeitangaben
+### Datums- und Zeitangaben  {#datum_zeit}
 
 Für Datum und Zeit werden die in XML-Schema festgelegten Typen verwendet
 (was nicht bedeutet, dass in OParl XML verwendet wird).
@@ -100,54 +76,76 @@ ohne zusätzlich auf den Ort einer Sitzung o. ä. Bezug nehmen zu müssen.
 Diese Spezifikationen stützen sich auf RFC 3339^[RFC3339:
 <http://www.ietf.org/rfc/rfc3339.txt>]) und RFC 3339 wiederum auf ISO 8601.
 
-Im JSON-LD Kontext von OParl ist der Präfix `xsd` so spezifiziert, dass 
-Datums- und Zeittyp durch `xsd:date` bzw. `xsd:dateTime` abgekürzt werden 
-können.
-
-### Mehrsprachigkeit
-
-Für Texte in OParl-Objekten ist durchgehend vorgesehen, dass diese 
-mehrsprachig sein können. JSON-LD sieht das Schlüsselwort
-`@language` vor, um zu einem Attribut mehrere Werte in bestimmten
-Sprachen zu definieren. Diesen Mechanismus SOLLEN Server-Implementierer
-nutzen, um Mehrsprachigkeit von Inhalten zu realisieren.
-
-In den von OParl bereitgestellten JSON-LD-Kontexten ist die deutsche Sprache
-(Kürzel `de`) für sämtliche Texteigenschaften voreingestellt. Das `@language`
-Stichwort SOLL daher nur dann eingesetzt werden, wenn ein Inhalt nicht
-deutschsprachig ist.
+In der vorliegenden Spezifikation verwenden wir den Präfix `xsd`, um
+Eigenschaften aus der XMLSchema-Spezifikation zu referenzieren.^[Der Präfix
+"xsd" steht somit für die URL <http://www.w3.org/2001/XMLSchema#>]. Datums-
+und Zeittyp werden entsprechend in diesem Dokument als `xsd:date` bzw.
+`xsd:dateTime` bezeichnet.
 
 ### Vokabulare zur Klassifizierung  {#vokabulare_klassifizierung}
 
 Einige Objekttypen besitzen Eigenschaften zum Zweck der Klassifizierung von Objekten.
 Im Einzelnen sind dies:
 
-* die Eigenschaft `paperType` des Objekttyps [`oparl:Paper`](#oparl_paper)
-* die Eigenschaft `documentRole` des Objekttyps [`oparl:File`](#oparl_document)
-* die Eigenschaft `classification` des Objekttyps [`oparl:Organization`](#oparl_organization)
-* die Eigenschaft `result` des Objekttyps [`oparl:AgendaItem`](#oparl_agendaitem)
-* die Eigenschaft `status` des Objekttyps [`oparl:Person`](#oparl_person)
-* die Eigenschaft `title` des Objekttyps [`oparl:Person`](#oparl_person)
-* die Eigenschaft `role` des Objekttyps [`oparl:Membership`](#oparl_membership)
-* die Eigenschaft `keyword` in mehreren Objekttypen
+* `classification` des Objekttyps [`oparl:Organization`](#oparl_organization)
+* `documentRole` des Objekttyps [`oparl:File`](#oparl_document)
+* `formOfAddress` des Objekttyps [`oparl:Person`](#oparl_person)
+* `keyword` in mehreren Objekttypen
+* `paperType` des Objekttyps [`oparl:Paper`](#oparl_paper)
+* `post` des Objekttyps [`oparl:Organization`](#oparl_organization)
+* `result` des Objekttyps [`oparl:AgendaItem`](#oparl_agendaitem)
+* `role` des Objekttyps [`oparl:Consultation`](#oparl_consultation)
+* `role` des Objekttyps [`oparl:Membership`](#oparl_membership)
+* `role` des Objekttyps [`oparl:Person`](#oparl_person)
+* `status` des Objekttyps [`oparl:Person`](#oparl_person)
+* `title` des Objekttyps [`oparl:Person`](#oparl_person)
 
-Diese Eigenschaften können wahlweise mit einfachen Zeichenketten befüllt werden
-(z. B. "Beantwortung einer Anfrage") oder mit URLs zu Begriffen aus
-Vokabularen. Ein Begriff SOLL, wenn er per URL referenziert wird,
-in Form eines `skos:Concept` Objekts vorliegen, das über eine `skos:prefLabel`
-Eigenschaft verfügt. Diese Konstrukte entstammen dem _Simple Knowledge
-Organization System_ (SKOS).^[SKOS: <http://www.w3.org/2009/08/skos-reference/skos.html>]
+Diese Eigenschaften können als Wert wahlweise einfache Zeichenketten (Strings)
+haben, z. B. `"Beantwortung einer Anfrage"` oder aber URLs. Wenn eine URL
+verwendet wird, MUSS diese auf ein JSON-LD-Objekt^[JSON-LD 1.0:
+<http://www.w3.org/TR/json-ld/>] vom Typ `skos:Concept` zeigen.
+Dieses Objekt MUSS eine Eigenschaft `prefLabel` besitzen, in dem die
+benutzerfreundliche Benennung des Konzepts wiedergegeben wird.^[
+Diese Konstrukte entstammen dem _Simple Knowledge Organization System_ (SKOS):
+<http://www.w3.org/2009/08/skos-reference/skos.html>]
 
+Ein Beispiel für ein `skos:Concept` Objekt, wie es für die Eigenschaft
+`status` eines Objekts vom Typ `oparl:Person` genutzt werden kann:
+
+~~~~~  {#skosconcept_ex1 .json}
+{
+	"@context": {
+		"prefLabel": {
+			"@id": "http://www.w3.org/2004/02/skos/core#prefLabel"
+		}
+	},
+	"@type": "http://www.w3.org/2004/02/skos/core#Concept",
+	"prefLabel": "Ratsherr | Ratsfrau"
+}
+~~~~~
+
+Das Objekt darf unter einer beliebigen URL abgelegt werden. Diese kann, muss
+aber nicht Teil des jeweiligen OParl-Systems sein.
+
+Sinnvoll wird die
+Verwendung von URLs zur Klasifizierung, wenn mehrere Systeme auf die selben
+URLs verweisen, damit also ein gemeinsames Vokabular zur Klassifizierung nutzen.
 Die Verwendung eines übergreifenden Vokabulars soll dazu beitragen, dass
 die automatisierte Auswertung von parlamentarischen Informationen über die
 Grenzen einzelner Systeme hinweg deutlich erleichtert wird. So könnte
-beispielsweise eine bestimmte Art von Antrag über Systemgrenzen hinweg als
-solcher erkannt werden, wenn die Systeme auf das selbe `skos:Concept`
+beispielsweise eine bestimmte Art von Drucksache über Systemgrenzen hinweg als
+solche erkannt werden, wenn die Systeme auf das selbe `skos:Concept` Objekt
 verweisen.
 
-Zukünftig ist vorstellbar, dass OParl hierzu Vokabulare mit entsprechenden
+Für die Zukunft ist geplant, dass OParl hierzu Vokabulare mit entsprechenden
 SKOS-Objekten zur Verfügung stellt, die dann von Datenanbietern per URL
 referenziert werden können.
+
+Da die `skos:Concept` Objekte, die über eine URL verlinkt werden, praktisch
+keinen Änderungen unterliegen, SOLLEN Clients diese Ressourcen nur selten
+abrufen und das Ergebnis der Anfragen in ihrem eigenen Cache speichern. Server
+SOLLEN das Caching unterstützen, indem Sie die üblichen Mechanismen von
+HTTP-Headern wie `Expires` und `Max-age` nutzen.
 
 ### Herstellerspezifische Erweiterungen
 

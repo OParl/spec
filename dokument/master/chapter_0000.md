@@ -1,4 +1,4 @@
-% OParl Schnittstellen-Spezifikation (Branch "backtojson")
+% OParl Schnittstellen-Spezifikation (Entwurf für 1.0)
 % OParl Team - <http://oparl.org/>
 
 

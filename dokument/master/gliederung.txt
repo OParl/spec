@@ -55,6 +55,7 @@ OParl Spezifikation 1.0 Gliederung
     6080 Dokumentenabruf
     6080 Dateizugriff
     6090 Content Negotiation
+    6092 Cross-Origin Resource Sharing (CORS)
     6095 HTTP-Kompression
     6100 Ausnahmebehandlung
     6900 Reservierte URL-Parameter

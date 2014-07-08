@@ -15,7 +15,7 @@ unterstützte Repräsentation an den Client ausliefert.
 
 Grundanforderung der vorliegenden Spezifikation an OParl-Clients ist,
 dass sie bei jeder Anfrage an einen OParl-Server einen Accept-Header
-mit dem Mime-Type `application/ld+json` senden MÜSSEN, es sei denn,
+mit dem Mime-Type `application/json` senden MÜSSEN, es sei denn,
 es handelt sich um einen [Dateizugriff](#dateizugriff).
 
 Im Kontext von OParl soll durch Unterstützung von Content Negotiation
@@ -28,7 +28,7 @@ dieser die URL einer Drucksache (OParl-Objekttyp `oparl:Paper`) auf,
 sendet er entweder keinen `Accept`-Header oder aber einen solchen,
 der eine Bevorzugung von Inhaltstypen wie HTML angibt.
 
-Der Server DARF nun, da kein Accept-Header mit dem Typ `application/ld+json`
+Der Server DARF nun, da kein Accept-Header mit dem Typ `application/json`
 gesendet wurde, dem Client eine alternative Version der Information über die
 Drucksache ausliefern, beispielsweise eine HTML-Ansicht.
 

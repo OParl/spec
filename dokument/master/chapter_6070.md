@@ -144,7 +144,7 @@ Mit "Entfernung" ist im Sinne dieses Feeds die Löschung eines Objekts, aber
 auch die Depublikation oder das Beenden der öffentlichen Verfügbarkeit gemeint.
 
 Client-Implementierer sind angehalten, diesen Feed zu nutzen, um beispielsweise
-depublizierte Dokumente aus ihren lokalen Caches zu entfernen.
+depublizierte Drucksachen aus ihren lokalen Caches zu entfernen.
 
 ~~~~~  {#feed_ex3 .json}
 {
@@ -167,4 +167,12 @@ verwendet werden.
 Im Unterschied zu den beiden zuvor beschriebenen Feeds wird im Feed "Gelöschte
 Objekte" keine Eigenschaft `type` am jeweiligen Objekt ausgegeben.
 
-Clients SOLLEN vermeiden, die URLs der jeweiligen Einträge erneut aufzurufen.
+Clients SOLLEN anhand dieser Informationen in der Lage sein, gecachte Objekte
+aus ihrem Cache zu entfernen. Entsprechend sollten Caches so beschaffen sein,
+dass ihre Informationen auf die URLs der jeweiligen Objekte zurück zu führen
+sind. Insbesondere im Fall von Dateien (Objekte des Typs `oparl:File`) ist
+darauf zu achten, dass gecachte Dateien mit der URL des `oparl:File`-Objekts
+assoziiert sind.
+
+Clients SOLLEN vermeiden, die URLs der jeweiligen Einträge im Feed
+"Entfernte Objekte" erneut aufzurufen.

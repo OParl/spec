@@ -29,7 +29,7 @@ zu haben:
 
 * Verschiedene Clients, die für OParl Version 1.0 entwickelt wurden, kommen
   bei Nutzerinnen und Nutzern, die sich für den Stadtrat in Beispielstadt
-  intressieren, zum Einsatz. Jeder Client-Nutzer hat dazu lediglich die 
+  interessieren, zum Einsatz. Jeder Client-Nutzer hat dazu lediglich die 
   URL `https://oparl.example.org/1.0/` des OParl-Servers in der Client-Konfiguration
   hinterlegt.
 

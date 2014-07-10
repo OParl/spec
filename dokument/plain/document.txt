@@ -1316,21 +1316,16 @@ Vollständigkeit erheben:
 Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee[^30]
 sowie die Europäische Kommission[^31].
 
-Serialisierung mittels JSON und JSONP
--------------------------------------
+JSON-Ausgabe
+------------
 
-Eine OParl-konforme API gibt Objekte in Form von JSON aus. Auf
-Anforderung des Clients wird darüber hinaus JSONP unterstützt.
+Eine OParl-Server MUSS Objekte in Form von JSON ausgeben. Die Abkürzung
+JSON steht für "JavaScript Object Notation". Das JSON-Format ist in
+RFC4627[^32] beschrieben. Nachfolgend werden nur die wichtigsten
+Definitionen übernommen, um eine Terminologie zur weiteren Verwendung in
+diesem Dokument zu etablieren.
 
-JSON
-
-Die Abkürzung JSON steht für "JavaScript Object Notation". Das
-JSON-Format ist in RFC4627[^32] beschrieben. Nachfolgend werden nur die
-wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren
-Verwendung in diesem Dokument zu etablieren.
-
-Das JSON-Format unterstützt die Ausgabe von vier verschiedenen
-primitiven Datentypen:
+JSON unterstützt die folgenden primitiven Datentypen:
 
 -   Zeichenkette (Unicode)
 -   Zahl (sowohl Ganzzahlen als auch Fließkommazahlen)
@@ -1341,7 +1336,7 @@ Darüber hinaus werden zwei komplexe Datentypen unterstützt:
 
 -   Objekt: Eine Sammlung von Schlüssel-Wert-Paaren ohne Reihenfolge,
     wobei der Schlüssel eine Zeichenkette sein muss und der Wert ein
-    beliebiger Datentyp sein kann.
+    beliebiger Datentyp ist.
 -   Array: Eine geordnete Liste mit beliebigen Datentypen.
 
 Beispiel eines Objekts in JSON-Notation:
@@ -1358,60 +1353,6 @@ Beispiel eines Objekts in JSON-Notation:
     "array": ["foo", "bar"]
 }
 ```
-
-JSONP
-
-Eine Einschränkung bei der Nutzung von JSON ist das Sicherheitsmodell
-von Web-Browsern. Die gängigen Browser erlauben es innerhalb von
-Webanwendungen nicht, JSON-Ressourcen von Domains auszulesen, die nicht
-der Domain entsprechen, von der die Webanwendung selbst geladen wurde.
-AnwendungsentwicklerInnen sind dadurch bei der Implementierung von
-Client-Anwendungen eingeschränkt.
-
-Diese Einschränkung gilt nicht für JSONP[^33]. Durch JSONP wird die
-JSON-Notation so erweitert, dass der ausgegebene Code ausführbarer
-JavaScript-Code wird. Damit wird erreicht, dass der JSON-Code über die
-Grenzen von Domains hinweg direkt von Webanwendungen eingebunden werden
-kann.
-
-Das folgende Beispiel verdeutlicht den Unterschied zwischen JSON und
-JSONP. Zunächst ein einfaches JSON-Beispiel:
-
-``` {#jsonp_ex1 .json}
-{
-    "foo": "bar"
-}
-```
-
-Durch Einbettung in eine sogenannte Callback-Funktion wird daraus JSONP:
-
-``` {#jsonp_ex2 .jsonp}
-mycallback({
-    "foo": "bar"
-})
-```
-
-Der Name der Callback-Funktion (im Beispiel mycallback) wird
-grundsätzlich bei der Anfrage vom Client bestimmt, und zwar mittels
-URL-Parameter.
-
-Für eine OParl-konforme Schnittstelle wird EMPFOHLEN, dass der Server
-die JSONP-Ausgabe unterstützt. Die JSONP-Ausgabe MUSS in diesem Fall für
-sämtliche Abfragen möglich sein. Eine JSONP-Unterstützung nur für
-bestimmte Anfragen ist nicht vorgesehen.
-
-Der URL-Parameter, den Clients zur Aktivierung der JSONP-Ausgabe
-verwenden, MUSS callback lauten. Der Wert des callback-URL-Parameters
-MUSS vom Server unverändert als Callback-Funktionsname verwendet werden.
-
-Aus Sicherheitsgründen MUSS der Client den Wert des callback-Parameters
-aus einem eingeschränkten Zeichenvorrat bilden, erlaubt sind
-ausschließlich die Klein- und Großbuchstaben von a bis z bzw. A bis Z
-sowie die Ziffern von 0 bis 9. (FRAGE: Sind Umlaute erlaubt?)
-
-Hält sich der Client nicht an diese Einschränkung und wird ein
-callback-Parameter mit nicht erlaubten Zeichen verwendet, SOLL der
-Server die Anfrage mit einer HTTP 400 (Bad Request) Antwort bedienen.
 
 Objektlisten
 ------------
@@ -1852,8 +1793,8 @@ Anforderungen gelten. Es werden drei verschiedene Feeds spezifiziert:
 -   Der Feed Geänderte Objekte
 -   Der Feed Entfernte Objekte
 
-Der Begriff "Feed" ist eine Anlehnung an die weit verbreiteten RSS-[^34]
-oder Atom-Feeds[^35], deren Publikationslogik im Wesentlichen auf der
+Der Begriff "Feed" ist eine Anlehnung an die weit verbreiteten RSS-[^33]
+oder Atom-Feeds[^34], deren Publikationslogik im Wesentlichen auf der
 chronologischen Sortierung beruht. Im Unterschied zu Atom oder RSS ist
 hier jedoch keine XML-Ausgabe beabsichtigt.
 
@@ -1989,7 +1930,7 @@ aber auch die Depublikation oder das Beenden der öffentlichen
 Verfügbarkeit gemeint.
 
 Client-Implementierer sind angehalten, diesen Feed zu nutzen, um
-beispielsweise depublizierte Dokumente aus ihren lokalen Caches zu
+beispielsweise depublizierte Drucksachen aus ihren lokalen Caches zu
 entfernen.
 
 ``` {#feed_ex3 .json}
@@ -2014,8 +1955,15 @@ Im Unterschied zu den beiden zuvor beschriebenen Feeds wird im Feed
 "Gelöschte Objekte" keine Eigenschaft type am jeweiligen Objekt
 ausgegeben.
 
-Clients SOLLEN vermeiden, die URLs der jeweiligen Einträge erneut
-aufzurufen.
+Clients SOLLEN anhand dieser Informationen in der Lage sein, gecachte
+Objekte aus ihrem Cache zu entfernen. Entsprechend sollten Caches so
+beschaffen sein, dass ihre Informationen auf die URLs der jeweiligen
+Objekte zurück zu führen sind. Insbesondere im Fall von Dateien (Objekte
+des Typs oparl:File) ist darauf zu achten, dass gecachte Dateien mit der
+URL des oparl:File-Objekts assoziiert sind.
+
+Clients SOLLEN vermeiden, die URLs der jeweiligen Einträge im Feed
+"Entfernte Objekte" erneut aufzurufen.
 
 Dateizugriff
 ------------
@@ -2033,7 +1981,7 @@ zu. Daher formuliert OParl diesbezüglich einige Anforderungen, die
 helfen sollen, unnötigen Datentransfer zu vermeiden.
 
 Detail zu sämtlichen angesprochenen Mechanismen sind in den
-verschiedenen Teilen der HTTP-1.1-Spezifikation[^36] zu finden.
+verschiedenen Teilen der HTTP-1.1-Spezifikation[^35] zu finden.
 
 GET und HEAD Anfragen
 
@@ -2062,7 +2010,7 @@ downloadUrl eine weitere URL anbieten, hier Download-URL genannt. Diese
 dient im Gegensatz zur Zugriffs-URL speziell zum Herunterladen und
 Speichern der Datei in einem Dateisystem des Endnutzers. Bei Zugriff auf
 die Download-URL MUSS der Server in der HTTP-Antwort einen
-Content-Disposition Header senden.[^37] Dieser Header MUSS als ersten
+Content-Disposition Header senden.[^36] Dieser Header MUSS als ersten
 Parameter den Typ attachment sowie den filename-Parameter mit dem Namen
 der Datei enthalten.
 
@@ -2160,11 +2108,11 @@ spezifischen Status-Code 410 tragen.
 Content Negotiation {#content_negotiation}
 -------------------
 
-Das Prinzip Content Negotiation wurde bereits in RFC2295[^38]
+Das Prinzip Content Negotiation wurde bereits in RFC2295[^37]
 beschrieben und bedeutet, dass WWW-Server eine Ressource in
 verschiedenen Formaten bereithalten können und Clients die Möglichkeit
 haben, eine Vorliebe für ein bestimmtes Format zu übermitteln. Auch die
-HTTP-1.1-Spezifikation[^39] schließt Content Negotiation ein.
+HTTP-1.1-Spezifikation[^38] schließt Content Negotiation ein.
 
 Die Idee hinter Content Negotiation ist, dass ein Client die von ihm
 akzeptierten Repräsentationen im Accept-Header der HTTP-Anfrage
@@ -2173,7 +2121,7 @@ und von ihm unterstützte Repräsentation an den Client ausliefert.
 
 Grundanforderung der vorliegenden Spezifikation an OParl-Clients ist,
 dass sie bei jeder Anfrage an einen OParl-Server einen Accept-Header mit
-dem Mime-Type application/ld+json senden MÜSSEN, es sei denn, es handelt
+dem Mime-Type application/json senden MÜSSEN, es sei denn, es handelt
 sich um einen Dateizugriff.
 
 Im Kontext von OParl soll durch Unterstützung von Content Negotiation
@@ -2186,20 +2134,53 @@ dieser die URL einer Drucksache (OParl-Objekttyp oparl:Paper) auf,
 sendet er entweder keinen Accept-Header oder aber einen solchen, der
 eine Bevorzugung von Inhaltstypen wie HTML angibt.
 
-Der Server DARF nun, da kein Accept-Header mit dem Typ
-application/ld+json gesendet wurde, dem Client eine alternative Version
-der Information über die Drucksache ausliefern, beispielsweise eine
-HTML-Ansicht.
+Der Server DARF nun, da kein Accept-Header mit dem Typ application/json
+gesendet wurde, dem Client eine alternative Version der Information über
+die Drucksache ausliefern, beispielsweise eine HTML-Ansicht.
 
 Ein Server DARF eine alternative Inhaltsform auch in Form einer
 HTTP-Weiterleitung anbieten.
+
+Cross-Origin Resource Sharing (CORS) {#cors}
+------------------------------------
+
+Wenn Webbrowser mittels Script auf JSON-Ressourcen zugreifen sollen,
+unterliegen diese Zugriffe üblicherweise einer Same-Origin-Policy (SOP).
+Das heißt, eine Anfrage ist nur an den Server zulässig, der auch das
+initiierende Script ausgeliefert hat. Anfragen an andere Server werden
+vom Browser blockiert. Diese Einschränkung dient allgemein der
+Sicherheit von Webbrowsern.[^39]
+
+Um die Informationen von OParl-Servern auch im Kontext von
+Webanwendungen flexibel nutzen zu können, ist die Überwindung der SOP
+nötig. Hierzu dient Cross-Origin Resource Sharing (CORS)[^40]. Mittels
+CORS kann ein Server mitteilen, dass bestimmte von ihm ausgelieferte
+Ressourcen auch innerhalb von Webapplikationen genutzt werden dürfen,
+die nicht von demselben Server ausgeliefert werden. Technisch wird dies
+durch Ausgabe zusätzlicher HTTP-Header erreicht.
+
+OParl-Server SOLLEN für jegliche Anfrage, die mit der Ausgabe von
+JSON-Daten beantwortet wird (das sind alle Anfragen außer Dateizugriffe)
+den folgenden HTTP-Antwort-Header senden:
+
+    Access-Control-Allow-Origin: *
+
+Der HTTP-Antwort-Header Access-Control-Allow-Methods SOLL darüber hinaus
+entweder NICHT gesetzt sein oder die Methode GET beinhalten.
+
+EntwicklerInnen von Webanwendungen sollten sich darüber bewusst sein,
+dass durch die direkte Einbindung von Scripten dritter in ihre
+Anwendungen mögliche Sicherheitsrisiken entstehen. Für den Fall, dass
+ein OParl-Server, etwa in Folge einer Manipulation, Schadcode
+ausliefert, könnte dieser unmittelbar von Scripten im Browser ausgeführt
+werden.
 
 HTTP-Kompression
 ----------------
 
 Die zwischen Servern und Clients übertragenen Datenvolumen SOLLEN mit
 Hilfe von Kompressionsverfahren reduziert werden, wenn sowohl der Client
-als auch der Server dies unterstützen. Dabei kommt das in HTTP 1.1[^40]
+als auch der Server dies unterstützen. Dabei kommt das in HTTP 1.1[^41]
 beschriebene Verfahren zum Einsatz.
 
 HTTP 1.1 stellt drei komprimierte Kodierungen vor, wobei die Liste durch
@@ -2270,7 +2251,7 @@ listformat:
     Kompakte und vollständige Form
 subject, predicate, object:
     Reserviert für eine eventuelle zukünftige Verwendung von Linked Data
-    Fragments[^41] in OParl.
+    Fragments[^42] in OParl.
 
 Schema
 ======
@@ -2348,11 +2329,11 @@ Datum (ein Tag ohne Uhrzeit) ohne Zeitzone und ein Datum mit Zeit mit
 Zeitzone angegeben, denn nur damit ist die Uhrzeit weltweit eindeutig
 ohne zusätzlich auf den Ort einer Sitzung o. ä. Bezug nehmen zu müssen.
 
-Diese Spezifikationen stützen sich auf RFC 3339[^42]) und RFC 3339
+Diese Spezifikationen stützen sich auf RFC 3339[^43]) und RFC 3339
 wiederum auf ISO 8601.
 
 In der vorliegenden Spezifikation verwenden wir den Präfix xsd, um
-Eigenschaften aus der XMLSchema-Spezifikation zu referenzieren.[^43].
+Eigenschaften aus der XMLSchema-Spezifikation zu referenzieren.[^44].
 Datums- und Zeittyp werden entsprechend in diesem Dokument als xsd:date
 bzw. xsd:dateTime bezeichnet.
 
@@ -2376,10 +2357,10 @@ von Objekten. Im Einzelnen sind dies:
 
 Diese Eigenschaften können als Wert wahlweise einfache Zeichenketten
 (Strings) haben, z. B. "Beantwortung einer Anfrage" oder aber URLs. Wenn
-eine URL verwendet wird, MUSS diese auf ein JSON-LD-Objekt[^44] vom Typ
+eine URL verwendet wird, MUSS diese auf ein JSON-LD-Objekt[^45] vom Typ
 skos:Concept zeigen. Dieses Objekt MUSS eine Eigenschaft prefLabel
 besitzen, in dem die benutzerfreundliche Benennung des Konzepts
-wiedergegeben wird.[^45]
+wiedergegeben wird.[^46]
 
 Ein Beispiel für ein skos:Concept Objekt, wie es für die Eigenschaft
 status eines Objekts vom Typ oparl:Person genutzt werden kann:
@@ -2515,7 +2496,7 @@ license
 
 Die Eigenschaft license erlaubt es, am jeweiligen Objekt die URL einer
 Lizenz anzugeben. Damit wird gekennzeichnet, welche Lizenz der
-Veröffentlicher der Daten für das jeweilige Objekt vergibt.[^46]
+Veröffentlicher der Daten für das jeweilige Objekt vergibt.[^47]
 
 Eine besondere Bedeutung hat die Eigenschaft license, wenn sie am
 oparl:System Objekt oder am oparl:Body Objekt vergeben wird. Die hier
@@ -2533,7 +2514,7 @@ Datei(en), die über die angebotene(n) URL(s) abgerufen werden können.
 
 Lesenswert zum Thema Lizensierung von Linked Data ist auch er Abschnitt
 "Licenses, Waivers and Norms for Data" im online zugänglichen Linked
-Data Book.[^47]
+Data Book.[^48]
 
 created
 
@@ -2747,14 +2728,14 @@ licenseValidSince
 
 rgs
     Regionalschlüssel der Körperschaft als zwölfstellige
-    Zeichenkette[^48]. Typ: String. Kardinalität: 0 bis 1. EMPFOHLEN.
+    Zeichenkette[^49]. Typ: String. Kardinalität: 0 bis 1. EMPFOHLEN.
 
 equivalentBody
     Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe
     Körperschaft repräsentieren. Hier können beispielsweise, sofern
     vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der
-    Deutschen Nationalbibliothek[^49], der DBPedia[^50] oder der
-    Wikipedia[^51] angegeben werden. Typ: Array mit URLs. Kardinalität:
+    Deutschen Nationalbibliothek[^50], der DBPedia[^51] oder der
+    Wikipedia[^52] angegeben werden. Typ: Array mit URLs. Kardinalität:
     0 bis *. EMPFOHLEN.
 
 contactEmail
@@ -2807,7 +2788,7 @@ oparl:Organization (Gruppierung) {#oparl_organization}
 
 Dieser Objekttyp dient dazu, Gruppierungen von Personen abzubilden, die
 in der parlamentarischen Arbeit eine Rolle spielen. Dazu zählen in der
-Praxis insbesondere Fraktionen und Gremien.[^52]
+Praxis insbesondere Fraktionen und Gremien.[^53]
 
 Beispiel 1
 
@@ -3487,7 +3468,7 @@ name
     bis 1. EMPFOHLEN.
 
 mimeType
-    MIME-Type des Inhalts[^53]. Sollte das System einer Datei keinen
+    MIME-Type des Inhalts[^54]. Sollte das System einer Datei keinen
     spezifischen Typ zuweisen können, wird EMPFOHLEN, hier
     application/octet-stream zu verwenden. Typ: String. Kardinalität: 1.
     EMPFOHLEN.
@@ -3551,13 +3532,13 @@ derivativeDocument
     Datei, die von dem aktuellen Objekt abgeleitet wurde. Details dazu
     in der allgemeinen Beschreibung weiter oben. TODO: invers zu
     masterDocument. Von der Verwendung wird deshalb in der
-    prov-Spezifikation abgeraten[^54]. Typ: Liste von oparl:File
+    prov-Spezifikation abgeraten[^55]. Typ: Liste von oparl:File
     Objekten. Kardinalität: 0 bis *. OPTIONAL.
 
 license
     Lizenz, unter der die Datei angeboten wird. Wenn diese Eigenschaft
     verwendet wird, dann ist sie anstelle einer globalen Angabe im
-    übergeordneten oparl:Body- bzw. oparl:System-Objekt maßgeblich.[^55]
+    übergeordneten oparl:Body- bzw. oparl:System-Objekt maßgeblich.[^56]
     Typ: URL. Kardinalität: 0 bis 1. OPTIONAL.
 
 documentRole
@@ -3657,7 +3638,7 @@ verwendet werden.
 
 OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des  
 Well-Known-Text-Formats (WKT) der Simple Feature Access
-Spezifikation[^56] vor. WKT erlaubt die Beschreibung von
+Spezifikation[^57] vor. WKT erlaubt die Beschreibung von
 unterschiedlichen Geometrien wie Punkten (Point), Pfaden (LineString),
 Polygonen (Polygon) und viele andere mehr.
 
@@ -3667,7 +3648,7 @@ keine Anforderungen daran, welche Version von Simple-Feature-Access bei
 der Ausgabe von WKT zu unterstützen ist.
 
 Für die Ausgabe über eine OParl-API MÜSSEN sämtliche Koordinatenangaben
-solcher Geodaten im System WGS84[^57] angegeben werden, und zwar in Form
+solcher Geodaten im System WGS84[^58] angegeben werden, und zwar in Form
 von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.
 
 Beispiele
@@ -3785,7 +3766,7 @@ onBehalfOf
     Gruppierung entsendet wurden (z. B. fraktionslose Abgeordnete). Da
     eine solche Person sich gewissermaßen selbst "entsendet" hat, SOLL
     in dem Fall hier der selbe Wert angegeben werden wie bei der
-    Eigenschaft person.[^58] Typ: URL eines oparl:Organization oder
+    Eigenschaft person.[^59] Typ: URL eines oparl:Organization oder
     oparl:Person Objekts. Kardinalität: 0 bis 1. OPTIONAL.
 
 votingRight
@@ -3793,11 +3774,11 @@ votingRight
     ist. Typ: boolean. Kardinalität: 0 bis 1. OPTIONAL.
 
 startDate
-    Anfangszeitpunkt der Mitgliedschaft.[^59] Typ: xsd:dateTime.
+    Anfangszeitpunkt der Mitgliedschaft.[^60] Typ: xsd:dateTime.
     Kardinalität: 0 bis 1. OPTIONAL.
 
 endDate
-    Der Endzeitpunkt der Mitgliedschaft.[^60] Typ: xsd:dateTime.
+    Der Endzeitpunkt der Mitgliedschaft.[^61] Typ: xsd:dateTime.
     Kardinalität: 0 bis 1. OPTIONAL.
 
 oparl:LegislativeTerm {#oparl_legislative_term}
@@ -3920,84 +3901,86 @@ endDate
 
 [^32]: RFC4627: https://tools.ietf.org/html/rfc4627
 
-[^33]: JSONP steht für "JSON with padding". Eine formelle Spezifikation
-    existiert nicht. Der Wikipedia-Artikel
-    http://en.wikipedia.org/wiki/JSONP fasst viele Quellen zusammen.
+[^33]: RSS 2.0 Specification: http://cyber.law.harvard.edu/rss/rss.html
 
-[^34]: RSS 2.0 Specification: http://cyber.law.harvard.edu/rss/rss.html
-
-[^35]: Atom ist in RFC4287 spezifiziert:
+[^34]: Atom ist in RFC4287 spezifiziert:
     http://www.ietf.org/rfc/rfc4287.txt
 
-[^36]: vgl. http://tools.ietf.org/html/rfc7230,
+[^35]: vgl. http://tools.ietf.org/html/rfc7230,
     http://tools.ietf.org/html/rfc7231,
     http://tools.ietf.org/html/rfc7232
 
-[^37]: vgl. RFC2138 http://www.ietf.org/rfc/rfc2183
+[^36]: vgl. RFC2138 http://www.ietf.org/rfc/rfc2183
 
-[^38]: RFC2295: http://tools.ietf.org/html/rfc2295
+[^37]: RFC2295: http://tools.ietf.org/html/rfc2295
 
-[^39]: RFC7231: http://tools.ietf.org/html/rfc7231#section-3.4
+[^38]: RFC7231: http://tools.ietf.org/html/rfc7231#section-3.4
 
-[^40]: RFC7231 Section 5.3.4:
+[^39]: vgl. Wikipedia: Same-Origin-Policy
+    https://de.wikipedia.org/wiki/Same-Origin-Policy
+
+[^40]: Cross Origin Resource Sharing - W3C Recommendation 16. Januar
+    2014: http://www.w3.org/TR/cors/
+
+[^41]: RFC7231 Section 5.3.4:
     http://tools.ietf.org/html/rfc7231#section-5.3.4
 
-[^41]: Linked Data Fragments: http://linkeddatafragments.org/
+[^42]: Linked Data Fragments: http://linkeddatafragments.org/
 
-[^42]: RFC3339: http://www.ietf.org/rfc/rfc3339.txt
+[^43]: RFC3339: http://www.ietf.org/rfc/rfc3339.txt
 
-[^43]: Der Präfix "xsd" steht somit für die URL
+[^44]: Der Präfix "xsd" steht somit für die URL
     http://www.w3.org/2001/XMLSchema#
 
-[^44]: JSON-LD 1.0: http://www.w3.org/TR/json-ld/
+[^45]: JSON-LD 1.0: http://www.w3.org/TR/json-ld/
 
-[^45]: Diese Konstrukte entstammen dem Simple Knowledge Organization
+[^46]: Diese Konstrukte entstammen dem Simple Knowledge Organization
     System (SKOS): http://www.w3.org/2009/08/skos-reference/skos.html
 
-[^46]: Verzeichnisse für Lizenz-URLs sind unter anderem unter
+[^47]: Verzeichnisse für Lizenz-URLs sind unter anderem unter
     http://licenses.opendefinition.org/ und
     https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json
     zu finden.
 
-[^47]: Tom Heath, Christian Bizer: Linked Data: Evolving the Web into a
+[^48]: Tom Heath, Christian Bizer: Linked Data: Evolving the Web into a
     Global Data Space (1st edition),
     http://linkeddatabook.com/editions/1.0/#htoc48
 
-[^48]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
+[^49]: Regionalschlüssel können im Gemeindeverzeichnis (GV-ISys) des
     Statistischen Bundesamtes eingesehen werden
 
-[^49]: Gemeinsame Normdatei http://www.dnb.de/gnd
+[^50]: Gemeinsame Normdatei http://www.dnb.de/gnd
 
-[^50]: DBPedia http://www.dbpedia.org/
+[^51]: DBPedia http://www.dbpedia.org/
 
-[^51]: Wikipedia http://de.wikipedia.org/
+[^52]: Wikipedia http://de.wikipedia.org/
 
-[^52]: Ein Teil der Eigenschaften ist der "Organization" Ontologie
+[^53]: Ein Teil der Eigenschaften ist der "Organization" Ontologie
     (kurz: org:Organization) des W3C entnommen. Quelle: The Organization
     Ontology, W3C Recommendation 16 January 2014,
     http://www.w3.org/TR/vocab-org/. Deren Bezeichnungen wurden deshalb
     beibehalten. Das betrifft z.B. die Verwendung von classification.
 
-[^53]: vgl. RFC2046: http://tools.ietf.org/html/rfc2046
+[^54]: vgl. RFC2046: http://tools.ietf.org/html/rfc2046
 
-[^54]: http://www.w3.org/TR/prov-o/#inverse-names
+[^55]: http://www.w3.org/TR/prov-o/#inverse-names
 
-[^55]: vgl. license
+[^56]: vgl. license
 
-[^56]: Simple Feature Access Spezifikation:
+[^57]: Simple Feature Access Spezifikation:
     http://www.opengeospatial.org/standards/sfa
 
-[^57]: WGS84 steht für "World Geodetic System 1984", es wird unter
+[^58]: WGS84 steht für "World Geodetic System 1984", es wird unter
     anderem auch vom Global Positioning System (GPS) verwendet. In
     geografischen Informationssystemen ist für das System der EPSG-Code
     4326 geläufig.
 
-[^58]: Dies entspricht opengov:onBehalfOf in Popolo.
+[^59]: Dies entspricht opengov:onBehalfOf in Popolo.
     http://popoloproject.com/specs/membership.html
 
-[^59]: Abgeleitet von: schema:validFrom in Popolo.
+[^60]: Abgeleitet von: schema:validFrom in Popolo.
     http://popoloproject.com/specs/membership.html
 
-[^60]: Abgeleitet von: schema:validThrough in Popolo.
+[^61]: Abgeleitet von: schema:validThrough in Popolo.
     http://popoloproject.com/specs/membership.html
 

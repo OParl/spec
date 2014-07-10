@@ -1582,22 +1582,16 @@ Kommission\footnote{Study on persistent URIs, with identification of
   EC. (PDF)
   \url{https://joinup.ec.europa.eu/sites/default/files/D7.1.3\%20-\%20Study\%20on\%20persistent\%20URIs.pdf}}.
 
-\subsection{Serialisierung mittels JSON und
-JSONP}\label{serialisierung-mittels-json-und-jsonp}
+\subsection{JSON-Ausgabe}\label{json-ausgabe}
 
-Eine OParl-konforme API gibt Objekte in Form von JSON aus. Auf
-Anforderung des Clients wird darüber hinaus JSONP unterstützt.
+Eine OParl-Server MUSS Objekte in Form von JSON ausgeben. Die Abkürzung
+JSON steht für ``JavaScript Object Notation''. Das JSON-Format ist in
+RFC4627\footnote{RFC4627: \url{https://tools.ietf.org/html/rfc4627}}
+beschrieben. Nachfolgend werden nur die wichtigsten Definitionen
+übernommen, um eine Terminologie zur weiteren Verwendung in diesem
+Dokument zu etablieren.
 
-\subsubsection{JSON}\label{json}
-
-Die Abkürzung JSON steht für ``JavaScript Object Notation''. Das
-JSON-Format ist in RFC4627\footnote{RFC4627:
-  \url{https://tools.ietf.org/html/rfc4627}} beschrieben. Nachfolgend
-werden nur die wichtigsten Definitionen übernommen, um eine Terminologie
-zur weiteren Verwendung in diesem Dokument zu etablieren.
-
-Das JSON-Format unterstützt die Ausgabe von vier verschiedenen
-primitiven Datentypen:
+JSON unterstützt die folgenden primitiven Datentypen:
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -1618,7 +1612,7 @@ Darüber hinaus werden zwei komplexe Datentypen unterstützt:
 \item
   \emph{Objekt}: Eine Sammlung von Schlüssel-Wert-Paaren ohne
   Reihenfolge, wobei der Schlüssel eine Zeichenkette sein muss und der
-  Wert ein beliebiger Datentyp sein kann.
+  Wert ein beliebiger Datentyp ist.
 \item
   \emph{Array}: Eine geordnete Liste mit beliebigen Datentypen.
 \end{itemize}
@@ -1640,69 +1634,6 @@ Beispiel eines Objekts in JSON-Notation:
 \FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
-
-\hyperdef{}{jsonp}{\subsubsection{JSONP}\label{jsonp}}
-
-Eine Einschränkung bei der Nutzung von JSON ist das Sicherheitsmodell
-von Web-Browsern. Die gängigen Browser erlauben es innerhalb von
-Webanwendungen nicht, JSON-Ressourcen von Domains auszulesen, die nicht
-der Domain entsprechen, von der die Webanwendung selbst geladen wurde.
-AnwendungsentwicklerInnen sind dadurch bei der Implementierung von
-Client-Anwendungen eingeschränkt.
-
-Diese Einschränkung gilt nicht für JSONP\footnote{JSONP steht für ``JSON
-  with padding''. Eine formelle Spezifikation existiert nicht. Der
-  Wikipedia-Artikel \url{http://en.wikipedia.org/wiki/JSONP} fasst viele
-  Quellen zusammen.}. Durch JSONP wird die JSON-Notation so erweitert,
-dass der ausgegebene Code ausführbarer JavaScript-Code wird. Damit wird
-erreicht, dass der JSON-Code über die Grenzen von Domains hinweg direkt
-von Webanwendungen eingebunden werden kann.
-
-Das folgende Beispiel verdeutlicht den Unterschied zwischen JSON und
-JSONP. Zunächst ein einfaches JSON-Beispiel:
-
-\hyperdef{}{jsonpux5fex1}{\label{jsonpux5fex1}}
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{\{}
-    \DataTypeTok{"foo"}\FunctionTok{:} \StringTok{"bar"}
-\FunctionTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-Durch Einbettung in eine sogenannte Callback-Funktion wird daraus JSONP:
-
-\hyperdef{}{jsonpux5fex2}{\label{jsonpux5fex2}}
-\begin{verbatim}
-mycallback({
-    "foo": "bar"
-})
-\end{verbatim}
-
-Der Name der Callback-Funktion (im Beispiel \texttt{mycallback}) wird
-grundsätzlich bei der Anfrage vom Client bestimmt, und zwar mittels
-URL-Parameter.
-
-Für eine OParl-konforme Schnittstelle wird EMPFOHLEN, dass der Server
-die JSONP-Ausgabe unterstützt. Die JSONP-Ausgabe MUSS in diesem Fall für
-sämtliche Abfragen möglich sein. Eine JSONP-Unterstützung nur für
-bestimmte Anfragen ist nicht vorgesehen.
-
-Der URL-Parameter, den Clients zur Aktivierung der JSONP-Ausgabe
-verwenden, MUSS \texttt{callback} lauten. Der Wert des
-\texttt{callback}-URL-Parameters MUSS vom Server unverändert als
-Callback-Funktionsname verwendet werden.
-
-Aus Sicherheitsgründen MUSS der Client den Wert des
-\texttt{callback}-Parameters aus einem eingeschränkten Zeichenvorrat
-bilden, erlaubt sind ausschließlich die Klein- und Großbuchstaben von a
-bis z bzw. A bis Z sowie die Ziffern von 0 bis 9. (FRAGE: Sind Umlaute
-erlaubt?)
-
-Hält sich der Client nicht an diese Einschränkung und wird ein
-\texttt{callback}-Parameter mit nicht erlaubten Zeichen verwendet, SOLL
-der Server die Anfrage mit einer HTTP 400 (\emph{Bad Request}) Antwort
-bedienen.
 
 \hyperdef{}{objektlisten}{\subsection{Objektlisten}\label{objektlisten}}
 
@@ -2388,7 +2319,7 @@ aber auch die Depublikation oder das Beenden der öffentlichen
 Verfügbarkeit gemeint.
 
 Client-Implementierer sind angehalten, diesen Feed zu nutzen, um
-beispielsweise depublizierte Dokumente aus ihren lokalen Caches zu
+beispielsweise depublizierte Drucksachen aus ihren lokalen Caches zu
 entfernen.
 
 \hyperdef{}{feedux5fex3}{\label{feedux5fex3}}
@@ -2416,8 +2347,15 @@ Im Unterschied zu den beiden zuvor beschriebenen Feeds wird im Feed
 ``Gelöschte Objekte'' keine Eigenschaft \texttt{type} am jeweiligen
 Objekt ausgegeben.
 
-Clients SOLLEN vermeiden, die URLs der jeweiligen Einträge erneut
-aufzurufen.
+Clients SOLLEN anhand dieser Informationen in der Lage sein, gecachte
+Objekte aus ihrem Cache zu entfernen. Entsprechend sollten Caches so
+beschaffen sein, dass ihre Informationen auf die URLs der jeweiligen
+Objekte zurück zu führen sind. Insbesondere im Fall von Dateien (Objekte
+des Typs \texttt{oparl:File}) ist darauf zu achten, dass gecachte
+Dateien mit der URL des \texttt{oparl:File}-Objekts assoziiert sind.
+
+Clients SOLLEN vermeiden, die URLs der jeweiligen Einträge im Feed
+``Entfernte Objekte'' erneut aufzurufen.
 
 \hyperdef{}{dateizugriff}{\subsection{Dateizugriff}\label{dateizugriff}}
 
@@ -2599,8 +2537,8 @@ und von ihm unterstützte Repräsentation an den Client ausliefert.
 
 Grundanforderung der vorliegenden Spezifikation an OParl-Clients ist,
 dass sie bei jeder Anfrage an einen OParl-Server einen Accept-Header mit
-dem Mime-Type \texttt{application/ld+json} senden MÜSSEN, es sei denn,
-es handelt sich um einen \hyperref[dateizugriff]{Dateizugriff}.
+dem Mime-Type \texttt{application/json} senden MÜSSEN, es sei denn, es
+handelt sich um einen \hyperref[dateizugriff]{Dateizugriff}.
 
 Im Kontext von OParl soll durch Unterstützung von Content Negotiation
 ermöglicht werden, dass die URLs von OParl-Objekten auch von WWW-Clients
@@ -2613,12 +2551,52 @@ auf, sendet er entweder keinen \texttt{Accept}-Header oder aber einen
 solchen, der eine Bevorzugung von Inhaltstypen wie HTML angibt.
 
 Der Server DARF nun, da kein Accept-Header mit dem Typ
-\texttt{application/ld+json} gesendet wurde, dem Client eine alternative
+\texttt{application/json} gesendet wurde, dem Client eine alternative
 Version der Information über die Drucksache ausliefern, beispielsweise
 eine HTML-Ansicht.
 
 Ein Server DARF eine alternative Inhaltsform auch in Form einer
 HTTP-Weiterleitung anbieten.
+
+\subsection{Cross-Origin Resource Sharing (CORS)}\label{cors}
+
+Wenn Webbrowser mittels Script auf JSON-Ressourcen zugreifen sollen,
+unterliegen diese Zugriffe üblicherweise einer \emph{Same-Origin-Policy}
+(SOP). Das heißt, eine Anfrage ist nur an den Server zulässig, der auch
+das initiierende Script ausgeliefert hat. Anfragen an andere Server
+werden vom Browser blockiert. Diese Einschränkung dient allgemein der
+Sicherheit von Webbrowsern.\footnote{vgl. Wikipedia: Same-Origin-Policy
+  \url{https://de.wikipedia.org/wiki/Same-Origin-Policy}}
+
+Um die Informationen von OParl-Servern auch im Kontext von
+Webanwendungen flexibel nutzen zu können, ist die Überwindung der SOP
+nötig. Hierzu dient \emph{Cross-Origin Resource Sharing}
+(CORS)\footnote{Cross Origin Resource Sharing - W3C Recommendation 16.
+  Januar 2014: \url{http://www.w3.org/TR/cors/}}. Mittels CORS kann ein
+Server mitteilen, dass bestimmte von ihm ausgelieferte Ressourcen auch
+innerhalb von Webapplikationen genutzt werden dürfen, die nicht von
+demselben Server ausgeliefert werden. Technisch wird dies durch Ausgabe
+zusätzlicher HTTP-Header erreicht.
+
+OParl-Server SOLLEN für jegliche Anfrage, die mit der Ausgabe von
+JSON-Daten beantwortet wird (das sind alle Anfragen außer
+\hyperref[dateizugriff]{Dateizugriffe}) den folgenden
+HTTP-Antwort-Header senden:
+
+\begin{verbatim}
+Access-Control-Allow-Origin: *
+\end{verbatim}
+
+Der HTTP-Antwort-Header \texttt{Access-Control-Allow-Methods} SOLL
+darüber hinaus entweder NICHT gesetzt sein oder die Methode \texttt{GET}
+beinhalten.
+
+EntwicklerInnen von Webanwendungen sollten sich darüber bewusst sein,
+dass durch die direkte Einbindung von Scripten dritter in ihre
+Anwendungen mögliche Sicherheitsrisiken entstehen. Für den Fall, dass
+ein OParl-Server, etwa in Folge einer Manipulation, Schadcode
+ausliefert, könnte dieser unmittelbar von Scripten im Browser ausgeführt
+werden.
 
 \subsection{HTTP-Kompression}\label{http-kompression}
 

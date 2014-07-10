@@ -2322,76 +2322,70 @@ https://oparl.example.org/members?committee=2&amp;body=1
       </para>
     </sect3>
   </sect2>
-  <sect2 id="serialisierung-mittels-json-und-jsonp">
-    <title>Serialisierung mittels JSON und JSONP</title>
+  <sect2 id="json-ausgabe">
+    <title>JSON-Ausgabe</title>
     <para>
-      Eine OParl-konforme API gibt Objekte in Form von JSON aus. Auf
-      Anforderung des Clients wird darüber hinaus JSONP unterstützt.
+      Eine OParl-Server MUSS Objekte in Form von JSON ausgeben. Die
+      Abkürzung JSON steht für &quot;JavaScript Object Notation&quot;.
+      Das JSON-Format ist in RFC4627<footnote>
+        <para>
+          RFC4627:
+          <ulink url="https://tools.ietf.org/html/rfc4627">https://tools.ietf.org/html/rfc4627</ulink>
+        </para>
+      </footnote> beschrieben. Nachfolgend werden nur die wichtigsten
+      Definitionen übernommen, um eine Terminologie zur weiteren
+      Verwendung in diesem Dokument zu etablieren.
     </para>
-    <sect3 id="json">
-      <title>JSON</title>
-      <para>
-        Die Abkürzung JSON steht für &quot;JavaScript Object
-        Notation&quot;. Das JSON-Format ist in RFC4627<footnote>
-          <para>
-            RFC4627:
-            <ulink url="https://tools.ietf.org/html/rfc4627">https://tools.ietf.org/html/rfc4627</ulink>
-          </para>
-        </footnote> beschrieben. Nachfolgend werden nur die wichtigsten
-        Definitionen übernommen, um eine Terminologie zur weiteren
-        Verwendung in diesem Dokument zu etablieren.
-      </para>
-      <para>
-        Das JSON-Format unterstützt die Ausgabe von vier verschiedenen
-        primitiven Datentypen:
-      </para>
-      <itemizedlist spacing="compact">
-        <listitem>
-          <para>
-            <emphasis>Zeichenkette</emphasis> (Unicode)
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            <emphasis>Zahl</emphasis> (sowohl Ganzzahlen als auch
-            Fließkommazahlen)
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            <emphasis>Wahrheitswert</emphasis> (<literal>true</literal>
-            oder <literal>false</literal>)
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            <emphasis>Null</emphasis>
-          </para>
-        </listitem>
-      </itemizedlist>
-      <para>
-        Darüber hinaus werden zwei komplexe Datentypen unterstützt:
-      </para>
-      <itemizedlist spacing="compact">
-        <listitem>
-          <para>
-            <emphasis>Objekt</emphasis>: Eine Sammlung von
-            Schlüssel-Wert-Paaren ohne Reihenfolge, wobei der Schlüssel
-            eine Zeichenkette sein muss und der Wert ein beliebiger
-            Datentyp sein kann.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            <emphasis>Array</emphasis>: Eine geordnete Liste mit
-            beliebigen Datentypen.
-          </para>
-        </listitem>
-      </itemizedlist>
-      <para>
-        Beispiel eines Objekts in JSON-Notation:
-      </para>
-      <programlisting language="json">
+    <para>
+      JSON unterstützt die folgenden primitiven Datentypen:
+    </para>
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para>
+          <emphasis>Zeichenkette</emphasis> (Unicode)
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis>Zahl</emphasis> (sowohl Ganzzahlen als auch
+          Fließkommazahlen)
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis>Wahrheitswert</emphasis> (<literal>true</literal>
+          oder <literal>false</literal>)
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis>Null</emphasis>
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      Darüber hinaus werden zwei komplexe Datentypen unterstützt:
+    </para>
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para>
+          <emphasis>Objekt</emphasis>: Eine Sammlung von
+          Schlüssel-Wert-Paaren ohne Reihenfolge, wobei der Schlüssel
+          eine Zeichenkette sein muss und der Wert ein beliebiger
+          Datentyp ist.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          <emphasis>Array</emphasis>: Eine geordnete Liste mit
+          beliebigen Datentypen.
+        </para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      Beispiel eines Objekts in JSON-Notation:
+    </para>
+    <programlisting language="json">
 {
     &quot;zeichenkette&quot;: &quot;Das ist eine Zeichenkette&quot;,
     &quot;zahl&quot;: 1.23456789,
@@ -2403,82 +2397,6 @@ https://oparl.example.org/members?committee=2&amp;body=1
     &quot;array&quot;: [&quot;foo&quot;, &quot;bar&quot;]
 }
 </programlisting>
-    </sect3>
-    <sect3 id="jsonp">
-      <title>JSONP</title>
-      <para>
-        Eine Einschränkung bei der Nutzung von JSON ist das
-        Sicherheitsmodell von Web-Browsern. Die gängigen Browser
-        erlauben es innerhalb von Webanwendungen nicht, JSON-Ressourcen
-        von Domains auszulesen, die nicht der Domain entsprechen, von
-        der die Webanwendung selbst geladen wurde.
-        AnwendungsentwicklerInnen sind dadurch bei der Implementierung
-        von Client-Anwendungen eingeschränkt.
-      </para>
-      <para>
-        Diese Einschränkung gilt nicht für JSONP<footnote>
-          <para>
-            JSONP steht für &quot;JSON with padding&quot;. Eine formelle
-            Spezifikation existiert nicht. Der Wikipedia-Artikel
-            <ulink url="http://en.wikipedia.org/wiki/JSONP">http://en.wikipedia.org/wiki/JSONP</ulink>
-            fasst viele Quellen zusammen.
-          </para>
-        </footnote>. Durch JSONP wird die JSON-Notation so erweitert,
-        dass der ausgegebene Code ausführbarer JavaScript-Code wird.
-        Damit wird erreicht, dass der JSON-Code über die Grenzen von
-        Domains hinweg direkt von Webanwendungen eingebunden werden
-        kann.
-      </para>
-      <para>
-        Das folgende Beispiel verdeutlicht den Unterschied zwischen JSON
-        und JSONP. Zunächst ein einfaches JSON-Beispiel:
-      </para>
-      <programlisting language="json">
-{
-    &quot;foo&quot;: &quot;bar&quot;
-}
-</programlisting>
-      <para>
-        Durch Einbettung in eine sogenannte Callback-Funktion wird
-        daraus JSONP:
-      </para>
-      <programlisting>
-mycallback({
-    &quot;foo&quot;: &quot;bar&quot;
-})
-</programlisting>
-      <para>
-        Der Name der Callback-Funktion (im Beispiel
-        <literal>mycallback</literal>) wird grundsätzlich bei der
-        Anfrage vom Client bestimmt, und zwar mittels URL-Parameter.
-      </para>
-      <para>
-        Für eine OParl-konforme Schnittstelle wird EMPFOHLEN, dass der
-        Server die JSONP-Ausgabe unterstützt. Die JSONP-Ausgabe MUSS in
-        diesem Fall für sämtliche Abfragen möglich sein. Eine
-        JSONP-Unterstützung nur für bestimmte Anfragen ist nicht
-        vorgesehen.
-      </para>
-      <para>
-        Der URL-Parameter, den Clients zur Aktivierung der JSONP-Ausgabe
-        verwenden, MUSS <literal>callback</literal> lauten. Der Wert des
-        <literal>callback</literal>-URL-Parameters MUSS vom Server
-        unverändert als Callback-Funktionsname verwendet werden.
-      </para>
-      <para>
-        Aus Sicherheitsgründen MUSS der Client den Wert des
-        <literal>callback</literal>-Parameters aus einem eingeschränkten
-        Zeichenvorrat bilden, erlaubt sind ausschließlich die Klein- und
-        Großbuchstaben von a bis z bzw. A bis Z sowie die Ziffern von 0
-        bis 9. (FRAGE: Sind Umlaute erlaubt?)
-      </para>
-      <para>
-        Hält sich der Client nicht an diese Einschränkung und wird ein
-        <literal>callback</literal>-Parameter mit nicht erlaubten
-        Zeichen verwendet, SOLL der Server die Anfrage mit einer HTTP
-        400 (<emphasis>Bad Request</emphasis>) Antwort bedienen.
-      </para>
-    </sect3>
   </sect2>
   <sect2 id="objektlisten">
     <title>Objektlisten</title>
@@ -3349,8 +3267,8 @@ https://oparl.example.org/papers/?startdate=2014-01-01T00%3A00%3A00%2B01%3A00
       </para>
       <para>
         Client-Implementierer sind angehalten, diesen Feed zu nutzen, um
-        beispielsweise depublizierte Dokumente aus ihren lokalen Caches
-        zu entfernen.
+        beispielsweise depublizierte Drucksachen aus ihren lokalen
+        Caches zu entfernen.
       </para>
       <programlisting language="json">
 {
@@ -3376,8 +3294,18 @@ https://oparl.example.org/papers/?startdate=2014-01-01T00%3A00%3A00%2B01%3A00
         <literal>type</literal> am jeweiligen Objekt ausgegeben.
       </para>
       <para>
-        Clients SOLLEN vermeiden, die URLs der jeweiligen Einträge
-        erneut aufzurufen.
+        Clients SOLLEN anhand dieser Informationen in der Lage sein,
+        gecachte Objekte aus ihrem Cache zu entfernen. Entsprechend
+        sollten Caches so beschaffen sein, dass ihre Informationen auf
+        die URLs der jeweiligen Objekte zurück zu führen sind.
+        Insbesondere im Fall von Dateien (Objekte des Typs
+        <literal>oparl:File</literal>) ist darauf zu achten, dass
+        gecachte Dateien mit der URL des
+        <literal>oparl:File</literal>-Objekts assoziiert sind.
+      </para>
+      <para>
+        Clients SOLLEN vermeiden, die URLs der jeweiligen Einträge im
+        Feed &quot;Entfernte Objekte&quot; erneut aufzurufen.
       </para>
     </sect3>
   </sect2>
@@ -3642,8 +3570,8 @@ Content-Disposition: attachment; filename=&quot;2014-08-22 Rat Wortprotokoll.pdf
       Grundanforderung der vorliegenden Spezifikation an OParl-Clients
       ist, dass sie bei jeder Anfrage an einen OParl-Server einen
       Accept-Header mit dem Mime-Type
-      <literal>application/ld+json</literal> senden MÜSSEN, es sei denn,
-      es handelt sich um einen
+      <literal>application/json</literal> senden MÜSSEN, es sei denn, es
+      handelt sich um einen
       <link linkend="dateizugriff">Dateizugriff</link>.
     </para>
     <para>
@@ -3661,13 +3589,69 @@ Content-Disposition: attachment; filename=&quot;2014-08-22 Rat Wortprotokoll.pdf
     </para>
     <para>
       Der Server DARF nun, da kein Accept-Header mit dem Typ
-      <literal>application/ld+json</literal> gesendet wurde, dem Client
+      <literal>application/json</literal> gesendet wurde, dem Client
       eine alternative Version der Information über die Drucksache
       ausliefern, beispielsweise eine HTML-Ansicht.
     </para>
     <para>
       Ein Server DARF eine alternative Inhaltsform auch in Form einer
       HTTP-Weiterleitung anbieten.
+    </para>
+  </sect2>
+  <sect2 id="cors">
+    <title>Cross-Origin Resource Sharing (CORS)</title>
+    <para>
+      Wenn Webbrowser mittels Script auf JSON-Ressourcen zugreifen
+      sollen, unterliegen diese Zugriffe üblicherweise einer
+      <emphasis>Same-Origin-Policy</emphasis> (SOP). Das heißt, eine
+      Anfrage ist nur an den Server zulässig, der auch das initiierende
+      Script ausgeliefert hat. Anfragen an andere Server werden vom
+      Browser blockiert. Diese Einschränkung dient allgemein der
+      Sicherheit von Webbrowsern.<footnote>
+        <para>
+          vgl. Wikipedia: Same-Origin-Policy
+          <ulink url="https://de.wikipedia.org/wiki/Same-Origin-Policy">https://de.wikipedia.org/wiki/Same-Origin-Policy</ulink>
+        </para>
+      </footnote>
+    </para>
+    <para>
+      Um die Informationen von OParl-Servern auch im Kontext von
+      Webanwendungen flexibel nutzen zu können, ist die Überwindung der
+      SOP nötig. Hierzu dient <emphasis>Cross-Origin Resource
+      Sharing</emphasis> (CORS)<footnote>
+        <para>
+          Cross Origin Resource Sharing - W3C Recommendation 16. Januar
+          2014:
+          <ulink url="http://www.w3.org/TR/cors/">http://www.w3.org/TR/cors/</ulink>
+        </para>
+      </footnote>. Mittels CORS kann ein Server mitteilen, dass
+      bestimmte von ihm ausgelieferte Ressourcen auch innerhalb von
+      Webapplikationen genutzt werden dürfen, die nicht von demselben
+      Server ausgeliefert werden. Technisch wird dies durch Ausgabe
+      zusätzlicher HTTP-Header erreicht.
+    </para>
+    <para>
+      OParl-Server SOLLEN für jegliche Anfrage, die mit der Ausgabe von
+      JSON-Daten beantwortet wird (das sind alle Anfragen außer
+      <link linkend="dateizugriff">Dateizugriffe</link>) den folgenden
+      HTTP-Antwort-Header senden:
+    </para>
+    <programlisting>
+Access-Control-Allow-Origin: *
+</programlisting>
+    <para>
+      Der HTTP-Antwort-Header
+      <literal>Access-Control-Allow-Methods</literal> SOLL darüber
+      hinaus entweder NICHT gesetzt sein oder die Methode
+      <literal>GET</literal> beinhalten.
+    </para>
+    <para>
+      EntwicklerInnen von Webanwendungen sollten sich darüber bewusst
+      sein, dass durch die direkte Einbindung von Scripten dritter in
+      ihre Anwendungen mögliche Sicherheitsrisiken entstehen. Für den
+      Fall, dass ein OParl-Server, etwa in Folge einer Manipulation,
+      Schadcode ausliefert, könnte dieser unmittelbar von Scripten im
+      Browser ausgeführt werden.
     </para>
   </sect2>
   <sect2 id="http-kompression">

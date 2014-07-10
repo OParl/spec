@@ -1,5 +1,5 @@
-Dateizugriff  {#dateizugriff}
-------------
+Dateizugriffe  {#dateizugriff}
+-------------
 
 Mit dem Begriff "Datei" sind im Sinne dieser Spezifikation alle Ressourcen
 gemeint, die von einem OParl-Server zur Verfügung gestellt werden und

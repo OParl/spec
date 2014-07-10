@@ -113,13 +113,13 @@ werden, welche Ableitungen einer Datei existieren.
     EMPFOHLEN.
 
 `accessUrl`
-:   URL zum allgemeinen Zugriff auf die Datei. Näheres unter [Dateizugriff](#dateizugriff).
+:   URL zum allgemeinen Zugriff auf die Datei. Näheres unter [Dateizugriffe](#dateizugriff).
     Typ: URL.
     Kardinalität: 1.
     ZWINGEND.
 
 `downloadUrl`
-:   URL zum Download der Datei. Näheres unter [Dateizugriff](#dateizugriff).
+:   URL zum Download der Datei. Näheres unter [Dateizugriffe](#dateizugriff).
     Typ: URL.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.

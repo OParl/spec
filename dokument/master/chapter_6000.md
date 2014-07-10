@@ -1,4 +1,4 @@
-Prinzipien und Funktionen des Schnittstelle
+Prinzipien und Funktionen der Schnittstelle
 ===========================================
 
 In diesem Kapitel werden grundlegende Funktionsprinzipien einer

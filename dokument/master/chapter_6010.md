@@ -92,7 +92,7 @@ Schema beschrieben sind.
 
 Ein weiterer Aspekt betrifft die Abwärtskompatibilität, also die Kompatibilität von
 OParl-Clients mit zukünftigen Schnittstellen. So können beispielsweise zukünftige Erweiterungen
-des OParl-Schemas, etwa um neue Objekttypen, genau so durchgeführt werden, wie die Erweiterungen
+des OParl-Schemas, etwa um neue Objekttypen, genauso durchgeführt werden, wie die Erweiterungen
 um herstellerspezifische Objekttypen. Ein Client muss diese Anteile nicht auswerten, sofern
 sie nicht für die Aufgabe des Clients relevant sind.
 

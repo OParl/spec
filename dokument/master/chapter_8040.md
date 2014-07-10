@@ -128,7 +128,7 @@ Parlament an.
     OPTIONAL.
 
 `paper`
-:   Drucksacheen unter dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
+:   Drucksachen unter dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).
     Typ: Liste von `oparl:Paper` Objekten.
     Kardinalität: 0 bis *.
     ZWINGEND.

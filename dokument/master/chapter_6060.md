@@ -272,7 +272,7 @@ die letzte Listenseite erreicht ist.
 5. Der Server liefert die letzte Listenseite ohne
    `nextPage`-Eigenschaft aus.
 
-Zusätzlich zur dem für die Paginierung ZWINGENDEN Eigenschaft
+Zusätzlich zur für die Paginierung ZWINGENDEN Eigenschaft
 `nextPage`, die lediglich auf der letzten Listenseite entfällt,
 können Server OPTIONAL weitere URLs zum Abruf bestimmter
 Listenseiten anbieten:

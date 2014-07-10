@@ -68,7 +68,7 @@ Um die Kanonisierung zu gewährleisten, SOLLEN Betreiber alle Möglichkeiten aus
 die dazu führen können, dass eine Ressource neben der kanonischen URL noch über andere URLs
 abrufbar ist. Diese Faktoren können sein:
 
-* Der selbe Server antwortet nicht nur über den kanonischen Host-Namen, sondern auch noch über andere
+* Derselbe Server antwortet nicht nur über den kanonischen Host-Namen, sondern auch noch über andere
   Host-Namen. Das könnte zum Beispiel der Fall sein, wenn der Host-Name als CNAME für einen anderen
   Namen konfiguriert wurde oder wenn ein DNS A-Record für die IP-Adresse des Servers existiert.
 

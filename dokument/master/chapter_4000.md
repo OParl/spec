@@ -154,7 +154,7 @@ sind spezielle Suchmaschinen für OParl-konforme parlamentarische Informationssy
 denkbar. Diese können auch von dritten, beispielsweise zivilgesellschaftlichen
 Organisationen betrieben werden, die nicht Betreiber des Server-Systems sind. Solche
 Plattformen treten gegenüber dem OParl-Server als Client auf und rufen bestimmte oder
-sämtliche Informationen, die das System bereit hält, ab. Vorbild sind die Robots oder
+sämtliche Informationen, die das System bereithält, ab. Vorbild sind die Robots oder
 Spider von Web-Suchmaschinen. Die abgerufenen Informationen können dann indexiert
 und je nach Anforderungen für eine gezielte Suche weiterverarbeitet werden.
 

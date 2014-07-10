@@ -12,7 +12,7 @@ dann müsste dieses System dazu ein Objekt vom Typ `oparl:Body` führen, welches
 die Stadt Köln repräsentiert.
 
 Vom OParl-Server wird erwartet, dass er mindestens
-ein Objekt vom Typ `oparl:Body` bereit hält. Teilen sich mehrere Körperschaften
+ein Objekt vom Typ `oparl:Body` bereithält. Teilen sich mehrere Körperschaften
 das selbe technische System, können auf demselben Server auch mehrere
 Objekte vom Typ `oparl:Body` beherbergt werden.
 

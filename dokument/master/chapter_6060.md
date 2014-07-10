@@ -201,7 +201,7 @@ Listenausgabe (siehe oben) zu wählen. Bei der internen Listenausgabe ist ohnehi
 nur die kompakte Form (Ausgabe von URLs), wie oben im Beispiel gezeigt, erlaubt.
 
 Die Sortierreihenfolge der ausgegebenen Einträge SOLL unabhängig
-von der Ausgabe der kompakten oder volläständigen Form identisch sein.
+von der Ausgabe der kompakten oder vollständigen Form identisch sein.
 
 Die vollständige Listenausgabe SOLL nur für Listen verwendet
 werden, die bis zu 100 Einträge umfassen. Links zu solch kurzen Listen

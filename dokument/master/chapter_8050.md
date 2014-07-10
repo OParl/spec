@@ -80,7 +80,7 @@ wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
     Sitzungen stetig wachsen kann, wird EMPFOHLEN, die Liste über
     eine eigene URL verfügbar zu machen und damit Paginierung sowie die Filterung
     mittels startDate und endDate Parametern zu ermöglichen. Siehe dazu auch [Objektlisten](#objektlisten).
-    Typ: Liste mit URLs von Objekten des Typs `oparl:Meeting`.
+    Typ: Liste von Objekten des Typs `oparl:Meeting`.
     Kardinalität: 0 bis *.
     ZWINGEND.
 

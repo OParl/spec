@@ -150,8 +150,6 @@ werden, welche Ableitungen einer Datei existieren.
 `derivativeDocument`
 :   Datei, die von dem aktuellen Objekt abgeleitet wurde. Details dazu in der
     allgemeinen Beschreibung weiter oben.
-    TODO: invers zu `masterDocument`. Von der Verwendung
-    wird deshalb in der `prov`-Spezifikation abgeraten^[<http://www.w3.org/TR/prov-o/#inverse-names>].
     Typ: Liste von `oparl:File` Objekten.
     Kardinalität: 0 bis *.
     OPTIONAL.

@@ -80,12 +80,6 @@ abgebildet.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
-`location`
-:   Sitzungsort in Form von Geodaten.
-    Typ: URL eines `oparl:Location` Objekts.
-    Kardinalität: 0 bis 1.
-    OPTIONAL.
-
 `organization`
 :   Gruppierung der die Sitzung zugeordnet ist. Wenn eine Liste angegeben wird, dann ist
     diese geordnet. Das erste Element ist dann das federführende Gremium.

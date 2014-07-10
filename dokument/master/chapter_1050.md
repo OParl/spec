@@ -5,7 +5,7 @@ Nomenklatur der Spezifikation und Satzkonventionen
 
 Dieses Spezifikationsdokument nutzt die Modalverben _müssen_, _können_ und _sollen_
 in einer Art und Weise, die bestimmte Anforderungen unmissverständlich
-in drei verschiedene Abstufung einteilen lässt. Um ihre normative Bedeutung
+in drei verschiedene Abstufungen einteilen lässt. Um ihre normative Bedeutung
 zu unterstreichen, werden diese Wörter grundsätzlich in Großbuchstaben gesetzt.
 
 Diese Konvention ist angelehnt an die Definitionen der Begriffe MUST, SHOULD und
@@ -78,7 +78,7 @@ Codebeispiele erheben insbesondere bei JSON-Code nicht den Anspruch auf
 hundertprozentige syntaktische Korrektheit. Insbesondere können in Codebeispielen
 Auslassungen vorkommen, die mit `...` gekennzeichnet werden. Darüber hinaus
 werden zugunsten der einfacheren Lesbarkeit Umlaute verwendet, obwohl OParl
-grundsätzlichlich die Verwendung von Unicode-Zeichneketten vorsieht.
+grundsätzlich die Verwendung von Unicode-Zeichenketten vorsieht.
 
 
 ### Namespace-Präfixe für Objekt- und Datentypen

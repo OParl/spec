@@ -244,7 +244,7 @@ kommuniziert der Server, wie viele Einträge pro Listenseite
 ausgegeben werden. Die Zahl der Einträge, die der
 Server dabei je Listenseite ausliefert, SOLL dabei mindestens 10 und
 maximal 100 betragen. Der Wert von `itemsPerPage` MUSS auf allen
-Listenseiten der selben Liste einheitlich sein. Nur bei Ausgabe der
+Listenseiten derselben Liste einheitlich sein. Nur bei Ausgabe der
 letzten Listenseite DARF der Server weniger Einträge ausgeben, als
 von `itemsPerPage` angegeben.
 

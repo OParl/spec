@@ -17,7 +17,7 @@ initialen Workshops mit Vertreterinnen und Vertretern von Kommunen, kommunalen
 IT-Dienstleistern, RIS-Anbietern und Zivilgesellschaft. Ziel: Die Bereitschaft zur
 Zusammenarbeit an einem gemeinsamen Standard ermitteln. Die Arbeit an einem Entwurf
 für die vorliegende Spezifikation beginnt. Der Entwurf wird von Beginn an öffentlich
-auf GitHub.com bereit gestellt.
+auf GitHub.com bereitgestellt.
 
 **17. April 2013:** Insgesamt 30 Teilnehmer versammeln sich zum ersten Workshop in Köln,
 um sich über Ziele und Chancen einer Standardisierung für offene Ratsinformationen

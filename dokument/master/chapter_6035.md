@@ -33,7 +33,7 @@ nachfolgend _Kanonisierung_ genannt.
 
 Die Kanonisierung ist entscheidend, um erkennen zu können, ob zwei URLs dasselbe
 Objekt repräsentieren. Sind zwei URLs identisch, sollen Clients daraus ableiten können,
-dass diese das selbe Objekt repräsentieren. Sind zwei URLs unterschiedlich, soll
+dass diese dasselbe Objekt repräsentieren. Sind zwei URLs unterschiedlich, soll
 im Umkehrschluss die Annahme gelten, dass sie zwei verschiedene Objekte repräsentieren.
 
 Der OParl-konforme Server MUSS für jedes benannte Objekt eine kanonische URL bestimmen können.

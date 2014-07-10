@@ -34,7 +34,7 @@ Funktion ist jedoch anhand zahlreicher Anwendungsszenarien belegbar. Somit ist d
 vorliegenden OParl-Spezifikation die Möglichkeit beschrieben, Geodaten-Objekte
 einzubetten.
 
-Die Angabe eines einzelnen Punktes ist dabei nur ein einfacher Sonderfall. Die
+Die Angabe eines einzelnen Punktes ist dabei der einfachste Fall. Die
 Spezifikation erlaubt auch die Kodierung von mehreren Objekten, die Punkte, Linien
 oder Polygone repräsentieren können. Vgl. dazu `oparl:Location`.
 

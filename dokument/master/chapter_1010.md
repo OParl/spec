@@ -15,4 +15,4 @@ Web auf. Sie ermöglicht, dass parlamentarische Informationen
 maschinenlesbar als Offene Daten (Open Data) veröffentlicht werden.
 
 Die vorliegende Version ist die erste verabschiedete Version
-der Spezifikaiton zum OParl-Standard.
+der Spezifikation zum OParl-Standard.

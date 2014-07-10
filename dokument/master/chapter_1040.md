@@ -6,7 +6,7 @@ ein aktuell und für die ferne Zukunft vollständige Lösung alle Problemstellun
 rund um die Veröffentlichung parlamentarischer Informationen zu sein. Viele Funktionen,
 die denkbar und bestimmt sinnvoll wären, sind aus verschiedensten Gründen in dieser
 Version noch nicht berücksichtigt. Einige der Gründe, die dazu führten, ein Thema
-nicht auszuspezifizieren, waren:
+nicht auszuformulieren, waren:
 
 * Zu wenig detaillierte Anforderungen aus der Praxis
 * Zu großer Arbeitsaufwand für die Spezifikations-Entwicklung

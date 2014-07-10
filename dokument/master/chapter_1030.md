@@ -15,7 +15,7 @@ gemeinsam mit Unterstützung von VITAKO voranzutreiben. Im selben Monat
 beginnen Marianne Wulff, Jens Klessmann und Marian Steinbach mit der Planung eines
 initialen Workshops mit Vertreterinnen und Vertretern von Kommunen, kommunalen
 IT-Dienstleistern, RIS-Anbietern und Zivilgesellschaft. Ziel: Die Bereitschaft zur
-Zusammenarbeit an einem gemeinsamen Standard ermitteln. Die Arbeite an einem Entwurf
+Zusammenarbeit an einem gemeinsamen Standard ermitteln. Die Arbeit an einem Entwurf
 für die vorliegende Spezifikation beginnt. Der Entwurf wird von Beginn an öffentlich
 auf GitHub.com bereit gestellt.
 

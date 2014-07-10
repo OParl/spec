@@ -62,7 +62,7 @@ oben gezeigte Objekt nun so aus:
 In diesem Fall ist der Wert der Eigenschaft `body` kein Array, sondern
 eine URL. Diese URL kann vom Client genutzt werden, um die entsprechende
 Liste mit Objekten aufzurufen. Wie die entsprechende Ausgabe des Servers
-aussieht, wird weiter unten unter beschrieben.
+aussieht, wird weiter unten beschrieben.
 
 Diese beiden Mechanismen sind grundsätzlich immer anwendbar, wenn eine
 Mehrzahl von Objekten mit einem Objekt verknüpft ist, unabhängig von der

@@ -16,7 +16,7 @@ beginnen Marianne Wulff, Jens Klessmann und Marian Steinbach mit der Planung ein
 initialen Workshops mit Vertreterinnen und Vertretern von Kommunen, kommunalen
 IT-Dienstleistern, RIS-Anbietern und Zivilgesellschaft. Ziel: Die Bereitschaft zur
 Zusammenarbeit an einem gemeinsamen Standard ermitteln. Die Arbeite an einem Entwurf
-für die vorliegene Spezifikation beginnt. Der Entwurf wird von Beginn an öffentlich
+für die vorliegende Spezifikation beginnt. Der Entwurf wird von Beginn an öffentlich
 auf GitHub.com bereit gestellt.
 
 **17. April 2013:** Insgesamt 30 Teilnehmer versammeln sich zum ersten Workshop in Köln,

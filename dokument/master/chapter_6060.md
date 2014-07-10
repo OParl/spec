@@ -343,7 +343,7 @@ Datensätze mit `id` > 9. In diesem Fall würde dies nur dazu führen, dass ein
 Datensatz (`id=10`) zweimal ausgegeben wird. Bei ungünstigeren Konstellationen
 wäre auch denkbar, dass eine unstabile Paginierung bewirkt, dass einzelne 
 Datensätze beim Paginieren übergangen werden. Je nach Bedeutung der fehlenden
-Datensätze können splche Inkonsistenzen erhebliche Auswirkungen haben.
+Datensätze können solche Inkonsistenzen erhebliche Auswirkungen haben.
 
 Besser wäre es, bei der Paginierung die Eintragsgrenze, bei der eine Listenseite
 beginnen soll, explizit zu benennen. Wurden auf der ersten

@@ -147,13 +147,13 @@ Das Objekt darf unter einer beliebigen URL abgelegt werden. Diese kann, muss
 aber nicht Teil des jeweiligen OParl-Systems sein.
 
 Sinnvoll wird die
-Verwendung von URLs zur Klasifizierung, wenn mehrere Systeme auf die selben
+Verwendung von URLs zur Klassifizierung, wenn mehrere Systeme auf die selben
 URLs verweisen, damit also ein gemeinsames Vokabular zur Klassifizierung nutzen.
 Die Verwendung eines übergreifenden Vokabulars soll dazu beitragen, dass
 die automatisierte Auswertung von parlamentarischen Informationen über die
 Grenzen einzelner Systeme hinweg deutlich erleichtert wird. So könnte
 beispielsweise eine bestimmte Art von Drucksache über Systemgrenzen hinweg als
-solche erkannt werden, wenn die Systeme auf das selbe `skos:Concept` Objekt
+solche erkannt werden, wenn die Systeme auf dasselbe `skos:Concept` Objekt
 verweisen.
 
 Für die Zukunft ist geplant, dass OParl hierzu Vokabulare mit entsprechenden

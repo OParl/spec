@@ -17,7 +17,7 @@ for f in images/*.pdf
 do
 	$GS -dQUIET -dSAFER -dBATCH \
 		-dNOPAUSE -sDisplayHandle=0 \
-		-sDEVICE=png16m -r200 -dTextAlphaBits=4 \
+		-sDEVICE=png16m -r600 -dTextAlphaBits=4 \
 		-sOutputFile=${f%.*}.png -f $f
 done
 

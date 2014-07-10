@@ -64,8 +64,7 @@ Zu den Themen, die in zukünftigen Versionen adressiert werden können, zählen:
   Deutschland. Auch dort besteht Bedarf an standardisierten Vokabularen zur 
   Veröffentlichung parlamentarischer Informationen. Deshalb sind – teilweise noch 
   vor OParl – auch weitere entsprechende Initiativen entstanden.^[Vgl. dazu 
-  beispielsweise <http://popoloproject.com/>, TODO: UK, KB Niederlande,
-  Italienisches Parlament: <http://data.camera.it/data/en/>] Eine
+  beispielsweise <http://popoloproject.com/>, <http://data.camera.it/data/en/>] Eine
   Zusammenarbeit mit derartigen Initiativen mit dem Ziel der Wiederverwendung von
   Arbeitsergebnissen ist vorstellbar.
 

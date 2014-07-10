@@ -37,7 +37,7 @@ für Längen- und Breitengrad.
 
 **Beispiele**
 
-Ein einfaches Objekt mit Punktkordinate:
+Ein einfaches Objekt mit Punktkoordinate:
 
 ~~~~~  {#location_ex1 .json}
 {

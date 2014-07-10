@@ -36,7 +36,7 @@ treiben und eine baldige Fertigstellung zu ermöglichen.
 **26. Januar 2014:** In Düsseldorf findet ein weiterer technischer Workshop zur Arbeit
 an der Spezifikation statt.
 
-**27. März 2014:** Die Initiatoren kommunizieren einen neuen Zeiplan für die
+**27. März 2014:** Die Initiatoren kommunizieren einen neuen Zeitplan für die
 Fertigstellung von Version 1.0.^[
 <http://oparl.org/news/2014/03/27/neuer-zeitplan-fuer-die-spezifikation/>]. Dieser
 sieht eine Verabschiedung in der 23. KW (2. bis 6 Juni) vor. Zuvor soll in einer
@@ -54,4 +54,4 @@ für die Veröffentlichung der 23. Juni anvisiert.
 **Juni 2014:** Aufgrund von Feedback aus der Review-Phase wird die Spezifikation
 deutlich überarbeitet.
 
-TODO: Fortschreiben bis zur tatssächlichen Fertigstellung.
+TODO: Fortschreiben bis zur tatsächlichen Fertigstellung.

@@ -26,7 +26,7 @@ wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
     "postalCode": "11111",
     "locality": "Musterort",
     "status": "https://oparl.example.org/status/buergermeister",
-    "hasMembership": [
+    "membership": [
         "https://oparl.example.org/membership/11",
         "https://oparl.example.org/membership/34"
     ],
@@ -135,7 +135,7 @@ wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
     Kardinalität: 0 bis *.
     OPTIONAL.
 
-`hasMembership`
+`membership`
 :   Mitgliedschaften der Person in Gruppierungen, z. B. Gremien und
     Fraktionen.
     Typ: Liste von `org:Membership` Objekten.

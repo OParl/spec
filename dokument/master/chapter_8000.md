@@ -1,4 +1,4 @@
-Schema
+Schema  {#schema}
 ======
 
 Dieses Kapitel beschreibt das Schema von OParl. Das Schema bildet das
@@ -23,22 +23,41 @@ Sofern keine Typ-Angabe zu einer Eigenschaft vorhanden ist, oder die
 Typ-Angabe `String` oder `xsd:string` lautet, werden Unicode-Zeichenketten
 als Datentyp erwartet.
 
-### `null`-Werte und "leere" Werte
+### `null`-Werte und leere Listen
 
 JSON erlaubt es grundsätzlich, Eigenschaften mit dem Wert `null` zu versehen.
+Im Rahmen von OParl SOLLEN Server nach Möglichkeit davon absehen, Eigenschaften
+mit dem Wert `null` auszugeben. Obligatorische Eigenschaften (in diesem Kapitel mit "ZWINGEND" markiert) DÜRFEN NICHT den Wert `null` haben.
 
-Clients MÜSSEN eine Eigenschaft mit dem Wert `null` so behandeln, als
-wäre die Eigenschaft nicht im Objekt vorhanden. OParl-Server SOLLEN die
-Ausgabe von Eigenschaften mit dem Wert `null` grundsätzlich vermeiden.
+Im Fall von Arrays erlaubt JSON grundsätzlich die Ausgabe von `[]` für leere Arrays.
+Wie bei `null` wird auch hier EMPFOHLEN, auf die Ausgabe einer Eigenschaft mit dem Wert `[]` zu verzichten, sofern es sich nicht um eine obligatorische Eigenschaft handelt.
 
-Analog dazu SOLLEN Server vermeiden, leere JSON-Arrays und -Objekte 
-(`[]` und `{}`) auszugeben. Auch hier sind Clients dazu angehalten, diese
-wie nicht existierende Eigenschaften zu behandeln.
+Obligatorische Eigenschaften, die als Wert eine Liste von Objekten haben können,
+stellen einen Sonderfall dar. Diese können, wie im Abschnitt
+[Objektlisten](#objektlisten) beschrieben, entweder ein JSON-Array oder eine
+URL zum externen Abruf einer Objektliste als Wert haben. In der Praxis kann es
+vorkommen, dass solche Listen leer sind. Beispielsweise könnte eine Gruppierung
+neu erstellt worden sein und noch keine Sitzungstermine aufweisen. In diesem
+Fall ist ein leeres Array eine gültige Möglichkeit, dies auszudrücken. Da es sich dabei um eine obligatorische Eigenschaft handelt, muss sie jedoch ausgegeben werden.
 
-Ausnahmen bilden hier Eigenschaften, die ihrerseits als Pflichteigenschaften
-("ZWINGEND") deklariert sind und die Kardinalität "1 bis *" besitzen,
-also eine Liste als Wert haben können. Diese Eigenschaften DÜRFEN auch dann
-gesetzt sein, wenn ihr Wert eine leere Liste ist.
+Beispiel:
+
+~~~~~  {#schema_ex1 .json}
+{
+    "id": "https://oparl.example.org/",
+    "type": "http://oparl.org/schema/1.0/Organization",
+    "meeting": [],
+    ...
+}
+~~~~~
+
+Clients können so unmittelbar feststellen, dass zu dieser Gruppierung (noch) keine
+Sitzungen vorliegen.
+
+Ist eine Liste leer, wird EMPFOHLEN, diese NICHT über eine eigene URL anzubieten,
+da so Clients eine zusätzliche Anfrage für den Abruf einer leeren Liste stellen
+müssen.
+
 
 ### Kardinalität
 

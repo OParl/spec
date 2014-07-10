@@ -35,11 +35,8 @@ Parlament an.
         "http://d-nb.info/gnd/2015732-0",
         "http://dbpedia.org/resource/Cologne"
     ],
-    "shortName": "Stadt Köln",
-    "name": {
-        "de": "Stadt Köln, kreisfreie Stadt",
-        "en": "City of Cologne"
-    },
+    "shortName": "Köln",
+    "name": Stadt Köln, kreisfreie Stadt",
     "website": "http://www.beispielstadt.de/",
     "license": "http://creativecommons.org/licenses/by/4.0/",
     "licenseValidSince": "2014-01-01",

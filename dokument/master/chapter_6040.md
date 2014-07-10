@@ -9,15 +9,15 @@ Verwendung in diesem Dokument zu etablieren.
 
 JSON unterstützt die folgenden primitiven Datentypen:
 
-* *Zeichenkette* (Unicode)
-* *Zahl* (sowohl Ganzzahlen als auch Fließkommazahlen)
-* *Wahrheitswert* (`true` oder `false`)
-* *Null*
+* Zeichenketten bzw. Strings (Unicode)
+* Zahlen bzw. Number (sowohl Ganzzahlen als auch Fließkommazahlen)
+* Wahrheitswert bzw. Boolean (`true` oder `false`)
+* `null`
 
 Darüber hinaus werden zwei komplexe Datentypen unterstützt:
 
-* *Objekt*: Eine Sammlung von Schlüssel-Wert-Paaren ohne Reihenfolge, wobei der Schlüssel eine Zeichenkette sein muss und der Wert ein beliebiger Datentyp ist.
-* *Array*: Eine geordnete Liste mit beliebigen Datentypen.
+* Objekt: Eine Sammlung von Schlüssel-Wert-Paaren ohne Reihenfolge, wobei der Schlüssel eine Zeichenkette sein muss und der Wert ein beliebiger Datentyp ist.
+* Array: Eine geordnete Liste mit beliebigen Datentypen.
 
 Beispiel eines Objekts in JSON-Notation:
 

@@ -74,11 +74,11 @@ abrufbar ist. Diese Faktoren können sein:
 
 * Der Server ist neben dem Host-Namen auch über die IP-Adresse erreichbar.
 
-* Zusätzliche Domains, die einen A-Record auf den selben Server besitzen
+* Zusätzliche Domains, die einen A-Record auf denselben Server besitzen
 
 Zu der kanonischen Beispiel-URL https://oparl.stadtrat.stadt-koeln.de/ wären 
 eine Reihe von nicht-kanonischen URL-Varianten denkbar, die technischen auf 
-den selben Server führen könnten:
+denselben Server führen könnten:
 
 * https://83.123.89.102/
 * https://oparl.stadtrat.stadtkoeln.de/
@@ -100,7 +100,7 @@ Die Kanonisierung umfasst auch den **Query-String**-Bestandteil der URL. Wie auc
 dass für jeden Parameter und jeden Wert im Query-String nur eine kanonische Schreibweise gelten MUSS.
 
 Darüber hinaus SOLL der Server-Implementierer darauf achten, bei Verwendung von Query-String-Parametern
-diese in URLs immer nach dem selben Prinzip zu sortieren. Ein Beispiel: die beiden URLs
+diese in URLs immer nach demselben Prinzip zu sortieren. Ein Beispiel: die beiden URLs
 
     https://oparl.example.org/members?body=1&committee=2
     https://oparl.example.org/members?committee=2&body=1

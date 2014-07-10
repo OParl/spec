@@ -49,8 +49,10 @@ werden, welche Ableitungen einer Datei existieren.
 
 `fileName`
 :   Dateiname, unter dem die Datei in einem Dateisystem gespeichert werden
-    kann. Beispiel: "einedatei.pdf"
-    Typ: ASCII-Zeichenkette, aber als Unicode-String
+    kann. Beispiel: "einedatei.pdf". Da der Name den kompletten Unicode-Zeichenumang
+    nutzen kann, SOLLEN Clients ggf. selbst dafür sorgen, diesen beim Speichern
+    in ein Dateisystem den lokalen Erfordernissen anzupassen.
+    Typ: String.
     Kardinalität: 1.
     ZWINGEND.
 

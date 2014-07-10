@@ -125,7 +125,7 @@ des Innern (Herausg.): Open Government Data Deutschland, Seite 433f., 2012
 
 OParl unterstützt mit der vorliegenden Version 1.0 der Spezifikation die Anwendung
 einiger Linked-Data-Prinzipien. Damit soll die automatisierte Verarbeitung
-und Verknüpfung von Informationen aus parlamentarischen Informationnssystemen, auch über
+und Verknüpfung von Informationen aus parlamentarischen Informationssystemen, auch über
 deren Grenzen hinweg, erleichtert werden.
 
 Ein grundlegender Baustein der Linked-Data-Unterstützung in OParl ist die Tatsache, dass

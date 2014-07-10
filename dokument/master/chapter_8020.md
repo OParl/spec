@@ -7,8 +7,6 @@ Die Eigenschaft `id` ist für jeden OParl-Objekttypen vorgegeben
 und enthält den eindeutigen Bezeichner des Objekts, nämlich seine URL.
 Dies ist ein ZWINGENDES Merkmal für jedes Objekt.
 
-TODO: Zu klären ist noch, ob das auch für oparl:Location gilt.
-
 ### `type`
 
 Objekttypenangabe des Objekts, ZWINGEND für jedes Objekt. Der Wert ist

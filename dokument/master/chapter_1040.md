@@ -70,7 +70,7 @@ Zu den Themen, die in zukünftigen Versionen adressiert werden können, zählen:
   Arbeitsergebnissen ist vorstellbar.
 
 * IT-Planungsrat: Dieser kann die Verbindlichkeit von Standards wie OParl für
-  Deutschland beschliessen. Der "Vertrag über die Errichtung des IT-Planungsrats 
+  Deutschland beschließen. Der "Vertrag über die Errichtung des IT-Planungsrats 
   und über die Grundlagen der Zusammenarbeit beim Einsatz der Informationstechnologie
   in den Verwaltungen von Bund und Ländern – Vertrag zur Ausführung von Artikel 91c 
   GG"^[http://www.it-planungsrat.de/SharedDocs/Downloads/DE/ITPlanungsrat/Staatsvertrag/Staatsvertrag.html]

@@ -14,7 +14,7 @@ Die Gründe, warum Betreiber von parlamentarischen Informationssystemen den
 Zugriff darauf über eine standardisierte Schnittstelle ermöglichen sollten
 oder möchten, können vielfältig sein und je nach Nutzergruppe unterschiedlich.
 
-Ein zentrales Argument für Verwaltung und politische Gremieni, sei es in
+Ein zentrales Argument für Verwaltung und politische Gremien, sei es in
 Gebietskörperschaften oder auf Landes- oder Bundesebene,
 ist die Verpflichtung der Parlamente gegenüber der
 Bevölkerung, diese über die Fortschritte der parlamentarischen Arbeit zu

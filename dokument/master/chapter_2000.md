@@ -86,7 +86,7 @@ Cache {#cache}
 Ein Cache ist ein Speicher, der einem Client dazu dienen kann, von einem
 Server abgerufene Informationen längerfristig vorzuhalten. Dies kann beispielsweise
 dazu dienen, mehrfache Anfragen der selben Informationen zu vermeiden, wodurch
-sowohl Ressourcen auf Seite des Servers geschont als auch die Nutzung von
+sowohl Ressourcen auf Seite des Servers geschohnt als auch die Nutzung von
 Netzwerkbandbreite reduziert werden kann. Die Nutzung eines Cache kann auch
 zur Verbesserung der Nutzerfreundlichkeit eines Clients beitragen, indem
 Wartezeiten zur Bereitstellung einer Ressource verkürzt werden.

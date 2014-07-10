@@ -66,7 +66,7 @@ inne hat, beispielsweise den Vorsitz einer Fraktion.
 :   The post held by the person in the organization.
     Typ: `org:Post`.
     TODO: Prüfen, ob das ohne JSON-LD Sinn macht, oder ob hier zusätzliche
-    Erkäuterungen notwendig sind.
+    Erläuterungen notwendig sind.
     OPTIONAL.
 
 `onBehalfOf`

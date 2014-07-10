@@ -365,7 +365,7 @@ OParl definiert keine Möglichkeit für Clients, auf die Reihenfolge von Listene
 Einfluss zu nehmen. Von Servern wird die Einhaltung einiger grundlegender Anforderungen
 erwartet, die teilweise bereits erwähnt wurden.
 
-Server SOLLEN generell für eine **stabile Sortierung** von Listeneinrägen sorgen. Das
+Server SOLLEN generell für eine **stabile Sortierung** von Listeneinträgen sorgen. Das
 heißt, die Sortierung von Einträgen folgt einem konstanten Prinzip und ändert sich nicht von
 Abfrage zu Abfrage. Eine Einfache Möglichkeit, dies Umzusetzen, wäre in vielen Fällen
 die Sortierung von Objekten nach ihrer eindeutigen und unveränderlichen ID.
@@ -377,8 +377,8 @@ Bei der *externen Listenausgabe* (siehe weiter oben) werden in Abhängigkeit vom
 Objekttyp bestimmte Möglichkeiten geboten, die Ausgabe von Listen auf eine
 Teilmenge einzuschränken.
 
-Hierfür sind die URL-Paramter `startdate` und `enddate` vorgesehen. Beide können vom Client
-unabhängig von einander gesetzt werden. Sie schränken die Objektmenge anhand auf einen
+Hierfür sind die URL-Parameter `startdate` und `enddate` vorgesehen. Beide können vom Client
+unabhängig voneinander gesetzt werden. Sie schränken die Objektmenge anhand auf einen
 Zeitraum ein, der entweder einseitig oder beidseitig begrenzt ist. Die Einschränkung bezieht
 sich auf ein Bezugsdatum, das vom Objekttyp abhängt.
 
@@ -389,8 +389,8 @@ anwendbar:
 * `oparl:Meeting`: Bezugsdatum ist hier die Eigenschaft `start` (Startzeitpunkt der Sitzung)
 * `oparl:Paper`: Bezugsdatum ist hier die Eigenschaft `publishedDate` (Veröffentlichungsdatum)
 
-Für die genannten Objekttypen MUSS der Server bei externer Litenausgabe die beschriebenen
-Filter untertützen.
+Für die genannten Objekttypen MUSS der Server bei externer Listenausgabe die beschriebenen
+Filter unterstützen.
 
 Die Filter werden vom Client aktiviert, indem der oder die gewünschte(n) URL-Parameter
 der vom Server angegebenen URL für die Listenausgabe hinzugefügt werden. Lautet diese

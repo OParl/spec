@@ -17,7 +17,7 @@ auch innerhalb von Webapplikationen genutzt werden dürfen, die nicht von
 demselben Server ausgeliefert werden. Technisch wird dies durch Ausgabe
 zusätzlicher HTTP-Header erreicht.
 
-OParl-Server SOLLEN für jegliche Anfrage, die mit der Ausgabe von JSON-Daten
+OParl-Server MÜSSEN für jegliche Anfrage, die mit der Ausgabe von JSON-Daten
 beantwortet wird (das sind alle Anfragen außer [Dateizugriffe](#dateizugriff))
 den folgenden HTTP-Antwort-Header senden:
 

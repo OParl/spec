@@ -37,7 +37,7 @@
     </para>
     <para>
       Die vorliegende Version ist die erste verabschiedete Version der
-      Spezifikaiton zum OParl-Standard.
+      Spezifikation zum OParl-Standard.
     </para>
   </sect2>
   <sect2 id="zielsetzung-von-oparl">
@@ -84,7 +84,7 @@
       sein und je nach Nutzergruppe unterschiedlich.
     </para>
     <para>
-      Ein zentrales Argument für Verwaltung und politische Gremieni, sei
+      Ein zentrales Argument für Verwaltung und politische Gremien, sei
       es in Gebietskörperschaften oder auf Landes- oder Bundesebene, ist
       die Verpflichtung der Parlamente gegenüber der Bevölkerung, diese
       über die Fortschritte der parlamentarischen Arbeit zu informieren
@@ -339,10 +339,10 @@
       Planung eines initialen Workshops mit Vertreterinnen und
       Vertretern von Kommunen, kommunalen IT-Dienstleistern,
       RIS-Anbietern und Zivilgesellschaft. Ziel: Die Bereitschaft zur
-      Zusammenarbeit an einem gemeinsamen Standard ermitteln. Die
-      Arbeite an einem Entwurf für die vorliegene Spezifikation beginnt.
-      Der Entwurf wird von Beginn an öffentlich auf GitHub.com bereit
-      gestellt.
+      Zusammenarbeit an einem gemeinsamen Standard ermitteln. Die Arbeit
+      an einem Entwurf für die vorliegende Spezifikation beginnt. Der
+      Entwurf wird von Beginn an öffentlich auf GitHub.com
+      bereitgestellt.
     </para>
     <para>
       <emphasis role="strong">17. April 2013:</emphasis> Insgesamt 30
@@ -373,7 +373,7 @@
     </para>
     <para>
       <emphasis role="strong">27. März 2014:</emphasis> Die Initiatoren
-      kommunizieren einen neuen Zeiplan für die Fertigstellung von
+      kommunizieren einen neuen Zeitplan für die Fertigstellung von
       Version 1.0.<footnote>
         <para>
           <ulink url="http://oparl.org/news/2014/03/27/neuer-zeitplan-fuer-die-spezifikation/">http://oparl.org/news/2014/03/27/neuer-zeitplan-fuer-die-spezifikation/</ulink>
@@ -406,7 +406,7 @@
       überarbeitet.
     </para>
     <para>
-      TODO: Fortschreiben bis zur tatssächlichen Fertigstellung.
+      TODO: Fortschreiben bis zur tatsächlichen Fertigstellung.
     </para>
   </sect2>
   <sect2 id="zukunft-von-oparl">
@@ -419,7 +419,7 @@
       Funktionen, die denkbar und bestimmt sinnvoll wären, sind aus
       verschiedensten Gründen in dieser Version noch nicht
       berücksichtigt. Einige der Gründe, die dazu führten, ein Thema
-      nicht auszuspezifizieren, waren:
+      nicht auszuformulieren, waren:
     </para>
     <itemizedlist spacing="compact">
       <listitem>
@@ -559,7 +559,7 @@
       <listitem>
         <para>
           IT-Planungsrat: Dieser kann die Verbindlichkeit von Standards
-          wie OParl für Deutschland beschliessen. Der &quot;Vertrag über
+          wie OParl für Deutschland beschließen. Der &quot;Vertrag über
           die Errichtung des IT-Planungsrats und über die Grundlagen der
           Zusammenarbeit beim Einsatz der Informationstechnologie in den
           Verwaltungen von Bund und Ländern – Vertrag zur Ausführung von
@@ -596,7 +596,7 @@
         <emphasis>müssen</emphasis>, <emphasis>können</emphasis> und
         <emphasis>sollen</emphasis> in einer Art und Weise, die
         bestimmte Anforderungen unmissverständlich in drei verschiedene
-        Abstufung einteilen lässt. Um ihre normative Bedeutung zu
+        Abstufungen einteilen lässt. Um ihre normative Bedeutung zu
         unterstreichen, werden diese Wörter grundsätzlich in
         Großbuchstaben gesetzt.
       </para>
@@ -730,8 +730,8 @@
         Insbesondere können in Codebeispielen Auslassungen vorkommen,
         die mit <literal>...</literal> gekennzeichnet werden. Darüber
         hinaus werden zugunsten der einfacheren Lesbarkeit Umlaute
-        verwendet, obwohl OParl grundsätzlichlich die Verwendung von
-        Unicode-Zeichneketten vorsieht.
+        verwendet, obwohl OParl grundsätzlich die Verwendung von
+        Unicode-Zeichenketten vorsieht.
       </para>
     </sect3>
     <sect3 id="namespace-präfixe-für-objekt--und-datentypen">
@@ -1037,7 +1037,7 @@ http://www.w3.org/2001/XMLSchema#date
           </row>
           <row>
             <entry>
-              <ulink url="http://www.sitzungsdienst.net/">Sternberg
+              <ulink url="http://www.sitzungsdienst.net/">STERNBERG
               Software-Technik GmbH</ulink>
             </entry>
             <entry>
@@ -1207,13 +1207,13 @@ http://www.w3.org/2001/XMLSchema#date
     <para>
       Ein Cache ist ein Speicher, der einem Client dazu dienen kann, von
       einem Server abgerufene Informationen längerfristig vorzuhalten.
-      Dies kann beispielsweise dazu dienen, mehrfache Anfragen der
-      selben Informationen zu vermeiden, wodurch sowohl Ressourcen auf
-      Seite des Servers geschont als auch die Nutzung von
-      Netzwerkbandbreite reduziert werden kann. Die Nutzung eines Cache
-      kann auch zur Verbesserung der Nutzerfreundlichkeit eines Clients
-      beitragen, indem Wartezeiten zur Bereitstellung einer Ressource
-      verkürzt werden.
+      Dies kann beispielsweise dazu dienen, mehrfache Anfragen derselben
+      Informationen zu vermeiden, wodurch sowohl Ressourcen auf Seite
+      des Servers geschohnt als auch die Nutzung von Netzwerkbandbreite
+      reduziert werden kann. Die Nutzung eines Cache kann auch zur
+      Verbesserung der Nutzerfreundlichkeit eines Clients beitragen,
+      indem Wartezeiten zur Bereitstellung einer Ressource verkürzt
+      werden.
     </para>
   </sect2>
   <sect2 id="nutzerin">
@@ -1375,7 +1375,7 @@ http://www.w3.org/2001/XMLSchema#date
     </para>
     <para>
       Eine solche Suchfunktion kann auch über die reine Volltextsuche
-      und über die Suche mittels Text- oder Spracheingabe hinaus gehen.
+      und über die Suche mittels Text- oder Spracheingabe hinausgehen.
       Denn ein Client könnte von einem
       <link linkend="server">Server</link>-System, das Drucksachen mit
       Geoinformationen anbietet, diese abrufen und räumlich indexieren.
@@ -1478,7 +1478,7 @@ http://www.w3.org/2001/XMLSchema#date
       Organisationen betrieben werden, die nicht Betreiber des
       Server-Systems sind. Solche Plattformen treten gegenüber dem
       OParl-Server als Client auf und rufen bestimmte oder sämtliche
-      Informationen, die das System bereit hält, ab. Vorbild sind die
+      Informationen, die das System bereithält, ab. Vorbild sind die
       Robots oder Spider von Web-Suchmaschinen. Die abgerufenen
       Informationen können dann indexiert und je nach Anforderungen für
       eine gezielte Suche weiterverarbeitet werden.
@@ -1566,8 +1566,8 @@ http://www.w3.org/2001/XMLSchema#date
     </para>
   </sect2>
 </sect1>
-<sect1 id="prinzipien-und-funktionen-des-schnittstelle">
-  <title>Prinzipien und Funktionen des Schnittstelle</title>
+<sect1 id="prinzipien-und-funktionen-der-schnittstelle">
+  <title>Prinzipien und Funktionen der Schnittstelle</title>
   <para>
     In diesem Kapitel werden grundlegende Funktionsprinzipien einer
     OParl-Schnittstelle beschrieben.
@@ -1725,7 +1725,7 @@ http://www.w3.org/2001/XMLSchema#date
         Ein weiterer Aspekt betrifft die Abwärtskompatibilität, also die
         Kompatibilität von OParl-Clients mit zukünftigen Schnittstellen.
         So können beispielsweise zukünftige Erweiterungen des
-        OParl-Schemas, etwa um neue Objekttypen, genau so durchgeführt
+        OParl-Schemas, etwa um neue Objekttypen, genauso durchgeführt
         werden, wie die Erweiterungen um herstellerspezifische
         Objekttypen. Ein Client muss diese Anteile nicht auswerten,
         sofern sie nicht für die Aufgabe des Clients relevant sind.
@@ -1782,7 +1782,7 @@ http://www.w3.org/2001/XMLSchema#date
         OParl unterstützt mit der vorliegenden Version 1.0 der
         Spezifikation die Anwendung einiger Linked-Data-Prinzipien.
         Damit soll die automatisierte Verarbeitung und Verknüpfung von
-        Informationen aus parlamentarischen Informationnssystemen, auch
+        Informationen aus parlamentarischen Informationssystemen, auch
         über deren Grenzen hinweg, erleichtert werden.
       </para>
       <para>
@@ -1851,7 +1851,7 @@ http://www.w3.org/2001/XMLSchema#date
         <para>
           Verschiedene Clients, die für OParl Version 1.0 entwickelt
           wurden, kommen bei Nutzerinnen und Nutzern, die sich für den
-          Stadtrat in Beispielstadt intressieren, zum Einsatz. Jeder
+          Stadtrat in Beispielstadt interessieren, zum Einsatz. Jeder
           Client-Nutzer hat dazu lediglich die URL
           <literal>https://oparl.example.org/1.0/</literal> des
           OParl-Servers in der Client-Konfiguration hinterlegt.
@@ -2038,7 +2038,7 @@ http://www.w3.org/2001/XMLSchema#date
     <para>
       Im Rahmen dieses Dokuments wird aus Gründen der Verständlichkeit
       generell der allgemein gebräuchliche Begriff
-      <emphasis>URL</emphasis> werwendet, auch wenn damit tatsächlich
+      <emphasis>URL</emphasis> verwendet, auch wenn damit tatsächlich
       die internationalisierte Variante nach RFC 3987<footnote>
         <para>
           RFC 3987:
@@ -2090,9 +2090,9 @@ http://www.w3.org/2001/XMLSchema#date
       </para>
       <para>
         Die Kanonisierung ist entscheidend, um erkennen zu können, ob
-        zwei URLs das selbe Objekt repräsentieren. Sind zwei URLs
-        identisch, sollen Clients daraus ableiten können, dass diese das
-        selbe Objekt repräsentieren. Sind zwei URLs unterschiedlich,
+        zwei URLs dasselbe Objekt repräsentieren. Sind zwei URLs
+        identisch, sollen Clients daraus ableiten können, dass diese
+        dasselbe Objekt repräsentieren. Sind zwei URLs unterschiedlich,
         soll im Umkehrschluss die Annahme gelten, dass sie zwei
         verschiedene Objekte repräsentieren.
       </para>
@@ -2165,7 +2165,7 @@ http://oparl.stadtrat.stadt-koeln.de/
       <itemizedlist>
         <listitem>
           <para>
-            Der selbe Server antwortet nicht nur über den kanonischen
+            Derselbe Server antwortet nicht nur über den kanonischen
             Host-Namen, sondern auch noch über andere Host-Namen. Das
             könnte zum Beispiel der Fall sein, wenn der Host-Name als
             CNAME für einen anderen Namen konfiguriert wurde oder wenn
@@ -2180,16 +2180,16 @@ http://oparl.stadtrat.stadt-koeln.de/
         </listitem>
         <listitem>
           <para>
-            Zusätzliche Domains, die einen A-Record auf den selben
-            Server besitzen
+            Zusätzliche Domains, die einen A-Record auf denselben Server
+            besitzen
           </para>
         </listitem>
       </itemizedlist>
       <para>
         Zu der kanonischen Beispiel-URL
         https://oparl.stadtrat.stadt-koeln.de/ wären eine Reihe von
-        nicht-kanonischen URL-Varianten denkbar, die technischen auf den
-        selben Server führen könnten:
+        nicht-kanonischen URL-Varianten denkbar, die technischen auf
+        denselben Server führen könnten:
       </para>
       <itemizedlist spacing="compact">
         <listitem>
@@ -2240,7 +2240,7 @@ http://oparl.stadtrat.stadt-koeln.de/
       <para>
         Darüber hinaus SOLL der Server-Implementierer darauf achten, bei
         Verwendung von Query-String-Parametern diese in URLs immer nach
-        dem selben Prinzip zu sortieren. Ein Beispiel: die beiden URLs
+        demselben Prinzip zu sortieren. Ein Beispiel: die beiden URLs
       </para>
       <programlisting>
 https://oparl.example.org/members?body=1&amp;committee=2
@@ -2476,7 +2476,7 @@ https://oparl.example.org/members?committee=2&amp;body=1
         stehen.
       </para>
       <para>
-        Eine alternative Möglichkeit für die Ausgabe der selben
+        Eine alternative Möglichkeit für die Ausgabe derselben
         Information ist die <emphasis>externe</emphasis> Listenausgabe.
         Mit dieser Form der Ausgabe sieht das oben gezeigte Objekt nun
         so aus:
@@ -2494,7 +2494,7 @@ https://oparl.example.org/members?committee=2&amp;body=1
         <literal>body</literal> kein Array, sondern eine URL. Diese URL
         kann vom Client genutzt werden, um die entsprechende Liste mit
         Objekten aufzurufen. Wie die entsprechende Ausgabe des Servers
-        aussieht, wird weiter unten unter beschrieben.
+        aussieht, wird weiter unten beschrieben.
       </para>
       <para>
         Diese beiden Mechanismen sind grundsätzlich immer anwendbar,
@@ -2696,7 +2696,7 @@ https://oparl.example.org/bodies/1/papers/?listformat=complete
       </para>
       <para>
         Die Sortierreihenfolge der ausgegebenen Einträge SOLL unabhängig
-        von der Ausgabe der kompakten oder volläständigen Form identisch
+        von der Ausgabe der kompakten oder vollständigen Form identisch
         sein.
       </para>
       <para>
@@ -2748,8 +2748,8 @@ https://oparl.example.org/bodies/1/papers/?listformat=complete
         viele Einträge pro Listenseite ausgegeben werden. Die Zahl der
         Einträge, die der Server dabei je Listenseite ausliefert, SOLL
         dabei mindestens 10 und maximal 100 betragen. Der Wert von
-        <literal>itemsPerPage</literal> MUSS auf allen Listenseiten der
-        selben Liste einheitlich sein. Nur bei Ausgabe der letzten
+        <literal>itemsPerPage</literal> MUSS auf allen Listenseiten
+        derselben Liste einheitlich sein. Nur bei Ausgabe der letzten
         Listenseite DARF der Server weniger Einträge ausgeben, als von
         <literal>itemsPerPage</literal> angegeben.
       </para>
@@ -2801,7 +2801,7 @@ https://oparl.example.org/bodies/1/papers/?listformat=complete
         </listitem>
       </orderedlist>
       <para>
-        Zusätzlich zur dem für die Paginierung ZWINGENDEN Eigenschaft
+        Zusätzlich zur für die Paginierung ZWINGENDEN Eigenschaft
         <literal>nextPage</literal>, die lediglich auf der letzten
         Listenseite entfällt, können Server OPTIONAL weitere URLs zum
         Abruf bestimmter Listenseiten anbieten:
@@ -2927,7 +2927,7 @@ SELECT * FROM example ORDER BY id LIMIT 10 OFFSET 10
         ausgegeben wird. Bei ungünstigeren Konstellationen wäre auch
         denkbar, dass eine unstabile Paginierung bewirkt, dass einzelne
         Datensätze beim Paginieren übergangen werden. Je nach Bedeutung
-        der fehlenden Datensätze können splche Inkonsistenzen erhebliche
+        der fehlenden Datensätze können solche Inkonsistenzen erhebliche
         Auswirkungen haben.
       </para>
       <para>
@@ -2956,7 +2956,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       </para>
       <para>
         Server SOLLEN generell für eine <emphasis role="strong">stabile
-        Sortierung</emphasis> von Listeneinrägen sorgen. Das heißt, die
+        Sortierung</emphasis> von Listeneinträgen sorgen. Das heißt, die
         Sortierung von Einträgen folgt einem konstanten Prinzip und
         ändert sich nicht von Abfrage zu Abfrage. Eine Einfache
         Möglichkeit, dies Umzusetzen, wäre in vielen Fällen die
@@ -2973,9 +2973,9 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
         Teilmenge einzuschränken.
       </para>
       <para>
-        Hierfür sind die URL-Paramter <literal>startdate</literal> und
+        Hierfür sind die URL-Parameter <literal>startdate</literal> und
         <literal>enddate</literal> vorgesehen. Beide können vom Client
-        unabhängig von einander gesetzt werden. Sie schränken die
+        unabhängig voneinander gesetzt werden. Sie schränken die
         Objektmenge anhand auf einen Zeitraum ein, der entweder
         einseitig oder beidseitig begrenzt ist. Die Einschränkung
         bezieht sich auf ein Bezugsdatum, das vom Objekttyp abhängt.
@@ -3009,7 +3009,7 @@ SELECT * FROM example WHERE id &gt; 10 ORDER BY id LIMIT 10
       </itemizedlist>
       <para>
         Für die genannten Objekttypen MUSS der Server bei externer
-        Litenausgabe die beschriebenen Filter untertützen.
+        Listenausgabe die beschriebenen Filter unterstützen.
       </para>
       <para>
         Die Filter werden vom Client aktiviert, indem der oder die
@@ -3310,7 +3310,7 @@ https://oparl.example.org/papers/?startdate=2014-01-01T00%3A00%3A00%2B01%3A00
     </sect3>
   </sect2>
   <sect2 id="dateizugriff">
-    <title>Dateizugriff</title>
+    <title>Dateizugriffe</title>
     <para>
       Mit dem Begriff &quot;Datei&quot; sind im Sinne dieser
       Spezifikation alle Ressourcen gemeint, die von einem OParl-Server
@@ -3572,7 +3572,7 @@ Content-Disposition: attachment; filename=&quot;2014-08-22 Rat Wortprotokoll.pdf
       Accept-Header mit dem Mime-Type
       <literal>application/json</literal> senden MÜSSEN, es sei denn, es
       handelt sich um einen
-      <link linkend="dateizugriff">Dateizugriff</link>.
+      <link linkend="dateizugriff">Dateizugriffe</link>.
     </para>
     <para>
       Im Kontext von OParl soll durch Unterstützung von Content
@@ -3631,7 +3631,7 @@ Content-Disposition: attachment; filename=&quot;2014-08-22 Rat Wortprotokoll.pdf
       zusätzlicher HTTP-Header erreicht.
     </para>
     <para>
-      OParl-Server SOLLEN für jegliche Anfrage, die mit der Ausgabe von
+      OParl-Server MÜSSEN für jegliche Anfrage, die mit der Ausgabe von
       JSON-Daten beantwortet wird (das sind alle Anfragen außer
       <link linkend="dateizugriff">Dateizugriffe</link>) den folgenden
       HTTP-Antwort-Header senden:
@@ -3862,32 +3862,57 @@ Access-Control-Allow-Origin: *
         Unicode-Zeichenketten als Datentyp erwartet.
       </para>
     </sect3>
-    <sect3 id="null-werte-und-leere-werte">
-      <title><literal>null</literal>-Werte und &quot;leere&quot;
-      Werte</title>
+    <sect3 id="null-werte-und-leere-listen">
+      <title><literal>null</literal>-Werte und leere Listen</title>
       <para>
         JSON erlaubt es grundsätzlich, Eigenschaften mit dem Wert
-        <literal>null</literal> zu versehen.
+        <literal>null</literal> zu versehen. Im Rahmen von OParl SOLLEN
+        Server nach Möglichkeit davon absehen, Eigenschaften mit dem
+        Wert <literal>null</literal> auszugeben. Obligatorische
+        Eigenschaften (in diesem Kapitel mit &quot;ZWINGEND&quot;
+        markiert) DÜRFEN NICHT den Wert <literal>null</literal> haben.
       </para>
       <para>
-        Clients MÜSSEN eine Eigenschaft mit dem Wert
-        <literal>null</literal> so behandeln, als wäre die Eigenschaft
-        nicht im Objekt vorhanden. OParl-Server SOLLEN die Ausgabe von
-        Eigenschaften mit dem Wert <literal>null</literal> grundsätzlich
-        vermeiden.
+        Im Fall von Arrays erlaubt JSON grundsätzlich die Ausgabe von
+        <literal>[]</literal> für leere Arrays. Wie bei
+        <literal>null</literal> wird auch hier EMPFOHLEN, auf die
+        Ausgabe einer Eigenschaft mit dem Wert <literal>[]</literal> zu
+        verzichten, sofern es sich nicht um eine obligatorische
+        Eigenschaft handelt.
       </para>
       <para>
-        Analog dazu SOLLEN Server vermeiden, leere JSON-Arrays und
-        -Objekte (<literal>[]</literal> und <literal>{}</literal>)
-        auszugeben. Auch hier sind Clients dazu angehalten, diese wie
-        nicht existierende Eigenschaften zu behandeln.
+        Obligatorische Eigenschaften, die als Wert eine Liste von
+        Objekten haben können, stellen einen Sonderfall dar. Diese
+        können, wie im Abschnitt
+        <link linkend="objektlisten">Objektlisten</link> beschrieben,
+        entweder ein JSON-Array oder eine URL zum externen Abruf einer
+        Objektliste als Wert haben. In der Praxis kann es vorkommen,
+        dass solche Listen leer sind. Beispielsweise könnte eine
+        Gruppierung neu erstellt worden sein und noch keine
+        Sitzungstermine aufweisen. In diesem Fall ist ein leeres Array
+        eine gültige Möglichkeit, dies auszudrücken. Da es sich dabei um
+        eine obligatorische Eigenschaft handelt, muss sie jedoch
+        ausgegeben werden.
       </para>
       <para>
-        Ausnahmen bilden hier Eigenschaften, die ihrerseits als
-        Pflichteigenschaften (&quot;ZWINGEND&quot;) deklariert sind und
-        die Kardinalität &quot;1 bis *&quot; besitzen, also eine Liste
-        als Wert haben können. Diese Eigenschaften DÜRFEN auch dann
-        gesetzt sein, wenn ihr Wert eine leere Liste ist.
+        Beispiel:
+      </para>
+      <programlisting language="json">
+{
+    &quot;id&quot;: &quot;https://oparl.example.org/&quot;,
+    &quot;type&quot;: &quot;http://oparl.org/schema/1.0/Organization&quot;,
+    &quot;meeting&quot;: [],
+    ...
+}
+</programlisting>
+      <para>
+        Clients können so unmittelbar feststellen, dass zu dieser
+        Gruppierung (noch) keine Sitzungen vorliegen.
+      </para>
+      <para>
+        Ist eine Liste leer, wird EMPFOHLEN, diese NICHT über eine
+        eigene URL anzubieten, da so Clients eine zusätzliche Anfrage
+        für den Abruf einer leeren Liste stellen müssen.
       </para>
     </sect3>
     <sect3 id="kardinalität">
@@ -4090,7 +4115,7 @@ Access-Control-Allow-Origin: *
         sein.
       </para>
       <para>
-        Sinnvoll wird die Verwendung von URLs zur Klasifizierung, wenn
+        Sinnvoll wird die Verwendung von URLs zur Klassifizierung, wenn
         mehrere Systeme auf die selben URLs verweisen, damit also ein
         gemeinsames Vokabular zur Klassifizierung nutzen. Die Verwendung
         eines übergreifenden Vokabulars soll dazu beitragen, dass die
@@ -4098,7 +4123,7 @@ Access-Control-Allow-Origin: *
         über die Grenzen einzelner Systeme hinweg deutlich erleichtert
         wird. So könnte beispielsweise eine bestimmte Art von Drucksache
         über Systemgrenzen hinweg als solche erkannt werden, wenn die
-        Systeme auf das selbe <literal>skos:Concept</literal> Objekt
+        Systeme auf dasselbe <literal>skos:Concept</literal> Objekt
         verweisen.
       </para>
       <para>
@@ -4141,7 +4166,7 @@ Access-Control-Allow-Origin: *
         Sicht der OParl-Spezifikation völlig in Ordnung:
       </para>
       <programlisting>
-https://ratsmitglied-max-mustermann.example.org/mein-oparl-datensatz
+https://ratsherr-mustermann.example.org/
 </programlisting>
       <para>
         Noch etwas extremer: selbst eine eigene Domain für jedes
@@ -4149,34 +4174,21 @@ https://ratsmitglied-max-mustermann.example.org/mein-oparl-datensatz
         widersprechen.
       </para>
       <para>
-        Wenn also in einer Beispiel-URL so etwas wie
+        Wenn also in einer Beispiel-URL ein Pfad wie
       </para>
       <programlisting>
 bodies/0/peoples/
 </programlisting>
       <para>
-        auftaucht, dann bedeutet das nicht, dass genau solche Pfade
-        durch die OParl-Spezifikation vorgeschrieben sind.
+        auftaucht, bedeutet das nicht, dass genau solche Pfade durch die
+        OParl-Spezifikation vorgeschrieben sind.
       </para>
       <para>
-        Auch dies wäre als absoluter Link z. B. für eine Person
-        verwendbar:
+        Auch dies wäre als URL z. B. für eine Person verwendbar:
       </para>
       <programlisting>
-https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
+https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
 </programlisting>
-      <para>
-        Dies käme dann als relativer Link für die Person in Frage:
-      </para>
-      <programlisting>
-personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
-</programlisting>
-      <para>
-        oder auch z. B. dies
-        <subscript><subscript>~</subscript>~</subscript>~~
-        LfyIfvCWq8SpBQj0MiyHaxDZwGJ
-        <subscript><subscript>~</subscript>~</subscript>~~
-      </para>
       <para>
         Gleichzeitig ist aber aus verschiedenen Gründen ein
         strukturierter Aufbau der Pfade durchaus sinnvoll, der sich an
@@ -4340,7 +4352,7 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
       </para>
       <para>
         Die Werte von <literal>name</literal> und
-        <literal>shortName</literal> des selben Objekts SOLLEN nicht
+        <literal>shortName</literal> desselben Objekts SOLLEN nicht
         identisch sein.
       </para>
     </sect3>
@@ -4356,7 +4368,10 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
             <ulink url="http://licenses.opendefinition.org/">http://licenses.opendefinition.org/</ulink>
             und
             <ulink url="https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json">https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json</ulink>
-            zu finden.
+            zu finden. Allgemeine Informationen zur Lizensierung von
+            Open Data finden sich auch im Open Data Handbook der Open
+            Knowledge Foundation unter
+            <ulink url="http://opendatahandbook.org/de/how-to-open-up-data/apply-an-open-license.html">http://opendatahandbook.org/de/how-to-open-up-data/apply-an-open-license.html</ulink>.
           </para>
         </footnote>
       </para>
@@ -4379,17 +4394,6 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         strukturierten Metadaten, die über die API bezogen werden,
         sondern auch auf den eigentlichen Inhalt der Datei(en), die über
         die angebotene(n) URL(s) abgerufen werden können.
-      </para>
-      <para>
-        Lesenswert zum Thema Lizensierung von Linked Data ist auch er
-        Abschnitt &quot;Licenses, Waivers and Norms for Data&quot; im
-        online zugänglichen Linked Data Book.<footnote>
-          <para>
-            Tom Heath, Christian Bizer: Linked Data: Evolving the Web
-            into a Global Data Space (1st edition),
-            <ulink url="http://linkeddatabook.com/editions/1.0/#htoc48">http://linkeddatabook.com/editions/1.0/#htoc48</ulink>
-          </para>
-        </footnote>
       </para>
     </sect3>
     <sect3 id="created">
@@ -4650,8 +4654,8 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
     </para>
     <para>
       Vom OParl-Server wird erwartet, dass er mindestens ein Objekt vom
-      Typ <literal>oparl:Body</literal> bereit hält. Teilen sich mehrere
-      Körperschaften das selbe technische System, können auf demselben
+      Typ <literal>oparl:Body</literal> bereithält. Teilen sich mehrere
+      Körperschaften dasselbe technische System, können auf demselben
       Server auch mehrere Objekte vom Typ <literal>oparl:Body</literal>
       beherbergt werden.
     </para>
@@ -4799,7 +4803,7 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           <listitem>
             <para>
               Dient der Angabe beliebig vieler zusätzlicher URLs, die
-              die selbe Körperschaft repräsentieren. Hier können
+              dieselbe Körperschaft repräsentieren. Hier können
               beispielsweise, sofern vorhanden, der entsprechende
               Eintrag der Gemeinsamen Normdatei der Deutschen
               Nationalbibliothek<footnote>
@@ -4807,7 +4811,7 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
                   Gemeinsame Normdatei
                   <ulink url="http://www.dnb.de/gnd">http://www.dnb.de/gnd</ulink>
                 </para>
-              </footnote>, der DBPedia<footnote>
+              </footnote> oder der DBPedia<footnote>
                 <para>
                   DBPedia
                   <ulink url="http://www.dbpedia.org/">http://www.dbpedia.org/</ulink>
@@ -4856,7 +4860,7 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Drucksacheen unter dieser Körperschaft. Vgl.
+              Drucksachen unter dieser Körperschaft. Vgl.
               <link linkend="objektlisten">Objektlisten</link>. Typ:
               Liste von <literal>oparl:Paper</literal> Objekten.
               Kardinalität: 0 bis *. ZWINGEND.
@@ -5259,7 +5263,7 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
     &quot;postalCode&quot;: &quot;11111&quot;,
     &quot;locality&quot;: &quot;Musterort&quot;,
     &quot;status&quot;: &quot;https://oparl.example.org/status/buergermeister&quot;,
-    &quot;hasMembership&quot;: [
+    &quot;membership&quot;: [
         &quot;https://oparl.example.org/membership/11&quot;,
         &quot;https://oparl.example.org/membership/34&quot;
     ],
@@ -5349,7 +5353,7 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
               <literal>vcard:Male</literal>,
               <literal>vcard:None</literal> und
               <literal>vcard:Other</literal>. Für den Fall, dass das
-              geschlecht der Person unbekannt ist, SOLL die Eigenschaft
+              Geschlecht der Person unbekannt ist, SOLL die Eigenschaft
               nicht ausgegeben werden. Typ: String im Format
               <literal>vcard:Gender</literal>. Kardinalität: 0 bis 1.
               OPTIONAL.
@@ -5451,7 +5455,7 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         </varlistentry>
         <varlistentry>
           <term>
-            <literal>hasMembership</literal>
+            <literal>membership</literal>
           </term>
           <listitem>
             <para>
@@ -6429,7 +6433,7 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           <listitem>
             <para>
               URL zum allgemeinen Zugriff auf die Datei. Näheres unter
-              <link linkend="dateizugriff">Dateizugriff</link>. Typ:
+              <link linkend="dateizugriff">Dateizugriffe</link>. Typ:
               URL. Kardinalität: 1. ZWINGEND.
             </para>
           </listitem>
@@ -6441,7 +6445,7 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           <listitem>
             <para>
               URL zum Download der Datei. Näheres unter
-              <link linkend="dateizugriff">Dateizugriff</link>. Typ:
+              <link linkend="dateizugriff">Dateizugriffe</link>. Typ:
               URL. Kardinalität: 0 bis 1. EMPFOHLEN.
             </para>
           </listitem>
@@ -6452,7 +6456,7 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Falls die Datei zu einer oder mehreren Drucksaches
+              Falls die Datei zu einer oder mehreren Drucksachen
               (<literal>oparl:Paper</literal>) gehört, MÜSSEN diese
               Drucksachen über diese Eigenschaft angegeben werden. Typ:
               Liste von <literal>oparl:Paper</literal> Objekten.
@@ -6482,7 +6486,7 @@ personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
             <para>
               Datei, von der das aktuelle Objekt abgeleitet wurde.
               Details dazu in der allgemeinen Beschreibung weiter oben.
-              Typ: URl eines Objekts vom Typ
+              Typ: URL eines Objekts vom Typ
               <literal>oparl:File</literal>. Kardinalität: 0 bis 1.
               OPTIONAL.
             </para>
@@ -6736,7 +6740,7 @@ Simple Feature Access Spezifikation:
       <emphasis role="strong">Beispiele</emphasis>
     </para>
     <para>
-      Ein einfaches Objekt mit Punktkordinate:
+      Ein einfaches Objekt mit Punktkoordinate:
     </para>
     <programlisting language="json">
 {
@@ -6901,7 +6905,7 @@ Simple Feature Access Spezifikation:
             <para>
               The post held by the person in the organization. Typ:
               <literal>org:Post</literal>. TODO: Prüfen, ob das ohne
-              JSON-LD Sinn macht, oder ob hier zusätzliche Erkäuterungen
+              JSON-LD Sinn macht, oder ob hier zusätzliche Erläuterungen
               notwendig sind. OPTIONAL.
             </para>
           </listitem>

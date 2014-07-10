@@ -31,7 +31,7 @@ Absicht ist, dass jedes Objekt, das ein Server über eine OParl-API anbietet, ü
 eine URL identifizierbar und abrufbar ist. Diese Vereinheitlichung der URL wird
 nachfolgend _Kanonisierung_ genannt.
 
-Die Kanonisierung ist entscheidend, um erkennen zu können, ob zwei URLs das selbe
+Die Kanonisierung ist entscheidend, um erkennen zu können, ob zwei URLs dasselbe
 Objekt repräsentieren. Sind zwei URLs identisch, sollen Clients daraus ableiten können,
 dass diese das selbe Objekt repräsentieren. Sind zwei URLs unterschiedlich, soll
 im Umkehrschluss die Annahme gelten, dass sie zwei verschiedene Objekte repräsentieren.

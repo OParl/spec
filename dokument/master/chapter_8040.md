@@ -13,7 +13,7 @@ die Stadt Köln repräsentiert.
 
 Vom OParl-Server wird erwartet, dass er mindestens
 ein Objekt vom Typ `oparl:Body` bereithält. Teilen sich mehrere Körperschaften
-das selbe technische System, können auf demselben Server auch mehrere
+dasselbe technische System, können auf demselben Server auch mehrere
 Objekte vom Typ `oparl:Body` beherbergt werden.
 
 Über die Zuordnung zu einem bestimmten `oparl:Body`-Objekt zeigen andere
@@ -104,9 +104,9 @@ Parlament an.
     EMPFOHLEN.
 
 `equivalentBody`
-:   Dient der Angabe beliebig vieler zusätzlicher URLs, die die selbe Körperschaft
+:   Dient der Angabe beliebig vieler zusätzlicher URLs, die dieselbe Körperschaft
     repräsentieren. Hier können beispielsweise,
-    sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>],
+    sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>] oder
     der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden.
     Typ: Array mit URLs.
     Kardinalität: 0 bis *.

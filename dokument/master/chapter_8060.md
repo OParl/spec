@@ -74,7 +74,7 @@ wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
 
 `gender`
 :   Geschlecht. Zulässige Werte sind `vcard:Female`, `vcard:Male`, `vcard:None` und `vcard:Other`.
-    Für den Fall, dass das geschlecht der Person unbekannt ist, SOLL die Eigenschaft nicht
+    Für den Fall, dass das Geschlecht der Person unbekannt ist, SOLL die Eigenschaft nicht
     ausgegeben werden.
     Typ: String im Format `vcard:Gender`.
     Kardinalität: 0 bis 1.

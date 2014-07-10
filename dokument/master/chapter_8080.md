@@ -23,7 +23,9 @@ abgebildet.
     "streetAddress": "Musterstraße 5, Raum 136",
     "postalCode": "11111",
     "locality": "Musterort",
-    "organization": "https://oparl.example.org/organization/34",
+    "organization": [
+        "https://oparl.example.org/organization/34"
+    ],
     "invitation": [
         "https://oparl.example.org/document/586"
     ],
@@ -63,19 +65,19 @@ abgebildet.
     EMPFOHLEN.
 
 `streetAddress`
-:   Straße und Hausnummer der Kontakt-Anschrift der Person.
+:   Straße und Hausnummer des Sitzungsortes.
     Typ: String.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `postalCode`
-:   Postleitzahl der Kontakt-Anschrift der Person.
+:   Postleitzahl des Sitzungsortes.
     Typ: String.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `locality`
-:   Ortsangabe der Kontakt-Anschrift der Person.
+:   Ortsangabe des Sitzungsortes.
     Typ: `vcard:locality`
     Kardinalität: 0 bis 1.
     OPTIONAL.
@@ -87,8 +89,9 @@ abgebildet.
      OPTIONAL.
  
 `organization`
-:   Gruppierung der die Sitzung zugeordnet ist. Wenn eine Liste angegeben wird, dann ist
-    diese geordnet. Das erste Element ist dann das federführende Gremium.
+:   Gruppierungen, denen die Sitzung zugeordnet ist. Im Regelfall wird hier eine
+    Gruppierung verknüpft sein, es kann jedoch auch gemeinsame Sitzungen mehrerer
+    Gruppierungen geben. Das erste Element ist dann das federführende Gremium.
     TODO: Eigenschaft für federführendes Gremium ergänzen und dann Ordnung entfernen.
     invers zur Eigenschaft `meeting` der Klasse `oparl:Organization`.
     Typ: `oparl:Organization`.

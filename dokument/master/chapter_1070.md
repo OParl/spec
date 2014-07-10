@@ -22,5 +22,5 @@ Organisation/Firma|Kategorie
 [Stadt Bonn](http://www.bonn.de/)|Kommune
 [Stadt Köln](http://www.stadt-koeln.de/)|Kommune
 [Stadt Moers](http://www.moers.de/)|Kommune
-[Sternberg Software-Technik GmbH](http://www.sitzungsdienst.net/)|RIS-Hersteller
+[STERNBERG Software-Technik GmbH](http://www.sitzungsdienst.net/)|RIS-Hersteller
 [Wikimedia Deutschland](http://www.wikimedia.de/)|Initiativen

@@ -185,38 +185,21 @@ Wenn der Betreiber eines OParl-Systems beispielsweise meint, dass eine
 Person eine eigene Domain verdient, dann ist dies aus Sicht der OParl-Spezifikation
 völlig in Ordnung:
 
-~~~~~~~~~~
-https://ratsmitglied-max-mustermann.example.org/mein-oparl-datensatz
-~~~~~~~~~~
+    https://ratsherr-mustermann.example.org/
 
 Noch etwas extremer: selbst eine eigene Domain für jedes einzelne 
 OParl-Objekt würde der OParl-Spezifikation nicht widersprechen.
 
-Wenn also in einer Beispiel-URL so etwas wie
+Wenn also in einer Beispiel-URL ein Pfad wie
 
-~~~~~~~~~~
-bodies/0/peoples/
-~~~~~~~~~~
+    bodies/0/peoples/
 
-auftaucht, dann bedeutet das nicht, dass genau solche Pfade durch
+auftaucht, bedeutet das nicht, dass genau solche Pfade durch
 die OParl-Spezifikation vorgeschrieben sind.
 
-Auch dies wäre als absoluter Link z. B. für eine Person verwendbar:
+Auch dies wäre als URL z. B. für eine Person verwendbar:
 
-~~~~~~~~~~
-https://www.ratsinfomanagement.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
-~~~~~~~~~~
-
-Dies käme dann als relativer Link für die Person in Frage:
-
-~~~~~~~~~~
-personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
-~~~~~~~~~~
-
-oder auch z. B. dies
-~~~~~~~~~~
- LfyIfvCWq8SpBQj0MiyHaxDZwGJ
-~~~~~~~~~~
+    https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
 
 Gleichzeitig ist aber aus verschiedenen Gründen ein strukturierter Aufbau
 der Pfade durchaus sinnvoll, der sich an der Hierarchie der Objekte

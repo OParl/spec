@@ -102,9 +102,7 @@ wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
     dann DARF die Form nur einmal verwendet werden: "Mitglied" und nicht "Mitglied | Mitglied".
     Weitere Beispiele: "Vorsitzender | Vorsitzende", "1. Stellvertreter | 1. Stellvertreterin",
     "2. Stellvertreter | 2. Stellvertreterin", "Schriftführer | Schriftführerin",
-    "Stellvertretender Schriftführer | Stellvertretende Schriftführerin",
-    "Ordentliches Mitglied", "Stellvertretendes Mitglied".
-    TODO: "Ordentliches Mitglied", "Stellvertretendes Mitglied" müssen anders behandelt werden!
+    "Stellvertretender Schriftführer | Stellvertretende Schriftführerin".
     Typ: Liste von Strings oder URLs zu `skos:Concept` Objekten.
     Kardinalität: 0 bis *.
     OPTIONAL.

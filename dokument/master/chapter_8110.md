@@ -125,7 +125,7 @@ werden, welche Ableitungen einer Datei existieren.
     EMPFOHLEN.
 
 `paper`
-:   Falls die Datei zu einer oder mehreren Drucksaches (`oparl:Paper`) gehört, MÜSSEN
+:   Falls die Datei zu einer oder mehreren Drucksachen (`oparl:Paper`) gehört, MÜSSEN
     diese Drucksachen über diese Eigenschaft angegeben werden.
     Typ: Liste von `oparl:Paper` Objekten.
     Kardinalität: 0 bis *.
@@ -141,7 +141,7 @@ werden, welche Ableitungen einer Datei existieren.
 `masterDocument`
 :   Datei, von der das aktuelle Objekt abgeleitet wurde. Details dazu in der
     allgemeinen Beschreibung weiter oben.
-    Typ: URl eines Objekts vom Typ `oparl:File`.
+    Typ: URL eines Objekts vom Typ `oparl:File`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 

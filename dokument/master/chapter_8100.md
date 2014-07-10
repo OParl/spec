@@ -132,10 +132,9 @@ Kennungen der Drucksachen zum Einsatz.
     EMPFOHLEN.
     
 `keyword`
-:   Schlagworte. Diese Eigenschaft funktioniert wie in 
-    [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben 
-    entweder als URL zu einem `skos:Concept` oder als String.
-    Typ: Liste von Strings oder URLs zu `skos:Concept` Objekten.
+:   Schlagworte.
+    Typ: Array von Strings oder URLs zu `skos:Concept` Objekten
+    (vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung)).
     Kardinalität: 0 bis *.
     OPTIONAL.
 

@@ -143,10 +143,9 @@ wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
     OPTIONAL.
 
 `keyword`
-:   Diese Eigenschaft funktioniert wie in 
-    [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder
-    als URL zu einem `skos:Concept` oder als String.
-    Typ: URL eines `skos:Concept` Objekts oder String.
+:   Schlagworte.
+    Typ: Array von Strings oder URLs zu `skos:Concept` Objekten
+    (vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung)).
     Kardinalität: 0 bis *.
     OPTIONAL.
 

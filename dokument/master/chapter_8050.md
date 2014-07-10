@@ -127,8 +127,9 @@ wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
     EMPFOHLEN.
     
 `keyword`
-:   Schlagworte. Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
-    Typ: `skos:Concept`.
+:   Schlagworte.
+    Typ: Array von Strings oder URLs zu `skos:Concept` Objekten
+    (vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung)).
     Kardinalität: 0 bis *.
     OPTIONAL.
 

@@ -82,7 +82,8 @@ Ortsangabe mit Polygon-Objekt:
     EMPFOHLEN.
 
 `keyword`
-:   Schlagworte mit `skos:prefLabel`. Vgl. dazu [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
-    Typ: Array mit Strings oder URLs zu `skos:Concept` Objekten.
+:   Schlagworte.
+    Typ: Array von Strings oder URLs zu `skos:Concept` Objekten
+    (vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung)).
     Kardinalität: 0 bis *.
     OPTIONAL.

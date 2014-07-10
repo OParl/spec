@@ -40,7 +40,7 @@ kurze bzw. kompakte und eine längere, aber weniger nutzerfreundliche Variante
 existieren. Ein Beispiel wäre die Kurzform "CDU" für den offiziellen
 Parteinamen "Christlich Demokratische Union Deutschlands".
 
-Die Werte von `name` und `shortName` des selben Objekts SOLLEN nicht identisch sein.
+Die Werte von `name` und `shortName` desselben Objekts SOLLEN nicht identisch sein.
 
 ### `license` {#eigenschaft_license}
 
@@ -49,7 +49,9 @@ anzugeben. Damit wird gekennzeichnet, welche Lizenz der Veröffentlicher der
 Daten für das jeweilige Objekt vergibt.^[Verzeichnisse für Lizenz-URLs sind
 unter anderem unter <http://licenses.opendefinition.org/> und 
 <https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json>
-zu finden.]
+zu finden. Allgemeine Informationen zur Lizensierung von Open Data finden sich auch
+im Open Data Handbook der Open Knowledge Foundation unter
+<http://opendatahandbook.org/de/how-to-open-up-data/apply-an-open-license.html>.]
 
 Eine besondere Bedeutung hat die Eigenschaft `license`, wenn sie am `oparl:System` Objekt oder am `oparl:Body`
 Objekt vergeben wird. Die hier angegebene Lizenzinformation sagt aus, dass alle
@@ -62,9 +64,6 @@ An Objekten vom Typ `oparl:File` auftretend, bezieht sich die Lizenzinformation
 nicht nur auf die strukturierten Metadaten, die über die API bezogen werden, sondern
 auch auf den eigentlichen Inhalt der Datei(en), die über die angebotene(n) URL(s)
 abgerufen werden können.
-
-Lesenswert zum Thema Lizensierung von Linked Data ist auch er Abschnitt "Licenses,
-Waivers and Norms for Data" im online zugänglichen Linked Data Book.^[Tom Heath, Christian Bizer: Linked Data: Evolving the Web into a Global Data Space (1st edition), <http://linkeddatabook.com/editions/1.0/#htoc48>]
 
 ### `created`
 

@@ -139,7 +139,7 @@ Ein Beispiel für ein `skos:Concept` Objekt, wie es für die Eigenschaft
 		}
 	},
 	"@type": "http://www.w3.org/2004/02/skos/core#Concept",
-	"prefLabel": "Ratsherr | Ratsfrau"
+	"prefLabel": "Beantwortung einer Anfrage"
 }
 ~~~~~
 

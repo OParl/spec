@@ -51,7 +51,7 @@ der URL des API-Endpunkts des Servers sein.
     Körperschaften, die auf dem System vorliegen. Alternativ kann statt 
     einer Liste eine einzelne URL zum Abruf der Liste angeboten werden.
     Typ: URL des `oparl:Body` Objekts
-    Kardinalität: 1.
+    Kardinalität: 1 - *.
     ZWINGEND.
 
 `name`

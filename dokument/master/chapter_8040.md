@@ -36,7 +36,7 @@ Parlament an.
         "http://dbpedia.org/resource/Cologne"
     ],
     "shortName": "Köln",
-    "name": Stadt Köln, kreisfreie Stadt",
+    "name": "Stadt Köln, kreisfreie Stadt",
     "website": "http://www.beispielstadt.de/",
     "license": "http://creativecommons.org/licenses/by/4.0/",
     "licenseValidSince": "2014-01-01",

@@ -44,7 +44,10 @@ Parlament an.
     "meeting": "https://oparl.example.org/body/0/meetings/",
     "paper": "https://oparl.example.org/body/0/papers/",
     "member": "https://oparl.example.org/body/0/people/",
-    "legislativeTerm": "https://oparl.example.org/body/0/terms/",
+    "legislativeTerm": [
+        "https://oparl.example.org/body/0/terms/1",
+        "https://oparl.example.org/body/0/terms/2"
+    ],
     "classification": "https://oparl.example.org/vocab/landkreis",
     "created": "2014-01-08T14:28:31.568+0100",
     "modified": "2014-01-08T14:28:31.568+0100"

@@ -445,8 +445,7 @@ zählen:
   Bedarf an standardisierten Vokabularen zur Veröffentlichung
   parlamentarischer Informationen. Deshalb sind -- teilweise noch vor
   OParl -- auch weitere entsprechende Initiativen entstanden.\footnote{Vgl.
-    dazu beispielsweise \url{http://popoloproject.com/}, TODO: UK, KB
-    Niederlande, Italienisches Parlament:
+    dazu beispielsweise \url{http://popoloproject.com/},
     \url{http://data.camera.it/data/en/}} Eine Zusammenarbeit mit
   derartigen Initiativen mit dem Ziel der Wiederverwendung von
   Arbeitsergebnissen ist vorstellbar.
@@ -1102,10 +1101,10 @@ Anwendungsszenarien belegbar. Somit ist der vorliegenden
 OParl-Spezifikation die Möglichkeit beschrieben, Geodaten-Objekte
 einzubetten.
 
-Die Angabe eines einzelnen Punktes ist dabei nur ein einfacher
-Sonderfall. Die Spezifikation erlaubt auch die Kodierung von mehreren
-Objekten, die Punkte, Linien oder Polygone repräsentieren können. Vgl.
-dazu \texttt{oparl:Location}.
+Die Angabe eines einzelnen Punktes ist dabei der einfachste Fall. Die
+Spezifikation erlaubt auch die Kodierung von mehreren Objekten, die
+Punkte, Linien oder Polygone repräsentieren können. Vgl. dazu
+\texttt{oparl:Location}.
 
 Auch die Ausgabe einer Nur-Text-Version im Kontext des Dokuments
 (\texttt{oparl:File}), das den barrierefreien Zugriff auf Inhalte oder
@@ -1596,13 +1595,13 @@ JSON unterstützt die folgenden primitiven Datentypen:
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  \emph{Zeichenkette} (Unicode)
+  Zeichenketten bzw. Strings (Unicode)
 \item
-  \emph{Zahl} (sowohl Ganzzahlen als auch Fließkommazahlen)
+  Zahlen bzw. Number (sowohl Ganzzahlen als auch Fließkommazahlen)
 \item
-  \emph{Wahrheitswert} (\texttt{true} oder \texttt{false})
+  Wahrheitswert bzw. Boolean (\texttt{true} oder \texttt{false})
 \item
-  \emph{Null}
+  \texttt{null}
 \end{itemize}
 
 Darüber hinaus werden zwei komplexe Datentypen unterstützt:
@@ -1610,11 +1609,11 @@ Darüber hinaus werden zwei komplexe Datentypen unterstützt:
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  \emph{Objekt}: Eine Sammlung von Schlüssel-Wert-Paaren ohne
-  Reihenfolge, wobei der Schlüssel eine Zeichenkette sein muss und der
-  Wert ein beliebiger Datentyp ist.
+  Objekt: Eine Sammlung von Schlüssel-Wert-Paaren ohne Reihenfolge,
+  wobei der Schlüssel eine Zeichenkette sein muss und der Wert ein
+  beliebiger Datentyp ist.
 \item
-  \emph{Array}: Eine geordnete Liste mit beliebigen Datentypen.
+  Array: Eine geordnete Liste mit beliebigen Datentypen.
 \end{itemize}
 
 Beispiel eines Objekts in JSON-Notation:
@@ -2971,8 +2970,6 @@ Die Eigenschaft \texttt{id} ist für jeden OParl-Objekttypen vorgegeben
 und enthält den eindeutigen Bezeichner des Objekts, nämlich seine URL.
 Dies ist ein ZWINGENDES Merkmal für jedes Objekt.
 
-TODO: Zu klären ist noch, ob das auch für oparl:Location gilt.
-
 \subsubsection{\texttt{type}}\label{type}
 
 Objekttypenangabe des Objekts, ZWINGEND für jedes Objekt. Der Wert ist
@@ -3217,23 +3214,20 @@ einem bestimmten Parlament an.
         \StringTok{"http://d-nb.info/gnd/2015732-0"}\OtherTok{,}
         \StringTok{"http://dbpedia.org/resource/Cologne"}
     \OtherTok{]}\FunctionTok{,}
-    \DataTypeTok{"shortName"}\FunctionTok{:} \StringTok{"Stadt Köln"}\FunctionTok{,}
-    \DataTypeTok{"name"}\FunctionTok{:} \FunctionTok{\{}
-        \DataTypeTok{"de"}\FunctionTok{:} \StringTok{"Stadt Köln, kreisfreie Stadt"}\FunctionTok{,}
-        \DataTypeTok{"en"}\FunctionTok{:} \StringTok{"City of Cologne"}
-    \FunctionTok{\},}
-    \DataTypeTok{"website"}\FunctionTok{:} \StringTok{"http://www.beispielstadt.de/"}\FunctionTok{,}
-    \DataTypeTok{"license"}\FunctionTok{:} \StringTok{"http://creativecommons.org/licenses/by/4.0/"}\FunctionTok{,}
-    \DataTypeTok{"licenseValidSince"}\FunctionTok{:} \StringTok{"2014-01-01"}\FunctionTok{,}
-    \DataTypeTok{"organization"}\FunctionTok{:} \StringTok{"https://oparl.example.org/body/0/organizations/"}\FunctionTok{,}
-    \DataTypeTok{"meeting"}\FunctionTok{:} \StringTok{"https://oparl.example.org/body/0/meetings/"}\FunctionTok{,}
-    \DataTypeTok{"paper"}\FunctionTok{:} \StringTok{"https://oparl.example.org/body/0/papers/"}\FunctionTok{,}
-    \DataTypeTok{"member"}\FunctionTok{:} \StringTok{"https://oparl.example.org/body/0/people/"}\FunctionTok{,}
-    \DataTypeTok{"legislativeTerm"}\FunctionTok{:} \StringTok{"https://oparl.example.org/body/0/terms/"}\FunctionTok{,}
-    \DataTypeTok{"classification"}\FunctionTok{:} \StringTok{"https://oparl.example.org/vocab/landkreis"}\FunctionTok{,}
-    \DataTypeTok{"created"}\FunctionTok{:} \StringTok{"2014-01-08T14:28:31.568+0100"}\FunctionTok{,}
-    \DataTypeTok{"modified"}\FunctionTok{:} \StringTok{"2014-01-08T14:28:31.568+0100"}
-\FunctionTok{\}}
+    \DataTypeTok{"shortName"}\FunctionTok{:} \StringTok{"Köln"}\FunctionTok{,}
+    \DataTypeTok{"name"}\FunctionTok{:} \ErrorTok{Stadt} \ErrorTok{Köln}\FunctionTok{,} \ErrorTok{kreisfreie} \ErrorTok{Stadt}\DataTypeTok{",}
+\DataTypeTok{    "}\ErrorTok{website}\DataTypeTok{": "}\ErrorTok{http}\FunctionTok{:}\ErrorTok{//www.beispielstadt.de/}\StringTok{",}
+\StringTok{    "}\ErrorTok{license}\StringTok{": "}\ErrorTok{http://creativecommons.org/licenses/by/}\FloatTok{4.0}\ErrorTok{/}\StringTok{",}
+\StringTok{    "}\ErrorTok{licenseValidSince}\StringTok{": "}\DecValTok{2014-01-01}\StringTok{",}
+\StringTok{    "}\ErrorTok{organization}\StringTok{": "}\ErrorTok{https://oparl.example.org/body/}\DecValTok{0}\ErrorTok{/organizations/}\StringTok{",}
+\StringTok{    "}\ErrorTok{meeting}\StringTok{": "}\ErrorTok{https://oparl.example.org/body/}\DecValTok{0}\ErrorTok{/meetings/}\StringTok{",}
+\StringTok{    "}\ErrorTok{paper}\StringTok{": "}\ErrorTok{https://oparl.example.org/body/}\DecValTok{0}\ErrorTok{/papers/}\StringTok{",}
+\StringTok{    "}\ErrorTok{member}\StringTok{": "}\ErrorTok{https://oparl.example.org/body/}\DecValTok{0}\ErrorTok{/people/}\StringTok{",}
+\StringTok{    "}\ErrorTok{legislativeTerm}\StringTok{": "}\ErrorTok{https://oparl.example.org/body/}\DecValTok{0}\ErrorTok{/terms/}\StringTok{",}
+\StringTok{    "}\ErrorTok{classification}\StringTok{": "}\ErrorTok{https://oparl.example.org/vocab/landkreis}\StringTok{",}
+\StringTok{    "}\ErrorTok{created}\StringTok{": "}\DecValTok{2014-01-08}\ErrorTok{T}\DecValTok{14}\ErrorTok{:}\DecValTok{28}\ErrorTok{:}\FloatTok{31.568}\ErrorTok{+}\DecValTok{0100}\StringTok{",}
+\StringTok{    "}\ErrorTok{modified}\StringTok{": "}\DecValTok{2014-01-08}\ErrorTok{T}\DecValTok{14}\ErrorTok{:}\DecValTok{28}\ErrorTok{:}\FloatTok{31.568}\ErrorTok{+}\DecValTok{0100}\StringTok{"}
+\StringTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3308,9 +3302,9 @@ Wahlperioden in dieser Körperschaft. Vgl.
 \texttt{oparl:LegislativeTerm} Objekten. Kardinalität: 0 bis *.
 EMPFOHLEN.
 \item[\texttt{keyword}]
-Schlagwort(e). Vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare
-zur Klassifizierung}. Typ: Array mit Strings oder URLs zu
-\texttt{skos:Concept} Objekten. Kardinalität: 0 bis *. OPTIONAL.
+Schlagworte. Typ: Array von Strings oder URLs zu \texttt{skos:Concept}
+Objekten (vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}). Kardinalität: 0 bis *. OPTIONAL.
 \item[\texttt{created}]
 Datum/Uhrzeit der Erzeugung des Objekts. Typ: \texttt{xsd:dateTime}.
 Kardinalität: 0 bis 1. EMPFOHLEN.
@@ -3400,8 +3394,8 @@ Sitzungen dieser Gruppierung. Invers zur Eigenschaft
 der Sitzungen stetig wachsen kann, wird EMPFOHLEN, die Liste über eine
 eigene URL verfügbar zu machen und damit Paginierung sowie die Filterung
 mittels startDate und endDate Parametern zu ermöglichen. Siehe dazu auch
-\hyperref[objektlisten]{Objektlisten}. Typ: Liste mit URLs von Objekten
-des Typs \texttt{oparl:Meeting}. Kardinalität: 0 bis *. ZWINGEND.
+\hyperref[objektlisten]{Objektlisten}. Typ: Liste von Objekten des Typs
+\texttt{oparl:Meeting}. Kardinalität: 0 bis *. ZWINGEND.
 \item[\texttt{shortName}]
 Der Name der Gruppierung als Kurzform. Typ: Datentyp
 \texttt{xsd:string}. Kardinalität: 0 bis 1. OPTIONAL.
@@ -3420,11 +3414,9 @@ die Form nur einmal verwendet werden: ``Mitglied'' und nicht ``Mitglied
 Vorsitzende'', ``1. Stellvertreter \textbar{} 1. Stellvertreterin'',
 ``2. Stellvertreter \textbar{} 2. Stellvertreterin'', ``Schriftführer
 \textbar{} Schriftführerin'', ``Stellvertretender Schriftführer
-\textbar{} Stellvertretende Schriftführerin'', ``Ordentliches
-Mitglied'', ``Stellvertretendes Mitglied''. TODO: ``Ordentliches
-Mitglied'', ``Stellvertretendes Mitglied'' müssen anders behandelt
-werden! Typ: Liste von Strings oder URLs zu \texttt{skos:Concept}
-Objekten. Kardinalität: 0 bis *. OPTIONAL.
+\textbar{} Stellvertretende Schriftführerin''. Typ: Liste von Strings
+oder URLs zu \texttt{skos:Concept} Objekten. Kardinalität: 0 bis *.
+OPTIONAL.
 \item[\texttt{subOrganizationOf}]
 Ggf. URL der übergeordneten Gruppierung. Typ:
 \texttt{oparl:Organization}. Kardinalität: 0 bis 1. OPTIONAL.
@@ -3441,9 +3433,9 @@ https://oparl.example.org/ausschuss''). Vgl.
 Klassifizierung}. Typ: \texttt{skos:Concept}. Kardinalität: 0 bis 1.
 EMPFOHLEN.
 \item[\texttt{keyword}]
-Schlagworte. Vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare
-zur Klassifizierung}. Typ: \texttt{skos:Concept}. Kardinalität: 0 bis *.
-OPTIONAL.
+Schlagworte. Typ: Array von Strings oder URLs zu \texttt{skos:Concept}
+Objekten (vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}). Kardinalität: 0 bis *. OPTIONAL.
 \item[\texttt{startDate}]
 Gründungsdatum der Gruppierung. Kann z. B. das Datum der
 konstituierenden Sitzung sein. Typ: \texttt{xsd:date} oder
@@ -3575,11 +3567,9 @@ Mitgliedschaften der Person in Gruppierungen, z. B. Gremien und
 Fraktionen. Typ: Liste von \texttt{org:Membership} Objekten.
 Kardinalität: 0 bis *. OPTIONAL.
 \item[\texttt{keyword}]
-Diese Eigenschaft funktioniert wie in
-\hyperref[vokabulareux5fklassifizierung]{Vokabulare zur Klassifizierung}
-beschrieben entweder als URL zu einem \texttt{skos:Concept} oder als
-String. Typ: URL eines \texttt{skos:Concept} Objekts oder String.
-Kardinalität: 0 bis *. OPTIONAL.
+Schlagworte. Typ: Array von Strings oder URLs zu \texttt{skos:Concept}
+Objekten (vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}). Kardinalität: 0 bis *. OPTIONAL.
 \item[\texttt{created}]
 Datum/Uhrzeit der Erzeugung des Objekts. Typ: \texttt{xsd:dateTime}
 Kardinalität: 0 bis 1. EMPFOHLEN.
@@ -3616,7 +3606,9 @@ Die Inhalte einer Sitzung werden durch Tagesordnungspunkte
     \DataTypeTok{"streetAddress"}\FunctionTok{:} \StringTok{"Musterstraße 5, Raum 136"}\FunctionTok{,}
     \DataTypeTok{"postalCode"}\FunctionTok{:} \StringTok{"11111"}\FunctionTok{,}
     \DataTypeTok{"locality"}\FunctionTok{:} \StringTok{"Musterort"}\FunctionTok{,}
-    \DataTypeTok{"organization"}\FunctionTok{:} \StringTok{"https://oparl.example.org/organization/34"}\FunctionTok{,}
+    \DataTypeTok{"organization"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"https://oparl.example.org/organization/34"}
+    \OtherTok{]}\FunctionTok{,}
     \DataTypeTok{"invitation"}\FunctionTok{:} \OtherTok{[}
         \StringTok{"https://oparl.example.org/document/586"}
     \OtherTok{]}\FunctionTok{,}
@@ -3652,20 +3644,21 @@ Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN
 es der tatsächliche Endzeitpunkt sein. Typ: Datentyp
 \texttt{xsd:dateTime}. Kardinalität: 0 bis 1. EMPFOHLEN.
 \item[\texttt{streetAddress}]
-Straße und Hausnummer der Kontakt-Anschrift der Person. Typ: String.
-Kardinalität: 0 bis 1. OPTIONAL.
+Straße und Hausnummer des Sitzungsortes. Typ: String. Kardinalität: 0
+bis 1. OPTIONAL.
 \item[\texttt{postalCode}]
-Postleitzahl der Kontakt-Anschrift der Person. Typ: String.
-Kardinalität: 0 bis 1. OPTIONAL.
+Postleitzahl des Sitzungsortes. Typ: String. Kardinalität: 0 bis 1.
+OPTIONAL.
 \item[\texttt{locality}]
-Ortsangabe der Kontakt-Anschrift der Person. Typ:
-\texttt{vcard:locality} Kardinalität: 0 bis 1. OPTIONAL.
+Ortsangabe des Sitzungsortes. Typ: \texttt{vcard:locality} Kardinalität:
+0 bis 1. OPTIONAL.
 \item[\texttt{location}]
 Sitzungsort in Form von Geodaten. Typ: URL eines \texttt{oparl:Location}
 Objekts. Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{organization}]
-Gruppierung der die Sitzung zugeordnet ist. Wenn eine Liste angegeben
-wird, dann ist diese geordnet. Das erste Element ist dann das
+Gruppierungen, denen die Sitzung zugeordnet ist. Im Regelfall wird hier
+eine Gruppierung verknüpft sein, es kann jedoch auch gemeinsame
+Sitzungen mehrerer Gruppierungen geben. Das erste Element ist dann das
 federführende Gremium. TODO: Eigenschaft für federführendes Gremium
 ergänzen und dann Ordnung entfernen. invers zur Eigenschaft
 \texttt{meeting} der Klasse \texttt{oparl:Organization}. Typ:
@@ -3711,11 +3704,9 @@ Sitzungen ohne TOPs geben. Typ: Liste von Objekten des Typs
 \texttt{oparl:AgendaItem}. Vgl. \hyperref[objektlisten]{Objektlisten}.
 Kardinalität: 0 bis *. OPTIONAL.
 \item[\texttt{keyword}]
-Schlagworte. Diese Eigenschaft funktioniert wie in
-\hyperref[vokabulareux5fklassifizierung]{Vokabulare zur Klassifizierung}
-beschrieben entweder als URL zu einem \texttt{skos:Concept} oder als
-String. Typ: Liste von Strings oder URLs zu \texttt{skos:Concept}
-Objekten. Kardinalität: 0 bis *. OPTIONAL.
+Schlagworte. Typ: Array von Strings oder URLs zu \texttt{skos:Concept}
+Objekten (vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}). Kardinalität: 0 bis *. OPTIONAL.
 \item[\texttt{created}]
 Datum und Uhrzeit der Erzeugung des Objekts. Typ: Datentyp
 \texttt{xsd:dateTime}. Kardinalität: 0 bis 1. EMPFOHLEN.
@@ -3799,11 +3790,9 @@ Dateianhänge zum Tagesordnungspunkt. Typ: Liste von Objekten des Typs
 \texttt{oparl:File}. Vgl. \hyperref[objektlisten]{Objektlisten}.
 Kardinalität: 0 bis *. OPTIONAL.
 \item[\texttt{keyword}]
-Schlagwort. Diese Eigenschaft funktioniert wie in
-\hyperref[vokabulareux5fklassifizierung]{Vokabulare zur Klassifizierung}
-beschrieben entweder als URL zu einem \texttt{skos:Concept} oder als
-String. Typ: Liste von Strings oder URLs zu \texttt{skos:Concept}
-Objekten. Kardinalität: 0 bis *. OPTIONAL.
+Schlagworte. Typ: Array von Strings oder URLs zu \texttt{skos:Concept}
+Objekten (vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}). Kardinalität: 0 bis *. OPTIONAL.
 \item[\texttt{created}]
 Erzeugungsdatum und -zeit des Objekts. Typ: \texttt{xsd:dateTime}.
 Kardinalität: 0 bis 1. EMPFOHLEN.
@@ -3920,11 +3909,9 @@ Kardinalität: 0 bis *. OPTIONAL.
 Letzter Änderungszeitpunkt des Objekts. Typ: Datentyp
 \texttt{xsd:dateTime}. Kardinalität: 1. EMPFOHLEN.
 \item[\texttt{keyword}]
-Schlagworte. Diese Eigenschaft funktioniert wie in
-\hyperref[vokabulareux5fklassifizierung]{Vokabulare zur Klassifizierung}
-beschrieben entweder als URL zu einem \texttt{skos:Concept} oder als
-String. Typ: Liste von Strings oder URLs zu \texttt{skos:Concept}
-Objekten. Kardinalität: 0 bis *. OPTIONAL.
+Schlagworte. Typ: Array von Strings oder URLs zu \texttt{skos:Concept}
+Objekten (vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}). Kardinalität: 0 bis *. OPTIONAL.
 \item[\texttt{underDirectionOf}]
 Federführung. Amt oder Abteilung, für die Inhalte oder Beantwortung der
 Drucksache verantwortlich. Typ: Liste von Objekten des Typs
@@ -3987,8 +3974,10 @@ Datei existieren.
 \begin{description}
 \item[\texttt{fileName}]
 Dateiname, unter dem die Datei in einem Dateisystem gespeichert werden
-kann. Beispiel: ``einedatei.pdf'' Typ: ASCII-Zeichenkette, aber als
-Unicode-String Kardinalität: 1. ZWINGEND.
+kann. Beispiel: ``einedatei.pdf''. Da der Name den kompletten
+Unicode-Zeichenumang nutzen kann, SOLLEN Clients ggf. selbst dafür
+sorgen, diesen beim Speichern in ein Dateisystem den lokalen
+Erfordernissen anzupassen. Typ: String. Kardinalität: 1. ZWINGEND.
 \item[\texttt{name}]
 Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt.
 Leerzeichen DÜRFEN enthalten sein, Datei-Endungen wie ``.pdf'' SOLLEN
@@ -4048,11 +4037,8 @@ allgemeinen Beschreibung weiter oben. Typ: URL eines Objekts vom Typ
 \texttt{oparl:File}. Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{derivativeDocument}]
 Datei, die von dem aktuellen Objekt abgeleitet wurde. Details dazu in
-der allgemeinen Beschreibung weiter oben. TODO: invers zu
-\texttt{masterDocument}. Von der Verwendung wird deshalb in der
-\texttt{prov}-Spezifikation abgeraten\footnote{\url{http://www.w3.org/TR/prov-o/\#inverse-names}}.
-Typ: Liste von \texttt{oparl:File} Objekten. Kardinalität: 0 bis *.
-OPTIONAL.
+der allgemeinen Beschreibung weiter oben. Typ: Liste von
+\texttt{oparl:File} Objekten. Kardinalität: 0 bis *. OPTIONAL.
 \item[\texttt{license}]
 Lizenz, unter der die Datei angeboten wird. Wenn diese Eigenschaft
 verwendet wird, dann ist sie anstelle einer globalen Angabe im
@@ -4067,11 +4053,9 @@ Eigenschaft SOLL entsprechend nur in Verbindung mit der Eigenschaft
 Klassifizierung}. Typ: String oder URL eines \texttt{skos:Concept}
 Objekts. Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{keyword}]
-Schlagworte. Diese Eigenschaft funktioniert wie in
-\hyperref[vokabulareux5fklassifizierung]{Vokabulare zur Klassifizierung}
-beschrieben entweder als URL zu einem \texttt{skos:Concept} oder als
-String. Typ: Liste von Strings oder URLs zu \texttt{skos:Concept}
-Objekten. Kardinalität: 0 bis *. OPTIONAL.
+Schlagworte. Typ: Array von Strings oder URLs zu \texttt{skos:Concept}
+Objekten (vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}). Kardinalität: 0 bis *. OPTIONAL.
 \end{description}
 
 \hyperdef{}{oparlux5fconsultation}{\subsection{oparl:Consultation
@@ -4133,11 +4117,9 @@ beschrieben entweder als URL zu einem \texttt{skos:Concept} oder als
 String. Typ: String oder URL eines \texttt{skos:Concept} Objekts.
 Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{keyword}]
-Schlagworte. Diese Eigenschaft funktioniert wie in
-\hyperref[vokabulareux5fklassifizierung]{Vokabulare zur Klassifizierung}
-beschrieben entweder als URL zu einem \texttt{skos:Concept} oder als
-String. Typ: Liste von Strings oder URLs zu \texttt{skos:Concept}
-Objekten. Kardinalität: 0 bis *. OPTIONAL.
+Schlagworte. Typ: Array von Strings oder URLs zu \texttt{skos:Concept}
+Objekten (vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}). Kardinalität: 0 bis *. OPTIONAL.
 \end{description}
 
 \subsection{oparl:Location (Ort)}\label{oparlux5flocation}
@@ -4225,10 +4207,9 @@ Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt, MUSS
 ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen. Typ:
 String. Kardinalität: 0 bis 1. EMPFOHLEN.
 \item[\texttt{keyword}]
-Schlagworte mit \texttt{skos:prefLabel}. Vgl. dazu
-\hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
-Klassifizierung}. Typ: Array mit Strings oder URLs zu
-\texttt{skos:Concept} Objekten. Kardinalität: 0 bis *. OPTIONAL.
+Schlagworte. Typ: Array von Strings oder URLs zu \texttt{skos:Concept}
+Objekten (vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}). Kardinalität: 0 bis *. OPTIONAL.
 \end{description}
 
 \hyperdef{}{oparlux5fmembership}{\subsection{oparl:Membership}\label{oparlux5fmembership}}

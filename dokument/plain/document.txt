@@ -896,10 +896,10 @@ Funktion ist jedoch anhand zahlreicher Anwendungsszenarien belegbar.
 Somit ist der vorliegenden OParl-Spezifikation die Möglichkeit
 beschrieben, Geodaten-Objekte einzubetten.
 
-Die Angabe eines einzelnen Punktes ist dabei nur ein einfacher
-Sonderfall. Die Spezifikation erlaubt auch die Kodierung von mehreren
-Objekten, die Punkte, Linien oder Polygone repräsentieren können. Vgl.
-dazu oparl:Location.
+Die Angabe eines einzelnen Punktes ist dabei der einfachste Fall. Die
+Spezifikation erlaubt auch die Kodierung von mehreren Objekten, die
+Punkte, Linien oder Polygone repräsentieren können. Vgl. dazu
+oparl:Location.
 
 Auch die Ausgabe einer Nur-Text-Version im Kontext des Dokuments
 (oparl:File), das den barrierefreien Zugriff auf Inhalte oder
@@ -1327,10 +1327,10 @@ diesem Dokument zu etablieren.
 
 JSON unterstützt die folgenden primitiven Datentypen:
 
--   Zeichenkette (Unicode)
--   Zahl (sowohl Ganzzahlen als auch Fließkommazahlen)
--   Wahrheitswert (true oder false)
--   Null
+-   Zeichenketten bzw. Strings (Unicode)
+-   Zahlen bzw. Number (sowohl Ganzzahlen als auch Fließkommazahlen)
+-   Wahrheitswert bzw. Boolean (true oder false)
+-   null
 
 Darüber hinaus werden zwei komplexe Datentypen unterstützt:
 
@@ -2471,8 +2471,6 @@ Die Eigenschaft id ist für jeden OParl-Objekttypen vorgegeben und
 enthält den eindeutigen Bezeichner des Objekts, nämlich seine URL. Dies
 ist ein ZWINGENDES Merkmal für jedes Objekt.
 
-TODO: Zu klären ist noch, ob das auch für oparl:Location gilt.
-
 type
 
 Objekttypenangabe des Objekts, ZWINGEND für jedes Objekt. Der Wert ist
@@ -2690,11 +2688,8 @@ Beispiel
         "http://d-nb.info/gnd/2015732-0",
         "http://dbpedia.org/resource/Cologne"
     ],
-    "shortName": "Stadt Köln",
-    "name": {
-        "de": "Stadt Köln, kreisfreie Stadt",
-        "en": "City of Cologne"
-    },
+    "shortName": "Köln",
+    "name": Stadt Köln, kreisfreie Stadt",
     "website": "http://www.beispielstadt.de/",
     "license": "http://creativecommons.org/licenses/by/4.0/",
     "licenseValidSince": "2014-01-01",
@@ -2783,9 +2778,9 @@ legislativeTerm
     EMPFOHLEN.
 
 keyword
-    Schlagwort(e). Vgl. Vokabulare zur Klassifizierung. Typ: Array mit
-    Strings oder URLs zu skos:Concept Objekten. Kardinalität: 0 bis *.
-    OPTIONAL.
+    Schlagworte. Typ: Array von Strings oder URLs zu skos:Concept
+    Objekten (vgl. Vokabulare zur Klassifizierung). Kardinalität: 0 bis
+    *. OPTIONAL.
 
 created
     Datum/Uhrzeit der Erzeugung des Objekts. Typ: xsd:dateTime.
@@ -2866,8 +2861,8 @@ meeting
     kann, wird EMPFOHLEN, die Liste über eine eigene URL verfügbar zu
     machen und damit Paginierung sowie die Filterung mittels startDate
     und endDate Parametern zu ermöglichen. Siehe dazu auch Objektlisten.
-    Typ: Liste mit URLs von Objekten des Typs oparl:Meeting.
-    Kardinalität: 0 bis *. ZWINGEND.
+    Typ: Liste von Objekten des Typs oparl:Meeting. Kardinalität: 0 bis
+    *. ZWINGEND.
 
 shortName
     Der Name der Gruppierung als Kurzform. Typ: Datentyp xsd:string.
@@ -2887,10 +2882,8 @@ post
     Stellvertreter | 1. Stellvertreterin", "2. Stellvertreter | 2.
     Stellvertreterin", "Schriftführer | Schriftführerin",
     "Stellvertretender Schriftführer | Stellvertretende
-    Schriftführerin", "Ordentliches Mitglied", "Stellvertretendes
-    Mitglied". TODO: "Ordentliches Mitglied", "Stellvertretendes
-    Mitglied" müssen anders behandelt werden! Typ: Liste von Strings
-    oder URLs zu skos:Concept Objekten. Kardinalität: 0 bis *. OPTIONAL.
+    Schriftführerin". Typ: Liste von Strings oder URLs zu skos:Concept
+    Objekten. Kardinalität: 0 bis *. OPTIONAL.
 
 subOrganizationOf
     Ggf. URL der übergeordneten Gruppierung. Typ: oparl:Organization.
@@ -2909,8 +2902,9 @@ classification
     EMPFOHLEN.
 
 keyword
-    Schlagworte. Vgl. Vokabulare zur Klassifizierung. Typ: skos:Concept.
-    Kardinalität: 0 bis *. OPTIONAL.
+    Schlagworte. Typ: Array von Strings oder URLs zu skos:Concept
+    Objekten (vgl. Vokabulare zur Klassifizierung). Kardinalität: 0 bis
+    *. OPTIONAL.
 
 startDate
     Gründungsdatum der Gruppierung. Kann z. B. das Datum der
@@ -3045,9 +3039,8 @@ membership
     bis *. OPTIONAL.
 
 keyword
-    Diese Eigenschaft funktioniert wie in Vokabulare zur Klassifizierung
-    beschrieben entweder als URL zu einem skos:Concept oder als String.
-    Typ: URL eines skos:Concept Objekts oder String. Kardinalität: 0 bis
+    Schlagworte. Typ: Array von Strings oder URLs zu skos:Concept
+    Objekten (vgl. Vokabulare zur Klassifizierung). Kardinalität: 0 bis
     *. OPTIONAL.
 
 created
@@ -3085,7 +3078,9 @@ Beispiel
     "streetAddress": "Musterstraße 5, Raum 136",
     "postalCode": "11111",
     "locality": "Musterort",
-    "organization": "https://oparl.example.org/organization/34",
+    "organization": [
+        "https://oparl.example.org/organization/34"
+    ],
     "invitation": [
         "https://oparl.example.org/document/586"
     ],
@@ -3121,24 +3116,25 @@ end
     xsd:dateTime. Kardinalität: 0 bis 1. EMPFOHLEN.
 
 streetAddress
-    Straße und Hausnummer der Kontakt-Anschrift der Person. Typ: String.
-    Kardinalität: 0 bis 1. OPTIONAL.
+    Straße und Hausnummer des Sitzungsortes. Typ: String. Kardinalität:
+    0 bis 1. OPTIONAL.
 
 postalCode
-    Postleitzahl der Kontakt-Anschrift der Person. Typ: String.
-    Kardinalität: 0 bis 1. OPTIONAL.
+    Postleitzahl des Sitzungsortes. Typ: String. Kardinalität: 0 bis 1.
+    OPTIONAL.
 
 locality
-    Ortsangabe der Kontakt-Anschrift der Person. Typ: vcard:locality
-    Kardinalität: 0 bis 1. OPTIONAL.
+    Ortsangabe des Sitzungsortes. Typ: vcard:locality Kardinalität: 0
+    bis 1. OPTIONAL.
 
 location
     Sitzungsort in Form von Geodaten. Typ: URL eines oparl:Location
     Objekts. Kardinalität: 0 bis 1. OPTIONAL.
 
 organization
-    Gruppierung der die Sitzung zugeordnet ist. Wenn eine Liste
-    angegeben wird, dann ist diese geordnet. Das erste Element ist dann
+    Gruppierungen, denen die Sitzung zugeordnet ist. Im Regelfall wird
+    hier eine Gruppierung verknüpft sein, es kann jedoch auch gemeinsame
+    Sitzungen mehrerer Gruppierungen geben. Das erste Element ist dann
     das federführende Gremium. TODO: Eigenschaft für federführendes
     Gremium ergänzen und dann Ordnung entfernen. invers zur Eigenschaft
     meeting der Klasse oparl:Organization. Typ: oparl:Organization.
@@ -3192,10 +3188,9 @@ agendaItem
     OPTIONAL.
 
 keyword
-    Schlagworte. Diese Eigenschaft funktioniert wie in Vokabulare zur
-    Klassifizierung beschrieben entweder als URL zu einem skos:Concept
-    oder als String. Typ: Liste von Strings oder URLs zu skos:Concept
-    Objekten. Kardinalität: 0 bis *. OPTIONAL.
+    Schlagworte. Typ: Array von Strings oder URLs zu skos:Concept
+    Objekten (vgl. Vokabulare zur Klassifizierung). Kardinalität: 0 bis
+    *. OPTIONAL.
 
 created
     Datum und Uhrzeit der Erzeugung des Objekts. Typ: Datentyp
@@ -3282,10 +3277,9 @@ auxiliaryDocument
     Typs oparl:File. Vgl. Objektlisten. Kardinalität: 0 bis *. OPTIONAL.
 
 keyword
-    Schlagwort. Diese Eigenschaft funktioniert wie in Vokabulare zur
-    Klassifizierung beschrieben entweder als URL zu einem skos:Concept
-    oder als String. Typ: Liste von Strings oder URLs zu skos:Concept
-    Objekten. Kardinalität: 0 bis *. OPTIONAL.
+    Schlagworte. Typ: Array von Strings oder URLs zu skos:Concept
+    Objekten (vgl. Vokabulare zur Klassifizierung). Kardinalität: 0 bis
+    *. OPTIONAL.
 
 created
     Erzeugungsdatum und -zeit des Objekts. Typ: xsd:dateTime.
@@ -3409,10 +3403,9 @@ modified
     Kardinalität: 1. EMPFOHLEN.
 
 keyword
-    Schlagworte. Diese Eigenschaft funktioniert wie in Vokabulare zur
-    Klassifizierung beschrieben entweder als URL zu einem skos:Concept
-    oder als String. Typ: Liste von Strings oder URLs zu skos:Concept
-    Objekten. Kardinalität: 0 bis *. OPTIONAL.
+    Schlagworte. Typ: Array von Strings oder URLs zu skos:Concept
+    Objekten (vgl. Vokabulare zur Klassifizierung). Kardinalität: 0 bis
+    *. OPTIONAL.
 
 underDirectionOf
     Federführung. Amt oder Abteilung, für die Inhalte oder Beantwortung
@@ -3469,8 +3462,10 @@ Eigenschaften
 
 fileName
     Dateiname, unter dem die Datei in einem Dateisystem gespeichert
-    werden kann. Beispiel: "einedatei.pdf" Typ: ASCII-Zeichenkette, aber
-    als Unicode-String Kardinalität: 1. ZWINGEND.
+    werden kann. Beispiel: "einedatei.pdf". Da der Name den kompletten
+    Unicode-Zeichenumang nutzen kann, SOLLEN Clients ggf. selbst dafür
+    sorgen, diesen beim Speichern in ein Dateisystem den lokalen
+    Erfordernissen anzupassen. Typ: String. Kardinalität: 1. ZWINGEND.
 
 name
     Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt.
@@ -3542,15 +3537,13 @@ masterDocument
 
 derivativeDocument
     Datei, die von dem aktuellen Objekt abgeleitet wurde. Details dazu
-    in der allgemeinen Beschreibung weiter oben. TODO: invers zu
-    masterDocument. Von der Verwendung wird deshalb in der
-    prov-Spezifikation abgeraten[^54]. Typ: Liste von oparl:File
-    Objekten. Kardinalität: 0 bis *. OPTIONAL.
+    in der allgemeinen Beschreibung weiter oben. Typ: Liste von
+    oparl:File Objekten. Kardinalität: 0 bis *. OPTIONAL.
 
 license
     Lizenz, unter der die Datei angeboten wird. Wenn diese Eigenschaft
     verwendet wird, dann ist sie anstelle einer globalen Angabe im
-    übergeordneten oparl:Body- bzw. oparl:System-Objekt maßgeblich.[^55]
+    übergeordneten oparl:Body- bzw. oparl:System-Objekt maßgeblich.[^54]
     Typ: URL. Kardinalität: 0 bis 1. OPTIONAL.
 
 documentRole
@@ -3561,10 +3554,9 @@ documentRole
     1. OPTIONAL.
 
 keyword
-    Schlagworte. Diese Eigenschaft funktioniert wie in Vokabulare zur
-    Klassifizierung beschrieben entweder als URL zu einem skos:Concept
-    oder als String. Typ: Liste von Strings oder URLs zu skos:Concept
-    Objekten. Kardinalität: 0 bis *. OPTIONAL.
+    Schlagworte. Typ: Array von Strings oder URLs zu skos:Concept
+    Objekten (vgl. Vokabulare zur Klassifizierung). Kardinalität: 0 bis
+    *. OPTIONAL.
 
 oparl:Consultation (Beratung) {#oparl_consultation}
 -----------------------------
@@ -3625,10 +3617,9 @@ role
     OPTIONAL.
 
 keyword
-    Schlagworte. Diese Eigenschaft funktioniert wie in Vokabulare zur
-    Klassifizierung beschrieben entweder als URL zu einem skos:Concept
-    oder als String. Typ: Liste von Strings oder URLs zu skos:Concept
-    Objekten. Kardinalität: 0 bis *. OPTIONAL.
+    Schlagworte. Typ: Array von Strings oder URLs zu skos:Concept
+    Objekten (vgl. Vokabulare zur Klassifizierung). Kardinalität: 0 bis
+    *. OPTIONAL.
 
 oparl:Location (Ort) {#oparl_location}
 --------------------
@@ -3650,7 +3641,7 @@ verwendet werden.
 
 OParl sieht bei Angabe von Geodaten ZWINGEND die Verwendung des  
 Well-Known-Text-Formats (WKT) der Simple Feature Access
-Spezifikation[^56] vor. WKT erlaubt die Beschreibung von
+Spezifikation[^55] vor. WKT erlaubt die Beschreibung von
 unterschiedlichen Geometrien wie Punkten (Point), Pfaden (LineString),
 Polygonen (Polygon) und viele andere mehr.
 
@@ -3660,7 +3651,7 @@ keine Anforderungen daran, welche Version von Simple-Feature-Access bei
 der Ausgabe von WKT zu unterstützen ist.
 
 Für die Ausgabe über eine OParl-API MÜSSEN sämtliche Koordinatenangaben
-solcher Geodaten im System WGS84[^57] angegeben werden, und zwar in Form
+solcher Geodaten im System WGS84[^56] angegeben werden, und zwar in Form
 von Zahlenwerten (Fließkommazahlen) für Längen- und Breitengrad.
 
 Beispiele
@@ -3705,9 +3696,9 @@ geometry
     entsprechen. Typ: String. Kardinalität: 0 bis 1. EMPFOHLEN.
 
 keyword
-    Schlagworte mit skos:prefLabel. Vgl. dazu Vokabulare zur
-    Klassifizierung. Typ: Array mit Strings oder URLs zu skos:Concept
-    Objekten. Kardinalität: 0 bis *. OPTIONAL.
+    Schlagworte. Typ: Array von Strings oder URLs zu skos:Concept
+    Objekten (vgl. Vokabulare zur Klassifizierung). Kardinalität: 0 bis
+    *. OPTIONAL.
 
 oparl:Membership {#oparl_membership}
 ----------------
@@ -3778,7 +3769,7 @@ onBehalfOf
     Gruppierung entsendet wurden (z. B. fraktionslose Abgeordnete). Da
     eine solche Person sich gewissermaßen selbst "entsendet" hat, SOLL
     in dem Fall hier der selbe Wert angegeben werden wie bei der
-    Eigenschaft person.[^58] Typ: URL eines oparl:Organization oder
+    Eigenschaft person.[^57] Typ: URL eines oparl:Organization oder
     oparl:Person Objekts. Kardinalität: 0 bis 1. OPTIONAL.
 
 votingRight
@@ -3786,11 +3777,11 @@ votingRight
     ist. Typ: boolean. Kardinalität: 0 bis 1. OPTIONAL.
 
 startDate
-    Anfangszeitpunkt der Mitgliedschaft.[^59] Typ: xsd:dateTime.
+    Anfangszeitpunkt der Mitgliedschaft.[^58] Typ: xsd:dateTime.
     Kardinalität: 0 bis 1. OPTIONAL.
 
 endDate
-    Der Endzeitpunkt der Mitgliedschaft.[^60] Typ: xsd:dateTime.
+    Der Endzeitpunkt der Mitgliedschaft.[^59] Typ: xsd:dateTime.
     Kardinalität: 0 bis 1. OPTIONAL.
 
 oparl:LegislativeTerm {#oparl_legislative_term}
@@ -3866,8 +3857,8 @@ endDate
 
 [^14]: http://hydra-cg.com/spec/latest/core/#collections
 
-[^15]: Vgl. dazu beispielsweise http://popoloproject.com/, TODO: UK, KB
-    Niederlande, Italienisches Parlament: http://data.camera.it/data/en/
+[^15]: Vgl. dazu beispielsweise http://popoloproject.com/,
+    http://data.camera.it/data/en/
 
 [^16]: http://www.it-planungsrat.de/SharedDocs/Downloads/DE/ITPlanungsrat/Staatsvertrag/Staatsvertrag.html
 
@@ -3974,24 +3965,22 @@ endDate
 
 [^53]: vgl. RFC2046: http://tools.ietf.org/html/rfc2046
 
-[^54]: http://www.w3.org/TR/prov-o/#inverse-names
+[^54]: vgl. license
 
-[^55]: vgl. license
-
-[^56]: Simple Feature Access Spezifikation:
+[^55]: Simple Feature Access Spezifikation:
     http://www.opengeospatial.org/standards/sfa
 
-[^57]: WGS84 steht für "World Geodetic System 1984", es wird unter
+[^56]: WGS84 steht für "World Geodetic System 1984", es wird unter
     anderem auch vom Global Positioning System (GPS) verwendet. In
     geografischen Informationssystemen ist für das System der EPSG-Code
     4326 geläufig.
 
-[^58]: Dies entspricht opengov:onBehalfOf in Popolo.
+[^57]: Dies entspricht opengov:onBehalfOf in Popolo.
     http://popoloproject.com/specs/membership.html
 
-[^59]: Abgeleitet von: schema:validFrom in Popolo.
+[^58]: Abgeleitet von: schema:validFrom in Popolo.
     http://popoloproject.com/specs/membership.html
 
-[^60]: Abgeleitet von: schema:validThrough in Popolo.
+[^59]: Abgeleitet von: schema:validThrough in Popolo.
     http://popoloproject.com/specs/membership.html
 

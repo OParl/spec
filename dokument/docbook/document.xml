@@ -548,7 +548,6 @@
             <para>
               Vgl. dazu beispielsweise
               <ulink url="http://popoloproject.com/">http://popoloproject.com/</ulink>,
-              TODO: UK, KB Niederlande, Italienisches Parlament:
               <ulink url="http://data.camera.it/data/en/">http://data.camera.it/data/en/</ulink>
             </para>
           </footnote> Eine Zusammenarbeit mit derartigen Initiativen mit
@@ -1625,11 +1624,10 @@ http://www.w3.org/2001/XMLSchema#date
         Geodaten-Objekte einzubetten.
       </para>
       <para>
-        Die Angabe eines einzelnen Punktes ist dabei nur ein einfacher
-        Sonderfall. Die Spezifikation erlaubt auch die Kodierung von
-        mehreren Objekten, die Punkte, Linien oder Polygone
-        repräsentieren können. Vgl. dazu
-        <literal>oparl:Location</literal>.
+        Die Angabe eines einzelnen Punktes ist dabei der einfachste
+        Fall. Die Spezifikation erlaubt auch die Kodierung von mehreren
+        Objekten, die Punkte, Linien oder Polygone repräsentieren
+        können. Vgl. dazu <literal>oparl:Location</literal>.
       </para>
       <para>
         Auch die Ausgabe einer Nur-Text-Version im Kontext des Dokuments
@@ -2342,24 +2340,24 @@ https://oparl.example.org/members?committee=2&amp;body=1
     <itemizedlist spacing="compact">
       <listitem>
         <para>
-          <emphasis>Zeichenkette</emphasis> (Unicode)
+          Zeichenketten bzw. Strings (Unicode)
         </para>
       </listitem>
       <listitem>
         <para>
-          <emphasis>Zahl</emphasis> (sowohl Ganzzahlen als auch
+          Zahlen bzw. Number (sowohl Ganzzahlen als auch
           Fließkommazahlen)
         </para>
       </listitem>
       <listitem>
         <para>
-          <emphasis>Wahrheitswert</emphasis> (<literal>true</literal>
-          oder <literal>false</literal>)
+          Wahrheitswert bzw. Boolean (<literal>true</literal> oder
+          <literal>false</literal>)
         </para>
       </listitem>
       <listitem>
         <para>
-          <emphasis>Null</emphasis>
+          <literal>null</literal>
         </para>
       </listitem>
     </itemizedlist>
@@ -2369,16 +2367,14 @@ https://oparl.example.org/members?committee=2&amp;body=1
     <itemizedlist spacing="compact">
       <listitem>
         <para>
-          <emphasis>Objekt</emphasis>: Eine Sammlung von
-          Schlüssel-Wert-Paaren ohne Reihenfolge, wobei der Schlüssel
-          eine Zeichenkette sein muss und der Wert ein beliebiger
-          Datentyp ist.
+          Objekt: Eine Sammlung von Schlüssel-Wert-Paaren ohne
+          Reihenfolge, wobei der Schlüssel eine Zeichenkette sein muss
+          und der Wert ein beliebiger Datentyp ist.
         </para>
       </listitem>
       <listitem>
         <para>
-          <emphasis>Array</emphasis>: Eine geordnete Liste mit
-          beliebigen Datentypen.
+          Array: Eine geordnete Liste mit beliebigen Datentypen.
         </para>
       </listitem>
     </itemizedlist>
@@ -4209,9 +4205,6 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         Bezeichner des Objekts, nämlich seine URL. Dies ist ein
         ZWINGENDES Merkmal für jedes Objekt.
       </para>
-      <para>
-        TODO: Zu klären ist noch, ob das auch für oparl:Location gilt.
-      </para>
     </sect3>
     <sect3 id="type">
       <title><literal>type</literal></title>
@@ -4681,11 +4674,8 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
         &quot;http://d-nb.info/gnd/2015732-0&quot;,
         &quot;http://dbpedia.org/resource/Cologne&quot;
     ],
-    &quot;shortName&quot;: &quot;Stadt Köln&quot;,
-    &quot;name&quot;: {
-        &quot;de&quot;: &quot;Stadt Köln, kreisfreie Stadt&quot;,
-        &quot;en&quot;: &quot;City of Cologne&quot;
-    },
+    &quot;shortName&quot;: &quot;Köln&quot;,
+    &quot;name&quot;: Stadt Köln, kreisfreie Stadt&quot;,
     &quot;website&quot;: &quot;http://www.beispielstadt.de/&quot;,
     &quot;license&quot;: &quot;http://creativecommons.org/licenses/by/4.0/&quot;,
     &quot;licenseValidSince&quot;: &quot;2014-01-01&quot;,
@@ -4925,11 +4915,10 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Schlagwort(e). Vgl.
+              Schlagworte. Typ: Array von Strings oder URLs zu
+              <literal>skos:Concept</literal> Objekten (vgl.
               <link linkend="vokabulare_klassifizierung">Vokabulare zur
-              Klassifizierung</link>. Typ: Array mit Strings oder URLs
-              zu <literal>skos:Concept</literal> Objekten. Kardinalität:
-              0 bis *. OPTIONAL.
+              Klassifizierung</link>). Kardinalität: 0 bis *. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5075,7 +5064,7 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
               Paginierung sowie die Filterung mittels startDate und
               endDate Parametern zu ermöglichen. Siehe dazu auch
               <link linkend="objektlisten">Objektlisten</link>. Typ:
-              Liste mit URLs von Objekten des Typs
+              Liste von Objekten des Typs
               <literal>oparl:Meeting</literal>. Kardinalität: 0 bis *.
               ZWINGEND.
             </para>
@@ -5117,11 +5106,8 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
               Stellvertreterin&quot;, &quot;2. Stellvertreter | 2.
               Stellvertreterin&quot;, &quot;Schriftführer |
               Schriftführerin&quot;, &quot;Stellvertretender
-              Schriftführer | Stellvertretende Schriftführerin&quot;,
-              &quot;Ordentliches Mitglied&quot;, &quot;Stellvertretendes
-              Mitglied&quot;. TODO: &quot;Ordentliches Mitglied&quot;,
-              &quot;Stellvertretendes Mitglied&quot; müssen anders
-              behandelt werden! Typ: Liste von Strings oder URLs zu
+              Schriftführer | Stellvertretende Schriftführerin&quot;.
+              Typ: Liste von Strings oder URLs zu
               <literal>skos:Concept</literal> Objekten. Kardinalität: 0
               bis *. OPTIONAL.
             </para>
@@ -5170,11 +5156,10 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Schlagworte. Vgl.
+              Schlagworte. Typ: Array von Strings oder URLs zu
+              <literal>skos:Concept</literal> Objekten (vgl.
               <link linkend="vokabulare_klassifizierung">Vokabulare zur
-              Klassifizierung</link>. Typ:
-              <literal>skos:Concept</literal>. Kardinalität: 0 bis *.
-              OPTIONAL.
+              Klassifizierung</link>). Kardinalität: 0 bis *. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5472,12 +5457,10 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Diese Eigenschaft funktioniert wie in
+              Schlagworte. Typ: Array von Strings oder URLs zu
+              <literal>skos:Concept</literal> Objekten (vgl.
               <link linkend="vokabulare_klassifizierung">Vokabulare zur
-              Klassifizierung</link> beschrieben entweder als URL zu
-              einem <literal>skos:Concept</literal> oder als String.
-              Typ: URL eines <literal>skos:Concept</literal> Objekts
-              oder String. Kardinalität: 0 bis *. OPTIONAL.
+              Klassifizierung</link>). Kardinalität: 0 bis *. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5538,7 +5521,9 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
     &quot;streetAddress&quot;: &quot;Musterstraße 5, Raum 136&quot;,
     &quot;postalCode&quot;: &quot;11111&quot;,
     &quot;locality&quot;: &quot;Musterort&quot;,
-    &quot;organization&quot;: &quot;https://oparl.example.org/organization/34&quot;,
+    &quot;organization&quot;: [
+        &quot;https://oparl.example.org/organization/34&quot;
+    ],
     &quot;invitation&quot;: [
         &quot;https://oparl.example.org/document/586&quot;
     ],
@@ -5597,8 +5582,8 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Straße und Hausnummer der Kontakt-Anschrift der Person.
-              Typ: String. Kardinalität: 0 bis 1. OPTIONAL.
+              Straße und Hausnummer des Sitzungsortes. Typ: String.
+              Kardinalität: 0 bis 1. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5608,8 +5593,8 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Postleitzahl der Kontakt-Anschrift der Person. Typ:
-              String. Kardinalität: 0 bis 1. OPTIONAL.
+              Postleitzahl des Sitzungsortes. Typ: String. Kardinalität:
+              0 bis 1. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5619,7 +5604,7 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Ortsangabe der Kontakt-Anschrift der Person. Typ:
+              Ortsangabe des Sitzungsortes. Typ:
               <literal>vcard:locality</literal> Kardinalität: 0 bis 1.
               OPTIONAL.
             </para>
@@ -5643,11 +5628,13 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Gruppierung der die Sitzung zugeordnet ist. Wenn eine
-              Liste angegeben wird, dann ist diese geordnet. Das erste
-              Element ist dann das federführende Gremium. TODO:
-              Eigenschaft für federführendes Gremium ergänzen und dann
-              Ordnung entfernen. invers zur Eigenschaft
+              Gruppierungen, denen die Sitzung zugeordnet ist. Im
+              Regelfall wird hier eine Gruppierung verknüpft sein, es
+              kann jedoch auch gemeinsame Sitzungen mehrerer
+              Gruppierungen geben. Das erste Element ist dann das
+              federführende Gremium. TODO: Eigenschaft für
+              federführendes Gremium ergänzen und dann Ordnung
+              entfernen. invers zur Eigenschaft
               <literal>meeting</literal> der Klasse
               <literal>oparl:Organization</literal>. Typ:
               <literal>oparl:Organization</literal>. Kardinalität: 1 bis
@@ -5777,13 +5764,10 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Schlagworte. Diese Eigenschaft funktioniert wie in
+              Schlagworte. Typ: Array von Strings oder URLs zu
+              <literal>skos:Concept</literal> Objekten (vgl.
               <link linkend="vokabulare_klassifizierung">Vokabulare zur
-              Klassifizierung</link> beschrieben entweder als URL zu
-              einem <literal>skos:Concept</literal> oder als String.
-              Typ: Liste von Strings oder URLs zu
-              <literal>skos:Concept</literal> Objekten. Kardinalität: 0
-              bis *. OPTIONAL.
+              Klassifizierung</link>). Kardinalität: 0 bis *. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -5970,13 +5954,10 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Schlagwort. Diese Eigenschaft funktioniert wie in
+              Schlagworte. Typ: Array von Strings oder URLs zu
+              <literal>skos:Concept</literal> Objekten (vgl.
               <link linkend="vokabulare_klassifizierung">Vokabulare zur
-              Klassifizierung</link> beschrieben entweder als URL zu
-              einem <literal>skos:Concept</literal> oder als String.
-              Typ: Liste von Strings oder URLs zu
-              <literal>skos:Concept</literal> Objekten. Kardinalität: 0
-              bis *. OPTIONAL.
+              Klassifizierung</link>). Kardinalität: 0 bis *. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -6229,13 +6210,10 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Schlagworte. Diese Eigenschaft funktioniert wie in
+              Schlagworte. Typ: Array von Strings oder URLs zu
+              <literal>skos:Concept</literal> Objekten (vgl.
               <link linkend="vokabulare_klassifizierung">Vokabulare zur
-              Klassifizierung</link> beschrieben entweder als URL zu
-              einem <literal>skos:Concept</literal> oder als String.
-              Typ: Liste von Strings oder URLs zu
-              <literal>skos:Concept</literal> Objekten. Kardinalität: 0
-              bis *. OPTIONAL.
+              Klassifizierung</link>). Kardinalität: 0 bis *. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -6319,8 +6297,11 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
             <para>
               Dateiname, unter dem die Datei in einem Dateisystem
               gespeichert werden kann. Beispiel:
-              &quot;einedatei.pdf&quot; Typ: ASCII-Zeichenkette, aber
-              als Unicode-String Kardinalität: 1. ZWINGEND.
+              &quot;einedatei.pdf&quot;. Da der Name den kompletten
+              Unicode-Zeichenumang nutzen kann, SOLLEN Clients ggf.
+              selbst dafür sorgen, diesen beim Speichern in ein
+              Dateisystem den lokalen Erfordernissen anzupassen. Typ:
+              String. Kardinalität: 1. ZWINGEND.
             </para>
           </listitem>
         </varlistentry>
@@ -6500,14 +6481,8 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
             <para>
               Datei, die von dem aktuellen Objekt abgeleitet wurde.
               Details dazu in der allgemeinen Beschreibung weiter oben.
-              TODO: invers zu <literal>masterDocument</literal>. Von der
-              Verwendung wird deshalb in der
-              <literal>prov</literal>-Spezifikation abgeraten<footnote>
-                <para>
-                  <ulink url="http://www.w3.org/TR/prov-o/#inverse-names">http://www.w3.org/TR/prov-o/#inverse-names</ulink>
-                </para>
-              </footnote>. Typ: Liste von <literal>oparl:File</literal>
-              Objekten. Kardinalität: 0 bis *. OPTIONAL.
+              Typ: Liste von <literal>oparl:File</literal> Objekten.
+              Kardinalität: 0 bis *. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -6554,13 +6529,10 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Schlagworte. Diese Eigenschaft funktioniert wie in
+              Schlagworte. Typ: Array von Strings oder URLs zu
+              <literal>skos:Concept</literal> Objekten (vgl.
               <link linkend="vokabulare_klassifizierung">Vokabulare zur
-              Klassifizierung</link> beschrieben entweder als URL zu
-              einem <literal>skos:Concept</literal> oder als String.
-              Typ: Liste von Strings oder URLs zu
-              <literal>skos:Concept</literal> Objekten. Kardinalität: 0
-              bis *. OPTIONAL.
+              Klassifizierung</link>). Kardinalität: 0 bis *. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -6678,13 +6650,10 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
           </term>
           <listitem>
             <para>
-              Schlagworte. Diese Eigenschaft funktioniert wie in
+              Schlagworte. Typ: Array von Strings oder URLs zu
+              <literal>skos:Concept</literal> Objekten (vgl.
               <link linkend="vokabulare_klassifizierung">Vokabulare zur
-              Klassifizierung</link> beschrieben entweder als URL zu
-              einem <literal>skos:Concept</literal> oder als String.
-              Typ: Liste von Strings oder URLs zu
-              <literal>skos:Concept</literal> Objekten. Kardinalität: 0
-              bis *. OPTIONAL.
+              Klassifizierung</link>). Kardinalität: 0 bis *. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>
@@ -6800,11 +6769,10 @@ Simple Feature Access Spezifikation:
           </term>
           <listitem>
             <para>
-              Schlagworte mit <literal>skos:prefLabel</literal>. Vgl.
-              dazu <link linkend="vokabulare_klassifizierung">Vokabulare
-              zur Klassifizierung</link>. Typ: Array mit Strings oder
-              URLs zu <literal>skos:Concept</literal> Objekten.
-              Kardinalität: 0 bis *. OPTIONAL.
+              Schlagworte. Typ: Array von Strings oder URLs zu
+              <literal>skos:Concept</literal> Objekten (vgl.
+              <link linkend="vokabulare_klassifizierung">Vokabulare zur
+              Klassifizierung</link>). Kardinalität: 0 bis *. OPTIONAL.
             </para>
           </listitem>
         </varlistentry>

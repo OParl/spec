@@ -9,6 +9,7 @@ Dieser Objekttyp dient der Beschreibung einer Wahlperiode.
 {
     "id": "https://oparl.example.org/term/21",
     "type": "http://oparl.org/schema/1.0/LegislativeTerm",
+    "body": "https://oparl.example.org/body/0",
     "name": "21. Wahlperiode",
     "startDate": "2010-12-03",
     "endDate":  "2013-12-03"
@@ -16,6 +17,12 @@ Dieser Objekttyp dient der Beschreibung einer Wahlperiode.
 ~~~~~
 
 ### Eigenschaften
+
+`body`
+:   Die Körperschaft, der diese Wahlperiode zugeordnet ist. 
+    Typ: URL des `oparl:Body` Objekts.
+    Kardinalität: 1.
+    ZWINGEND.
 
 `name`
 :   Nutzerfreundliche Bezeichnung der Wahlperiode.

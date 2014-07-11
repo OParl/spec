@@ -299,9 +299,11 @@ die einzelnen Listenseiten abzurufen.
 
 Server-Implementierer entscheiden selbst, wie die URLs zum Abruf einzelner
 Listenseiten aufgebaut sind und tragen damit selbst Verantwortung für die
-Funktionsweise der Paginierung. Bei der Entscheidung für eine Form der
-Implementierung sollten die folgenden Anforderungen von Clients
-berücksichtigt werden:
+Funktionsweise der Paginierung. Die im obigen Beispiel verwendete URL
+einschließlich des fiktiven URL-Parameters dienen lediglich der
+Veranschaulichung und sind in keiner Weise bindend. Bei der Entscheidung
+für eine Form der Implementierung sollten die folgenden Anforderungen von
+Clients berücksichtigt werden:
 
 * Es ist davon auszugehen, dass Clients für den gesamten Abruf aller
 Seiten einer Liste längere Zeit benötigen. In der Zwischenzeit kann sich

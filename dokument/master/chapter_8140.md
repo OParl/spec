@@ -1,5 +1,5 @@
-oparl:Membership {#oparl_membership}
-----------------
+oparl:Membership (Mitgliedschaft) {#oparl_membership}
+---------------------------------
 
 Über Objekte diesen Typs wird die Mitgliedschaft von Personen in
 Gruppierungen dargestellt. Diese Mitgliedschaften können zeitlich

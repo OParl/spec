@@ -166,7 +166,7 @@ Das nachfolgende Beispiel zeigt dies verkürzt, analog zur oben gezeigten Liste:
             "body": "https://oparl.example.org/bodies/0",
             "name": "Antwort auf Anfrage 1200/2014",
             "publishedDate": "2014-04-04T16:42:02+02:00",
-            "paperType": "https://oparl.example.org/vocab/answer",
+            "paperType": "Beantwortung einer Anfrage",
             "mainDocument": "https://oparl.example.org/documents/925",
             "originator": [
                 "https://oparl.example.org/organization/2000"
@@ -178,7 +178,7 @@ Das nachfolgende Beispiel zeigt dies verkürzt, analog zur oben gezeigten Liste:
             "body": "https://oparl.example.org/bodies/0",
             "name": "Mitteilung der Verwaltung",
             "publishedDate": "2014-06-01T12:24:18+02:00",
-            "paperType": "https://oparl.example.org/vocab/message",
+            "paperType": "Mitteilung",
             "mainDocument": "https://oparl.example.org/documents/2758",
             "originator": [
                 "https://oparl.example.org/people/1000"

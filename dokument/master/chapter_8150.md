@@ -1,5 +1,5 @@
-oparl:LegislativeTerm {#oparl_legislative_term}
----------------------
+oparl:LegislativeTerm (Wahlperiode) {#oparl_legislative_term}
+-----------------------------------
 
 Dieser Objekttyp dient der Beschreibung einer Wahlperiode.
 

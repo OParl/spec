@@ -38,7 +38,7 @@ stellen einen Sonderfall dar. Diese können, wie im Abschnitt
 URL zum externen Abruf einer Objektliste als Wert haben. In der Praxis kann es
 vorkommen, dass solche Listen leer sind. Beispielsweise könnte eine Gruppierung
 neu erstellt worden sein und noch keine Sitzungstermine aufweisen. In diesem
-Fall ist ein leeres Array eine gültige Möglichkeit, dies auszudrücken. Da es sich
+Fall ist ein leeres Array die richtige Möglichkeit, dies auszudrücken. Da es sich
 dabei um eine obligatorische Eigenschaft handelt, MUSS sie jedoch ausgegeben werden.
 
 Beispiel:

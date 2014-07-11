@@ -72,14 +72,14 @@ Eigenschaft `consultation` referenziert werden kann.
 
 `resolution`
 :   Falls in diesem Tagesordnungspunkt ein Beschluss gefasst
-    wurde, kann hier ein Text oder Dokument angegeben werden. Das ist besonders dann in der
+    wurde, kann hier ein Text oder eine Datei angegeben werden. Das ist besonders dann in der
     Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag)
     von der Beschlussvorlage abweicht.
     Typ: String oder URL eines Objekts vom Typ `oparl:File`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
-`auxiliaryDocument`
+`auxiliaryFile`
 :   Dateianhänge zum Tagesordnungspunkt.
     Typ: Liste von Objekten des Typs `oparl:File`. Vgl. [Objektlisten](#objektlisten).
     Kardinalität: 0 bis *.

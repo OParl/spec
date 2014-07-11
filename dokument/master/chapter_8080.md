@@ -5,7 +5,7 @@ Eine Sitzung ist die Versammlung einer oder mehrerer Gruppierungen
 (oparl:Organization) zu einem bestimmten Zeitpunkt an einem bestimmten Ort.
 
 Die geladenen Teilnehmer der Sitzung sind jeweils als Objekte vom Typ
-oparl:Person in entsprechender Form referenziert. Verschiedene Dokumente (Einladung, 
+oparl:Person in entsprechender Form referenziert. Verschiedene Dateien (Einladung, 
 Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.
 
 Die Inhalte einer Sitzung werden durch Tagesordnungspunkte (oparl:AgendaItem)
@@ -27,13 +27,13 @@ abgebildet.
         "https://oparl.example.org/organization/34"
     ],
     "invitation": [
-        "https://oparl.example.org/document/586"
+        "https://oparl.example.org/files/586"
     ],
-    "resultsProtocol": "https://oparl.example.org/document/628",
-    "verbatimProtocol": "https://oparl.example.org/document/691",
-    "auxiliaryDocument": [
-        "https://oparl.example.org/document/588",
-        "https://oparl.example.org/document/589"
+    "resultsProtocol": "https://oparl.example.org/files/628",
+    "verbatimProtocol": "https://oparl.example.org/files/691",
+    "auxiliaryFile": [
+        "https://oparl.example.org/files/588",
+        "https://oparl.example.org/files/589"
     ],
     "agendaItem": [
         "https://oparl.example.org/agendaitem/1045",
@@ -143,9 +143,9 @@ abgebildet.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
     
-`auxiliaryDocument`
-:   Dokumentenanhang zur Sitzung.
-    Hiermit sind Dokumente gemeint, die üblicherweise mit der Einladung
+`auxiliaryFile`
+:   Dateianhang zur Sitzung.
+    Hiermit sind Dateien gemeint, die üblicherweise mit der Einladung
     zu einer Sitzung verteilt werden, und die nicht bereits über einzelne
     Tagesordnungspunkte referenziert sind.
     Typ: Liste von Objekten des Typs `oparl:File`. Vgl. [Objektlisten](#objektlisten).

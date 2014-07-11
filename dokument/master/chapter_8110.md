@@ -1,5 +1,5 @@
-oparl:File (Datei)  {#oparl_document}
-----------------------
+oparl:File (Datei)  {#oparl_file}
+------------------
 
 Ein Objekt vom Typ `oparl:File` repräsentiert eine Datei,
 beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokument,
@@ -13,18 +13,18 @@ die Eigenschaft `paper` bzw. `meeting` angezeigt.
 Mehrere Objekte vom Typ `oparl:File` können mit einander in direkter
 Beziehung stehen, wenn sie den selben Inhalt in unterschiedlichen
 technischen Formaten wiedergeben. Hierfür werden die Eigenschaften
-`masterDocument` bzw. `derivativeDocument` eingesetzt. Das oben angezeigte
+`masterFile` bzw. `derivativeFile` eingesetzt. Das oben angezeigte
 Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der
 Eigenschaft `mimeType`) und zeigt außerdem über die Eigenschaft 
-`masterDocument` an, von welcher anderen Datei es abgeleitet wurde.
-Umgekehrt KANN über die Eigenschaft `derivativeDocument` angezeigt
+`masterFile` an, von welcher anderen Datei es abgeleitet wurde.
+Umgekehrt KANN über die Eigenschaft `derivativeFile` angezeigt
 werden, welche Ableitungen einer Datei existieren.
 
 **Beispiel**
 
-~~~~~  {#document_ex1 .json}
+~~~~~  {#file_ex1 .json}
 {
-    "id": "https://oparl.example.org/document/57739",
+    "id": "https://oparl.example.org/files/57739",
     "type": "http://oparl.org/schema/1.0/File",
     "name": "Anlage 1 zur Anfrage",
     "fileName": "57739.pdf",
@@ -36,12 +36,12 @@ werden, welche Ableitungen einer Datei existieren.
     "modified": "2013-01-04T07:54:13+01:00",
     "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "size": 82930,
-    "accessUrl": "https://oparl.example.org/document/57739.pdf",
-    "downloadUrl": "https://oparl.example.org/document/download/57739.pdf",
+    "accessUrl": "https://oparl.example.org/files/57739.pdf",
+    "downloadUrl": "https://oparl.example.org/files/download/57739.pdf",
     "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
-    "masterDocument": "https://oparl.example.org/document/57738",
+    "masterFile": "https://oparl.example.org/files/57738",
     "license": "http://www.opendefinition.org/licenses/cc-by",
-    "documentRole": "https://oparl.example.org/vocab/file/role/evidence"
+    "fileRole": "https://oparl.example.org/vocab/file/role/evidence"
 }
 ~~~~~
 
@@ -102,7 +102,7 @@ werden, welche Ableitungen einer Datei existieren.
     ZWINGEND.
 
 `sha1Checksum`
-:   SHA1-Prüfsumme des Dokumenteninhalts in Hexadezimal-Schreibweise.
+:   SHA1-Prüfsumme des Dateiinhalts in Hexadezimal-Schreibweise.
     Typ: String.
     Kardinalität: 0 bis 1.
     OPTIONAL.
@@ -140,14 +140,14 @@ werden, welche Ableitungen einer Datei existieren.
     Kardinalität: 0 bis *.
     EMPFOHLEN.
 
-`masterDocument`
+`masterFile`
 :   Datei, von der das aktuelle Objekt abgeleitet wurde. Details dazu in der
     allgemeinen Beschreibung weiter oben.
     Typ: URL eines Objekts vom Typ `oparl:File`.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
-`derivativeDocument`
+`derivativeFile`
 :   Datei, die von dem aktuellen Objekt abgeleitet wurde. Details dazu in der
     allgemeinen Beschreibung weiter oben.
     Typ: Liste von `oparl:File` Objekten.
@@ -162,8 +162,8 @@ werden, welche Ableitungen einer Datei existieren.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
-`documentRole`
-:   Rolle, Funktion, Sorte des Dokuments in Bezug auf eine Sitzung. Die Eigenschaft
+`fileRole`
+:   Rolle, Funktion der Datei in Bezug auf eine Sitzung. Die Eigenschaft
     SOLL entsprechend nur in Verbindung mit der Eigenschaft `meeting` gesetzt sein.
     Siehe dazu [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
     Typ: String oder URL eines `skos:Concept` Objekts.

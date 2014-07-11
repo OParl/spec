@@ -167,7 +167,7 @@ Das nachfolgende Beispiel zeigt dies verkürzt, analog zur oben gezeigten Liste:
             "name": "Antwort auf Anfrage 1200/2014",
             "publishedDate": "2014-04-04T16:42:02+02:00",
             "paperType": "Beantwortung einer Anfrage",
-            "mainDocument": "https://oparl.example.org/documents/925",
+            "mainFile": "https://oparl.example.org/files/925",
             "originator": [
                 "https://oparl.example.org/organization/2000"
             ]
@@ -179,7 +179,7 @@ Das nachfolgende Beispiel zeigt dies verkürzt, analog zur oben gezeigten Liste:
             "name": "Mitteilung der Verwaltung",
             "publishedDate": "2014-06-01T12:24:18+02:00",
             "paperType": "Mitteilung",
-            "mainDocument": "https://oparl.example.org/documents/2758",
+            "mainFile": "https://oparl.example.org/files/2758",
             "originator": [
                 "https://oparl.example.org/people/1000"
             ]

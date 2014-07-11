@@ -68,7 +68,7 @@ OParl Spezifikation 1.0 Gliederung
     8080 oparl:Meeting (Sitzung)
     8090 oparl:Agendaitem (Tagesordnungspunkt)
     8100 oparl:Paper (Drucksache)
-    8110 oparl:File (Dokument)
+    8110 oparl:File (Datei)
     8120 oparl:Consultation (Beratung)
     8130 oparl:Location (Ort)
     8140 org:Membership / oparl:Membership (Mitgliedschaft)

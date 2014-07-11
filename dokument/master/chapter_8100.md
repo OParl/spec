@@ -27,9 +27,9 @@ Kennungen der Drucksachen zum Einsatz.
     "relatedPaper": [
         "https://oparl.example.org/paper/699"
     ],
-    "mainDocument": "https://oparl.example.org/document/925",
-    "auxiliaryDocument": [
-        "https://oparl.example.org/document/926"
+    "mainFile": "https://oparl.example.org/files/925",
+    "auxiliaryFile": [
+        "https://oparl.example.org/files/926"
     ],
     "location": [
         "https://oparl.example.org/locations/4472"
@@ -91,16 +91,16 @@ Kennungen der Drucksachen zum Einsatz.
     Kardinalität: 0 bis *.
     OPTIONAL.
 
-`mainDocument`
-:   Das Hauptdokument zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert
-    eine Beschlussvorlage und das Hauptdokument enthält den Text der Beschlussvorlage.
+`mainFile`
+:   Die Haupt-Datei zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert
+    eine Beschlussvorlage und die Haupt-Datei enthält den Text der Beschlussvorlage.
     Typ: URL eines Objekts vom Typ `oparl:File`.
     Kardinalität: 1.
     ZWINGEND.
     
-`auxiliaryDocument`
-:   Anhänge zur Drucksache. Diese sind, in Abgrenzung zum Hauptdokument
-    (`mainDocument`), untergeordnet und es kann beliebig viele davon geben.
+`auxiliaryFile`
+:   Anhänge zur Drucksache. Diese sind, in Abgrenzung zur Haupt-Datei
+    (`mainFile`), untergeordnet und es kann beliebig viele davon geben.
     Typ: Liste von Objekten des Typs `oparl:File`. Vgl. [Objektlisten](#objektlisten).
     Kardinalität: 0 bis *.
     OPTIONAL.

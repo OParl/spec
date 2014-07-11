@@ -38,11 +38,11 @@ Die Angabe eines einzelnen Punktes ist dabei der einfachste Fall. Die
 Spezifikation erlaubt auch die Kodierung von mehreren Objekten, die Punkte, Linien
 oder Polygone repräsentieren können. Vgl. dazu `oparl:Location`.
 
-Auch die Ausgabe einer Nur-Text-Version im Kontext des Dokuments (`oparl:File`),
+Auch die Ausgabe einer Nur-Text-Version im Kontext der Datei (`oparl:File`),
 das den barrierefreien Zugriff auf Inhalte oder Indexierung für Volltextsuchfunktionen
 deutlich vereinfacht, ist eine Möglichkeit, die in der gängigen Praxis noch nicht zu
-finden ist. Ebenso die Möglichkeit, Beziehungen zwischen einzelnen Dokumenten
-herzustellen, um so von einem Dokument zu anderen Dokumenten mit identischem Inhalt,
+finden ist. Ebenso die Möglichkeit, Beziehungen zwischen einzelnen Dateien
+herzustellen, um so von einer Datei zu anderen Dateien mit identischem Inhalt,
 aber in anderen technischen Formaten zu verweisen, etwa von einer ODT-Datei zu einer
 PDF-Version.
 

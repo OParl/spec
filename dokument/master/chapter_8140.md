@@ -58,7 +58,7 @@ inne hat, beispielsweise den Vorsitz einer Fraktion.
     String (oder entsprechend das prefLabel des verlinkten Objekts) SOLL in 
     dieser Form sowohl die männliche als auch die weibliche Rollenbezeichnung 
     enthalten: `"Vorsitzender | Vorsitzende"`.
-    Typ: URL eines `skos:Concept` Objekts oder String.
+    Typ: String oder URL eines `skos:Concept` Objekts.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 

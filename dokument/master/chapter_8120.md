@@ -61,7 +61,7 @@ bezeichnet wird.
 :   Rolle oder Funktion der Beratung. Zum Beispiel Anhörung, Entscheidung, 
     Kenntnisnahme, Vorberatung usw. Diese Eigenschaft funktioniert wie in 
     [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben 
-    entweder als URL zu einem `skos:Concept` oder als String.
+    entweder als String oder als URL zu einem `skos:Concept` Objekt.
     Typ: String oder URL eines `skos:Concept` Objekts.
     Kardinalität: 0 bis 1.
     OPTIONAL.

@@ -62,13 +62,13 @@ wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
     entweder als URL zu einem `skos:Concept` oder als String.
     Der String bzw. `prefLabel` SOLL sowohl die männliche als auch die weibliche Bezeichnung
     enthalten. Beispiele: "Herr | Frau", "Ratsherr | Ratsfrau".
-    Typ: URL eines `skos:Concept` Objekts oder String.
+    Typ: String oder URL eines `skos:Concept` Objekts.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 
 `title`
 :   Akademische(r) Titel. Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
-    Typ: String oder URL eines `skos:Concept` Objekts.
+    Typ: Array von Strings oder URLs von `skos:Concept` Objekten.
     Kardinalität: 0 bis *.
     OPTIONAL.
 
@@ -131,7 +131,7 @@ wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
     "Einzelstadtverordneter | Einzelstadtverordnete" (Mitglieder des Rates die keiner Fraktion/Organisation
     angehören).
     Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
-    Typ: URL eines `skos:Concept` Objekts oder String.
+    Typ: String oder URL eines `skos:Concept` Objekts.
     Kardinalität: 0 bis *.
     OPTIONAL.
 

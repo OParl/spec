@@ -118,7 +118,7 @@ wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
 :   Die Art der Gruppierung. In Frage kommen z.B. "Rat", "Hauptausschuss", "Ausschuss",
     "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat". Die Angabe soll
     möglichst präzise erfolgen. Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
-    Typ: `skos:Concept`.
+    Typ: String oder URL eines `skos:Concept` Objekts.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
     

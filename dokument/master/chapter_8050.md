@@ -20,7 +20,7 @@ wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
     "name": "Ausschuss für Haushalt und Finanzen",
     "shortName": "Finanzausschuss",
     "post": [
-        "Vorsitzender | Vorsitzende",
+        "Vorsitzender | Vorsitzende",
         "1. Stellvertreter | 1. Stellvertreterin",
         "Mitglied"
     ],

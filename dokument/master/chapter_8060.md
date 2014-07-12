@@ -18,7 +18,7 @@ wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
         "Prof.",
         "Dr."
     ],
-    "formOfAddress": "Ratsherr | Ratsfrau",
+    "formOfAddress": "Ratsherr | Ratsfrau",
     "gender": "male",
     "email": "mailto:max@mustermann.de",
     "phone": "tel:+493012345678",

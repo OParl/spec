@@ -68,7 +68,7 @@ wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
 
 `title`
 :   Akademische(r) Titel. Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
-    Typ: URL eines `skos:Concept` Objekts oder String.
+    Typ: String oder URL eines `skos:Concept` Objekts.
     Kardinalität: 0 bis *.
     OPTIONAL.
 

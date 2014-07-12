@@ -157,6 +157,13 @@ Parlament an.
     Kardinalität: 0 bis *.
     EMPFOHLEN.
 
+`classification`
+:   Art der Körperschaft.
+    Typ: String oder URLs eines `skos:Concept` Objekts
+    (vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung)).
+    Kardinalität: 0 bis 1.
+    OPTIONAL.
+
 `keyword`
 :   Schlagworte.
     Typ: Array von Strings oder URLs zu `skos:Concept` Objekten

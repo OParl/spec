@@ -107,6 +107,7 @@ und Zeittyp werden entsprechend in diesem Dokument als `xsd:date` bzw.
 Einige Objekttypen besitzen Eigenschaften zum Zweck der Klassifizierung von Objekten.
 Im Einzelnen sind dies:
 
+* `classification` des Objekttyps [`oparl:Body`](#oparl_body)
 * `classification` des Objekttyps [`oparl:Organization`](#oparl_organization)
 * `fileRole` des Objekttyps [`oparl:File`](#oparl_file)
 * `formOfAddress` des Objekttyps [`oparl:Person`](#oparl_person)

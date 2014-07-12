@@ -73,10 +73,10 @@ wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
     OPTIONAL.
 
 `gender`
-:   Geschlecht. Zulässige Werte sind `vcard:Female`, `vcard:Male`, `vcard:None` und `vcard:Other`.
+:   Geschlecht. Empfohlene Werte sind `Female`, `Male`, `None` und `Other`.
     Für den Fall, dass das Geschlecht der Person unbekannt ist, SOLL die Eigenschaft nicht
-    ausgegeben werden.
-    Typ: String im Format `vcard:Gender`.
+    ausgegeben werden. Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
+    Typ: String oder URL eines `skos:Concept` Objekts.
     Kardinalität: 0 bis 1.
     OPTIONAL.
 

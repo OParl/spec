@@ -111,6 +111,7 @@ Im Einzelnen sind dies:
 * `classification` des Objekttyps [`oparl:Organization`](#oparl_organization)
 * `fileRole` des Objekttyps [`oparl:File`](#oparl_file)
 * `formOfAddress` des Objekttyps [`oparl:Person`](#oparl_person)
+* `gender` des Objekttyps [`oparl:Person`](#oparl_person)
 * `keyword` in mehreren Objekttypen
 * `paperType` des Objekttyps [`oparl:Paper`](#oparl_paper)
 * `post` des Objekttyps [`oparl:Organization`](#oparl_organization)

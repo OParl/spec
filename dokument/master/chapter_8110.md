@@ -40,8 +40,7 @@ werden, welche Ableitungen einer Datei existieren.
     "downloadUrl": "https://oparl.example.org/files/download/57739.pdf",
     "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
     "masterFile": "https://oparl.example.org/files/57738",
-    "license": "http://www.opendefinition.org/licenses/cc-by",
-    "fileRole": "https://oparl.example.org/vocab/file/role/evidence"
+    "license": "http://www.opendefinition.org/licenses/cc-by"
 }
 ~~~~~
 

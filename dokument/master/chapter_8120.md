@@ -20,7 +20,7 @@ bezeichnet wird.
     "agendaItem": "https://oparl.example.org/agendaitem/15569",
     "organization": "https://oparl.example.org/organization/96",
     "authoritative": false,
-    "role": "https://oparl.example.org/role/decision"
+    "role": "Beschlussfassung"
 }
 ~~~~~
 

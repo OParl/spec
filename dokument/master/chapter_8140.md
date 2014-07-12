@@ -15,7 +15,7 @@ inne hat, beispielsweise den Vorsitz einer Fraktion.
     "type": "http://oparl.org/schema/1.0/Membership",
     "person": "https://oparl.example.org/people/862",
     "organization": "https://oparl.example.org/organizations/5",
-    "role": "https://oparl.example.org/vocab/membership/role/chair",
+    "role": "Vorsitzender | Vorsitzende",
     "votingRight": true,
     "startDate": "2013-12-03T16:30:00+01:00"
 }

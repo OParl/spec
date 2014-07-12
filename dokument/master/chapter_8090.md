@@ -20,7 +20,7 @@ Eigenschaft `consultation` referenziert werden kann.
     "name": "Satzungsänderung für Ausschreibungen",
     "public": true,
     "consultation": "https://oparl.example.org/consultation/1034",
-    "result": "https://oparl.example.org/vocab/decided_modified",
+    "result": "Geändert beschlossen",
     "resolution": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
     "modified": "2012-08-16T14:05:27+02:00"
 }

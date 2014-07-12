@@ -23,7 +23,7 @@ Kennungen der Drucksachen zum Einsatz.
     "name": "Antwort auf Anfrage 1200/2014",
     "reference": "1234/2014",
     "publishedDate": "2014-04-04T16:42:02+02:00",
-    "paperType": "https://oparl.example.org/vocab/answer",
+    "paperType": "Beantwortung einer Anfrage",
     "relatedPaper": [
         "https://oparl.example.org/paper/699"
     ],

@@ -20,8 +20,9 @@ wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
     "name": "Ausschuss für Haushalt und Finanzen",
     "shortName": "Finanzausschuss",
     "post": [
-        "https://oparl.example.org/post/chairperson",
-        "https://oparl.example.org/post/deputychairperson"
+        "Vorsitzender | Vorsitzende",
+        "1. Stellvertreter | 1. Stellvertreterin",
+        "Mitglied"
     ],
     "meeting": "https://oparl.example.org/meetings_for_org/34",
     "membership": [
@@ -29,7 +30,7 @@ wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
         "https://oparl.example.org/memberships/48",
         "https://oparl.example.org/memberships/57"
     ],
-    "classification": "https://oparl.example.org/vocab/finance",
+    "classification": "Ausschuss",
     "keyword": [
         "finanzen",
         "haushalt"

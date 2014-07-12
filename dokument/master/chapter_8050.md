@@ -117,10 +117,7 @@ wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
 `classification`
 :   Die Art der Gruppierung. In Frage kommen z.B. "Rat", "Hauptausschuss", "Ausschuss",
     "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat". Die Angabe soll
-    möglichst präzise erfolgen. So ist die Angabe "Hauptausschuss" präziser als
-    "Ausschuss". Im Vokabular SOLL dann dieses Verhältnis zwischen "Ausschuss" und
-    "Hauptausschuss" kodiert sein ("https://oparl.example.org/hauptausschuss skos:broader
-    https://oparl.example.org/ausschuss"). Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
+    möglichst präzise erfolgen. Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
     Typ: `skos:Concept`.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.

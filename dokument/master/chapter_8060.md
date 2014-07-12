@@ -73,7 +73,7 @@ wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
     OPTIONAL.
 
 `gender`
-:   Geschlecht. Empfohlene Werte sind `Female`, `Male`, `None` und `Other`.
+:   Geschlecht. Empfohlene Werte sind `female`, `male`, `none` und `other`.
     Für den Fall, dass das Geschlecht der Person unbekannt ist, SOLL die Eigenschaft nicht
     ausgegeben werden. Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).
     Typ: String oder URL eines `skos:Concept` Objekts.

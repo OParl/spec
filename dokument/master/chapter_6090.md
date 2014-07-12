@@ -16,7 +16,7 @@ unterstützte Repräsentation an den Client ausliefert.
 Grundanforderung der vorliegenden Spezifikation an OParl-Clients ist,
 dass sie bei jeder Anfrage an einen OParl-Server einen Accept-Header
 mit dem Mime-Type `application/json` senden MÜSSEN, es sei denn,
-es handelt sich um einen [Dateizugriffe](#dateizugriff).
+es handelt sich um einen [Dateizugriff](#dateizugriff).
 
 Im Kontext von OParl soll durch Unterstützung von Content Negotiation
 ermöglicht werden, dass die URLs von OParl-Objekten auch von WWW-Clients

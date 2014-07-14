@@ -153,3 +153,9 @@ wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von
     Typ: `xsd:dateTime`.
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
+
+`website`
+:   Allgemeine Website der Gruppierung.
+    Typ: URL.
+    Kardinalität: 0 bis 1.
+    OPTIONAL.

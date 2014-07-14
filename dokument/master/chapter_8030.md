@@ -1,6 +1,8 @@
 oparl:System (System)   {#oparl_system}
 --------------------
 
+**Namespace-URL:** `http://oparl.org/schema/1.0/System`
+
 Der Objekttyp `oparl:System` bildet grundlegende Informationen zum
 parlamentarischen Informationssystem ab. Das Objekt repräsentiert
 das technische System, unabhängig von der Frage, welche Körperschaften
@@ -23,91 +25,127 @@ der URL des API-Endpunkts des Servers sein.
     "id": "https://oparl.example.org/",
     "type": "http://oparl.org/schema/1.0/System",
     "oparlVersion": "http://oparl.org/specs/1.0/",
+    "body": "https://oparl.example.org/bodies/",
     "name": "Beispiel-System",
-    "website": "http://www.example.org/",
     "contactEmail": "mailto:info@example.org",
     "contactName": "Allgemeiner OParl Kontakt",
-    "vendor": "http://example-software.com/",
-    "product": "http://example-software.com/oparl-server/",
-    "body": "https://oparl.example.org/bodies/",
     "newObjects": "https://oparl.example.org/new_objects/",
     "updatedObjects": "https://oparl.example.org/updated_objects/",
-    "removedObjects": "https://oparl.example.org/removed_objects"
+    "removedObjects": "https://oparl.example.org/removed_objects",
+    "website": "http://www.example.org/",
+    "vendor": "http://example-software.com/",
+    "product": "http://example-software.com/oparl-server/"
 }
 ~~~~~
 
 
 ### Eigenschaften
 
-`oparlVersion`
-:   Die URL der OParl-Spezifikation, die von diesem Server unterstützt 
-    wird. Der Wert MUSS die URL `http://oparl.org/specs/1.0/` sein.
-    Typ: URL.
-    Kardinalität: 1.
-    ZWINGEND.
+**`oparlVersion`**
 
-`body`
-:   Liste der URLs der [`oparl:Body`](#oparl_body)-Objekte, also der 
-    Körperschaften, die auf dem System vorliegen. Alternativ kann statt 
-    einer Liste eine einzelne URL zum Abruf der Liste angeboten werden.
-    Typ: URL des `oparl:Body` Objekts
-    Kardinalität: 1 - *.
-    ZWINGEND.
+-------------   -------------------------------------------------------
+Beschreibung:   Die URL der OParl-Spezifikation, die von diesem Server
+                unterstützt wird. Aktuell kommt hier nur ein Wert in
+                Frage. Mit zukünftigen OParl-Versionen kommen weitere
+                mögliche URLs hinzu.
+Status:         _ZWINGEND_
+Typ:            URL
+Wert:           `http://oparl.org/specs/1.0/`
+-------------   -------------------------------------------------------
 
-`name`
-:   Nutzerfreundlicher Name für das System, mit dessen Hilfe Nutzer das
-    System erkennen und von anderen unterscheiden können.
-    Typ: String.
-    Kardinalität: 0 bis 1.
-    EMPFOHLEN.
+**`body`**
 
-`contactEmail`
-:   E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe einer E-Mail-Adresse dient sowohl Nutzerinnen
-    wie auch Entwicklerinnen von Clients zur Kontaktaufnahme mit dem
-    Betreiber.
-    Typ: String im Format `foaf:mbox`
-    Kardinalität: 0 bis 1.
-    EMPFOHLEN. 
+-------------   -------------------------------------------------------
+Beschreibung:   Liste der Körperschaften (`oparl:Body`-Objekte), die
+                auf dem System existieren.
+Status:         _ZWINGEND_
+Typ:            Array mit Objekt-URLs oder URL zum Listenabruf
+Siehe auch:     [`oparl:Body`](#oparl_body), [Objektlisten](#objektlisten)
+-------------   -------------------------------------------------------
 
-`contactName`
-:   Name des Ansprechpartners oder der Abteilung, die über die `contactEmail`
-    erreicht werden kann.
-    Typ: String.
-    Kardinalität: 0 bis 1.
-    EMPFOHLEN. 
+**`name`**
 
-`newObjects`
-:   URL des Feeds ["Neue Objekte"](#feed_neue_objekte).
-    Typ: URL.
-    Kardinalität: 0 bis 1.
-    EMPFOHLEN.
+-------------   -------------------------------------------------------
+Beschreibung:   Nutzerfreundlicher Name für das System, mit dessen
+                Hilfe Nutzerinnen und Nutzer das System erkennen und
+                von anderen unterscheiden können.
+Status:         _EMPFOHLEN_
+Typ:            String
+Wert:           `http://oparl.org/specs/1.0/`
+-------------   -------------------------------------------------------
 
-`updatedObjects`
-:   URL des Feeds ["Geänderte Objekte"](#feed_geaenderte_objekte).
-    Typ: URL.
-    Kardinalität: 0 bis 1.
-    EMPFOHLEN.
+**`contactEmail`**
 
-`removedObjects`
-:   URL des Feeds ["Entfernte Objekte"](#feed_entfernte_objekte).
-    Typ: URL.
-    Kardinalität: 0 bis 1.
-    EMPFOHLEN.
+-------------   -------------------------------------------------------
+Beschreibung:   E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe
+                einer E-Mail-Adresse dient sowohl NutzerInnen wie auch
+                Entwicklerinnen von Clients zur Kontaktaufnahme mit dem
+                Betreiber.
+Status:         _EMPFOHLEN_
+Typ:            String im Format `foaf:mbox`
+-------------   -------------------------------------------------------
 
-`website`
-:   URL zur WWW-Oberfläche des parlamentarischen Informationssystems.
-    Typ: URL.
-    Kardinalität: 0 bis 1.
-    OPTIONAL.
+**`contactName`**
 
-`vendor`
-:   Software-Anbieter, von dem die OParl-Server-Software stammt.
-    Typ: URL.
-    Kardinalität: 0 bis 1.
-    OPTIONAL.
+-------------   -------------------------------------------------------
+Beschreibung:   Name der Ansprechpartnerin bzw. des Ansprechpartners
+                oder der Abteilung, die über die in `contactEmail`
+                angegebene Adresse erreicht werden kann.
+Status:         _EMPFOHLEN_
+Typ:            String
+-------------   -------------------------------------------------------
 
-`product`
-:   Informationen zu der auf dem System genutzten OParl-Server-Software.
-    Typ: URL.
-    Kardinalität: 0 bis 1.
-    OPTIONAL.
+
+**`newObjects`**
+
+-------------   -------------------------------------------------------
+Beschreibung:   URL des Feeds "Neue Objekte".
+Status:         _EMPFOHLEN_
+Typ:            URL
+Siehe auch:     [Feeds](#feeds), [Neue Objekte](#feed_neue_objekte)
+-------------   -------------------------------------------------------
+
+**`updatedObjects`**
+
+-------------   -------------------------------------------------------
+Beschreibung:   URL des Feeds "Geänderte Objekte".
+Status:         _EMPFOHLEN_
+Typ:            URL
+Siehe auch:     [Feeds](#feeds), [Geänderte Objekte](#feed_geaenderte_objekte)
+-------------   -------------------------------------------------------
+
+**`removedObjects`**
+
+-------------   -------------------------------------------------------
+Beschreibung:   URL des Feeds "Entfernte Objekte".
+Status:         _EMPFOHLEN_
+Typ:            URL
+Siehe auch:     [Feeds](#feeds), [Entfernte Objekte](#feed_entfernte_objekte)
+-------------   -------------------------------------------------------
+
+**`website`**
+
+-------------   -------------------------------------------------------
+Beschreibung:   URL der Website des parlamentarischen
+                Informationssystems
+Status:         _OPTIONAL_
+Typ:            URL
+-------------   -------------------------------------------------------
+
+**`vendor`**
+
+-------------   -------------------------------------------------------
+Beschreibung:   URL der Website des Software-Anbieters, von dem die
+                OParl-Server-Software stammt.
+Status:         _OPTIONAL_
+Typ:            URL
+-------------   -------------------------------------------------------
+
+**`product`**
+
+-------------   -------------------------------------------------------
+Beschreibung:   URL zu Informationen über die auf dem System genutzte
+                OParl-Server-Software
+Status:         _OPTIONAL_
+Typ:            URL
+-------------   -------------------------------------------------------

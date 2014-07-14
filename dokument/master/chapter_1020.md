@@ -30,10 +30,10 @@ universell weiterverwendbar und so barrierearm wie möglich anzubieten, dass
 jegliche weitere Verwendung durch Dritte technisch möglich ist. Der seit
 einiger Zeit etablierte Begriff für dieses Prinzip heißt "Open Data".
 
-Open-Data-Initiativen können unter Rückgriff auf RIS mit OParl-Schnittstelle
-einfacher Dokumente und Daten aus unterschiedlichen Gebietskörperschaften in
-Open-Data-Katalogen verzeichnen und so einfacher auffindbar machen für die
-Weiterverwendung durch Dritte.
+Open-Data-Initiativen können unter Rückgriff auf Ratsinformationssysteme (RIS)
+mit OParl-Schnittstelle einfacher Dokumente und Daten aus unterschiedlichen
+Gebietskörperschaften in Open-Data-Katalogen verzeichnen und so einfacher
+auffindbar machen für die Weiterverwendung durch Dritte.
 
 Bürgerinnen und Bürger, politische Parteien und zivilgesellschaftliche
 Organisationen können einfacher auf Inhalte parlamentarischer Informationssysteme

@@ -122,14 +122,44 @@ Im Einzelnen sind dies:
 * `status` des Objekttyps [`oparl:Person`](#oparl_person)
 * `title` des Objekttyps [`oparl:Person`](#oparl_person)
 
-Diese Eigenschaften können als Wert wahlweise einfache Zeichenketten (Strings)
-haben, z. B. `"Beantwortung einer Anfrage"` oder aber URLs. Wenn eine URL
-verwendet wird, MUSS diese auf ein JSON-LD-Objekt^[JSON-LD 1.0:
-<http://www.w3.org/TR/json-ld/>] vom Typ `skos:Concept` zeigen.
-Dieses Objekt MUSS eine Eigenschaft `prefLabel` besitzen, in dem die
-benutzerfreundliche Benennung des Konzepts wiedergegeben wird.^[
-Diese Konstrukte entstammen dem _Simple Knowledge Organization System_ (SKOS):
-<http://www.w3.org/2009/08/skos-reference/skos.html>]
+Beispielsweise dient die Eigenschaft `paperType` des Objekttyps `oparl:Paper`
+dazu, eine Drucksache als Mitteilung, Antrag, Anfrage, Beschlussvorlage etc. zu
+kennzeichnen. Hierbei kann jeweils wahlweise ein einfacher Strings (Zeichenkette)
+als Wert der Eigenschaft ausgegeben werden oder eine URL.
+
+Die folgenden Beispiele verdeutlichen die Alternativen. Zunächst die
+Klassifizierung mittels String:
+
+~~~~~  {#vokabular_ex1 .json}
+{
+    ...
+    "paperType": "Beantwortung einer Anfrage",
+    ...
+}
+~~~~~
+
+Die Alternative mittels einer (fiktiven) URL:
+
+~~~~~  {#vokabular_ex1 .json}
+{
+    ...
+    "paperType": "http://example.com/InquiryResponse",
+    ...
+}
+~~~~~
+
+Grundsätzlich liegt die Wahl der genutzten Variante beim Betreiber des Systems,
+wobei innerhalb eines Systems beide Varianten vermischt werden KÖNNEN.
+
+Wird als Wert eine URL verwendet, MUSS diese auf ein JSON-LD-Objekt^[JSON-LD 1.0:
+<http://www.w3.org/TR/json-ld/>] vom Typ `skos:Concept` zeigen. Dieses Objekt MUSS
+eine Eigenschaft `prefLabel` besitzen, in dem die benutzerfreundliche Benennung
+des Konzepts wiedergegeben wird.^[Diese Konstrukte entstammen dem _Simple Knowledge
+Organization System_ (SKOS): <http://www.w3.org/2009/08/skos-reference/skos.html>]
+
+Die vorliegende Spezifikation macht in der Regel keine Vorgaben dazu, welche
+Begrifflichkeiten bei der Nutzung von Strings zu verwenden sind. Ebenso ist der
+Betreiber des System frei bei der Entscheidung, welche URLs dieses nutzt.
 
 Ein Beispiel für ein `skos:Concept` Objekt, wie es für die Eigenschaft
 `status` eines Objekts vom Typ `oparl:Person` genutzt werden kann:
@@ -146,11 +176,11 @@ Ein Beispiel für ein `skos:Concept` Objekt, wie es für die Eigenschaft
 }
 ~~~~~
 
-Das Objekt darf unter einer beliebigen URL abgelegt werden. Diese kann, muss
+Das Objekt DARF unter einer beliebigen URL abgelegt werden. Diese kann, muss
 aber nicht Teil des jeweiligen OParl-Systems sein.
 
-Sinnvoll wird die
-Verwendung von URLs zur Klassifizierung, wenn mehrere Systeme auf die selben
+Sinnvoll wird die Verwendung von URLs anstelle von Strings zur Klassifizierung,
+wenn mehrere Systeme auf die selben
 URLs verweisen, damit also ein gemeinsames Vokabular zur Klassifizierung nutzen.
 Die Verwendung eines übergreifenden Vokabulars soll dazu beitragen, dass
 die automatisierte Auswertung von parlamentarischen Informationen über die

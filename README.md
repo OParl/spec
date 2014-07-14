@@ -16,9 +16,9 @@ Wenn Du Dich für die Quellen des Dokuments sowie für das Nachvollziehen von Ä
 
     dokument/master
 
-Die Quelldateien sind reine Textdateien (Zeichensatz: UTF-8) mit Markdown-Formatierung (Dateiendung: .md).
+Die Quelldateien sind reine Textdateien (Zeichensatz: UTF-8) mit [Markdown](http://daringfireball.net/projects/markdown/)-Formatierung (Dateiendung: .md).
 
-Änderungswünsche am Dokument können in Form von Pull Requests beigesteuert werden. Dazu erzeugst Du zunächst einen Fork dieses Repositories. Dann committest Du Änderungen an Deinem Fork. Danach kannst Du am einzelnen Commit die Funktion "Send Pull Request" auslösen.
+Änderungswünsche am Dokument können in Form von Pull Requests beigesteuert werden. Dazu erzeugst Du zunächst einen Fork dieses Repositories. Dann committest Du Änderungen an Deinem Fork. Danach kannst Du am einzelnen Commit die Funktion "Send Pull Request" auslösen. Mehr dazu in der [Github-Hilfe](https://help.github.com/articles/using-pull-requests).
 
 **Übrigens:** [prose.io](http://prose.io/) ist ein fantastischer Web-basierter Editor, mit dem Du die Markdown-Dateien in Deinem eigenen Repository spielend im Browser bearbeiten kannst.
 

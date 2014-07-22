@@ -59,7 +59,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Die Gründe, warum Betreiber von parlamentarischen Informationssystemen den Zugriff darauf über eine standardisierte Schnittstelle ermöglichen sollten oder möchten, können vielfältig sein und je nach Nutzergruppe unterschiedlich.</p>
 <p>Ein zentrales Argument für Verwaltung und politische Gremien, sei es in Gebietskörperschaften oder auf Landes- oder Bundesebene, ist die Verpflichtung der Parlamente gegenüber der Bevölkerung, diese über die Fortschritte der parlamentarischen Arbeit zu informieren und auf dem Laufenden zu halten. Ein erster Schritt, der Bevölkerung Einblicke in die Arbeit und Zugriff auf Dokumente zu gewähren, ist vielerorts in den letzten Jahren durch Einführung von Ratsinformationssystemen mit anonymem, lesenden Zugriff über das World Wide Web gemacht worden.</p>
 <p>Die damit eingeschlagene Richtung konsequent weiter zu gehen, bedeutet, die Daten der parlamentarischen Informationssystemen gänzlich offen zu legen, sofern die Inhalte es erlauben. Es bedeutet, die Daten und Inhalte so universell weiterverwendbar und so barrierearm wie möglich anzubieten, dass jegliche weitere Verwendung durch Dritte technisch möglich ist. Der seit einiger Zeit etablierte Begriff für dieses Prinzip heißt &quot;Open Data&quot;.</p>
-<p>Open-Data-Initiativen können unter Rückgriff auf RIS mit OParl-Schnittstelle einfacher Dokumente und Daten aus unterschiedlichen Gebietskörperschaften in Open-Data-Katalogen verzeichnen und so einfacher auffindbar machen für die Weiterverwendung durch Dritte.</p>
+<p>Open-Data-Initiativen können unter Rückgriff auf Ratsinformationssysteme (RIS) mit OParl-Schnittstelle einfacher Dokumente und Daten aus unterschiedlichen Gebietskörperschaften in Open-Data-Katalogen verzeichnen und so einfacher auffindbar machen für die Weiterverwendung durch Dritte.</p>
 <p>Bürgerinnen und Bürger, politische Parteien und zivilgesellschaftliche Organisationen können einfacher auf Inhalte parlamentarischer Informationssysteme zugreifen und diese entsprechend ihren Interessen aufbereiten. Dies können beispielsweise Visualisierungen von enthaltenen Daten, die Anreicherung von Informationsangeboten für spezielle Nutzergruppen oder die Schaffung von Benutzeroberflächen mit besonderen Funktionen für verschiedene Endgeräte sein.</p>
 <p>Das Interesse an parlamentarischen Informationen und an Anwendungen, die diese nutzbar und auswertbar machen, ist offensichtlich vorhanden. Die Entwickler der alternativen Ratsinformationssysteme wie Frankfurt Gestalten<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>, Offenes Köln<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> oder der OpenRuhr:RIS-Instanzen<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> wissen zu berichten, wie viel Interesse den Projekten gerade aus Orten entgegen gebracht wird, in denen derartige Systeme noch nicht verfügbar sind.</p>
 <p>Die Anwendungsmöglichkeiten für parlamentarische Informationen, wenn sie über eine Schnittstelle schnell und einfach abgerufen werden können, sind vielfältig. Beispiele sind:</p>
@@ -422,7 +422,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Dort, wo es dem Ziel der einfachen Implementierbarkeit und der einfachen Migration nicht im Weg steht, erlauben sich die Autoren dieser Spezifikation, auch Funktionen aufzunehmen, die noch nicht als gängige Praxis im Bereich der Ratsinformationssysteme bezeichnet werden können oder welche nur von einzelnen Systemen unterstützt werden. Solche Funktionen sind dann so integriert, dass sie nicht als zwingende Anforderung gelten.</p>
 <p>Ein Beispiel für eine derartige Funktion ist die Abbildung von Geodaten im Kontext von Drucksachen (<code>oparl:Paper</code>), um beispielsweise die Lage eines Bauvorhabens, das in einer Beschlussvorlage behandelt wird, zu beschreiben. Zwar ist den Autoren nur ein einziges parlamentarisches Informationssystem<a href="#fn24" class="footnoteRef" id="fnref24"><sup>24</sup></a> in Deutschland bekannt, das Geoinformationen – und zwar in Form von Punktdaten, also einer Kombination aus Längen- und Breitengradangaben – mit Dokumenten verknüpft. Der Vorteil dieser Funktion ist jedoch anhand zahlreicher Anwendungsszenarien belegbar. Somit ist der vorliegenden OParl-Spezifikation die Möglichkeit beschrieben, Geodaten-Objekte einzubetten.</p>
 <p>Die Angabe eines einzelnen Punktes ist dabei der einfachste Fall. Die Spezifikation erlaubt auch die Kodierung von mehreren Objekten, die Punkte, Linien oder Polygone repräsentieren können. Vgl. dazu <code>oparl:Location</code>.</p>
-<p>Auch die Ausgabe einer Nur-Text-Version im Kontext des Dokuments (<code>oparl:File</code>), das den barrierefreien Zugriff auf Inhalte oder Indexierung für Volltextsuchfunktionen deutlich vereinfacht, ist eine Möglichkeit, die in der gängigen Praxis noch nicht zu finden ist. Ebenso die Möglichkeit, Beziehungen zwischen einzelnen Dokumenten herzustellen, um so von einem Dokument zu anderen Dokumenten mit identischem Inhalt, aber in anderen technischen Formaten zu verweisen, etwa von einer ODT-Datei zu einer PDF-Version.</p>
+<p>Auch die Ausgabe einer Nur-Text-Version im Kontext der Datei (<code>oparl:File</code>), das den barrierefreien Zugriff auf Inhalte oder Indexierung für Volltextsuchfunktionen deutlich vereinfacht, ist eine Möglichkeit, die in der gängigen Praxis noch nicht zu finden ist. Ebenso die Möglichkeit, Beziehungen zwischen einzelnen Dateien herzustellen, um so von einer Datei zu anderen Dateien mit identischem Inhalt, aber in anderen technischen Formaten zu verweisen, etwa von einer ODT-Datei zu einer PDF-Version.</p>
 </section>
 <section id="restful" class="level3">
 <h3><span class="header-section-number">4.1.3</span> RESTful</h3>
@@ -666,8 +666,8 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
             <span class="dt">&quot;body&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/bodies/0&quot;</span><span class="fu">,</span>
             <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Antwort auf Anfrage 1200/2014&quot;</span><span class="fu">,</span>
             <span class="dt">&quot;publishedDate&quot;</span><span class="fu">:</span> <span class="st">&quot;2014-04-04T16:42:02+02:00&quot;</span><span class="fu">,</span>
-            <span class="dt">&quot;paperType&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/vocab/answer&quot;</span><span class="fu">,</span>
-            <span class="dt">&quot;mainDocument&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/documents/925&quot;</span><span class="fu">,</span>
+            <span class="dt">&quot;paperType&quot;</span><span class="fu">:</span> <span class="st">&quot;Beantwortung einer Anfrage&quot;</span><span class="fu">,</span>
+            <span class="dt">&quot;mainFile&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/files/925&quot;</span><span class="fu">,</span>
             <span class="dt">&quot;originator&quot;</span><span class="fu">:</span> <span class="ot">[</span>
                 <span class="st">&quot;https://oparl.example.org/organization/2000&quot;</span>
             <span class="ot">]</span>
@@ -678,8 +678,8 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
             <span class="dt">&quot;body&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/bodies/0&quot;</span><span class="fu">,</span>
             <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Mitteilung der Verwaltung&quot;</span><span class="fu">,</span>
             <span class="dt">&quot;publishedDate&quot;</span><span class="fu">:</span> <span class="st">&quot;2014-06-01T12:24:18+02:00&quot;</span><span class="fu">,</span>
-            <span class="dt">&quot;paperType&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/vocab/message&quot;</span><span class="fu">,</span>
-            <span class="dt">&quot;mainDocument&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/documents/2758&quot;</span><span class="fu">,</span>
+            <span class="dt">&quot;paperType&quot;</span><span class="fu">:</span> <span class="st">&quot;Mitteilung&quot;</span><span class="fu">,</span>
+            <span class="dt">&quot;mainFile&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/files/2758&quot;</span><span class="fu">,</span>
             <span class="dt">&quot;originator&quot;</span><span class="fu">:</span> <span class="ot">[</span>
                 <span class="st">&quot;https://oparl.example.org/people/1000&quot;</span>
             <span class="ot">]</span>
@@ -736,7 +736,7 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <figure>
 <img src="images/pagination01.png" alt="Paginierung: Schematische Darstellung" /><figcaption>Paginierung: Schematische Darstellung</figcaption>
 </figure>
-<p>Server-Implementierer entscheiden selbst, wie die URLs zum Abruf einzelner Listenseiten aufgebaut sind und tragen damit selbst Verantwortung für die Funktionsweise der Paginierung. Bei der Entscheidung für eine Form der Implementierung sollten die folgenden Anforderungen von Clients berücksichtigt werden:</p>
+<p>Server-Implementierer entscheiden selbst, wie die URLs zum Abruf einzelner Listenseiten aufgebaut sind und tragen damit selbst Verantwortung für die Funktionsweise der Paginierung. Die im obigen Beispiel verwendete URL einschließlich des fiktiven URL-Parameters dienen lediglich der Veranschaulichung und sind in keiner Weise bindend. Bei der Entscheidung für eine Form der Implementierung sollten die folgenden Anforderungen von Clients berücksichtigt werden:</p>
 <ul>
 <li><p>Es ist davon auszugehen, dass Clients für den gesamten Abruf aller Seiten einer Liste längere Zeit benötigen. In der Zwischenzeit kann sich der Inhalt der Liste bereits ändern, etwa durch das Hinzukommen neuer Einträge. Die Paginierung ist idealerweise so zu implementieren, dass sich das Hinzukommen oder Entfernen von Einträgen möglichst nicht auf einen Client auswirkt, der aktuell die Liste paginiert, um alle Einträge abzurufen. Wir bezeichnen dies als <strong>stabile Paginierung</strong>.</p></li>
 <li><p>Eine wesentliche Anforderung an Listen mit Paginierung ist, dass alle Einträge der Liste in einer konsistenten Reihenfolge sortiert ausgegeben werden MÜSSEN. Das bedeutet, dass die Sortierung beim Server im Idealfall anhand einer eindeutigen und unveränderlichen Objekteigenschaft vorgenommen wird. Hierfür eignen sich die Objekt-URLs, da sie genau diese beiden Anforderungen erfüllen sollten.</p></li>
@@ -877,13 +877,13 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 </section>
 <section id="dateizugriff" class="level2">
 <h2><span class="header-section-number">4.8</span> Dateizugriffe</h2>
-<p>Mit dem Begriff &quot;Datei&quot; sind im Sinne dieser Spezifikation alle Ressourcen gemeint, die von einem OParl-Server zur Verfügung gestellt werden und deren Metadaten über die JSON-API als <a href="#oparl_document"><code>oparl:File</code></a> abgerufen werden können. Es handelt sich dabei beispielsweise um Textdokumente im PDF-Format, Abbildungen im JPEG- oder PNG-Format etc., die wesentliche Inhalte der parlamentarischen Informationen im OParl-System ausmachen.</p>
+<p>Mit dem Begriff &quot;Datei&quot; sind im Sinne dieser Spezifikation alle Ressourcen gemeint, die von einem OParl-Server zur Verfügung gestellt werden und deren Metadaten über die JSON-API als <a href="#oparl_file"><code>oparl:File</code></a> abgerufen werden können. Es handelt sich dabei beispielsweise um Textdokumente im PDF-Format, Abbildungen im JPEG- oder PNG-Format etc., die wesentliche Inhalte der parlamentarischen Informationen im OParl-System ausmachen.</p>
 <p>In Bezug auf die Datenvolumen, die der Verkehr zwischen OParl-Servern und -Clients ausmacht, kommt dem Dateizugriff eine besondere Bedeutung zu. Daher formuliert OParl diesbezüglich einige Anforderungen, die helfen sollen, unnötigen Datentransfer zu vermeiden.</p>
 <p>Detail zu sämtlichen angesprochenen Mechanismen sind in den verschiedenen Teilen der HTTP-1.1-Spezifikation<a href="#fn35" class="footnoteRef" id="fnref35"><sup>35</sup></a> zu finden.</p>
 <section id="get-und-head-anfragen" class="level3">
 <h3><span class="header-section-number">4.8.1</span> GET und HEAD Anfragen</h3>
 <p>Grundsätzlich gilt, dass jede Datei mittels HTTP-Anfrage unter Verwendung der HTTP-Methode <code>GET</code> abrufbar sein MUSS. Um Clients zusätzlich die Überprüfung einer Datei zu ermöglichen, MUSS vom Server außerdem die HTTP-Methode <code>HEAD</code> unterstützt werden. Gemäß HTTP-Spezifikation gibt der Server in diesem Fall nur die Antwort-Header, nicht aber den eigentlichen Inhalt der angefragten Ressource, aus.</p>
-<p>Die URLs zum Abruf der einzelnen Datei (wahlweise mittels GET oder HEAD) stellt der Server dem Client in den Daten des Metadaten-Objekts zur Verfügung. Details finden sich in der Schema-Beschreibung zu <a href="#oparl_document"><code>oparl:File</code></a>.</p>
+<p>Die URLs zum Abruf der einzelnen Datei (wahlweise mittels GET oder HEAD) stellt der Server dem Client in den Daten des Metadaten-Objekts zur Verfügung. Details finden sich in der Schema-Beschreibung zu <a href="#oparl_file"><code>oparl:File</code></a>.</p>
 </section>
 <section id="allgemeiner-zugriff-und-expliziter-download" class="level3">
 <h3><span class="header-section-number">4.8.2</span> Allgemeiner Zugriff und expliziter Download</h3>
@@ -937,7 +937,7 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <h2><span class="header-section-number">4.9</span> Content Negotiation</h2>
 <p>Das Prinzip <em>Content Negotiation</em> wurde bereits in RFC2295<a href="#fn37" class="footnoteRef" id="fnref37"><sup>37</sup></a> beschrieben und bedeutet, dass WWW-Server eine Ressource in verschiedenen Formaten bereithalten können und Clients die Möglichkeit haben, eine Vorliebe für ein bestimmtes Format zu übermitteln. Auch die HTTP-1.1-Spezifikation<a href="#fn38" class="footnoteRef" id="fnref38"><sup>38</sup></a> schließt Content Negotiation ein.</p>
 <p>Die Idee hinter Content Negotiation ist, dass ein Client die von ihm akzeptierten Repräsentationen im <code>Accept</code>-Header der HTTP-Anfrage mitsendet, damit der Server gemäß Spezifikation die am besten passende und von ihm unterstützte Repräsentation an den Client ausliefert.</p>
-<p>Grundanforderung der vorliegenden Spezifikation an OParl-Clients ist, dass sie bei jeder Anfrage an einen OParl-Server einen Accept-Header mit dem Mime-Type <code>application/json</code> senden MÜSSEN, es sei denn, es handelt sich um einen <a href="#dateizugriff">Dateizugriffe</a>.</p>
+<p>Grundanforderung der vorliegenden Spezifikation an OParl-Clients ist, dass sie bei jeder Anfrage an einen OParl-Server einen Accept-Header mit dem Mime-Type <code>application/json</code> senden MÜSSEN, es sei denn, es handelt sich um einen <a href="#dateizugriff">Dateizugriff</a>.</p>
 <p>Im Kontext von OParl soll durch Unterstützung von Content Negotiation ermöglicht werden, dass die URLs von OParl-Objekten auch von WWW-Clients aufgerufen werden können, die nicht unmittelbar in Kenntnis der OParl-Spezifikation entwickelt wurden.</p>
 <p>Ein Beispiel für einen solchen Client wäre ein üblicher Browser. Ruft dieser die URL einer Drucksache (OParl-Objekttyp <code>oparl:Paper</code>) auf, sendet er entweder keinen <code>Accept</code>-Header oder aber einen solchen, der eine Bevorzugung von Inhaltstypen wie HTML angibt.</p>
 <p>Der Server DARF nun, da kein Accept-Header mit dem Typ <code>application/json</code> gesendet wurde, dem Client eine alternative Version der Information über die Drucksache ausliefern, beispielsweise eine HTML-Ansicht.</p>
@@ -980,14 +980,8 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <h2><span class="header-section-number">4.13</span> Liste reservierter URL-Parameter</h2>
 <p>Die in dieser Liste enthaltenen Zeichenketten haben eine reservierte Bedeutung und stehen bei Implementierungen eines OParl-Servers nicht mehr für die freie Verwendung in URLs zur Verfügung.</p>
 <dl>
-<dt><code>callback</code>:</dt>
-<dd>Mit diesem Parameter wird die JSONP-Ausgabe aktiviert. Mehr dazu im Abschnitt <a href="#jsonp">JSONP</a>.
-</dd>
-<dt><code>startdate</code>:</dt>
-<dd>Parameter für die Einschränkung einer Abfrage anhand eines Datums bzw. einer Zeitangabe.
-</dd>
-<dt><code>enddate</code>:</dt>
-<dd>Parameter für die Einschränkung einer Abfrage anhand eines Datums bzw. einer Zeitangabe.
+<dt><code>startdate</code>, <code>enddate</code>:</dt>
+<dd>Parameter für die Einschränkung einer Abfrage anhand eines Datums bzw. einer Zeitangabe. Vgl. <a href="#filter">Objektlisten: Filter</a>.
 </dd>
 <dt><code>listformat</code>:</dt>
 <dd>Parameter zur Steuerung der Listenausgabe. Siehe dazu: <a href="#objektlisten_listformat">Objektlisten: Kompakte und vollständige Form</a>
@@ -1015,7 +1009,7 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <h3><span class="header-section-number">5.1.2</span> <code>null</code>-Werte und leere Listen</h3>
 <p>JSON erlaubt es grundsätzlich, Eigenschaften mit dem Wert <code>null</code> zu versehen. Im Rahmen von OParl SOLLEN Server nach Möglichkeit davon absehen, Eigenschaften mit dem Wert <code>null</code> auszugeben. Obligatorische Eigenschaften (in diesem Kapitel mit &quot;ZWINGEND&quot; markiert) DÜRFEN NICHT den Wert <code>null</code> haben.</p>
 <p>Im Fall von Arrays erlaubt JSON grundsätzlich die Ausgabe von <code>[]</code> für leere Arrays. Wie bei <code>null</code> wird auch hier EMPFOHLEN, auf die Ausgabe einer Eigenschaft mit dem Wert <code>[]</code> zu verzichten, sofern es sich nicht um eine obligatorische Eigenschaft handelt.</p>
-<p>Obligatorische Eigenschaften, die als Wert eine Liste von Objekten haben können, stellen einen Sonderfall dar. Diese können, wie im Abschnitt <a href="#objektlisten">Objektlisten</a> beschrieben, entweder ein JSON-Array oder eine URL zum externen Abruf einer Objektliste als Wert haben. In der Praxis kann es vorkommen, dass solche Listen leer sind. Beispielsweise könnte eine Gruppierung neu erstellt worden sein und noch keine Sitzungstermine aufweisen. In diesem Fall ist ein leeres Array eine gültige Möglichkeit, dies auszudrücken. Da es sich dabei um eine obligatorische Eigenschaft handelt, muss sie jedoch ausgegeben werden.</p>
+<p>Obligatorische Eigenschaften, die als Wert eine Liste von Objekten haben können, stellen einen Sonderfall dar. Diese können, wie im Abschnitt <a href="#objektlisten">Objektlisten</a> beschrieben, entweder ein JSON-Array oder eine URL zum externen Abruf einer Objektliste als Wert haben. In der Praxis kann es vorkommen, dass solche Listen leer sind. Beispielsweise könnte eine Gruppierung neu erstellt worden sein und noch keine Sitzungstermine aufweisen. In diesem Fall ist ein leeres Array die richtige Möglichkeit, dies auszudrücken. Da es sich dabei um eine obligatorische Eigenschaft handelt, MUSS sie jedoch ausgegeben werden.</p>
 <p>Beispiel:</p>
 <pre class="sourceCode json" id="schema_ex1"><code class="sourceCode json"><span class="fu">{</span>
     <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/&quot;</span><span class="fu">,</span>
@@ -1048,9 +1042,11 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <h3><span class="header-section-number">5.1.5</span> Vokabulare zur Klassifizierung</h3>
 <p>Einige Objekttypen besitzen Eigenschaften zum Zweck der Klassifizierung von Objekten. Im Einzelnen sind dies:</p>
 <ul>
+<li><code>classification</code> des Objekttyps <a href="#oparl_body"><code>oparl:Body</code></a></li>
 <li><code>classification</code> des Objekttyps <a href="#oparl_organization"><code>oparl:Organization</code></a></li>
-<li><code>documentRole</code> des Objekttyps <a href="#oparl_document"><code>oparl:File</code></a></li>
+<li><code>fileRole</code> des Objekttyps <a href="#oparl_file"><code>oparl:File</code></a></li>
 <li><code>formOfAddress</code> des Objekttyps <a href="#oparl_person"><code>oparl:Person</code></a></li>
+<li><code>gender</code> des Objekttyps <a href="#oparl_person"><code>oparl:Person</code></a></li>
 <li><code>keyword</code> in mehreren Objekttypen</li>
 <li><code>paperType</code> des Objekttyps <a href="#oparl_paper"><code>oparl:Paper</code></a></li>
 <li><code>post</code> des Objekttyps <a href="#oparl_organization"><code>oparl:Organization</code></a></li>
@@ -1061,7 +1057,22 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <li><code>status</code> des Objekttyps <a href="#oparl_person"><code>oparl:Person</code></a></li>
 <li><code>title</code> des Objekttyps <a href="#oparl_person"><code>oparl:Person</code></a></li>
 </ul>
-<p>Diese Eigenschaften können als Wert wahlweise einfache Zeichenketten (Strings) haben, z. B. <code>&quot;Beantwortung einer Anfrage&quot;</code> oder aber URLs. Wenn eine URL verwendet wird, MUSS diese auf ein JSON-LD-Objekt<a href="#fn45" class="footnoteRef" id="fnref45"><sup>45</sup></a> vom Typ <code>skos:Concept</code> zeigen. Dieses Objekt MUSS eine Eigenschaft <code>prefLabel</code> besitzen, in dem die benutzerfreundliche Benennung des Konzepts wiedergegeben wird.<a href="#fn46" class="footnoteRef" id="fnref46"><sup>46</sup></a></p>
+<p>Beispielsweise dient die Eigenschaft <code>paperType</code> des Objekttyps <code>oparl:Paper</code> dazu, eine Drucksache als Mitteilung, Antrag, Anfrage, Beschlussvorlage etc. zu kennzeichnen. Hierbei kann jeweils wahlweise ein einfacher Strings (Zeichenkette) als Wert der Eigenschaft ausgegeben werden oder eine URL.</p>
+<p>Die folgenden Beispiele verdeutlichen die Alternativen. Zunächst die Klassifizierung mittels String:</p>
+<pre class="sourceCode json" id="vokabular_ex1"><code class="sourceCode json"><span class="fu">{</span>
+    <span class="er">...</span>
+    <span class="dt">&quot;paperType&quot;</span><span class="fu">:</span> <span class="st">&quot;Beantwortung einer Anfrage&quot;</span><span class="fu">,</span>
+    <span class="er">...</span>
+<span class="fu">}</span></code></pre>
+<p>Die Alternative mittels einer (fiktiven) URL:</p>
+<pre class="sourceCode json" id="vokabular_ex1"><code class="sourceCode json"><span class="fu">{</span>
+    <span class="er">...</span>
+    <span class="dt">&quot;paperType&quot;</span><span class="fu">:</span> <span class="st">&quot;http://example.com/InquiryResponse&quot;</span><span class="fu">,</span>
+    <span class="er">...</span>
+<span class="fu">}</span></code></pre>
+<p>Grundsätzlich liegt die Wahl der genutzten Variante beim Betreiber des Systems, wobei innerhalb eines Systems beide Varianten vermischt werden KÖNNEN.</p>
+<p>Wird als Wert eine URL verwendet, MUSS diese auf ein JSON-LD-Objekt<a href="#fn45" class="footnoteRef" id="fnref45"><sup>45</sup></a> vom Typ <code>skos:Concept</code> zeigen. Dieses Objekt MUSS eine Eigenschaft <code>prefLabel</code> besitzen, in dem die benutzerfreundliche Benennung des Konzepts wiedergegeben wird.<a href="#fn46" class="footnoteRef" id="fnref46"><sup>46</sup></a></p>
+<p>Die vorliegende Spezifikation macht in der Regel keine Vorgaben dazu, welche Begrifflichkeiten bei der Nutzung von Strings zu verwenden sind. Ebenso ist der Betreiber des System frei bei der Entscheidung, welche URLs dieses nutzt.</p>
 <p>Ein Beispiel für ein <code>skos:Concept</code> Objekt, wie es für die Eigenschaft <code>status</code> eines Objekts vom Typ <code>oparl:Person</code> genutzt werden kann:</p>
 <pre class="sourceCode json" id="skosconcept_ex1"><code class="sourceCode json"><span class="fu">{</span>
     <span class="dt">&quot;@context&quot;</span><span class="fu">:</span> <span class="fu">{</span>
@@ -1070,10 +1081,10 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
         <span class="fu">}</span>
     <span class="fu">},</span>
     <span class="dt">&quot;@type&quot;</span><span class="fu">:</span> <span class="st">&quot;http://www.w3.org/2004/02/skos/core#Concept&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;prefLabel&quot;</span><span class="fu">:</span> <span class="st">&quot;Ratsherr | Ratsfrau&quot;</span>
+    <span class="dt">&quot;prefLabel&quot;</span><span class="fu">:</span> <span class="st">&quot;Beantwortung einer Anfrage&quot;</span>
 <span class="fu">}</span></code></pre>
-<p>Das Objekt darf unter einer beliebigen URL abgelegt werden. Diese kann, muss aber nicht Teil des jeweiligen OParl-Systems sein.</p>
-<p>Sinnvoll wird die Verwendung von URLs zur Klassifizierung, wenn mehrere Systeme auf die selben URLs verweisen, damit also ein gemeinsames Vokabular zur Klassifizierung nutzen. Die Verwendung eines übergreifenden Vokabulars soll dazu beitragen, dass die automatisierte Auswertung von parlamentarischen Informationen über die Grenzen einzelner Systeme hinweg deutlich erleichtert wird. So könnte beispielsweise eine bestimmte Art von Drucksache über Systemgrenzen hinweg als solche erkannt werden, wenn die Systeme auf dasselbe <code>skos:Concept</code> Objekt verweisen.</p>
+<p>Das Objekt DARF unter einer beliebigen URL abgelegt werden. Diese kann, muss aber nicht Teil des jeweiligen OParl-Systems sein.</p>
+<p>Sinnvoll wird die Verwendung von URLs anstelle von Strings zur Klassifizierung, wenn mehrere Systeme auf die selben URLs verweisen, damit also ein gemeinsames Vokabular zur Klassifizierung nutzen. Die Verwendung eines übergreifenden Vokabulars soll dazu beitragen, dass die automatisierte Auswertung von parlamentarischen Informationen über die Grenzen einzelner Systeme hinweg deutlich erleichtert wird. So könnte beispielsweise eine bestimmte Art von Drucksache über Systemgrenzen hinweg als solche erkannt werden, wenn die Systeme auf dasselbe <code>skos:Concept</code> Objekt verweisen.</p>
 <p>Für die Zukunft ist geplant, dass OParl hierzu Vokabulare mit entsprechenden SKOS-Objekten zur Verfügung stellt, die dann von Datenanbietern per URL referenziert werden können.</p>
 <p>Da die <code>skos:Concept</code> Objekte, die über eine URL verlinkt werden, praktisch keinen Änderungen unterliegen, SOLLEN Clients diese Ressourcen nur selten abrufen und das Ergebnis der Anfragen in ihrem eigenen Cache speichern. Server SOLLEN das Caching unterstützen, indem Sie die üblichen Mechanismen von HTTP-Headern wie <code>Expires</code> und <code>Max-age</code> nutzen.</p>
 </section>
@@ -1196,6 +1207,7 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 </section>
 <section id="oparl_system" class="level2">
 <h2><span class="header-section-number">5.3</span> oparl:System (System)</h2>
+<p><strong>Namespace-URL:</strong> <code>http://oparl.org/schema/1.0/System</code></p>
 <p>Der Objekttyp <code>oparl:System</code> bildet grundlegende Informationen zum parlamentarischen Informationssystem ab. Das Objekt repräsentiert das technische System, unabhängig von der Frage, welche Körperschaften auf diesem System vertreten sind.</p>
 <p>Auf jedem OParl-Server MUSS ein Objekt vom Typ <code>oparl:System</code> vorgehalten werden. Es DARF nur ein einziges solches Objekt je Server existieren.</p>
 <p>Für Clients ist das <code>oparl:System</code> Objekt ein geeigneter Einstiegspunkt, um grundlegende Informationen über das System zu bekommen und die URLs zum Zugriff auf andere Informationen in Erfahrung zu bringen.</p>
@@ -1205,54 +1217,286 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;http://oparl.org/schema/1.0/System&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;oparlVersion&quot;</span><span class="fu">:</span> <span class="st">&quot;http://oparl.org/specs/1.0/&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;body&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/bodies/&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Beispiel-System&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;website&quot;</span><span class="fu">:</span> <span class="st">&quot;http://www.example.org/&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;contactEmail&quot;</span><span class="fu">:</span> <span class="st">&quot;mailto:info@example.org&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;contactName&quot;</span><span class="fu">:</span> <span class="st">&quot;Allgemeiner OParl Kontakt&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;vendor&quot;</span><span class="fu">:</span> <span class="st">&quot;http://example-software.com/&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;product&quot;</span><span class="fu">:</span> <span class="st">&quot;http://example-software.com/oparl-server/&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;body&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/bodies/&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;newObjects&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/new_objects/&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;updatedObjects&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/updated_objects/&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;removedObjects&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/removed_objects&quot;</span>
+    <span class="dt">&quot;removedObjects&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/removed_objects&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;website&quot;</span><span class="fu">:</span> <span class="st">&quot;http://www.example.org/&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;vendor&quot;</span><span class="fu">:</span> <span class="st">&quot;http://example-software.com/&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;product&quot;</span><span class="fu">:</span> <span class="st">&quot;http://example-software.com/oparl-server/&quot;</span>
 <span class="fu">}</span></code></pre>
 <section id="eigenschaften" class="level3">
 <h3><span class="header-section-number">5.3.1</span> Eigenschaften</h3>
-<dl>
-<dt><code>oparlVersion</code></dt>
-<dd><p>Die URL der OParl-Spezifikation, die von diesem Server unterstützt wird. Der Wert MUSS die URL <code>http://oparl.org/specs/1.0/</code> sein. Typ: URL. Kardinalität: 1. ZWINGEND.</p>
-</dd>
-<dt><code>body</code></dt>
-<dd><p>Liste der URLs der <a href="#oparl_body"><code>oparl:Body</code></a>-Objekte, also der Körperschaften, die auf dem System vorliegen. Alternativ kann statt einer Liste eine einzelne URL zum Abruf der Liste angeboten werden. Typ: URL des <code>oparl:Body</code> Objekts Kardinalität: 1. ZWINGEND.</p>
-</dd>
-<dt><code>name</code></dt>
-<dd><p>Nutzerfreundlicher Name für das System, mit dessen Hilfe Nutzer das System erkennen und von anderen unterscheiden können. Typ: String. Kardinalität: 0 bis 1. EMPFOHLEN.</p>
-</dd>
-<dt><code>contactEmail</code></dt>
-<dd><p>E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe einer E-Mail-Adresse dient sowohl Nutzerinnen wie auch Entwicklerinnen von Clients zur Kontaktaufnahme mit dem Betreiber. Typ: String im Format <code>foaf:mbox</code> Kardinalität: 0 bis 1. EMPFOHLEN.</p>
-</dd>
-<dt><code>contactName</code></dt>
-<dd><p>Name des Ansprechpartners oder der Abteilung, die über die <code>contactEmail</code> erreicht werden kann. Typ: String. Kardinalität: 0 bis 1. EMPFOHLEN.</p>
-</dd>
-<dt><code>newObjects</code></dt>
-<dd><p>URL des Feeds <a href="#feed_neue_objekte">&quot;Neue Objekte&quot;</a>. Typ: URL. Kardinalität: 0 bis 1. EMPFOHLEN.</p>
-</dd>
-<dt><code>updatedObjects</code></dt>
-<dd><p>URL des Feeds <a href="#feed_geaenderte_objekte">&quot;Geänderte Objekte&quot;</a>. Typ: URL. Kardinalität: 0 bis 1. EMPFOHLEN.</p>
-</dd>
-<dt><code>removedObjects</code></dt>
-<dd><p>URL des Feeds <a href="#feed_entfernte_objekte">&quot;Entfernte Objekte&quot;</a>. Typ: URL. Kardinalität: 0 bis 1. EMPFOHLEN.</p>
-</dd>
-<dt><code>website</code></dt>
-<dd><p>URL zur WWW-Oberfläche des parlamentarischen Informationssystems. Typ: URL. Kardinalität: 0 bis 1. OPTIONAL.</p>
-</dd>
-<dt><code>vendor</code></dt>
-<dd><p>Software-Anbieter, von dem die OParl-Server-Software stammt. Typ: URL. Kardinalität: 0 bis 1. OPTIONAL.</p>
-</dd>
-<dt><code>product</code></dt>
-<dd><p>Informationen zu der auf dem System genutzten OParl-Server-Software. Typ: URL. Kardinalität: 0 bis 1. OPTIONAL.</p>
-</dd>
-</dl>
+<p><strong><code>oparlVersion</code></strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Beschreibung:</td>
+<td style="text-align: left;">Die URL der OParl-Spezifikation, die von diesem Server</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">unterstützt wird. Aktuell kommt hier nur ein Wert in</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Frage. Mit zukünftigen OParl-Versionen kommen weitere</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">mögliche URLs hinzu.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Status:</td>
+<td style="text-align: left;"><em>ZWINGEND</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Typ:</td>
+<td style="text-align: left;">URL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wert:</td>
+<td style="text-align: left;"><code>http://oparl.org/specs/1.0/</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>body</code></strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Beschreibung:</td>
+<td style="text-align: left;">Liste der Körperschaften (<code>oparl:Body</code>-Objekte), die</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">auf dem System existieren.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Status:</td>
+<td style="text-align: left;"><em>ZWINGEND</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Typ:</td>
+<td style="text-align: left;">Array mit Objekt-URLs oder URL zum Listenabruf</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Siehe auch:</td>
+<td style="text-align: left;"><a href="#oparl_body"><code>oparl:Body</code></a>, <a href="#objektlisten">Objektlisten</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>name</code></strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Beschreibung:</td>
+<td style="text-align: left;">Nutzerfreundlicher Name für das System, mit dessen</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Hilfe Nutzerinnen und Nutzer das System erkennen und</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">von anderen unterscheiden können.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Status:</td>
+<td style="text-align: left;"><em>EMPFOHLEN</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Typ:</td>
+<td style="text-align: left;">String</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wert:</td>
+<td style="text-align: left;"><code>http://oparl.org/specs/1.0/</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>contactEmail</code></strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Beschreibung:</td>
+<td style="text-align: left;">E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">einer E-Mail-Adresse dient sowohl NutzerInnen wie auch</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Entwicklerinnen von Clients zur Kontaktaufnahme mit dem</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Betreiber.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Status:</td>
+<td style="text-align: left;"><em>EMPFOHLEN</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Typ:</td>
+<td style="text-align: left;">String im Format <code>foaf:mbox</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>contactName</code></strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Beschreibung:</td>
+<td style="text-align: left;">Name der Ansprechpartnerin bzw. des Ansprechpartners</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">oder der Abteilung, die über die in <code>contactEmail</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">angegebene Adresse erreicht werden kann.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Status:</td>
+<td style="text-align: left;"><em>EMPFOHLEN</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Typ:</td>
+<td style="text-align: left;">String</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>newObjects</code></strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Beschreibung:</td>
+<td style="text-align: left;">URL des Feeds &quot;Neue Objekte&quot;.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Status:</td>
+<td style="text-align: left;"><em>EMPFOHLEN</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Typ:</td>
+<td style="text-align: left;">URL</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Siehe auch:</td>
+<td style="text-align: left;"><a href="#feeds">Feeds</a>, <a href="#feed_neue_objekte">Neue Objekte</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>updatedObjects</code></strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Beschreibung:</td>
+<td style="text-align: left;">URL des Feeds &quot;Geänderte Objekte&quot;.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Status:</td>
+<td style="text-align: left;"><em>EMPFOHLEN</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Typ:</td>
+<td style="text-align: left;">URL</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Siehe auch:</td>
+<td style="text-align: left;"><a href="#feeds">Feeds</a>, <a href="#feed_geaenderte_objekte">Geänderte Objekte</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>removedObjects</code></strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Beschreibung:</td>
+<td style="text-align: left;">URL des Feeds &quot;Entfernte Objekte&quot;.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Status:</td>
+<td style="text-align: left;"><em>EMPFOHLEN</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Typ:</td>
+<td style="text-align: left;">URL</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Siehe auch:</td>
+<td style="text-align: left;"><a href="#feeds">Feeds</a>, <a href="#feed_entfernte_objekte">Entfernte Objekte</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>website</code></strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Beschreibung:</td>
+<td style="text-align: left;">URL der Website des parlamentarischen</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Informationssystems</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Status:</td>
+<td style="text-align: left;"><em>OPTIONAL</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Typ:</td>
+<td style="text-align: left;">URL</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>vendor</code></strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Beschreibung:</td>
+<td style="text-align: left;">URL der Website des Software-Anbieters, von dem die</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">OParl-Server-Software stammt.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Status:</td>
+<td style="text-align: left;"><em>OPTIONAL</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Typ:</td>
+<td style="text-align: left;">URL</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>product</code></strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Beschreibung:</td>
+<td style="text-align: left;">URL zu Informationen über die auf dem System genutzte</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">OParl-Server-Software</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Status:</td>
+<td style="text-align: left;"><em>OPTIONAL</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Typ:</td>
+<td style="text-align: left;">URL</td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 <section id="oparl_body" class="level2">
@@ -1274,19 +1518,22 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
         <span class="st">&quot;http://dbpedia.org/resource/Cologne&quot;</span>
     <span class="ot">]</span><span class="fu">,</span>
     <span class="dt">&quot;shortName&quot;</span><span class="fu">:</span> <span class="st">&quot;Köln&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="er">Stadt</span> <span class="er">Köln</span><span class="fu">,</span> <span class="er">kreisfreie</span> <span class="er">Stadt</span><span class="dt">&quot;,</span>
-<span class="dt">    &quot;</span><span class="er">website</span><span class="dt">&quot;: &quot;</span><span class="er">http</span><span class="fu">:</span><span class="er">//www.beispielstadt.de/</span><span class="st">&quot;,</span>
-<span class="st">    &quot;</span><span class="er">license</span><span class="st">&quot;: &quot;</span><span class="er">http://creativecommons.org/licenses/by/</span><span class="fl">4.0</span><span class="er">/</span><span class="st">&quot;,</span>
-<span class="st">    &quot;</span><span class="er">licenseValidSince</span><span class="st">&quot;: &quot;</span><span class="dv">2014-01-01</span><span class="st">&quot;,</span>
-<span class="st">    &quot;</span><span class="er">organization</span><span class="st">&quot;: &quot;</span><span class="er">https://oparl.example.org/body/</span><span class="dv">0</span><span class="er">/organizations/</span><span class="st">&quot;,</span>
-<span class="st">    &quot;</span><span class="er">meeting</span><span class="st">&quot;: &quot;</span><span class="er">https://oparl.example.org/body/</span><span class="dv">0</span><span class="er">/meetings/</span><span class="st">&quot;,</span>
-<span class="st">    &quot;</span><span class="er">paper</span><span class="st">&quot;: &quot;</span><span class="er">https://oparl.example.org/body/</span><span class="dv">0</span><span class="er">/papers/</span><span class="st">&quot;,</span>
-<span class="st">    &quot;</span><span class="er">member</span><span class="st">&quot;: &quot;</span><span class="er">https://oparl.example.org/body/</span><span class="dv">0</span><span class="er">/people/</span><span class="st">&quot;,</span>
-<span class="st">    &quot;</span><span class="er">legislativeTerm</span><span class="st">&quot;: &quot;</span><span class="er">https://oparl.example.org/body/</span><span class="dv">0</span><span class="er">/terms/</span><span class="st">&quot;,</span>
-<span class="st">    &quot;</span><span class="er">classification</span><span class="st">&quot;: &quot;</span><span class="er">https://oparl.example.org/vocab/landkreis</span><span class="st">&quot;,</span>
-<span class="st">    &quot;</span><span class="er">created</span><span class="st">&quot;: &quot;</span><span class="dv">2014-01-08</span><span class="er">T</span><span class="dv">14</span><span class="er">:</span><span class="dv">28</span><span class="er">:</span><span class="fl">31.568</span><span class="er">+</span><span class="dv">0100</span><span class="st">&quot;,</span>
-<span class="st">    &quot;</span><span class="er">modified</span><span class="st">&quot;: &quot;</span><span class="dv">2014-01-08</span><span class="er">T</span><span class="dv">14</span><span class="er">:</span><span class="dv">28</span><span class="er">:</span><span class="fl">31.568</span><span class="er">+</span><span class="dv">0100</span><span class="st">&quot;</span>
-<span class="st">}</span></code></pre>
+    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Stadt Köln, kreisfreie Stadt&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;website&quot;</span><span class="fu">:</span> <span class="st">&quot;http://www.beispielstadt.de/&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;license&quot;</span><span class="fu">:</span> <span class="st">&quot;http://creativecommons.org/licenses/by/4.0/&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;licenseValidSince&quot;</span><span class="fu">:</span> <span class="st">&quot;2014-01-01&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;organization&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/body/0/organizations/&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;meeting&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/body/0/meetings/&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;paper&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/body/0/papers/&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;member&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/body/0/people/&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;legislativeTerm&quot;</span><span class="fu">:</span> <span class="ot">[</span>
+        <span class="st">&quot;https://oparl.example.org/body/0/terms/1&quot;</span><span class="ot">,</span>
+        <span class="st">&quot;https://oparl.example.org/body/0/terms/2&quot;</span>
+    <span class="ot">]</span><span class="fu">,</span>
+    <span class="dt">&quot;classification&quot;</span><span class="fu">:</span> <span class="st">&quot;Kreisfreie Stadt&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;created&quot;</span><span class="fu">:</span> <span class="st">&quot;2014-01-08T14:28:31.568+0100&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;modified&quot;</span><span class="fu">:</span> <span class="st">&quot;2014-01-08T14:28:31.568+0100&quot;</span>
+<span class="fu">}</span></code></pre>
 <section id="eigenschaften-1" class="level3">
 <h3><span class="header-section-number">5.4.1</span> Eigenschaften</h3>
 <dl>
@@ -1335,6 +1582,9 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <dt><code>legislativeTerm</code></dt>
 <dd><p>Wahlperioden in dieser Körperschaft. Vgl. <a href="#objektlisten">Objektlisten</a>. Typ: Liste von <code>oparl:LegislativeTerm</code> Objekten. Kardinalität: 0 bis *. EMPFOHLEN.</p>
 </dd>
+<dt><code>classification</code></dt>
+<dd><p>Art der Körperschaft. Typ: String oder URLs eines <code>skos:Concept</code> Objekts (vgl. <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a>). Kardinalität: 0 bis 1. OPTIONAL.</p>
+</dd>
 <dt><code>keyword</code></dt>
 <dd><p>Schlagworte. Typ: Array von Strings oder URLs zu <code>skos:Concept</code> Objekten (vgl. <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a>). Kardinalität: 0 bis *. OPTIONAL.</p>
 </dd>
@@ -1358,8 +1608,9 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Ausschuss für Haushalt und Finanzen&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;shortName&quot;</span><span class="fu">:</span> <span class="st">&quot;Finanzausschuss&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;post&quot;</span><span class="fu">:</span> <span class="ot">[</span>
-        <span class="st">&quot;https://oparl.example.org/post/chairperson&quot;</span><span class="ot">,</span>
-        <span class="st">&quot;https://oparl.example.org/post/deputychairperson&quot;</span>
+        <span class="st">&quot;Vorsitzender | Vorsitzende&quot;</span><span class="ot">,</span>
+        <span class="st">&quot;1. Stellvertreter | 1. Stellvertreterin&quot;</span><span class="ot">,</span>
+        <span class="st">&quot;Mitglied&quot;</span>
     <span class="ot">]</span><span class="fu">,</span>
     <span class="dt">&quot;meeting&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/meetings_for_org/34&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;membership&quot;</span><span class="fu">:</span> <span class="ot">[</span>
@@ -1367,7 +1618,7 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
         <span class="st">&quot;https://oparl.example.org/memberships/48&quot;</span><span class="ot">,</span>
         <span class="st">&quot;https://oparl.example.org/memberships/57&quot;</span>
     <span class="ot">]</span><span class="fu">,</span>
-    <span class="dt">&quot;classification&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/vocab/finance&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;classification&quot;</span><span class="fu">:</span> <span class="st">&quot;Ausschuss&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;keyword&quot;</span><span class="fu">:</span> <span class="ot">[</span>
         <span class="st">&quot;finanzen&quot;</span><span class="ot">,</span>
         <span class="st">&quot;haushalt&quot;</span>
@@ -1411,7 +1662,7 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <dd><p>Ggf. URL der übergeordneten Gruppierung. Typ: <code>oparl:Organization</code>. Kardinalität: 0 bis 1. OPTIONAL.</p>
 </dd>
 <dt><code>classification</code></dt>
-<dd><p>Die Art der Gruppierung. In Frage kommen z.B. &quot;Rat&quot;, &quot;Hauptausschuss&quot;, &quot;Ausschuss&quot;, &quot;Beirat&quot;, &quot;Projektbeirat&quot;, &quot;Kommission&quot;, &quot;AG&quot;, &quot;Verwaltungsrat&quot;. Die Angabe soll möglichst präzise erfolgen. So ist die Angabe &quot;Hauptausschuss&quot; präziser als &quot;Ausschuss&quot;. Im Vokabular SOLL dann dieses Verhältnis zwischen &quot;Ausschuss&quot; und &quot;Hauptausschuss&quot; kodiert sein (&quot;https://oparl.example.org/hauptausschuss skos:broader https://oparl.example.org/ausschuss&quot;). Vgl. <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a>. Typ: <code>skos:Concept</code>. Kardinalität: 0 bis 1. EMPFOHLEN.</p>
+<dd><p>Die Art der Gruppierung. In Frage kommen z.B. &quot;Rat&quot;, &quot;Hauptausschuss&quot;, &quot;Ausschuss&quot;, &quot;Beirat&quot;, &quot;Projektbeirat&quot;, &quot;Kommission&quot;, &quot;AG&quot;, &quot;Verwaltungsrat&quot;. Die Angabe soll möglichst präzise erfolgen. Vgl. <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a>. Typ: String oder URL eines <code>skos:Concept</code> Objekts. Kardinalität: 0 bis 1. EMPFOHLEN.</p>
 </dd>
 <dt><code>keyword</code></dt>
 <dd><p>Schlagworte. Typ: Array von Strings oder URLs zu <code>skos:Concept</code> Objekten (vgl. <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a>). Kardinalität: 0 bis *. OPTIONAL.</p>
@@ -1428,6 +1679,9 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <dt><code>modified</code></dt>
 <dd><p>Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ: <code>xsd:dateTime</code>. Kardinalität: 0 bis 1. EMPFOHLEN.</p>
 </dd>
+<dt><code>website</code></dt>
+<dd><p>Allgemeine Website der Gruppierung. Typ: URL. Kardinalität: 0 bis 1. OPTIONAL.</p>
+</dd>
 </dl>
 </section>
 </section>
@@ -1442,17 +1696,17 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;familyName&quot;</span><span class="fu">:</span> <span class="st">&quot;Mustermann&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;givenName&quot;</span><span class="fu">:</span> <span class="st">&quot;Max&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;title&quot;</span><span class="fu">:</span> <span class="ot">[</span>
-        <span class="st">&quot;https://oparl.example.org/vocab/person/title/prof&quot;</span><span class="ot">,</span>
-        <span class="st">&quot;https://oparl.example.org/vocab/person/title/dr&quot;</span>
+        <span class="st">&quot;Prof.&quot;</span><span class="ot">,</span>
+        <span class="st">&quot;Dr.&quot;</span>
     <span class="ot">]</span><span class="fu">,</span>
-    <span class="dt">&quot;formOfAddress&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/vocab/foa/ratsmitglied&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;gender&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/vocab/person/gender/male&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;formOfAddress&quot;</span><span class="fu">:</span> <span class="st">&quot;Ratsherr | Ratsfrau&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;gender&quot;</span><span class="fu">:</span> <span class="st">&quot;male&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;email&quot;</span><span class="fu">:</span> <span class="st">&quot;mailto:max@mustermann.de&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;phone&quot;</span><span class="fu">:</span> <span class="st">&quot;tel:+493012345678&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;streetAddress&quot;</span><span class="fu">:</span> <span class="st">&quot;Musterstraße 5&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;postalCode&quot;</span><span class="fu">:</span> <span class="st">&quot;11111&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;locality&quot;</span><span class="fu">:</span> <span class="st">&quot;Musterort&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/status/buergermeister&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;Bezirksbürgermeister | Bezirksbürgermeisterin&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;membership&quot;</span><span class="fu">:</span> <span class="ot">[</span>
         <span class="st">&quot;https://oparl.example.org/membership/11&quot;</span><span class="ot">,</span>
         <span class="st">&quot;https://oparl.example.org/membership/34&quot;</span>
@@ -1473,13 +1727,13 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <dd><p>Vorname bzw. Taufname. Typ: String. Kardinalität: 0 bis 1. OPTIONAL.</p>
 </dd>
 <dt><code>formOfAddress</code></dt>
-<dd><p>Anrede. Diese Eigenschaft funktioniert wie in <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a> beschrieben entweder als URL zu einem <code>skos:Concept</code> oder als String. Der String bzw. <code>prefLabel</code> SOLL sowohl die männliche als auch die weibliche Bezeichnung enthalten. Beispiele: &quot;Herr | Frau&quot;, &quot;Ratsherr | Ratsfrau&quot;. Typ: URL eines <code>skos:Concept</code> Objekts oder String. Kardinalität: 0 bis 1. OPTIONAL.</p>
+<dd><p>Anrede. Diese Eigenschaft funktioniert wie in <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a> beschrieben entweder als URL zu einem <code>skos:Concept</code> oder als String. Der String bzw. <code>prefLabel</code> SOLL sowohl die männliche als auch die weibliche Bezeichnung enthalten. Beispiele: &quot;Herr | Frau&quot;, &quot;Ratsherr | Ratsfrau&quot;. Typ: String oder URL eines <code>skos:Concept</code> Objekts. Kardinalität: 0 bis 1. OPTIONAL.</p>
 </dd>
 <dt><code>title</code></dt>
-<dd><p>Akademische(r) Titel. Vgl. <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a>. Typ: URL eines <code>skos:Concept</code> Objekts oder String. Kardinalität: 0 bis *. OPTIONAL.</p>
+<dd><p>Akademische(r) Titel. Vgl. <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a>. Typ: Array von Strings oder URLs von <code>skos:Concept</code> Objekten. Kardinalität: 0 bis *. OPTIONAL.</p>
 </dd>
 <dt><code>gender</code></dt>
-<dd><p>Geschlecht. Zulässige Werte sind <code>vcard:Female</code>, <code>vcard:Male</code>, <code>vcard:None</code> und <code>vcard:Other</code>. Für den Fall, dass das Geschlecht der Person unbekannt ist, SOLL die Eigenschaft nicht ausgegeben werden. Typ: String im Format <code>vcard:Gender</code>. Kardinalität: 0 bis 1. OPTIONAL.</p>
+<dd><p>Geschlecht. Empfohlene Werte sind <code>female</code>, <code>male</code>, <code>none</code> und <code>other</code>. Für den Fall, dass das Geschlecht der Person unbekannt ist, SOLL die Eigenschaft nicht ausgegeben werden. Vgl. <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a>. Typ: String oder URL eines <code>skos:Concept</code> Objekts. Kardinalität: 0 bis 1. OPTIONAL.</p>
 </dd>
 <dt><code>phone</code></dt>
 <dd><p>Telefonnummer der Person mit <code>tel:</code> Schema, ohne Leerzeichen. Typ: String Kardinalität: 0 bis 1. OPTIONAL.</p>
@@ -1497,7 +1751,7 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <dd><p>Ortsangabe der Kontakt-Anschrift der Person. Typ: <code>vcard:locality</code> Kardinalität: 0 bis 1. OPTIONAL.</p>
 </dd>
 <dt><code>status</code></dt>
-<dd><p>Status. Diese Eigenschaft funktioniert wie in <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a> beschrieben entweder als URL zu einem <code>skos:Concept</code> oder als String. Die Strings bzw. <code>prefLabel</code> SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster &quot;männliche Form | weibliche Form&quot; (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem &quot;|&quot;). Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden: &quot;Ratsmitglied&quot; und nicht &quot;Ratsmitglied | Ratsmitglied&quot;. Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschlecht der Personen vornimmt. Weitere Beispiele: &quot;Bürgermeister | Bürgermeisterin&quot;, &quot;Bezirksbürgermeister | Bezirksbürgermeisterin&quot;, &quot;Stadtverordneter | Stadtverordnete&quot;, &quot;Bezirksverordneter | Bezirksverordnete&quot;, &quot;Sachkundiger Bürger | Sachkundige Bürgerin&quot;, &quot;Einzelstadtverordneter | Einzelstadtverordnete&quot; (Mitglieder des Rates die keiner Fraktion/Organisation angehören). Vgl. <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a>. Typ: URL eines <code>skos:Concept</code> Objekts oder String. Kardinalität: 0 bis *. OPTIONAL.</p>
+<dd><p>Status. Diese Eigenschaft funktioniert wie in <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a> beschrieben entweder als URL zu einem <code>skos:Concept</code> oder als String. Die Strings bzw. <code>prefLabel</code> SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster &quot;männliche Form | weibliche Form&quot; (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem &quot;|&quot;). Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden: &quot;Ratsmitglied&quot; und nicht &quot;Ratsmitglied | Ratsmitglied&quot;. Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschlecht der Personen vornimmt. Weitere Beispiele: &quot;Bürgermeister | Bürgermeisterin&quot;, &quot;Bezirksbürgermeister | Bezirksbürgermeisterin&quot;, &quot;Stadtverordneter | Stadtverordnete&quot;, &quot;Bezirksverordneter | Bezirksverordnete&quot;, &quot;Sachkundiger Bürger | Sachkundige Bürgerin&quot;, &quot;Einzelstadtverordneter | Einzelstadtverordnete&quot; (Mitglieder des Rates die keiner Fraktion/Organisation angehören). Vgl. <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a>. Typ: String oder URL eines <code>skos:Concept</code> Objekts. Kardinalität: 0 bis *. OPTIONAL.</p>
 </dd>
 <dt><code>membership</code></dt>
 <dd><p>Mitgliedschaften der Person in Gruppierungen, z. B. Gremien und Fraktionen. Typ: Liste von <code>org:Membership</code> Objekten. Kardinalität: 0 bis *. OPTIONAL.</p>
@@ -1517,7 +1771,7 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <section id="oparl_meeting" class="level2">
 <h2><span class="header-section-number">5.7</span> oparl:Meeting (Sitzung)</h2>
 <p>Eine Sitzung ist die Versammlung einer oder mehrerer Gruppierungen (oparl:Organization) zu einem bestimmten Zeitpunkt an einem bestimmten Ort.</p>
-<p>Die geladenen Teilnehmer der Sitzung sind jeweils als Objekte vom Typ oparl:Person in entsprechender Form referenziert. Verschiedene Dokumente (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.</p>
+<p>Die geladenen Teilnehmer der Sitzung sind jeweils als Objekte vom Typ oparl:Person in entsprechender Form referenziert. Verschiedene Dateien (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.</p>
 <p>Die Inhalte einer Sitzung werden durch Tagesordnungspunkte (oparl:AgendaItem) abgebildet.</p>
 <p><strong>Beispiel</strong></p>
 <pre class="sourceCode json" id="meeting_ex2"><code class="sourceCode json"><span class="fu">{</span>
@@ -1533,13 +1787,13 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
         <span class="st">&quot;https://oparl.example.org/organization/34&quot;</span>
     <span class="ot">]</span><span class="fu">,</span>
     <span class="dt">&quot;invitation&quot;</span><span class="fu">:</span> <span class="ot">[</span>
-        <span class="st">&quot;https://oparl.example.org/document/586&quot;</span>
+        <span class="st">&quot;https://oparl.example.org/files/586&quot;</span>
     <span class="ot">]</span><span class="fu">,</span>
-    <span class="dt">&quot;resultsProtocol&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/document/628&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;verbatimProtocol&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/document/691&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;auxiliaryDocument&quot;</span><span class="fu">:</span> <span class="ot">[</span>
-        <span class="st">&quot;https://oparl.example.org/document/588&quot;</span><span class="ot">,</span>
-        <span class="st">&quot;https://oparl.example.org/document/589&quot;</span>
+    <span class="dt">&quot;resultsProtocol&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/files/628&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;verbatimProtocol&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/files/691&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;auxiliaryFile&quot;</span><span class="fu">:</span> <span class="ot">[</span>
+        <span class="st">&quot;https://oparl.example.org/files/588&quot;</span><span class="ot">,</span>
+        <span class="st">&quot;https://oparl.example.org/files/589&quot;</span>
     <span class="ot">]</span><span class="fu">,</span>
     <span class="dt">&quot;agendaItem&quot;</span><span class="fu">:</span> <span class="ot">[</span>
         <span class="st">&quot;https://oparl.example.org/agendaitem/1045&quot;</span><span class="ot">,</span>
@@ -1592,8 +1846,8 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <dt><code>verbatimProtocol</code></dt>
 <dd><p>Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen. Typ: URL eines Objekts vom Typ <code>oparl:File</code>. Kardinalität: 0 bis 1. EMPFOHLEN.</p>
 </dd>
-<dt><code>auxiliaryDocument</code></dt>
-<dd><p>Dokumentenanhang zur Sitzung. Hiermit sind Dokumente gemeint, die üblicherweise mit der Einladung zu einer Sitzung verteilt werden, und die nicht bereits über einzelne Tagesordnungspunkte referenziert sind. Typ: Liste von Objekten des Typs <code>oparl:File</code>. Vgl. <a href="#objektlisten">Objektlisten</a>. Kardinalität: 0 bis *. OPTIONAL.</p>
+<dt><code>auxiliaryFile</code></dt>
+<dd><p>Dateianhang zur Sitzung. Hiermit sind Dateien gemeint, die üblicherweise mit der Einladung zu einer Sitzung verteilt werden, und die nicht bereits über einzelne Tagesordnungspunkte referenziert sind. Typ: Liste von Objekten des Typs <code>oparl:File</code>. Vgl. <a href="#objektlisten">Objektlisten</a>. Kardinalität: 0 bis *. OPTIONAL.</p>
 </dd>
 <dt><code>agendaItem</code></dt>
 <dd><p>Tagesordnungspunkte der Sitzung. Die Reihenfolge ist relevant. Es kann Sitzungen ohne TOPs geben. Typ: Liste von Objekten des Typs <code>oparl:AgendaItem</code>. Vgl. <a href="#objektlisten">Objektlisten</a>. Kardinalität: 0 bis *. OPTIONAL.</p>
@@ -1623,7 +1877,7 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Satzungsänderung für Ausschreibungen&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;public&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span>
     <span class="dt">&quot;consultation&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/consultation/1034&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;result&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/vocab/decided_modified&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;result&quot;</span><span class="fu">:</span> <span class="st">&quot;Geändert beschlossen&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;resolution&quot;</span><span class="fu">:</span> <span class="st">&quot;Der Beschluss weicht wie folgt vom Antrag ab: ...&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;modified&quot;</span><span class="fu">:</span> <span class="st">&quot;2012-08-16T14:05:27+02:00&quot;</span>
 <span class="fu">}</span></code></pre>
@@ -1649,9 +1903,9 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <dd><p>Kategorische Information darüber, welches Ergebnis die Beratung des Tagesordnungspunktes erbracht hat, in der Bedeutung etwa &quot;Unverändert beschlossen&quot; oder &quot;Geändert beschlossen&quot;. Diese Eigenschaft funktioniert wie in <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a> beschrieben entweder als URL zu einem <code>skos:Concept</code> oder als String. Typ: String oder URL eines <code>skos:Concept</code> Objekts. Kardinalität: 0 bis 1. EMPFOHLEN.</p>
 </dd>
 <dt><code>resolution</code></dt>
-<dd><p>Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann hier ein Text oder Dokument angegeben werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag) von der Beschlussvorlage abweicht. Typ: String oder URL eines Objekts vom Typ <code>oparl:File</code>. Kardinalität: 0 bis 1. OPTIONAL.</p>
+<dd><p>Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann hier ein Text oder eine Datei angegeben werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag) von der Beschlussvorlage abweicht. Typ: String oder URL eines Objekts vom Typ <code>oparl:File</code>. Kardinalität: 0 bis 1. OPTIONAL.</p>
 </dd>
-<dt><code>auxiliaryDocument</code></dt>
+<dt><code>auxiliaryFile</code></dt>
 <dd><p>Dateianhänge zum Tagesordnungspunkt. Typ: Liste von Objekten des Typs <code>oparl:File</code>. Vgl. <a href="#objektlisten">Objektlisten</a>. Kardinalität: 0 bis *. OPTIONAL.</p>
 </dd>
 <dt><code>keyword</code></dt>
@@ -1679,13 +1933,13 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Antwort auf Anfrage 1200/2014&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;reference&quot;</span><span class="fu">:</span> <span class="st">&quot;1234/2014&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;publishedDate&quot;</span><span class="fu">:</span> <span class="st">&quot;2014-04-04T16:42:02+02:00&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;paperType&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/vocab/answer&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;paperType&quot;</span><span class="fu">:</span> <span class="st">&quot;Beantwortung einer Anfrage&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;relatedPaper&quot;</span><span class="fu">:</span> <span class="ot">[</span>
         <span class="st">&quot;https://oparl.example.org/paper/699&quot;</span>
     <span class="ot">]</span><span class="fu">,</span>
-    <span class="dt">&quot;mainDocument&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/document/925&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;auxiliaryDocument&quot;</span><span class="fu">:</span> <span class="ot">[</span>
-        <span class="st">&quot;https://oparl.example.org/document/926&quot;</span>
+    <span class="dt">&quot;mainFile&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/files/925&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;auxiliaryFile&quot;</span><span class="fu">:</span> <span class="ot">[</span>
+        <span class="st">&quot;https://oparl.example.org/files/926&quot;</span>
     <span class="ot">]</span><span class="fu">,</span>
     <span class="dt">&quot;location&quot;</span><span class="fu">:</span> <span class="ot">[</span>
         <span class="st">&quot;https://oparl.example.org/locations/4472&quot;</span>
@@ -1724,11 +1978,11 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <dt><code>relatedPaper</code></dt>
 <dd><p>Inhaltlich verwandte Drucksachen. Typ: Liste von Objekten des Typs <code>oparl:Paper</code>. Vgl. <a href="#objektlisten">Objektlisten</a>. Kardinalität: 0 bis *. OPTIONAL.</p>
 </dd>
-<dt><code>mainDocument</code></dt>
-<dd><p>Das Hauptdokument zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert eine Beschlussvorlage und das Hauptdokument enthält den Text der Beschlussvorlage. Typ: URL eines Objekts vom Typ <code>oparl:File</code>. Kardinalität: 1. ZWINGEND.</p>
+<dt><code>mainFile</code></dt>
+<dd><p>Die Haupt-Datei zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert eine Beschlussvorlage und die Haupt-Datei enthält den Text der Beschlussvorlage. Typ: URL eines Objekts vom Typ <code>oparl:File</code>. Kardinalität: 1. ZWINGEND.</p>
 </dd>
-<dt><code>auxiliaryDocument</code></dt>
-<dd><p>Anhänge zur Drucksache. Diese sind, in Abgrenzung zum Hauptdokument (<code>mainDocument</code>), untergeordnet und es kann beliebig viele davon geben. Typ: Liste von Objekten des Typs <code>oparl:File</code>. Vgl. <a href="#objektlisten">Objektlisten</a>. Kardinalität: 0 bis *. OPTIONAL.</p>
+<dt><code>auxiliaryFile</code></dt>
+<dd><p>Anhänge zur Drucksache. Diese sind, in Abgrenzung zur Haupt-Datei (<code>mainFile</code>), untergeordnet und es kann beliebig viele davon geben. Typ: Liste von Objekten des Typs <code>oparl:File</code>. Vgl. <a href="#objektlisten">Objektlisten</a>. Kardinalität: 0 bis *. OPTIONAL.</p>
 </dd>
 <dt><code>location</code></dt>
 <dd><p>Sofern die Drucksache einen inhaltlichen Ortsbezug hat, beschreibt diese Eigenschaft den Ort in Textform und/oder in Form von Geodaten. Typ: Liste von Objekten des Typs <code>oparl:Location</code>. Vgl. <a href="#objektlisten">Objektlisten</a>. Kardinalität: 0 bis *. OPTIONAL.</p>
@@ -1751,14 +2005,14 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 </dl>
 </section>
 </section>
-<section id="oparl_document" class="level2">
+<section id="oparl_file" class="level2">
 <h2><span class="header-section-number">5.10</span> oparl:File (Datei)</h2>
 <p>Ein Objekt vom Typ <code>oparl:File</code> repräsentiert eine Datei, beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokument, und hält Metadaten zu der Datei sowie URLs zum Zugriff auf die Datei bereit.</p>
 <p>Objekte vom Typ <code>oparl:File</code> können mit Drucksachen (<code>oparl:Paper</code>) oder Sitzungen (<code>oparl:Meeting</code>) in Beziehung stehen. Dies wird durch die Eigenschaft <code>paper</code> bzw. <code>meeting</code> angezeigt.</p>
-<p>Mehrere Objekte vom Typ <code>oparl:File</code> können mit einander in direkter Beziehung stehen, wenn sie den selben Inhalt in unterschiedlichen technischen Formaten wiedergeben. Hierfür werden die Eigenschaften <code>masterDocument</code> bzw. <code>derivativeDocument</code> eingesetzt. Das oben angezeigte Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der Eigenschaft <code>mimeType</code>) und zeigt außerdem über die Eigenschaft <code>masterDocument</code> an, von welcher anderen Datei es abgeleitet wurde. Umgekehrt KANN über die Eigenschaft <code>derivativeDocument</code> angezeigt werden, welche Ableitungen einer Datei existieren.</p>
+<p>Mehrere Objekte vom Typ <code>oparl:File</code> können mit einander in direkter Beziehung stehen, wenn sie den selben Inhalt in unterschiedlichen technischen Formaten wiedergeben. Hierfür werden die Eigenschaften <code>masterFile</code> bzw. <code>derivativeFile</code> eingesetzt. Das oben angezeigte Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der Eigenschaft <code>mimeType</code>) und zeigt außerdem über die Eigenschaft <code>masterFile</code> an, von welcher anderen Datei es abgeleitet wurde. Umgekehrt KANN über die Eigenschaft <code>derivativeFile</code> angezeigt werden, welche Ableitungen einer Datei existieren.</p>
 <p><strong>Beispiel</strong></p>
-<pre class="sourceCode json" id="document_ex1"><code class="sourceCode json"><span class="fu">{</span>
-    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/document/57739&quot;</span><span class="fu">,</span>
+<pre class="sourceCode json" id="file_ex1"><code class="sourceCode json"><span class="fu">{</span>
+    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/files/57739&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;http://oparl.org/schema/1.0/File&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Anlage 1 zur Anfrage&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;fileName&quot;</span><span class="fu">:</span> <span class="st">&quot;57739.pdf&quot;</span><span class="fu">,</span>
@@ -1770,12 +2024,11 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;modified&quot;</span><span class="fu">:</span> <span class="st">&quot;2013-01-04T07:54:13+01:00&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;sha1Checksum&quot;</span><span class="fu">:</span> <span class="st">&quot;da39a3ee5e6b4b0d3255bfef95601890afd80709&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;size&quot;</span><span class="fu">:</span> <span class="dv">82930</span><span class="fu">,</span>
-    <span class="dt">&quot;accessUrl&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/document/57739.pdf&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;downloadUrl&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/document/download/57739.pdf&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;accessUrl&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/files/57739.pdf&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;downloadUrl&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/files/download/57739.pdf&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;text&quot;</span><span class="fu">:</span> <span class="st">&quot;Der Übersichtsplan zeigt alle Ebenen des ...&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;masterDocument&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/document/57738&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;license&quot;</span><span class="fu">:</span> <span class="st">&quot;http://www.opendefinition.org/licenses/cc-by&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;documentRole&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/vocab/file/role/evidence&quot;</span>
+    <span class="dt">&quot;masterFile&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/files/57738&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;license&quot;</span><span class="fu">:</span> <span class="st">&quot;http://www.opendefinition.org/licenses/cc-by&quot;</span>
 <span class="fu">}</span></code></pre>
 <section id="eigenschaften-7" class="level3">
 <h3><span class="header-section-number">5.10.1</span> Eigenschaften</h3>
@@ -1799,7 +2052,7 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <dd><p>Größe der Datei in Bytes. Typ: ganze Zahl. Kardinalität: 1. ZWINGEND.</p>
 </dd>
 <dt><code>sha1Checksum</code></dt>
-<dd><p>SHA1-Prüfsumme des Dokumenteninhalts in Hexadezimal-Schreibweise. Typ: String. Kardinalität: 0 bis 1. OPTIONAL.</p>
+<dd><p>SHA1-Prüfsumme des Dateiinhalts in Hexadezimal-Schreibweise. Typ: String. Kardinalität: 0 bis 1. OPTIONAL.</p>
 </dd>
 <dt><code>text</code></dt>
 <dd><p>Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform wiedergegeben werden kann. Typ: String. Kardinalität: 0 bis 1. EMPFOHLEN.</p>
@@ -1816,17 +2069,17 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <dt><code>meeting</code></dt>
 <dd><p>Falls die Datei zu einer oder mehreren Sitzungen (<code>oparl:Meeting</code>) gehört, MÜSSEN diese Sitzungen über diese Eigenschaft angegeben werden. Typ: Liste von <code>oparl:Meeting</code> Objekten. Kardinalität: 0 bis *. EMPFOHLEN.</p>
 </dd>
-<dt><code>masterDocument</code></dt>
+<dt><code>masterFile</code></dt>
 <dd><p>Datei, von der das aktuelle Objekt abgeleitet wurde. Details dazu in der allgemeinen Beschreibung weiter oben. Typ: URL eines Objekts vom Typ <code>oparl:File</code>. Kardinalität: 0 bis 1. OPTIONAL.</p>
 </dd>
-<dt><code>derivativeDocument</code></dt>
+<dt><code>derivativeFile</code></dt>
 <dd><p>Datei, die von dem aktuellen Objekt abgeleitet wurde. Details dazu in der allgemeinen Beschreibung weiter oben. Typ: Liste von <code>oparl:File</code> Objekten. Kardinalität: 0 bis *. OPTIONAL.</p>
 </dd>
 <dt><code>license</code></dt>
 <dd><p>Lizenz, unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet wird, dann ist sie anstelle einer globalen Angabe im übergeordneten <code>oparl:Body</code>- bzw. <code>oparl:System</code>-Objekt maßgeblich.<a href="#fn54" class="footnoteRef" id="fnref54"><sup>54</sup></a> Typ: URL. Kardinalität: 0 bis 1. OPTIONAL.</p>
 </dd>
-<dt><code>documentRole</code></dt>
-<dd><p>Rolle, Funktion, Sorte des Dokuments in Bezug auf eine Sitzung. Die Eigenschaft SOLL entsprechend nur in Verbindung mit der Eigenschaft <code>meeting</code> gesetzt sein. Siehe dazu <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a>. Typ: String oder URL eines <code>skos:Concept</code> Objekts. Kardinalität: 0 bis 1. OPTIONAL.</p>
+<dt><code>fileRole</code></dt>
+<dd><p>Rolle, Funktion der Datei in Bezug auf eine Sitzung. Die Eigenschaft SOLL entsprechend nur in Verbindung mit der Eigenschaft <code>meeting</code> gesetzt sein. Siehe dazu <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a>. Typ: String oder URL eines <code>skos:Concept</code> Objekts. Kardinalität: 0 bis 1. OPTIONAL.</p>
 </dd>
 <dt><code>keyword</code></dt>
 <dd><p>Schlagworte. Typ: Array von Strings oder URLs zu <code>skos:Concept</code> Objekten (vgl. <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a>). Kardinalität: 0 bis *. OPTIONAL.</p>
@@ -1846,7 +2099,7 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;agendaItem&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/agendaitem/15569&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;organization&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/organization/96&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;authoritative&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span>
-    <span class="dt">&quot;role&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/role/decision&quot;</span>
+    <span class="dt">&quot;role&quot;</span><span class="fu">:</span> <span class="st">&quot;Beschlussfassung&quot;</span>
 <span class="fu">}</span></code></pre>
 <section id="eigenschaften-8" class="level3">
 <h3><span class="header-section-number">5.11.1</span> Eigenschaften</h3>
@@ -1864,7 +2117,7 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <dd><p>Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst wird (<code>true</code>) wird oder nicht (<code>false</code>). Typ: Boolean. Kardinalität: 0 bis 1. OPTIONAL.</p>
 </dd>
 <dt><code>role</code></dt>
-<dd><p>Rolle oder Funktion der Beratung. Zum Beispiel Anhörung, Entscheidung, Kenntnisnahme, Vorberatung usw. Diese Eigenschaft funktioniert wie in <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a> beschrieben entweder als URL zu einem <code>skos:Concept</code> oder als String. Typ: String oder URL eines <code>skos:Concept</code> Objekts. Kardinalität: 0 bis 1. OPTIONAL.</p>
+<dd><p>Rolle oder Funktion der Beratung. Zum Beispiel Anhörung, Entscheidung, Kenntnisnahme, Vorberatung usw. Diese Eigenschaft funktioniert wie in <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a> beschrieben entweder als String oder als URL zu einem <code>skos:Concept</code> Objekt. Typ: String oder URL eines <code>skos:Concept</code> Objekts. Kardinalität: 0 bis 1. OPTIONAL.</p>
 </dd>
 <dt><code>keyword</code></dt>
 <dd><p>Schlagworte. Typ: Array von Strings oder URLs zu <code>skos:Concept</code> Objekten (vgl. <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a>). Kardinalität: 0 bis *. OPTIONAL.</p>
@@ -1917,7 +2170,7 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="oparl_membership" class="level2">
-<h2><span class="header-section-number">5.13</span> oparl:Membership</h2>
+<h2><span class="header-section-number">5.13</span> oparl:Membership (Mitgliedschaft)</h2>
 <p>Über Objekte diesen Typs wird die Mitgliedschaft von Personen in Gruppierungen dargestellt. Diese Mitgliedschaften können zeitlich begrenzt sein. Zudem kann abgebildet werden, dass eine Person eine bestimmte Rolle bzw. Position innerhalb der Gruppierung inne hat, beispielsweise den Vorsitz einer Fraktion.</p>
 <p><strong>Beispiel 1</strong></p>
 <pre class="sourceCode json" id="membership_ex1"><code class="sourceCode json"><span class="fu">{</span>
@@ -1925,7 +2178,7 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
     <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;http://oparl.org/schema/1.0/Membership&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;person&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/people/862&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;organization&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/organizations/5&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;role&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/vocab/membership/role/chair&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;role&quot;</span><span class="fu">:</span> <span class="st">&quot;Vorsitzender | Vorsitzende&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;votingRight&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span>
     <span class="dt">&quot;startDate&quot;</span><span class="fu">:</span> <span class="st">&quot;2013-12-03T16:30:00+01:00&quot;</span>
 <span class="fu">}</span></code></pre>
@@ -1949,7 +2202,7 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <dd><p>Die Gruppierung, in der die Person Mitglied ist oder war. Typ: URL eines <code>oparl:Organization</code> Objekts. Kardinalität: 1. ZWINGEND.</p>
 </dd>
 <dt><code>role</code></dt>
-<dd><p>Rolle der Person für die Gruppierung. Kann genutzt werden, um verschiedene Arten von Mitgliedschaften zum Beispiel in Gremien zu unterscheiden. Diese Eigenschaft funktioniert wie in <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a> beschrieben entweder als URL zu einem skos:Concept oder als String. Der String (oder entsprechend das prefLabel des verlinkten Objekts) SOLL in dieser Form sowohl die männliche als auch die weibliche Rollenbezeichnung enthalten: <code>&quot;Vorsitzender | Vorsitzende&quot;</code>. Typ: URL eines <code>skos:Concept</code> Objekts oder String. Kardinalität: 0 bis 1. OPTIONAL.</p>
+<dd><p>Rolle der Person für die Gruppierung. Kann genutzt werden, um verschiedene Arten von Mitgliedschaften zum Beispiel in Gremien zu unterscheiden. Diese Eigenschaft funktioniert wie in <a href="#vokabulare_klassifizierung">Vokabulare zur Klassifizierung</a> beschrieben entweder als URL zu einem skos:Concept oder als String. Der String (oder entsprechend das prefLabel des verlinkten Objekts) SOLL in dieser Form sowohl die männliche als auch die weibliche Rollenbezeichnung enthalten: <code>&quot;Vorsitzender | Vorsitzende&quot;</code>. Typ: String oder URL eines <code>skos:Concept</code> Objekts. Kardinalität: 0 bis 1. OPTIONAL.</p>
 </dd>
 <dt><code>post</code></dt>
 <dd><p>The post held by the person in the organization. Typ: <code>org:Post</code>. TODO: Prüfen, ob das ohne JSON-LD Sinn macht, oder ob hier zusätzliche Erläuterungen notwendig sind. OPTIONAL.</p>
@@ -1970,12 +2223,13 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 </section>
 </section>
 <section id="oparl_legislative_term" class="level2">
-<h2><span class="header-section-number">5.14</span> oparl:LegislativeTerm</h2>
+<h2><span class="header-section-number">5.14</span> oparl:LegislativeTerm (Wahlperiode)</h2>
 <p>Dieser Objekttyp dient der Beschreibung einer Wahlperiode.</p>
 <p><strong>Beispiel</strong></p>
 <pre class="sourceCode json" id="legislative_term_ex1"><code class="sourceCode json"><span class="fu">{</span>
     <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/term/21&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;http://oparl.org/schema/1.0/LegislativeTerm&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;body&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/body/0&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;21. Wahlperiode&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;startDate&quot;</span><span class="fu">:</span> <span class="st">&quot;2010-12-03&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;endDate&quot;</span><span class="fu">:</span>  <span class="st">&quot;2013-12-03&quot;</span>
@@ -1983,6 +2237,9 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <section id="eigenschaften-11" class="level3">
 <h3><span class="header-section-number">5.14.1</span> Eigenschaften</h3>
 <dl>
+<dt><code>body</code></dt>
+<dd><p>Die Körperschaft, der diese Wahlperiode zugeordnet ist. Typ: URL des <code>oparl:Body</code> Objekts. Kardinalität: 1. ZWINGEND.</p>
+</dd>
 <dt><code>name</code></dt>
 <dd><p>Nutzerfreundliche Bezeichnung der Wahlperiode. Typ: <code>xsd:string</code>. Kardinalität: 1. ZWINGEND.</p>
 </dd>

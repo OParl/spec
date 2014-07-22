@@ -153,10 +153,11 @@ anzubieten, dass jegliche weitere Verwendung durch Dritte technisch
 möglich ist. Der seit einiger Zeit etablierte Begriff für dieses Prinzip
 heißt ``Open Data''.
 
-Open-Data-Initiativen können unter Rückgriff auf RIS mit
-OParl-Schnittstelle einfacher Dokumente und Daten aus unterschiedlichen
-Gebietskörperschaften in Open-Data-Katalogen verzeichnen und so
-einfacher auffindbar machen für die Weiterverwendung durch Dritte.
+Open-Data-Initiativen können unter Rückgriff auf Ratsinformationssysteme
+(RIS) mit OParl-Schnittstelle einfacher Dokumente und Daten aus
+unterschiedlichen Gebietskörperschaften in Open-Data-Katalogen
+verzeichnen und so einfacher auffindbar machen für die Weiterverwendung
+durch Dritte.
 
 Bürgerinnen und Bürger, politische Parteien und zivilgesellschaftliche
 Organisationen können einfacher auf Inhalte parlamentarischer
@@ -1106,14 +1107,14 @@ Spezifikation erlaubt auch die Kodierung von mehreren Objekten, die
 Punkte, Linien oder Polygone repräsentieren können. Vgl. dazu
 \texttt{oparl:Location}.
 
-Auch die Ausgabe einer Nur-Text-Version im Kontext des Dokuments
+Auch die Ausgabe einer Nur-Text-Version im Kontext der Datei
 (\texttt{oparl:File}), das den barrierefreien Zugriff auf Inhalte oder
 Indexierung für Volltextsuchfunktionen deutlich vereinfacht, ist eine
 Möglichkeit, die in der gängigen Praxis noch nicht zu finden ist. Ebenso
-die Möglichkeit, Beziehungen zwischen einzelnen Dokumenten herzustellen,
-um so von einem Dokument zu anderen Dokumenten mit identischem Inhalt,
-aber in anderen technischen Formaten zu verweisen, etwa von einer
-ODT-Datei zu einer PDF-Version.
+die Möglichkeit, Beziehungen zwischen einzelnen Dateien herzustellen, um
+so von einer Datei zu anderen Dateien mit identischem Inhalt, aber in
+anderen technischen Formaten zu verweisen, etwa von einer ODT-Datei zu
+einer PDF-Version.
 
 \hyperdef{}{restful}{\subsubsection{RESTful}\label{restful}}
 
@@ -1842,8 +1843,8 @@ Liste:
             \DataTypeTok{"body"}\FunctionTok{:} \StringTok{"https://oparl.example.org/bodies/0"}\FunctionTok{,}
             \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Antwort auf Anfrage 1200/2014"}\FunctionTok{,}
             \DataTypeTok{"publishedDate"}\FunctionTok{:} \StringTok{"2014-04-04T16:42:02+02:00"}\FunctionTok{,}
-            \DataTypeTok{"paperType"}\FunctionTok{:} \StringTok{"https://oparl.example.org/vocab/answer"}\FunctionTok{,}
-            \DataTypeTok{"mainDocument"}\FunctionTok{:} \StringTok{"https://oparl.example.org/documents/925"}\FunctionTok{,}
+            \DataTypeTok{"paperType"}\FunctionTok{:} \StringTok{"Beantwortung einer Anfrage"}\FunctionTok{,}
+            \DataTypeTok{"mainFile"}\FunctionTok{:} \StringTok{"https://oparl.example.org/files/925"}\FunctionTok{,}
             \DataTypeTok{"originator"}\FunctionTok{:} \OtherTok{[}
                 \StringTok{"https://oparl.example.org/organization/2000"}
             \OtherTok{]}
@@ -1854,8 +1855,8 @@ Liste:
             \DataTypeTok{"body"}\FunctionTok{:} \StringTok{"https://oparl.example.org/bodies/0"}\FunctionTok{,}
             \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Mitteilung der Verwaltung"}\FunctionTok{,}
             \DataTypeTok{"publishedDate"}\FunctionTok{:} \StringTok{"2014-06-01T12:24:18+02:00"}\FunctionTok{,}
-            \DataTypeTok{"paperType"}\FunctionTok{:} \StringTok{"https://oparl.example.org/vocab/message"}\FunctionTok{,}
-            \DataTypeTok{"mainDocument"}\FunctionTok{:} \StringTok{"https://oparl.example.org/documents/2758"}\FunctionTok{,}
+            \DataTypeTok{"paperType"}\FunctionTok{:} \StringTok{"Mitteilung"}\FunctionTok{,}
+            \DataTypeTok{"mainFile"}\FunctionTok{:} \StringTok{"https://oparl.example.org/files/2758"}\FunctionTok{,}
             \DataTypeTok{"originator"}\FunctionTok{:} \OtherTok{[}
                 \StringTok{"https://oparl.example.org/people/1000"}
             \OtherTok{]}
@@ -1994,9 +1995,11 @@ einzelnen Listenseiten abzurufen.
 
 Server-Implementierer entscheiden selbst, wie die URLs zum Abruf
 einzelner Listenseiten aufgebaut sind und tragen damit selbst
-Verantwortung für die Funktionsweise der Paginierung. Bei der
-Entscheidung für eine Form der Implementierung sollten die folgenden
-Anforderungen von Clients berücksichtigt werden:
+Verantwortung für die Funktionsweise der Paginierung. Die im obigen
+Beispiel verwendete URL einschließlich des fiktiven URL-Parameters
+dienen lediglich der Veranschaulichung und sind in keiner Weise bindend.
+Bei der Entscheidung für eine Form der Implementierung sollten die
+folgenden Anforderungen von Clients berücksichtigt werden:
 
 \begin{itemize}
 \item
@@ -2081,7 +2084,7 @@ einem konstanten Prinzip und ändert sich nicht von Abfrage zu Abfrage.
 Eine Einfache Möglichkeit, dies Umzusetzen, wäre in vielen Fällen die
 Sortierung von Objekten nach ihrer eindeutigen und unveränderlichen ID.
 
-\subsubsection{Filter}\label{filter}
+\hyperdef{}{filter}{\subsubsection{Filter}\label{filter}}
 
 Bei der \emph{externen Listenausgabe} (siehe weiter oben) werden in
 Abhängigkeit vom ausgegebenen Objekttyp bestimmte Möglichkeiten geboten,
@@ -2361,10 +2364,10 @@ Clients SOLLEN vermeiden, die URLs der jeweiligen Einträge im Feed
 Mit dem Begriff ``Datei'' sind im Sinne dieser Spezifikation alle
 Ressourcen gemeint, die von einem OParl-Server zur Verfügung gestellt
 werden und deren Metadaten über die JSON-API als
-\hyperref[oparlux5fdocument]{\texttt{oparl:File}} abgerufen werden
-können. Es handelt sich dabei beispielsweise um Textdokumente im
-PDF-Format, Abbildungen im JPEG- oder PNG-Format etc., die wesentliche
-Inhalte der parlamentarischen Informationen im OParl-System ausmachen.
+\hyperref[oparlux5ffile]{\texttt{oparl:File}} abgerufen werden können.
+Es handelt sich dabei beispielsweise um Textdokumente im PDF-Format,
+Abbildungen im JPEG- oder PNG-Format etc., die wesentliche Inhalte der
+parlamentarischen Informationen im OParl-System ausmachen.
 
 In Bezug auf die Datenvolumen, die der Verkehr zwischen OParl-Servern
 und -Clients ausmacht, kommt dem Dateizugriff eine besondere Bedeutung
@@ -2390,7 +2393,7 @@ Ressource, aus.
 Die URLs zum Abruf der einzelnen Datei (wahlweise mittels GET oder HEAD)
 stellt der Server dem Client in den Daten des Metadaten-Objekts zur
 Verfügung. Details finden sich in der Schema-Beschreibung zu
-\hyperref[oparlux5fdocument]{\texttt{oparl:File}}.
+\hyperref[oparlux5ffile]{\texttt{oparl:File}}.
 
 \subsubsection{Allgemeiner Zugriff und expliziter
 Download}\label{allgemeiner-zugriff-und-expliziter-download}
@@ -2537,7 +2540,7 @@ und von ihm unterstützte Repräsentation an den Client ausliefert.
 Grundanforderung der vorliegenden Spezifikation an OParl-Clients ist,
 dass sie bei jeder Anfrage an einen OParl-Server einen Accept-Header mit
 dem Mime-Type \texttt{application/json} senden MÜSSEN, es sei denn, es
-handelt sich um einen \hyperref[dateizugriff]{Dateizugriffe}.
+handelt sich um einen \hyperref[dateizugriff]{Dateizugriff}.
 
 Im Kontext von OParl soll durch Unterstützung von Content Negotiation
 ermöglicht werden, dass die URLs von OParl-Objekten auch von WWW-Clients
@@ -2671,15 +2674,9 @@ mehr für die freie Verwendung in URLs zur Verfügung.
 
 \begin{description}
 \itemsep1pt\parskip0pt\parsep0pt
-\item[\texttt{callback}:]
-Mit diesem Parameter wird die JSONP-Ausgabe aktiviert. Mehr dazu im
-Abschnitt \hyperref[jsonp]{JSONP}.
-\item[\texttt{startdate}:]
+\item[\texttt{startdate}, \texttt{enddate}:]
 Parameter für die Einschränkung einer Abfrage anhand eines Datums bzw.
-einer Zeitangabe.
-\item[\texttt{enddate}:]
-Parameter für die Einschränkung einer Abfrage anhand eines Datums bzw.
-einer Zeitangabe.
+einer Zeitangabe. Vgl. \hyperref[filter]{Objektlisten: Filter}.
 \item[\texttt{listformat}:]
 Parameter zur Steuerung der Listenausgabe. Siehe dazu:
 \hyperref[objektlistenux5flistformat]{Objektlisten: Kompakte und
@@ -2738,9 +2735,9 @@ können, stellen einen Sonderfall dar. Diese können, wie im Abschnitt
 JSON-Array oder eine URL zum externen Abruf einer Objektliste als Wert
 haben. In der Praxis kann es vorkommen, dass solche Listen leer sind.
 Beispielsweise könnte eine Gruppierung neu erstellt worden sein und noch
-keine Sitzungstermine aufweisen. In diesem Fall ist ein leeres Array
-eine gültige Möglichkeit, dies auszudrücken. Da es sich dabei um eine
-obligatorische Eigenschaft handelt, muss sie jedoch ausgegeben werden.
+keine Sitzungstermine aufweisen. In diesem Fall ist ein leeres Array die
+richtige Möglichkeit, dies auszudrücken. Da es sich dabei um eine
+obligatorische Eigenschaft handelt, MUSS sie jedoch ausgegeben werden.
 
 Beispiel:
 
@@ -2823,12 +2820,18 @@ von Objekten. Im Einzelnen sind dies:
 \itemsep1pt\parskip0pt\parsep0pt
 \item
   \texttt{classification} des Objekttyps
+  \hyperref[oparlux5fbody]{\texttt{oparl:Body}}
+\item
+  \texttt{classification} des Objekttyps
   \hyperref[oparlux5forganization]{\texttt{oparl:Organization}}
 \item
-  \texttt{documentRole} des Objekttyps
-  \hyperref[oparlux5fdocument]{\texttt{oparl:File}}
+  \texttt{fileRole} des Objekttyps
+  \hyperref[oparlux5ffile]{\texttt{oparl:File}}
 \item
   \texttt{formOfAddress} des Objekttyps
+  \hyperref[oparlux5fperson]{\texttt{oparl:Person}}
+\item
+  \texttt{gender} des Objekttyps
   \hyperref[oparlux5fperson]{\texttt{oparl:Person}}
 \item
   \texttt{keyword} in mehreren Objekttypen
@@ -2858,15 +2861,55 @@ von Objekten. Im Einzelnen sind dies:
   \hyperref[oparlux5fperson]{\texttt{oparl:Person}}
 \end{itemize}
 
-Diese Eigenschaften können als Wert wahlweise einfache Zeichenketten
-(Strings) haben, z. B. \texttt{"Beantwortung einer Anfrage"} oder aber
-URLs. Wenn eine URL verwendet wird, MUSS diese auf ein
+Beispielsweise dient die Eigenschaft \texttt{paperType} des Objekttyps
+\texttt{oparl:Paper} dazu, eine Drucksache als Mitteilung, Antrag,
+Anfrage, Beschlussvorlage etc. zu kennzeichnen. Hierbei kann jeweils
+wahlweise ein einfacher Strings (Zeichenkette) als Wert der Eigenschaft
+ausgegeben werden oder eine URL.
+
+Die folgenden Beispiele verdeutlichen die Alternativen. Zunächst die
+Klassifizierung mittels String:
+
+\hyperdef{}{vokabularux5fex1}{\label{vokabularux5fex1}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \ErrorTok{...}
+    \DataTypeTok{"paperType"}\FunctionTok{:} \StringTok{"Beantwortung einer Anfrage"}\FunctionTok{,}
+    \ErrorTok{...}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Die Alternative mittels einer (fiktiven) URL:
+
+\hyperdef{}{vokabularux5fex1}{\label{vokabularux5fex1}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+    \ErrorTok{...}
+    \DataTypeTok{"paperType"}\FunctionTok{:} \StringTok{"http://example.com/InquiryResponse"}\FunctionTok{,}
+    \ErrorTok{...}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Grundsätzlich liegt die Wahl der genutzten Variante beim Betreiber des
+Systems, wobei innerhalb eines Systems beide Varianten vermischt werden
+KÖNNEN.
+
+Wird als Wert eine URL verwendet, MUSS diese auf ein
 JSON-LD-Objekt\footnote{JSON-LD 1.0: \url{http://www.w3.org/TR/json-ld/}}
 vom Typ \texttt{skos:Concept} zeigen. Dieses Objekt MUSS eine
 Eigenschaft \texttt{prefLabel} besitzen, in dem die benutzerfreundliche
 Benennung des Konzepts wiedergegeben wird.\footnote{Diese Konstrukte
   entstammen dem \emph{Simple Knowledge Organization System} (SKOS):
   \url{http://www.w3.org/2009/08/skos-reference/skos.html}}
+
+Die vorliegende Spezifikation macht in der Regel keine Vorgaben dazu,
+welche Begrifflichkeiten bei der Nutzung von Strings zu verwenden sind.
+Ebenso ist der Betreiber des System frei bei der Entscheidung, welche
+URLs dieses nutzt.
 
 Ein Beispiel für ein \texttt{skos:Concept} Objekt, wie es für die
 Eigenschaft \texttt{status} eines Objekts vom Typ \texttt{oparl:Person}
@@ -2882,20 +2925,20 @@ genutzt werden kann:
         \FunctionTok{\}}
     \FunctionTok{\},}
     \DataTypeTok{"@type"}\FunctionTok{:} \StringTok{"http://www.w3.org/2004/02/skos/core#Concept"}\FunctionTok{,}
-    \DataTypeTok{"prefLabel"}\FunctionTok{:} \StringTok{"Ratsherr | Ratsfrau"}
+    \DataTypeTok{"prefLabel"}\FunctionTok{:} \StringTok{"Beantwortung einer Anfrage"}
 \FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-Das Objekt darf unter einer beliebigen URL abgelegt werden. Diese kann,
+Das Objekt DARF unter einer beliebigen URL abgelegt werden. Diese kann,
 muss aber nicht Teil des jeweiligen OParl-Systems sein.
 
-Sinnvoll wird die Verwendung von URLs zur Klassifizierung, wenn mehrere
-Systeme auf die selben URLs verweisen, damit also ein gemeinsames
-Vokabular zur Klassifizierung nutzen. Die Verwendung eines
-übergreifenden Vokabulars soll dazu beitragen, dass die automatisierte
-Auswertung von parlamentarischen Informationen über die Grenzen
-einzelner Systeme hinweg deutlich erleichtert wird. So könnte
+Sinnvoll wird die Verwendung von URLs anstelle von Strings zur
+Klassifizierung, wenn mehrere Systeme auf die selben URLs verweisen,
+damit also ein gemeinsames Vokabular zur Klassifizierung nutzen. Die
+Verwendung eines übergreifenden Vokabulars soll dazu beitragen, dass die
+automatisierte Auswertung von parlamentarischen Informationen über die
+Grenzen einzelner Systeme hinweg deutlich erleichtert wird. So könnte
 beispielsweise eine bestimmte Art von Drucksache über Systemgrenzen
 hinweg als solche erkannt werden, wenn die Systeme auf dasselbe
 \texttt{skos:Concept} Objekt verweisen.
@@ -3089,6 +3132,8 @@ beschrieben.
 
 \subsection{oparl:System (System)}\label{oparlux5fsystem}
 
+\textbf{Namespace-URL:} \texttt{http://oparl.org/schema/1.0/System}
+
 Der Objekttyp \texttt{oparl:System} bildet grundlegende Informationen
 zum parlamentarischen Informationssystem ab. Das Objekt repräsentiert
 das technische System, unabhängig von der Frage, welche Körperschaften
@@ -3115,65 +3160,209 @@ mit der URL des API-Endpunkts des Servers sein.
     \DataTypeTok{"id"}\FunctionTok{:} \StringTok{"https://oparl.example.org/"}\FunctionTok{,}
     \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"http://oparl.org/schema/1.0/System"}\FunctionTok{,}
     \DataTypeTok{"oparlVersion"}\FunctionTok{:} \StringTok{"http://oparl.org/specs/1.0/"}\FunctionTok{,}
+    \DataTypeTok{"body"}\FunctionTok{:} \StringTok{"https://oparl.example.org/bodies/"}\FunctionTok{,}
     \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Beispiel-System"}\FunctionTok{,}
-    \DataTypeTok{"website"}\FunctionTok{:} \StringTok{"http://www.example.org/"}\FunctionTok{,}
     \DataTypeTok{"contactEmail"}\FunctionTok{:} \StringTok{"mailto:info@example.org"}\FunctionTok{,}
     \DataTypeTok{"contactName"}\FunctionTok{:} \StringTok{"Allgemeiner OParl Kontakt"}\FunctionTok{,}
-    \DataTypeTok{"vendor"}\FunctionTok{:} \StringTok{"http://example-software.com/"}\FunctionTok{,}
-    \DataTypeTok{"product"}\FunctionTok{:} \StringTok{"http://example-software.com/oparl-server/"}\FunctionTok{,}
-    \DataTypeTok{"body"}\FunctionTok{:} \StringTok{"https://oparl.example.org/bodies/"}\FunctionTok{,}
     \DataTypeTok{"newObjects"}\FunctionTok{:} \StringTok{"https://oparl.example.org/new_objects/"}\FunctionTok{,}
     \DataTypeTok{"updatedObjects"}\FunctionTok{:} \StringTok{"https://oparl.example.org/updated_objects/"}\FunctionTok{,}
-    \DataTypeTok{"removedObjects"}\FunctionTok{:} \StringTok{"https://oparl.example.org/removed_objects"}
+    \DataTypeTok{"removedObjects"}\FunctionTok{:} \StringTok{"https://oparl.example.org/removed_objects"}\FunctionTok{,}
+    \DataTypeTok{"website"}\FunctionTok{:} \StringTok{"http://www.example.org/"}\FunctionTok{,}
+    \DataTypeTok{"vendor"}\FunctionTok{:} \StringTok{"http://example-software.com/"}\FunctionTok{,}
+    \DataTypeTok{"product"}\FunctionTok{:} \StringTok{"http://example-software.com/oparl-server/"}
 \FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
 \subsubsection{Eigenschaften}\label{eigenschaften}
 
-\begin{description}
-\item[\texttt{oparlVersion}]
-Die URL der OParl-Spezifikation, die von diesem Server unterstützt wird.
-Der Wert MUSS die URL \texttt{http://oparl.org/specs/1.0/} sein. Typ:
-URL. Kardinalität: 1. ZWINGEND.
-\item[\texttt{body}]
-Liste der URLs der
-\hyperref[oparlux5fbody]{\texttt{oparl:Body}}-Objekte, also der
-Körperschaften, die auf dem System vorliegen. Alternativ kann statt
-einer Liste eine einzelne URL zum Abruf der Liste angeboten werden. Typ:
-URL des \texttt{oparl:Body} Objekts Kardinalität: 1. ZWINGEND.
-\item[\texttt{name}]
-Nutzerfreundlicher Name für das System, mit dessen Hilfe Nutzer das
-System erkennen und von anderen unterscheiden können. Typ: String.
-Kardinalität: 0 bis 1. EMPFOHLEN.
-\item[\texttt{contactEmail}]
-E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe einer
-E-Mail-Adresse dient sowohl Nutzerinnen wie auch Entwicklerinnen von
-Clients zur Kontaktaufnahme mit dem Betreiber. Typ: String im Format
-\texttt{foaf:mbox} Kardinalität: 0 bis 1. EMPFOHLEN.
-\item[\texttt{contactName}]
-Name des Ansprechpartners oder der Abteilung, die über die
-\texttt{contactEmail} erreicht werden kann. Typ: String. Kardinalität: 0
-bis 1. EMPFOHLEN.
-\item[\texttt{newObjects}]
-URL des Feeds \hyperref[feedux5fneueux5fobjekte]{``Neue Objekte''}. Typ:
-URL. Kardinalität: 0 bis 1. EMPFOHLEN.
-\item[\texttt{updatedObjects}]
-URL des Feeds \hyperref[feedux5fgeaenderteux5fobjekte]{``Geänderte
-Objekte''}. Typ: URL. Kardinalität: 0 bis 1. EMPFOHLEN.
-\item[\texttt{removedObjects}]
-URL des Feeds \hyperref[feedux5fentfernteux5fobjekte]{``Entfernte
-Objekte''}. Typ: URL. Kardinalität: 0 bis 1. EMPFOHLEN.
-\item[\texttt{website}]
-URL zur WWW-Oberfläche des parlamentarischen Informationssystems. Typ:
-URL. Kardinalität: 0 bis 1. OPTIONAL.
-\item[\texttt{vendor}]
-Software-Anbieter, von dem die OParl-Server-Software stammt. Typ: URL.
-Kardinalität: 0 bis 1. OPTIONAL.
-\item[\texttt{product}]
-Informationen zu der auf dem System genutzten OParl-Server-Software.
-Typ: URL. Kardinalität: 0 bis 1. OPTIONAL.
-\end{description}
+\textbf{\texttt{oparlVersion}}
+
+\begin{longtable}[c]{@{}ll@{}}
+\toprule\addlinespace
+Beschreibung: & Die URL der OParl-Spezifikation, die von diesem Server
+\\\addlinespace
+& unterstützt wird. Aktuell kommt hier nur ein Wert in
+\\\addlinespace
+& Frage. Mit zukünftigen OParl-Versionen kommen weitere
+\\\addlinespace
+& mögliche URLs hinzu.
+\\\addlinespace
+Status: & \emph{ZWINGEND}
+\\\addlinespace
+Typ: & URL
+\\\addlinespace
+Wert: & \texttt{http://oparl.org/specs/1.0/}
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+\textbf{\texttt{body}}
+
+\begin{longtable}[c]{@{}ll@{}}
+\toprule\addlinespace
+Beschreibung: & Liste der Körperschaften (\texttt{oparl:Body}-Objekte),
+die
+\\\addlinespace
+& auf dem System existieren.
+\\\addlinespace
+Status: & \emph{ZWINGEND}
+\\\addlinespace
+Typ: & Array mit Objekt-URLs oder URL zum Listenabruf
+\\\addlinespace
+Siehe auch: & \hyperref[oparlux5fbody]{\texttt{oparl:Body}},
+\hyperref[objektlisten]{Objektlisten}
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+\textbf{\texttt{name}}
+
+\begin{longtable}[c]{@{}ll@{}}
+\toprule\addlinespace
+Beschreibung: & Nutzerfreundlicher Name für das System, mit dessen
+\\\addlinespace
+& Hilfe Nutzerinnen und Nutzer das System erkennen und
+\\\addlinespace
+& von anderen unterscheiden können.
+\\\addlinespace
+Status: & \emph{EMPFOHLEN}
+\\\addlinespace
+Typ: & String
+\\\addlinespace
+Wert: & \texttt{http://oparl.org/specs/1.0/}
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+\textbf{\texttt{contactEmail}}
+
+\begin{longtable}[c]{@{}ll@{}}
+\toprule\addlinespace
+Beschreibung: & E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe
+\\\addlinespace
+& einer E-Mail-Adresse dient sowohl NutzerInnen wie auch
+\\\addlinespace
+& Entwicklerinnen von Clients zur Kontaktaufnahme mit dem
+\\\addlinespace
+& Betreiber.
+\\\addlinespace
+Status: & \emph{EMPFOHLEN}
+\\\addlinespace
+Typ: & String im Format \texttt{foaf:mbox}
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+\textbf{\texttt{contactName}}
+
+\begin{longtable}[c]{@{}ll@{}}
+\toprule\addlinespace
+Beschreibung: & Name der Ansprechpartnerin bzw. des Ansprechpartners
+\\\addlinespace
+& oder der Abteilung, die über die in \texttt{contactEmail}
+\\\addlinespace
+& angegebene Adresse erreicht werden kann.
+\\\addlinespace
+Status: & \emph{EMPFOHLEN}
+\\\addlinespace
+Typ: & String
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+\textbf{\texttt{newObjects}}
+
+\begin{longtable}[c]{@{}ll@{}}
+\toprule\addlinespace
+Beschreibung: & URL des Feeds ``Neue Objekte''.
+\\\addlinespace
+Status: & \emph{EMPFOHLEN}
+\\\addlinespace
+Typ: & URL
+\\\addlinespace
+Siehe auch: & \hyperref[feeds]{Feeds},
+\hyperref[feedux5fneueux5fobjekte]{Neue Objekte}
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+\textbf{\texttt{updatedObjects}}
+
+\begin{longtable}[c]{@{}ll@{}}
+\toprule\addlinespace
+Beschreibung: & URL des Feeds ``Geänderte Objekte''.
+\\\addlinespace
+Status: & \emph{EMPFOHLEN}
+\\\addlinespace
+Typ: & URL
+\\\addlinespace
+Siehe auch: & \hyperref[feeds]{Feeds},
+\hyperref[feedux5fgeaenderteux5fobjekte]{Geänderte Objekte}
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+\textbf{\texttt{removedObjects}}
+
+\begin{longtable}[c]{@{}ll@{}}
+\toprule\addlinespace
+Beschreibung: & URL des Feeds ``Entfernte Objekte''.
+\\\addlinespace
+Status: & \emph{EMPFOHLEN}
+\\\addlinespace
+Typ: & URL
+\\\addlinespace
+Siehe auch: & \hyperref[feeds]{Feeds},
+\hyperref[feedux5fentfernteux5fobjekte]{Entfernte Objekte}
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+\textbf{\texttt{website}}
+
+\begin{longtable}[c]{@{}ll@{}}
+\toprule\addlinespace
+Beschreibung: & URL der Website des parlamentarischen
+\\\addlinespace
+& Informationssystems
+\\\addlinespace
+Status: & \emph{OPTIONAL}
+\\\addlinespace
+Typ: & URL
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+\textbf{\texttt{vendor}}
+
+\begin{longtable}[c]{@{}ll@{}}
+\toprule\addlinespace
+Beschreibung: & URL der Website des Software-Anbieters, von dem die
+\\\addlinespace
+& OParl-Server-Software stammt.
+\\\addlinespace
+Status: & \emph{OPTIONAL}
+\\\addlinespace
+Typ: & URL
+\\\addlinespace
+\bottomrule
+\end{longtable}
+
+\textbf{\texttt{product}}
+
+\begin{longtable}[c]{@{}ll@{}}
+\toprule\addlinespace
+Beschreibung: & URL zu Informationen über die auf dem System genutzte
+\\\addlinespace
+& OParl-Server-Software
+\\\addlinespace
+Status: & \emph{OPTIONAL}
+\\\addlinespace
+Typ: & URL
+\\\addlinespace
+\bottomrule
+\end{longtable}
 
 \hyperdef{}{oparlux5fbody}{\subsection{oparl:Body
 (Körperschaft)}\label{oparlux5fbody}}
@@ -3215,19 +3404,22 @@ einem bestimmten Parlament an.
         \StringTok{"http://dbpedia.org/resource/Cologne"}
     \OtherTok{]}\FunctionTok{,}
     \DataTypeTok{"shortName"}\FunctionTok{:} \StringTok{"Köln"}\FunctionTok{,}
-    \DataTypeTok{"name"}\FunctionTok{:} \ErrorTok{Stadt} \ErrorTok{Köln}\FunctionTok{,} \ErrorTok{kreisfreie} \ErrorTok{Stadt}\DataTypeTok{",}
-\DataTypeTok{    "}\ErrorTok{website}\DataTypeTok{": "}\ErrorTok{http}\FunctionTok{:}\ErrorTok{//www.beispielstadt.de/}\StringTok{",}
-\StringTok{    "}\ErrorTok{license}\StringTok{": "}\ErrorTok{http://creativecommons.org/licenses/by/}\FloatTok{4.0}\ErrorTok{/}\StringTok{",}
-\StringTok{    "}\ErrorTok{licenseValidSince}\StringTok{": "}\DecValTok{2014-01-01}\StringTok{",}
-\StringTok{    "}\ErrorTok{organization}\StringTok{": "}\ErrorTok{https://oparl.example.org/body/}\DecValTok{0}\ErrorTok{/organizations/}\StringTok{",}
-\StringTok{    "}\ErrorTok{meeting}\StringTok{": "}\ErrorTok{https://oparl.example.org/body/}\DecValTok{0}\ErrorTok{/meetings/}\StringTok{",}
-\StringTok{    "}\ErrorTok{paper}\StringTok{": "}\ErrorTok{https://oparl.example.org/body/}\DecValTok{0}\ErrorTok{/papers/}\StringTok{",}
-\StringTok{    "}\ErrorTok{member}\StringTok{": "}\ErrorTok{https://oparl.example.org/body/}\DecValTok{0}\ErrorTok{/people/}\StringTok{",}
-\StringTok{    "}\ErrorTok{legislativeTerm}\StringTok{": "}\ErrorTok{https://oparl.example.org/body/}\DecValTok{0}\ErrorTok{/terms/}\StringTok{",}
-\StringTok{    "}\ErrorTok{classification}\StringTok{": "}\ErrorTok{https://oparl.example.org/vocab/landkreis}\StringTok{",}
-\StringTok{    "}\ErrorTok{created}\StringTok{": "}\DecValTok{2014-01-08}\ErrorTok{T}\DecValTok{14}\ErrorTok{:}\DecValTok{28}\ErrorTok{:}\FloatTok{31.568}\ErrorTok{+}\DecValTok{0100}\StringTok{",}
-\StringTok{    "}\ErrorTok{modified}\StringTok{": "}\DecValTok{2014-01-08}\ErrorTok{T}\DecValTok{14}\ErrorTok{:}\DecValTok{28}\ErrorTok{:}\FloatTok{31.568}\ErrorTok{+}\DecValTok{0100}\StringTok{"}
-\StringTok{\}}
+    \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Stadt Köln, kreisfreie Stadt"}\FunctionTok{,}
+    \DataTypeTok{"website"}\FunctionTok{:} \StringTok{"http://www.beispielstadt.de/"}\FunctionTok{,}
+    \DataTypeTok{"license"}\FunctionTok{:} \StringTok{"http://creativecommons.org/licenses/by/4.0/"}\FunctionTok{,}
+    \DataTypeTok{"licenseValidSince"}\FunctionTok{:} \StringTok{"2014-01-01"}\FunctionTok{,}
+    \DataTypeTok{"organization"}\FunctionTok{:} \StringTok{"https://oparl.example.org/body/0/organizations/"}\FunctionTok{,}
+    \DataTypeTok{"meeting"}\FunctionTok{:} \StringTok{"https://oparl.example.org/body/0/meetings/"}\FunctionTok{,}
+    \DataTypeTok{"paper"}\FunctionTok{:} \StringTok{"https://oparl.example.org/body/0/papers/"}\FunctionTok{,}
+    \DataTypeTok{"member"}\FunctionTok{:} \StringTok{"https://oparl.example.org/body/0/people/"}\FunctionTok{,}
+    \DataTypeTok{"legislativeTerm"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"https://oparl.example.org/body/0/terms/1"}\OtherTok{,}
+        \StringTok{"https://oparl.example.org/body/0/terms/2"}
+    \OtherTok{]}\FunctionTok{,}
+    \DataTypeTok{"classification"}\FunctionTok{:} \StringTok{"Kreisfreie Stadt"}\FunctionTok{,}
+    \DataTypeTok{"created"}\FunctionTok{:} \StringTok{"2014-01-08T14:28:31.568+0100"}\FunctionTok{,}
+    \DataTypeTok{"modified"}\FunctionTok{:} \StringTok{"2014-01-08T14:28:31.568+0100"}
+\FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3301,6 +3493,10 @@ Wahlperioden in dieser Körperschaft. Vgl.
 \hyperref[objektlisten]{Objektlisten}. Typ: Liste von
 \texttt{oparl:LegislativeTerm} Objekten. Kardinalität: 0 bis *.
 EMPFOHLEN.
+\item[\texttt{classification}]
+Art der Körperschaft. Typ: String oder URLs eines \texttt{skos:Concept}
+Objekts (vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}). Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{keyword}]
 Schlagworte. Typ: Array von Strings oder URLs zu \texttt{skos:Concept}
 Objekten (vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
@@ -3338,8 +3534,9 @@ Praxis insbesondere Fraktionen und Gremien.\footnote{Ein Teil der
     \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Ausschuss für Haushalt und Finanzen"}\FunctionTok{,}
     \DataTypeTok{"shortName"}\FunctionTok{:} \StringTok{"Finanzausschuss"}\FunctionTok{,}
     \DataTypeTok{"post"}\FunctionTok{:} \OtherTok{[}
-        \StringTok{"https://oparl.example.org/post/chairperson"}\OtherTok{,}
-        \StringTok{"https://oparl.example.org/post/deputychairperson"}
+        \StringTok{"Vorsitzender | Vorsitzende"}\OtherTok{,}
+        \StringTok{"1. Stellvertreter | 1. Stellvertreterin"}\OtherTok{,}
+        \StringTok{"Mitglied"}
     \OtherTok{]}\FunctionTok{,}
     \DataTypeTok{"meeting"}\FunctionTok{:} \StringTok{"https://oparl.example.org/meetings_for_org/34"}\FunctionTok{,}
     \DataTypeTok{"membership"}\FunctionTok{:} \OtherTok{[}
@@ -3347,7 +3544,7 @@ Praxis insbesondere Fraktionen und Gremien.\footnote{Ein Teil der
         \StringTok{"https://oparl.example.org/memberships/48"}\OtherTok{,}
         \StringTok{"https://oparl.example.org/memberships/57"}
     \OtherTok{]}\FunctionTok{,}
-    \DataTypeTok{"classification"}\FunctionTok{:} \StringTok{"https://oparl.example.org/vocab/finance"}\FunctionTok{,}
+    \DataTypeTok{"classification"}\FunctionTok{:} \StringTok{"Ausschuss"}\FunctionTok{,}
     \DataTypeTok{"keyword"}\FunctionTok{:} \OtherTok{[}
         \StringTok{"finanzen"}\OtherTok{,}
         \StringTok{"haushalt"}
@@ -3424,14 +3621,10 @@ Ggf. URL der übergeordneten Gruppierung. Typ:
 Die Art der Gruppierung. In Frage kommen z.B. ``Rat'',
 ``Hauptausschuss'', ``Ausschuss'', ``Beirat'', ``Projektbeirat'',
 ``Kommission'', ``AG'', ``Verwaltungsrat''. Die Angabe soll möglichst
-präzise erfolgen. So ist die Angabe ``Hauptausschuss'' präziser als
-``Ausschuss''. Im Vokabular SOLL dann dieses Verhältnis zwischen
-``Ausschuss'' und ``Hauptausschuss'' kodiert sein
-(``https://oparl.example.org/hauptausschuss skos:broader
-https://oparl.example.org/ausschuss''). Vgl.
+präzise erfolgen. Vgl.
 \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
-Klassifizierung}. Typ: \texttt{skos:Concept}. Kardinalität: 0 bis 1.
-EMPFOHLEN.
+Klassifizierung}. Typ: String oder URL eines \texttt{skos:Concept}
+Objekts. Kardinalität: 0 bis 1. EMPFOHLEN.
 \item[\texttt{keyword}]
 Schlagworte. Typ: Array von Strings oder URLs zu \texttt{skos:Concept}
 Objekten (vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
@@ -3450,6 +3643,9 @@ Kardinalität: 0 bis 1. EMPFOHLEN.
 \item[\texttt{modified}]
 Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ:
 \texttt{xsd:dateTime}. Kardinalität: 0 bis 1. EMPFOHLEN.
+\item[\texttt{website}]
+Allgemeine Website der Gruppierung. Typ: URL. Kardinalität: 0 bis 1.
+OPTIONAL.
 \end{description}
 
 \hyperdef{}{oparlux5fperson}{\subsection{oparl:Person
@@ -3472,17 +3668,17 @@ einem Objekt vom Typ \texttt{oparl:Person} abgebildet.
     \DataTypeTok{"familyName"}\FunctionTok{:} \StringTok{"Mustermann"}\FunctionTok{,}
     \DataTypeTok{"givenName"}\FunctionTok{:} \StringTok{"Max"}\FunctionTok{,}
     \DataTypeTok{"title"}\FunctionTok{:} \OtherTok{[}
-        \StringTok{"https://oparl.example.org/vocab/person/title/prof"}\OtherTok{,}
-        \StringTok{"https://oparl.example.org/vocab/person/title/dr"}
+        \StringTok{"Prof."}\OtherTok{,}
+        \StringTok{"Dr."}
     \OtherTok{]}\FunctionTok{,}
-    \DataTypeTok{"formOfAddress"}\FunctionTok{:} \StringTok{"https://oparl.example.org/vocab/foa/ratsmitglied"}\FunctionTok{,}
-    \DataTypeTok{"gender"}\FunctionTok{:} \StringTok{"https://oparl.example.org/vocab/person/gender/male"}\FunctionTok{,}
+    \DataTypeTok{"formOfAddress"}\FunctionTok{:} \StringTok{"Ratsherr | Ratsfrau"}\FunctionTok{,}
+    \DataTypeTok{"gender"}\FunctionTok{:} \StringTok{"male"}\FunctionTok{,}
     \DataTypeTok{"email"}\FunctionTok{:} \StringTok{"mailto:max@mustermann.de"}\FunctionTok{,}
     \DataTypeTok{"phone"}\FunctionTok{:} \StringTok{"tel:+493012345678"}\FunctionTok{,}
     \DataTypeTok{"streetAddress"}\FunctionTok{:} \StringTok{"Musterstraße 5"}\FunctionTok{,}
     \DataTypeTok{"postalCode"}\FunctionTok{:} \StringTok{"11111"}\FunctionTok{,}
     \DataTypeTok{"locality"}\FunctionTok{:} \StringTok{"Musterort"}\FunctionTok{,}
-    \DataTypeTok{"status"}\FunctionTok{:} \StringTok{"https://oparl.example.org/status/buergermeister"}\FunctionTok{,}
+    \DataTypeTok{"status"}\FunctionTok{:} \StringTok{"Bezirksbürgermeister | Bezirksbürgermeisterin"}\FunctionTok{,}
     \DataTypeTok{"membership"}\FunctionTok{:} \OtherTok{[}
         \StringTok{"https://oparl.example.org/membership/11"}\OtherTok{,}
         \StringTok{"https://oparl.example.org/membership/34"}
@@ -3511,20 +3707,20 @@ Anrede. Diese Eigenschaft funktioniert wie in
 beschrieben entweder als URL zu einem \texttt{skos:Concept} oder als
 String. Der String bzw. \texttt{prefLabel} SOLL sowohl die männliche als
 auch die weibliche Bezeichnung enthalten. Beispiele: ``Herr \textbar{}
-Frau'', ``Ratsherr \textbar{} Ratsfrau''. Typ: URL eines
-\texttt{skos:Concept} Objekts oder String. Kardinalität: 0 bis 1.
-OPTIONAL.
+Frau'', ``Ratsherr \textbar{} Ratsfrau''. Typ: String oder URL eines
+\texttt{skos:Concept} Objekts. Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{title}]
 Akademische(r) Titel. Vgl.
 \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
-Klassifizierung}. Typ: URL eines \texttt{skos:Concept} Objekts oder
-String. Kardinalität: 0 bis *. OPTIONAL.
+Klassifizierung}. Typ: Array von Strings oder URLs von
+\texttt{skos:Concept} Objekten. Kardinalität: 0 bis *. OPTIONAL.
 \item[\texttt{gender}]
-Geschlecht. Zulässige Werte sind \texttt{vcard:Female},
-\texttt{vcard:Male}, \texttt{vcard:None} und \texttt{vcard:Other}. Für
-den Fall, dass das Geschlecht der Person unbekannt ist, SOLL die
-Eigenschaft nicht ausgegeben werden. Typ: String im Format
-\texttt{vcard:Gender}. Kardinalität: 0 bis 1. OPTIONAL.
+Geschlecht. Empfohlene Werte sind \texttt{female}, \texttt{male},
+\texttt{none} und \texttt{other}. Für den Fall, dass das Geschlecht der
+Person unbekannt ist, SOLL die Eigenschaft nicht ausgegeben werden. Vgl.
+\hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
+Klassifizierung}. Typ: String oder URL eines \texttt{skos:Concept}
+Objekts. Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{phone}]
 Telefonnummer der Person mit \texttt{tel:} Schema, ohne Leerzeichen.
 Typ: String Kardinalität: 0 bis 1. OPTIONAL.
@@ -3560,8 +3756,8 @@ Stadtverordnete'', ``Bezirksverordneter \textbar{} Bezirksverordnete'',
 ``Einzelstadtverordneter \textbar{} Einzelstadtverordnete'' (Mitglieder
 des Rates die keiner Fraktion/Organisation angehören). Vgl.
 \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
-Klassifizierung}. Typ: URL eines \texttt{skos:Concept} Objekts oder
-String. Kardinalität: 0 bis *. OPTIONAL.
+Klassifizierung}. Typ: String oder URL eines \texttt{skos:Concept}
+Objekts. Kardinalität: 0 bis *. OPTIONAL.
 \item[\texttt{membership}]
 Mitgliedschaften der Person in Gruppierungen, z. B. Gremien und
 Fraktionen. Typ: Liste von \texttt{org:Membership} Objekten.
@@ -3585,7 +3781,7 @@ Eine Sitzung ist die Versammlung einer oder mehrerer Gruppierungen
 Ort.
 
 Die geladenen Teilnehmer der Sitzung sind jeweils als Objekte vom Typ
-oparl:Person in entsprechender Form referenziert. Verschiedene Dokumente
+oparl:Person in entsprechender Form referenziert. Verschiedene Dateien
 (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können
 referenziert werden.
 
@@ -3610,13 +3806,13 @@ Die Inhalte einer Sitzung werden durch Tagesordnungspunkte
         \StringTok{"https://oparl.example.org/organization/34"}
     \OtherTok{]}\FunctionTok{,}
     \DataTypeTok{"invitation"}\FunctionTok{:} \OtherTok{[}
-        \StringTok{"https://oparl.example.org/document/586"}
+        \StringTok{"https://oparl.example.org/files/586"}
     \OtherTok{]}\FunctionTok{,}
-    \DataTypeTok{"resultsProtocol"}\FunctionTok{:} \StringTok{"https://oparl.example.org/document/628"}\FunctionTok{,}
-    \DataTypeTok{"verbatimProtocol"}\FunctionTok{:} \StringTok{"https://oparl.example.org/document/691"}\FunctionTok{,}
-    \DataTypeTok{"auxiliaryDocument"}\FunctionTok{:} \OtherTok{[}
-        \StringTok{"https://oparl.example.org/document/588"}\OtherTok{,}
-        \StringTok{"https://oparl.example.org/document/589"}
+    \DataTypeTok{"resultsProtocol"}\FunctionTok{:} \StringTok{"https://oparl.example.org/files/628"}\FunctionTok{,}
+    \DataTypeTok{"verbatimProtocol"}\FunctionTok{:} \StringTok{"https://oparl.example.org/files/691"}\FunctionTok{,}
+    \DataTypeTok{"auxiliaryFile"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"https://oparl.example.org/files/588"}\OtherTok{,}
+        \StringTok{"https://oparl.example.org/files/589"}
     \OtherTok{]}\FunctionTok{,}
     \DataTypeTok{"agendaItem"}\FunctionTok{:} \OtherTok{[}
         \StringTok{"https://oparl.example.org/agendaitem/1045"}\OtherTok{,}
@@ -3692,11 +3888,11 @@ vom Typ \texttt{oparl:File}. Kardinalität: 0 bis 1. EMPFOHLEN.
 Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich
 erst nach dem Stattfinden der Sitzung vorkommen. Typ: URL eines Objekts
 vom Typ \texttt{oparl:File}. Kardinalität: 0 bis 1. EMPFOHLEN.
-\item[\texttt{auxiliaryDocument}]
-Dokumentenanhang zur Sitzung. Hiermit sind Dokumente gemeint, die
-üblicherweise mit der Einladung zu einer Sitzung verteilt werden, und
-die nicht bereits über einzelne Tagesordnungspunkte referenziert sind.
-Typ: Liste von Objekten des Typs \texttt{oparl:File}. Vgl.
+\item[\texttt{auxiliaryFile}]
+Dateianhang zur Sitzung. Hiermit sind Dateien gemeint, die üblicherweise
+mit der Einladung zu einer Sitzung verteilt werden, und die nicht
+bereits über einzelne Tagesordnungspunkte referenziert sind. Typ: Liste
+von Objekten des Typs \texttt{oparl:File}. Vgl.
 \hyperref[objektlisten]{Objektlisten}. Kardinalität: 0 bis *. OPTIONAL.
 \item[\texttt{agendaItem}]
 Tagesordnungspunkte der Sitzung. Die Reihenfolge ist relevant. Es kann
@@ -3740,7 +3936,7 @@ das über die Eigenschaft \texttt{consultation} referenziert werden kann.
     \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Satzungsänderung für Ausschreibungen"}\FunctionTok{,}
     \DataTypeTok{"public"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
     \DataTypeTok{"consultation"}\FunctionTok{:} \StringTok{"https://oparl.example.org/consultation/1034"}\FunctionTok{,}
-    \DataTypeTok{"result"}\FunctionTok{:} \StringTok{"https://oparl.example.org/vocab/decided_modified"}\FunctionTok{,}
+    \DataTypeTok{"result"}\FunctionTok{:} \StringTok{"Geändert beschlossen"}\FunctionTok{,}
     \DataTypeTok{"resolution"}\FunctionTok{:} \StringTok{"Der Beschluss weicht wie folgt vom Antrag ab: ..."}\FunctionTok{,}
     \DataTypeTok{"modified"}\FunctionTok{:} \StringTok{"2012-08-16T14:05:27+02:00"}
 \FunctionTok{\}}
@@ -3780,12 +3976,12 @@ zur Klassifizierung} beschrieben entweder als URL zu einem
 \texttt{skos:Concept} Objekts. Kardinalität: 0 bis 1. EMPFOHLEN.
 \item[\texttt{resolution}]
 Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann
-hier ein Text oder Dokument angegeben werden. Das ist besonders dann in
-der Praxis relevant, wenn der gefasste Beschluss (z. B. durch
+hier ein Text oder eine Datei angegeben werden. Das ist besonders dann
+in der Praxis relevant, wenn der gefasste Beschluss (z. B. durch
 Änderungsantrag) von der Beschlussvorlage abweicht. Typ: String oder URL
 eines Objekts vom Typ \texttt{oparl:File}. Kardinalität: 0 bis 1.
 OPTIONAL.
-\item[\texttt{auxiliaryDocument}]
+\item[\texttt{auxiliaryFile}]
 Dateianhänge zum Tagesordnungspunkt. Typ: Liste von Objekten des Typs
 \texttt{oparl:File}. Vgl. \hyperref[objektlisten]{Objektlisten}.
 Kardinalität: 0 bis *. OPTIONAL.
@@ -3830,13 +4026,13 @@ Einsatz.
     \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Antwort auf Anfrage 1200/2014"}\FunctionTok{,}
     \DataTypeTok{"reference"}\FunctionTok{:} \StringTok{"1234/2014"}\FunctionTok{,}
     \DataTypeTok{"publishedDate"}\FunctionTok{:} \StringTok{"2014-04-04T16:42:02+02:00"}\FunctionTok{,}
-    \DataTypeTok{"paperType"}\FunctionTok{:} \StringTok{"https://oparl.example.org/vocab/answer"}\FunctionTok{,}
+    \DataTypeTok{"paperType"}\FunctionTok{:} \StringTok{"Beantwortung einer Anfrage"}\FunctionTok{,}
     \DataTypeTok{"relatedPaper"}\FunctionTok{:} \OtherTok{[}
         \StringTok{"https://oparl.example.org/paper/699"}
     \OtherTok{]}\FunctionTok{,}
-    \DataTypeTok{"mainDocument"}\FunctionTok{:} \StringTok{"https://oparl.example.org/document/925"}\FunctionTok{,}
-    \DataTypeTok{"auxiliaryDocument"}\FunctionTok{:} \OtherTok{[}
-        \StringTok{"https://oparl.example.org/document/926"}
+    \DataTypeTok{"mainFile"}\FunctionTok{:} \StringTok{"https://oparl.example.org/files/925"}\FunctionTok{,}
+    \DataTypeTok{"auxiliaryFile"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"https://oparl.example.org/files/926"}
     \OtherTok{]}\FunctionTok{,}
     \DataTypeTok{"location"}\FunctionTok{:} \OtherTok{[}
         \StringTok{"https://oparl.example.org/locations/4472"}
@@ -3883,14 +4079,14 @@ String. Kardinalität: 0 bis 1. Typ: String oder URL eines
 Inhaltlich verwandte Drucksachen. Typ: Liste von Objekten des Typs
 \texttt{oparl:Paper}. Vgl. \hyperref[objektlisten]{Objektlisten}.
 Kardinalität: 0 bis *. OPTIONAL.
-\item[\texttt{mainDocument}]
-Das Hauptdokument zu dieser Drucksache. Beispiel: Die Drucksache
-repräsentiert eine Beschlussvorlage und das Hauptdokument enthält den
-Text der Beschlussvorlage. Typ: URL eines Objekts vom Typ
+\item[\texttt{mainFile}]
+Die Haupt-Datei zu dieser Drucksache. Beispiel: Die Drucksache
+repräsentiert eine Beschlussvorlage und die Haupt-Datei enthält den Text
+der Beschlussvorlage. Typ: URL eines Objekts vom Typ
 \texttt{oparl:File}. Kardinalität: 1. ZWINGEND.
-\item[\texttt{auxiliaryDocument}]
-Anhänge zur Drucksache. Diese sind, in Abgrenzung zum Hauptdokument
-(\texttt{mainDocument}), untergeordnet und es kann beliebig viele davon
+\item[\texttt{auxiliaryFile}]
+Anhänge zur Drucksache. Diese sind, in Abgrenzung zur Haupt-Datei
+(\texttt{mainFile}), untergeordnet und es kann beliebig viele davon
 geben. Typ: Liste von Objekten des Typs \texttt{oparl:File}. Vgl.
 \hyperref[objektlisten]{Objektlisten}. Kardinalität: 0 bis *. OPTIONAL.
 \item[\texttt{location}]
@@ -3918,8 +4114,8 @@ Drucksache verantwortlich. Typ: Liste von Objekten des Typs
 \texttt{oparl:Organization}. Kardinalität: 0 bis *. OPTIONAL.
 \end{description}
 
-\hyperdef{}{oparlux5fdocument}{\subsection{oparl:File
-(Datei)}\label{oparlux5fdocument}}
+\hyperdef{}{oparlux5ffile}{\subsection{oparl:File
+(Datei)}\label{oparlux5ffile}}
 
 Ein Objekt vom Typ \texttt{oparl:File} repräsentiert eine Datei,
 beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokument, und hält
@@ -3933,21 +4129,21 @@ Beziehung stehen. Dies wird durch die Eigenschaft \texttt{paper} bzw.
 Mehrere Objekte vom Typ \texttt{oparl:File} können mit einander in
 direkter Beziehung stehen, wenn sie den selben Inhalt in
 unterschiedlichen technischen Formaten wiedergeben. Hierfür werden die
-Eigenschaften \texttt{masterDocument} bzw. \texttt{derivativeDocument}
+Eigenschaften \texttt{masterFile} bzw. \texttt{derivativeFile}
 eingesetzt. Das oben angezeigte Beispiel-Objekt repräsentiert eine
 PDF-Datei (zu erkennen an der Eigenschaft \texttt{mimeType}) und zeigt
-außerdem über die Eigenschaft \texttt{masterDocument} an, von welcher
+außerdem über die Eigenschaft \texttt{masterFile} an, von welcher
 anderen Datei es abgeleitet wurde. Umgekehrt KANN über die Eigenschaft
-\texttt{derivativeDocument} angezeigt werden, welche Ableitungen einer
-Datei existieren.
+\texttt{derivativeFile} angezeigt werden, welche Ableitungen einer Datei
+existieren.
 
 \textbf{Beispiel}
 
-\hyperdef{}{documentux5fex1}{\label{documentux5fex1}}
+\hyperdef{}{fileux5fex1}{\label{fileux5fex1}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{\{}
-    \DataTypeTok{"id"}\FunctionTok{:} \StringTok{"https://oparl.example.org/document/57739"}\FunctionTok{,}
+    \DataTypeTok{"id"}\FunctionTok{:} \StringTok{"https://oparl.example.org/files/57739"}\FunctionTok{,}
     \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"http://oparl.org/schema/1.0/File"}\FunctionTok{,}
     \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Anlage 1 zur Anfrage"}\FunctionTok{,}
     \DataTypeTok{"fileName"}\FunctionTok{:} \StringTok{"57739.pdf"}\FunctionTok{,}
@@ -3959,12 +4155,11 @@ Datei existieren.
     \DataTypeTok{"modified"}\FunctionTok{:} \StringTok{"2013-01-04T07:54:13+01:00"}\FunctionTok{,}
     \DataTypeTok{"sha1Checksum"}\FunctionTok{:} \StringTok{"da39a3ee5e6b4b0d3255bfef95601890afd80709"}\FunctionTok{,}
     \DataTypeTok{"size"}\FunctionTok{:} \DecValTok{82930}\FunctionTok{,}
-    \DataTypeTok{"accessUrl"}\FunctionTok{:} \StringTok{"https://oparl.example.org/document/57739.pdf"}\FunctionTok{,}
-    \DataTypeTok{"downloadUrl"}\FunctionTok{:} \StringTok{"https://oparl.example.org/document/download/57739.pdf"}\FunctionTok{,}
+    \DataTypeTok{"accessUrl"}\FunctionTok{:} \StringTok{"https://oparl.example.org/files/57739.pdf"}\FunctionTok{,}
+    \DataTypeTok{"downloadUrl"}\FunctionTok{:} \StringTok{"https://oparl.example.org/files/download/57739.pdf"}\FunctionTok{,}
     \DataTypeTok{"text"}\FunctionTok{:} \StringTok{"Der Übersichtsplan zeigt alle Ebenen des ..."}\FunctionTok{,}
-    \DataTypeTok{"masterDocument"}\FunctionTok{:} \StringTok{"https://oparl.example.org/document/57738"}\FunctionTok{,}
-    \DataTypeTok{"license"}\FunctionTok{:} \StringTok{"http://www.opendefinition.org/licenses/cc-by"}\FunctionTok{,}
-    \DataTypeTok{"documentRole"}\FunctionTok{:} \StringTok{"https://oparl.example.org/vocab/file/role/evidence"}
+    \DataTypeTok{"masterFile"}\FunctionTok{:} \StringTok{"https://oparl.example.org/files/57738"}\FunctionTok{,}
+    \DataTypeTok{"license"}\FunctionTok{:} \StringTok{"http://www.opendefinition.org/licenses/cc-by"}
 \FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -4007,7 +4202,7 @@ ausgegeben werden, also der am wenigsten lang zurückliegende
 \item[\texttt{size}]
 Größe der Datei in Bytes. Typ: ganze Zahl. Kardinalität: 1. ZWINGEND.
 \item[\texttt{sha1Checksum}]
-SHA1-Prüfsumme des Dokumenteninhalts in Hexadezimal-Schreibweise. Typ:
+SHA1-Prüfsumme des Dateiinhalts in Hexadezimal-Schreibweise. Typ:
 String. Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{text}]
 Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform
@@ -4031,11 +4226,11 @@ Falls die Datei zu einer oder mehreren Sitzungen
 (\texttt{oparl:Meeting}) gehört, MÜSSEN diese Sitzungen über diese
 Eigenschaft angegeben werden. Typ: Liste von \texttt{oparl:Meeting}
 Objekten. Kardinalität: 0 bis *. EMPFOHLEN.
-\item[\texttt{masterDocument}]
+\item[\texttt{masterFile}]
 Datei, von der das aktuelle Objekt abgeleitet wurde. Details dazu in der
 allgemeinen Beschreibung weiter oben. Typ: URL eines Objekts vom Typ
 \texttt{oparl:File}. Kardinalität: 0 bis 1. OPTIONAL.
-\item[\texttt{derivativeDocument}]
+\item[\texttt{derivativeFile}]
 Datei, die von dem aktuellen Objekt abgeleitet wurde. Details dazu in
 der allgemeinen Beschreibung weiter oben. Typ: Liste von
 \texttt{oparl:File} Objekten. Kardinalität: 0 bis *. OPTIONAL.
@@ -4045,10 +4240,10 @@ verwendet wird, dann ist sie anstelle einer globalen Angabe im
 übergeordneten \texttt{oparl:Body}- bzw. \texttt{oparl:System}-Objekt
 maßgeblich.\footnote{vgl. \hyperref[eigenschaftux5flicense]{license}}
 Typ: URL. Kardinalität: 0 bis 1. OPTIONAL.
-\item[\texttt{documentRole}]
-Rolle, Funktion, Sorte des Dokuments in Bezug auf eine Sitzung. Die
-Eigenschaft SOLL entsprechend nur in Verbindung mit der Eigenschaft
-\texttt{meeting} gesetzt sein. Siehe dazu
+\item[\texttt{fileRole}]
+Rolle, Funktion der Datei in Bezug auf eine Sitzung. Die Eigenschaft
+SOLL entsprechend nur in Verbindung mit der Eigenschaft \texttt{meeting}
+gesetzt sein. Siehe dazu
 \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
 Klassifizierung}. Typ: String oder URL eines \texttt{skos:Concept}
 Objekts. Kardinalität: 0 bis 1. OPTIONAL.
@@ -4083,7 +4278,7 @@ einer bestimmten Drucksache bildet das ab, was in der Praxis als
     \DataTypeTok{"agendaItem"}\FunctionTok{:} \StringTok{"https://oparl.example.org/agendaitem/15569"}\FunctionTok{,}
     \DataTypeTok{"organization"}\FunctionTok{:} \StringTok{"https://oparl.example.org/organization/96"}\FunctionTok{,}
     \DataTypeTok{"authoritative"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
-    \DataTypeTok{"role"}\FunctionTok{:} \StringTok{"https://oparl.example.org/role/decision"}
+    \DataTypeTok{"role"}\FunctionTok{:} \StringTok{"Beschlussfassung"}
 \FunctionTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -4113,9 +4308,9 @@ Boolean. Kardinalität: 0 bis 1. OPTIONAL.
 Rolle oder Funktion der Beratung. Zum Beispiel Anhörung, Entscheidung,
 Kenntnisnahme, Vorberatung usw. Diese Eigenschaft funktioniert wie in
 \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur Klassifizierung}
-beschrieben entweder als URL zu einem \texttt{skos:Concept} oder als
-String. Typ: String oder URL eines \texttt{skos:Concept} Objekts.
-Kardinalität: 0 bis 1. OPTIONAL.
+beschrieben entweder als String oder als URL zu einem
+\texttt{skos:Concept} Objekt. Typ: String oder URL eines
+\texttt{skos:Concept} Objekts. Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{keyword}]
 Schlagworte. Typ: Array von Strings oder URLs zu \texttt{skos:Concept}
 Objekten (vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
@@ -4212,7 +4407,8 @@ Objekten (vgl. \hyperref[vokabulareux5fklassifizierung]{Vokabulare zur
 Klassifizierung}). Kardinalität: 0 bis *. OPTIONAL.
 \end{description}
 
-\hyperdef{}{oparlux5fmembership}{\subsection{oparl:Membership}\label{oparlux5fmembership}}
+\hyperdef{}{oparlux5fmembership}{\subsection{oparl:Membership
+(Mitgliedschaft)}\label{oparlux5fmembership}}
 
 Über Objekte diesen Typs wird die Mitgliedschaft von Personen in
 Gruppierungen dargestellt. Diese Mitgliedschaften können zeitlich
@@ -4230,7 +4426,7 @@ beispielsweise den Vorsitz einer Fraktion.
     \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"http://oparl.org/schema/1.0/Membership"}\FunctionTok{,}
     \DataTypeTok{"person"}\FunctionTok{:} \StringTok{"https://oparl.example.org/people/862"}\FunctionTok{,}
     \DataTypeTok{"organization"}\FunctionTok{:} \StringTok{"https://oparl.example.org/organizations/5"}\FunctionTok{,}
-    \DataTypeTok{"role"}\FunctionTok{:} \StringTok{"https://oparl.example.org/vocab/membership/role/chair"}\FunctionTok{,}
+    \DataTypeTok{"role"}\FunctionTok{:} \StringTok{"Vorsitzender | Vorsitzende"}\FunctionTok{,}
     \DataTypeTok{"votingRight"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
     \DataTypeTok{"startDate"}\FunctionTok{:} \StringTok{"2013-12-03T16:30:00+01:00"}
 \FunctionTok{\}}
@@ -4272,9 +4468,8 @@ beschrieben entweder als URL zu einem skos:Concept oder als String. Der
 String (oder entsprechend das prefLabel des verlinkten Objekts) SOLL in
 dieser Form sowohl die männliche als auch die weibliche
 Rollenbezeichnung enthalten:
-\texttt{"Vorsitzender \textbar{} Vorsitzende"}. Typ: URL eines
-\texttt{skos:Concept} Objekts oder String. Kardinalität: 0 bis 1.
-OPTIONAL.
+\texttt{"Vorsitzender \textbar{} Vorsitzende"}. Typ: String oder URL
+eines \texttt{skos:Concept} Objekts. Kardinalität: 0 bis 1. OPTIONAL.
 \item[\texttt{post}]
 The post held by the person in the organization. Typ: \texttt{org:Post}.
 TODO: Prüfen, ob das ohne JSON-LD Sinn macht, oder ob hier zusätzliche
@@ -4304,7 +4499,8 @@ Der Endzeitpunkt der Mitgliedschaft.\footnote{Abgeleitet von:
 \texttt{xsd:dateTime}. Kardinalität: 0 bis 1. OPTIONAL.
 \end{description}
 
-\subsection{oparl:LegislativeTerm}\label{oparlux5flegislativeux5fterm}
+\subsection{oparl:LegislativeTerm
+(Wahlperiode)}\label{oparlux5flegislativeux5fterm}
 
 Dieser Objekttyp dient der Beschreibung einer Wahlperiode.
 
@@ -4316,6 +4512,7 @@ Dieser Objekttyp dient der Beschreibung einer Wahlperiode.
 \FunctionTok{\{}
     \DataTypeTok{"id"}\FunctionTok{:} \StringTok{"https://oparl.example.org/term/21"}\FunctionTok{,}
     \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"http://oparl.org/schema/1.0/LegislativeTerm"}\FunctionTok{,}
+    \DataTypeTok{"body"}\FunctionTok{:} \StringTok{"https://oparl.example.org/body/0"}\FunctionTok{,}
     \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"21. Wahlperiode"}\FunctionTok{,}
     \DataTypeTok{"startDate"}\FunctionTok{:} \StringTok{"2010-12-03"}\FunctionTok{,}
     \DataTypeTok{"endDate"}\FunctionTok{:}  \StringTok{"2013-12-03"}
@@ -4326,6 +4523,9 @@ Dieser Objekttyp dient der Beschreibung einer Wahlperiode.
 \subsubsection{Eigenschaften}\label{eigenschaften-11}
 
 \begin{description}
+\item[\texttt{body}]
+Die Körperschaft, der diese Wahlperiode zugeordnet ist. Typ: URL des
+\texttt{oparl:Body} Objekts. Kardinalität: 1. ZWINGEND.
 \item[\texttt{name}]
 Nutzerfreundliche Bezeichnung der Wahlperiode. Typ: \texttt{xsd:string}.
 Kardinalität: 1. ZWINGEND.

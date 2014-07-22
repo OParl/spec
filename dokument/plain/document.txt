@@ -61,10 +61,11 @@ anzubieten, dass jegliche weitere Verwendung durch Dritte technisch
 möglich ist. Der seit einiger Zeit etablierte Begriff für dieses Prinzip
 heißt "Open Data".
 
-Open-Data-Initiativen können unter Rückgriff auf RIS mit
-OParl-Schnittstelle einfacher Dokumente und Daten aus unterschiedlichen
-Gebietskörperschaften in Open-Data-Katalogen verzeichnen und so
-einfacher auffindbar machen für die Weiterverwendung durch Dritte.
+Open-Data-Initiativen können unter Rückgriff auf Ratsinformationssysteme
+(RIS) mit OParl-Schnittstelle einfacher Dokumente und Daten aus
+unterschiedlichen Gebietskörperschaften in Open-Data-Katalogen
+verzeichnen und so einfacher auffindbar machen für die Weiterverwendung
+durch Dritte.
 
 Bürgerinnen und Bürger, politische Parteien und zivilgesellschaftliche
 Organisationen können einfacher auf Inhalte parlamentarischer
@@ -901,14 +902,14 @@ Spezifikation erlaubt auch die Kodierung von mehreren Objekten, die
 Punkte, Linien oder Polygone repräsentieren können. Vgl. dazu
 oparl:Location.
 
-Auch die Ausgabe einer Nur-Text-Version im Kontext des Dokuments
+Auch die Ausgabe einer Nur-Text-Version im Kontext der Datei
 (oparl:File), das den barrierefreien Zugriff auf Inhalte oder
 Indexierung für Volltextsuchfunktionen deutlich vereinfacht, ist eine
 Möglichkeit, die in der gängigen Praxis noch nicht zu finden ist. Ebenso
-die Möglichkeit, Beziehungen zwischen einzelnen Dokumenten herzustellen,
-um so von einem Dokument zu anderen Dokumenten mit identischem Inhalt,
-aber in anderen technischen Formaten zu verweisen, etwa von einer
-ODT-Datei zu einer PDF-Version.
+die Möglichkeit, Beziehungen zwischen einzelnen Dateien herzustellen, um
+so von einer Datei zu anderen Dateien mit identischem Inhalt, aber in
+anderen technischen Formaten zu verweisen, etwa von einer ODT-Datei zu
+einer PDF-Version.
 
 RESTful
 
@@ -1523,8 +1524,8 @@ Liste:
             "body": "https://oparl.example.org/bodies/0",
             "name": "Antwort auf Anfrage 1200/2014",
             "publishedDate": "2014-04-04T16:42:02+02:00",
-            "paperType": "https://oparl.example.org/vocab/answer",
-            "mainDocument": "https://oparl.example.org/documents/925",
+            "paperType": "Beantwortung einer Anfrage",
+            "mainFile": "https://oparl.example.org/files/925",
             "originator": [
                 "https://oparl.example.org/organization/2000"
             ]
@@ -1535,8 +1536,8 @@ Liste:
             "body": "https://oparl.example.org/bodies/0",
             "name": "Mitteilung der Verwaltung",
             "publishedDate": "2014-06-01T12:24:18+02:00",
-            "paperType": "https://oparl.example.org/vocab/message",
-            "mainDocument": "https://oparl.example.org/documents/2758",
+            "paperType": "Mitteilung",
+            "mainFile": "https://oparl.example.org/files/2758",
             "originator": [
                 "https://oparl.example.org/people/1000"
             ]
@@ -1655,9 +1656,11 @@ einzelnen Listenseiten abzurufen.
 
 Server-Implementierer entscheiden selbst, wie die URLs zum Abruf
 einzelner Listenseiten aufgebaut sind und tragen damit selbst
-Verantwortung für die Funktionsweise der Paginierung. Bei der
-Entscheidung für eine Form der Implementierung sollten die folgenden
-Anforderungen von Clients berücksichtigt werden:
+Verantwortung für die Funktionsweise der Paginierung. Die im obigen
+Beispiel verwendete URL einschließlich des fiktiven URL-Parameters
+dienen lediglich der Veranschaulichung und sind in keiner Weise bindend.
+Bei der Entscheidung für eine Form der Implementierung sollten die
+folgenden Anforderungen von Clients berücksichtigt werden:
 
 -   Es ist davon auszugehen, dass Clients für den gesamten Abruf aller
     Seiten einer Liste längere Zeit benötigen. In der Zwischenzeit kann
@@ -2122,7 +2125,7 @@ und von ihm unterstützte Repräsentation an den Client ausliefert.
 Grundanforderung der vorliegenden Spezifikation an OParl-Clients ist,
 dass sie bei jeder Anfrage an einen OParl-Server einen Accept-Header mit
 dem Mime-Type application/json senden MÜSSEN, es sei denn, es handelt
-sich um einen Dateizugriffe.
+sich um einen Dateizugriff.
 
 Im Kontext von OParl soll durch Unterstützung von Content Negotiation
 ermöglicht werden, dass die URLs von OParl-Objekten auch von WWW-Clients
@@ -2237,15 +2240,9 @@ Die in dieser Liste enthaltenen Zeichenketten haben eine reservierte
 Bedeutung und stehen bei Implementierungen eines OParl-Servers nicht
 mehr für die freie Verwendung in URLs zur Verfügung.
 
-callback:
-    Mit diesem Parameter wird die JSONP-Ausgabe aktiviert. Mehr dazu im
-    Abschnitt JSONP.
-startdate:
+startdate, enddate:
     Parameter für die Einschränkung einer Abfrage anhand eines Datums
-    bzw. einer Zeitangabe.
-enddate:
-    Parameter für die Einschränkung einer Abfrage anhand eines Datums
-    bzw. einer Zeitangabe.
+    bzw. einer Zeitangabe. Vgl. Objektlisten: Filter.
 listformat:
     Parameter zur Steuerung der Listenausgabe. Siehe dazu: Objektlisten:
     Kompakte und vollständige Form
@@ -2296,9 +2293,9 @@ Objektlisten beschrieben, entweder ein JSON-Array oder eine URL zum
 externen Abruf einer Objektliste als Wert haben. In der Praxis kann es
 vorkommen, dass solche Listen leer sind. Beispielsweise könnte eine
 Gruppierung neu erstellt worden sein und noch keine Sitzungstermine
-aufweisen. In diesem Fall ist ein leeres Array eine gültige Möglichkeit,
+aufweisen. In diesem Fall ist ein leeres Array die richtige Möglichkeit,
 dies auszudrücken. Da es sich dabei um eine obligatorische Eigenschaft
-handelt, muss sie jedoch ausgegeben werden.
+handelt, MUSS sie jedoch ausgegeben werden.
 
 Beispiel:
 
@@ -2364,9 +2361,11 @@ Vokabulare zur Klassifizierung
 Einige Objekttypen besitzen Eigenschaften zum Zweck der Klassifizierung
 von Objekten. Im Einzelnen sind dies:
 
+-   classification des Objekttyps oparl:Body
 -   classification des Objekttyps oparl:Organization
--   documentRole des Objekttyps oparl:File
+-   fileRole des Objekttyps oparl:File
 -   formOfAddress des Objekttyps oparl:Person
+-   gender des Objekttyps oparl:Person
 -   keyword in mehreren Objekttypen
 -   paperType des Objekttyps oparl:Paper
 -   post des Objekttyps oparl:Organization
@@ -2377,12 +2376,46 @@ von Objekten. Im Einzelnen sind dies:
 -   status des Objekttyps oparl:Person
 -   title des Objekttyps oparl:Person
 
-Diese Eigenschaften können als Wert wahlweise einfache Zeichenketten
-(Strings) haben, z. B. "Beantwortung einer Anfrage" oder aber URLs. Wenn
-eine URL verwendet wird, MUSS diese auf ein JSON-LD-Objekt[^45] vom Typ
-skos:Concept zeigen. Dieses Objekt MUSS eine Eigenschaft prefLabel
-besitzen, in dem die benutzerfreundliche Benennung des Konzepts
-wiedergegeben wird.[^46]
+Beispielsweise dient die Eigenschaft paperType des Objekttyps
+oparl:Paper dazu, eine Drucksache als Mitteilung, Antrag, Anfrage,
+Beschlussvorlage etc. zu kennzeichnen. Hierbei kann jeweils wahlweise
+ein einfacher Strings (Zeichenkette) als Wert der Eigenschaft ausgegeben
+werden oder eine URL.
+
+Die folgenden Beispiele verdeutlichen die Alternativen. Zunächst die
+Klassifizierung mittels String:
+
+``` {#vokabular_ex1 .json}
+{
+    ...
+    "paperType": "Beantwortung einer Anfrage",
+    ...
+}
+```
+
+Die Alternative mittels einer (fiktiven) URL:
+
+``` {#vokabular_ex1 .json}
+{
+    ...
+    "paperType": "http://example.com/InquiryResponse",
+    ...
+}
+```
+
+Grundsätzlich liegt die Wahl der genutzten Variante beim Betreiber des
+Systems, wobei innerhalb eines Systems beide Varianten vermischt werden
+KÖNNEN.
+
+Wird als Wert eine URL verwendet, MUSS diese auf ein JSON-LD-Objekt[^45]
+vom Typ skos:Concept zeigen. Dieses Objekt MUSS eine Eigenschaft
+prefLabel besitzen, in dem die benutzerfreundliche Benennung des
+Konzepts wiedergegeben wird.[^46]
+
+Die vorliegende Spezifikation macht in der Regel keine Vorgaben dazu,
+welche Begrifflichkeiten bei der Nutzung von Strings zu verwenden sind.
+Ebenso ist der Betreiber des System frei bei der Entscheidung, welche
+URLs dieses nutzt.
 
 Ein Beispiel für ein skos:Concept Objekt, wie es für die Eigenschaft
 status eines Objekts vom Typ oparl:Person genutzt werden kann:
@@ -2395,19 +2428,19 @@ status eines Objekts vom Typ oparl:Person genutzt werden kann:
         }
     },
     "@type": "http://www.w3.org/2004/02/skos/core#Concept",
-    "prefLabel": "Ratsherr | Ratsfrau"
+    "prefLabel": "Beantwortung einer Anfrage"
 }
 ```
 
-Das Objekt darf unter einer beliebigen URL abgelegt werden. Diese kann,
+Das Objekt DARF unter einer beliebigen URL abgelegt werden. Diese kann,
 muss aber nicht Teil des jeweiligen OParl-Systems sein.
 
-Sinnvoll wird die Verwendung von URLs zur Klassifizierung, wenn mehrere
-Systeme auf die selben URLs verweisen, damit also ein gemeinsames
-Vokabular zur Klassifizierung nutzen. Die Verwendung eines
-übergreifenden Vokabulars soll dazu beitragen, dass die automatisierte
-Auswertung von parlamentarischen Informationen über die Grenzen
-einzelner Systeme hinweg deutlich erleichtert wird. So könnte
+Sinnvoll wird die Verwendung von URLs anstelle von Strings zur
+Klassifizierung, wenn mehrere Systeme auf die selben URLs verweisen,
+damit also ein gemeinsames Vokabular zur Klassifizierung nutzen. Die
+Verwendung eines übergreifenden Vokabulars soll dazu beitragen, dass die
+automatisierte Auswertung von parlamentarischen Informationen über die
+Grenzen einzelner Systeme hinweg deutlich erleichtert wird. So könnte
 beispielsweise eine bestimmte Art von Drucksache über Systemgrenzen
 hinweg als solche erkannt werden, wenn die Systeme auf dasselbe
 skos:Concept Objekt verweisen.
@@ -2563,6 +2596,8 @@ zur Klassifizierung beschrieben.
 oparl:System (System) {#oparl_system}
 ---------------------
 
+Namespace-URL: http://oparl.org/schema/1.0/System
+
 Der Objekttyp oparl:System bildet grundlegende Informationen zum
 parlamentarischen Informationssystem ab. Das Objekt repräsentiert das
 technische System, unabhängig von der Frage, welche Körperschaften auf
@@ -2585,71 +2620,128 @@ Beispiel
     "id": "https://oparl.example.org/",
     "type": "http://oparl.org/schema/1.0/System",
     "oparlVersion": "http://oparl.org/specs/1.0/",
+    "body": "https://oparl.example.org/bodies/",
     "name": "Beispiel-System",
-    "website": "http://www.example.org/",
     "contactEmail": "mailto:info@example.org",
     "contactName": "Allgemeiner OParl Kontakt",
-    "vendor": "http://example-software.com/",
-    "product": "http://example-software.com/oparl-server/",
-    "body": "https://oparl.example.org/bodies/",
     "newObjects": "https://oparl.example.org/new_objects/",
     "updatedObjects": "https://oparl.example.org/updated_objects/",
-    "removedObjects": "https://oparl.example.org/removed_objects"
+    "removedObjects": "https://oparl.example.org/removed_objects",
+    "website": "http://www.example.org/",
+    "vendor": "http://example-software.com/",
+    "product": "http://example-software.com/oparl-server/"
 }
 ```
 
 Eigenschaften
 
 oparlVersion
-    Die URL der OParl-Spezifikation, die von diesem Server unterstützt
-    wird. Der Wert MUSS die URL http://oparl.org/specs/1.0/ sein. Typ:
-    URL. Kardinalität: 1. ZWINGEND.
+
+  --------------- --------------------------------------------------------
+  Beschreibung:   Die URL der OParl-Spezifikation, die von diesem Server
+                  unterstützt wird. Aktuell kommt hier nur ein Wert in
+                  Frage. Mit zukünftigen OParl-Versionen kommen weitere
+                  mögliche URLs hinzu.
+  Status:         ZWINGEND
+  Typ:            URL
+  Wert:           http://oparl.org/specs/1.0/
+  --------------- --------------------------------------------------------
 
 body
-    Liste der URLs der oparl:Body-Objekte, also der Körperschaften, die
-    auf dem System vorliegen. Alternativ kann statt einer Liste eine
-    einzelne URL zum Abruf der Liste angeboten werden. Typ: URL des
-    oparl:Body Objekts Kardinalität: 1. ZWINGEND.
+
+  --------------- ----------------------------------------------------
+  Beschreibung:   Liste der Körperschaften (oparl:Body-Objekte), die
+                  auf dem System existieren.
+  Status:         ZWINGEND
+  Typ:            Array mit Objekt-URLs oder URL zum Listenabruf
+  Siehe auch:     oparl:Body, Objektlisten
+  --------------- ----------------------------------------------------
 
 name
-    Nutzerfreundlicher Name für das System, mit dessen Hilfe Nutzer das
-    System erkennen und von anderen unterscheiden können. Typ: String.
-    Kardinalität: 0 bis 1. EMPFOHLEN.
+
+  --------------- ------------------------------------------------------
+  Beschreibung:   Nutzerfreundlicher Name für das System, mit dessen
+                  Hilfe Nutzerinnen und Nutzer das System erkennen und
+                  von anderen unterscheiden können.
+  Status:         EMPFOHLEN
+  Typ:            String
+  Wert:           http://oparl.org/specs/1.0/
+  --------------- ------------------------------------------------------
 
 contactEmail
-    E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe einer
-    E-Mail-Adresse dient sowohl Nutzerinnen wie auch Entwicklerinnen von
-    Clients zur Kontaktaufnahme mit dem Betreiber. Typ: String im Format
-    foaf:mbox Kardinalität: 0 bis 1. EMPFOHLEN.
+
+  --------------- ---------------------------------------------------------
+  Beschreibung:   E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe
+                  einer E-Mail-Adresse dient sowohl NutzerInnen wie auch
+                  Entwicklerinnen von Clients zur Kontaktaufnahme mit dem
+                  Betreiber.
+  Status:         EMPFOHLEN
+  Typ:            String im Format foaf:mbox
+  --------------- ---------------------------------------------------------
 
 contactName
-    Name des Ansprechpartners oder der Abteilung, die über die
-    contactEmail erreicht werden kann. Typ: String. Kardinalität: 0 bis
-    1. EMPFOHLEN.
+
+  --------------- ------------------------------------------------------
+  Beschreibung:   Name der Ansprechpartnerin bzw. des Ansprechpartners
+                  oder der Abteilung, die über die in contactEmail
+                  angegebene Adresse erreicht werden kann.
+  Status:         EMPFOHLEN
+  Typ:            String
+  --------------- ------------------------------------------------------
 
 newObjects
-    URL des Feeds "Neue Objekte". Typ: URL. Kardinalität: 0 bis 1.
-    EMPFOHLEN.
+
+  --------------- -------------------------------
+  Beschreibung:   URL des Feeds "Neue Objekte".
+  Status:         EMPFOHLEN
+  Typ:            URL
+  Siehe auch:     Feeds, Neue Objekte
+  --------------- -------------------------------
 
 updatedObjects
-    URL des Feeds "Geänderte Objekte". Typ: URL. Kardinalität: 0 bis 1.
-    EMPFOHLEN.
+
+  --------------- ------------------------------------
+  Beschreibung:   URL des Feeds "Geänderte Objekte".
+  Status:         EMPFOHLEN
+  Typ:            URL
+  Siehe auch:     Feeds, Geänderte Objekte
+  --------------- ------------------------------------
 
 removedObjects
-    URL des Feeds "Entfernte Objekte". Typ: URL. Kardinalität: 0 bis 1.
-    EMPFOHLEN.
+
+  --------------- ------------------------------------
+  Beschreibung:   URL des Feeds "Entfernte Objekte".
+  Status:         EMPFOHLEN
+  Typ:            URL
+  Siehe auch:     Feeds, Entfernte Objekte
+  --------------- ------------------------------------
 
 website
-    URL zur WWW-Oberfläche des parlamentarischen Informationssystems.
-    Typ: URL. Kardinalität: 0 bis 1. OPTIONAL.
+
+  --------------- ---------------------------------------
+  Beschreibung:   URL der Website des parlamentarischen
+                  Informationssystems
+  Status:         OPTIONAL
+  Typ:            URL
+  --------------- ---------------------------------------
 
 vendor
-    Software-Anbieter, von dem die OParl-Server-Software stammt. Typ:
-    URL. Kardinalität: 0 bis 1. OPTIONAL.
+
+  --------------- -----------------------------------------------------
+  Beschreibung:   URL der Website des Software-Anbieters, von dem die
+                  OParl-Server-Software stammt.
+  Status:         OPTIONAL
+  Typ:            URL
+  --------------- -----------------------------------------------------
 
 product
-    Informationen zu der auf dem System genutzten OParl-Server-Software.
-    Typ: URL. Kardinalität: 0 bis 1. OPTIONAL.
+
+  --------------- -------------------------------------------------------
+  Beschreibung:   URL zu Informationen über die auf dem System genutzte
+                  OParl-Server-Software
+  Status:         OPTIONAL
+  Typ:            URL
+  --------------- -------------------------------------------------------
 
 oparl:Body (Körperschaft) {#oparl_body}
 -------------------------
@@ -2689,7 +2781,7 @@ Beispiel
         "http://dbpedia.org/resource/Cologne"
     ],
     "shortName": "Köln",
-    "name": Stadt Köln, kreisfreie Stadt",
+    "name": "Stadt Köln, kreisfreie Stadt",
     "website": "http://www.beispielstadt.de/",
     "license": "http://creativecommons.org/licenses/by/4.0/",
     "licenseValidSince": "2014-01-01",
@@ -2697,8 +2789,11 @@ Beispiel
     "meeting": "https://oparl.example.org/body/0/meetings/",
     "paper": "https://oparl.example.org/body/0/papers/",
     "member": "https://oparl.example.org/body/0/people/",
-    "legislativeTerm": "https://oparl.example.org/body/0/terms/",
-    "classification": "https://oparl.example.org/vocab/landkreis",
+    "legislativeTerm": [
+        "https://oparl.example.org/body/0/terms/1",
+        "https://oparl.example.org/body/0/terms/2"
+    ],
+    "classification": "Kreisfreie Stadt",
     "created": "2014-01-08T14:28:31.568+0100",
     "modified": "2014-01-08T14:28:31.568+0100"
 }
@@ -2777,6 +2872,11 @@ legislativeTerm
     von oparl:LegislativeTerm Objekten. Kardinalität: 0 bis *.
     EMPFOHLEN.
 
+classification
+    Art der Körperschaft. Typ: String oder URLs eines skos:Concept
+    Objekts (vgl. Vokabulare zur Klassifizierung). Kardinalität: 0 bis
+    1. OPTIONAL.
+
 keyword
     Schlagworte. Typ: Array von Strings oder URLs zu skos:Concept
     Objekten (vgl. Vokabulare zur Klassifizierung). Kardinalität: 0 bis
@@ -2807,8 +2907,9 @@ Beispiel 1
     "name": "Ausschuss für Haushalt und Finanzen",
     "shortName": "Finanzausschuss",
     "post": [
-        "https://oparl.example.org/post/chairperson",
-        "https://oparl.example.org/post/deputychairperson"
+        "Vorsitzender | Vorsitzende",
+        "1. Stellvertreter | 1. Stellvertreterin",
+        "Mitglied"
     ],
     "meeting": "https://oparl.example.org/meetings_for_org/34",
     "membership": [
@@ -2816,7 +2917,7 @@ Beispiel 1
         "https://oparl.example.org/memberships/48",
         "https://oparl.example.org/memberships/57"
     ],
-    "classification": "https://oparl.example.org/vocab/finance",
+    "classification": "Ausschuss",
     "keyword": [
         "finanzen",
         "haushalt"
@@ -2893,12 +2994,8 @@ classification
     Die Art der Gruppierung. In Frage kommen z.B. "Rat",
     "Hauptausschuss", "Ausschuss", "Beirat", "Projektbeirat",
     "Kommission", "AG", "Verwaltungsrat". Die Angabe soll möglichst
-    präzise erfolgen. So ist die Angabe "Hauptausschuss" präziser als
-    "Ausschuss". Im Vokabular SOLL dann dieses Verhältnis zwischen
-    "Ausschuss" und "Hauptausschuss" kodiert sein
-    ("https://oparl.example.org/hauptausschuss skos:broader
-    https://oparl.example.org/ausschuss"). Vgl. Vokabulare zur
-    Klassifizierung. Typ: skos:Concept. Kardinalität: 0 bis 1.
+    präzise erfolgen. Vgl. Vokabulare zur Klassifizierung. Typ: String
+    oder URL eines skos:Concept Objekts. Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
 keyword
@@ -2923,6 +3020,10 @@ modified
     Datum/Uhrzeit der letzten Bearbeitung des Objekts. Typ:
     xsd:dateTime. Kardinalität: 0 bis 1. EMPFOHLEN.
 
+website
+    Allgemeine Website der Gruppierung. Typ: URL. Kardinalität: 0 bis 1.
+    OPTIONAL.
+
 oparl:Person (Person) {#oparl_person}
 ---------------------
 
@@ -2940,17 +3041,17 @@ Beispiel
     "familyName": "Mustermann",
     "givenName": "Max",
     "title": [
-        "https://oparl.example.org/vocab/person/title/prof",
-        "https://oparl.example.org/vocab/person/title/dr"
+        "Prof.",
+        "Dr."
     ],
-    "formOfAddress": "https://oparl.example.org/vocab/foa/ratsmitglied",
-    "gender": "https://oparl.example.org/vocab/person/gender/male",
+    "formOfAddress": "Ratsherr | Ratsfrau",
+    "gender": "male",
     "email": "mailto:max@mustermann.de",
     "phone": "tel:+493012345678",
     "streetAddress": "Musterstraße 5",
     "postalCode": "11111",
     "locality": "Musterort",
-    "status": "https://oparl.example.org/status/buergermeister",
+    "status": "Bezirksbürgermeister | Bezirksbürgermeisterin",
     "membership": [
         "https://oparl.example.org/membership/11",
         "https://oparl.example.org/membership/34"
@@ -2979,19 +3080,20 @@ formOfAddress
     Klassifizierung beschrieben entweder als URL zu einem skos:Concept
     oder als String. Der String bzw. prefLabel SOLL sowohl die männliche
     als auch die weibliche Bezeichnung enthalten. Beispiele: "Herr |
-    Frau", "Ratsherr | Ratsfrau". Typ: URL eines skos:Concept Objekts
-    oder String. Kardinalität: 0 bis 1. OPTIONAL.
+    Frau", "Ratsherr | Ratsfrau". Typ: String oder URL eines
+    skos:Concept Objekts. Kardinalität: 0 bis 1. OPTIONAL.
 
 title
-    Akademische(r) Titel. Vgl. Vokabulare zur Klassifizierung. Typ: URL
-    eines skos:Concept Objekts oder String. Kardinalität: 0 bis *.
-    OPTIONAL.
+    Akademische(r) Titel. Vgl. Vokabulare zur Klassifizierung. Typ:
+    Array von Strings oder URLs von skos:Concept Objekten. Kardinalität:
+    0 bis *. OPTIONAL.
 
 gender
-    Geschlecht. Zulässige Werte sind vcard:Female, vcard:Male,
-    vcard:None und vcard:Other. Für den Fall, dass das Geschlecht der
-    Person unbekannt ist, SOLL die Eigenschaft nicht ausgegeben werden.
-    Typ: String im Format vcard:Gender. Kardinalität: 0 bis 1. OPTIONAL.
+    Geschlecht. Empfohlene Werte sind female, male, none und other. Für
+    den Fall, dass das Geschlecht der Person unbekannt ist, SOLL die
+    Eigenschaft nicht ausgegeben werden. Vgl. Vokabulare zur
+    Klassifizierung. Typ: String oder URL eines skos:Concept Objekts.
+    Kardinalität: 0 bis 1. OPTIONAL.
 
 phone
     Telefonnummer der Person mit tel: Schema, ohne Leerzeichen. Typ:
@@ -3030,7 +3132,7 @@ status
     Sachkundige Bürgerin", "Einzelstadtverordneter |
     Einzelstadtverordnete" (Mitglieder des Rates die keiner
     Fraktion/Organisation angehören). Vgl. Vokabulare zur
-    Klassifizierung. Typ: URL eines skos:Concept Objekts oder String.
+    Klassifizierung. Typ: String oder URL eines skos:Concept Objekts.
     Kardinalität: 0 bis *. OPTIONAL.
 
 membership
@@ -3059,7 +3161,7 @@ Eine Sitzung ist die Versammlung einer oder mehrerer Gruppierungen
 Ort.
 
 Die geladenen Teilnehmer der Sitzung sind jeweils als Objekte vom Typ
-oparl:Person in entsprechender Form referenziert. Verschiedene Dokumente
+oparl:Person in entsprechender Form referenziert. Verschiedene Dateien
 (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können
 referenziert werden.
 
@@ -3082,13 +3184,13 @@ Beispiel
         "https://oparl.example.org/organization/34"
     ],
     "invitation": [
-        "https://oparl.example.org/document/586"
+        "https://oparl.example.org/files/586"
     ],
-    "resultsProtocol": "https://oparl.example.org/document/628",
-    "verbatimProtocol": "https://oparl.example.org/document/691",
-    "auxiliaryDocument": [
-        "https://oparl.example.org/document/588",
-        "https://oparl.example.org/document/589"
+    "resultsProtocol": "https://oparl.example.org/files/628",
+    "verbatimProtocol": "https://oparl.example.org/files/691",
+    "auxiliaryFile": [
+        "https://oparl.example.org/files/588",
+        "https://oparl.example.org/files/589"
     ],
     "agendaItem": [
         "https://oparl.example.org/agendaitem/1045",
@@ -3174,8 +3276,8 @@ verbatimProtocol
     erst nach dem Stattfinden der Sitzung vorkommen. Typ: URL eines
     Objekts vom Typ oparl:File. Kardinalität: 0 bis 1. EMPFOHLEN.
 
-auxiliaryDocument
-    Dokumentenanhang zur Sitzung. Hiermit sind Dokumente gemeint, die
+auxiliaryFile
+    Dateianhang zur Sitzung. Hiermit sind Dateien gemeint, die
     üblicherweise mit der Einladung zu einer Sitzung verteilt werden,
     und die nicht bereits über einzelne Tagesordnungspunkte referenziert
     sind. Typ: Liste von Objekten des Typs oparl:File. Vgl.
@@ -3222,7 +3324,7 @@ Beispiel
     "name": "Satzungsänderung für Ausschreibungen",
     "public": true,
     "consultation": "https://oparl.example.org/consultation/1034",
-    "result": "https://oparl.example.org/vocab/decided_modified",
+    "result": "Geändert beschlossen",
     "resolution": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
     "modified": "2012-08-16T14:05:27+02:00"
 }
@@ -3266,13 +3368,13 @@ result
 
 resolution
     Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann
-    hier ein Text oder Dokument angegeben werden. Das ist besonders dann
-    in der Praxis relevant, wenn der gefasste Beschluss (z. B. durch
-    Änderungsantrag) von der Beschlussvorlage abweicht. Typ: String oder
-    URL eines Objekts vom Typ oparl:File. Kardinalität: 0 bis 1.
-    OPTIONAL.
+    hier ein Text oder eine Datei angegeben werden. Das ist besonders
+    dann in der Praxis relevant, wenn der gefasste Beschluss (z. B.
+    durch Änderungsantrag) von der Beschlussvorlage abweicht. Typ:
+    String oder URL eines Objekts vom Typ oparl:File. Kardinalität: 0
+    bis 1. OPTIONAL.
 
-auxiliaryDocument
+auxiliaryFile
     Dateianhänge zum Tagesordnungspunkt. Typ: Liste von Objekten des
     Typs oparl:File. Vgl. Objektlisten. Kardinalität: 0 bis *. OPTIONAL.
 
@@ -3316,13 +3418,13 @@ Beispiel
     "name": "Antwort auf Anfrage 1200/2014",
     "reference": "1234/2014",
     "publishedDate": "2014-04-04T16:42:02+02:00",
-    "paperType": "https://oparl.example.org/vocab/answer",
+    "paperType": "Beantwortung einer Anfrage",
     "relatedPaper": [
         "https://oparl.example.org/paper/699"
     ],
-    "mainDocument": "https://oparl.example.org/document/925",
-    "auxiliaryDocument": [
-        "https://oparl.example.org/document/926"
+    "mainFile": "https://oparl.example.org/files/925",
+    "auxiliaryFile": [
+        "https://oparl.example.org/files/926"
     ],
     "location": [
         "https://oparl.example.org/locations/4472"
@@ -3371,17 +3473,17 @@ relatedPaper
     Inhaltlich verwandte Drucksachen. Typ: Liste von Objekten des Typs
     oparl:Paper. Vgl. Objektlisten. Kardinalität: 0 bis *. OPTIONAL.
 
-mainDocument
-    Das Hauptdokument zu dieser Drucksache. Beispiel: Die Drucksache
-    repräsentiert eine Beschlussvorlage und das Hauptdokument enthält
-    den Text der Beschlussvorlage. Typ: URL eines Objekts vom Typ
+mainFile
+    Die Haupt-Datei zu dieser Drucksache. Beispiel: Die Drucksache
+    repräsentiert eine Beschlussvorlage und die Haupt-Datei enthält den
+    Text der Beschlussvorlage. Typ: URL eines Objekts vom Typ
     oparl:File. Kardinalität: 1. ZWINGEND.
 
-auxiliaryDocument
-    Anhänge zur Drucksache. Diese sind, in Abgrenzung zum Hauptdokument
-    (mainDocument), untergeordnet und es kann beliebig viele davon
-    geben. Typ: Liste von Objekten des Typs oparl:File. Vgl.
-    Objektlisten. Kardinalität: 0 bis *. OPTIONAL.
+auxiliaryFile
+    Anhänge zur Drucksache. Diese sind, in Abgrenzung zur Haupt-Datei
+    (mainFile), untergeordnet und es kann beliebig viele davon geben.
+    Typ: Liste von Objekten des Typs oparl:File. Vgl. Objektlisten.
+    Kardinalität: 0 bis *. OPTIONAL.
 
 location
     Sofern die Drucksache einen inhaltlichen Ortsbezug hat, beschreibt
@@ -3412,7 +3514,7 @@ underDirectionOf
     der Drucksache verantwortlich. Typ: Liste von Objekten des Typs
     oparl:Organization. Kardinalität: 0 bis *. OPTIONAL.
 
-oparl:File (Datei) {#oparl_document}
+oparl:File (Datei) {#oparl_file}
 ------------------
 
 Ein Objekt vom Typ oparl:File repräsentiert eine Datei, beispielsweise
@@ -3426,18 +3528,18 @@ Eigenschaft paper bzw. meeting angezeigt.
 Mehrere Objekte vom Typ oparl:File können mit einander in direkter
 Beziehung stehen, wenn sie den selben Inhalt in unterschiedlichen
 technischen Formaten wiedergeben. Hierfür werden die Eigenschaften
-masterDocument bzw. derivativeDocument eingesetzt. Das oben angezeigte
+masterFile bzw. derivativeFile eingesetzt. Das oben angezeigte
 Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der
-Eigenschaft mimeType) und zeigt außerdem über die Eigenschaft
-masterDocument an, von welcher anderen Datei es abgeleitet wurde.
-Umgekehrt KANN über die Eigenschaft derivativeDocument angezeigt werden,
-welche Ableitungen einer Datei existieren.
+Eigenschaft mimeType) und zeigt außerdem über die Eigenschaft masterFile
+an, von welcher anderen Datei es abgeleitet wurde. Umgekehrt KANN über
+die Eigenschaft derivativeFile angezeigt werden, welche Ableitungen
+einer Datei existieren.
 
 Beispiel
 
-``` {#document_ex1 .json}
+``` {#file_ex1 .json}
 {
-    "id": "https://oparl.example.org/document/57739",
+    "id": "https://oparl.example.org/files/57739",
     "type": "http://oparl.org/schema/1.0/File",
     "name": "Anlage 1 zur Anfrage",
     "fileName": "57739.pdf",
@@ -3449,12 +3551,11 @@ Beispiel
     "modified": "2013-01-04T07:54:13+01:00",
     "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "size": 82930,
-    "accessUrl": "https://oparl.example.org/document/57739.pdf",
-    "downloadUrl": "https://oparl.example.org/document/download/57739.pdf",
+    "accessUrl": "https://oparl.example.org/files/57739.pdf",
+    "downloadUrl": "https://oparl.example.org/files/download/57739.pdf",
     "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
-    "masterDocument": "https://oparl.example.org/document/57738",
-    "license": "http://www.opendefinition.org/licenses/cc-by",
-    "documentRole": "https://oparl.example.org/vocab/file/role/evidence"
+    "masterFile": "https://oparl.example.org/files/57738",
+    "license": "http://www.opendefinition.org/licenses/cc-by"
 }
 ```
 
@@ -3502,8 +3603,8 @@ size
     ZWINGEND.
 
 sha1Checksum
-    SHA1-Prüfsumme des Dokumenteninhalts in Hexadezimal-Schreibweise.
-    Typ: String. Kardinalität: 0 bis 1. OPTIONAL.
+    SHA1-Prüfsumme des Dateiinhalts in Hexadezimal-Schreibweise. Typ:
+    String. Kardinalität: 0 bis 1. OPTIONAL.
 
 text
     Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform
@@ -3530,12 +3631,12 @@ meeting
     werden. Typ: Liste von oparl:Meeting Objekten. Kardinalität: 0 bis
     *. EMPFOHLEN.
 
-masterDocument
+masterFile
     Datei, von der das aktuelle Objekt abgeleitet wurde. Details dazu in
     der allgemeinen Beschreibung weiter oben. Typ: URL eines Objekts vom
     Typ oparl:File. Kardinalität: 0 bis 1. OPTIONAL.
 
-derivativeDocument
+derivativeFile
     Datei, die von dem aktuellen Objekt abgeleitet wurde. Details dazu
     in der allgemeinen Beschreibung weiter oben. Typ: Liste von
     oparl:File Objekten. Kardinalität: 0 bis *. OPTIONAL.
@@ -3546,12 +3647,12 @@ license
     übergeordneten oparl:Body- bzw. oparl:System-Objekt maßgeblich.[^54]
     Typ: URL. Kardinalität: 0 bis 1. OPTIONAL.
 
-documentRole
-    Rolle, Funktion, Sorte des Dokuments in Bezug auf eine Sitzung. Die
-    Eigenschaft SOLL entsprechend nur in Verbindung mit der Eigenschaft
-    meeting gesetzt sein. Siehe dazu Vokabulare zur Klassifizierung.
-    Typ: String oder URL eines skos:Concept Objekts. Kardinalität: 0 bis
-    1. OPTIONAL.
+fileRole
+    Rolle, Funktion der Datei in Bezug auf eine Sitzung. Die Eigenschaft
+    SOLL entsprechend nur in Verbindung mit der Eigenschaft meeting
+    gesetzt sein. Siehe dazu Vokabulare zur Klassifizierung. Typ: String
+    oder URL eines skos:Concept Objekts. Kardinalität: 0 bis 1.
+    OPTIONAL.
 
 keyword
     Schlagworte. Typ: Array von Strings oder URLs zu skos:Concept
@@ -3580,7 +3681,7 @@ Beispiel
     "agendaItem": "https://oparl.example.org/agendaitem/15569",
     "organization": "https://oparl.example.org/organization/96",
     "authoritative": false,
-    "role": "https://oparl.example.org/role/decision"
+    "role": "Beschlussfassung"
 }
 ```
 
@@ -3612,8 +3713,8 @@ role
     Rolle oder Funktion der Beratung. Zum Beispiel Anhörung,
     Entscheidung, Kenntnisnahme, Vorberatung usw. Diese Eigenschaft
     funktioniert wie in Vokabulare zur Klassifizierung beschrieben
-    entweder als URL zu einem skos:Concept oder als String. Typ: String
-    oder URL eines skos:Concept Objekts. Kardinalität: 0 bis 1.
+    entweder als String oder als URL zu einem skos:Concept Objekt. Typ:
+    String oder URL eines skos:Concept Objekts. Kardinalität: 0 bis 1.
     OPTIONAL.
 
 keyword
@@ -3700,8 +3801,8 @@ keyword
     Objekten (vgl. Vokabulare zur Klassifizierung). Kardinalität: 0 bis
     *. OPTIONAL.
 
-oparl:Membership {#oparl_membership}
-----------------
+oparl:Membership (Mitgliedschaft) {#oparl_membership}
+---------------------------------
 
 Über Objekte diesen Typs wird die Mitgliedschaft von Personen in
 Gruppierungen dargestellt. Diese Mitgliedschaften können zeitlich
@@ -3717,7 +3818,7 @@ Beispiel 1
     "type": "http://oparl.org/schema/1.0/Membership",
     "person": "https://oparl.example.org/people/862",
     "organization": "https://oparl.example.org/organizations/5",
-    "role": "https://oparl.example.org/vocab/membership/role/chair",
+    "role": "Vorsitzender | Vorsitzende",
     "votingRight": true,
     "startDate": "2013-12-03T16:30:00+01:00"
 }
@@ -3755,8 +3856,8 @@ role
     oder als String. Der String (oder entsprechend das prefLabel des
     verlinkten Objekts) SOLL in dieser Form sowohl die männliche als
     auch die weibliche Rollenbezeichnung enthalten:
-    "Vorsitzender | Vorsitzende". Typ: URL eines skos:Concept Objekts
-    oder String. Kardinalität: 0 bis 1. OPTIONAL.
+    "Vorsitzender | Vorsitzende". Typ: String oder URL eines
+    skos:Concept Objekts. Kardinalität: 0 bis 1. OPTIONAL.
 
 post
     The post held by the person in the organization. Typ: org:Post.
@@ -3784,8 +3885,8 @@ endDate
     Der Endzeitpunkt der Mitgliedschaft.[^59] Typ: xsd:dateTime.
     Kardinalität: 0 bis 1. OPTIONAL.
 
-oparl:LegislativeTerm {#oparl_legislative_term}
----------------------
+oparl:LegislativeTerm (Wahlperiode) {#oparl_legislative_term}
+-----------------------------------
 
 Dieser Objekttyp dient der Beschreibung einer Wahlperiode.
 
@@ -3795,6 +3896,7 @@ Beispiel
 {
     "id": "https://oparl.example.org/term/21",
     "type": "http://oparl.org/schema/1.0/LegislativeTerm",
+    "body": "https://oparl.example.org/body/0",
     "name": "21. Wahlperiode",
     "startDate": "2010-12-03",
     "endDate":  "2013-12-03"
@@ -3802,6 +3904,10 @@ Beispiel
 ```
 
 Eigenschaften
+
+body
+    Die Körperschaft, der diese Wahlperiode zugeordnet ist. Typ: URL des
+    oparl:Body Objekts. Kardinalität: 1. ZWINGEND.
 
 name
     Nutzerfreundliche Bezeichnung der Wahlperiode. Typ: xsd:string.

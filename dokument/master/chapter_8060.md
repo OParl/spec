@@ -11,6 +11,7 @@ wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
 {
     "id": "https://oparl.example.org/person/29",
     "type": "http://oparl.org/schema/1.0/Person",
+    "body": "https://oparl.example.org/body/0",
     "name": "Prof. Dr. Max Mustermann",
     "familyName": "Mustermann",
     "givenName": "Max",
@@ -36,6 +37,12 @@ wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
 ~~~~~
 
 ### Eigenschaften ###
+
+`body`
+:   Körperschaft, zu der die Person gehört.
+    Typ: URL eines Objekts vom Typ `oparl:Body`.
+    Kardinalität: 1.
+    ZWINGEND.
 
 `name`
 :   Der vollständige Name der Person mit akademischem Grad und dem gebräuchlichen Vornamen,

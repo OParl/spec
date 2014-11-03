@@ -5687,6 +5687,7 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
 {
     &quot;id&quot;: &quot;https://oparl.example.org/person/29&quot;,
     &quot;type&quot;: &quot;http://oparl.org/schema/1.0/Person&quot;,
+    &quot;body&quot;: &quot;https://oparl.example.org/body/0&quot;,
     &quot;name&quot;: &quot;Prof. Dr. Max Mustermann&quot;,
     &quot;familyName&quot;: &quot;Mustermann&quot;,
     &quot;givenName&quot;: &quot;Max&quot;,
@@ -5713,6 +5714,18 @@ https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
     <sect3 id="eigenschaften-3">
       <title>Eigenschaften</title>
       <variablelist>
+        <varlistentry>
+          <term>
+            <literal>body</literal>
+          </term>
+          <listitem>
+            <para>
+              Körperschaft, zu der die Person gehört. Typ: URL eines
+              Objekts vom Typ <literal>oparl:Body</literal>.
+              Kardinalität: 1. ZWINGEND.
+            </para>
+          </listitem>
+        </varlistentry>
         <varlistentry>
           <term>
             <literal>name</literal>

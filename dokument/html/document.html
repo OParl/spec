@@ -1511,6 +1511,7 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <pre class="sourceCode json" id="person_ex2"><code class="sourceCode json"><span class="fu">{</span>
     <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/person/29&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;http://oparl.org/schema/1.0/Person&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;body&quot;</span><span class="fu">:</span> <span class="st">&quot;https://oparl.example.org/body/0&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Prof. Dr. Max Mustermann&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;familyName&quot;</span><span class="fu">:</span> <span class="st">&quot;Mustermann&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;givenName&quot;</span><span class="fu">:</span> <span class="st">&quot;Max&quot;</span><span class="fu">,</span>
@@ -1535,6 +1536,9 @@ https://oparl.example.org/members?committee=2&amp;body=1</code></pre>
 <span class="fu">}</span></code></pre>
 <h3 id="eigenschaften-3"><span class="header-section-number">5.6.1</span> Eigenschaften</h3>
 <dl>
+<dt><code>body</code></dt>
+<dd><p>Körperschaft, zu der die Person gehört. Typ: URL eines Objekts vom Typ <code>oparl:Body</code>. Kardinalität: 1. ZWINGEND.</p>
+</dd>
 <dt><code>name</code></dt>
 <dd><p>Der vollständige Name der Person mit akademischem Grad und dem gebräuchlichen Vornamen, wie er zur Anzeige durch den Client genutzt werden kann. Typ: String. Kardinalität: 1. ZWINGEND.</p>
 </dd>

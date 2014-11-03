@@ -3664,6 +3664,7 @@ einem Objekt vom Typ \texttt{oparl:Person} abgebildet.
 \FunctionTok{\{}
     \DataTypeTok{"id"}\FunctionTok{:} \StringTok{"https://oparl.example.org/person/29"}\FunctionTok{,}
     \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"http://oparl.org/schema/1.0/Person"}\FunctionTok{,}
+    \DataTypeTok{"body"}\FunctionTok{:} \StringTok{"https://oparl.example.org/body/0"}\FunctionTok{,}
     \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"Prof. Dr. Max Mustermann"}\FunctionTok{,}
     \DataTypeTok{"familyName"}\FunctionTok{:} \StringTok{"Mustermann"}\FunctionTok{,}
     \DataTypeTok{"givenName"}\FunctionTok{:} \StringTok{"Max"}\FunctionTok{,}
@@ -3692,6 +3693,9 @@ einem Objekt vom Typ \texttt{oparl:Person} abgebildet.
 \subsubsection{Eigenschaften}\label{eigenschaften-3}
 
 \begin{description}
+\item[\texttt{body}]
+Körperschaft, zu der die Person gehört. Typ: URL eines Objekts vom Typ
+\texttt{oparl:Body}. Kardinalität: 1. ZWINGEND.
 \item[\texttt{name}]
 Der vollständige Name der Person mit akademischem Grad und dem
 gebräuchlichen Vornamen, wie er zur Anzeige durch den Client genutzt

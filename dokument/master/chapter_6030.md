@@ -36,4 +36,4 @@ entsprechenden HTTPS-URLs eine der beiden folgenden Möglichkeiten gelten:
 * Entweder ist unter den entsprechenden HTTPS-URLs kein Webserver erreichbar
 
 * oder Anfragen an die HTTPS-URLs werden mit Redirects auf die entsprechenden
-  HTTP-URLs beantwortet (FRAGE: ist das ein sinnvolles Szenario?).
+  HTTP-URLs beantwortet.

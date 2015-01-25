@@ -101,14 +101,12 @@ abgebildet.
 `chairPerson`
 :   Vorsitz der Sitzung
     Typ: `oparl:Person`.
-    FRAGE: Was ist bei Wechsel des Vorsitzes während der Sitzung?
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
 `scribe`
 :   Schriftführer, Protokollant. 
     Typ: `oparl:Person`.
-    FRAGE: Können mehrere Personen vorkommen? Was ist bei Wechsel während der Sitzung?
     Kardinalität: 0 bis 1.
     EMPFOHLEN.
 
@@ -117,14 +115,12 @@ abgebildet.
     Bei einer Sitzung in der Zukunft sind dies die geladenen Teilnehmer, bei 
     einer stattgefundenen Sitzung SOLL die Liste nur diejenigen Teilnehmer umfassen,
     die tatsächlich an der Sitzung teilgenommen haben.
-    FRAGE: besser zwei separate Eigenschaften `attendant` und `ìnvited` ?
     Typ: Liste von Objekten des Typs `oparl:Person`. Vgl. [Objektlisten](#objektlisten).
     Kardinalität: 0 bis *.
     DEPRECATED.
 
 `invitation`
 :   Einladungsdokument zur Sitzung.
-    FRAGE: Kann es mehr als ein solches Dokument geben?
     Typ: Liste von Objekten des Typs `oparl:File`. Vgl. [Objektlisten](#objektlisten).
     Kardinalität: 0 bis *.
     EMPFOHLEN.

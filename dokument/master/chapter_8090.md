@@ -57,7 +57,6 @@ Eigenschaft `consultation` referenziert werden kann.
 :   Beratung, die diesem Tagesordnungspunkt zugewiesen ist.
     Typ: URL eines Objekts vom Typ `oparl:Consultation`.
     Kardinalität: 0 bis 1.
-    FRAGE: Wirklich immer nur maximal 1 ?
     EMPFOHLEN.
 
 `result`

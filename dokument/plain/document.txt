@@ -1147,8 +1147,7 @@ gelten:
     erreichbar
 
 -   oder Anfragen an die HTTPS-URLs werden mit Redirects auf die
-    entsprechenden HTTP-URLs beantwortet (FRAGE: ist das ein sinnvolles
-    Szenario?).
+    entsprechenden HTTP-URLs beantwortet.
 
 URLs, IRIs und URIs {#urls}
 -------------------
@@ -2021,16 +2020,12 @@ Beispiel:
 
     Content-Disposition: attachment; filename="2014-08-22 Rat Wortprotokoll.pdf"
 
-FRAGE: Sind in Dateinamen sinnvoll?
-
 Der in diesem Header kommunizierte Dateiname ist als Vorschlag an die
 Nutzerin zu verstehen, die Datei unter diesem Namen zu speichern.
 Entsprechend sind Abwägungen bezüglich der Verständlichkeit,
 Leserlichkeit und Einzigartigkeit des Dateinamens, aber auch in Hinblick
 auf den verwendeten Zeichenumfang zu berücksichtigen. Es wird EMPFOHLEN,
 den Dateinamen ausschließlich aus dem ASCII-Zeichenvorrat zu bilden.
-FRAGE: Ist die Beschränkung auf ASCII und damit der Verzicht z.B. auf
-Umlaute erforderlich?
 
 Im Unterschied zum Zugriff auf die Download-URL DARF der Server beim
 Zugriff auf die Zugriffs-URL KEINEN Content-Disposition Header mit
@@ -3248,27 +3243,23 @@ organization
     Kardinalität: 1 bis *. ZWINGEND.
 
 chairPerson
-    Vorsitz der Sitzung Typ: oparl:Person. FRAGE: Was ist bei Wechsel
-    des Vorsitzes während der Sitzung? Kardinalität: 0 bis 1. EMPFOHLEN.
+    Vorsitz der Sitzung Typ: oparl:Person. Kardinalität: 0 bis 1.
+    EMPFOHLEN.
 
 scribe
-    Schriftführer, Protokollant. Typ: oparl:Person. FRAGE: Können
-    mehrere Personen vorkommen? Was ist bei Wechsel während der Sitzung?
-    Kardinalität: 0 bis 1. EMPFOHLEN.
+    Schriftführer, Protokollant. Typ: oparl:Person. Kardinalität: 0 bis
+    1. EMPFOHLEN.
 
 participant
     Teilnehmer der Sitzung. Bei einer Sitzung in der Zukunft sind dies
     die geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die
     Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der
-    Sitzung teilgenommen haben. FRAGE: besser zwei separate
-    Eigenschaften attendant und ìnvited ? Typ: Liste von Objekten des
-    Typs oparl:Person. Vgl. Objektlisten. Kardinalität: 0 bis *.
-    DEPRECATED.
+    Sitzung teilgenommen haben. Typ: Liste von Objekten des Typs
+    oparl:Person. Vgl. Objektlisten. Kardinalität: 0 bis *. DEPRECATED.
 
 invitation
-    Einladungsdokument zur Sitzung. FRAGE: Kann es mehr als ein solches
-    Dokument geben? Typ: Liste von Objekten des Typs oparl:File. Vgl.
-    Objektlisten. Kardinalität: 0 bis *. EMPFOHLEN.
+    Einladungsdokument zur Sitzung. Typ: Liste von Objekten des Typs
+    oparl:File. Vgl. Objektlisten. Kardinalität: 0 bis *. EMPFOHLEN.
 
 resultsProtocol
     Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann
@@ -3360,7 +3351,7 @@ public
 consultation
     Beratung, die diesem Tagesordnungspunkt zugewiesen ist. Typ: URL
     eines Objekts vom Typ oparl:Consultation. Kardinalität: 0 bis 1.
-    FRAGE: Wirklich immer nur maximal 1 ? EMPFOHLEN.
+    EMPFOHLEN.
 
 result
     Kategorische Information darüber, welches Ergebnis die Beratung des

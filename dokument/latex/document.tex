@@ -1378,8 +1378,7 @@ gelten:
   erreichbar
 \item
   oder Anfragen an die HTTPS-URLs werden mit Redirects auf die
-  entsprechenden HTTP-URLs beantwortet (FRAGE: ist das ein sinnvolles
-  Szenario?).
+  entsprechenden HTTP-URLs beantwortet.
 \end{itemize}
 
 \hyperdef{}{urls}{\subsection{URLs, IRIs und URIs}\label{urls}}
@@ -2420,16 +2419,12 @@ Beispiel:
 Content-Disposition: attachment; filename="2014-08-22 Rat Wortprotokoll.pdf"
 \end{verbatim}
 
-FRAGE: Sind in Dateinamen sinnvoll?
-
 Der in diesem Header kommunizierte Dateiname ist als Vorschlag an die
 Nutzerin zu verstehen, die Datei unter diesem Namen zu speichern.
 Entsprechend sind Abwägungen bezüglich der Verständlichkeit,
 Leserlichkeit und Einzigartigkeit des Dateinamens, aber auch in Hinblick
 auf den verwendeten Zeichenumfang zu berücksichtigen. Es wird EMPFOHLEN,
 den Dateinamen ausschließlich aus dem ASCII-Zeichenvorrat zu bilden.
-FRAGE: Ist die Beschränkung auf ASCII und damit der Verzicht z.B. auf
-Umlaute erforderlich?
 
 Im Unterschied zum Zugriff auf die Download-URL DARF der Server beim
 Zugriff auf die Zugriffs-URL KEINEN \texttt{Content-Disposition} Header
@@ -3864,26 +3859,22 @@ ergänzen und dann Ordnung entfernen. invers zur Eigenschaft
 \texttt{meeting} der Klasse \texttt{oparl:Organization}. Typ:
 \texttt{oparl:Organization}. Kardinalität: 1 bis *. ZWINGEND.
 \item[\texttt{chairPerson}]
-Vorsitz der Sitzung Typ: \texttt{oparl:Person}. FRAGE: Was ist bei
-Wechsel des Vorsitzes während der Sitzung? Kardinalität: 0 bis 1.
+Vorsitz der Sitzung Typ: \texttt{oparl:Person}. Kardinalität: 0 bis 1.
 EMPFOHLEN.
 \item[\texttt{scribe}]
-Schriftführer, Protokollant. Typ: \texttt{oparl:Person}. FRAGE: Können
-mehrere Personen vorkommen? Was ist bei Wechsel während der Sitzung?
-Kardinalität: 0 bis 1. EMPFOHLEN.
+Schriftführer, Protokollant. Typ: \texttt{oparl:Person}. Kardinalität: 0
+bis 1. EMPFOHLEN.
 \item[\texttt{participant}]
 Teilnehmer der Sitzung. Bei einer Sitzung in der Zukunft sind dies die
 geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die Liste
 nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung
-teilgenommen haben. FRAGE: besser zwei separate Eigenschaften
-\texttt{attendant} und \texttt{ìnvited} ? Typ: Liste von Objekten des
-Typs \texttt{oparl:Person}. Vgl. \hyperref[objektlisten]{Objektlisten}.
+teilgenommen haben. Typ: Liste von Objekten des Typs
+\texttt{oparl:Person}. Vgl. \hyperref[objektlisten]{Objektlisten}.
 Kardinalität: 0 bis *. DEPRECATED.
 \item[\texttt{invitation}]
-Einladungsdokument zur Sitzung. FRAGE: Kann es mehr als ein solches
-Dokument geben? Typ: Liste von Objekten des Typs \texttt{oparl:File}.
-Vgl. \hyperref[objektlisten]{Objektlisten}. Kardinalität: 0 bis *.
-EMPFOHLEN.
+Einladungsdokument zur Sitzung. Typ: Liste von Objekten des Typs
+\texttt{oparl:File}. Vgl. \hyperref[objektlisten]{Objektlisten}.
+Kardinalität: 0 bis *. EMPFOHLEN.
 \item[\texttt{resultsProtocol}]
 Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich
 erst nach dem Stattfinden der Sitzung vorkommen. Typ: URL eines Objekts
@@ -3969,7 +3960,7 @@ EMPFOHLEN.
 \item[\texttt{consultation}]
 Beratung, die diesem Tagesordnungspunkt zugewiesen ist. Typ: URL eines
 Objekts vom Typ \texttt{oparl:Consultation}. Kardinalität: 0 bis 1.
-FRAGE: Wirklich immer nur maximal 1 ? EMPFOHLEN.
+EMPFOHLEN.
 \item[\texttt{result}]
 Kategorische Information darüber, welches Ergebnis die Beratung des
 Tagesordnungspunktes erbracht hat, in der Bedeutung etwa ``Unverändert

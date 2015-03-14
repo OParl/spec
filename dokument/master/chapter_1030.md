@@ -43,8 +43,7 @@ sieht eine Verabschiedung in der 23. KW (2. bis 6 Juni) vor. Zuvor soll in einer
 mehrwöchigen Review-Phase jedem die Möglichkeit offen stehen, den Stand der Spezifikation
 ausführlich zu kommentieren.
 
-**April bis Juni 2014:** Verfeinerung des Vokabular-Teils durch Andreas Kuckartz, finanziert
-durch das FP7-Projekt Fusepool aus Mitteln der Europäischen Union.
+**April bis Juni 2014:** Verfeinerung des in diesem Zeitraum auf JSON-LD basierenden Vokabular-Teils durch Andreas Kuckartz, finanziert durch das FP7-Projekt Fusepool aus Mitteln der Europäischen Union.
 
 **12. Mai 2014:** An der Spezifikation wird weiterhin aktiv gearbeitet und ein kurzfristiger
 Redaktionsschluss nicht absehbar. Die Initiatoren geben einen neuen Zeitplan bekannt^[

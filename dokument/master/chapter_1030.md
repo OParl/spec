@@ -52,6 +52,8 @@ Redaktionsschluss nicht absehbar. Die Initiatoren geben einen neuen Zeitplan bek
 für die Veröffentlichung der 23. Juni anvisiert.
 
 **Juni 2014:** Aufgrund von Feedback aus der Review-Phase wird die Spezifikation
-deutlich überarbeitet.
+deutlich überarbeitet. Entscheidung zum Rückbau von JSON-LD. Ausstieg von Andreas Kuckartz aus dem Projekt.
 
-TODO: Fortschreiben bis zur tatsächlichen Fertigstellung.
+**Januar bis Februar 2015:** Feeedback-Phase
+
+**März 2015:** OParl. nun unter Leitung der Bundes-Arbeitsgemeinschaft der Kommunalen IT-Dienstleister e.V und Open Knowledge Foundation Deutschland e.V.

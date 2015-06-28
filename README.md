@@ -1,4 +1,4 @@
-![OParl Wortmarke](https://raw2.github.com/OParl/brand/master/wortmarke/oparl-wortmarke-rgb-m.png)
+![OParl Wortmarke](https://raw.githubusercontent.com/OParl/brand/master/wortmarke/oparl-wortmarke-rgb-m.png)
 
 In diesem Repository wird die Spezifikation zum [OParl](http://oparl.org/)-Standard erarbeitet.
 

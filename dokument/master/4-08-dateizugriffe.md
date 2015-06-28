@@ -68,10 +68,9 @@ vermeiden. Um dies zu unterstützen, können laut HTTP-Spezifikationen unterschi
 Header zum Einsatz kommen.
 
 Die Auslieferung eines `Last-Modified`-Headers gilt für alle OParl-Server beim
-Zugriff auf eine Datei-URL, sei es Download- oder Zugriffs-URL, als ZWINGEND.
+Zugriff auf eine Datei-URL, sei es Download- oder Zugriffs-URL, als EMPFOHLEN.
 
-Darüber hinaus EMPFEHLEN wir, bei Anfrage einer Datei die folgenden
-Header auszuliefern:
+Ebenso EMPFEHLEN wir, bei Anfrage einer Datei die folgenden Header auszuliefern:
 
 * `Content-Length`: Die Größe des Dateiinhalts
 * `ETag`: Entity Tag

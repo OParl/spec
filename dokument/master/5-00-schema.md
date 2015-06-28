@@ -205,8 +205,12 @@ Diese sind – falls tatsächlich erforderlich – mit den JSON-LD-Mitteln einfa
 
 ~~~~~
 "herstellera:newWonderProperty": "Dies ist ein Feature,
-    welches noch kein anderer Hersteller bietet!"
+    welches noch kein anderer Hersteller bietet!",
+"herstellerb:faxNumber": "012345678"
 ~~~~~
+
+Das Zeichen '@' DARF NICHT als Bestandteil des Herstellerprefix verwendet werden,
+um eine ggf. später aufkommende JSON-LD-Erweiterung nicht zu stören.
 
 ### URL-Pfade in den Beispielen
 

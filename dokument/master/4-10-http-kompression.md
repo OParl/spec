@@ -5,7 +5,7 @@ Die zwischen Servern und Clients übertragenen Datenvolumen SOLLEN
 mit Hilfe von Kompressionsverfahren reduziert werden, wenn sowohl
 der Client als auch der Server dies unterstützen. Dabei kommt
 das in HTTP 1.1^[RFC7231 Section 5.3.4:
-<http://tools.ietf.org/html/rfc7231#section-5.3.4>]
+<https://tools.ietf.org/html/rfc7231#section-5.3.4>]
 beschriebene Verfahren zum Einsatz.
 
 HTTP 1.1 stellt drei komprimierte Kodierungen vor, wobei die Liste

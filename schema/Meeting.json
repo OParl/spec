@@ -1,0 +1,155 @@
+{
+    "title": "Meeting",
+    "description": "Eine Sitzung ist die Versammlung einer oder mehrerer Gruppierungen (oparl:Organization) zu einem bestimmten Zeitpunkt an einem bestimmten Ort.\n\nDie geladenen Teilnehmer der Sitzung sind jeweils als Objekte vom Typ oparl:Person in entsprechender Form referenziert. Verschiedene Dateien (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.\n\nDie Inhalte einer Sitzung werden durch Tagesordnungspunkte (oparl:AgendaItem) abgebildet.",
+    "type": "object",
+    "required": [
+        "id",
+        "type",
+        "start",
+        "organization"
+    ],
+    "oparl:optional": [
+        "streetAddress",
+        "postalCode",
+        "locality",
+        "location",
+        "auxiliaryFile",
+        "agendaItem",
+        "keyword"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "format": "uri"
+        },
+        "type": {
+            "type": "string",
+            "pattern": "^http://oparl\\.org/schema/1\\.0/Meeting$"
+        },
+        "name": {
+            "description": "",
+            "type": "string"
+        },
+        "start": {
+            "description": "Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Startzeitpunkt sein.",
+            "type": "string",
+            "format": "date-time"
+        },
+        "end": {
+            "description": "Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Endzeitpunkt sein.",
+            "type": "string",
+            "format": "date-time"
+        },
+        "streetAddress": {
+            "description": "Straße und Hausnummer des Sitzungsortes.",
+            "type": "string"
+        },
+        "postalCode": {
+            "description": "Postleitzahl des Sitzungsortes.",
+            "type": "string"
+        },
+        "locality": {
+            "description": "Ortsangabe des Sitzungsortes.",
+            "type": "string"
+        },
+        "location": {
+            "description": "Sitzungsort in Form von Geodaten.",
+            "oparl:ref": "Location",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
+        },
+        "organization": {
+            "description": "Gruppierungen, denen die Sitzung zugeordnet ist. Im Regelfall wird hier eine Gruppierung verknüpft sein, es kann jedoch auch gemeinsame Sitzungen mehrerer Gruppierungen geben. Das erste Element ist dann das federführende Gremium. TODO: Eigenschaft für federführendes Gremium ergänzen und dann Ordnung entfernen. invers zur Eigenschaft `meeting` der Klasse `oparl:Organization`.",
+            "oparl:ref": "Organization",
+            "oparl:backref": "meeting",
+            "oparl:cardinality": "n:m",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "chairPerson": {
+            "description": "Vorsitz der Sitzung",
+            "oparl:ref": "Person",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
+        },
+        "scribe": {
+            "description": "Schriftführer, Protokollant.",
+            "oparl:ref": "Person",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
+        },
+        "participant": {
+            "description": "Teilnehmer der Sitzung. Bei einer Sitzung in der Zukunft sind dies die geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung teilgenommen haben.",
+            "oparl:ref": "Person",
+            "oparl:cardinality": "n:m",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "invitation": {
+            "description": "Einladungsdokument zur Sitzung.",
+            "oparl:ref": "File",
+            "oparl:backref": "meeting",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
+        },
+        "resultsProtocol": {
+            "description": "Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nachdem Stattfinden der Sitzung vorkommen.",
+            "oparl:ref": "File",
+            "oparl:backref": "meeting",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
+        },
+        "verbatimProtocol": {
+            "description": "Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen.",
+            "oparl:ref": "File",
+            "oparl:backref": "meeting",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
+        },
+        "auxiliaryFile": {
+            "description": "Dateianhang zur Sitzung. Hiermit sind Dateien gemeint, die üblicherweise mit der Einladung zu einer Sitzung verteilt werden, und die nicht bereits über einzelne Tagesordnungspunkte referenziert sind.",
+            "oparl:ref": "File",
+            "oparl:backref": "meeting",
+            "oparl:cardinality": "n:m",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "agendaItem": {
+            "description": "Tagesordnungspunkte der Sitzung. Die Reihenfolge ist relevant. Es kann Sitzungen ohne TOPs geben.",
+            "oparl:ref": "AgendaItem",
+            "oparl:backref": "meeting",
+            "oparl:cardinality": "1:n",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "keyword": {
+            "type": "string"
+        },
+        "created": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "modified": {
+            "type": "string",
+            "format": "date-time"
+        }
+    }
+}

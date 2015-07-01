@@ -1,0 +1,7 @@
+{
+    "id": "https://oparl.example.org/locations/29856",
+    "type": "http://oparl.org/schema/1.0/Location",
+    "description": "Rechtes Rheinufer zwischen Deutzer Brücke und Hohenzollernbrücke",
+    "geometry": "POLYGON ((6.9681106 50.9412137, 6.9690940 50.9412137, 6.9692169 50.9368270, 6.9681218 50.9368270, 6.9681106 50.9412137))"
+}
+

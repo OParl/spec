@@ -1,0 +1,155 @@
+{
+    "title": "Body",
+    "description": "Der Objekttyp `oparl:Body` dient dazu, eine Körperschaft und damit ein Parlament zu repräsentieren, zu dem der Server Informationen bereithält. Eine Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder  ein kommunaler Zweckverband sein.\n\n Hätte das System beispielsweise den Zweck, Informationen über das kommunale Parlament der Stadt Köln, namentlich den Rat der Stadt Köln, abzubilden, dann müsste dieses System dazu ein Objekt vom Typ `oparl:Body` führen, welches die Stadt Köln repräsentiert.\n\nVom OParl-Server wird erwartet, dass er mindestens ein Objekt vom Typ `oparl:Body` bereithält. Teilen sich mehrere Körperschaften dasselbe technische System, können auf demselben Server auch mehrere Objekte vom Typ `oparl:Body` beherbergt werden.\n\nÜber die Zuordnung zu einem bestimmten `oparl:Body`-Objekt zeigen andere Objekte, wie beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit zu einer bestimmten Körperschaft und damit implizit zu einem bestimmten Parlament an.",
+    "type": "object",
+    "required": [
+        "id",
+        "type",
+        "system",
+        "name",
+        "paper",
+        "member",
+        "meeting",
+        "organization"
+    ],
+    "oparl:optional": [
+        "contactName",
+        "classification",
+        "keyword"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "format": "uri"
+        },
+        "type": {
+            "type": "string",
+            "pattern": "^http://oparl\\.org/schema/1\\.0/Body$"
+        },
+        "system": {
+            "description": "System, zu dem dieses Objekt gehört.",
+            "oparl:ref": "System",
+            "oparl:backref": "bodies",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
+        },
+        "shortName": {
+            "description": "Kurzer Name der Körperschaft.",
+            "type": "string"
+        },
+        "name": {
+            "description": "Der offizielle lange Name der Körperschaft.",
+            "type": "string"
+        },
+        "website": {
+            "description": "Allgemeine Website der Körperschaft.",
+            "type": "string",
+            "format": "ipv6"
+        },
+        "license": {
+            "description": "Lizenz, die für die Daten, die über diese API abgerufen werden können, gilt, sofern nicht am einzelnen Objekt anders angegeben. Siehe dazu auch die übergreifende Beschreibung zur Eigenschaft [`license`](#eigenschaft_license).",
+            "type": "string",
+            "format": "uri"
+        },
+        "licenseValidSince": {
+            "description": "Zeitpunkt, seit dem die unter `license` angegebene Lizenz gilt. Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen.",
+            "type": "string",
+            "format": "date-time"
+        },
+        "rgs": {
+            "description": "Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette^[Regionalschlüssel können im [Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes](https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html) eingesehen werden].",
+            "type": "string"
+        },
+        "equivalentBody": {
+            "description": "Dient der Angabe beliebig vieler zusätzlicher URLs, die dieselbe Körperschaft repräsentieren. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>] oder der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden.",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            },
+            "type": "array"
+        },
+        "contactEmail": {
+            "description": "Dient der Angabe einer Kontakt-E-Mail-Adresse mit \"mailto:\"-Schema. Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und idealerweise das parlamentarische Informationssystem zuständigen Stelle ermöglichen. ",
+            "type": "string",
+            "format": "email",
+            "pattern": "^mailto:.+$"
+        },
+        "contactName": {
+            "description": "Name oder Bezeichnung der mit `contactEmail` erreichbaren Stelle.",
+            "type": "string"
+        },
+        "paper": {
+            "description": "Drucksachen unter dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
+            "oparl:ref": "Paper",
+            "oparl:backref": "body",
+            "oparl:cardinality": "1:n",
+            "type": "array",
+            "items": {
+                "format": "uri",
+                "type": "string"
+            }
+        },
+        "member": {
+            "description": "Personen in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
+            "oparl:ref": "Person",
+            "oparl:backref": "body",
+            "oparl:cardinality": "n:m",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }            
+        },
+        "meeting": {
+            "description": "Sitzungen dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
+            "oparl:ref": "Meeting",
+            "oparl:cardinality": "1:n",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "organization": {
+            "description": "Gruppierungen in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
+            "oparl:ref": "Organization",
+            "oparl:backref": "body",
+            "oparl:cardinality": "1:n",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "legislativeTerm": {
+            "description": "Wahlperioden in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
+            "oparl:ref": "LegislativeTerm",
+            "oparl:backref": "body",
+            "oparl:cardinality": "1:n",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "classification": {
+            "description": "Art der Körperschaft.",
+            "type": "string"
+        },
+        "keyword": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "created": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "modified": {
+            "type": "string",
+            "format": "date-time"
+        }
+    }
+}

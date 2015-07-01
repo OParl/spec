@@ -1,0 +1,74 @@
+{
+    "title": "Membership",
+    "description": "Über Objekte diesen Typs wird die Mitgliedschaft von Personen in Gruppierungen dargestellt. Diese Mitgliedschaften können zeitlich begrenzt sein. Zudem kann abgebildet werden, dass eine Person eine bestimmte Rolle bzw. Position innerhalb der Gruppierung inne hat, beispielsweise den Vorsitz einer Fraktion.",
+    "type": "object",
+    "required": [
+        "id",
+        "type",
+        "person",
+        "organization"
+    ],
+    "oparl:optional": [
+        "role",
+        "post",
+        "onBehalfOf",
+        "votingRight",
+        "startDate",
+        "endDate"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "format": "uri"
+        },
+        "type": {
+            "type": "string",
+            "pattern": "^http://oparl\\.org/schema/1\\.0/Membership$"
+        },
+        "person": {
+            "description": "Die betreffende Person, die Mitglied einer Gruppierung ist oder war.",
+            "oparl:ref": "Person",
+            "oparl:backref": "membership",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
+        },
+        "organization": {
+            "description": "Die Gruppierung, in der die Person Mitglied ist oder war.",
+            "oparl:ref": "Organization",
+            "oparl:backref": "membership",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
+        },
+        "role": {
+            "description": "Rolle der Person für die Gruppierung. Kann genutzt werden, um verschiedene Arten von Mitgliedschaften zum Beispiel in Gremien zu unterscheiden. Diese Eigenschaft funktioniert wie in [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder als URL zu einem skos:Concept oder als String. Der String (oder entsprechend das prefLabel des verlinkten Objekts) SOLL in dieser Form sowohl die männliche als auch die weibliche Rollenbezeichnung enthalten: `\"Vorsitzender | Vorsitzende\"`.",
+            "type": "string"
+        },
+        "post": {
+            "description": "The post held by the person in the organization. TODO: Prüfen, ob das ohne JSON-LD Sinn macht, oder ob hier zusätzliche Erläuterungen notwendig sind.",
+            "type": "string"
+        },
+        "onBehalfOf": {
+            "description": "Entsendende Gruppierung, Fraktion, fraktionsloses oder externes Gremium. Es kann auch Mitglieder geben, die von keiner anderen Gruppierung entsendet wurden (z. B. fraktionslose Abgeordnete). Da eine solche Person sich gewissermaßen selbst \"entsendet\" hat, SOLL in dem Fall hier der selbe Wert angegeben werden wie bei der Eigenschaft `person`.^[ Dies entspricht `opengov:onBehalfOf` in Popolo. <http://popoloproject.com/specs/membership.html>]",
+            "oparl:ref": "Organization",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
+        },
+        "votingRight": {
+            "description": "Gibt an, ob die Person in der Gruppierung stimmberechtigtes Mitglied ist.",
+            "type": "boolean"
+        },
+        "startDate": {
+            "description": "Anfangszeitpunkt der Mitgliedschaft.^[Abgeleitet von: `schema:validFrom` in Popolo. <http://popoloproject.com/specs/membership.html>]",
+            "type": "string",
+            "format": "date-time"
+        },
+        "endDate": {
+            "description": "Der Endzeitpunkt der Mitgliedschaft.^[Abgeleitet von: `schema:validThrough` in Popolo. <http://popoloproject.com/specs/membership.html>]",
+            "type": "string",
+            "format": "date-time"
+        }
+    }
+}

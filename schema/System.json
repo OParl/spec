@@ -1,0 +1,86 @@
+{
+    "title": "System",
+    "description": "**Namespace-URL:** `http://oparl.org/schema/1.0/System`\n\nDer Objekttyp `oparl:System` bildet grundlegende Informationen zum parlamentarischen Informationssystem ab. Das Objekt repräsentiert das technische System, unabhängig von der Frage, welche Körperschaften auf diesem System vertreten sind.\n\nAuf jedem OParl-Server MUSS ein Objekt vom Typ `oparl:System` vorgehalten werden. Es DARF nur ein einziges solches Objekt je Server existieren.\n\nFür Clients ist das `oparl:System` Objekt ein geeigneter Einstiegspunkt, um grundlegende Informationen über das System zu bekommen und die URLs zum Zugriff auf andere Informationen in Erfahrung zu bringen.\n\nDie URL des `oparl:System`-Objekts MUSS per Definition identisch mit der URL des API-Endpunkts des Servers sein.",
+    "type": "object",
+    "required": [
+        "id",
+        "type",
+        "oparlVersion",
+        "body"
+    ],
+    "oparl:optional": [
+        "website",
+        "vendor",
+        "product"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "format": "uri"
+        },
+        "type": {
+            "type": "string",
+            "pattern": "^http://oparl\\.org/schema/1\\.0/System$"
+        },
+        "oparlVersion": {
+            "type": "string",
+            "pattern": "^http://oparl\\.org/specs/1\\.0/$",
+            "description": "Die URL der OParl-Spezifikation, die von diesem Server unterstützt wird. Aktuell kommt hier nur ein Wert in Frage. Mit zukünftigen OParl-Versionen kommen weitere mögliche URLs hinzu. Wert: `http://oparl.org/specs/1.0/`"
+        },
+        "body": {
+            "description": "Liste der Körperschaften (`oparl:Body`-Objekte), die auf dem System existieren.",
+            "oparl:ref": "Body",
+            "oparl:backref": "system",
+            "oparl:cardinality": "1:n",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }            
+        },
+        "name": {
+            "description": "Nutzerfreundlicher Name für das System, mit dessen Hilfe Nutzerinnen und Nutzer das System erkennen und von anderen unterscheiden können.",
+            "type": "string"
+        },
+        "contactEmail": {
+            "description": "E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe einer E-Mail-Adresse dient sowohl NutzerInnen wie auch Entwicklerinnen von Clients zur Kontaktaufnahme mit dem Betreiber.",
+            "format": "email",
+            "pattern": "^mailto:.+$",
+            "type": "string"
+        },
+        "contactName": {
+            "description": "Name der Ansprechpartnerin bzw. des Ansprechpartners oder der Abteilung, die über die in `contactEmail` angegebene Adresse erreicht werden kann.",
+            "type": "string"
+        },
+        "newObjects": {
+            "description": "URL des Feeds \"Neue Objekte\".",
+            "type": "string",
+            "format": "uri"
+        },
+        "updatedObjects": {
+            "description": "URL des Feeds \"Geänderte Objekte\".",
+            "type": "string",
+            "format": "uri"
+        },
+        "removedObjects": {
+            "description": "URL des Feeds \"Entfernte Objekte\".",
+            "type": "string",
+            "format": "uri"
+        },
+        "website": {
+            "description": "URL der Website des parlamentarischen Informationssystems",
+            "type": "string",
+            "format": "uri"
+        },
+        "vendor": {
+            "description": "URL der Website des Software-Anbieters, von dem die OParl-Server-Software stammt.",
+            "type": "string",
+            "format": "uri"
+        },
+        "product": {
+            "description": "URL zu Informationen über die auf dem System genutzte OParl-Server-Software",
+            "type": "string",
+            "format": "uri"
+        }
+    }
+}

@@ -1,0 +1,117 @@
+{
+    "title": "Organization",
+    "description": "Dieser Objekttyp dient dazu, Gruppierungen von Personen abzubilden, die in der parlamentarischen Arbeit eine Rolle spielen. Dazu zählen in der Praxis insbesondere Fraktionen und Gremien.^[Ein Teil der Eigenschaften ist der \"Organization\" Ontologie (kurz: `org:Organization`) des W3C entnommen. Quelle: The Organization Ontology, W3C Recommendation 16 January 2014, <http://www.w3.org/TR/vocab-org/>. Deren Bezeichnungen wurden deshalb beibehalten. Das betrifft z.B. die Verwendung von `classification`.]",
+    "type": "object",
+    "required": [
+        "id",
+        "type",
+        "body",
+        "name",
+        "membership",
+        "meeting"
+    ],
+    "oparl:optional": [
+        "shortName",
+        "post",
+        "subOrganizationOf",
+        "endDate",
+        "website",
+        "keyword"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "format": "uri"
+        },
+        "type": {
+            "type": "string",
+            "pattern": "^http://oparl\\.org/schema/1\\.0/Organization$"
+        },
+        "body": {
+            "description": "Körperschaft, zu der diese Gruppierung gehört.",
+            "oparl:ref": "Body",
+            "oparl:backref": "organization",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
+        },
+        "name": {
+            "description": "Offizielle (lange) Form des Namens der Gruppierung.",
+            "type": "string"
+        },
+        "membership": {
+            "description": "Mitgliedschaften dieser Gruppierung.",
+            "oparl:ref": "Membership",
+            "oparl:cardinality": "1:n",
+            "oparl:backref": "organization",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "meeting": {
+            "description": "Sitzungen dieser Gruppierung. Invers zur Eigenschaft `organization` der Klasse `oparl:Meeting`. Da die Anzahl der Sitzungen stetig wachsen kann, wird EMPFOHLEN, die Liste über eine eigene URL verfügbar zu machen und damit Paginierung sowie die Filterung mittels startDate und endDate Parametern zu ermöglichen. Siehe dazu auch [Objektlisten](#objektlisten).",
+            "oparl:ref": "Meeting",
+            "oparl:backref": "organization",
+            "oparl:cardinality": "n:m",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "shortName": {
+            "description": "Der Name der Gruppierung als Kurzform.",
+            "type": "string"
+        },
+        "post": {
+            "description": "Positionen, die für diese Gruppierung vorgesehen sind. Die Werte dieser Eigenschaft funktioniert wie in [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder als URL zu einem `skos:Concept` oder als String. Die Strings bzw. `prefLabel`-Eigenschaften der Objekte SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster \"männliche Form | weibliche Form\" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem \"|\"). Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden: \"Mitglied\" und nicht \"Mitglied | Mitglied\". Weitere Beispiele: \"Vorsitzender | Vorsitzende\", \"1. Stellvertreter | 1. Stellvertreterin\", \"2. Stellvertreter | 2. Stellvertreterin\", \"Schriftführer | Schriftführerin\", \"Stellvertretender Schriftführer | Stellvertretende Schriftführerin",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            },
+            "type": "array"
+        },
+        "subOrganizationOf": {
+            "description": "Ggf. URL der übergeordneten Gruppierung.",
+            "oparl:ref": "Organization",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
+        },
+        "classification": {
+            "description": "Die Art der Gruppierung. In Frage kommen z.B. \"Rat\", \"Hauptausschuss\", \"Ausschuss\", \"Beirat\", \"Projektbeirat\", \"Kommission\", \"AG\", \"Verwaltungsrat\". Die Angabe soll möglichst präzise erfolgen. Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).",
+            "type": "string"
+        },
+        "keyword": {
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "startDate": {
+            "description": "Gründungsdatum der Gruppierung. Kann z. B. das Datum der konstituierenden Sitzung sein.",
+            "type": "string",
+            "format": "date-time"
+        },
+        "endDate": {
+            "description": "Datum des letzten Tages der Existenz der Gruppierung.",
+            "type": "string",
+            "format": "date-time"
+        },
+        "created": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "modified": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "website": {
+            "description": "Allgemeine Website der Gruppierung.",
+            "type": "string",
+            "format": "uri"
+        }
+    }
+}

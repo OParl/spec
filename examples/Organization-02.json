@@ -1,0 +1,10 @@
+{
+    "id": "https://oparl.example.org/organization/34",
+    "type": "http://oparl.org/schema/1.0/Organization",
+    "body": "https://oparl.example.org/bodies/1",
+    "name": "Ausschuss für Haushalt und Finanzen",
+    "meeting": "https://oparl.example.org/meetings_for_org/34",
+    "membership": "https://oparl.example.org/meetings_for_org/34",
+    "modified": "2012-08-16T14:05:27+02:00"
+}
+

@@ -1,0 +1,31 @@
+{
+    "id": "https://oparl.example.org/meeting/281",
+    "type": "http://oparl.org/schema/1.0/Meeting",
+    "name": "4. Sitzung des Finanzausschusses",
+    "start": "2013-01-04T08:00:00+01:00",
+    "end": "2013-01-04T12:00:00+01:00",
+    "streetAddress": "Musterstraße 5, Raum 136",
+    "postalCode": "11111",
+    "locality": "Musterort",
+    "organization": [
+        "https://oparl.example.org/organization/34"
+    ],
+    "invitation": [
+        "https://oparl.example.org/files/586"
+    ],
+    "resultsProtocol": "https://oparl.example.org/files/628",
+    "verbatimProtocol": "https://oparl.example.org/files/691",
+    "auxiliaryFile": [
+        "https://oparl.example.org/files/588",
+        "https://oparl.example.org/files/589"
+    ],
+    "agendaItem": [
+        "https://oparl.example.org/agendaitem/1045",
+        "https://oparl.example.org/agendaitem/1046",
+        "https://oparl.example.org/agendaitem/1047",
+        "https://oparl.example.org/agendaitem/1048"
+    ],
+    "created": "2012-01-06T12:01:00+01:00",
+    "modified": "2012-01-08T14:05:27+01:00"
+}
+

@@ -1,0 +1,87 @@
+{
+    "title": "AgendaItem",
+    "description": "Tagesordnungspunkte sind die Bestandteile von Sitzungen (`oparl:Meeting`). Jeder Tagesordnungspunkt widmet sich inhaltlich einem bestimmten Thema, wozu in der Regel auch die Beratung bestimmter Drucksachen gehört.\n\nDie Beziehung zwischen einem Tagesordnungspunkt und einer Drucksache wird über ein Objekt vom Typ `oparl:Consultation` hergestellt, das über die  Eigenschaft `consultation` referenziert werden kann.",
+    "type": "object",
+    "required": [
+        "id",
+        "type",
+        "meeting",
+        "name"
+    ],
+    "oparl:optional": [
+        "number",
+        "resolution",
+        "auxiliaryFile",
+        "keyword"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "format": "uri"
+        },
+        "type": {
+            "type": "string",
+            "pattern": "^http://oparl\\.org/schema/1\\.0/AgendaItem$"
+        },
+        "meeting": {
+            "description": "Sitzung, der der Tagesordnungspunkt zugeordnet ist.",
+            "oparl:ref": "Meeting",
+            "oparl:backref": "agendaItem",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
+        },
+        "number": {
+            "description": "Gliederungs-\"Nummer\" des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z. B. \"10.\", \"10.1\", \"C\", \"c)\" o. ä. Die Reihenfolge wird nicht dadurch, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting` festgelegt.",
+            "type": "string"
+        },
+        "name": {
+            "description": "Das Thema des Tagesordnungspunktes.",
+            "type": "string"
+        },
+        "public": {
+            "description": "Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher Sitzung vorgesehen ist/war. Es wird ein Wahrheitswert (`true` oder `false`) erwartet.",
+            "type": "boolean"
+        },
+        "consultation": {
+            "description": "Beratung, die diesem Tagesordnungspunkt zugewiesen ist.",
+            "oparl:ref": "Consultation",
+            "oparl:backref": "agendaItem",
+            "oparl:cardinality": "1:1",
+            "type": "string",
+            "format": "uri"
+        },
+        "result": {
+            "description": "Kategorische Information darüber, welches Ergebnis die Beratung des Tagesordnungspunktes erbracht hat, in der Bedeutung etwa \"Unverändert beschlossen\" oder \"Geändert beschlossen\". Diese Eigenschaft  funktioniert wie in [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder als URL zu einem `skos:Concept` oder als String.",
+            "type": "string"
+        },
+        "resolution": {
+            "description": "Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann hier ein Text oder eine Datei angegeben werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag) von der Beschlussvorlage abweicht.",
+            "type": "string"
+        },
+        "auxiliaryFile": {
+            "description": "Dateianhänge zum Tagesordnungspunkt.",
+            "oparl:ref": "File",
+            "oparl:cardinality": "n:m",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "keyword": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "created": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "modified": {
+            "type": "string",
+            "format": "date-time"
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "id": "https://oparl.example.org/paper/749",
+    "type": "http://oparl.org/schema/1.0/Paper",
+    "body": "https://oparl.example.org/bodies/1",
+    "name": "Antwort auf Anfrage 1200/2014",
+    "reference": "1234/2014",
+    "publishedDate": "2014-04-04T16:42:02+02:00",
+    "paperType": "Beantwortung einer Anfrage",
+    "relatedPaper": [
+        "https://oparl.example.org/paper/699"
+    ],
+    "mainFile": "https://oparl.example.org/files/925",
+    "auxiliaryFile": [
+        "https://oparl.example.org/files/926"
+    ],
+    "location": [
+        "https://oparl.example.org/locations/4472"
+    ],
+    "originator": [
+        "https://oparl.example.org/organization/2000",
+        "https://oparl.example.org/people/1000"
+    ],
+    "consultation": [
+        "https://oparl.example.org/consultation/5676",
+        "https://oparl.example.org/consultation/5689"
+    ],
+    "underDirectionOf": [
+        "https://oparl.example.org/organization/2000"
+    ],
+    "modified": "2013-01-08T12:05:27+01:00"
+}
+

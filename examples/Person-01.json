@@ -1,0 +1,27 @@
+{
+    "id": "https://oparl.example.org/person/29",
+    "type": "http://oparl.org/schema/1.0/Person",
+    "body": "https://oparl.example.org/body/0",
+    "name": "Prof. Dr. Max Mustermann",
+    "familyName": "Mustermann",
+    "givenName": "Max",
+    "title": [
+        "Prof.",
+        "Dr."
+    ],
+    "formOfAddress": "Ratsherr | Ratsfrau",
+    "gender": "male",
+    "email": "mailto:max@mustermann.de",
+    "phone": "tel:+493012345678",
+    "streetAddress": "Musterstraße 5",
+    "postalCode": "11111",
+    "locality": "Musterort",
+    "status": "Bezirksbürgermeister | Bezirksbürgermeisterin",
+    "membership": [
+        "https://oparl.example.org/membership/11",
+        "https://oparl.example.org/membership/34"
+    ],
+    "created": "2011-11-11T11:11:00+01:00",
+    "modified": "2012-08-16T14:05:27+02:00"
+}
+

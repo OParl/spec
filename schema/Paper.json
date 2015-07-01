@@ -1,0 +1,136 @@
+{
+    "title": "Paper",
+    "description": "Dieser Objekttyp dient der Abbildung von Drucksachen in der parlamentarischen Arbeit, wie zum Beispiel Anfragen, Anträgen und Beschlussvorlagen.\n\nDrucksachen werden in Form einer Beratung (oparl:Consultation) im Rahmen eines Tagesordnungspunkts (oparl:AgendaItem) einer Sitzung (oparl:Meeting) behandelt.\n\nDrucksachen spielen in der schriftlichen wie mündlichen Kommunikation eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in parlamentarischen Informationssystemen unveränderliche Kennungen der Drucksachen zum Einsatz.",
+    "type": "object",
+    "required": [
+        "id",
+        "type",
+        "body",
+        "name",
+        "publishedDate",
+        "mainFile"
+    ],
+    "oparl:optional": [
+        "reference",
+        "relatedPaper",
+        "auxiliaryFile",
+        "location",
+        "consultation",
+        "keyword",
+        "underDirectionof"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "format": "uri"
+        },
+        "type": {
+            "type": "string",
+            "pattern": "^http://oparl\\.org/schema/1\\.0/Paper$"
+        },
+        "body": {
+            "description": "Körperschaft, zu der die Drucksache gehört.",
+            "oparl:ref": "Body",
+            "oparl:backref": "meeting",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
+        },
+        "name": {
+            "description": "Titel der Drucksache.",
+            "type": "string"
+        },
+        "reference": {
+            "description": "Kennung bzw. Aktenzeichen der Drucksache, mit der sie in der parlamentarischen Arbeit eindeutig referenziert werden kann.",
+            "type": "string"
+        },
+        "publishedDate": {
+            "description": "Veröffentlichungsdatum der Drucksache.",
+            "type": "string",
+            "format": "date-time"
+        },
+        "paperType": {
+            "description": "Art der Drucksache, z. B. Beantwortung einer Anfrage. Diese Eigenschaft funktioniert wie in [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder als URL zu einem `skos:Concept` oder als String.",
+            "type": "string",
+            "format": "uri"
+        },
+        "relatedPaper": {
+            "description": "Inhaltlich verwandte Drucksachen.",
+            "oparl:ref": "Paper",
+            "oparl:cardinality": "1:n",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }            
+        },
+        "mainFile": {
+            "description": "Die Haupt-Datei zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert eine Beschlussvorlage und die Haupt-Datei enthält den Text der Beschlussvorlage.",
+            "oparl:ref": "File",
+            "oparl:backref": "paper",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
+        },
+        "auxiliaryFile": {
+            "description": "Anhänge zur Drucksache. Diese sind, in Abgrenzung zur Haupt-Datei (`mainFile`), untergeordnet und es kann beliebig viele davon geben.",
+            "oparl:ref": "File",
+            "oparl:backref": "paper",
+            "oparl:cardinality": "n:m",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }            
+        },
+        "location": {
+            "description": "Sofern die Drucksache einen inhaltlichen Ortsbezug hat, beschreibt diese Eigenschaft den Ort in Textform und/oder in Form von Geodaten.",
+            "oparl:ref": "Location",
+            "oparl:cardinality": "n:m",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }            
+        },
+        "originator": {
+            "description": "Urheber der Drucksache, kann eine oder mehrere Person(en) bzw. Gruppierung(en) sein.",
+            "type": "array",
+            "link_many": [
+                "Person",
+                "Organization"
+            ]
+        },
+        "consultation": {
+            "description": "Beratungen der Drucksache.",
+            "oparl:ref": "Consultation",
+            "oparl:backref": "paper",
+            "oparl:cardinality": "n:m",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "modified": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "keyword": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "underDirectionof": {
+            "description": "Federführung. Amt oder Abteilung, für die Inhalte oder Beantwortung der Drucksache verantwortlich.",
+            "oparl:ref": "Organization",
+            "oparl:cardinality": "n:m",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }            
+        }
+    }
+}

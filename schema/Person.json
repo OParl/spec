@@ -1,0 +1,126 @@
+{
+    "title": "Person",
+    "description": "Jede natürliche Person, die in der parlamentarischen Arbeit tätig und insbesondere Mitglied in einer Gruppierung ([oparl:Organization](#oparl_organization)) ist, wird mit einem Objekt vom Typ `oparl:Person` abgebildet.",
+    "type": "object",
+    "required": [
+        "id",
+        "type",
+        "body",
+        "name"
+    ],
+    "oparl:optional": [
+        "familyName",
+        "givenName",
+        "formOfAddress",
+        "title",
+        "gender",
+        "phone",
+        "email",
+        "streetAddress",
+        "postalCode",
+        "locality",
+        "status",
+        "membership",
+        "keyword"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "format": "uri"
+        },
+        "type": {
+            "type": "string",
+            "pattern": "^http://oparl\\.org/schema/1\\.0/Person$"
+        },
+        "body": {
+            "description": "Körperschaft, zu der die Person gehört.",
+            "oparl:ref": "Body",
+            "oparl:backref": "person",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
+        },
+        "name": {
+            "description": "Der vollständige Name der Person mit akademischem Grad und dem gebräuchlichen Vornamen, wie er zur Anzeige durch den Client genutzt werden kann.",
+            "type": "string"
+        },
+        "familyName": {
+            "description": "Familienname bzw. Nachname.",
+            "type": "string"
+        },
+        "givenName": {
+            "description": "Vorname bzw. Taufname.",
+            "type": "string"
+        },
+        "formOfAddress": {
+            "description": "Anrede. Diese Eigenschaft funktioniert wie in [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder als URL zu einem `skos:Concept` oder als String. Der String bzw. `prefLabel` SOLL sowohl die männliche als auch die weibliche Bezeichnung enthalten. Beispiele: \"Herr | Frau\", \"Ratsherr | Ratsfrau\".",
+            "type": "string"
+        },
+        "title": {
+            "description": "Akademische(r) Titel. Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "gender": {
+            "description": "Geschlecht. Empfohlene Werte sind `female`, `male`, `none` und `other`. Für den Fall, dass das Geschlecht der Person unbekannt ist, SOLL die Eigenschaft nicht ausgegeben werden. Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).",
+            "type": "string"
+        },
+        "phone": {
+            "description": "Telefonnummer der Person mit `tel:` Schema, ohne Leerzeichen.",
+            "type": "string",
+            "pattern": "^tel:\\+?\\d+$"
+        },
+        "email": {
+            "description": "E-Mail-Adresse mit `mailto:` Schema.",
+            "type": "string",
+            "format": "email",
+            "pattern": "^mailto:.+$"
+        },
+        "streetAddress": {
+            "description": "Straße und Hausnummer der Kontakt-Anschrift der Person.",
+            "type": "string"
+        },
+        "postalCode": {
+            "description": "Postleitzahl der Kontakt-Anschrift der Person.",
+            "type": "string"
+        },
+        "locality": {
+            "description": "Ortsangabe der Kontakt-Anschrift der Person.",
+            "type": "string"
+        },
+        "status": {
+            "description": "Status. Diese Eigenschaft funktioniert wie in [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder als URL zu einem `skos:Concept` oder als String. Die Strings bzw. `prefLabel` SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster \"männliche Form | weibliche Form\" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem \"|\"). Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden: \"Ratsmitglied\" und nicht \"Ratsmitglied | Ratsmitglied\". Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschlecht der Personen vornimmt. Weitere Beispiele: \"Bürgermeister | Bürgermeisterin\", \"Bezirksbürgermeister | Bezirksbürgermeisterin\", \"Stadtverordneter | Stadtverordnete\", \"Bezirksverordneter | Bezirksverordnete\", \"Sachkundiger Bürger | Sachkundige Bürgerin\", \"Einzelstadtverordneter | Einzelstadtverordnete\" (Mitglieder des Rates die keiner Fraktion/Organisation angehören). Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "membership": {
+            "description": "Mitgliedschaften der Person in Gruppierungen, z. B. Gremien und Fraktionen.",
+            "oparl:ref": "Membership",
+            "oparl:backref": "person",
+            "oparl:cardinality": "1:n",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "keyword": {
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "created": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "modified": {
+            "type": "string",
+            "format": "date-time"
+        }
+    }
+}

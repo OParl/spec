@@ -9,7 +9,20 @@
         "1. Stellvertreter | 1. Stellvertreterin",
         "Mitglied"
     ],
-    "meeting": "https://oparl.example.org/meetings_for_org/34",
+    "meeting": [
+        "https://oparl.example.org/meeting/27",
+        "https://oparl.example.org/meeting/36",
+        "https://oparl.example.org/meeting/45",
+        "https://oparl.example.org/meeting/53",
+        "https://oparl.example.org/meeting/63",
+        "https://oparl.example.org/meeting/72",
+        "https://oparl.example.org/meeting/81",
+        "https://oparl.example.org/meeting/92",
+        "https://oparl.example.org/meeting/101",
+        "https://oparl.example.org/meeting/111",
+        "https://oparl.example.org/meeting/120",
+        "https://oparl.example.org/meeting/133"
+    ],
     "membership": [
         "https://oparl.example.org/memberships/27",
         "https://oparl.example.org/memberships/48",

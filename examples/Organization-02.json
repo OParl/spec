@@ -3,8 +3,25 @@
     "type": "http://oparl.org/schema/1.0/Organization",
     "body": "https://oparl.example.org/bodies/1",
     "name": "Ausschuss für Haushalt und Finanzen",
-    "meeting": "https://oparl.example.org/meetings_for_org/34",
-    "membership": "https://oparl.example.org/meetings_for_org/34",
+    "meeting": [
+        "https://oparl.example.org/meeting/28",
+        "https://oparl.example.org/meeting/39",
+        "https://oparl.example.org/meeting/46",
+        "https://oparl.example.org/meeting/58"
+    ],
+    "membership": [
+        "https://oparl.example.org/memberships/29",
+        "https://oparl.example.org/memberships/62",
+        "https://oparl.example.org/memberships/13",
+        "https://oparl.example.org/memberships/37",
+        "https://oparl.example.org/memberships/49",
+        "https://oparl.example.org/memberships/13",
+        "https://oparl.example.org/memberships/30",
+        "https://oparl.example.org/memberships/19",
+        "https://oparl.example.org/memberships/23",
+        "https://oparl.example.org/memberships/18",
+        "https://oparl.example.org/memberships/24"
+    ],
     "modified": "2012-08-16T14:05:27+02:00"
 }
 

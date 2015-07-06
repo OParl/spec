@@ -63,8 +63,12 @@
             "type": "string",
             "format": "date-time"
         },
+        "ags": {
+            "description": "Der achtstellige Amtliche Gemeindeschlüssel^[Amtliche Gemeindeschlüssel können im [Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes](https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html) eingesehen werden].",
+            "type": "string"
+        },
         "rgs": {
-            "description": "Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette^[Regionalschlüssel können im [Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes](https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html) eingesehen werden].",
+            "description": "Der zwölfstellige Regionalschlüssel. Der Regionalschlüssel wird in Zukunft voraussichtlich den Amtlichen Gemeindeschlüssel ersetzen.",
             "type": "string"
         },
         "equivalentBody": {

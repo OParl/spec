@@ -4,6 +4,7 @@
     "system": "https://oparl.example.org/",
     "contactEmail": "mailto:ris@beispielstadt.de",
     "contactName": "RIS-Betreuung",
+    "ags": "05315000",
     "rgs": "053150000000",
     "equivalentBody": [
         "http://d-nb.info/gnd/2015732-0",

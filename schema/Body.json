@@ -7,10 +7,16 @@
         "type",
         "system",
         "name",
-        "paper",
-        "member",
+        "organization",
+        "person",
         "meeting",
-        "organization"
+        "agendaItem",
+        "paper",
+        "file",
+        "consultation",
+        "location",
+        "membership",
+        "legislativeTerm"
     ],
     "oparl:optional": [
         "contactName",
@@ -79,59 +85,55 @@
             "description": "Name oder Bezeichnung der mit `contactEmail` erreichbaren Stelle.",
             "type": "string"
         },
-        "paper": {
-            "description": "Drucksachen unter dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
-            "oparl:ref": "Paper",
-            "oparl:backref": "body",
-            "oparl:cardinality": "1:n",
-            "type": "array",
-            "items": {
-                "format": "uri",
-                "type": "string"
-            }
+        "organization": {
+            "description": "Link zur [Objektliste](#objektlisten) mit allen Gruppierungen der Körperschaft.",
+            "type": "string",
+            "format": "uri"
         },
-        "member": {
-            "description": "Personen in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
-            "oparl:ref": "Person",
-            "oparl:backref": "body",
-            "oparl:cardinality": "n:m",
-            "type": "array",
-            "items": {
-                "type": "string",
-                "format": "uri"
-            }            
+        "person": {
+            "description": "Link zur [Objektliste](#objektlisten) mit allen Personen der Körperschaft.",
+            "type": "string",
+            "format": "uri"
         },
         "meeting": {
-            "description": "Sitzungen dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
-            "oparl:ref": "Meeting",
-            "oparl:cardinality": "1:n",
-            "type": "array",
-            "items": {
-                "type": "string",
-                "format": "uri"
-            }
+            "description": "Link zur [Objektliste](#objektlisten) mit allen Sitzungen der Körperschaft.",
+            "type": "string",
+            "format": "uri"
         },
-        "organization": {
-            "description": "Gruppierungen in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
-            "oparl:ref": "Organization",
-            "oparl:backref": "body",
-            "oparl:cardinality": "1:n",
-            "type": "array",
-            "items": {
-                "type": "string",
-                "format": "uri"
-            }
+        "agendaItem": {
+            "description": "Link zur [Objektliste](#objektlisten) mit allen Tagesordnungspunkten der Körperschaft.",
+            "type": "string",
+            "format": "uri"
+        },
+        "paper": {
+            "description": "Link zur [Objektliste](#objektlisten) mit allen Drucksachen der Körperschaft.",
+            "type": "string",
+            "format": "uri"
+        },
+        "file": {
+            "description": "Link zur [Objektliste](#objektlisten) mit allen Dateien der Körperschaft.",
+            "type": "string",
+            "format": "uri"
+        },
+        "consultation": {
+            "description": "Link zur [Objektliste](#objektlisten) mit allen Beratungen der Körperschaft.",
+            "type": "string",
+            "format": "uri"
+        },
+        "location": {
+            "description": "Link zur [Objektliste](#objektlisten) mit allen Orten der Körperschaft.",
+            "type": "string",
+            "format": "uri"
+        },
+        "membership": {
+            "description": "Link zur [Objektliste](#objektlisten) mit allen Mitgliedschaften der Körperschaft.",
+            "type": "string",
+            "format": "uri"
         },
         "legislativeTerm": {
-            "description": "Wahlperioden in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
-            "oparl:ref": "LegislativeTerm",
-            "oparl:backref": "body",
-            "oparl:cardinality": "1:n",
-            "type": "array",
-            "items": {
-                "type": "string",
-                "format": "uri"
-            }
+            "description": "Link zur [Objektliste](#objektlisten) mit allen Wahlperioden der Körperschaft.",
+            "type": "string",
+            "format": "uri"
         },
         "classification": {
             "description": "Art der Körperschaft.",

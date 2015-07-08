@@ -132,9 +132,3 @@ Ein grundlegender Baustein der Linked-Data-Unterstützung in OParl ist die Tatsa
 jedes Objekt durch eine URL identifiziert wird. So eignen sich OParl-Objekte für die
 Verknüpfung durch externe Anwendungen.
 
-Ein weiteres wesentliches Linked-Data-Konzept in OParl ist die Möglichkeit, externe Vokabulare
-zur Klassifizierung von Objekten zu nutzen. So können beispielsweise Gruppierungen (d. h.
-Objekte des Typs `oparl:Organization`) als Ausschuss oder als Fraktion klassifiziert werden,
-wobei der Begriff "Ausschuss" oder "Fraktion" durch eine URL repräsentiert wird, die auf
-ein Konzept in einem externen Vokabular zeigt. Weitere Informationen hierzu sind in
-[Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben.

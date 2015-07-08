@@ -92,5 +92,3 @@ Datentyp: `xsd:dateTime`.
 Die Eigenschaft `keyword` dient der Kategorisierung von Objekten und ist in
 einer Vielzahl von Objekttypen zu diesem Zweck einsetzbar.
 
-Mehr zur Funktionsweise dieser Eigenschaft wird im Abschnitt
-[Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben.

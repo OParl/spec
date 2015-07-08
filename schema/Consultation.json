@@ -53,7 +53,7 @@
             "type": "boolean"
         },
         "role": {
-            "description": "Rolle oder Funktion der Beratung. Zum Beispiel Anhörung, Entscheidung, Kenntnisnahme, Vorberatung usw. Diese Eigenschaft funktioniert wie in  [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben  entweder als String oder als URL zu einem `skos:Concept` Objekt.",
+            "description": "Rolle oder Funktion der Beratung. Zum Beispiel Anhörung, Entscheidung, Kenntnisnahme, Vorberatung usw.",
             "type": "string"
         },
         "keyword": {

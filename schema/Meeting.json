@@ -85,7 +85,7 @@
             "format": "uri"
         },
         "participant": {
-            "description": "Teilnehmer der Sitzung. Bei einer Sitzung in der Zukunft sind dies die geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung teilgenommen haben.",
+            "description": "Personen, die an der Sitzung teilgenommen haben. Diese Eigenschaft kann selbstverständlich erst nachdem Stattfinden der Sitzung vorkommen.",
             "oparl:ref": "Person",
             "oparl:cardinality": "n:m",
             "type": "array",

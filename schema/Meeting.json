@@ -70,20 +70,6 @@
                 "format": "uri"
             }
         },
-        "chairPerson": {
-            "description": "Vorsitz der Sitzung",
-            "oparl:ref": "Person",
-            "oparl:cardinality": "n:1",
-            "type": "string",
-            "format": "uri"
-        },
-        "scribe": {
-            "description": "Schriftführer, Protokollant.",
-            "oparl:ref": "Person",
-            "oparl:cardinality": "n:1",
-            "type": "string",
-            "format": "uri"
-        },
         "participant": {
             "description": "Personen, die an der Sitzung teilgenommen haben. Diese Eigenschaft kann selbstverständlich erst nachdem Stattfinden der Sitzung vorkommen.",
             "oparl:ref": "Person",

@@ -20,7 +20,7 @@ html: common_dependencies $(PNG_IMAGES)
 
 live: common_dependencies $(PNG_IMAGES)
 	$(PANDOC_COMMAND) --to html5 --section-divs --self-contained \
-			--toc-depth=2 --no-highlight -o ../$(OUT_FOLDER)/$(FILENAME)_live.html *.md
+			--toc-depth=2 --no-highlight -o ../$(OUT_FOLDER)/live.html *.md
 
 pdf: common_dependencies
 	$(PANDOC_COMMAND) --latex-engine=$(LATEX_ENGINE) \

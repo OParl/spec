@@ -1,3 +1,7 @@
 .DS_Store
 */.DS_Store
 *.komodoproject
+
+out
+src/images/*.png
+src/schema.md

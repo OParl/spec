@@ -14,7 +14,7 @@ Original: Editieren, Änderungen nachvollziehen
 
 Wenn Du Dich für die Quellen des Dokuments sowie für das Nachvollziehen von Änderungen an den Quellen interessierst, findest Du dies im Ordner:
 
-    dokument/master
+    src
 
 Die Quelldateien sind reine Textdateien (Zeichensatz: UTF-8) mit [Markdown](http://daringfireball.net/projects/markdown/)-Formatierung (Dateiendung: .md).
 

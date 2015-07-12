@@ -2,6 +2,7 @@
 */.DS_Store
 *.komodoproject
 
+archives
 out
 src/images/*.png
 src/schema.md

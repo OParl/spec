@@ -52,11 +52,19 @@ $(OUT_FOLDER):
 $(SRC_FOLDER)/schema.md: scripts/json_schema2markdown.py schema/ examples/
 	python scripts/json_schema2markdown.py schema/ examples/ > $@
 
+archives: zip gz bz
 
 zip: all
-	zip -r `git log --oneline --format="%h" | head -n1` out/ && mv *.zip out/
+	mkdir -p archives && zip -qr archives/$(FILENAME).zip out/
+
+gz: all
+	mkdir -p archives && tar -czf archives/$(FILENAME).tar.gz out/
+
+bz: all
+	mkdir -p archives && tar -czf archives/$(FILENAME).tar.bz2 out/
 
 clean:
+	rm -rf archives/
 	rm -rf $(OUT_FOLDER)
-	rm $(SRC_FOLDER)/schema.md
-	rm $(IMAGE_FOLDER)/*.png
+	rm -f $(SRC_FOLDER)/schema.md
+	rm -f $(IMAGE_FOLDER)/*.png

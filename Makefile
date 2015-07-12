@@ -52,6 +52,10 @@ $(OUT_FOLDER):
 $(SRC_FOLDER)/schema.md: scripts/json_schema2markdown.py schema/ examples/
 	python scripts/json_schema2markdown.py schema/ examples/ > $@
 
+
+zip: all
+	zip -r `git log --oneline --format="%h" | head -n1` out/ && mv *.zip out/
+
 clean:
 	rm -rf $(OUT_FOLDER)
 	rm $(SRC_FOLDER)/schema.md

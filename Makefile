@@ -14,9 +14,13 @@ GHOSTSCRIPT = gs
 
 all: html pdf odt docx txt epub
 
-html: common_dependencies $(PNG_IMAGES) 
+html: common_dependencies $(PNG_IMAGES)
 	$(PANDOC_COMMAND) --to html5 --section-divs --self-contained \
 	    -o ../$(OUT_FOLDER)/$(FILENAME).html *.md
+
+live: common_dependencies $(PNG_IMAGES)
+	$(PANDOC_COMMAND) --to html5 --section-divs --self-contained \
+			--toc-depth=2 --no-highlight -o ../$(OUT_FOLDER)/$(FILENAME)_live.html *.md
 
 pdf: common_dependencies
 	$(PANDOC_COMMAND) --latex-engine=$(LATEX_ENGINE) \
@@ -52,4 +56,3 @@ clean:
 	rm -rf $(OUT_FOLDER)
 	rm $(SRC_FOLDER)/schema.md
 	rm $(IMAGE_FOLDER)/*.png
-

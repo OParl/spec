@@ -1,7 +1,7 @@
 OUT_FOLDER = out
 FILENAME = OParl-1.0-draft
 SRC_FOLDER = src
-IMAGE_FOLDER = src/images/
+IMAGE_FOLDER = src/images
 IMAGES = $(wildcard $(IMAGE_FOLDER)/*.pdf)
 PNG_IMAGES = $(IMAGES:.pdf=.png)
 # pandoc muss im src Ordner ausgeführt werden, damit die Pfadangaben der eingebundenen Bilder stimmen
@@ -19,8 +19,8 @@ html: common_dependencies $(PNG_IMAGES)
 	    -o ../$(OUT_FOLDER)/$(FILENAME).html *.md
 
 live: common_dependencies $(PNG_IMAGES)
-	$(PANDOC_COMMAND) --to html5 --section-divs --self-contained \
-			--toc-depth=2 --no-highlight -o ../$(OUT_FOLDER)/live.html *.md
+	$(PANDOC_COMMAND) --to html5 --section-divs --toc-depth=2 --no-highlight \
+			-o ../$(OUT_FOLDER)/live.html `echo [^0]*.md`
 
 pdf: common_dependencies
 	$(PANDOC_COMMAND) --latex-engine=$(LATEX_ENGINE) \

@@ -43,10 +43,6 @@
             "description": "Rolle der Person für die Gruppierung. Kann genutzt werden, um verschiedene Arten von Mitgliedschaften zum Beispiel in Gremien zu unterscheiden. Der String SOLL in dieser Form sowohl die männliche als auch die weibliche Rollenbezeichnung enthalten: `\"Vorsitzender | Vorsitzende\"`.",
             "type": "string"
         },
-        "post": {
-            "description": "The post held by the person in the organization. TODO: Prüfen, ob das ohne JSON-LD Sinn macht, oder ob hier zusätzliche Erläuterungen notwendig sind.",
-            "type": "string"
-        },
         "onBehalfOf": {
             "description": "Entsendende Gruppierung, Fraktion, fraktionsloses oder externes Gremium. Es kann auch Mitglieder geben, die von keiner anderen Gruppierung entsendet wurden (z. B. fraktionslose Abgeordnete). Da eine solche Person sich gewissermaßen selbst \"entsendet\" hat, SOLL in dem Fall hier der selbe Wert angegeben werden wie bei der Eigenschaft `person`.^[ Dies entspricht `opengov:onBehalfOf` in Popolo. <http://popoloproject.com/specs/membership.html>]",
             "oparl:ref": "Organization",

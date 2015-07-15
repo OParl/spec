@@ -4,9 +4,7 @@
     "type": "object",
     "required": [
         "id",
-        "type",
-        "start",
-        "organization"
+        "type"
     ],
     "oparl:optional": [
         "streetAddress",

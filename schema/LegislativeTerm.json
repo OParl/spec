@@ -3,8 +3,8 @@
     "description": "Dieser Objekttyp dient der Beschreibung einer Wahlperiode.",
     "type": "object",
     "required": [
-        "body",
-        "name"
+        "id",
+        "type"
     ],
     "oparl:optional": [],
     "properties": {

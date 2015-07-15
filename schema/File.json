@@ -3,10 +3,8 @@
     "description": "Ein Objekt vom Typ `oparl:File` repräsentiert eine Datei, beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokument, und hält Metadaten zu der Datei sowie URLs zum Zugriff auf  die Datei bereit.\n\nObjekte vom Typ `oparl:File` können mit Drucksachen (`oparl:Paper`) oder Sitzungen (`oparl:Meeting`) in Beziehung stehen. Dies wird durch  die Eigenschaft `paper` bzw. `meeting` angezeigt.\n\nMehrere Objekte vom Typ `oparl:File` können mit einander in direkter Beziehung stehen, wenn sie den selben Inhalt in unterschiedlichen technischen Formaten wiedergeben. Hierfür werden die Eigenschaften `masterFile` bzw. `derivativeFile` eingesetzt. Das oben angezeigte Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der Eigenschaft `mimeType`) und zeigt außerdem über die Eigenschaft  `masterFile` an, von welcher anderen Datei es abgeleitet wurde. Umgekehrt KANN über die Eigenschaft `derivativeFile` angezeigt werden, welche Ableitungen einer Datei existieren.",
     "type": "object",
     "required": [
-        "fileName",
-        "date",
-        "modified",
-        "size",
+        "id",
+        "type",
         "accessUrl"
     ],
     "oparl:optional": [

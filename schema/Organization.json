@@ -4,11 +4,7 @@
     "type": "object",
     "required": [
         "id",
-        "type",
-        "body",
-        "name",
-        "membership",
-        "meeting"
+        "type"
     ],
     "oparl:optional": [
         "shortName",

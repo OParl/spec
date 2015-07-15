@@ -5,7 +5,6 @@
     "required": [
         "id",
         "type",
-        "system",
         "name",
         "organization",
         "person",

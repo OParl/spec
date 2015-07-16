@@ -46,26 +46,6 @@ herzustellen, um so von einer Datei zu anderen Dateien mit identischem Inhalt,
 aber in anderen technischen Formaten zu verweisen, etwa von einer ODT-Datei zu einer
 PDF-Version.
 
-### RESTful  {#restful}
-
-Die Bezeichnung "REST" (für "Representational State Transfer") wurde im Jahr 2000 von
-Roy Fielding eingeführt^[Fielding, Roy: Architectural Styles and
-the Design of Network-based Software Architectures,
-<http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm>]. Die Definition
-von Fielding reicht sehr weit und berührt viele Details. In der Praxis wird der Begriff
-häufig genutzt, um eine Schnittstelle zu beschreiben,
-
-* die auf WWW-Technologie aufbaut, insbesondere dem HTTP-Protokoll
-* die darauf beruht, dass mittels URL einzelne Ressourcen oder Zustände vom
-  Client abgerufen werden können.
-* die zustandslos ist. Das bedeutet, die Anfrage eines Clients an den Server enthält
-  alle Informationen, die notwendig sind, um die Anfrage zu verarbeiten. Auf dem Server
-  wird kein Speicher zur Verfügung gestellt, um beispielsweise den Zustand einer Session
-  zu speichern.
-
-Diese Prinzipien macht sich auch OParl zunutze. Damit gilt prinzipiell, dass eine 
-OParl-konforme Server-Schnittstelle auch als "RESTful" gelten darf.
-
 ### Selbstbeschreibungsfähigkeit
 
 Ausgaben des Servers sollten so beschaffen sein, dass sie für menschliche Nutzerinnen

@@ -96,9 +96,9 @@ Conditional GET zu unterstützen:
 
 ### Zustandsloser Dateizugriff
 
-Die Anforderung, dass die OParl-API zustandslos arbeitet (vgl. [RESTful]{#restful}),
-hat ZWINGEND auch für den Abruf von Dateien zu gelten. Es DÜRFEN daher keine
-Session-spezifischen URLs oder Ähnliches für den Dateizugriff gebildet werden.
+Die Anforderung, dass die OParl-API zustandslos arbeitet, hat ZWINGEND auch für
+den Abruf von Dateien zu gelten. Es DÜRFEN daher keine Session-spezifischen
+URLs oder Ähnliches für den Dateizugriff gebildet werden.
 
 Damit wird erreicht, dass Clients die Zugriffs-URLs aus dem `oparl:File` für
 längere Zeit speichern bzw. cachen können.

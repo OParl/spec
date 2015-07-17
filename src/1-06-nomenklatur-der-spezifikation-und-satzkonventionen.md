@@ -76,9 +76,7 @@ Daten.
 
 Codebeispiele erheben insbesondere bei JSON-Code nicht den Anspruch auf
 hundertprozentige syntaktische Korrektheit. Insbesondere können in Codebeispielen
-Auslassungen vorkommen, die mit `...` gekennzeichnet werden. Darüber hinaus
-werden zugunsten der einfacheren Lesbarkeit Umlaute verwendet, obwohl OParl
-grundsätzlich die Verwendung von Unicode-Zeichenketten vorsieht.
+Auslassungen vorkommen, die mit `...` gekennzeichnet werden.
 
 
 ### Namespace-Präfixe für Objekt- und Datentypen

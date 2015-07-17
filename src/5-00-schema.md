@@ -14,15 +14,6 @@ einander stehen.
 Übergreifende Aspekte
 ---------------------
 
-### Unicode-Zeichenketten als Standard  {#unicode_zeichenketten}
-
-Die Schema-Beschreibung gibt zu jeder Eigenschaft eines Objekttypen an,
-welchen Typ der Wert dieser Eigenschaft haben muss.
-
-Sofern keine Typ-Angabe zu einer Eigenschaft vorhanden ist, oder die
-Typ-Angabe `String` oder `xsd:string` lautet, werden Unicode-Zeichenketten
-als Datentyp erwartet.
-
 ### `null`-Werte und leere Listen
 
 JSON erlaubt es grundsätzlich, Eigenschaften mit dem Wert `null` zu versehen.

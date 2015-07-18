@@ -415,6 +415,8 @@ Sind beide Parameter gesetzt, handelt es sich um eine Boolsche UND-Verknüpfung.
 Der Server liefert entsprechend nur Objekte aus, deren Bezugsdatum größer/gleich
 dem Wert von `startdate` und kleiner/gleich dem Wert von `enddate` ist.
 
-Clients MÜSSEN die Werte von `startdate` und `enddate` im Format xsd:dateTime, also
-mit Uhrzeit und Zeitzone, angeben (siehe dazu auch [Datums- und Zeitangaben](#datum_zeit))
-und für eine entsprechende URL-Kodierung sorgen.
+Clients MÜSSEN die Werte von `startdate` und `enddate` mit Uhrzeit und Zeitzone
+angeben. Dabei MUSS das im Kapitel [Datums- und Zeitangaben](#datum_zeit)
+definierte Format genutzt werden und Clients müssen für eine entsprechende
+URL-Kodierung sorgen.
+

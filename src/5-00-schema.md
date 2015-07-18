@@ -87,12 +87,6 @@ ohne zusätzlich auf den Ort einer Sitzung o. ä. Bezug nehmen zu müssen.
 Diese Spezifikationen stützen sich auf RFC 3339^[RFC3339:
 <http://www.ietf.org/rfc/rfc3339.txt>]) und RFC 3339 wiederum auf ISO 8601.
 
-In der vorliegenden Spezifikation verwenden wir den Präfix `xsd`, um
-Eigenschaften aus der XMLSchema-Spezifikation zu referenzieren.^[Der Präfix
-"xsd" steht somit für die URL <http://www.w3.org/2001/XMLSchema#>]. Datums-
-und Zeittyp werden entsprechend in diesem Dokument als `xsd:date` bzw.
-`xsd:dateTime` bezeichnet.
-
 ### Herstellerspezifische Erweiterungen
 
 Diese sind – falls tatsächlich erforderlich – mit den JSON-LD-Mitteln einfach möglich. Z. B.

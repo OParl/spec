@@ -95,24 +95,3 @@ folgende URL übersetzt werden:
 
     http://oparl.org/schema/1.0/Organization
 
-In einigen Fällen nutzt OParl Objekttypen oder Datentypen, die
-in anderen Spezifikationen beschrieben wurden, um so von bereits getaner Arbeit
-und etablierten Standards zu profitieren. Ein Beispiel dafür ist das Datumsformat,
-das in der XML-Schema-Spezifikation beschrieben wird. Der Namespace von
-XML-Schema hat die URL
-
-    http://www.w3.org/2001/XMLSchema
-
-und wird im vorliegenden Dokument mit dem Präfix `xsd:` abgekürzt. Somit ist,
-wenn beispielsweise von der Eigenschaft `xsd:date` die Rede ist, tatsächlich
-diese Namespace-URL gemeint:
-
-    http://www.w3.org/2001/XMLSchema#date
-
-Nachfolgend eine Aufstellung der weiteren in diesem Dokument verwendeten
-Namespace-Präfixe.
-
-Präfix  |Beschreibung                        |Namespace-URL
---------|------------------------------------|-------------------------------
-`xsd`   |XML Schema                          |http://www.w3.org/2001/XMLSchema#
-`vcard` |vCard                               |http://www.w3.org/2006/vcard/ns#

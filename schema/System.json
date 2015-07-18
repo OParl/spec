@@ -44,8 +44,6 @@
         },
         "contactEmail": {
             "description": "E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe einer E-Mail-Adresse dient sowohl NutzerInnen wie auch Entwicklerinnen von Clients zur Kontaktaufnahme mit dem Betreiber.",
-            "format": "email",
-            "pattern": "^mailto:.+$",
             "type": "string"
         },
         "contactName": {

@@ -66,15 +66,12 @@
             "type": "string"
         },
         "phone": {
-            "description": "Telefonnummer der Person mit `tel:` Schema, ohne Leerzeichen.",
-            "type": "string",
-            "pattern": "^tel:\\+?\\d+$"
+            "description": "Telefonnummer der Person.",
+            "type": "string"
         },
         "email": {
-            "description": "E-Mail-Adresse mit `mailto:` Schema.",
-            "type": "string",
-            "format": "email",
-            "pattern": "^mailto:.+$"
+            "description": "E-Mail-Adresse der Person.",
+            "type": "string"
         },
         "streetAddress": {
             "description": "Straße und Hausnummer der Kontakt-Anschrift der Person.",

@@ -7,7 +7,7 @@
         "https://oparl.example.org/bodies/2"
     ],
     "name": "Beispiel-System",
-    "contactEmail": "mailto:info@example.org",
+    "contactEmail": "info@example.org",
     "contactName": "Allgemeiner OParl Kontakt",
     "newObjects": "https://oparl.example.org/new_objects/",
     "updatedObjects": "https://oparl.example.org/updated_objects/",

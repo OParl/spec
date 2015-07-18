@@ -79,10 +79,8 @@
             "type": "array"
         },
         "contactEmail": {
-            "description": "Dient der Angabe einer Kontakt-E-Mail-Adresse mit \"mailto:\"-Schema. Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und idealerweise das parlamentarische Informationssystem zuständigen Stelle ermöglichen. ",
-            "type": "string",
-            "format": "email",
-            "pattern": "^mailto:.+$"
+            "description": "Dient der Angabe einer Kontakt-E-Mail-Adresse. Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und idealerweise das parlamentarische Informationssystem zuständigen Stelle ermöglichen. ",
+            "type": "string"
         },
         "contactName": {
             "description": "Name oder Bezeichnung der mit `contactEmail` erreichbaren Stelle.",

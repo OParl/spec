@@ -2,7 +2,7 @@
     "id": "https://oparl.example.org/body/0",
     "type": "http://oparl.org/schema/1.0/Body",
     "system": "https://oparl.example.org/",
-    "contactEmail": "mailto:ris@beispielstadt.de",
+    "contactEmail": "ris@beispielstadt.de",
     "contactName": "RIS-Betreuung",
     "ags": "05315000",
     "rs": "053150000000",

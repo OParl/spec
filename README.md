@@ -29,11 +29,11 @@ Derivate: Bequemes Lesen auf verschiedenen Geräten
 
 Es stehen Versionen des Dokuments in vielen Formaten zur Verfügung:
 
-* [PDF](https://github.com/OParl/specs/blob/master/dokument/pdf/document.pdf?raw=true)
-* [OpenOffice/LibreOffice](https://github.com/OParl/specs/blob/master/dokument/odt/document.odt?raw=true)
-* [Microsoft Word](https://github.com/OParl/specs/blob/master/dokument/docx/document.docx?raw=true)
-* [LaTeX](https://github.com/OParl/specs/blob/master/dokument/latex/document.tex?raw=true)
-* [EPub](https://github.com/OParl/specs/blob/master/dokument/epub/document.epub?raw=true)
-* [Nur Text](https://github.com/OParl/specs/blob/master/dokument/plain/document.txt?raw=true)
+* [PDF](http://spec.oparl.org/downloads/latest.pdf)
+* [OpenOffice/LibreOffice](http://spec.oparl.org/downloads/latest.odt)
+* [Microsoft Word](http://spec.oparl.org/downloads/latest.docx)
+* [LaTeX](http://spec.oparl.org/downloads/latest.tex)
+* [EPub](http://spec.oparl.org/downloads/latest.epub)
+* [Nur Text](http://spec.oparl.org/downloads/latest.txt)
 
 Die Derivate werden mit [Pandoc](http://johnmacfarlane.net/pandoc/) erzeugt. Das Script unter 'scripts/create_documents.sh' automatisiert diesen Vorgang.

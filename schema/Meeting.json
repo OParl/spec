@@ -25,7 +25,7 @@
             "pattern": "^http://oparl\\.org/schema/1\\.0/Meeting$"
         },
         "name": {
-            "description": "",
+            "description": "Name der Sitzung.",
             "type": "string"
         },
         "start": {

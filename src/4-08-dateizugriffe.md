@@ -18,18 +18,12 @@ HTTP-1.1-Spezifikation^[vgl. <http://tools.ietf.org/html/rfc7230>,
 <http://tools.ietf.org/html/rfc7231>, <http://tools.ietf.org/html/rfc7232>]
 zu finden.
 
-### GET und HEAD Anfragen
-
 Grundsätzlich gilt, dass jede Datei mittels HTTP-Anfrage unter Verwendung der
-HTTP-Methode `GET` abrufbar sein MUSS. Um Clients zusätzlich die Überprüfung
-einer Datei zu ermöglichen, SOLL vom Server außerdem die HTTP-Methode `HEAD`
-unterstützt werden. Gemäß HTTP-Spezifikation gibt der Server in diesem Fall nur
-die Antwort-Header, nicht aber den eigentlichen Inhalt der angefragten Ressource,
-aus.
+HTTP-Methode `GET` abrufbar sein MUSS. 
 
-Die URLs zum Abruf der einzelnen Datei (wahlweise mittels GET oder HEAD) stellt
-der Server dem Client in den Daten des Metadaten-Objekts zur Verfügung.
-Details finden sich in der Schema-Beschreibung zu [`oparl:File`](#oparl_file).
+Die URLs zum Abruf der einzelnen Datei stellt der Server dem Client in den
+Daten des Metadaten-Objekts zur Verfügung. Details finden sich in der
+Schema-Beschreibung zu [`oparl:File`](#oparl_file).
 
 ### Allgemeiner Zugriff und expliziter Download
 

@@ -1,5 +1,7 @@
 OUT_FOLDER = out
-FILENAME = OParl-1.0-draft
+BASENAME = OParl-
+VERSION  = 1.0-draft
+FILENAME = $(BASENAME)$(VERSION)
 SRC_FOLDER = src
 IMAGE_FOLDER = src/images
 IMAGES = $(wildcard $(IMAGE_FOLDER)/*.pdf)

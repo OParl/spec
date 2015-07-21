@@ -46,12 +46,12 @@ $(IMAGE_FOLDER)/%.png: $(IMAGE_FOLDER)/%.pdf
 	$(GHOSTSCRIPT) -dQUIET -dSAFER -dBATCH -dNOPAUSE -sDisplayHandle=0 -sDEVICE=png16m -r600 \
 	    -dTextAlphaBits=4 -sOutputFile=$@ -f $<
 
-common_dependencies: $(OUT_FOLDER) $(SRC_FOLDER)/schema.md
+common_dependencies: $(OUT_FOLDER) $(SRC_FOLDER)/5-99-generiertes-schema.md
 
 $(OUT_FOLDER):
 	 mkdir -p $(OUT_FOLDER);
 
-$(SRC_FOLDER)/schema.md: scripts/json_schema2markdown.py schema/ examples/
+$(SRC_FOLDER)/5-99-generiertes-schema.md: scripts/json_schema2markdown.py schema/ examples/
 	python scripts/json_schema2markdown.py schema/ examples/ > $@
 
 archives: zip gz bz

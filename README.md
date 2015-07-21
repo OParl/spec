@@ -36,4 +36,5 @@ Es stehen Versionen des Dokuments in vielen Formaten zur Verfügung:
 * [EPub](http://spec.oparl.org/downloads/latest.epub)
 * [Nur Text](http://spec.oparl.org/downloads/latest.txt)
 
-Die Derivate werden mit [Pandoc](http://johnmacfarlane.net/pandoc/) erzeugt. Das Script unter 'scripts/create_documents.sh' automatisiert diesen Vorgang.
+Die Derivate werden unter anderem mit der Hilfe von [Pandoc](http://johnmacfarlane.net/pandoc/)
+erzeugt. Der gesamte Prozess wird durch das `Makefile` automatisiert.

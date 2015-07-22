@@ -50,21 +50,6 @@
             "description": "Name der Ansprechpartnerin bzw. des Ansprechpartners oder der Abteilung, die über die in `contactEmail` angegebene Adresse erreicht werden kann.",
             "type": "string"
         },
-        "newObjects": {
-            "description": "URL des Feeds \"Neue Objekte\".",
-            "type": "string",
-            "format": "uri"
-        },
-        "updatedObjects": {
-            "description": "URL des Feeds \"Geänderte Objekte\".",
-            "type": "string",
-            "format": "uri"
-        },
-        "removedObjects": {
-            "description": "URL des Feeds \"Entfernte Objekte\".",
-            "type": "string",
-            "format": "uri"
-        },
         "website": {
             "description": "URL der Website des parlamentarischen Informationssystems",
             "type": "string",

@@ -4,8 +4,8 @@
     "system": "https://oparl.example.org/",
     "contactEmail": "ris@beispielstadt.de",
     "contactName": "RIS-Betreuung",
-    "ags": "05315000",
-    "rs": "053150000000",
+    "amtlicherGemeindeschlüssel": "05315000",
+    "regionalschlüssel": "053150000000",
     "equivalentBody": [
         "http://d-nb.info/gnd/2015732-0",
         "http://dbpedia.org/resource/Cologne"

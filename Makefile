@@ -63,7 +63,7 @@ gz: all
 	mkdir -p archives && tar -czf archives/$(FILENAME).tar.gz out/
 
 bz: all
-	mkdir -p archives && tar -czf archives/$(FILENAME).tar.bz2 out/
+	mkdir -p archives && tar -cjf archives/$(FILENAME).tar.bz2 out/
 
 clean:
 	rm -rf archives/

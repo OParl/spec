@@ -8,9 +8,11 @@ wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren
 Verwendung in diesem Dokument zu etablieren.
 
 Sämtliche JSON-Ausgabe MUSS in UTF-8 ohne Byte Order Mark (BOM) geschehen. Dies entspricht
-[RFC 7159 Section 8.1](https://tools.ietf.org/html/rfc7159#section-8.1). Gemäß
-[RFC 7159 Section 7](https://tools.ietf.org/html/rfc7159#section-7) DARF UTF-8
+RFC 7159 Section 8.1[^fn-rfc7159-81]. Gemäß RFC 7159 Section 7[^fn-rfc7159-7] DARF UTF-8
 String-Escaping verwendet werden. XML-/HTML-String-Escaping DARF NICHT verwendet werden.
+
+[^fn-rfc7159-7]: [RFC 7159 Section 7](https://tools.ietf.org/html/rfc7159#section-7)
+[^fn-rfc7159-81]: [RFC 7159 Section 8.1](https://tools.ietf.org/html/rfc7159#section-8.1)
 
 JSON unterstützt die folgenden primitiven Datentypen:
 

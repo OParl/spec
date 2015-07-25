@@ -1,15 +1,16 @@
-JSON-Ausgabe
-------------
+JSON-Ausgabe {#4-5-json-ausgabe}
+--------------------------------
 
-Eine OParl-Server MUSS Objekte in Form von JSON ausgeben. Die Abkürzung JSON steht
+Ein OParl-Server MUSS Objekte in Form von JSON ausgeben. Die Abkürzung JSON steht
 für "JavaScript Object Notation". Das JSON-Format ist in
 RFC4627^[RFC4627: <https://tools.ietf.org/html/rfc4627>] beschrieben. Nachfolgend werden nur die
 wichtigsten Definitionen übernommen, um eine Terminologie zur weiteren
 Verwendung in diesem Dokument zu etablieren.
 
-Sämtliche JSON-Ausgabe MUSS in UTF-8 ohne Byte Order Mark (BOM) geschehen.
-Dies entspricht [RFC 7159 Section 8.1<https://tools.ietf.org/html/rfc7159#section-8.1>]. Gemäß [RFC 7159 Section 7<https://tools.ietf.org/html/rfc7159#section-7>]
-DARF UTF-8 String-Escaping verwendet werden. XML- / HTML-String-Escaping DARF NICHT verwendet werden.
+Sämtliche JSON-Ausgabe MUSS in UTF-8 ohne Byte Order Mark (BOM) geschehen. Dies entspricht
+[RFC 7159 Section 8.1](https://tools.ietf.org/html/rfc7159#section-8.1). Gemäß
+[RFC 7159 Section 7](https://tools.ietf.org/html/rfc7159#section-7) DARF UTF-8
+String-Escaping verwendet werden. XML-/HTML-String-Escaping DARF NICHT verwendet werden.
 
 JSON unterstützt die folgenden primitiven Datentypen:
 

@@ -22,7 +22,7 @@ html: common_dependencies $(PNG_IMAGES)
 
 live: common_dependencies $(PNG_IMAGES)
 	$(PANDOC_COMMAND) --to html5 --section-divs --toc-depth=2 --no-highlight \
-			-o ../$(OUT_FOLDER)/live.html `echo [^0]*.md`
+			-o ../$(OUT_FOLDER)/live.html 
 
 pdf: common_dependencies
 	$(PANDOC_COMMAND) --latex-engine=$(LATEX_ENGINE) \

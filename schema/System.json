@@ -1,6 +1,6 @@
 {
     "title": "System",
-    "description": "**Namespace-URL:** `http://oparl.org/schema/1.0/System`\n\nDer Objekttyp `oparl:System` bildet grundlegende Informationen zum parlamentarischen Informationssystem ab. Das Objekt repräsentiert das technische System, unabhängig von der Frage, welche Körperschaften auf diesem System vertreten sind.\n\nAuf jedem OParl-Server MUSS ein Objekt vom Typ `oparl:System` vorgehalten werden. Es DARF nur ein einziges solches Objekt je Server existieren.\n\nFür Clients ist das `oparl:System` Objekt ein geeigneter Einstiegspunkt, um grundlegende Informationen über das System zu bekommen und die URLs zum Zugriff auf andere Informationen in Erfahrung zu bringen.\n\nDie URL des `oparl:System`-Objekts MUSS per Definition identisch mit der URL des API-Endpunkts des Servers sein.",
+    "description": "Ein `System`-Objekt repräsentiert eine OParl-Schnittstelle. In der Regel wird auf einem Server nur eine OParl-Schnitstelle betrieben, daher MUSS auch nur ein `System`-Objekt ausgegeben werden.\n\nMöchte ein Server jedoch mehrere zueinander inkompatible OParl-Versionen unterstützen, MUSS er dazu mehrere OParl-Schnittstellen unter verschiedenen URLs parallel betreiben. Für jede angebotene OParl-Schnittstelle MUSS der Server dann ein `System`-Objekt ausgeben.\n\nDie Liste der `System`-Objekte ist der API-Einstiegspunkt.",
     "type": "object",
     "required": [
         "id",

@@ -2,10 +2,7 @@
     "id": "https://oparl.example.org/",
     "type": "http://oparl.org/schema/1.0/System",
     "oparlVersion": "http://oparl.org/specs/1.0/",
-    "body": [
-        "https://oparl.example.org/bodies/1",
-        "https://oparl.example.org/bodies/2"
-    ],
+    "body": "https://oparl.example.org/bodies/",
     "name": "Beispiel-System",
     "contactEmail": "info@example.org",
     "contactName": "Allgemeiner OParl Kontakt",

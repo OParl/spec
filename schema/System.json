@@ -28,15 +28,9 @@
             "description": "Die URL der OParl-Spezifikation, die von diesem Server unterstützt wird. Aktuell kommt hier nur ein Wert in Frage. Mit zukünftigen OParl-Versionen kommen weitere mögliche URLs hinzu. Wert: `http://oparl.org/specs/1.0/`"
         },
         "body": {
-            "description": "Liste der Körperschaften (`oparl:Body`-Objekte), die auf dem System existieren.",
-            "oparl:ref": "Body",
-            "oparl:backref": "system",
-            "oparl:cardinality": "1:n",
-            "type": "array",
-            "items": {
-                "type": "string",
-                "format": "uri"
-            }            
+            "description": "Link zur [Objektliste](#objektlisten) mit allen Körperschaften, die auf dem System existieren.",
+            "type": "string",
+            "format": "uri"
         },
         "name": {
             "description": "Nutzerfreundlicher Name für das System, mit dessen Hilfe Nutzerinnen und Nutzer das System erkennen und von anderen unterscheiden können.",

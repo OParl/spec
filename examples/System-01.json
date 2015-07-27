@@ -9,9 +9,6 @@
     "name": "Beispiel-System",
     "contactEmail": "info@example.org",
     "contactName": "Allgemeiner OParl Kontakt",
-    "newObjects": "https://oparl.example.org/new_objects/",
-    "updatedObjects": "https://oparl.example.org/updated_objects/",
-    "removedObjects": "https://oparl.example.org/removed_objects",
     "website": "http://www.example.org/",
     "vendor": "http://example-software.com/",
     "product": "http://example-software.com/oparl-server/"

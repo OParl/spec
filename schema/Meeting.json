@@ -7,6 +7,7 @@
         "type"
     ],
     "oparl:optional": [
+        "room",
         "streetAddress",
         "postalCode",
         "locality",
@@ -37,6 +38,10 @@
             "description": "Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Endzeitpunkt sein.",
             "type": "string",
             "format": "date-time"
+        },
+        "room": {
+            "description": "Raum, in dem die Sitzung stattfindet.",
+            "type": "string"
         },
         "streetAddress": {
             "description": "Straße und Hausnummer des Sitzungsortes.",

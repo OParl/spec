@@ -36,8 +36,15 @@
             "type": "string",
             "format": "uri"
         },
+        "meeting": {
+            "description": "Sitzung, in der die Drucksache beraten wird.",
+            "oparl:ref": "Meeting",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
+        },
         "organization": {
-            "description": "Gremium, dem die Sitzung zugewiesen ist, zu welcher der zuvor genannte Tagesordnungspunkt gehört. Hier kann auch eine mit Liste von Gremien angegeben werden (die verschiedenen `oparl:Body` und `oparl:System` angehören können). Die Liste ist dann geordnet. Das erste Gremium der Liste ist federführend.",
+            "description": "Gremium, in dem die Drucksache beraten wird. Hier kann auch eine mit Liste von Gremien angegeben werden (die verschiedenen `oparl:Body` und `oparl:System` angehören können). Die Liste ist dann geordnet. Das erste Gremium der Liste ist federführend.",
             "oparl:ref": "Organization",
             "oparl:cardinality": "n:m",
             "type": "array",

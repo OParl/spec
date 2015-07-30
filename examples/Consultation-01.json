@@ -3,6 +3,7 @@
     "type": "http://oparl.org/schema/1.0/Consultation",
     "paper": "https://oparl.example.org/paper/2396",
     "agendaItem": "https://oparl.example.org/agendaitem/15569",
+    "meeting": "https://oparl.example.org/meeting/243",
     "organization": "https://oparl.example.org/organization/96",
     "authoritative": false,
     "role": "Beschlussfassung"

@@ -9,7 +9,6 @@
     "oparl:optional": [
         "role",
         "post",
-        "onBehalfOf",
         "votingRight",
         "startDate",
         "endDate"

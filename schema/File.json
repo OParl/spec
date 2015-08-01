@@ -112,7 +112,7 @@
             "type": "string",
             "format": "uri"
         },
-        "FileRole": {
+        "fileRole": {
             "description": "Rolle, Funktion der Datei in Bezug auf eine Sitzung. Die Eigenschaft SOLL entsprechend nur in Verbindung mit der Eigenschaft `meeting` gesetzt sein.",
             "type": "string"
         },

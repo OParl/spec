@@ -8,6 +8,7 @@ IMAGES = $(wildcard $(IMAGE_FOLDER)/*.pdf)
 PNG_IMAGES = $(IMAGES:.pdf=.png)
 # pandoc muss im src Ordner ausgeführt werden, damit die Pfadangaben der eingebundenen Bilder stimmen
 PANDOC_COMMAND = cd $(SRC_FOLDER); pandoc --from markdown --standalone --table-of-contents --number-sections
+HTML5_CSS = resources/html5.css
 LATEX_ENGINE = pdflatex
 LATEX_TEMPLATE = resources/template.tex
 GHOSTSCRIPT = gs
@@ -17,7 +18,7 @@ GHOSTSCRIPT = gs
 all: html pdf odt docx txt epub
 
 html: common_dependencies $(PNG_IMAGES)
-	$(PANDOC_COMMAND) --to html5 --section-divs --self-contained \
+	$(PANDOC_COMMAND) --to html5 --css ../$(HTML5_CSS) --section-divs --self-contained \
 	    -o ../$(OUT_FOLDER)/$(FILENAME).html *.md
 
 live: common_dependencies $(PNG_IMAGES)

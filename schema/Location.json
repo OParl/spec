@@ -26,6 +26,28 @@
             "description": "Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt, MUSS ihr Wert der Spezifikation von GeoJSON entsprechen.",
             "type": "string"
         },
+        "meeting": {
+            "description": "Liste der Meeting, welche auf die Location referenzieren.",
+            "oparl:ref": "Meeting",
+            "oparl:backref": "location",
+            "oparl:cardinality": "1:n",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "paper": {
+            "description": "Liste der Paper, welche auf die Location referenzieren.",
+            "oparl:ref": "Paper",
+            "oparl:backref": "location",
+            "oparl:cardinality": "1:n",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
         "keyword": {
             "type": "array",
             "items": {

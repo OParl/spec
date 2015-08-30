@@ -24,7 +24,7 @@ def schema_to_md_table(schema):
     md = "## " + name + "\n"
 
     # Zeichenlängen der drei Spalten
-    propspace = 26
+    propspace = 30
     typespace = 30
     descspace = 80
 
@@ -93,4 +93,3 @@ def json_examples_to_md(name):
 for obj in objects:
     filepath = os.path.join(args.schema_folder, obj + ".json")
     print schema_to_md_table(json.load(codecs.open(filepath, encoding='utf-8'), object_pairs_hook=collections.OrderedDict))
-

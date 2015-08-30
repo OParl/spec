@@ -14,6 +14,11 @@ einander stehen.
 Übergreifende Aspekte
 ---------------------
 
+### Vollständigkeit
+
+Alle regulär öffentlich abrufbaren Informationen SOLLEN auch in OParl ausgegeben werden, solange dies nicht den Datenschutzbestimmungen widerspricht. Daher sind sämtliche Felder im Schema als EMPFOHLEN zu behandeln, wenn nicht explizit etwas anderes angegeben wurde.
+
+
 ### `null`-Werte und leere Listen
 
 JSON erlaubt es grundsätzlich, Eigenschaften mit dem Wert `null` zu versehen.

@@ -64,41 +64,16 @@ eine URL. Diese URL kann vom Client genutzt werden, um die entsprechende
 Liste mit Objekten aufzurufen. Wie die entsprechende Ausgabe des Servers
 aussieht, wird weiter unten beschrieben.
 
-Diese beiden Mechanismen sind grundsätzlich immer anwendbar, wenn eine
-Mehrzahl von Objekten mit einem Objekt verknüpft ist, unabhängig von der
-Art des verknüpfenden oder des verknüpften Objekts.
-
-Die Entscheidung, ob eine Liste intern, also im Kontext eines einzelnen
-Objekts, oder extern, also über eine eigene URL ausgegeben wird, obliegt
-allein dem Server. Bei der Abwägung durch den Server sollte dieser
-berücksichtigen:
-
-1. Die interne Listenausgabe eignet sich für kleine Listen mit wenigen
-   Elementen.
-
-2. Die externe Listenausgabe eignet sich für längere Listen, da hier
-   auch Paginierung und Filterung möglich sind.
-
-3. Die externe Listenausgabe ermöglicht über die Ausgabe einer URL
-   hinaus auch die Ausgabe vollständiger Objekte.
-
-Mehr zu 2. und 3. ist den folgenden Abschnitten zu entnehmen.
-
-Die externe Listenausgabe wird explizit EMPFOHLEN in den folgenden Fällen:
-
-* Eine Liste wächst mit der Zeit, wie z.B. die Liste aller Drucksachen
-  einer Körperschaft.
-
-* Es handelt sich um Listen von Objekten des Typs `oparl:Paper` (Drucksache)
-  oder `oparl:Meeting`
-
-* Es handelt sich bei der Liste um einen [Feed](#feeds).
-
 Server DÜRFEN in den URLs für die externe Ausgabe von Listen NICHT den
 reservierten URL-Parameter `listformat` verwenden. Server MÜSSEN in den
-URLs für den Listenaufruf stets die URL zum Abruf der *kompakten Form*
+URLs für den Listenaufruf stets die URL zum Abruf der *vollständigen Form*
 ausgeben. Die Unterscheidung zwischen *kompakter* und *vollständiger*
 Form wird nachfolgend beschrieben.
+
+Die interne Listenausgabe MUSS überall überall verwendet werden, solange
+nicht explizit durch den Parameter listformat eine andere Ausgabe gewünscht wird.
+Einzige Ausnahme sind sämtliche Listen, welche Attribute des Objektes Body sind:
+dort MUSS die externe Listenausgabe verwendet werden.
 
 
 ### Kompakte und vollständige Form (`listformat`) {#objektlisten_listformat}
@@ -127,11 +102,11 @@ Hat beispielsweise der Server zum externen Aufruf der Liste die URL
 
     https://oparl.example.org/bodies/1/papers/
 
-ausgegeben, ist unter dieser grundsätzlich die kompakte Form zu erwarten.
-Der Client kann diese URL so erweitern, um die vollständige Form
+ausgegeben, ist unter dieser grundsätzlich die vollständigen Form zu erwarten.
+Der Client kann diese URL so erweitern, um die kompakte Form
 anzufordern:
 
-    https://oparl.example.org/bodies/1/papers/?listformat=complete
+    https://oparl.example.org/bodies/1/papers/?listformat=compact
 
 Das folgende Beispiel zeigt, wie die Ausgabe der kompakten Form in einem
 einfachen Fall aussehen kann:
@@ -203,9 +178,7 @@ nur die kompakte Form (Ausgabe von URLs), wie oben im Beispiel gezeigt, erlaubt.
 Die Sortierreihenfolge der ausgegebenen Einträge SOLL unabhängig
 von der Ausgabe der kompakten oder vollständigen Form identisch sein.
 
-Die vollständige Listenausgabe SOLL nur für Listen verwendet
-werden, die bis zu 100 Einträge umfassen. Links zu solch kurzen Listen
-wir jedoch in OParl-Objekten in der Regel nicht enthalten.
+Die vollständige Listenausgabe MUSS in allen Listen verwendet werden, welche Attribute des Body-Objektes sind.
 
 
 ### Paginierung  {#paginierung}
@@ -388,7 +361,7 @@ OParl definiert keine Möglichkeit für Clients, auf die Reihenfolge von Listene
 Einfluss zu nehmen. Von Servern wird die Einhaltung einiger grundlegender Anforderungen
 erwartet, die teilweise bereits erwähnt wurden.
 
-Server SOLLEN generell für eine **stabile Sortierung** von Listeneinträgen sorgen. Das
+Server MUSS generell für eine **stabile Sortierung** von Listeneinträgen sorgen. Das
 heißt, die Sortierung von Einträgen folgt einem konstanten Prinzip und ändert sich nicht von
 Abfrage zu Abfrage. Eine Einfache Möglichkeit, dies Umzusetzen, wäre in vielen Fällen
 die Sortierung von Objekten nach ihrer eindeutigen und unveränderlichen ID.
@@ -400,20 +373,11 @@ Bei der *externen Listenausgabe* (siehe weiter oben) werden in Abhängigkeit vom
 Objekttyp bestimmte Möglichkeiten geboten, die Ausgabe von Listen auf eine
 Teilmenge einzuschränken.
 
-Hierfür sind die URL-Parameter `startdate` und `enddate` vorgesehen. Beide können vom Client
-unabhängig voneinander gesetzt werden. Sie schränken die Objektmenge anhand auf einen
-Zeitraum ein, der entweder einseitig oder beidseitig begrenzt ist. Die Einschränkung bezieht
-sich auf ein Bezugsdatum, das vom Objekttyp abhängt.
+Hierfür sind die URL-Parameter `created` und `modified` vorgesehen, welche entsprechend des
+[ElasticSearch Query String Syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_ranges_2)
+verwendet werden. Beide Parameter beziehen sich auf die gleichnamigen Attribute der jeweiligen Objekte.
 
-Der Filter mittels `startdate` und `enddate` ist nur auf Listen mit den folgenden Objekttypen
-anwendbar:
-
-* `oparl:File`: Bezugsdatum ist hier die Eigenschaft `date` (Erstellungsdatum)
-* `oparl:Meeting`: Bezugsdatum ist hier die Eigenschaft `start` (Startzeitpunkt der Sitzung)
-* `oparl:Paper`: Bezugsdatum ist hier die Eigenschaft `publishedDate` (Veröffentlichungsdatum)
-
-Für die genannten Objekttypen MUSS der Server bei externer Listenausgabe die beschriebenen
-Filter unterstützen.
+Der Server MUSS die Filter `created` und `modified` bei allen Listen unterstützen, welche Attribute des Objektes Body sind.
 
 Die Filter werden vom Client aktiviert, indem der oder die gewünschte(n) URL-Parameter
 der vom Server angegebenen URL für die Listenausgabe hinzugefügt werden. Lautet diese
@@ -424,19 +388,15 @@ URL für eine Liste von Drucksachen so,
 dann kann der Client die folgende URL bilden, um die Ausgabe der Liste auf Drucksachen
 einzuschränken, die nach dem 1.1.2014 veröffentlicht wurden:
 
-    https://oparl.example.org/papers/?startdate=2014-01-01T00%3A00%3A00%2B01%3A00
+    https://oparl.example.org/papers/?created:>=2014-01-01T00%3A00%3A00%2B01%3A00
 
-Der Server interpretiert die Angabe eines `startdate` so, dass das Bezugsdatum
-aller ausgegebenen Objekte gleich oder größer dem im Parameter angegebenen Datum
-sein muss. Der Parameter `enddate` ist entsprechend so zu interpretieren, dass
-alle Bezugsdaten der ausgelieferten Objekte kleiner oder gleich dem angegebenen
-Wert sein müssen.
+Es sind auch Einschränkungen mit Minimal- und Maximal-Wert möglich, hierfür MUSS
+der logische Operator AND implementiert werden sein. Um eine Einschränkung vom 1.1.2014
+bis zum 31.1.2014 vorzunehmen, wird domit der folgende Syntax verwendet:
 
-Sind beide Parameter gesetzt, handelt es sich um eine Boolsche UND-Verknüpfung.
-Der Server liefert entsprechend nur Objekte aus, deren Bezugsdatum größer/gleich
-dem Wert von `startdate` und kleiner/gleich dem Wert von `enddate` ist.
+    https://oparl.example.org/papers/?created:(>=2014-01-01T00%3A00%3A00%2B01%3A00%20AND%20<=2014-01-31T23%3A59%3A59%2B01%3A00)
 
-Clients MÜSSEN die Werte von `startdate` und `enddate` mit Uhrzeit und Zeitzone
+Clients MÜSSEN die Werte von `created` und `modified` mit Uhrzeit und Zeitzone
 angeben. Dabei MUSS das im Kapitel [Datums- und Zeitangaben](#datum_zeit)
 definierte Format genutzt werden und Clients müssen für eine entsprechende
 URL-Kodierung sorgen.

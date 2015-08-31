@@ -1,7 +1,7 @@
 Unterstützer
 ------------
 
-Die folgenden Organisationen und Unternehmen zählen zu den Unterstützern von OParl:
+Die folgenden Organisationen und Unternehmen zählen zu den Unterstützern von OParl 1.0:
 
 Organisation/Firma|Kategorie
 -----------------------------------------------------------------|-----------
@@ -12,9 +12,10 @@ Organisation/Firma|Kategorie
 [KDVZ Rhein-Erft-Rur](http://www.kdvz-frechen.de/)|Kommunale Dienstleister
 [KRZN](http://www.krzn.de/)|Kommunale Dienstleister
 [Open Knowledge Foundation e. V.](http://okfn.de/)|Initiativen
+[openPetition](https://www.openpetition.de/)|Initiativen
 [OpenRuhr](http://openruhr.de/)|Initiativen
-[Parlamentwatch e. V.](http://www.abgeordnetenwatch.de/)|Initiativen
-[Piratenpartei](http://www.piratenpartei.de/)|Initiativen
+[Parlamentwatch e.V.](http://www.abgeordnetenwatch.de/)|Initiativen
+[Piratenpartei](http://www.piratenpartei.de/)|Parteien
 [PROVOX Systemplanung GmbH](http://www.provox.de/)|RIS-Hersteller
 [QuinScape GmbH](http://www.quinscape.de/)|RIS-Hersteller
 [regioIT](http://www.regioit-aachen.de/) (Aachen)|Kommunale Dienstleister
@@ -23,4 +24,5 @@ Organisation/Firma|Kategorie
 [Stadt Köln](http://www.stadt-koeln.de/)|Kommune
 [Stadt Moers](http://www.moers.de/)|Kommune
 [STERNBERG Software-Technik GmbH](http://www.sitzungsdienst.net/)|RIS-Hersteller
+[Vitako](http://www.vitako.de/)|Initiativen
 [Wikimedia Deutschland](http://www.wikimedia.de/)|Initiativen

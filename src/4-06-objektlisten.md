@@ -70,7 +70,7 @@ Art des verknüpfenden oder des verknüpften Objekts.
 
 Die Entscheidung, ob eine Liste intern, also im Kontext eines einzelnen
 Objekts, oder extern, also über eine eigene URL ausgegeben wird, obliegt
-allein dem Server. Bei der Abwägung durch den Server sollte dieser 
+allein dem Server. Bei der Abwägung durch den Server sollte dieser
 berücksichtigen:
 
 1. Die interne Listenausgabe eignet sich für kleine Listen mit wenigen
@@ -82,7 +82,7 @@ berücksichtigen:
 3. Die externe Listenausgabe ermöglicht über die Ausgabe einer URL
    hinaus auch die Ausgabe vollständiger Objekte.
 
-Mehr zu 2. und 3. ist den folgenden Abschnitten zu entnehmen. 
+Mehr zu 2. und 3. ist den folgenden Abschnitten zu entnehmen.
 
 Die externe Listenausgabe wird explizit EMPFOHLEN in den folgenden Fällen:
 
@@ -253,6 +253,27 @@ URL zum Abruf der jeweils nächsten Listenseite ausgegeben. Die
 Beschaffenheit der URL bestimmt der Server frei, das obige Beispiel
 ist in keiner Form bindend.
 
+OPTIONAL sind die Eigenschaften `numberOfPages`, mit der
+die Anzahl der Listenseiten angegeben wird, und `currentPage`, mit der
+der Server angibt, um die wie vielte Listenseite es sich handelt,
+wobei die Zählung bei 0 beginnt. Das obenstehende Beispiel kann um
+die beiden Eigenschaften erweitert werden:
+
+~~~~~  {#objektlisten_ex5 .json}
+{
+    "items": [
+        "https://oparl.example.org/bodies/0/papers/2",
+        "https://oparl.example.org/bodies/0/papers/5",
+        "https://oparl.example.org/bodies/0/papers/7",
+        ...
+    ],
+    "numberOfPages": 123,
+    "currentPage": 10,
+    "itemsPerPage": 100,
+    "nextPage": "https://oparl.example.org/bodies/0/papers/?skip_id=495"
+}
+~~~~~
+
 Es ergibt sich eine typische Abfolge, wie Clients bei Bedarf
 mit mehreren Anfragen ganze Objektlisten vom Server abrufen:
 
@@ -260,7 +281,7 @@ mit mehreren Anfragen ganze Objektlisten vom Server abrufen:
 
 2. Der Client ruft diese URL der Liste auf.
 
-3. Der Server antwortet mit einer verkürzten Listenausgabe und 
+3. Der Server antwortet mit einer verkürzten Listenausgabe und
    gibt mittels `nextPage`-Eigenschaft die URL für den
    Abruf der nächsten Listenseite an.
 
@@ -320,12 +341,12 @@ anhand einer eindeutigen und unveränderlichen Objekteigenschaft vorgenommen
 wird. Hierfür eignen sich die Objekt-URLs, da sie genau diese beiden
 Anforderungen erfüllen sollten.
 
-Über die Sortierung hinaus können bei der Implementierung einer stabilen 
+Über die Sortierung hinaus können bei der Implementierung einer stabilen
 Paginierung auf Server-Seite weitere Überlegungen einbezogen werden.
 Zur Verdeutlichung soll hier eine ungünstige (unstabile) Form der
 Implementierung mit Hilfe einer SQL-Abfrage illustriert werden. Gegeben sei
-eine Tabelle `example`, die einen 
-numerischen Primärschlüssel `id` enthält. Nehmen wir an, die erste Seite der 
+eine Tabelle `example`, die einen
+numerischen Primärschlüssel `id` enthält. Nehmen wir an, die erste Seite der
 Liste wird mit der Abfrage
 
 ~~~~~  {#objektlisten_ex3 .sql}
@@ -339,11 +360,11 @@ die zweite Seite mit der Abfrage
 SELECT * FROM example ORDER BY id LIMIT 10 OFFSET 10
 ~~~~~
 
-abgerufen. Sollte nach der ersten, aber vor der zweiten Abfrage beispielsweise 
+abgerufen. Sollte nach der ersten, aber vor der zweiten Abfrage beispielsweise
 der Datensatz mit der `id=1` gelöscht worden sein, liefert die zweite Abfrage
 Datensätze mit `id` > 9. In diesem Fall würde dies nur dazu führen, dass ein
 Datensatz (`id=10`) zweimal ausgegeben wird. Bei ungünstigeren Konstellationen
-wäre auch denkbar, dass eine unstabile Paginierung bewirkt, dass einzelne 
+wäre auch denkbar, dass eine unstabile Paginierung bewirkt, dass einzelne
 Datensätze beim Paginieren übergangen werden. Je nach Bedeutung der fehlenden
 Datensätze können solche Inkonsistenzen erhebliche Auswirkungen haben.
 

@@ -56,12 +56,12 @@
             "type": "string"
         },
         "phone": {
-            "description": "Telefonnummer der Person.",
-            "type": "string"
+            "description": "Telefonnummern der Person.",
+            "type": "array"
         },
         "email": {
-            "description": "E-Mail-Adresse der Person.",
-            "type": "string"
+            "description": "E-Mail-Adressen der Person.",
+            "type": "array"
         },
         "streetAddress": {
             "description": "Straße und Hausnummer der Kontakt-Anschrift der Person.",

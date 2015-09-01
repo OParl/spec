@@ -111,4 +111,3 @@ deren Grenzen hinweg, erleichtert werden.
 Ein grundlegender Baustein der Linked-Data-Unterstützung in OParl ist die Tatsache, dass
 jedes Objekt durch eine URL identifiziert wird. So eignen sich OParl-Objekte für die
 Verknüpfung durch externe Anwendungen.
-

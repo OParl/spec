@@ -7,8 +7,6 @@
         "type"
     ],
     "oparl:optional": [
-        "familyName",
-        "givenName",
         "formOfAddress",
         "title",
         "gender",

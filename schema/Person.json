@@ -16,7 +16,9 @@
         "locality",
         "status",
         "membership",
-        "keyword"
+        "keyword",
+        "life",
+        "lifeSource"
     ],
     "properties": {
         "id": {
@@ -57,10 +59,16 @@
         },
         "phone": {
             "description": "Telefonnummern der Person.",
+            "items": {
+                "type": "string"
+            },
             "type": "array"
         },
         "email": {
             "description": "E-Mail-Adressen der Person.",
+            "items": {
+                "type": "string"
+            },
             "type": "array"
         },
         "streetAddress": {
@@ -92,6 +100,14 @@
                 "type": "string",
                 "format": "uri"
             }
+        },
+        "life": {
+            "description": "Kurzer Informationstext zur Person.",
+            "type": "string"
+        },
+        "lifeSource": {
+            "description": "Angabe der Quelle, aus der die Informationen für `life` stammen. Bei Angabe von `life` ist diese Eigenschaft EMPFOHLEN",
+            "type": "string"
         },
         "keyword": {
             "items": {

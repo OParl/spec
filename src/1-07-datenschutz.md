@@ -1,7 +1,7 @@
 Datenschutz
 ------------------
 
-Gemäß der Grundlage "öffentliche Daten nützen, private Daten schützen" hat Datenschutz auch bei OParl eine hohe Priorität. Hierbei ist die deutsche Datenschutz-Gesetzgebung zu beachten. Dies bedeutet unter anderem:
+Gemäß der Grundlage "öffentliche Daten nützen, private Daten schützen" hat Datenschutz auch bei OParl eine hohe Priorität. Hierbei ist die deutsche Datenschutz-Gesetzgebung zu beachten. Dies bedeutet unter anderem (ohne Anspruch auf Vollständigkeit):
 
 
 ### Veröffentlichung von personenbezogenen Daten

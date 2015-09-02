@@ -1,12 +1,12 @@
 Datenschutz
 ------------------
 
-Gemäß der Grundlage "öffentliche Daten nutzen, private Daten schützen" ist bei OParl auch Datenschutz zu beachten. Über das Deutsche Datenschutzgesetz hinaus sind folgende Punkte zu beachten:
+Gemäß der Grundlage "öffentliche Daten nützen, private Daten schützen" hat Datenschutz auch bei OParl eine hohe Priorität. Hierbei ist die deutsche Datenschutz-Gesetzgebung zu beachten. Dies bedeutet unter anderem:
 
 
 ### Veröffentlichung von personenbezogenen Daten
 
-Beim Zugriff auf die Weboberfläche des Ratsinformationssystem ohne OParl-Schnittstelle dürfen nur die personenbezogenen Daten ausgegeben werden, zu denen eine explizite Einveständniserklärung der betreffenden Person vorliegt. Dasselbe hilt für OParl: Private Daten (Kontaktdaten, Photos, Anwesenheitslisten, ...) dürfen nur dann ausgegeben werden, wenn eine explizite Zustimmung der betreffenden Person vorliegt. 
+Um personenbezogene Daten zu veröffentlichen, ist üblicherweise eine explizite Zustimmung der betroffenen Person erforderlich. Dies gilt für die bestehende Weboberfläche des Ratsinformationssystems ebenso wie für die OParl-Schnittstelle. Eine besondere Beachtung sollten hierbei E-Mail-Adressen, postalische Adressen, Photos und Anwesenheitslisten finden. Es wird empfohlen, vor Veröffentlichung den zuständigen Datenschutzbeauftragten zu kontaktieren.
 
 
 ### Verwendung von Verschlüsselung

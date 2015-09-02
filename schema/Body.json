@@ -62,6 +62,11 @@
             "type": "string",
             "format": "date-time"
         },
+        "oparlSince": {
+            "description": "Zeitpunkt, ab dem OParl für dieses Body bereitgestellt wurde. Dies hilft, um die Datenvalidität einzuschätzen, erst ab der Einrichtung für OParl kann sichergestellt werden, dass sämtliche Werte korrekt in der Original-Quelle vorliegen.",
+            "type": "string",
+            "format": "date-time"
+        },
         "amtlicherGemeindeschlüssel": {
             "description": "Der achtstellige Amtliche Gemeindeschlüssel^[Amtliche Gemeindeschlüssel können im [Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes](https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html) eingesehen werden].",
             "type": "string"

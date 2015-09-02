@@ -21,7 +21,7 @@ sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 
 def schema_to_md_table(schema):
     name = schema["title"]
-    md = "## " + name + "\n"
+    md = "## " + name + "{#entity-" + name.lower() + "}" + "\n"
 
     # Zeichenlängen der drei Spalten
     propspace = 30

@@ -1,5 +1,4 @@
-Zielsetzung von OParl
----------------------
+## Zielsetzung von OParl {#zielsetzung-von-oparl}
 
 OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:
 

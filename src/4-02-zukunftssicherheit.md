@@ -1,5 +1,4 @@
-Zukunftssicherheit
-------------------
+## Zukunftssicherheit {#zukunftssicherheit}
 
 Wird in Zukunft eine zu OParl 1.0 inkompatible Version 2.0 erscheinen, kann ein
 Server beide Versionen gleichzeitig unterstützen, um mit OParl 1.0 Clients

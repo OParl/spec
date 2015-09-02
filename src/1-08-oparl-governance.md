@@ -1,5 +1,4 @@
-OParl Governance
--------
+## OParl Governance {#oparl-governance}
 
 Im Verlauf der Weiterentwicklung können wie bei jedem Standardisierungsprozess
 Konflikte über die Ausrichtung und die Implementierung entstehen. Ist dies der Fall,

@@ -1,5 +1,4 @@
-Einleitung
-==========
+# Einleitung {#einleitung}
 
 Dieses Dokument enthält die Spezifikation des OParl 
 Schnittstellen-Standards für parlamentarische Informationssysteme^[In Deutschland

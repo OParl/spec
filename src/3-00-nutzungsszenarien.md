@@ -1,5 +1,4 @@
-Nutzungsszenarien  {#nutzungsszenarien}
-=================
+# Nutzungsszenarien  {#nutzungsszenarien}
 
 Die nachfolgenden Nutzungsszenarien dienen dazu, die Architektur und die
 Anwendungsmöglichkeiten anhand konkreter Beispiele zu verdeutlichen. Sie

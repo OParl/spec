@@ -1,5 +1,4 @@
-Unterstützer
-------------
+## Unterstützer {#unterstuetzer}
 
 Die folgenden Organisationen und Unternehmen zählen zu den Unterstützern von OParl 1.0:
 

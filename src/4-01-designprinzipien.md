@@ -1,7 +1,6 @@
-Designprinzipien
-----------------
+## Designprinzipien {#designprinzipien}
 
-### Aufbauen auf gängiger Praxis
+### Aufbauen auf gängiger Praxis {#aufbauen-auf-gaengiger-praxis}
 
 Grundlage für die Erarbeitung der OParl-Spezifikation in der vorliegenden Version
 ist eine Analyse von aktuell (2012 bis 2014) in Deutschland etablierten
@@ -13,7 +12,7 @@ Bedeutung, dass sich die Informationsmodelle der einschlägigen Softwareprodukte
 ähneln. Für die OParl-Spezifikation wurde sozusagen ein Datenmodell als "gemeinsamer Nenner"
 auf Basis der gängigen Praxis beschrieben.
 
-### Verbesserung gegenüber dem Status Quo wo möglich
+### Verbesserung gegenüber dem Status Quo wo möglich {#verbesserung-gegenueber-status-quo}
 
 Dort, wo es dem Ziel der einfachen Implementierbarkeit und der einfachen Migration
 nicht im Weg steht, erlauben sich die Autoren dieser Spezifikation, auch Funktionen
@@ -46,7 +45,7 @@ herzustellen, um so von einer Datei zu anderen Dateien mit identischem Inhalt,
 aber in anderen technischen Formaten zu verweisen, etwa von einer ODT-Datei zu einer
 PDF-Version.
 
-### Selbstbeschreibungsfähigkeit
+### Selbstbeschreibungsfähigkeit {#selbstbeschreibungsfaehigkeit}
 
 Ausgaben des Servers sollten so beschaffen sein, dass sie für menschliche Nutzerinnen
 weitgehend selbsterklärend sein können. Dies betrifft besonders die Benennung von
@@ -61,7 +60,7 @@ Um den Kreis der Entwicklerinnen und Entwickler, die mit einer OParl-API arbeite
 können, nicht unnötig einzuschränken, wird hierbei grundsätzlich auf englischsprachige
 Begrifflichkeiten gesetzt.
 
-### Erweiterbarkeit
+### Erweiterbarkeit {#erweiterbarkeit}
 
 Implementierer sollen in der Lage sein, über eine OParl-konforme Schnittstelle auch
 solche Informationen auszugeben, die nicht im Rahmen des OParl-Schemas abgebildet werden

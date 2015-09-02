@@ -1,5 +1,4 @@
-Ausnahmebehandlung  {#ausnahmebehandlung}
-------------------
+## Ausnahmebehandlung  {#ausnahmebehandlung}
 
 Nicht immer kann ein Server die Anfrage eines Clients erfolgreich, also im Sinne
 der Anfrage, behandeln und eine entsprechende Antwort liefern. Beispiele für solche

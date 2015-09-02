@@ -1,5 +1,4 @@
-Architektur  {#architektur}
-===========
+# Architektur  {#architektur}
 
 In diesem Abschnitt werden grundlegenden Konzepte, die von OParl abgedeckt
 werden, erläutert. Die Erläuterungen sind nicht im engeren Sinne Teil der
@@ -11,15 +10,13 @@ Da die Architektur auf der generellen Architektur des World Wide Web (WWW)
 aufbaut, sind einzelne Konzepte direkt den Begriffen der
 Architekturbeschreibung des W3-Konsortiums entlehnt.^[Architecture of the World Wide Web, Volume One. <http://www.w3.org/TR/webarch/>]
 
-Überblick
----------
+## Überblick {#ueberblick}
 
 
 ![Architekturdiagramm](images/architektur-ueberblick.png)
 
 
-Parlamentarisches Informationssystem {#parlamentarisches_infosystem}
-------------------------------------
+## Parlamentarisches Informationssystem {#parlamentarisches_infosystem}
 
 Parlamentarische Informationssysteme sind Software-Systeme, die von
 verschiedensten Körperschaften eingesetzt werden, um die Zusammenarbeit
@@ -42,8 +39,7 @@ von Informationen und Dokumenten hingegen ist in vielen Fällen für die
 Die OParl-Spezifikation beschreibt eine Schnittstelle, die den maschinellen,
 lesenden Zugriff auf derartige Informationen ermöglicht.
 
-Server {#server}
-------
+## Server {#server}
 
 Der Server im Sinne dieser Spezifikation ist ein Software-Dienst, der auf einem
 mit dem Internet verbundenen Rechnersystem läuft. Dieser Dienst ist eine spezielle
@@ -59,8 +55,7 @@ bestimmte parlamentarische Informationen in einem bestimmten Format zur Verfügu
 stellt und auf bestimmte Anfragen von so genannten Clients über die OParl-API
 entsprechend dieser Spezifikation reagiert.
 
-API {#api}
----
+## API {#api}
 
 Der Begriff API steht in diesem Dokument für die Webservice-Schnittstelle, die der
 Server anbietet. Die Schnittstelle basiert auf dem HTTP-Protokoll. Mittels HTTPS
@@ -73,15 +68,13 @@ mit einander kommunizieren können. Die API-Spezifikation stellt dabei die
 nötige Grammatik und das Vokabular bereit, anhand dessen eine sinnvolle Kommunikation
 erfolgen kann.
 
-Client {#client}
-------
+## Client {#client}
 
 Der Begriff "Client" steht für eine Software, die über die OParl-API mit dem Server
 kommuniziert. Da die API auf dem HTTP-Protokoll aufbaut, handelt es sich bei dem
 Client um eine spezielle Form eines HTTP-Clients.
 
-Cache {#cache}
------
+## Cache {#cache}
 
 Ein Cache ist ein Speicher, der einem Client dazu dienen kann, von einem
 Server abgerufene Informationen längerfristig vorzuhalten. Dies kann beispielsweise
@@ -91,14 +84,12 @@ Netzwerkbandbreite reduziert werden kann. Die Nutzung eines Cache kann auch
 zur Verbesserung der Nutzerfreundlichkeit eines Clients beitragen, indem
 Wartezeiten zur Bereitstellung einer Ressource verkürzt werden.
 
-Nutzerin oder Nutzer {#nutzerin}
---------------------
+## Nutzerin oder Nutzer {#nutzerin}
 
 Mit einer Nutzerin oder einem Nutzer ist in diesem Fall eine natürliche Person gemeint,
 die mittels eines OParl-Clients auf parlamentarische Informationen zugreift.
 
-Objekt  {#objekt}
-------
+## Objekt  {#objekt}
 
 Der Server beantwortet Anfragen eines Clients im Regelfall, indem bestimmte Objekte
 ausgegeben werden. Objekte sind im Fall einer OParl-konformen API JSON-Objekte, die

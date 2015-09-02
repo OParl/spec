@@ -1,5 +1,4 @@
-HTTP und HTTPS
---------------
+## HTTP und HTTPS {#http-und-https}
 
 OParl-Server und -Client kommunizieren miteinander über das HTTP-Protokoll.
 Der Zugriff MUSS zustandslos, also ohne Seassoninformationen (z.B. Cookies)

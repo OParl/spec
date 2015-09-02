@@ -23,7 +23,7 @@ HTTP-Methode `GET` abrufbar sein MUSS.
 
 Die URLs zum Abruf der einzelnen Datei stellt der Server dem Client in den
 Daten des Metadaten-Objekts zur Verfügung. Details finden sich in der
-Schema-Beschreibung zu [`oparl:File`](#oparl_file).
+Schema-Beschreibung zu [`oparl:File`](#file).
 
 ### Allgemeiner Zugriff und expliziter Download
 

@@ -52,6 +52,28 @@
                 "format": "uri"
             }
         },
+        "organization": {
+            "description": "Liste der Organizations, welche auf die Location referenzieren.",
+            "oparl:ref": "Organization",
+            "oparl:backref": "location",
+            "oparl:cardinality": "1:n",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "locationBody": {
+            "description": "Liste der Bodys, welche auf die Location referenzieren.",
+            "oparl:ref": "Body",
+            "oparl:backref": "location",
+            "oparl:cardinality": "1:n",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
         "keyword": {
             "type": "array",
             "items": {

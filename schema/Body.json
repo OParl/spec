@@ -15,7 +15,8 @@
         "consultation",
         "location",
         "membership",
-        "legislativeTerm"
+        "legislativeTerm",
+        "bodyLocation"
     ],
     "oparl:optional": [
         "contactName",
@@ -144,6 +145,29 @@
         "classification": {
             "description": "Art der Körperschaft.",
             "type": "string"
+        },
+        "room": {
+            "description": "Raum, in dem das Body beheimatet ist",
+            "type": "string"
+        },
+        "streetAddress": {
+            "description": "Straße und Hausnummer des Bodys.",
+            "type": "string"
+        },
+        "postalCode": {
+            "description": "Postleitzahl des Bodys.",
+            "type": "string"
+        },
+        "locality": {
+            "description": "Ortsangabe des Bodys.",
+            "type": "string"
+        },
+        "bodyLocation": {
+            "description": "Ort, an dem das Body beheimatet ist",
+            "oparl:ref": "Location",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
         },
         "keyword": {
             "type": "array",

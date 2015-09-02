@@ -74,7 +74,17 @@
             }
         },
         "participant": {
-            "description": "Personen, die an der Sitzung teilgenommen haben. Diese Eigenschaft kann selbstverständlich erst nachdem Stattfinden der Sitzung vorkommen.",
+            "description": "Personen, die an der Sitzung teilgenommen haben (d.h. nicht nur die eingeladenen Personen, sondern die tatsächlich anwesenden). Diese Eigenschaft kann selbstverständlich erst nachdem Stattfinden der Sitzung vorkommen.",
+            "oparl:ref": "Person",
+            "oparl:cardinality": "n:m",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "scribe": {
+            "description": "Liste der Schriftführer bei der betreffenden Sitzung.",
             "oparl:ref": "Person",
             "oparl:cardinality": "n:m",
             "type": "array",

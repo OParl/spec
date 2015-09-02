@@ -68,6 +68,11 @@
             "type": "string",
             "format": "uri"
         },
+        "externalServiceUrl": {
+            "description": "Externe URL, welche eine zusätzliche Zugriffsmöglichkeit bietet. Beispiel: YouTube-Video.",
+            "type": "string",
+            "format": "uri"
+        },
         "paper": {
             "description": "Falls die Datei zu einer oder mehreren Drucksachen (`oparl:Paper`) gehört, MÜSSEN diese Drucksachen über diese Eigenschaft angegeben werden.",
             "oparl:ref": "Paper",
@@ -81,6 +86,16 @@
         "meeting": {
             "description": "Falls die Datei zu einer oder mehreren Sitzungen (`oparl:Meeting`) gehört, MÜSSEN diese Sitzungen über diese Eigenschaft angegeben werden.",
             "oparl:ref": "Meeting",
+            "oparl:cardinality": "n:m",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "agendaItem": {
+            "description": "Falls die Datei zu einer oder mehreren Tagesordnungspunkten (`oparl:AgendaItem`) gehört, MÜSSEN diese Tagesordnungspunkte über diese Eigenschaft angegeben werden.",
+            "oparl:ref": "AgendaItem",
             "oparl:cardinality": "n:m",
             "type": "array",
             "items": {

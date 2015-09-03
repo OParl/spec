@@ -32,7 +32,7 @@
         "meetingState": {
             "description": "Aktueller Status der Sitzung.",
             "type": "string"
-        }
+        },
         "start": {
             "description": "Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Startzeitpunkt sein.",
             "type": "string",

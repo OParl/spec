@@ -18,7 +18,7 @@ LATEX=pdflatex
 LATEX_TEMPLATE=resources/template.tex
 
 HTML5_CSS=resources/html5.css
-SCHEMA_MD=$(SRC_DIR)/5-99-generiertes-schema.md
+SCHEMA_MD=$(SRC_DIR)/3-99-generiertes-schema.md
 
 GS_FLAGS=-dQUIET -dSAFER -dBATCH -dNOPAUSE -sDisplayHandle=0 -sDEVICE=png16m -r600 -dTextAlphaBits=4
 GS=gs $(GS_FLAGS)

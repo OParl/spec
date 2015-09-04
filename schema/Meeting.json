@@ -87,16 +87,6 @@
                 "format": "uri"
             }
         },
-        "scribe": {
-            "description": "Liste der Schriftführer bei der betreffenden Sitzung.",
-            "oparl:ref": "Person",
-            "oparl:cardinality": "n:m",
-            "type": "array",
-            "items": {
-                "type": "string",
-                "format": "uri"
-            }
-        },
         "invitation": {
             "description": "Einladungsdokument zur Sitzung.",
             "oparl:ref": "File",

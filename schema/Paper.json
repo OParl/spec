@@ -6,15 +6,6 @@
         "id",
         "type"
     ],
-    "oparl:optional": [
-        "reference",
-        "relatedPaper",
-        "auxiliaryFile",
-        "location",
-        "consultation",
-        "keyword",
-        "underDirectionof"
-    ],
     "properties": {
         "id": {
             "type": "string",

@@ -6,13 +6,6 @@
         "id",
         "type"
     ],
-    "oparl:optional": [
-        "role",
-        "post",
-        "votingRight",
-        "startDate",
-        "endDate"
-    ],
     "properties": {
         "id": {
             "type": "string",

@@ -6,16 +6,6 @@
         "id",
         "type"
     ],
-    "oparl:optional": [
-        "room",
-        "streetAddress",
-        "postalCode",
-        "locality",
-        "location",
-        "auxiliaryFile",
-        "agendaItem",
-        "keyword"
-    ],
     "properties": {
         "id": {
             "type": "string",

@@ -8,11 +8,6 @@
         "oparlVersion",
         "body"
     ],
-    "oparl:optional": [
-        "website",
-        "vendor",
-        "product"
-    ],
     "properties": {
         "id": {
             "type": "string",

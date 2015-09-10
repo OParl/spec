@@ -6,11 +6,6 @@
         "id",
         "type"
     ],
-    "oparl:optional": [
-        "authoritative",
-        "role",
-        "keyword"
-    ],
     "properties": {
         "id": {
             "type": "string",

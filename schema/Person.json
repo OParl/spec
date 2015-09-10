@@ -6,21 +6,6 @@
         "id",
         "type"
     ],
-    "oparl:optional": [
-        "familyName",
-        "givenName",
-        "formOfAddress",
-        "title",
-        "gender",
-        "phone",
-        "email",
-        "streetAddress",
-        "postalCode",
-        "locality",
-        "status",
-        "membership",
-        "keyword"
-    ],
     "properties": {
         "id": {
             "type": "string",

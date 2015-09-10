@@ -6,13 +6,6 @@
         "id",
         "type"
     ],
-    "oparl:optional": [
-        "description",
-        "geometry",
-        "meeting",
-        "paper",
-        "keyword"
-    ],
     "properties": {
         "id": {
             "type": "string",

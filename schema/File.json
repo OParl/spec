@@ -7,14 +7,6 @@
         "type",
         "accessUrl"
     ],
-    "oparl:optional": [
-        "sha1Checksum",
-        "masterFile",
-        "derivativeFile",
-        "license",
-        "FileRole",
-        "keyword"
-    ],
     "properties": {
         "id": {
             "type": "string",

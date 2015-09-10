@@ -58,9 +58,6 @@ def schema_to_md_table(schema):
         if "required" in schema and prop_name in schema["required"] and description  != "":
             description =  "**ZWINGEND** " + description
 
-        if "oparl:optional" in schema and prop_name in schema["oparl:optional"] and description != "":
-            description =  "*OPTIONAL* " + description
-
         md += "`"+ prop_name + "`" + (propspace - len(prop_name))*u" " + type + (typespace - len(type))*u" " + description + "\n\n"
 
     # Tabellenende

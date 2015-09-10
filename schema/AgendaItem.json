@@ -6,12 +6,6 @@
         "id",
         "type"
     ],
-    "oparl:optional": [
-        "number",
-        "resolution",
-        "auxiliaryFile",
-        "keyword"
-    ],
     "properties": {
         "id": {
             "type": "string",

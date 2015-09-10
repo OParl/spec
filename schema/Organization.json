@@ -6,14 +6,6 @@
         "id",
         "type"
     ],
-    "oparl:optional": [
-        "shortName",
-        "post",
-        "subOrganizationOf",
-        "endDate",
-        "website",
-        "keyword"
-    ],
     "properties": {
         "id": {
             "type": "string",

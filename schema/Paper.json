@@ -100,13 +100,25 @@
                 "format": "uri"
             }            
         },
-        "originator": {
-            "description": "Urheber der Drucksache, kann eine oder mehrere Person(en) bzw. Gruppierung(en) sein.",
+        "originatorPerson": {
+            "description": "Urheber der Drucksache, falls der Urheber eine Person ist. Es können auch mehrere Personen angegeben werden.",
+            "oparl:ref": "Person",
+            "oparl:cardinality": "n:m",
             "type": "array",
-            "link_many": [
-                "Person",
-                "Organization"
-            ]
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "originatorOrganization": {
+            "description": "Urheber der Drucksache, falls der Urheber eine Gruppierung ist. Es können auch mehrere Gruppierungen angegeben werden.",
+            "oparl:ref": "Organization",
+            "oparl:cardinality": "n:m",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
         },
         "consultation": {
             "description": "Beratungen der Drucksache.",

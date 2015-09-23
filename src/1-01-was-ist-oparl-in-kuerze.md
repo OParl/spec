@@ -1,5 +1,4 @@
-Was ist OParl in Kürze?
------------------------
+## Was ist OParl in Kürze? {#was_ist_oparl_in_kuerze}
 
 OParl ist die Gruppierung, die Initiator und Herausgeber der
 vorliegenden Spezifikation ist. An OParl wirken Verbände,

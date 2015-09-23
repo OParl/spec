@@ -1,5 +1,4 @@
-URLs {#urls}
--------------------
+## URLs {#urls}
 
 Den URLs (für _Uniform Resource Locators_)
 kommt bei einer OParl-konformen API eine besondere Bedeutung zu und es werden eine 

@@ -6,20 +6,6 @@
         "id",
         "type"
     ],
-    "oparl:optional": [
-        "formOfAddress",
-        "gender",
-        "phone",
-        "email",
-        "streetAddress",
-        "postalCode",
-        "locality",
-        "status",
-        "membership",
-        "keyword",
-        "life",
-        "lifeSource"
-    ],
     "properties": {
         "id": {
             "type": "string",
@@ -54,7 +40,7 @@
             "type": "string"
         },
         "gender": {
-            "description": "Geschlecht. Empfohlene Werte sind `female`, `male`, `none` und `other`. Für den Fall, dass das Geschlecht der Person unbekannt ist, SOLL die Eigenschaft nicht ausgegeben werden.",
+            "description": "Geschlecht. Empfohlene Werte sind `female`, `male` und `other`. Für den Fall, dass das Geschlecht der Person unbekannt ist, SOLL die Eigenschaft nicht ausgegeben werden.",
             "type": "string"
         },
         "phone": {
@@ -77,6 +63,10 @@
         },
         "postalCode": {
             "description": "Postleitzahl der Kontakt-Anschrift der Person.",
+            "type": "string"
+        },
+        "subLocality": {
+            "description": "Untergeordnete Ortsangabe der Kontakt-Anschrift der Person, z.B. Stadtbezirk, Ortsteil oder Dorf.",
             "type": "string"
         },
         "locality": {

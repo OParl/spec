@@ -1,5 +1,4 @@
-Autoren
--------
+## Autoren {#autoren}
 
 An diesem Dokument haben mitgewirkt:
 

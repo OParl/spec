@@ -1,5 +1,4 @@
-Nutzungsszenarien  {#nutzungsszenarien}
-=================
+## Nutzungsszenarien  {#nutzungsszenarien}
 
 Die nachfolgenden Nutzungsszenarien dienen dazu, die Architektur und die
 Anwendungsmöglichkeiten anhand konkreter Beispiele zu verdeutlichen. Sie
@@ -12,7 +11,7 @@ erheben keinen Anspruch auf Vollständigkeit.
 3. Meta-Suche
 4. Forschungsprojekt Themen- und Sprachanalyse
 
-## Szenario 1: Mobile Client-Anwendung {#szenario_mobile_client}
+### Szenario 1: Mobile Client-Anwendung {#szenario_mobile_client}
 
 Eine [Client](#client)-Anwendung für mobile Endgeräte wie Smartphones und Tablets,
 nachfolgend "App" genannt, könnte das Ziel verfolgen, Nutzern unterwegs
@@ -91,7 +90,7 @@ Objekten in der Umgebung durchsucht werden. Das Ergebnis könnte auf einer Karte
 dargestellt oder in einer Ergebnisliste angezeigt werden, die z. B. nach Distanz zum
 Objekt sortiert werden kann.
 
-## Szenario 2: Integration in Web-Portal  {#szenario_web_portal}
+### Szenario 2: Integration in Web-Portal  {#szenario_web_portal}
 
 Portallösungen bieten den Betreibern die Möglichkeit, Inhalte auf einer einheitlichen
 Weboberfläche zu veröffentlichen, die aus verschiedensten Quellen und Plattformen
@@ -134,7 +133,7 @@ OParl-konform sind. Dies ermöglicht es beispielsweise verschiedenen Kommunen,
 bei der Entwicklung von Portlets zusammenzuarbeiten und ihre Ergebnisse auszutauschen. Denkbar
 sind auch Portlet-Entwicklungen als Open-Source-Projekte.
 
-## Szenario 3: Meta-Suche  {#szenario_meta_suche}
+### Szenario 3: Meta-Suche  {#szenario_meta_suche}
 
 Die Ermöglichung einer nutzerfreundlichen Suche, die damit verbundene Indexierung von
 verschiedensten Dokumenteninhalten und die Kategorisierung von Inhalten kann eine
@@ -189,7 +188,7 @@ mit OParl-Schnittstelle im Land zusammengeführt werden. Dort hat sie sich Abonn
 zu einzelnen Lokalpolitikern eingerichtet und wird automatisch über ihre Teilnahme an 
 Gremiensitzungen und die Themen dieser Sitzungen informiert.
 
-## Szenario 4: Forschungsprojekt Themen- und Sprachanalyse {#szenario_forschung}
+### Szenario 4: Forschungsprojekt Themen- und Sprachanalyse {#szenario_forschung}
 
 In einem Forschungsprojekt sollen Pro- und Contra-Argumentationen bei Ratsdiskussionen zum
 Ausbau von Stromtrassen identifiziert werden. Über die Analyse in mehreren Gebietskörperschaften

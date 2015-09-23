@@ -1,5 +1,4 @@
-Schema  {#schema}
-======
+# Schema {#schema}
 
 Dieses Kapitel beschreibt das Schema von OParl. Das Schema bildet das
 Datenmodell der OParl-Architektur ab. Es definiert, welche Objekttypen
@@ -11,15 +10,14 @@ einander stehen.
 ![OParl Objekttypen: Ein Überblick](images/objekttypen_graph.png)
 
 
-Übergreifende Aspekte
----------------------
+## Übergreifende Aspekte {#uebergreifende-aspekte}
 
-### Vollständigkeit
+### Vollständigkeit {#schema-vollstaendigkeit}
 
 Alle regulär öffentlich abrufbaren Informationen SOLLEN auch in OParl ausgegeben werden, solange dies nicht den Datenschutzbestimmungen widerspricht. Daher sind sämtliche Felder im Schema als EMPFOHLEN zu behandeln, wenn nicht explizit etwas anderes angegeben wurde.
 
 
-### `null`-Werte und leere Listen
+### `null`-Werte und leere Listen {#null-werte-und-leere-listen}
 
 JSON erlaubt es grundsätzlich, Eigenschaften mit dem Wert `null` zu versehen.
 Im Rahmen von OParl SOLLEN Server nach Möglichkeit davon absehen, Eigenschaften
@@ -56,7 +54,7 @@ da so Clients eine zusätzliche Anfrage für den Abruf einer leeren Liste stelle
 müssen.
 
 
-### Kardinalität
+### Kardinalität {#kardinalitaet}
 
 Zur expliziten Unterscheidung, ob eine Eigenschaft einen einzelnen Wert
 (z. B. eine Zeichenkette, eine URL, eine Zahl) oder alternativ eine Liste mit
@@ -92,7 +90,7 @@ ohne zusätzlich auf den Ort einer Sitzung o. ä. Bezug nehmen zu müssen.
 Diese Spezifikationen stützen sich auf RFC 3339^[RFC3339:
 <http://www.ietf.org/rfc/rfc3339.txt>]) und RFC 3339 wiederum auf ISO 8601.
 
-### Herstellerspezifische Erweiterungen
+### Herstellerspezifische Erweiterungen {#herstellerspezifische-erweiterungen}
 
 Diese sind – falls tatsächlich erforderlich – mit den JSON-LD-Mitteln einfach möglich. Z. B.
 
@@ -105,7 +103,7 @@ Diese sind – falls tatsächlich erforderlich – mit den JSON-LD-Mitteln einfa
 Das Zeichen '@' DARF NICHT als Bestandteil des Herstellerprefix verwendet werden,
 um eine ggf. später aufkommende JSON-LD-Erweiterung nicht zu stören.
 
-### URL-Pfade in den Beispielen
+### URL-Pfade in den Beispielen {#url-pfade-in-den-beispielen}
 
 OParl-Clients wissen *nichts* vom Aufbau von Pfaden innerhalb von URLs,
 müssen dies nicht wissen, und es gibt deshalb in der OParl-Spezifikation

@@ -1,5 +1,4 @@
-Gelöschte Objekte  {#geloeschte-objekte}
-------------
+## Gelöschte Objekte {#geloeschte-objekte}
 
 Wenn ein Objekt gelöscht werden muss (z.B. aufgrund Datenschutz oder Urheberrecht),
 so muss das Objekt in OParl gesondert vermerkt werden. Es DARF insbesondere NICHT einfach gelöscht werden,

@@ -1,5 +1,4 @@
-Zukunft von OParl
------------------
+## Zukunft von OParl {#zukunft-von-oparl}
 
 Die vorliegende Version 1.0 der OParl-Spezifikation erhebt keineswegs den Anspruch,
 ein aktuell und für die ferne Zukunft vollständige Lösung alle Problemstellungen

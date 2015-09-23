@@ -1,5 +1,4 @@
-Liste reservierter URL-Parameter
---------------------------------
+## Liste reservierter URL-Parameter {#liste-reservierter-url-parameter}
 
 Die in dieser Liste enthaltenen Zeichenketten haben eine reservierte Bedeutung
 und stehen bei Implementierungen eines OParl-Servers nicht mehr für die

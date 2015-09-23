@@ -1,5 +1,4 @@
-Transparenz und Beteiligung durch Open Data
--------------------------------------------
+## Transparenz und Beteiligung durch Open Data {#transparenz-und-beteiligung-durch-open-data}
 
 Öffentliche Stellen verfügen über vielfältige Informationen und Daten. Seit einigen
 Jahren sind zivilgesellschaftliche Organisationen sowie Politik und Verwaltung unter

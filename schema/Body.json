@@ -15,12 +15,8 @@
         "consultation",
         "location",
         "membership",
-        "legislativeTerm"
-    ],
-    "oparl:optional": [
-        "contactName",
-        "classification",
-        "keyword"
+        "legislativeTerm",
+        "bodyLocation"
     ],
     "properties": {
         "id": {
@@ -59,6 +55,11 @@
         },
         "licenseValidSince": {
             "description": "Zeitpunkt, seit dem die unter `license` angegebene Lizenz gilt. Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen.",
+            "type": "string",
+            "format": "date-time"
+        },
+        "oparlSince": {
+            "description": "Zeitpunkt, ab dem OParl für dieses Body bereitgestellt wurde. Dies hilft, um die Datenvalidität einzuschätzen, erst ab der Einrichtung für OParl kann sichergestellt werden, dass sämtliche Werte korrekt in der Original-Quelle vorliegen.",
             "type": "string",
             "format": "date-time"
         },
@@ -139,6 +140,29 @@
         "classification": {
             "description": "Art der Körperschaft.",
             "type": "string"
+        },
+        "room": {
+            "description": "Raum, in dem das Body beheimatet ist",
+            "type": "string"
+        },
+        "streetAddress": {
+            "description": "Straße und Hausnummer des Bodys.",
+            "type": "string"
+        },
+        "postalCode": {
+            "description": "Postleitzahl des Bodys.",
+            "type": "string"
+        },
+        "locality": {
+            "description": "Ortsangabe des Bodys.",
+            "type": "string"
+        },
+        "bodyLocation": {
+            "description": "Ort, an dem das Body beheimatet ist",
+            "oparl:ref": "Location",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
         },
         "keyword": {
             "type": "array",

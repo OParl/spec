@@ -6,13 +6,6 @@
         "id",
         "type"
     ],
-    "oparl:optional": [
-        "description",
-        "geometry",
-        "meeting",
-        "paper",
-        "keyword"
-    ],
     "properties": {
         "id": {
             "type": "string",
@@ -44,6 +37,28 @@
         "paper": {
             "description": "Liste der Paper, welche auf die Location referenzieren.",
             "oparl:ref": "Paper",
+            "oparl:backref": "location",
+            "oparl:cardinality": "1:n",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "organization": {
+            "description": "Liste der Organizations, welche auf die Location referenzieren.",
+            "oparl:ref": "Organization",
+            "oparl:backref": "location",
+            "oparl:cardinality": "1:n",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "locationBody": {
+            "description": "Liste der Bodys, welche auf die Location referenzieren.",
+            "oparl:ref": "Body",
             "oparl:backref": "location",
             "oparl:cardinality": "1:n",
             "type": "array",

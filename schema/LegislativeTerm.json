@@ -6,7 +6,6 @@
         "id",
         "type"
     ],
-    "oparl:optional": [],
     "properties": {
         "id": {
             "type": "string",

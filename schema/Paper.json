@@ -6,15 +6,6 @@
         "id",
         "type"
     ],
-    "oparl:optional": [
-        "reference",
-        "relatedPaper",
-        "auxiliaryFile",
-        "location",
-        "consultation",
-        "keyword",
-        "underDirectionof"
-    ],
     "properties": {
         "id": {
             "type": "string",
@@ -60,6 +51,26 @@
                 "format": "uri"
             }            
         },
+        "superordinatedPaper": {
+            "description": "Übergeordnete Drucksachen.",
+            "oparl:ref": "Paper",
+            "oparl:cardinality": "1:n",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }            
+        },
+        "subordinatedPaper": {
+            "description": "Untergeordnete Drucksachen.",
+            "oparl:ref": "Paper",
+            "oparl:cardinality": "1:n",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }            
+        },
         "mainFile": {
             "description": "Die Haupt-Datei zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert eine Beschlussvorlage und die Haupt-Datei enthält den Text der Beschlussvorlage.",
             "oparl:ref": "File",
@@ -89,13 +100,25 @@
                 "format": "uri"
             }            
         },
-        "originator": {
-            "description": "Urheber der Drucksache, kann eine oder mehrere Person(en) bzw. Gruppierung(en) sein.",
+        "originatorPerson": {
+            "description": "Urheber der Drucksache, falls der Urheber eine Person ist. Es können auch mehrere Personen angegeben werden.",
+            "oparl:ref": "Person",
+            "oparl:cardinality": "n:m",
             "type": "array",
-            "link_many": [
-                "Person",
-                "Organization"
-            ]
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "originatorOrganization": {
+            "description": "Urheber der Drucksache, falls der Urheber eine Gruppierung ist. Es können auch mehrere Gruppierungen angegeben werden.",
+            "oparl:ref": "Organization",
+            "oparl:cardinality": "n:m",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
         },
         "consultation": {
             "description": "Beratungen der Drucksache.",

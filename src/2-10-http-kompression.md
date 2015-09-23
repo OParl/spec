@@ -1,5 +1,4 @@
-HTTP-Kompression
-----------------
+## HTTP-Kompression {#http-kompression}
 
 Die zwischen Servern und Clients übertragenen Datenvolumen SOLLEN
 mit Hilfe von Kompressionsverfahren reduziert werden, wenn sowohl

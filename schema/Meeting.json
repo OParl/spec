@@ -6,16 +6,6 @@
         "id",
         "type"
     ],
-    "oparl:optional": [
-        "room",
-        "streetAddress",
-        "postalCode",
-        "locality",
-        "location",
-        "auxiliaryFile",
-        "agendaItem",
-        "keyword"
-    ],
     "properties": {
         "id": {
             "type": "string",
@@ -27,6 +17,10 @@
         },
         "name": {
             "description": "Name der Sitzung.",
+            "type": "string"
+        },
+        "meetingState": {
+            "description": "Aktueller Status der Sitzung.",
             "type": "string"
         },
         "start": {
@@ -74,7 +68,7 @@
             }
         },
         "participant": {
-            "description": "Personen, die an der Sitzung teilgenommen haben. Diese Eigenschaft kann selbstverständlich erst nachdem Stattfinden der Sitzung vorkommen.",
+            "description": "Personen, die an der Sitzung teilgenommen haben (d.h. nicht nur die eingeladenen Personen, sondern die tatsächlich anwesenden). Diese Eigenschaft kann selbstverständlich erst nachdem Stattfinden der Sitzung vorkommen.",
             "oparl:ref": "Person",
             "oparl:cardinality": "n:m",
             "type": "array",

@@ -1,5 +1,4 @@
-Nomenklatur der Spezifikation und Satzkonventionen
---------------------------------------------------
+## Nomenklatur der Spezifikation und Satzkonventionen {#nomenklatur-der-spezifikation-und-satzkonventionen}
 
 ### Zwingende, empfohlene und optionale Anforderungen  {#muss_soll_darf}
 
@@ -59,7 +58,7 @@ DÜRFEN/DARF bzw. OPTIONAL:
     Die Entsprechung in RFC2119 lautet "MAY" oder "OPTIONAL".
 
 
-### Geschlechterspezifische Begrifflichkeiten
+### Geschlechterspezifische Begrifflichkeiten {#geschlechterspezifische-begrifflichkeiten}
 
 Um bei Begriffen wie Nutzer, Anwender, Betreiber etc. die sonst übliche Dominanz
 der männlichen Variante zu vermeiden, werden in diesem Dokument
@@ -68,7 +67,7 @@ von einer Nutzerin gesprochen und mal von einem Nutzer. Gemeint sind
 in allen Fällen Personen jeglichen Geschlechts.
 
 
-### Codebeispiele
+### Codebeispiele {#codebeispiele}
 
 Die in diesem Dokument aufgeführten Codebeispiele dienen der Veranschaulichung
 der beschriebenen Prinzipien. Es handelt sich in der Regel um frei erfundene
@@ -79,7 +78,7 @@ hundertprozentige syntaktische Korrektheit. Insbesondere können in Codebeispiel
 Auslassungen vorkommen, die mit `...` gekennzeichnet werden.
 
 
-### Namespace-Präfixe für Objekt- und Datentypen
+### Namespace-Präfixe für Objekt- und Datentypen {#namespace-praefixe-fuer-objekt-und-datentypen}
 
 Bei der Erwähnung von Objekttypen, die in dieser Spezifikation beschrieben
 werden, wird in der Regel ein Präfix `oparl:` vor den Namen gesetzt, z. B.

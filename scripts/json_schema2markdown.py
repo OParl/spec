@@ -21,7 +21,7 @@ sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 
 def schema_to_md_table(schema):
     name = schema["title"]
-    md = "## " + name + "\n"
+    md = "## " + name + "{#entity-" + name.lower() + "}" + "\n"
 
     # Zeichenlängen der drei Spalten
     propspace = 30
@@ -57,9 +57,6 @@ def schema_to_md_table(schema):
 
         if "required" in schema and prop_name in schema["required"] and description  != "":
             description =  "**ZWINGEND** " + description
-
-        if "oparl:optional" in schema and prop_name in schema["oparl:optional"] and description != "":
-            description =  "*OPTIONAL* " + description
 
         md += "`"+ prop_name + "`" + (propspace - len(prop_name))*u" " + type + (typespace - len(type))*u" " + description + "\n\n"
 

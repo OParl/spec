@@ -1,5 +1,4 @@
-JSON-Ausgabe
-------------
+## JSON-Ausgabe {#json-ausgabe}
 
 Ein OParl-Server MUSS Objekte in Form von JSON ausgeben. Die Abkürzung JSON steht
 für "JavaScript Object Notation". Das JSON-Format ist in

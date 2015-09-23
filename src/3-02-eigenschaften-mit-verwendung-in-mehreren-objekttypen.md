@@ -1,13 +1,12 @@
-Eigenschaften mit Verwendung in mehreren Objekttypen
-----------------------------------------------------
+## Eigenschaften mit Verwendung in mehreren Objekttypen {#eigenschaften-mit-verwendung-in-mehreren-objekttypen}
 
-### `id`
+### `id` {#eigenschaft-id}
 
 Die Eigenschaft `id` ist für jeden OParl-Objekttypen vorgegeben
 und enthält den eindeutigen Bezeichner des Objekts, nämlich seine URL.
 Dies ist ein ZWINGENDES Merkmal für jedes Objekt.
 
-### `type`
+### `type` {#eigenschaft-type}
 
 Objekttypenangabe des Objekts, ZWINGEND für jedes Objekt. Der Wert ist
 eine Namespace-URL. Für die OParl-Objekttypen sind die folgenden URLs
@@ -28,7 +27,7 @@ Typ (kurz)               | Namespace-URL
 `oparl:Person`           |http://oparl.org/schema/1.0/Person
 `oparl:System`           |http://oparl.org/schema/1.0/System
 
-### `name` und `shortName`
+### `name` und `shortName` {#eigenschaft-name-shortname}
 
 Beide Eigenschaften können bei vielen Objekttypen genutzt werden, um den
 Namen des Objekts anzugeben. Üblicherweise ist `name` eine Pflichteigenschaft
@@ -63,11 +62,11 @@ nicht nur auf die strukturierten Metadaten, die über die API bezogen werden, so
 auch auf den eigentlichen Inhalt der Datei(en), die über die angebotene(n) URL(s)
 abgerufen werden können.
 
-### `created`
+### `created` {#eigenschaft-created}
 
 Datum und Uhrzeit der Erstellung des jeweiligen Objekts.
 
-### `modified`
+### `modified` {#eigenschaft-modified}
 
 Diese Eigenschaft kennzeichnet stets Datum und Uhrzeit der letzten Änderung des
 jeweiligen Objekts.
@@ -83,7 +82,7 @@ wird, umfasst das Objekt aus Sicht des Clients eben auch die Liste der Mitgliede
 Fall wäre eine Veränderung der Liste der Mitglieder als Änderung des Objekts zu verstehen,
 die im `modified` Zeitstempel widerspiegeln sollte.
 
-### `keyword`
+### `keyword` {#eigenschaft-keyword}
 
 Die Eigenschaft `keyword` dient der Kategorisierung von Objekten und ist in
 einer Vielzahl von Objekttypen zu diesem Zweck einsetzbar.

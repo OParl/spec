@@ -21,8 +21,6 @@
         },
         "geometry": {
             "description": "Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt, MUSS ihr Wert der Spezifikation von GeoJSON entsprechen.",
-            "type": "string"
-        },
             "type": "object"
         },
         "keyword": {

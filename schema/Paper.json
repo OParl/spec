@@ -73,32 +73,24 @@
         },
         "mainFile": {
             "description": "Die Haupt-Datei zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert eine Beschlussvorlage und die Haupt-Datei enthält den Text der Beschlussvorlage.",
-            "oparl:ref": "File",
-            "oparl:backref": "paper",
-            "oparl:cardinality": "n:1",
-            "type": "string",
-            "format": "uri"
+            "type": "object",
+            "$ref": "File.json"
         },
         "auxiliaryFile": {
             "description": "Anhänge zur Drucksache. Diese sind, in Abgrenzung zur Haupt-Datei (`mainFile`), untergeordnet und es kann beliebig viele davon geben.",
-            "oparl:ref": "File",
-            "oparl:backref": "paper",
-            "oparl:cardinality": "n:m",
             "type": "array",
             "items": {
-                "type": "string",
-                "format": "uri"
-            }            
+                "type": "object",
+                "$ref": "File.json"
+            }
         },
         "location": {
             "description": "Sofern die Drucksache einen inhaltlichen Ortsbezug hat, beschreibt diese Eigenschaft den Ort in Textform und/oder in Form von Geodaten.",
-            "oparl:ref": "Location",
-            "oparl:cardinality": "n:m",
             "type": "array",
             "items": {
-                "type": "string",
-                "format": "uri"
-            }            
+                "type": "object",
+                "$ref": "Location.json"
+            }
         },
         "originatorPerson": {
             "description": "Urheber der Drucksache, falls der Urheber eine Person ist. Es können auch mehrere Personen angegeben werden.",
@@ -122,13 +114,56 @@
         },
         "consultation": {
             "description": "Beratungen der Drucksache.",
-            "oparl:ref": "Consultation",
-            "oparl:backref": "paper",
-            "oparl:cardinality": "n:m",
             "type": "array",
             "items": {
-                "type": "string",
-                "format": "uri"
+                "title": "Consultation",
+                "type": "object",
+                "description": "Der Objekttyp `oparl:Consultation` dient dazu, die Beratung einer Drucksache ([`oparl:Paper`](#oparl_paper)) in einer Sitzung abzubilden. Dabei ist es nicht entscheidend, ob diese Beratung in der Vergangenheit stattgefunden hat oder diese für die Zukunft geplant ist.\n\nDie Gesamtheit aller Objekte des Typs `oparl:Consultation` zu einer bestimmten Drucksache bildet das ab, was in der Praxis als \"Beratungsfolge\" der Drucksache bezeichnet wird.",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "agendaItem": {
+                        "description": "Tagesordnungspunkt, unter dem die Drucksache beraten wird.",
+                        "oparl:ref": "AgendaItem",
+                        "oparl:backref": "consultation",
+                        "oparl:cardinality": "n:1",
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "meeting": {
+                        "description": "Sitzung, in der die Drucksache beraten wird.",
+                        "oparl:ref": "Meeting",
+                        "oparl:cardinality": "n:1",
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "organization": {
+                        "description": "Gremium, in dem die Drucksache beraten wird. Hier kann auch eine mit Liste von Gremien angegeben werden (die verschiedenen `oparl:Body` und `oparl:System` angehören können). Die Liste ist dann geordnet. Das erste Gremium der Liste ist federführend.",
+                        "oparl:ref": "Organization",
+                        "oparl:cardinality": "n:m",
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    },
+                    "authoritative": {
+                        "description": "Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst wird (`true`) wird oder nicht (`false`).",
+                        "type": "boolean"
+                    },
+                    "role": {
+                        "description": "Rolle oder Funktion der Beratung. Zum Beispiel Anhörung, Entscheidung, Kenntnisnahme, Vorberatung usw.",
+                        "type": "string"
+                    },
+                    "keyword": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
             }
         },
         "modified": {

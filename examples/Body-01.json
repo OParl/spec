@@ -18,15 +18,17 @@
     "organization": "https://oparl.example.org/body/0/organizations/",
     "person": "https://oparl.example.org/body/0/people/",
     "meeting": "https://oparl.example.org/body/0/meetings/",
-    "agendaItem": "https://oparl.example.org/body/0/agendaItems",
     "paper": "https://oparl.example.org/body/0/papers/",
-    "file": "https://oparl.example.org/body/0/files",
-    "consultation": "https://oparl.example.org/body/0/consultations",
-    "location": "https://oparl.example.org/body/0/locations",
-    "membership": "https://oparl.example.org/body/0/memberships",
-    "legislativeTerm": "https://oparl.example.org/body/0/legislativeTerms",
+    "legislativeTerm": [
+        {
+            "id": "https://oparl.example.org/term/21",
+            "body": "https://oparl.example.org/body/0",
+            "name": "21. Wahlperiode",
+            "startDate": "2010-12-03",
+            "endDate": "2013-12-03"
+        }
+    ],
     "classification": "Kreisfreie Stadt",
     "created": "2014-01-08T14:28:31.568+0100",
     "modified": "2014-01-08T14:28:31.568+0100"
 }
-

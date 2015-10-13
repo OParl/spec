@@ -51,10 +51,8 @@
         },
         "location": {
             "description": "Sitzungsort in Form von Geodaten.",
-            "oparl:ref": "Location",
-            "oparl:cardinality": "n:1",
-            "type": "string",
-            "format": "uri"
+            "type": "object",
+            "$ref": "Location.json"
         },
         "organization": {
             "description": "Gruppierungen, denen die Sitzung zugeordnet ist. Im Regelfall wird hier eine Gruppierung verknüpft sein, es kann jedoch auch gemeinsame Sitzungen mehrerer Gruppierungen geben. Das erste Element ist dann das federführende Gremium. TODO: Eigenschaft für federführendes Gremium ergänzen und dann Ordnung entfernen. invers zur Eigenschaft `meeting` der Klasse `oparl:Organization`.",
@@ -79,48 +77,108 @@
         },
         "invitation": {
             "description": "Einladungsdokument zur Sitzung.",
-            "oparl:ref": "File",
-            "oparl:backref": "meeting",
-            "oparl:cardinality": "n:1",
-            "type": "string",
-            "format": "uri"
+            "type": "object",
+            "$ref": "File.json"
         },
         "resultsProtocol": {
             "description": "Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nachdem Stattfinden der Sitzung vorkommen.",
-            "oparl:ref": "File",
-            "oparl:backref": "meeting",
-            "oparl:cardinality": "n:1",
-            "type": "string",
-            "format": "uri"
+            "type": "object",
+            "$ref": "File.json"
         },
         "verbatimProtocol": {
             "description": "Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen.",
-            "oparl:ref": "File",
-            "oparl:backref": "meeting",
-            "oparl:cardinality": "n:1",
-            "type": "string",
-            "format": "uri"
+            "type": "object",
+            "$ref": "File.json"
         },
         "auxiliaryFile": {
             "description": "Dateianhang zur Sitzung. Hiermit sind Dateien gemeint, die üblicherweise mit der Einladung zu einer Sitzung verteilt werden, und die nicht bereits über einzelne Tagesordnungspunkte referenziert sind.",
-            "oparl:ref": "File",
-            "oparl:backref": "meeting",
-            "oparl:cardinality": "n:m",
             "type": "array",
             "items": {
-                "type": "string",
-                "format": "uri"
+                "type": "object",
+                "$ref": "File.json"
             }
         },
         "agendaItem": {
             "description": "Tagesordnungspunkte der Sitzung. Die Reihenfolge ist relevant. Es kann Sitzungen ohne TOPs geben.",
-            "oparl:ref": "AgendaItem",
-            "oparl:backref": "meeting",
-            "oparl:cardinality": "1:n",
             "type": "array",
             "items": {
-                "type": "string",
-                "format": "uri"
+                "title": "AgendaItem",
+                "description": "Tagesordnungspunkte sind die Bestandteile von Sitzungen (`oparl:Meeting`). Jeder Tagesordnungspunkt widmet sich inhaltlich einem bestimmten Thema, wozu in der Regel auch die Beratung bestimmter Drucksachen gehört.\n\nDie Beziehung zwischen einem Tagesordnungspunkt und einer Drucksache wird über ein Objekt vom Typ `oparl:Consultation` hergestellt, das über die  Eigenschaft `consultation` referenziert werden kann.",
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "number": {
+                        "description": "Gliederungs-\"Nummer\" des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z. B. \"10.\", \"10.1\", \"C\", \"c)\" o. ä. Die Reihenfolge wird nicht dadurch, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting` festgelegt.",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Das Thema des Tagesordnungspunktes.",
+                        "type": "string"
+                    },
+                    "public": {
+                        "description": "Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher Sitzung vorgesehen ist/war. Es wird ein Wahrheitswert (`true` oder `false`) erwartet.",
+                        "type": "boolean"
+                    },
+                    "consultation": {
+                        "description": "Beratung, die diesem Tagesordnungspunkt zugewiesen ist.",
+                        "oparl:ref": "Consultation",
+                        "oparl:backref": "agendaItem",
+                        "oparl:cardinality": "1:1",
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "result": {
+                        "description": "Kategorische Information darüber, welches Ergebnis die Beratung des Tagesordnungspunktes erbracht hat, in der Bedeutung etwa \"Unverändert beschlossen\" oder \"Geändert beschlossen\".",
+                        "type": "string"
+                    },
+                    "resolutionText": {
+                        "description": "Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann hier ein Text angegeben werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag) von der Beschlussvorlage abweicht.",
+                        "type": "string"
+                    },
+                    "resolutionFile": {
+                        "description": "Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann hier eine Datei angegeben werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag) von der Beschlussvorlage abweicht.",
+                        "type": "object",
+                        "$ref": "File.json"
+                    },
+                    "auxiliaryFile": {
+                        "description": "Dateianhänge zum Tagesordnungspunkt.",
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "$ref": "File.json"
+                        }
+                    },
+                    "start": {
+                        "description": "Datum und Uhrzeit des Anfangszeitpunkts des Tagesordnungspunktes. Bei einer zukünftigen Tagesordnungspunkten ist dies der geplante Zeitpunkt, bei einem stattgefundenen KANN es der tatsächliche Startzeitpunkt sein.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "end": {
+                        "description": "Endzeitpunkt des Tagesordnungspunktes als Datum/Uhrzeit. Bei einer zukünftigen Tagesordnungspunkt ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Endzeitpunkt sein.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "keyword": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "created": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "modified": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
             }
         },
         "keyword": {

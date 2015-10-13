@@ -119,10 +119,8 @@
         },
         "location": {
             "description": "Ort, an dem die Organisation beheimatet ist",
-            "oparl:ref": "Location",
-            "oparl:cardinality": "n:1",
-            "type": "string",
-            "format": "uri"
+            "type": "object",
+            "$ref": "Location.json"
         },
         "external_body": {
             "description": "Ggf. vorhandener externer OParl Body, welcher innerhalb dieses Bodys der Organisation entspricht.",

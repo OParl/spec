@@ -11,20 +11,68 @@
     "organization": [
         "https://oparl.example.org/organization/34"
     ],
-    "invitation": [
-        "https://oparl.example.org/files/586"
-    ],
-    "resultsProtocol": "https://oparl.example.org/files/628",
-    "verbatimProtocol": "https://oparl.example.org/files/691",
+    "invitation": {
+        "id": "https://oparl.example.org/files/57739",
+        "name": "Einladung",
+        "fileName": "einladung.pdf",
+        "mimeType": "application/pdf",
+        "date": "2012-01-08T14:05:27+01:00",
+        "modified": "2012-01-08T14:05:27+01:00",
+        "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+        "size": 82930,
+        "accessUrl": "https://oparl.example.org/files/57739.pdf",
+        "downloadUrl": "https://oparl.example.org/files/download/57739.pdf"
+    },
+    "resultsProtocol": {
+        "id": "https://oparl.example.org/files/57739",
+        "name": "Protokoll",
+        "fileName": "protokoll.pdf",
+        "mimeType": "application/pdf",
+        "date": "2012-01-08T14:05:27+01:00",
+        "modified": "2012-01-08T14:05:27+01:00",
+        "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+        "size": 82930,
+        "accessUrl": "https://oparl.example.org/files/57739.pdf",
+        "downloadUrl": "https://oparl.example.org/files/download/57739.pdf"
+    },
+    "verbatimProtocol": {
+        "id": "https://oparl.example.org/files/57739",
+        "name": "Wortprotokoll",
+        "fileName": "wortprotokoll.pdf",
+        "mimeType": "application/pdf",
+        "date": "2012-01-08T14:05:27+01:00",
+        "modified": "2012-01-08T14:05:27+01:00",
+        "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+        "size": 82930,
+        "accessUrl": "https://oparl.example.org/files/57739.pdf",
+        "downloadUrl": "https://oparl.example.org/files/download/57739.pdf"
+    },
     "auxiliaryFile": [
-        "https://oparl.example.org/files/588",
-        "https://oparl.example.org/files/589"
+        {
+            "id": "https://oparl.example.org/files/57739",
+            "name": "Nachtrags-Tagesordnung",
+            "fileName": "nachtrag-TO.pdf",
+            "mimeType": "application/pdf",
+            "date": "2012-01-08T14:05:27+01:00",
+            "modified": "2012-01-08T14:05:27+01:00",
+            "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+            "size": 82930,
+            "accessUrl": "https://oparl.example.org/files/57739.pdf",
+            "downloadUrl": "https://oparl.example.org/files/download/57739.pdf"
+        }
     ],
     "agendaItem": [
-        "https://oparl.example.org/agendaitem/1045",
-        "https://oparl.example.org/agendaitem/1046",
-        "https://oparl.example.org/agendaitem/1047",
-        "https://oparl.example.org/agendaitem/1048"
+        {
+            "id": "https://oparl.example.org/agendaitem/3271",
+            "meeting": "https://oparl.example.org/meeting/281",
+            "number": "10.1",
+            "name": "Satzungsänderung für Ausschreibungen",
+            "public": true,
+            "consultation": "https://oparl.example.org/consultation/1034",
+            "result": "Geändert beschlossen",
+            "resolution": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
+            "modified": "2012-08-16T14:05:27+02:00"
+        }
     ],
     "created": "2012-01-06T12:01:00+01:00",
     "modified": "2012-01-08T14:05:27+01:00"

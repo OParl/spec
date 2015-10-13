@@ -23,49 +23,7 @@
             "description": "Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt, MUSS ihr Wert der Spezifikation von GeoJSON entsprechen.",
             "type": "string"
         },
-        "meeting": {
-            "description": "Liste der Meeting, welche auf die Location referenzieren.",
-            "oparl:ref": "Meeting",
-            "oparl:backref": "location",
-            "oparl:cardinality": "1:n",
-            "type": "array",
-            "items": {
-                "type": "string",
-                "format": "uri"
-            }
-        },
-        "paper": {
-            "description": "Liste der Paper, welche auf die Location referenzieren.",
-            "oparl:ref": "Paper",
-            "oparl:backref": "location",
-            "oparl:cardinality": "1:n",
-            "type": "array",
-            "items": {
-                "type": "string",
-                "format": "uri"
-            }
-        },
-        "organization": {
-            "description": "Liste der Organizations, welche auf die Location referenzieren.",
-            "oparl:ref": "Organization",
-            "oparl:backref": "location",
-            "oparl:cardinality": "1:n",
-            "type": "array",
-            "items": {
-                "type": "string",
-                "format": "uri"
-            }
-        },
-        "locationBody": {
-            "description": "Liste der Bodys, welche auf die Location referenzieren.",
-            "oparl:ref": "Body",
-            "oparl:backref": "location",
-            "oparl:cardinality": "1:n",
-            "type": "array",
-            "items": {
-                "type": "string",
-                "format": "uri"
-            }
+            "type": "object"
         },
         "keyword": {
             "type": "array",

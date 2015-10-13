@@ -83,13 +83,46 @@
         },
         "membership": {
             "description": "Mitgliedschaften der Person in Gruppierungen, z. B. Gremien und Fraktionen.",
-            "oparl:ref": "Membership",
-            "oparl:backref": "person",
-            "oparl:cardinality": "1:n",
             "type": "array",
             "items": {
-                "type": "string",
-                "format": "uri"
+                "title": "Membership",
+                "description": "Über Objekte diesen Typs wird die Mitgliedschaft von Personen in Gruppierungen dargestellt. Diese Mitgliedschaften können zeitlich begrenzt sein. Zudem kann abgebildet werden, dass eine Person eine bestimmte Rolle bzw. Position innerhalb der Gruppierung inne hat, beispielsweise den Vorsitz einer Fraktion.",
+                "type": "object",
+                "required": [
+                    "id",
+                    "type"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "organization": {
+                        "description": "Die Gruppierung, in der die Person Mitglied ist oder war.",
+                        "oparl:ref": "Organization",
+                        "oparl:cardinality": "n:1",
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "role": {
+                        "description": "Rolle der Person für die Gruppierung. Kann genutzt werden, um verschiedene Arten von Mitgliedschaften zum Beispiel in Gremien zu unterscheiden. Der String SOLL in dieser Form sowohl die männliche als auch die weibliche Rollenbezeichnung enthalten: `\"Vorsitzender | Vorsitzende\"`.",
+                        "type": "string"
+                    },
+                    "votingRight": {
+                        "description": "Gibt an, ob die Person in der Gruppierung stimmberechtigtes Mitglied ist.",
+                        "type": "boolean"
+                    },
+                    "startDate": {
+                        "description": "Anfangszeitpunkt der Mitgliedschaft.^[Abgeleitet von: `schema:validFrom` in Popolo. <http://popoloproject.com/specs/membership.html>]",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "endDate": {
+                        "description": "Der Endzeitpunkt der Mitgliedschaft.^[Abgeleitet von: `schema:validThrough` in Popolo. <http://popoloproject.com/specs/membership.html>]",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
             }
         },
         "keyword": {

@@ -9,12 +9,7 @@
         "organization",
         "person",
         "meeting",
-        "agendaItem",
         "paper",
-        "file",
-        "consultation",
-        "location",
-        "membership",
         "legislativeTerm",
         "bodyLocation"
     ],
@@ -102,40 +97,41 @@
             "type": "string",
             "format": "uri"
         },
-        "agendaItem": {
-            "description": "Link zur [Objektliste](#objektlisten) mit allen Tagesordnungspunkten der Körperschaft.",
-            "type": "string",
-            "format": "uri"
-        },
         "paper": {
             "description": "Link zur [Objektliste](#objektlisten) mit allen Drucksachen der Körperschaft.",
             "type": "string",
             "format": "uri"
         },
-        "file": {
-            "description": "Link zur [Objektliste](#objektlisten) mit allen Dateien der Körperschaft.",
-            "type": "string",
-            "format": "uri"
-        },
-        "consultation": {
-            "description": "Link zur [Objektliste](#objektlisten) mit allen Beratungen der Körperschaft.",
-            "type": "string",
-            "format": "uri"
-        },
-        "location": {
-            "description": "Link zur [Objektliste](#objektlisten) mit allen Orten der Körperschaft.",
-            "type": "string",
-            "format": "uri"
-        },
-        "membership": {
-            "description": "Link zur [Objektliste](#objektlisten) mit allen Mitgliedschaften der Körperschaft.",
-            "type": "string",
-            "format": "uri"
-        },
         "legislativeTerm": {
             "description": "Link zur [Objektliste](#objektlisten) mit allen Wahlperioden der Körperschaft.",
-            "type": "string",
-            "format": "uri"
+            "type": "array",
+            "items": {
+                "title": "LegislativeTerm",
+                "description": "Dieser Objekttyp dient der Beschreibung einer Wahlperiode.",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "body": {
+                        "description": "Die Körperschaft, der diese Wahlperiode zugeordnet ist.",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Nutzerfreundliche Bezeichnung der Wahlperiode.",
+                        "type": "string"
+                    },
+                    "startDate": {
+                        "description": "Der erste Tag der Wahlperiode.",
+                        "type": "string"
+                    },
+                    "endDate": {
+                        "description": "Der letzte Tag der Wahlperiode.",
+                        "type": "string"
+                    }
+                }
+            }
         },
         "classification": {
             "description": "Art der Körperschaft.",
@@ -159,10 +155,8 @@
         },
         "bodyLocation": {
             "description": "Ort, an dem das Body beheimatet ist",
-            "oparl:ref": "Location",
-            "oparl:cardinality": "n:1",
-            "type": "string",
-            "format": "uri"
+            "type": "object",
+            "$ref": "Location.json"
         },
         "keyword": {
             "type": "array",

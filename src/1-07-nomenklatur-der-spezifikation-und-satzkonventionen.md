@@ -93,4 +93,3 @@ Dadurch kann eine Typenangabe wie `oparl:Organization` eindeutig in die
 folgende URL übersetzt werden:
 
     http://oparl.org/schema/1.0/Organization
-

@@ -399,4 +399,3 @@ Clients MÜSSEN die Werte von `created` und `modified` mit Uhrzeit und Zeitzone
 angeben. Dabei MUSS das im Kapitel [Datums- und Zeitangaben](#datum_zeit)
 definierte Format genutzt werden und Clients müssen für eine entsprechende
 URL-Kodierung sorgen.
-

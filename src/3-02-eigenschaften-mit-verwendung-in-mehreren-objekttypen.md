@@ -86,4 +86,3 @@ die im `modified` Zeitstempel widerspiegeln sollte.
 
 Die Eigenschaft `keyword` dient der Kategorisierung von Objekten und ist in
 einer Vielzahl von Objekttypen zu diesem Zweck einsetzbar.
-

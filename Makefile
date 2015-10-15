@@ -88,4 +88,3 @@ gz: all
 
 bz: all
 	mkdir -p $(ARC_DIR) && tar -cjf $(ARC_DIR)/$(BASENAME).tar.bz2 $(OUT_DIR)/
-

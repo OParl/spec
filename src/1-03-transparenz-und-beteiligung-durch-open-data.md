@@ -48,7 +48,7 @@ Verwaltung und Politik, durch einen verantwortungsvollen Umgang mit den Systemen
 maximal erreichbare Transparenz zu bieten. Das fängt bei Dokumentenformaten an (ein PDF
 mit digitalem Text weist weit weniger Barrieren auf, als ein gescannter Brief, der
 ebenfalls als PDF gespeichert wurde) und hört bei der verwendeten Sprache auf.[^1]
- 
+
 [^1]: Weitere generelle Informationen zur Bereitstellung offener Verwaltungsdaten bieten
 bspw.
 

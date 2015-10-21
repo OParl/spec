@@ -58,24 +58,24 @@ Zu den Themen, die in zukünftigen Versionen adressiert werden können, zählen:
   zu verändern und zu entfernen sowie um das Konzept von authentifizierten Nutzern
   erweitert wird.
 
-* Internationalisierung: Es gibt in sehr vielen Ländern Gebietskörperschaften mit 
-  politischen Gremien, deren Prozesse ähnlich strukturiert sind, wie diejenigen in 
-  Deutschland. Auch dort besteht Bedarf an standardisierten Vokabularen zur 
-  Veröffentlichung parlamentarischer Informationen. Deshalb sind – teilweise noch 
-  vor OParl – auch weitere entsprechende Initiativen entstanden.^[Vgl. dazu 
+* Internationalisierung: Es gibt in sehr vielen Ländern Gebietskörperschaften mit
+  politischen Gremien, deren Prozesse ähnlich strukturiert sind, wie diejenigen in
+  Deutschland. Auch dort besteht Bedarf an standardisierten Vokabularen zur
+  Veröffentlichung parlamentarischer Informationen. Deshalb sind – teilweise noch
+  vor OParl – auch weitere entsprechende Initiativen entstanden.^[Vgl. dazu
   beispielsweise <http://popoloproject.com/>, <http://data.camera.it/data/en/>] Eine
   Zusammenarbeit mit derartigen Initiativen mit dem Ziel der Wiederverwendung von
   Arbeitsergebnissen ist vorstellbar.
 
 * IT-Planungsrat: Dieser kann die Verbindlichkeit von Standards wie OParl für
-  Deutschland beschließen. Der "Vertrag über die Errichtung des IT-Planungsrats 
+  Deutschland beschließen. Der "Vertrag über die Errichtung des IT-Planungsrats
   und über die Grundlagen der Zusammenarbeit beim Einsatz der Informationstechnologie
-  in den Verwaltungen von Bund und Ländern – Vertrag zur Ausführung von Artikel 91c 
+  in den Verwaltungen von Bund und Ländern – Vertrag zur Ausführung von Artikel 91c
   GG"^[http://www.it-planungsrat.de/SharedDocs/Downloads/DE/ITPlanungsrat/Staatsvertrag/Staatsvertrag.html]
   enthält in § 3 Absatz 2 diese Aussage: "Beschlüsse über Standards im Sinne des
-  Absatz 1 werden vom IT-Planungsrat ... gefasst, soweit dies zum 
-  bund-länderübergreifenden Datenaustausch oder zur Vereinheitlichung des 
-  Datenaustauschs der öffentlichen Verwaltung mit Bürgern und Wirtschaft notwendig 
+  Absatz 1 werden vom IT-Planungsrat ... gefasst, soweit dies zum
+  bund-länderübergreifenden Datenaustausch oder zur Vereinheitlichung des
+  Datenaustauschs der öffentlichen Verwaltung mit Bürgern und Wirtschaft notwendig
   ist."
 
 Generell gilt auch für OParl: "Completion is a state that a good specification never

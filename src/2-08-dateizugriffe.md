@@ -3,9 +3,9 @@ Dateizugriffe  {#dateizugriff}
 
 Mit dem Begriff "Datei" sind im Sinne dieser Spezifikation alle Ressourcen
 gemeint, die von einem OParl-Server zur Verfügung gestellt werden und
-deren Metadaten über die JSON-API als [`oparl:File`](#oparl_file) 
-abgerufen werden können. Es handelt sich dabei beispielsweise um Textdokumente 
-im PDF-Format, Abbildungen im JPEG- oder PNG-Format etc., die wesentliche 
+deren Metadaten über die JSON-API als [`oparl:File`](#oparl_file)
+abgerufen werden können. Es handelt sich dabei beispielsweise um Textdokumente
+im PDF-Format, Abbildungen im JPEG- oder PNG-Format etc., die wesentliche
 Inhalte der parlamentarischen Informationen im OParl-System ausmachen.
 
 In Bezug auf die Datenvolumen, die der Verkehr zwischen OParl-Servern und -Clients
@@ -13,13 +13,13 @@ ausmacht, kommt dem Dateizugriff eine besondere Bedeutung zu. Daher formuliert
 OParl diesbezüglich einige Anforderungen, die helfen sollen, unnötigen
 Datentransfer zu vermeiden.
 
-Detail zu sämtlichen angesprochenen Mechanismen sind in den verschiedenen Teilen der 
+Detail zu sämtlichen angesprochenen Mechanismen sind in den verschiedenen Teilen der
 HTTP-1.1-Spezifikation^[vgl. <http://tools.ietf.org/html/rfc7230>,
 <http://tools.ietf.org/html/rfc7231>, <http://tools.ietf.org/html/rfc7232>]
 zu finden.
 
 Grundsätzlich gilt, dass jede Datei mittels HTTP-Anfrage unter Verwendung der
-HTTP-Methode `GET` abrufbar sein MUSS. 
+HTTP-Methode `GET` abrufbar sein MUSS.
 
 Die URLs zum Abruf der einzelnen Datei stellt der Server dem Client in den
 Daten des Metadaten-Objekts zur Verfügung. Details finden sich in der
@@ -33,8 +33,8 @@ Diese URL dient dem allgemeinen Zugriff auf die Datei. Wie der Client dem Endnut
 diesen Zugriff genau ermöglicht, ist nicht Sache der OParl-Spezifikation.
 
 Im Unterschied dazu KANN der Server dem Client in der Eigenschaft `downloadUrl`
-eine weitere URL anbieten, hier *Download-URL* genannt. Diese dient im Gegensatz 
-zur Zugriffs-URL speziell zum Herunterladen und Speichern der Datei in einem 
+eine weitere URL anbieten, hier *Download-URL* genannt. Diese dient im Gegensatz
+zur Zugriffs-URL speziell zum Herunterladen und Speichern der Datei in einem
 Dateisystem des Endnutzers. Bei Zugriff auf die Download-URL MUSS der Server in der
 HTTP-Antwort einen `Content-Disposition` Header senden.^[vgl. RFC2138
 <http://www.ietf.org/rfc/rfc2183>] Dieser Header MUSS als ersten Parameter den
@@ -74,7 +74,7 @@ Ebenso EMPFEHLEN wir, bei Anfrage einer Datei die folgenden Header auszuliefern:
 Unter einem "Conditional GET" versteht man im HTTP-Kontext die Möglichkeit des
 Clients, die Anfrage einer Ressource mit einer Bedingung zu verknüpfen. Der Server
 beantwortet die Anfrage nur dann mit einer vollständigen HTTP-Antwort, wenn die
-Bedingung erfüllt ist. Andernfalls enthält die Anfrage lediglich den Header; der 
+Bedingung erfüllt ist. Andernfalls enthält die Anfrage lediglich den Header; der
 HTTP Status-Code SOLL in diesem Fall "304" lauten (für "nicht geändert"). Dies
 dient der Schonung von Ressourcen.
 

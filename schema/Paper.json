@@ -49,7 +49,7 @@
             "items": {
                 "type": "string",
                 "format": "uri"
-            }            
+            }
         },
         "superordinatedPaper": {
             "description": "Übergeordnete Drucksachen.",
@@ -59,7 +59,7 @@
             "items": {
                 "type": "string",
                 "format": "uri"
-            }            
+            }
         },
         "subordinatedPaper": {
             "description": "Untergeordnete Drucksachen.",
@@ -69,7 +69,7 @@
             "items": {
                 "type": "string",
                 "format": "uri"
-            }            
+            }
         },
         "mainFile": {
             "description": "Die Haupt-Datei zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert eine Beschlussvorlage und die Haupt-Datei enthält den Text der Beschlussvorlage.",
@@ -184,7 +184,7 @@
             "items": {
                 "type": "string",
                 "format": "uri"
-            }            
+            }
         }
     }
 }

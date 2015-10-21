@@ -44,7 +44,7 @@ sein.
 
 Das Interesse an parlamentarischen Informationen und an Anwendungen, die diese
 nutzbar und auswertbar machen, ist offensichtlich vorhanden. Die Entwickler
-der alternativen Ratsinformationssysteme wie Frankfurt Gestalten^[Frankfurt 
+der alternativen Ratsinformationssysteme wie Frankfurt Gestalten^[Frankfurt
 Gestalten: <http://www.frankfurt-gestalten.de/>], Offenes Köln^[Offenes Köln:
 <http://offeneskoeln.de/>] oder der OpenRuhr:RIS-Instanzen^[OpenRuhr:RIS:
 <http://openruhr.de/openruhrris/>] wissen zu berichten, wie viel

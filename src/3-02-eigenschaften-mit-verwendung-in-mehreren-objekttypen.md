@@ -44,7 +44,7 @@ Die Werte von `name` und `shortName` desselben Objekts SOLLEN nicht identisch se
 Die Eigenschaft `license` erlaubt es, am jeweiligen Objekt die URL einer Lizenz
 anzugeben. Damit wird gekennzeichnet, welche Lizenz der Veröffentlicher der
 Daten für das jeweilige Objekt vergibt.^[Verzeichnisse für Lizenz-URLs sind
-unter anderem unter <http://licenses.opendefinition.org/> und 
+unter anderem unter <http://licenses.opendefinition.org/> und
 <https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json>
 zu finden. Allgemeine Informationen zur Lizensierung von Open Data finden sich auch
 im Open Data Handbook der Open Knowledge Foundation unter
@@ -73,7 +73,7 @@ jeweiligen Objekts.
 
 In Einzelfällen unterliegt die Frage, was als Änderung eines Objekts bezeichnet werden
 kann, einem gewissen Interpretationsspielraum. Beispielsweise ist zu entscheiden,
-ob eine Gruppierung (`oparl:Organization`) als geändert gilt, wenn ein neues Mitglied 
+ob eine Gruppierung (`oparl:Organization`) als geändert gilt, wenn ein neues Mitglied
 hinzugefügt wurde.
 
 Diese Frage sollte aus Sicht des OParl-Clients beantwortet werden. Wenn beispielsweise

@@ -51,7 +51,7 @@ html: common $(PNG_IMAGES)
 
 live: common $(PNG_IMAGES)
 	$(PANDOC) --to html5 --section-divs --toc-depth=2 --no-highlight \
-			-o ../$(OUT_DIR)/live.html *.md 
+			-o ../$(OUT_DIR)/live.html *.md
 
 pdf: common
 	$(PANDOC) --latex-engine=$(LATEX) --template ../$(LATEX_TEMPLATE) \
@@ -73,7 +73,7 @@ epub: common $(PNG_IMAGES)
 clean:
 	rm -rf $(OUT_DIR)
 	rm -f $(SCHEMA_MD)
-	rm -f $(PNG_IMAGES) 
+	rm -f $(PNG_IMAGES)
 	rm -rf $(ARC_DIR)
 
 # archives

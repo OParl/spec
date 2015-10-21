@@ -13,14 +13,14 @@ HTTPS gewählt wird, obliegt dem Betreiber bzw. Server-Implementierer.
 
 Die Wahl des unverschlüsselten oder verschlüsselten HTTP-Zugriffs hat
 Auswirkung auf die im System verwendeten URLs. Wie im Kapitel [URLs](#urls)
-beschrieben, verfolgt diese Spezifikation die Festlegung auf genau eine 
+beschrieben, verfolgt diese Spezifikation die Festlegung auf genau eine
 "kanonische" URL je Ressource (vgl. [URL-Kanonisierung](#url_kanonisierung)).
 
 Bei unverschlüsseltem Zugriff wird allen URLs, die auf das betreffende System
 zeigen, das Schema "http://" voran gestellt, beim verschlüsselten Zugriff
 stattdessen "https://".
 
-Es ist daher ZWINGEND, dass der Server-Betreiber sich zur URL-Kanonisierung 
+Es ist daher ZWINGEND, dass der Server-Betreiber sich zur URL-Kanonisierung
 für nur eine von beiden Varianten entscheidet. Beantwortet das System regulär
 Anfragen über HTTPS mit der Auslieferung von Objekten etc., dann gilt für
 Anfragen an die entsprechende unverschlüsselte URL ZWINGEND:

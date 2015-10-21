@@ -23,12 +23,12 @@ MÜSSEN/MUSS bzw. ZWINGEND:
 NICHT DÜRFEN/DARF NICHT:
 
 :   Dieses Stichwort kennzeichnet ein absolutes Verbot.
-    
+
     Die Entsprechung in RFC2119 lautet "MUST NOT" oder "SHALL NOT".
 
 SOLLEN/SOLL bzw. EMPFOHLEN:
 
-:   Mit dem Wort SOLLEN bzw. SOLL sind empfohlene Anforderungen gekennzeichnet, 
+:   Mit dem Wort SOLLEN bzw. SOLL sind empfohlene Anforderungen gekennzeichnet,
     die von jeder Implementierung erfüllt werden sollen. Eine Nichterfüllung
     ist als Nachteil zu verstehen, beispielsweise weil die Nutzerfreundlichkeit
     dadurch Einbußen erleidet, und sollte daher sorgfältig abgewogen werden.
@@ -38,7 +38,7 @@ SOLLEN/SOLL bzw. EMPFOHLEN:
 NICHT SOLLEN/SOLL NICHT bzw. NICHT EMPFOHLEN:
 
 :   Diese Formulierung wird verwendet, wenn unter gewissen Umständen Gründe
-    existieren können, die ein bestimmtes Verhalten akzeptabel oder sogar 
+    existieren können, die ein bestimmtes Verhalten akzeptabel oder sogar
     nützlich erscheinen lassen, jedoch die Auswirkung des Verhaltens vor
     einer entsprechenden Implementierung verstanden und abgewogen werden
     sollen.

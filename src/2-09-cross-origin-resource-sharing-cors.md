@@ -10,7 +10,7 @@ der Sicherheit von Webbrowsern.^[vgl. Wikipedia: Same-Origin-Policy <https://de.
 
 Um die Informationen von OParl-Servern auch im Kontext von Webanwendungen
 flexibel nutzen zu können, ist die Überwindung der SOP nötig. Hierzu dient
-_Cross-Origin Resource Sharing_ (CORS)^[Cross Origin Resource Sharing - 
+_Cross-Origin Resource Sharing_ (CORS)^[Cross Origin Resource Sharing -
 W3C Recommendation 16. Januar 2014: <http://www.w3.org/TR/cors/>]. Mittels CORS
 kann ein Server mitteilen, dass bestimmte von ihm ausgelieferte Ressourcen
 auch innerhalb von Webapplikationen genutzt werden dürfen, die nicht von

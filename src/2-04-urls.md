@@ -1,12 +1,12 @@
 ## URLs {#urls}
 
 Den URLs (für _Uniform Resource Locators_)
-kommt bei einer OParl-konformen API eine besondere Bedeutung zu und es werden eine 
+kommt bei einer OParl-konformen API eine besondere Bedeutung zu und es werden eine
 Reihe von Anforderungen an die Verarbeitung von URLs gestellt.
 
-Die grundsätzliche Funktionsweise von URLs ist in RFC 3986 
+Die grundsätzliche Funktionsweise von URLs ist in RFC 3986
 beschrieben^[RFC 3986: <http://tools.ietf.org/html/rfc3986>]. Darauf aufbauend sind
-hier die Bestandteile einer beispielhaften URL mit den Bezeichnungen beschriftet, 
+hier die Bestandteile einer beispielhaften URL mit den Bezeichnungen beschriftet,
 mit denen sie in diesem Dokument benannt werden:
 
 ![Benennung von URL-Bestandteilen](images/url.png)
@@ -48,7 +48,7 @@ Eine URL wie
 
 kommuniziert beispielsweise direkt die Zugehörigkeit zur Stadt Köln als Betreiber des Systems. Die
 Bezeichnung "stadtrat" in der Subdomain zeigt den Zweck des Systems allgemein verständlich an.
-Der Host-Name "oparl.stadtrat.stadt-koeln.de" deutet an, dass diese URL zu einer 
+Der Host-Name "oparl.stadtrat.stadt-koeln.de" deutet an, dass diese URL zu einer
 OParl-Schnittstelle zu diesem System gehört. Eine technische Notwendigkeit zur Verwendung einer
 eigenen Domain für OParl besteht jedoch nicht, da JSON-Dokumente und HTML-Seiten
 mittels Content Negotiation über eine gemeinsame Domain ausgeliefert werden können.
@@ -65,8 +65,8 @@ abrufbar ist. Diese Faktoren können sein:
 
 * Zusätzliche Domains, die einen A-Record auf denselben Server besitzen
 
-Zu der kanonischen Beispiel-URL https://oparl.stadtrat.stadt-koeln.de/ wären 
-eine Reihe von nicht-kanonischen URL-Varianten denkbar, die technischen auf 
+Zu der kanonischen Beispiel-URL https://oparl.stadtrat.stadt-koeln.de/ wären
+eine Reihe von nicht-kanonischen URL-Varianten denkbar, die technischen auf
 denselben Server führen könnten:
 
 * https://83.123.89.102/
@@ -74,7 +74,7 @@ denselben Server führen könnten:
 * https://risserv.stadt-koeln.de/
 
 Falls es aus technischen Gründen nicht möglich ist, den Zugang auf das OParl-System über nicht-kanonische
-URLs zu unterbinden, SOLL eine entsprechende HTTP-Anfrage mit einer Weiterleitung auf die entsprechende 
+URLs zu unterbinden, SOLL eine entsprechende HTTP-Anfrage mit einer Weiterleitung auf die entsprechende
 kanonische URL beantwortet werden. Dabei ist der HTTP-Status-Code 301 zu verwenden.
 
 Server-Implementierern wird empfohlen, hierfür den `Host`-Header der HTTP-Anfrage auszuwerten und mit
@@ -104,7 +104,7 @@ Query-String-Parameter umzusortieren oder Ähnliches.
 
 ### Langlebigkeit
 
-Weiterhin ist es Absicht, dass URLs von Objekten langlebig sind, so dass sie, wenn sie einmal 
+Weiterhin ist es Absicht, dass URLs von Objekten langlebig sind, so dass sie, wenn sie einmal
 verbreitet wurden, langfristig zur Abfrage des dazugehörigen Objekts verwendet werden können.
 
 Um dies zu gewährleisten, wird den **Betreibern** empfohlen, die Wahl der Domain, eventuell der
@@ -123,5 +123,5 @@ Anspruch auf Vollständigkeit erheben:
   implementiert, sollte dies nicht dazu führen, dass im Pfad ein Bestandteil wie "oparl.php/" erscheint.
   Erfahrungsgemäß überdauern solche URLs nur kurz.
 
-Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee^[Berners-Lee, Tim: Cool URIs don't change. <http://www.w3.org/Provider/Style/URI.html>] sowie die Europäische Kommission^[Study on persistent URIs, with identification of 
+Weitere Empfehlungen für langlebige URLs liefern Tim Berners-Lee^[Berners-Lee, Tim: Cool URIs don't change. <http://www.w3.org/Provider/Style/URI.html>] sowie die Europäische Kommission^[Study on persistent URIs, with identification of
 best practices and recommendations on the topic for the MSs and the EC. (PDF) <https://joinup.ec.europa.eu/sites/default/files/D7.1.3%20-%20Study%20on%20persistent%20URIs.pdf>].

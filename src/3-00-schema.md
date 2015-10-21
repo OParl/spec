@@ -58,7 +58,7 @@ müssen.
 
 Zur expliziten Unterscheidung, ob eine Eigenschaft einen einzelnen Wert
 (z. B. eine Zeichenkette, eine URL, eine Zahl) oder alternativ eine Liste mit
-mehreren Elementen als Wert haben darf, ist in der Schema-Beschreibung 
+mehreren Elementen als Wert haben darf, ist in der Schema-Beschreibung
 zu jeder Eigenschaft die *Kardinalität* angegeben. Dabei sind verschiedene
 Angaben zur Eigenschaft möglich:
 
@@ -115,7 +115,7 @@ völlig in Ordnung:
 
     https://ratsherr-mustermann.example.org/
 
-Noch etwas extremer: selbst eine eigene Domain für jedes einzelne 
+Noch etwas extremer: selbst eine eigene Domain für jedes einzelne
 OParl-Objekt würde der OParl-Spezifikation nicht widersprechen.
 
 Wenn also in einer Beispiel-URL ein Pfad wie

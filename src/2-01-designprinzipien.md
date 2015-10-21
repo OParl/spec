@@ -5,9 +5,9 @@
 Grundlage für die Erarbeitung der OParl-Spezifikation in der vorliegenden Version
 ist eine Analyse von aktuell (2012 bis 2014) in Deutschland etablierten
 parlamentarischen Informationssystemen und ihrer Nutzung. Erklärtes Ziel für diese erste
-Version ist es, mit möglichst geringem Entwicklungsaufwand auf Seite der Softwareanbieter und 
-Migrationsaufwand auf Seite der Betreiber zu einer Bereitstellung von parlamentarischen 
-Informationen über eine OParl-API zu gelangen. Hierbei war es von entscheidender 
+Version ist es, mit möglichst geringem Entwicklungsaufwand auf Seite der Softwareanbieter und
+Migrationsaufwand auf Seite der Betreiber zu einer Bereitstellung von parlamentarischen
+Informationen über eine OParl-API zu gelangen. Hierbei war es von entscheidender
 Bedeutung, dass sich die Informationsmodelle der einschlägigen Softwareprodukte stark
 ähneln. Für die OParl-Spezifikation wurde sozusagen ein Datenmodell als "gemeinsamer Nenner"
 auf Basis der gängigen Praxis beschrieben.
@@ -26,8 +26,8 @@ Drucksachen (`oparl:Paper`), um beispielsweise die Lage eines Bauvorhabens, das 
 einer Beschlussvorlage behandelt wird, zu beschreiben. Zwar ist den Autoren nur ein
 einziges parlamentarisches Informationssystem^[Das Ratsinformationssystem BoRis, eine
 Eigenentwicklung der Stadt Bonn <http://www2.bonn.de/bo_ris/ris_sql/agm_index.asp>]
-in Deutschland bekannt, das 
-Geoinformationen – und zwar in Form von Punktdaten, also einer Kombination aus 
+in Deutschland bekannt, das
+Geoinformationen – und zwar in Form von Punktdaten, also einer Kombination aus
 Längen- und Breitengradangaben – mit Dokumenten verknüpft. Der Vorteil dieser
 Funktion ist jedoch anhand zahlreicher Anwendungsszenarien belegbar. Somit ist der
 vorliegenden OParl-Spezifikation die Möglichkeit beschrieben, Geodaten-Objekte
@@ -66,7 +66,7 @@ Implementierer sollen in der Lage sein, über eine OParl-konforme Schnittstelle 
 solche Informationen auszugeben, die nicht im Rahmen des OParl-Schemas abgebildet werden
 können. Dies bedeutet zum einen, dass ein System Objekttypen unterstützen und ausliefern
 darf, die nicht (oder noch nicht) im OParl-Schema beschrieben sind. Das bedeutet auch,
-dass Objekttypen so um eigene Eigenschaften erweitert werden können, die nicht im OParl 
+dass Objekttypen so um eigene Eigenschaften erweitert werden können, die nicht im OParl
 Schema beschrieben sind.
 
 Ein weiterer Aspekt betrifft die Abwärtskompatibilität, also die Kompatibilität von
@@ -97,9 +97,9 @@ URLs folgt. Dieses Prinzip wird auch "Follow Your Nose"^[<http://patterns.datain
 
 ### Schritte in Richtung Linked Data {#linked_data}
 
-Der Begriff "Linked Data" steht für die Beschreibung von Daten in einer Form, die diese 
-über ihren ursprünglichen Kontext hinaus verständlich macht.^[vgl. Bundesministerium 
-des Innern (Herausg.): Open Government Data Deutschland, Seite 433f., 2012 
+Der Begriff "Linked Data" steht für die Beschreibung von Daten in einer Form, die diese
+über ihren ursprünglichen Kontext hinaus verständlich macht.^[vgl. Bundesministerium
+des Innern (Herausg.): Open Government Data Deutschland, Seite 433f., 2012
 <http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf>]
 
 OParl unterstützt mit der vorliegenden Version 1.0 der Spezifikation die Anwendung

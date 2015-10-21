@@ -6,8 +6,8 @@ Zivilgesellschaftliche Organisationen und Initiativen und
 Software-Anbieter sowie interessierte Einzelpersonen mit.
 
 Die vorliegende Spezifikation beschreibt den OParl-Standard. Dieser
-definiert eine Webservice-Schnittstelle, 
-die den anonymen und lesenden Zugriff auf öffentliche Inhalte aus 
+definiert eine Webservice-Schnittstelle,
+die den anonymen und lesenden Zugriff auf öffentliche Inhalte aus
 parlamentarischen Informationssystemen ermöglicht. Wie der Name
 "Webservice" ausdrückt, setzt diese Schnittstelle auf dem World Wide
 Web auf. Sie ermöglicht, dass parlamentarische Informationen

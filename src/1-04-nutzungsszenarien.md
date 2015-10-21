@@ -45,8 +45,8 @@ Einige Tablets werden sogar ohne Möglichkeit zur Mobilfunk-Datenübertragung
 genutzt. In solchen Fällen kann ein [Cache](#cache) auf dem Endgerät dazu
 dienen, Inhalte vorzuhalten, die dann auch bei langsamer oder fehlender
 Internetverbindung zur Verfügung stehen. Sobald dann wieder eine Verbindung
-mit hoher Bandbreite bereit steht, kann die App im Hintergrund, entweder über die 
-[Feeds](#feeds) der OParl API oder über den einzelnen Abruf von Objekten, die 
+mit hoher Bandbreite bereit steht, kann die App im Hintergrund, entweder über die
+[Feeds](#feeds) der OParl API oder über den einzelnen Abruf von Objekten, die
 gecachten Inhalte aktualisieren.
 
 Eine Stärke eines mobilen Clients ist auch die Möglichkeit der Personalisierung,
@@ -57,7 +57,7 @@ der Gremien, die ihre bevorzugten Themengebiete behandeln, hinterlegt. Die App
 könnte aufgrund dieser Favoritenliste eigenständig über die API nach neuen
 Sitzungsterminen, Tagesordnungspunkten, Drucksachen und Dokumente suchen. Taucht
 dabei ein neues Objekt auf, wird die Nutzerin darüber benachrichtigt. Sie kann dann
-beispielsweise entscheiden, Dokumente direkt zu öffnen oder für den späteren 
+beispielsweise entscheiden, Dokumente direkt zu öffnen oder für den späteren
 Offline-Zugriff zu speichern.
 
 Einem derartigen Szenario kommt das Graph-orientierte Datenmodell der OParl-API
@@ -69,7 +69,7 @@ Tagesordnungspunkten und letztlich Dokumente zu Drucksachen und Sitzung abzurufe
 Für die Nutzer einer mobilen Client-Anwendung könnte es sich als besonders hilfreich
 erweisen, wenn Dokumente auf dem Server in verschiedenen Formaten zur Verfügung
 gestellt werden. Denn nicht jedes Endgerät mit kleinem Bildschirm bietet eine
-nutzerfreundliche Möglichkeit, beispielsweise Dokumente im weit verbreiteten PDF-Format 
+nutzerfreundliche Möglichkeit, beispielsweise Dokumente im weit verbreiteten PDF-Format
 darzustellen. Hier könnte schon der Entwickler der mobilen App Mechanismen vorsehen,
 die, sofern vorhanden, besser geeignete Formate wie z. B. HTML abrufen.
 
@@ -112,7 +112,7 @@ einbinden.
 Die Portlets, die von einem Portalserver zur Verfügung gestellt werden, stellen damit
 im Sinne der OParl-Architektur Clients dar. Je nach Performanz und Anforderungen im
 Einzelfall könnten diese Client mit eigenen Caches arbeiten oder aber direkt auf den
-jeweiligen OParl-Server zugreifen. 
+jeweiligen OParl-Server zugreifen.
 
 Vorteil einer solchen Einbindung, also der kontextbezogenen Darstellung von parlamentarischen
 Informationen im Gegensatz zu einem monolitischen parlamentarischen Informationssystem
@@ -169,9 +169,9 @@ beschrieben werden:
 
 * Eine Mitarbeiterin eines regionalen Zweckverbands hat die Aufgabe, Ratsvorgänge in den
 Mitgliedskommunen mit Relevanz für die Aufgaben des Verbandes im Blick zu behalten. Sie
-nutzt dafür ein regionales Internetportal, in dem die Inhalte der OParl-konformen 
+nutzt dafür ein regionales Internetportal, in dem die Inhalte der OParl-konformen
 parlamentarischen Informationssysteme der Mitgliedskommunen durchsuchbar sind.
-Um die Suche zu vereinfachen, hat sie einzelne Schlagwörter abonniert, zu denen sie 
+Um die Suche zu vereinfachen, hat sie einzelne Schlagwörter abonniert, zu denen sie
 automatisch über neue Vorgänge informiert wird.
 
 * Ein Einwohner eines Ballungsraums will sich über aktuelle Vorgänge rund um seine
@@ -183,9 +183,9 @@ für ihn haben könnten.
 
 * Eine Landespolitikerin möchte einfacher über die politischen Aktivitäten ihrer
 Parteikollegen in den Rathäusern des Bundeslandes informiert werden. Dazu nutzt sie ein
-Internetportal, in dem die Informationen aus den parlamentarischen Informationssystemen 
-mit OParl-Schnittstelle im Land zusammengeführt werden. Dort hat sie sich Abonnements 
-zu einzelnen Lokalpolitikern eingerichtet und wird automatisch über ihre Teilnahme an 
+Internetportal, in dem die Informationen aus den parlamentarischen Informationssystemen
+mit OParl-Schnittstelle im Land zusammengeführt werden. Dort hat sie sich Abonnements
+zu einzelnen Lokalpolitikern eingerichtet und wird automatisch über ihre Teilnahme an
 Gremiensitzungen und die Themen dieser Sitzungen informiert.
 
 ### Szenario 4: Forschungsprojekt Themen- und Sprachanalyse {#szenario_forschung}

@@ -36,7 +36,7 @@
             "type": "string"
         },
         "formOfAddress": {
-            "description": "Anrede. Der String SOLL sowohl die männliche als auch die weibliche Bezeichnung enthalten. Beispiele: \"Herr | Frau\", \"Ratsherr | Ratsfrau\".",
+            "description": "Anrede. Der String SOLLTE sowohl die männliche als auch die weibliche Bezeichnung enthalten. Beispiele: \"Herr | Frau\", \"Ratsherr | Ratsfrau\".",
             "type": "string"
         },
         "title": {
@@ -47,7 +47,7 @@
             "type": "array"
         },
         "gender": {
-            "description": "Geschlecht. Empfohlene Werte sind `female`, `male` und `other`. Für den Fall, dass das Geschlecht der Person unbekannt ist, SOLL die Eigenschaft nicht ausgegeben werden.",
+            "description": "Geschlecht. Empfohlene Werte sind `female`, `male` und `other`. Für den Fall, dass das Geschlecht der Person unbekannt ist, SOLLTE die Eigenschaft nicht ausgegeben werden.",
             "type": "string"
         },
         "phone": {
@@ -75,7 +75,7 @@
             "type": "string"
         },
         "status": {
-            "description": "Status. Die Strings SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster \"männliche Form | weibliche Form\" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem \"|\"). Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden: \"Ratsmitglied\" und nicht \"Ratsmitglied | Ratsmitglied\". Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschlecht der Personen vornimmt. Weitere Beispiele: \"Bürgermeister | Bürgermeisterin\", \"Bezirksbürgermeister | Bezirksbürgermeisterin\", \"Stadtverordneter | Stadtverordnete\", \"Bezirksverordneter | Bezirksverordnete\", \"Sachkundiger Bürger | Sachkundige Bürgerin\", \"Einzelstadtverordneter | Einzelstadtverordnete\" (Mitglieder des Rates die keiner Fraktion/Organisation angehören).",
+            "description": "Status. Die Strings SOLLTEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster \"männliche Form | weibliche Form\" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem \"|\"). Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden: \"Ratsmitglied\" und nicht \"Ratsmitglied | Ratsmitglied\". Dadurch kann auch solche Software einen sinnvollen Text anzeigen, die keine Fall-Unterscheidung nach Geschlecht der Personen vornimmt. Weitere Beispiele: \"Bürgermeister | Bürgermeisterin\", \"Bezirksbürgermeister | Bezirksbürgermeisterin\", \"Stadtverordneter | Stadtverordnete\", \"Bezirksverordneter | Bezirksverordnete\", \"Sachkundiger Bürger | Sachkundige Bürgerin\", \"Einzelstadtverordneter | Einzelstadtverordnete\" (Mitglieder des Rates die keiner Fraktion/Organisation angehören).",
             "items": {
                 "type": "string"
             },
@@ -105,7 +105,7 @@
                         "format": "uri"
                     },
                     "role": {
-                        "description": "Rolle der Person für die Gruppierung. Kann genutzt werden, um verschiedene Arten von Mitgliedschaften zum Beispiel in Gremien zu unterscheiden. Der String SOLL in dieser Form sowohl die männliche als auch die weibliche Rollenbezeichnung enthalten: `\"Vorsitzender | Vorsitzende\"`.",
+                        "description": "Rolle der Person für die Gruppierung. Kann genutzt werden, um verschiedene Arten von Mitgliedschaften zum Beispiel in Gremien zu unterscheiden. Der String SOLLTE in dieser Form sowohl die männliche als auch die weibliche Rollenbezeichnung enthalten: `\"Vorsitzender | Vorsitzende\"`.",
                         "type": "string"
                     },
                     "votingRight": {

@@ -1,8 +1,8 @@
 ## Nomenklatur der Spezifikation und Satzkonventionen {#nomenklatur-der-spezifikation-und-satzkonventionen}
 
-### Zwingende, empfohlene und optionale Anforderungen  {#muss_soll_darf}
+### Zwingende, empfohlene und optionale Anforderungen  {#muss_sollte_darf}
 
-Dieses Spezifikationsdokument nutzt die Modalverben _müssen_, _können_ und _sollen_
+Dieses Spezifikationsdokument nutzt die Modalverben _müssen_, _können_ und _sollten_
 in einer Art und Weise, die bestimmte Anforderungen unmissverständlich
 in drei verschiedene Abstufungen einteilen lässt. Um ihre normative Bedeutung
 zu unterstreichen, werden diese Wörter grundsätzlich in Großbuchstaben gesetzt.
@@ -26,22 +26,22 @@ NICHT DÜRFEN/DARF NICHT:
 
     Die Entsprechung in RFC2119 lautet "MUST NOT" oder "SHALL NOT".
 
-SOLLEN/SOLL bzw. EMPFOHLEN:
+SOLLTEN/SOLLTE bzw. EMPFOHLEN:
 
-:   Mit dem Wort SOLLEN bzw. SOLL sind empfohlene Anforderungen gekennzeichnet,
-    die von jeder Implementierung erfüllt werden sollen. Eine Nichterfüllung
+:   Mit dem Wort SOLLTEN bzw. SOLLTE sind empfohlene Anforderungen gekennzeichnet,
+    die von jeder Implementierung erfüllt werden sollten. Eine Nichterfüllung
     ist als Nachteil zu verstehen, beispielsweise weil die Nutzerfreundlichkeit
     dadurch Einbußen erleidet, und sollte daher sorgfältig abgewogen werden.
 
     Die Entsprechung in RFC2119 lautet "SHOULD" oder "RECOMMENDED".
 
-NICHT SOLLEN/SOLL NICHT bzw. NICHT EMPFOHLEN:
+SOLLTEN NICHT/SOLLTE NICHT bzw. NICHT EMPFOHLEN:
 
 :   Diese Formulierung wird verwendet, wenn unter gewissen Umständen Gründe
     existieren können, die ein bestimmtes Verhalten akzeptabel oder sogar
     nützlich erscheinen lassen, jedoch die Auswirkung des Verhaltens vor
     einer entsprechenden Implementierung verstanden und abgewogen werden
-    sollen.
+    sollten.
 
     Die Entsprechung in RFC2119 lautet "SHOULD NOT" oder "NOT RECOMMENDED".
 

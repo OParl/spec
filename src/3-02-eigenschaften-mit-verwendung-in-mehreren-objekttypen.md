@@ -37,7 +37,7 @@ kurze bzw. kompakte und eine längere, aber weniger nutzerfreundliche Variante
 existieren. Ein Beispiel wäre die Kurzform "CDU" für den offiziellen
 Parteinamen "Christlich Demokratische Union Deutschlands".
 
-Die Werte von `name` und `shortName` desselben Objekts SOLLEN nicht identisch sein.
+Die Werte von `name` und `shortName` desselben Objekts SOLLTEN nicht identisch sein.
 
 ### `license` {#eigenschaft_license}
 

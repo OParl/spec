@@ -17,11 +17,11 @@
             "pattern": "^http://oparl\\.org/schema/1\\.0/File$"
         },
         "fileName": {
-            "description": "Dateiname, unter dem die Datei in einem Dateisystem gespeichert werden kann. Beispiel: \"einedatei.pdf\". Da der Name den kompletten Unicode-Zeichenumang nutzen kann, SOLLEN Clients ggf. selbst dafür sorgen, diesen beim Speichern in ein Dateisystem den lokalen Erfordernissen anzupassen.",
+            "description": "Dateiname, unter dem die Datei in einem Dateisystem gespeichert werden kann. Beispiel: \"einedatei.pdf\". Da der Name den kompletten Unicode-Zeichenumang nutzen kann, SOLLTEN Clients ggf. selbst dafür sorgen, diesen beim Speichern in ein Dateisystem den lokalen Erfordernissen anzupassen.",
             "type": "string"
         },
         "name": {
-            "description": "Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt. Leerzeichen DÜRFEN enthalten sein, Datei-Endungen wie \".pdf\" SOLLEN NICHT enthalten sein. Der Wert SOLL NICHT mit dem Wert der Eigenschaft `fileName` identisch sein.",
+            "description": "Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt. Leerzeichen DÜRFEN enthalten sein, Datei-Endungen wie \".pdf\" SOLLTEN NICHT enthalten sein. Der Wert SOLLTE NICHT mit dem Wert der Eigenschaft `fileName` identisch sein.",
             "type": "string"
         },
         "mimeType": {
@@ -34,7 +34,7 @@
             "format": "date-time"
         },
         "modified": {
-            "description": "Datum und Zeit der letzten Änderung der Datei bzw. der Metadaten. Als Änderung der Datei gilt alles, was den Inhalt der Datei verändert und beispielsweise zu einer Veränderung der Prüfsumme führen würde, nicht aber die Änderung des Dateinamens (siehe Eigenschaft `name`). Als Änderung der Metadaten hingegen würde beispielsweise die Änderung des Dateinamens gelten. Hier soll immer das größere der beiden Daten ausgegeben werden, also der am wenigsten lang zurückliegende Änderungszeitpunkt.",
+            "description": "Datum und Zeit der letzten Änderung der Datei bzw. der Metadaten. Als Änderung der Datei gilt alles, was den Inhalt der Datei verändert und beispielsweise zu einer Veränderung der Prüfsumme führen würde, nicht aber die Änderung des Dateinamens (siehe Eigenschaft `name`). Als Änderung der Metadaten hingegen würde beispielsweise die Änderung des Dateinamens gelten. Hier MUSS immer das größere der beiden Daten ausgegeben werden, also der am wenigsten lang zurückliegende Änderungszeitpunkt.",
             "type": "string",
             "format": "date-time"
         },
@@ -90,7 +90,7 @@
             "format": "uri"
         },
         "fileRole": {
-            "description": "Rolle, Funktion der Datei in Bezug auf eine Sitzung. Die Eigenschaft SOLL entsprechend nur in Verbindung mit der Eigenschaft `meeting` gesetzt sein.",
+            "description": "Rolle, Funktion der Datei in Bezug auf eine Sitzung. Die Eigenschaft SOLLTE entsprechend nur in Verbindung mit der Eigenschaft `meeting` gesetzt sein.",
             "type": "string"
         },
         "keyword": {

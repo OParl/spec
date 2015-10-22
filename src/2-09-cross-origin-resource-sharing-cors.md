@@ -23,8 +23,8 @@ den folgenden HTTP-Antwort-Header senden:
 
     Access-Control-Allow-Origin: *
 
-Der HTTP-Antwort-Header `Access-Control-Allow-Methods` SOLL darüber hinaus
-entweder NICHT gesetzt sein oder die Methode `GET` beinhalten.
+Der HTTP-Antwort-Header `Access-Control-Allow-Methods` SOLLTE darüber hinaus
+NICHT gesetzt sein oder MUSS die Methode `GET` beinhalten.
 
 EntwicklerInnen von Webanwendungen sollten sich darüber bewusst sein, dass
 durch die direkte Einbindung von Scripten dritter in ihre Anwendungen mögliche

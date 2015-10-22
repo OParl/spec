@@ -1,6 +1,6 @@
 ## HTTP-Kompression {#http-kompression}
 
-Die zwischen Servern und Clients übertragenen Datenvolumen SOLLEN
+Die zwischen Servern und Clients übertragenen Datenvolumen SOLLTEN
 mit Hilfe von Kompressionsverfahren reduziert werden, wenn sowohl
 der Client als auch der Server dies unterstützen. Dabei kommt
 das in HTTP 1.1^[RFC7231 Section 5.3.4:
@@ -15,7 +15,7 @@ kann. Diese sind:
 * compress
 * deflate
 
-Server-Implementierer SOLLEN mindestens eines dieser drei Verfahren
+Server-Implementierer SOLLTEN mindestens eines dieser drei Verfahren
 unterstützen, wenn Clients dies mittels Accept-Encoding-Header
 anfragen.
 

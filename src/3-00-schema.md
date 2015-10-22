@@ -14,13 +14,13 @@ einander stehen.
 
 ### Vollständigkeit {#schema-vollstaendigkeit}
 
-Alle regulär öffentlich abrufbaren Informationen SOLLEN auch in OParl ausgegeben werden, solange dies nicht den Datenschutzbestimmungen widerspricht. Daher sind sämtliche Felder im Schema als EMPFOHLEN zu behandeln, wenn nicht explizit etwas anderes angegeben wurde.
+Alle regulär öffentlich abrufbaren Informationen SOLLTEN auch in OParl ausgegeben werden, solange dies nicht den Datenschutzbestimmungen widerspricht. Daher sind sämtliche Felder im Schema als EMPFOHLEN zu behandeln, wenn nicht explizit etwas anderes angegeben wurde.
 
 
 ### `null`-Werte und leere Listen {#null-werte-und-leere-listen}
 
 JSON erlaubt es grundsätzlich, Eigenschaften mit dem Wert `null` zu versehen.
-Im Rahmen von OParl SOLLEN Server nach Möglichkeit davon absehen, Eigenschaften
+Im Rahmen von OParl SOLLTEN Server nach Möglichkeit davon absehen, Eigenschaften
 mit dem Wert `null` auszugeben. Obligatorische Eigenschaften (in diesem Kapitel mit "ZWINGEND" markiert) DÜRFEN NICHT den Wert `null` haben.
 
 Im Fall von Arrays erlaubt JSON grundsätzlich die Ausgabe von `[]` für leere Arrays.

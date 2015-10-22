@@ -174,7 +174,7 @@ Hier obliegt es wieder dem Server, zwischen der internen und der externen
 Listenausgabe (siehe oben) zu wählen. Bei der internen Listenausgabe ist ohnehin
 nur die kompakte Form (Ausgabe von URLs), wie oben im Beispiel gezeigt, erlaubt.
 
-Die Sortierreihenfolge der ausgegebenen Einträge SOLL unabhängig
+Die Sortierreihenfolge der ausgegebenen Einträge SOLLTEN unabhängig
 von der Ausgabe der kompakten oder vollständigen Form identisch sein.
 
 Die vollständige Listenausgabe MUSS in allen Listen verwendet werden, welche Attribute des Body-Objektes sind.
@@ -214,7 +214,7 @@ Das nachfolgende Beispiel zeigt dies für den Anfang einer paginierten Liste:
 Über die ZWINGEND bei Paginierung ausgegebene Eigenschaft `itemsPerPage`
 kommuniziert der Server, wie viele Einträge pro Listenseite
 ausgegeben werden. Die Zahl der Einträge, die der
-Server dabei je Listenseite ausliefert, SOLL dabei mindestens 10 und
+Server dabei je Listenseite ausliefert, SOLLTE dabei mindestens 10 und
 maximal 100 betragen. Der Wert von `itemsPerPage` MUSS auf allen
 Listenseiten derselben Liste einheitlich sein. Nur bei Ausgabe der
 letzten Listenseite DARF der Server weniger Einträge ausgeben, als

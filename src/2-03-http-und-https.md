@@ -4,7 +4,7 @@ OParl-Server und -Client kommunizieren miteinander über das HTTP-Protokoll.
 Der Zugriff MUSS zustandslos, also ohne Seassoninformationen (z.B. Cookies)
 erfolgen.
 
-Hierbei SOLL eine verschlüsselte Variante des Protokolls, HTTPS,
+Hierbei SOLLTE eine verschlüsselte Variante des Protokolls, HTTPS,
 zum Einsatz kommen. Dabei werden auch die URLs verschlüsselt,
 deren Kenntnis möglicherweise Rückschlüsse auf Interessen von Nutzer
 ermöglicht. Alternativ kann jedoch auch unverschlüsseltes

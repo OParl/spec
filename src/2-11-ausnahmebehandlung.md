@@ -16,7 +16,7 @@ Die HTTP-1.1-Spezifikation sieht für derartige und weitere Ausnahmefälle
 zahlreiche spezifische Status-Codes vor, die hier nicht wiederholt werden
 sollen. Verallgemeinernd lautet die Anforderung an jeden OParl-Server,
 dass diese Ausnahmen mit den entsprechenden HTTP-Status-Codes beantworten
-SOLLEN. Damit wird Client-Entwicklern die Möglichkeit gegeben, diese Fälle
+SOLLTEN. Damit wird Client-Entwicklern die Möglichkeit gegeben, diese Fälle
 entsprechend zu behandeln.
 
 Clients DÜRFEN darüber hinaus nicht davon ausgehen, dass mit der HTTP-Antwort

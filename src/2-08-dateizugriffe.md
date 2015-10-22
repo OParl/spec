@@ -75,7 +75,7 @@ Unter einem "Conditional GET" versteht man im HTTP-Kontext die Möglichkeit des
 Clients, die Anfrage einer Ressource mit einer Bedingung zu verknüpfen. Der Server
 beantwortet die Anfrage nur dann mit einer vollständigen HTTP-Antwort, wenn die
 Bedingung erfüllt ist. Andernfalls enthält die Anfrage lediglich den Header; der
-HTTP Status-Code SOLL in diesem Fall "304" lauten (für "nicht geändert"). Dies
+HTTP Status-Code SOLLTE in diesem Fall "304" lauten (für "nicht geändert"). Dies
 dient der Schonung von Ressourcen.
 
 Für einen OParl-Server wird EMPFOHLEN, die nachstehenden Varianten des
@@ -106,17 +106,17 @@ andere URL zum Zugriff mitzuteilen.
 In diesem Fall wird dringend EMPFOHLEN, die Unterscheidung der Bedeutung der
 HTTP-Status-Codes `301` und `307` zu beachten.
 
-* `301` SOLL verwendet werden, wenn die vom Client angefragte URL auch zukünftig
+* `301` SOLLTE verwendet werden, wenn die vom Client angefragte URL auch zukünftig
   nicht mehr gültig sein wird. Clients erhalten damit das Signal, die bisherige
   URL zu verwerfen und zukünftig die neue, vom Server in der Antwort mitgeteilte
   zu verwenden.
 
-* `307` SOLL verwendet werden, wenn die vom Client genutzte URL nur temporär auf
+* `307` SOLLTE verwendet werden, wenn die vom Client genutzte URL nur temporär auf
   eine bestimmte andere URL weiter leitet. Clients werden so aufgefordert, die
   vorhandene URL auch bei zukünftigen Anfragen zu nutzen.
 
 ### Entfernte Dateien
 
 Beim Zugriff auf eine Datei, die zuvor einmal abrufbar war, es inzwischen jedoch
-nicht mehr ist, SOLL die HTTP-Antwort des Servers den spezifischen Status-Code
+nicht mehr ist, SOLLTE die HTTP-Antwort des Servers den spezifischen Status-Code
 `410` tragen.

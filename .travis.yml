@@ -7,9 +7,11 @@ python:
 
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install -y pandoc texlive lmodern texlive-lang-german
+  - sudo apt-get install pandoc lacheck
+  - composer self-update
+  - composer global require seld/jsonlint
 
-script: make
+script: make test
 
 notifications:
   irc: "irc.freenode.org#oparl"

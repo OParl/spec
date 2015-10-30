@@ -26,7 +26,9 @@ GS=gs $(GS_FLAGS)
 PDF_IMAGES=$(wildcard $(IMG_DIR)/*.pdf)
 PNG_IMAGES=$(PDF_IMAGES:.pdf=.png)
 
-.PHONY: all clean live html pdf odt txt epub
+SCHEMA_JSON=$(wildcard $(SHM_DIR)/*.json)
+
+.PHONY: all clean test live html pdf odt txt epub 
 
 all: html pdf odt docx txt epub
 
@@ -88,3 +90,8 @@ gz: all
 
 bz: all
 	mkdir -p $(ARC_DIR) && tar -cjf $(ARC_DIR)/$(BASENAME).tar.bz2 $(OUT_DIR)/
+
+# test
+
+test: 
+	scripts/test.sh

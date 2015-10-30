@@ -72,12 +72,12 @@
             }
         },
         "mainFile": {
-            "description": "Die Haupt-Datei zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert eine Beschlussvorlage und die Haupt-Datei enthält den Text der Beschlussvorlage.",
+            "description": "Die Haupt-Datei zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert eine Beschlussvorlage und die Haupt-Datei enthält den Text der Beschlussvorlage. Sollte keine eindeutige Haupt-Datei vorhanden sein, wird diese Eigenschaft nicht ausgegeben.",
             "type": "object",
             "$ref": "File.json"
         },
         "auxiliaryFile": {
-            "description": "Anhänge zur Drucksache. Diese sind, in Abgrenzung zur Haupt-Datei (`mainFile`), untergeordnet und es kann beliebig viele davon geben.",
+            "description": "Alle Dateien zur Drucksache ausgenommen der gegebenenfalls in mainFile angegebenen Datei.",
             "type": "array",
             "items": {
                 "type": "object",

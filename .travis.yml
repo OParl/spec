@@ -14,3 +14,6 @@ install:
   - composer global require seld/jsonlint
 
 script: make test
+
+notifications:
+  irc: "irc.freenode.org#oparl"

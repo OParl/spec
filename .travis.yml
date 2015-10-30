@@ -7,7 +7,7 @@ python:
 
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install pandoc lacheck
+  - sudo apt-get install -y pandoc lacheck
   - composer self-update
   - composer global require seld/jsonlint
 

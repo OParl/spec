@@ -7,7 +7,7 @@ python:
 
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install -y pandoc lacheck
+  - sudo apt-get install -y pandoc lacheck php5
   - curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
   - composer global require seld/jsonlint
 

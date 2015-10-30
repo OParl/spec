@@ -13,10 +13,4 @@ before_install:
 install:
   - composer global require seld/jsonlint
 
-before_script:
-  - export PATH=$PATH:"~/.composer/vendor/bin"
-
 script: make test
-
-notifications:
-  irc: "irc.freenode.org#oparl"

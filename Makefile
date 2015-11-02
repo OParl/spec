@@ -19,7 +19,7 @@ LATEX_TEMPLATE=resources/template.tex
 
 HTML5_CSS=resources/html5.css
 
-META_MD=$(SRC_DIR)/0-01-generierte-metadaten.md
+META_MD=$(SRC_DIR)/0-00-generierter-titel.md
 CONTRIB_MD=$(SRC_DIR)/1-10-generierte-unterstuetzer-und-autoren.md
 SCHEMA_MD=$(SRC_DIR)/3-99-generiertes-schema.md
 

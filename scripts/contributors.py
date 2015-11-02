@@ -36,7 +36,7 @@ def json_contributors_to_chapters(contributors):
 def format_metadata(key, value):
     item = ""
 
-    if type(value) == type([]):
+    if isinstance(value, list):
         for v in value:
             item += "%s:\n" % (key)
 
@@ -44,7 +44,7 @@ def format_metadata(key, value):
             for k in v.keys()[1:]:
                 item += "  %s: %s\n" % (k, v[k])
 
-    if type(value) == type(""):
+    if isinstance(value, str):
         item = "%s: %s\n" % (key, value)
 
     return item
@@ -65,8 +65,11 @@ def json_contributors_to_info_block(contributors):
         authors.append({"name": supporter["name"], "role": "sht"})
 
     md += format_metadata("contributor", authors)
+    md += "---\n" + md + "...\n"
 
-    return "---\n" + md + "...\n"
+    md += "Lizenz: [Creative Commons CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
+
+    return md
 
 contributors = json.load(codecs.open(args.contributors_json, encoding="utf-8"), object_pairs_hook=collections.OrderedDict)
 

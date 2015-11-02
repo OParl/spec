@@ -19,6 +19,7 @@ LATEX_TEMPLATE=resources/template.tex
 
 HTML5_CSS=resources/html5.css
 SCHEMA_MD=$(SRC_DIR)/3-99-generiertes-schema.md
+CONTRIB_MD=$(SRC_DIR)/1-10-generierte-unterstuetzer-und-autoren.md
 
 GS_FLAGS=-dQUIET -dSAFER -dBATCH -dNOPAUSE -sDisplayHandle=0 -sDEVICE=png16m -r600 -dTextAlphaBits=4
 GS=gs $(GS_FLAGS)
@@ -43,9 +44,12 @@ $(OUT_DIR):
 $(SCHEMA_MD): $(SHM_DIR)/*.json $(EXP_DIR)/*.json scripts/json_schema2markdown.py
 	python scripts/json_schema2markdown.py $(SHM_DIR) $(EXP_DIR) > $(SCHEMA_MD)
 
+$(CONTRIB_MD): contributors.json scripts/contributors.py
+	python scripts/contributors.py chapter contributors.json > $(CONTRIB_MD)
+
 # main targets
 
-common: $(OUT_DIR) $(SCHEMA_MD)
+common: $(OUT_DIR) $(SCHEMA_MD) $(CONTRIB_MD)
 
 html: common $(PNG_IMAGES)
 	$(PANDOC) --to html5 --css ../$(HTML5_CSS) --section-divs --self-contained \

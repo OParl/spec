@@ -7,6 +7,7 @@ import collections
 import argparse
 
 parser = argparse.ArgumentParser()
+parser.add_argument("action")
 parser.add_argument("contributors_json")
 
 args = parser.parse_args()
@@ -33,8 +34,13 @@ def json_contributors_to_chapters(contributors):
 
     return contributors_md + "\n\n" + authors_md
 
-def json_contributors_to_epub_info(contributors):
+def json_contributors_to_info_block(contributors):
     pass
 
 contributors = json.load(codecs.open(args.contributors_json, encoding="utf-8"), object_pairs_hook=collections.OrderedDict)
-print(json_contributors_to_chapters(contributors))
+
+if args.action == "chapter":
+    print(json_contributors_to_chapters(contributors))
+
+if args.action == "infoblock":
+    print(json_contributors_to_info_block(contributors))

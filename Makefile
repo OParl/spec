@@ -18,8 +18,10 @@ LATEX=pdflatex
 LATEX_TEMPLATE=resources/template.tex
 
 HTML5_CSS=resources/html5.css
-SCHEMA_MD=$(SRC_DIR)/3-99-generiertes-schema.md
+
+META_MD=$(SRC_DIR)/0-01-generierte-metadaten.md
 CONTRIB_MD=$(SRC_DIR)/1-10-generierte-unterstuetzer-und-autoren.md
+SCHEMA_MD=$(SRC_DIR)/3-99-generiertes-schema.md
 
 GS_FLAGS=-dQUIET -dSAFER -dBATCH -dNOPAUSE -sDisplayHandle=0 -sDEVICE=png16m -r600 -dTextAlphaBits=4
 GS=gs $(GS_FLAGS)
@@ -41,15 +43,18 @@ $(IMG_DIR)/%.png: $(IMG_DIR)/%.pdf
 $(OUT_DIR):
 	mkdir -p $(OUT_DIR)
 
-$(SCHEMA_MD): $(SHM_DIR)/*.json $(EXP_DIR)/*.json scripts/json_schema2markdown.py
-	python scripts/json_schema2markdown.py $(SHM_DIR) $(EXP_DIR) > $(SCHEMA_MD)
+$(META_MD): contributors.json scripts/contributors.py
+	python scripts/contributors.py infoblock contributors.json > $(META_MD)
 
 $(CONTRIB_MD): contributors.json scripts/contributors.py
 	python scripts/contributors.py chapter contributors.json > $(CONTRIB_MD)
 
+$(SCHEMA_MD): $(SHM_DIR)/*.json $(EXP_DIR)/*.json scripts/json_schema2markdown.py
+	python scripts/json_schema2markdown.py $(SHM_DIR) $(EXP_DIR) > $(SCHEMA_MD)
+
 # main targets
 
-common: $(OUT_DIR) $(SCHEMA_MD) $(CONTRIB_MD)
+common: $(OUT_DIR) $(SCHEMA_MD) $(CONTRIB_MD) $(META_MD)
 
 html: common $(PNG_IMAGES)
 	$(PANDOC) --to html5 --css ../$(HTML5_CSS) --section-divs --self-contained \

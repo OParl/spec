@@ -83,8 +83,10 @@ epub: common $(PNG_IMAGES)
 
 clean:
 	rm -rf $(OUT_DIR)
-	rm -f $(SCHEMA_MD)
-	rm -f $(PNG_IMAGES)
+	rm -f  $(META_MD)
+	rm -f  $(CONTRIB_MD)
+	rm -f  $(SCHEMA_MD)
+	rm -f  $(PNG_IMAGES)
 	rm -rf $(ARC_DIR)
 
 # archives

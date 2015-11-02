@@ -1,7 +1,6 @@
 # -*- encoding: utf-8 -*-
 import json
 import sys
-import glob
 import codecs
 import collections
 import argparse
@@ -16,7 +15,7 @@ sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 
 def json_contributors_to_chapters(contributors):
-    contributors_md = u"## Unterstützer {#unterstuetzer}\n\n"
+    contributors_md  = u"## Unterstützer {#unterstuetzer}\n\n"
     contributors_md += u"Die folgenden Organisationen und Unternehmen zählen zu den Unterstützern von OParl 1.0:\n\n"
     contributors_md += "Organisation/Firma|Kategorie\n"
     contributors_md += "-----------------------------------------------------------------|-----------\n"
@@ -24,7 +23,7 @@ def json_contributors_to_chapters(contributors):
     for supporter in contributors["supporters"]:
         contributors_md += "[%s](%s) | (%s)" % (supporter["name"], supporter["website"], supporter["type"])
 
-    authors_md = "## Autoren {#autoren}\n\n"
+    authors_md  = "## Autoren {#autoren}\n\n"
     authors_md += "An diesem Dokument haben mitgewirkt:\n\n"
 
     for author in contributors["authors"][:-1]:
@@ -34,8 +33,40 @@ def json_contributors_to_chapters(contributors):
 
     return contributors_md + "\n\n" + authors_md
 
+def format_metadata(key, value):
+    item = ""
+
+    if type(value) == type([]):
+        for v in value:
+            item += "%s:\n" % (key)
+            
+            item += "- %s: %s\n" % (v.keys()[0], v.values()[0])
+            for k in v.keys()[1:]:
+                item += "  %s: %s\n" % (k, v[k])
+
+    if type(value) == type(""):
+        item = "%s: %s\n" % (key, value)
+
+    return item
+
 def json_contributors_to_info_block(contributors):
-    pass
+    md  = format_metadata("title", "OParl-Spezifikation 1.0 - Entwurf")
+    md += format_metadata("rights", "OParl Contributors, CC-BY-SA 4.0")
+    md += format_metadata("year", "2015")
+
+    authors = []
+
+    # declare authors as MARC:Author
+    for author in contributors["authors"]:
+        authors.append({"name": author, "role": "aut"})
+
+    # declare supporters as MARC:Supporting Host
+    for supporter in contributors["supporters"]:
+        authors.append({"name": supporter["name"], "role": "sht"})
+
+    md += format_metadata("contributor", authors)
+
+    return "---\n" + md + "...\n"
 
 contributors = json.load(codecs.open(args.contributors_json, encoding="utf-8"), object_pairs_hook=collections.OrderedDict)
 

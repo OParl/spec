@@ -39,7 +39,7 @@ def format_metadata(key, value):
     if type(value) == type([]):
         for v in value:
             item += "%s:\n" % (key)
-            
+
             item += "- %s: %s\n" % (v.keys()[0], v.values()[0])
             for k in v.keys()[1:]:
                 item += "  %s: %s\n" % (k, v[k])

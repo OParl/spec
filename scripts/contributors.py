@@ -21,7 +21,7 @@ def json_contributors_to_chapters(contributors):
     contributors_md += "-----------------------------------------------------------------|-----------\n"
 
     for supporter in contributors["supporters"]:
-        contributors_md += "[%s](%s) | (%s)" % (supporter["name"], supporter["website"], supporter["type"])
+        contributors_md += "[%s](%s) | (%s)\n" % (supporter["name"], supporter["website"], supporter["type"])
 
     authors_md  = "## Autoren {#autoren}\n\n"
     authors_md += "An diesem Dokument haben mitgewirkt:\n\n"

@@ -8,6 +8,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("action")
 parser.add_argument("contributors_json")
+parser.add_argument("--version", default="")
 
 args = parser.parse_args()
 
@@ -49,8 +50,8 @@ def format_metadata(key, value):
 
     return item
 
-def json_contributors_to_info_block(contributors):
-    md  = format_metadata("title", "OParl-Spezifikation 1.0 - Entwurf")
+def json_contributors_to_info_block(contributors, version):
+    md  = format_metadata("title", "OParl-Spezifikation "+version)
     md += format_metadata("rights", "OParl Contributors, CC-BY-SA 4.0")
     md += format_metadata("year", "2015")
 
@@ -65,11 +66,12 @@ def json_contributors_to_info_block(contributors):
         authors.append({"name": supporter["name"], "role": "sht"})
 
     md += format_metadata("contributor", authors)
-    md += "---\n" + md + "...\n"
+    
+    infoblock = "---\n" + md + "...\n"
 
-    md += "Lizenz: [Creative Commons CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
+    infoblock += "Lizenz: [Creative Commons CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)\n"
 
-    return md
+    return infoblock
 
 contributors = json.load(codecs.open(args.contributors_json, encoding="utf-8"), object_pairs_hook=collections.OrderedDict)
 
@@ -77,4 +79,8 @@ if args.action == "chapter":
     print(json_contributors_to_chapters(contributors))
 
 if args.action == "infoblock":
-    print(json_contributors_to_info_block(contributors))
+    if  len(args.version) == 0:
+        print("Missing required version argument.")
+        exit(1)
+
+    print(json_contributors_to_info_block(contributors, args.version))

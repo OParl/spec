@@ -1,5 +1,6 @@
 # Variables
 VERSION=1.0-draft
+HUMAN_VERSION="1.0 Entwurf"
 BASENAME=OParl-$(VERSION)
 
 # Directories
@@ -44,7 +45,7 @@ $(OUT_DIR):
 	mkdir -p $(OUT_DIR)
 
 $(META_MD): contributors.json scripts/contributors.py
-	python scripts/contributors.py infoblock contributors.json > $(META_MD)
+	python scripts/contributors.py infoblock contributors.json --version=$(HUMAN_VERSION) > $(META_MD)
 
 $(CONTRIB_MD): contributors.json scripts/contributors.py
 	python scripts/contributors.py chapter contributors.json > $(CONTRIB_MD)

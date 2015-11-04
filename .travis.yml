@@ -6,8 +6,10 @@ python:
  - "2.7"
 
 before_install:
+  - wget https://github.com/jgm/pandoc/releases/download/1.15.1/pandoc-1.15.1-1-amd64.deb
+  - sudo dpkg -i pandoc-1.15.1-1-amd64.deb
   - sudo apt-get update -qq
-  - sudo apt-get install -y pandoc lacheck php5
+  - sudo apt-get install -y lacheck php5
   - curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
 install:

@@ -39,6 +39,13 @@
             "description": "Anrede. Der String SOLL sowohl die männliche als auch die weibliche Bezeichnung enthalten. Beispiele: \"Herr | Frau\", \"Ratsherr | Ratsfrau\".",
             "type": "string"
         },
+        "title": {
+            "description": "Akademische(r) Titel.",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
         "gender": {
             "description": "Geschlecht. Empfohlene Werte sind `female`, `male` und `other`. Für den Fall, dass das Geschlecht der Person unbekannt ist, SOLL die Eigenschaft nicht ausgegeben werden.",
             "type": "string"

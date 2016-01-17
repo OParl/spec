@@ -44,18 +44,12 @@ $(IMG_DIR)/%.png: $(IMG_DIR)/%.pdf
 $(OUT_DIR):
 	mkdir -p $(OUT_DIR)
 
-$(META_MD): contributors.json scripts/contributors.py
-	python scripts/contributors.py infoblock contributors.json --version=$(HUMAN_VERSION) > $(META_MD)
-
-$(CONTRIB_MD): contributors.json scripts/contributors.py
-	python scripts/contributors.py chapter contributors.json > $(CONTRIB_MD)
-
 $(SCHEMA_MD): $(SHM_DIR)/*.json $(EXP_DIR)/*.json scripts/json_schema2markdown.py
 	python scripts/json_schema2markdown.py $(SHM_DIR) $(EXP_DIR) > $(SCHEMA_MD)
 
 # main targets
 
-common: $(OUT_DIR) $(SCHEMA_MD) $(CONTRIB_MD) $(META_MD)
+common: $(OUT_DIR) $(SCHEMA_MD)
 
 html: common $(PNG_IMAGES)
 	$(PANDOC) --to html5 --css ../$(HTML5_CSS) --section-divs --self-contained \

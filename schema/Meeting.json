@@ -182,7 +182,10 @@
             }
         },
         "keyword": {
-            "type": "string"
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         },
         "created": {
             "type": "string",

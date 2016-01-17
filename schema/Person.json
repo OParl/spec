@@ -99,7 +99,7 @@
             }
         },
         "life": {
-            "description": "Kurzer Informationstext zur Person.",
+            "description": "Kurzer Informationstext zur Person. Eine Länge von weniger als 300 Zeichen ist EMPFOHLEN",
             "type": "string"
         },
         "lifeSource": {

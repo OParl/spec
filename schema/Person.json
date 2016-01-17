@@ -51,12 +51,18 @@
             "type": "string"
         },
         "phone": {
-            "description": "Telefonnummer der Person.",
-            "type": "string"
+            "description": "Telefonnummern der Person.",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
         },
         "email": {
-            "description": "E-Mail-Adresse der Person.",
-            "type": "string"
+            "description": "E-Mail-Adressen der Person.",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
         },
         "streetAddress": {
             "description": "Straße und Hausnummer der Kontakt-Anschrift der Person.",
@@ -124,6 +130,14 @@
                     }
                 }
             }
+        },
+        "life": {
+            "description": "Kurzer Informationstext zur Person. Eine Länge von weniger als 300 Zeichen ist EMPFOHLEN",
+            "type": "string"
+        },
+        "lifeSource": {
+            "description": "Angabe der Quelle, aus der die Informationen für `life` stammen. Bei Angabe von `life` ist diese Eigenschaft EMPFOHLEN",
+            "type": "string"
         },
         "keyword": {
             "items": {

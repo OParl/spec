@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
-# this script is supposed to be run from the repository root
-# TODO: make sure that this changes to the repository root
+
+cd $(git rev-parse --show-toplevel)
 
 retval=0
 

@@ -69,7 +69,7 @@
             "format": "uri"
         },
         "classification": {
-            "description": "Die Art der Gruppierung. In Frage kommen z.B. \"Rat\", \"Hauptausschuss\", \"Ausschuss\", \"Beirat\", \"Projektbeirat\", \"Kommission\", \"AG\", \"Verwaltungsrat\". Die Angabe SOLLTE möglichst präzise erfolgen.",
+            "description": "Die Art der Gruppierung. In Frage kommen z.B. \"Rat\", \"Hauptausschuss\", \"Ausschuss\", \"Beirat\", \"Projektbeirat\", \"Kommission\", \"AG\", \"Verwaltungsrat\", \"Fraktion\" oder \"Partei\". Die Angabe SOLLTE möglichst präzise erfolgen.",
             "type": "string"
         },
         "keyword": {

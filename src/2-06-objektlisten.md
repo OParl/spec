@@ -211,14 +211,11 @@ Das nachfolgende Beispiel zeigt dies für den Anfang einer paginierten Liste:
 }
 ~~~~~
 
-Über die ZWINGEND bei Paginierung ausgegebene Eigenschaft `itemsPerPage`
-kommuniziert der Server, wie viele Einträge pro Listenseite
+Über die Paginierung ausgegebene Eigenschaft `itemsPerPage`
+KANN der Server kommunizieren, wie viele Einträge pro Listenseite
 ausgegeben werden. Die Zahl der Einträge, die der
 Server dabei je Listenseite ausliefert, SOLLTE dabei mindestens 10 und
-maximal 100 betragen. Der Wert von `itemsPerPage` MUSS auf allen
-Listenseiten derselben Liste einheitlich sein. Nur bei Ausgabe der
-letzten Listenseite DARF der Server weniger Einträge ausgeben, als
-von `itemsPerPage` angegeben.
+maximal 1000 betragen.
 
 Weiterhin wird bei Paginierung über eine Eigenschaft `nextPage` eine
 URL zum Abruf der jeweils nächsten Listenseite ausgegeben. Die

@@ -6,7 +6,8 @@
         "id",
         "type",
         "oparlVersion",
-        "body"
+        "body",
+        "otherOparlVersions"
     ],
     "properties": {
         "id": {
@@ -21,6 +22,14 @@
             "type": "string",
             "pattern": "^http://oparl\\.org/specs/1\\.0/$",
             "description": "Die URL der OParl-Spezifikation, die von diesem Server unterstützt wird. Aktuell kommt hier nur ein Wert in Frage. Mit zukünftigen OParl-Versionen kommen weitere mögliche URLs hinzu. Wert: `http://oparl.org/specs/1.0/`"
+        },
+        "otherOparlVersions": {
+            "description": "Dient der Angabe von System-Objekten mit neueren OParl-Versionen.",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            },
+            "type": "array"
         },
         "body": {
             "description": "Link zur [Objektliste](#objektlisten) mit allen Körperschaften, die auf dem System existieren.",

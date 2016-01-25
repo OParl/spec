@@ -2,19 +2,21 @@ sudo: required
 language: python
 
 python:
- - "2.7"
+- '2.7'
 
 before_install:
-  - wget https://github.com/jgm/pandoc/releases/download/1.15.1/pandoc-1.15.1-1-amd64.deb
-  - sudo dpkg -i pandoc-1.15.1-1-amd64.deb
-  - sudo apt-get update -qq
-  - sudo apt-get install -y lacheck php5
-  - curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+- wget https://github.com/jgm/pandoc/releases/download/1.15.1/pandoc-1.15.1-1-amd64.deb
+- sudo dpkg -i pandoc-1.15.1-1-amd64.deb
+- sudo apt-get update -qq
+- sudo apt-get install -y lacheck php5
+- curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
 install:
-  - sudo composer global require seld/jsonlint
+- sudo composer global require seld/jsonlint
 
 script: make test
 
 notifications:
-  irc: "irc.freenode.org#oparl"
+  irc: irc.freenode.org#oparl
+  slack:
+    secure: Z+1KSBeIhFfra53JrWE5eS6PupdOyrtVZ5g5aMw99WSxCnFzKDDsj669kLxm2dq5c/HYSxE0sc9mFaabDn+urusR0J3vKdac7nQdJIBRPdroqIAxQFAnnn+Y6r0OUqIQuLWqVNfDwr4JPdck9jI1n8X4Rg7MVsRlSoyfXDqK/LU=

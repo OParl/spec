@@ -23,7 +23,7 @@ def schema_to_md_table(schema, small_heading=False):
     name = schema["title"]
 
     if small_heading:
-        md = "**" + name + "**\n\n"
+        md = "###" + name + "###\n\n"
     else:
         md = "## " + name + "{#entity-" + name.lower() + "}" + "\n"
 

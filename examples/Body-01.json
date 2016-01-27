@@ -28,7 +28,7 @@
             "endDate": "2013-12-03"
         }
     ],
-    "bodyLocation": "https://oparl.example.org/body/0/location/1",
+    "location": "https://oparl.example.org/body/0/location/1",
     "classification": "Kreisfreie Stadt",
     "created": "2014-01-08T14:28:31.568+0100",
     "modified": "2014-01-08T14:28:31.568+0100"

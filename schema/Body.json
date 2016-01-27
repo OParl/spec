@@ -153,8 +153,8 @@
             "description": "Ortsangabe des Bodys.",
             "type": "string"
         },
-        "bodyLocation": {
-            "description": "Ort, an dem das Body beheimatet ist",
+        "location": {
+            "description": "Ort, an dem das Body beheimatet ist. Wenn möglich die Stadtgrenzen, ansonsten die Stadtmitte.",
             "type": "object",
             "$ref": "Location.json"
         },

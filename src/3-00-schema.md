@@ -92,7 +92,7 @@ Diese Spezifikationen stützen sich auf RFC 3339^[RFC3339:
 
 ### Herstellerspezifische Erweiterungen {#herstellerspezifische-erweiterungen}
 
-Diese sind – falls tatsächlich erforderlich – mit den JSON-LD-Mitteln einfach möglich. Z. B.
+Diese sind – falls tatsächlich erforderlich – mit einem Herstellerprefix einfach möglich. Z. B.
 
 ~~~~~
 "herstellera:newWonderProperty": "Dies ist ein Feature,

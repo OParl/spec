@@ -10,7 +10,7 @@ Dies wird durch die folgenden Regeln gewährleistet.
 Wenn ein Objekt gelöscht wird, ...
 
 * MUSS das Objekt das zusätzliche Attribut `deleted`: true bekommen
-* MUSS das Attribut `updated` auf den Zeitpunkt der Löschung setzen
+* MUSS das Attribut `modified` auf den Zeitpunkt der Löschung setzen
 * MÜSSEN die Attribute `id`, `type` und `created` erhalten bleiben
 * MÜSSEN sämtliche anderen Attribute gelöscht werden.
 

@@ -81,7 +81,7 @@
             "type": "string"
         },
         "status": {
-            "description": "Status.",
+            "description": "Status, d.h. Rollen in der Kommune.",
             "items": {
                 "type": "string"
             },

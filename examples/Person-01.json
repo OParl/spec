@@ -16,7 +16,9 @@
     "streetAddress": "Musterstraße 5",
     "postalCode": "11111",
     "locality": "Musterort",
-    "status": "Bezirksbürgermeister | Bezirksbürgermeisterin",
+    "status": [
+        "Bezirksbürgermeister"
+    ],
     "membership": [
         {
             "id": "https://oparl.example.org/memberships/385",

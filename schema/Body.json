@@ -103,7 +103,7 @@
             "format": "uri"
         },
         "legislativeTerm": {
-            "description": "[Objektliste](#objektlisten) mit allen Wahlperioden der Körperschaft.",
+            "description": "[Objektliste](#objektlisten) mit allen Wahlperioden der Körperschaft für den Zeitraum, für den OParl bereitgestellt wird.",
             "type": "array",
             "items": {
                 "title": "LegislativeTerm",

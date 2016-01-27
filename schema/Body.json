@@ -103,7 +103,7 @@
             "format": "uri"
         },
         "legislativeTerm": {
-            "description": "Link zur [Objektliste](#objektlisten) mit allen Wahlperioden der Körperschaft.",
+            "description": "[Objektliste](#objektlisten) mit allen Wahlperioden der Körperschaft.",
             "type": "array",
             "items": {
                 "title": "LegislativeTerm",

@@ -13,7 +13,7 @@ parser.add_argument("schema_folder")
 parser.add_argument("examples_folder")
 args = parser.parse_args()
 
-objects = ["System", "Body", "Person", "Organization", "Meeting", "Paper", "File", "Location"]
+objects = ["System", "Body", "Organization", "Person", "Meeting", "Paper", "File", "Location"]
 
 sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 sys.stderr = codecs.getwriter('utf8')(sys.stderr)

@@ -72,12 +72,6 @@
             "description": "Die Art der Gruppierung. In Frage kommen z.B. \"Rat\", \"Hauptausschuss\", \"Ausschuss\", \"Beirat\", \"Projektbeirat\", \"Kommission\", \"AG\", \"Verwaltungsrat\", \"Fraktion\" oder \"Partei\". Die Angabe SOLLTE möglichst präzise erfolgen.",
             "type": "string"
         },
-        "keyword": {
-            "items": {
-                "type": "string"
-            },
-            "type": "array"
-        },
         "startDate": {
             "description": "Gründungsdatum der Gruppierung. Kann z. B. das Datum der konstituierenden Sitzung sein.",
             "type": "string",
@@ -85,14 +79,6 @@
         },
         "endDate": {
             "description": "Datum des letzten Tages der Existenz der Gruppierung.",
-            "type": "string",
-            "format": "date-time"
-        },
-        "created": {
-            "type": "string",
-            "format": "date-time"
-        },
-        "modified": {
             "type": "string",
             "format": "date-time"
         },
@@ -128,6 +114,20 @@
             "oparl:cardinality": "n:1",
             "type": "string",
             "format": "uri"
+        },
+        "keyword": {
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "created": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "modified": {
+            "type": "string",
+            "format": "date-time"
         }
     }
 }

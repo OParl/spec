@@ -39,6 +39,10 @@
             "description": "Anrede.",
             "type": "string"
         },
+        "affix": {
+            "description": "Namenszusatz (z.B. `jun.` oder `MdL.`)",
+            "type": "string"
+        },
         "title": {
             "description": "Akademische(r) Titel.",
             "items": {

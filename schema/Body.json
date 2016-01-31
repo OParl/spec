@@ -137,10 +137,6 @@
             "description": "Art der Körperschaft.",
             "type": "string"
         },
-        "room": {
-            "description": "Raum, in dem das Body beheimatet ist",
-            "type": "string"
-        },
         "streetAddress": {
             "description": "Straße und Hausnummer des Bodys.",
             "type": "string"

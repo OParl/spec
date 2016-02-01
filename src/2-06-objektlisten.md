@@ -45,6 +45,9 @@ Array. Die Einträge des Arrays sind URLs. Es handelt sich dabei um die URLs
 aller Objekte vom Typ `oparl:Body`, die mit dem gezeigten `oparl:System`
 Objekt in Beziehung stehen.
 
+Dieses Beispiel wurde lediglich zur Verdeutlichung gewählt. Es kommt so bei OParl
+nicht vor, da interne Listen die vollständige Listenform haben MÜSSEN.
+
 Eine alternative Möglichkeit für die Ausgabe derselben Information
 ist die *externe* Listenausgabe. Mit dieser Form der Ausgabe sieht das
 oben gezeigte Objekt nun so aus:

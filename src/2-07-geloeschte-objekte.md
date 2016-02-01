@@ -14,5 +14,9 @@ Wenn ein Objekt gelöscht wird, ...
 * MÜSSEN die Attribute `id`, `type` und `created` erhalten bleiben
 * MÜSSEN sämtliche anderen Attribute gelöscht werden.
 
+Dies gilt nur für die Hauptobjekte (d.h. System, Body, Organisation, Person, Meeting, Paper, File).
+D.h. Subobjekte (LegislativeTerm, Membership, AgendaItem, Consultation) benötigen nicht das
+Attribut `deleted`, sondern können einfach gelöscht werden.
+
 Dies hat zur Folge, dass das gelöschte Objekt beim Updaten eines Client-Datenbestandes
 aktualisiert wird, wenn das normale Update über die in 4.6 angesprochenen Filter erfolgt.

@@ -16,7 +16,8 @@ Wenn ein Objekt gelöscht wird, ...
 
 Dies gilt nur für die Hauptobjekte (d.h. System, Body, Organisation, Person, Meeting, Paper, File).
 D.h. Subobjekte (LegislativeTerm, Membership, AgendaItem, Consultation) benötigen nicht das
-Attribut `deleted`, sondern können einfach gelöscht werden.
+Attribut `deleted`, sondern können einfach gelöscht werden. Beim Löschen einer der Subobjekte
+muss allerdings der Wert `modified` des dazugehörigen Hauptobjektes aktualisiert werden.
 
 Dies hat zur Folge, dass das gelöschte Objekt beim Updaten eines Client-Datenbestandes
 aktualisiert wird, wenn das normale Update über die in 4.6 angesprochenen Filter erfolgt.

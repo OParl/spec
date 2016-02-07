@@ -141,7 +141,7 @@
                     },
                     "onBehalfOfPerson": {
                         "description": "Eine andere Person, für die die Objekt-Person in der der unter organitzation angegebenen Organisation sitzt. Beispiel: Vertretung von Personen.",
-                        "oparl:ref": "Organization",
+                        "oparl:ref": "Person",
                         "oparl:cardinality": "n:1",
                         "type": "string",
                         "format": "uri"

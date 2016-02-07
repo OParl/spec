@@ -102,6 +102,16 @@
                 "format": "uri"
             }
         },
+        "underDirectionof": {
+            "description": "Federführung. Amt oder Abteilung, für die Inhalte oder Beantwortung der Drucksache verantwortlich.",
+            "oparl:ref": "Organization",
+            "oparl:cardinality": "n:m",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
         "originatorOrganization": {
             "description": "Urheber der Drucksache, falls der Urheber eine Gruppierung ist. Es können auch mehrere Gruppierungen angegeben werden.",
             "oparl:ref": "Organization",
@@ -166,25 +176,23 @@
                 }
             }
         },
-        "modified": {
-            "type": "string",
-            "format": "date-time"
-        },
         "keyword": {
             "type": "array",
             "items": {
                 "type": "string"
             }
         },
-        "underDirectionof": {
-            "description": "Federführung. Amt oder Abteilung, für die Inhalte oder Beantwortung der Drucksache verantwortlich.",
-            "oparl:ref": "Organization",
-            "oparl:cardinality": "n:m",
-            "type": "array",
-            "items": {
-                "type": "string",
-                "format": "uri"
-            }
+        "created": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "modified": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "deleted": {
+            "description": "Falls das Objekt gelöscht wurde, muss das Objekt gemäß Kapitel 2.7 das Attribut deleted: true bekommen und sämtliche anderen inhaltlichen Attribute gelöscht werden.",
+            "type": "boolean"
         }
     }
 }

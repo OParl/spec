@@ -4,6 +4,7 @@
     "body": "https://oparl.example.org/bodies/1",
     "name": "Ausschuss für Haushalt und Finanzen",
     "shortName": "Finanzausschuss",
+    "startDate": "2012-07-17T00:00:00+02:00",
     "post": [
         "Vorsitzender",
         "1. Stellvertreter",
@@ -34,6 +35,5 @@
         "haushalt"
     ],
     "created": "2012-07-16T16:01:44+02:00",
-    "startDate": "2012-07-17T00:00:00+02:00",
     "modified": "2012-08-16T14:05:27+02:00"
 }

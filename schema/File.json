@@ -33,11 +33,6 @@
             "type": "string",
             "format": "date-time"
         },
-        "modified": {
-            "description": "Datum und Zeit der letzten Änderung der Datei bzw. der Metadaten. Als Änderung der Datei gilt alles, was den Inhalt der Datei verändert und beispielsweise zu einer Veränderung der Prüfsumme führen würde, nicht aber die Änderung des Dateinamens (siehe Eigenschaft `name`). Als Änderung der Metadaten hingegen würde beispielsweise die Änderung des Dateinamens gelten. Hier MUSS immer das größere der beiden Daten ausgegeben werden, also der am wenigsten lang zurückliegende Änderungszeitpunkt.",
-            "type": "string",
-            "format": "date-time"
-        },
         "size": {
             "description": "Größe der Datei in Bytes.",
             "type": "integer"
@@ -98,6 +93,19 @@
             "items": {
                 "type": "string"
             }
+        },
+        "created": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "modified": {
+            "description": "Datum und Zeit der letzten Änderung der Datei bzw. der Metadaten. Als Änderung der Datei gilt alles, was den Inhalt der Datei verändert und beispielsweise zu einer Veränderung der Prüfsumme führen würde, nicht aber die Änderung des Dateinamens (siehe Eigenschaft `name`). Als Änderung der Metadaten hingegen würde beispielsweise die Änderung des Dateinamens gelten. Hier MUSS immer das größere der beiden Daten ausgegeben werden, also der am wenigsten lang zurückliegende Änderungszeitpunkt.",
+            "type": "string",
+            "format": "date-time"
+        },
+        "deleted": {
+            "description": "Falls das Objekt gelöscht wurde, muss das Objekt gemäß Kapitel 2.7 das Attribut deleted: true bekommen und sämtliche anderen inhaltlichen Attribute gelöscht werden.",
+            "type": "boolean"
         }
     }
 }

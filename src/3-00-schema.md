@@ -133,4 +133,4 @@ Gleichzeitig ist aber aus verschiedenen Gründen ein strukturierter Aufbau
 der Pfade durchaus sinnvoll, der sich an der Hierarchie der Objekte
 orientiert (nicht zuletzt, weil dies Softwareentwicklern während der
 Entwicklung helfen kann). Dennoch wird eine solche Struktur bewusst
-nicht in OParl festgelegt.
+nicht in OParl 1.0 festgelegt.

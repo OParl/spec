@@ -1,8 +1,8 @@
-## Objektlisten {#objektlisten}
+## Objektlisten und Paginierung {#objektlisten-und-paginierung}
 
 Generell kommt es beim Aufruf eines einzelnen Objekts in vielen
 Fällen vor, dass eine Reihe von Objekten referenziert wird, die
-mit dem aktuellen Objekt in Beziehung stehen. Für einzelne
+mit dem aktuellen Objekt in Beziehung stehen. Für einige
 Eigenschaften ist es nur erlaubt, genau ein verbundenes Objekt
 zu referenziert. Andere Eigenschaften erlauben die Verknüpfung einer
 beliebigen Anzahl von anderen Objekten. Ein Beispiel dafür liefert der
@@ -11,11 +11,11 @@ Objekte vom Typ `oparl:Body` (Körperschaften) des Systems zeigt.
 
 In der Spezifikation kommen drei Arten der Referenzierung vor:
 
-### Referenzierung von Objekte via URL
+### Referenzierung von Objekten via URL
 
 Bei der Referenzierung einzelner Objekte wird eine URL angegeben, welche auf
 das entsprechende Objekt verweist. Der Typ ist hierbei ein string (url: Object-id).
-Ein Beispiel hierfür ist `subOrganizationOf` des Objektes Organization:
+Ein Beispiel hierfür ist `subOrganizationOf` des Objektes `Organization`:
 
 ~~~~~  {#objektlisten_ex1 .json}
 {
@@ -28,7 +28,8 @@ Ein Beispiel hierfür ist `subOrganizationOf` des Objektes Organization:
 
 Die Referenzierung via URL kann in einem Array vorkommen, was häufig bei Invers-Listen
 der Fall ist. Als Typ ist in diese Fall array of string (url: Object-id) angegeben.
-Ein Beispiel hierfür `meeting` in organization:
+
+Ein Beispiel hierfür ist `meeting` in `Organization`:
 
 ~~~~~  {#objektlisten_ex2 .json}
 {
@@ -45,8 +46,9 @@ Ein Beispiel hierfür `meeting` in organization:
 
 ### Interne Ausgabe von Objekten
 
-Subobjekte inklusive der global verfügbaren Subobjekte `Location` und `File` werden intern
-ausgegeben. Ein Beispiel für ein einzelnes internes Dokument ist `location` in Body:
+Subobjekte inklusive der auch global verfügbaren Subobjekte `Location` und 
+`File` werden intern ausgegeben. Ein Beispiel für ein einzelnes internes 
+Dokument ist `location` in Body:
 
 ~~~~~  {#objektlisten_ex3 .json}
 {
@@ -147,10 +149,10 @@ sowohl beim Server als auch beim Client zu schonen.
 
 Die Entscheidung, ob eine Seite teilweise und daher mit Paginierung
 ausgegeben wird, liegt allein beim Server. Bei Listen mit mehr als 100
-Einträgen ist dies EMPFOHLEN.
+Einträgen wird dies EMPFOHLEN.
 
 Der Server gibt für eine Liste, bei der die Paginierung aktiv ist, d. h.
-nicht alle Listenelemente ausgegeben wurde, zusätzliche Eigenschaften aus.
+nicht alle Listenelemente ausgegeben wurden, zusätzliche Eigenschaften aus.
 Das nachfolgende Beispiel zeigt dies für den Anfang einer paginierten Liste:
 
 ~~~~~  {#objektlisten_ex4 .json}
@@ -179,7 +181,7 @@ ist in keiner Form bindend.
 
 OPTIONAL sind die Eigenschaften `numberOfPages`, mit der
 die Anzahl der Listenseiten angegeben wird, und `currentPage`, mit der
-der Server angibt, um die wie vielte Listenseite es sich handelt,
+der Server angibt, um welche Seite der Auflistung es sich handelt,
 wobei die Zählung bei 0 beginnt. Das obenstehende Beispiel kann um
 die beiden Eigenschaften erweitert werden:
 

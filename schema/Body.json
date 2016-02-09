@@ -41,7 +41,7 @@
         "website": {
             "description": "Allgemeine Website der Körperschaft.",
             "type": "string",
-            "format": "ipv6"
+            "format": "uri"
         },
         "license": {
             "description": "Lizenz, die für die Daten, die über diese API abgerufen werden können, gilt, sofern nicht am einzelnen Objekt anders angegeben. Siehe dazu auch die übergreifende Beschreibung zur Eigenschaft [`license`](#eigenschaft_license).",

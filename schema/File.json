@@ -10,7 +10,7 @@
     "properties": {
         "id": {
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "type": {
             "type": "string",
@@ -48,17 +48,17 @@
         "accessUrl": {
             "description": "URL zum allgemeinen Zugriff auf die Datei. Näheres unter [Dateizugriffe](#dateizugriff).",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "downloadUrl": {
             "description": "URL zum Download der Datei. Näheres unter [Dateizugriffe](#dateizugriff).",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "externalServiceUrl": {
             "description": "Externe URL, welche eine zusätzliche Zugriffsmöglichkeit bietet. Beispiel: YouTube-Video.",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "masterFile": {
             "description": "Datei, von der das aktuelle Objekt abgeleitet wurde. Details dazu in der allgemeinen Beschreibung weiter oben.",
@@ -66,7 +66,7 @@
             "oparl:backref": "derivativeFile",
             "oparl:cardinality": "n:1",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "derivativeFile": {
             "description": "Datei, die von dem aktuellen Objekt abgeleitet wurde. Details dazu in der allgemeinen Beschreibung weiter oben.",
@@ -76,13 +76,13 @@
             "type": "array",
             "items": {
                 "type": "string",
-                "format": "uri"
+                "format": "url"
             }
         },
         "license": {
             "description": "Lizenz, unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet wird, dann ist sie anstelle einer globalen Angabe im übergeordneten `oparl:Body`- bzw. `oparl:System`-Objekt maßgeblich.^[vgl. [license](#eigenschaft_license)]",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "fileRole": {
             "description": "Rolle, Funktion der Datei in Bezug auf eine Sitzung. Die Eigenschaft SOLLTE entsprechend nur in Verbindung mit der Eigenschaft `meeting` gesetzt sein.",

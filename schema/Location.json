@@ -9,7 +9,7 @@
     "properties": {
         "id": {
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "type": {
             "type": "string",

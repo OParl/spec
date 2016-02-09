@@ -7,9 +7,6 @@ freie Verwendung in URLs zur Verfügung.
 `startdate`, `enddate`:
 :    Parameter für die Einschränkung einer Abfrage anhand eines Datums bzw.
      einer Zeitangabe. Vgl. [Objektlisten: Filter](#filter).
-`listformat`:
-:    Parameter zur Steuerung der Listenausgabe.
-     Siehe dazu: [Objektlisten: Kompakte und vollständige Form](#objektlisten_listformat)
 `subject`, `predicate`, `object`:
 :    Reserviert für eine eventuelle zukünftige Verwendung
      von Linked Data Fragments^[Linked Data Fragments: <http://linkeddatafragments.org/>]

@@ -80,9 +80,7 @@ der Daten in anderen Systeme, wie beispielsweise Web-Portale.
 
 Anbieter von Softwareprodukten, die RIS-Lösungen anbieten, können
 mit der Implementation der OParl-Schnittstelle ihren Kunden eine entsprechende
-einheitliche Schnittstelle anbieten. Für Anbieter von Linked-Data-Plattformen
-ergeben sich u. a. Möglichkeiten zur vereinfachten Zusammenführung und
-Anreicherung von Inhalten parlamentarischer Informationssysteme.
+einheitliche Schnittstelle anbieten.
 
 Ausführlichere Beschreibungen einiger möglicher Anwendungsszenarien finden sich
 im Kapitel [Nutzungsszenarien](#nutzungsszenarien).

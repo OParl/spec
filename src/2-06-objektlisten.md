@@ -29,6 +29,7 @@ Ein Beispiel hierfür ist `subOrganizationOf` des Objektes Organization:
 Die Referenzierung via URL kann in einem Array vorkommen, was häufig bei Invers-Listen
 der Fall ist. Als Typ ist in diese Fall array of string (url: Object-id) angegeben.
 Ein Beispiel hierfür `meeting` in organization:
+
 ~~~~~  {#objektlisten_ex2 .json}
 {
   "id": "https://oparl.example.org/paper/1",

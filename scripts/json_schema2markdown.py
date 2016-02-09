@@ -47,6 +47,13 @@ def schema_to_md_table(schema, small_heading=False):
     for prop_name, prop in schema["properties"].items():
         type = prop["type"]
 
+        # eingebettete Objekte finden
+        if type == "object" and "properties" in prop:
+            embedded_objects.append(prop)
+
+        elif type == "array" and prop["items"]["type"] == "object" and "properties" in prop["items"]:
+            embedded_objects.append(prop["items"])
+
         if isinstance(type, list):
             type = "/".join(type)
 
@@ -54,7 +61,7 @@ def schema_to_md_table(schema, small_heading=False):
             type = type + " (" + prop['format'] + ": " + prop["oparl:ref"] + "-id)"
         elif type == "string" and 'format' in prop:
             type = type + " (" + prop['format'] + ")"
-        
+
         if 'items' in prop:
             if "oparl:ref" in prop and type == "array" and 'type' in prop['items'] and 'format' in prop['items']:
                 type = type + " aus " + prop['items']['type'] + "s (" + prop['items']['format'] + ": " + prop["oparl:ref"] + "-ids)"
@@ -67,13 +74,6 @@ def schema_to_md_table(schema, small_heading=False):
            description = prop["description"]
         else:
            description = ""
-
-        # eingebettete Objekte finden
-        if type == "object" and "properties" in prop:
-            embedded_objects.append(prop)
-
-        elif type == "array" and prop["items"]["type"] == "object" and "properties" in prop["items"]:
-            embedded_objects.append(prop["items"])
 
         if "required" in schema and prop_name in schema["required"] and description  != "":
             description =  "**ZWINGEND** " + description
@@ -113,4 +113,5 @@ def json_examples_to_md(name):
 
 for obj in objects:
     filepath = os.path.join(args.schema_folder, obj + ".json")
-    print schema_to_md_table(json.load(codecs.open(filepath, encoding='utf-8'), object_pairs_hook=collections.OrderedDict))
+    schema = schema_to_md_table(json.load(codecs.open(filepath, encoding='utf-8'), object_pairs_hook=collections.OrderedDict))
+    print schema

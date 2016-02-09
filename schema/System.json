@@ -12,7 +12,7 @@
     "properties": {
         "id": {
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "type": {
             "type": "string",
@@ -27,14 +27,14 @@
             "description": "Dient der Angabe von System-Objekten mit neueren OParl-Versionen.",
             "items": {
                 "type": "string",
-                "format": "uri"
+                "format": "url"
             },
             "type": "array"
         },
         "body": {
             "description": "Link zur [Objektliste](#objektlisten) mit allen Körperschaften, die auf dem System existieren.",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "name": {
             "description": "Nutzerfreundlicher Name für das System, mit dessen Hilfe Nutzerinnen und Nutzer das System erkennen und von anderen unterscheiden können.",
@@ -51,17 +51,17 @@
         "website": {
             "description": "URL der Website des parlamentarischen Informationssystems",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "vendor": {
             "description": "URL der Website des Software-Anbieters, von dem die OParl-Server-Software stammt.",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "product": {
             "description": "URL zu Informationen über die auf dem System genutzte OParl-Server-Software",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         }
     }
 }

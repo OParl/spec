@@ -9,7 +9,7 @@
     "properties": {
         "id": {
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "type": {
             "type": "string",
@@ -21,7 +21,7 @@
             "oparl:backref": "person",
             "oparl:cardinality": "n:1",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "name": {
             "description": "Der vollständige Name der Person mit akademischem Grad und dem gebräuchlichen Vornamen, wie er zur Anzeige durch den Client genutzt werden kann.",
@@ -105,14 +105,14 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "format": "uri"
+                        "format": "url"
                     },
                     "organization": {
                         "description": "Die Gruppierung, in der die Person Mitglied ist oder war.",
                         "oparl:ref": "Organization",
                         "oparl:cardinality": "n:1",
                         "type": "string",
-                        "format": "uri"
+                        "format": "url"
                     },
                     "role": {
                         "description": "Rolle der Person für die Gruppierung. Kann genutzt werden, um verschiedene Arten von Mitgliedschaften zum Beispiel in Gremien zu unterscheiden.",
@@ -137,7 +137,7 @@
                         "oparl:ref": "Organization",
                         "oparl:cardinality": "n:1",
                         "type": "string",
-                        "format": "uri"
+                        "format": "url"
                     }
                 }
             }

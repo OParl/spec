@@ -9,7 +9,7 @@
     "properties": {
         "id": {
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "type": {
             "type": "string",
@@ -66,7 +66,7 @@
             "type": "array",
             "items": {
                 "type": "string",
-                "format": "uri"
+                "format": "url"
             }
         },
         "participant": {
@@ -76,7 +76,7 @@
             "type": "array",
             "items": {
                 "type": "string",
-                "format": "uri"
+                "format": "url"
             }
         },
         "invitation": {
@@ -115,7 +115,7 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "format": "uri"
+                        "format": "url"
                     },
                     "number": {
                         "description": "Gliederungs-\"Nummer\" des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z. B. \"10.\", \"10.1\", \"C\", \"c)\" o. ä. Die Reihenfolge wird nicht dadurch, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting` festgelegt.",
@@ -135,7 +135,7 @@
                         "oparl:backref": "agendaItem",
                         "oparl:cardinality": "1:1",
                         "type": "string",
-                        "format": "uri"
+                        "format": "url"
                     },
                     "result": {
                         "description": "Kategorische Information darüber, welches Ergebnis die Beratung des Tagesordnungspunktes erbracht hat, in der Bedeutung etwa \"Unverändert beschlossen\" oder \"Geändert beschlossen\".",

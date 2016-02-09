@@ -3,7 +3,7 @@ Dateizugriffe  {#dateizugriff}
 
 Mit dem Begriff "Datei" sind im Sinne dieser Spezifikation alle Ressourcen
 gemeint, die von einem OParl-Server zur Verfügung gestellt werden und
-deren Metadaten über die JSON-API als [`oparl:File`](#oparl_file)
+deren Metadaten über die JSON-API als [`oparl:File`](#entity-file)
 abgerufen werden können. Es handelt sich dabei beispielsweise um Textdokumente
 im PDF-Format, Abbildungen im JPEG- oder PNG-Format etc., die wesentliche
 Inhalte der parlamentarischen Informationen im OParl-System ausmachen.
@@ -53,70 +53,3 @@ wird EMPFOHLEN, den Dateinamen ausschließlich aus dem ASCII-Zeichenvorrat zu bi
 Im Unterschied zum Zugriff auf die Download-URL DARF der Server beim Zugriff auf die
 Zugriffs-URL KEINEN `Content-Disposition` Header mit Parameter `attachment`
 senden.
-
-### Obligatorische und empfohlene Header
-
-Ziel ist, dem Client möglichst flexible Möglichkeiten zu geben, einen Cache zu
-überprüfen bzw. zu aktualisieren und vermeidbare Anfragen einer Ressource zu
-vermeiden. Um dies zu unterstützen, können laut HTTP-Spezifikationen unterschiedliche
-Header zum Einsatz kommen.
-
-Die Auslieferung eines `Last-Modified`-Headers gilt für alle OParl-Server beim
-Zugriff auf eine Datei-URL, sei es Download- oder Zugriffs-URL, als EMPFOHLEN.
-
-Ebenso EMPFEHLEN wir, bei Anfrage einer Datei die folgenden Header auszuliefern:
-
-* `Content-Length`: Die Größe des Dateiinhalts
-* `ETag`: Entity Tag
-
-### Conditional GET
-
-Unter einem "Conditional GET" versteht man im HTTP-Kontext die Möglichkeit des
-Clients, die Anfrage einer Ressource mit einer Bedingung zu verknüpfen. Der Server
-beantwortet die Anfrage nur dann mit einer vollständigen HTTP-Antwort, wenn die
-Bedingung erfüllt ist. Andernfalls enthält die Anfrage lediglich den Header; der
-HTTP Status-Code SOLLTE in diesem Fall "304" lauten (für "nicht geändert"). Dies
-dient der Schonung von Ressourcen.
-
-Für einen OParl-Server wird EMPFOHLEN, die nachstehenden Varianten des
-Conditional GET zu unterstützen:
-
-* `If-Modified-Since`: Der Client sendet mit der Anfrage als Bedingung ein
-  Datum. Nur wenn die angefragte Datei zuletzt *nach* diesem Datum geändert
-  wurde, wird der Dateiinhalt mit der Antwort ausgeliefert.
-
-* `If-None-Match`: Erlaubt die Formulierung der Bedingung anhand eines
-  Entity-Tags.
-
-### Zustandsloser Dateizugriff
-
-Die Anforderung, dass die OParl-API zustandslos arbeitet, hat ZWINGEND auch für
-den Abruf von Dateien zu gelten. Es DÜRFEN daher keine Session-spezifischen
-URLs oder Ähnliches für den Dateizugriff gebildet werden.
-
-Damit wird erreicht, dass Clients die Zugriffs-URLs aus dem `oparl:File` für
-längere Zeit speichern bzw. cachen können.
-
-### Weiterleitungen
-
-Es ist im Rahmen dieser Spezifikation problemlos möglich, die Anfrage an eine
-Datei-URL mit einer HTTP-Weiterleitung zu beantworten, um dem Client eine
-andere URL zum Zugriff mitzuteilen.
-
-In diesem Fall wird dringend EMPFOHLEN, die Unterscheidung der Bedeutung der
-HTTP-Status-Codes `301` und `307` zu beachten.
-
-* `301` SOLLTE verwendet werden, wenn die vom Client angefragte URL auch zukünftig
-  nicht mehr gültig sein wird. Clients erhalten damit das Signal, die bisherige
-  URL zu verwerfen und zukünftig die neue, vom Server in der Antwort mitgeteilte
-  zu verwenden.
-
-* `307` SOLLTE verwendet werden, wenn die vom Client genutzte URL nur temporär auf
-  eine bestimmte andere URL weiter leitet. Clients werden so aufgefordert, die
-  vorhandene URL auch bei zukünftigen Anfragen zu nutzen.
-
-### Entfernte Dateien
-
-Beim Zugriff auf eine Datei, die zuvor einmal abrufbar war, es inzwischen jedoch
-nicht mehr ist, SOLLTE die HTTP-Antwort des Servers den spezifischen Status-Code
-`410` tragen.

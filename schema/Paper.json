@@ -9,7 +9,7 @@
     "properties": {
         "id": {
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "type": {
             "type": "string",
@@ -21,7 +21,7 @@
             "oparl:backref": "meeting",
             "oparl:cardinality": "n:1",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "name": {
             "description": "Titel der Drucksache.",
@@ -39,7 +39,7 @@
         "paperType": {
             "description": "Art der Drucksache, z. B. Beantwortung einer Anfrage.",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "relatedPaper": {
             "description": "Inhaltlich verwandte Drucksachen.",
@@ -48,7 +48,7 @@
             "type": "array",
             "items": {
                 "type": "string",
-                "format": "uri"
+                "format": "url"
             }
         },
         "superordinatedPaper": {
@@ -58,7 +58,7 @@
             "type": "array",
             "items": {
                 "type": "string",
-                "format": "uri"
+                "format": "url"
             }
         },
         "subordinatedPaper": {
@@ -68,7 +68,7 @@
             "type": "array",
             "items": {
                 "type": "string",
-                "format": "uri"
+                "format": "url"
             }
         },
         "mainFile": {
@@ -99,7 +99,7 @@
             "type": "array",
             "items": {
                 "type": "string",
-                "format": "uri"
+                "format": "url"
             }
         },
         "underDirectionof": {
@@ -109,7 +109,7 @@
             "type": "array",
             "items": {
                 "type": "string",
-                "format": "uri"
+                "format": "url"
             }
         },
         "originatorOrganization": {
@@ -119,7 +119,7 @@
             "type": "array",
             "items": {
                 "type": "string",
-                "format": "uri"
+                "format": "url"
             }
         },
         "consultation": {
@@ -132,7 +132,7 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "format": "uri"
+                        "format": "url"
                     },
                     "agendaItem": {
                         "description": "Tagesordnungspunkt, unter dem die Drucksache beraten wird.",
@@ -140,14 +140,14 @@
                         "oparl:backref": "consultation",
                         "oparl:cardinality": "n:1",
                         "type": "string",
-                        "format": "uri"
+                        "format": "url"
                     },
                     "meeting": {
                         "description": "Sitzung, in der die Drucksache beraten wird.",
                         "oparl:ref": "Meeting",
                         "oparl:cardinality": "n:1",
                         "type": "string",
-                        "format": "uri"
+                        "format": "url"
                     },
                     "organization": {
                         "description": "Gremium, in dem die Drucksache beraten wird. Hier kann auch eine mit Liste von Gremien angegeben werden (die verschiedenen `oparl:Body` und `oparl:System` angehören können). Die Liste ist dann geordnet. Das erste Gremium der Liste ist federführend.",
@@ -156,7 +156,7 @@
                         "type": "array",
                         "items": {
                             "type": "string",
-                            "format": "uri"
+                            "format": "url"
                         }
                     },
                     "authoritative": {

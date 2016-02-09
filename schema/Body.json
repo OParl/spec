@@ -16,7 +16,7 @@
     "properties": {
         "id": {
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "type": {
             "type": "string",
@@ -28,7 +28,7 @@
             "oparl:backref": "bodies",
             "oparl:cardinality": "n:1",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "shortName": {
             "description": "Kurzer Name der Körperschaft.",
@@ -41,12 +41,12 @@
         "website": {
             "description": "Allgemeine Website der Körperschaft.",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "license": {
             "description": "Lizenz, die für die Daten, die über diese API abgerufen werden können, gilt, sofern nicht am einzelnen Objekt anders angegeben. Siehe dazu auch die übergreifende Beschreibung zur Eigenschaft [`license`](#eigenschaft_license).",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "licenseValidSince": {
             "description": "Zeitpunkt, seit dem die unter `license` angegebene Lizenz gilt. Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen.",
@@ -70,7 +70,7 @@
             "description": "Dient der Angabe beliebig vieler zusätzlicher URLs, die dieselbe Körperschaft repräsentieren. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>] oder der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden. Body- oder System-Objekte mit anderen OParl-Versionen DÜRFEN NICHT Teil der Liste sein.",
             "items": {
                 "type": "string",
-                "format": "uri"
+                "format": "url"
             },
             "type": "array"
         },
@@ -85,22 +85,22 @@
         "organization": {
             "description": "Link zur [Objektliste](#objektlisten) mit allen Gruppierungen der Körperschaft.",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "person": {
             "description": "Link zur [Objektliste](#objektlisten) mit allen Personen der Körperschaft.",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "meeting": {
             "description": "Link zur [Objektliste](#objektlisten) mit allen Sitzungen der Körperschaft.",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "paper": {
             "description": "Link zur [Objektliste](#objektlisten) mit allen Drucksachen der Körperschaft.",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "legislativeTerm": {
             "description": "[Objektliste](#objektlisten) mit allen Wahlperioden der Körperschaft in dem Zeitraum, für den OParl bereitgestellt wird.",
@@ -112,7 +112,7 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "format": "uri"
+                        "format": "url"
                     },
                     "body": {
                         "description": "Die Körperschaft, der diese Wahlperiode zugeordnet ist.",

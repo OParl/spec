@@ -9,7 +9,7 @@
     "properties": {
         "id": {
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "type": {
             "type": "string",
@@ -21,7 +21,7 @@
             "oparl:backref": "organization",
             "oparl:cardinality": "n:1",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "name": {
             "description": "Offizielle (lange) Form des Namens der Gruppierung.",
@@ -35,7 +35,7 @@
             "type": "array",
             "items": {
                 "type": "string",
-                "format": "uri"
+                "format": "url"
             }
         },
         "meeting": {
@@ -46,7 +46,7 @@
             "type": "array",
             "items": {
                 "type": "string",
-                "format": "uri"
+                "format": "url"
             }
         },
         "shortName": {
@@ -57,7 +57,7 @@
             "description": "Positionen, die für diese Gruppierung vorgesehen sind.",
             "items": {
                 "type": "string",
-                "format": "uri"
+                "format": "url"
             },
             "type": "array"
         },
@@ -66,7 +66,7 @@
             "oparl:ref": "Organization",
             "oparl:cardinality": "n:1",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "classification": {
             "description": "Die Art der Gruppierung. In Frage kommen z.B. \"Rat\", \"Hauptausschuss\", \"Ausschuss\", \"Beirat\", \"Projektbeirat\", \"Kommission\", \"AG\", \"Verwaltungsrat\", \"Fraktion\" oder \"Partei\". Die Angabe SOLLTE möglichst präzise erfolgen.",
@@ -85,7 +85,7 @@
         "website": {
             "description": "Allgemeine Website der Gruppierung.",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "room": {
             "description": "Raum, in dem die Organization beheimatet ist.",
@@ -113,7 +113,7 @@
             "oparl:ref": "Location",
             "oparl:cardinality": "n:1",
             "type": "string",
-            "format": "uri"
+            "format": "url"
         },
         "keyword": {
             "items": {

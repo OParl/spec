@@ -55,11 +55,11 @@ def schema_to_md_table(schema, small_heading=False):
         
         if 'items' in prop:
             if "oparl:ref" in prop and type == "array" and 'type' in prop['items'] and 'format' in prop['items']:
-                type = type + "(" + prop['items']['type'] + ": " + prop['items']['format'] + ": " + prop["oparl:ref"] + "-ids)"
+                type = type + " aus " + prop['items']['type'] + "s vom Typ " + prop['items']['format'] + " (" + prop["oparl:ref"] + "-ids)"
             elif type == "array" and 'type' in prop['items'] and 'format' in prop['items']:
-                type = type + "(" + prop['items']['type'] + ": " + prop['items']['format'] + ")"
+                type = type + " aus " + prop['items']['type'] + "s vom Typ " + prop['items']['format']
             elif type == "array" and 'type' in prop['items']:
-                type = type + "(" + prop['items']['type'] + ")"
+                type = type + " aus " + prop['items']['type'] + "s"
         
         if "description" in prop:
            description = prop["description"]

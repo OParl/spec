@@ -68,7 +68,8 @@ Ein weiterer Aspekt betrifft die Abwärtskompatibilität, also die Kompatibilit�
 OParl-Clients mit zukünftigen Schnittstellen. So können beispielsweise zukünftige Erweiterungen
 des OParl-Schemas, etwa um neue Objekttypen, genauso durchgeführt werden, wie die Erweiterungen
 um herstellerspezifische Objekttypen. Ein Client muss diese Anteile nicht auswerten, sofern
-sie nicht für die Aufgabe des Clients relevant sind.
+sie nicht für die Aufgabe des Clients relevant sind. Das bedeutet im Umkehrschluss allerdings auch, dass ein Client 
+nicht fehlschlagen darf, falls derartige Erweiterungen vorhanden sind.
 
 
 ### Browseability/Verlinkung {#browseability_verlinkung}
@@ -87,7 +88,7 @@ Eine OParl-Schnittstelle gibt jedem einzelnen Objekt eine eindeutige Adresse, ei
 Somit kann die Schnittstelle den Verweis von einem Objekt, beispielsweise einem Gremium,
 auf ein anderes Objekt, etwa ein Mitglied des Gremiums, dadurch ausgeben, dass im Kontext
 des Gremiums die URL des Mitglieds ausgeben wird. Der Client kann somit ausgehend von einem
-bestimmten Objekt die anderen Objekte im System finden, indem er einfach den angebotenen
+bestimmten Objekt die zugehörigen Objekte im System finden, indem er einfach den angebotenen
 URLs folgt. Dieses Prinzip wird auch "Follow Your Nose"^[<http://patterns.dataincubator.org/book/follow-your-nose.html>] genannt.
 
 ### Schritte in Richtung Linked Data {#linked_data}
@@ -97,11 +98,7 @@ Der Begriff "Linked Data" steht für die Beschreibung von Daten in einer Form, d
 des Innern (Herausg.): Open Government Data Deutschland, Seite 433f., 2012
 <http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf>]
 
-OParl unterstützt mit der vorliegenden Version 1.0 der Spezifikation die Anwendung
-einiger Linked-Data-Prinzipien. Damit soll die automatisierte Verarbeitung
-und Verknüpfung von Informationen aus parlamentarischen Informationssystemen, auch über
-deren Grenzen hinweg, erleichtert werden.
+OParl erhebt mit der vorliegenden Version 1.0 keinen Anspruch auf Unterstützung aller Linked-Data-Prinzipien. Dies steht unter Anderem im Widerspruch zum nahen Verbleib am Status Quo. 
 
-Ein grundlegender Baustein der Linked-Data-Unterstützung in OParl ist die Tatsache, dass
-jedes Objekt durch eine URL identifiziert wird. So eignen sich OParl-Objekte für die
-Verknüpfung durch externe Anwendungen.
+Als Grundbaustein der möglichen Unterstützung in der Zukunft ist anzumerken,
+dass bereits jedes Objekt durch eine URL identifiziert wird. So eignen sich OParl-Objekte für die Verknüpfung durch externe Anwendungen.

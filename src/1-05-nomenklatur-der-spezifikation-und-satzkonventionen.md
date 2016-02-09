@@ -74,8 +74,7 @@ der beschriebenen Prinzipien. Es handelt sich in der Regel um frei erfundene
 Daten.
 
 Codebeispiele erheben insbesondere bei JSON-Code nicht den Anspruch auf
-hundertprozentige syntaktische Korrektheit. Insbesondere können in Codebeispielen
-Auslassungen vorkommen, die mit `...` gekennzeichnet werden.
+syntaktische Korrektheit und Vollständigkeit. Dementsprechend können in Codebeispielen Auslassungen vorkommen, die mit `...` gekennzeichnet werden.
 
 
 ### Namespace-Präfixe für Objekt- und Datentypen {#namespace-praefixe-fuer-objekt-und-datentypen}

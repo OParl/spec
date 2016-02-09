@@ -9,4 +9,4 @@ unterstützen.
 * Für den Dateiabruf wird die Ausgabe der HTTP-Header `Last-Modified`,
 `Content-Length` und `ETag` EMPFOHLEN.
 
-* Bei gelöschten Dateien SOLL der Statuscode `410` verwendet werden.
+* Bei gelöschten Dateien SOLLTE der HTTP-Statuscode `410` verwendet werden.

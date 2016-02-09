@@ -9,182 +9,134 @@ beliebigen Anzahl von anderen Objekten. Ein Beispiel dafür liefert der
 Objekttyp `oparl:System`, der über die Eigenschaft `body` auf sämtliche
 Objekte vom Typ `oparl:Body` (Körperschaften) des Systems zeigt.
 
-Dieses Kapitel beschreibt, wie solche Listen von verknüpften Objekten
-ausgegeben werden und welche Möglichkeiten dabei Server und Clients haben,
-um diese Ausgabe zu beeinflussen. Dabei werden die folgenden Konzepte
-behandelt:
+In der Spezifikation kommen drei Arten der Referenzierung vor:
 
-* Interne und externe Ausgabe von Listen
-* Kompakte und vollständige Form
-* Paginierung
-* Sortierung
-* Filter
+### Referenzierung von Objekte via URL
 
-### Interne und externe Ausgabe von Listen {#objektlisten_internextern}
-
-Das folgende Beispiel zeigt eine Möglichkeit, wie die Eigenschaft `body`
-ausgegeben werden kann. Dabei handelt es sich um eine *interne*,
-also die Ausgabe der Listenelemente direkt im eigentlich abgerufenen Objekt.
+Bei der Referenzierung einzelner Objekte wird eine URL angegeben, welche auf
+das entsprechende Objekt verweist. Der Typ ist hierbei ein string (url: Object-id).
+Ein Beispiel hierfür ist `subOrganizationOf` des Objektes Organization:
 
 ~~~~~  {#objektlisten_ex1 .json}
 {
-    "id": "https://oparl.example.org/",
-    "type": "http://oparl.org/schema/1.0/System",
-    "body": [
-        "https://oparl.example.org/bodies/1",
-        "https://oparl.example.org/bodies/2",
-        "https://oparl.example.org/bodies/3"
-    ],
-    ...
+  "id": "https://oparl.example.org/organization/1",
+  "type": "http://oparl.org/schema/1.0/Organization",
+  "subOrganizationOf": "https://oparl.example.org/organization/2"
+  ...
 }
 ~~~~~
 
-Wie oben zu sehen ist, ist der Wert der Eigenschaft `body` in diesem Fall ein
-Array. Die Einträge des Arrays sind URLs. Es handelt sich dabei um die URLs
-aller Objekte vom Typ `oparl:Body`, die mit dem gezeigten `oparl:System`
-Objekt in Beziehung stehen.
-
-Dieses Beispiel wurde lediglich zur Verdeutlichung gewählt. Es kommt so bei OParl
-nicht vor, da interne Listen die vollständige Listenform haben MÜSSEN.
-
-Eine alternative Möglichkeit für die Ausgabe derselben Information
-ist die *externe* Listenausgabe. Mit dieser Form der Ausgabe sieht das
-oben gezeigte Objekt nun so aus:
-
+Die Referenzierung via URL kann in einem Array vorkommen, was häufig bei Invers-Listen
+der Fall ist. Als Typ ist in diese Fall array of string (url: Object-id) angegeben.
+Ein Beispiel hierfür `meeting` in organization:
 ~~~~~  {#objektlisten_ex2 .json}
 {
-    "id": "https://oparl.example.org/",
-    "type": "http://oparl.org/schema/1.0/System",
-    "body": "https://oparl.example.org/bodies/",
+  "id": "https://oparl.example.org/paper/1",
+  "type": "http://oparl.org/schema/1.0/Paper",
+  "auxiliaryFile": [
+    "https://oparl.example.org/meeting/1",
+    "https://oparl.example.org/meeting/2",
+    "https://oparl.example.org/meeting/3",
+  ]
+  ...
+}
+~~~~~
+
+### Interne Ausgabe von Objekten
+
+Subobjekte inklusive der global verfügbaren Subobjekte `Location` und `File` werden intern
+ausgegeben. Ein Beispiel für ein einzelnes internes Dokument ist `location` in Body:
+
+~~~~~  {#objektlisten_ex3 .json}
+{
+  "id": "https://oparl.example.org/body/1",
+  "type": "http://oparl.org/schema/1.0/Body",
+  "location": {
+    "id": https://oparl.example.org/location/1,
+    "type": "http://oparl.org/schema/1.0/Location",
+    "description": "Ratshausvorplatz 1, 12345 Beispielstadt"
+  },
+  ...
+}
+~~~~~
+
+Auch die interne Ausgabe von Objekten gibt es als Array. Hier das Beispiel Attributes
+`membership` in Person: dies stellt ein Array an Membership-Objekten dar. Zu beachtendes Detail:
+innerhalb des Objektes Membership wird mit dem Attribut organization via Referenzierung auf
+eine Organization verwiesen (siehe oben):
+
+~~~~~  {#objektlisten_ex4 .json}
+{
+  "id": "https://oparl.example.org/person/1",
+  "type": "http://oparl.org/schema/1.0/Person",
+  "membership": [
+    {
+      "id": "https://oparl.example.org/memberships/385", 
+      "organization": "https://oparl.example.org/organizations/5", 
+      "role": "Vorsitzende", 
+      "votingRight": true, 
+      "startDate": "2013-12-03T16:30:00+01:00"
+    }, 
+    {
+      "id": "https://oparl.example.org/memberships/693", 
+      "organization": "https://oparl.example.org/organizations/9", 
+      "role": "Sachkundige Bürgerin", 
+      "votingRight": false, 
+      "startDate": "2013-12-03T16:30:00+01:00", 
+      "endDate": "2014-07-28T00:00:00+02:00"
+    }
+  ],
+  ...
+}
+~~~~~
+
+### Externe Objektlisten
+
+Diese besonderen Arrays werden extern angegeben. Dies betrifft die Attribute
+`organization`, `person`, `meeting` und `paper` des Objektes Body.
+Der Vorteil der externen Liste ist, dass sie Paginierung und Sortierung unterstützt.
+
+Im Objekt Body wird in dem betreffendden Attribut die URL zu der externen Liste ausgegeben:
+
+~~~~~  {#objektlisten_ex5 .json}
+{
+  "id": "https://oparl.example.org/body/1",
+  "type": "http://oparl.org/schema/1.0/Body",
+  "organization": "https://oparl.example.org/body/1/organization"
+  ...
+}
+~~~~~
+
+In der externen Liste findet man eine Liste der betreffenden Objekte mit interner Listenausgabe.
+Um das Beispiel des Attributes `organization` fortzuführen:
+
+~~~~~  {#objektlisten_ex5 .json}
+[
+  {
+    "id": "https://oparl.example.org/organization/1",
+    "type": "http://oparl.org/schema/1.0/Organization",
+    "name": "Organisation Nummer 1",
     ...
+  },
+  {
+    "id": "https://oparl.example.org/organization/2",
+    "type": "http://oparl.org/schema/1.0/Organization",
+    "name": "Organisation Nummer 2",
+    ...
+  },
+  {
+    "id": "https://oparl.example.org/organization/3",
+    "type": "http://oparl.org/schema/1.0/Organization",
+    "name": "Organisation Nummer 3",
+    ...
+  },
 }
 ~~~~~
-
-In diesem Fall ist der Wert der Eigenschaft `body` kein Array, sondern
-eine URL. Diese URL kann vom Client genutzt werden, um die entsprechende
-Liste mit Objekten aufzurufen. Wie die entsprechende Ausgabe des Servers
-aussieht, wird weiter unten beschrieben.
-
-Server DÜRFEN in den URLs für die externe Ausgabe von Listen NICHT den
-reservierten URL-Parameter `listformat` verwenden. Server MÜSSEN in den
-URLs für den Listenaufruf stets die URL zum Abruf der *vollständigen Form*
-ausgeben. Die Unterscheidung zwischen *kompakter* und *vollständiger*
-Form wird nachfolgend beschrieben.
-
-Die interne Listenausgabe MUSS überall überall verwendet werden, solange
-nicht explizit durch den Parameter listformat eine andere Ausgabe gewünscht wird.
-Einzige Ausnahme sind sämtliche Listen, welche Attribute des Objektes Body sind:
-dort MUSS die externe Listenausgabe verwendet werden.
-
-
-### Kompakte und vollständige Form (`listformat`) {#objektlisten_listformat}
-
-Wie im vorangehenden Abschnitt beschrieben, gibt es die Möglichkeit,
-Listen von Objekten über eine eigene URL zugänglich zu machen (*externe
-Listenausgabe*). Bei dieser externen Ausgabe gibt es zwei verschiedene
-Ausgabeformate, die sich durch den Umfang der Informationen unterscheiden,
-die je Objekt ausgegeben werden:
-
-* **Kompakte Form**: Hier wird je Eintrag nur die URL des Objekts
-  ausgegeben.
-
-* **Vollständige Form**: Hier wird jedes Objekt in der Liste vollständig
-  ausgegeben. Was genau "vollständig" bedeutet, wird nachstehend näher
-  beschrieben.
-
-Die Entscheidung, ob die kompakte oder die vollständige Form
-ausgegeben wird, obliegt dem Client. Dieser aktiviert die vollständige
-Ausgabe über den URL-Parameter `listformat`. Ist dieser Parameter nicht
-gesetzt, MUSS der Server die kompakte Form ausgeben. Ist der Parameter
-auf den Wert `complete` gesetzt, MUSS der Server die vollständige Form
-ausgeben.
-
-Hat beispielsweise der Server zum externen Aufruf der Liste die URL
-
-    https://oparl.example.org/bodies/1/papers/
-
-ausgegeben, ist unter dieser grundsätzlich die vollständigen Form zu erwarten.
-Der Client kann diese URL so erweitern, um die kompakte Form
-anzufordern:
-
-    https://oparl.example.org/bodies/1/papers/?listformat=compact
-
-Das folgende Beispiel zeigt, wie die Ausgabe der kompakten Form in einem
-einfachen Fall aussehen kann:
-
-~~~~~  {#objektlisten_ex3 .json}
-{
-    "items": [
-        "https://oparl.example.org/bodies/0/papers/2",
-        "https://oparl.example.org/bodies/0/papers/5",
-        "https://oparl.example.org/bodies/0/papers/7"
-    ]
-}
-~~~~~
-
-Die grundlegende Syntax ist für die externe Listenausgabe identisch,
-unabhängig davon, ob die kompakte oder vollständige Form ausgegeben wird:
-Der Server gibt ein JSON-Objekt aus, das eine Eigenschaft `items` enthält.
-Diese Eigenschaft hat den Typ `Array`.
-
-Die vollständige Form ist so definiert, dass darin jedes Objekt mit allen
-von OParl für diesen Typ definierten Eigenschaften ausgegeben werden MUSS,
-die auch beim individuellen Aufruf des jeweiligen Objekts ausgegeben werden.
-
-Das nachfolgende Beispiel zeigt dies verkürzt, analog zur oben gezeigten Liste:
-
-~~~~~  {#objektlisten_ex3 .json}
-{
-    "items": [
-        {
-            "id": "https://oparl.example.org/bodies/0/papers/2",
-            "type": "http://oparl.org/schema/1.0/Paper",
-            "body": "https://oparl.example.org/bodies/0",
-            "name": "Antwort auf Anfrage 1200/2014",
-            "publishedDate": "2014-04-04T16:42:02+02:00",
-            "paperType": "Beantwortung einer Anfrage",
-            "mainFile": "https://oparl.example.org/files/925",
-            "originator": [
-                "https://oparl.example.org/organization/2000"
-            ]
-        },
-        {
-            "id": "https://oparl.example.org/bodies/0/papers/5",
-            "type": "http://oparl.org/schema/1.0/Paper",
-            "body": "https://oparl.example.org/bodies/0",
-            "name": "Mitteilung der Verwaltung",
-            "publishedDate": "2014-06-01T12:24:18+02:00",
-            "paperType": "Mitteilung",
-            "mainFile": "https://oparl.example.org/files/2758",
-            "originator": [
-                "https://oparl.example.org/people/1000"
-            ]
-        },
-        ...
-    ]
-}
-~~~~~
-
-Wie zu sehen ist, hat die Eigenschaft `items` als Wert nun ein Array mit
-JSON-Objekten.
-
-Die Anforderung der vollständigen Form wirkt sich *nicht rekursiv* aus.
-Die einzelnen JSON-Objekte können ihrerseits wieder Eigenschaften
-haben, die auf mehrere Objekte verweisen. Diese Eigenschaften sind von der
-Anforderung der vollständigen Listenausgabe durch den Client nicht betroffen.
-Hier obliegt es wieder dem Server, zwischen der internen und der externen
-Listenausgabe (siehe oben) zu wählen. Bei der internen Listenausgabe ist ohnehin
-nur die kompakte Form (Ausgabe von URLs), wie oben im Beispiel gezeigt, erlaubt.
-
-Die Sortierreihenfolge der ausgegebenen Einträge SOLLTEN unabhängig
-von der Ausgabe der kompakten oder vollständigen Form identisch sein.
-
-Die vollständige Listenausgabe MUSS in allen Listen verwendet werden, welche Attribute des Body-Objektes sind.
 
 
 ### Paginierung  {#paginierung}
 
-Für die externe Listenausgabe von Listen mit vielen Elementen ist eine Blätterfunktion
+Für externe Objektlisten ist eine Blätterfunktion
 (Paginierung) vorgesehen. Damit ist die Aufteilung einer Liste
 in kleinere Teilstücke gemeint, die wir als *Listenseiten* bezeichnen.
 Jede Listenseite wird vom Client jeweils mit einer eigenen API-Anfrage

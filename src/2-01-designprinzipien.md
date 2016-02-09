@@ -6,11 +6,11 @@ Grundlage für die Erarbeitung der OParl-Spezifikation in der vorliegenden Versi
 ist eine Analyse von aktuell (2012 bis 2016) in Deutschland etablierten
 parlamentarischen Informationssystemen und ihrer Nutzung. Erklärtes Ziel für diese erste
 Version ist es, mit möglichst geringem Entwicklungsaufwand auf Seite der Softwareanbieter und
-Migrationsaufwand auf Seite der Betreiber zu einer Bereitstellung von parlamentarischen
+ebenso geringem Migrationsaufwand auf Seite der Betreiber zu einer Bereitstellung von parlamentarischen
 Informationen über eine OParl-API zu gelangen. Hierbei war es von entscheidender
 Bedeutung, dass sich die Informationsmodelle der einschlägigen Softwareprodukte stark
 ähneln. Für die OParl-Spezifikation wurde sozusagen ein Datenmodell als "gemeinsamer Nenner"
-auf Basis der gängigen Praxis beschrieben.
+auf Basis der gängigen Praxis konstruiert.
 
 ### Verbesserung gegenüber dem Status Quo wo möglich {#verbesserung-gegenueber-status-quo}
 
@@ -50,11 +50,6 @@ PDF-Version.
 Ausgaben des Servers sollten so beschaffen sein, dass sie für menschliche Nutzerinnen
 weitgehend selbsterklärend sein können. Dies betrifft besonders die Benennung von
 Objekten und Objekteigenschaften.
-
-Aber auch für die maschinelle Verarbeitung der Daten durch Clients kann die
-Selbstbeschreibung wichtig sein. Dies stellt allerdings erhöhte Anforderungen
-an die verwendeten Datenformate, da dafür formalisierte semantische
-Informationen enthalten sein müssen.
 
 Um den Kreis der Entwicklerinnen und Entwickler, die mit einer OParl-API arbeiten
 können, nicht unnötig einzuschränken, wird hierbei grundsätzlich auf englischsprachige

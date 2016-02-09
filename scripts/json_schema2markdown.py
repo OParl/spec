@@ -50,8 +50,10 @@ def schema_to_md_table(schema, small_heading=False):
         if isinstance(type, list):
             type = "/".join(type)
 
-        if "oparl:ref" in prop and type == "string":
-            type = type + ": " + prop["oparl:ref"] + "-id"
+        if "oparl:ref" in prop and type == "string" and 'format' in prop:
+            type = type + " (" + prop['format'] + ": " + prop["oparl:ref"] + "-id)"
+        elif type == "string" and 'format' in prop:
+            type = type + " (" + prop['format'] + ")"
         
         if 'items' in prop:
             if "oparl:ref" in prop and type == "array" and 'type' in prop['items'] and 'format' in prop['items']:

@@ -3,7 +3,7 @@
 ### Aufbauen auf gängiger Praxis {#aufbauen-auf-gaengiger-praxis}
 
 Grundlage für die Erarbeitung der OParl-Spezifikation in der vorliegenden Version
-ist eine Analyse von aktuell (2012 bis 2014) in Deutschland etablierten
+ist eine Analyse von aktuell (2012 bis 2016) in Deutschland etablierten
 parlamentarischen Informationssystemen und ihrer Nutzung. Erklärtes Ziel für diese erste
 Version ist es, mit möglichst geringem Entwicklungsaufwand auf Seite der Softwareanbieter und
 Migrationsaufwand auf Seite der Betreiber zu einer Bereitstellung von parlamentarischen

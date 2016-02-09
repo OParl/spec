@@ -3,7 +3,7 @@ Dateizugriffe  {#dateizugriff}
 
 Mit dem Begriff "Datei" sind im Sinne dieser Spezifikation alle Ressourcen
 gemeint, die von einem OParl-Server zur Verfügung gestellt werden und
-deren Metadaten über die JSON-API als [`oparl:File`](#oparl_file)
+deren Metadaten über die JSON-API als [`oparl:File`](#entity-file)
 abgerufen werden können. Es handelt sich dabei beispielsweise um Textdokumente
 im PDF-Format, Abbildungen im JPEG- oder PNG-Format etc., die wesentliche
 Inhalte der parlamentarischen Informationen im OParl-System ausmachen.
@@ -87,33 +87,6 @@ Conditional GET zu unterstützen:
 
 * `If-None-Match`: Erlaubt die Formulierung der Bedingung anhand eines
   Entity-Tags.
-
-### Zustandsloser Dateizugriff
-
-Die Anforderung, dass die OParl-API zustandslos arbeitet, hat ZWINGEND auch für
-den Abruf von Dateien zu gelten. Es DÜRFEN daher keine Session-spezifischen
-URLs oder Ähnliches für den Dateizugriff gebildet werden.
-
-Damit wird erreicht, dass Clients die Zugriffs-URLs aus dem `oparl:File` für
-längere Zeit speichern bzw. cachen können.
-
-### Weiterleitungen
-
-Es ist im Rahmen dieser Spezifikation problemlos möglich, die Anfrage an eine
-Datei-URL mit einer HTTP-Weiterleitung zu beantworten, um dem Client eine
-andere URL zum Zugriff mitzuteilen.
-
-In diesem Fall wird dringend EMPFOHLEN, die Unterscheidung der Bedeutung der
-HTTP-Status-Codes `301` und `307` zu beachten.
-
-* `301` SOLLTE verwendet werden, wenn die vom Client angefragte URL auch zukünftig
-  nicht mehr gültig sein wird. Clients erhalten damit das Signal, die bisherige
-  URL zu verwerfen und zukünftig die neue, vom Server in der Antwort mitgeteilte
-  zu verwenden.
-
-* `307` SOLLTE verwendet werden, wenn die vom Client genutzte URL nur temporär auf
-  eine bestimmte andere URL weiter leitet. Clients werden so aufgefordert, die
-  vorhandene URL auch bei zukünftigen Anfragen zu nutzen.
 
 ### Entfernte Dateien
 

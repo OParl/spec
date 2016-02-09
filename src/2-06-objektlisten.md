@@ -4,8 +4,7 @@ Generell kommt es beim Aufruf eines einzelnen Objekts in vielen
 Fällen vor, dass eine Reihe von Objekten referenziert wird, die
 mit dem aktuellen Objekt in Beziehung stehen. Für einzelne
 Eigenschaften ist es nur erlaubt, genau ein verbundenes Objekt
-zu referenziert (unter "Schema" gekennzeichnet mit einer "Kardinalität"
-von höchstens 1). Andere Eigenschaften erlauben die Verknüpfung einer
+zu referenziert. Andere Eigenschaften erlauben die Verknüpfung einer
 beliebigen Anzahl von anderen Objekten. Ein Beispiel dafür liefert der
 Objekttyp `oparl:System`, der über die Eigenschaft `body` auf sämtliche
 Objekte vom Typ `oparl:Body` (Körperschaften) des Systems zeigt.

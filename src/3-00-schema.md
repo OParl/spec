@@ -56,25 +56,25 @@ müssen.
 
 ### Kardinalität {#kardinalitaet}
 
-Zur expliziten Unterscheidung, ob eine Eigenschaft einen einzelnen Wert
-(z. B. eine Zeichenkette, eine URL, eine Zahl) oder alternativ eine Liste mit
-mehreren Elementen als Wert haben darf, ist in der Schema-Beschreibung
-zu jeder Eigenschaft die *Kardinalität* angegeben. Dabei sind verschiedene
-Angaben zur Eigenschaft möglich:
+Ob eine Eigenschaft ein einzelner Wert oder eine Liste aus mehreren Werten ist,
+kann im Schema an Spalte `Typ` erkannt werden:
 
-* 0 bis 1: OPTIONAL und MUSS NICHT gesetzt sein. Wenn sie gesetzt ist,
-  DARF sie genau einen Wert haben.
+* Der Typ array mit dem Zusatz ZWINGEND beschreibt ein JSON-Array mit mindestens einem
+  Wert, somit einer Kardinalität von 1 - n.
 
-* 1: MUSS gesetzt sein und genau einen Wert haben.
+* Der Typ array ohne den Zusatz ZWINGEND beschreibt ein JSON-Array ohne Mindestanzahl
+  von Werten, somit einer Kardinalität von 0 - n.
 
-* 0 bis *: OPTIONAL und MUSS NICHT gesetzt sein. Wenn sie gesetzt ist,
-  DARF sie beliebig viele Werte haben.
+* Alle anderen Typen (object, string, integer, boolean) mit dem Zusatz ZWINGEND beschreiben
+  den genannten Typus mit exakt einem Wert, d.h. einer Kardinalität von 1.
+  
+* Alle anderen Typen (object, string, integer, boolean) ohne den Zusatz ZWINGEND beschreiben
+  den genannten Typus mit keinem oder einem Wert, d.h. einer Kardinalität von 0 - 1
+  
+Liegen keine Information zu dem Attribut vor, so MUSS das Attribut entfernt werden.
+Dies ist bei allen inhaltlichen Attributen möglich, die nicht mit `ZWINGEND` markiert
+sind.
 
-* 1 bis *: MUSS vorhanden sein, es MUSS mindestens ein Wert gesetzt sein.
-  Es DÜRFEN auch mehrere Werte vorhanden sein.
-
-Zur Ausgabe von Listen innerhalb eines Objekts sowie über eigene URLs finden sich
-ausführlichere Erläuterungen im Abschnitt [Objektlisten](#objektlisten).
 
 ### Datums- und Zeitangaben  {#datum_zeit}
 

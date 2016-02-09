@@ -47,7 +47,7 @@ maximal erreichbare Transparenz zu bieten. Das fängt bei verfügbaren Dokumentf
 (ein PDF mit digitalem Text weist weit weniger Barrieren auf, als ein gescannter Brief, 
 der ebenfalls als PDF gespeichert wurde) und hört bei der verwendeten Sprache auf[^2].
 
-[^1]: Barrierefreie Informationstechnik-Verordnung 2.0 <http://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl111s1843.pdf>
+[^1]: Barrierefreie Informationstechnik-Verordnung 2.0 <http://www.gesetze-im-internet.de/bitv_2_0/>
 
 [^2]: Weitere generelle Informationen zur Bereitstellung offener Verwaltungsdaten bieten
 bspw.

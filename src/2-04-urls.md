@@ -5,24 +5,19 @@ kommt bei einer OParl-konformen API eine besondere Bedeutung zu und es werden ei
 Reihe von Anforderungen an die Verarbeitung von URLs gestellt.
 
 Die grundsätzliche Funktionsweise von URLs ist in RFC 3986
-beschrieben^[RFC 3986: <http://tools.ietf.org/html/rfc3986>]. Darauf aufbauend sind
-hier die Bestandteile einer beispielhaften URL mit den Bezeichnungen beschriftet,
-mit denen sie in diesem Dokument benannt werden:
-
-![Benennung von URL-Bestandteilen](images/url.png)
-
-Der optionale _Query-String_ besteht dabei aus beliebig vielen _Query-Parametern_, die
-jeweils einen Namen (links des Gleichheitszeichens) und einen Wert haben können.
+beschrieben^[RFC 3986: <http://tools.ietf.org/html/rfc3986>]. 
 
 ### URL-Kanonisierung {#url_kanonisierung}
 
-Absicht ist, dass jedes Objekt, das ein Server über eine OParl-API anbietet, über genau
-eine URL identifizierbar und abrufbar ist. Diese Vereinheitlichung der URL wird
+Wie bereits weiter oben erläutert, ist jedes Objekt, das über eine OParl-API 
+angeboten wird, über eine URL identifizierbar und abrufbar. Um zweifelsfrei 
+erkennen zu können, ob es sich zwei abgerufene Objekte gleichen, oder ob es 
+unterschiedliche Objekte sind, ist es zwingend notwendig, die URLs zu 
+vereinheitlichen. Diese Vereinheitlichung der URL wird
 nachfolgend _Kanonisierung_ genannt.
 
-Die Kanonisierung ist entscheidend, um erkennen zu können, ob zwei URLs dasselbe
-Objekt repräsentieren. Sind zwei URLs identisch, SOLLTEN Clients daraus ableiten können,
-dass diese dasselbe Objekt repräsentieren. Sind zwei URLs unterschiedlich, SOLLTE
+Sind zwei URLs identisch, SOLLTEN Clients daraus ableiten können,
+dass diese dasselbe Objekt repräsentieren. Sind zwei URLs unterschiedlich, SOLLTE 
 im Umkehrschluss die Annahme gelten, dass sie zwei verschiedene Objekte repräsentieren.
 
 Der OParl-konforme Server MUSS für jedes benannte Objekt eine kanonische URL bestimmen können.

@@ -27,10 +27,10 @@ array:
 integer:
 :   Integers entsprechen der Definition des Integer-Parts der Number aus RFC 7159 Section 6
 
-integer:
+boolean:
 :   Integers entsprechen der Definition von Boolean in RFC 7159 Section 3
 
-Strings:
+string:
 :   Arrays entsprechen der Definition der Unicode-Strings aus RFC 7159 Section 7
 
 

@@ -1,4 +1,4 @@
-## JSON-Ausgabe {#json-ausgabe}
+## JSON-Ausgabe und Datentypen {#json-ausgabe}
 
 Ein OParl-Server MUSS Objekte in Form von JSON ausgeben. Die Abkürzung JSON steht
 für "JavaScript Object Notation". Das JSON-Format ist in
@@ -13,3 +13,49 @@ Eine Syntaxübersicht und weitere Implementierungshinweise finden sich auf
 
 [^fn-rfc7159-7]: [RFC 7159 Section 7](https://tools.ietf.org/html/rfc7159#section-7)
 [^fn-rfc7159-81]: [RFC 7159 Section 8.1](https://tools.ietf.org/html/rfc7159#section-8.1)
+
+## In OParl verwendete Datentypen
+
+In OParl werden alle in JSON definierten Dateitypen verwendet:
+
+object:
+:   Objects entsprechen der Definition des Objects in RFC 7159 Section 4
+
+array:
+:   Arrays entsprechen der Definition des Arrays in RFC 7159 Section 5
+
+integer:
+:   Integers entsprechen der Definition des Integer-Parts der Number aus RFC 7159 Section 6
+
+integer:
+:   Integers entsprechen der Definition von Boolean in RFC 7159 Section 3
+
+Strings:
+:   Arrays entsprechen der Definition der Unicode-Strings aus RFC 7159 Section 7
+
+
+In OParl werden verschiedene String-Typen verwendet. Wenn von diesen Typen gesprochen wird,
+so wird automatisch ein JSON-String vorausgesetzt:
+
+url:
+:   Eine URL ist ein String, der entsprechend OParl Kapitel 2.4 formatiert wurde
+
+url (Object):
+:   Eine url mit in Klammern angehängtem Object beschreibt eine URL auf eben diesen Objekttypus.
+
+date-time:
+:   Ein date-time entspricht einem Datum und ggf. einer Uhrzeit, wie sie in 3.1.4 beschrieben werden
+
+
+
+
+Anzahl der Seiten (Eigenschaft `itemsPerPage`):
+:   Mit dem Attribut `itemsPerPage` kann die Anzahl der Objekte pro
+    Seite ausgegeben werden. Wenn `itemsPerPage` ausgegeben wird,
+    MUSS die Anzahl der Objekte auf allen Seiten bis auf der letzten
+    identisch sein.
+    
+Anzahl der Seiten (Eigenschaft `numberOfPages`):
+:   Mit `numberOfPages` kann die Anzahl der Seiten ausgegeben werden.
+    Dies ist hilfreich, um prognostizieren zu können, wie lange ein
+    Abruf dauern wird.

@@ -28,10 +28,10 @@ integer:
 :   Integers entsprechen der Definition des Integer-Parts der Number aus RFC 7159 Section 6
 
 boolean:
-:   Integers entsprechen der Definition von Boolean in RFC 7159 Section 3
+:   Booleans entsprechen der Definition von Boolean in RFC 7159 Section 3
 
 string:
-:   Arrays entsprechen der Definition der Unicode-Strings aus RFC 7159 Section 7
+:   Strings entsprechen der Definition der Unicode-Strings aus RFC 7159 Section 7
 
 
 In OParl werden verschiedene String-Typen verwendet. Wenn von diesen Typen gesprochen wird,

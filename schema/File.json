@@ -85,8 +85,8 @@
             "format": "url"
         },
         "fileLicense": {
-            "description": "Lizenz, unter der die Datei angeboten wird. Wenn diese Eigenschaft nicht verwendet wird, ist der Wert von `license` beziehungsweise die Lizenz eines übergeordneten Objektes maßgeblich.^[vgl. [license](#eigenschaft_license)]"
-            "type": "string"
+            "description": "Lizenz, unter der die Datei angeboten wird. Wenn diese Eigenschaft nicht verwendet wird, ist der Wert von `license` beziehungsweise die Lizenz eines übergeordneten Objektes maßgeblich.^[vgl. [license](#eigenschaft_license)]",
+            "type": "string",
             "format": "url"
         },
         "fileRole": {

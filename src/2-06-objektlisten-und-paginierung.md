@@ -33,9 +33,9 @@ Ein Beispiel hierfür ist `meeting` in `Organization`:
 
 ~~~~~  {#objektlisten_ex2 .json}
 {
-  "id": "https://oparl.example.org/paper/1",
-  "type": "http://oparl.org/schema/1.0/Paper",
-  "auxiliaryFile": [
+  "id": "https://oparl.example.org/organization/1",
+  "type": "http://oparl.org/schema/1.0/Organization",
+  "meeting": [
     "https://oparl.example.org/meeting/1",
     "https://oparl.example.org/meeting/2",
     "https://oparl.example.org/meeting/3",
@@ -163,42 +163,15 @@ Das nachfolgende Beispiel zeigt dies für den Anfang einer paginierten Liste:
         "https://oparl.example.org/bodies/0/papers/7",
         ...
     ],
-    "itemsPerPage": 100,
     "nextPage": "https://oparl.example.org/bodies/0/papers/?skip_id=495"
 }
 ~~~~~
 
-Über die Paginierung ausgegebene Eigenschaft `itemsPerPage`
-KANN der Server kommunizieren, wie viele Einträge pro Listenseite
-ausgegeben werden. Die Zahl der Einträge, die der
-Server dabei je Listenseite ausliefert, SOLLTE dabei mindestens 10 und
-maximal 1000 betragen.
-
-Weiterhin wird bei Paginierung über eine Eigenschaft `nextPage` eine
-URL zum Abruf der jeweils nächsten Listenseite ausgegeben. Die
-Beschaffenheit der URL bestimmt der Server frei, das obige Beispiel
-ist in keiner Form bindend.
-
-OPTIONAL sind die Eigenschaften `numberOfPages`, mit der
-die Anzahl der Listenseiten angegeben wird, und `currentPage`, mit der
-der Server angibt, um welche Seite der Auflistung es sich handelt,
-wobei die Zählung bei 0 beginnt. Das obenstehende Beispiel kann um
-die beiden Eigenschaften erweitert werden:
-
-~~~~~  {#objektlisten_ex5 .json}
-{
-    "items": [
-        "https://oparl.example.org/bodies/0/papers/2",
-        "https://oparl.example.org/bodies/0/papers/5",
-        "https://oparl.example.org/bodies/0/papers/7",
-        ...
-    ],
-    "numberOfPages": 123,
-    "currentPage": 10,
-    "itemsPerPage": 100,
-    "nextPage": "https://oparl.example.org/bodies/0/papers/?skip_id=495"
-}
-~~~~~
+Sobald es mehrere Seiten gibt, MUSS das Attribut `nextPage` bei
+allen Seiten außer der letzten angegeben werden. Dieses Attribut
+enthält eine URL, über die die nächste Listenseite abgerufen werden
+kann. Die Beschaffenheit der URL bestimmt der Server frei, das
+obige Beispiel ist in keiner Form bindend.
 
 Es ergibt sich eine typische Abfolge, wie Clients bei Bedarf
 mit mehreren Anfragen ganze Objektlisten vom Server abrufen:
@@ -239,6 +212,37 @@ Vorherige Listenseite (Eigenschaft `prevPage`):
     Liste wiedergibt, KANN der Server diese Eigenschaft ausgeben,
     deren Wert die URL zum Abruf der *vorigen* Listenseite ist.
 
+Anzahl der Seiten (Eigenschaft `itemsPerPage`):
+:   Mit dem Attribut `itemsPerPage` kann die Anzahl der Objekte pro
+    Seite ausgegeben werden. Wenn `itemsPerPage` ausgegeben wird,
+    MUSS die Anzahl der Objekte auf allen Seiten bis auf der letzten
+    identisch sein.
+    
+Anzahl der Seiten (Eigenschaft `numberOfPages`):
+:   Mit `numberOfPages` kann die Anzahl der Seiten ausgegeben werden.
+    Dies ist hilfreich, um prognostizieren zu können, wie lange ein
+    Abruf dauern wird.
+
+
+Zusammen mit allen Zusatzattributen sähe eine Liste also wie folgt aus:
+
+~~~~~  {#objektlisten_ex7 .json}
+{
+  "items": [
+    "https://oparl.example.org/bodies/0/papers/2",
+    "https://oparl.example.org/bodies/0/papers/5",
+    "https://oparl.example.org/bodies/0/papers/7",
+    ...
+  ],
+  "numberOfPages": 123,
+  "currentPage": 10,
+  "itemsPerPage": 100,
+  "firstPage": "https://oparl.example.org/bodies/0/papers/"
+  "prevPage": "https://oparl.example.org/bodies/0/papers/?skip_id=239"
+  "nextPage": "https://oparl.example.org/bodies/0/papers/?skip_id=495"
+}
+~~~~~
+
 Damit eröffnet der Server dem Client zusätzliche Möglichkeiten,
 die einzelnen Listenseiten abzurufen.
 
@@ -275,14 +279,14 @@ eine Tabelle `example`, die einen
 numerischen Primärschlüssel `id` enthält. Nehmen wir an, die erste Seite der
 Liste wird mit der Abfrage
 
-~~~~~  {#objektlisten_ex3 .sql}
+~~~~~  {#objektlisten_ex8 .sql}
 SELECT * FROM example ORDER BY id LIMIT 10 OFFSET 0
 ~~~~~
 
 abgerufen und würde 10 Datensätze mit den `id`s 1 bis 10 zurückliefern. Dann wird
 die zweite Seite mit der Abfrage
 
-~~~~~  {#objektlisten_ex4 .sql}
+~~~~~  {#objektlisten_ex9 .sql}
 SELECT * FROM example ORDER BY id LIMIT 10 OFFSET 10
 ~~~~~
 
@@ -299,7 +303,7 @@ beginnen soll, explizit zu benennen. Wurden auf der ersten
 Listenseite die Datensätze mit den IDs 1 bis 10 ausgegeben, so könnte der
 Folgeaufruf, um beim SQL-Beispiel zu bleiben, so aussehen:
 
-~~~~~  {#objektlisten_ex5 .sql}
+~~~~~  {#objektlisten_ex10 .sql}
 SELECT * FROM example WHERE id > 10 ORDER BY id LIMIT 10
 ~~~~~
 

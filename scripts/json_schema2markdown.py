@@ -52,7 +52,7 @@ def schema_to_md_table(schema, small_heading=False):
             if "title" in prop:
                 type = type + " (" + prop["title"] + ")"
             elif "$ref" in prop:
-                type = type + " (" + prop['$prop'][0:-5] + ")"
+                type = type + " (" + prop['$ref'][0:-5] + ")"
             embedded_objects.append(prop)
 
         elif type == "array" and prop["items"]["type"] == "object" and "properties" in prop["items"]:
@@ -78,7 +78,7 @@ def schema_to_md_table(schema, small_heading=False):
                     else:
                         type = type + " of " + prop['items']['type']
                 elif "$ref" in prop['items']:
-                    type = type + " of " + prop['items']['type'] + " (" + prop['items']['$prop'][0:-5] + ")"
+                    type = type + " of " + prop['items']['type'] + " (" + prop['items']['$ref'][0:-5] + ")"
                 else:
                     type = type + " of " + prop['items']['type']
         

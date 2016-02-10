@@ -46,16 +46,3 @@ url (Object):
 date-time:
 :   Ein date-time entspricht einem Datum und ggf. einer Uhrzeit, wie sie in 3.1.4 beschrieben werden
 
-
-
-
-Anzahl der Seiten (Eigenschaft `itemsPerPage`):
-:   Mit dem Attribut `itemsPerPage` kann die Anzahl der Objekte pro
-    Seite ausgegeben werden. Wenn `itemsPerPage` ausgegeben wird,
-    MUSS die Anzahl der Objekte auf allen Seiten bis auf der letzten
-    identisch sein.
-    
-Anzahl der Seiten (Eigenschaft `numberOfPages`):
-:   Mit `numberOfPages` kann die Anzahl der Seiten ausgegeben werden.
-    Dies ist hilfreich, um prognostizieren zu können, wie lange ein
-    Abruf dauern wird.

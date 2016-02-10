@@ -55,6 +55,7 @@
         },
         "post": {
             "description": "Positionen, die für diese Gruppierung vorgesehen sind.",
+            "oparl:ref": "Person",
             "items": {
                 "type": "string",
                 "format": "url"
@@ -110,7 +111,7 @@
         },
         "external_body": {
             "description": "Ggf. vorhandener externer OParl Body, welcher innerhalb dieses Bodys der Organisation entspricht.",
-            "oparl:ref": "Location",
+            "oparl:ref": "Body",
             "oparl:cardinality": "n:1",
             "type": "string",
             "format": "url"

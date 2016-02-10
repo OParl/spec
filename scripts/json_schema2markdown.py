@@ -58,7 +58,7 @@ def schema_to_md_table(schema, small_heading=False):
             type = "/".join(type)
 
         if "oparl:ref" in prop and type == "string" and 'format' in prop:
-            type = prop['format'] + " (" + prop["oparl:ref"] + "-id)"
+            type = prop['format'] + " (" + prop["oparl:ref"] + ")"
         elif type == "string" and 'format' in prop:
             type = prop['format']
 
@@ -68,7 +68,7 @@ def schema_to_md_table(schema, small_heading=False):
             elif type == "array" and 'type' in prop['items'] and 'format' in prop['items']:
                 type = type + " of " + prop['items']['format']
             elif type == "array" and 'type' in prop['items']:
-                type = type + " of " + prop['items']['type'] + "s"
+                type = type + " of " + prop['items']['type']
         
         if "description" in prop:
            description = prop["description"]

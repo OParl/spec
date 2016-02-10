@@ -80,8 +80,13 @@
             }
         },
         "license": {
-            "description": "Lizenz, unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet wird, dann ist sie anstelle einer globalen Angabe im übergeordneten `oparl:Body`- bzw. `oparl:System`-Objekt maßgeblich.^[vgl. [license](#eigenschaft_license)]",
+            "description": "Lizenz, unter der die Datei-Metadaten (dieses Objekt) angeboten werden. Wenn diese Eigenschaft verwendet wird, dann ist sie anstelle einer globalen Angabe im übergeordneten `oparl:Body`- bzw. `oparl:System`-Objekt maßgeblich.^[vgl. [license](#eigenschaft_license)]",
             "type": "string",
+            "format": "url"
+        },
+        "fileLicense": {
+            "description": "Lizenz, unter der die Datei angeboten wird. Wenn diese Eigenschaft nicht verwendet wird, ist der Wert von `license` beziehungsweise die Lizenz eines übergeordneten Objektes maßgeblich.^[vgl. [license](#eigenschaft_license)]"
+            "type": "string"
             "format": "url"
         },
         "fileRole": {

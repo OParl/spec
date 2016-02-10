@@ -49,6 +49,8 @@ def schema_to_md_table(schema, small_heading=False):
 
         # eingebettete Objekte finden
         if type == "object" and "properties" in prop:
+            if "title" in prop:
+                type = type + " (" + prop["title"] + ")"
             embedded_objects.append(prop)
 
         elif type == "array" and prop["items"]["type"] == "object" and "properties" in prop["items"]:
@@ -68,6 +70,11 @@ def schema_to_md_table(schema, small_heading=False):
             elif type == "array" and 'type' in prop['items'] and 'format' in prop['items']:
                 type = type + " of " + prop['items']['format']
             elif type == "array" and 'type' in prop['items']:
+                if "title" in prop['items'] and "type" in prop['items']:
+                    if prop['items']["type"] == "object":
+                        type = type + " of " + prop['items']['type'] + " (" + prop['items']['title'] + ")"
+                    else:
+                        type = type + " of " + prop['items']['type']
                 type = type + " of " + prop['items']['type']
         
         if "description" in prop:

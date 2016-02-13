@@ -50,7 +50,7 @@ Wert eines Attributs angegeben. Ein Beispiel für ein internes  Objekt ist
   "id": "https://oparl.example.org/body/1",
   "type": "http://oparl.org/schema/1.0/Body",
   "location": {
-    "id": https://oparl.example.org/location/1,
+    "id": "https://oparl.example.org/location/1",
     "type": "http://oparl.org/schema/1.0/Location",
     "description": "Ratshausvorplatz 1, 12345 Beispielstadt"
   },
@@ -127,21 +127,18 @@ Ein Beispiel dafür ist `organization` in `Body`:
 
 ### Paginierung  {#paginierung}
 
-Für externe Objektlisten ist eine Blätterfunktion
-(Paginierung) vorgesehen. Damit ist die Aufteilung einer Liste
-in kleinere Teilstücke gemeint, die wir als *Listenseiten* bezeichnen.
-Jede Listenseite wird vom Client jeweils mit einer eigenen API-Anfrage
-abgerufen. Das dient dazu, die bei der jeweiligen Anfrage übertragenen
-Datenmengen und Antwortzeiten zu begrenzen und Systemressourcen
-sowohl beim Server als auch beim Client zu schonen.
+Für externe Objektlisten ist eine Aufteilung sogenannte *Listenseiten*
+vorgesehen, wobei jede Listenseite eine eigene URL erhält. Das dient dazu,
+die bei der jeweiligen Anfrage übertragenen Datenmengen und Antwortzeiten zu
+begrenzen.
 
-Die Entscheidung, ob eine Seite teilweise und daher mit Paginierung
+Die Entscheidung, ob eine externe Objektiste mit Paginierung
 ausgegeben wird, liegt allein beim Server. Bei Listen mit mehr als 100
 Einträgen wird dies EMPFOHLEN.
 
-Der Server gibt für eine Liste, bei der die Paginierung aktiv ist, d. h.
-nicht alle Listenelemente ausgegeben wurden, zusätzliche Eigenschaften aus.
-Das nachfolgende Beispiel zeigt dies für den Anfang einer paginierten Liste:
+Jede Listenseite ausser der Letzten muss dabei das Attribut `nextPage`
+enthalten, welches auf die nächste Listenseite verweist. Ein Client kann damit
+nacheinander alle Listenseiten abrufen.
 
 ~~~~~  {#objektlisten_ex4 .json}
 {
@@ -155,45 +152,17 @@ Das nachfolgende Beispiel zeigt dies für den Anfang einer paginierten Liste:
 }
 ~~~~~
 
-Sobald es mehrere Seiten gibt, MUSS das Attribut `nextPage` bei
-allen Seiten außer der letzten angegeben werden. Dieses Attribut
-enthält eine URL, über die die nächste Listenseite abgerufen werden
-kann. Die Beschaffenheit der URL bestimmt der Server frei, das
-obige Beispiel ist in keiner Form bindend.
-
-Es ergibt sich eine typische Abfolge, wie Clients bei Bedarf
-mit mehreren Anfragen ganze Objektlisten vom Server abrufen:
-
-1. Der Server stellt eine URL für eine Liste zur Verfügung.
-
-2. Der Client ruft diese URL der Liste auf.
-
-3. Der Server antwortet mit einer verkürzten Listenausgabe und
-   gibt mittels `nextPage`-Eigenschaft die URL für den
-   Abruf der nächsten Listenseite an.
-
-4. Der Client ruft die URL für die nächste Listenseite auf.
-
-Die Punkte 3 und 4 können sich nun so oft wiederholen, bis
-die letzte Listenseite erreicht ist.
-
-5. Der Server liefert die letzte Listenseite ohne
-   `nextPage`-Eigenschaft aus.
-
-Zusätzlich zur für die Paginierung ZWINGENDEN Eigenschaft
-`nextPage`, die lediglich auf der letzten Listenseite entfällt,
-können Server OPTIONAL weitere URLs zum Abruf bestimmter
-Listenseiten anbieten:
+Es gibt dazu einige OPTIONALE Attribute für Listenseiten:
 
 Erste Listenseite (Eigenschaft `firstPage`):
 :   Sofern die aktuell abgerufene Listenseite nicht den Anfang der
     Liste wiedergibt, KANN der Server diese Eigenschaft ausgeben,
-    deren Wert die URL zum Abruf der *ersten* Listenseite ist.
+    deren Wert die URL zum Abruf der ersten Listenseite ist.
 
 Letzte Listenseite (Eigenschaft `lastPage`):
 :   Sofern die aktuell abgerufene Listenseite nicht das Ende der
     Liste wiedergibt, KANN der Server diese Eigenschaft ausgeben,
-    deren Wert die URL zum Abruf der *letzten* Listenseite ist.
+    deren Wert die URL zum Abruf der*letzten Listenseite ist.
 
 Vorherige Listenseite (Eigenschaft `prevPage`):
 :   Sofern die aktuell abgerufene Listenseite nicht den Anfang der
@@ -212,7 +181,7 @@ Anzahl der Seiten (Eigenschaft `numberOfPages`):
     Abruf dauern wird.
 
 
-Zusammen mit allen Zusatzattributen sähe eine Liste also wie folgt aus:
+Zusammen mit allen Zusatzattributen sieht eine Liste also wie folgt aus:
 
 ~~~~~  {#objektlisten_ex7 .json}
 {
@@ -302,14 +271,10 @@ vom Client eingeschränkt wurde.
 
 ### Sortierung
 
-OParl definiert keine Möglichkeit für Clients, auf die Reihenfolge von Listeneinträgen
-Einfluss zu nehmen. Von Servern wird die Einhaltung einiger grundlegender Anforderungen
-erwartet, die teilweise bereits erwähnt wurden.
-
 Server MUSS generell für eine **stabile Sortierung** von Listeneinträgen sorgen. Das
 heißt, die Sortierung von Einträgen folgt einem konstanten Prinzip und ändert sich nicht von
-Abfrage zu Abfrage. Eine Einfache Möglichkeit, dies Umzusetzen, wäre in vielen Fällen
-die Sortierung von Objekten nach ihrer eindeutigen und unveränderlichen ID.
+Abfrage zu Abfrage. Eine einfache Möglichkeit, dies Umzusetzen, wäre in vielen Fällen
+die Sortierung von Objekten nach einer eindeutigen und unveränderlichen ID.
 
 
 ### Filter  {#filter}

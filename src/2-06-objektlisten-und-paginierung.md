@@ -1,21 +1,16 @@
 ## Objektlisten und Paginierung {#objektlisten-und-paginierung}
 
-Generell kommt es beim Aufruf eines einzelnen Objekts in vielen
-Fällen vor, dass eine Reihe von Objekten referenziert wird, die
-mit dem aktuellen Objekt in Beziehung stehen. Für einige
-Eigenschaften ist es nur erlaubt, genau ein verbundenes Objekt
-zu referenziert. Andere Eigenschaften erlauben die Verknüpfung einer
-beliebigen Anzahl von anderen Objekten. Ein Beispiel dafür liefert der
-Objekttyp `oparl:System`, der über die Eigenschaft `body` auf sämtliche
-Objekte vom Typ `oparl:Body` (Körperschaften) des Systems zeigt.
+Oft wird für ein Attribut kein Wert ausgegeben, sondern ein anderes Objekt oder
+eine Liste von Objekten. Dabei kann eine Referenz auf das Objekt bzw. die
+Objektliste angegeben werden, oder das Objekt bzw. die Objektlist wird intern
+ausgegeben. Beide Verfahren sollen im Folgenden erklärt werden.
 
-In der Spezifikation kommen drei Arten der Referenzierung vor:
 
 ### Referenzierung von Objekten via URL
 
 Bei der Referenzierung einzelner Objekte wird eine URL angegeben, welche auf
 das entsprechende Objekt verweist. Der Typ ist hierbei ein string (url: Object-id).
-Ein Beispiel hierfür ist `subOrganizationOf` des Objektes `Organization`:
+Ein Beispiel hierfür ist `subOrganizationOf` in `Organization`:
 
 ~~~~~  {#objektlisten_ex1 .json}
 {
@@ -26,8 +21,8 @@ Ein Beispiel hierfür ist `subOrganizationOf` des Objektes `Organization`:
 }
 ~~~~~
 
-Die Referenzierung via URL kann in einem Array vorkommen, was häufig bei Invers-Listen
-der Fall ist. Als Typ ist in diese Fall array of string (url: Object-id) angegeben.
+Es kann auch eine Liste von Referenzen ausgegeben werden. Der Typ ist in diese
+Fall array of string (url: Object-id).
 
 Ein Beispiel hierfür ist `meeting` in `Organization`:
 
@@ -46,16 +41,16 @@ Ein Beispiel hierfür ist `meeting` in `Organization`:
 
 ### Interne Ausgabe von Objekten
 
-Subobjekte inklusive der auch global verfügbaren Subobjekte `Location` und 
-`File` werden intern ausgegeben. Ein Beispiel für ein einzelnes internes 
-Dokument ist `location` in Body:
+Objekte können auch intern ausgegeben werden. Dabei wird das gesamte Objekt als
+Wert eines Attributs angegeben. Ein Beispiel für ein internes  Objekt ist
+`location` in `Body`:
 
 ~~~~~  {#objektlisten_ex3 .json}
 {
   "id": "https://oparl.example.org/body/1",
   "type": "http://oparl.org/schema/1.0/Body",
   "location": {
-    "id": https://oparl.example.org/location/1,
+    "id": "https://oparl.example.org/location/1",
     "type": "http://oparl.org/schema/1.0/Location",
     "description": "Ratshausvorplatz 1, 12345 Beispielstadt"
   },
@@ -63,10 +58,8 @@ Dokument ist `location` in Body:
 }
 ~~~~~
 
-Auch die interne Ausgabe von Objekten gibt es als Array. Hier das Beispiel Attributes
-`membership` in Person: dies stellt ein Array an Membership-Objekten dar. Zu beachtendes Detail:
-innerhalb des Objektes Membership wird mit dem Attribut organization via Referenzierung auf
-eine Organization verwiesen (siehe oben):
+Ebenso kann eine Liste von Objekten intern ausgegeben werden. Hier das Beispiel
+Attributes `membership` in `Person`.
 
 ~~~~~  {#objektlisten_ex4 .json}
 {
@@ -95,11 +88,9 @@ eine Organization verwiesen (siehe oben):
 
 ### Externe Objektlisten
 
-Diese besonderen Arrays werden extern angegeben. Dies betrifft die Attribute
-`organization`, `person`, `meeting` und `paper` des Objektes Body.
-Der Vorteil der externen Liste ist, dass sie Paginierung und Sortierung unterstützt.
-
-Im Objekt Body wird in dem betreffendden Attribut die URL zu der externen Liste ausgegeben:
+Es können auch referenzen zu sogenannten externen Liste angegeben werden.
+Diese enthält eine Liste der betreffenden Objekte mit interner Listenausgabe.
+Ein Beispiel dafür ist `organization` in `Body`:
 
 ~~~~~  {#objektlisten_ex5 .json}
 {
@@ -109,9 +100,6 @@ Im Objekt Body wird in dem betreffendden Attribut die URL zu der externen Liste 
   ...
 }
 ~~~~~
-
-In der externen Liste findet man eine Liste der betreffenden Objekte mit interner Listenausgabe.
-Um das Beispiel des Attributes `organization` fortzuführen:
 
 ~~~~~  {#objektlisten_ex5 .json}
 [
@@ -133,27 +121,24 @@ Um das Beispiel des Attributes `organization` fortzuführen:
     "name": "Organisation Nummer 3",
     ...
   },
-}
+]
 ~~~~~
 
 
 ### Paginierung  {#paginierung}
 
-Für externe Objektlisten ist eine Blätterfunktion
-(Paginierung) vorgesehen. Damit ist die Aufteilung einer Liste
-in kleinere Teilstücke gemeint, die wir als *Listenseiten* bezeichnen.
-Jede Listenseite wird vom Client jeweils mit einer eigenen API-Anfrage
-abgerufen. Das dient dazu, die bei der jeweiligen Anfrage übertragenen
-Datenmengen und Antwortzeiten zu begrenzen und Systemressourcen
-sowohl beim Server als auch beim Client zu schonen.
+Für externe Objektlisten ist eine Aufteilung sogenannte *Listenseiten*
+vorgesehen, wobei jede Listenseite eine eigene URL erhält. Das dient dazu,
+die bei der jeweiligen Anfrage übertragenen Datenmengen und Antwortzeiten zu
+begrenzen.
 
-Die Entscheidung, ob eine Seite teilweise und daher mit Paginierung
+Die Entscheidung, ob eine externe Objektiste mit Paginierung
 ausgegeben wird, liegt allein beim Server. Bei Listen mit mehr als 100
 Einträgen wird dies EMPFOHLEN.
 
-Der Server gibt für eine Liste, bei der die Paginierung aktiv ist, d. h.
-nicht alle Listenelemente ausgegeben wurden, zusätzliche Eigenschaften aus.
-Das nachfolgende Beispiel zeigt dies für den Anfang einer paginierten Liste:
+Jede Listenseite ausser der Letzten muss dabei das Attribut `nextPage`
+enthalten, welches auf die nächste Listenseite verweist. Ein Client kann damit
+nacheinander alle Listenseiten abrufen.
 
 ~~~~~  {#objektlisten_ex4 .json}
 {
@@ -167,64 +152,17 @@ Das nachfolgende Beispiel zeigt dies für den Anfang einer paginierten Liste:
 }
 ~~~~~
 
-Sobald es mehrere Seiten gibt, MUSS das Attribut `nextPage` bei
-allen Seiten außer der letzten angegeben werden. Dieses Attribut
-enthält eine URL, über die die nächste Listenseite abgerufen werden
-kann. Die Beschaffenheit der URL bestimmt der Server frei, das
-obige Beispiel ist in keiner Form bindend.
+Es gibt dazu einige OPTIONALE Attribute für Listenseiten:
 
-Es ergibt sich eine typische Abfolge, wie Clients bei Bedarf
-mit mehreren Anfragen ganze Objektlisten vom Server abrufen:
+ * `firstPage`: URL der ersten Listenseite
+ * `lastPage`: URL der letzten Listenseite
+ * `prevPage`: URL der vorherigen Listenseite
+ * `itemsPerPage`: Die Anzahle der Objekte pro Seite. Wird dieses Attribut
+ angegeben, dann muss die Anzahl der Objekte pro Seite auf allen Seiten ausser
+ der letzten Seite konstant sein.
+ * `numberOfPages`: Die Anzahl der Listenseiten
 
-1. Der Server stellt eine URL für eine Liste zur Verfügung.
-
-2. Der Client ruft diese URL der Liste auf.
-
-3. Der Server antwortet mit einer verkürzten Listenausgabe und
-   gibt mittels `nextPage`-Eigenschaft die URL für den
-   Abruf der nächsten Listenseite an.
-
-4. Der Client ruft die URL für die nächste Listenseite auf.
-
-Die Punkte 3 und 4 können sich nun so oft wiederholen, bis
-die letzte Listenseite erreicht ist.
-
-5. Der Server liefert die letzte Listenseite ohne
-   `nextPage`-Eigenschaft aus.
-
-Zusätzlich zur für die Paginierung ZWINGENDEN Eigenschaft
-`nextPage`, die lediglich auf der letzten Listenseite entfällt,
-können Server OPTIONAL weitere URLs zum Abruf bestimmter
-Listenseiten anbieten:
-
-Erste Listenseite (Eigenschaft `firstPage`):
-:   Sofern die aktuell abgerufene Listenseite nicht den Anfang der
-    Liste wiedergibt, KANN der Server diese Eigenschaft ausgeben,
-    deren Wert die URL zum Abruf der *ersten* Listenseite ist.
-
-Letzte Listenseite (Eigenschaft `lastPage`):
-:   Sofern die aktuell abgerufene Listenseite nicht das Ende der
-    Liste wiedergibt, KANN der Server diese Eigenschaft ausgeben,
-    deren Wert die URL zum Abruf der *letzten* Listenseite ist.
-
-Vorherige Listenseite (Eigenschaft `prevPage`):
-:   Sofern die aktuell abgerufene Listenseite nicht den Anfang der
-    Liste wiedergibt, KANN der Server diese Eigenschaft ausgeben,
-    deren Wert die URL zum Abruf der *vorigen* Listenseite ist.
-
-Anzahl der Seiten (Eigenschaft `itemsPerPage`):
-:   Mit dem Attribut `itemsPerPage` kann die Anzahl der Objekte pro
-    Seite ausgegeben werden. Wenn `itemsPerPage` ausgegeben wird,
-    MUSS die Anzahl der Objekte auf allen Seiten bis auf der letzten
-    identisch sein.
-    
-Anzahl der Seiten (Eigenschaft `numberOfPages`):
-:   Mit `numberOfPages` kann die Anzahl der Seiten ausgegeben werden.
-    Dies ist hilfreich, um prognostizieren zu können, wie lange ein
-    Abruf dauern wird.
-
-
-Zusammen mit allen Zusatzattributen sähe eine Liste also wie folgt aus:
+Zusammen mit allen Zusatzattributen sieht eine Liste wie folgt aus:
 
 ~~~~~  {#objektlisten_ex7 .json}
 {
@@ -243,17 +181,9 @@ Zusammen mit allen Zusatzattributen sähe eine Liste also wie folgt aus:
 }
 ~~~~~
 
-Damit eröffnet der Server dem Client zusätzliche Möglichkeiten,
-die einzelnen Listenseiten abzurufen.
-
 ![Paginierung: Schematische Darstellung](images/pagination01.png)
 
-Server-Implementierer entscheiden selbst, wie die URLs zum Abruf einzelner
-Listenseiten aufgebaut sind und tragen damit selbst Verantwortung für die
-Funktionsweise der Paginierung. Die im obigen Beispiel verwendete URL
-einschließlich des fiktiven URL-Parameters dienen lediglich der
-Veranschaulichung und sind in keiner Weise bindend. Bei der Entscheidung
-für eine Form der Implementierung sollten die folgenden Anforderungen von
+Bei der Implementierung von Paginierung sollten die folgenden Anforderungen von
 Clients berücksichtigt werden:
 
 * Es ist davon auszugehen, dass Clients für den gesamten Abruf aller
@@ -314,14 +244,10 @@ vom Client eingeschränkt wurde.
 
 ### Sortierung
 
-OParl definiert keine Möglichkeit für Clients, auf die Reihenfolge von Listeneinträgen
-Einfluss zu nehmen. Von Servern wird die Einhaltung einiger grundlegender Anforderungen
-erwartet, die teilweise bereits erwähnt wurden.
-
 Server MUSS generell für eine **stabile Sortierung** von Listeneinträgen sorgen. Das
 heißt, die Sortierung von Einträgen folgt einem konstanten Prinzip und ändert sich nicht von
-Abfrage zu Abfrage. Eine Einfache Möglichkeit, dies Umzusetzen, wäre in vielen Fällen
-die Sortierung von Objekten nach ihrer eindeutigen und unveränderlichen ID.
+Abfrage zu Abfrage. Eine einfache Möglichkeit, dies Umzusetzen, wäre in vielen Fällen
+die Sortierung von Objekten nach einer eindeutigen und unveränderlichen ID.
 
 
 ### Filter  {#filter}

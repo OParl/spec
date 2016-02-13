@@ -154,34 +154,15 @@ nacheinander alle Listenseiten abrufen.
 
 Es gibt dazu einige OPTIONALE Attribute für Listenseiten:
 
-Erste Listenseite (Eigenschaft `firstPage`):
-:   Sofern die aktuell abgerufene Listenseite nicht den Anfang der
-    Liste wiedergibt, KANN der Server diese Eigenschaft ausgeben,
-    deren Wert die URL zum Abruf der ersten Listenseite ist.
+ * `firstPage`: URL der ersten Listenseite
+ * `lastPage`: URL der letzten Listenseite
+ * `prevPage`: URL der vorherigen Listenseite
+ * `itemsPerPage`: Die Anzahle der Objekte pro Seite. Wird dieses Attribut
+ angegeben, dann muss die Anzahl der Objekte pro Seite auf allen Seiten ausser
+ der letzten Seite konstant sein.
+ * `numberOfPages`: Die Anzahl der Listenseiten
 
-Letzte Listenseite (Eigenschaft `lastPage`):
-:   Sofern die aktuell abgerufene Listenseite nicht das Ende der
-    Liste wiedergibt, KANN der Server diese Eigenschaft ausgeben,
-    deren Wert die URL zum Abruf der*letzten Listenseite ist.
-
-Vorherige Listenseite (Eigenschaft `prevPage`):
-:   Sofern die aktuell abgerufene Listenseite nicht den Anfang der
-    Liste wiedergibt, KANN der Server diese Eigenschaft ausgeben,
-    deren Wert die URL zum Abruf der *vorigen* Listenseite ist.
-
-Anzahl der Seiten (Eigenschaft `itemsPerPage`):
-:   Mit dem Attribut `itemsPerPage` kann die Anzahl der Objekte pro
-    Seite ausgegeben werden. Wenn `itemsPerPage` ausgegeben wird,
-    MUSS die Anzahl der Objekte auf allen Seiten bis auf der letzten
-    identisch sein.
-    
-Anzahl der Seiten (Eigenschaft `numberOfPages`):
-:   Mit `numberOfPages` kann die Anzahl der Seiten ausgegeben werden.
-    Dies ist hilfreich, um prognostizieren zu können, wie lange ein
-    Abruf dauern wird.
-
-
-Zusammen mit allen Zusatzattributen sieht eine Liste also wie folgt aus:
+Zusammen mit allen Zusatzattributen sieht eine Liste wie folgt aus:
 
 ~~~~~  {#objektlisten_ex7 .json}
 {
@@ -200,17 +181,9 @@ Zusammen mit allen Zusatzattributen sieht eine Liste also wie folgt aus:
 }
 ~~~~~
 
-Damit eröffnet der Server dem Client zusätzliche Möglichkeiten,
-die einzelnen Listenseiten abzurufen.
-
 ![Paginierung: Schematische Darstellung](images/pagination01.png)
 
-Server-Implementierer entscheiden selbst, wie die URLs zum Abruf einzelner
-Listenseiten aufgebaut sind und tragen damit selbst Verantwortung für die
-Funktionsweise der Paginierung. Die im obigen Beispiel verwendete URL
-einschließlich des fiktiven URL-Parameters dienen lediglich der
-Veranschaulichung und sind in keiner Weise bindend. Bei der Entscheidung
-für eine Form der Implementierung sollten die folgenden Anforderungen von
+Bei der Implementierung von Paginierung sollten die folgenden Anforderungen von
 Clients berücksichtigt werden:
 
 * Es ist davon auszugehen, dass Clients für den gesamten Abruf aller

@@ -1,21 +1,16 @@
 ## Objektlisten und Paginierung {#objektlisten-und-paginierung}
 
-Generell kommt es beim Aufruf eines einzelnen Objekts in vielen
-Fällen vor, dass eine Reihe von Objekten referenziert wird, die
-mit dem aktuellen Objekt in Beziehung stehen. Für einige
-Eigenschaften ist es nur erlaubt, genau ein verbundenes Objekt
-zu referenziert. Andere Eigenschaften erlauben die Verknüpfung einer
-beliebigen Anzahl von anderen Objekten. Ein Beispiel dafür liefert der
-Objekttyp `oparl:System`, der über die Eigenschaft `body` auf sämtliche
-Objekte vom Typ `oparl:Body` (Körperschaften) des Systems zeigt.
+Oft wird für ein Attribut kein Wert ausgegeben, sondern ein anderes Objekt oder
+eine Liste von Objekten. Dabei kann eine Referenz auf das Objekt bzw. die
+Objektliste angegeben werden, oder das Objekt bzw. die Objektlist wird intern
+ausgegeben. Beide Verfahren sollen im Folgenden erklärt werden.
 
-In der Spezifikation kommen drei Arten der Referenzierung vor:
 
 ### Referenzierung von Objekten via URL
 
 Bei der Referenzierung einzelner Objekte wird eine URL angegeben, welche auf
 das entsprechende Objekt verweist. Der Typ ist hierbei ein string (url: Object-id).
-Ein Beispiel hierfür ist `subOrganizationOf` des Objektes `Organization`:
+Ein Beispiel hierfür ist `subOrganizationOf` in `Organization`:
 
 ~~~~~  {#objektlisten_ex1 .json}
 {
@@ -26,8 +21,8 @@ Ein Beispiel hierfür ist `subOrganizationOf` des Objektes `Organization`:
 }
 ~~~~~
 
-Die Referenzierung via URL kann in einem Array vorkommen, was häufig bei Invers-Listen
-der Fall ist. Als Typ ist in diese Fall array of string (url: Object-id) angegeben.
+Es kann auch eine Liste von Referenzen ausgegeben werden. Der Typ ist in diese
+Fall array of string (url: Object-id).
 
 Ein Beispiel hierfür ist `meeting` in `Organization`:
 
@@ -46,9 +41,9 @@ Ein Beispiel hierfür ist `meeting` in `Organization`:
 
 ### Interne Ausgabe von Objekten
 
-Subobjekte inklusive der auch global verfügbaren Subobjekte `Location` und 
-`File` werden intern ausgegeben. Ein Beispiel für ein einzelnes internes 
-Dokument ist `location` in Body:
+Objekte können auch intern ausgegeben werden. Dabei wird das gesamte Objekt als
+Wert eines Attributs angegeben. Ein Beispiel für ein internes  Objekt ist
+`location` in `Body`:
 
 ~~~~~  {#objektlisten_ex3 .json}
 {
@@ -63,10 +58,8 @@ Dokument ist `location` in Body:
 }
 ~~~~~
 
-Auch die interne Ausgabe von Objekten gibt es als Array. Hier das Beispiel Attributes
-`membership` in Person: dies stellt ein Array an Membership-Objekten dar. Zu beachtendes Detail:
-innerhalb des Objektes Membership wird mit dem Attribut organization via Referenzierung auf
-eine Organization verwiesen (siehe oben):
+Ebenso kann eine Liste von Objekten intern ausgegeben werden. Hier das Beispiel
+Attributes `membership` in `Person`.
 
 ~~~~~  {#objektlisten_ex4 .json}
 {
@@ -95,11 +88,9 @@ eine Organization verwiesen (siehe oben):
 
 ### Externe Objektlisten
 
-Diese besonderen Arrays werden extern angegeben. Dies betrifft die Attribute
-`organization`, `person`, `meeting` und `paper` des Objektes Body.
-Der Vorteil der externen Liste ist, dass sie Paginierung und Sortierung unterstützt.
-
-Im Objekt Body wird in dem betreffendden Attribut die URL zu der externen Liste ausgegeben:
+Es können auch referenzen zu sogenannten externen Liste angegeben werden.
+Diese enthält eine Liste der betreffenden Objekte mit interner Listenausgabe.
+Ein Beispiel dafür ist `organization` in `Body`:
 
 ~~~~~  {#objektlisten_ex5 .json}
 {
@@ -109,9 +100,6 @@ Im Objekt Body wird in dem betreffendden Attribut die URL zu der externen Liste 
   ...
 }
 ~~~~~
-
-In der externen Liste findet man eine Liste der betreffenden Objekte mit interner Listenausgabe.
-Um das Beispiel des Attributes `organization` fortzuführen:
 
 ~~~~~  {#objektlisten_ex5 .json}
 [
@@ -133,7 +121,7 @@ Um das Beispiel des Attributes `organization` fortzuführen:
     "name": "Organisation Nummer 3",
     ...
   },
-}
+]
 ~~~~~
 
 

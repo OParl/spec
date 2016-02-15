@@ -46,10 +46,10 @@ Das Interesse an parlamentarischen Informationen und an Anwendungen, die diese
 nutzbar und auswertbar machen, ist offensichtlich vorhanden. Die Entwickler
 der alternativen Ratsinformationssysteme wie Frankfurt Gestalten^[Frankfurt
 Gestalten: <http://www.frankfurt-gestalten.de/>], Offenes Köln oder der
-OpenRuhr:RIS-Instanzen (beide zusammengeführt in Politik Bei Uns^[Politik Bei Uns:
-<https://politik-bei-uns.de>] wissen zu berichten, wie viel
-Interesse den Projekten gerade aus Orten entgegen gebracht wird, in denen
-derartige Systeme noch nicht verfügbar sind.
+OpenRuhr:RIS-Instanzen (die letzten beiden wurden zusammengeführt in
+Politik Bei Uns^[Politik Bei Uns: <https://politik-bei-uns.de>]) wissen
+zu berichten, wie viel Interesse den Projekten gerade aus Orten entgegen
+gebracht wird, in denen derartige Systeme noch nicht verfügbar sind.
 
 Die Anwendungsmöglichkeiten für parlamentarische Informationen, wenn sie über
 eine Schnittstelle schnell und einfach abgerufen werden können, sind vielfältig.

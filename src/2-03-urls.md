@@ -1,32 +1,27 @@
 ## URLs {#urls}
 
-Den URLs (für _Uniform Resource Locators_)
-kommt bei einer OParl-konformen API eine besondere Bedeutung zu und es werden eine
-Reihe von Anforderungen an die Verarbeitung von URLs gestellt.
-
-Die grundsätzliche Funktionsweise von URLs ist in RFC 3986
+Den URLs (für _Uniform Resource Locators_) kommt eine besondere Bedeutung zu
+und es werden deshalb eine Reihe von Anforderungen an deren Aufbau und
+Eigneschaften gestellt. Die allgemeine Funktionsweise von URLs ist in RFC 3986
 beschrieben^[RFC 3986: <http://tools.ietf.org/html/rfc3986>].
+
+Grundsätzliche MÜÜSEN alle Zugriffe zustandslos erfolgen, also ohne
+Sessioninformationen wie Cookies. Das bedeutet, dass alle Informationen,
+die zum Abrufen eines Objekts nötig sind, in der URL vorhanden sein müssen.
 
 ### URL-Kanonisierung {#url_kanonisierung}
 
-Wie bereits weiter oben erläutert, ist jedes Objekt, das über eine OParl-API
-angeboten wird, über eine URL identifizierbar und abrufbar. Um zweifelsfrei
-erkennen zu können, ob es sich zwei abgerufene Objekte gleichen, oder ob es
-unterschiedliche Objekte sind, ist es zwingend notwendig, die URLs zu
-vereinheitlichen. Diese Vereinheitlichung der URL wird
-nachfolgend _Kanonisierung_ genannt.
+Um an der URL zweifelsfrei erkennen zu können, ob es zwei Objekte identisch
+sind, ist es notwendig, die URLs zu vereinheitlichen. Diese Vereinheitlichung
+der URLs wird _Kanonisierung_ genannt.
 
 Sind zwei URLs identisch, SOLLTEN Clients daraus ableiten können,
 dass diese dasselbe Objekt repräsentieren. Sind zwei URLs unterschiedlich, SOLLTE
 im Umkehrschluss die Annahme gelten, dass sie zwei verschiedene Objekte repräsentieren.
 
-Der OParl-konforme Server MUSS für jedes benannte Objekt eine kanonische URL bestimmen können.
+Ein Server MUSS für jedes benannte Objekt eine kanonische URL bestimmen können.
 
-Die URL-Kanonisierung betrifft sämtliche Bestandteile der URL. Entsprechend beginnt diese
-schon beim **Schema** und bei der Entscheidung durch den Betreiber, ob eine OParl-API regulär
-über HTTP oder über HTTPS erreichbar sein soll (vgl. [HTTP und HTTPS]).
-
-Der **Host**-Teil der URL wird ebenfalls durch die Konfiguration des Betreibers festgelegt.
+Der **Host**-Teil der URL wird durch die Konfiguration des Betreibers festgelegt.
 Obwohl technisch auch die Verwendung einer IP-Adresse (z.B. "123.123.123.123") möglich wäre,
 SOLLTE der Betreiber einen mit Bedacht gewählten Host-Namen einsetzen. Die Vorteile dieser Lösung
 gegenüber der Verwendung einer IP-Adresse sind vielfältig:
@@ -44,9 +39,7 @@ Eine URL wie
 kommuniziert beispielsweise direkt die Zugehörigkeit zur Stadt Köln als Betreiber des Systems. Die
 Bezeichnung "stadtrat" in der Subdomain zeigt den Zweck des Systems allgemein verständlich an.
 Der Host-Name "oparl.stadtrat.stadt-koeln.de" deutet an, dass diese URL zu einer
-OParl-Schnittstelle zu diesem System gehört. Eine technische Notwendigkeit zur Verwendung einer
-eigenen Domain für OParl besteht jedoch nicht, da JSON-Dokumente und HTML-Seiten
-mittels Content Negotiation über eine gemeinsame Domain ausgeliefert werden können.
+OParl-Schnittstelle zu diesem System gehört.
 
 Um die Kanonisierung zu gewährleisten, SOLLTEN Betreiber alle Möglichkeiten ausschließen,
 die dazu führen können, dass eine Ressource neben der kanonischen URL noch über andere URLs
@@ -59,14 +52,6 @@ abrufbar ist. Diese Faktoren können sein:
 * Der Server ist neben dem Host-Namen auch über die IP-Adresse erreichbar.
 
 * Zusätzliche Domains, die einen A-Record auf denselben Server besitzen
-
-Zu der kanonischen Beispiel-URL https://oparl.stadtrat.stadt-koeln.de/ wären
-eine Reihe von nicht-kanonischen URL-Varianten denkbar, die technischen auf
-denselben Server führen könnten:
-
-* https://83.123.89.102/
-* https://oparl.stadtrat.stadtkoeln.de/
-* https://risserv.stadt-koeln.de/
 
 Falls es aus technischen Gründen nicht möglich ist, den Zugang auf das OParl-System über nicht-kanonische
 URLs zu unterbinden, SOLLTE eine entsprechende HTTP-Anfrage mit einer Weiterleitung auf die entsprechende
@@ -96,6 +81,18 @@ Konsequenz kann es zu vermeidbarer Ressourcennutzung sowohl auf Client- als auch
 Von Clients wird erwartet, dass sie die URLs, die ihnen von Servern angeboten werden,
 unverändert verwenden. Clients SOLLTEN NICHT versuchen, Schreibweisen von URLs zu ändern,
 Query-String-Parameter umzusortieren oder Ähnliches.
+
+## HTTP und HTTPS {#http-und-https}
+
+Der Einsatz des verschlüsselten HTTPS wird empfohlen. Bei Verwendung von HTTPS
+wird allen URLs "https://" voran gestellt, ansonsten beginnen URLs mit
+"http://".
+
+Aus Gründen der URL-Kanonisierung ist es ZWINGEND notwendig, dass ein
+Server-Betreiber sich entweder für HTTP oder für HTTPS entscheidet.
+Es jedoch möglich, eine Weiterleitung (HTTP Status-Code 301)
+einzurichten. Eine Weiterleitung von HTTPS auf HTTP wird NICHT EMPFOHLEN.
+
 
 ### Langlebigkeit
 

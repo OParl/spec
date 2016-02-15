@@ -5,7 +5,7 @@ und es werden deshalb eine Reihe von Anforderungen an deren Aufbau und
 Eigneschaften gestellt. Die allgemeine Funktionsweise von URLs ist in RFC 3986
 beschrieben^[RFC 3986: <http://tools.ietf.org/html/rfc3986>].
 
-Grundsätzliche MÜÜSEN alle Zugriffe zustandslos erfolgen, also ohne
+Grundsätzliche MÜSSEN alle Zugriffe zustandslos erfolgen, also ohne
 Sessioninformationen wie Cookies. Das bedeutet, dass alle Informationen,
 die zum Abrufen eines Objekts nötig sind, in der URL vorhanden sein müssen.
 

@@ -13,7 +13,7 @@
         },
         "type": {
             "type": "string",
-            "pattern": "^http://oparl\\.org/schema/1\\.0/Paper$"
+            "pattern": "^https://oparl\\.org/schema/1\\.0/Paper$"
         },
         "body": {
             "description": "Körperschaft, zu der die Drucksache gehört.",

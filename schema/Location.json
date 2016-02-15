@@ -13,7 +13,7 @@
         },
         "type": {
             "type": "string",
-            "pattern": "^http://oparl\\.org/schema/1\\.0/Location$"
+            "pattern": "^https://oparl\\.org/schema/1\\.0/Location$"
         },
         "description": {
             "description": "Textliche Beschreibung eines Orts, z. B. in Form einer Adresse.",

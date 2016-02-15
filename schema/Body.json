@@ -20,7 +20,7 @@
         },
         "type": {
             "type": "string",
-            "pattern": "^http://oparl\\.org/schema/1\\.0/Body$"
+            "pattern": "^https://oparl\\.org/schema/1\\.0/Body$"
         },
         "system": {
             "description": "System, zu dem dieses Objekt gehört.",

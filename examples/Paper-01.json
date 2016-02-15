@@ -1,6 +1,6 @@
 {
     "id": "https://oparl.example.org/paper/749",
-    "type": "http://oparl.org/schema/1.0/Paper",
+    "type": "https://oparl.org/schema/1.0/Paper",
     "body": "https://oparl.example.org/bodies/1",
     "name": "Antwort auf Anfrage 1200/2014",
     "reference": "1234/2014",

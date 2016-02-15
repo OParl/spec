@@ -1,6 +1,6 @@
 {
     "id": "https://oparl.example.org/body/0",
-    "type": "http://oparl.org/schema/1.0/Body",
+    "type": "https://oparl.org/schema/1.0/Body",
     "system": "https://oparl.example.org/",
     "contactEmail": "ris@beispielstadt.de",
     "contactName": "RIS-Betreuung",
@@ -28,7 +28,21 @@
             "endDate": "2013-12-03"
         }
     ],
-    "location": "https://oparl.example.org/body/0/location/1",
+    "location": {
+        "id:": "https://oparl.example.org/location/0",
+        "type": "https://oparl.org/schema/1.0/Location",
+        "description": "Rathaus der Beispielstadt, Ratshausplatz 1, 12345 Beispielstadt",
+        "geometry": {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [50.1234, 10.4321]
+            },
+            "properties": {
+                "name": "Rathausplatz"
+            }
+        }
+    },
     "classification": "Kreisfreie Stadt",
     "created": "2014-01-08T14:28:31.568+0100",
     "modified": "2014-01-08T14:28:31.568+0100"

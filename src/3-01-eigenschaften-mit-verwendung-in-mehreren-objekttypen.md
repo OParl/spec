@@ -14,18 +14,18 @@ definiert:
 
 Typ (kurz)               | Namespace-URL
 -------------------------|-------------------------------------------
-`oparl:AgendaItem`       |http://oparl.org/schema/1.0/AgendaItem
-`oparl:Body`             |http://oparl.org/schema/1.0/Body
-`oparl:Consultation`     |http://oparl.org/schema/1.0/Consultation
-`oparl:File`             |http://oparl.org/schema/1.0/File
-`oparl:LegislativeTerm`  |http://oparl.org/schema/1.0/LegislativeTerm
-`oparl:Location`         |http://oparl.org/schema/1.0/Location
-`oparl:Meeting`          |http://oparl.org/schema/1.0/Meeting
-`oparl:Membership`       |http://oparl.org/schema/1.0/Membership
-`oparl:Organization`     |http://oparl.org/schema/1.0/Organization
-`oparl:Paper`            |http://oparl.org/schema/1.0/Paper
-`oparl:Person`           |http://oparl.org/schema/1.0/Person
-`oparl:System`           |http://oparl.org/schema/1.0/System
+`oparl:AgendaItem`       |https://oparl.org/schema/1.0/AgendaItem
+`oparl:Body`             |https://oparl.org/schema/1.0/Body
+`oparl:Consultation`     |https://oparl.org/schema/1.0/Consultation
+`oparl:File`             |https://oparl.org/schema/1.0/File
+`oparl:LegislativeTerm`  |https://oparl.org/schema/1.0/LegislativeTerm
+`oparl:Location`         |https://oparl.org/schema/1.0/Location
+`oparl:Meeting`          |https://oparl.org/schema/1.0/Meeting
+`oparl:Membership`       |https://oparl.org/schema/1.0/Membership
+`oparl:Organization`     |https://oparl.org/schema/1.0/Organization
+`oparl:Paper`            |https://oparl.org/schema/1.0/Paper
+`oparl:Person`           |https://oparl.org/schema/1.0/Person
+`oparl:System`           |https://oparl.org/schema/1.0/System
 
 ### `name` und `shortName` {#eigenschaft-name-shortname}
 

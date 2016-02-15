@@ -39,7 +39,7 @@ gegenüber der Verwendung einer IP-Adresse sind vielfältig:
 
 Eine URL wie
 
-    http://oparl.stadtrat.stadt-koeln.de/
+    https://oparl.stadtrat.stadt-koeln.de/
 
 kommuniziert beispielsweise direkt die Zugehörigkeit zur Stadt Köln als Betreiber des Systems. Die
 Bezeichnung "stadtrat" in der Subdomain zeigt den Zweck des Systems allgemein verständlich an.

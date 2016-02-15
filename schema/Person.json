@@ -13,7 +13,7 @@
         },
         "type": {
             "type": "string",
-            "pattern": "^http://oparl\\.org/schema/1\\.0/Person$"
+            "pattern": "^https://oparl\\.org/schema/1\\.0/Person$"
         },
         "body": {
             "description": "Körperschaft, zu der die Person gehört.",
@@ -123,12 +123,12 @@
                         "type": "boolean"
                     },
                     "startDate": {
-                        "description": "Anfangszeitpunkt der Mitgliedschaft.^[Abgeleitet von: `schema:validFrom` in Popolo. <http://popoloproject.com/specs/membership.html>]",
+                        "description": "Anfangszeitpunkt der Mitgliedschaft.^[Abgeleitet von: `schema:validFrom` in Popolo. <https://popoloproject.com/specs/membership.html>]",
                         "type": "string",
                         "format": "date-time"
                     },
                     "endDate": {
-                        "description": "Der Endzeitpunkt der Mitgliedschaft.^[Abgeleitet von: `schema:validThrough` in Popolo. <http://popoloproject.com/specs/membership.html>]",
+                        "description": "Der Endzeitpunkt der Mitgliedschaft.^[Abgeleitet von: `schema:validThrough` in Popolo. <https://popoloproject.com/specs/membership.html>]",
                         "type": "string",
                         "format": "date-time"
                     },

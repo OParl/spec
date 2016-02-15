@@ -13,7 +13,7 @@
         },
         "type": {
             "type": "string",
-            "pattern": "^http://oparl\\.org/schema/1\\.0/Organization$"
+            "pattern": "^https://oparl\\.org/schema/1\\.0/Organization$"
         },
         "body": {
             "description": "Körperschaft, zu der diese Gruppierung gehört.",
@@ -39,15 +39,12 @@
             }
         },
         "meeting": {
-            "description": "Sitzungen dieser Gruppierung. Invers zur Eigenschaft `organization` der Klasse `oparl:Meeting`. Da die Anzahl der Sitzungen stetig wachsen kann, wird EMPFOHLEN, die Liste über eine eigene URL verfügbar zu machen und damit Paginierung sowie die Filterung mittels startDate und endDate Parametern zu ermöglichen. Siehe dazu auch [Objektlisten](#objektlisten).",
+            "description": "URL auf eine externe Objektliste mit den Sitzungen dieser Gruppierung. Invers zur Eigenschaft `organization` der Klasse `oparl:Meeting`",
             "oparl:ref": "Meeting",
             "oparl:backref": "organization",
             "oparl:cardinality": "n:m",
-            "type": "array",
-            "items": {
-                "type": "string",
-                "format": "url"
-            }
+            "type": "string",
+            "format": "url"
         },
         "shortName": {
             "description": "Der Name der Gruppierung als Kurzform.",

@@ -13,7 +13,7 @@
         },
         "type": {
             "type": "string",
-            "pattern": "^http://oparl\\.org/schema/1\\.0/Meeting$"
+            "pattern": "^https://oparl\\.org/schema/1\\.0/Meeting$"
         },
         "name": {
             "description": "Name der Sitzung.",

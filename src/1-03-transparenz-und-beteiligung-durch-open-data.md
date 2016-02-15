@@ -37,14 +37,14 @@ im Einzelfall häufig eine Zusammenarbeit von Datenbereitstellern und potentiell
 Datennutzern. Die bloße Bereitstellung einer OParl-konformen API wird weder die
 Einhaltung der technischen Prinzipien, noch der weiteren Open-Data-Prinzipien vollständig
 garantieren. Viele Bestandteile der OParl-Spezifikation, die einen weitgehend
-barrierearmen Zugang zu Informationen[^1] ermöglichen sollen, sind optional 
-(Beispiel: Volltexte von Dokumenten über die API abrufbar machen). Andere Bestandteile, 
-die von Interesse wären, sind noch gar nicht von OParl abgedeckt (Beispiel: Abstimmungsergebnisse). 
+barrierearmen Zugang zu Informationen[^1] ermöglichen sollen, sind optional
+(Beispiel: Volltexte von Dokumenten über die API abrufbar machen). Andere Bestandteile,
+die von Interesse wären, sind noch gar nicht von OParl abgedeckt (Beispiel: Abstimmungsergebnisse).
 Grund dafür ist, dass sich OParl in einem frühen Stadium befindet und primär am Status Quo der
 parlamentarischen Informationssysteme ausgerichtet ist. Es liegt also auch weiterhin an
 Verwaltung und Politik, durch einen verantwortungsvollen Umgang mit den Systemen die
-maximal erreichbare Transparenz zu bieten. Das fängt bei verfügbaren Dokumentformaten an 
-(ein PDF mit digitalem Text weist weit weniger Barrieren auf, als ein gescannter Brief, 
+maximal erreichbare Transparenz zu bieten. Das fängt bei verfügbaren Dokumentformaten an
+(ein PDF mit digitalem Text weist weit weniger Barrieren auf, als ein gescannter Brief,
 der ebenfalls als PDF gespeichert wurde) und hört bei der verwendeten Sprache auf[^2].
 
 [^1]: Barrierefreie Informationstechnik-Verordnung 2.0 <http://www.gesetze-im-internet.de/bitv_2_0/>

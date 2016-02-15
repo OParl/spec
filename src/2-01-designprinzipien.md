@@ -68,7 +68,7 @@ Ein weiterer Aspekt betrifft die Abwärtskompatibilität, also die Kompatibilit�
 OParl-Clients mit zukünftigen Schnittstellen. So können beispielsweise zukünftige Erweiterungen
 des OParl-Schemas, etwa um neue Objekttypen, genauso durchgeführt werden, wie die Erweiterungen
 um herstellerspezifische Objekttypen. Ein Client muss diese Anteile nicht auswerten, sofern
-sie nicht für die Aufgabe des Clients relevant sind. Das bedeutet im Umkehrschluss allerdings auch, dass ein Client 
+sie nicht für die Aufgabe des Clients relevant sind. Das bedeutet im Umkehrschluss allerdings auch, dass ein Client
 nicht fehlschlagen darf, falls derartige Erweiterungen vorhanden sind.
 
 
@@ -98,7 +98,7 @@ Der Begriff "Linked Data" steht für die Beschreibung von Daten in einer Form, d
 des Innern (Herausg.): Open Government Data Deutschland, Seite 433f., 2012
 <http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf>]
 
-OParl erhebt mit der vorliegenden Version 1.0 keinen Anspruch auf Unterstützung aller Linked-Data-Prinzipien. Dies steht unter Anderem im Widerspruch zum nahen Verbleib am Status Quo. 
+OParl erhebt mit der vorliegenden Version 1.0 keinen Anspruch auf Unterstützung aller Linked-Data-Prinzipien. Dies steht unter Anderem im Widerspruch zum nahen Verbleib am Status Quo.
 
 Als Grundbaustein der möglichen Unterstützung in der Zukunft ist anzumerken,
 dass bereits jedes Objekt durch eine URL identifiziert wird. So eignen sich OParl-Objekte für die Verknüpfung durch externe Anwendungen.

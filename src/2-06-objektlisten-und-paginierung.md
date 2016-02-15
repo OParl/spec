@@ -275,7 +275,7 @@ einzuschränken, die nach dem 1.1.2014 veröffentlicht wurden:
 
 Es sind auch Einschränkungen mit Minimal- und Maximal-Wert möglich, hierfür MUSS
 der logische Operator AND implementiert werden sein. Um eine Einschränkung vom 1.1.2014
-bis zum 31.1.2014 vorzunehmen, wird domit der folgende Syntax verwendet:
+bis zum 31.1.2014 vorzunehmen, wird somit der folgende Syntax verwendet:
 
     https://oparl.example.org/papers/?created:(>=2014-01-01T00%3A00%3A00%2B01%3A00%20AND%20<=2014-01-31T23%3A59%3A59%2B01%3A00)
 

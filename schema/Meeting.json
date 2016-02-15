@@ -20,7 +20,7 @@
             "type": "string"
         },
         "meetingState": {
-            "description": "Aktueller Status der Sitzung.",
+            "description": "Aktueller Status der Sitzung. EMPFOHLEN ist die Verwendung von `terminiert` (geplant), `eingeladen` (vor der Sitzung bis zur Freigabe des Protokolls) und `durchgeführt` (nach Freigabe des Protokolls).",
             "type": "string"
         },
         "cancelled": {

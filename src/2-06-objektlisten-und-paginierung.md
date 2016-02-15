@@ -67,18 +67,18 @@ Attributes `membership` in `Person`.
   "type": "https://oparl.org/schema/1.0/Person",
   "membership": [
     {
-      "id": "https://oparl.example.org/memberships/385", 
-      "organization": "https://oparl.example.org/organizations/5", 
-      "role": "Vorsitzende", 
-      "votingRight": true, 
+      "id": "https://oparl.example.org/memberships/385",
+      "organization": "https://oparl.example.org/organizations/5",
+      "role": "Vorsitzende",
+      "votingRight": true,
       "startDate": "2013-12-03T16:30:00+01:00"
-    }, 
+    },
     {
-      "id": "https://oparl.example.org/memberships/693", 
-      "organization": "https://oparl.example.org/organizations/9", 
-      "role": "Sachkundige Bürgerin", 
-      "votingRight": false, 
-      "startDate": "2013-12-03T16:30:00+01:00", 
+      "id": "https://oparl.example.org/memberships/693",
+      "organization": "https://oparl.example.org/organizations/9",
+      "role": "Sachkundige Bürgerin",
+      "votingRight": false,
+      "startDate": "2013-12-03T16:30:00+01:00",
       "endDate": "2014-07-28T00:00:00+02:00"
     }
   ],
@@ -88,9 +88,9 @@ Attributes `membership` in `Person`.
 
 ### Externe Objektlisten
 
-Es können auch referenzen zu sogenannten externen Liste angegeben werden.
-Diese enthält eine Liste der betreffenden Objekte mit interner Listenausgabe.
-Ein Beispiel dafür ist `organization` in `Body`:
+Es können auch Referenzen zu sogenannten externen Liste angegeben werden.
+Die externe Liste enthält dann die betreffenden Objekte in Form der internen
+Listenausgabe. Ein Beispiel dafür ist `organization` in `Body`:
 
 ~~~~~  {#objektlisten_ex5 .json}
 {
@@ -136,6 +136,11 @@ Die Entscheidung, ob eine externe Objektiste mit Paginierung
 ausgegeben wird, liegt allein beim Server. Bei Listen mit mehr als 100
 Einträgen wird dies EMPFOHLEN.
 
+Server MUSS für eine stabile Sortierung von Listeneinträgen sorgen. Das
+heißt, dass die Sortierung der Einträge einem konstanten Prinzip folgt und sich
+nicht von Abfrage zu Abfrage ändert. Das kann z.B. durch die Sortierung von
+Objekten nach einer eindeutigen und unveränderlichen ID erreicht werden.
+
 Jede Listenseite ausser der Letzten muss dabei das Attribut `nextPage`
 enthalten, welches auf die nächste Listenseite verweist. Ein Client kann damit
 nacheinander alle Listenseiten abrufen.
@@ -162,7 +167,7 @@ Es gibt dazu einige OPTIONALE Attribute für Listenseiten:
  der letzten Seite konstant sein.
  * `numberOfPages`: Die Anzahl der Listenseiten
 
-Zusammen mit allen Zusatzattributen sieht eine Liste wie folgt aus:
+Zusammen mit allen Zusatzattributen sieht eine Listenseite wie folgt aus:
 
 ~~~~~  {#objektlisten_ex7 .json}
 {
@@ -183,37 +188,22 @@ Zusammen mit allen Zusatzattributen sieht eine Liste wie folgt aus:
 
 ![Paginierung: Schematische Darstellung](images/pagination01.png)
 
-Bei der Implementierung von Paginierung sollten die folgenden Anforderungen von
-Clients berücksichtigt werden:
-
-* Es ist davon auszugehen, dass Clients für den gesamten Abruf aller
+Es ist davon auszugehen, dass Clients für den gesamten Abruf aller
 Seiten einer Liste längere Zeit benötigen. In der Zwischenzeit kann sich
-der Inhalt der Liste bereits ändern, etwa durch das Hinzukommen neuer
-Einträge. Die Paginierung ist idealerweise so zu implementieren, dass sich
-das Hinzukommen oder Entfernen von Einträgen möglichst nicht auf einen Client
+der Inhalt der Liste ändern, etwa durch das Hinzukommen neuer Einträge.
+Die Paginierung SOLL soimplementiert werden, dass sich
+das Hinzufügen oder Entfernen von Einträgen möglichst nicht auf den Client
 auswirkt, der aktuell die Liste paginiert, um alle Einträge abzurufen. Wir
 bezeichnen dies als **stabile Paginierung**.
 
-* Eine wesentliche Anforderung an Listen mit Paginierung ist, dass alle
-Einträge der Liste in einer konsistenten Reihenfolge sortiert ausgegeben
-werden MÜSSEN. Das bedeutet, dass die Sortierung beim Server im Idealfall
-anhand einer eindeutigen und unveränderlichen Objekteigenschaft vorgenommen
-wird. Hierfür eignen sich die Objekt-URLs, da sie genau diese beiden
-Anforderungen erfüllen sollten.
-
-Über die Sortierung hinaus können bei der Implementierung einer stabilen
-Paginierung auf Server-Seite weitere Überlegungen einbezogen werden.
-Zur Verdeutlichung soll hier eine ungünstige (unstabile) Form der
-Implementierung mit Hilfe einer SQL-Abfrage illustriert werden. Gegeben sei
-eine Tabelle `example`, die einen
-numerischen Primärschlüssel `id` enthält. Nehmen wir an, die erste Seite der
-Liste wird mit der Abfrage
+Die Fnktionsweise der stabilen Paginierung soll im Folgenden an einem Beispiel
+verdeutlicht werden. Nehmen wir an, die erste Seite der Liste wird mit der Abfrage
 
 ~~~~~  {#objektlisten_ex8 .sql}
 SELECT * FROM example ORDER BY id LIMIT 10 OFFSET 0
 ~~~~~
 
-abgerufen und würde 10 Datensätze mit den `id`s 1 bis 10 zurückliefern. Dann wird
+abgerufen, die 10 Datensätze mit den `id`s 1 bis 10 zurückliefert. Dann wird
 die zweite Seite mit der Abfrage
 
 ~~~~~  {#objektlisten_ex9 .sql}
@@ -221,61 +211,50 @@ SELECT * FROM example ORDER BY id LIMIT 10 OFFSET 10
 ~~~~~
 
 abgerufen. Sollte nach der ersten, aber vor der zweiten Abfrage beispielsweise
-der Datensatz mit der `id=1` gelöscht worden sein, liefert die zweite Abfrage
-Datensätze mit `id` > 9. In diesem Fall würde dies nur dazu führen, dass ein
-Datensatz (`id=10`) zweimal ausgegeben wird. Bei ungünstigeren Konstellationen
-wäre auch denkbar, dass eine unstabile Paginierung bewirkt, dass einzelne
-Datensätze beim Paginieren übergangen werden. Je nach Bedeutung der fehlenden
-Datensätze können solche Inkonsistenzen erhebliche Auswirkungen haben.
+ein Datensatz mit der `id=1` gelöscht worden sein, liefert die zweite Abfrage
+Datensätze mit `id` > 11. Das führt dazu, dass der Datensatz mit der `id=11`
+nie ausgegeben wird und der Client diesen Datensatz somit nie erhält.
 
-Besser wäre es, bei der Paginierung die Eintragsgrenze, bei der eine Listenseite
+Eine mögliche Lösung ist es, die `id`, bei der eine Listenseite
 beginnen soll, explizit zu benennen. Wurden auf der ersten
-Listenseite die Datensätze mit den IDs 1 bis 10 ausgegeben, so könnte der
-Folgeaufruf, um beim SQL-Beispiel zu bleiben, so aussehen:
+Listenseite die Datensätze mit den `id`s 1 bis 10 ausgegeben, so könnte der
+Folgeaufruf so aussehen:
 
 ~~~~~  {#objektlisten_ex10 .sql}
 SELECT * FROM example WHERE id > 10 ORDER BY id LIMIT 10
 ~~~~~
 
-Die zuvor beschriebenen Anforderungen für die Paginierung von Listen
-gelten auch unverändert, wenn der Umfang der Liste durch Abfrageparameter
-vom Client eingeschränkt wurde.
-
-
-### Sortierung
-
-Server MUSS generell für eine **stabile Sortierung** von Listeneinträgen sorgen. Das
-heißt, die Sortierung von Einträgen folgt einem konstanten Prinzip und ändert sich nicht von
-Abfrage zu Abfrage. Eine einfache Möglichkeit, dies Umzusetzen, wäre in vielen Fällen
-die Sortierung von Objekten nach einer eindeutigen und unveränderlichen ID.
+Im diesem Fall würde  dann der Datensatz mit der `id=11` auch ausgegeben, wenn
+`id=1` gelöscht wurde.
 
 
 ### Filter  {#filter}
 
-Bei der *externen Listenausgabe* (siehe weiter oben) werden in Abhängigkeit vom ausgegebenen
-Objekttyp bestimmte Möglichkeiten geboten, die Ausgabe von Listen auf eine
-Teilmenge einzuschränken.
+Bei der externen Listenausgabe gibt es die Möglichkeit, die Ausgabe nach dem
+Datum der Erstellung oder dem Datum der letzten Änderung einzuschränken.
 
-Hierfür sind die URL-Parameter `created` und `modified` vorgesehen, welche entsprechend des
+Hierfür sind die URL-Parameter `created` und `modified` vorgesehen, die sich
+auf das gleichnamigen Attribut der jeweiligen Objekte beziehen.
+Diese werden als URL-Bestandteile gemäß der
 [ElasticSearch Query String Syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_ranges_2)
-verwendet werden. Beide Parameter beziehen sich auf die gleichnamigen Attribute der jeweiligen Objekte.
+verwendet.
 
-Der Server MUSS die Filter `created` und `modified` bei allen Listen unterstützen, welche Attribute des Objektes Body sind.
+Der Server MUSS die Filter `created` und `modified` bei allen Listen
+unterstützen, welche Attribute von `Body` sind.
 
-Die Filter werden vom Client aktiviert, indem der oder die gewünschte(n) URL-Parameter
-der vom Server angegebenen URL für die Listenausgabe hinzugefügt werden. Lautet diese
-URL für eine Liste von Drucksachen so,
+Die Filter werden vom Client benutzt, indem die gewünschten URL-Parameter an
+die URL angehängt werden. Lautet die URL für eine Liste von Drucksachen so,
 
     https://oparl.example.org/papers/
 
-dann kann der Client die folgende URL bilden, um die Ausgabe der Liste auf Drucksachen
-einzuschränken, die nach dem 1.1.2014 veröffentlicht wurden:
+dann kann der Client die folgende URL bilden, um die Ausgabe der Liste auf
+Drucksachen einzuschränken, die nach dem 1.1.2014 veröffentlicht wurden:
 
     https://oparl.example.org/papers/?created:>=2014-01-01T00%3A00%3A00%2B01%3A00
 
-Es sind auch Einschränkungen mit Minimal- und Maximal-Wert möglich, hierfür MUSS
-der logische Operator AND implementiert werden sein. Um eine Einschränkung vom 1.1.2014
-bis zum 31.1.2014 vorzunehmen, wird somit der folgende Syntax verwendet:
+Es sind auch Einschränkungen mit Minimal- und Maximal-Wert möglich, wozu der
+logische Operator AND implementiert werden MUSS. Um eine Einschränkung vom
+1.1.2014 bis zum 31.1.2014 vorzunehmen, wird somit der folgende Syntax verwendet:
 
     https://oparl.example.org/papers/?created:(>=2014-01-01T00%3A00%3A00%2B01%3A00%20AND%20<=2014-01-31T23%3A59%3A59%2B01%3A00)
 

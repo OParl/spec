@@ -40,7 +40,7 @@ Beispiel:
 ~~~~~  {#schema_ex1 .json}
 {
     "id": "https://oparl.example.org/",
-    "type": "http://oparl.org/schema/1.0/Organization",
+    "type": "https://oparl.org/schema/1.0/Organization",
     "meeting": [],
     ...
 }

@@ -1,6 +1,6 @@
 {
     "id": "https://oparl.example.org/person/29",
-    "type": "http://oparl.org/schema/1.0/Person",
+    "type": "https://oparl.org/schema/1.0/Person",
     "body": "https://oparl.example.org/body/0",
     "name": "Prof. Dr. Max Mustermann",
     "familyName": "Mustermann",

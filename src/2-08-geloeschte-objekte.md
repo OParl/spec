@@ -12,7 +12,6 @@ Wenn ein Objekt gelöscht wird, ...
 * **muss** das Objekt das zusätzliche Attribut `deleted`: true bekommen
 * **muss** das Attribut `modified` auf den Zeitpunkt der Löschung setzen
 * **müssen** die Attribute `id`, `type` und `created` erhalten bleiben
-* **müssen** sämtliche anderen Attribute gelöscht werden.
 
 Dies gilt nur für die Hauptobjekte (d.h. System, Body, Organisation, Person, Meeting, Paper, File).
 D.h. Subobjekte (LegislativeTerm, Membership, AgendaItem, Consultation) benötigen nicht das

@@ -17,14 +17,14 @@ auch innerhalb von Webapplikationen genutzt werden dürfen, die nicht von
 demselben Server ausgeliefert werden. Technisch wird dies durch Ausgabe
 zusätzlicher HTTP-Header erreicht.
 
-OParl-Server MÜSSEN für jegliche Anfrage, die mit der Ausgabe von JSON-Daten
+OParl-Server **müssen** für jegliche Anfrage, die mit der Ausgabe von JSON-Daten
 beantwortet wird (das sind alle Anfragen außer [Dateizugriffe](#dateizugriff))
 den folgenden HTTP-Antwort-Header senden:
 
     Access-Control-Allow-Origin: *
 
-Der HTTP-Antwort-Header `Access-Control-Allow-Methods` SOLLTE darüber hinaus
-NICHT gesetzt sein oder MUSS die Methode `GET` beinhalten.
+Der HTTP-Antwort-Header `Access-Control-Allow-Methods` **sollte** darüber hinaus
+**nicht** gesetzt sein oder **muss** die Methode `GET` beinhalten.
 
 EntwicklerInnen von Webanwendungen sollten sich darüber bewusst sein, dass
 durch die direkte Einbindung von Scripten dritter in ihre Anwendungen mögliche

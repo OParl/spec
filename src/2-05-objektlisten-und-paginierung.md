@@ -134,9 +134,9 @@ begrenzen.
 
 Die Entscheidung, ob eine externe Objektiste mit Paginierung
 ausgegeben wird, liegt allein beim Server. Bei Listen mit mehr als 100
-Einträgen wird dies EMPFOHLEN.
+Einträgen wird dies **empfohlen**.
 
-Server MUSS für eine stabile Sortierung von Listeneinträgen sorgen. Das
+Server **muss** für eine stabile Sortierung von Listeneinträgen sorgen. Das
 heißt, dass die Sortierung der Einträge einem konstanten Prinzip folgt und sich
 nicht von Abfrage zu Abfrage ändert. Das kann z.B. durch die Sortierung von
 Objekten nach einer eindeutigen und unveränderlichen ID erreicht werden.
@@ -157,7 +157,7 @@ nacheinander alle Listenseiten abrufen.
 }
 ~~~~~
 
-Es gibt dazu einige OPTIONALE Attribute für Listenseiten:
+Es gibt dazu einige **optionale** Attribute für Listenseiten:
 
  * `firstPage`: URL der ersten Listenseite
  * `lastPage`: URL der letzten Listenseite
@@ -191,10 +191,10 @@ Zusammen mit allen Zusatzattributen sieht eine Listenseite wie folgt aus:
 Es ist davon auszugehen, dass Clients für den gesamten Abruf aller
 Seiten einer Liste längere Zeit benötigen. In der Zwischenzeit kann sich
 der Inhalt der Liste ändern, etwa durch das Hinzukommen neuer Einträge.
-Die Paginierung SOLL soimplementiert werden, dass sich
+Die Paginierung **soll** so implementiert werden, dass sich
 das Hinzufügen oder Entfernen von Einträgen möglichst nicht auf den Client
 auswirkt, der aktuell die Liste paginiert, um alle Einträge abzurufen. Wir
-bezeichnen dies als **stabile Paginierung**.
+bezeichnen dies als stabile Paginierung.
 
 Die Fnktionsweise der stabilen Paginierung soll im Folgenden an einem Beispiel
 verdeutlicht werden. Nehmen wir an, die erste Seite der Liste wird mit der Abfrage
@@ -239,7 +239,7 @@ Diese werden als URL-Bestandteile gemäß der
 [ElasticSearch Query String Syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_ranges_2)
 verwendet.
 
-Der Server MUSS die Filter `created` und `modified` bei allen Listen
+Der Server **muss** die Filter `created` und `modified` bei allen Listen
 unterstützen, welche Attribute von `Body` sind.
 
 Die Filter werden vom Client benutzt, indem die gewünschten URL-Parameter an
@@ -253,12 +253,12 @@ Drucksachen einzuschränken, die nach dem 1.1.2014 veröffentlicht wurden:
     https://oparl.example.org/papers/?created:>=2014-01-01T00%3A00%3A00%2B01%3A00
 
 Es sind auch Einschränkungen mit Minimal- und Maximal-Wert möglich, wozu der
-logische Operator AND implementiert werden MUSS. Um eine Einschränkung vom
+logische Operator AND implementiert werden **muss**. Um eine Einschränkung vom
 1.1.2014 bis zum 31.1.2014 vorzunehmen, wird somit der folgende Syntax verwendet:
 
     https://oparl.example.org/papers/?created:(>=2014-01-01T00%3A00%3A00%2B01%3A00%20AND%20<=2014-01-31T23%3A59%3A59%2B01%3A00)
 
-Clients MÜSSEN die Werte von `created` und `modified` mit Uhrzeit und Zeitzone
-angeben. Dabei MUSS das im Kapitel [Datums- und Zeitangaben](#datum_zeit)
+Clients **müssen** die Werte von `created` und `modified` mit Uhrzeit und Zeitzone
+angeben. Dabei **muss** das im Kapitel [Datums- und Zeitangaben](#datum_zeit)
 definierte Format genutzt werden und Clients müssen für eine entsprechende
 URL-Kodierung sorgen.

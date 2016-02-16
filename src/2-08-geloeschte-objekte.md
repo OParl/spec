@@ -1,7 +1,7 @@
 ## Gelöschte Objekte {#geloeschte-objekte}
 
 Wenn ein Objekt gelöscht werden muss (z.B. aufgrund Datenschutz oder Urheberrecht),
-so muss das Objekt in OParl gesondert vermerkt werden. Es DARF insbesondere NICHT einfach gelöscht werden,
+so muss das Objekt in OParl gesondert vermerkt werden. Es **darf** insbesondere **nicht** einfach gelöscht werden,
 so dass unter der betreffenden URL ein HTTP Fehlercode 404 oder 410 ausgeliefert wird.
 
 Hintergrund ist, dass alle OParl-Clients zeitnah mitbekommen müssen, wenn ein Objekt gelöscht wurde.
@@ -9,10 +9,10 @@ Dies wird durch die folgenden Regeln gewährleistet.
 
 Wenn ein Objekt gelöscht wird, ...
 
-* MUSS das Objekt das zusätzliche Attribut `deleted`: true bekommen
-* MUSS das Attribut `modified` auf den Zeitpunkt der Löschung setzen
-* MÜSSEN die Attribute `id`, `type` und `created` erhalten bleiben
-* MÜSSEN sämtliche anderen Attribute gelöscht werden.
+* **muss** das Objekt das zusätzliche Attribut `deleted`: true bekommen
+* **muss** das Attribut `modified` auf den Zeitpunkt der Löschung setzen
+* **müssen** die Attribute `id`, `type` und `created` erhalten bleiben
+* **müssen** sämtliche anderen Attribute gelöscht werden.
 
 Dies gilt nur für die Hauptobjekte (d.h. System, Body, Organisation, Person, Meeting, Paper, File).
 D.h. Subobjekte (LegislativeTerm, Membership, AgendaItem, Consultation) benötigen nicht das

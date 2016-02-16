@@ -4,11 +4,11 @@
 
 Die Eigenschaft `id` ist für jeden OParl-Objekttypen vorgegeben
 und enthält den eindeutigen Bezeichner des Objekts, nämlich seine URL.
-Dies ist ein ZWINGENDES Merkmal für jedes Objekt.
+Dies ist ein **zwingendes** Merkmal für jedes Objekt.
 
 ### `type` {#eigenschaft-type}
 
-Objekttypenangabe des Objekts, ZWINGEND für jedes Objekt. Der Wert ist
+Objekttypenangabe des Objekts, **zwingend** für jedes Objekt. Der Wert ist
 eine Namespace-URL. Für die OParl-Objekttypen sind die folgenden URLs
 definiert:
 
@@ -37,8 +37,6 @@ kurze bzw. kompakte und eine längere, aber weniger nutzerfreundliche Variante
 existieren. Ein Beispiel wäre die Kurzform "CDU" für den offiziellen
 Parteinamen "Christlich Demokratische Union Deutschlands".
 
-Die Werte von `name` und `shortName` desselben Objekts SOLLTEN nicht identisch sein.
-
 ### `license` {#eigenschaft_license}
 
 Die Eigenschaft `license` erlaubt es, am jeweiligen Objekt die URL einer Lizenz
@@ -54,7 +52,7 @@ Eine besondere Bedeutung hat die Eigenschaft `license`, wenn sie am `oparl:Syste
 Objekt vergeben wird. Die hier angegebene Lizenzinformation sagt aus, dass alle
 Objekte dieses Systems bzw. der Körperschaft unter der angegebenen Lizenz veröffentlicht werden, sofern
 dies nicht am jeweiligen Objekt mit einer anders lautenden Lizenz-URL überschrieben
-wird. Daher wird dringend EMPFOHLEN, die Lizenzinformation global am `oparl:System`
+wird. Daher wird dringend **empfohlen**, die Lizenzinformation global am `oparl:System`
 Objekt mitzuteilen und auf redundante Informationen zu verzichten.
 
 An Objekten vom Typ `oparl:File` auftretend, bezieht sich die Lizenzinformation

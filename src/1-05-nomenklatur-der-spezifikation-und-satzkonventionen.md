@@ -13,29 +13,29 @@ RFC2119.^[RFC2119 <http://tools.ietf.org/html/rfc2119>]
 
 Die Bedeutung im Einzelnen:
 
-MÜSSEN/MUSS bzw. ZWINGEND:
+**müssen**/**muss** bzw. **zwingend**:
 
-:   Die Erfüllung einer Anforderung, die explizit vom Modalverb MÜSSEN bzw.
-    MUSS Gebrauch macht, ist zwingend erforderlich.
+:   Die Erfüllung einer Anforderung, die explizit vom Modalverb **müssen** bzw.
+    **muss** Gebrauch macht, ist zwingend erforderlich.
 
     Die Entsprechung in RFC2119 lautet "MUST", "REQUIRED" oder "SHALL".
 
-NICHT DÜRFEN/DARF NICHT:
+**nicht dürfen** /**darf nicht**:
 
 :   Dieses Stichwort kennzeichnet ein absolutes Verbot.
 
     Die Entsprechung in RFC2119 lautet "MUST NOT" oder "SHALL NOT".
 
-SOLLTEN/SOLLTE bzw. EMPFOHLEN:
+**sollten**/**sollte** bzw. **empfohlen**:
 
-:   Mit dem Wort SOLLTEN bzw. SOLLTE sind empfohlene Anforderungen gekennzeichnet,
+:   Mit dem Wort **sollten** bzw. **sollte** sind empfohlene Anforderungen gekennzeichnet,
     die von jeder Implementierung erfüllt werden sollten. Eine Nichterfüllung
     ist als Nachteil zu verstehen, beispielsweise weil die Nutzerfreundlichkeit
     dadurch Einbußen erleidet, und sollte daher sorgfältig abgewogen werden.
 
     Die Entsprechung in RFC2119 lautet "SHOULD" oder "RECOMMENDED".
 
-SOLLTEN NICHT/SOLLTE NICHT bzw. NICHT EMPFOHLEN:
+**sollten nicht**/**sollte nicht** bzw. **nicht empfohlen**:
 
 :   Diese Formulierung wird verwendet, wenn unter gewissen Umständen Gründe
     existieren können, die ein bestimmtes Verhalten akzeptabel oder sogar
@@ -45,17 +45,17 @@ SOLLTEN NICHT/SOLLTE NICHT bzw. NICHT EMPFOHLEN:
 
     Die Entsprechung in RFC2119 lautet "SHOULD NOT" oder "NOT RECOMMENDED".
 
-DÜRFEN/DARF bzw. OPTIONAL:
+**dürfen**/**darf** bzw. **optional**:
 
-:   Mit dem Wort DÜRFEN bzw. DARF oder OPTIONAL sind optionale Bestandteile
+:   Mit dem Wort **dürfen** bzw. **darf** oder **optional** sind optionale Bestandteile
     gekennzeichnet. Ein Anbieter könnte sich entscheiden, den entsprechenden
     Bestandteil aufgrund besonderer Kundenanforderungen zu unterstützen,
     während andere diesen Bestandteil ignorieren könnten. Implementierer von
-    Clients oder Servern DÜRFEN in solchen Fällen NICHT davon ausgehen, dass der
+    Clients oder Servern **dürfen** in solchen Fällen **nicht** davon ausgehen, dass der
     jeweilige Kommunikationspartner den entsprechenden, optionalen Anteil
     unterstützt.
 
-    Die Entsprechung in RFC2119 lautet "MAY" oder "OPTIONAL".
+    Die Entsprechung in RFC2119 lautet "MAY" oder "**optional**".
 
 
 ### Geschlechterspezifische Begrifflichkeiten {#geschlechterspezifische-begrifflichkeiten}
@@ -74,7 +74,8 @@ der beschriebenen Prinzipien. Es handelt sich in der Regel um frei erfundene
 Daten.
 
 Codebeispiele erheben insbesondere bei JSON-Code nicht den Anspruch auf
-syntaktische Korrektheit und Vollständigkeit. Dementsprechend können in Codebeispielen Auslassungen vorkommen, die mit `...` gekennzeichnet werden.
+syntaktische Korrektheit und Vollständigkeit. Dementsprechend können in
+Codebeispielen Auslassungen vorkommen, die mit `...` gekennzeichnet werden.
 
 
 ### Namespace-Präfixe für Objekt- und Datentypen {#namespace-praefixe-fuer-objekt-und-datentypen}

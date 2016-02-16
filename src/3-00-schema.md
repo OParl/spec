@@ -14,17 +14,23 @@ einander stehen.
 
 ### Vollständigkeit {#schema-vollstaendigkeit}
 
-Alle regulär öffentlich abrufbaren Informationen SOLLTEN auch in OParl ausgegeben werden, solange dies nicht den Datenschutzbestimmungen widerspricht. Daher sind sämtliche Felder im Schema als EMPFOHLEN zu behandeln, wenn nicht explizit etwas anderes angegeben wurde.
+Alle regulär öffentlich abrufbaren Informationen **sollten** auch in OParl
+ausgegeben werden, solange dies nicht den Datenschutzbestimmungen widerspricht.
+Daher sind sämtliche Felder im Schema als **empfohlen** zu behandeln, wenn
+nicht explizit etwas anderes angegeben wurde.
 
 
 ### `null`-Werte und leere Listen {#null-werte-und-leere-listen}
 
 JSON erlaubt es grundsätzlich, Eigenschaften mit dem Wert `null` zu versehen.
-Im Rahmen von OParl SOLLTEN Server nach Möglichkeit davon absehen, Eigenschaften
-mit dem Wert `null` auszugeben. Obligatorische Eigenschaften (in diesem Kapitel mit "ZWINGEND" markiert) DÜRFEN NICHT den Wert `null` haben.
+Im Rahmen von OParl **sollten** Eigenschaften nicht mit dem Wert `null`
+ausgegeben werden. Obligatorische Eigenschaften **dürfen nicht** den Wert
+`null` haben.
 
-Im Fall von Arrays erlaubt JSON grundsätzlich die Ausgabe von `[]` für leere Arrays.
-Wie bei `null` wird auch hier EMPFOHLEN, auf die Ausgabe einer Eigenschaft mit dem Wert `[]` zu verzichten, sofern es sich nicht um eine obligatorische Eigenschaft handelt.
+Im Fall von Arrays erlaubt JSON grundsätzlich die Ausgabe von `[]` für leere
+Arrays. Wie bei `null` wird auch hier **empfohlen**, auf die Ausgabe einer
+Eigenschaft mit dem Wert `[]` zu verzichten, sofern es sich nicht um eine
+obligatorische Eigenschaft handelt.
 
 Obligatorische Eigenschaften, die als Wert eine Liste von Objekten haben können,
 stellen einen Sonderfall dar. Diese können, wie im Abschnitt
@@ -33,7 +39,7 @@ URL zum externen Abruf einer Objektliste als Wert haben. In der Praxis kann es
 vorkommen, dass solche Listen leer sind. Beispielsweise könnte eine Gruppierung
 neu erstellt worden sein und noch keine Sitzungstermine aufweisen. In diesem
 Fall ist ein leeres Array die richtige Möglichkeit, dies auszudrücken. Da es sich
-dabei um eine obligatorische Eigenschaft handelt, MUSS sie jedoch ausgegeben werden.
+dabei um eine obligatorische Eigenschaft handelt, **muss** sie jedoch ausgegeben werden.
 
 Beispiel:
 
@@ -49,7 +55,7 @@ Beispiel:
 Clients können so unmittelbar feststellen, dass zu dieser Gruppierung (noch) keine
 Sitzungen vorliegen.
 
-Ist eine Liste leer, wird EMPFOHLEN, diese NICHT über eine eigene URL anzubieten,
+Ist eine Liste leer, wird **empfohlen**, diese **nicht** über eine eigene URL anzubieten,
 da so Clients eine zusätzliche Anfrage für den Abruf einer leeren Liste stellen
 müssen.
 
@@ -59,20 +65,20 @@ müssen.
 Ob eine Eigenschaft ein einzelner Wert oder eine Liste aus mehreren Werten ist,
 kann im Schema an Spalte `Typ` erkannt werden:
 
-* Der Typ array mit dem Zusatz ZWINGEND beschreibt ein JSON-Array mit mindestens einem
+* Der Typ array mit dem Zusatz **zwingend** beschreibt ein JSON-Array mit mindestens einem
   Wert, somit einer Kardinalität von 1 - n.
 
-* Der Typ array ohne den Zusatz ZWINGEND beschreibt ein JSON-Array ohne Mindestanzahl
+* Der Typ array ohne den Zusatz **zwingend** beschreibt ein JSON-Array ohne Mindestanzahl
   von Werten, somit einer Kardinalität von 0 - n.
 
-* Alle anderen Typen (object, string, integer, boolean) mit dem Zusatz ZWINGEND beschreiben
+* Alle anderen Typen (object, string, integer, boolean) mit dem Zusatz **zwingend** beschreiben
   den genannten Typus mit exakt einem Wert, d.h. einer Kardinalität von 1.
   
-* Alle anderen Typen (object, string, integer, boolean) ohne den Zusatz ZWINGEND beschreiben
+* Alle anderen Typen (object, string, integer, boolean) ohne den Zusatz **zwingend** beschreiben
   den genannten Typus mit keinem oder einem Wert, d.h. einer Kardinalität von 0 - 1
   
-Liegen keine Information zu dem Attribut vor, so MUSS das Attribut entfernt werden.
-Dies ist bei allen inhaltlichen Attributen möglich, die nicht mit `ZWINGEND` markiert
+Liegen keine Information zu dem Attribut vor, so **muss** das Attribut entfernt werden.
+Dies ist bei allen inhaltlichen Attributen möglich, die nicht mit `**zwingend**` markiert
 sind.
 
 
@@ -100,7 +106,7 @@ Diese sind – falls tatsächlich erforderlich – mit einem Herstellerprefix ei
 "herstellerb:faxNumber": "012345678"
 ~~~~~
 
-Das Zeichen '@' DARF NICHT als Bestandteil des Herstellerprefix verwendet werden,
+Das Zeichen '@' **darf nicht** als Bestandteil des Herstellerprefix verwendet werden,
 um eine ggf. später aufkommende JSON-LD-Erweiterung nicht zu stören.
 
 ### URL-Pfade in den Beispielen {#url-pfade-in-den-beispielen}

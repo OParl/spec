@@ -21,7 +21,7 @@ im Umkehrschluss die Annahme gelten, dass sie zwei verschiedene Objekte repräse
 
 Ein Server **muss** für jedes benannte Objekt eine kanonische URL bestimmen können.
 
-Der **Host**-Teil der URL wird durch die Konfiguration des Betreibers festgelegt.
+Der Host-Teil der URL wird durch die Konfiguration des Betreibers festgelegt.
 Obwohl technisch auch die Verwendung einer IP-Adresse (z.B. "123.123.123.123") möglich wäre,
 **sollte** der Betreiber einen mit Bedacht gewählten Host-Namen einsetzen. Die Vorteile dieser Lösung
 gegenüber der Verwendung einer IP-Adresse sind vielfältig:
@@ -60,12 +60,12 @@ kanonische URL beantwortet werden. Dabei ist der HTTP-Status-Code 301 zu verwend
 Server-Implementierern wird empfohlen, hierfür den `Host`-Header der HTTP-Anfrage auszuwerten und mit
 der konfigurierten Einstellung für den kanonischen Host-Namen des Systems abzugleichen.
 
-Beim **Pfad**-Bestandteil der URL **müssen** Server-Implementierer darüber hinaus beachten, dass
+Beim Pfad-Bestandteil der URL **müssen** Server-Implementierer darüber hinaus beachten, dass
 nur jeweils eine Schreibweise als die kanonische Schreibweise gelten kann. Dazu gehört auch
 die Groß- und Kleinschreibung, die Anzahl von Schrägstrichen als Pfad-Trennzeichen, die Anzahl
 von führenden Nullen vor numerischen URL-Bestandteilen und vieles mehr.
 
-Die Kanonisierung umfasst auch den **Query-String**-Bestandteil der URL. Wie auch beim Pfad, gilt hier,
+Die Kanonisierung umfasst auch den Query-String-Bestandteil der URL. Wie auch beim Pfad, gilt hier,
 dass für jeden Parameter und jeden Wert im Query-String nur eine kanonische Schreibweise gelten **muss**.
 
 Darüber hinaus **sollte** der Server-Implementierer darauf achten, bei Verwendung von Query-String-Parametern
@@ -94,12 +94,12 @@ Es jedoch möglich, eine Weiterleitung (HTTP Status-Code 301)
 einzurichten. Eine Weiterleitung von HTTPS auf HTTP wird **nicht  empfohlen**.
 
 
-### Langlebigkeit
+### Langlebigkeit {#url_langlebigkeit}
 
 Weiterhin ist es Absicht, dass URLs von Objekten langlebig sind, so dass sie, wenn sie einmal
 verbreitet wurden, langfristig zur Abfrage des dazugehörigen Objekts verwendet werden können.
 
-Um dies zu gewährleisten, wird den **Betreibern** empfohlen, die Wahl der Domain, eventuell der
+Um dies zu gewährleisten, wird den Betreibern empfohlen, die Wahl der Domain, eventuell der
 Subdomain und letztlich des Host-Namens sorgfältig auf seine längerfristige Verwendbarkeit abzuwägen.
 
 Server-Implementierer **sollten** darüber hinaus dafür sorgen, dass der Pfad-Bestandteil der URLs

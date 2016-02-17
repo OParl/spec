@@ -1,14 +1,11 @@
 # Schema {#schema}
 
-Dieses Kapitel beschreibt das Schema von OParl. Das Schema bildet das
-Datenmodell der OParl-Architektur ab. Es definiert, welche Objekttypen
-über eine OParl-API abgerufen werden können und welche Eigenschaften
-diese Objekttypen haben dürfen und müssen. Darüber hinaus ist im Schema
+Dieses Kapitel beschreibt das Schema von OParl. Das Schema definiert 
+die Objekttypen und ihre Eigenschaften. Darüber hinaus ist im Schema
 auch festgelegt, in welcher Beziehung verschiedene Objekttypen zu
 einander stehen.
 
 ![OParl Objekttypen: Ein Überblick](images/objekttypen_graph.png)
-
 
 ## Übergreifende Aspekte {#uebergreifende-aspekte}
 
@@ -23,42 +20,13 @@ nicht explizit etwas anderes angegeben wurde.
 ### `null`-Werte und leere Listen {#null-werte-und-leere-listen}
 
 JSON erlaubt es grundsätzlich, Eigenschaften mit dem Wert `null` zu versehen.
-Im Rahmen von OParl **sollten** Eigenschaften nicht mit dem Wert `null`
-ausgegeben werden. Obligatorische Eigenschaften **dürfen nicht** den Wert
-`null` haben.
+Eigenschaften **sollten** nicht mit dem Wert `null` ausgegeben werden.
+Obligatorische Eigenschaften **dürfen nicht** den Wert `null` haben.
 
 Im Fall von Arrays erlaubt JSON grundsätzlich die Ausgabe von `[]` für leere
 Arrays. Wie bei `null` wird auch hier **empfohlen**, auf die Ausgabe einer
-Eigenschaft mit dem Wert `[]` zu verzichten, sofern es sich nicht um eine
-obligatorische Eigenschaft handelt.
-
-Obligatorische Eigenschaften, die als Wert eine Liste von Objekten haben können,
-stellen einen Sonderfall dar. Diese können, wie im Abschnitt
-[Objektlisten](#objektlisten) beschrieben, entweder ein JSON-Array oder eine
-URL zum externen Abruf einer Objektliste als Wert haben. In der Praxis kann es
-vorkommen, dass solche Listen leer sind. Beispielsweise könnte eine Gruppierung
-neu erstellt worden sein und noch keine Sitzungstermine aufweisen. In diesem
-Fall ist ein leeres Array die richtige Möglichkeit, dies auszudrücken. Da es sich
-dabei um eine obligatorische Eigenschaft handelt, **muss** sie jedoch ausgegeben werden.
-
-Beispiel:
-
-~~~~~  {#schema_ex1 .json}
-{
-    "id": "https://oparl.example.org/",
-    "type": "https://oparl.org/schema/1.0/Organization",
-    "meeting": [],
-    ...
-}
-~~~~~
-
-Clients können so unmittelbar feststellen, dass zu dieser Gruppierung (noch) keine
-Sitzungen vorliegen.
-
-Ist eine Liste leer, wird **empfohlen**, diese **nicht** über eine eigene URL anzubieten,
-da so Clients eine zusätzliche Anfrage für den Abruf einer leeren Liste stellen
-müssen.
-
+Eigenschaft mit dem Wert `[]` zu verzichten. Bei obligatorische Eigenschaften
+**muss** jedoch eine leere Liste ausgegeben werden.
 
 ### Kardinalität {#kardinalitaet}
 
@@ -76,10 +44,6 @@ kann im Schema an Spalte `Typ` erkannt werden:
   
 * Alle anderen Typen (object, string, integer, boolean) ohne den Zusatz **zwingend** beschreiben
   den genannten Typus mit keinem oder einem Wert, d.h. einer Kardinalität von 0 - 1
-  
-Liegen keine Information zu dem Attribut vor, so **muss** das Attribut entfernt werden.
-Dies ist bei allen inhaltlichen Attributen möglich, die nicht mit `**zwingend**` markiert
-sind.
 
 
 ### Datums- und Zeitangaben  {#datum_zeit}
@@ -98,31 +62,19 @@ Diese Spezifikationen stützen sich auf RFC 3339^[RFC3339:
 
 ### Herstellerspezifische Erweiterungen {#herstellerspezifische-erweiterungen}
 
-Diese sind – falls tatsächlich erforderlich – mit einem Herstellerprefix einfach möglich. Z. B.
+In OParl können zusätzliche, herstellerspezifische Eigenschaften hinzugefügt werden.
+Dazu wird diesen Eigenschaften ein Herstellerprefix vorangestellt. So könnte man z.B.
+`Person` um eine Faxnummer erweitern:
 
 ~~~~~
-"herstellera:newWonderProperty": "Dies ist ein Feature,
-    welches noch kein anderer Hersteller bietet!",
-"herstellerb:faxNumber": "012345678"
+"BeispielHersteller:faxNumber": "012345678",
 ~~~~~
-
-Das Zeichen '@' **darf nicht** als Bestandteil des Herstellerprefix verwendet werden,
-um eine ggf. später aufkommende JSON-LD-Erweiterung nicht zu stören.
 
 ### URL-Pfade in den Beispielen {#url-pfade-in-den-beispielen}
 
-OParl-Clients wissen *nichts* vom Aufbau von Pfaden innerhalb von URLs,
+OParl-Clients wissen nichts vom Aufbau von Pfaden innerhalb von URLs,
 müssen dies nicht wissen, und es gibt deshalb in der OParl-Spezifikation
-*keine* Festlegungen dazu.
-
-Wenn der Betreiber eines OParl-Systems beispielsweise meint, dass eine
-Person eine eigene Domain verdient, dann ist dies aus Sicht der OParl-Spezifikation
-völlig in Ordnung:
-
-    https://ratsherr-mustermann.example.org/
-
-Noch etwas extremer: selbst eine eigene Domain für jedes einzelne
-OParl-Objekt würde der OParl-Spezifikation nicht widersprechen.
+keine Festlegungen dazu.
 
 Wenn also in einer Beispiel-URL ein Pfad wie
 

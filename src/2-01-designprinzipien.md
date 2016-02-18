@@ -90,15 +90,3 @@ auf ein anderes Objekt, etwa ein Mitglied des Gremiums, dadurch ausgeben, dass i
 des Gremiums die URL des Mitglieds ausgeben wird. Der Client kann somit ausgehend von einem
 bestimmten Objekt die zugehörigen Objekte im System finden, indem er einfach den angebotenen
 URLs folgt. Dieses Prinzip wird auch "Follow Your Nose"^[<http://patterns.dataincubator.org/book/follow-your-nose.html>] genannt.
-
-### Schritte in Richtung Linked Data {#linked_data}
-
-Der Begriff "Linked Data" steht für die Beschreibung von Daten in einer Form, die diese
-über ihren ursprünglichen Kontext hinaus verständlich macht.^[vgl. Bundesministerium
-des Innern (Herausg.): Open Government Data Deutschland, Seite 433f., 2012
-<http://www.bmi.bund.de/SharedDocs/Downloads/DE/Themen/OED_Verwaltung/ModerneVerwaltung/opengovernment.pdf>]
-
-OParl erhebt mit der vorliegenden Version 1.0 keinen Anspruch auf Unterstützung aller Linked-Data-Prinzipien. Dies steht unter Anderem im Widerspruch zum nahen Verbleib am Status Quo.
-
-Als Grundbaustein der möglichen Unterstützung in der Zukunft ist anzumerken,
-dass bereits jedes Objekt durch eine URL identifiziert wird. So eignen sich OParl-Objekte für die Verknüpfung durch externe Anwendungen.

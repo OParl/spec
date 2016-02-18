@@ -28,24 +28,6 @@ Arrays. Wie bei `null` wird auch hier **empfohlen**, auf die Ausgabe einer
 Eigenschaft mit dem Wert `[]` zu verzichten. Bei obligatorische Eigenschaften
 **muss** jedoch eine leere Liste ausgegeben werden.
 
-### Kardinalität {#kardinalitaet}
-
-Ob eine Eigenschaft ein einzelner Wert oder eine Liste aus mehreren Werten ist,
-kann im Schema an Spalte `Typ` erkannt werden:
-
-* Der Typ array mit dem Zusatz **zwingend** beschreibt ein JSON-Array mit mindestens einem
-  Wert, somit einer Kardinalität von 1 - n.
-
-* Der Typ array ohne den Zusatz **zwingend** beschreibt ein JSON-Array ohne Mindestanzahl
-  von Werten, somit einer Kardinalität von 0 - n.
-
-* Alle anderen Typen (object, string, integer, boolean) mit dem Zusatz **zwingend** beschreiben
-  den genannten Typus mit exakt einem Wert, d.h. einer Kardinalität von 1.
-  
-* Alle anderen Typen (object, string, integer, boolean) ohne den Zusatz **zwingend** beschreiben
-  den genannten Typus mit keinem oder einem Wert, d.h. einer Kardinalität von 0 - 1
-
-
 ### Datums- und Zeitangaben  {#datum_zeit}
 
 Für Datum und Zeit werden die in XML-Schema festgelegten Typen verwendet

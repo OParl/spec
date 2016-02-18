@@ -5,19 +5,19 @@ Folgende Personen haben an OParl 1.0 mitgewirkt:
 Jan Erhardt,
 Stefan Graupner,
 Lucas Jacob,
-Jens Klessmann (*),
-Andreas Kuckartz (**),
+Jens Klessmann (\*),
+Andreas Kuckartz (\*\*),
 Ernesto Ruge,
 Konstantin Schütze
 Babett Schalitz,
 Tim Scheuermann,
-Christine Siegfried (*),
+Christine Siegfried (\*),
 Ralf Sternberg,
-Marian Steinbach (*),
+Marian Steinbach (\*),
 Bernd Thiem,
 Thomas Tursics,
 Jakob Voss,
-Marianne Wulff(*)
+Marianne Wulff(\*)
 
-(*): Initiator(in), (**): bis 4.7.2014
+(\*): Initiator(in), (\*\*): bis 4.7.2014
 

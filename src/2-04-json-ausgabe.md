@@ -38,10 +38,10 @@ In OParl werden verschiedene String-Typen verwendet. Wenn von diesen Typen gespr
 so wird automatisch ein JSON-String vorausgesetzt:
 
 url:
-:   Eine URL ist ein String, der entsprechend OParl Kapitel 2.4 formatiert wurde
+:   Eine URL ist ein String, der entsprechend dem Kapitel zu [URLs](#urls) formatiert wurde.
 
 url (Object):
 :   Eine url mit in Klammern angehängtem Object beschreibt eine URL auf eben diesen Objekttypus.
 
 date-time:
-:   Ein date-time entspricht einem Datum und ggf. einer Uhrzeit, wie sie in 3.1.4 beschrieben werden
+:   Ein date-time entspricht einem Datum und ggf. einer Uhrzeit, wie sie im [zugehörigen Kapitel](#datum_zeit) beschrieben werden.

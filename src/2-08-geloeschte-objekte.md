@@ -1,11 +1,12 @@
 ## Gelöschte Objekte {#geloeschte-objekte}
 
-Wenn ein Objekt gelöscht werden muss (z.B. aufgrund Datenschutz oder Urheberrecht),
-so muss das Objekt in OParl gesondert vermerkt werden. Es **darf** insbesondere **nicht** einfach gelöscht werden,
-so dass unter der betreffenden URL ein HTTP Fehlercode 404 oder 410 ausgeliefert wird.
+Wenn ein Objekt gelöscht wird, so muss das Objekt in OParl gesondert vermerkt
+werden. Es **darf** insbesondere **nicht** einfach gelöscht werden,
+so dass unter der betreffenden URL kein gültiges Objekt ausgeliefert wird.
 
-Hintergrund ist, dass alle OParl-Clients zeitnah mitbekommen müssen, wenn ein Objekt gelöscht wurde.
-Dies wird durch die folgenden Regeln gewährleistet.
+Hintergrund ist, dass alle OParl-Clients zeitnah erfahren müssen,
+wenn ein Objekt gelöscht wurde. Dies wird durch die folgenden Regeln
+gewährleistet.
 
 Wenn ein Objekt gelöscht wird, ...
 
@@ -18,5 +19,5 @@ D.h. Subobjekte (LegislativeTerm, Membership, AgendaItem, Consultation) benötig
 Attribut `deleted`, sondern können einfach gelöscht werden. Beim Löschen einer der Subobjekte
 muss allerdings der Wert `modified` des dazugehörigen Hauptobjektes aktualisiert werden.
 
-Dies hat zur Folge, dass das gelöschte Objekt beim Updaten eines Client-Datenbestandes
-aktualisiert wird, wenn das normale Update über die in 4.6 angesprochenen Filter erfolgt.
+Dies gararntiert, dass das gelöschte Objekt beim Updaten eines Client-Datenbestandes
+aktualisiert wird, wenn der client nur seit dem letzten Update aktualisierte Objekte abruft.

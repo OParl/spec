@@ -17,6 +17,5 @@ install:
 script: make test
 
 notifications:
-  irc: irc.freenode.org#oparl
   slack:
     secure: Z+1KSBeIhFfra53JrWE5eS6PupdOyrtVZ5g5aMw99WSxCnFzKDDsj669kLxm2dq5c/HYSxE0sc9mFaabDn+urusR0J3vKdac7nQdJIBRPdroqIAxQFAnnn+Y6r0OUqIQuLWqVNfDwr4JPdck9jI1n8X4Rg7MVsRlSoyfXDqK/LU=

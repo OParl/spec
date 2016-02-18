@@ -11,7 +11,7 @@ Ernesto Ruge,
 Konstantin Schütze
 Babett Schalitz,
 Tim Scheuermann,
-Christine Siegfried (*)
+Christine Siegfried (*),
 Ralf Sternberg,
 Marian Steinbach (*),
 Bernd Thiem,

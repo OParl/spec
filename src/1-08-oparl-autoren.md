@@ -2,13 +2,14 @@
 
 Folgende Personen haben an OParl 1.0 mitgewirkt:
 
+Jayan Areekadan,
 Jan Erhardt,
 Stefan Graupner,
 Lucas Jacob,
 Jens Klessmann (\*),
 Andreas Kuckartz (\*\*),
 Ernesto Ruge,
-Konstantin Schütze
+Konstantin Schütze,
 Babett Schalitz,
 Tim Scheuermann,
 Christine Siegfried (\*),

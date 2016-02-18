@@ -1,4 +1,4 @@
-## Nomenklatur der Spezifikation und Satzkonventionen {#nomenklatur-der-spezifikation-und-satzkonventionen}
+## Nomenklatur {#nomenklatur}
 
 ### Zwingende, empfohlene und optionale Anforderungen  {#muss_sollte_darf}
 

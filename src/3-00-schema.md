@@ -56,21 +56,5 @@ Dazu wird diesen Eigenschaften ein Herstellerprefix vorangestellt. So könnte ma
 
 OParl-Clients wissen nichts vom Aufbau von Pfaden innerhalb von URLs,
 müssen dies nicht wissen, und es gibt deshalb in der OParl-Spezifikation
-keine Festlegungen dazu.
-
-Wenn also in einer Beispiel-URL ein Pfad wie
-
-    bodies/0/peoples/
-
-auftaucht, bedeutet das nicht, dass genau solche Pfade durch
-die OParl-Spezifikation vorgeschrieben sind.
-
-Auch dies wäre als URL z. B. für eine Person verwendbar:
-
-    https://www.ratsinfo.net/personen/?__=LfyIfvCWq8SpBQj0MiyHaxDZwGJ
-
-Gleichzeitig ist aber aus verschiedenen Gründen ein strukturierter Aufbau
-der Pfade durchaus sinnvoll, der sich an der Hierarchie der Objekte
-orientiert (nicht zuletzt, weil dies Softwareentwicklern während der
-Entwicklung helfen kann). Dennoch wird eine solche Struktur bewusst
-nicht in OParl 1.0 festgelegt.
+keine Festlegungen dazu. Die in den Beispielen verwendeten URLs zeigen jedoch
+einen guten Weg, wie die Empfehlungen zu URLs umgesetzt werden können.

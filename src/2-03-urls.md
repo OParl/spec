@@ -11,8 +11,6 @@ die zum Abrufen eines Objekts nötig sind, in der URL vorhanden sein müssen.
 
 ### URL-Kanonisierung {#url_kanonisierung}
 
-![Aufbau einer URL](images/url.png)
-
 Um Objekte eindeutig identifizieren zu können ist es notwendig, dass ein Server
 für ein Objekt nur eine unveränderliche URL benutzt. Diese Festlegung auf genaue
 eine eindeutige URL wird Kanonisierung genannt. Ein Server **muss** deshalb für

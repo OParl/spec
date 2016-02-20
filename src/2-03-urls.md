@@ -1,5 +1,7 @@
 ## URLs {#urls}
 
+![Aufbau einer URL](images/url.png)
+
 Den URLs (für _Uniform Resource Locators_) kommt eine besondere Bedeutung zu
 und es werden deshalb eine Reihe von Anforderungen an deren Aufbau und
 Eigneschaften gestellt. Die allgemeine Funktionsweise von URLs ist in RFC 3986

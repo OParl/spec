@@ -20,7 +20,7 @@ Bevölkerung, diese über die Fortschritte der parlamentarischen Arbeit zu
 informieren und auf dem Laufenden zu halten. Ein erster Schritt, der
 Bevölkerung Einblicke in die Arbeit und Zugriff auf Dokumente zu gewähren,
 ist vielerorts in den letzten Jahren durch Einführung von Ratsinformationssystemen
-mit anonymem, lesenden Zugriff über das World Wide Web gemacht worden.
+mit anonymem, lesendem Zugriff über das World Wide Web gemacht worden.
 
 Die damit eingeschlagene Richtung konsequent weiter zu gehen, bedeutet, die
 Daten der parlamentarischen Informationssystemen gänzlich offen zu legen,
@@ -60,7 +60,7 @@ Beispiele sind:
   des Sehvermögens
 * Alternative und erweiterte Suchmöglichkeiten in Inhalten
 * Auswertung und Analyse von Themen, Inhalten, Sprache etc.
-* Benachrichtigungsfunktionen beim Erscheinen bestimmte Inhalte
+* Benachrichtigungsfunktionen beim Erscheinen bestimmter Inhalte
 
 Die Standardisierung dieses Zugriffs über die Grenzen einzelner Systeme hinweg
 erlaubt zudem, diese Entwicklungen grenzüberschreitend zu denken. Damit steigt

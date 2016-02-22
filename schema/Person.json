@@ -107,6 +107,10 @@
                         "type": "string",
                         "format": "url"
                     },
+                    "parentID": {
+                        "type": "string",
+                        "format": "url"
+                    },
                     "organization": {
                         "description": "Die Gruppierung, in der die Person Mitglied ist oder war.",
                         "oparl:ref": "Organization",

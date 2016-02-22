@@ -110,8 +110,15 @@
                 "title": "LegislativeTerm",
                 "description": "Dieser Objekttyp dient der Beschreibung einer Wahlperiode.",
                 "type": "object",
+                "required": [
+                    "id",
+                ],
                 "properties": {
                     "id": {
+                        "type": "string",
+                        "format": "url"
+                    },
+                    "parentID": {
                         "type": "string",
                         "format": "url"
                     },

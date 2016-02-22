@@ -82,4 +82,14 @@ die im `modified` Zeitstempel widerspiegeln sollte.
 
 ### `keyword` {#eigenschaft-keyword}
 
-Die Eigenschaft `keyword` dient der optionalen Kategorisierung von Objekten und ist in einer Vielzahl von Objekttypen zu diesem Zweck einsetzbar.
+Die Eigenschaft `keyword` dient der optionalen Kategorisierung von Objekten und
+ist in einer Vielzahl von Objekttypen zu diesem Zweck einsetzbar.
+
+### `parentID`  {#eigenschaft-parentid}
+
+Diese nur bei eingebetteten Objekten genutzte Eigenschaft enthält die URL
+des übergeordneten Objekts. Bei `Membership` wäre das z.B. die URL des `Person`
+Objekts, zu dem das `Membership` Objekt gehört. Wird das eingebettete Objekt
+alleine über seine URL abgerufen, dann **muss** diese Eigenschaft ausgegeben
+werden. Wird das Objekt jedoch eingebettet ausgegeben, dann **soll** sie
+nicht ausgegeben werden.

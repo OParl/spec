@@ -111,7 +111,7 @@
                 "description": "Dieser Objekttyp dient der Beschreibung einer Wahlperiode.",
                 "type": "object",
                 "required": [
-                    "id",
+                    "id"
                 ],
                 "properties": {
                     "id": {

@@ -130,7 +130,7 @@
                 "type": "object",
                 "description": "Der Objekttyp `oparl:Consultation` dient dazu, die Beratung einer Drucksache ([`oparl:Paper`](#oparl_paper)) in einer Sitzung abzubilden. Dabei ist es nicht entscheidend, ob diese Beratung in der Vergangenheit stattgefunden hat oder diese für die Zukunft geplant ist.\n\nDie Gesamtheit aller Objekte des Typs `oparl:Consultation` zu einer bestimmten Drucksache bildet das ab, was in der Praxis als \"Beratungsfolge\" der Drucksache bezeichnet wird.",
                 "required": [
-                    "id",
+                    "id"
                 ],
                 "properties": {
                     "id": {

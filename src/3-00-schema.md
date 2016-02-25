@@ -11,7 +11,7 @@ einander stehen.
 
 OParl ist aufgeteilt in Hauptobjekte und Subobjekte. Der Unterschied der beiden
 Objekttypen ist primär, dass Hauptobjekte immer mit ihren dazugehörigen Subobjekten
-ausgeliefert werden.
+ausgegeben in Form einer internen Ausgabe werden (siehe Kapitel 2.05).
 
 Folgende Hauptobjekte stehen zur Verfügung:
 

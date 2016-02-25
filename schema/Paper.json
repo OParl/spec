@@ -180,7 +180,7 @@
                         "items": {
                             "type": "string",
                             "format": "url",
-                            "oparl:ref": "Paper",
+                            "oparl:ref": "Paper"
                         }
                     },
                     "keyword": {

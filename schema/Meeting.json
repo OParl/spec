@@ -168,7 +168,7 @@
                         "items": {
                             "type": "string",
                             "format": "url",
-                            "oparl:ref": "Meeting",
+                            "oparl:ref": "Meeting"
                         }
                     },
                     "start": {

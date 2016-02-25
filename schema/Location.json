@@ -29,7 +29,7 @@
             "items": {
                 "type": "string",
                 "format": "url",
-                "oparl:ref": "Body",
+                "oparl:ref": "Body"
             }
         },
         "organizations": {
@@ -38,7 +38,7 @@
             "items": {
                 "type": "string",
                 "format": "url",
-                "oparl:ref": "Organization",
+                "oparl:ref": "Organization"
             }
         },
         "meetings": {
@@ -47,7 +47,7 @@
             "items": {
                 "type": "string",
                 "format": "url",
-                "oparl:ref": "Meeting",
+                "oparl:ref": "Meeting"
             }
         },
         "keyword": {

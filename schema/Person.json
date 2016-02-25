@@ -144,12 +144,12 @@
                         "format": "url"
                     },
                     "persons": {
-                        "description": "Rückfreferenzen auf Person-Objekte. Wird nur dann ausgegeben, wenn das Person-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+                        "description": "Rückfreferenzen auf Person-Objekte. Wird nur dann ausgegeben, wenn das Membership-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
                         "type": "array",
                         "items": {
                             "type": "string",
                             "format": "url",
-                            "oparl:ref": "Body",
+                            "oparl:ref": "Person"
                         }
                     },
                 }

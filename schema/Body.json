@@ -144,7 +144,7 @@
                         "items": {
                             "type": "string",
                             "format": "url",
-                            "oparl:ref": "Body",
+                            "oparl:ref": "Body"
                         }
                     },
                     "keyword": {

@@ -8,6 +8,6 @@ Um personenbezogene Daten zu veröffentlichen, ist üblicherweise eine explizite
 Zustimmung der betroffenen Person erforderlich. Dies gilt für die bestehende
 Weboberfläche des Ratsinformationssystems ebenso wie für die OParl-
 Schnittstelle. Eine besondere Beachtung sollten hierbei unter anderem E-Mail-
-Adressen, Anschriften, Photos und Anwesenheitslisten finden. Es wird
+Adressen, Anschriften, Fotos und Anwesenheitslisten finden. Es wird
 empfohlen, vor Veröffentlichung den zuständigen Datenschutzbeauftragten zu
 kontaktieren.

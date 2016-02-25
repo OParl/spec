@@ -137,7 +137,7 @@
                         "format": "date-time"
                     },
                     "onBehalfOf": {
-                        "description": "Die Gruppierung, für die die Person in der der unter organitzation angegebenen Organisation sitzt. Beispiel: Mitgliedschaft als Vertreter einer Ratsfraktion, einer Gruppierung oder einer externen Organisation.",
+                        "description": "Die Gruppierung, für die die Person in der unter organization angegebenen Organisation sitzt. Beispiel: Mitgliedschaft als Vertreter einer Ratsfraktion, einer Gruppierung oder einer externen Organisation.",
                         "oparl:ref": "Organization",
                         "oparl:cardinality": "n:1",
                         "type": "string",

@@ -163,12 +163,12 @@
                         }
                     },
                     "start": {
-                        "description": "Datum und Uhrzeit des Anfangszeitpunkts des Tagesordnungspunktes. Bei einer zukünftigen Tagesordnungspunkten ist dies der geplante Zeitpunkt, bei einem stattgefundenen KANN es der tatsächliche Startzeitpunkt sein.",
+                        "description": "Datum und Uhrzeit des Anfangszeitpunkts des Tagesordnungspunktes. Bei zukünftigen Tagesordnungspunkten ist dies der geplante Zeitpunkt, bei einem stattgefundenen KANN es der tatsächliche Startzeitpunkt sein.",
                         "type": "string",
                         "format": "date-time"
                     },
                     "end": {
-                        "description": "Endzeitpunkt des Tagesordnungspunktes als Datum/Uhrzeit. Bei einer zukünftigen Tagesordnungspunkt ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Endzeitpunkt sein.",
+                        "description": "Endzeitpunkt des Tagesordnungspunktes als Datum/Uhrzeit. Bei zukünftigen Tagesordnungspunkt ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Endzeitpunkt sein.",
                         "type": "string",
                         "format": "date-time"
                     },

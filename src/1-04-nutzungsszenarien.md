@@ -15,12 +15,12 @@ Informationssystem zu ermöglichen. Dies könnte auch zur Vereinfachung der bish
 
 Portallösungen bieten den Betreibern die Möglichkeit, Inhalte auf einer
 einheitlichen Weboberfläche zu veröffentlichen, die aus verschiedensten
-Quellen und Plattformen bereitgestellt werden.Ein Beispiel für die
+Quellen und Plattformen bereitgestellt werden. Ein Beispiel für die
 Realisierung eines solchen Integrations-Ansatzes wäre eine Kommune, die für
 ihre allgemeine Website eine Portallösung einsetzt und hier auch Inhalte aus
 dem kommunalen Ratsinformationssystem einspeisen und darstellen möchte.
 Vorteil einer solchen Einbindung, also der kontextbezogenen Darstellung von
-parlamentarischenInformationen im Gegensatz zu einem monolitischen
+parlamentarischen Informationen im Gegensatz zu einem monolithischen 
 parlamentarischen Informationssystem könnte sein, dass Nutzer in einer
 gewohnten und akzeptierten Oberfläche jeweils die relevanten Informationen
 erhalten, ohne sich an die ungewohnte Umgebung eines parlamentarischen
@@ -33,7 +33,7 @@ Indexierung von verschiedensten Dokumenteninhalten und die Kategorisierung
 von Inhalten kann eine sowohl konzeptionell als auch technisch
 anspruchsvolle Aufgabe sein. Angelehnt an das seit den Anfängen des Webs
 etablierte Modell der externen Web-Suchmaschine sind spezielle Suchmaschinen
-für OParl-konforme parlamentarische Informationssystemedenkbar.Solche
+für OParl-konforme parlamentarische Informationssysteme denkbar. Solche
 Plattformen treten gegenüber dem OParl-Server als Client auf und rufen
 bestimmte oder sämtliche Informationen, die das System bereithält, ab.
 Vorbild sind die Robots oder Spider von Web-Suchmaschinen. Die abgerufenen
@@ -43,9 +43,9 @@ gezielte Suche weiterverarbeitet werden.
 ### Forschungsprojekt "Themenanalyse" {#szenario-forschung}
 
 In einem Forschungsprojekt sollen Pro- und Contra-Argumentationen bei
-Ratsdiskussionen zum Ausbau von Stromtrassen identifiziert werden.Dazu
+Ratsdiskussionen zum Ausbau von Stromtrassen identifiziert werden. Dazu
 nutzen die Mitarbeitenden des Forschungsprojektes die OParl-Schnittstellen
 der parlamentarischen Informationssysteme aller Kommunen entlang der
-geplanten überregionalen Trassen.Über diese einheitlichen Schnittstellen
+geplanten überregionalen Trassen. Über diese einheitlichen Schnittstellen
 können sie insbesondere die relevanten Wortprotokolle abrufen und zum
 Beispiel in einem Werkzeug zur qualitativen Datenanalyse lokal verarbeiten.

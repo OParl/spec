@@ -1,6 +1,6 @@
 {
     "title": "System",
-    "description": "Ein `System`-Objekt repräsentiert eine OParl-Schnittstelle. In der Regel wird auf einem Server nur eine OParl-Schnitstelle betrieben, daher MUSS auch nur ein `System`-Objekt ausgegeben werden.\n\nMöchte ein Server jedoch mehrere zueinander inkompatible OParl-Versionen unterstützen, MUSS er dazu mehrere OParl-Schnittstellen unter verschiedenen URLs parallel betreiben. Für jede angebotene OParl-Schnittstelle MUSS der Server dann ein `System`-Objekt ausgeben.\n\nDie Liste der `System`-Objekte ist der API-Einstiegspunkt.",
+    "description": "Ein `System`-Objekt repräsentiert eine OParl-Schnittstelle. In der Regel wird auf einem Server nur eine OParl-Schnittstelle betrieben, daher MUSS auch nur ein `System`-Objekt ausgegeben werden.\n\nMöchte ein Server jedoch mehrere zueinander inkompatible OParl-Versionen unterstützen, MUSS er dazu mehrere OParl-Schnittstellen unter verschiedenen URLs parallel betreiben. Für jede angebotene OParl-Schnittstelle MUSS der Server dann ein `System`-Objekt ausgeben.\n\nDie Liste der `System`-Objekte ist der API-Einstiegspunkt.",
     "type": "object",
     "required": [
         "id",

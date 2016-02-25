@@ -25,7 +25,7 @@ Obligatorische Eigenschaften **dürfen nicht** den Wert `null` haben.
 
 Im Fall von Arrays erlaubt JSON grundsätzlich die Ausgabe von `[]` für leere
 Arrays. Wie bei `null` wird auch hier **empfohlen**, auf die Ausgabe einer
-Eigenschaft mit dem Wert `[]` zu verzichten. Bei obligatorische Eigenschaften
+Eigenschaft mit dem Wert `[]` zu verzichten. Bei obligatorischen Eigenschaften
 **muss** jedoch eine leere Liste ausgegeben werden.
 
 ### Datums- und Zeitangaben  {#datum_zeit}

@@ -26,8 +26,8 @@ den folgenden HTTP-Antwort-Header senden:
 Der HTTP-Antwort-Header `Access-Control-Allow-Methods` **sollte** darüber hinaus
 **nicht** gesetzt sein oder **muss** die Methode `GET` beinhalten.
 
-EntwicklerInnen von Webanwendungen sollten sich darüber bewusst sein, dass
-durch die direkte Einbindung von Scripten dritter in ihre Anwendungen mögliche
+Entwicklerinnen von Webanwendungen sollten sich darüber bewusst sein, dass
+durch die direkte Einbindung von Scripten Dritter in ihre Anwendungen mögliche
 Sicherheitsrisiken entstehen. Für den Fall, dass ein OParl-Server, etwa in
 Folge einer Manipulation, Schadcode ausliefert, könnte dieser unmittelbar
 von Scripten im Browser ausgeführt werden.

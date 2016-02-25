@@ -132,7 +132,7 @@ vorgesehen, wobei jede Listenseite eine eigene URL erhält. Das dient dazu,
 die bei der jeweiligen Anfrage übertragenen Datenmengen und Antwortzeiten zu
 begrenzen.
 
-Die Entscheidung, ob eine externe Objektiste mit Paginierung
+Die Entscheidung, ob eine externe Objektliste mit Paginierung
 ausgegeben wird, liegt allein beim Server. Bei Listen mit mehr als 100
 Einträgen wird dies **empfohlen**.
 
@@ -141,7 +141,7 @@ heißt, dass die Sortierung der Einträge einem konstanten Prinzip folgt und sic
 nicht von Abfrage zu Abfrage ändert. Das kann z.B. durch die Sortierung von
 Objekten nach einer eindeutigen und unveränderlichen ID erreicht werden.
 
-Jede Listenseite ausser der Letzten muss dabei das Attribut `nextPage`
+Jede Listenseite außer der Letzten muss dabei das Attribut `nextPage`
 enthalten, welches auf die nächste Listenseite verweist. Ein Client kann damit
 nacheinander alle Listenseiten abrufen.
 
@@ -196,7 +196,7 @@ das Hinzufügen oder Entfernen von Einträgen möglichst nicht auf den Client
 auswirkt, der aktuell die Liste paginiert, um alle Einträge abzurufen. Wir
 bezeichnen dies als stabile Paginierung.
 
-Die Fnktionsweise der stabilen Paginierung soll im Folgenden an einem Beispiel
+Die Funktionsweise der stabilen Paginierung soll im Folgenden an einem Beispiel
 verdeutlicht werden. Nehmen wir an, die erste Seite der Liste wird mit der Abfrage
 
 ~~~~~  {#objektlisten_ex8 .sql}

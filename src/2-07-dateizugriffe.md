@@ -14,7 +14,7 @@ Jede Datei **muss** dabei mit einer HTTP-GET-Anfrage abrufbar sein.
 * Ein Server **sollte** die Verwendung von Kompression gemäß dem HTTP-Standard
 unterstützen.
 
-* Ein Server **sollte** auch "Conditional GET" unterstüzen, insbesondere
+* Ein Server **sollte** auch "Conditional GET" unterstützen, insbesondere
 `If-Modified-Since` und `If-None-Match`.
 
 * Die Ausgabe der HTTP-Header `Last-Modified`, `Content-Length` und `ETag` ist

@@ -4,7 +4,7 @@
 
 Den URLs (für _Uniform Resource Locators_) kommt eine besondere Bedeutung zu
 und es werden deshalb eine Reihe von Anforderungen an deren Aufbau und
-Eigneschaften gestellt. Die allgemeine Funktionsweise von URLs ist in RFC 3986
+Eigenschaften gestellt. Die allgemeine Funktionsweise von URLs ist in RFC 3986
 beschrieben^[RFC 3986: <http://tools.ietf.org/html/rfc3986>].
 
 Grundsätzlich **müssen** alle Zugriffe zustandslos erfolgen, also ohne

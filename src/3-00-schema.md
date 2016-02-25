@@ -7,6 +7,112 @@ einander stehen.
 
 ![OParl Objekttypen: Ein Überblick](images/objekttypen_graph.png)
 
+## Die Objekte {#objekttypen}
+
+OParl ist aufgeteilt in Hauptobjekte und Subobjekte. Der Unterschied der beiden
+Objekttypen ist primär, dass Hauptobjekte immer mit ihren dazugehörigen Subobjekten
+ausgeliefert werden.
+
+Folgende Hauptobjekte stehen zur Verfügung:
+
+* System
+* Body
+* Organization
+* Person
+* Meeting
+* Paper
+
+Folgende Subobjekte stehen zur Verfügung:
+
+* LegislativeTerm als Subobjekt von Body
+* Membership als Subobjekt von Person
+* AgendaItem als Subobjekt von Meeting
+* Consultation als Subobjekt von Paper
+* File als Subobjekt von Meeting und Paper
+* Location als Subobjekt von Body, Organization und Paper
+
+Grundsätzlich muss jedes Objekt unter seiner ID abrufbar sein. Dies hat bei Subobjekten
+zur Folge, dass die Rückreferenz auf das Eltern-Objekt nur dann ausgegeben werden muss,
+wenn das Subobjekt unter seiner ID abgerufen wird.
+
+Als Beispiel hier eine Ausgabe von Meeting, in welchem ein File enthalten ist:
+
+~~~~~  {#objekte_example1 .json}
+{
+    "id": "https://oparl.example.org/meeting/281",
+    "type": "https://oparl.org/schema/1.0/Meeting",
+    "name": "4. Sitzung des Finanzausschusses",
+    "start": "2013-01-04T08:00:00+01:00",
+    "end": "2013-01-04T12:00:00+01:00",
+    "room": "Sitzungsraum 204",
+    "streetAddress": "Musterstraße 5",
+    "postalCode": "11111",
+    "locality": "Musterort",
+    "invitation": {
+        "id": "https://oparl.example.org/files/57739",
+        "name": "Einladung",
+        "fileName": "einladung.pdf",
+        "mimeType": "application/pdf",
+        "date": "2012-01-08T14:05:27+01:00",
+        "modified": "2012-01-08T14:05:27+01:00",
+        "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+        "size": 82930,
+        "accessUrl": "https://oparl.example.org/files/57739.pdf",
+        "downloadUrl": "https://oparl.example.org/files/download/57739.pdf"
+    }
+    [...]
+}
+~~~~~
+
+Das enthaltene File muss auch einzeln abgerufen werden können. Dabei kommt dann das Eltern-
+Objekt als zusätzliches Attribut hinzu.:
+
+~~~~~  {#objekte_example2 .json}
+{
+    "id": "https://oparl.example.org/files/57739",
+    "name": "Einladung",
+    "fileName": "einladung.pdf",
+    "mimeType": "application/pdf",
+    "date": "2012-01-08T14:05:27+01:00",
+    "modified": "2012-01-08T14:05:27+01:00",
+    "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "size": 82930,
+    "accessUrl": "https://oparl.example.org/files/57739.pdf",
+    "downloadUrl": "https://oparl.example.org/files/download/57739.pdf",
+    "meeting": [
+        "https://oparl.example.org/meeting/281"
+    ]
+}
+~~~~~
+
+Das zusätzliche Attribut ist ein Array, da es auch möglich ist, dass Dateien von mehreren
+Hauptobjekten aus genutzt werden. Dies dürfte v.a. bei Location vorkommen:
+
+~~~~~  {#objekte_example2 .json}
+{
+    "id": "https://oparl.example.org/locations/29856",
+    "description": "Honschaftsstraße 312, Köln",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            7.03291,
+            50.98249
+        ]
+    },
+    "meeting": [
+      "https://oparl.example.org/meeting/281",
+      "https://oparl.example.org/meeting/766",
+      "https://oparl.example.org/meeting/1002"
+    ],
+    "paper": [
+        "https://oparl.example.org/paper/749",
+        "https://oparl.example.org/paper/861",
+        "https://oparl.example.org/paper/1077"
+    ]
+}
+~~~~~
+
+
 ## Übergreifende Aspekte {#uebergreifende-aspekte}
 
 ### Vollständigkeit {#schema-vollstaendigkeit}

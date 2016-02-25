@@ -137,6 +137,21 @@
                     "endDate": {
                         "description": "Der letzte Tag der Wahlperiode.",
                         "type": "string"
+                    },
+                    "bodies": {
+                        "description": "Rückfreferenzen auf Body-Objekte. Wird nur dann ausgegeben, wenn das LegislativeTerm-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "url",
+                            "oparl:ref": "Body",
+                        }
+                    },
+                    "keyword": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 }
             }

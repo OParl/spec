@@ -23,6 +23,33 @@
             "description": "Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt, MUSS ihr Wert der Spezifikation von GeoJSON entsprechen.",
             "type": "object"
         },
+        "bodies": {
+            "description": "Rückfreferenzen auf Body-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "url",
+                "oparl:ref": "Body",
+            }
+        },
+        "organizations": {
+            "description": "Rückfreferenzen auf Organization-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "url",
+                "oparl:ref": "Organization",
+            }
+        },
+        "meetings": {
+            "description": "Rückfreferenzen auf Meeting-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "url",
+                "oparl:ref": "Meeting",
+            }
+        },
         "keyword": {
             "type": "array",
             "items": {

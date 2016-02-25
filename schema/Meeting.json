@@ -162,6 +162,15 @@
                             "$ref": "File.json"
                         }
                     },
+                    "meeting": {
+                        "description": "Rückfreferenzen auf Meeting-Objekte. Wird nur dann ausgegeben, wenn das AgendaItem-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "url",
+                            "oparl:ref": "Meeting",
+                        }
+                    },
                     "start": {
                         "description": "Datum und Uhrzeit des Anfangszeitpunkts des Tagesordnungspunktes. Bei zukünftigen Tagesordnungspunkten ist dies der geplante Zeitpunkt, bei einem stattgefundenen KANN es der tatsächliche Startzeitpunkt sein.",
                         "type": "string",

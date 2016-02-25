@@ -142,7 +142,16 @@
                         "oparl:cardinality": "n:1",
                         "type": "string",
                         "format": "url"
-                    }
+                    },
+                    "persons": {
+                        "description": "Rückfreferenzen auf Person-Objekte. Wird nur dann ausgegeben, wenn das Person-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "url",
+                            "oparl:ref": "Body",
+                        }
+                    },
                 }
             }
         },

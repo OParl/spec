@@ -28,7 +28,7 @@ Folgende Subobjekte stehen zur Verfügung:
 * Membership als Subobjekt von Person
 * AgendaItem als Subobjekt von Meeting
 * Consultation als Subobjekt von Paper
-* File als Subobjekt von Meeting und Paper
+* File als Subobjekt von Meeting, AgendaItem und Paper
 * Location als Subobjekt von Body, Organization und Paper
 
 Grundsätzlich muss jedes Objekt unter seiner ID abrufbar sein. Dies hat bei Subobjekten

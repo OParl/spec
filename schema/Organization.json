@@ -114,10 +114,10 @@
             "format": "url"
         },
         "keyword": {
+            "type": "array",
             "items": {
                 "type": "string"
-            },
-            "type": "array"
+            }
         },
         "created": {
             "type": "string",
@@ -128,7 +128,6 @@
             "format": "date-time"
         },
         "deleted": {
-            "description": "Falls das Objekt gelöscht wurde, muss das Objekt gemäß Kapitel 2.7 das Attribut deleted: true bekommen und sämtliche anderen inhaltlichen Attribute gelöscht werden.",
             "type": "boolean"
         }
     }

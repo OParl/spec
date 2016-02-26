@@ -10,10 +10,10 @@ einander stehen.
 ## Die Objekte {#objekttypen}
 
 OParl ist aufgeteilt in Hauptobjekte und Subobjekte. Der Unterschied der beiden
-Objekttypen ist primär, dass Hauptobjekte immer mit ihren dazugehörigen Subobjekten
-ausgegeben in Form einer internen Ausgabe werden (siehe Kapitel 2.05).
+Objekttypen ist primär, dass in den Hauptobjekten die zugehörigen Subobjekte
+in Form der internen Ausgabe (siehe Kapitel 2.05) ausgegeben werden.
 
-Folgende Hauptobjekte stehen zur Verfügung:
+Es gibt die folgenden Hauptobjekte:
 
 * System
 * Body
@@ -22,7 +22,7 @@ Folgende Hauptobjekte stehen zur Verfügung:
 * Meeting
 * Paper
 
-Folgende Subobjekte stehen zur Verfügung:
+Die Subobjekte lassen sich ihren jeweiligen Hauptobjekten zuordnen:
 
 * LegislativeTerm als Subobjekt von Body
 * Membership als Subobjekt von Person
@@ -31,11 +31,12 @@ Folgende Subobjekte stehen zur Verfügung:
 * File als Subobjekt von Meeting, AgendaItem und Paper
 * Location als Subobjekt von Body, Organization und Paper
 
-Grundsätzlich muss jedes Objekt unter seiner ID abrufbar sein. Dies hat bei Subobjekten
-zur Folge, dass die Rückreferenz auf das Eltern-Objekt nur dann ausgegeben werden muss,
-wenn das Subobjekt unter seiner ID abgerufen wird.
+Grundsätzlich muss jedes Objekt unter seiner ID abrufbar sein. Bei
+Subobjekten soll die Rückreferenz auf das Eltern-Objekt nur dann
+ausgegeben werden, wenn das Subobjekt unter seiner ID abgerufen wird.
 
-Als Beispiel hier eine Ausgabe von Meeting, in welchem ein File enthalten ist:
+Als Beispiel hier eine Ausgabe von `Meeting`, in welchem ein `File` enthalten
+ist:
 
 ~~~~~  {#objekte_example1 .json}
 {
@@ -64,8 +65,8 @@ Als Beispiel hier eine Ausgabe von Meeting, in welchem ein File enthalten ist:
 }
 ~~~~~
 
-Das enthaltene File muss auch einzeln abgerufen werden können. Dabei kommt dann das Eltern-
-Objekt als zusätzliches Attribut hinzu.:
+Das enthaltene `File` muss auch einzeln abgerufen werden können. Dabei kommt
+dann das Eltern-Objekt als zusätzliches Attribut hinzu.:
 
 ~~~~~  {#objekte_example2 .json}
 {
@@ -85,8 +86,9 @@ Objekt als zusätzliches Attribut hinzu.:
 }
 ~~~~~
 
-Das zusätzliche Attribut ist ein Array, da es auch möglich ist, dass Dateien von mehreren
-Hauptobjekten aus genutzt werden. Dies dürfte v.a. bei Location vorkommen:
+Das zusätzliche Attribut ist ein Array, da es auch möglich ist, dass Dateien
+von mehreren Hauptobjekten aus genutzt werden. Das kann z.B. bei `Location`
+vorkommen:
 
 ~~~~~  {#objekte_example2 .json}
 {

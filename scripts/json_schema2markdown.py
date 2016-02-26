@@ -83,7 +83,7 @@ def schema_to_md_table(schema, small_heading=False):
                     type = type + " of " + prop['items']['type'] + " (" + prop['items']['$ref'][0:-5] + ")"
                 else:
                     type = type + " of " + prop['items']['type']
-        
+
         if "description" in prop:
            description = prop["description"]
         else:

@@ -37,7 +37,7 @@ MAGICK_IMAGES=$(SVG_IMAGES:.svg=.png)
 
 SCHEMA_JSON=$(wildcard $(SHM_DIR)/*.json)
 
-.PHONY: all clean test live html pdf odt txt epub 
+.PHONY: all clean test live html pdf odt txt epub
 
 all: html pdf odt docx txt epub
 
@@ -47,7 +47,7 @@ $(IMG_DIR)/%.png: $(IMG_DIR)/%.pdf
 	$(GS) -sOutputFile=$@ -f $<
 
 $(IMG_DIR)/%.png: $(IMG_DIR)/%.svg
-	$(CONVERT) $< $@ 
+	$(CONVERT) $< $@
 
 $(OUT_DIR):
 	mkdir -p $(OUT_DIR)
@@ -59,11 +59,11 @@ $(SCHEMA_MD): $(SHM_DIR)/*.json $(EXP_DIR)/*.json scripts/json_schema2markdown.p
 
 common: $(OUT_DIR) $(SCHEMA_MD) $(GS_IMAGES) $(MAGICK_IMAGES)
 
-html: common 
+html: common
 	$(PANDOC) --to html5 --css ../$(HTML5_CSS) --section-divs --self-contained \
 	    -o ../$(OUT_DIR)/$(BASENAME).html *.md
 
-live: common 
+live: common
 	$(PANDOC) --to html5 --section-divs --toc-depth=2 --no-highlight \
 			-o ../$(OUT_DIR)/live.html *.md
 
@@ -71,7 +71,7 @@ pdf: common
 	$(PANDOC) --latex-engine=$(LATEX) --template ../$(LATEX_TEMPLATE) \
 			-o ../$(OUT_DIR)/$(BASENAME).pdf *.md
 
-odt: common 
+odt: common
 	$(PANDOC) -o ../$(OUT_DIR)/$(BASENAME).odt *.md
 
 docx: common
@@ -108,5 +108,5 @@ bz: all
 
 # test
 
-test: 
+test:
 	scripts/test.sh

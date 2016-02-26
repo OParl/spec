@@ -51,7 +51,7 @@
             "type": "array"
         },
         "gender": {
-            "description": "Geschlecht. Empfohlene Werte sind `female`, `male` und `other`. Für den Fall, dass das Geschlecht der Person unbekannt ist, SOLLTE die Eigenschaft nicht ausgegeben werden.",
+            "description": "Geschlecht. Empfohlene Werte sind `female`, `male` und `other`. Für den Fall, dass das Geschlecht der Person unbekannt ist, **sollte** die Eigenschaft nicht ausgegeben werden.",
             "type": "string"
         },
         "phone": {
@@ -156,11 +156,11 @@
             }
         },
         "life": {
-            "description": "Kurzer Informationstext zur Person. Eine Länge von weniger als 300 Zeichen ist EMPFOHLEN",
+            "description": "Kurzer Informationstext zur Person. Eine Länge von weniger als 300 Zeichen ist **empfohlen**",
             "type": "string"
         },
         "lifeSource": {
-            "description": "Angabe der Quelle, aus der die Informationen für `life` stammen. Bei Angabe von `life` ist diese Eigenschaft EMPFOHLEN",
+            "description": "Angabe der Quelle, aus der die Informationen für `life` stammen. Bei Angabe von `life` ist diese Eigenschaft **empfohlen**",
             "type": "string"
         },
         "keyword": {

@@ -20,7 +20,7 @@
             "type": "string"
         },
         "geometry": {
-            "description": "Geodaten-Repräsentation des Orts. Der Wert dieser Eigenschaft MUSS der Spezifikation von GeoJSON entsprechen.",
+            "description": "Geodaten-Repräsentation des Orts. Der Wert dieser Eigenschaft **muss** der Spezifikation von GeoJSON entsprechen.",
             "type": "object"
         },
         "bodies": {

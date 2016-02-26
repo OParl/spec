@@ -1,6 +1,6 @@
 {
     "title": "File",
-    "description": "Ein Objekt vom Typ `oparl:File` repräsentiert eine Datei, beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokument, und hält Metadaten zu der Datei sowie URLs zum Zugriff auf  die Datei bereit.\n\nObjekte vom Typ `oparl:File` können mit Drucksachen (`oparl:Paper`) oder Sitzungen (`oparl:Meeting`) in Beziehung stehen. Dies wird durch  die Eigenschaft `paper` bzw. `meeting` angezeigt.\n\nMehrere Objekte vom Typ `oparl:File` können mit einander in direkter Beziehung stehen, wenn sie den selben Inhalt in unterschiedlichen technischen Formaten wiedergeben. Hierfür werden die Eigenschaften `masterFile` bzw. `derivativeFile` eingesetzt. Das oben angezeigte Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der Eigenschaft `mimeType`) und zeigt außerdem über die Eigenschaft  `masterFile` an, von welcher anderen Datei es abgeleitet wurde. Umgekehrt KANN über die Eigenschaft `derivativeFile` angezeigt werden, welche Ableitungen einer Datei existieren.",
+    "description": "Ein Objekt vom Typ `oparl:File` repräsentiert eine Datei, beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokument, und hält Metadaten zu der Datei sowie URLs zum Zugriff auf  die Datei bereit.\n\nObjekte vom Typ `oparl:File` können mit Drucksachen (`oparl:Paper`) oder Sitzungen (`oparl:Meeting`) in Beziehung stehen. Dies wird durch  die Eigenschaft `paper` bzw. `meeting` angezeigt.\n\nMehrere Objekte vom Typ `oparl:File` können mit einander in direkter Beziehung stehen, wenn sie den selben Inhalt in unterschiedlichen technischen Formaten wiedergeben. Hierfür werden die Eigenschaften `masterFile` bzw. `derivativeFile` eingesetzt. Das oben angezeigte Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der Eigenschaft `mimeType`) und zeigt außerdem über die Eigenschaft  `masterFile` an, von welcher anderen Datei es abgeleitet wurde. Umgekehrt **kann** über die Eigenschaft `derivativeFile` angezeigt werden, welche Ableitungen einer Datei existieren.",
     "type": "object",
     "required": [
         "id",
@@ -17,19 +17,19 @@
             "pattern": "^https://oparl\\.org/schema/1\\.0/File$"
         },
         "fileName": {
-            "description": "Dateiname, unter dem die Datei in einem Dateisystem gespeichert werden kann. Beispiel: \"einedatei.pdf\". Da der Name den kompletten Unicode-Zeichenumfang nutzen kann, SOLLTEN Clients ggf. selbst dafür sorgen, diesen beim Speichern in ein Dateisystem den lokalen Erfordernissen anzupassen.",
+            "description": "Dateiname, unter dem die Datei in einem Dateisystem gespeichert werden kann. Beispiel: \"einedatei.pdf\". Da der Name den kompletten Unicode-Zeichenumfang nutzen kann, **sollten** Clients ggf. selbst dafür sorgen, diesen beim Speichern in ein Dateisystem den lokalen Erfordernissen anzupassen.",
             "type": "string"
         },
         "name": {
-            "description": "Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt. Leerzeichen DÜRFEN enthalten sein, Datei-Endungen wie \".pdf\" SOLLTEN NICHT enthalten sein. Der Wert SOLLTE NICHT mit dem Wert der Eigenschaft `fileName` identisch sein.",
+            "description": "Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt. Leerzeichen **dürfen enthalten sein, Datei-Endungen wie \".pdf\" **sollten nicht** enthalten sein.",
             "type": "string"
         },
         "mimeType": {
-            "description": "MIME-Type des Inhalts ^[vgl. RFC2046: <http://tools.ietf.org/html/rfc2046>]. Sollte das System einer Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier `application/octet-stream` zu verwenden.",
+            "description": "MIME-Type der Datei ^[vgl. RFC2046: <http://tools.ietf.org/html/rfc2046>].",
             "type": "string"
         },
         "date": {
-            "description": "Datum und Zeit der Erstellung der Datei. Wahlweise, falls dies nicht vom System kommuniziert werden kann oder soll, KANN alternativ der Zeitpunkt der Veröffentlichung ausgegeben werden.",
+            "description": "Datum und Zeit der Erstellung der Datei. Wahlweise, falls dies nicht vom System kommuniziert werden kann oder soll, **kann** alternativ der Zeitpunkt der Veröffentlichung ausgegeben werden.",
             "type": "string",
             "format": "date-time"
         },
@@ -90,7 +90,7 @@
             "format": "url"
         },
         "fileRole": {
-            "description": "Rolle, Funktion der Datei in Bezug auf eine Sitzung. Die Eigenschaft SOLLTE entsprechend nur in Verbindung mit der Eigenschaft `meeting` gesetzt sein.",
+            "description": "Rolle, Funktion der Datei in Bezug auf eine Sitzung. Die Eigenschaft **sollte** entsprechend nur in Verbindung mit der Eigenschaft `meeting` gesetzt sein.",
             "type": "string"
         },
         "meetings": {
@@ -131,7 +131,7 @@
             "format": "date-time"
         },
         "modified": {
-            "description": "Datum und Zeit der letzten Änderung der Datei bzw. der Metadaten. Als Änderung der Datei gilt alles, was den Inhalt der Datei verändert und beispielsweise zu einer Veränderung der Prüfsumme führen würde, nicht aber die Änderung des Dateinamens (siehe Eigenschaft `name`). Als Änderung der Metadaten hingegen würde beispielsweise die Änderung des Dateinamens gelten. Hier MUSS immer das größere der beiden Daten ausgegeben werden, also der am wenigsten lang zurückliegende Änderungszeitpunkt.",
+            "description": "Datum und Zeit der letzten Änderung der Datei bzw. der Metadaten. Als Änderung der Datei gilt alles, was den Inhalt der Datei verändert und beispielsweise zu einer Veränderung der Prüfsumme führen würde, nicht aber die Änderung des Dateinamens (siehe Eigenschaft `name`). Als Änderung der Metadaten hingegen würde beispielsweise die Änderung des Dateinamens gelten. Hier **muss** immer das größere der beiden Daten ausgegeben werden, also der am wenigsten lang zurückliegende Änderungszeitpunkt.",
             "type": "string",
             "format": "date-time"
         },

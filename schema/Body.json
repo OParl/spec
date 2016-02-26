@@ -1,6 +1,6 @@
 {
     "title": "Body",
-    "description": "Der Objekttyp oparl:Body dient dazu, eine Körperschaft zu repräsentieren. Eine Körperschaft ist in den meisten Fällen eine Gemeinde, eine Stadt oder ein Landkreis.\n\nIn der Regel sind auf einem OParl-Server Daten von genau einer Körperschaft gespeichert und es wird daher auch nur ein Body-Objekt ausgegeben. Sind auf dem Server jedoch Daten von mehreren Körperschaften gespeichert, MUSS für jede Körperschaft ein eigenes Body-Objekt ausgegeben werden.",
+    "description": "Der Objekttyp oparl:Body dient dazu, eine Körperschaft zu repräsentieren. Eine Körperschaft ist in den meisten Fällen eine Gemeinde, eine Stadt oder ein Landkreis.\n\nIn der Regel sind auf einem OParl-Server Daten von genau einer Körperschaft gespeichert und es wird daher auch nur ein Body-Objekt ausgegeben. Sind auf dem Server jedoch Daten von mehreren Körperschaften gespeichert, **muss** für jede Körperschaft ein eigenes Body-Objekt ausgegeben werden.",
     "type": "object",
     "required": [
         "id",
@@ -67,7 +67,7 @@
             "type": "string"
         },
         "equivalentBody": {
-            "description": "Dient der Angabe beliebig vieler zusätzlicher URLs, die dieselbe Körperschaft repräsentieren. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>] oder der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden. Body- oder System-Objekte mit anderen OParl-Versionen DÜRFEN NICHT Teil der Liste sein.",
+            "description": "Dient der Angabe beliebig vieler zusätzlicher URLs, die dieselbe Körperschaft repräsentieren. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>] oder der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden. Body- oder System-Objekte mit anderen OParl-Versionen **dürfen nicht** Teil der Liste sein.",
             "oparl:ref": "Body",
             "items": {
                 "type": "string",

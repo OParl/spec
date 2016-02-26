@@ -20,7 +20,7 @@
             "type": "string"
         },
         "meetingState": {
-            "description": "Aktueller Status der Sitzung. EMPFOHLEN ist die Verwendung von `terminiert` (geplant), `eingeladen` (vor der Sitzung bis zur Freigabe des Protokolls) und `durchgeführt` (nach Freigabe des Protokolls).",
+            "description": "Aktueller Status der Sitzung. **Empfohlen** ist die Verwendung von `terminiert` (geplant), `eingeladen` (vor der Sitzung bis zur Freigabe des Protokolls) und `durchgeführt` (nach Freigabe des Protokolls).",
             "type": "string"
         },
         "cancelled": {
@@ -28,12 +28,12 @@
             "type": "boolean"
         },
         "start": {
-            "description": "Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Startzeitpunkt sein.",
+            "description": "Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen **kann** es der tatsächliche Startzeitpunkt sein.",
             "type": "string",
             "format": "date-time"
         },
         "end": {
-            "description": "Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Endzeitpunkt sein.",
+            "description": "Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen **kann** es der tatsächliche Endzeitpunkt sein.",
             "type": "string",
             "format": "date-time"
         },
@@ -59,7 +59,7 @@
             "$ref": "Location.json"
         },
         "organization": {
-            "description": "Gruppierungen, denen die Sitzung zugeordnet ist. Im Regelfall wird hier eine Gruppierung verknüpft sein, es kann jedoch auch gemeinsame Sitzungen mehrerer Gruppierungen geben. Das erste Element ist dann das federführende Gremium. TODO: Eigenschaft für federführendes Gremium ergänzen und dann Ordnung entfernen. invers zur Eigenschaft `meeting` der Klasse `oparl:Organization`.",
+            "description": "Gruppierungen, denen die Sitzung zugeordnet ist. Im Regelfall wird hier eine Gruppierung verknüpft sein, es kann jedoch auch gemeinsame Sitzungen mehrerer Gruppierungen geben. Das erste Element ist dann das federführende Gremium.",
             "oparl:ref": "Organization",
             "oparl:backref": "meeting",
             "oparl:cardinality": "n:m",
@@ -70,7 +70,7 @@
             }
         },
         "participant": {
-            "description": "Personen, die an der Sitzung teilgenommen haben (d.h. nicht nur die eingeladenen Personen, sondern die tatsächlich anwesenden). Diese Eigenschaft kann selbstverständlich erst nachdem Stattfinden der Sitzung vorkommen.",
+            "description": "Personen, die an der Sitzung teilgenommen haben (d.h. nicht nur die eingeladenen Personen, sondern die tatsächlich anwesenden). Diese Eigenschaft kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen.",
             "oparl:ref": "Person",
             "oparl:cardinality": "n:m",
             "type": "array",
@@ -172,12 +172,12 @@
                         }
                     },
                     "start": {
-                        "description": "Datum und Uhrzeit des Anfangszeitpunkts des Tagesordnungspunktes. Bei zukünftigen Tagesordnungspunkten ist dies der geplante Zeitpunkt, bei einem stattgefundenen KANN es der tatsächliche Startzeitpunkt sein.",
+                        "description": "Datum und Uhrzeit des Anfangszeitpunkts des Tagesordnungspunktes. Bei zukünftigen Tagesordnungspunkten ist dies der geplante Zeitpunkt, bei einem stattgefundenen **kann** es der tatsächliche Startzeitpunkt sein.",
                         "type": "string",
                         "format": "date-time"
                     },
                     "end": {
-                        "description": "Endzeitpunkt des Tagesordnungspunktes als Datum/Uhrzeit. Bei zukünftigen Tagesordnungspunkt ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Endzeitpunkt sein.",
+                        "description": "Endzeitpunkt des Tagesordnungspunktes als Datum/Uhrzeit. Bei zukünftigen Tagesordnungspunkt ist dies der geplante Zeitpunkt, bei einer stattgefundenen **kann** es der tatsächliche Endzeitpunkt sein.",
                         "type": "string",
                         "format": "date-time"
                     },

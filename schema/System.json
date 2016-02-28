@@ -6,7 +6,7 @@
         "id",
         "type",
         "oparlVersion",
-        "body",
+        "body"
     ],
     "properties": {
         "id": {

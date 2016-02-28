@@ -1,13 +1,12 @@
 {
     "title": "System",
-    "description": "Ein `System`-Objekt repräsentiert eine OParl-Schnittstelle. In der Regel wird auf einem Server nur eine OParl-Schnittstelle betrieben, daher **muss** auch nur ein `System`-Objekt ausgegeben werden.\n\nMöchte ein Server jedoch mehrere zueinander inkompatible OParl-Versionen unterstützen, **muss** er dazu mehrere OParl-Schnittstellen unter verschiedenen URLs parallel betreiben. Für jede angebotene OParl-Schnittstelle **muss** der Server dann ein `System`-Objekt ausgeben.\n\nDie Liste der `System`-Objekte ist der API-Einstiegspunkt.",
+    "description": "Ein `System`-Objekt repräsentiert eine OParl-Schnittstelle für eine bestimmte OParl-Version. Es ist außerdem der Startpunkt für Clients beim Zugriff auf einen Server.\n\nMöchte ein Server mehrere zueinander inkompatible OParl-Versionen unterstützen, dann **muss** der Server für jede Version eine eigenen OParl-Schnittstelle mit einem eigenen `System`-Objekt ausgeben.",
     "type": "object",
     "required": [
         "id",
         "type",
         "oparlVersion",
         "body",
-        "otherOparlVersions"
     ],
     "properties": {
         "id": {
@@ -24,7 +23,7 @@
             "description": "Die URL der OParl-Spezifikation, die von diesem Server unterstützt wird. Aktuell kommt hier nur ein Wert in Frage. Mit zukünftigen OParl-Versionen kommen weitere mögliche URLs hinzu. Wert: `https://oparl.org/specs/1.0/`"
         },
         "otherOparlVersions": {
-            "description": "Dient der Angabe von System-Objekten mit neueren OParl-Versionen.",
+            "description": "Dient der Angabe von System-Objekten mit anderen OParl-Versionen.",
             "oparl:ref": "System",
             "items": {
                 "type": "string",

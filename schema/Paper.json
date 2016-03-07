@@ -39,7 +39,6 @@
         "paperType": {
             "description": "Art der Drucksache, z. B. Beantwortung einer Anfrage.",
             "type": "string",
-            "format": "url"
         },
         "relatedPaper": {
             "description": "Inhaltlich verwandte Drucksachen.",

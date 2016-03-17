@@ -89,10 +89,6 @@
             "type": "string",
             "format": "url"
         },
-        "fileRole": {
-            "description": "Rolle, Funktion der Datei in Bezug auf eine Sitzung. Die Eigenschaft **sollte** entsprechend nur in Verbindung mit der Eigenschaft `meeting` gesetzt sein.",
-            "type": "string"
-        },
         "meetings": {
             "description": "Rückfreferenzen auf Meeting-Objekte. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
             "type": "array",

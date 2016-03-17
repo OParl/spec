@@ -114,7 +114,8 @@
                     "person": {
                         "type": "string",
                         "format": "url",
-                        "description": "Rückreferenz auf Person, welches nur dann ausgegeben wird, wenn das Membership-Objekt einzeln abgerufen ist, d.h. nicht Teil einer internen Ausgabe ist."
+                        "description": "Rückreferenz auf Person, welches nur dann ausgegeben wird, wenn das Membership-Objekt einzeln abgerufen ist, d.h. nicht Teil einer internen Ausgabe ist.",
+                        "oparl:ref": "Person"
                     },
                     "organization": {
                         "description": "Die Gruppierung, in der die Person Mitglied ist oder war.",
@@ -147,15 +148,6 @@
                         "oparl:cardinality": "n:1",
                         "type": "string",
                         "format": "url"
-                    },
-                    "persons": {
-                        "description": "Rückfreferenzen auf Person-Objekte. Wird nur dann ausgegeben, wenn das Membership-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "url",
-                            "oparl:ref": "Person"
-                        }
                     }
                 }
             }

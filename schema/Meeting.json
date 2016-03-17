@@ -124,7 +124,8 @@
                     "meeting": {
                         "type": "string",
                         "format": "url",
-                        "description": "Rückreferenz auf das Meeting, welches nur dann ausgegeben wird, wenn das agendaItem-Objekt einzeln abgerufen ist, d.h. nicht Teil einer internen Ausgabe ist."
+                        "description": "Rückreferenz auf das Meeting, welches nur dann ausgegeben wird, wenn das agendaItem-Objekt einzeln abgerufen ist, d.h. nicht Teil einer internen Ausgabe ist.",
+                        "oparl:ref": "Meeting"
                     },
                     "number": {
                         "description": "Gliederungs-\"Nummer\" des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z. B. \"10.\", \"10.1\", \"C\", \"c)\" o. ä. Die Reihenfolge wird nicht dadurch, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting` festgelegt.",
@@ -165,15 +166,6 @@
                         "items": {
                             "type": "object",
                             "$ref": "File.json"
-                        }
-                    },
-                    "meeting": {
-                        "description": "Rückfreferenzen auf Meeting-Objekte. Wird nur dann ausgegeben, wenn das AgendaItem-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "url",
-                            "oparl:ref": "Meeting"
                         }
                     },
                     "start": {

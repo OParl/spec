@@ -9,9 +9,10 @@ einander stehen.
 
 ## Die Objekte {#objekttypen}
 
-OParl ist aufgeteilt in Hauptobjekte und Subobjekte. Der Unterschied der beiden
-Objekttypen ist primär, dass in den Hauptobjekten die zugehörigen Subobjekte
-in Form der internen Ausgabe (siehe Kapitel 2.05) ausgegeben werden.
+OParl ist aufgeteilt in Hauptobjekte, globale Subobjekte und Subobjekte.
+Subobjekte werden in Form der internen Ausgabe (siehe Kapitel 2.05) ausgegeben.
+Globale Subobjekte werden von mehreren Hauptobjekten verwendet und benötigen so
+die Eigenschaft `created`, `modified` und ggf. `deleted`.
 
 Es gibt die folgenden Hauptobjekte:
 
@@ -28,8 +29,8 @@ Die Subobjekte lassen sich ihren jeweiligen Hauptobjekten zuordnen:
 * Membership als Subobjekt von Person
 * AgendaItem als Subobjekt von Meeting
 * Consultation als Subobjekt von Paper
-* File als Subobjekt von Meeting, AgendaItem und Paper
-* Location als Subobjekt von Body, Organization, Meeting und Paper
+* File als globales Subobjekt von Meeting, AgendaItem und Paper
+* Location als globales Subobjekt von Body, Organization, Meeting und Paper
 
 Grundsätzlich muss jedes Objekt unter seiner ID abrufbar sein. Bei
 Subobjekten soll die Rückreferenz auf das Eltern-Objekt nur dann

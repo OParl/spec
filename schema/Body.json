@@ -125,7 +125,8 @@
                     "body": {
                         "type": "string",
                         "format": "url",
-                        "description": "Rückreferenz auf das Body, welches nur dann ausgegeben wird, wenn das LegislativeTerm-Objekt einzeln abgerufen ist, d.h. nicht Teil einer internen Ausgabe ist."
+                        "description": "Rückreferenz auf das Body, welches nur dann ausgegeben wird, wenn das LegislativeTerm-Objekt einzeln abgerufen ist, d.h. nicht Teil einer internen Ausgabe ist.",
+                        "oparl:ref": "Body"
                     },
                     "name": {
                         "description": "Nutzerfreundliche Bezeichnung der Wahlperiode.",
@@ -138,15 +139,6 @@
                     "endDate": {
                         "description": "Der letzte Tag der Wahlperiode.",
                         "type": "string"
-                    },
-                    "bodies": {
-                        "description": "Rückfreferenzen auf Body-Objekte. Wird nur dann ausgegeben, wenn das LegislativeTerm-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "url",
-                            "oparl:ref": "Body"
-                        }
                     },
                     "keyword": {
                         "type": "array",

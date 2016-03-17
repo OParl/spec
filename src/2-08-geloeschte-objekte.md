@@ -14,10 +14,10 @@ Wenn ein Objekt gelöscht wird, ...
 * **muss** das Attribut `modified` auf den Zeitpunkt der Löschung setzen
 * **müssen** die Attribute `id`, `type` und `created` erhalten bleiben
 
-Dies gilt nur für die Hauptobjekte (d.h. System, Body, Organisation, Person, Meeting, Paper, File).
-D.h. Subobjekte (LegislativeTerm, Membership, AgendaItem, Consultation) benötigen nicht das
-Attribut `deleted`, sondern können einfach gelöscht werden. Beim Löschen einer der Subobjekte
-muss allerdings der Wert `modified` des dazugehörigen Hauptobjektes aktualisiert werden.
+Dies gilt nur für Hauptobjekte und globale Subobjekte (d.h. System, Body, Organisation, Person,
+Meeting, Paper, File, Location). D.h. Subobjekte (LegislativeTerm, Membership, AgendaItem, Consultation)
+benötigen nicht das Attribut `deleted`, sondern können einfach gelöscht werden. Beim Löschen einer
+der Subobjekte muss allerdings der Wert `modified` des dazugehörigen Hauptobjektes aktualisiert werden.
 
-Dies gararntiert, dass das gelöschte Objekt beim Updaten eines Client-Datenbestandes
+Dies garantiert, dass das gelöschte Objekt beim Updaten eines Client-Datenbestandes
 aktualisiert wird, wenn der client nur seit dem letzten Update aktualisierte Objekte abruft.

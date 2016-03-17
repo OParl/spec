@@ -54,8 +54,7 @@
             "description": "Positionen, die für diese Gruppierung vorgesehen sind.",
             "oparl:ref": "Person",
             "items": {
-                "type": "string",
-                "format": "url"
+                "type": "string"
             },
             "type": "array"
         },

@@ -117,6 +117,10 @@
                         "type": "string",
                         "format": "url"
                     },
+                    "type": {
+                        "type": "string",
+                        "pattern": "^https://oparl\\.org/schema/1\\.0/AgendaItem"
+                    },
                     "meeting": {
                         "type": "string",
                         "format": "url",

@@ -22,6 +22,7 @@
     "legislativeTerm": [
         {
             "id": "https://oparl.example.org/term/21",
+            "type": "https://oparl.org/schema/1.0/LegislativeTerm",
             "body": "https://oparl.example.org/body/0",
             "name": "21. Wahlperiode",
             "startDate": "2010-12-03",

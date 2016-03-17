@@ -11,6 +11,7 @@
     ],
     "mainFile": {
         "id": "https://oparl.example.org/files/57737",
+        "type": "https://oparl.org/schema/1.0/File",
         "name": "Anlage 1 zur Anfrage",
         "fileName": "anlage.pdf",
         "mimeType": "application/pdf",
@@ -25,6 +26,7 @@
     "auxiliaryFile": [
         {
             "id": "https://oparl.example.org/files/57739",
+            "type": "https://oparl.org/schema/1.0/File",
             "name": "Anlage 1 zur Anfrage",
             "fileName": "anlage.pdf",
             "mimeType": "application/pdf",
@@ -42,6 +44,7 @@
     "location": [
         {
             "id": "https://oparl.example.org/locations/29856",
+            "type": "https://oparl.org/schema/1.0/Location",
             "description": "Honschaftsstraße 312, Köln",
             "geometry": {
                 "type": "Point",
@@ -59,6 +62,7 @@
     "consultation": [
         {
             "id": "https://oparl.example.org/consultation/47594",
+            "type": "https://oparl.org/schema/1.0/Consultation",
             "agendaItem": "https://oparl.example.org/agendaitem/15569",
             "meeting": "https://oparl.example.org/meeting/243",
             "organization": "https://oparl.example.org/organization/96",

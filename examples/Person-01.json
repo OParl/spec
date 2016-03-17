@@ -22,6 +22,7 @@
     "membership": [
         {
             "id": "https://oparl.example.org/memberships/385",
+            "type": "https://oparl.org/schema/1.0/Membership",
             "organization": "https://oparl.example.org/organizations/5",
             "role": "Vorsitzende",
             "votingRight": true,
@@ -29,6 +30,7 @@
         },
         {
             "id": "https://oparl.example.org/memberships/693",
+            "type": "https://oparl.org/schema/1.0/Membership",
             "organization": "https://oparl.example.org/organizations/9",
             "role": "Sachkundige Bürgerin",
             "votingRight": false,

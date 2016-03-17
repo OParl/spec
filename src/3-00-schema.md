@@ -29,7 +29,7 @@ Die Subobjekte lassen sich ihren jeweiligen Hauptobjekten zuordnen:
 * AgendaItem als Subobjekt von Meeting
 * Consultation als Subobjekt von Paper
 * File als Subobjekt von Meeting, AgendaItem und Paper
-* Location als Subobjekt von Body, Organization und Paper
+* Location als Subobjekt von Body, Organization, Meeting und Paper
 
 Grundsätzlich muss jedes Objekt unter seiner ID abrufbar sein. Bei
 Subobjekten soll die Rückreferenz auf das Eltern-Objekt nur dann

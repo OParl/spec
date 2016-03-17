@@ -126,7 +126,7 @@
                     "body": {
                         "type": "string",
                         "format": "url",
-                        "description": "Rückreferenz auf das Body, welches nur dann ausgegeben wird, wenn das LegislativeTerm-Objekt einzeln abgerufen ist, d.h. nicht Teil einer internen Ausgabe ist.",
+                        "description": "Rückreferenz auf die Körperschaft, welche nur dann ausgegeben wird, wenn das LegislativeTerm-Objekt einzeln abgerufen ist, d.h. nicht Teil einer internen Ausgabe ist.",
                         "oparl:ref": "Body"
                     },
                     "name": {
@@ -157,19 +157,19 @@
             "type": "string"
         },
         "streetAddress": {
-            "description": "Straße und Hausnummer des Bodys.",
+            "description": "Straße und Hausnummer der Körperschaft.",
             "type": "string"
         },
         "postalCode": {
-            "description": "Postleitzahl des Bodys.",
+            "description": "Postleitzahl der Körperschaft.",
             "type": "string"
         },
         "locality": {
-            "description": "Ortsangabe des Bodys.",
+            "description": "Ortsangabe der Körperschaft.",
             "type": "string"
         },
         "location": {
-            "description": "Ort, an dem das Body beheimatet ist. Wenn möglich die Stadtgrenzen, ansonsten die Stadtmitte.",
+            "description": "Ort, an dem die Körperschaft beheimatet ist. Wenn möglich die Stadtgrenzen, ansonsten die Stadtmitte. (Die Ortsangabe kann sowohl über diese Eigenschaft, als auch über die vorangegangenen Einzeleigenschaften erfolgen, sollte aber übereinstimmen, falls beide Ausgabeoptionen genutzt werden.",
             "type": "object",
             "$ref": "Location.json"
         },

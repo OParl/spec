@@ -136,9 +136,10 @@
                         "type": "string",
                         "format": "url"
                     },
-                    "parentID": {
+                    "paper": {
                         "type": "string",
-                        "format": "url"
+                        "format": "url",
+                        "description": "Rückreferenz auf das Paper, welches nur dann ausgegeben wird, wenn das Consultation-Objekt einzeln abgerufen ist, d.h. nicht Teil einer internen Ausgabe ist."
                     },
                     "agendaItem": {
                         "description": "Tagesordnungspunkt, unter dem die Drucksache beraten wird.",

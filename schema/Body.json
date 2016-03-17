@@ -118,13 +118,10 @@
                         "type": "string",
                         "format": "url"
                     },
-                    "parentID": {
-                        "type": "string",
-                        "format": "url"
-                    },
                     "body": {
-                        "description": "Die Körperschaft, der diese Wahlperiode zugeordnet ist.",
-                        "type": "string"
+                        "type": "string",
+                        "format": "url",
+                        "description": "Rückreferenz auf das Body, welches nur dann ausgegeben wird, wenn das LegislativeTerm-Objekt einzeln abgerufen ist, d.h. nicht Teil einer internen Ausgabe ist."
                     },
                     "name": {
                         "description": "Nutzerfreundliche Bezeichnung der Wahlperiode.",

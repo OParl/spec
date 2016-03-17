@@ -107,9 +107,10 @@
                         "type": "string",
                         "format": "url"
                     },
-                    "parentID": {
+                    "person": {
                         "type": "string",
-                        "format": "url"
+                        "format": "url",
+                        "description": "Rückreferenz auf Person, welches nur dann ausgegeben wird, wenn das Membership-Objekt einzeln abgerufen ist, d.h. nicht Teil einer internen Ausgabe ist."
                     },
                     "organization": {
                         "description": "Die Gruppierung, in der die Person Mitglied ist oder war.",

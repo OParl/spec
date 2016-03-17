@@ -66,6 +66,10 @@
             "type": "string",
             "format": "url"
         },
+        "organizationType": {
+            "description": "Grobe Kategorisierung der Gruppierung. Mögliche Werte sind \"Gremium\", \"Partei\", \"Fraktion\", \"Verwaltungsbereich\", \"externes Gremium\", \"Institution\" und \"Sonstiges\".",
+            "type": "string"
+        },
         "classification": {
             "description": "Die Art der Gruppierung. In Frage kommen z.B. \"Rat\", \"Hauptausschuss\", \"Ausschuss\", \"Beirat\", \"Projektbeirat\", \"Kommission\", \"AG\", \"Verwaltungsrat\", \"Fraktion\" oder \"Partei\". Die Angabe **sollte** möglichst präzise erfolgen.",
             "type": "string"

@@ -44,7 +44,7 @@
             "type": "string"
         },
         "title": {
-            "description": "Akademische(r) Titel.",
+            "description": "Akademische Titel",
             "items": {
                 "type": "string"
             },
@@ -83,6 +83,10 @@
         "locality": {
             "description": "Ortsangabe der Kontakt-Anschrift der Person.",
             "type": "string"
+        },
+        "location": {
+            "description": "Referenz der Kontakt-Anschrift der Person.",
+            "$ref": "Location.json"
         },
         "status": {
             "description": "Status, d.h. Rollen in der Kommune.",

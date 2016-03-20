@@ -25,6 +25,13 @@ then
 fi
 cd ..
 
+# validate schema and examples
+res=$(python scripts/json_schema2markdown.py schema examples)
+if [ $? -gt 0 ]
+then
+ retval=1
+fi
+
 # validate tex-template
 # TODO: validate tex with lacheck or chktex
 

@@ -45,7 +45,12 @@ def schema_to_md_table(schema, small_heading=False):
     embedded_objects= []
 
     for prop_name, prop in schema["properties"].items():
-        type = prop["type"]
+        try:
+            type = prop["type"]
+        except:
+            sys.stderr.write(prop_name + " is missing the type property\n")
+            raise 
+
 
         # eingebettete Objekte finden
         if type == "object" and "properties" in prop:
@@ -127,5 +132,10 @@ def json_examples_to_md(name):
 
 for obj in objects:
     filepath = os.path.join(args.schema_folder, obj + ".json")
-    schema = schema_to_md_table(json.load(codecs.open(filepath, encoding='utf-8'), object_pairs_hook=collections.OrderedDict))
+    try:
+        schema = schema_to_md_table(json.load(codecs.open(filepath, encoding='utf-8'), object_pairs_hook=collections.OrderedDict))
+    except:
+        sys.stderr.write(filepath + " errored\n")
+        exit(1)
+        
     print schema

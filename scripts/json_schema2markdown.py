@@ -19,8 +19,18 @@ sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 
 
+def err(msg):
+    sys.stderr.write(msg + "\n")
+
+def missing_property(prop_name, prop):
+    err(prop_name + " is missing the " + prop + " property")
+
 def schema_to_md_table(schema, small_heading=False):
-    name = schema["title"]
+    try:
+        name = schema["title"]
+    except:
+        err("Schema does not have required title attribute")
+        raise
 
     if small_heading:
         md = "###" + name + "###\n\n"
@@ -48,9 +58,12 @@ def schema_to_md_table(schema, small_heading=False):
         try:
             type = prop["type"]
         except:
-            sys.stderr.write(prop_name + " is missing the type property\n")
-            raise 
+            missing_property(prop_name, "type")
+            raise
 
+        if type not in ["object", "array", "string", "date-time", "boolean", "integer"]:
+            err("Invalid type: " + type)
+            raise Exception
 
         # eingebettete Objekte finden
         if type == "object" and "properties" in prop:
@@ -89,13 +102,17 @@ def schema_to_md_table(schema, small_heading=False):
                 else:
                     type = type + " of " + prop['items']['type']
 
-        if "description" in prop:
-           description = prop["description"]
-        else:
-           description = ""
+        try:
+            description = prop["description"]
+        except:
+            if prop_name not in ["id", "type", "modified", "created", "deleted", "keyword"]:
+                missing_property(prop_name, "description")
+                raise
+            else:
+                description = ""
 
         if "required" in schema and prop_name in schema["required"] and description != "":
-            description =  "**ZWINGEND** " + description
+            description = "**ZWINGEND** " + description
 
         md += "`"+ prop_name + "`" + (propspace - len(prop_name))*u" " + type + (typespace - len(type))*u" " + description + "\n\n"
 

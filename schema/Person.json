@@ -86,7 +86,11 @@
         },
         "location": {
             "description": "Referenz der Kontakt-Anschrift der Person.",
-            "$ref": "Location.json"
+            "oparl:ref": "Location",
+            "oparl:backref": "person",
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "url"
         },
         "status": {
             "description": "Status, d.h. Rollen in der Kommune.",

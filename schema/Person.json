@@ -100,7 +100,7 @@
             "type": "array"
         },
         "membership": {
-            "description": "Mitgliedschaften der Person in Gruppierungen, z. B. Gremien und Fraktionen.",
+            "description": "Mitgliedschaften der Person in Gruppierungen, z. B. Gremien und Fraktionen. Es **sollen** sowohl aktuelle als auch vergangene Mitgliedschaften angegeben werden",
             "type": "array",
             "items": {
                 "title": "Membership",
@@ -156,6 +156,12 @@
                         "oparl:cardinality": "n:1",
                         "type": "string",
                         "format": "url"
+                    },
+                    "keyword": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 }
             }

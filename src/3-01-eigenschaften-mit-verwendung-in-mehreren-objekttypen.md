@@ -85,6 +85,6 @@ die im `modified` Zeitstempel widerspiegeln sollte.
 Die Eigenschaft `keyword` dient der optionalen Kategorisierung von Objekten und
 ist in einer Vielzahl von Objekttypen zu diesem Zweck einsetzbar.
 
-#### `deleted` {#eigenschaft-deleted}
+### `deleted` {#eigenschaft-deleted}
 Falls das Objekt gelöscht wurde, muss dieses gemäß Kapitel 2.8 das Attribut
 `deleted: true bekommen.

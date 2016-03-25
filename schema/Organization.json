@@ -59,7 +59,7 @@
             "type": "array"
         },
         "subOrganizationOf": {
-            "description": "Ggf. URL der übergeordneten Gruppierung.",
+            "description": "URL der übergeordneten Gruppierung.",
             "oparl:ref": "Organization",
             "oparl:cardinality": "n:1",
             "type": "string",
@@ -110,7 +110,7 @@
             "$ref": "Location.json"
         },
         "external_body": {
-            "description": "Ggf. vorhandener externer OParl Body, welcher innerhalb dieses Bodys der Organisation entspricht.",
+            "description": "Externer OParl Body, der dieser Organisation entspricht.",
             "oparl:ref": "Body",
             "oparl:cardinality": "n:1",
             "type": "string",

@@ -70,7 +70,7 @@
             "type": "string"
         },
         "classification": {
-            "description": "Die Art der Gruppierung. In Frage kommen z.B. \"Rat\", \"Hauptausschuss\", \"Ausschuss\", \"Beirat\", \"Projektbeirat\", \"Kommission\", \"AG\", \"Verwaltungsrat\", \"Fraktion\" oder \"Partei\". Die Angabe **sollte** möglichst präzise erfolgen.",
+            "description": "Die Art der Gruppierung. In Frage kommen z.B. \"Parlament\", \"Ausschuss\", \"Beirat\", \"Projektbeirat\", \"Kommission\", \"AG\", \"Verwaltungsrat\", \"Fraktion\" oder \"Partei\". Die Angabe **sollte** möglichst präzise erfolgen. Außerdem **sollten** Abkürzungen vermieden werden. Für die höchste demokratische Instanz in der Kommune **sollte** immer der Begriff \"Parlament\" verwendet werden, nicht \"Rat\" oder \"Hauptausschuss\".",
             "type": "string"
         },
         "startDate": {

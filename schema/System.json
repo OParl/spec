@@ -62,6 +62,17 @@
             "description": "URL zu Informationen über die auf dem System genutzte OParl-Server-Software",
             "type": "string",
             "format": "url"
+        },
+        "created": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "modified": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "deleted": {
+            "type": "boolean"
         }
     }
 }

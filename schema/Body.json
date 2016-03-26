@@ -10,8 +10,7 @@
         "person",
         "meeting",
         "paper",
-        "legislativeTerm",
-        "bodyLocation"
+        "legislativeTerm"
     ],
     "properties": {
         "id": {
@@ -66,14 +65,12 @@
             "description": "Der zwölfstellige Regionalschlüssel. Der Regionalschlüssel wird in Zukunft voraussichtlich den Amtlichen Gemeindeschlüssel ersetzen.",
             "type": "string"
         },
-        "equivalentBody": {
-            "description": "Dient der Angabe beliebig vieler zusätzlicher URLs, die dieselbe Körperschaft repräsentieren. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>] oder der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden. Body- oder System-Objekte mit anderen OParl-Versionen **dürfen nicht** Teil der Liste sein.",
-            "oparl:ref": "Body",
+        "equivalent": {
+            "description": "Dient der Angabe zusätzlicher URLs, die dieselbe Körperschaft repräsentieren. Hier können beispielsweise der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>] oder der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden. Body- oder System-Objekte mit anderen OParl-Versionen **dürfen nicht** Teil der Liste sein.",
+            "type": "array",
             "items": {
-                "type": "string",
-                "format": "url"
-            },
-            "type": "array"
+                "type": "string"
+            }
         },
         "contactEmail": {
             "description": "Dient der Angabe einer Kontakt-E-Mail-Adresse. Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und idealerweise das parlamentarische Informationssystem zuständigen Stelle ermöglichen. ",

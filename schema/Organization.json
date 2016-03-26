@@ -109,7 +109,7 @@
             "type": "object",
             "$ref": "Location.json"
         },
-        "external_body": {
+        "externalBody": {
             "description": "Externer OParl Body, der dieser Organisation entspricht.",
             "oparl:ref": "Body",
             "oparl:cardinality": "n:1",

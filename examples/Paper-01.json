@@ -55,9 +55,13 @@
             }
         }
     ],
-    "originator": [
+    "originatorPerson": [
+        "https://oparl.example.org/person/2000",
+        "https://oparl.example.org/person/1000"
+    ],
+    "originatorOrganization": [
         "https://oparl.example.org/organization/2000",
-        "https://oparl.example.org/people/1000"
+        "https://oparl.example.org/organization/1000"
     ],
     "consultation": [
         {

@@ -20,15 +20,15 @@
             "type": "string"
         },
         "geometry": {
-            "description": "Geodaten-Repräsentation des Orts. Der Wert dieser Eigenschaft **muss** der Spezifikation von GeoJSON entsprechen.",
+            "description": "Geodaten-Repräsentation des Orts. Der Wert dieser Eigenschaft **muss** der Spezifikation von GeoJSON entsprechen, d.h. es **muss** ein vollständiges `Feature`-Objekt ausgegeben werden.",
             "type": "object"
-        },
-        "room": {
-            "description": "Raum, in dem die Organization beheimatet ist.",
-            "type": "string"
         },
         "streetAddress": {
             "description": "Straße und Hausnummer der Anschrift.",
+            "type": "string"
+        },
+        "room": {
+            "description": "Raumangabe der Anschrift",
             "type": "string"
         },
         "postalCode": {

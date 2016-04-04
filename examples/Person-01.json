@@ -13,9 +13,6 @@
     "gender": "male",
     "email": "max@mustermann.de",
     "phone": "+493012345678",
-    "streetAddress": "Musterstraße 5",
-    "postalCode": "11111",
-    "locality": "Musterort",
     "status": [
         "Bezirksbürgermeister"
     ],

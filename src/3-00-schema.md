@@ -1,6 +1,6 @@
 # Schema {#schema}
 
-Dieses Kapitel beschreibt das Schema von OParl. Das Schema definiert 
+Dieses Kapitel beschreibt das Schema von OParl. Das Schema definiert
 die Objekttypen und ihre Eigenschaften. Darüber hinaus ist im Schema
 auch festgelegt, in welcher Beziehung verschiedene Objekttypen zu
 einander stehen.
@@ -46,10 +46,6 @@ ist:
     "name": "4. Sitzung des Finanzausschusses",
     "start": "2013-01-04T08:00:00+01:00",
     "end": "2013-01-04T12:00:00+01:00",
-    "room": "Sitzungsraum 204",
-    "streetAddress": "Musterstraße 5",
-    "postalCode": "11111",
-    "locality": "Musterort",
     "invitation": {
         "id": "https://oparl.example.org/files/57739",
         "name": "Einladung",
@@ -95,12 +91,15 @@ vorkommen:
 {
     "id": "https://oparl.example.org/locations/29856",
     "description": "Honschaftsstraße 312, Köln",
-    "geometry": {
-        "type": "Point",
-        "coordinates": [
-            7.03291,
-            50.98249
-        ]
+    "geojson": {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                7.03291,
+                50.98249
+            ]
+        }
     },
     "meeting": [
       "https://oparl.example.org/meeting/281",

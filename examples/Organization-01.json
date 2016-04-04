@@ -6,6 +6,7 @@
     "shortName": "Finanzausschuss",
     "startDate": "2012-07-17T00:00:00+02:00",
     "organizationType": "Gremium",
+    "location": "https://oparl.example.org/location/4",
     "post": [
         "Vorsitzender",
         "1. Stellvertreter",

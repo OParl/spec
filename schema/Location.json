@@ -19,7 +19,7 @@
             "description": "Textuelle Beschreibung eines Orts, z. B. in Form einer Adresse.",
             "type": "string"
         },
-        "geometry": {
+        "geojson": {
             "description": "Geodaten-Repräsentation des Orts. Der Wert dieser Eigenschaft **muss** der Spezifikation von GeoJSON entsprechen, d.h. es **muss** ein vollständiges `Feature`-Objekt ausgegeben werden.",
             "type": "object"
         },

@@ -68,22 +68,6 @@
             },
             "type": "array"
         },
-        "streetAddress": {
-            "description": "Straße und Hausnummer der Kontakt-Anschrift der Person.",
-            "type": "string"
-        },
-        "postalCode": {
-            "description": "Postleitzahl der Kontakt-Anschrift der Person.",
-            "type": "string"
-        },
-        "subLocality": {
-            "description": "Untergeordnete Ortsangabe der Kontakt-Anschrift der Person, z.B. Stadtbezirk, Ortsteil oder Dorf.",
-            "type": "string"
-        },
-        "locality": {
-            "description": "Ortsangabe der Kontakt-Anschrift der Person.",
-            "type": "string"
-        },
         "location": {
             "description": "Referenz der Kontakt-Anschrift der Person.",
             "oparl:ref": "Location",

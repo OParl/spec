@@ -88,22 +88,6 @@
             "type": "string",
             "format": "url"
         },
-        "room": {
-            "description": "Raum, in dem die Organization beheimatet ist.",
-            "type": "string"
-        },
-        "streetAddress": {
-            "description": "Straße und Hausnummer der Organization.",
-            "type": "string"
-        },
-        "postalCode": {
-            "description": "Postleitzahl der Organization.",
-            "type": "string"
-        },
-        "locality": {
-            "description": "Ortsangabe der Organization.",
-            "type": "string"
-        },
         "location": {
             "description": "Ort, an dem die Organisation beheimatet ist",
             "type": "object",

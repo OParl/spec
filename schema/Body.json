@@ -153,18 +153,6 @@
             "description": "Art der Körperschaft.",
             "type": "string"
         },
-        "streetAddress": {
-            "description": "Straße und Hausnummer der Körperschaft.",
-            "type": "string"
-        },
-        "postalCode": {
-            "description": "Postleitzahl der Körperschaft.",
-            "type": "string"
-        },
-        "locality": {
-            "description": "Ortsangabe der Körperschaft.",
-            "type": "string"
-        },
         "location": {
             "description": "Ort, an dem die Körperschaft beheimatet ist. Wenn möglich die Stadtgrenzen, ansonsten die Stadtmitte. (Die Ortsangabe kann sowohl über diese Eigenschaft, als auch über die vorangegangenen Einzeleigenschaften erfolgen, sollte aber übereinstimmen, falls beide Ausgabeoptionen genutzt werden.",
             "type": "object",

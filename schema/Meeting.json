@@ -37,22 +37,6 @@
             "type": "string",
             "format": "date-time"
         },
-        "room": {
-            "description": "Raum, in dem die Sitzung stattfindet.",
-            "type": "string"
-        },
-        "streetAddress": {
-            "description": "Straße und Hausnummer des Sitzungsortes.",
-            "type": "string"
-        },
-        "postalCode": {
-            "description": "Postleitzahl des Sitzungsortes.",
-            "type": "string"
-        },
-        "locality": {
-            "description": "Ortsangabe des Sitzungsortes.",
-            "type": "string"
-        },
         "location": {
             "description": "Sitzungsort in Form von Geodaten.",
             "type": "object",

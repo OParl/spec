@@ -23,6 +23,26 @@
             "description": "Geodaten-Repräsentation des Orts. Der Wert dieser Eigenschaft **muss** der Spezifikation von GeoJSON entsprechen.",
             "type": "object"
         },
+        "room": {
+            "description": "Raum, in dem die Organization beheimatet ist.",
+            "type": "string"
+        },
+        "streetAddress": {
+            "description": "Straße und Hausnummer der Anschrift.",
+            "type": "string"
+        },
+        "postalCode": {
+            "description": "Postleitzahl der Anschrift.",
+            "type": "string"
+        },
+        "subLocality": {
+            "description": "Untergeordnete Ortsangabe der Anschrift, z.B. Stadtbezirk, Ortsteil oder Dorf.",
+            "type": "string"
+        },
+        "locality": {
+            "description": "Ortsangabe der Anschrift.",
+            "type": "string"
+        },
         "bodies": {
             "description": "Rückfreferenzen auf Body-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
             "type": "array",

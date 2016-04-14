@@ -162,10 +162,11 @@ Es gibt dazu einige **optionale** Attribute für Listenseiten:
  * `firstPage`: URL der ersten Listenseite
  * `lastPage`: URL der letzten Listenseite
  * `prevPage`: URL der vorherigen Listenseite
- * `itemsPerPage`: Die Anzahle der Objekte pro Seite. Wird dieses Attribut
+ * `itemsPerPage`: Die Anzahl der Objekte pro Seite. Wird dieses Attribut
  angegeben, dann muss die Anzahl der Objekte pro Seite auf allen Seiten ausser
  der letzten Seite konstant sein.
  * `numberOfPages`: Die Anzahl der Listenseiten
+ * `currentPage`: Die wievielte Seite ausgegeben wird.
 
 Zusammen mit allen Zusatzattributen sieht eine Listenseite wie folgt aus:
 
@@ -177,12 +178,12 @@ Zusammen mit allen Zusatzattributen sieht eine Listenseite wie folgt aus:
     "https://oparl.example.org/bodies/0/papers/7",
     ...
   ],
+  "nextPage": "https://oparl.example.org/bodies/0/papers/?skip_id=495"
+  "firstPage": "https://oparl.example.org/bodies/0/papers"
+  "prevPage": "https://oparl.example.org/bodies/0/papers/?skip_id=239"
+  "itemsPerPage": 100,
   "numberOfPages": 123,
   "currentPage": 10,
-  "itemsPerPage": 100,
-  "firstPage": "https://oparl.example.org/bodies/0/papers/"
-  "prevPage": "https://oparl.example.org/bodies/0/papers/?skip_id=239"
-  "nextPage": "https://oparl.example.org/bodies/0/papers/?skip_id=495"
 }
 ~~~~~
 

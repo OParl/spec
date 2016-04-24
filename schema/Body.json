@@ -70,6 +70,7 @@
             "type": "array",
             "items": {
                 "type": "string"
+                "format": "url"
             }
         },
         "contactEmail": {

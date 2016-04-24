@@ -69,7 +69,7 @@
             "description": "Dient der Angabe zusätzlicher URLs, die dieselbe Körperschaft repräsentieren. Hier können beispielsweise der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>] oder der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden. Body- oder System-Objekte mit anderen OParl-Versionen **dürfen nicht** Teil der Liste sein.",
             "type": "array",
             "items": {
-                "type": "string"
+                "type": "string",
                 "format": "url"
             }
         },

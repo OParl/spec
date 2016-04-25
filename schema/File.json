@@ -21,7 +21,7 @@
             "type": "string"
         },
         "name": {
-            "description": "Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt. Leerzeichen **dürfen enthalten sein, Datei-Endungen wie \".pdf\" **sollten nicht** enthalten sein.",
+            "description": "Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt. Leerzeichen **dürfen** enthalten sein, Datei-Endungen wie \".pdf\" **sollten nicht** enthalten sein.",
             "type": "string"
         },
         "mimeType": {
@@ -29,7 +29,12 @@
             "type": "string"
         },
         "date": {
-            "description": "Datum und Zeit der Erstellung der Datei. Wahlweise, falls dies nicht vom System kommuniziert werden kann oder soll, **kann** alternativ der Zeitpunkt der Veröffentlichung ausgegeben werden.",
+            "description": "Datum, welches als Startpunkt für Fristen u.ä. verwendet ist.",
+            "type": "string",
+            "format": "date-time"
+        },
+        "publishedDate": {
+            "description": "Datum und Zeit der Veröffentlichung der Datei.",
             "type": "string",
             "format": "date-time"
         },
@@ -80,11 +85,6 @@
             }
         },
         "license": {
-            "description": "Lizenz, unter der die Datei-Metadaten (dieses Objekt) angeboten werden. Wenn diese Eigenschaft verwendet wird, dann ist sie anstelle einer globalen Angabe im übergeordneten `oparl:Body`- bzw. `oparl:System`-Objekt maßgeblich.^[vgl. [license](#eigenschaft_license)]",
-            "type": "string",
-            "format": "url"
-        },
-        "fileLicense": {
             "description": "Lizenz, unter der die Datei angeboten wird. Wenn diese Eigenschaft nicht verwendet wird, ist der Wert von `license` beziehungsweise die Lizenz eines übergeordneten Objektes maßgeblich.^[vgl. [license](#eigenschaft_license)]",
             "type": "string",
             "format": "url"

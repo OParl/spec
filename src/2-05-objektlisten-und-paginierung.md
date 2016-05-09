@@ -238,7 +238,8 @@ Hierfür sind die URL-Parameter `created` und `modified` vorgesehen, die sich
 auf das gleichnamigen Attribut der jeweiligen Objekte beziehen.
 Diese werden als URL-Bestandteile gemäß der
 [ElasticSearch Query String Syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_ranges_2)
-verwendet.
+verwendet. Clients **müssen** die Werte von `created` und `modified` mit Uhrzeit und Zeitzone
+angeben.
 
 Der Server **muss** die Filter `created` und `modified` bei allen Listen
 unterstützen, welche Attribute von `Body` sind.
@@ -258,8 +259,3 @@ logische Operator AND implementiert werden **muss**. Um eine Einschränkung vom
 1.1.2014 bis zum 31.1.2014 vorzunehmen, wird somit der folgende Syntax verwendet:
 
     https://oparl.example.org/papers/?created:(>=2014-01-01T00%3A00%3A00%2B01%3A00%20AND%20<=2014-01-31T23%3A59%3A59%2B01%3A00)
-
-Clients **müssen** die Werte von `created` und `modified` mit Uhrzeit und Zeitzone
-angeben. Dabei **muss** das im Kapitel [Datums- und Zeitangaben](#datum_zeit)
-definierte Format genutzt werden und Clients müssen für eine entsprechende
-URL-Kodierung sorgen.

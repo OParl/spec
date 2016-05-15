@@ -77,5 +77,6 @@
     "underDirectionOf": [
         "https://oparl.example.org/organization/2000"
     ],
+    "created": "2013-01-08T12:05:27+01:00",
     "modified": "2013-01-08T12:05:27+01:00"
 }

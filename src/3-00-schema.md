@@ -124,32 +124,6 @@ ausgegeben werden, solange dies nicht den Datenschutzbestimmungen widerspricht.
 Daher sind sämtliche Felder im Schema als **empfohlen** zu behandeln, wenn
 nicht explizit etwas anderes angegeben wurde.
 
-
-### `null`-Werte und leere Listen {#null-werte-und-leere-listen}
-
-JSON erlaubt es grundsätzlich, Eigenschaften mit dem Wert `null` zu versehen.
-Eigenschaften **sollten** nicht mit dem Wert `null` ausgegeben werden.
-Obligatorische Eigenschaften **dürfen nicht** den Wert `null` haben.
-
-Im Fall von Arrays erlaubt JSON grundsätzlich die Ausgabe von `[]` für leere
-Arrays. Wie bei `null` wird auch hier **empfohlen**, auf die Ausgabe einer
-Eigenschaft mit dem Wert `[]` zu verzichten. Bei obligatorischen Eigenschaften
-**muss** jedoch eine leere Liste ausgegeben werden.
-
-### Datums- und Zeitangaben  {#datum_zeit}
-
-Für Datum und Zeit werden die in XML-Schema festgelegten Typen verwendet
-(was nicht bedeutet, dass in OParl XML verwendet wird).
-
-Für ein Datum wird http://www.w3.org/TR/xmlschema-2/#date verwendet und
-für eine Zeit http://www.w3.org/TR/xmlschema-2/#dateTime. Dabei wird ein
-Datum (ein Tag ohne Uhrzeit) ohne Zeitzone und ein Datum mit Zeit mit
-Zeitzone angegeben, denn nur damit ist die Uhrzeit weltweit eindeutig
-ohne zusätzlich auf den Ort einer Sitzung o. ä. Bezug nehmen zu müssen.
-
-Diese Spezifikationen stützen sich auf RFC 3339^[RFC3339:
-<http://www.ietf.org/rfc/rfc3339.txt>]) und RFC 3339 wiederum auf ISO 8601.
-
 ### Herstellerspezifische Erweiterungen {#herstellerspezifische-erweiterungen}
 
 In OParl können zusätzliche, herstellerspezifische Eigenschaften hinzugefügt werden.

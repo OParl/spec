@@ -8,7 +8,7 @@ Hintergrund ist, dass alle OParl-Clients zeitnah erfahren müssen,
 wenn ein Objekt gelöscht wurde. Dies wird durch die folgenden Regeln
 gewährleistet.
 
-Wenn ein Objekt gelöscht wird, ...
+Wenn ein Objekt gelöscht wird,
 
 * **muss** das Objekt das zusätzliche Attribut `deleted`: true bekommen
 * **muss** das Attribut `modified` auf den Zeitpunkt der Löschung setzen

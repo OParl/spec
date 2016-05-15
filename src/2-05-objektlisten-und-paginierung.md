@@ -225,37 +225,29 @@ Folgeaufruf so aussehen:
 SELECT * FROM example WHERE id > 10 ORDER BY id LIMIT 10
 ~~~~~
 
-Im diesem Fall würde  dann der Datensatz mit der `id=11` auch ausgegeben, wenn
-`id=1` gelöscht wurde.
+Im diesem Fall würde dann der Datensatz mit der `id` 11 auch ausgegeben, wenn
+`id` 1 gelöscht worden ist.
 
 
 ### Filter  {#filter}
 
-Bei der externen Listenausgabe gibt es die Möglichkeit, die Ausgabe nach dem
-Datum der Erstellung oder dem Datum der letzten Änderung einzuschränken.
-
-Hierfür sind die URL-Parameter `created` und `modified` vorgesehen, die sich
-auf das gleichnamigen Attribut der jeweiligen Objekte beziehen.
-Diese werden als URL-Bestandteile gemäß der
-[ElasticSearch Query String Syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_ranges_2)
-verwendet. Clients **müssen** die Werte von `created` und `modified` mit Uhrzeit und Zeitzone
-angeben.
-
-Der Server **muss** die Filter `created` und `modified` bei allen Listen
-unterstützen, welche Attribute von `Body` sind.
+Externe Objektlisten können mit den URL-Parametern `created-since`, `created-until`,
+`modifed-since` und `modifed-until` eingeschränkt werden. Diese Parameter
+beziehen auf die entsprechenden Attribute der jeweiligen Objekte, wobei
+reservierte Zeichen URL-Kodiert werden müssen.
 
 Die Filter werden vom Client benutzt, indem die gewünschten URL-Parameter an
-die URL angehängt werden. Lautet die URL für eine Liste von Drucksachen so,
+die URL angehängt werden. Lautet die URL für eine Liste von Drucksachen wie
+folgt,
 
     https://oparl.example.org/papers/
 
 dann kann der Client die folgende URL bilden, um die Ausgabe der Liste auf
-Drucksachen einzuschränken, die nach dem 1.1.2014 veröffentlicht wurden:
+Drucksachen einzuschränken, die seit dem 1.1.2014 veröffentlicht wurden:
 
-    https://oparl.example.org/papers/?created:>=2014-01-01T00%3A00%3A00%2B01%3A00
+    https://oparl.example.org/papers/?created-since=2014-01-01T00%3A00%3A00%2B01%3A00
 
-Es sind auch Einschränkungen mit Minimal- und Maximal-Wert möglich, wozu der
-logische Operator AND implementiert werden **muss**. Um eine Einschränkung vom
-1.1.2014 bis zum 31.1.2014 vorzunehmen, wird somit der folgende Syntax verwendet:
+Mehrere Parameter können auch gemeinsam verwendet werden. So kann man z.B. eine
+Einschränkung vom 1.1.2014 bis zum 31.1.2014 vornehmen:
 
-    https://oparl.example.org/papers/?created:(>=2014-01-01T00%3A00%3A00%2B01%3A00%20AND%20<=2014-01-31T23%3A59%3A59%2B01%3A00)
+    https://oparl.example.org/papers/?created-since=2014-01-01T00%3A00%3A00%2B01%3A00&created-until=2014-01-31T23%3A59%3A59%2B01%3A00

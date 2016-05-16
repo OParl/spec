@@ -32,9 +32,9 @@ Die Subobjekte lassen sich ihren jeweiligen Hauptobjekten zuordnen:
 * File als globales Subobjekt von Meeting, AgendaItem und Paper
 * Location als globales Subobjekt von Body, Organization, Meeting und Paper
 
-Grundsätzlich muss jedes Objekt unter seiner ID abrufbar sein. Bei
-Subobjekten soll die Rückreferenz auf das Eltern-Objekt nur dann
-ausgegeben werden, wenn das Subobjekt unter seiner ID abgerufen wird.
+Grundsätzlich muss jedes Objekt unter seiner ID abrufbar sein. Wenn ein Objekt
+intern ausgegeben wird, dann kann die Rückreferenz auf das Eltern-Objekt
+weggelassen werden.
 
 Als Beispiel hier eine Ausgabe von `Meeting`, in welchem ein `File` enthalten
 ist:

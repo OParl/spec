@@ -245,9 +245,9 @@ folgt,
 dann kann der Client die folgende URL bilden, um die Ausgabe der Liste auf
 Drucksachen einzuschränken, die seit dem 1.1.2014 veröffentlicht wurden:
 
-    https://oparl.example.org/papers/?created-since=2014-01-01T00%3A00%3A00%2B01%3A00
+    https://oparl.example.org/papers/?created_since=2014-01-01T00%3A00%3A00%2B01%3A00
 
 Mehrere Parameter können auch gemeinsam verwendet werden. So kann man z.B. eine
 Einschränkung vom 1.1.2014 bis zum 31.1.2014 vornehmen:
 
-    https://oparl.example.org/papers/?created-since=2014-01-01T00%3A00%3A00%2B01%3A00&created-until=2014-01-31T23%3A59%3A59%2B01%3A00
+    https://oparl.example.org/papers/?created_since=2014-01-01T00%3A00%3A00%2B01%3A00&created_until=2014-01-31T23%3A59%3A59%2B01%3A00

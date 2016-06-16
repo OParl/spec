@@ -12,7 +12,7 @@ before_install:
 - curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
 install:
-- sudo composer global require seld/jsonlint
+- composer require seld/jsonlint
 
 script: make test
 

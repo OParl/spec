@@ -237,8 +237,9 @@ beziehen auf die entsprechenden Attribute der jeweiligen Objekte, wobei
 reservierte Zeichen URL-Kodiert werden müssen.
 
 Die Filter werden vom Client benutzt, indem die gewünschten URL-Parameter an
-die URL angehängt werden. Lautet die URL für eine Liste von Drucksachen wie
-folgt,
+die URL der ersten Listensiete angehängt werden. Bei allen weiteren Seiten hat
+der Server sicherzustellen, dass die verwendeten Filter erhalten bleiben.
+Lautet die URL für eine Liste von Drucksachen wie folgt,
 
     https://oparl.example.org/papers/
 

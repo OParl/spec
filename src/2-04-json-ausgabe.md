@@ -51,13 +51,14 @@ date-time:
 Für Datum und Zeit werden die im XML-Schema festgelegten Typen
 date^[<http://www.w3.org/TR/xmlschema-2/#date>]
 und <!--- Mind the Space ---!>
-dateTime^[<http://www.w3.org/TR/xmlschema-2/#dateTime>]
+date-time^[<http://www.w3.org/TR/xmlschema-2/#dateTime>]
 verwendet (was nicht bedeutet, dass in OParl XML verwendet wird). Dabei wird
 ein Datum (ein Tag ohne Uhrzeit) ohne Zeitzone und ein Datum mit Zeit mit
 Zeitzone angegeben, denn nur damit ist die Uhrzeit weltweit eindeutig.
 
 Beispiel für date: `1969-07-21`
-Beispiel für dateTime: `1969-07-21T02:56:00+00:00`
+
+Beispiel für date-time: `1969-07-21T02:56:00+00:00`
 
 Diese Spezifikationen stützen sich auf RFC 3339^[RFC3339:
 <http://www.ietf.org/rfc/rfc3339.txt>] und RFC 3339 wiederum auf ISO 8601.

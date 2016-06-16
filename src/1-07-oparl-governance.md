@@ -6,7 +6,7 @@ so sollte als erstes der [Issue Tracker auf Github](https://github.com/OParl/spe
 für eine offene Diskussion und eine konstruktive Lösung verwendet werden.
 
 Sollte es auf Github wider Erwarten keine Lösung geben, wird die Entscheidung an das
-siebenköpfige OParl-Leitungsgremium weitergegeben. In diesem Gremium vertreten sind
+OParl-Leitungsgremium weitergegeben. In diesem Gremium vertreten sind
 Entwickler, Anwender und Datenbereitsteller, so dass eine ausgewogene Weiterentwicklung im
 Interesse aller Akteure gewahrt bleibt.
 

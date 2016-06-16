@@ -1,10 +1,11 @@
 #!/usr/bin/env sh
 
-cd $(git rev-parse --show-toplevel)
+root=$(git rev-parse --show-toplevel)
+cd ${root}
 
 retval=0
 
-alias jsl='~/.composer/vendor/bin/jsonlint'
+alias jsl="${root}/vendor/bin/jsonlint"
 
 # json-lint all the json
 for f in $(find . -type f -name \*.json)

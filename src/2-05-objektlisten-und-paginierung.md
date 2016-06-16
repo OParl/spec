@@ -71,15 +71,15 @@ Attributes `membership` in `Person`.
       "organization": "https://oparl.example.org/organizations/5",
       "role": "Vorsitzende",
       "votingRight": true,
-      "startDate": "2013-12-03T16:30:00+01:00"
+      "startDate": "2013-12-03"
     },
     {
       "id": "https://oparl.example.org/memberships/693",
       "organization": "https://oparl.example.org/organizations/9",
       "role": "Sachkundige Bürgerin",
       "votingRight": false,
-      "startDate": "2013-12-03T16:30:00+01:00",
-      "endDate": "2014-07-28T00:00:00+02:00"
+      "startDate": "2013-12-03",
+      "endDate": "2014-07-28"
     }
   ],
   ...

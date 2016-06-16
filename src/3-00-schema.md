@@ -51,7 +51,7 @@ ist:
         "name": "Einladung",
         "fileName": "einladung.pdf",
         "mimeType": "application/pdf",
-        "date": "2012-01-08T14:05:27+01:00",
+        "date": "2012-01-08",
         "modified": "2012-01-08T14:05:27+01:00",
         "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
         "size": 82930,
@@ -71,7 +71,7 @@ dann das Eltern-Objekt als zusätzliches Attribut hinzu.:
     "name": "Einladung",
     "fileName": "einladung.pdf",
     "mimeType": "application/pdf",
-    "date": "2012-01-08T14:05:27+01:00",
+    "date": "2012-01-08",
     "modified": "2012-01-08T14:05:27+01:00",
     "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "size": 82930,
@@ -102,9 +102,9 @@ vorkommen:
         }
     },
     "meeting": [
-      "https://oparl.example.org/meeting/281",
-      "https://oparl.example.org/meeting/766",
-      "https://oparl.example.org/meeting/1002"
+        "https://oparl.example.org/meeting/281",
+        "https://oparl.example.org/meeting/766",
+        "https://oparl.example.org/meeting/1002"
     ],
     "paper": [
         "https://oparl.example.org/paper/749",

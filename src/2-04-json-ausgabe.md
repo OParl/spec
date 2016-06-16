@@ -43,8 +43,11 @@ url:
 url (Object):
 :   Eine url mit in Klammern angehängtem Object beschreibt eine URL auf eben diesen Objekttypus.
 
+date:
+:   Ein date entspricht einem Datum ohne Uhrzeit und ohne Zeitzone, wie sie im folgenden Abschnitt beschrieben werden.
+
 date-time:
-:   Ein date-time entspricht einem Datum und ggf. einer Uhrzeit, wie sie im folgenden Abschnitt beschrieben werden.
+:   Ein date-time entspricht einem Datum und einer Uhrzeit mit Zeitzone, wie sie im folgenden Abschnitt beschrieben werden.
 
 ### Datums- und Zeitangaben  {#datum_zeit}
 

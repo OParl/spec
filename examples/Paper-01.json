@@ -4,7 +4,7 @@
     "body": "https://oparl.example.org/bodies/1",
     "name": "Antwort auf Anfrage 1200/2014",
     "reference": "1234/2014",
-    "publishedDate": "2014-04-04T16:42:02+02:00",
+    "date": "2014-04-04",
     "paperType": "Beantwortung einer Anfrage",
     "relatedPaper": [
         "https://oparl.example.org/paper/699"
@@ -15,13 +15,13 @@
         "name": "Anlage 1 zur Anfrage",
         "fileName": "anlage.pdf",
         "mimeType": "application/pdf",
-        "date": "2013-01-04T07:54:13+01:00",
-        "modified": "2013-01-04T07:54:13+01:00",
+        "date": "2013-01-04",
         "sha1Checksum": "d749751af44a32c818b9b1e1515251c67734f5d2",
         "size": 82930,
         "accessUrl": "https://oparl.example.org/files/57737.pdf",
         "downloadUrl": "https://oparl.example.org/files/download/57737.pdf",
-        "license": "http://www.opendefinition.org/licenses/cc-by"
+        "license": "http://www.opendefinition.org/licenses/cc-by",
+        "modified": "2013-01-04T07:54:13+01:00"
     },
     "auxiliaryFile": [
         {
@@ -30,7 +30,7 @@
             "name": "Anlage 1 zur Anfrage",
             "fileName": "anlage.pdf",
             "mimeType": "application/pdf",
-            "date": "2013-01-04T07:54:13+01:00",
+            "date": "2013-01-04",
             "modified": "2013-01-04T07:54:13+01:00",
             "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
             "size": 82930,

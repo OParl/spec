@@ -31,10 +31,10 @@
             "description": "Kennung bzw. Aktenzeichen der Drucksache, mit der sie in der parlamentarischen Arbeit eindeutig referenziert werden kann.",
             "type": "string"
         },
-        "publishedDate": {
-            "description": "Veröffentlichungsdatum der Drucksache.",
+        "date": {
+            "description": "Datum, welches als Startpunkt für Fristen u.ä. verwendet ist.",
             "type": "string",
-            "format": "date-time"
+            "format": "date"
         },
         "paperType": {
             "description": "Art der Drucksache, z. B. Beantwortung einer Anfrage.",

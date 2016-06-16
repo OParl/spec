@@ -31,12 +31,7 @@
         "date": {
             "description": "Datum, welches als Startpunkt für Fristen u.ä. verwendet ist.",
             "type": "string",
-            "format": "date-time"
-        },
-        "publishedDate": {
-            "description": "Datum und Zeit der Veröffentlichung der Datei.",
-            "type": "string",
-            "format": "date-time"
+            "format": "date"
         },
         "size": {
             "description": "Größe der Datei in Bytes.",

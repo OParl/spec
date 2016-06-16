@@ -76,12 +76,12 @@
         "startDate": {
             "description": "Gründungsdatum der Gruppierung. Kann z. B. das Datum der konstituierenden Sitzung sein.",
             "type": "string",
-            "format": "date-time"
+            "format": "date"
         },
         "endDate": {
             "description": "Datum des letzten Tages der Existenz der Gruppierung.",
             "type": "string",
-            "format": "date-time"
+            "format": "date"
         },
         "website": {
             "description": "Allgemeine Website der Gruppierung.",

@@ -232,7 +232,7 @@ Im diesem Fall würde dann der Datensatz mit der `id` 11 auch ausgegeben, wenn
 ### Filter  {#filter}
 
 Externe Objektlisten können mit den URL-Parametern `created_since`, `created_until`,
-`modifed_since` und `modifed_until` eingeschränkt werden. Diese Parameter
+`modified_since` und `modified_until` eingeschränkt werden. Diese Parameter
 beziehen auf die entsprechenden Attribute der jeweiligen Objekte, wobei
 reservierte Zeichen URL-Kodiert werden müssen.
 

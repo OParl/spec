@@ -134,12 +134,12 @@
                     "startDate": {
                         "description": "Der erste Tag der Wahlperiode.",
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date"
                     },
                     "endDate": {
                         "description": "Der letzte Tag der Wahlperiode.",
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date"
                     },
                     "keyword": {
                         "type": "array",

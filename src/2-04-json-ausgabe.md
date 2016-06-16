@@ -56,7 +56,8 @@ verwendet (was nicht bedeutet, dass in OParl XML verwendet wird). Dabei wird
 ein Datum (ein Tag ohne Uhrzeit) ohne Zeitzone und ein Datum mit Zeit mit
 Zeitzone angegeben, denn nur damit ist die Uhrzeit weltweit eindeutig.
 
-Beispiel: `1969-07-21T02:56:00+00:00`
+Beispiel für date: `1969-07-21`
+Beispiel für dateTime: `1969-07-21T02:56:00+00:00`
 
 Diese Spezifikationen stützen sich auf RFC 3339^[RFC3339:
 <http://www.ietf.org/rfc/rfc3339.txt>] und RFC 3339 wiederum auf ISO 8601.

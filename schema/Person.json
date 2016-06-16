@@ -127,12 +127,12 @@
                     "startDate": {
                         "description": "Anfangszeitpunkt der Mitgliedschaft.^[Abgeleitet von: `schema:validFrom` in Popolo. <https://popoloproject.com/specs/membership.html>]",
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date"
                     },
                     "endDate": {
                         "description": "Der Endzeitpunkt der Mitgliedschaft.^[Abgeleitet von: `schema:validThrough` in Popolo. <https://popoloproject.com/specs/membership.html>]",
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date"
                     },
                     "onBehalfOf": {
                         "description": "Die Gruppierung, für die die Person in der unter organization angegebenen Organisation sitzt. Beispiel: Mitgliedschaft als Vertreter einer Ratsfraktion, einer Gruppierung oder einer externen Organisation.",

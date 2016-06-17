@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-export PATH=${PATH}:${root}/vendor/bin/jsonlint:~/.composer/vendor/bin/jsonlint
-cd $(git rev-parse --show-toplevel)
+root=$(git rev-parse --show-toplevel)
+export PATH=${PATH}:${root}/vendor/bin/:~/.composer/vendor/bin/
+cd ${root}
 retval=0
 
 # json-lint all the json

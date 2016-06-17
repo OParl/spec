@@ -13,7 +13,7 @@
         "id": "https://oparl.example.org/files/57737",
         "type": "https://oparl.org/schema/1.0/File",
         "name": "Anlage 1 zur Anfrage",
-        "fileName": "anlage.pdf",
+        "fileName": "anlage_1_zur_anfrage.pdf",
         "mimeType": "application/pdf",
         "date": "2013-01-04",
         "sha1Checksum": "d749751af44a32c818b9b1e1515251c67734f5d2",
@@ -21,6 +21,7 @@
         "accessUrl": "https://oparl.example.org/files/57737.pdf",
         "downloadUrl": "https://oparl.example.org/files/download/57737.pdf",
         "license": "http://www.opendefinition.org/licenses/cc-by",
+        "created": "2013-01-04T07:54:13+01:00",
         "modified": "2013-01-04T07:54:13+01:00"
     },
     "auxiliaryFile": [
@@ -31,14 +32,15 @@
             "fileName": "anlage.pdf",
             "mimeType": "application/pdf",
             "date": "2013-01-04",
-            "modified": "2013-01-04T07:54:13+01:00",
             "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
             "size": 82930,
             "accessUrl": "https://oparl.example.org/files/57739.pdf",
             "downloadUrl": "https://oparl.example.org/files/download/57739.pdf",
             "text": "Der Übersichtsplan zeigt alle Ebenen des ...",
             "masterFile": "https://oparl.example.org/files/57738",
-            "license": "http://www.opendefinition.org/licenses/cc-by"
+            "license": "http://www.opendefinition.org/licenses/cc-by",
+            "created": "2013-01-04T07:54:13+01:00",
+            "modified": "2013-01-04T07:54:13+01:00"
         }
     ],
     "location": [

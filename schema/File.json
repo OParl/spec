@@ -16,12 +16,12 @@
             "type": "string",
             "pattern": "^https://oparl\\.org/schema/1\\.0/File$"
         },
-        "fileName": {
-            "description": "Dateiname, unter dem die Datei in einem Dateisystem gespeichert werden kann. Beispiel: \"einedatei.pdf\". Da der Name den kompletten Unicode-Zeichenumfang nutzen kann, **sollten** Clients ggf. selbst dafür sorgen, diesen beim Speichern in ein Dateisystem den lokalen Erfordernissen anzupassen.",
-            "type": "string"
-        },
         "name": {
             "description": "Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt. Leerzeichen **dürfen** enthalten sein, Datei-Endungen wie \".pdf\" **sollten nicht** enthalten sein.",
+            "type": "string"
+        },
+        "fileName": {
+            "description": "Dateiname, unter dem die Datei in einem Dateisystem gespeichert werden kann. Beispiel: \"einedatei.pdf\". Da der Name den kompletten Unicode-Zeichenumfang nutzen kann, **sollten** Clients ggf. selbst dafür sorgen, diesen beim Speichern in ein Dateisystem den lokalen Erfordernissen anzupassen.",
             "type": "string"
         },
         "mimeType": {
@@ -69,7 +69,7 @@
             "format": "url"
         },
         "derivativeFile": {
-            "description": "Datei, die von dem aktuellen Objekt abgeleitet wurde. Details dazu in der allgemeinen Beschreibung weiter oben.",
+            "description": "Dateien, die von dem aktuellen Objekt abgeleitet wurden. Details dazu in der allgemeinen Beschreibung weiter oben.",
             "oparl:ref": "File",
             "oparl:backref": "masterFile",
             "oparl:cardinality": "1:n",

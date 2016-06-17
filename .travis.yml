@@ -1,18 +1,26 @@
-sudo: required
+sudo: false
 language: python
 
 python:
 - '2.7'
 
-before_install:
-- wget https://github.com/jgm/pandoc/releases/download/1.15.1/pandoc-1.15.1-1-amd64.deb
-- sudo dpkg -i pandoc-1.15.1-1-amd64.deb
-- sudo apt-get update -qq
-- sudo apt-get install -y lacheck php5
-- curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+cache:
+  apt: true
+  directories:
+    - vendor
+    - $HOME/.composer/cache
+
+addons:
+  apt:
+    packages:
+    - pandoc
+    - lacheck
+    - php5
+    - php5-cli
 
 install:
-- composer require seld/jsonlint
+- curl -sS https://getcomposer.org/installer | php
+- php composer.phar require seld/jsonlint
 
 script: make test
 

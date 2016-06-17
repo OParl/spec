@@ -17,7 +17,7 @@ done
 
 # validate markdown
 cd src
-res=$(pandoc -f markdown_strict -t json *.md | jsonlint)
+res=$(pandoc -t json *.md | jsonlint)
 if [ "$res" != "Valid JSON" ]
 then
   retval=1

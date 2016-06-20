@@ -2,8 +2,7 @@
 
 ### `id` {#eigenschaft-id}
 
-Die Eigenschaft `id` ist für jeden OParl-Objekttypen vorgegeben
-und enthält den eindeutigen Bezeichner des Objekts, nämlich seine URL.
+Die Eigenschaft `id` enthält den eindeutigen Bezeichner des Objekts, nämlich seine URL.
 Dies ist ein **zwingendes** Merkmal für jedes Objekt.
 
 ### `type` {#eigenschaft-type}
@@ -39,26 +38,20 @@ Parteinamen "Christlich Demokratische Union Deutschlands".
 
 ### `license` {#eigenschaft_license}
 
-Die Eigenschaft `license` erlaubt es, am jeweiligen Objekt die URL einer Lizenz
-anzugeben. Damit wird gekennzeichnet, welche Lizenz der Veröffentlicher der
-Daten für das jeweilige Objekt vergibt.^[Verzeichnisse für Lizenz-URLs sind
-unter anderem unter <http://licenses.opendefinition.org/> und
+Mit `license` wird angegeben, unter welcher Lizenz die Daten des jeweiligen
+Objekts stehen. ^[Verzeichnisse für Lizenz-URLs sind unter anderem unter
+<http://licenses.opendefinition.org/> und
 <https://github.com/fraunhoferfokus/ogd-metadata/blob/master/lizenzen/deutschland.json>
 zu finden. Allgemeine Informationen zur Lizensierung von Open Data finden sich auch
 im Open Data Handbook der Open Knowledge Foundation unter
 <http://opendatahandbook.org/de/how-to-open-up-data/apply-an-open-license.html>.]
 
-Eine besondere Bedeutung hat die Eigenschaft `license`, wenn sie am `oparl:System` Objekt oder am `oparl:Body`
-Objekt vergeben wird. Die hier angegebene Lizenzinformation sagt aus, dass alle
-Objekte dieses Systems bzw. der Körperschaft unter der angegebenen Lizenz veröffentlicht werden, sofern
-dies nicht am jeweiligen Objekt mit einer anders lautenden Lizenz-URL überschrieben
-wird. Daher wird dringend **empfohlen**, die Lizenzinformation global am `oparl:System`
-Objekt mitzuteilen und auf redundante Informationen zu verzichten.
-
-An Objekten vom Typ `oparl:File` auftretend, bezieht sich die Lizenzinformation
-nicht nur auf die strukturierten Metadaten, die über die API bezogen werden, sondern
-auch auf den eigentlichen Inhalt der Datei(en), die über die angebotene(n) URL(s)
-abgerufen werden können.
+Wird `license` im `oparl:System`-Objekt oder am `oparl:Body`-Objekt verwendet,
+dann bedeutet das, dass alle Objekte dieses Systems bzw. der Körperschaft
+unter der angegebenen Lizenz veröffentlicht werden, sofern nicht das
+einzelne Objekt eine anders lautende Lizenz-URL angibt. Es wird **empfohlen**,
+die Lizenzinformation global am `oparl:System` Objekt mitzuteilen
+und auf redundante Informationen zu verzichten.
 
 ### `created` {#eigenschaft-created}
 
@@ -69,22 +62,14 @@ Datum und Uhrzeit der Erstellung des jeweiligen Objekts.
 Diese Eigenschaft kennzeichnet stets Datum und Uhrzeit der letzten Änderung des
 jeweiligen Objekts.
 
-In Einzelfällen unterliegt die Frage, was als Änderung eines Objekts bezeichnet werden
-kann, einem gewissen Interpretationsspielraum. Beispielsweise ist zu entscheiden,
-ob eine Gruppierung (`oparl:Organization`) als geändert gilt, wenn ein neues Mitglied
-hinzugefügt wurde.
-
-Diese Frage sollte aus Sicht des OParl-Clients beantwortet werden. Wenn beispielsweise
-eine Gruppierung vom Server grundsätzlich mit der Liste der URLs aller Mitglieder ausgegeben
-wird, umfasst das Objekt aus Sicht des Clients eben auch die Liste der Mitglieder. In diesem
-Fall wäre eine Veränderung der Liste der Mitglieder als Änderung des Objekts zu verstehen,
-die im `modified` Zeitstempel widerspiegeln sollte.
+Es ist essentiel, dass bei jeder Änderung eines Objekts der Wert dieses
+Attributs auf die aktuelle Uhrzeit gesetzt wird, da ein Client in der Regel
+seinen Datenbestand nur auf Basis dieses Attributs aktualisieren wird.
 
 ### `keyword` {#eigenschaft-keyword}
 
-Die Eigenschaft `keyword` dient der optionalen Kategorisierung von Objekten und
-ist in einer Vielzahl von Objekttypen zu diesem Zweck einsetzbar.
+Die Eigenschaft `keyword` dient der optionalen Kategorisierung von Objekten.
 
 ### `deleted` {#eigenschaft-deleted}
 Falls das Objekt gelöscht wurde, muss dieses gemäß Kapitel 2.8 das Attribut
-`deleted: true bekommen.
+`deleted: true` bekommen.

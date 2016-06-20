@@ -31,6 +31,11 @@
             },
             "type": "array"
         },
+        "license": {
+            "description": "Lizenz, unter der durch diese API abrufbaren Daten stehen, sofern nicht am einzelnen Objekt anders angegeben. Siehe [`license`](#eigenschaft_license).",
+            "type": "string",
+            "format": "url"
+        },
         "body": {
             "description": "Link zur [Objektliste](#objektlisten) mit allen Körperschaften, die auf dem System existieren.",
             "type": "string",

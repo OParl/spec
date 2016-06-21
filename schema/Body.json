@@ -146,6 +146,10 @@
                         "items": {
                             "type": "string"
                         }
+                    },
+                    "web": {
+                        "type": "string",
+                        "format": "url"
                     }
                 }
             }
@@ -172,6 +176,10 @@
         "modified": {
             "type": "string",
             "format": "date-time"
+        },
+        "web": {
+            "type": "string",
+            "format": "url"
         },
         "deleted": {
             "type": "boolean"

@@ -125,6 +125,10 @@
             "type": "string",
             "format": "date-time"
         },
+        "web": {
+            "type": "string",
+            "format": "url"
+        },
         "deleted": {
             "type": "boolean"
         }

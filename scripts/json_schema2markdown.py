@@ -105,7 +105,7 @@ def schema_to_md_table(schema, small_heading=False):
         try:
             description = prop["description"]
         except:
-            if prop_name not in ["id", "type", "modified", "created", "deleted", "keyword"]:
+            if prop_name not in ["id", "type", "modified", "created", "deleted", "keyword", "web"]:
                 missing_property(prop_name, "description")
                 raise
             else:
@@ -154,5 +154,5 @@ for obj in objects:
     except:
         sys.stderr.write(filepath + " errored\n")
         exit(1)
-        
+
     print schema

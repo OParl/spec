@@ -68,7 +68,11 @@ seinen Datenbestand nur auf Basis dieses Attributs aktualisieren wird.
 
 ### `keyword` {#eigenschaft-keyword}
 
-Die Eigenschaft `keyword` dient der optionalen Kategorisierung von Objekten.
+Die Eigenschaft `keyword` dient der optionalen Kategorisierung eines Objekts.
+
+### `web` {#eigenschaft-web}
+Gibt die URL einer Website an, die das Objekt im Browser darstellt. Das
+ist z.B. die html-Ansicht eines parlamentarischen Informationssystems.
 
 ### `deleted` {#eigenschaft-deleted}
 Falls das Objekt gelöscht wurde, muss dieses gemäß Kapitel 2.8 das Attribut

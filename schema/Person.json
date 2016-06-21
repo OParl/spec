@@ -125,12 +125,12 @@
                         "type": "boolean"
                     },
                     "startDate": {
-                        "description": "Anfangszeitpunkt der Mitgliedschaft.^[Abgeleitet von: `schema:validFrom` in Popolo. <https://popoloproject.com/specs/membership.html>]",
+                        "description": "Datum, an dem die Mitgliedschaft beginnt.",
                         "type": "string",
                         "format": "date"
                     },
                     "endDate": {
-                        "description": "Der Endzeitpunkt der Mitgliedschaft.^[Abgeleitet von: `schema:validThrough` in Popolo. <https://popoloproject.com/specs/membership.html>]",
+                        "description": "Datum, an dem die Mitgliedschaft endet.",
                         "type": "string",
                         "format": "date"
                     },

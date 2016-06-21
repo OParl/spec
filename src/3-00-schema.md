@@ -9,32 +9,33 @@ einander stehen.
 
 ## Die Objekte {#objekttypen}
 
-OParl ist aufgeteilt in Hauptobjekte, globale Subobjekte und Subobjekte.
-Subobjekte werden in Form der internen Ausgabe (siehe Kapitel 2.05) ausgegeben.
-Globale Subobjekte werden von mehreren Hauptobjekten verwendet und benötigen so
-die Eigenschaft `created`, `modified` und ggf. `deleted`.
-
-Es gibt die folgenden Hauptobjekte:
+OParl nutzt folgenden Objekte:
 
 * System
 * Body
+* LegislativeTerm als Subobjekt von Body
 * Organization
 * Person
+* Membership
 * Meeting
+* AgendaItem
 * Paper
+* Consultation
+* File
+* Location
 
-Die Subobjekte lassen sich ihren jeweiligen Hauptobjekten zuordnen:
+Einige Objekte werden intern in anderen Objekten ausgegeben:
 
-* LegislativeTerm als Subobjekt von Body
-* Membership als Subobjekt von Person
-* AgendaItem als Subobjekt von Meeting
-* Consultation als Subobjekt von Paper
-* File als globales Subobjekt von Meeting, AgendaItem und Paper
-* Location als globales Subobjekt von Body, Organization, Meeting und Paper
+* LegislativeTerm wird intern in Body ausgegeben
+* Membership wird intern in Person ausgegeben
+* AgendaItem wird intern in Meeting ausgegeben
+* Consultation wird intern in Paper ausgegeben
+* File wird intern in Meeting, AgendaItem und Paper ausgegeben
+* Location wird intern in Body, Organization, Meeting und Paper ausgegeben
 
-Grundsätzlich muss jedes Objekt unter seiner ID abrufbar sein. Wenn ein Objekt
-intern ausgegeben wird, dann kann die Rückreferenz auf das Eltern-Objekt
-weggelassen werden.
+Grundsätzlich muss jedes Objekt unter seiner ID abrufbar sein - auch dann, wenn
+das Objekt in anderen Objekten intern ausgegeben wird. Bei der internen Ausgabe
+wird beim internen Objekt auf die Rückreferenz auf das Elternobjekt verzichtet.
 
 Als Beispiel hier eine Ausgabe von `Meeting`, in welchem ein `File` enthalten
 ist:

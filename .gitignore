@@ -9,3 +9,7 @@ src/images/url.pdf
 composer.json
 composer.lock
 vendor/
+
+*.komodoproject
+*.DS_Store
+._*

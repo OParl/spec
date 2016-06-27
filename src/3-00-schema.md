@@ -139,5 +139,5 @@ Dazu wird diesen Eigenschaften ein Herstellerprefix vorangestellt. So könnte ma
 
 OParl-Clients wissen nichts vom Aufbau von Pfaden innerhalb von URLs,
 müssen dies nicht wissen, und es gibt deshalb in der OParl-Spezifikation
-keine Festlegungen dazu. Die in den Beispielen verwendeten URLs zeigen jedoch
-einen guten Weg, wie die Empfehlungen zu URLs umgesetzt werden können.
+keine Festlegungen dazu. Die in den Beispielen verwendeten URLs zeigen einen
+möglichen Weg zur Umsetzungen der Empfehlungen in URLs.

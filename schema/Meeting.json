@@ -1,6 +1,6 @@
 {
     "title": "Meeting",
-    "description": "Eine Sitzung ist die Versammlung einer oder mehrerer Gruppierungen (oparl:Organization) zu einem bestimmten Zeitpunkt an einem bestimmten Ort.\n\nDie geladenen Teilnehmer der Sitzung sind jeweils als Objekte vom Typ oparl:Person in entsprechender Form referenziert. Verschiedene Dateien (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.\n\nDie Inhalte einer Sitzung werden durch Tagesordnungspunkte (oparl:AgendaItem) abgebildet.",
+    "description": "Eine Sitzung ist die Versammlung einer oder mehrerer Gruppierungen (oparl:Organization) zu einem bestimmten Zeitpunkt an einem bestimmten Ort.\n\nDie geladenen Teilnehmer der Sitzung sind jeweils als Objekte vom Typ oparl:Person, die in entsprechender Form referenziert werden. Verschiedene Dateien (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.\n\nDie Inhalte einer Sitzung werden durch Tagesordnungspunkte (oparl:AgendaItem) abgebildet.",
     "type": "object",
     "required": [
         "id",
@@ -38,12 +38,12 @@
             "format": "date-time"
         },
         "location": {
-            "description": "Sitzungsort in Form von Geodaten.",
+            "description": "Sitzungsort.",
             "type": "object",
             "$ref": "Location.json"
         },
         "organization": {
-            "description": "Gruppierungen, denen die Sitzung zugeordnet ist. Im Regelfall wird hier eine Gruppierung verknüpft sein, es kann jedoch auch gemeinsame Sitzungen mehrerer Gruppierungen geben. Das erste Element ist dann das federführende Gremium.",
+            "description": "Gruppierungen, denen die Sitzung zugeordnet ist. Im Regelfall wird hier eine Gruppierung verknüpft sein, es kann jedoch auch gemeinsame Sitzungen mehrerer Gruppierungen geben. Das erste Element **sollte** dann das federführende Gremium sein.",
             "oparl:ref": "Organization",
             "oparl:backref": "meeting",
             "oparl:cardinality": "n:m",
@@ -109,11 +109,11 @@
                     "meeting": {
                         "type": "string",
                         "format": "url",
-                        "description": "Rückreferenz auf das Meeting, welches nur dann ausgegeben wird, wenn das agendaItem-Objekt einzeln abgerufen ist, d.h. nicht Teil einer internen Ausgabe ist.",
+                        "description": "Rückreferenz auf das Meeting, welches nur dann ausgegeben werden muss, wenn das agendaItem-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.",
                         "oparl:ref": "Meeting"
                     },
                     "number": {
-                        "description": "Gliederungs-\"Nummer\" des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z. B. \"10.\", \"10.1\", \"C\", \"c)\" o. ä. Die Reihenfolge wird nicht dadurch, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting` festgelegt.",
+                        "description": "Gliederungs-\"Nummer\" des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z. B. \"10.\", \"10.1\", \"C\", \"c)\" o. ä. Die Reihenfolge wird nicht dadurch, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting` festgelegt, **sollte** allerdings zu dieser identisch sein.",
                         "type": "string"
                     },
                     "name": {
@@ -146,7 +146,7 @@
                         "$ref": "File.json"
                     },
                     "auxiliaryFile": {
-                        "description": "Dateianhänge zum Tagesordnungspunkt.",
+                        "description": "Weitere Dateianhänge zum Tagesordnungspunkt.",
                         "type": "array",
                         "items": {
                             "type": "object",
@@ -159,7 +159,7 @@
                         "format": "date-time"
                     },
                     "end": {
-                        "description": "Endzeitpunkt des Tagesordnungspunktes als Datum/Uhrzeit. Bei zukünftigen Tagesordnungspunkt ist dies der geplante Zeitpunkt, bei einer stattgefundenen **kann** es der tatsächliche Endzeitpunkt sein.",
+                        "description": "Endzeitpunkt des Tagesordnungspunktes als Datum/Uhrzeit. Bei zukünftigen Tagesordnungspunkten ist dies der geplante Zeitpunkt, bei einer stattgefundenen **kann** es der tatsächliche Endzeitpunkt sein.",
                         "type": "string",
                         "format": "date-time"
                     },

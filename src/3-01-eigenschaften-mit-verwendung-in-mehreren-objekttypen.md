@@ -28,7 +28,7 @@ Typ (kurz)               | Namespace-URL
 
 ### `name` und `shortName` {#eigenschaft-name-shortname}
 
-Beide Eigenschaften können bei vielen Objekttypen genutzt werden, um den
+Beide Eigenschaften können bei vielen Objekttypen genutzt werden um den
 Namen des Objekts anzugeben. Üblicherweise ist `name` eine Pflichteigenschaft
 für den ausgeschriebenen offiziellen Namen, während `shortName` optional
 angegeben werden kann. Dies ist dann zu empfehlen, wenn zu einem Namen eine
@@ -50,8 +50,7 @@ Wird `license` im `oparl:System`-Objekt oder am `oparl:Body`-Objekt verwendet,
 dann bedeutet das, dass alle Objekte dieses Systems bzw. der Körperschaft
 unter der angegebenen Lizenz veröffentlicht werden, sofern nicht das
 einzelne Objekt eine anders lautende Lizenz-URL angibt. Es wird **empfohlen**,
-die Lizenzinformation global am `oparl:System` Objekt mitzuteilen
-und auf redundante Informationen zu verzichten.
+die Lizenzinformation sofern möglich global am `oparl:System` Objekt mitzuteilen und auf redundante Informationen zu verzichten.
 
 ### `created` {#eigenschaft-created}
 
@@ -62,18 +61,21 @@ Datum und Uhrzeit der Erstellung des jeweiligen Objekts.
 Diese Eigenschaft kennzeichnet stets Datum und Uhrzeit der letzten Änderung des
 jeweiligen Objekts.
 
-Es ist essentiel, dass bei jeder Änderung eines Objekts der Wert dieses
-Attributs auf die aktuelle Uhrzeit gesetzt wird, da ein Client in der Regel
-seinen Datenbestand nur auf Basis dieses Attributs aktualisieren wird.
+Es ist **zwingend**, dass bei jeder Änderung eines Objekts der Wert dieses
+Attributs auf die zu diesem Zeitpunkt aktuelle Uhrzeit gesetzt wird, da ein
+Client in der Regel seinen Datenbestand nur auf Basis dieses Attributs
+verlustfrei aktualisieren kann.
 
 ### `keyword` {#eigenschaft-keyword}
 
 Die Eigenschaft `keyword` dient der optionalen Kategorisierung eines Objekts.
 
 ### `web` {#eigenschaft-web}
+
 Gibt die URL einer Website an, die das Objekt im Browser darstellt. Das
-ist z.B. die html-Ansicht eines parlamentarischen Informationssystems.
+ist z.B. die HTML-Ansicht eines parlamentarischen Informationssystems.
 
 ### `deleted` {#eigenschaft-deleted}
+
 Falls das Objekt gelöscht wurde, muss dieses gemäß Kapitel 2.8 das Attribut
 `deleted: true` bekommen.

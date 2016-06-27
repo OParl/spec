@@ -59,7 +59,7 @@
             "format": "url"
         },
         "vendor": {
-            "description": "URL der Website des Software-Anbieters, von dem die OParl-Server-Software stammt.",
+            "description": "URL der Website des Softwareanbieters, von dem die OParl-Server-Software stammt.",
             "type": "string",
             "format": "url"
         },

@@ -106,7 +106,7 @@
                     "person": {
                         "type": "string",
                         "format": "url",
-                        "description": "Rückreferenz auf Person, welches nur dann ausgegeben wird, wenn das Membership-Objekt einzeln abgerufen ist, d.h. nicht Teil einer internen Ausgabe ist.",
+                        "description": "Rückreferenz auf Person, welches nur dann ausgegeben werden muss, wenn das Membership-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.",
                         "oparl:ref": "Person"
                     },
                     "organization": {
@@ -135,7 +135,7 @@
                         "format": "date"
                     },
                     "onBehalfOf": {
-                        "description": "Die Gruppierung, für die die Person in der unter organization angegebenen Organisation sitzt. Beispiel: Mitgliedschaft als Vertreter einer Ratsfraktion, einer Gruppierung oder einer externen Organisation.",
+                        "description": "Die Gruppierung, für die die Person in der unter `organization` angegebenen Organisation sitzt. Beispiel: Mitgliedschaft als Vertreter einer Ratsfraktion, einer Gruppierung oder einer externen Organisation.",
                         "oparl:ref": "Organization",
                         "oparl:cardinality": "n:1",
                         "type": "string",

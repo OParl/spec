@@ -59,7 +59,7 @@
             "type": "array"
         },
         "subOrganizationOf": {
-            "description": "URL der übergeordneten Gruppierung.",
+            "description": "URL einer eventuellen übergeordneten Gruppierung.",
             "oparl:ref": "Organization",
             "oparl:cardinality": "n:1",
             "type": "string",
@@ -94,7 +94,7 @@
             "$ref": "Location.json"
         },
         "externalBody": {
-            "description": "Externer OParl Body, der dieser Organisation entspricht.",
+            "description": "Externer OParl Body, der dieser Organisation entspricht. Diese Eigenschaft ist dafür gedacht auf eventuelle konkretere OParl-Schnittstellen zu verweisen. Ein Beispiel hierfür wäre eine Stadt, die sowohl ein übergreifendes parlamentarisches Informationssystem, als auch bezirksspezifische Systeme hat.",
             "oparl:ref": "Body",
             "oparl:cardinality": "n:1",
             "type": "string",

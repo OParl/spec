@@ -48,7 +48,7 @@
             "format": "url"
         },
         "licenseValidSince": {
-            "description": "Zeitpunkt, seit dem die unter `license` angegebene Lizenz gilt. Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen.",
+            "description": "Zeitpunkt, seit dem die unter `license` angegebene Lizenz gilt. _Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen!_",
             "type": "string",
             "format": "date-time"
         },
@@ -62,11 +62,11 @@
             "type": "string"
         },
         "rgs": {
-            "description": "Der zwölfstellige Regionalschlüssel. Der Regionalschlüssel wird in Zukunft voraussichtlich den Amtlichen Gemeindeschlüssel ersetzen.",
+            "description": "Der zwölfstellige Regionalschlüssel.",
             "type": "string"
         },
         "equivalent": {
-            "description": "Dient der Angabe zusätzlicher URLs, die dieselbe Körperschaft repräsentieren. Hier können beispielsweise der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>] oder der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden. Body- oder System-Objekte mit anderen OParl-Versionen **dürfen nicht** Teil der Liste sein.",
+            "description": "Dient der Angabe zusätzlicher URLs, die dieselbe Körperschaft repräsentieren. Hier können beispielsweise der entsprechende Eintrag der gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>], der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden. Body- oder System-Objekte mit anderen OParl-Versionen **dürfen nicht** Teil der Liste sein.",
             "type": "array",
             "items": {
                 "type": "string",
@@ -124,7 +124,7 @@
                     "body": {
                         "type": "string",
                         "format": "url",
-                        "description": "Rückreferenz auf die Körperschaft, welche nur dann ausgegeben wird, wenn das LegislativeTerm-Objekt einzeln abgerufen ist, d.h. nicht Teil einer internen Ausgabe ist.",
+                        "description": "Rückreferenz auf die Körperschaft, welche nur dann ausgegeben werden muss, wenn das LegislativeTerm-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.",
                         "oparl:ref": "Body"
                     },
                     "name": {
@@ -159,7 +159,7 @@
             "type": "string"
         },
         "location": {
-            "description": "Ort, an dem die Körperschaft beheimatet ist. Wenn möglich die Stadtgrenzen, ansonsten die Stadtmitte. (Die Ortsangabe kann sowohl über diese Eigenschaft, als auch über die vorangegangenen Einzeleigenschaften erfolgen, sollte aber übereinstimmen, falls beide Ausgabeoptionen genutzt werden.",
+            "description": "Ort, an dem die Körperschaft beheimatet ist.",
             "type": "object",
             "$ref": "Location.json"
         },

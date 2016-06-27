@@ -188,7 +188,6 @@ Die Paginierung **muss** innerhalb eines `meta`-Blockes als `pagination`-Objekt 
 }
 ~~~~~
 
-
 Dem entsprechend gibt es die folgenden Eigenschaften zur Paginierung:
 
 - **totalElements**: Gibt die Gesamtanzahl der Objekte in der Liste an.
@@ -220,12 +219,18 @@ Lautet die URL für eine Liste von Drucksachen wie folgt:
 kann der Client die folgende URL bilden, um die Ausgabe der Liste auf
 Drucksachen einzuschränken, die seit dem 1. Januar 2014 veröffentlicht wurden:
 
-    https://oparl.example.org/papers/?created_since=2014-01-01
+    https://oparl.example.org/papers/?created_since=2014-01-01T00%3A00%3A00%2B01%3A00
 
 Mehrere Parameter können auch gemeinsam verwendet werden. So kann man z.B. eine
 Einschränkung vom 1.1.2014 bis zum 31.1.2014 vornehmen:
 
     https://oparl.example.org/papers/?created_since=2014-01-01T00%3A00%3A00%2B01%3A00&created_until=2014-01-31T23%3A59%3A59%2B01%3A00
 
-Die genannten URL-Parameter erwarten grundsätzlich eine [`date` oder `date-time`-Angabe](#datum_zeit). Bei der Angabe eines `date` **sollte** der
-Server die Zeit 00:00 annehmen.
+Die genannten URL-Parameter erwarten grundsätzlich eine vollständige [`date-time`-Angabe](#datum_zeit).
+
+Des weiteren kann mit dem URL-Parameter `limit` die Länge einer Listen durch
+den Client begrenzt werden. Ein Client **darf** nicht erwarten, dass sich ein
+Server an seine `limit`-Anfrage hält. Es wird **empfohlen** im Metabereich der
+Objektlisten mittels **minLimit** und **maxLimit** Angaben zum unterstützten
+Bereich der Ausgabelimitierung zu machen. Der `limit`-Parameter is **optional**
+und **muss** durch den Serverimplementierer dokumentiert werden.

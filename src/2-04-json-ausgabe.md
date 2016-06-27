@@ -56,13 +56,13 @@ date-time:
 
 ### Datums- und Zeitangaben  {#datum_zeit}
 
-Für Datums- und Zeitangaben werden die durch die ISO 8601 beschriebenen Formate verwendet. Das heißt, dass ein Datum die Kurzform
+Für Datums- und Zeitangaben werden die in ISO 8601 beschriebenen Formate verwendet.
+Ein Datum (date) **muss** muss also die Form `yyyy-mm-dd` besitzen und ein
+Zeitpunkt (date-time) **muss** in der Form `yyyy-mm-ddThh:mm:ss+hh:mm` angegeben werden.
 
-`yyyy-mm-dd`, z.B. `1969-07-21`
+Beispiel für ein Datum: `1969-07-21`
 
-und eine Zeitangabe die Langform
-
-`yyyy-mm-ddThh:mm:ss+hh:mm`, z.B. `1969-07-21T02:56:00+00:00` haben **muss**.
+Beispiel für einen Zeitpunkt: `1969-07-21T02:56:00+00:00`.
 
 ### `null`-Werte und leere Listen {#null-werte-und-leere-listen}
 

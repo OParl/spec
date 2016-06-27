@@ -5,6 +5,23 @@ eine Liste von Objekten. Dabei kann eine Referenz auf das Objekt bzw. die
 Objektliste angegeben werden, oder das Objekt bzw. die Objektlist wird intern
 ausgegeben. Beide Verfahren sollen im Folgenden erklärt werden.
 
+### Objekt- und Objektlistenausgabe im Allgemeinen
+
+In einem JSON-Objekt muss jedem Wert ein Schlüssel zugeordnet sein, daher wird sowohl für OParl-Objektlisten, als auch für Einzelobjekte die folgende Ausgabestruktur erwartet:
+
+~~~~~  {#objektformat_ex1 .json}
+{
+    "data": [
+        <array von Objekten>
+    ],
+    "meta": {
+        zusätzliche Angaben
+    }
+}
+~~~~~
+
+Diese Struktur ermöglicht es Server-Implementierern innerhalb des **meta**-Bereiches zusätzliche Informationen wie z.B. zur Bandbreitenlimitierung
+anzugeben. Des weiteren wird dieser Bereich auch zur Paginierungsinformation genutzt.
 
 ### Referenzierung von Objekten via URL
 
@@ -93,7 +110,7 @@ Es können auch Referenzen zu sogenannten externen Listen angegeben werden.
 Die externe Liste enthält dann die betreffenden Objekte in Form einer
 Listenausgabe. Ein Beispiel dafür ist `organization` in `Body`:
 
-~~~~~  {#objektlisten_ex5 .json}
+~~~~~  {#objektlisten_ex5a .json}
 {
   "id": "https://oparl.example.org/body/1",
   "type": "https://oparl.org/schema/1.0/Body",
@@ -102,27 +119,29 @@ Listenausgabe. Ein Beispiel dafür ist `organization` in `Body`:
 }
 ~~~~~
 
-~~~~~  {#objektlisten_ex5 .json}
-[
-  {
-    "id": "https://oparl.example.org/organization/1",
-    "type": "https://oparl.org/schema/1.0/Organization",
-    "name": "Organisation Nummer 1",
-    ...
-  },
-  {
-    "id": "https://oparl.example.org/organization/2",
-    "type": "https://oparl.org/schema/1.0/Organization",
-    "name": "Organisation Nummer 2",
-    ...
-  },
-  {
-    "id": "https://oparl.example.org/organization/3",
-    "type": "https://oparl.org/schema/1.0/Organization",
-    "name": "Organisation Nummer 3",
-    ...
-  },
-]
+~~~~~  {#objektlisten_ex5b .json}
+{
+    data: [
+      {
+        "id": "https://oparl.example.org/organization/1",
+        "type": "https://oparl.org/schema/1.0/Organization",
+        "name": "Organisation Nummer 1",
+        ...
+      },
+      {
+        "id": "https://oparl.example.org/organization/2",
+        "type": "https://oparl.org/schema/1.0/Organization",
+        "name": "Organisation Nummer 2",
+        ...
+      },
+      {
+        "id": "https://oparl.example.org/organization/3",
+        "type": "https://oparl.org/schema/1.0/Organization",
+        "name": "Organisation Nummer 3",
+        ...
+      },
+    ]
+}
 ~~~~~
 
 
@@ -137,98 +156,52 @@ Die Entscheidung, ob eine externe Objektliste mit Paginierung
 ausgegeben wird, liegt allein beim Server. Bei Listen mit mehr als 100
 Einträgen wird dies **empfohlen**.
 
-Server **muss** für eine stabile Sortierung von Listeneinträgen sorgen. Das
+Ein Server **muss** für eine stabile Sortierung von Listeneinträgen sorgen. Das
 heißt, dass die Sortierung der Einträge einem konstanten Prinzip folgt und sich
 nicht von Abfrage zu Abfrage ändert. Das kann z.B. durch die Sortierung von
 Objekten nach einer eindeutigen und unveränderlichen ID erreicht werden.
 
-Jede Listenseite außer der Letzten muss dabei das Attribut `nextPage`
-enthalten, welches auf die nächste Listenseite verweist. Ein Client kann damit
-nacheinander alle Listenseiten abrufen.
+Die Paginierung **muss** innerhalb eines `meta`-Blockes als `pagination`-Objekt wie folgt angegeben werden:
 
-~~~~~  {#objektlisten_ex4 .json}
+```.json
 {
-    "items": [
-        "https://oparl.example.org/bodies/0/papers/2",
-        "https://oparl.example.org/bodies/0/papers/5",
-        "https://oparl.example.org/bodies/0/papers/7",
+    "data": {
+        [...],
+        [...],
         ...
-    ],
-    "nextPage": "https://oparl.example.org/bodies/0/papers/?skip_id=495"
+    },
+    "meta": {
+        "pagination": {
+            "totalElements": 150,
+            "elementsOnPage": 100,
+            "elementsPerPage": 100,
+            "currentPage": 1,
+            "totalPages": 2,
+            "links": [
+                "first": "https://oparl.example.org/organization/",
+                "self": "https://oparl.example.org/organization/?page=1",
+                "next": "https://oparl.example.org/organization/?page=2",
+                "last": "https://oparl.example.org/organization/?page=2"
+            ]
+        }
+    }
 }
-~~~~~
+```
 
-Es gibt dazu einige **optionale** Attribute für Listenseiten:
 
- * `firstPage`: URL der ersten Listenseite
- * `lastPage`: URL der letzten Listenseite
- * `prevPage`: URL der vorherigen Listenseite
- * `itemsPerPage`: Die Anzahl der Objekte pro Seite. Wird dieses Attribut
- angegeben, dann muss die Anzahl der Objekte pro Seite auf allen Seiten ausser
- der letzten Seite konstant sein.
- * `numberOfPages`: Die Anzahl der Listenseiten
- * `currentPage`: Die wievielte Seite ausgegeben wird.
+Dem entsprechend gibt es die folgenden Eigenschaften zur Paginierung:
 
-Zusammen mit allen Zusatzattributen sieht eine Listenseite wie folgt aus:
+- **totalElements**: Gibt die Gesamtanzahl der Objekte in der Liste an.
 
-~~~~~  {#objektlisten_ex7 .json}
-{
-  "items": [
-    "https://oparl.example.org/bodies/0/papers/2",
-    "https://oparl.example.org/bodies/0/papers/5",
-    "https://oparl.example.org/bodies/0/papers/7",
-    ...
-  ],
-  "nextPage": "https://oparl.example.org/bodies/0/papers/?skip_id=495"
-  "firstPage": "https://oparl.example.org/bodies/0/papers"
-  "prevPage": "https://oparl.example.org/bodies/0/papers/?skip_id=239"
-  "itemsPerPage": 100,
-  "numberOfPages": 123,
-  "currentPage": 10,
-}
-~~~~~
+- **elementsOnPage**: Gibt die Anzahl der Objekte auf der aktuellen Listenseite an, diese Angabe **kann** - insbesondere auf der letzten Listenseite - von **elementsPerPage** unterschieden, **muss** aber auf allen anderen Seiten mit **elementsPerPage** identisch sein.
 
-![Paginierung: Schematische Darstellung](images/pagination01.png)
+- **elementsPerPage**: Gibt die Anzahl der Objekte pro Listenseite an.
 
-Es ist davon auszugehen, dass Clients für den gesamten Abruf aller
-Seiten einer Liste längere Zeit benötigen. In der Zwischenzeit kann sich
-der Inhalt der Liste ändern, etwa durch das Hinzukommen neuer Einträge.
-Die Paginierung **soll** so implementiert werden, dass sich
-das Hinzufügen oder Entfernen von Einträgen möglichst nicht auf den Client
-auswirkt, der aktuell die Liste paginiert, um alle Einträge abzurufen. Wir
-bezeichnen dies als stabile Paginierung.
+- **currentPage**: Gibt die aktuelle Seitenzahl in der Liste an.
 
-Die Funktionsweise der stabilen Paginierung soll im Folgenden an einem Beispiel
-verdeutlicht werden. Nehmen wir an, die erste Seite der Liste wird mit der Abfrage
+- **totalPages**: Gibt die Gesamtanzahl der Seiten in der Liste an.
 
-~~~~~  {#objektlisten_ex8 .sql}
-SELECT * FROM example ORDER BY id LIMIT 10 OFFSET 0
-~~~~~
-
-abgerufen, die 10 Datensätze mit den `id`s 1 bis 10 zurückliefert. Dann wird
-die zweite Seite mit der Abfrage
-
-~~~~~  {#objektlisten_ex9 .sql}
-SELECT * FROM example ORDER BY id LIMIT 10 OFFSET 10
-~~~~~
-
-abgerufen. Sollte nach der ersten, aber vor der zweiten Abfrage beispielsweise
-ein Datensatz mit der `id=1` gelöscht worden sein, liefert die zweite Abfrage
-Datensätze mit `id` > 11. Das führt dazu, dass der Datensatz mit der `id=11`
-nie ausgegeben wird und der Client diesen Datensatz somit nie erhält.
-
-Eine mögliche Lösung ist es, die `id`, bei der eine Listenseite
-beginnen soll, explizit zu benennen. Wurden auf der ersten
-Listenseite die Datensätze mit den `id`s 1 bis 10 ausgegeben, so könnte der
-Folgeaufruf so aussehen:
-
-~~~~~  {#objektlisten_ex10 .sql}
-SELECT * FROM example WHERE id > 10 ORDER BY id LIMIT 10
-~~~~~
-
-Im diesem Fall würde dann der Datensatz mit der `id` 11 auch ausgegeben, wenn
-`id` 1 gelöscht worden ist.
-
+- **links**: Stellt einige Links zur Navigation in der Liste zur Verfügung. Die Angabe dieser Links ist **zwingend**, da ein Client das URL-Schema eines spezifischen Servers nicht kennen können soll, um in ihm zu navigieren.
 
 ### Filter  {#filter}
 

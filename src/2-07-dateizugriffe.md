@@ -11,7 +11,7 @@ Jede Datei **muss** dabei mit einer HTTP-GET-Anfrage abrufbar sein.
 
 ### Empfehlungen für Dateizugriffe
 
-* Ein Server **sollte** die Verwendung von Kompression gemäß dem HTTP-Standard
+* Ein Server **sollte** die Verwendung von Kompression gemäß des HTTP-Standards
 unterstützen.
 
 * Ein Server **sollte** auch "Conditional GET" unterstützen, insbesondere
@@ -29,7 +29,7 @@ der Server dem Client eine URL, die dem allgemeinen Zugriff auf die Datei dient.
 Beim Zugriff auf dieser URL **darf** der Server **nicht** den `Content-Disposition`-Header
 mit dem Parameter `attachment` senden. ^[vgl. RFC2138<http://www.ietf.org/rfc/rfc2183>]
 
-Es wird **empfohlen**, zusätzlich eine Eigenschaft `downloadUrl` anzubieten. Beim
+Es wird daher **empfohlen**, zusätzlich eine Eigenschaft `downloadUrl` anzubieten. Beim
 Zugriff auf die Download-URL **muss** der Server in der HTTP-Antwort einen
 `Content-Disposition`-Header senden, der als ersten Parameter den
 Typ `attachment` enthält und mit dem `filename`-Parameter den Namen der Datei

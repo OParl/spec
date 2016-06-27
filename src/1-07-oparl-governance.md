@@ -7,7 +7,7 @@ Fall, so sollte als erstes der
 für eine offene Diskussion und eine konstruktive Lösung verwendet werden.
 
 Sollte es auf Github wider Erwarten keine Lösung geben, wird die Entscheidung
-an das OParl-Leitungsgremium weitergegeben. In diesem Gremium vertreten sind
+an das OParl-Schlichtungsgremium weitergegeben. In diesem Gremium vertreten sind
 Entwickler, Anwender und Datenbereitsteller, so dass eine ausgewogene
 Weiterentwicklung im Interesse aller Akteure gewahrt bleibt.
 

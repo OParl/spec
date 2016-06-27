@@ -33,8 +33,8 @@ Namen des Objekts anzugeben. Üblicherweise ist `name` eine Pflichteigenschaft
 für den ausgeschriebenen offiziellen Namen, während `shortName` optional
 angegeben werden kann. Dies ist dann zu empfehlen, wenn zu einem Namen eine
 kurze bzw. kompakte und eine längere, aber weniger nutzerfreundliche Variante
-existieren. Ein Beispiel wäre die Kurzform "CDU" für den offiziellen
-Parteinamen "Christlich Demokratische Union Deutschlands".
+existieren. So ist "Innenministerium" die Kurzform des offiziellen
+"Bundesministerium des Inneren".
 
 ### `license` {#eigenschaft_license}
 

@@ -173,7 +173,7 @@
                         }
                     },
                     "authoritative": {
-                        "description": "Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst wird (`true`) wird oder nicht (`false`).",
+                        "description": "Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst wird oder wurde (`true`) wird oder nicht (`false`).",
                         "type": "boolean"
                     },
                     "role": {

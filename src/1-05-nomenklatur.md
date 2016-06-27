@@ -2,22 +2,16 @@
 
 ### Zwingende, empfohlene und optionale Anforderungen  {#muss_sollte_darf}
 
-Dieses Spezifikationsdokument nutzt die Modalverben
-**müssen**, **können** und **sollten**
-in einer Art und Weise, die bestimmte Anforderungen unmissverständlich
-in drei verschiedene Abstufungen einteilen lässt. Um ihre normative Bedeutung
-zu unterstreichen, werden diese Wörter grundsätzlich in Großbuchstaben gesetzt.
-
-Diese Konvention ist angelehnt an die Definitionen der Begriffe MUST, SHOULD
-und MAY (bzw. MUST NOT, SHOULD NOT und MAY NOT) aus
-RFC2119.^[RFC2119 <http://tools.ietf.org/html/rfc2119>]
+Dieses Spezifikation nutzt **müssen**, **können** und **sollten**
+in einer eindeutig definierten Art und Weise. Diese ist angelehnt an die
+Definitionen der Begriffe MUST, SHOULD und MAY (bzw. MUST NOT, SHOULD NOT und
+MAY NOT) aus RFC2119.^[RFC2119 <http://tools.ietf.org/html/rfc2119>]
 
 Die Bedeutung im Einzelnen:
 
 **müssen**/**muss** bzw. **zwingend**:
 
-:   Die Erfüllung einer Anforderung, die explizit vom Modalverb **müssen** bzw.
-    **muss** Gebrauch macht, ist zwingend erforderlich.
+:   Die Erfüllung einer so gekennzeichneten Anforderung ist zwingend erforderlich.
 
     Die Entsprechung in RFC2119 lautet "MUST", "REQUIRED" oder "SHALL".
 
@@ -56,23 +50,21 @@ Die Bedeutung im Einzelnen:
     jeweilige Kommunikationspartner den entsprechenden, optionalen Anteil
     unterstützt.
 
-    Die Entsprechung in RFC2119 lautet "MAY" oder "**optional**".
+    Die Entsprechung in RFC2119 lautet "MAY".
 
 
 ### Geschlechterspezifische Begrifflichkeiten {#geschlechterspezifische-begrifflichkeiten}
 
 Um bei Begriffen wie Nutzer, Anwender, Betreiber etc. die sonst übliche Dominanz
 der männlichen Variante zu vermeiden, werden in diesem Dokument
-männliche und weibliche Varianten gemischt. Es wird also beispielsweise mal
-von einer Nutzerin gesprochen und mal von einem Nutzer. Gemeint sind
-in allen Fällen Personen jeglichen Geschlechts.
+männliche und weibliche Varianten gemischt. Gemeint sind in allen Fällen
+Personen jeglichen Geschlechts.
 
 
 ### Codebeispiele {#codebeispiele}
 
 Die in diesem Dokument aufgeführten Codebeispiele dienen der Veranschaulichung
-der beschriebenen Prinzipien. Es handelt sich in der Regel um frei erfundene
-Daten.
+der beschriebenen Prinzipien. Es handelt sich um frei erfundene Daten.
 
 Codebeispiele erheben insbesondere bei JSON-Code nicht den Anspruch auf
 syntaktische Korrektheit und Vollständigkeit. Dementsprechend können in
@@ -83,8 +75,8 @@ Codebeispielen Auslassungen vorkommen, die mit `...` gekennzeichnet werden.
 
 Bei der Erwähnung von Objekttypen, die in dieser Spezifikation beschrieben
 werden, wird in der Regel ein Präfix `oparl:` vor den Namen gesetzt, z. B.
-"oparl:Organization". Damit soll verdeutlicht werden, dass dieser Objekttyp
-innerhalb der OParl-Spezifikation beschrieben wird.
+"oparl:Organization". Damit soll verdeutlicht werden, dass der Objekttyp
+innerhalb der OParl-Spezifikation gemeint ist.
 
 Das Präfix `oparl:` steht hierbei für die folgende Namespace-URL:
 

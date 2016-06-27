@@ -163,7 +163,7 @@ Objekten nach einer eindeutigen und unveränderlichen ID erreicht werden.
 
 Die Paginierung **muss** innerhalb eines `meta`-Blockes als `pagination`-Objekt wie folgt angegeben werden:
 
-```.json
+~~~~~  {#paginierung_ex1 .json}
 {
     "data": {
         [...],
@@ -186,7 +186,7 @@ Die Paginierung **muss** innerhalb eines `meta`-Blockes als `pagination`-Objekt 
         }
     }
 }
-```
+~~~~~
 
 
 Dem entsprechend gibt es die folgenden Eigenschaften zur Paginierung:

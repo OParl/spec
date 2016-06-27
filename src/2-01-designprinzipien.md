@@ -29,21 +29,21 @@ Eigenentwicklung der Stadt Bonn <http://www2.bonn.de/bo_ris/ris_sql/agm_index.as
 in Deutschland bekannt, das
 Geoinformationen – und zwar in Form von Punktdaten, also einer Kombination aus
 Längen- und Breitengradangaben – mit Dokumenten verknüpft. Der Vorteil dieser
-Funktion ist jedoch anhand zahlreicher Anwendungsszenarien belegbar. Somit ist der
+Funktion ist jedoch anhand zahlreicher Anwendungsszenarien, wie z.B. dem Bauinformationssystem "Bürger baut Stadt"^[bürgerbürgerbautstadt, <http://www.buergerbautstadt.de>], belegbar. Somit ist in der
 vorliegenden OParl-Spezifikation die Möglichkeit beschrieben, Geodaten-Objekte
 einzubetten.
 
 Die Angabe eines einzelnen Punktes ist dabei der einfachste Fall. Die
-Spezifikation erlaubt auch die Kodierung von mehreren Objekten, die Punkte, Linien
-oder Polygone repräsentieren können. Vgl. dazu `oparl:Location`.
+Spezifikation erlaubt auch die Kodierung von mehreren Objekten, die Punkte,
+Linien oder Polygone repräsentieren können. Vgl. dazu `oparl:Location`.
 
 Auch die Ausgabe einer Nur-Text-Version im Kontext der Datei (`oparl:File`),
 das den barrierefreien Zugriff auf Inhalte oder Indexierung für Volltextsuchfunktionen
 deutlich vereinfacht, ist eine Möglichkeit, die in der gängigen Praxis noch nicht zu
 finden ist. Ebenso die Möglichkeit, Beziehungen zwischen einzelnen Dateien
-herzustellen, um so von einer Datei zu anderen Dateien mit identischem Inhalt,
-aber in anderen technischen Formaten zu verweisen, etwa von einer ODT-Datei zu einer
-PDF-Version.
+herzustellen, um so z.B. von einer Datei zu anderen Dateien mit identischem
+Inhalt, aber in anderen technischen Formaten zu verweisen, etwa von einer
+ODT-Datei zu einer PDF-Version.
 
 ### Selbstbeschreibungsfähigkeit {#selbstbeschreibungsfaehigkeit}
 
@@ -51,9 +51,9 @@ Ausgaben des Servers sollten so beschaffen sein, dass sie für menschliche Nutze
 weitgehend selbsterklärend sein können. Dies betrifft besonders die Benennung von
 Objekten und Objekteigenschaften.
 
-Um den Kreis der Entwicklerinnen und Entwickler, die mit einer OParl-API arbeiten
-können, nicht unnötig einzuschränken, wird hierbei grundsätzlich auf englischsprachige
-Begrifflichkeiten gesetzt.
+Um den Kreis der Entwicklerinnen und Entwickler, die mit einer OParl-API
+arbeiten können, nicht unnötig einzuschränken, wird hierbei grundsätzlich und
+soweit sinnvoll auf englischsprachige Begrifflichkeiten gesetzt.
 
 ### Erweiterbarkeit {#erweiterbarkeit}
 
@@ -68,7 +68,7 @@ Ein weiterer Aspekt betrifft die Abwärtskompatibilität, also die Kompatibilit�
 OParl-Clients mit zukünftigen Schnittstellen. So können beispielsweise zukünftige Erweiterungen
 des OParl-Schemas, etwa um neue Objekttypen, genauso durchgeführt werden, wie die Erweiterungen
 um herstellerspezifische Objekttypen. Ein Client muss diese Anteile nicht auswerten, sofern
-sie nicht für die Aufgabe des Clients relevant sind. Das bedeutet im Umkehrschluss allerdings auch, dass ein Client
+sie nicht für die Aufgabe des Clients relevant sind. Es bedeutet im Umkehrschluss allerdings auch, dass ein Client
 nicht fehlschlagen darf, falls derartige Erweiterungen vorhanden sind.
 
 

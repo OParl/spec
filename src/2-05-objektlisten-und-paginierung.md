@@ -9,7 +9,8 @@ ausgegeben. Beide Verfahren sollen im Folgenden erklärt werden.
 ### Referenzierung von Objekten via URL
 
 Bei der Referenzierung einzelner Objekte wird eine URL angegeben, welche auf
-das entsprechende Objekt verweist. Der Typ ist hierbei ein string (url: Object-id).
+das entsprechende Objekt verweist. Der Typ ist hierbei ein
+`string (url: Objekt-ID)`.
 Ein Beispiel hierfür ist `subOrganizationOf` in `Organization`:
 
 ~~~~~  {#objektlisten_ex1 .json}
@@ -22,7 +23,7 @@ Ein Beispiel hierfür ist `subOrganizationOf` in `Organization`:
 ~~~~~
 
 Es kann auch eine Liste von Referenzen ausgegeben werden. Der Typ ist in diese
-Fall array of string (url: Object-id).
+Fall `array of string (url: Objekt-ID)`.
 
 Ein Beispiel hierfür ist `meeting` in `Organization`:
 
@@ -58,8 +59,8 @@ Wert eines Attributs angegeben. Ein Beispiel für ein internes  Objekt ist
 }
 ~~~~~
 
-Ebenso kann eine Liste von Objekten intern ausgegeben werden. Hier das Beispiel
-Attributes `membership` in `Person`.
+Ebenso kann eine Liste von Objekten intern ausgegeben werden. Hier das
+Beispiel des Attributes `membership` in `Person`.
 
 ~~~~~  {#objektlisten_ex4 .json}
 {
@@ -88,8 +89,8 @@ Attributes `membership` in `Person`.
 
 ### Externe Objektlisten
 
-Es können auch Referenzen zu sogenannten externen Liste angegeben werden.
-Die externe Liste enthält dann die betreffenden Objekte in Form der internen
+Es können auch Referenzen zu sogenannten externen Listen angegeben werden.
+Die externe Liste enthält dann die betreffenden Objekte in Form einer
 Listenausgabe. Ein Beispiel dafür ist `organization` in `Body`:
 
 ~~~~~  {#objektlisten_ex5 .json}
@@ -233,22 +234,25 @@ Im diesem Fall würde dann der Datensatz mit der `id` 11 auch ausgegeben, wenn
 
 Externe Objektlisten können mit den URL-Parametern `created_since`, `created_until`,
 `modified_since` und `modified_until` eingeschränkt werden. Diese Parameter
-beziehen auf die entsprechenden Attribute der jeweiligen Objekte, wobei
+beziehen sich auf die entsprechenden Attribute der jeweiligen Objekte, wobei
 reservierte Zeichen URL-Kodiert werden müssen.
 
 Die Filter werden vom Client benutzt, indem die gewünschten URL-Parameter an
 die URL der ersten Listensiete angehängt werden. Bei allen weiteren Seiten hat
 der Server sicherzustellen, dass die verwendeten Filter erhalten bleiben.
-Lautet die URL für eine Liste von Drucksachen wie folgt,
+Lautet die URL für eine Liste von Drucksachen wie folgt:
 
     https://oparl.example.org/papers/
 
-dann kann der Client die folgende URL bilden, um die Ausgabe der Liste auf
-Drucksachen einzuschränken, die seit dem 1.1.2014 veröffentlicht wurden:
+kann der Client die folgende URL bilden, um die Ausgabe der Liste auf
+Drucksachen einzuschränken, die seit dem 1. Januar 2014 veröffentlicht wurden:
 
-    https://oparl.example.org/papers/?created_since=2014-01-01T00%3A00%3A00%2B01%3A00
+    https://oparl.example.org/papers/?created_since=2014-01-01
 
 Mehrere Parameter können auch gemeinsam verwendet werden. So kann man z.B. eine
 Einschränkung vom 1.1.2014 bis zum 31.1.2014 vornehmen:
 
     https://oparl.example.org/papers/?created_since=2014-01-01T00%3A00%3A00%2B01%3A00&created_until=2014-01-31T23%3A59%3A59%2B01%3A00
+
+Die genannten URL-Parameter erwarten grundsätzlich eine [`date` oder `date-time`-Angabe](#datum_zeit). Bei der Angabe eines `date` **sollte** der
+Server die Zeit 00:00 annehmen.

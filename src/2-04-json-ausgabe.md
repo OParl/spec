@@ -11,6 +11,11 @@ String-Escaping verwendet werden. XML-/HTML-String-Escaping **darf nicht** verwe
 Eine Syntaxübersicht und weitere Implementierungshinweise finden sich auf
 [json.org](http://json.org/).
 
+Es ist gestattet, weitere zur JSON-Ausgabe semantisch identische
+Formate^[Zu semantischen identischen Formaten zählen u.a.: YAML, MessagePack, etc.]
+anzubieten. Da diese jedoch nicht Bestandteil der Spezifikation sind,
+**sollten** sich Clients nicht auf deren Vorhandensein verlassen.
+
 [^fn-rfc7159-7]: [RFC 7159 Section 7](https://tools.ietf.org/html/rfc7159#section-7)
 [^fn-rfc7159-81]: [RFC 7159 Section 8.1](https://tools.ietf.org/html/rfc7159#section-8.1)
 
@@ -38,33 +43,26 @@ In OParl werden verschiedene String-Typen verwendet. Wenn von diesen Typen gespr
 so wird automatisch ein JSON-String vorausgesetzt:
 
 url:
-:   Eine URL ist ein String, der entsprechend dem Kapitel zu [URLs](#urls) formatiert wurde.
+:   Eine URL ist ein String, der entsprechend des [URL-Kapitels](#urls) formatiert wurde.
 
 url (Object):
-:   Eine url mit in Klammern angehängtem Object beschreibt eine URL auf eben diesen Objekttypus.
+:   Eine URL mit in Klammern angehängtem Objektname beschreibt eine URL auf eben diesen Objekttypus.
 
 date:
-:   Ein date entspricht einem Datum ohne Uhrzeit und ohne Zeitzone, wie sie im folgenden Abschnitt beschrieben werden.
+:   Entspricht einem Datum ohne Uhrzeit und ohne Zeitzone, wie sie im folgenden Abschnitt beschrieben werden.
 
 date-time:
-:   Ein date-time entspricht einem Datum und einer Uhrzeit mit Zeitzone, wie sie im folgenden Abschnitt beschrieben werden.
+:   Entspricht einem Datum und einer Uhrzeit mit Zeitzone, wie sie im folgenden Abschnitt beschrieben werden.
 
 ### Datums- und Zeitangaben  {#datum_zeit}
 
-Für Datum und Zeit werden die im XML-Schema festgelegten Typen
-date^[<http://www.w3.org/TR/xmlschema-2/#date>]
-und <!--- Mind the Space ---!>
-date-time^[<http://www.w3.org/TR/xmlschema-2/#dateTime>]
-verwendet (was nicht bedeutet, dass in OParl XML verwendet wird). Dabei wird
-ein Datum (ein Tag ohne Uhrzeit) ohne Zeitzone und ein Datum mit Zeit mit
-Zeitzone angegeben, denn nur damit ist die Uhrzeit weltweit eindeutig.
+Für Datums- und Zeitangaben werden die durch die ISO 8601 beschriebenen Formate verwendet. Das heißt, dass ein Datum die Kurzform
 
-Beispiel für date: `1969-07-21`
+`yyyy-mm-dd`, z.B. `1969-07-21`
 
-Beispiel für date-time: `1969-07-21T02:56:00+00:00`
+und eine Zeitangabe die Langform
 
-Diese Spezifikationen stützen sich auf RFC 3339^[RFC3339:
-<http://www.ietf.org/rfc/rfc3339.txt>] und RFC 3339 wiederum auf ISO 8601.
+`yyyy-mm-ddThh:mm:ss+hh:mm`, z.B. `1969-07-21T02:56:00+00:00` haben **muss**.
 
 ### `null`-Werte und leere Listen {#null-werte-und-leere-listen}
 

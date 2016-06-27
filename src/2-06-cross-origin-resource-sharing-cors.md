@@ -1,10 +1,10 @@
 Cross-Origin Resource Sharing (CORS)  {#cors}
 ------------------------------------
 
-Wenn Webbrowser mittels Script auf JSON-Ressourcen zugreifen sollen,
+Wenn Webbrowser mittels Skript auf JSON-Ressourcen zugreifen sollen
 unterliegen diese Zugriffe üblicherweise einer _Same-Origin-Policy_ (SOP).
 Das heißt, eine Anfrage ist nur an den Server zulässig, der auch das
-initiierende Script ausgeliefert hat. Anfragen an andere Server werden
+initiierende Skript ausgeliefert hat. Anfragen an andere Server werden
 vom Browser blockiert. Diese Einschränkung dient allgemein
 der Sicherheit von Webbrowsern.^[vgl. Wikipedia: Same-Origin-Policy <https://de.wikipedia.org/wiki/Same-Origin-Policy>]
 
@@ -27,7 +27,7 @@ Der HTTP-Antwort-Header `Access-Control-Allow-Methods` **sollte** darüber hinau
 **nicht** gesetzt sein oder **muss** die Methode `GET` beinhalten.
 
 Entwicklerinnen von Webanwendungen sollten sich darüber bewusst sein, dass
-durch die direkte Einbindung von Scripten Dritter in ihre Anwendungen mögliche
+durch die direkte Einbindung von Skripten Dritter in ihre Anwendungen mögliche
 Sicherheitsrisiken entstehen. Für den Fall, dass ein OParl-Server, etwa in
 Folge einer Manipulation, Schadcode ausliefert, könnte dieser unmittelbar
-von Scripten im Browser ausgeführt werden.
+von Skripten im Browser ausgeführt werden.

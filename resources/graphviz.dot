@@ -1,0 +1,27 @@
+{
+  System -- System;
+  System -- Body;
+  Body -- LegislativeTerm;
+  Body -- Meeting;
+  Body -- Organization;
+  Body -- Person;
+  Body -- Location;
+  Body -- Paper;
+  Person -- Membership;
+  Person -- Paper;
+  Person -- Meeting;
+  Membership -- Organization[label="2x"];
+  Organization -- Organization;
+  Organization -- Meeting;
+  Organization -- Location;
+  Organization -- Paper[label="2x"];
+  Meeting -- Consultation;
+  Meeting -- AgendaItem;
+  Meeting -- Location;
+  Meeting -- File[label="4x"];
+  AgendaItem -- Consultation;
+  AgendaItem -- File[label="2x"];
+  Consultation -- Paper;
+  Paper -- Location;
+  Paper -- File[label="2x"];
+}

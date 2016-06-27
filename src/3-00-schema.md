@@ -13,7 +13,7 @@ OParl nutzt folgenden Objekte:
 
 * System
 * Body
-* LegislativeTerm als Subobjekt von Body
+* LegislativeTerm
 * Organization
 * Person
 * Membership

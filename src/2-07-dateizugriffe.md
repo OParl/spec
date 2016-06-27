@@ -11,7 +11,7 @@ Jede Datei **muss** dabei mit einer HTTP-GET-Anfrage abrufbar sein.
 
 ### Empfehlungen für Dateizugriffe
 
-* Ein Server **sollte** die Verwendung von Kompression gemäß des HTTP-Standards
+* Ein Server **sollte** die Verwendung von Kompression gemäß dem HTTP-Standard
 unterstützen.
 
 * Ein Server **sollte** auch "Conditional GET" unterstützen, insbesondere

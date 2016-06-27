@@ -2,16 +2,15 @@
 
 OParl richtet sich an verschiedene Nutzergruppen und Stakeholder:
 
-* Verwaltung und politische Gremien in Gebietskörperschaften
+* Verwaltungen und andere politische Gremien in Gebietskörperschaften
 * Bürger, politische Parteien und Organisationen
 * Open-Data-Initiativen
 * Wissenschaftler
-* Anbieter von Server- und Softwareprodukten
-* Anbieter von Linked-Data-Plattformen oder -Services
+* Anbieter von Server- und Softwareprodukten im Umfeld von parlamentarischen Informationssystemen und Öffentlichkeitsbeteiligung
 
 Die Gründe, warum Betreiber von parlamentarischen Informationssystemen den
 Zugriff darauf über eine standardisierte Schnittstelle ermöglichen sollten
-oder möchten, können vielfältig sein und je nach Nutzergruppe unterschiedlich.
+oder möchten, können vielfältig und je nach Nutzergruppe unterschiedlich sein.
 
 Ein zentrales Argument für Verwaltung und politische Gremien, sei es in
 Gebietskörperschaften oder auf Landes- oder Bundesebene,
@@ -23,8 +22,8 @@ ist vielerorts in den letzten Jahren durch Einführung von Ratsinformationssyste
 mit anonymem, lesendem Zugriff über das World Wide Web gemacht worden.
 
 Die damit eingeschlagene Richtung konsequent weiter zu gehen, bedeutet, die
-Daten der parlamentarischen Informationssystemen gänzlich offen zu legen,
-sofern die Inhalte es erlauben. Es bedeutet, die Daten und Inhalte so
+Daten der parlamentarischen Informationssysteme soweit offen zu legen,
+wie die Inhalte es erlauben. Es bedeutet, die Daten und Inhalte so
 universell weiterverwendbar und so barrierearm wie möglich anzubieten, dass
 jegliche weitere Verwendung durch Dritte technisch möglich ist. Der seit
 einiger Zeit etablierte Begriff für dieses Prinzip heißt "Open Data".
@@ -63,7 +62,8 @@ Beispiele sind:
 * Benachrichtigungsfunktionen beim Erscheinen bestimmter Inhalte
 
 Die Standardisierung dieses Zugriffs über die Grenzen einzelner Systeme hinweg
-erlaubt zudem, diese Entwicklungen grenzüberschreitend zu denken. Damit steigt
+erlaubt zudem, diese Entwicklungen auch geographisch und politisch
+grenzüberschreitend zu denken. Damit steigt
 nicht nur die potenzielle Nutzerschaft einzelner Entwicklungen. Auch das
 Potenzial für Kooperationen zwischen Anwendungsentwicklern wächst.
 
@@ -76,10 +76,10 @@ Darüber hinaus sind auch Motivationen innerhalb von Organisationen und Körpers
 erkennbar. So sollen parlamentarische Informationssysteme vielerorts in
 verschiedenste Prozesse und heterogene Systemlandschaften integriert werden. Durch
 eine einheitliche Schnittstelle bieten sich effiziente Möglichkeiten zur Integration
-der Daten in anderen Systeme, wie beispielsweise Web-Portale.
+der Daten in anderen Systeme, wie beispielsweise Webportale.
 
-Anbieter von Softwareprodukten, die RIS-Lösungen anbieten, können
-mit der Implementation der OParl-Schnittstelle ihren Kunden eine entsprechende
+Anbieter von Softwareprodukten, die RIS-Lösungen anbieten, können ihren Kunden
+mit der Implementation der OParl-Schnittstelle eine entsprechende
 einheitliche Schnittstelle anbieten.
 
 Ausführlichere Beschreibungen einiger möglicher Anwendungsszenarien finden sich

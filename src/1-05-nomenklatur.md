@@ -2,13 +2,14 @@
 
 ### Zwingende, empfohlene und optionale Anforderungen  {#muss_sollte_darf}
 
-Dieses Spezifikationsdokument nutzt die Modalverben _müssen_, _können_ und _sollten_
+Dieses Spezifikationsdokument nutzt die Modalverben
+**müssen**, **können** und **sollten**
 in einer Art und Weise, die bestimmte Anforderungen unmissverständlich
 in drei verschiedene Abstufungen einteilen lässt. Um ihre normative Bedeutung
 zu unterstreichen, werden diese Wörter grundsätzlich in Großbuchstaben gesetzt.
 
-Diese Konvention ist angelehnt an die Definitionen der Begriffe MUST, SHOULD und
-MAY (bzw. MUST NOT, SHOULD NOT und MAY NOT) aus
+Diese Konvention ist angelehnt an die Definitionen der Begriffe MUST, SHOULD
+und MAY (bzw. MUST NOT, SHOULD NOT und MAY NOT) aus
 RFC2119.^[RFC2119 <http://tools.ietf.org/html/rfc2119>]
 
 Die Bedeutung im Einzelnen:
@@ -62,7 +63,7 @@ Die Bedeutung im Einzelnen:
 
 Um bei Begriffen wie Nutzer, Anwender, Betreiber etc. die sonst übliche Dominanz
 der männlichen Variante zu vermeiden, werden in diesem Dokument
-männliche oder weibliche Varianten gemischt. Es wird also beispielsweise mal
+männliche und weibliche Varianten gemischt. Es wird also beispielsweise mal
 von einer Nutzerin gesprochen und mal von einem Nutzer. Gemeint sind
 in allen Fällen Personen jeglichen Geschlechts.
 

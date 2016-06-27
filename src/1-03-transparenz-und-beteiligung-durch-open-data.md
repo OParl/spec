@@ -22,24 +22,29 @@ Datensätze sind in der Bereitstellung zu bevorzugen. Liegen Daten innerhalb ein
 Organisation in einer Datenbank vor, so bietet es sich an, diese
 über eine Programmierschnittstelle (API) für Außenstehende bereitzustellen.
 
-Die Erfüllung dieser rechtlichen und technischen Offenheit erlaubt es Dritten – dies
-können Bürgerinnen und Bürger, Unternehmen, Forschungseinrichtungen oder auch andere
-Verwaltungseinheiten sein – die Verwaltungsdaten wesentlich unkomplizierter für eigene
-Vorhaben wie Anwendungen oder Visualisierungen einzusetzen. Mit dem Ansatz offener
-Verwaltungsdaten soll so erstens mehr Transparenz über Prozesse und Entscheidungen
-in Politik und Verwaltung erreicht werden. Zweitens können Dritte auf Grundlage dieser
-Daten leichter eigene Geschäftsmodelle verfeinern oder neue entwickeln. Drittens wird
-es auch öffentlichen Stellen selbst erleichtert bereits im öffentlichen Sektor existierende Daten zu finden und weiterzuverwenden.
+Die Erfüllung dieser rechtlichen und technischen Offenheit erlaubt es im
+Falle von OParl Dritten – dies können Bürgerinnen und Bürger, Unternehmen,
+Forschungseinrichtungen oder auch andere Verwaltungseinheiten sein –
+die Verwaltungsdaten wesentlich unkomplizierter für eigene Vorhaben wie
+Anwendungen oder Visualisierungen einzusetzen. Mit dem Ansatz offener
+Verwaltungsdaten soll so erstens mehr Transparenz über Prozesse und
+Entscheidungen in Politik und Verwaltung erreicht werden. Zweitens können
+Dritte auf Grundlage dieser Daten leichter eigene Geschäftsmodelle verfeinern
+oder neue entwickeln. Drittens wird es auch öffentlichen Stellen selbst
+erleichtert bereits im öffentlichen Sektor existierende Daten zu finden und
+weiterzuverwenden.
 
-Das Prinzip offener Daten bzw. offener Verwaltungsdaten über die Minimalprinzipien
-rechtlicher und technischer Offenheit hinaus in die Tat umzusetzen, erfordert
-im Einzelfall häufig eine Zusammenarbeit von Datenbereitstellern und potentiellen
-Datennutzern. Die bloße Bereitstellung einer OParl-konformen API wird weder die
+Das Prinzip offener Daten bzw. offener Verwaltungsdaten über die
+Minimalprinzipien rechtlicher und technischer Offenheit hinaus in die Tat
+umzusetzen, erfordert im Einzelfall häufig eine Zusammenarbeit von
+Datenbereitstellern und potentiellen Datennutzern. Die bloße Bereitstellung
+einer OParl-konformen API wird weder die
 Einhaltung der technischen Prinzipien, noch der weiteren Open-Data-Prinzipien vollständig
 garantieren. Viele Bestandteile der OParl-Spezifikation, die einen weitgehend
-barrierearmen Zugang zu Informationen[^1] ermöglichen sollen, sind optional
-(Beispiel: Volltexte von Dokumenten über die API abrufbar machen). Andere Bestandteile,
-die von Interesse wären, sind noch gar nicht von OParl abgedeckt (Beispiel: Abstimmungsergebnisse).
+barrierearmen Zugang zu Informationen[^1] ermöglichen sollen, sind in der
+vorliegenden Version noch optional (Beispiel: Volltexte von Dokumenten über
+die API abrufbar machen). Andere Bestandteile,die von Interesse wären, sind
+noch gar nicht von OParl abgedeckt (Beispiel: Abstimmungsergebnisse).
 Grund dafür ist, dass sich OParl in einem frühen Stadium befindet und primär am Status Quo der
 parlamentarischen Informationssysteme ausgerichtet ist. Es liegt also auch weiterhin an
 Verwaltung und Politik, durch einen verantwortungsvollen Umgang mit den Systemen die

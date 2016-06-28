@@ -17,6 +17,7 @@ addons:
     - lacheck
     - php5
     - php5-cli
+    - graphviz
 
 install:
 - curl -sS https://getcomposer.org/installer | php

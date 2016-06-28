@@ -10,11 +10,12 @@ SHM_DIR=schema
 EXP_DIR=examples
 OUT_DIR=out
 ARC_DIR=archives
-GRAPHVIZ_DOT
 
 # Command config and macros
 PANDOC_FLAGS=--from markdown --standalone --table-of-contents --number-sections
 PANDOC=cd $(SRC_DIR) && pandoc $(PANDOC_FLAGS)
+
+GRAPHVIZ_DOT=graphviz
 
 LATEX=pdflatex
 LATEX_TEMPLATE=resources/template.tex
@@ -46,7 +47,7 @@ all: html pdf odt docx txt epub
 
 # transform dot file using dot -Tpng graphviz.dot -o graphviz.png
 $(IMG_DIR)/%.dot: $(IMG_DIR)/%.png
-  $(GRAPHVIZ_DOT) -Tpng graphviz.dot -o graphviz.png
+	$(GRAPHVIZ_DOT) -Tpng $< -o $@
 
 $(IMG_DIR)/%.png: $(IMG_DIR)/%.pdf
 	$(GS) -sOutputFile=$@ -f $<

@@ -5,23 +5,6 @@ eine Liste von Objekten. Dabei kann eine Referenz auf das Objekt bzw. die
 Objektliste angegeben werden, oder das Objekt bzw. die Objektlist wird intern
 ausgegeben. Beide Verfahren sollen im Folgenden erklärt werden.
 
-### Objekt- und Objektlistenausgabe im Allgemeinen
-
-In einem JSON-Objekt muss jedem Wert ein Schlüssel zugeordnet sein, daher wird sowohl für OParl-Objektlisten, als auch für Einzelobjekte die folgende Ausgabestruktur erwartet:
-
-~~~~~  {#objektformat_ex1 .json}
-{
-    "data": [
-        <array von Objekten>
-    ],
-    "meta": {
-        zusätzliche Angaben
-    }
-}
-~~~~~
-
-Diese Struktur ermöglicht es Server-Implementierern innerhalb des **meta**-Bereiches zusätzliche Informationen wie z.B. zur Bandbreitenlimitierung
-anzugeben. Des weiteren wird dieser Bereich auch zur Paginierungsinformation genutzt.
 
 ### Referenzierung von Objekten via URL
 
@@ -106,7 +89,7 @@ Beispiel des Attributes `membership` in `Person`.
 
 ### Externe Objektlisten
 
-Es können auch Referenzen zu sogenannten externen Listen angegeben werden.
+Es können auch Referenzen zu sogenannten externen Objektlisten angegeben werden.
 Die externe Liste enthält dann die betreffenden Objekte in Form einer
 Listenausgabe. Ein Beispiel dafür ist `organization` in `Body`:
 
@@ -140,7 +123,8 @@ Listenausgabe. Ein Beispiel dafür ist `organization` in `Body`:
         "name": "Organisation Nummer 3",
         ...
       },
-    ]
+    ],
+    ...
 }
 ~~~~~
 
@@ -161,53 +145,65 @@ heißt, dass die Sortierung der Einträge einem konstanten Prinzip folgt und sic
 nicht von Abfrage zu Abfrage ändert. Das kann z.B. durch die Sortierung von
 Objekten nach einer eindeutigen und unveränderlichen ID erreicht werden.
 
-Die Paginierung **muss** innerhalb eines `meta`-Blockes als `pagination`-Objekt wie folgt angegeben werden:
+Jede Listenseite **muss** die Attribute `data` (Array von intern ausgegebenen
+  objekten), `pagination` (Object) und `links` (Object) enthalten:
 
 ~~~~~  {#paginierung_ex1 .json}
 {
-    "data": {
-        [...],
-        [...],
+    "data": [
+        {...},
+        {...},
         ...
+    ],
+    "pagination": {
+        "totalElements": 150,
+        "elementsPerPage": 100,
+        "currentPage": 1,
+        "totalPages": 2
     },
-    "meta": {
-        "pagination": {
-            "totalElements": 150,
-            "elementsOnPage": 100,
-            "elementsPerPage": 100,
-            "currentPage": 1,
-            "totalPages": 2,
-            "links": [
-                "first": "https://oparl.example.org/organization/",
-                "self": "https://oparl.example.org/organization/?page=1",
-                "next": "https://oparl.example.org/organization/?page=2",
-                "last": "https://oparl.example.org/organization/?page=2"
-            ]
-        }
+    "links": {
+        "first": "https://oparl.example.org/organization/",
+        "self": "https://oparl.example.org/organization/?page=1",
+        "next": "https://oparl.example.org/organization/?page=2",
+        "last": "https://oparl.example.org/organization/?page=2"
     }
 }
 ~~~~~
 
-Dem entsprechend gibt es die folgenden Eigenschaften zur Paginierung:
+Für `pagination` sind die folgenden Attribute festgelegt, die alle **optional**
+sind:
 
-- **totalElements**: Gibt die Gesamtanzahl der Objekte in der Liste an.
+- `totalElements`: Gibt die Gesamtanzahl der Objekte in der Liste an. Diese Zahl
+kann sich unter Umständen bis zum Aufruf der nächsten Listenseiten ändern.
 
-- **elementsOnPage**: Gibt die Anzahl der Objekte auf der aktuellen Listenseite an, diese Angabe **kann** - insbesondere auf der letzten Listenseite - von **elementsPerPage** unterschieden, **muss** aber auf allen anderen Seiten mit **elementsPerPage** identisch sein.
+- `elementsPerPage`: Gibt die Anzahl der Objekte pro Listenseite an. Dieser Wert
+muss auf allen Listenseiten bis auf die letzte gleich sein.
 
-- **elementsPerPage**: Gibt die Anzahl der Objekte pro Listenseite an.
+- `currentPage`: Gibt die aktuelle Seitenzahl in der Liste an.
 
-- **currentPage**: Gibt die aktuelle Seitenzahl in der Liste an.
+- `totalPages`: Gibt die Gesamtanzahl der Seiten in der Liste an.
 
-- **totalPages**: Gibt die Gesamtanzahl der Seiten in der Liste an.
+Für `links`  sind folgende Attribute festgelegt:
 
-- **links**: Stellt einige Links zur Navigation in der Liste zur Verfügung. Die Angabe dieser Links ist **zwingend**, da ein Client das URL-Schema eines spezifischen Servers nicht kennen können soll, um in ihm zu navigieren.
+- `first`: URL der ersten Listenseite
+
+- `prev`: URL der vorherigen Listenseite
+
+- `self`: Die kanonische URL dieser Listenseite
+
+- `next`: URL der nächsten Listen. Für alle Seiten bis auf die letzte ist die
+Angabe dieser URL **zwingend**.
+
+- `last`: URL der letzten Listenseite
+
 
 ### Filter  {#filter}
 
 Externe Objektlisten können mit den URL-Parametern `created_since`, `created_until`,
 `modified_since` und `modified_until` eingeschränkt werden. Diese Parameter
 beziehen sich auf die entsprechenden Attribute der jeweiligen Objekte, wobei
-reservierte Zeichen URL-Kodiert werden müssen.
+reservierte Zeichen URL-Kodiert werden müssen. Ein Server muss diese Parameter
+bei allen externen Objektlisten unterstützen.
 
 Die Filter werden vom Client benutzt, indem die gewünschten URL-Parameter an
 die URL der ersten Listensiete angehängt werden. Bei allen weiteren Seiten hat
@@ -230,7 +226,4 @@ Die genannten URL-Parameter erwarten grundsätzlich eine vollständige [`date-ti
 
 Des weiteren kann mit dem URL-Parameter `limit` die Länge einer Listen durch
 den Client begrenzt werden. Ein Client **darf** nicht erwarten, dass sich ein
-Server an seine `limit`-Anfrage hält. Es wird **empfohlen** im Metabereich der
-Objektlisten mittels **minLimit** und **maxLimit** Angaben zum unterstützten
-Bereich der Ausgabelimitierung zu machen. Der `limit`-Parameter is **optional**
-und **muss** durch den Serverimplementierer dokumentiert werden.
+Server an seine `limit`-Anfrage hält.

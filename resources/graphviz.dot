@@ -1,4 +1,7 @@
-{
+graph distributed {
+  graph [nodesep=0.5]
+  node [fontname="Helvetica", color="Lavender", style="filled"]
+  edge [color="Gray"]
   System -- System;
   System -- Body;
   Body -- LegislativeTerm;

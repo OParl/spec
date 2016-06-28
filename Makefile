@@ -10,6 +10,7 @@ SHM_DIR=schema
 EXP_DIR=examples
 OUT_DIR=out
 ARC_DIR=archives
+GRAPHVIZ_DOT
 
 # Command config and macros
 PANDOC_FLAGS=--from markdown --standalone --table-of-contents --number-sections
@@ -42,6 +43,10 @@ SCHEMA_JSON=$(wildcard $(SHM_DIR)/*.json)
 all: html pdf odt docx txt epub
 
 # preliminary targets
+
+# transform dot file using -Tpng graphviz.dot -o graphviz.png
+$(IMG_DIR)/%.dot: $(IMG_DIR)/%.png
+  $(GRAPHVIZ_DOT) -Tpng graphviz.dot -o graphviz.png
 
 $(IMG_DIR)/%.png: $(IMG_DIR)/%.pdf
 	$(GS) -sOutputFile=$@ -f $<

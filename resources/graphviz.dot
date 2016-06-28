@@ -4,7 +4,7 @@ graph distributed {
   edge [color="Gray"]
   System -- System;
   System -- Body;
-  Body -- LegislativeTerm;
+  Body -- LegislativeTerm [constraint=false];
   Body -- Meeting;
   Body -- Organization;
   Body -- Person;

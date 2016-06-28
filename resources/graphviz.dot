@@ -1,6 +1,6 @@
 graph distributed {
-  graph [nodesep=0.5]
-  node [fontname="Helvetica", color="Lavender", style="filled"]
+  graph [nodesep=0.5, dpi=300]
+  node [fontname="Helvetica"]
   edge [color="Gray"]
   System -- System;
   System -- Body;

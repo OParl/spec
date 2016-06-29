@@ -11,33 +11,33 @@ einander stehen.
 
 OParl nutzt folgenden Objekte:
 
-* System
-* Body
-* LegislativeTerm
-* Organization
-* Person
-* Membership
-* Meeting
-* AgendaItem
-* Paper
-* Consultation
-* File
-* Location
+* oparl:System
+* oparl:Body
+* oparl:LegislativeTerm
+* oparl:Organization
+* oparl:Person
+* oparl:Membership
+* oparl:Meeting
+* oparl:AgendaItem
+* oparl:Paper
+* oparl:Consultation
+* oparl:File
+* oparl:Location
 
 Einige Objekte werden intern in anderen Objekten ausgegeben:
 
-* LegislativeTerm wird intern in Body ausgegeben
-* Membership wird intern in Person ausgegeben
-* AgendaItem wird intern in Meeting ausgegeben
-* Consultation wird intern in Paper ausgegeben
-* File wird intern in Meeting, AgendaItem und Paper ausgegeben
-* Location wird intern in Body, Organization, Meeting und Paper ausgegeben
+* oparl:LegislativeTerm wird intern in oparl:Body ausgegeben
+* oparl:Membership wird intern in oparl:Person ausgegeben
+* oparl:AgendaItem wird intern in oparl:Meeting ausgegeben
+* oparl:Consultation wird intern in Paper ausgegeben
+* oparl:File wird intern in oparl:Meeting, oparl:AgendaItem und oparl:Paper ausgegeben
+* oparl:Location wird intern in oparl:Body, oparl:Organization, oparl:Meeting und oparl:Paper ausgegeben
 
 Grundsätzlich muss jedes Objekt unter seiner ID abrufbar sein - auch dann, wenn
 das Objekt in anderen Objekten intern ausgegeben wird. Bei der internen Ausgabe
 wird beim internen Objekt auf die Rückreferenz auf das Elternobjekt verzichtet.
 
-Als Beispiel hier eine Ausgabe von `Meeting`, in welchem ein `File` enthalten
+Als Beispiel hier eine Ausgabe von `oparl:Meeting`, in welchem ein `oparl:File` enthalten
 ist:
 
 ~~~~~  {#objekte_example1 .json}
@@ -63,7 +63,7 @@ ist:
 }
 ~~~~~
 
-Das enthaltene `File` muss auch einzeln abgerufen werden können. Dabei kommt
+Das enthaltene `oparl:File` muss auch einzeln abgerufen werden können. Dabei kommt
 dann das Eltern-Objekt als zusätzliches Attribut hinzu.:
 
 ~~~~~  {#objekte_example2 .json}
@@ -85,7 +85,7 @@ dann das Eltern-Objekt als zusätzliches Attribut hinzu.:
 ~~~~~
 
 Das zusätzliche Attribut ist ein Array, da es auch möglich ist, dass Dateien
-von mehreren Hauptobjekten aus genutzt werden. Das kann z.B. bei `Location`
+von mehreren Hauptobjekten aus genutzt werden. Das kann z.B. bei `oparl:Location`
 vorkommen:
 
 ~~~~~  {#objekte_example2 .json}
@@ -129,7 +129,7 @@ nicht explizit etwas anderes angegeben wurde.
 
 In OParl können zusätzliche, herstellerspezifische Eigenschaften hinzugefügt werden.
 Dazu wird diesen Eigenschaften ein Herstellerprefix vorangestellt. So könnte man z.B.
-`Person` um eine Faxnummer erweitern:
+`oparl:Person` um eine Faxnummer erweitern:
 
 ~~~~~
 "BeispielHersteller:faxNumber": "012345678",

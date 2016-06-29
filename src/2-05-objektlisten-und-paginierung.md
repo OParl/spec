@@ -44,7 +44,7 @@ Ein Beispiel hierfür ist `meeting` in `Organization`:
 
 Objekte können auch intern ausgegeben werden. Dabei wird das gesamte Objekt als
 Wert eines Attributs angegeben. Ein Beispiel für ein internes  Objekt ist
-`location` in `Body`:
+`location` in `oparl:Body`:
 
 ~~~~~  {#objektlisten_ex3 .json}
 {
@@ -60,7 +60,7 @@ Wert eines Attributs angegeben. Ein Beispiel für ein internes  Objekt ist
 ~~~~~
 
 Ebenso kann eine Liste von Objekten intern ausgegeben werden. Hier das
-Beispiel des Attributes `membership` in `Person`.
+Beispiel des Attributes `membership` in `oparl:Person`.
 
 ~~~~~  {#objektlisten_ex4 .json}
 {
@@ -91,7 +91,7 @@ Beispiel des Attributes `membership` in `Person`.
 
 Es können auch Referenzen zu sogenannten externen Objektlisten angegeben werden.
 Die externe Liste enthält dann die betreffenden Objekte in Form einer
-Listenausgabe. Ein Beispiel dafür ist `organization` in `Body`:
+Listenausgabe. Ein Beispiel dafür ist `organization` in `oparl:Body`:
 
 ~~~~~  {#objektlisten_ex5a .json}
 {

@@ -1,8 +1,9 @@
 ## Gelöschte Objekte {#geloeschte-objekte}
 
-Das Löschen der Objekte _System_, _Body_, _Organisation_, _Person_, _Meeting_, _Paper_, _File_ und _Location_
-muss in OParl gesondert vermerkt werden. Es **darf** insbesondere **nicht** einfach gelöscht werden,
-so dass unter der betreffenden URL kein gültiges Objekt ausgeliefert wird.
+Das Löschen der Objekte _oparl:System_, _oparl:Body_, _oparl:Organisation_, _oparl:Person_, _oparl:Meeting_,
+_oparl:Paper_, _oparl:File_ und _oparl:Location_ muss in OParl gesondert vermerkt werden.
+Es **darf** insbesondere **nicht** einfach gelöscht werden, so dass unter der
+betreffenden URL kein gültiges Objekt ausgeliefert wird.
 
 Hintergrund ist, dass alle OParl-Clients zeitnah erfahren können müssen,
 wenn ein Objekt gelöscht wurde. Dies wird durch die folgenden Regeln

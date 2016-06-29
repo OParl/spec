@@ -67,10 +67,12 @@ Beispiel für einen Zeitpunkt: `1969-07-21T02:56:00+00:00`.
 ### `null`-Werte und leere Listen {#null-werte-und-leere-listen}
 
 JSON erlaubt es grundsätzlich, Eigenschaften mit dem Wert `null` zu versehen.
-Eigenschaften **sollten** nicht mit dem Wert `null` ausgegeben werden.
-Obligatorische Eigenschaften **dürfen nicht** den Wert `null` haben.
+Eigenschaften **sollten** nicht mit dem Wert `null` ausgegeben werden, wenn zu
+einer Eigenschaft keine Daten vorliegen. Obligatorische Eigenschaften
+**dürfen nicht** den Wert `null` haben.
 
 Im Fall von Arrays erlaubt JSON grundsätzlich die Ausgabe von `[]` für leere
 Arrays. Wie bei `null` wird auch hier **empfohlen**, auf die Ausgabe einer
-Eigenschaft mit dem Wert `[]` zu verzichten. Bei obligatorischen Eigenschaften
-**muss** jedoch eine leere Liste ausgegeben werden.
+Eigenschaft mit dem Wert `[]` zu verzichten, wenn zu einer Eigenschaft keine Daten
+vorliegen. Bei obligatorischen Eigenschaften **muss** jedoch eine leere Liste
+ausgegeben werden.

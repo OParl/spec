@@ -15,7 +15,7 @@ ARC_DIR=archives
 PANDOC_FLAGS=--from markdown --standalone --table-of-contents --number-sections
 PANDOC=cd $(SRC_DIR) && pandoc $(PANDOC_FLAGS)
 
-GRAPHVIZ_DOT=graphviz
+GRAPHVIZ_DOT=dot
 
 LATEX=pdflatex
 LATEX_TEMPLATE=resources/template.tex

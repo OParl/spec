@@ -15,7 +15,7 @@ Die Bedeutung im Einzelnen:
 
     Die Entsprechung in RFC2119 lautet "MUST", "REQUIRED" oder "SHALL".
 
-**nicht dürfen** /**darf nicht**:
+**nicht dürfen**/**darf nicht**:
 
 :   Dieses Stichwort kennzeichnet ein absolutes Verbot.
 

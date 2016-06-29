@@ -5,7 +5,7 @@ die Objekttypen und ihre Eigenschaften. Darüber hinaus ist im Schema
 auch festgelegt, in welcher Beziehung verschiedene Objekttypen zu
 einander stehen.
 
-![OParl Objekttypen: Ein Überblick. Die Zahl an den Verbindungslinien entspricht der Anzahl der Verknüpfungen.](images/objekttypen_graph.png)
+![OParl Objekttypen: Ein Überblick. Die Zahl an den Verbindungslinien entspricht der Anzahl der Attribute, die eine oder mehrere Verknüpfungen herstellen.](images/objekttypen_graph.png)
 
 ## Die Objekte {#objekttypen}
 

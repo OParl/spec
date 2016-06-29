@@ -199,7 +199,7 @@ Angabe dieser URL **zwingend**.
     },
     "links": {
         "first": "https://oparl.example.org/organization/",
-        "self": "https://oparl.example.org/organization/?page=2",
+        "prev": "https://oparl.example.org/organization/?page=2",
         "self": "https://oparl.example.org/organization/?page=3",
         "next": "https://oparl.example.org/organization/?page=4",
         "last": "https://oparl.example.org/organization/?page=500"

@@ -91,7 +91,9 @@ Beispiel des Attributes `membership` in `oparl:Person`.
 
 Es können auch Referenzen zu sogenannten externen Objektlisten angegeben werden.
 Die externe Liste enthält dann die betreffenden Objekte in Form einer
-Listenausgabe. Ein Beispiel dafür ist `organization` in `oparl:Body`:
+Listenausgabe. Ein Beispiel dafür ist `organization` in `oparl:Body`.
+
+`oparl:Body`:
 
 ~~~~~  {#objektlisten_ex5a .json}
 {
@@ -102,9 +104,11 @@ Listenausgabe. Ein Beispiel dafür ist `organization` in `oparl:Body`:
 }
 ~~~~~
 
+Die externe Objektliste:
+
 ~~~~~  {#objektlisten_ex5b .json}
 {
-    data: [
+    "data": [
       {
         "id": "https://oparl.example.org/organization/1",
         "type": "https://oparl.org/schema/1.0/Organization",

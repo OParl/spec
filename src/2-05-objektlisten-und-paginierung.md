@@ -149,30 +149,13 @@ heißt, dass die Sortierung der Einträge einem konstanten Prinzip folgt und sic
 nicht von Abfrage zu Abfrage ändert. Das kann z.B. durch die Sortierung von
 Objekten nach einer eindeutigen und unveränderlichen ID erreicht werden.
 
-Jede Listenseite **muss** die Attribute `data` (Array von intern ausgegebenen
-  objekten), `pagination` (Object) und `links` (Object) enthalten:
+Jede Listenseite **muss** die Attribute folgenden Attribute enthalten:
 
-~~~~~  {#paginierung_ex1 .json}
-{
-    "data": [
-        {...},
-        {...},
-        ...
-    ],
-    "pagination": {
-        "totalElements": 150,
-        "elementsPerPage": 100,
-        "currentPage": 1,
-        "totalPages": 2
-    },
-    "links": {
-        "first": "https://oparl.example.org/organization/",
-        "self": "https://oparl.example.org/organization/?page=1",
-        "next": "https://oparl.example.org/organization/?page=2",
-        "last": "https://oparl.example.org/organization/?page=2"
-    }
-}
-~~~~~
+- **data** (Array der intern ausgegebenen Objekte)
+
+- **pagination** (Object)
+
+- **links** (Object)
 
 Für `pagination` sind die folgenden Attribute festgelegt, die alle **optional**
 sind:
@@ -187,7 +170,8 @@ muss auf allen Listenseiten bis auf die letzte gleich sein.
 
 - `totalPages`: Gibt die Gesamtanzahl der Seiten in der Liste an.
 
-Für `links`  sind folgende Attribute festgelegt:
+Für `links`  sind folgende Attribute festgelegt, die bis auf `next` alle
+**optional** sind:
 
 - `first`: URL der ersten Listenseite
 
@@ -200,6 +184,28 @@ Angabe dieser URL **zwingend**.
 
 - `last`: URL der letzten Listenseite
 
+~~~~~  {#paginierung_ex1 .json}
+{
+    "data": [
+        {...},
+        {...},
+        ...
+    ],
+    "pagination": {
+        "totalElements": 50000,
+        "elementsPerPage": 100,
+        "currentPage": 3,
+        "totalPages":500
+    },
+    "links": {
+        "first": "https://oparl.example.org/organization/",
+        "self": "https://oparl.example.org/organization/?page=2",
+        "self": "https://oparl.example.org/organization/?page=3",
+        "next": "https://oparl.example.org/organization/?page=4",
+        "last": "https://oparl.example.org/organization/?page=500"
+    }
+}
+~~~~~
 
 ### Filter  {#filter}
 

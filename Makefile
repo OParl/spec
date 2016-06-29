@@ -46,7 +46,7 @@ all: html pdf odt docx txt epub
 # preliminary targets
 
 # transform dot file using dot -Tpng graphviz.dot -o graphviz.png
-$(IMG_DIR)/%.dot: $(IMG_DIR)/%.png
+$(IMG_DIR)/%.png: $(IMG_DIR)/%.dot
 	$(GRAPHVIZ_DOT) -Tpng $< -o $@
 
 $(IMG_DIR)/%.png: $(IMG_DIR)/%.pdf

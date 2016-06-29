@@ -37,6 +37,9 @@ GS_IMAGES=$(PDF_IMAGES:.pdf=.png)
 SVG_IMAGES=$(wildcard $(IMG_DIR)/*.svg)
 MAGICK_IMAGES=$(SVG_IMAGES:.svg=.png)
 
+DOT_IMAGES=$(wildcard $(IMG_DIR)/*.dot)
+GRAPHVIZ_IMAGES=$(DOT_IMAGES:.dot=.png)
+
 SCHEMA_JSON=$(wildcard $(SHM_DIR)/*.json)
 
 .PHONY: all clean test live html pdf odt txt epub

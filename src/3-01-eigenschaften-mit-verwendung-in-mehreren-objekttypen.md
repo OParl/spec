@@ -56,6 +56,8 @@ die Lizenzinformation sofern möglich global am `oparl:System` Objekt mitzuteile
 
 Datum und Uhrzeit der Erstellung des jeweiligen Objekts.
 
+Die Angabe dieser Eigenschaft ist für alle Objekttypen **zwingend**.
+
 ### `modified` {#eigenschaft-modified}
 
 Diese Eigenschaft kennzeichnet stets Datum und Uhrzeit der letzten Änderung des

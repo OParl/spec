@@ -52,7 +52,7 @@ Wert eines Attributs angegeben. Ein Beispiel für ein internes  Objekt ist
   "type": "https://schema.oparl.org/1.0/Body",
   "location": {
     "id": "https://oparl.example.org/location/1",
-    "type": "https://oparl.org/schema/1.0/Location",
+    "type": "https://schema.oparl.org/1.0/Location",
     "description": "Ratshausvorplatz 1, 12345 Beispielstadt"
   },
   ...

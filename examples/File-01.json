@@ -1,6 +1,6 @@
 {
     "id": "https://oparl.example.org/files/57737",
-    "type": "https://oparl.org/schema/1.0/File",
+    "type": "https://schema.oparl.org/1.0/File",
     "name": "Anlage 1 zur Anfrage",
     "fileName": "anlage_1_zur_anfrage.pdf",
     "mimeType": "application/pdf",

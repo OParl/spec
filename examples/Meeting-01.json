@@ -10,7 +10,7 @@
     ],
     "invitation": {
         "id": "https://oparl.example.org/files/57739",
-        "type": "https://oparl.org/schema/1.0/File",
+        "type": "https://schema.oparl.org/1.0/File",
         "name": "Einladung",
         "fileName": "einladung.pdf",
         "mimeType": "application/pdf",
@@ -23,7 +23,7 @@
     },
     "resultsProtocol": {
         "id": "https://oparl.example.org/files/57739",
-        "type": "https://oparl.org/schema/1.0/File",
+        "type": "https://schema.oparl.org/1.0/File",
         "name": "Protokoll",
         "fileName": "protokoll.pdf",
         "mimeType": "application/pdf",
@@ -36,7 +36,7 @@
     },
     "verbatimProtocol": {
         "id": "https://oparl.example.org/files/57739",
-        "type": "https://oparl.org/schema/1.0/File",
+        "type": "https://schema.oparl.org/1.0/File",
         "name": "Wortprotokoll",
         "fileName": "wortprotokoll.pdf",
         "mimeType": "application/pdf",
@@ -50,7 +50,7 @@
     "auxiliaryFile": [
         {
             "id": "https://oparl.example.org/files/57739",
-            "type": "https://oparl.org/schema/1.0/File",
+            "type": "https://schema.oparl.org/1.0/File",
             "name": "Nachtrags-Tagesordnung",
             "fileName": "nachtrag-TO.pdf",
             "mimeType": "application/pdf",
@@ -65,7 +65,7 @@
     "agendaItem": [
         {
             "id": "https://oparl.example.org/agendaitem/3271",
-            "type": "https://oparl.org/schema/1.0/AgendaItem",
+            "type": "https://schema.oparl.org/1.0/AgendaItem",
             "meeting": "https://oparl.example.org/meeting/281",
             "number": "10.1",
             "name": "Satzungsänderung für Ausschreibungen",

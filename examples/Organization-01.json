@@ -1,6 +1,6 @@
 {
     "id": "https://oparl.example.org/organization/34",
-    "type": "https://oparl.org/schema/1.0/Organization",
+    "type": "https://schema.oparl.org/1.0/Organization",
     "body": "https://oparl.example.org/bodies/1",
     "name": "Ausschuss für Haushalt und Finanzen",
     "shortName": "Finanzausschuss",

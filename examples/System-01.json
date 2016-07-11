@@ -1,7 +1,7 @@
 {
     "id": "https://oparl.example.org/",
-    "type": "https://oparl.org/schema/1.0/System",
-    "oparlVersion": "https://oparl.org/specs/1.0/",
+    "type": "https://schema.oparl.org/1.0/System",
+    "oparlVersion": "https://schema.oparl.org/1.0/",
     "body": "https://oparl.example.org/bodies",
     "name": "Beispiel-System",
     "contactEmail": "info@example.org",

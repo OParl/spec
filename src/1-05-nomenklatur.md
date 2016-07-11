@@ -80,9 +80,9 @@ innerhalb der OParl-Spezifikation gemeint ist.
 
 Das Präfix `oparl:` steht hierbei für die folgende Namespace-URL:
 
-    https://oparl.org/schema/1.0/
+    https://schema.oparl.org/1.0/
 
 Dadurch kann eine Typenangabe wie `oparl:Organization` eindeutig in die
 folgende URL übersetzt werden:
 
-    https://oparl.org/schema/1.0/Organization
+    https://schema.oparl.org/1.0/Organization

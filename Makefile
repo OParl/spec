@@ -1,6 +1,6 @@
 # Variables
-VERSION=1.0-draft
-HUMAN_VERSION="1.0 Entwurf"
+VERSION=1.0
+HUMAN_VERSION="1.0"
 BASENAME=OParl-$(VERSION)
 
 # Directories

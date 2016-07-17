@@ -1,7 +1,9 @@
+% --- Default Pandoc header (skip me) ---
+
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$,a4paper]{$documentclass$}
 \usepackage[ngerman]{babel}
 \usepackage{geometry}
-\geometry{a4paper,left=15mm,right=15mm, top=25mm, bottom=25mm}
+\geometry{a4paper, bottom=40mm}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{longtable}
@@ -129,52 +131,33 @@ $if(lang)$
   \usepackage[$lang$]{babel}
 \fi
 $endif$
-$for(header-includes)$
-$header-includes$
-$endfor$
 
-$if(title)$
-\title{$title$}
-$endif$
-\author{$for(author)$$author$$sep$ \and $endfor$}
-\date{$date$}
+% --- actual template (stop skipping here) ---
 
 \begin{document}
-$if(title)$
-\maketitle
-$endif$
 
-$for(include-before)$
-$include-before$
+\begin{titlepage}
+	\centering
+	\vspace*{0em}
+	\Huge{OParl} \\
+    \vspace{2em}
+    \Large{Spezifikation einer einheitlichen Schnittstelle zum Abruf von maschienlesbaren Informationen aus Ratsinformationssystemen.} \\
+    \Large{Version 1.0}
+	\vspace{3em}
+	\begin{figure}[htbp]
+        \centering
+        \includegraphics{images/oparl-wortmarke-rgb-l.png}
+    \end{figure}
+	\vspace{6em} \\
+	\Large{11. Juli 2016}\\
+\end{titlepage}
 
-$endfor$
-$if(toc)$
-{
+\clearpage
+
 \hypersetup{linkcolor=blue}
 \tableofcontents
-}
-$endif$
+\clearpage
+
 $body$
 
-$if(natbib)$
-$if(biblio-files)$
-$if(biblio-title)$
-$if(book-class)$
-\renewcommand\bibname{$biblio-title$}
-$else$
-\renewcommand\refname{$biblio-title$}
-$endif$
-$endif$
-\bibliography{$biblio-files$}
-
-$endif$
-$endif$
-$if(biblatex)$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
-
-$endif$
-$for(include-after)$
-$include-after$
-
-$endfor$
 \end{document}

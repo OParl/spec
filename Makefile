@@ -1,7 +1,7 @@
 # Variables
-VERSION=1.0
-HUMAN_VERSION="1.0"
-BASENAME=OParl-$(VERSION)
+VERSION=1.1
+HUMAN_VERSION="1.1"
+BASENAME=OParl-$(VERSION)-draft
 
 # Directories
 SRC_DIR=src

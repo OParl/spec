@@ -1,3 +1,3 @@
-### OParl 1.1
+### [Nächste Version]
  * Namespace-URLs werden durchgängig klein geschrieben.
  * `web` für externe objektlisten

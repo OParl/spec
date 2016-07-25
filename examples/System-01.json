@@ -1,6 +1,6 @@
 {
     "id": "https://oparl.example.org/",
-    "type": "https://schema.oparl.org/1.0/System",
+    "type": "https://schema.oparl.org/1.0/system",
     "oparlVersion": "https://schema.oparl.org/1.0/",
     "body": "https://oparl.example.org/bodies",
     "name": "Beispiel-System",

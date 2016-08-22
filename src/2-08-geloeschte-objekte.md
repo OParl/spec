@@ -15,7 +15,7 @@ Wenn ein Objekt gelöscht wird,
 * **muss** das Attribut `modified` auf den Zeitpunkt der Löschung setzen
 * **müssen** die Attribute `id`, `type` und `created` erhalten bleiben
 
-Als HTTP-Statuscode muss weiterhin 200 verwendet werden.
+Als HTTP-Statuscode **muss** weiterhin 200 verwendet werden.
 
 Die Objekte _LegislativeTerm_, _Membership_, _AgendaItem_ und _Consultation_ können dagegen einfach
 gelöscht werden. Beim Löschen dieser Objekte muss allerdings der

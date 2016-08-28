@@ -11,5 +11,7 @@
     "product": "http://example-software.com/oparl-server/",
     "otherOparlVersions": [
         "https://oparl2.example.org/"
-    ]
+    ],
+    "created": "2011-11-11T11:11:00+01:00",
+    "modified": "2012-11-11T11:11:00+01:00"
 }

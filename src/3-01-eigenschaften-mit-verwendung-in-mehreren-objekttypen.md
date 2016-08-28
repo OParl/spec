@@ -50,18 +50,23 @@ Wird `license` im `oparl:System`-Objekt oder am `oparl:Body`-Objekt verwendet,
 dann bedeutet das, dass alle Objekte dieses Systems bzw. der Körperschaft
 unter der angegebenen Lizenz veröffentlicht werden, sofern nicht das
 einzelne Objekt eine anders lautende Lizenz-URL angibt. Es wird **empfohlen**,
-die Lizenzinformation sofern möglich global am `oparl:System` Objekt mitzuteilen und auf redundante Informationen zu verzichten.
+die Lizenzinformation sofern möglich global am `oparl:System` Objekt mitzuteilen
+und auf redundante Informationen zu verzichten.
 
 ### `created` {#eigenschaft-created}
 
 Datum und Uhrzeit der Erstellung des jeweiligen Objekts.
 
-Die Angabe dieser Eigenschaft ist für alle Objekttypen **zwingend**.
+Diese Eigenschaft **muss** in allen Objekttypen angegeben werden, die nicht
+in anderen Objekten intern ausgegeben werden.
 
 ### `modified` {#eigenschaft-modified}
 
 Diese Eigenschaft kennzeichnet stets Datum und Uhrzeit der letzten Änderung des
 jeweiligen Objekts.
+
+Diese Eigenschaft **muss** - genau wie `created` - in allen Objekttypen angegeben
+werden, die nicht in anderen Objekten intern ausgegeben werden.
 
 Es ist **zwingend**, dass bei jeder Änderung eines Objekts der Wert dieses
 Attributs auf die zu diesem Zeitpunkt aktuelle Uhrzeit gesetzt wird, da ein

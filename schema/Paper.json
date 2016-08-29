@@ -101,7 +101,7 @@
                 "format": "url"
             }
         },
-        "underDirectionof": {
+        "underDirectionOf": {
             "description": "Federführung. Amt oder Abteilung, für die Inhalte oder Beantwortung der Drucksache verantwortlich.",
             "oparl:ref": "Organization",
             "oparl:cardinality": "n:m",

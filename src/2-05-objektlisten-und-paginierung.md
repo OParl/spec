@@ -184,8 +184,6 @@ Angabe dieser URL **zwingend**.
 
 - `last`: URL der letzten Listenseite
 
-- `web`: s. [web](#web)
-
 ~~~~~  {#paginierung_ex1 .json}
 {
     "data": [
@@ -204,8 +202,7 @@ Angabe dieser URL **zwingend**.
         "prev": "https://oparl.example.org/organization/?page=2",
         "self": "https://oparl.example.org/organization/?page=3",
         "next": "https://oparl.example.org/organization/?page=4",
-        "last": "https://oparl.example.org/organization/?page=500",
-        "web": "https://web.example.org/organization/?page=500"
+        "last": "https://oparl.example.org/organization/?page=500"
     }
 }
 ~~~~~

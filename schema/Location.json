@@ -43,7 +43,7 @@
             "description": "Ortsangabe der Anschrift.",
             "type": "string"
         },
-        "bodies": {
+        "body": {
             "description": "Rückfreferenzen auf Body-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
             "type": "array",
             "items": {
@@ -52,7 +52,7 @@
                 "oparl:ref": "Body"
             }
         },
-        "organizations": {
+        "organization": {
             "description": "Rückfreferenzen auf Organization-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
             "type": "array",
             "items": {
@@ -61,7 +61,7 @@
                 "oparl:ref": "Organization"
             }
         },
-        "meetings": {
+        "meeting": {
             "description": "Rückfreferenzen auf Meeting-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
             "type": "array",
             "items": {
@@ -70,7 +70,7 @@
                 "oparl:ref": "Meeting"
             }
         },
-        "papers": {
+        "paper": {
             "description": "Rückfreferenzen auf Paper-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
             "type": "array",
             "items": {

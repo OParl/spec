@@ -15,7 +15,7 @@ maschienlesbaren Informationen aus Ratsinformationssystemen. Mehr über OParl:
 OParl wird hauptsächlich auf GitHub entwickelt. Hilfe im Umgang mit GitHub findest du [hier](https://help.github.com/). Änderungsvorschläge können über Pull Requests eingebracht werden.
 
 Die Dateien, aus denen die Spezifikation erstellt wird, sind auf mehrere Ordner aufgeteilt:
- - `src/`:  Enthält den gesammten Fließtext als [Markdown](https://help.github.com/articles/markdown-basics/)-Dateien.
+ - `src/`:  Enthält den gesamten Fließtext als [Markdown](https://help.github.com/articles/markdown-basics/)-Dateien.
  - `schema/`: Enthält das Datenmodell, d.h. den Aufbau der von OParl genutzten json-Objekte, als json-Dateien in einem eigenen Format.
  - `examples/`: Die im Text eingebundenen Beispiele
  - `scripts/`: Enthält hauptsächlich die python-skripte, die die json-Dateien in Markdown umwandeln

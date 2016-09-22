@@ -105,6 +105,7 @@ def validate_object(target):
     return valid
 
 def main():
+    all_valid = True
     for file in os.listdir("examples"):
         print(" --- " + file + " --- ")
         target = json.load(open(os.path.join("examples", file)), object_pairs_hook=OrderedDict)
@@ -113,6 +114,10 @@ def main():
             print("Passed")
         else:
             print("Failed")
+            all_valid = False
+
+    if not all_valid:
+        exit(1)
 
 if __name__ == "__main__":
     main()

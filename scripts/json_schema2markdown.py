@@ -9,13 +9,13 @@ import codecs
 import collections
 import argparse
 
+objects = ["System", "Body", "LegislativeTerm", "Organization", "Person", "Membership", "Meeting", "AgendaItem", "Paper", "Consultation", "File", "Location"]
+
 parser = argparse.ArgumentParser()
 parser.add_argument("schema_folder")
 parser.add_argument("examples_folder")
 parser.add_argument("output_file")
 args = parser.parse_args()
-
-objects = ["System", "Body", "Organization", "Person", "Meeting", "Paper", "File", "Location"]
 
 # FIXME: Does this have any use?
 #sys.stdout = codecs.getwriter('utf8')(sys.stdout)
@@ -149,16 +149,19 @@ def json_examples_to_md(name):
     return md
 
 def main():
-    full_schema = ""
+    generated_schema = ""
 
+    # Avoid missing objects
+    assert(len(objects) == len(os.listdir(args.schema_folder)))
+    
     for obj in objects:
         filepath = os.path.join(args.schema_folder, obj + ".json")
-        schema = schema_to_md_table(json.load(codecs.open(filepath, encoding='utf-8'), object_pairs_hook=collections.OrderedDict))
-
-        full_schema += schema
+        print("Processing " + filepath)
+        schema = schema_to_md_table(json.load(open(filepath), object_pairs_hook=collections.OrderedDict))
+        generated_schema += schema
 
     with open(args.output_file, 'w') as out:
-        out.write(full_schema)
+        out.write(generated_schema)
 
 if __name__ == "__main__":
     main()

@@ -87,71 +87,8 @@
             "description": "Mitgliedschaften der Person in Gruppierungen, z. B. Gremien und Fraktionen. Es **sollen** sowohl aktuelle als auch vergangene Mitgliedschaften angegeben werden",
             "type": "array",
             "items": {
-                "title": "Membership",
-                "description": "Über Objekte diesen Typs wird die Mitgliedschaft von Personen in Gruppierungen dargestellt. Diese Mitgliedschaften können zeitlich begrenzt sein. Zudem kann abgebildet werden, dass eine Person eine bestimmte Rolle bzw. Position innerhalb der Gruppierung inne hat, beispielsweise den Vorsitz einer Fraktion.",
                 "type": "object",
-                "required": [
-                    "id",
-                    "type"
-                ],
-                "properties": {
-                    "id": {
-                        "type": "string",
-                        "format": "url"
-                    },
-                    "type": {
-                        "type": "string",
-                        "pattern": "^https://schema\\.oparl\\.org/1\\.0/Membership"
-                    },
-                    "person": {
-                        "type": "string",
-                        "format": "url",
-                        "description": "Rückreferenz auf Person, welches nur dann ausgegeben werden muss, wenn das Membership-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.",
-                        "oparl:ref": "Person"
-                    },
-                    "organization": {
-                        "description": "Die Gruppierung, in der die Person Mitglied ist oder war.",
-                        "oparl:ref": "Organization",
-                        "oparl:cardinality": "n:1",
-                        "type": "string",
-                        "format": "url"
-                    },
-                    "role": {
-                        "description": "Rolle der Person für die Gruppierung. Kann genutzt werden, um verschiedene Arten von Mitgliedschaften zum Beispiel in Gremien zu unterscheiden.",
-                        "type": "string"
-                    },
-                    "votingRight": {
-                        "description": "Gibt an, ob die Person in der Gruppierung stimmberechtigtes Mitglied ist.",
-                        "type": "boolean"
-                    },
-                    "startDate": {
-                        "description": "Datum, an dem die Mitgliedschaft beginnt.",
-                        "type": "string",
-                        "format": "date"
-                    },
-                    "endDate": {
-                        "description": "Datum, an dem die Mitgliedschaft endet.",
-                        "type": "string",
-                        "format": "date"
-                    },
-                    "onBehalfOf": {
-                        "description": "Die Gruppierung, für die die Person in der unter `organization` angegebenen Organisation sitzt. Beispiel: Mitgliedschaft als Vertreter einer Ratsfraktion, einer Gruppierung oder einer externen Organisation.",
-                        "oparl:ref": "Organization",
-                        "oparl:cardinality": "n:1",
-                        "type": "string",
-                        "format": "url"
-                    },
-                    "keyword": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "web": {
-                        "type": "string",
-                        "format": "url"
-                    }
-                }
+                "$ref": "Membership.json"
             }
         },
         "life": {

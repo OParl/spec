@@ -1,0 +1,49 @@
+{
+    "title": "LegislativeTerm",
+    "description": "Dieser Objekttyp dient der Beschreibung einer Wahlperiode.",
+    "type": "object",
+    "required": [
+        "id",
+        "type"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "format": "url"
+        },
+        "type": {
+            "type": "string",
+            "pattern": "^https://schema\\.oparl\\.org/1\\.0/LegislativeTerm"
+        },
+        "body": {
+            "type": "string",
+            "format": "url",
+            "description": "Rückreferenz auf die Körperschaft, welche nur dann ausgegeben werden muss, wenn das LegislativeTerm-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.",
+            "oparl:ref": "Body"
+        },
+        "name": {
+            "description": "Nutzerfreundliche Bezeichnung der Wahlperiode.",
+            "type": "string"
+        },
+        "startDate": {
+            "description": "Der erste Tag der Wahlperiode.",
+            "type": "string",
+            "format": "date"
+        },
+        "endDate": {
+            "description": "Der letzte Tag der Wahlperiode.",
+            "type": "string",
+            "format": "date"
+        },
+        "keyword": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "web": {
+            "type": "string",
+            "format": "url"
+        }
+    }
+}

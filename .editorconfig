@@ -7,6 +7,7 @@ trim_trailing_whitespace = true
 
 [*.{json,py}]
 indent_style = space
+indent_size = 4
 
 [Makefile]
 indent_style = tabs

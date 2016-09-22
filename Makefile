@@ -62,7 +62,7 @@ $(OUT_DIR):
 	mkdir -p $(OUT_DIR)
 
 $(SCHEMA_MD): $(SHM_DIR)/*.json $(EXP_DIR)/*.json scripts/json_schema2markdown.py
-	python scripts/json_schema2markdown.py $(SHM_DIR) $(EXP_DIR) > $(SCHEMA_MD)
+	python3 scripts/json_schema2markdown.py $(SHM_DIR) $(EXP_DIR) $(SCHEMA_MD)
 
 # main targets
 

@@ -5,7 +5,7 @@ charset = utf-8
 [*.md]
 trim_trailing_whitespace = true
 
-[*.json]
+[*.{json,py}]
 indent_style = space
 
 [Makefile]

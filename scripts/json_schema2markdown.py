@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
 import json
@@ -11,13 +12,14 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("schema_folder")
 parser.add_argument("examples_folder")
+parser.add_argument("output_file")
 args = parser.parse_args()
 
 objects = ["System", "Body", "Organization", "Person", "Meeting", "Paper", "File", "Location"]
 
-sys.stdout = codecs.getwriter('utf8')(sys.stdout)
-sys.stderr = codecs.getwriter('utf8')(sys.stderr)
-
+# FIXME: Does this have any use?
+#sys.stdout = codecs.getwriter('utf8')(sys.stdout)
+#sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 
 def err(msg):
     sys.stderr.write(msg + "\n")
@@ -146,13 +148,17 @@ def json_examples_to_md(name):
 
     return md
 
+def main():
+    full_schema = ""
 
-for obj in objects:
-    filepath = os.path.join(args.schema_folder, obj + ".json")
-    try:
+    for obj in objects:
+        filepath = os.path.join(args.schema_folder, obj + ".json")
         schema = schema_to_md_table(json.load(codecs.open(filepath, encoding='utf-8'), object_pairs_hook=collections.OrderedDict))
-    except:
-        sys.stderr.write(filepath + " errored\n")
-        exit(1)
 
-    print schema
+        full_schema += schema
+
+    with open(args.output_file, 'w') as out:
+        out.write(full_schema)
+
+if __name__ == "__main__":
+    main()

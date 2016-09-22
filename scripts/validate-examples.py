@@ -6,7 +6,6 @@ To use this as as library, call validate_object() with the jsob loaded into an
 OrderedDict.
 """
 
-
 import json
 import re
 import os
@@ -58,7 +57,7 @@ def validate_single_attribut(attribute, value, properties):
 
         # Check every element of this list by recursive function calls with some debugging information attached
         for i, j in enumerate(value):
-            if False and validate_single_attribut(attribute + "[" + str(i) + "]", j, properties["items"]) != True:
+            if validate_single_attribut(attribute + "[" + str(i) + "]", j, properties["items"]) != True:
                 return "The list '" + attribute + "' has an invalid embedded object"
     elif property_type == "object":
         if not type(value) == OrderedDict:
@@ -66,7 +65,7 @@ def validate_single_attribut(attribute, value, properties):
 
         # Got an object, so let's validate it
         if not validate_object(value):
-            return "The embedded object '" + attribute + "' is invalid"
+            return "The embedded object '" + attribute + "' is invalid due to prior errors"
     else:
         return "Invalid json type: " + property_type
 
@@ -79,7 +78,13 @@ def validate_object(target):
     Returns a bool stating wether the object is valid or not
     """
     valid = True
-    oparl_type = re.compile(r"^https://schema.oparl.org/1.0/([a-zA-Z]+)$").match(target["type"]).group(1).title()
+
+    objects = ["System", "Body", "LegislativeTerm", "Organization", "Person", "Membership", "Meeting", "AgendaItem", "Paper", "Consultation", "File", "Location"]
+
+    oparl_type = re.compile(r"^https://schema.oparl.org/1.0/([a-zA-Z]+)$").match(target["type"]).group(1)
+    for i in objects:
+        if i.lower() == oparl_type:
+            oparl_type = i
     schema = json.load(open("schema/" + oparl_type + ".json"), object_pairs_hook=OrderedDict)
 
     for i in schema["required"]:

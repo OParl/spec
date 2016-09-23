@@ -48,7 +48,7 @@
             "id": "https://oparl.example.org/locations/29856",
             "type": "https://schema.oparl.org/1.0/location",
             "description": "Honschaftsstraße 312, Köln",
-            "geometry": {
+            "geojson": {
                 "type": "Point",
                 "coordinates": [
                     7.03291,

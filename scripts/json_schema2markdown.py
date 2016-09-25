@@ -10,17 +10,17 @@ import collections
 import argparse
 
 objects = [
-    "System", 
-    "Body", 
-    "LegislativeTerm", 
-    "Organization", 
-    "Person", 
-    "Membership", 
-    "Meeting", 
-    "AgendaItem", 
-    "Paper", 
-    "Consultation", 
-    "File", 
+    "System",
+    "Body",
+    "LegislativeTerm",
+    "Organization",
+    "Person",
+    "Membership",
+    "Meeting",
+    "AgendaItem",
+    "Paper",
+    "Consultation",
+    "File",
     "Location"
 ]
 
@@ -33,6 +33,26 @@ args = parser.parse_args()
 # FIXME: Does this have any use?
 #sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 #sys.stderr = codecs.getwriter('utf8')(sys.stderr)
+
+class OParl:
+    valid_types = [
+        "object",
+        "array",
+        "string",
+        "date-time",
+        "boolean",
+        "integer"
+    ]
+    default_properties = [
+        "id",
+        "type",
+        "license",
+        "modified",
+        "created",
+        "deleted",
+        "keyword",
+        "web"
+    ]
 
 def err(msg):
     sys.stderr.write(msg + "\n")
@@ -76,7 +96,7 @@ def schema_to_md_table(schema, small_heading=False):
             missing_property(prop_name, "type")
             raise
 
-        if type not in ["object", "array", "string", "date-time", "boolean", "integer"]:
+        if type not in OParl.valid_types:
             err("Invalid type: " + type)
             raise Exception
 
@@ -120,7 +140,7 @@ def schema_to_md_table(schema, small_heading=False):
         try:
             description = prop["description"]
         except:
-            if prop_name not in ["id", "type", "license", "modified", "created", "deleted", "keyword", "web"]:
+            if prop_name not in OParl.default_properties:
                 missing_property(prop_name, "description")
                 raise
             else:

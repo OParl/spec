@@ -9,30 +9,11 @@ import codecs
 import collections
 import argparse
 
-objects = [
-    "System",
-    "Body",
-    "LegislativeTerm",
-    "Organization",
-    "Person",
-    "Membership",
-    "Meeting",
-    "AgendaItem",
-    "Paper",
-    "Consultation",
-    "File",
-    "Location"
-]
-
 parser = argparse.ArgumentParser()
 parser.add_argument("schema_folder")
 parser.add_argument("examples_folder")
 parser.add_argument("output_file")
 args = parser.parse_args()
-
-# FIXME: Does this have any use?
-#sys.stdout = codecs.getwriter('utf8')(sys.stdout)
-#sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 
 class OParl:
     valid_types = [
@@ -53,19 +34,24 @@ class OParl:
         "keyword",
         "web"
     ]
+    objects = [
+        "System",
+        "Body",
+        "LegislativeTerm",
+        "Organization",
+        "Person",
+        "Membership",
+        "Meeting",
+        "AgendaItem",
+        "Paper",
+        "Consultation",
+        "File",
+        "Location"
+    ]
 
-def err(msg):
-    sys.stderr.write(msg + "\n")
-
-def missing_property(prop_name, prop):
-    err(prop_name + " is missing the " + prop + " property")
 
 def schema_to_md_table(schema, small_heading=False):
-    try:
-        name = schema["title"]
-    except:
-        err("Schema does not have required title attribute")
-        raise
+    name = schema["title"]
 
     if small_heading:
         md = "###" + name + "###\n\n"
@@ -84,21 +70,16 @@ def schema_to_md_table(schema, small_heading=False):
 
     # Tabellenkopf
     md += "-"*(propspace + typespace + descspace) + "\n"
-    md += "Name" + " "*(propspace - len("Name")) + "Typ" + " "*(typespace - len("Typ")) + "Beschreibung" +" "*(descspace - len("Beschreibung")) + "\n"
-    md += "-"*(propspace - 1) + " " + "-"*(typespace - 1)+ " " + "-"*(descspace) + "\n"
+    md += "Name" + " " * (propspace - len("Name")) + "Typ" + " " * (typespace - len("Typ")) + "Beschreibung" + " " * (descspace - len("Beschreibung")) + "\n"
+    md += "-" * (propspace - 1) + " " + "-" * (typespace - 1) + " " + "-" * (descspace) + "\n"
 
     embedded_objects= []
 
     for prop_name, prop in schema["properties"].items():
-        try:
-            type = prop["type"]
-        except:
-            missing_property(prop_name, "type")
-            raise
+        type = prop["type"]
 
         if type not in OParl.valid_types:
-            err("Invalid type: " + type)
-            raise Exception
+            raise Exception("Invalid type: " + type)
 
         # eingebettete Objekte finden
         if type == "object" and "properties" in prop:
@@ -137,19 +118,17 @@ def schema_to_md_table(schema, small_heading=False):
                 else:
                     type = type + " of " + prop['items']['type']
 
-        try:
+        if "description" in prop.keys():
             description = prop["description"]
-        except:
-            if prop_name not in OParl.default_properties:
-                missing_property(prop_name, "description")
-                raise
-            else:
-                description = ""
+        elif prop_name in OParl.default_properties:
+            description = ""
+        else:
+            raise Exception(prop_name + " is missing the description property")
 
         if "required" in schema and prop_name in schema["required"] and description != "":
             description = "**ZWINGEND** " + description
 
-        md += "`"+ prop_name + "`" + (propspace - len(prop_name))*u" " + type + (typespace - len(type))*u" " + description + "\n\n"
+        md += "`"+ prop_name + "`" + " " * (propspace - len(prop_name)) + type + " " * (typespace - len(type)) + description + "\n\n"
 
     # Tabellenende
     md += "-"*(propspace + typespace + descspace) + "\n\n"
@@ -185,9 +164,9 @@ def main():
     generated_schema = ""
 
     # Avoid missing objects
-    assert(len(objects) == len(os.listdir(args.schema_folder)))
+    assert(len(OParl.objects) == len(os.listdir(args.schema_folder)))
 
-    for obj in objects:
+    for obj in OParl.objects:
         filepath = os.path.join(args.schema_folder, obj + ".json")
         print("Processing " + filepath)
         schema = schema_to_md_table(json.load(open(filepath), object_pairs_hook=collections.OrderedDict))

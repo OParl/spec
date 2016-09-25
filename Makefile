@@ -119,4 +119,3 @@ bz: all
 
 test:
 	scripts/test.sh
-	scripts/validate-examples.py

@@ -25,7 +25,7 @@ fi
 cd ..
 
 # validate schema and examples
-res=$(python3 scripts/json_schema2markdown.py schema examples /dev/null)
+res=$(scripts/validate-examples.py)
 if [ $? -gt 0 ]
 then
   retval=1

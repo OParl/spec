@@ -9,7 +9,20 @@ import codecs
 import collections
 import argparse
 
-objects = ["System", "Body", "LegislativeTerm", "Organization", "Person", "Membership", "Meeting", "AgendaItem", "Paper", "Consultation", "File", "Location"]
+objects = [
+    "System", 
+    "Body", 
+    "LegislativeTerm", 
+    "Organization", 
+    "Person", 
+    "Membership", 
+    "Meeting", 
+    "AgendaItem", 
+    "Paper", 
+    "Consultation", 
+    "File", 
+    "Location"
+]
 
 parser = argparse.ArgumentParser()
 parser.add_argument("schema_folder")
@@ -107,7 +120,7 @@ def schema_to_md_table(schema, small_heading=False):
         try:
             description = prop["description"]
         except:
-            if prop_name not in ["id", "type", "modified", "created", "deleted", "keyword", "web", "license"]:
+            if prop_name not in ["id", "type", "license", "modified", "created", "deleted", "keyword", "web"]:
                 missing_property(prop_name, "description")
                 raise
             else:

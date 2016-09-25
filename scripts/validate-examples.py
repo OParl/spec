@@ -7,7 +7,7 @@ To use this as as library, call validate_object() with the jsob loaded into an
 OrderedDict. Requires the schema files of at least version ac8c3b to be in a
 `schema/` folder.
 
-Type Mapping:
+### Type Mapping
 ----------------------------
 | OParl JSON | Python      |
 ----------------------------
@@ -36,21 +36,22 @@ def validate_single_attribut(attribute, value, properties, properties_key):
     or a string with an error message
     """
     if not properties_key in properties.keys():
-        return "The attribute '" + properties_key + "' is not defined in the schema"
+        return "The attribute is not defined in the schema"
 
     properties = properties[properties_key]
 
     property_type = properties["type"]
     if property_type == "boolean":
         if not type(value) == bool:
-            return "'" + attribute + "' has the type '" + type(value).__name__ + "' instead of the expected type 'bool'"
+            return "The type '" + type(value).__name__ + "' was found instead of the expected type 'bool'"
     elif property_type == "integer":
         if not type(value) == int:
-            return "'" + attribute + "' has the type '" + type(value).__name__ + "' instead of the expected type 'int'"
+            return "The type '" + type(value).__name__ + "' was found instead of the expected type 'int'"
     elif property_type == "string":
         if not type(value) == str:
-            return "'" + attribute + "' has the type '" + type(value).__name__ + "' instead of the expected type 'str'"
+            return "The type '" + type(value).__name__ + "' was found instead of the expected type 'str'"
 
+        # String mean different types of String, defined by format
         if "format" in properties.keys():
             subtype = properties["format"]
         else:
@@ -82,7 +83,7 @@ def validate_single_attribut(attribute, value, properties, properties_key):
             return False
     elif property_type == "array":
         if not type(value) == list:
-            return "'" + attribute + "' has the type '" + type(value).__name__ + "' instead of the expected type 'list'"
+            return "The type  '" + type(value).__name__ + "' was found instead of the expected type 'list'"
 
         # Check every element of this list by recursive function calls with some debugging information attached
         for i, j in enumerate(value):
@@ -122,15 +123,15 @@ def validate_object(target, embedded_object = "", ref = None):
     for attribute, value in target.items():
         result = validate_single_attribut(attribute, value, schema["properties"], attribute)
         if result == True:
-            continue
-
-        valid = False
-        if type(result) == str:
+            pass
+        elif result == False:
+            valid = False
+        else:
+            valid = False
             if embedded_object == "":
-                print(" - [ ] " + result)
+                print(" - [ ] '" + attribute + "': " + result)
             else:
-                print(" - [ ] In the embedded object '" + embedded_object + "': " + result)
-
+                print(" - [ ] In the embedded object '" + embedded_object + "': '" + attribute + "': " + result)
 
     return valid
 
@@ -148,6 +149,7 @@ def main():
         print()
         print(" --- Passed --- ")
         print()
+        exit(0)
     else:
         print()
         print(" --- Failed --- ")

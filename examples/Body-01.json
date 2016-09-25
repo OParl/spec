@@ -14,7 +14,7 @@
     "name": "Stadt Köln, kreisfreie Stadt",
     "website": "http://www.beispielstadt.de/",
     "license": "http://creativecommons.org/licenses/by/4.0/",
-    "licenseValidSince": "2014-01-01",
+    "licenseValidSince": "2014-01-01T00:00:00+02:00",
     "organization": "https://oparl.example.org/body/0/organizations/",
     "person": "https://oparl.example.org/body/0/people/",
     "meeting": "https://oparl.example.org/body/0/meetings/",
@@ -45,6 +45,6 @@
         }
     },
     "classification": "Kreisfreie Stadt",
-    "created": "2014-01-08T14:28:31+0100",
-    "modified": "2014-01-08T14:28:31+0100"
+    "created": "2014-01-08T14:28:31+01:00",
+    "modified": "2014-01-08T14:28:31+01:00"
 }

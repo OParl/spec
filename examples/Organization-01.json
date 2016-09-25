@@ -6,36 +6,37 @@
     "shortName": "Finanzausschuss",
     "startDate": "2012-07-17",
     "organizationType": "Gremium",
-    "location": "https://oparl.example.org/location/4",
+    "location": {
+        "id": "https://oparl.example.org/location/0",
+        "type": "https://schema.oparl.org/1.0/location",
+        "description": "Rathaus der Beispielstadt, Ratshausplatz 1, 12345 Beispielstadt",
+        "geojson": {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [50.1234, 10.4321]
+            },
+            "properties": {
+                "name": "Rathausplatz"
+            }
+        }
+    },
     "post": [
         "Vorsitzender",
         "1. Stellvertreter",
         "Mitglied"
     ],
-    "meeting": [
-        "https://oparl.example.org/meeting/27",
-        "https://oparl.example.org/meeting/36",
-        "https://oparl.example.org/meeting/45",
-        "https://oparl.example.org/meeting/53",
-        "https://oparl.example.org/meeting/63",
-        "https://oparl.example.org/meeting/72",
-        "https://oparl.example.org/meeting/81",
-        "https://oparl.example.org/meeting/92",
-        "https://oparl.example.org/meeting/101",
-        "https://oparl.example.org/meeting/111",
-        "https://oparl.example.org/meeting/120",
-        "https://oparl.example.org/meeting/133"
-    ],
+    "meeting": "https://oparl.example.org/organization/34/meetings",
     "membership": [
-        "https://oparl.example.org/memberships/27",
-        "https://oparl.example.org/memberships/48",
-        "https://oparl.example.org/memberships/57"
+        "https://oparl.example.org/membership/27",
+        "https://oparl.example.org/membership/48",
+        "https://oparl.example.org/membership/57"
     ],
     "classification": "Ausschuss",
     "keyword": [
         "finanzen",
         "haushalt"
     ],
-    "created": "2012-07-16",
-    "modified": "2012-08-16"
+    "created": "2012-07-16T00:00:00+02:00",
+    "modified": "2012-08-16T12:34:56+02:00"
 }

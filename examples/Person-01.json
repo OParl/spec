@@ -11,8 +11,12 @@
     ],
     "formOfAddress": "Ratsfrau",
     "gender": "male",
-    "email": "max@mustermann.de",
-    "phone": "+493012345678",
+    "email": [
+      "max@mustermann.de"
+    ],
+    "phone": [
+      "+493012345678"
+    ],
     "status": [
         "Bezirksbürgermeister"
     ],

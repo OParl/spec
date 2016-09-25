@@ -4,7 +4,21 @@
     "name": "4. Sitzung des Finanzausschusses",
     "start": "2013-01-04T08:00:00+01:00",
     "end": "2013-01-04T12:00:00+01:00",
-    "location": "https://oparl.example.org/location/223",
+    "location": {
+        "id": "https://oparl.example.org/location/0",
+        "type": "https://schema.oparl.org/1.0/location",
+        "description": "Rathaus der Beispielstadt, Ratshausplatz 1, 12345 Beispielstadt",
+        "geojson": {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [50.1234, 10.4321]
+            },
+            "properties": {
+                "name": "Rathausplatz"
+            }
+        }
+    },
     "organization": [
         "https://oparl.example.org/organization/34"
     ],
@@ -72,8 +86,7 @@
             "public": true,
             "consultation": "https://oparl.example.org/consultation/1034",
             "result": "Geändert beschlossen",
-            "resolution": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
-            "modified": "2012-08-16T14:05:27+02:00"
+            "resolutionText": "Der Beschluss weicht wie folgt vom Antrag ab: ..."
         }
     ],
     "created": "2012-01-06T12:01:00+01:00",

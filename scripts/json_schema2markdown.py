@@ -107,7 +107,7 @@ def schema_to_md_table(schema, small_heading=False):
         try:
             description = prop["description"]
         except:
-            if prop_name not in ["id", "type", "modified", "created", "deleted", "keyword", "web"]:
+            if prop_name not in ["id", "type", "modified", "created", "deleted", "keyword", "web", "license"]:
                 missing_property(prop_name, "description")
                 raise
             else:
@@ -153,7 +153,7 @@ def main():
 
     # Avoid missing objects
     assert(len(objects) == len(os.listdir(args.schema_folder)))
-    
+
     for obj in objects:
         filepath = os.path.join(args.schema_folder, obj + ".json")
         print("Processing " + filepath)

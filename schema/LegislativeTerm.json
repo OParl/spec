@@ -35,6 +35,9 @@
             "type": "string",
             "format": "date"
         },
+        "license": {
+            "type": "string"
+        },
         "keyword": {
             "type": "array",
             "items": {

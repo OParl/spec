@@ -99,6 +99,9 @@
             "description": "Angabe der Quelle, aus der die Informationen für `life` stammen. Bei Angabe von `life` ist diese Eigenschaft **empfohlen**",
             "type": "string"
         },
+        "license": {
+            "type": "string"
+        },
         "keyword": {
             "type": "array",
             "items": {

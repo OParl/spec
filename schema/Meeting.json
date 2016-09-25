@@ -94,6 +94,9 @@
               "$ref": "AgendaItem.json"
           }
         },
+        "license": {
+            "type": "string"
+        },
         "keyword": {
             "type": "array",
             "items": {

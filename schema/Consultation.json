@@ -54,6 +54,9 @@
             "description": "Rolle oder Funktion der Beratung. Zum Beispiel Anhörung, Entscheidung, Kenntnisnahme, Vorberatung usw.",
             "type": "string"
         },
+        "license": {
+            "type": "string"
+        },
         "keyword": {
             "type": "array",
             "items": {

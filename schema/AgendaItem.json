@@ -72,6 +72,9 @@
             "type": "string",
             "format": "date-time"
         },
+        "license": {
+            "type": "string"
+        },
         "keyword": {
             "type": "array",
             "items": {

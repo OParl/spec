@@ -53,6 +53,9 @@
             "type": "string",
             "format": "url"
         },
+        "license": {
+            "type": "string"
+        },
         "keyword": {
             "type": "array",
             "items": {

@@ -111,6 +111,9 @@
                 "oparl:ref": "Paper"
             }
         },
+        "license": {
+            "type": "string"
+        },
         "keyword": {
             "type": "array",
             "items": {

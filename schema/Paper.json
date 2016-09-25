@@ -129,6 +129,9 @@
                 "$ref": "Consultation.json"
             }
         },
+        "license": {
+            "type": "string"
+        },
         "keyword": {
             "type": "array",
             "items": {

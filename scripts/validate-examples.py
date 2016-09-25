@@ -138,13 +138,9 @@ def main():
             all_valid = False
 
     if all_valid:
-        print()
-        print(" --- Passed --- ")
-        print()
+        print("\n --- Passed --- \n")
     else:
-        print()
-        print(" --- Failed --- ")
-        print()
+        print("\n --- Failed --- \n")
         exit(1)
 
 if __name__ == "__main__":

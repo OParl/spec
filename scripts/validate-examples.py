@@ -70,6 +70,16 @@ def validate_single_attribut(attribute, value, properties, properties_key):
                 return "'" + value + "' is not a valid datetime"
         else:
             return "Invalid string type"
+    elif property_type == "object":
+        if not type(value) == OrderedDict:
+            return "The type '" + type(value).__name__ + "' was found instead of the expected type 'OrderedDict'"
+
+        if not "$ref" in properties.keys():
+            print("Note: Not validating " + attribute + " due to the lack of $ref")
+            return True
+
+        if not validate_object(value, attribute, properties["$ref"]):
+            return False
     elif property_type == "array":
         if not type(value) == list:
             return "'" + attribute + "' has the type '" + type(value).__name__ + "' instead of the expected type 'list'"
@@ -81,18 +91,12 @@ def validate_single_attribut(attribute, value, properties, properties_key):
                 return False
             elif type(result) == str:
                 return result
-    elif property_type == "object":
-        if not type(value) == OrderedDict:
-            return "'" + attribute + "' has the type '" + type(value).__name__ + "' instead of the expected type 'OrderedDict'"
-
-        if not validate_object(value, attribute):
-            return False
     else:
         return "Invalid json type: " + property_type
 
     return True
 
-def validate_object(target, embedded_object = ""):
+def validate_object(target, embedded_object = "", ref = None):
     """
     Validates a whole object using validate_single_attribut and prints every error
 
@@ -101,11 +105,14 @@ def validate_object(target, embedded_object = ""):
     valid = True
 
     objects = [i for i in os.listdir("schema")]
-
     oparl_type = re.compile(r"^https://schema.oparl.org/1.0/([a-zA-Z]+)$").match(target["type"]).group(1)
     for i in objects:
         if i.lower() == oparl_type + ".json":
             schema_file = i
+
+    if ref != None and schema_file != ref:
+        print(" - [ ] $ref '" + ref + "' doesn't match actual type '" + target["type"] + "'")
+
     schema = json.load(open(os.path.join("schema/", schema_file)), object_pairs_hook=OrderedDict)
 
     for i in schema["required"]:

@@ -19,7 +19,7 @@
             "type": "string",
             "format": "url",
             "description": "Rückreferenz auf die Körperschaft, welche nur dann ausgegeben werden muss, wenn das LegislativeTerm-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.",
-            "oparl:ref": "Body"
+            "references": "Body"
         },
         "name": {
             "description": "Nutzerfreundliche Bezeichnung der Wahlperiode.",

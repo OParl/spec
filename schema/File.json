@@ -62,17 +62,17 @@
         },
         "masterFile": {
             "description": "Datei, von der das aktuelle Objekt abgeleitet wurde. Details dazu in der allgemeinen Beschreibung weiter oben.",
-            "oparl:ref": "File",
-            "oparl:backref": "derivativeFile",
-            "oparl:cardinality": "n:1",
+            "references": "File",
+            "backreference": "derivativeFile",
+            "cardinality": "n:1",
             "type": "string",
             "format": "url"
         },
         "derivativeFile": {
             "description": "Dateien, die von dem aktuellen Objekt abgeleitet wurden. Details dazu in der allgemeinen Beschreibung weiter oben.",
-            "oparl:ref": "File",
-            "oparl:backref": "masterFile",
-            "oparl:cardinality": "1:n",
+            "references": "File",
+            "backreference": "masterFile",
+            "cardinality": "1:n",
             "type": "array",
             "items": {
                 "type": "string",
@@ -87,7 +87,7 @@
         "meeting": {
             "description": "Rückfreferenzen auf Meeting-Objekte. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
             "type": "array",
-            "oparl:ref": "Meeting",
+            "references": "Meeting",
             "items": {
                 "type": "string",
                 "format": "url"
@@ -96,7 +96,7 @@
         "agendaItem": {
             "description": "Rückfreferenzen auf AgendaItem-Objekte. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
             "type": "array",
-            "oparl:ref": "AgendaItem",
+            "references": "AgendaItem",
             "items": {
                 "type": "string",
                 "format": "url"
@@ -105,7 +105,7 @@
         "paper": {
             "description": "Rückfreferenzen auf Paper-Objekte. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
             "type": "array",
-            "oparl:ref": "Paper",
+            "references": "Paper",
             "items": {
                 "type": "string",
                 "format": "url"

@@ -49,7 +49,7 @@
             "items": {
                 "type": "string",
                 "format": "url",
-                "oparl:ref": "Body"
+                "references": "Body"
             }
         },
         "organizations": {
@@ -58,7 +58,7 @@
             "items": {
                 "type": "string",
                 "format": "url",
-                "oparl:ref": "Organization"
+                "references": "Organization"
             }
         },
         "meetings": {
@@ -67,7 +67,7 @@
             "items": {
                 "type": "string",
                 "format": "url",
-                "oparl:ref": "Meeting"
+                "references": "Meeting"
             }
         },
         "papers": {
@@ -76,7 +76,7 @@
             "items": {
                 "type": "string",
                 "format": "url",
-                "oparl:ref": "Paper"
+                "references": "Paper"
             }
         },
         "license": {

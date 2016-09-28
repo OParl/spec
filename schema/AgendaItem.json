@@ -19,7 +19,7 @@
             "type": "string",
             "format": "url",
             "description": "Rückreferenz auf das Meeting, welches nur dann ausgegeben werden muss, wenn das agendaItem-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.",
-            "oparl:ref": "Meeting"
+            "references": "Meeting"
         },
         "number": {
             "description": "Gliederungs-\"Nummer\" des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z. B. \"10.\", \"10.1\", \"C\", \"c)\" o. ä. Die Reihenfolge wird nicht dadurch, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting` festgelegt, **sollte** allerdings zu dieser identisch sein.",
@@ -35,9 +35,9 @@
         },
         "consultation": {
             "description": "Beratung, die diesem Tagesordnungspunkt zugewiesen ist.",
-            "oparl:ref": "Consultation",
-            "oparl:backref": "agendaItem",
-            "oparl:cardinality": "1:1",
+            "references": "Consultation",
+            "backreference": "agendaItem",
+            "cardinality": "1:1",
             "type": "string",
             "format": "url"
         },
@@ -52,14 +52,14 @@
         "resolutionFile": {
             "description": "Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann hier eine Datei angegeben werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag) von der Beschlussvorlage abweicht.",
             "type": "object",
-            "$ref": "File.json"
+            "schema": "File.json"
         },
         "auxiliaryFile": {
             "description": "Weitere Dateianhänge zum Tagesordnungspunkt.",
             "type": "array",
             "items": {
                 "type": "object",
-                "$ref": "File.json"
+                "schema": "File.json"
             }
         },
         "start": {

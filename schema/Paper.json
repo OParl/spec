@@ -17,9 +17,9 @@
         },
         "body": {
             "description": "Körperschaft, zu der die Drucksache gehört.",
-            "oparl:ref": "Body",
-            "oparl:backref": "meeting",
-            "oparl:cardinality": "n:1",
+            "references": "Body",
+            "backreference": "meeting",
+            "cardinality": "n:1",
             "type": "string",
             "format": "url"
         },
@@ -42,8 +42,8 @@
         },
         "relatedPaper": {
             "description": "Inhaltlich verwandte Drucksachen.",
-            "oparl:ref": "Paper",
-            "oparl:cardinality": "1:n",
+            "references": "Paper",
+            "cardinality": "1:n",
             "type": "array",
             "items": {
                 "type": "string",
@@ -52,8 +52,8 @@
         },
         "superordinatedPaper": {
             "description": "Übergeordnete Drucksachen.",
-            "oparl:ref": "Paper",
-            "oparl:cardinality": "1:n",
+            "references": "Paper",
+            "cardinality": "1:n",
             "type": "array",
             "items": {
                 "type": "string",
@@ -62,8 +62,8 @@
         },
         "subordinatedPaper": {
             "description": "Untergeordnete Drucksachen.",
-            "oparl:ref": "Paper",
-            "oparl:cardinality": "1:n",
+            "references": "Paper",
+            "cardinality": "1:n",
             "type": "array",
             "items": {
                 "type": "string",
@@ -73,14 +73,14 @@
         "mainFile": {
             "description": "Die Hauptdatei zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert eine Beschlussvorlage und die Hauptdatei enthält den Text der Beschlussvorlage. Sollte keine eindeutige Hauptdatei vorhanden sein, wird diese Eigenschaft nicht ausgegeben.",
             "type": "object",
-            "$ref": "File.json"
+            "schema": "File.json"
         },
         "auxiliaryFile": {
             "description": "Alle weiteren Dateien zur Drucksache ausgenommen der gegebenenfalls in `mainFile` angegebenen.",
             "type": "array",
             "items": {
                 "type": "object",
-                "$ref": "File.json"
+                "schema": "File.json"
             }
         },
         "location": {
@@ -88,13 +88,13 @@
             "type": "array",
             "items": {
                 "type": "object",
-                "$ref": "Location.json"
+                "schema": "Location.json"
             }
         },
         "originatorPerson": {
             "description": "Urheber der Drucksache, falls der Urheber eine Person ist. Es können auch mehrere Personen angegeben werden.",
-            "oparl:ref": "Person",
-            "oparl:cardinality": "n:m",
+            "references": "Person",
+            "cardinality": "n:m",
             "type": "array",
             "items": {
                 "type": "string",
@@ -103,8 +103,8 @@
         },
         "underDirectionOf": {
             "description": "Federführung. Amt oder Abteilung, für die Inhalte oder Beantwortung der Drucksache verantwortlich.",
-            "oparl:ref": "Organization",
-            "oparl:cardinality": "n:m",
+            "references": "Organization",
+            "cardinality": "n:m",
             "type": "array",
             "items": {
                 "type": "string",
@@ -113,8 +113,8 @@
         },
         "originatorOrganization": {
             "description": "Urheber der Drucksache, falls der Urheber eine Gruppierung ist. Es können auch mehrere Gruppierungen angegeben werden.",
-            "oparl:ref": "Organization",
-            "oparl:cardinality": "n:m",
+            "references": "Organization",
+            "cardinality": "n:m",
             "type": "array",
             "items": {
                 "type": "string",
@@ -126,7 +126,7 @@
             "type": "array",
             "items": {
                 "type": "object",
-                "$ref": "Consultation.json"
+                "schema": "Consultation.json"
             }
         },
         "license": {

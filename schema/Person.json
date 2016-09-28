@@ -17,9 +17,9 @@
         },
         "body": {
             "description": "Körperschaft, zu der die Person gehört.",
-            "oparl:ref": "Body",
-            "oparl:backref": "person",
-            "oparl:cardinality": "n:1",
+            "references": "Body",
+            "backreference": "person",
+            "cardinality": "n:1",
             "type": "string",
             "format": "url"
         },
@@ -70,9 +70,9 @@
         },
         "location": {
             "description": "Referenz der Kontakt-Anschrift der Person.",
-            "oparl:ref": "Location",
-            "oparl:backref": "person",
-            "oparl:cardinality": "n:1",
+            "references": "Location",
+            "backreference": "person",
+            "cardinality": "n:1",
             "type": "string",
             "format": "url"
         },
@@ -88,7 +88,7 @@
             "type": "array",
             "items": {
                 "type": "object",
-                "$ref": "Membership.json"
+                "schema": "Membership.json"
             }
         },
         "life": {

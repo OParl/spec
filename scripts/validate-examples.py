@@ -75,11 +75,11 @@ def validate_single_attribut(attribute, value, properties, properties_key):
         if not type(value) == OrderedDict:
             return "The type '" + type(value).__name__ + "' was found instead of the expected type 'OrderedDict'"
 
-        if not "$ref" in properties.keys():
-            print("Note: Not validating " + attribute + " due to the lack of $ref")
+        if not "schema" in properties.keys():
+            print("Note: Not validating " + attribute + " due to the lack of schema")
             return True
 
-        if not validate_object(value, attribute, properties["$ref"]):
+        if not validate_object(value, attribute, properties["schema"]):
             return False
     elif property_type == "array":
         if not type(value) == list:
@@ -112,7 +112,7 @@ def validate_object(target, embedded_object = "", ref = None):
             schema_file = i
 
     if ref != None and schema_file != ref:
-        print(" - [ ] $ref '" + ref + "' doesn't match actual type '" + target["type"] + "'")
+        print(" - [ ] schema '" + ref + "' doesn't match actual type '" + target["type"] + "'")
 
     schema = json.load(open(os.path.join("schema/", schema_file)), object_pairs_hook=OrderedDict)
 

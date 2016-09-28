@@ -19,27 +19,27 @@
             "type": "string",
             "format": "url",
             "description": "Rückreferenz auf das Paper, welche nur dann ausgegeben werden muss, wenn das Consultation-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.",
-            "oparl:ref": "Paper"
+            "references": "Paper"
         },
         "agendaItem": {
             "description": "Tagesordnungspunkt, unter dem die Drucksache beraten wird.",
-            "oparl:ref": "AgendaItem",
-            "oparl:backref": "consultation",
-            "oparl:cardinality": "n:1",
+            "references": "AgendaItem",
+            "backreference": "consultation",
+            "cardinality": "n:1",
             "type": "string",
             "format": "url"
         },
         "meeting": {
             "description": "Sitzung, in der die Drucksache beraten wird.",
-            "oparl:ref": "Meeting",
-            "oparl:cardinality": "n:1",
+            "references": "Meeting",
+            "cardinality": "n:1",
             "type": "string",
             "format": "url"
         },
         "organization": {
             "description": "Gremium, in dem die Drucksache beraten wird. Hier kann auch eine mit Liste von Gremien angegeben werden (die verschiedenen `oparl:Body` und `oparl:System` angehören können). Die Liste ist dann geordnet. Das erste Gremium der Liste ist federführend.",
-            "oparl:ref": "Organization",
-            "oparl:cardinality": "n:m",
+            "references": "Organization",
+            "cardinality": "n:m",
             "type": "array",
             "items": {
                 "type": "string",

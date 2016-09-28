@@ -23,9 +23,9 @@
         },
         "system": {
             "description": "System, zu dem dieses Objekt gehört.",
-            "oparl:ref": "System",
-            "oparl:backref": "bodies",
-            "oparl:cardinality": "n:1",
+            "references": "System",
+            "backreference": "bodies",
+            "cardinality": "n:1",
             "type": "string",
             "format": "url"
         },
@@ -106,7 +106,7 @@
             "type": "array",
             "items": {
                 "type": "object",
-                "$ref": "LegislativeTerm.json"
+                "schema": "LegislativeTerm.json"
             }
         },
         "classification": {
@@ -116,7 +116,7 @@
         "location": {
             "description": "Ort, an dem die Körperschaft beheimatet ist.",
             "type": "object",
-            "$ref": "Location.json"
+            "schema": "Location.json"
         },
         "license": {
             "type": "string"

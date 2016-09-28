@@ -88,8 +88,8 @@ def schema_to_md_table(schema, small_heading=False):
         elif type == "object":
             if "title" in prop:
                 type = type + " (" + prop["title"] + ")"
-            elif "$ref" in prop:
-                type = type + " (" + prop['$ref'][0:-5] + ")"
+            elif "schema" in prop:
+                type = type + " (" + prop['schema'][0:-5] + ")"
 
         elif type == "array" and prop["items"]["type"] == "object" and "properties" in prop["items"]:
             embedded_objects.append(prop["items"])
@@ -97,14 +97,14 @@ def schema_to_md_table(schema, small_heading=False):
         if isinstance(type, list):
             type = "/".join(type)
 
-        if "oparl:ref" in prop and type == "string" and 'format' in prop:
-            type = prop['format'] + " (" + prop["oparl:ref"] + ")"
+        if "references" in prop and type == "string" and 'format' in prop:
+            type = prop['format'] + " (" + prop["references"] + ")"
         elif type == "string" and 'format' in prop:
             type = prop['format']
 
         if 'items' in prop:
-            if "oparl:ref" in prop and type == "array" and 'type' in prop['items'] and 'format' in prop['items']:
-                type = type + " of " + prop['items']['format'] + " (" + prop["oparl:ref"] + ")"
+            if "references" in prop and type == "array" and 'type' in prop['items'] and 'format' in prop['items']:
+                type = type + " of " + prop['items']['format'] + " (" + prop["references"] + ")"
             elif type == "array" and 'type' in prop['items'] and 'format' in prop['items']:
                 type = type + " of " + prop['items']['format']
             elif type == "array" and 'type' in prop['items']:
@@ -113,8 +113,8 @@ def schema_to_md_table(schema, small_heading=False):
                         type = type + " of " + prop['items']['type'] + " (" + prop['items']['title'] + ")"
                     else:
                         type = type + " of " + prop['items']['type']
-                elif "$ref" in prop['items']:
-                    type = type + " of " + prop['items']['type'] + " (" + prop['items']['$ref'][0:-5] + ")"
+                elif "schema" in prop['items']:
+                    type = type + " of " + prop['items']['type'] + " (" + prop['items']['schema'][0:-5] + ")"
                 else:
                     type = type + " of " + prop['items']['type']
 

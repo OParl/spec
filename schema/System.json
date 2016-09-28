@@ -24,7 +24,7 @@
         },
         "otherOparlVersions": {
             "description": "Dient der Angabe von System-Objekten mit anderen OParl-Versionen.",
-            "oparl:ref": "System",
+            "references": "System",
             "items": {
                 "type": "string",
                 "format": "url"

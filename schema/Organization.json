@@ -17,9 +17,9 @@
         },
         "body": {
             "description": "Körperschaft, zu der diese Gruppierung gehört.",
-            "oparl:ref": "Body",
-            "oparl:backref": "organization",
-            "oparl:cardinality": "n:1",
+            "references": "Body",
+            "backreference": "organization",
+            "cardinality": "n:1",
             "type": "string",
             "format": "url"
         },
@@ -29,9 +29,9 @@
         },
         "membership": {
             "description": "Mitgliedschaften dieser Gruppierung.",
-            "oparl:ref": "Membership",
-            "oparl:cardinality": "1:n",
-            "oparl:backref": "organization",
+            "references": "Membership",
+            "cardinality": "1:n",
+            "backreference": "organization",
             "type": "array",
             "items": {
                 "type": "string",
@@ -40,9 +40,9 @@
         },
         "meeting": {
             "description": "URL auf eine externe Objektliste mit den Sitzungen dieser Gruppierung. Invers zur Eigenschaft `organization` der Klasse `oparl:Meeting`",
-            "oparl:ref": "Meeting",
-            "oparl:backref": "organization",
-            "oparl:cardinality": "n:m",
+            "references": "Meeting",
+            "backreference": "organization",
+            "cardinality": "n:m",
             "type": "string",
             "format": "url"
         },
@@ -52,7 +52,7 @@
         },
         "post": {
             "description": "Positionen, die für diese Gruppierung vorgesehen sind.",
-            "oparl:ref": "Person",
+            "references": "Person",
             "items": {
                 "type": "string"
             },
@@ -60,8 +60,8 @@
         },
         "subOrganizationOf": {
             "description": "URL einer eventuellen übergeordneten Gruppierung.",
-            "oparl:ref": "Organization",
-            "oparl:cardinality": "n:1",
+            "references": "Organization",
+            "cardinality": "n:1",
             "type": "string",
             "format": "url"
         },
@@ -91,12 +91,12 @@
         "location": {
             "description": "Ort, an dem die Organisation beheimatet ist",
             "type": "object",
-            "$ref": "Location.json"
+            "schema": "Location.json"
         },
         "externalBody": {
             "description": "Externer OParl Body, der dieser Organisation entspricht. Diese Eigenschaft ist dafür gedacht auf eventuelle konkretere OParl-Schnittstellen zu verweisen. Ein Beispiel hierfür wäre eine Stadt, die sowohl ein übergreifendes parlamentarisches Informationssystem, als auch bezirksspezifische Systeme hat.",
-            "oparl:ref": "Body",
-            "oparl:cardinality": "n:1",
+            "references": "Body",
+            "cardinality": "n:1",
             "type": "string",
             "format": "url"
         },

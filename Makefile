@@ -22,7 +22,6 @@ LATEX_TEMPLATE=resources/template.tex
 
 HTML5_CSS=resources/html5.css
 
-META_MD=$(SRC_DIR)/0-00-generierter-titel.md
 CONTRIB_MD=$(SRC_DIR)/1-10-generierte-unterstuetzer-und-autoren.md
 SCHEMA_MD=$(SRC_DIR)/3-99-generiertes-schema.md
 
@@ -95,7 +94,6 @@ epub: common
 
 clean:
 	rm -rf $(OUT_DIR)
-	rm -f  $(META_MD)
 	rm -f  $(CONTRIB_MD)
 	rm -f  $(SCHEMA_MD)
 	rm -f  $(GS_IMAGES)

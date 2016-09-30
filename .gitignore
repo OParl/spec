@@ -2,9 +2,6 @@ out/
 
 src/images/*.png
 src/3-99-generiertes-schema.md
-src/1-10-generierte-unterstuetzer-und-autoren.md
-src/0-00-generierter-titel.md
-src/images/url.pdf
 
 composer.json
 composer.lock

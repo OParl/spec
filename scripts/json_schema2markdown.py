@@ -5,7 +5,6 @@ import json
 import os
 import sys
 import glob
-import codecs
 import collections
 import argparse
 
@@ -16,14 +15,7 @@ parser.add_argument("output_file")
 args = parser.parse_args()
 
 class OParl:
-    valid_types = [
-        "object",
-        "array",
-        "string",
-        "date-time",
-        "boolean",
-        "integer"
-    ]
+    # Default properties don't need a description
     default_properties = [
         "id",
         "type",
@@ -50,73 +42,80 @@ class OParl:
     ]
 
 
-def schema_to_md_table(schema, small_heading=False):
-    name = schema["title"]
+def type_to_string(prop):
+    """
+    Converts the json descriptions of the type of any attribute into a human-
+    readable string printed in spec
+    """
+    type = prop["type"]
 
-    if small_heading:
-        md = "###" + name + "###\n\n"
+    # switch over all types
+    if type == "object":
+        # Check for embedded objects
+        if "schema" in prop:
+            type = type + " (" + prop["schema"][0:-5] + ")"
+    elif type == "string":
+        if "format" in prop:
+            if "references" in prop:
+                type = prop["format"] + " (" + prop["references"] + ")"
+            else:
+                type = prop["format"]
+    elif type == "array":
+        items = prop["items"]
+        subtype = items["type"]
+
+        # Let's do recursion the copy&paste way
+        if items["type"] == "object":
+            # Check for embedded objects
+            if "schema" in items:
+                subtype = subtype + " (" + items["schema"][0:-5] + ")"
+        elif items["type"] == "string":
+            if "format" in items:
+                if "references" in items:
+                    subtype = items["format"] + " (" + items["references"] + ")"
+                elif "references" in prop:
+                    subtype = items["format"] + " (" + prop["references"] + ")"
+                else:
+                    subtype = items["format"]
+        elif type == "boolean":
+            pass
+        elif type == "integer":
+            pass
+        else:
+            raise Exception("Invalid type: " + type)
+
+        type = type + " of " + subtype
+    elif type == "boolean":
+        pass
+    elif type == "integer":
+        pass
     else:
-        md = "## " + name + "{#entity-" + name.lower() + "}" + "\n"
+        raise Exception("Invalid type: " + type)
 
-    # Zeichenlängen der drei Spalten
+    return type
+
+def schema_to_md_table(schema):
+    # Formatting
     propspace = 30
     typespace = 45
     descspace = 80
 
-    if "description" in schema:
-        md += schema["description"] + "\n"
+    # Headline
+    md = "## " + schema["title"] + "{#entity-" + schema["title"].lower() + "}" + "\n"
 
-    md += "\n"
+    # Summary/Description
+    md += schema["description"] + "\n\n"
 
-    # Tabellenkopf
+    # Table Header
     md += "-"*(propspace + typespace + descspace) + "\n"
-    md += "Name" + " " * (propspace - len("Name")) + "Typ" + " " * (typespace - len("Typ")) + "Beschreibung" + " " * (descspace - len("Beschreibung")) + "\n"
+    md += "Name" + " " * (propspace - len("Name"))
+    md += "Typ" + " " * (typespace - len("Typ"))
+    md += "Beschreibung" + " " * (descspace - len("Beschreibung")) + "\n"
     md += "-" * (propspace - 1) + " " + "-" * (typespace - 1) + " " + "-" * (descspace) + "\n"
 
-    embedded_objects= []
-
+    # A row for each attribute
     for prop_name, prop in schema["properties"].items():
-        type = prop["type"]
-
-        if type not in OParl.valid_types:
-            raise Exception("Invalid type: " + type)
-
-        # eingebettete Objekte finden
-        if type == "object" and "properties" in prop:
-            embedded_objects.append(prop)
-
-        elif type == "object":
-            if "title" in prop:
-                type = type + " (" + prop["title"] + ")"
-            elif "schema" in prop:
-                type = type + " (" + prop['schema'][0:-5] + ")"
-
-        elif type == "array" and prop["items"]["type"] == "object" and "properties" in prop["items"]:
-            embedded_objects.append(prop["items"])
-
-        if isinstance(type, list):
-            type = "/".join(type)
-
-        if "references" in prop and type == "string" and 'format' in prop:
-            type = prop['format'] + " (" + prop["references"] + ")"
-        elif type == "string" and 'format' in prop:
-            type = prop['format']
-
-        if 'items' in prop:
-            if "references" in prop and type == "array" and 'type' in prop['items'] and 'format' in prop['items']:
-                type = type + " of " + prop['items']['format'] + " (" + prop["references"] + ")"
-            elif type == "array" and 'type' in prop['items'] and 'format' in prop['items']:
-                type = type + " of " + prop['items']['format']
-            elif type == "array" and 'type' in prop['items']:
-                if "title" in prop['items'] and "type" in prop['items']:
-                    if prop['items']["type"] == "object":
-                        type = type + " of " + prop['items']['type'] + " (" + prop['items']['title'] + ")"
-                    else:
-                        type = type + " of " + prop['items']['type']
-                elif "schema" in prop['items']:
-                    type = type + " of " + prop['items']['type'] + " (" + prop['items']['schema'][0:-5] + ")"
-                else:
-                    type = type + " of " + prop['items']['type']
+        type = type_to_string(prop)
 
         if "description" in prop.keys():
             description = prop["description"]
@@ -125,33 +124,30 @@ def schema_to_md_table(schema, small_heading=False):
         else:
             raise Exception(prop_name + " is missing the description property")
 
-        if "required" in schema and prop_name in schema["required"] and description != "":
+        if prop_name in schema["required"] and description != "":
             description = "**ZWINGEND** " + description
 
+        # The actual table row
         md += "`"+ prop_name + "`" + " " * (propspace - len(prop_name)) + type + " " * (typespace - len(type)) + description + "\n\n"
 
-    # Tabellenende
-    md += "-"*(propspace + typespace + descspace) + "\n\n"
+    # End of Table
+    md += "-" * (propspace + typespace + descspace) + "\n\n"
 
-    # eingebettete Objekte in einer eigenen Tabelle ausgeben
-    for obj in embedded_objects:
-        md += schema_to_md_table(obj, small_heading=True)
-
-    md += json_examples_to_md(name)
+    md += json_examples_to_md(schema["title"])
     return md
 
 
 def json_examples_to_md(name):
     md = ""
     filepath = os.path.join(args.examples_folder, name)
-    examples = glob.glob(filepath + '-[0-9][0-9].json')
+    examples = glob.glob(filepath + "-[0-9][0-9].json")
     for nr, examplepath in enumerate(examples):
         if len(examples) == 1:
             md += "**Beispiel**\n\n"
         else:
             md += "**Beispiel " + str(nr + 1) + "**\n\n"
 
-        example = json.load(codecs.open(examplepath, encoding='utf-8'), object_pairs_hook=collections.OrderedDict)
+        example = json.load(open(examplepath), object_pairs_hook=collections.OrderedDict)
         md += "~~~~ {.json}\n"
         md += json.dumps(example, ensure_ascii=False, indent=4) + "\n"
         md += "~~~~\n\n"
@@ -172,7 +168,7 @@ def main():
         schema = schema_to_md_table(json.load(open(filepath), object_pairs_hook=collections.OrderedDict))
         generated_schema += schema
 
-    with open(args.output_file, 'w') as out:
+    with open(args.output_file, "w") as out:
         out.write(generated_schema)
 
 if __name__ == "__main__":

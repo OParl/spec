@@ -54,7 +54,8 @@
             "description": "Positionen, die für diese Gruppierung vorgesehen sind.",
             "references": "Person",
             "items": {
-                "type": "string"
+                "type": "string",
+                "format": "url"
             },
             "type": "array"
         },

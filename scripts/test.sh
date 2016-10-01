@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 root=$(git rev-parse --show-toplevel)
 export PATH=${PATH}:${root}/vendor/bin/:~/.composer/vendor/bin/
 cd ${root}

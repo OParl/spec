@@ -52,12 +52,10 @@
         },
         "post": {
             "description": "Positionen, die für diese Gruppierung vorgesehen sind.",
-            "references": "Person",
+            "type": "array",
             "items": {
-                "type": "string",
-                "format": "url"
-            },
-            "type": "array"
+                "type": "string"
+            }
         },
         "subOrganizationOf": {
             "description": "URL einer eventuellen übergeordneten Gruppierung.",

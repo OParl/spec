@@ -108,7 +108,7 @@ def validate_object(target, embedded_object = "", ref = None):
     objects = [i for i in os.listdir("schema")]
     oparl_type = re.compile(r"^https://schema.oparl.org/1.0/([a-zA-Z]+)$").match(target["type"]).group(1)
     for i in objects:
-        if i.lower() == oparl_type + ".json":
+        if i == oparl_type + ".json":
             schema_file = i
 
     if ref != None and schema_file != ref:

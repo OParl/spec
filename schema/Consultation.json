@@ -13,7 +13,7 @@
         },
         "type": {
             "type": "string",
-            "pattern": "^https://schema\\.oparl\\.org/1\\.0/Consultation"
+            "pattern": "^https://schema\\.oparl\\.org/1\\.0/consultation"
         },
         "paper": {
             "type": "string",

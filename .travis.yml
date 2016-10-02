@@ -6,22 +6,13 @@ python:
 
 cache:
   apt: true
-  directories:
-    - vendor
-    - $HOME/.composer/cache
 
 addons:
   apt:
     packages:
     - pandoc
     - lacheck
-    - php5
-    - php5-cli
     - graphviz
-
-install:
-- curl -sS https://getcomposer.org/installer | php
-- php composer.phar require seld/jsonlint
 
 script: make test
 

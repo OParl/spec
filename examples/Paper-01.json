@@ -1,6 +1,6 @@
 {
     "id": "https://oparl.example.org/paper/749",
-    "type": "https://schema.oparl.org/1.0/paper",
+    "type": "https://schema.oparl.org/1.0/Paper",
     "body": "https://oparl.example.org/bodies/1",
     "name": "Antwort auf Anfrage 1200/2014",
     "reference": "1234/2014",
@@ -11,7 +11,7 @@
     ],
     "mainFile": {
         "id": "https://oparl.example.org/files/57737",
-        "type": "https://schema.oparl.org/1.0/file",
+        "type": "https://schema.oparl.org/1.0/File",
         "name": "Anlage 1 zur Anfrage",
         "fileName": "anlage_1_zur_anfrage.pdf",
         "mimeType": "application/pdf",
@@ -27,7 +27,7 @@
     "auxiliaryFile": [
         {
             "id": "https://oparl.example.org/files/57739",
-            "type": "https://schema.oparl.org/1.0/file",
+            "type": "https://schema.oparl.org/1.0/File",
             "name": "Anlage 1 zur Anfrage",
             "fileName": "anlage.pdf",
             "mimeType": "application/pdf",
@@ -46,7 +46,7 @@
     "location": [
         {
             "id": "https://oparl.example.org/locations/29856",
-            "type": "https://schema.oparl.org/1.0/location",
+            "type": "https://schema.oparl.org/1.0/Location",
             "description": "Honschaftsstraße 312, Köln",
             "geojson": {
                 "type": "Point",
@@ -68,7 +68,7 @@
     "consultation": [
         {
             "id": "https://oparl.example.org/consultation/47594",
-            "type": "https://schema.oparl.org/1.0/consultation",
+            "type": "https://schema.oparl.org/1.0/Consultation",
             "agendaItem": "https://oparl.example.org/agendaitem/15569",
             "meeting": "https://oparl.example.org/meeting/243",
             "organization": [

@@ -15,7 +15,7 @@
         },
         "type": {
             "type": "string",
-            "pattern": "^https://schema\\.oparl\\.org/1\\.0/system$"
+            "pattern": "^https://schema\\.oparl\\.org/1\\.0/System$"
         },
         "oparlVersion": {
             "type": "string",

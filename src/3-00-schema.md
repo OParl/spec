@@ -43,7 +43,7 @@ ist:
 ~~~~~  {#objekte_example1 .json}
 {
     "id": "https://oparl.example.org/meeting/281",
-    "type": "https://schema.oparl.org/1.0/meeting",
+    "type": "https://schema.oparl.org/1.0/Meeting",
     "name": "4. Sitzung des Finanzausschusses",
     "start": "2013-01-04T08:00:00+01:00",
     "end": "2013-01-04T12:00:00+01:00",
@@ -69,7 +69,7 @@ dann das Eltern-Objekt als zusätzliches Attribut hinzu.:
 ~~~~~  {#objekte_example2 .json}
 {
     "id": "https://oparl.example.org/files/57739",
-    "type": "https://schema.oparl.org/1.0/file",
+    "type": "https://schema.oparl.org/1.0/File",
     "name": "Einladung",
     "fileName": "einladung.pdf",
     "mimeType": "application/pdf",
@@ -92,7 +92,7 @@ vorkommen:
 ~~~~~  {#objekte_example2 .json}
 {
     "id": "https://oparl.example.org/locations/29856",
-    "type": "https://schema.oparl.org/1.0/file",
+    "type": "https://schema.oparl.org/1.0/File",
     "description": "Honschaftsstraße 312, Köln",
     "geojson": {
         "type": "Feature",

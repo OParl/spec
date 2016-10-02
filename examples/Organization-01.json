@@ -1,6 +1,6 @@
 {
     "id": "https://oparl.example.org/organization/34",
-    "type": "https://schema.oparl.org/1.0/organization",
+    "type": "https://schema.oparl.org/1.0/Organization",
     "body": "https://oparl.example.org/bodies/1",
     "name": "Ausschuss für Haushalt und Finanzen",
     "shortName": "Finanzausschuss",
@@ -8,7 +8,7 @@
     "organizationType": "Gremium",
     "location": {
         "id": "https://oparl.example.org/location/0",
-        "type": "https://schema.oparl.org/1.0/location",
+        "type": "https://schema.oparl.org/1.0/Location",
         "description": "Rathaus der Beispielstadt, Ratshausplatz 1, 12345 Beispielstadt",
         "geojson": {
             "type": "Feature",

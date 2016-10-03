@@ -1,7 +1,8 @@
 ---
 title: OParl-Spezifikation 1.0 Entwurf
-author: OParl contributors
 rights: CC BY-SA 4.0
 language: de-DE
+author: OParl contributors
+description: Spezifikation einer einheitlichen Schnittstelle zum Abruf von maschinenlesbaren Informationen aus Ratsinformationssystemen.
+toc-title: Inhaltsverzeichnis
 ...
-Lizenz: [Creative Commons CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)

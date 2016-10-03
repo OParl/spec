@@ -12,7 +12,8 @@ OUT_DIR=out
 ARC_DIR=archives
 
 # Command config and macros
-PANDOC_FLAGS=--from markdown --standalone --table-of-contents --number-sections
+PANDOC_FLAGS=--from markdown --standalone --table-of-contents --toc-depth=2 \
+			--number-sections
 PANDOC=cd $(SRC_DIR) && pandoc $(PANDOC_FLAGS)
 
 GRAPHVIZ_DOT=dot
@@ -69,28 +70,28 @@ common: $(OUT_DIR) $(SCHEMA_MD) $(GS_IMAGES) $(MAGICK_IMAGES) $(GRAPHVIZ_IMAGES)
 
 html: common
 	$(PANDOC) --to html5 --css ../$(HTML5_CSS) --section-divs --self-contained \
-	    -o ../$(OUT_DIR)/$(BASENAME).html *.md
-
-live: common
-	$(PANDOC) --to html5 --section-divs --toc-depth=2 --no-highlight \
-			-o ../$(OUT_DIR)/live.html *.md
+	    -o ../$(OUT_DIR)/$(BASENAME).html ../resources/lizenz-als-bild.md *.md
 
 pdf: common
 	$(PANDOC) --latex-engine=$(LATEX) --template ../$(LATEX_TEMPLATE) \
 			-o ../$(OUT_DIR)/$(BASENAME).pdf *.md
 
 odt: common
-	$(PANDOC) -o ../$(OUT_DIR)/$(BASENAME).odt *.md
+	$(PANDOC) -o ../$(OUT_DIR)/$(BASENAME).odt ../resources/lizenz-als-text.md *.md
 
-docx: common
-	$(PANDOC) --metadata toc-title:"Inhaltsverzeichnis" \
-			-o ../$(OUT_DIR)/$(BASENAME).docx *.md
+docx: common # FIXME: License information in header is missing
+	$(PANDOC) -o ../$(OUT_DIR)/$(BASENAME).docx *.md
 
 txt: common
 	$(PANDOC) -o ../$(OUT_DIR)/$(BASENAME).txt *.md
 
 epub: common
 	$(PANDOC) -o ../$(OUT_DIR)/$(BASENAME).epub *.md
+
+# Used for the spec website
+live: common
+	$(PANDOC) --to html5 --section-divs --toc-depth=2 --no-highlight \
+			-o ../$(OUT_DIR)/live.html *.md
 
 clean:
 	rm -rf $(OUT_DIR)

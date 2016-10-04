@@ -12,9 +12,8 @@ OUT_DIR=out
 ARC_DIR=archives
 
 # Command config and macros
-PANDOC_FLAGS=--from markdown --standalone --table-of-contents --toc-depth=2 \
+PANDOC=pandoc --from markdown --standalone --table-of-contents --toc-depth=2 \
 			--number-sections
-PANDOC=cd $(SRC_DIR) && pandoc $(PANDOC_FLAGS)
 
 GRAPHVIZ_DOT=dot
 
@@ -23,11 +22,8 @@ LATEX_TEMPLATE=resources/template.tex
 
 HTML5_CSS=resources/html5.css
 
-CONTRIB_MD=$(SRC_DIR)/1-10-generierte-unterstuetzer-und-autoren.md
-SCHEMA_MD=$(SRC_DIR)/3-99-generiertes-schema.md
-
-GS_FLAGS=-dQUIET -dSAFER -dBATCH -dNOPAUSE -sDisplayHandle=0 -sDEVICE=png16m -r600 -dTextAlphaBits=4
-GS=gs $(GS_FLAGS)
+GS=gs -dQUIET -dSAFER -dBATCH -dNOPAUSE -sDisplayHandle=0 -sDEVICE=png16m \
+			-r600 -dTextAlphaBits=4
 
 CONVERT=convert
 
@@ -69,29 +65,29 @@ $(SCHEMA_MD): $(SHM_DIR)/*.json $(EXP_DIR)/*.json scripts/json_schema2markdown.p
 common: $(OUT_DIR) $(SCHEMA_MD) $(GS_IMAGES) $(MAGICK_IMAGES) $(GRAPHVIZ_IMAGES)
 
 html: common
-	$(PANDOC) --to html5 --css ../$(HTML5_CSS) --section-divs --self-contained \
-	    -o ../$(OUT_DIR)/$(BASENAME).html ../resources/lizenz-als-bild.md *.md
+	$(PANDOC) --to html5 --css $(HTML5_CSS) --section-divs --self-contained \
+	    -o $(OUT_DIR)/$(BASENAME).html resources/lizenz-als-bild.md $(SRC_DIR)/*.md
 
 pdf: common
-	$(PANDOC) --latex-engine=$(LATEX) --template ../$(LATEX_TEMPLATE) \
-			-o ../$(OUT_DIR)/$(BASENAME).pdf *.md
+	$(PANDOC) --latex-engine=$(LATEX) --template $(LATEX_TEMPLATE) \
+			-o $(OUT_DIR)/$(BASENAME).pdf $(SRC_DIR)/*.md
 
 odt: common
-	$(PANDOC) -o ../$(OUT_DIR)/$(BASENAME).odt ../resources/lizenz-als-text.md *.md
+	$(PANDOC) -o $(OUT_DIR)/$(BASENAME).odt resources/lizenz-als-text.md $(SRC_DIR)/*.md
 
 docx: common # FIXME: License information in header is missing
-	$(PANDOC) -o ../$(OUT_DIR)/$(BASENAME).docx *.md
+	$(PANDOC) -o $(OUT_DIR)/$(BASENAME).docx resources/lizenz-als-text.md $(SRC_DIR)/*.md
 
 txt: common
-	$(PANDOC) -o ../$(OUT_DIR)/$(BASENAME).txt *.md
+	$(PANDOC) -o $(OUT_DIR)/$(BASENAME).txt $(SRC_DIR)/*.md
 
 epub: common
-	$(PANDOC) -o ../$(OUT_DIR)/$(BASENAME).epub *.md
+	$(PANDOC) -o $(OUT_DIR)/$(BASENAME).epub $(SRC_DIR)/*.md
 
 # Used for the spec website
 live: common
-	$(PANDOC) --to html5 --section-divs --toc-depth=2 --no-highlight \
-			-o ../$(OUT_DIR)/live.html *.md
+	$(PANDOC) --to html5 --section-divs --no-highlight \
+			-o $(OUT_DIR)/$(BASENAME).html $(SRC_DIR)/*.md
 
 clean:
 	rm -rf $(OUT_DIR)

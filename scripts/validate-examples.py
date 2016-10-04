@@ -110,9 +110,14 @@ def validate_object(target, embedded_object = "", ref = None):
     for i in objects:
         if i == oparl_type + ".json":
             schema_file = i
+            break
+    else:
+        print(" - [ ] Unknown object type " + oparl_type + ". Skipping object")
+        valid = False
 
     if ref != None and schema_file != ref:
         print(" - [ ] schema '" + ref + "' doesn't match actual type '" + target["type"] + "'")
+        valid = False
 
     schema = json.load(open(os.path.join("schema/", schema_file)), object_pairs_hook=OrderedDict)
 

@@ -58,7 +58,7 @@ date-time:
 
 Für Datums- und Zeitangaben werden die in ISO 8601 beschriebenen Formate verwendet.
 Ein Datum (date) **muss** muss also die Form `yyyy-mm-dd` besitzen und ein
-Zeitpunkt (date-time) **muss** in der Form `yyyy-mm-ddThh:mm:ss+hh:mm` angegeben werden.
+Zeitpunkt (date-time) **muss** in der Form `yyyy-mm-ddThh:mm:ss±hh:mm` angegeben werden.
 
 Beispiel für ein Datum: `1969-07-21`
 

@@ -1,5 +1,5 @@
 FROM debian:latest
-MAINTAINER Stefan Graunper <stefan.graupner@gmail.com>
+MAINTAINER Stefan Graupner <stefan.graupner@gmail.com>
 
 RUN apt update -y
 RUN apt upgrade -y

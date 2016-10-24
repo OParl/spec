@@ -21,4 +21,4 @@ RUN apt install --no-install-recommends -y \
   texlive-luatex \
   texlive-xetex
 
-RUN apt install python3 imagemagick -y
+RUN apt -y install python3 imagemagick 

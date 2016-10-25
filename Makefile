@@ -17,7 +17,7 @@ PANDOC=pandoc --from markdown --standalone --table-of-contents --toc-depth=2 \
 
 GRAPHVIZ_DOT=dot
 
-LATEX=pdflatex
+LATEX=pdflatex --latex-engine=xelatex
 LATEX_TEMPLATE=resources/template.tex
 
 HTML5_CSS=resources/html5.css

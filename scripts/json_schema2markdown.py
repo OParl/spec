@@ -147,7 +147,7 @@ def json_examples_to_md(name):
         else:
             md += "**Beispiel " + str(nr + 1) + "**\n\n"
 
-        example = json.load(open(examplepath, encoding='utf-8'), object_pairs_hook=collections.OrderedDict)
+        example = json.load(open(examplepath), object_pairs_hook=collections.OrderedDict)
         md += "~~~~ {.json}\n"
         md += json.dumps(example, ensure_ascii=False, indent=4) + "\n"
         md += "~~~~\n\n"
@@ -165,10 +165,10 @@ def main():
     for obj in OParl.objects:
         filepath = os.path.join(args.schema_folder, obj + ".json")
         print("Processing " + filepath)
-        schema = schema_to_md_table(json.load(open(filepath, encoding='utf-8'), object_pairs_hook=collections.OrderedDict))
+        schema = schema_to_md_table(json.load(open(filepath), object_pairs_hook=collections.OrderedDict))
         generated_schema += schema
 
-    with open(args.output_file, "w", encoding='utf-8') as out:
+    with open(args.output_file, "w") as out:
         out.write(generated_schema)
 
 if __name__ == "__main__":

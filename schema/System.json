@@ -39,7 +39,12 @@
         "body": {
             "description": "Link zur [Objektliste](#objektlisten) mit allen Körperschaften, die auf dem System existieren.",
             "type": "string",
-            "format": "url"
+            "format": "url",
+            "references": "externalList",
+            "items": {
+                "type": "object",
+                "schema": "Body.json"
+            }
         },
         "name": {
             "description": "Nutzerfreundlicher Name für das System, mit dessen Hilfe Nutzerinnen und Nutzer das System erkennen und von anderen unterscheiden können.",

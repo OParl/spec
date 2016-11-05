@@ -40,11 +40,15 @@
         },
         "meeting": {
             "description": "URL auf eine externe Objektliste mit den Sitzungen dieser Gruppierung. Invers zur Eigenschaft `organization` der Klasse `oparl:Meeting`",
-            "references": "Meeting",
-            "backreference": "organization",
-            "cardinality": "n:m",
             "type": "string",
-            "format": "url"
+            "format": "url",
+            "references": "externalList",
+            "items": {
+                "type": "object",
+                "schema": "Meeting.json"
+            },
+            "backreference": "organization",
+            "cardinality": "n:m"
         },
         "shortName": {
             "description": "Der Name der Gruppierung als Kurzform.",

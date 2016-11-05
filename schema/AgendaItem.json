@@ -16,9 +16,9 @@
             "pattern": "^https://schema\\.oparl\\.org/1\\.0/AgendaItem"
         },
         "meeting": {
+            "description": "Rückreferenz auf das Meeting, welches nur dann ausgegeben werden muss, wenn das agendaItem-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.",
             "type": "string",
             "format": "url",
-            "description": "Rückreferenz auf das Meeting, welches nur dann ausgegeben werden muss, wenn das agendaItem-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.",
             "references": "Meeting"
         },
         "number": {

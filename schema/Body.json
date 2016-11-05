@@ -84,22 +84,42 @@
         "organization": {
             "description": "Link zur [Objektliste](#objektlisten) mit allen Gruppierungen der Körperschaft.",
             "type": "string",
-            "format": "url"
+            "format": "url",
+            "references": "externalList",
+            "items": {
+                "type": "object",
+                "schema": "Organization.json"
+            }
         },
         "person": {
             "description": "Link zur [Objektliste](#objektlisten) mit allen Personen der Körperschaft.",
             "type": "string",
-            "format": "url"
+            "format": "url",
+            "references": "externalList",
+            "items": {
+                "type": "object",
+                "schema": "Person.json"
+            }
         },
         "meeting": {
             "description": "Link zur [Objektliste](#objektlisten) mit allen Sitzungen der Körperschaft.",
             "type": "string",
-            "format": "url"
+            "format": "url",
+            "references": "externalList",
+            "items": {
+                "type": "object",
+                "schema": "Meeting.json"
+            }
         },
         "paper": {
             "description": "Link zur [Objektliste](#objektlisten) mit allen Drucksachen der Körperschaft.",
             "type": "string",
-            "format": "url"
+            "format": "url",
+            "references": "externalList",
+            "items": {
+                "type": "object",
+                "schema": "Paper.json"
+            }
         },
         "legislativeTerm": {
             "description": "[Objektliste](#objektlisten) mit den Wahlperioden der Körperschaft.",

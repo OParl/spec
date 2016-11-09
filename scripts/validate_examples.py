@@ -22,7 +22,6 @@ OrderedDict. Requires the schema files of at least version ac8c3b to be in a
 import json
 import re
 import os
-import sys
 
 from collections import OrderedDict
 
@@ -40,10 +39,12 @@ def validate_single_attribut(attribute, value, properties, properties_key):
     if ":" in properties_key:
         return True, "Note: Not validating the vendor specific attribute " + properties_key
 
-    if not properties_key in properties.keys():
+    if properties_key not in properties.keys():
         return False, "The attribute is not defined in the schema"
 
     properties = properties[properties_key]
+
+    messages_from_embedded_objects = []
 
     property_type = properties["type"]
     if property_type == "boolean":
@@ -63,7 +64,7 @@ def validate_single_attribut(attribute, value, properties, properties_key):
             return True, ""
 
         if subtype == "url":
-            url = re.compile("(http[s]*://[^\s>\"\)\]`]+[^ >\"`\.\s])")
+            url = re.compile("(http[s]*://[^\s>\")\]`]+[^ >\"`.\s])")
             if not url.match(value):
                 return False, "'" + value + "' is not a valid url"
         elif subtype == "date":
@@ -71,7 +72,7 @@ def validate_single_attribut(attribute, value, properties, properties_key):
             if not date.match(value):
                 return False, "'" + value + "' is not a valid date"
         elif subtype == "date-time":
-            datetime = re.compile("^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}[\+\-][0-9]{2}:[0-9]{2}$")
+            datetime = re.compile("^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}[+-][0-9]{2}:[0-9]{2}$")
             if not datetime.match(value):
                 return False, "'" + value + "' is not a valid datetime"
         else:
@@ -80,7 +81,7 @@ def validate_single_attribut(attribute, value, properties, properties_key):
         if not type(value) == OrderedDict:
             return False, "The type '" + type(value).__name__ + "' was found instead of the expected type 'OrderedDict'"
 
-        if not "schema" in properties.keys():
+        if "schema" not in properties.keys():
             return True, "Note: Not validating " + attribute + " due to the lack of schema"
 
         return validate_object(value, attribute, properties["schema"])
@@ -91,12 +92,15 @@ def validate_single_attribut(attribute, value, properties, properties_key):
         # Check every element of this list by recursive function calls with some debugging information attached
         for i, j in enumerate(value):
             valid, message = validate_single_attribut(attribute + "[" + str(i) + "]", j, properties, "items")
-            if valid == False:
+            if not valid:
                 return valid, message
+            if message != "":
+                message = message if type(message) == list else [message]
+                messages_from_embedded_objects += message
     else:
         return False, "Invalid json type: " + property_type
 
-    return True, ""
+    return True, messages_from_embedded_objects
 
 
 def validate_object(target, embedded_object="", ref=None):
@@ -125,7 +129,7 @@ def validate_object(target, embedded_object="", ref=None):
     schema = json.load(open(os.path.join("schema/", schema_file)), object_pairs_hook=OrderedDict)
 
     for i in schema["required"]:
-        if not i in target.keys() or not target[i]:
+        if i not in target.keys() or not target[i]:
             messages.append(" - [ ] Required key " + i + " missing.")
 
     for attribute, value in target.items():
@@ -134,14 +138,17 @@ def validate_object(target, embedded_object="", ref=None):
             pass
         else:
             valid = False
-            message = message if type(message) == list else [message]
+
+        message = message if type(message) == list else [message]
+
+        for i in message:
+            if i == "":
+                continue
 
             if embedded_object == "":
-                for i in message:
-                    messages.append(" - [ ] '" + attribute + "': " + i)
+                messages.append(" - [ ] '" + attribute + "': " + i)
             else:
-                for i in message:
-                    messages.append("In the embedded object '" + embedded_object + "': '" + attribute + "': " + i)
+                messages.append("In the embedded object '" + embedded_object + "': '" + attribute + "': " + i)
 
     return valid, messages
 

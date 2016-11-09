@@ -4,7 +4,8 @@
 import sys
 import re
 
-pattern = re.compile("(http[s]*://[^\s>\"\)\]`]+[^ >\"`\.\s])")
+pattern = re.compile("(http[s]*://[^\s>\")\]`]+[^ >\"`.\s])")
+
 
 def extract_urls(path):
     with open(path, "rb") as f:

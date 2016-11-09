@@ -26,14 +26,18 @@ import os
 from collections import OrderedDict
 
 
-def validate_single_attribut(attribute, value, properties, properties_key):
+def validate_entry(attribute, value, properties, properties_key):
     """
     Validates one attribute value pair using the schema information given in
     properties. Recursively validates arrays or calls validate_object format
     embedded objects.
 
-    Returns True on succes, False on failure without addional error message
-    or a string with an error message
+    :param attribute The key or key with array index of this entry for printing messages
+    :param value The value of this entry
+    :param properties The schema for the object from which the entry originates
+    :param properties_key The key without array index for indexing the properties
+    :return (bool, [string]) Returns a tuple of a bool stating wether the entry is valid or not and a list of messages
+    with the errors or notes
     """
     # Skip vendor specific attributes
     if ":" in properties_key:
@@ -91,7 +95,7 @@ def validate_single_attribut(attribute, value, properties, properties_key):
 
         # Check every element of this list by recursive function calls with some debugging information attached
         for i, j in enumerate(value):
-            valid, message = validate_single_attribut(attribute + "[" + str(i) + "]", j, properties, "items")
+            valid, message = validate_entry(attribute + "[" + str(i) + "]", j, properties, "items")
             if not valid:
                 return valid, message
             if message != "":
@@ -103,37 +107,45 @@ def validate_single_attribut(attribute, value, properties, properties_key):
     return True, messages_from_embedded_objects
 
 
-def validate_object(target, embedded_object="", ref=None):
+def validate_object(target, embedded_object="", ref=None, schema=None):
     """
-    Validates a whole object using validate_single_attribut and prints every error
+    Validates a whole object using validate_entry and prints every error
 
-    Returns a bool stating wether the object is valid or not
+    :param target The object to be validated
+    :param embedded_object The key of the corresponding if this is an embedded object. Used for better messages
+    :param ref The expected type
+    :param schema
+    :return (bool, [string]) Returns a tuple of a bool stating wether the object is valid or not and a list of messages
+    with the errors or notes
     """
     valid = True
     messages = []
 
-    objects = [i for i in os.listdir("schema")]
     oparl_type = re.compile(r"^https://schema.oparl.org/1.0/([a-zA-Z]+)$").match(target["type"]).group(1)
+    objects = [i for i in os.listdir("schema")]
     for i in objects:
         if i == oparl_type + ".json":
             schema_file = i
             break
     else:
-        messages.append(" - [ ] Unknown object type " + oparl_type + ". Skipping object")
+        messages.append(" - [ ] Unknown object type " + oparl_type + ". Skipping object " + embedded_object)
         return False
 
     if ref and schema_file != ref:
         messages.append(" - [ ] schema '" + ref + "' doesn't match actual type '" + target["type"] + "'")
         valid = False
 
-    schema = json.load(open(os.path.join("schema/", schema_file)), object_pairs_hook=OrderedDict)
+    if not schema:
+        schema = json.load(open(os.path.join("schema/", schema_file)), object_pairs_hook=OrderedDict)
+    else:
+        schema = schema[oparl_type]
 
     for i in schema["required"]:
         if i not in target.keys() or not target[i]:
             messages.append(" - [ ] Required key " + i + " missing.")
 
     for attribute, value in target.items():
-        attribut_valid, message = validate_single_attribut(attribute, value, schema["properties"], attribute)
+        attribut_valid, message = validate_entry(attribute, value, schema["properties"], attribute)
         if attribut_valid:
             pass
         else:

@@ -19,7 +19,7 @@ GRAPHVIZ_DOT=dot
 
 LATEX=pdflatex --latex-engine=xelatex
 LATEX_TEMPLATE=resources/template.tex
-
+SCHEMA_MD=$(SRC_DIR)/3-99-generiertes-schema.md
 HTML5_CSS=resources/html5.css
 
 GS=gs -dQUIET -dSAFER -dBATCH -dNOPAUSE -sDisplayHandle=0 -sDEVICE=png16m \

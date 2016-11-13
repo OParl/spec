@@ -6,7 +6,7 @@ root=$(git rev-parse --show-toplevel)
 cd ${root}
 
 # validate schema and examples
-res=$(scripts/validate_examples.py)
+res=$(scripts/validate.py)
 if [ $? -gt 0 ]
 then
   exit 1

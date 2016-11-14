@@ -136,7 +136,7 @@ def validate_object(target, embedded_object="", ref=None, schema=None):
         valid = False
 
     if not schema:
-        schema = json.load(open(os.path.join("schema/", schema_file)), object_pairs_hook=OrderedDict)
+        schema = json.load(open(os.path.join("schema/", schema_file), encoding='utf-8'), object_pairs_hook=OrderedDict)
     else:
         schema = schema[oparl_type]
 
@@ -170,7 +170,7 @@ def main():
     print("Validating " + str(len(os.listdir("examples"))) + " files ...")
     for file in os.listdir("examples"):
         print("\n#### " + os.path.join("examples", file))
-        target = json.load(open(os.path.join("examples", file)), object_pairs_hook=OrderedDict)
+        target = json.load(open(os.path.join("examples", file), encoding='utf-8'), object_pairs_hook=OrderedDict)
         valid, messages = validate_object(target)
         if not valid:
             all_valid = False

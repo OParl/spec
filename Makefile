@@ -86,8 +86,8 @@ epub: common
 
 # Used for the spec website
 live: common
-	$(PANDOC) --to html5 --section-divs --no-highlight \
-			-o $(OUT_DIR)/$(BASENAME).html $(SRC_DIR)/*.md
+	$(PANDOC) --to html5 --section-divs --toc-depth=2 --no-highlight \
+			-o $(OUT_DIR)/live.html $(SRC_DIR)/*.md
 
 clean:
 	rm -rf $(OUT_DIR)

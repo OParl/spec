@@ -17,7 +17,7 @@ PANDOC=pandoc --from markdown --standalone --table-of-contents --toc-depth=2 \
 
 GRAPHVIZ_DOT=dot
 
-LATEX=pdflatex --latex-engine=xelatex
+LATEX_ENGINE=xelatex
 LATEX_TEMPLATE=resources/template.tex
 SCHEMA_MD=$(SRC_DIR)/3-99-generiertes-schema.md
 HTML5_CSS=resources/html5.css
@@ -69,7 +69,7 @@ html: common
 	    -o $(OUT_DIR)/$(BASENAME).html resources/lizenz-als-bild.md $(SRC_DIR)/*.md
 
 pdf: common
-	$(PANDOC) --latex-engine=$(LATEX) --template $(LATEX_TEMPLATE) \
+	$(PANDOC) --latex-engine=$(LATEX_ENGINE) --template $(LATEX_TEMPLATE) \
 			-o $(OUT_DIR)/$(BASENAME).pdf $(SRC_DIR)/*.md
 
 odt: common
@@ -102,13 +102,13 @@ clean:
 archives: zip gz bz
 
 zip: all
-	mkdir -p $(ARC_DIR) && zip -qr $(ARC_DIR)/$(BASENAME).zip $(OUT_DIR)/
+	mkdir -p $(ARC_DIR) && cd $(OUT_DIR) && zip -qr ../$(ARC_DIR)/$(BASENAME).zip .
 
 gz: all
-	mkdir -p $(ARC_DIR) && tar -czf $(ARC_DIR)/$(BASENAME).tar.gz $(OUT_DIR)/
+	mkdir -p $(ARC_DIR) && cd $(OUT_DIR) && tar -czf ../$(ARC_DIR)/$(BASENAME).tar.gz .
 
 bz: all
-	mkdir -p $(ARC_DIR) && tar -cjf $(ARC_DIR)/$(BASENAME).tar.bz2 $(OUT_DIR)/
+	mkdir -p $(ARC_DIR) && cd $(OUT_DIR) && tar -cjf ../$(ARC_DIR)/$(BASENAME).tar.bz2 .
 
 # test
 

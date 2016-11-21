@@ -1,4 +1,5 @@
 out/
+archives/
 
 src/images/*.png
 src/3-99-generiertes-schema.md

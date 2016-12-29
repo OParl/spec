@@ -9,8 +9,8 @@ In diesem Repository wird die Spezifikation zum [OParl](https://oparl.org/)-Stan
 Der OParl-Standard dient der Definition einer einheitlichen Schnittstelle zum Abruf von
 maschienlesbaren Informationen aus Ratsinformationssystemen. Mehr über OParl:
 
-  [https://oparl.org](https://oparl.org)
-
+- Mehr über OParl:  [https://oparl.org](https://oparl.org)
+- Weitere Informationen für Entwickler: [https://dev.oparl.org](https://dev.oparl.org)
 
 ## Änderungen an OParl vornehmen
 
@@ -29,9 +29,20 @@ Die Dateien, aus denen die Spezifikation erstellt wird, sind auf mehrere Ordner 
 
 Es stehen Versionen des Dokuments in verschiedenen Formaten zur Verfügung:
 
-* [PDF](https://spec.oparl.org/1.0.pdf)
-* [html](https://spec.oparl.org/1.0.html)
-* [OpenOffice/LibreOffice](https://spec.oparl.org/1.0.odt)
-* [Microsoft Word](https://spec.oparl.org/1.0.docx)
-* [EPub](https://spec.oparl.org/1.0.epub)
-* [Nur Text](https://spec.oparl.org/1.0.txt)
+### Version 1.0
+
+* [PDF](https://dev.oparl.org/downloads-stable.pdf)
+* [html](https://dev.oparl.org/downloads-stable.html)
+* [OpenOffice/LibreOffice](https://dev.oparl.org/downloads-stable.odt)
+* [Microsoft Word](https://dev.oparl.org/downloads-stable.docx)
+* [EPub](https://dev.oparl.org/downloads-stable.epub)
+* [Nur Text](https://dev.oparl.org/downloads-stable.txt)
+
+### Aktuelle Entwicklungsversion
+
+* [PDF](https://dev.oparl.org/downloads-latest.pdf)
+* [html](https://dev.oparl.org/downloads-latest.html)
+* [OpenOffice/LibreOffice](https://dev.oparl.org/downloads-latest.odt)
+* [Microsoft Word](https://dev.oparl.org/downloads-latest.docx)
+* [EPub](https://dev.oparl.org/downloads-latest.epub)
+* [Nur Text](https://dev.oparl.org/downloads-latest.txt)

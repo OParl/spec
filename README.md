@@ -31,18 +31,18 @@ Es stehen Versionen des Dokuments in verschiedenen Formaten zur Verfügung:
 
 ### Version 1.0
 
-* [PDF](https://dev.oparl.org/downloads-stable.pdf)
-* [html](https://dev.oparl.org/downloads-stable.html)
-* [OpenOffice/LibreOffice](https://dev.oparl.org/downloads-stable.odt)
-* [Microsoft Word](https://dev.oparl.org/downloads-stable.docx)
-* [EPub](https://dev.oparl.org/downloads-stable.epub)
-* [Nur Text](https://dev.oparl.org/downloads-stable.txt)
+* [PDF](https://dev.oparl.org/downloads/spezifikation-stable.pdf)
+* [html](https://dev.oparl.org/downloads/spezifikation-stable.html)
+* [OpenOffice/LibreOffice](https://dev.oparl.org/downloads/spezifikation-stable.odt)
+* [Microsoft Word](https://dev.oparl.org/downloads/spezifikation-stable.docx)
+* [EPub](https://dev.oparl.org/downloads/spezifikation-stable.epub)
+* [Nur Text](https://dev.oparl.org/downloads/spezifikation-stable.txt)
 
 ### Aktuelle Entwicklungsversion
 
-* [PDF](https://dev.oparl.org/downloads-latest.pdf)
-* [html](https://dev.oparl.org/downloads-latest.html)
-* [OpenOffice/LibreOffice](https://dev.oparl.org/downloads-latest.odt)
-* [Microsoft Word](https://dev.oparl.org/downloads-latest.docx)
-* [EPub](https://dev.oparl.org/downloads-latest.epub)
-* [Nur Text](https://dev.oparl.org/downloads-latest.txt)
+* [PDF](https://dev.oparl.org/downloads/spezifikation-latest.pdf)
+* [html](https://dev.oparl.org/downloads/spezifaktion-latest.html)
+* [OpenOffice/LibreOffice](https://dev.oparl.org/downloads/spezifikation-latest.odt)
+* [Microsoft Word](https://dev.oparl.org/downloads/spezifikation-latest.docx)
+* [EPub](https://dev.oparl.org/downloads/spezifikation-latest.epub)
+* [Nur Text](https://dev.oparl.org/downloads/spezifikation-latest.txt)

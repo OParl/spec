@@ -27,8 +27,8 @@ Durch den Befehl `make` kann aus den Quelldateien die Spezifikation erstellt wer
 Es stehen Versionen des Dokuments in verschiedenen Formaten zur Verfügung:
 
 * [PDF](https://spec.oparl.org/1.0.pdf)
+* [html](https://spec.oparl.org/1.0.html)
 * [OpenOffice/LibreOffice](https://spec.oparl.org/1.0.odt)
 * [Microsoft Word](https://spec.oparl.org/1.0.docx)
-* [LaTeX](https://spec.oparl.org/1.0.tex)
 * [EPub](https://spec.oparl.org/1.0.epub)
 * [Nur Text](https://spec.oparl.org/1.0.txt)

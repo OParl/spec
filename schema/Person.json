@@ -13,7 +13,7 @@
         },
         "type": {
             "type": "string",
-            "pattern": "^https://schema\\.oparl\\.org/1\\.0/Person$"
+            "pattern": "^https:\/\/schema\\.oparl\\.org\/1\\.0\/Person$"
         },
         "body": {
             "description": "Körperschaft, zu der die Person gehört.",

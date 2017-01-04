@@ -13,7 +13,7 @@
         },
         "type": {
             "type": "string",
-            "pattern": "^https://schema\\.oparl\\.org/1\\.0/Organization$"
+            "pattern": "^https:\/\/schema\\.oparl\\.org\/1\\.0\/Organization$"
         },
         "body": {
             "description": "Körperschaft, zu der diese Gruppierung gehört.",

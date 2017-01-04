@@ -15,11 +15,11 @@
         },
         "type": {
             "type": "string",
-            "pattern": "^https://schema\\.oparl\\.org/1\\.0/System$"
+            "pattern": "^https:\/\/schema\\.oparl\\.org\/1\\.0\/System$"
         },
         "oparlVersion": {
             "type": "string",
-            "pattern": "^https://schema\\.oparl\\.org/1\\.0/$",
+            "pattern": "^https:\/\/schema\\.oparl\\.org\/1\\.0\/$",
             "description": "Die URL der OParl-Spezifikation, die von diesem Server unterstützt wird. Aktuell kommt hier nur ein Wert in Frage. Mit zukünftigen OParl-Versionen kommen weitere mögliche URLs hinzu. Wert: `https://schema.oparl.org/1.0/`"
         },
         "otherOparlVersions": {

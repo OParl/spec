@@ -13,7 +13,7 @@
         },
         "type": {
             "type": "string",
-            "pattern": "^https\\:\\/\\/schema\\.oparl\\.org\\/1\\.1\\/LegislativeTerm"
+            "pattern": "^https\\:\\/\\/schema\\.oparl\\.org\\/1\\.1\\/LegislativeTerm$"
         },
         "body": {
             "type": "string",

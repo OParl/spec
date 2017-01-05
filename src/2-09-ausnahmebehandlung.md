@@ -7,7 +7,7 @@ mit dem entsprechenden HTTP-Statuscode antworten.
 Ein Server **sollte** in diesem Fall ein Objekt ausgeben, das die folgenden
 3 Attribute enthält:
 
- * `type`: Enthält als Wert die URL `https://schema.oparl.org/1.0/Error`
+ * `type`: Enthält als Wert die URL `https://schema.oparl.org/1.1/Error`
  * `message`: Eine Fehlermeldung, die zur Anzeige für einen Nutzer
  gedacht ist. Die Fehlermeldung sollte deshalb in der Sprache der durch die
  Schnittstelle ausgelieferten Inhalte verfasst sein

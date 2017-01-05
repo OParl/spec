@@ -1,12 +1,12 @@
 {
     "id": "https://oparl.example.org/meeting/281",
-    "type": "https://schema.oparl.org/1.0/Meeting",
+    "type": "https://schema.oparl.org/1.1/Meeting",
     "name": "4. Sitzung des Finanzausschusses",
     "start": "2013-01-04T08:00:00+01:00",
     "end": "2013-01-04T12:00:00+01:00",
     "location": {
         "id": "https://oparl.example.org/location/0",
-        "type": "https://schema.oparl.org/1.0/Location",
+        "type": "https://schema.oparl.org/1.1/Location",
         "description": "Rathaus der Beispielstadt, Ratshausplatz 1, 12345 Beispielstadt",
         "geojson": {
             "type": "Feature",
@@ -24,7 +24,7 @@
     ],
     "invitation": {
         "id": "https://oparl.example.org/files/57739",
-        "type": "https://schema.oparl.org/1.0/File",
+        "type": "https://schema.oparl.org/1.1/File",
         "name": "Einladung",
         "fileName": "einladung.pdf",
         "mimeType": "application/pdf",
@@ -37,7 +37,7 @@
     },
     "resultsProtocol": {
         "id": "https://oparl.example.org/files/57739",
-        "type": "https://schema.oparl.org/1.0/File",
+        "type": "https://schema.oparl.org/1.1/File",
         "name": "Protokoll",
         "fileName": "protokoll.pdf",
         "mimeType": "application/pdf",
@@ -50,7 +50,7 @@
     },
     "verbatimProtocol": {
         "id": "https://oparl.example.org/files/57739",
-        "type": "https://schema.oparl.org/1.0/File",
+        "type": "https://schema.oparl.org/1.1/File",
         "name": "Wortprotokoll",
         "fileName": "wortprotokoll.pdf",
         "mimeType": "application/pdf",
@@ -64,7 +64,7 @@
     "auxiliaryFile": [
         {
             "id": "https://oparl.example.org/files/57739",
-            "type": "https://schema.oparl.org/1.0/File",
+            "type": "https://schema.oparl.org/1.1/File",
             "name": "Nachtrags-Tagesordnung",
             "fileName": "nachtrag-TO.pdf",
             "mimeType": "application/pdf",
@@ -79,7 +79,7 @@
     "agendaItem": [
         {
             "id": "https://oparl.example.org/agendaitem/3271",
-            "type": "https://schema.oparl.org/1.0/AgendaItem",
+            "type": "https://schema.oparl.org/1.1/AgendaItem",
             "meeting": "https://oparl.example.org/meeting/281",
             "number": "10.1",
             "name": "Satzungsänderung für Ausschreibungen",

@@ -1,6 +1,6 @@
 {
     "id": "https://oparl.example.org/body/0",
-    "type": "https://schema.oparl.org/1.0/Body",
+    "type": "https://schema.oparl.org/1.1/Body",
     "system": "https://oparl.example.org/",
     "contactEmail": "ris@beispielstadt.de",
     "contactName": "RIS-Betreuung",
@@ -22,7 +22,7 @@
     "legislativeTerm": [
         {
             "id": "https://oparl.example.org/term/21",
-            "type": "https://schema.oparl.org/1.0/LegislativeTerm",
+            "type": "https://schema.oparl.org/1.1/LegislativeTerm",
             "body": "https://oparl.example.org/body/0",
             "name": "21. Wahlperiode",
             "startDate": "2010-12-03",
@@ -31,7 +31,7 @@
     ],
     "location": {
         "id": "https://oparl.example.org/location/0",
-        "type": "https://schema.oparl.org/1.0/Location",
+        "type": "https://schema.oparl.org/1.1/Location",
         "description": "Rathaus der Beispielstadt, Ratshausplatz 1, 12345 Beispielstadt",
         "geojson": {
             "type": "Feature",

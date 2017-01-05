@@ -121,7 +121,7 @@ def validate_object(target, embedded_object="", ref=None, schema=None):
     valid = True
     messages = []
 
-    oparl_type = re.compile(r"^https://schema.oparl.org/1.0/([a-zA-Z]+)$").match(target["type"]).group(1)
+    oparl_type = re.compile(r"^https://schema.oparl.org/1.1/([a-zA-Z]+)$").match(target["type"]).group(1)
     objects = [i for i in os.listdir("schema")]
     for i in objects:
         if i == oparl_type + ".json":

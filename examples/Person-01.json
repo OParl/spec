@@ -1,6 +1,6 @@
 {
     "id": "https://oparl.example.org/person/29",
-    "type": "https://schema.oparl.org/1.0/Person",
+    "type": "https://schema.oparl.org/1.1/Person",
     "body": "https://oparl.example.org/body/0",
     "name": "Prof. Dr. Max Mustermann",
     "familyName": "Mustermann",
@@ -23,7 +23,7 @@
     "membership": [
         {
             "id": "https://oparl.example.org/memberships/385",
-            "type": "https://schema.oparl.org/1.0/Membership",
+            "type": "https://schema.oparl.org/1.1/Membership",
             "organization": "https://oparl.example.org/organizations/5",
             "role": "Vorsitzende",
             "votingRight": true,
@@ -31,7 +31,7 @@
         },
         {
             "id": "https://oparl.example.org/memberships/693",
-            "type": "https://schema.oparl.org/1.0/Membership",
+            "type": "https://schema.oparl.org/1.1/Membership",
             "organization": "https://oparl.example.org/organizations/9",
             "role": "Sachkundige Bürgerin",
             "votingRight": false,

@@ -16,7 +16,7 @@ Ein Beispiel hierfür ist `subOrganizationOf` in `Organization`:
 ~~~~~  {#objektlisten_ex1 .json}
 {
   "id": "https://oparl.example.org/organization/1",
-  "type": "https://schema.oparl.org/1.0/Organization",
+  "type": "https://schema.oparl.org/1.1/Organization",
   "subOrganizationOf": "https://oparl.example.org/organization/2"
   ...
 }
@@ -30,7 +30,7 @@ Ein Beispiel hierfür ist `meeting` in `Organization`:
 ~~~~~  {#objektlisten_ex2 .json}
 {
   "id": "https://oparl.example.org/organization/1",
-  "type": "https://schema.oparl.org/1.0/Organization",
+  "type": "https://schema.oparl.org/1.1/Organization",
   "meeting": [
     "https://oparl.example.org/meeting/1",
     "https://oparl.example.org/meeting/2",
@@ -49,10 +49,10 @@ Wert eines Attributs angegeben. Ein Beispiel für ein internes  Objekt ist
 ~~~~~  {#objektlisten_ex3 .json}
 {
   "id": "https://oparl.example.org/body/1",
-  "type": "https://schema.oparl.org/1.0/Body",
+  "type": "https://schema.oparl.org/1.1/Body",
   "location": {
     "id": "https://oparl.example.org/location/1",
-    "type": "https://schema.oparl.org/1.0/Location",
+    "type": "https://schema.oparl.org/1.1/Location",
     "description": "Ratshausvorplatz 1, 12345 Beispielstadt"
   },
   ...
@@ -65,7 +65,7 @@ Beispiel des Attributes `membership` in `oparl:Person`.
 ~~~~~  {#objektlisten_ex4 .json}
 {
   "id": "https://oparl.example.org/person/1",
-  "type": "https://schema.oparl.org/1.0/Person",
+  "type": "https://schema.oparl.org/1.1/Person",
   "membership": [
     {
       "id": "https://oparl.example.org/memberships/385",
@@ -98,7 +98,7 @@ Listenausgabe. Ein Beispiel dafür ist `organization` in `oparl:Body`.
 ~~~~~  {#objektlisten_ex5a .json}
 {
   "id": "https://oparl.example.org/body/1",
-  "type": "https://schema.oparl.org/1.0/Body",
+  "type": "https://schema.oparl.org/1.1/Body",
   "organization": "https://oparl.example.org/body/1/organization"
   ...
 }
@@ -111,19 +111,19 @@ Die externe Objektliste:
     "data": [
       {
         "id": "https://oparl.example.org/organization/1",
-        "type": "https://schema.oparl.org/1.0/Organization",
+        "type": "https://schema.oparl.org/1.1/Organization",
         "name": "Organisation Nummer 1",
         ...
       },
       {
         "id": "https://oparl.example.org/organization/2",
-        "type": "https://schema.oparl.org/1.0/Organization",
+        "type": "https://schema.oparl.org/1.1/Organization",
         "name": "Organisation Nummer 2",
         ...
       },
       {
         "id": "https://oparl.example.org/organization/3",
-        "type": "https://schema.oparl.org/1.0/Organization",
+        "type": "https://schema.oparl.org/1.1/Organization",
         "name": "Organisation Nummer 3",
         ...
       },

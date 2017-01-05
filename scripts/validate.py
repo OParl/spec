@@ -26,6 +26,19 @@ import os
 from collections import OrderedDict
 
 
+def load_schema():
+    schema = {}
+
+    for i in os.listdir("schema"):
+        with open(os.path.join("schema", i), encoding='utf-8') as oparl_type:
+            x = json.load(oparl_type, object_pairs_hook=OrderedDict)
+            schema[x["title"]] = x
+
+    return schema
+
+global_schema = load_schema()
+
+
 def validate_entry(attribute, value, properties, properties_key):
     """
     Validates one attribute value pair using the schema information given in
@@ -107,7 +120,7 @@ def validate_entry(attribute, value, properties, properties_key):
     return True, messages_from_embedded_objects
 
 
-def validate_object(target, embedded_object="", ref=None, schema=None):
+def validate_object(target, embedded_object="", ref=None):
     """
     Validates a whole object using validate_entry and prints every error
 
@@ -122,23 +135,11 @@ def validate_object(target, embedded_object="", ref=None, schema=None):
     messages = []
 
     oparl_type = re.compile(r"^https://schema.oparl.org/1.1/([a-zA-Z]+)$").match(target["type"]).group(1)
-    objects = [i for i in os.listdir("schema")]
-    for i in objects:
-        if i == oparl_type + ".json":
-            schema_file = i
-            break
-    else:
-        messages.append(" - [ ] Unknown object type " + oparl_type + ". Skipping object " + embedded_object)
-        return False
+    schema = global_schema[oparl_type]
 
-    if ref and schema_file != ref:
+    if ref and schema["title"] + ".json" != ref:
         messages.append(" - [ ] schema '" + ref + "' doesn't match actual type '" + target["type"] + "'")
         valid = False
-
-    if not schema:
-        schema = json.load(open(os.path.join("schema/", schema_file), encoding='utf-8'), object_pairs_hook=OrderedDict)
-    else:
-        schema = schema[oparl_type]
 
     for i in schema["required"]:
         if i not in target.keys() or not target[i]:

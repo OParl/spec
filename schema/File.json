@@ -14,7 +14,7 @@
         },
         "type": {
             "type": "string",
-            "pattern": "^https:\/\/schema\\.oparl\\.org\/1\\.0\/File$"
+            "pattern": "^https\\:\\/\\/schema\\.oparl\\.org\\/1\\.1\\/File$"
         },
         "name": {
             "description": "Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt. Leerzeichen **dürfen** enthalten sein, Datei-Endungen wie \".pdf\" **sollten nicht** enthalten sein.",

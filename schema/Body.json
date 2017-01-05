@@ -19,7 +19,7 @@
         },
         "type": {
             "type": "string",
-            "pattern": "^https:\/\/schema\\.oparl\\.org\/1\\.0\/Body$"
+            "pattern": "^https\\:\\/\\/schema\\.oparl\\.org\\/1\\.1\\/Body$"
         },
         "system": {
             "description": "System, zu dem dieses Objekt gehört.",

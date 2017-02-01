@@ -43,8 +43,8 @@
             "description": "Ortsangabe der Anschrift.",
             "type": "string"
         },
-        "body": {
-            "description": "Rückfreferenzen auf Body-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+        "bodies": {
+            "description": "Rückreferenzen auf Body-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
             "type": "array",
             "items": {
                 "type": "string",
@@ -53,7 +53,7 @@
             }
         },
         "organization": {
-            "description": "Rückfreferenzen auf Organization-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+            "description": "Rückreferenzen auf Organization-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
             "type": "array",
             "items": {
                 "type": "string",
@@ -62,7 +62,7 @@
             }
         },
         "meeting": {
-            "description": "Rückfreferenzen auf Meeting-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+            "description": "Rückreferenzen auf Meeting-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
             "type": "array",
             "items": {
                 "type": "string",
@@ -70,8 +70,8 @@
                 "oparl:ref": "Meeting"
             }
         },
-        "paper": {
-            "description": "Rückfreferenzen auf Paper-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+        "papers": {
+            "description": "Rückreferenzen auf Paper-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
             "type": "array",
             "items": {
                 "type": "string",

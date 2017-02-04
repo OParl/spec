@@ -12,7 +12,7 @@ Eine Syntaxübersicht und weitere Implementierungshinweise finden sich auf
 [json.org](http://json.org/).
 
 Es ist gestattet, weitere zur JSON-Ausgabe semantisch identische
-Formate^[Zu semantischen identischen Formaten zählen u.a.: YAML, MessagePack, etc.]
+Formate^[Zu semantisch identischen Formaten zählen u.a.: YAML, MessagePack, etc.]
 anzubieten. Da diese jedoch nicht Bestandteil der Spezifikation sind,
 **sollten** sich Clients nicht auf deren Vorhandensein verlassen.
 

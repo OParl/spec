@@ -29,7 +29,7 @@ Eigenentwicklung der Stadt Bonn <http://www2.bonn.de/bo_ris/ris_sql/agm_index.as
 in Deutschland bekannt, das
 Geoinformationen – und zwar in Form von Punktdaten, also einer Kombination aus
 Längen- und Breitengradangaben – mit Dokumenten verknüpft. Der Vorteil dieser
-Funktion ist jedoch anhand zahlreicher Anwendungsszenarien, wie z.B. dem Bauinformationssystem "Bürger baut Stadt"^[bürgerbürgerbautstadt, <http://www.buergerbautstadt.de>], belegbar. Somit ist in der
+Funktion ist jedoch anhand zahlreicher Anwendungsszenarien, wie z.B. dem Bauinformationssystem "Bürger baut Stadt"^[bürgerbautstadt, <http://www.buergerbautstadt.de>], belegbar. Somit ist in der
 vorliegenden OParl-Spezifikation die Möglichkeit beschrieben, Geodaten-Objekte
 einzubetten.
 

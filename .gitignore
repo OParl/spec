@@ -1,8 +1,7 @@
 out/
 
 src/images/*.png
-de/3-99-schema.md
-en/3-99-schema.md
+src/3-99-generiertes-schema.md
 src/1-10-generierte-unterstuetzer-und-autoren.md
 src/0-00-generierter-titel.md
 src/images/url.pdf

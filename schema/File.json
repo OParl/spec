@@ -38,7 +38,7 @@
             "type": "integer"
         },
         "sha1Checksum": {
-            "description": "SHA1-Prüfsumme des Dateiinhalts in Hexadezimal-Schreibweise.",
+            "description": "[Veraltet] SHA1-Prüfsumme des Dateiinhalts in Hexadezimal-Schreibweise. Sollte nicht mehr verwendet werden, da sha1 als unsicher gilt. Stattdessen sollte `sha512checksum` verwendet werden.",
             "type": "string"
         },
         "sha512Checksum": {

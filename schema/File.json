@@ -41,6 +41,10 @@
             "description": "SHA1-Prüfsumme des Dateiinhalts in Hexadezimal-Schreibweise.",
             "type": "string"
         },
+        "sha512Checksum": {
+            "description": "SHA512-Prüfsumme des Dateiinhalts in Hexadezimal-Schreibweise.",
+            "type": "string"
+        },
         "text": {
             "description": "Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform wiedergegeben werden kann.",
             "type": "string"

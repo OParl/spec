@@ -12,3 +12,6 @@ vendor/
 *.DS_Store
 ._*
 .cache
+
+en/*-schema.md
+de/*-schema.md

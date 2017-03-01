@@ -11,21 +11,30 @@ EXP_DIR=examples
 OUT_DIR=out
 ARC_DIR=archives
 
-# Command config and macros
-PANDOC=pandoc --from markdown --standalone --table-of-contents --toc-depth=2 \
-			--number-sections
+# Commands
+PANDOC=pandoc
+DOT=dot
+LATEX=xelatex
+GS=gs
+CONVERT=convert
+PYTHON=python3
 
-GRAPHVIZ_DOT=dot
+# Command Flags
+# ---
+# The default flags for the commands are separated from the
+# command binaries to simplify switching out the binary for
+# a command with environment variables. For instance, one might
+# want to use a not-in-path variant of pandoc and this way,
+# the make call can simply be prefixed as `PANDOC=/path/to/pandoc make`
 
-LATEX_ENGINE=xelatex
+PANDOC_FLAGS=--from markdown --standalone --table-of-contents \
+	--toc-depth=2 --number-sections
+GS_FLAGS=-dQUIET -dSAFER -dBATCH -dNOPAUSE -sDisplayHandle=0 \
+	-sDEVICE=png16m -r600 -dTextAlphaBits=4
+
 LATEX_TEMPLATE=resources/template.tex
 SCHEMA_MD=$(SRC_DIR)/3-99-generiertes-schema.md
 HTML5_CSS=resources/html5.css
-
-GS=gs -dQUIET -dSAFER -dBATCH -dNOPAUSE -sDisplayHandle=0 -sDEVICE=png16m \
-			-r600 -dTextAlphaBits=4
-
-CONVERT=convert
 
 PDF_IMAGES=$(wildcard $(IMG_DIR)/*.pdf)
 GS_IMAGES=$(PDF_IMAGES:.pdf=.png)
@@ -46,10 +55,10 @@ all: html pdf odt docx txt epub
 
 # transform dot file using dot -Tpng graphviz.dot -o graphviz.png
 $(IMG_DIR)/%.png: $(IMG_DIR)/%.dot
-	$(GRAPHVIZ_DOT) -Tpng $< -o $@
+	$(DOT) -Tpng $< -o $@
 
 $(IMG_DIR)/%.png: $(IMG_DIR)/%.pdf
-	$(GS) -sOutputFile=$@ -f $<
+	$(GS) $(GS_FLAGS) -sOutputFile=$@ -f $<
 
 $(IMG_DIR)/%.png: $(IMG_DIR)/%.svg
 	$(CONVERT) $< $@
@@ -58,35 +67,35 @@ $(OUT_DIR):
 	mkdir -p $(OUT_DIR)
 
 $(SCHEMA_MD): $(SHM_DIR)/*.json $(EXP_DIR)/*.json scripts/json_schema2markdown.py
-	python3 scripts/json_schema2markdown.py $(SHM_DIR) $(EXP_DIR) $(SCHEMA_MD)
+	$(PYTHON) scripts/json_schema2markdown.py $(SHM_DIR) $(EXP_DIR) $(SCHEMA_MD)
 
 # main targets
 
 common: $(OUT_DIR) $(SCHEMA_MD) $(GS_IMAGES) $(MAGICK_IMAGES) $(GRAPHVIZ_IMAGES)
 
 html: common
-	$(PANDOC) --to html5 --css $(HTML5_CSS) --section-divs --self-contained \
+	$(PANDOC) $(PANDOC_FLAGS) --to html5 --css $(HTML5_CSS) --section-divs --self-contained \
 	    -o $(OUT_DIR)/$(BASENAME).html resources/lizenz-als-bild.md $(SRC_DIR)/*.md
 
 pdf: common
-	$(PANDOC) --latex-engine=$(LATEX_ENGINE) --template $(LATEX_TEMPLATE) \
+	$(PANDOC) $(PANDOC_FLAGS) --latex-engine=$(LATEX) --template $(LATEX_TEMPLATE) \
 			-o $(OUT_DIR)/$(BASENAME).pdf $(SRC_DIR)/*.md
 
 odt: common
-	$(PANDOC) -o $(OUT_DIR)/$(BASENAME).odt resources/lizenz-als-text.md $(SRC_DIR)/*.md
+	$(PANDOC) $(PANDOC_FLAGS) -o $(OUT_DIR)/$(BASENAME).odt resources/lizenz-als-text.md $(SRC_DIR)/*.md
 
 docx: common # FIXME: License information in header is missing
-	$(PANDOC) -o $(OUT_DIR)/$(BASENAME).docx resources/lizenz-als-text.md $(SRC_DIR)/*.md
+	$(PANDOC) $(PANDOC_FLAGS) -o $(OUT_DIR)/$(BASENAME).docx resources/lizenz-als-text.md $(SRC_DIR)/*.md
 
 txt: common
-	$(PANDOC) -o $(OUT_DIR)/$(BASENAME).txt $(SRC_DIR)/*.md
+	$(PANDOC) $(PANDOC_FLAGS) -o $(OUT_DIR)/$(BASENAME).txt $(SRC_DIR)/*.md
 
 epub: common
-	$(PANDOC) -o $(OUT_DIR)/$(BASENAME).epub $(SRC_DIR)/*.md
+	$(PANDOC) $(PANDOC_FLAGS) -o $(OUT_DIR)/$(BASENAME).epub $(SRC_DIR)/*.md
 
 # Used for the spec website
 live: common
-	$(PANDOC) --to html5 --section-divs --no-highlight \
+	$(PANDOC) $(PANDOC_FLAGS) --to html5 --section-divs --no-highlight \
 			-o $(OUT_DIR)/live.html $(SRC_DIR)/*.md
 
 clean:

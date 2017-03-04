@@ -18,11 +18,11 @@
         "paper": {
             "type": "string",
             "format": "url",
-            "description": "Rückreferenz auf das Paper, welche nur dann ausgegeben werden muss, wenn das Consultation-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.",
+            "description": "Referenz auf das Paper, welche nur dann ausgegeben werden muss, wenn das Consultation-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.",
             "references": "Paper"
         },
         "agendaItem": {
-            "description": "Tagesordnungspunkt, unter dem die Drucksache beraten wird.",
+            "description": "Referenz auf den Tagesordnungspunkt, unter dem die Drucksache beraten wird, welcher nur dann ausgegeben werden muss, wenn das Consultation-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.",
             "references": "AgendaItem",
             "backreference": "consultation",
             "cardinality": "n:1",
@@ -30,7 +30,7 @@
             "format": "url"
         },
         "meeting": {
-            "description": "Sitzung, in der die Drucksache beraten wird.",
+            "description": "Referenz auf die Sitzung, in der die Drucksache beraten wird oder wurde, welche nur dann ausgegeben werden muss, wenn das Consultation-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.",
             "references": "Meeting",
             "cardinality": "n:1",
             "type": "string",

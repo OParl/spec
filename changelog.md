@@ -4,3 +4,4 @@
  * URL-Parameter `limit` in `elementsPerPage` umbenannt
  * Refactoring des Schemas
  * Definition eines Fehlerobjektes für die Ausnahmebehandlung
+ * sha1 für veraltet erklärt und durch sha512 ersetzt

@@ -16,14 +16,7 @@ maschienlesbaren Informationen aus Ratsinformationssystemen. Mehr über OParl:
 
 OParl wird hauptsächlich auf GitHub entwickelt. Hilfe im Umgang mit GitHub findest du [hier](https://help.github.com/). Änderungsvorschläge können über Pull Requests eingebracht werden.
 
-Durch den Befehl `make` kann aus den Quelldateien die Spezifikation erstellt werden. Dazu müssen pandoc und latex installiert sein.
-
-Die Dateien, aus denen die Spezifikation erstellt wird, sind auf mehrere Ordner aufgeteilt:
- - `src/`:  Enthält den gesamten Fließtext als [Markdown](https://help.github.com/articles/markdown-basics/)-Dateien.
- - `schema/`: Enthält das Datenmodell, d.h. den Aufbau der von OParl genutzten json-Objekte, als json-Dateien in einem eigenen Format.
- - `examples/`: Die im Text eingebundenen Beispiele
- - `scripts/`: Enthält Skripte, die u.a. die json-Dateien in Markdown umwandeln und die Beispiele validieren
- - `out/`:  Die von `make` erstellten Dokumente 
+Weitere Hinweise zum Mitentwickeln finden sich in [hier](building.md)
 
 ## Die Spezifikation in verschiedenen Formaten
 

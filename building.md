@@ -19,7 +19,7 @@ sein, auf dem folgende Software installiert ist:
 
 - [Pandoc](http://pandoc.org/)
 - [Graphviz](http://www.graphviz.org/)
-- [Python 3](https://www.python.org/)
+- [Python >=3.5](https://www.python.org/)
 - [Ghostscript](https://www.ghostscript.com/)
 - [ImageMagick](https://www.imagemagick.org/script/index.php)
 - [GNU Make](https://www.gnu.org/software/make/)

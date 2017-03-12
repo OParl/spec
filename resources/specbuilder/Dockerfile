@@ -23,7 +23,7 @@
 # SOFTWARE.
 
 FROM debian:latest
-MAINTAINER Stefan Graupner <stefan.graupner@gmail.com>
+MAINTAINER Stefan Graupner <efrane@meanderingsoul.com>
 
 RUN apt update -y
 RUN apt upgrade -y
@@ -47,5 +47,3 @@ RUN apt install --no-install-recommends -y \
 
 RUN apt -y install python python3 imagemagick zip tar bzip2
 RUN adduser --disabled-password -q --gecos "" --shell=/bin/bash --home=/spec web
-
-#USER web

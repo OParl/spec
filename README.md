@@ -24,12 +24,12 @@ Es stehen Versionen des Dokuments in verschiedenen Formaten zur Verfügung:
 
 ### Version 1.0
 
-* [PDF](https://dev.oparl.org/downloads/spezifikation-stable.pdf)
-* [html](https://dev.oparl.org/downloads/spezifikation-stable.html)
-* [OpenOffice/LibreOffice](https://dev.oparl.org/downloads/spezifikation-stable.odt)
-* [Microsoft Word](https://dev.oparl.org/downloads/spezifikation-stable.docx)
-* [EPub](https://dev.oparl.org/downloads/spezifikation-stable.epub)
-* [Nur Text](https://dev.oparl.org/downloads/spezifikation-stable.txt)
+* [PDF](https://dev.oparl.org/downloads/spezifikation-1.0.pdf)
+* [html](https://dev.oparl.org/downloads/spezifikation-1.0.html)
+* [OpenOffice/LibreOffice](https://dev.oparl.org/downloads/spezifikation-1.0.odt)
+* [Microsoft Word](https://dev.oparl.org/downloads/spezifikation-1.0.docx)
+* [EPub](https://dev.oparl.org/downloads/spezifikation-1.0.epub)
+* [Nur Text](https://dev.oparl.org/downloads/spezifikation-1.0.txt)
 
 ### Aktuelle Entwicklungsversion
 

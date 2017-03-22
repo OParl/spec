@@ -2,3 +2,6 @@
 *.py linguist-vendored
 *.sh linguist-vendored
 *.json linguist-vendored
+Makefile linguist-vendored
+*.tex linguist-vendored
+*.css linguist-vendored

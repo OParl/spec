@@ -1,0 +1,4 @@
+* text=auto
+*.py linguist-vendored
+*.sh linguist-vendored
+*.json linguist-vendored

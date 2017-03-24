@@ -4,7 +4,9 @@ Oft wird für ein Attribut kein Wert ausgegeben, sondern ein anderes Objekt oder
 eine Liste von Objekten. Dabei kann eine Referenz auf das Objekt bzw. die
 Objektliste angegeben werden, oder das Objekt bzw. die Objektlist wird intern
 ausgegeben. Beide Verfahren sollen im Folgenden erklärt werden.
-
+Zu beachten ist, dass für jedes Listenattribut festgelegt ist, welches dieser
+Verfahren jeweils zu verwenden ist. Diese Information ist den Schemadefinitionen
+zu entnehmen.
 
 ### Referenzierung von Objekten via URL
 

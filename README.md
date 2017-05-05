@@ -7,7 +7,7 @@
 In diesem Repository wird die Spezifikation zum [OParl](https://oparl.org/)-Standard erarbeitet.
 
 Der OParl-Standard dient der Definition einer einheitlichen Schnittstelle zum Abruf von
-maschienlesbaren Informationen aus Ratsinformationssystemen. Mehr über OParl:
+maschinenlesbaren Informationen aus Ratsinformationssystemen. Mehr über OParl:
 
 - Mehr über OParl:  [https://oparl.org](https://oparl.org)
 - Weitere Informationen für Entwickler: [https://dev.oparl.org](https://dev.oparl.org)

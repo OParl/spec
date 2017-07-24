@@ -1,4 +1,4 @@
-## Objektlisten und Paginierung {#objektlisten-und-paginierung}
+## Objektlisten und Paginierung {#1}
 
 Oft wird für ein Attribut kein Wert ausgegeben, sondern ein anderes Objekt oder
 eine Liste von Objekten. Dabei kann eine Referenz auf das Objekt bzw. die

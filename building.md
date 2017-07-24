@@ -37,7 +37,8 @@ Unter Ubuntu können alle benötigten Pakete mit einem Befehl installiert werden
 
 ```bash
 sudo apt install etoolbox ghostscript lmodern graphviz make pandoc pandoc-citeproc texlive-fonts-recommended \
-texlive-generic-recommended texlive-humanities texlive-lang-german texlive-latex-recommended texlive-luatex texlive-xetex
+texlive-generic-recommended texlive-humanities texlive-lang-german texlive-latex-recommended texlive-luatex \
+texlive-xetex librsvg2-bin
 ```
 
 Das eingentlich bauen der Dokumente ist dann nur noch ein einziger Befehl:
@@ -57,7 +58,7 @@ Die fertigen Dokumente finden sich dann sich in `out/`
 Für den geneigten Containerfreund findet sich in `resources/specbuilder` ein
 Dockerfile, welches auch mit `docker pull oparl/specbuilder` installiert werden kann.
 
-Gebaut wird die Spezifikation dann mit folgenden Befehl, wobei auch hier ein Ausgabe an den Aufruf von `make` 
+Gebaut wird die Spezifikation dann mit folgenden Befehl, wobei auch hier ein Ausgabe an den Aufruf von `make`
 angehängt werden kann:
 
 ```

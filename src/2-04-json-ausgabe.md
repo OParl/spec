@@ -77,3 +77,6 @@ Arrays. Wie bei `null` wird auch hier **empfohlen**, auf die Ausgabe einer
 Eigenschaft mit dem Wert `[]` zu verzichten, wenn zu einer Eigenschaft keine Daten
 vorliegen. Bei obligatorischen Eigenschaften **muss** jedoch eine leere Liste
 ausgegeben werden.
+
+Bei nicht obligatorischen Eigenschaften sollte gleichermaßen auf die
+Ausgabe eines leeren Strings `""` verzichtet werden.

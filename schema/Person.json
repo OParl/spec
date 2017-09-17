@@ -70,11 +70,8 @@
         },
         "location": {
             "description": "Referenz der Kontakt-Anschrift der Person.",
-            "references": "Location",
-            "backreference": "person",
-            "cardinality": "n:1",
-            "type": "string",
-            "format": "url"
+            "type": "object",
+            "schema": "Location.json"
         },
         "status": {
             "description": "Status, d.h. Rollen in der Kommune.",

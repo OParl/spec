@@ -61,6 +61,15 @@
                 "references": "Organization"
             }
         },
+        "persons": {
+            "description": "Rückreferenzen auf Person-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "url",
+                "references": "Person"
+            }
+        },
         "meetings": {
             "description": "Rückreferenzen auf Meeting-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
             "type": "array",

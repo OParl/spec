@@ -33,9 +33,9 @@ Es stehen Versionen des Dokuments in verschiedenen Formaten zur Verfügung:
 
 ### Aktuelle Entwicklungsversion
 
-* [PDF](https://dev.oparl.org/downloads/spezifikation-latest.pdf)
-* [html](https://dev.oparl.org/downloads/spezifaktion-latest.html)
-* [OpenOffice/LibreOffice](https://dev.oparl.org/downloads/spezifikation-latest.odt)
-* [Microsoft Word](https://dev.oparl.org/downloads/spezifikation-latest.docx)
-* [EPub](https://dev.oparl.org/downloads/spezifikation-latest.epub)
-* [Nur Text](https://dev.oparl.org/downloads/spezifikation-latest.txt)
+* [PDF](https://dev.oparl.org/downloads/spezifikation-master.pdf)
+* [html](https://dev.oparl.org/downloads/spezifaktion-master.html)
+* [OpenOffice/LibreOffice](https://dev.oparl.org/downloads/spezifikation-master.odt)
+* [Microsoft Word](https://dev.oparl.org/downloads/spezifikation-master.docx)
+* [EPub](https://dev.oparl.org/downloads/spezifikation-master.epub)
+* [Nur Text](https://dev.oparl.org/downloads/spezifikation-master.txt)

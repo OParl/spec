@@ -5,4 +5,4 @@ language: de-DE
 author: OParl contributors
 description: Spezifikation einer einheitlichen Schnittstelle zum Abruf von maschinenlesbaren Informationen aus Ratsinformationssystemen.
 toc-title: Inhaltsverzeichnis
-...
+---

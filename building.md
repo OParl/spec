@@ -58,9 +58,9 @@ Die fertigen Dokumente finden sich dann sich in `out/`
 Für den geneigten Containerfreund findet sich in `resources/specbuilder` ein
 Dockerfile, welches auch mit `docker pull oparl/specbuilder` installiert werden kann.
 
-Gebaut wird die Spezifikation dann mit folgenden Befehl, wobei auch hier ein Ausgabe an den Aufruf von `make`
-angehängt werden kann:
+Gebaut wird die Spezifikation dann mit folgenden Befehl, wobei auch hier ein Ausgabeformat
+an den Aufruf von `make` angehängt werden kann:
 
 ```
-docker run -u $UID:$GID --rm -v $(pwd):$(pwd) -w $(pwd) oparl/specbuilder:latest make
+docker run -u $UID:$GID --rm -v $(pwd):$(pwd) -w $(pwd) oparl/specbuilder:latest make <format>
 ```

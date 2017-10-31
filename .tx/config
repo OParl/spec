@@ -1,0 +1,152 @@
+[main]
+host = https://www.transifex.com
+
+[spec-1.0-00-metadatamd]
+source_lang = de
+source_file = src/0-00-metadata.md
+file_filter = locales/<lang>/src/0-00-metadata.md
+type = GITHUBMARKDOWN
+
+[spec-1.1-00-einleitungmd]
+source_lang = de
+source_file = src/1-00-einleitung.md
+file_filter = locales/<lang>/src/1-00-einleitung.md
+type = GITHUBMARKDOWN
+
+[spec-1.1-01-was-ist-oparlmd]
+source_lang = de
+source_file = src/1-01-was-ist-oparl.md
+file_filter = locales/<lang>/src/1-01-was-ist-oparl.md
+type = GITHUBMARKDOWN
+
+[spec-1.1-02-zielsetzung-von-oparlmd]
+source_lang = de
+source_file = src/1-02-zielsetzung-von-oparl.md
+file_filter = locales/<lang>/src/1-02-zielsetzung-von-oparl.md
+type = GITHUBMARKDOWN
+
+[spec-1.1-03-transparenz-und-beteiligung-durch-open-datamd]
+source_lang = de
+source_file = src/1-03-transparenz-und-beteiligung-durch-open-data.md
+file_filter = locales/<lang>/src/1-03-transparenz-und-beteiligung-durch-open-data.md
+type = GITHUBMARKDOWN
+
+[spec-1.1-04-nutzungsszenarienmd]
+source_lang = de
+source_file = src/1-04-nutzungsszenarien.md
+file_filter = locales/<lang>/src/1-04-nutzungsszenarien.md
+type = GITHUBMARKDOWN
+
+[spec-1.1-05-nomenklaturmd]
+source_lang = de
+source_file = src/1-05-nomenklatur.md
+file_filter = locales/<lang>/src/1-05-nomenklatur.md
+type = GITHUBMARKDOWN
+
+[spec-1.1-06-datenschutzmd]
+source_lang = de
+source_file = src/1-06-datenschutz.md
+file_filter = locales/<lang>/src/1-06-datenschutz.md
+type = GITHUBMARKDOWN
+
+[spec-1.1-07-oparl-governancemd]
+source_lang = de
+source_file = src/1-07-oparl-governance.md
+file_filter = locales/<lang>/src/1-07-oparl-governance.md
+type = GITHUBMARKDOWN
+
+[spec-1.1-08-oparl-autorenmd]
+source_lang = de
+source_file = src/1-08-oparl-autoren.md
+file_filter = locales/<lang>/src/1-08-oparl-autoren.md
+type = GITHUBMARKDOWN
+
+[spec-1.2-00-prinzipien-und-funktionen-der-schnittstellemd]
+source_lang = de
+source_file = src/2-00-prinzipien-und-funktionen-der-schnittstelle.md
+file_filter = locales/<lang>/src/2-00-prinzipien-und-funktionen-der-schnittstelle.md
+type = GITHUBMARKDOWN
+
+[spec-1.2-01-designprinzipienmd]
+source_lang = de
+source_file = src/2-01-designprinzipien.md
+file_filter = locales/<lang>/src/2-01-designprinzipien.md
+type = GITHUBMARKDOWN
+
+[spec-1.2-02-zukunftssicherheitmd]
+source_lang = de
+source_file = src/2-02-zukunftssicherheit.md
+file_filter = locales/<lang>/src/2-02-zukunftssicherheit.md
+type = GITHUBMARKDOWN
+
+[spec-1.2-03-urlsmd]
+source_lang = de
+source_file = src/2-03-urls.md
+file_filter = locales/<lang>/src/2-03-urls.md
+type = GITHUBMARKDOWN
+
+[spec-1.2-04-json-ausgabemd]
+source_lang = de
+source_file = src/2-04-json-ausgabe.md
+file_filter = locales/<lang>/src/2-04-json-ausgabe.md
+type = GITHUBMARKDOWN
+
+[spec-1.2-05-objektlisten-und-paginierungmd]
+source_lang = de
+source_file = src/2-05-objektlisten-und-paginierung.md
+file_filter = locales/<lang>/src/2-05-objektlisten-und-paginierung.md
+type = GITHUBMARKDOWN
+
+[spec-1.2-06-cross-origin-resource-sharing-corsmd]
+source_lang = de
+source_file = src/2-06-cross-origin-resource-sharing-cors.md
+file_filter = locales/<lang>/src/2-06-cross-origin-resource-sharing-cors.md
+type = GITHUBMARKDOWN
+
+[spec-1.2-07-dateizugriffemd]
+source_lang = de
+source_file = src/2-07-dateizugriffe.md
+file_filter = locales/<lang>/src/2-07-dateizugriffe.md
+type = GITHUBMARKDOWN
+
+[spec-1.2-08-geloeschte-objektemd]
+source_lang = de
+source_file = src/2-08-geloeschte-objekte.md
+file_filter = locales/<lang>/src/2-08-geloeschte-objekte.md
+type = GITHUBMARKDOWN
+
+[spec-1.2-09-ausnahmebehandlungmd]
+source_lang = de
+source_file = src/2-09-ausnahmebehandlung.md
+file_filter = locales/<lang>/src/2-09-ausnahmebehandlung.md
+type = GITHUBMARKDOWN
+
+[spec-1.2-10-endpunktmd]
+source_lang = de
+source_file = src/2-10-endpunkt.md
+file_filter = locales/<lang>/src/2-10-endpunkt.md
+type = GITHUBMARKDOWN
+
+[spec-1.3-00-schemamd]
+source_lang = de
+source_file = src/3-00-schema.md
+file_filter = locales/<lang>/src/3-00-schema.md
+type = GITHUBMARKDOWN
+
+[spec-1.3-01-eigenschaften-mit-verwendung-in-mehreren-objekttypenmd]
+source_lang = de
+source_file = src/3-01-eigenschaften-mit-verwendung-in-mehreren-objekttypen.md
+file_filter = locales/<lang>/src/3-01-eigenschaften-mit-verwendung-in-mehreren-objekttypen.md
+type = GITHUBMARKDOWN
+
+[spec-1.buildingmd]
+source_lang = de
+source_file = building.md
+file_filter = building.<lang>.md
+type = GITHUBMARKDOWN
+
+[spec-1.schema_stringsyml]
+source_lang = de
+source_file = schema/strings.yml
+file_filter = locales/<lang>/schema/strings.yml
+type = YML

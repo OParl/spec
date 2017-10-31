@@ -1,0 +1,162 @@
+de:
+  AgendaItem.description: |
+    Tagesordnungspunkte sind die Bestandteile von Sitzungen (`oparl:Meeting`).
+    Jeder Tagesordnungspunkt widmet sich inhaltlich einem bestimmten Thema, wozu
+    in der Regel auch die Beratung bestimmter Drucksachen gehört.
+
+    Die Beziehung zwischen einem Tagesordnungspunkt und einer Drucksache wird
+    über ein Objekt vom Typ `oparl:Consultation` hergestellt, das über die
+    Eigenschaft `consultation` referenziert werden kann.
+  AgendaItem.properties.meeting.description: Rückreferenz auf das Meeting, welches nur dann ausgegeben werden muss, wenn das agendaItem-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.
+  AgendaItem.properties.number.description: Gliederungs-"Nummer" des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z. B. "10.", "10.1", "C", "c)" o. ä. Die Reihenfolge wird nicht dadurch, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting` festgelegt, **sollte** allerdings zu dieser identisch sein.
+  AgendaItem.properties.name.description: Das Thema des Tagesordnungspunktes.
+  AgendaItem.properties.public.description: Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher Sitzung vorgesehen ist/war. Es wird ein Wahrheitswert (`true` oder `false`) erwartet.
+  AgendaItem.properties.consultation.description: Beratung, die diesem Tagesordnungspunkt zugewiesen ist.
+  AgendaItem.properties.result.description: Kategorische Information darüber, welches Ergebnis die Beratung des Tagesordnungspunktes erbracht hat, in der Bedeutung etwa "Unverändert beschlossen" oder "Geändert beschlossen".
+  AgendaItem.properties.resolutionText.description: Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann hier ein Text angegeben werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag) von der Beschlussvorlage abweicht.
+  AgendaItem.properties.resolutionFile.description: Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann hier eine Datei angegeben werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag) von der Beschlussvorlage abweicht.
+  AgendaItem.properties.auxiliaryFile.description: Weitere Dateianhänge zum Tagesordnungspunkt.
+  AgendaItem.properties.start.description: Datum und Uhrzeit des Anfangszeitpunkts des Tagesordnungspunktes. Bei zukünftigen Tagesordnungspunkten ist dies der geplante Zeitpunkt, bei einem stattgefundenen **kann** es der tatsächliche Startzeitpunkt sein.
+  AgendaItem.properties.end.description: Endzeitpunkt des Tagesordnungspunktes als Datum/Uhrzeit. Bei zukünftigen Tagesordnungspunkten ist dies der geplante Zeitpunkt, bei einer stattgefundenen **kann** es der tatsächliche Endzeitpunkt sein.
+  Person.description: Jede natürliche Person, die in der parlamentarischen Arbeit tätig und insbesondere Mitglied in einer Gruppierung ([oparl:Organization](#oparl_organization)) ist, wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
+  Person.properties.body.description: Körperschaft, zu der die Person gehört.
+  Person.properties.name.description: Der vollständige Name der Person mit akademischem Grad und dem gebräuchlichen Vornamen, wie er zur Anzeige durch den Client genutzt werden kann.
+  Person.properties.familyName.description: Familienname bzw. Nachname.
+  Person.properties.givenName.description: Vorname bzw. Taufname.
+  Person.properties.formOfAddress.description: Anrede.
+  Person.properties.affix.description: Namenszusatz (z.B. `jun.` oder `MdL.`)
+  Person.properties.title.description: Akademische Titel
+  Person.properties.gender.description: Geschlecht. Empfohlene Werte sind `female`, `male` und `other`. Für den Fall, dass das Geschlecht der Person unbekannt ist, **sollte** die Eigenschaft nicht ausgegeben werden.
+  Person.properties.phone.description: Telefonnummern der Person.
+  Person.properties.email.description: E-Mail-Adressen der Person.
+  Person.properties.location.description: Referenz der Kontakt-Anschrift der Person.
+  Person.properties.status.description: Status, d.h. Rollen in der Kommune.
+  Person.properties.membership.description: Mitgliedschaften der Person in Gruppierungen, z. B. Gremien und Fraktionen. Es **sollen** sowohl aktuelle als auch vergangene Mitgliedschaften angegeben werden
+  Person.properties.life.description: Kurzer Informationstext zur Person. Eine Länge von weniger als 300 Zeichen ist **empfohlen**
+  Person.properties.lifeSource.description: Angabe der Quelle, aus der die Informationen für `life` stammen. Bei Angabe von `life` ist diese Eigenschaft **empfohlen**
+  File.description: Ein Objekt vom Typ `oparl:File` repräsentiert eine Datei, beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokument, und hält Metadaten zu der Datei sowie URLs zum Zugriff auf  die Datei bereit.\n\nObjekte vom Typ `oparl:File` können unter anderem mit Drucksachen (`oparl:Paper`) oder Sitzungen (`oparl:Meeting`) in Beziehung stehen. Dies wird durch  die Eigenschaft `paper` bzw. `meeting` angezeigt.\n\nMehrere Objekte vom Typ `oparl:File` können mit einander in direkter Beziehung stehen, z.B. wenn sie den selben Inhalt in unterschiedlichen technischen Formaten wiedergeben. Hierfür werden die Eigenschaften `masterFile` bzw. `derivativeFile` eingesetzt. Das sgezeigte Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der Eigenschaft `mimeType`) und zeigt außerdem über die Eigenschaft  `masterFile` an, von welcher anderen Datei es abgeleitet wurde. Umgekehrt **kann** über die Eigenschaft `derivativeFile` angezeigt werden, welche Ableitungen einer Datei existieren.
+  File.properties.name.description: "Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt. Leerzeichen **dürfen** enthalten sein, Datei-Endungen wie \".pdf\" **sollten nicht** enthalten sein."
+  File.properties.fileName.description: "Dateiname, unter dem die Datei in einem Dateisystem gespeichert werden kann. Beispiel: \"einedatei.pdf\". Da der Name den kompletten Unicode-Zeichenumfang nutzen kann, **sollten** Clients ggfs. selbst dafür sorgen, diesen beim Speichern in ein Dateisystem den lokalen Erfordernissen anzupassen."
+  File.properties.mimeType.description: "MIME-Type der Datei ^[vgl. RFC2046: <http://tools.ietf.org/html/rfc2046>]."
+  File.properties.date.description: Datum, welches als Startpunkt für Fristen u.ä. verwendet ist.
+  File.properties.size.description: Größe der Datei in Bytes.
+  File.properties.sha1Checksum.description: "[Veraltet] SHA1-Prüfsumme des Dateiinhalts in Hexadezimal-Schreibweise. Sollte nicht mehr verwendet werden, da sha1 als unsicher gilt. Stattdessen sollte `sha512checksum` verwendet werden."
+  File.properties.sha512Checksum.description: SHA512-Prüfsumme des Dateiinhalts in Hexadezimal-Schreibweise.
+  File.properties.text.description: Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform wiedergegeben werden kann.
+  File.properties.accessUrl.description: URL zum allgemeinen Zugriff auf die Datei. Näheres unter [Dateizugriffe](#dateizugriff).
+  File.properties.downloadUrl.description: URL zum Download der Datei. Näheres unter [Dateizugriffe](#dateizugriff).
+  File.properties.externalServiceUrl.description: "Externe URL, welche eine zusätzliche Zugriffsmöglichkeit bietet. Beispiel: YouTube-Video."
+  File.properties.masterFile.description: Datei, von der das aktuelle Objekt abgeleitet wurde. Details dazu in der allgemeinen Beschreibung weiter oben.
+  File.properties.derivativeFile.description: Dateien, die von dem aktuellen Objekt abgeleitet wurden. Details dazu in der allgemeinen Beschreibung weiter oben.
+  File.properties.fileLicense.description: Lizenz, unter der die Datei angeboten wird. Wenn diese Eigenschaft nicht verwendet wird, ist der Wert von `license` beziehungsweise die Lizenz eines übergeordneten Objektes maßgeblich. Siehe [license](#eigenschaft_license)
+  File.properties.meeting.description: Rückreferenzen auf Meeting-Objekte. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.
+  File.properties.agendaItem.description: Rückreferenzen auf AgendaItem-Objekte. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.
+  File.properties.paper.description: Rückreferenzen auf Paper-Objekte. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.
+  LegislativeTerm.description: Dieser Objekttyp dient der Beschreibung einer Wahlperiode.
+  LegislativeTerm.properties.body.description: Rückreferenz auf die Körperschaft, welche nur dann ausgegeben werden muss, wenn das LegislativeTerm-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.
+  LegislativeTerm.properties.name.description: Nutzerfreundliche Bezeichnung der Wahlperiode.
+  LegislativeTerm.properties.startDate.description: Der erste Tag der Wahlperiode.
+  LegislativeTerm.properties.endDate.description: Der letzte Tag der Wahlperiode.
+  Body.description: Der Objekttyp oparl:Body dient dazu, eine Körperschaft zu repräsentieren. Eine Körperschaft ist in den meisten Fällen eine Gemeinde, eine Stadt oder ein Landkreis.\n\nIn der Regel sind auf einem OParl-Server Daten von genau einer Körperschaft gespeichert und es wird daher auch nur ein Body-Objekt ausgegeben. Sind auf dem Server jedoch Daten von mehreren Körperschaften gespeichert, **muss** für jede Körperschaft ein eigenes Body-Objekt ausgegeben werden.
+  Body.properties.system.description: System, zu dem dieses Objekt gehört.
+  Body.properties.shortName.description: Kurzer Name der Körperschaft.
+  Body.properties.name.description: Der offizielle lange Name der Körperschaft.
+  Body.properties.website.description: Allgemeine Website der Körperschaft.
+  Body.properties.license.description: Lizenz, unter der die Daten dieser Körperschaft stehen, sofern nicht am einzelnen Objekt anders angegeben. Siehe [`license`](#eigenschaft_license).
+  Body.properties.licenseValidSince.description: Zeitpunkt, seit dem die unter `license` angegebene Lizenz gilt. _Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen!_
+  Body.properties.oparlSince.description: Zeitpunkt, ab dem OParl für dieses Body bereitgestellt wurde. Dies hilft, um die Datenqualität einzuschätzen, denn erst ab der Einrichtung für OParl kann sichergestellt werden, dass sämtliche Werte korrekt in der Original-Quelle vorliegen.
+  Body.properties.ags.description: Der achtstellige Amtliche Gemeindeschlüssel^[Amtliche Gemeindeschlüssel können im [Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes](https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html) eingesehen werden].
+  Body.properties.rgs.description: Der zwölfstellige Regionalschlüssel.
+  Body.properties.equivalent.description: Dient der Angabe zusätzlicher URLs, die dieselbe Körperschaft repräsentieren. Hier können beispielsweise der entsprechende Eintrag der gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>], der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden. Body- oder System-Objekte mit anderen OParl-Versionen **dürfen nicht** Teil der Liste sein.
+  Body.properties.contactEmail.description: Dient der Angabe einer Kontakt-E-Mail-Adresse. Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und idealerweise das parlamentarische Informationssystem zuständigen Stelle ermöglichen.
+  Body.properties.contactName.description: Name oder Bezeichnung der mit `contactEmail` erreichbaren Stelle.
+  Body.properties.organization.description: Link zur [Objektliste](#objektlisten) mit allen Gruppierungen der Körperschaft.
+  Body.properties.person.description: Link zur [Objektliste](#objektlisten) mit allen Personen der Körperschaft.
+  Body.properties.meeting.description: Link zur [Objektliste](#objektlisten) mit allen Sitzungen der Körperschaft.
+  Body.properties.paper.description: Link zur [Objektliste](#objektlisten) mit allen Drucksachen der Körperschaft.
+  Body.properties.legislativeTerm.description: "[Objektliste](#objektlisten) mit den Wahlperioden der Körperschaft."
+  Body.properties.classification.description: Art der Körperschaft.
+  Body.properties.location.description: Ort, an dem die Körperschaft beheimatet ist.
+  Consultation.description: Der Objekttyp `oparl:Consultation` dient dazu, die Beratung einer Drucksache ([`oparl:Paper`](#oparl_paper)) in einer Sitzung abzubilden. Dabei ist es nicht entscheidend, ob diese Beratung in der Vergangenheit stattgefunden hat oder diese für die Zukunft geplant ist.\n\nDie Gesamtheit aller Objekte des Typs `oparl:Consultation` zu einer bestimmten Drucksache bildet das ab, was in der Praxis als "Beratungsfolge" der Drucksache bezeichnet wird.
+  Consultation.properties.paper.description: Referenz auf das Paper, welche nur dann ausgegeben werden muss, wenn das Consultation-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.
+  Consultation.properties.agendaItem.description: Referenz auf den Tagesordnungspunkt, unter dem die Drucksache beraten wird, welcher nur dann ausgegeben werden muss, wenn das Consultation-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.
+  Consultation.properties.meeting.description: Referenz auf die Sitzung, in der die Drucksache beraten wird oder wurde, welche nur dann ausgegeben werden muss, wenn das Consultation-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.
+  Consultation.properties.organization.description: Gremium, in dem die Drucksache beraten wird. Hier kann auch eine mit Liste von Gremien angegeben werden (die verschiedenen `oparl:Body` und `oparl:System` angehören können). Die Liste ist dann geordnet. Das erste Gremium der Liste ist federführend.
+  Consultation.properties.authoritative.description: Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst wird oder wurde (`true`) oder nicht (`false`).
+  Consultation.properties.role.description: Rolle oder Funktion der Beratung. Zum Beispiel Anhörung, Entscheidung, Kenntnisnahme, Vorberatung usw.
+  Location.description: Dieser Objekttyp dient dazu, einen Ortsbezug formal abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen (beispielsweise dem Namen einer Straße/eines Platzes oder eine genaue Adresse) als auch aus Geodaten. Ortsangaben sind auch nicht auf einzelne Positionen beschränkt, sondern können eine Vielzahl von Positionen, Flächen, Strecken etc. abdecken.
+  Location.properties.description.description: Textuelle Beschreibung eines Orts, z. B. in Form einer Adresse.
+  Location.properties.geojson.description: Geodaten-Repräsentation des Orts. Der Wert dieser Eigenschaft **muss** der Spezifikation von GeoJSON entsprechen, d.h. es **muss** ein vollständiges `Feature`-Objekt ausgegeben werden.
+  Location.properties.streetAddress.description: Straße und Hausnummer der Anschrift.
+  Location.properties.room.description: Raumangabe der Anschrift
+  Location.properties.postalCode.description: Postleitzahl der Anschrift.
+  Location.properties.subLocality.description: Untergeordnete Ortsangabe der Anschrift, z.B. Stadtbezirk, Ortsteil oder Dorf.
+  Location.properties.locality.description: Ortsangabe der Anschrift.
+  Location.properties.bodies.description: Rückreferenzen auf Body-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.
+  Location.properties.organizations.description: Rückreferenzen auf Organization-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.
+  Location.properties.meetings.description: Rückreferenzen auf Meeting-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.
+  Location.properties.papers.description: Rückreferenzen auf Paper-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.
+  Organization.description: Dieser Objekttyp dient dazu, Gruppierungen von Personen abzubilden, die in der parlamentarischen Arbeit eine Rolle spielen. Dazu zählen in der Praxis insbesondere Fraktionen und Gremien.
+  Organization.properties.body.description: Körperschaft, zu der diese Gruppierung gehört.
+  Organization.properties.name.description: Offizielle (lange) Form des Namens der Gruppierung.
+  Organization.properties.membership.description: Mitgliedschaften dieser Gruppierung.
+  Organization.properties.meeting.description: URL auf eine externe Objektliste mit den Sitzungen dieser Gruppierung. Invers zur Eigenschaft `organization` der Klasse `oparl:Meeting`
+  Organization.properties.shortName.description: Der Name der Gruppierung als Kurzform.
+  Organization.properties.post.description: Positionen, die für diese Gruppierung vorgesehen sind.
+  Organization.properties.subOrganizationOf.description: URL einer eventuellen übergeordneten Gruppierung.
+  Organization.properties.organizationType.description: Grobe Kategorisierung der Gruppierung. Mögliche Werte sind "Gremium", "Partei", "Fraktion", "Verwaltungsbereich", "externes Gremium", "Institution" und "Sonstiges".
+  Organization.properties.classification.description: Die Art der Gruppierung. In Frage kommen z.B. "Parlament", "Ausschuss", "Beirat", "Projektbeirat", "Kommission", "AG", "Verwaltungsrat", "Fraktion" oder "Partei". Die Angabe **sollte** möglichst präzise erfolgen. Außerdem **sollten** Abkürzungen vermieden werden. Für die höchste demokratische Instanz in der Kommune **sollte** immer der Begriff "Parlament" verwendet werden, nicht "Rat" oder "Hauptausschuss".
+  Organization.properties.startDate.description: Gründungsdatum der Gruppierung. Kann z. B. das Datum der konstituierenden Sitzung sein.
+  Organization.properties.endDate.description: Datum des letzten Tages der Existenz der Gruppierung.
+  Organization.properties.website.description: Allgemeine Website der Gruppierung.
+  Organization.properties.location.description: Ort, an dem die Organisation beheimatet ist
+  Organization.properties.externalBody.description: Externer OParl Body, der dieser Organisation entspricht. Diese Eigenschaft ist dafür gedacht auf eventuelle konkretere OParl-Schnittstellen zu verweisen. Ein Beispiel hierfür wäre eine Stadt, die sowohl ein übergreifendes parlamentarisches Informationssystem, als auch bezirksspezifische Systeme hat.
+  Membership.description: Über Objekte diesen Typs wird die Mitgliedschaft von Personen in Gruppierungen dargestellt. Diese Mitgliedschaften können zeitlich begrenzt sein. Zudem kann abgebildet werden, dass eine Person eine bestimmte Rolle bzw. Position innerhalb der Gruppierung inne hat, beispielsweise den Vorsitz einer Fraktion.
+  Membership.properties.person.description: Rückreferenz auf Person, welches nur dann ausgegeben werden muss, wenn das Membership-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.
+  Membership.properties.organization.description: Die Gruppierung, in der die Person Mitglied ist oder war.
+  Membership.properties.role.description: Rolle der Person für die Gruppierung. Kann genutzt werden, um verschiedene Arten von Mitgliedschaften zum Beispiel in Gremien zu unterscheiden.
+  Membership.properties.votingRight.description: Gibt an, ob die Person in der Gruppierung stimmberechtigtes Mitglied ist.
+  Membership.properties.startDate.description: Datum, an dem die Mitgliedschaft beginnt.
+  Membership.properties.endDate.description: Datum, an dem die Mitgliedschaft endet.
+  Membership.properties.onBehalfOf.description: "Die Gruppierung, für die die Person in der unter `organization` angegebenen Organisation sitzt. Beispiel: Mitgliedschaft als Vertreter einer Ratsfraktion, einer Gruppierung oder einer externen Organisation."
+  Meeting.description: Eine Sitzung ist die Versammlung einer oder mehrerer Gruppierungen (oparl:Organization) zu einem bestimmten Zeitpunkt an einem bestimmten Ort.\n\nDie geladenen Teilnehmer der Sitzung sind jeweils als Objekte vom Typ oparl:Person, die in entsprechender Form referenziert werden. Verschiedene Dateien (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.\n\nDie Inhalte einer Sitzung werden durch Tagesordnungspunkte (oparl:AgendaItem) abgebildet.
+  Meeting.properties.name.description: Name der Sitzung.
+  Meeting.properties.meetingState.description: Aktueller Status der Sitzung. **Empfohlen** ist die Verwendung von `terminiert` (geplant), `eingeladen` (vor der Sitzung bis zur Freigabe des Protokolls) und `durchgeführt` (nach Freigabe des Protokolls).
+  Meeting.properties.cancelled.description: Wenn die Sitzung ausfällt, wird cancelled auf true gesetzt.
+  Meeting.properties.start.description: Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen **kann** es der tatsächliche Startzeitpunkt sein.
+  Meeting.properties.end.description: Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen **kann** es der tatsächliche Endzeitpunkt sein.
+  Meeting.properties.location.description: Sitzungsort.
+  Meeting.properties.organization.description: Gruppierungen, denen die Sitzung zugeordnet ist. Im Regelfall wird hier eine Gruppierung verknüpft sein, es kann jedoch auch gemeinsame Sitzungen mehrerer Gruppierungen geben. Das erste Element **sollte** dann das federführende Gremium sein.
+  Meeting.properties.participant.description: Personen, die an der Sitzung teilgenommen haben (d.h. nicht nur die eingeladenen Personen, sondern die tatsächlich anwesenden). Diese Eigenschaft kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen.
+  Meeting.properties.invitation.description: Einladungsdokument zur Sitzung.
+  Meeting.properties.resultsProtocol.description: Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nachdem Stattfinden der Sitzung vorkommen.
+  Meeting.properties.verbatimProtocol.description: Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen.
+  Meeting.properties.auxiliaryFile.description: Dateianhang zur Sitzung. Hiermit sind Dateien gemeint, die üblicherweise mit der Einladung zu einer Sitzung verteilt werden, und die nicht bereits über einzelne Tagesordnungspunkte referenziert sind.
+  Meeting.properties.agendaItem.description: Tagesordnungspunkte der Sitzung. Die Reihenfolge ist relevant. Es kann Sitzungen ohne TOPs geben.
+  System.description: Ein `oparl:System`-Objekt repräsentiert eine OParl-Schnittstelle für eine bestimmte OParl-Version. Es ist außerdem der Startpunkt für Clients beim Zugriff auf einen Server.\n\nMöchte ein Server mehrere zueinander inkompatible OParl-Versionen unterstützen, dann **muss** der Server für jede Version eine eigenen OParl-Schnittstelle mit einem eigenen `System`-Objekt ausgeben.
+  System.properties.oparlVersion.description: "Die URL der OParl-Spezifikation, die von diesem Server unterstützt wird. Aktuell kommt hier nur ein Wert in Frage. Mit zukünftigen OParl-Versionen kommen weitere mögliche URLs hinzu. Wert: `https://schema.oparl.org/1.1/`"
+  System.properties.otherOparlVersions.description: Dient der Angabe von System-Objekten mit anderen OParl-Versionen.
+  System.properties.license.description: Lizenz, unter der durch diese API abrufbaren Daten stehen, sofern nicht am einzelnen Objekt anders angegeben. Siehe [`license`](#eigenschaft_license).
+  System.properties.body.description: Link zur [Objektliste](#objektlisten) mit allen Körperschaften, die auf dem System existieren.
+  System.properties.name.description: Nutzerfreundlicher Name für das System, mit dessen Hilfe Nutzerinnen und Nutzer das System erkennen und von anderen unterscheiden können.
+  System.properties.contactEmail.description: E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe einer E-Mail-Adresse dient sowohl NutzerInnen wie auch Entwicklerinnen von Clients zur Kontaktaufnahme mit dem Betreiber.
+  System.properties.contactName.description: Name der Ansprechpartnerin bzw. des Ansprechpartners oder der Abteilung, die über die in `contactEmail` angegebene Adresse erreicht werden kann.
+  System.properties.website.description: URL der Website des parlamentarischen Informationssystems
+  System.properties.vendor.description: URL der Website des Softwareanbieters, von dem die OParl-Server-Software stammt.
+  System.properties.product.description: URL zu Informationen über die auf dem System genutzte OParl-Server-Software
+  Paper.description: Dieser Objekttyp dient der Abbildung von Drucksachen in der parlamentarischen Arbeit, wie zum Beispiel Anfragen, Anträgen und Beschlussvorlagen.\n\nDrucksachen werden in Form einer Beratung (oparl:Consultation) im Rahmen eines Tagesordnungspunkts (oparl:AgendaItem) einer Sitzung (oparl:Meeting) behandelt.\n\nDrucksachen spielen in der schriftlichen wie mündlichen Kommunikation eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in parlamentarischen Informationssystemen in der Regel unveränderliche Kennungen der Drucksachen zum Einsatz.
+  Paper.properties.body.description: Körperschaft, zu der die Drucksache gehört.
+  Paper.properties.name.description: Titel der Drucksache.
+  Paper.properties.reference.description: Kennung bzw. Aktenzeichen der Drucksache, mit der sie in der parlamentarischen Arbeit eindeutig referenziert werden kann.
+  Paper.properties.date.description: Datum, welches als Startpunkt für Fristen u.ä. verwendet ist.
+  Paper.properties.paperType.description: Art der Drucksache, z. B. Beantwortung einer Anfrage.
+  Paper.properties.relatedPaper.description: Inhaltlich verwandte Drucksachen.
+  Paper.properties.superordinatedPaper.description: Übergeordnete Drucksachen.
+  Paper.properties.subordinatedPaper.description: Untergeordnete Drucksachen.
+  Paper.properties.mainFile.description: "Die Hauptdatei zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert eine Beschlussvorlage und die Hauptdatei enthält den Text der Beschlussvorlage. Sollte keine eindeutige Hauptdatei vorhanden sein, wird diese Eigenschaft nicht ausgegeben."
+  Paper.properties.auxiliaryFile.description: Alle weiteren Dateien zur Drucksache ausgenommen der gegebenenfalls in `mainFile` angegebenen.
+  Paper.properties.location.description: Sofern die Drucksache einen inhaltlichen Ortsbezug hat, beschreibt diese Eigenschaft den Ort in Textform und/oder in Form von Geodaten.
+  Paper.properties.originatorPerson.description: Urheber der Drucksache, falls der Urheber eine Person ist. Es können auch mehrere Personen angegeben werden.
+  Paper.properties.underDirectionOf.description: Federführung. Amt oder Abteilung, für die Inhalte oder Beantwortung der Drucksache verantwortlich.
+  Paper.properties.originatorOrganization.description: Urheber der Drucksache, falls der Urheber eine Gruppierung ist. Es können auch mehrere Gruppierungen angegeben werden.
+  Paper.properties.consultation.description: Beratungen der Drucksache.

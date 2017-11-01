@@ -1,6 +1,6 @@
 {
     "title": "System",
-    "description": "Ein `oparl:System`-Objekt repräsentiert eine OParl-Schnittstelle für eine bestimmte OParl-Version. Es ist außerdem der Startpunkt für Clients beim Zugriff auf einen Server.\n\nMöchte ein Server mehrere zueinander inkompatible OParl-Versionen unterstützen, dann **muss** der Server für jede Version eine eigenen OParl-Schnittstelle mit einem eigenen `System`-Objekt ausgeben.",
+    "description": "{{ System.description }}",
     "type": "object",
     "required": [
         "id",
@@ -19,11 +19,11 @@
         },
         "oparlVersion": {
             "type": "string",
-            "pattern": "^https\\:\\/\\/schema\\.oparl\\.org\/1\\.(0|1)\\/$",
-            "description": "Die URL der OParl-Spezifikation, die von diesem Server unterstützt wird. Aktuell kommt hier nur ein Wert in Frage. Mit zukünftigen OParl-Versionen kommen weitere mögliche URLs hinzu. Wert: `https://schema.oparl.org/1.1/`"
+            "pattern": "^https\\:\\/\\/schema\\.oparl\\.org/1\\.(0|1)\\/$",
+            "description": "{{ System.properties.oparlVersion.description }}"
         },
         "otherOparlVersions": {
-            "description": "Dient der Angabe von System-Objekten mit anderen OParl-Versionen.",
+            "description": "{{ System.properties.otherOparlVersions.description }}",
             "references": "System",
             "items": {
                 "type": "string",
@@ -32,12 +32,12 @@
             "type": "array"
         },
         "license": {
-            "description": "Lizenz, unter der durch diese API abrufbaren Daten stehen, sofern nicht am einzelnen Objekt anders angegeben. Siehe [`license`](#eigenschaft_license).",
+            "description": "{{ System.properties.license.description }}",
             "type": "string",
             "format": "url"
         },
         "body": {
-            "description": "Link zur [Objektliste](#objektlisten) mit allen Körperschaften, die auf dem System existieren.",
+            "description": "{{ System.properties.body.description }}",
             "type": "string",
             "format": "url",
             "references": "externalList",
@@ -47,29 +47,29 @@
             }
         },
         "name": {
-            "description": "Nutzerfreundlicher Name für das System, mit dessen Hilfe Nutzerinnen und Nutzer das System erkennen und von anderen unterscheiden können. Falls ein System nur einen `oparl:Body` enthält, SOLLTE der Name des Systems dem Name des Body entsprechen.",
+            "description": "{{ System.properties.name.description }}",
             "type": "string"
         },
         "contactEmail": {
-            "description": "E-Mail-Adresse für Anfragen zur OParl-API. Die Angabe einer E-Mail-Adresse dient sowohl NutzerInnen wie auch Entwicklerinnen von Clients zur Kontaktaufnahme mit dem Betreiber.",
+            "description": "{{ System.properties.contactEmail.description }}",
             "type": "string"
         },
         "contactName": {
-            "description": "Name der Ansprechpartnerin bzw. des Ansprechpartners oder der Abteilung, die über die in `contactEmail` angegebene Adresse erreicht werden kann.",
+            "description": "{{ System.properties.contactName.description }}",
             "type": "string"
         },
         "website": {
-            "description": "URL der Website des parlamentarischen Informationssystems",
+            "description": "{{ System.properties.website.description }}",
             "type": "string",
             "format": "url"
         },
         "vendor": {
-            "description": "URL der Website des Softwareanbieters, von dem die OParl-Server-Software stammt.",
+            "description": "{{ System.properties.vendor.description }}",
             "type": "string",
             "format": "url"
         },
         "product": {
-            "description": "URL zu Informationen über die auf dem System genutzte OParl-Server-Software",
+            "description": "{{ System.properties.product.description }}",
             "type": "string",
             "format": "url"
         },

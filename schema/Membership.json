@@ -1,6 +1,6 @@
 {
     "title": "Membership",
-    "description": "Über Objekte diesen Typs wird die Mitgliedschaft von Personen in Gruppierungen dargestellt. Diese Mitgliedschaften können zeitlich begrenzt sein. Zudem kann abgebildet werden, dass eine Person eine bestimmte Rolle bzw. Position innerhalb der Gruppierung inne hat, beispielsweise den Vorsitz einer Fraktion.",
+    "description": "{{ Membership.description }}",
     "type": "object",
     "required": [
         "id",
@@ -18,36 +18,36 @@
         "person": {
             "type": "string",
             "format": "url",
-            "description": "Rückreferenz auf Person, welches nur dann ausgegeben werden muss, wenn das Membership-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.",
+            "description": "{{ Membership.properties.person.description }}",
             "references": "Person"
         },
         "organization": {
-            "description": "Die Gruppierung, in der die Person Mitglied ist oder war.",
+            "description": "{{ Membership.properties.organization.description }}",
             "references": "Organization",
             "cardinality": "n:1",
             "type": "string",
             "format": "url"
         },
         "role": {
-            "description": "Rolle der Person für die Gruppierung. Kann genutzt werden, um verschiedene Arten von Mitgliedschaften zum Beispiel in Gremien zu unterscheiden.",
+            "description": "{{ Membership.properties.role.description }}",
             "type": "string"
         },
         "votingRight": {
-            "description": "Gibt an, ob die Person in der Gruppierung stimmberechtigtes Mitglied ist.",
+            "description": "{{ Membership.properties.votingRight.description }}",
             "type": "boolean"
         },
         "startDate": {
-            "description": "Datum, an dem die Mitgliedschaft beginnt.",
+            "description": "{{ Membership.properties.startDate.description }}",
             "type": "string",
             "format": "date"
         },
         "endDate": {
-            "description": "Datum, an dem die Mitgliedschaft endet.",
+            "description": "{{ Membership.properties.endDate.description }}",
             "type": "string",
             "format": "date"
         },
         "onBehalfOf": {
-            "description": "Die Gruppierung, für die die Person in der unter `organization` angegebenen Organisation sitzt. Beispiel: Mitgliedschaft als Vertreter einer Ratsfraktion, einer Gruppierung oder einer externen Organisation.",
+            "description": "{{ Membership.properties.onBehalfOf.description }}",
             "references": "Organization",
             "cardinality": "n:1",
             "type": "string",

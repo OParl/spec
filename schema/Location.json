@@ -1,6 +1,6 @@
 {
     "title": "Location",
-    "description": "Dieser Objekttyp dient dazu, einen Ortsbezug formal abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen (beispielsweise dem Namen einer Straße/eines Platzes oder eine genaue Adresse) als auch aus Geodaten. Ortsangaben sind auch nicht auf einzelne Positionen beschränkt, sondern können eine Vielzahl von Positionen, Flächen, Strecken etc. abdecken.",
+    "description": "{{ Location.description }}",
     "type": "object",
     "required": [
         "id",
@@ -16,35 +16,35 @@
             "pattern": "^https\\:\\/\\/schema\\.oparl\\.org\\/1\\.1\\/Location$"
         },
         "description": {
-            "description": "Textuelle Beschreibung eines Orts, z. B. in Form einer Adresse.",
+            "description": "{{ Location.properties.description.description }}",
             "type": "string"
         },
         "geojson": {
-            "description": "Geodaten-Repräsentation des Orts. Der Wert dieser Eigenschaft **muss** der Spezifikation von GeoJSON entsprechen, d.h. es **muss** ein vollständiges `Feature`-Objekt ausgegeben werden.",
+            "description": "{{ Location.properties.geojson.description }}",
             "type": "object"
         },
         "streetAddress": {
-            "description": "Straße und Hausnummer der Anschrift.",
+            "description": "{{ Location.properties.streetAddress.description }}",
             "type": "string"
         },
         "room": {
-            "description": "Raumangabe der Anschrift",
+            "description": "{{ Location.properties.room.description }}",
             "type": "string"
         },
         "postalCode": {
-            "description": "Postleitzahl der Anschrift.",
+            "description": "{{ Location.properties.postalCode.description }}",
             "type": "string"
         },
         "subLocality": {
-            "description": "Untergeordnete Ortsangabe der Anschrift, z.B. Stadtbezirk, Ortsteil oder Dorf.",
+            "description": "{{ Location.properties.subLocality.description }}",
             "type": "string"
         },
         "locality": {
-            "description": "Ortsangabe der Anschrift.",
+            "description": "{{ Location.properties.locality.description }}",
             "type": "string"
         },
         "bodies": {
-            "description": "Rückreferenzen auf Body-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+            "description": "{{ Location.properties.bodies.description }}",
             "type": "array",
             "items": {
                 "type": "string",
@@ -53,7 +53,7 @@
             }
         },
         "organizations": {
-            "description": "Rückreferenzen auf Organization-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+            "description": "{{ Location.properties.organizations.description }}",
             "type": "array",
             "items": {
                 "type": "string",
@@ -62,7 +62,7 @@
             }
         },
         "persons": {
-            "description": "Rückreferenzen auf Person-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+            "description": "{{ Location.properties.person.description }}",
             "type": "array",
             "items": {
                 "type": "string",
@@ -71,7 +71,7 @@
             }
         },
         "meetings": {
-            "description": "Rückreferenzen auf Meeting-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+            "description": "{{ Location.properties.meetings.description }}",
             "type": "array",
             "items": {
                 "type": "string",
@@ -80,7 +80,7 @@
             }
         },
         "papers": {
-            "description": "Rückreferenzen auf Paper-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+            "description": "{{ Location.properties.papers.description }}",
             "type": "array",
             "items": {
                 "type": "string",

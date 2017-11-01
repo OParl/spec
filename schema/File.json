@@ -1,6 +1,6 @@
 {
     "title": "File",
-    "description": "Ein Objekt vom Typ `oparl:File` repräsentiert eine Datei, beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokument, und hält Metadaten zu der Datei sowie URLs zum Zugriff auf  die Datei bereit.\n\nObjekte vom Typ `oparl:File` können unter anderem mit Drucksachen (`oparl:Paper`) oder Sitzungen (`oparl:Meeting`) in Beziehung stehen. Dies wird durch  die Eigenschaft `paper` bzw. `meeting` angezeigt.\n\nMehrere Objekte vom Typ `oparl:File` können mit einander in direkter Beziehung stehen, z.B. wenn sie den selben Inhalt in unterschiedlichen technischen Formaten wiedergeben. Hierfür werden die Eigenschaften `masterFile` bzw. `derivativeFile` eingesetzt. Das sgezeigte Beispiel-Objekt repräsentiert eine PDF-Datei (zu erkennen an der Eigenschaft `mimeType`) und zeigt außerdem über die Eigenschaft  `masterFile` an, von welcher anderen Datei es abgeleitet wurde. Umgekehrt **kann** über die Eigenschaft `derivativeFile` angezeigt werden, welche Ableitungen einer Datei existieren.",
+    "description": "{{ File.description }}",
     "type": "object",
     "required": [
         "id",
@@ -17,55 +17,55 @@
             "pattern": "^https\\:\\/\\/schema\\.oparl\\.org\\/1\\.1\\/File$"
         },
         "name": {
-            "description": "Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt. Leerzeichen **dürfen** enthalten sein, Datei-Endungen wie \".pdf\" **sollten nicht** enthalten sein.",
+            "description": "{{ File.properties.name.description }}",
             "type": "string"
         },
         "fileName": {
-            "description": "Dateiname, unter dem die Datei in einem Dateisystem gespeichert werden kann. Beispiel: \"einedatei.pdf\". Da der Name den kompletten Unicode-Zeichenumfang nutzen kann, **sollten** Clients ggfs. selbst dafür sorgen, diesen beim Speichern in ein Dateisystem den lokalen Erfordernissen anzupassen.",
+            "description": "{{ File.properties.fileName.description }}",
             "type": "string"
         },
         "mimeType": {
-            "description": "MIME-Type der Datei ^[vgl. RFC2046: <http://tools.ietf.org/html/rfc2046>].",
+            "description": "{{ File.properties.mimeType.description }}",
             "type": "string"
         },
         "date": {
-            "description": "Datum, welches als Startpunkt für Fristen u.ä. verwendet ist.",
+            "description": "{{ File.properties.date.description }}",
             "type": "string",
             "format": "date"
         },
         "size": {
-            "description": "Größe der Datei in Bytes.",
+            "description": "{{ File.properties.size.description }}",
             "type": "integer"
         },
         "sha1Checksum": {
-            "description": "[Veraltet] SHA1-Prüfsumme des Dateiinhalts in Hexadezimal-Schreibweise. Sollte nicht mehr verwendet werden, da sha1 als unsicher gilt. Stattdessen sollte `sha512checksum` verwendet werden.",
+            "description": "{{ File.properties.sha1Checksum.description }}",
             "type": "string"
         },
         "sha512Checksum": {
-            "description": "SHA512-Prüfsumme des Dateiinhalts in Hexadezimal-Schreibweise.",
+            "description": "{{ File.properties.sha512Checksum.description }}",
             "type": "string"
         },
         "text": {
-            "description": "Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform wiedergegeben werden kann.",
+            "description": "{{ File.properties.text.description }}",
             "type": "string"
         },
         "accessUrl": {
-            "description": "URL zum allgemeinen Zugriff auf die Datei. Näheres unter [Dateizugriffe](#dateizugriff).",
+            "description": "{{ File.properties.accessUrl.description }}",
             "type": "string",
             "format": "url"
         },
         "downloadUrl": {
-            "description": "URL zum Download der Datei. Näheres unter [Dateizugriffe](#dateizugriff).",
+            "description": "{{ File.properties.downloadUrl.description }}",
             "type": "string",
             "format": "url"
         },
         "externalServiceUrl": {
-            "description": "Externe URL, welche eine zusätzliche Zugriffsmöglichkeit bietet. Beispiel: YouTube-Video.",
+            "description": "{{ File.properties.externalServiceUrl.description }}",
             "type": "string",
             "format": "url"
         },
         "masterFile": {
-            "description": "Datei, von der das aktuelle Objekt abgeleitet wurde. Details dazu in der allgemeinen Beschreibung weiter oben.",
+            "description": "{{ File.properties.masterFile.description }}",
             "references": "File",
             "backreference": "derivativeFile",
             "cardinality": "n:1",
@@ -73,7 +73,7 @@
             "format": "url"
         },
         "derivativeFile": {
-            "description": "Dateien, die von dem aktuellen Objekt abgeleitet wurden. Details dazu in der allgemeinen Beschreibung weiter oben.",
+            "description": "{{ File.properties.derivativeFile.description }}",
             "references": "File",
             "backreference": "masterFile",
             "cardinality": "1:n",
@@ -84,12 +84,12 @@
             }
         },
         "fileLicense": {
-            "description": "Lizenz, unter der die Datei angeboten wird. Wenn diese Eigenschaft nicht verwendet wird, ist der Wert von `license` beziehungsweise die Lizenz eines übergeordneten Objektes maßgeblich. Siehe [license](#eigenschaft_license)",
+            "description": "{{ File.properties.fileLicense.description }}",
             "type": "string",
             "format": "url"
         },
         "meeting": {
-            "description": "Rückreferenzen auf Meeting-Objekte. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+            "description": "{{ File.properties.meeting.description }}",
             "type": "array",
             "references": "Meeting",
             "items": {
@@ -98,7 +98,7 @@
             }
         },
         "agendaItem": {
-            "description": "Rückreferenzen auf AgendaItem-Objekte. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+            "description": "{{ File.properties.agendaItem.description }}",
             "type": "array",
             "references": "AgendaItem",
             "items": {
@@ -107,7 +107,7 @@
             }
         },
         "paper": {
-            "description": "Rückreferenzen auf Paper-Objekte. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.",
+            "description": "{{ File.properties.paper.description }}",
             "type": "array",
             "references": "Paper",
             "items": {

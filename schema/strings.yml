@@ -7,7 +7,10 @@ de:
     Die Beziehung zwischen einem Tagesordnungspunkt und einer Drucksache wird
     über ein Objekt vom Typ `oparl:Consultation` hergestellt, das über die
     Eigenschaft `consultation` referenziert werden kann.
-  AgendaItem.properties.meeting.description: Rückreferenz auf das Meeting, welches nur dann ausgegeben werden muss, wenn das agendaItem-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.
+  AgendaItem.properties.meeting.description: |
+    Rückreferenz auf das Meeting, welches nur dann ausgegeben werden muss,
+    wenn das agendaItem-Objekt einzeln abgerufen wird, d.h. nicht Teil einer
+    internen Ausgabe ist.
   AgendaItem.properties.number.description: Gliederungs-"Nummer" des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z. B. "10.", "10.1", "C", "c)" o. ä. Die Reihenfolge wird nicht dadurch, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting` festgelegt, **sollte** allerdings zu dieser identisch sein.
   AgendaItem.properties.name.description: Das Thema des Tagesordnungspunktes.
   AgendaItem.properties.public.description: Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher Sitzung vorgesehen ist/war. Es wird ein Wahrheitswert (`true` oder `false`) erwartet.
@@ -86,16 +89,29 @@ de:
   Consultation.properties.role.description: Rolle oder Funktion der Beratung. Zum Beispiel Anhörung, Entscheidung, Kenntnisnahme, Vorberatung usw.
   Location.description: Dieser Objekttyp dient dazu, einen Ortsbezug formal abzubilden. Ortsangaben können sowohl aus Textinformationen bestehen (beispielsweise dem Namen einer Straße/eines Platzes oder eine genaue Adresse) als auch aus Geodaten. Ortsangaben sind auch nicht auf einzelne Positionen beschränkt, sondern können eine Vielzahl von Positionen, Flächen, Strecken etc. abdecken.
   Location.properties.description.description: Textuelle Beschreibung eines Orts, z. B. in Form einer Adresse.
-  Location.properties.geojson.description: Geodaten-Repräsentation des Orts. Der Wert dieser Eigenschaft **muss** der Spezifikation von GeoJSON entsprechen, d.h. es **muss** ein vollständiges `Feature`-Objekt ausgegeben werden.
+  Location.properties.geojson.description: |
+    Geodaten-Repräsentation des Orts. Der Wert dieser Eigenschaft **muss** der Spezifikation
+    von GeoJSON entsprechen, d.h. es **muss** ein vollständiges `Feature`-Objekt ausgegeben werden.
   Location.properties.streetAddress.description: Straße und Hausnummer der Anschrift.
   Location.properties.room.description: Raumangabe der Anschrift
   Location.properties.postalCode.description: Postleitzahl der Anschrift.
   Location.properties.subLocality.description: Untergeordnete Ortsangabe der Anschrift, z.B. Stadtbezirk, Ortsteil oder Dorf.
   Location.properties.locality.description: Ortsangabe der Anschrift.
-  Location.properties.bodies.description: Rückreferenzen auf Body-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.
-  Location.properties.organizations.description: Rückreferenzen auf Organization-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.
-  Location.properties.meetings.description: Rückreferenzen auf Meeting-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.
-  Location.properties.papers.description: Rückreferenzen auf Paper-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.
+  Location.properties.bodies.description: |
+    Rückreferenzen auf Body-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt
+    nicht als eingebettetes Objekt aufgerufen wird.
+  Location.properties.organizations.description: |
+    Rückreferenzen auf Organization-Objekte. Wird nur dann ausgegeben,
+    wenn das Location-Objekt nicht als eingebettetes Objekt aufgerufen wird.
+  Location.properties.meetings.description: |
+    Rückreferenzen auf Meeting-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt
+    nicht als eingebettetes Objekt aufgerufen wird.
+  Location.properties.papers.description: |
+    Rückreferenzen auf Paper-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt
+    nicht als eingebettetes Objekt aufgerufen wird.
+  Location.properties.persons.description: |
+    Rückreferenzen auf Person-Objekte. Wird nur dann ausgegeben, wenn das Location-Objekt
+    nicht als eingebettetes Objekt aufgerufen wird.
   Organization.description: Dieser Objekttyp dient dazu, Gruppierungen von Personen abzubilden, die in der parlamentarischen Arbeit eine Rolle spielen. Dazu zählen in der Praxis insbesondere Fraktionen und Gremien.
   Organization.properties.body.description: Körperschaft, zu der diese Gruppierung gehört.
   Organization.properties.name.description: Offizielle (lange) Form des Namens der Gruppierung.

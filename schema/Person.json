@@ -1,6 +1,6 @@
 {
     "title": "Person",
-    "description": "Jede natürliche Person, die in der parlamentarischen Arbeit tätig und insbesondere Mitglied in einer Gruppierung ([oparl:Organization](#oparl_organization)) ist, wird mit einem Objekt vom Typ `oparl:Person` abgebildet.",
+    "description": "{{ Person.description }}",
     "type": "object",
     "required": [
         "id",
@@ -16,7 +16,7 @@
             "pattern": "^https\\:\\/\\/schema\\.oparl\\.org\\/1\\.1\\/Person$"
         },
         "body": {
-            "description": "Körperschaft, zu der die Person gehört.",
+            "description": "{{ Person.properties.body.description }}",
             "references": "Body",
             "backreference": "person",
             "cardinality": "n:1",
@@ -24,64 +24,64 @@
             "format": "url"
         },
         "name": {
-            "description": "Der vollständige Name der Person mit akademischem Grad und dem gebräuchlichen Vornamen, wie er zur Anzeige durch den Client genutzt werden kann.",
+            "description": "{{ Person.properties.name.description }}",
             "type": "string"
         },
         "familyName": {
-            "description": "Familienname bzw. Nachname.",
+            "description": "{{ Person.properties.familyName.description }}",
             "type": "string"
         },
         "givenName": {
-            "description": "Vorname bzw. Taufname.",
+            "description": "{{ Person.properties.givenName.description }}",
             "type": "string"
         },
         "formOfAddress": {
-            "description": "Anrede.",
+            "description": "{{ Person.properties.formOfAddress.description }}",
             "type": "string"
         },
         "affix": {
-            "description": "Namenszusatz (z.B. `jun.` oder `MdL.`)",
+            "description": "{{ Person.properties.affix.description }}",
             "type": "string"
         },
         "title": {
-            "description": "Akademische Titel",
+            "description": "{{ Person.properties.title.description }}",
             "items": {
                 "type": "string"
             },
             "type": "array"
         },
         "gender": {
-            "description": "Geschlecht. Empfohlene Werte sind `female`, `male` und `other`. Für den Fall, dass das Geschlecht der Person unbekannt ist, **sollte** die Eigenschaft nicht ausgegeben werden.",
+            "description": "{{ Person.properties.gender.description }}",
             "type": "string"
         },
         "phone": {
-            "description": "Telefonnummern der Person.",
+            "description": "{{ Person.properties.phone.description }}",
             "items": {
                 "type": "string"
             },
             "type": "array"
         },
         "email": {
-            "description": "E-Mail-Adressen der Person.",
+            "description": "{{ Person.properties.email.description }}",
             "items": {
                 "type": "string"
             },
             "type": "array"
         },
         "location": {
-            "description": "Referenz der Kontakt-Anschrift der Person.",
-            "type": "object",
-            "schema": "Location.json"
+            "description": "{{ Person.properties.location.description }}",
+            "type": "string",
+            "format": "url"
         },
         "status": {
-            "description": "Status, d.h. Rollen in der Kommune.",
+            "description": "{{ Person.properties.status.description }}",
             "items": {
                 "type": "string"
             },
             "type": "array"
         },
         "membership": {
-            "description": "Mitgliedschaften der Person in Gruppierungen, z. B. Gremien und Fraktionen. Es **sollen** sowohl aktuelle als auch vergangene Mitgliedschaften angegeben werden",
+            "description": "{{ Person.properties.membership.description }}",
             "type": "array",
             "items": {
                 "type": "object",
@@ -89,11 +89,11 @@
             }
         },
         "life": {
-            "description": "Kurzer Informationstext zur Person. Eine Länge von weniger als 300 Zeichen ist **empfohlen**",
+            "description": "{{ Person.properties.life.description }}",
             "type": "string"
         },
         "lifeSource": {
-            "description": "Angabe der Quelle, aus der die Informationen für `life` stammen. Bei Angabe von `life` ist diese Eigenschaft **empfohlen**",
+            "description": "{{ Person.properties.lifeSource.description }}",
             "type": "string"
         },
         "license": {

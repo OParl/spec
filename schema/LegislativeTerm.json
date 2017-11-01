@@ -1,6 +1,6 @@
 {
     "title": "LegislativeTerm",
-    "description": "Dieser Objekttyp dient der Beschreibung einer Wahlperiode.",
+    "description": "{{ LegislativeTerm.description }}",
     "type": "object",
     "required": [
         "id",
@@ -18,20 +18,20 @@
         "body": {
             "type": "string",
             "format": "url",
-            "description": "Rückreferenz auf die Körperschaft, welche nur dann ausgegeben werden muss, wenn das LegislativeTerm-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.",
+            "description": "{{ LegislativeTerm.properties.body.description }}",
             "references": "Body"
         },
         "name": {
-            "description": "Nutzerfreundliche Bezeichnung der Wahlperiode.",
+            "description": "{{ LegislativeTerm.properties.name.description }}",
             "type": "string"
         },
         "startDate": {
-            "description": "Der erste Tag der Wahlperiode.",
+            "description": "{{ LegislativeTerm.properties.startDate.description }}",
             "type": "string",
             "format": "date"
         },
         "endDate": {
-            "description": "Der letzte Tag der Wahlperiode.",
+            "description": "{{ LegislativeTerm.properties.endDate.description }}",
             "type": "string",
             "format": "date"
         },

@@ -7,12 +7,7 @@ import sys
 import glob
 import collections
 import argparse
-
-parser = argparse.ArgumentParser()
-parser.add_argument("schema_folder")
-parser.add_argument("examples_folder")
-parser.add_argument("output_file")
-args = parser.parse_args()
+import yaml
 
 class OParl:
     # Default properties don't need a description
@@ -26,6 +21,7 @@ class OParl:
         "keyword",
         "web"
     ]
+
     objects = [
         "System",
         "Body",
@@ -156,20 +152,52 @@ def json_examples_to_md(name):
 
     return md
 
-def main():
+def localize_schema(language, translations_file, schema_file):
+    """
+    Replaces the handlebars/django style templates in the schema files with the translations stored in
+    `translations_file`. The keys used the templates resemble JSONPath
+    """
+    schema = schema_file.read()
+
+    with open(translations_file) as f:
+        translations = yaml.load(f)["de"]
+
+    for key in translations.keys():
+        pattern = "{{ " + key + " }}"  # Avoid mixing python's and our own template language
+        if schema.find(pattern):
+            translation = json.dumps(translations[key], ensure_ascii=False)[1:-1]
+            schema = schema.replace(pattern, translation)
+
+    return json.loads(schema, object_pairs_hook=collections.OrderedDict)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("schema_folder")
+    parser.add_argument("examples_folder")
+    parser.add_argument("output_file")
+    parser.add_argument("language")
+    parser.add_argument("language_file")
+
+    args = parser.parse_args()
+
     generated_schema = ""
 
     # Avoid missing objects
-    assert(len(OParl.objects) == len(os.listdir(args.schema_folder)))
+    # NOTE: the schema folder contains all schema files and the translations strings file
+    assert(len(OParl.objects) == len(os.listdir(args.schema_folder)) - 1)
 
     for obj in OParl.objects:
         filepath = os.path.join(args.schema_folder, obj + ".json")
         print("Processing " + filepath)
-        schema = schema_to_md_table(json.load(open(filepath, encoding='utf-8'), object_pairs_hook=collections.OrderedDict))
+
+        with open(filepath, encoding='utf-8') as file_handle:
+            schema_json = localize_schema(args.language, args.language_file, file_handle)
+
+        schema = schema_to_md_table(schema_json)
+
         generated_schema += schema
 
     with open(args.output_file, "w", encoding='utf-8') as out:
         out.write(generated_schema)
-
-if __name__ == "__main__":
-    main()

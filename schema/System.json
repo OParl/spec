@@ -47,7 +47,7 @@
             }
         },
         "name": {
-            "description": "Nutzerfreundlicher Name für das System, mit dessen Hilfe Nutzerinnen und Nutzer das System erkennen und von anderen unterscheiden können.",
+            "description": "Nutzerfreundlicher Name für das System, mit dessen Hilfe Nutzerinnen und Nutzer das System erkennen und von anderen unterscheiden können. Falls ein System nur einen `oparl:Body` enthält, SOLLTE der Name des Systems dem Name des Body entsprechen.",
             "type": "string"
         },
         "contactEmail": {

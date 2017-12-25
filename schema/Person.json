@@ -70,6 +70,14 @@
         },
         "location": {
             "description": "Referenz der Kontakt-Anschrift der Person.",
+            "references": "Location",
+            "backreference": "person",
+            "cardinality": "n:1",
+            "type": "string",
+            "format": "url"
+        },
+        "locationObject": {
+            "description": "Referenz der Kontakt-Anschrift der Person. Dies sollte die eigentlich Ausgabeform von `location` in OParl 1.0 werden, was jedoch auf Grund eines Fehler nicht geschehen ist. s. https://github.com/OParl/spec/issues/373. Neu in OParl 1.1",
             "type": "object",
             "schema": "Location.json"
         },

@@ -240,6 +240,6 @@ Einschränkung vom 1.1.2014 bis zum 31.1.2014 vornehmen:
 Die genannten URL-Parameter erwarten grundsätzlich eine vollständige [`date-time`-Angabe](#datum_zeit).
 
 Des Weiteren kann ein Client die Anzahl der Objekte pro Listenseite durch
-den URL-Parameter `elementsPerPage` begrenzen, der sich auf das gleichnamige
+den URL-Parameter `limit` begrenzen, der sich auf das gleichnamige
 Attribut bezieht. Ein Client **darf nicht** erwarten, dass sich ein Server an
-seine `elementsPerPage`-Anfrage hält.
+seine `limit`-Anfrage hält.

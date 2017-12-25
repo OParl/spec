@@ -186,7 +186,7 @@ Angabe dieser URL **zwingend**.
 
 - `last`: URL der letzten Listenseite
 
-- `web`: s. [web](#web)
+- `web`: s. [web](#web). Neu in OParl 1.1
 
 ~~~~~  {#paginierung_ex1 .json}
 {
@@ -221,7 +221,7 @@ reservierte Zeichen URL-Kodiert werden müssen. Ein Server muss diese Parameter
 bei allen externen Objektlisten unterstützen.
 
 Die Filter werden vom Client benutzt, indem die gewünschten URL-Parameter an
-die URL der ersten Listensiete angehängt werden. Bei allen weiteren Seiten hat
+die URL der ersten Listenseite angehängt werden. Bei allen weiteren Seiten hat
 der Server sicherzustellen, dass die verwendeten Filter erhalten bleiben.
 Lautet die URL für eine Liste von Drucksachen wie folgt:
 

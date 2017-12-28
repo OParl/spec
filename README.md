@@ -10,12 +10,6 @@ maschinenlesbaren Informationen aus Ratsinformationssystemen. Mehr über OParl:
 - Mehr über OParl:  [https://oparl.org][oparl]
 - Weitere Informationen für Entwickler: [https://dev.oparl.org][oparl-dev]
 
-## Änderungen an OParl vornehmen
-
-OParl wird hauptsächlich auf GitHub entwickelt. Hilfe im Umgang mit GitHub findest du [hier][github-help]. Änderungsvorschläge können über Pull Requests eingebracht werden.
-
-Weitere Hinweise zum Mitentwickeln finden sich [hier][building].
-
 ## Die Spezifikation in verschiedenen Formaten
 
 Es stehen Versionen des Dokuments in verschiedenen Formaten zur Verfügung:
@@ -37,6 +31,77 @@ Es stehen Versionen des Dokuments in verschiedenen Formaten zur Verfügung:
 * [Microsoft Word][spec-master-docx]
 * [EPub][spec-master-epub]
 * [Nur Text][spec-master-txt]
+
+
+## Änderungen an OParl vornehmen
+
+OParl wird hauptsächlich auf GitHub entwickelt. Hilfe im Umgang mit GitHub findest du [hier][github-help]. Änderungsvorschläge können über Pull Requests eingebracht werden.
+
+Die OParl-Spezifikation besteht aus verschiedenen Textdateien, die mit Hilfe verschiedener
+Software automatisiert zu fertigen Dokumenten in verschiedenen Formaten bearbeitet werden.
+
+## Genereller Aufbau des Repositories
+
+Die Dateien, aus denen die Spezifikation erstellt wird, sind auf mehrere Ordner aufgeteilt:
+
+ - `src/`:  Enthält den gesamten Fließtext als [Markdown](https://help.github.com/articles/markdown-basics/)-Dateien.
+ - `schema/`: Enthält das Datenmodell, d.h. den Aufbau der von OParl genutzten json-Objekte, als json-Dateien in einem
+ auf [JSON Schema](https://json-schema.org) aufbauenden Format.
+ - `examples/`: Die im Text eingebundenen Beispiele
+ - `scripts/`: Enthält Skripte, die u.a. die json-Dateien in Markdown umwandeln und die Beispiele validieren
+
+## Erstellen der Dokumente
+
+Es gibt zwei Möglichkeiten, die Dokumente zu erstellen: Direkt mit `build.py` oder über eine Docker-Container.
+
+### Mit `build.py`
+
+Im Allgemeinen sollte die OParl-Spezifikation mit jedem Betriebssystem erstellbar
+sein, auf dem folgende Software installiert ist:
+
+- [Pandoc](http://pandoc.org/)
+- [Graphviz](http://www.graphviz.org/)
+- [Python >= 3.5](https://www.python.org/)
+- [Ghostscript](https://www.ghostscript.com/)
+- [ImageMagick](https://www.imagemagick.org/script/index.php)
+- [GNU Make](https://www.gnu.org/software/make/)
+
+Zur Erstellung der Archive außerdem:
+
+- [GNU Tar](https://www.gnu.org/software/tar/)
+- [Zip]()
+
+Unter Ubuntu können alle benötigten Pakete mit einem Befehl installiert werden:
+
+```bash
+sudo apt install etoolbox ghostscript lmodern graphviz make pandoc pandoc-citeproc texlive-fonts-recommended \
+texlive-generic-recommended texlive-humanities texlive-lang-german texlive-latex-recommended texlive-luatex \
+texlive-xetex librsvg2-bin python3 python3-yaml
+```
+
+Das eigentliche Bauen der Dokumente ist dann nur noch ein einziger Befehl:
+
+```bash
+python3 build.py
+```
+
+Ein einzelnes Ausgabeformat kann mit `python3 build.py <format>` erstellt werden, mit `python3 build.py archives` können
+Archive der verschiedenen Ausgabeformate gepackt werden. Dazu müssen allerdings
+die enstprechenden Archivierungsprogramme vorhanden sein.
+
+Die fertigen Dokumente finden sich dann sich in `build/`.
+
+### Docker
+
+Für den geneigten Containerfreund findet sich in `resources/specbuilder` ein
+Dockerfile, welches auch mit `docker pull oparl/specbuilder` installiert werden kann.
+
+Gebaut wird die Spezifikation dann mit folgenden Befehl, wobei auch hier ein Ausgabeformat
+an den Aufruf von `python3 build.py` angehängt werden kann:
+
+```
+docker run -u $UID:$GID --rm -v $(pwd):$(pwd) -w $(pwd) oparl/specbuilder:latest make <format>
+```
 
 [oparl]: https://oparl.org/
 [oparl-dev]: https://dev.oparl.org/

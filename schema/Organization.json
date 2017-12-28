@@ -50,6 +50,18 @@
             "backreference": "organization",
             "cardinality": "n:m"
         },
+        "consultation": {
+            "description": "URL auf eine externe Objektliste mit den Beratungen dieser Gruppierung. Invers zur Eigenschaft `organization` der Klasse `oparl:Consultation`",
+            "type": "string",
+            "format": "url",
+            "references": "externalList",
+            "items": {
+                "type": "object",
+                "schema": "Consultation.json"
+            },
+            "backreference": "organization",
+            "cardinality": "n:m"
+        },
         "shortName": {
             "description": "Der Name der Gruppierung als Kurzform.",
             "type": "string"

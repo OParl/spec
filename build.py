@@ -130,7 +130,7 @@ def check_available_tools():
     return tools
 
 def prepare_builddir():
-    os.makedirs('build/images')
+    os.makedirs('build/src/images')
 
 def prepare_schema(language):
     pass
@@ -142,7 +142,7 @@ def prepare_markdown(language):
 
     files = glob(glob_pattern)
     for f in files:
-        copy2(f, 'build/')
+        copy2(f, 'build/src/')
 
 def prepare_images(tools):
     glob_pattern = 'src/images/*.*'
@@ -151,7 +151,7 @@ def prepare_images(tools):
     for f in files:
         convert_command = ''
         fname, fext = os.path.splitext(f)
-        fout = path.join('build', 'images', os.path.basename(fname)) + '.png'
+        fout = path.join('build', 'src', 'images', os.path.basename(fname)) + '.png'
 
         if fext == '.pdf':
             convert_command = '{} {} -sOutputFile={} -f {}'.format(
@@ -189,6 +189,48 @@ def action_clean():
     if path.isdir('build'):
         rmtree('build')
 
+def action_test():
+    pass
+
+def action_live():
+    pass
+
+def action_html():
+    pass
+
+def action_pdf():
+    pass
+
+def action_odt():
+    pass
+
+def action_txt():
+    pass
+
+def action_epub():
+    pass
+
+def action_all():
+    action_html()
+    action_pdf()
+    action_odt()
+    action_txt()
+    action_epub()
+
+def action_zip():
+    pass
+
+def action_gz():
+    pass
+
+def action_bz():
+    pass
+
+def action_archives():
+    action_zip()
+    action_gz()
+    action_bz()
+
 def main():
     options = configure_argument_parser().parse_args()
     action = check_build_action(options.action)
@@ -210,7 +252,8 @@ def main():
     prepare_images(tools)
 
     # pandoc all the things
-
+    action_function = 'action_{}()'.format(action)
+    eval(action_function)
 
 if __name__ == '__main__':
     main()

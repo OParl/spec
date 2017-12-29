@@ -99,8 +99,8 @@ def check_build_action(action):
     if len(action) == 0:
         return 'all'
 
-    if action in SPECIFICATION_BUILD_ACTIONS:
-        return action
+    if action[0] in SPECIFICATION_BUILD_ACTIONS:
+        return action[0]
 
     raise Exception('Unknown build action: {}, choose one of: {}'.format(action, ', '.join(SPECIFICATION_BUILD_ACTIONS)))
 
@@ -204,6 +204,9 @@ def prepare_images(tools):
 
 def run_pandoc(pandoc_bin, filename_base, output_format, extra_args='', extra_files=''):
     output_file = 'build/{}/{}.{}'.format(filename_base, filename_base, output_format)
+    if path.exists(output_file):
+        return
+
     def sortKeyFilename(file):
         return path.basename(file)
 
@@ -229,8 +232,7 @@ def run_pandoc(pandoc_bin, filename_base, output_format, extra_args='', extra_fi
 
 
 def action_clean():
-    if path.isdir('build'):
-        rmtree('build')
+    subprocess.run(['rm', '-rf', 'build'])
 
 def action_test():
     # TODO: validate.py appears to be broken
@@ -270,12 +272,18 @@ def action_all(tools, options, filename_base):
 
 def action_zip(tools, options, filename_base):
     action_all(tools, options, filename_base)
+    archive_name = '{}.zip'.format(filename_base)
+    subprocess.run(['zip', '-qr', archive_name, filename_base], cwd='build')
 
 def action_gz(tools, options, filename_base):
     action_all(tools, options, filename_base)
+    archive_name = '{}.tar.gz'.format(filename_base)
+    subprocess.run(['tar', '-czf', archive_name, filename_base], cwd='build')
 
 def action_bz(tools, options, filename_base):
     action_all(tools, options, filename_base)
+    archive_name = '{}.tar.bz2'.format(filename_base)
+    subprocess.run(['tar', '-cjf', archive_name, filename_base], cwd='build')
 
 def action_archives(tools, options, filename_base):
     action_zip(tools, options, filename_base)

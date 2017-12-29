@@ -17,6 +17,7 @@ SPECIFICATION_BUILD_ACTIONS = [
     'html',
     'pdf',
     'odt',
+    'docx',
     'txt',
     'epub',
     'archives',
@@ -203,7 +204,11 @@ def prepare_images(tools):
 
 def run_pandoc(pandoc_bin, filename_base, output_format, extra_args='', extra_files=''):
     output_file = 'build/{}/{}.{}'.format(filename_base, filename_base, output_format)
+    def sortKeyFilename(file):
+        return path.basename(file)
+
     source_files = glob('build/src/*.md')
+    source_files.sort(key=sortKeyFilename)
 
     pandoc_command = '{} {} {} --resource-path=.:build/src -o {} {} {}'.format(
         pandoc_bin,
@@ -232,7 +237,8 @@ def action_test():
     pass
 
 def action_live(tools, options, filename_base):
-    pass
+    args = '--to html5 --section-divs --no-highlight'
+    run_pandoc(tools['pandoc'], filename_base, 'html', extra_args=args, extra_files='resources/lizenz-als-bild.md')
 
 def action_html(tools, options, filename_base):
     args = '--to html5 --css {} --section-divs --self-contained'.format(options.html_style)
@@ -243,18 +249,22 @@ def action_pdf(tools, options, filename_base):
     run_pandoc(tools['pandoc'], filename_base, 'pdf', extra_args=args)
 
 def action_odt(tools, options, filename_base):
-    pass
+    run_pandoc(tools['pandoc'], filename_base, 'odt', extra_files='resources/lizenz-als-text.md')
+
+def action_docx(tools, options, filename_base):
+    run_pandoc(tools['pandoc'], filename_base, 'docx', extra_files='resources/lizenz-als-text.md')
 
 def action_txt(tools, options, filename_base):
-    pass
+    run_pandoc(tools['pandoc'], filename_base, 'txt')
 
 def action_epub(tools, options, filename_base):
-    pass
+    run_pandoc(tools['pandoc'], filename_base, 'epub')
 
 def action_all(tools, options, filename_base):
     action_html(tools, options, filename_base)
     action_pdf(tools, options, filename_base)
     action_odt(tools, options, filename_base)
+    action_docx(tools, options, filename_base)
     action_txt(tools, options, filename_base)
     action_epub(tools, options, filename_base)
 

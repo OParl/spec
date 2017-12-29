@@ -90,7 +90,7 @@ def type_to_string(prop):
 
     return type
 
-def schema_to_md_table(schema):
+def schema_to_md_table(schema, examples_folder):
     # Formatting
     propspace = 30
     typespace = 45
@@ -129,15 +129,16 @@ def schema_to_md_table(schema):
     # End of Table
     md += "-" * (propspace + typespace + descspace) + "\n\n"
 
-    md += json_examples_to_md(schema["title"])
+    md += json_examples_to_md(examples_folder, schema["title"])
     return md
 
 
-def json_examples_to_md(name):
+def json_examples_to_md(examples_folder, name):
     md = ""
-    filepath = os.path.join(args.examples_folder, name)
+    filepath = os.path.join(examples_folder, name)
     examples = glob.glob(filepath + "-[0-9][0-9].json")
     for nr, examplepath in enumerate(examples):
+        # TODO: localize examples
         if len(examples) == 1:
             md += "**Beispiel**\n\n"
         else:
@@ -170,6 +171,25 @@ def localize_schema(language, translations_file, schema_file):
 
     return json.loads(schema, object_pairs_hook=collections.OrderedDict)
 
+def schema_to_markdown(schema_folder, examples_folder, output_file, language, language_file):
+    # Avoid missing objects
+    # NOTE: the schema folder contains all schema files and the translations strings file
+    assert(len(OParl.objects) == len(os.listdir(schema_folder)) - 1)
+
+    generated_schema = ""
+
+    for obj in OParl.objects:
+        filepath = os.path.join(schema_folder, obj + ".json")
+
+        with open(filepath, encoding='utf-8') as file_handle:
+            schema_json = localize_schema(language, language_file, file_handle)
+
+        schema = schema_to_md_table(schema_json, examples_folder)
+
+        generated_schema += schema
+
+    with open(output_file, "w", encoding='utf-8') as out:
+        out.write(generated_schema)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -182,22 +202,6 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    generated_schema = ""
+    schema_to_markdown(args.schema_folder, args.examples_folder, args.output_file, args.language, args.language_file)
 
-    # Avoid missing objects
-    # NOTE: the schema folder contains all schema files and the translations strings file
-    assert(len(OParl.objects) == len(os.listdir(args.schema_folder)) - 1)
 
-    for obj in OParl.objects:
-        filepath = os.path.join(args.schema_folder, obj + ".json")
-        print("Processing " + filepath)
-
-        with open(filepath, encoding='utf-8') as file_handle:
-            schema_json = localize_schema(args.language, args.language_file, file_handle)
-
-        schema = schema_to_md_table(schema_json)
-
-        generated_schema += schema
-
-    with open(args.output_file, "w", encoding='utf-8') as out:
-        out.write(generated_schema)

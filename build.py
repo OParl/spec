@@ -7,6 +7,7 @@ from os import path
 from shutil import copy2, rmtree
 from glob import glob
 import shlex
+from scripts.json_schema2markdown import schema_to_markdown
 
 SPECIFICATION_BUILD_ACTIONS = [
     'all',
@@ -133,7 +134,14 @@ def prepare_builddir():
     os.makedirs('build/src/images')
 
 def prepare_schema(language):
-    pass
+    language_file = 'schema/strings.yml'
+    if language != 'de':
+        language_file = 'locales/{}/schema/strings.yml'.format(language)
+
+    output_file = 'build/src/9-99-schema.md'
+
+    schema_to_markdown('schema', 'examples', output_file, language, language_file)
+
 
 def prepare_markdown(language):
     glob_pattern = 'src/*.md'
@@ -233,7 +241,7 @@ def action_archives():
 
 def main():
     options = configure_argument_parser().parse_args()
-    action = check_build_action(options.action)
+    action = check_build_action(options.action[0])
 
     if options.version == None:
         options.version = get_git_describe_version()

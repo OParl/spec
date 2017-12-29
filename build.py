@@ -95,6 +95,9 @@ def configure_argument_parser():
     return parser
 
 def check_build_action(action):
+    if len(action) == 0:
+        return 'all'
+
     if action in SPECIFICATION_BUILD_ACTIONS:
         return action
 
@@ -130,8 +133,12 @@ def check_available_tools():
 
     return tools
 
-def prepare_builddir():
+def get_filename_base(language, version):
+    return 'OParl-{}-{}'.format(version, language)
+
+def prepare_builddir(filename_base):
     os.makedirs('build/src/images')
+    os.makedirs('build/{}'.format(filename_base))
 
 def prepare_schema(language):
     language_file = 'schema/strings.yml'
@@ -141,7 +148,6 @@ def prepare_schema(language):
     output_file = 'build/src/9-99-schema.md'
 
     schema_to_markdown('schema', 'examples', output_file, language, language_file)
-
 
 def prepare_markdown(language):
     glob_pattern = 'src/*.md'
@@ -160,6 +166,8 @@ def prepare_images(tools):
         convert_command = ''
         fname, fext = os.path.splitext(f)
         fout = path.join('build', 'src', 'images', os.path.basename(fname)) + '.png'
+
+        copy2(f, fout)
 
         if fext == '.pdf':
             convert_command = '{} {} -sOutputFile={} -f {}'.format(
@@ -185,7 +193,7 @@ def prepare_images(tools):
 
         try:
             cmd = shlex.split(convert_command)
-            output = subprocess.run(cmd, check=True)
+            subprocess.run(cmd, check=True)
         except:
             raise Exception(
                 'Errored on image prep for {}, please check the command:\n{}'.format(
@@ -193,55 +201,80 @@ def prepare_images(tools):
                 )
             )
 
+def run_pandoc(pandoc_bin, filename_base, output_format, extra_args='', extra_files=''):
+    output_file = 'build/{}/{}.{}'.format(filename_base, filename_base, output_format)
+    source_files = glob('build/src/*.md')
+
+    pandoc_command = '{} {} {} --resource-path=.:build/src -o {} {} {}'.format(
+        pandoc_bin,
+        SPECIFICATION_BUILD_FLAGS['pandoc'],
+        extra_args,
+        output_file,
+        extra_files,
+        ' '.join(source_files)
+    )
+
+    try:
+        cmd = shlex.split(pandoc_command)
+        subprocess.run(cmd, check=True)
+    except:
+        raise Exception(
+            'Errored on pandoc: {}'.format(pandoc_command)
+        )
+
+
 def action_clean():
     if path.isdir('build'):
         rmtree('build')
 
 def action_test():
+    # TODO: validate.py appears to be broken
     pass
 
-def action_live():
+def action_live(tools, options, filename_base):
     pass
 
-def action_html():
+def action_html(tools, options, filename_base):
+    args = '--to html5 --css {} --section-divs --self-contained'.format(options.html_style)
+    run_pandoc(tools['pandoc'], filename_base, 'html', extra_args=args, extra_files='resources/lizenz-als-bild.md')
+
+def action_pdf(tools, options, filename_base):
+    args = '--pdf-engine=xelatex --template {}'.format(options.latex_template)
+    run_pandoc(tools['pandoc'], filename_base, 'pdf', extra_args=args)
+
+def action_odt(tools, options, filename_base):
     pass
 
-def action_pdf():
+def action_txt(tools, options, filename_base):
     pass
 
-def action_odt():
+def action_epub(tools, options, filename_base):
     pass
 
-def action_txt():
-    pass
+def action_all(tools, options, filename_base):
+    action_html(tools, options, filename_base)
+    action_pdf(tools, options, filename_base)
+    action_odt(tools, options, filename_base)
+    action_txt(tools, options, filename_base)
+    action_epub(tools, options, filename_base)
 
-def action_epub():
-    pass
+def action_zip(tools, options, filename_base):
+    action_all(tools, options, filename_base)
 
-def action_all():
-    action_html()
-    action_pdf()
-    action_odt()
-    action_txt()
-    action_epub()
+def action_gz(tools, options, filename_base):
+    action_all(tools, options, filename_base)
 
-def action_zip():
-    pass
+def action_bz(tools, options, filename_base):
+    action_all(tools, options, filename_base)
 
-def action_gz():
-    pass
-
-def action_bz():
-    pass
-
-def action_archives():
-    action_zip()
-    action_gz()
-    action_bz()
+def action_archives(tools, options, filename_base):
+    action_zip(tools, options, filename_base)
+    action_gz(tools, options, filename_base)
+    action_bz(tools, options, filename_base)
 
 def main():
     options = configure_argument_parser().parse_args()
-    action = check_build_action(options.action[0])
+    action = check_build_action(options.action)
 
     if options.version == None:
         options.version = get_git_describe_version()
@@ -254,13 +287,14 @@ def main():
     if action == 'clean':
         exit(0)
 
-    prepare_builddir()
+    filename_base = get_filename_base(options.language, options.version)
+    prepare_builddir(filename_base)
     prepare_schema(options.language)
     prepare_markdown(options.language)
     prepare_images(tools)
 
     # pandoc all the things
-    action_function = 'action_{}()'.format(action)
+    action_function = 'action_{}(tools, options, filename_base)'.format(action)
     eval(action_function)
 
 if __name__ == '__main__':

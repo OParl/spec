@@ -44,9 +44,9 @@ Software automatisiert zu fertigen Dokumenten in verschiedenen Formaten bearbeit
 
 Die Dateien, aus denen die Spezifikation erstellt wird, sind auf mehrere Ordner aufgeteilt:
 
- - `src/`:  Enthält den gesamten Fließtext als [Markdown](https://help.github.com/articles/markdown-basics/)-Dateien.
+ - `src/`:  Enthält den gesamten Fließtext als [Markdown][markdown-help]-Dateien.
  - `schema/`: Enthält das Datenmodell, d.h. den Aufbau der von OParl genutzten json-Objekte, als json-Dateien in einem
- auf [JSON Schema](https://json-schema.org) aufbauenden Format.
+ auf [JSON Schema][json-schema] aufbauenden Format.
  - `examples/`: Die im Text eingebundenen Beispiele
  - `scripts/`: Enthält Skripte, die u.a. die json-Dateien in Markdown umwandeln und die Beispiele validieren
 
@@ -59,17 +59,16 @@ Es gibt zwei Möglichkeiten, die Dokumente zu erstellen: Direkt mit `build.py` o
 Im Allgemeinen sollte die OParl-Spezifikation mit jedem Betriebssystem erstellbar
 sein, auf dem folgende Software installiert ist:
 
-- [Pandoc](http://pandoc.org/)
-- [Graphviz](http://www.graphviz.org/)
-- [Python >= 3.5](https://www.python.org/)
-- [Ghostscript](https://www.ghostscript.com/)
-- [ImageMagick](https://www.imagemagick.org/script/index.php)
-- [GNU Make](https://www.gnu.org/software/make/)
+- [Pandoc][pandoc]
+- [Graphviz][graphviz]
+- [Python >= 3.5][python]
+- [Ghostscript][ghostscript]
+- [ImageMagick][imagemagick]
 
 Zur Erstellung der Archive außerdem:
 
-- [GNU Tar](https://www.gnu.org/software/tar/)
-- [Zip]()
+- [GNU Tar][tar]
+- [Zip][zip]
 
 Unter Ubuntu können alle benötigten Pakete mit einem Befehl installiert werden:
 
@@ -97,19 +96,26 @@ Für den geneigten Containerfreund findet sich in `resources/specbuilder` ein
 Dockerfile, welches auch mit `docker pull oparl/specbuilder` installiert werden kann.
 
 Gebaut wird die Spezifikation dann mit folgenden Befehl, wobei auch hier ein Ausgabeformat
-an den Aufruf von `python3 build.py` angehängt werden kann:
+an den Aufruf angehangen werden kann:
 
 ```
-docker run -u $UID:$GID --rm -v $(pwd):$(pwd) -w $(pwd) oparl/specbuilder:latest make <format>
+docker run -u $UID:$GID --rm -v $(pwd):$(pwd) -w $(pwd) oparl/specbuilder:latest <format>
 ```
 
 [oparl]: https://oparl.org/
 [oparl-dev]: https://dev.oparl.org/
 
-[travis]: https://travis-ci.org/OParl/spec/
-
+[ghostscript]: https://www.ghostscript.com/
 [github-help]: https://help.github.com/
-[building]: building.md
+[graphviz]: http://www.graphviz.org/
+[imagemagick]: https://www.imagemagick.org/script/index.php
+[json-schema]: https://json-schema.org/
+[markdown-help]: https://help.github.com/articles/markdown-basics/
+[pandoc]: http://pandoc.org/
+[python]: https://www.python.org/
+[tar]: https://www.gnu.org/software/tar/
+[travis]: https://travis-ci.org/OParl/spec/
+[zip]: http://www.info-zip.org/
 
 [spec-1-0-pdf]: https://dev.oparl.org/downloads/spezifikation-1.0.pdf
 [spec-1-0-html]: https://dev.oparl.org/downloads/spezifikation-1.0.html

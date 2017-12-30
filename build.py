@@ -89,7 +89,6 @@ def configure_argument_parser():
         'action',
         help='Build action to take, available actions are: {}'.format(', '.join(SPECIFICATION_BUILD_ACTIONS)),
         action='store',
-        default='all',
         nargs='*'
     )
 
@@ -202,6 +201,10 @@ def prepare_images(tools):
                 )
             )
 
+def get_pandoc_version(pandoc_bin):
+    version_tuple = subprocess.getoutput('{} --version'.format(pandoc_bin)).split('\n')[0].split(' ')[1].split('.')
+    return [int(v) for v in version_tuple]
+
 def run_pandoc(pandoc_bin, filename_base, output_format, extra_args='', extra_files=''):
     output_file = 'build/{}/{}.{}'.format(filename_base, filename_base, output_format)
     if path.exists(output_file):
@@ -213,7 +216,10 @@ def run_pandoc(pandoc_bin, filename_base, output_format, extra_args='', extra_fi
     source_files = glob('build/src/*.md')
     source_files.sort(key=sortKeyFilename)
 
-    pandoc_command = '{} {} {} --resource-path=.:build/src -o {} {} {}'.format(
+    # NOTE: Once we can safely assume pandoc 2.0, we can use resource-path
+    #       for neater include management in the markdown files
+    # pandoc_command = '{} {} {} --resource-path=.:build/src -o {} {} {}'.format(
+    pandoc_command = '{} {} {} -o {} {} {}'.format(
         pandoc_bin,
         SPECIFICATION_BUILD_FLAGS['pandoc'],
         extra_args,
@@ -247,7 +253,12 @@ def action_html(tools, options, filename_base):
     run_pandoc(tools['pandoc'], filename_base, 'html', extra_args=args, extra_files='resources/lizenz-als-bild.md')
 
 def action_pdf(tools, options, filename_base):
-    args = '--pdf-engine=xelatex --template {}'.format(options.latex_template)
+    args = '--pdf-engine=xelatex'
+    if get_pandoc_version(tools['pandoc'])[0] < 2:
+        args = '--latex-engine=xelatex'
+
+    args += ' --template {}'.format(options.latex_template)
+
     run_pandoc(tools['pandoc'], filename_base, 'pdf', extra_args=args)
 
 def action_odt(tools, options, filename_base):

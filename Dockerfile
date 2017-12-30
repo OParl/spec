@@ -25,11 +25,10 @@
 FROM debian:latest
 MAINTAINER Stefan Graupner <stefan.graupner@gmail.com>
 
-RUN apt update -y
-RUN apt upgrade -y
-
-# recommended packages for pandoc + basic pdf export
-RUN apt install --no-install-recommends -y \
+RUN apt update -y && \
+  apt upgrade -y && \
+  # recommended packages for pandoc + basic pdf export
+  apt install --no-install-recommends -y \
   etoolbox \
   ghostscript \
   lmodern \
@@ -43,7 +42,7 @@ RUN apt install --no-install-recommends -y \
   texlive-lang-german \
   texlive-latex-recommended \
   texlive-luatex \
-  texlive-xetex
-
-RUN apt -y install python3 imagemagick zip tar bzip2
+  texlive-xetex && \
+  apt -y install python3 imagemagick zip tar bzip2 && \
+  apt clean
 

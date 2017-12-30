@@ -1,12 +1,14 @@
+#!/usr/bin/env python3
 # This program is part of OParl and may be used to build the specification
 
-from argparse import ArgumentParser
-import subprocess
 import os
-from os import path
-from shutil import copy2, rmtree
-from glob import glob
 import shlex
+import subprocess
+from argparse import ArgumentParser
+from glob import glob
+from os import path
+from shutil import copy2
+
 from scripts.json_schema2markdown import schema_to_markdown
 
 SPECIFICATION_BUILD_ACTIONS = [
@@ -41,6 +43,7 @@ SPECIFICATION_BUILD_FLAGS = {
     'gs': '-dQUIET -dSAFER -dBATCH -dNOPAUSE -sDisplayHandle=0 -sDEVICE=png16m -r600 -dTextAlphaBits=4',
     'pandoc': '--from markdown --standalone --table-of-contents --toc-depth=2 --number-sections'
 }
+
 
 def configure_argument_parser():
     parser = ArgumentParser(
@@ -94,6 +97,7 @@ def configure_argument_parser():
 
     return parser
 
+
 def check_build_action(action):
     if len(action) == 0:
         return 'all'
@@ -101,14 +105,18 @@ def check_build_action(action):
     if action[0] in SPECIFICATION_BUILD_ACTIONS:
         return action[0]
 
-    raise Exception('Unknown build action: {}, choose one of: {}'.format(action, ', '.join(SPECIFICATION_BUILD_ACTIONS)))
+    raise Exception(
+        'Unknown build action: {}, choose one of: {}'.format(action, ', '.join(SPECIFICATION_BUILD_ACTIONS)))
+
 
 def get_git_describe_version():
     return subprocess.getoutput('git describe')
 
+
 def find_executable(program_name):
     # adapated from https://stackoverflow.com/a/377028/718752
     exec_path, exec_name = path.split(program_name)
+
     def is_executable(fpath):
         return path.isfile(fpath) and os.access(fpath, os.X_OK)
 
@@ -122,6 +130,7 @@ def find_executable(program_name):
 
     return None
 
+
 def check_available_tools():
     tools = {}
     for tool in SPECIFICATION_BUILD_TOOLS:
@@ -133,12 +142,15 @@ def check_available_tools():
 
     return tools
 
+
 def get_filename_base(language, version):
     return 'OParl-{}-{}'.format(version, language)
+
 
 def prepare_builddir(filename_base):
     os.makedirs('build/src/images')
     os.makedirs('build/{}'.format(filename_base))
+
 
 def prepare_schema(language):
     language_file = 'schema/strings.yml'
@@ -149,6 +161,7 @@ def prepare_schema(language):
 
     schema_to_markdown('schema', 'examples', output_file, language, language_file)
 
+
 def prepare_markdown(language):
     glob_pattern = 'src/*.md'
     if language != 'de':
@@ -157,6 +170,7 @@ def prepare_markdown(language):
     files = glob(glob_pattern)
     for f in files:
         copy2(f, 'build/src/')
+
 
 def prepare_images(tools):
     glob_pattern = 'src/images/*.*'
@@ -201,9 +215,11 @@ def prepare_images(tools):
                 )
             )
 
+
 def get_pandoc_version(pandoc_bin):
     version_tuple = subprocess.getoutput('{} --version'.format(pandoc_bin)).split('\n')[0].split(' ')[1].split('.')
     return [int(v) for v in version_tuple]
+
 
 def run_pandoc(pandoc_bin, filename_base, output_format, extra_args='', extra_files=''):
     output_file = 'build/{}/{}.{}'.format(filename_base, filename_base, output_format)
@@ -240,17 +256,21 @@ def run_pandoc(pandoc_bin, filename_base, output_format, extra_args='', extra_fi
 def action_clean():
     subprocess.run(['rm', '-rf', 'build'])
 
+
 def action_test():
     # TODO: validate.py appears to be broken
     pass
+
 
 def action_live(tools, options, filename_base):
     args = '--to html5 --section-divs --no-highlight'
     run_pandoc(tools['pandoc'], filename_base, 'html', extra_args=args, extra_files='resources/lizenz-als-bild.md')
 
+
 def action_html(tools, options, filename_base):
     args = '--to html5 --css {} --section-divs --self-contained'.format(options.html_style)
     run_pandoc(tools['pandoc'], filename_base, 'html', extra_args=args, extra_files='resources/lizenz-als-bild.md')
+
 
 def action_pdf(tools, options, filename_base):
     args = '--pdf-engine=xelatex'
@@ -261,17 +281,22 @@ def action_pdf(tools, options, filename_base):
 
     run_pandoc(tools['pandoc'], filename_base, 'pdf', extra_args=args)
 
+
 def action_odt(tools, options, filename_base):
     run_pandoc(tools['pandoc'], filename_base, 'odt', extra_files='resources/lizenz-als-text.md')
+
 
 def action_docx(tools, options, filename_base):
     run_pandoc(tools['pandoc'], filename_base, 'docx', extra_files='resources/lizenz-als-text.md')
 
+
 def action_txt(tools, options, filename_base):
     run_pandoc(tools['pandoc'], filename_base, 'txt')
 
+
 def action_epub(tools, options, filename_base):
     run_pandoc(tools['pandoc'], filename_base, 'epub')
+
 
 def action_all(tools, options, filename_base):
     action_html(tools, options, filename_base)
@@ -281,25 +306,30 @@ def action_all(tools, options, filename_base):
     action_txt(tools, options, filename_base)
     action_epub(tools, options, filename_base)
 
+
 def action_zip(tools, options, filename_base):
     action_all(tools, options, filename_base)
     archive_name = '{}.zip'.format(filename_base)
     subprocess.run(['zip', '-qr', archive_name, filename_base], cwd='build')
+
 
 def action_gz(tools, options, filename_base):
     action_all(tools, options, filename_base)
     archive_name = '{}.tar.gz'.format(filename_base)
     subprocess.run(['tar', '-czf', archive_name, filename_base], cwd='build')
 
+
 def action_bz(tools, options, filename_base):
     action_all(tools, options, filename_base)
     archive_name = '{}.tar.bz2'.format(filename_base)
     subprocess.run(['tar', '-cjf', archive_name, filename_base], cwd='build')
 
+
 def action_archives(tools, options, filename_base):
     action_zip(tools, options, filename_base)
     action_gz(tools, options, filename_base)
     action_bz(tools, options, filename_base)
+
 
 def main():
     options = configure_argument_parser().parse_args()
@@ -325,6 +355,7 @@ def main():
     # pandoc all the things
     action_function = 'action_{}(tools, options, filename_base)'.format(action)
     eval(action_function)
+
 
 if __name__ == '__main__':
     main()

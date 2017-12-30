@@ -1,10 +1,10 @@
 out/
 archives/
+build/
 
-*.komodoproject
-*.DS_Store
 ._*
 .cache
+__pycache__
 
 en/*-schema.md
 de/*-schema.md

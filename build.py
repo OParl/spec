@@ -3,11 +3,11 @@
 
 import os
 import shlex
+import shutil
 import subprocess
 from argparse import ArgumentParser
 from glob import glob
 from os import path
-from shutil import copy2
 
 from scripts.json_schema2markdown import schema_to_markdown
 
@@ -60,23 +60,19 @@ def configure_argument_parser():
         help='Specification language',
         default='de',
         action='store',
-        dest='language'
     )
 
     parser.add_argument(
         '--version',
         '-V',
-        help='Specification version descriptor',
+        help='This will be displayed as version in the specification. Defaults to `git desribe`',
         action='store',
-        # default: git-describe based version
-        dest='version'
     )
 
     parser.add_argument(
         '--latex-template',
         help='Change the latex template used for PDF generation',
         action='store',
-        dest='latex_template',
         default='resources/template.tex'
     )
 
@@ -84,7 +80,6 @@ def configure_argument_parser():
         '--html-style',
         help='Change the CSS file used for styling the HTML output',
         action='store',
-        dest='html_style',
         default='resources/html5.css'
     )
 
@@ -113,28 +108,10 @@ def get_git_describe_version():
     return subprocess.getoutput('git describe')
 
 
-def find_executable(program_name):
-    # adapated from https://stackoverflow.com/a/377028/718752
-    exec_path, exec_name = path.split(program_name)
-
-    def is_executable(fpath):
-        return path.isfile(fpath) and os.access(fpath, os.X_OK)
-
-    if exec_path and is_executable(exec_path):
-        return program_name
-    else:
-        for env_path in os.environ['PATH'].split(os.pathsep):
-            exec_file = path.join(env_path, program_name)
-            if is_executable(exec_file):
-                return exec_file
-
-    return None
-
-
 def check_available_tools():
     tools = {}
     for tool in SPECIFICATION_BUILD_TOOLS:
-        executable = find_executable(tool)
+        executable = shutil.which(tool)
         if executable:
             tools[tool] = executable
         else:
@@ -169,7 +146,7 @@ def prepare_markdown(language):
 
     files = glob(glob_pattern)
     for f in files:
-        copy2(f, 'build/src/')
+        shutil.copy2(f, 'build/src/')
 
 
 def prepare_images(tools):
@@ -179,9 +156,9 @@ def prepare_images(tools):
     for f in files:
         convert_command = ''
         fname, fext = os.path.splitext(f)
-        fout = path.join('build', 'src', 'images', os.path.basename(fname)) + '.png'
+        fout = path.join('build', 'src', 'images', os.path.basename(fname) + '.png')
 
-        copy2(f, fout)
+        shutil.copy2(f, fout)
 
         if fext == '.pdf':
             convert_command = '{} {} -sOutputFile={} -f {}'.format(
@@ -205,10 +182,10 @@ def prepare_images(tools):
                 fout
             )
 
+        cmd = shlex.split(convert_command)
         try:
-            cmd = shlex.split(convert_command)
             subprocess.run(cmd, check=True)
-        except:
+        except subprocess.CalledProcessError:
             raise Exception(
                 'Errored on image prep for {}, please check the command:\n{}'.format(
                     f, convert_command
@@ -226,11 +203,8 @@ def run_pandoc(pandoc_bin, filename_base, output_format, extra_args='', extra_fi
     if path.exists(output_file):
         return
 
-    def sortKeyFilename(file):
-        return path.basename(file)
-
     source_files = glob('build/src/*.md')
-    source_files.sort(key=sortKeyFilename)
+    source_files.sort(key=lambda file: path.basename(file))
 
     # NOTE: Once we can safely assume pandoc 2.0, we can use resource-path
     #       for neater include management in the markdown files
@@ -244,10 +218,10 @@ def run_pandoc(pandoc_bin, filename_base, output_format, extra_args='', extra_fi
         ' '.join(source_files)
     )
 
+    cmd = shlex.split(pandoc_command)
     try:
-        cmd = shlex.split(pandoc_command)
         subprocess.run(cmd, check=True)
-    except:
+    except subprocess.CalledProcessError:
         raise Exception(
             'Errored on pandoc: {}'.format(pandoc_command)
         )
@@ -335,7 +309,7 @@ def main():
     options = configure_argument_parser().parse_args()
     action = check_build_action(options.action)
 
-    if options.version == None:
+    if options.version is None:
         options.version = get_git_describe_version()
 
     tools = check_available_tools()

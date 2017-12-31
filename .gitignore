@@ -15,3 +15,5 @@ vendor/
 
 en/*-schema.md
 de/*-schema.md
+
+scripts/__pycache__

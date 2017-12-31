@@ -239,7 +239,7 @@ class Action:
         pass
 
     @staticmethod
-    def live(tools, options, filename_base):
+    def live(tools, _, filename_base):
         args = '--to html5 --section-divs --no-highlight'
         run_pandoc(tools['pandoc'], filename_base, 'html', extra_args=args, extra_files='resources/lizenz-als-bild.md')
 
@@ -259,19 +259,19 @@ class Action:
         run_pandoc(tools['pandoc'], filename_base, 'pdf', extra_args=args)
 
     @staticmethod
-    def odt(tools, options, filename_base):
+    def odt(tools, _, filename_base):
         run_pandoc(tools['pandoc'], filename_base, 'odt', extra_files='resources/lizenz-als-text.md')
 
     @staticmethod
-    def docx(tools, options, filename_base):
+    def docx(tools, _, filename_base):
         run_pandoc(tools['pandoc'], filename_base, 'docx', extra_files='resources/lizenz-als-text.md')
 
     @staticmethod
-    def txt(tools, options, filename_base):
+    def txt(tools, _, filename_base):
         run_pandoc(tools['pandoc'], filename_base, 'txt')
 
     @staticmethod
-    def epub(tools, options, filename_base):
+    def epub(tools, _, filename_base):
         run_pandoc(tools['pandoc'], filename_base, 'epub')
 
     @staticmethod

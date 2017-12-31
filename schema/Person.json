@@ -70,6 +70,14 @@
         },
         "location": {
             "description": "Referenz der Kontakt-Anschrift der Person.",
+            "references": "Location",
+            "backreference": "person",
+            "cardinality": "n:1",
+            "type": "string",
+            "format": "url"
+        },
+        "locationObject": {
+            "description": "Kontakt-Anschrift der Person. Wenn diese Eigenschaft ausgegeben wird, dann **muss** auch die Eigenschaft `location` ausgegeben werden und auf das gleiche Location-Objekt verweisen. Dies sollte die eigentliche Ausgabeform von `location` in OParl 1.0 werden, was jedoch auf Grund eines Fehlers nicht geschehen ist. s. https://github.com/OParl/spec/issues/373. Neu in OParl 1.1",
             "type": "object",
             "schema": "Location.json"
         },

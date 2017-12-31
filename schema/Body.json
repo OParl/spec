@@ -129,6 +129,46 @@
                 "schema": "LegislativeTerm.json"
             }
         },
+        "agendaItem": {
+            "description": "[Objektliste](#objektlisten) mit den Tagesordnungspunkten. Neu in OParl 1.1.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "schema": "AgendaItem.json"
+            }
+        },
+        "consultation": {
+            "description": "[Objektliste](#objektlisten) mit den Beratungen. Neu in OParl 1.1.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "schema": "Consultation.json"
+            }
+        },
+        "file": {
+            "description": "[Objektliste](#objektlisten) mit allen Dateien. Neu in OParl 1.1.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "schema": "File.json"
+            }
+        },
+        "location": {
+            "description": "[Objektliste](#objektlisten) mit allen Ortsangaben. Neu in OParl 1.1.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "schema": "Location.json"
+            }
+        },
+        "membership": {
+            "description": "[Objektliste](#objektlisten) mit allen Migliedschaften. Neu in OParl 1.1.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "schema": "Membership.json"
+            }
+        },
         "classification": {
             "description": "Art der Körperschaft.",
             "type": "string"

@@ -11,35 +11,66 @@ de:
     Rückreferenz auf das Meeting, welches nur dann ausgegeben werden muss,
     wenn das agendaItem-Objekt einzeln abgerufen wird, d.h. nicht Teil einer
     internen Ausgabe ist.
-  AgendaItem.properties.number.description: Gliederungs-"Nummer" des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z. B. "10.", "10.1", "C", "c)" o. ä. Die Reihenfolge wird nicht dadurch, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting` festgelegt, **sollte** allerdings zu dieser identisch sein.
+  AgendaItem.properties.number.description: |
+    Gliederungs-"Nummer" des Tagesordnungspunktes. Eine beliebige Zeichenkette,
+    wie z. B. "10.", "10.1", "C", "c)" o. ä. Die Reihenfolge wird nicht dadurch,
+    sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting`
+    festgelegt, **sollte** allerdings zu dieser identisch sein.
   AgendaItem.properties.name.description: Das Thema des Tagesordnungspunktes.
-  AgendaItem.properties.public.description: Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher Sitzung vorgesehen ist/war. Es wird ein Wahrheitswert (`true` oder `false`) erwartet.
+  AgendaItem.properties.public.description: |
+    Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher Sitzung
+    vorgesehen ist/war. Es wird ein Wahrheitswert (`true` oder `false`) erwartet.
   AgendaItem.properties.consultation.description: Beratung, die diesem Tagesordnungspunkt zugewiesen ist.
-  AgendaItem.properties.result.description: Kategorische Information darüber, welches Ergebnis die Beratung des Tagesordnungspunktes erbracht hat, in der Bedeutung etwa "Unverändert beschlossen" oder "Geändert beschlossen".
-  AgendaItem.properties.resolutionText.description: Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann hier ein Text angegeben werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag) von der Beschlussvorlage abweicht.
-  AgendaItem.properties.resolutionFile.description: Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann hier eine Datei angegeben werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag) von der Beschlussvorlage abweicht.
+  AgendaItem.properties.result.description: |
+    Kategorische Information darüber, welches Ergebnis die Beratung des
+    Tagesordnungspunktes erbracht hat, in der Bedeutung etwa "Unverändert
+    beschlossen" oder "Geändert beschlossen".
+  AgendaItem.properties.resolutionText.description: |
+    Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann hier ein
+    Text angegeben werden. Das ist besonders dann in der Praxis relevant, wenn der
+    gefasste Beschluss (z. B. durch Änderungsantrag) von der Beschlussvorlage abweicht.
+  AgendaItem.properties.resolutionFile.description: |
+    Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann hier eine
+    Datei angegeben werden. Das ist besonders dann in der Praxis relevant, wenn der
+    gefasste Beschluss (z. B. durch Änderungsantrag) von der Beschlussvorlage abweicht.
   AgendaItem.properties.auxiliaryFile.description: Weitere Dateianhänge zum Tagesordnungspunkt.
-  AgendaItem.properties.start.description: Datum und Uhrzeit des Anfangszeitpunkts des Tagesordnungspunktes. Bei zukünftigen Tagesordnungspunkten ist dies der geplante Zeitpunkt, bei einem stattgefundenen **kann** es der tatsächliche Startzeitpunkt sein.
-  AgendaItem.properties.end.description: Endzeitpunkt des Tagesordnungspunktes als Datum/Uhrzeit. Bei zukünftigen Tagesordnungspunkten ist dies der geplante Zeitpunkt, bei einer stattgefundenen **kann** es der tatsächliche Endzeitpunkt sein.
-  Person.description: Jede natürliche Person, die in der parlamentarischen Arbeit tätig und insbesondere Mitglied in einer Gruppierung ([oparl:Organization](#oparl_organization)) ist, wird mit einem Objekt vom Typ `oparl:Person` abgebildet.
+  AgendaItem.properties.start.description: |
+    Datum und Uhrzeit des Anfangszeitpunkts des Tagesordnungspunktes. Bei zukünftigen
+    Tagesordnungspunkten ist dies der geplante Zeitpunkt, bei einem stattgefundenen **kann**
+    es der tatsächliche Startzeitpunkt sein.
+  AgendaItem.properties.end.description: |
+    Endzeitpunkt des Tagesordnungspunktes als Datum/Uhrzeit. Bei zukünftigen
+    Tagesordnungspunkten ist dies der geplante Zeitpunkt, bei einer
+    stattgefundenen **kann** es der tatsächliche Endzeitpunkt sein.
+  Person.description: |
+    Jede natürliche Person, die in der parlamentarischen Arbeit tätig und insbesondere
+    Mitglied in einer Gruppierung ([oparl:Organization](#oparl_organization)) ist, wird
+    mit einem Objekt vom Typ `oparl:Person` abgebildet.
   Person.properties.body.description: Körperschaft, zu der die Person gehört.
-  Person.properties.name.description: Der vollständige Name der Person mit akademischem Grad und dem gebräuchlichen Vornamen, wie er zur Anzeige durch den Client genutzt werden kann.
+  Person.properties.name.description: |
+    Der vollständige Name der Person mit akademischem Grad und dem gebräuchlichen Vornamen,
+    wie er zur Anzeige durch den Client genutzt werden kann.
   Person.properties.familyName.description: Familienname bzw. Nachname.
   Person.properties.givenName.description: Vorname bzw. Taufname.
   Person.properties.formOfAddress.description: Anrede.
   Person.properties.affix.description: Namenszusatz (z.B. `jun.` oder `MdL.`)
   Person.properties.title.description: Akademische Titel
-  Person.properties.gender.description: Geschlecht. Empfohlene Werte sind `female`, `male` und `other`. Für den Fall, dass das Geschlecht der Person unbekannt ist, **sollte** die Eigenschaft nicht ausgegeben werden.
+  Person.properties.gender.description: |
+    Geschlecht. Empfohlene Werte sind `female`, `male` und `other`. Für den Fall, dass
+    das Geschlecht der Person unbekannt ist, **sollte** die Eigenschaft nicht ausgegeben werden.
   Person.properties.phone.description: Telefonnummern der Person.
   Person.properties.email.description: E-Mail-Adressen der Person.
   Person.properties.location.description: Referenz der Kontakt-Anschrift der Person.
   Person.properties.status.description: Status, d.h. Rollen in der Kommune.
-  Person.properties.membership.description: Mitgliedschaften der Person in Gruppierungen, z. B. Gremien und Fraktionen. Es **sollen** sowohl aktuelle als auch vergangene Mitgliedschaften angegeben werden
+  Person.properties.membership.description: |
+    Mitgliedschaften der Person in Gruppierungen, z. B. Gremien und Fraktionen. Es **sollen**
+    sowohl aktuelle als auch vergangene Mitgliedschaften angegeben werden
   Person.properties.life.description: Kurzer Informationstext zur Person. Eine Länge von weniger als 300 Zeichen ist **empfohlen**
   Person.properties.lifeSource.description: Angabe der Quelle, aus der die Informationen für `life` stammen. Bei Angabe von `life` ist diese Eigenschaft **empfohlen**
   File.description: |
     Ein Objekt vom Typ `oparl:File` repräsentiert eine Datei, beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokument,
     und hält Metadaten zu der Datei sowie URLs zum Zugriff auf  die Datei bereit.
+
     Objekte vom Typ `oparl:File` können unter anderem mit Drucksachen (`oparl:Paper`) oder Sitzungen (`oparl:Meeting`) in Beziehung stehen.
     Dies wird durch  die Eigenschaft `paper` bzw. `meeting` angezeigt. Mehrere Objekte vom Typ `oparl:File` können mit einander in direkter
     Beziehung stehen, z.B. wenn sie den selben Inhalt in unterschiedlichen technischen Formaten wiedergeben. Hierfür werden die
@@ -149,6 +180,7 @@ de:
   Membership.properties.onBehalfOf.description: "Die Gruppierung, für die die Person in der unter `organization` angegebenen Organisation sitzt. Beispiel: Mitgliedschaft als Vertreter einer Ratsfraktion, einer Gruppierung oder einer externen Organisation."
   Meeting.description: |
     Eine Sitzung ist die Versammlung einer oder mehrerer Gruppierungen (oparl:Organization) zu einem bestimmten Zeitpunkt an einem bestimmten Ort.
+
     Die geladenen Teilnehmer der Sitzung sind jeweils als Objekte vom Typ oparl:Person, die in entsprechender Form referenziert werden. Verschiedene Dateien (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.
     Die Inhalte einer Sitzung werden durch Tagesordnungspunkte (oparl:AgendaItem) abgebildet.
   Meeting.properties.name.description: Name der Sitzung.
@@ -166,6 +198,7 @@ de:
   Meeting.properties.agendaItem.description: Tagesordnungspunkte der Sitzung. Die Reihenfolge ist relevant. Es kann Sitzungen ohne TOPs geben.
   System.description: |
     Ein `oparl:System`-Objekt repräsentiert eine OParl-Schnittstelle für eine bestimmte OParl-Version. Es ist außerdem der Startpunkt für Clients beim Zugriff auf einen Server.
+
     Möchte ein Server mehrere zueinander inkompatible OParl-Versionen unterstützen, dann **muss** der Server für jede Version eine eigenen OParl-Schnittstelle mit einem eigenen `System`-Objekt ausgeben.
   System.properties.oparlVersion.description: "Die URL der OParl-Spezifikation, die von diesem Server unterstützt wird. Aktuell kommt hier nur ein Wert in Frage. Mit zukünftigen OParl-Versionen kommen weitere mögliche URLs hinzu. Wert: `https://schema.oparl.org/1.1/`"
   System.properties.otherOparlVersions.description: Dient der Angabe von System-Objekten mit anderen OParl-Versionen.
@@ -180,6 +213,7 @@ de:
   Paper.description: |
     Dieser Objekttyp dient der Abbildung von Drucksachen in der parlamentarischen Arbeit, wie zum Beispiel Anfragen, Anträgen und Beschlussvorlagen.
     Drucksachen werden in Form einer Beratung (oparl:Consultation) im Rahmen eines Tagesordnungspunkts (oparl:AgendaItem) einer Sitzung (oparl:Meeting) behandelt.
+
     Drucksachen spielen in der schriftlichen wie mündlichen Kommunikation eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in parlamentarischen Informationssystemen in der Regel unveränderliche Kennungen der Drucksachen zum Einsatz.
   Paper.properties.body.description: Körperschaft, zu der die Drucksache gehört.
   Paper.properties.name.description: Titel der Drucksache.

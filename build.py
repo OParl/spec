@@ -156,12 +156,12 @@ def prepare_images(tools):
     files = glob(glob_pattern)
     for f in files:
         convert_command = ''
-        fname, fext = os.path.splitext(f)
-        fout = path.join('build', 'src', 'images', os.path.basename(fname) + '.png')
+        filename, extension = os.path.splitext(f)
+        fout = path.join('build', 'src', 'images', os.path.basename(filename) + '.png')
 
         shutil.copy2(f, fout)
 
-        if fext == '.pdf':
+        if extension == '.pdf':
             convert_command = '{} {} -sOutputFile={} -f {}'.format(
                 tools['gs'],
                 SPECIFICATION_BUILD_FLAGS['gs'],
@@ -169,14 +169,14 @@ def prepare_images(tools):
                 f
             )
 
-        if fext == '.dot':
+        if extension == '.dot':
             convert_command = '{} -Tpng {} -o {}'.format(
                 tools['dot'],
                 f,
                 fout
             )
 
-        if fext == '.svg':
+        if extension == '.svg':
             convert_command = '{} {} {}'.format(
                 tools['convert'],
                 f,

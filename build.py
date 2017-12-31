@@ -228,82 +228,84 @@ def run_pandoc(pandoc_bin, filename_base, output_format, extra_args='', extra_fi
         )
 
 
-def action_clean():
-    shutil.rmtree('build', ignore_errors=True)
+class Action:
+    @staticmethod
+    def clean():
+        shutil.rmtree('build', ignore_errors=True)
 
+    @staticmethod
+    def test():
+        # TODO: validate.py appears to be broken
+        pass
 
-def action_test():
-    # TODO: validate.py appears to be broken
-    pass
+    @staticmethod
+    def live(tools, options, filename_base):
+        args = '--to html5 --section-divs --no-highlight'
+        run_pandoc(tools['pandoc'], filename_base, 'html', extra_args=args, extra_files='resources/lizenz-als-bild.md')
 
+    @staticmethod
+    def html(tools, options, filename_base):
+        args = '--to html5 --css {} --section-divs --self-contained'.format(options.html_style)
+        run_pandoc(tools['pandoc'], filename_base, 'html', extra_args=args, extra_files='resources/lizenz-als-bild.md')
 
-def action_live(tools, options, filename_base):
-    args = '--to html5 --section-divs --no-highlight'
-    run_pandoc(tools['pandoc'], filename_base, 'html', extra_args=args, extra_files='resources/lizenz-als-bild.md')
+    @staticmethod
+    def pdf(tools, options, filename_base):
+        args = '--pdf-engine=xelatex'
+        if get_pandoc_version(tools['pandoc'])[0] < 2:
+            args = '--latex-engine=xelatex'
 
+        args += ' --template {}'.format(options.latex_template)
 
-def action_html(tools, options, filename_base):
-    args = '--to html5 --css {} --section-divs --self-contained'.format(options.html_style)
-    run_pandoc(tools['pandoc'], filename_base, 'html', extra_args=args, extra_files='resources/lizenz-als-bild.md')
+        run_pandoc(tools['pandoc'], filename_base, 'pdf', extra_args=args)
 
+    @staticmethod
+    def odt(tools, options, filename_base):
+        run_pandoc(tools['pandoc'], filename_base, 'odt', extra_files='resources/lizenz-als-text.md')
 
-def action_pdf(tools, options, filename_base):
-    args = '--pdf-engine=xelatex'
-    if get_pandoc_version(tools['pandoc'])[0] < 2:
-        args = '--latex-engine=xelatex'
+    @staticmethod
+    def docx(tools, options, filename_base):
+        run_pandoc(tools['pandoc'], filename_base, 'docx', extra_files='resources/lizenz-als-text.md')
 
-    args += ' --template {}'.format(options.latex_template)
+    @staticmethod
+    def txt(tools, options, filename_base):
+        run_pandoc(tools['pandoc'], filename_base, 'txt')
 
-    run_pandoc(tools['pandoc'], filename_base, 'pdf', extra_args=args)
+    @staticmethod
+    def epub(tools, options, filename_base):
+        run_pandoc(tools['pandoc'], filename_base, 'epub')
 
+    @staticmethod
+    def all(tools, options, filename_base):
+        Action.html(tools, options, filename_base)
+        Action.pdf(tools, options, filename_base)
+        Action.odt(tools, options, filename_base)
+        Action.docx(tools, options, filename_base)
+        Action.txt(tools, options, filename_base)
+        Action.epub(tools, options, filename_base)
 
-def action_odt(tools, options, filename_base):
-    run_pandoc(tools['pandoc'], filename_base, 'odt', extra_files='resources/lizenz-als-text.md')
+    @staticmethod
+    def zip(tools, options, filename_base):
+        Action.all(tools, options, filename_base)
+        archive_name = '{}.zip'.format(filename_base)
+        subprocess.run(['zip', '-qr', archive_name, filename_base], cwd='build')
 
+    @staticmethod
+    def gz(tools, options, filename_base):
+        Action.all(tools, options, filename_base)
+        archive_name = '{}.tar.gz'.format(filename_base)
+        subprocess.run(['tar', '-czf', archive_name, filename_base], cwd='build')
 
-def action_docx(tools, options, filename_base):
-    run_pandoc(tools['pandoc'], filename_base, 'docx', extra_files='resources/lizenz-als-text.md')
+    @staticmethod
+    def bz(tools, options, filename_base):
+        Action.all(tools, options, filename_base)
+        archive_name = '{}.tar.bz2'.format(filename_base)
+        subprocess.run(['tar', '-cjf', archive_name, filename_base], cwd='build')
 
-
-def action_txt(tools, options, filename_base):
-    run_pandoc(tools['pandoc'], filename_base, 'txt')
-
-
-def action_epub(tools, options, filename_base):
-    run_pandoc(tools['pandoc'], filename_base, 'epub')
-
-
-def action_all(tools, options, filename_base):
-    action_html(tools, options, filename_base)
-    action_pdf(tools, options, filename_base)
-    action_odt(tools, options, filename_base)
-    action_docx(tools, options, filename_base)
-    action_txt(tools, options, filename_base)
-    action_epub(tools, options, filename_base)
-
-
-def action_zip(tools, options, filename_base):
-    action_all(tools, options, filename_base)
-    archive_name = '{}.zip'.format(filename_base)
-    subprocess.run(['zip', '-qr', archive_name, filename_base], cwd='build')
-
-
-def action_gz(tools, options, filename_base):
-    action_all(tools, options, filename_base)
-    archive_name = '{}.tar.gz'.format(filename_base)
-    subprocess.run(['tar', '-czf', archive_name, filename_base], cwd='build')
-
-
-def action_bz(tools, options, filename_base):
-    action_all(tools, options, filename_base)
-    archive_name = '{}.tar.bz2'.format(filename_base)
-    subprocess.run(['tar', '-cjf', archive_name, filename_base], cwd='build')
-
-
-def action_archives(tools, options, filename_base):
-    action_zip(tools, options, filename_base)
-    action_gz(tools, options, filename_base)
-    action_bz(tools, options, filename_base)
+    @staticmethod
+    def archives(tools, options, filename_base):
+        Action.zip(tools, options, filename_base)
+        Action.gz(tools, options, filename_base)
+        Action.bz(tools, options, filename_base)
 
 
 def main():
@@ -316,7 +318,7 @@ def main():
     tools = check_available_tools()
 
     # always clean
-    action_clean()
+    Action.clean()
 
     if action == 'clean':
         exit(0)
@@ -327,9 +329,8 @@ def main():
     prepare_markdown(options.language)
     prepare_images(tools)
 
-    # pandoc all the things
-    action_function = 'action_{}(tools, options, filename_base)'.format(action)
-    eval(action_function)
+    # Avoid much boilerplate
+    getattr(Action, action)(tools, options, filename_base)
 
 
 if __name__ == '__main__':

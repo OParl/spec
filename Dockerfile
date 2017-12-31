@@ -44,6 +44,7 @@ RUN apt update -y && apt upgrade -y && apt install --no-install-recommends -y \
   imagemagick \
   zip \
   tar \
+  git-core \
   bzip2 && \
   pip3 install pyyaml && \
   apt remove -y --purge \

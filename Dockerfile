@@ -22,18 +22,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-FROM debian:latest
-MAINTAINER Stefan Graupner <stefan.graupner@gmail.com>
+FROM debian:testing-slim
 
-RUN apt update -y && \
-  apt upgrade -y && \
-  # recommended packages for pandoc + basic pdf export
-  apt install --no-install-recommends -y \
-  etoolbox \
+# recommended packages for pandoc + basic pdf export
+RUN apt update -y && apt upgrade -y && apt install --no-install-recommends -y \
   ghostscript \
   lmodern \
   graphviz \
-  make \
   pandoc \
   pandoc-citeproc \
   texlive-fonts-recommended \
@@ -42,7 +37,20 @@ RUN apt update -y && \
   texlive-lang-german \
   texlive-latex-recommended \
   texlive-luatex \
-  texlive-xetex && \
-  apt -y install python3 imagemagick zip tar bzip2 && \
+  texlive-xetex \
+  python3 \
+  python3-pip \
+  python3-setuptools \
+  imagemagick \
+  zip \
+  tar \
+  bzip2 && \
+  pip3 install pyyaml && \
+  apt remove -y --purge \
+  python3-pip \
+  python3-setuptools && \
+  rm -rf /var/lib/apt/lists/* && \
   apt clean
+
+ENTRYPOINT [ "python3", "build.py" ]
 

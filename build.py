@@ -5,6 +5,7 @@ import os
 import shlex
 import shutil
 import subprocess
+import sys
 from argparse import ArgumentParser
 from glob import glob
 from os import path
@@ -105,7 +106,7 @@ def check_build_action(action):
 
 
 def get_git_describe_version():
-    return subprocess.getoutput('git describe')
+    return subprocess.check_output('git describe', shell=True, universal_newlines=True).strip()
 
 
 def check_available_tools():
@@ -220,7 +221,7 @@ def run_pandoc(pandoc_bin, filename_base, output_format, extra_args='', extra_fi
 
     cmd = shlex.split(pandoc_command)
     try:
-        subprocess.run(cmd, check=True)
+        subprocess.run(cmd, check=True, stdout=sys.stdout, stderr=sys.stderr)
     except subprocess.CalledProcessError:
         raise Exception(
             'Errored on pandoc: {}'.format(pandoc_command)
@@ -228,7 +229,7 @@ def run_pandoc(pandoc_bin, filename_base, output_format, extra_args='', extra_fi
 
 
 def action_clean():
-    subprocess.run(['rm', '-rf', 'build'])
+    shutil.rmtree('build', ignore_errors=True)
 
 
 def action_test():

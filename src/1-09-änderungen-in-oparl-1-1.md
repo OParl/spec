@@ -1,6 +1,6 @@
 ## Änderungen in OParl 1.1 {#oparl-1-1}
 
-In OParl 1.1 setzen wir die seit der Veröffentlichung von OParl 1.0 gewonnen Erfahrungen um. OParl 1.1 ist dabei im Sinne von semver kompatibel zu OParl 1.0. Das bedeutet, dass ein für OParl 1.0 entwickelter Client auch die Ausgabe von OParl 1.1 verstehen sollte. Dadurch ist wird der Migrationsaufwand von OParl 1.0 zu OParl 1.1 gering gehalten.
+In OParl 1.1 setzen wir die seit der Veröffentlichung von OParl 1.0 gewonnen Erfahrungen um. OParl 1.1 ist dabei im Sinne von semver kompatibel zu OParl 1.0. Das bedeutet, dass ein für OParl 1.0 entwickelter Client auch die Ausgabe von OParl 1.1 versteht. Dadurch ist wird der Migrationsaufwand von OParl 1.0 zu OParl 1.1 gering gehalten.
 
 OParl 1.0 wurde in der Annahme geschrieben, dass nur für die vier Hauptlisten (Person, Paper, Organization, Meeting) verlässliche Werte für `created` und `modified` existieren. Aus diesem Grund hatten wir uns uns für das Design mit eingebetten Objekten entschieden. Da sich nun jedoch herausgestellt hat, dass `created` und `modified` bei allen Objekten exsitieren, können für alle Objekte Listen angeboten werden. Das bringt bei große Vereinfachungen für Clients bei der Synchronisation. Konkret sind `created` und `modified` in OParl 1.1 für alle Objekte zwingend und es gibt fünf neue externe Objektlisten in Body: Agenda Item, Consultation, File, Location, Membership.
 

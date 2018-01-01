@@ -71,6 +71,13 @@ def configure_argument_parser():
     )
 
     parser.add_argument(
+        '--print-basename',
+        help='This will output the base name used for build output',
+        action='store_true',
+        dest='print_basename'
+    )
+
+    parser.add_argument(
         '--latex-template',
         help='Change the latex template used for PDF generation',
         action='store',
@@ -315,6 +322,12 @@ def main():
     if options.version is None:
         options.version = get_git_describe_version()
 
+    filename_base = get_filename_base(options.language, options.version)
+
+    if options.print_basename:
+        print(filename_base)
+        exit(0)
+
     tools = check_available_tools()
 
     # always clean
@@ -323,7 +336,6 @@ def main():
     if action == 'clean':
         exit(0)
 
-    filename_base = get_filename_base(options.language, options.version)
     prepare_builddir(filename_base)
     prepare_schema(options.language)
     prepare_markdown(options.language)

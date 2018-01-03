@@ -142,7 +142,7 @@ def prepare_schema(language):
     if language != 'de':
         language_file = 'locales/{}/schema/strings.yml'.format(language)
 
-    output_file = 'build/src/9-99-schema.md'
+    output_file = 'build/src/3-99-schema.md'
 
     schema_to_markdown('schema', 'examples', output_file, language, language_file)
 

@@ -1,6 +1,6 @@
 {
     "title": "Paper",
-    "description": "Dieser Objekttyp dient der Abbildung von Drucksachen in der parlamentarischen Arbeit, wie zum Beispiel Anfragen, Anträgen und Beschlussvorlagen.\n\nDrucksachen werden in Form einer Beratung (oparl:Consultation) im Rahmen eines Tagesordnungspunkts (oparl:AgendaItem) einer Sitzung (oparl:Meeting) behandelt.\n\nDrucksachen spielen in der schriftlichen wie mündlichen Kommunikation eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in parlamentarischen Informationssystemen in der Regel unveränderliche Kennungen der Drucksachen zum Einsatz.",
+    "description": "{{ Paper.description }}",
     "type": "object",
     "required": [
         "id",
@@ -16,7 +16,7 @@
             "pattern": "^https\\:\\/\\/schema\\.oparl\\.org\\/1\\.1\\/Paper$"
         },
         "body": {
-            "description": "Körperschaft, zu der die Drucksache gehört.",
+            "description": "{{ Paper.properties.body.description }}",
             "references": "Body",
             "backreference": "meeting",
             "cardinality": "n:1",
@@ -24,24 +24,24 @@
             "format": "url"
         },
         "name": {
-            "description": "Titel der Drucksache.",
+            "description": "{{ Paper.properties.name.description }}",
             "type": "string"
         },
         "reference": {
-            "description": "Kennung bzw. Aktenzeichen der Drucksache, mit der sie in der parlamentarischen Arbeit eindeutig referenziert werden kann.",
+            "description": "{{ Paper.properties.reference.description }}",
             "type": "string"
         },
         "date": {
-            "description": "Datum, welches als Startpunkt für Fristen u.ä. verwendet ist.",
+            "description": "{{ Paper.properties.date.description }}",
             "type": "string",
             "format": "date"
         },
         "paperType": {
-            "description": "Art der Drucksache, z. B. Beantwortung einer Anfrage.",
+            "description": "{{ Paper.properties.paperType.description }}",
             "type": "string"
         },
         "relatedPaper": {
-            "description": "Inhaltlich verwandte Drucksachen.",
+            "description": "{{ Paper.properties.relatedPaper.description }}",
             "references": "Paper",
             "cardinality": "1:n",
             "type": "array",
@@ -51,7 +51,7 @@
             }
         },
         "superordinatedPaper": {
-            "description": "Übergeordnete Drucksachen.",
+            "description": "{{ Paper.properties.superordinatedPaper.description }}",
             "references": "Paper",
             "cardinality": "1:n",
             "type": "array",
@@ -61,7 +61,7 @@
             }
         },
         "subordinatedPaper": {
-            "description": "Untergeordnete Drucksachen.",
+            "description": "{{ Paper.properties.subordinatedPaper.description }}",
             "references": "Paper",
             "cardinality": "1:n",
             "type": "array",
@@ -71,12 +71,12 @@
             }
         },
         "mainFile": {
-            "description": "Die Hauptdatei zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert eine Beschlussvorlage und die Hauptdatei enthält den Text der Beschlussvorlage. Sollte keine eindeutige Hauptdatei vorhanden sein, wird diese Eigenschaft nicht ausgegeben.",
+            "description": "{{ Paper.properties.mainFile.description }}",
             "type": "object",
             "schema": "File.json"
         },
         "auxiliaryFile": {
-            "description": "Alle weiteren Dateien zur Drucksache ausgenommen der gegebenenfalls in `mainFile` angegebenen.",
+            "description": "{{ Paper.properties.auxiliaryFile.description }}",
             "type": "array",
             "items": {
                 "type": "object",
@@ -84,7 +84,7 @@
             }
         },
         "location": {
-            "description": "Sofern die Drucksache einen inhaltlichen Ortsbezug hat, beschreibt diese Eigenschaft den Ort in Textform und/oder in Form von Geodaten.",
+            "description": "{{ Paper.properties.location.description }}",
             "type": "array",
             "items": {
                 "type": "object",
@@ -92,7 +92,7 @@
             }
         },
         "originatorPerson": {
-            "description": "Urheber der Drucksache, falls der Urheber eine Person ist. Es können auch mehrere Personen angegeben werden.",
+            "description": "{{ Paper.properties.originatorPerson.description }}",
             "references": "Person",
             "cardinality": "n:m",
             "type": "array",
@@ -102,7 +102,7 @@
             }
         },
         "underDirectionOf": {
-            "description": "Federführung. Amt oder Abteilung, für die Inhalte oder Beantwortung der Drucksache verantwortlich.",
+            "description": "{{ Paper.properties.underDirectionOf.description }}",
             "references": "Organization",
             "cardinality": "n:m",
             "type": "array",
@@ -112,7 +112,7 @@
             }
         },
         "originatorOrganization": {
-            "description": "Urheber der Drucksache, falls der Urheber eine Gruppierung ist. Es können auch mehrere Gruppierungen angegeben werden.",
+            "description": "{{ Paper.properties.originatorOrganization.description }}",
             "references": "Organization",
             "cardinality": "n:m",
             "type": "array",
@@ -122,7 +122,7 @@
             }
         },
         "consultation": {
-            "description": "Beratungen der Drucksache.",
+            "description": "{{ Paper.properties.consultation.description }}",
             "type": "array",
             "items": {
                 "type": "object",

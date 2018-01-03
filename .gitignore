@@ -1,17 +1,10 @@
 out/
 archives/
+build/
 
-src/images/*.png
-src/3-99-generiertes-schema.md
-
-composer.json
-composer.lock
-vendor/
-
-*.komodoproject
-*.DS_Store
 ._*
 .cache
+__pycache__
 
 en/*-schema.md
 de/*-schema.md

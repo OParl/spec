@@ -1,6 +1,6 @@
 {
     "title": "AgendaItem",
-    "description": "Tagesordnungspunkte sind die Bestandteile von Sitzungen (`oparl:Meeting`). Jeder Tagesordnungspunkt widmet sich inhaltlich einem bestimmten Thema, wozu in der Regel auch die Beratung bestimmter Drucksachen gehört.\n\nDie Beziehung zwischen einem Tagesordnungspunkt und einer Drucksache wird über ein Objekt vom Typ `oparl:Consultation` hergestellt, das über die  Eigenschaft `consultation` referenziert werden kann.",
+    "description": "{{ AgendaItem.description }}",
     "type": "object",
     "required": [
         "id",
@@ -16,25 +16,25 @@
             "pattern": "^https\\:\\/\\/schema\\.oparl\\.org\\/1\\.1\\/AgendaItem$"
         },
         "meeting": {
-            "description": "Rückreferenz auf das Meeting, welches nur dann ausgegeben werden muss, wenn das agendaItem-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.",
+            "description": "{{ AgendaItem.properties.meeting.description }}",
             "type": "string",
             "format": "url",
             "references": "Meeting"
         },
         "number": {
-            "description": "Gliederungs-\"Nummer\" des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z. B. \"10.\", \"10.1\", \"C\", \"c)\" o. ä. Die Reihenfolge wird nicht dadurch, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting` festgelegt, **sollte** allerdings zu dieser identisch sein.",
+            "description": "{{ AgendaItem.properties.number.description }}",
             "type": "string"
         },
         "name": {
-            "description": "Das Thema des Tagesordnungspunktes.",
+            "description": "{{ AgendaItem.properties.name.description }}",
             "type": "string"
         },
         "public": {
-            "description": "Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher Sitzung vorgesehen ist/war. Es wird ein Wahrheitswert (`true` oder `false`) erwartet.",
+            "description": "{{ AgendaItem.properties.public.description }}",
             "type": "boolean"
         },
         "consultation": {
-            "description": "Beratung, die diesem Tagesordnungspunkt zugewiesen ist.",
+            "description": "{{ AgendaItem.properties.consultation.description }}",
             "references": "Consultation",
             "backreference": "agendaItem",
             "cardinality": "1:1",
@@ -42,20 +42,20 @@
             "format": "url"
         },
         "result": {
-            "description": "Kategorische Information darüber, welches Ergebnis die Beratung des Tagesordnungspunktes erbracht hat, in der Bedeutung etwa \"Unverändert beschlossen\" oder \"Geändert beschlossen\".",
+            "description": "{{ AgendaItem.properties.result.description }}",
             "type": "string"
         },
         "resolutionText": {
-            "description": "Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann hier ein Text angegeben werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag) von der Beschlussvorlage abweicht.",
+            "description": "{{ AgendaItem.properties.resolutionText.description }}",
             "type": "string"
         },
         "resolutionFile": {
-            "description": "Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann hier eine Datei angegeben werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag) von der Beschlussvorlage abweicht.",
+            "description": "{{ AgendaItem.properties.resolutionFile.description }}",
             "type": "object",
             "schema": "File.json"
         },
         "auxiliaryFile": {
-            "description": "Weitere Dateianhänge zum Tagesordnungspunkt.",
+            "description": "{{ AgendaItem.properties.auxiliaryFile.description }}",
             "type": "array",
             "items": {
                 "type": "object",
@@ -63,12 +63,12 @@
             }
         },
         "start": {
-            "description": "Datum und Uhrzeit des Anfangszeitpunkts des Tagesordnungspunktes. Bei zukünftigen Tagesordnungspunkten ist dies der geplante Zeitpunkt, bei einem stattgefundenen **kann** es der tatsächliche Startzeitpunkt sein.",
+            "description": "{{ AgendaItem.properties.start.description }}",
             "type": "string",
             "format": "date-time"
         },
         "end": {
-            "description": "Endzeitpunkt des Tagesordnungspunktes als Datum/Uhrzeit. Bei zukünftigen Tagesordnungspunkten ist dies der geplante Zeitpunkt, bei einer stattgefundenen **kann** es der tatsächliche Endzeitpunkt sein.",
+            "description": "{{ AgendaItem.properties.end.description }}",
             "type": "string",
             "format": "date-time"
         },

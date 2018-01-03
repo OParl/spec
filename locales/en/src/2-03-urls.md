@@ -1,6 +1,6 @@
 ## URLs {#urls}
 
-![Aufbau einer URL](build/src/images/url.png)
+![Aufbau einer URL](src/images/url.png)
 
 Den URLs (für _Uniform Resource Locators_) kommt eine besondere Bedeutung zu
 und es werden deshalb eine Reihe von Anforderungen an deren Aufbau und
@@ -11,7 +11,7 @@ Grundsätzlich **müssen** alle Zugriffe zustandslos erfolgen können, also ohne
 Sessioninformationen wie Cookies. Das bedeutet, dass alle Informationen,
 die zum Abrufen eines Objekts nötig sind, in der URL vorhanden sein müssen.
 
-### URL-Kanonisierung {#url_kanonisierung}
+### URL canonicalisation {#url_kanonisierung}
 
 Um Objekte eindeutig identifizieren zu können ist es notwendig, dass ein Server
 für ein Objekt genau eine unveränderliche URL benutzt. Diese Festlegung auf

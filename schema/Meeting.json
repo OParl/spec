@@ -1,6 +1,6 @@
 {
     "title": "Meeting",
-    "description": "Eine Sitzung ist die Versammlung einer oder mehrerer Gruppierungen (oparl:Organization) zu einem bestimmten Zeitpunkt an einem bestimmten Ort.\n\nDie geladenen Teilnehmer der Sitzung sind jeweils als Objekte vom Typ oparl:Person, die in entsprechender Form referenziert werden. Verschiedene Dateien (Einladung, Ergebnis- und Wortprotokoll, sonstige Anlagen) können referenziert werden.\n\nDie Inhalte einer Sitzung werden durch Tagesordnungspunkte (oparl:AgendaItem) abgebildet.",
+    "description": "{{ Meeting.description }}",
     "type": "object",
     "required": [
         "id",
@@ -16,34 +16,34 @@
             "pattern": "^https\\:\\/\\/schema\\.oparl\\.org\\/1\\.1\\/Meeting$"
         },
         "name": {
-            "description": "Name der Sitzung.",
+            "description": "{{ Meeting.properties.name.description }}",
             "type": "string"
         },
         "meetingState": {
-            "description": "Aktueller Status der Sitzung. **Empfohlen** ist die Verwendung von `terminiert` (geplant), `eingeladen` (vor der Sitzung bis zur Freigabe des Protokolls) und `durchgeführt` (nach Freigabe des Protokolls).",
+            "description": "{{ Meeting.properties.meetingState.description }}",
             "type": "string"
         },
         "cancelled": {
-            "description": "Wenn die Sitzung ausfällt, wird cancelled auf true gesetzt.",
+            "description": "{{ Meeting.properties.cancelled.description }}",
             "type": "boolean"
         },
         "start": {
-            "description": "Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen **kann** es der tatsächliche Startzeitpunkt sein.",
+            "description": "{{ Meeting.properties.start.description }}",
             "type": "string",
             "format": "date-time"
         },
         "end": {
-            "description": "Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen **kann** es der tatsächliche Endzeitpunkt sein.",
+            "description": "{{ Meeting.properties.end.description }}",
             "type": "string",
             "format": "date-time"
         },
         "location": {
-            "description": "Sitzungsort.",
+            "description": "{{ Meeting.properties.location.description }}",
             "type": "object",
             "schema": "Location.json"
         },
         "organization": {
-            "description": "Gruppierungen, denen die Sitzung zugeordnet ist. Im Regelfall wird hier eine Gruppierung verknüpft sein, es kann jedoch auch gemeinsame Sitzungen mehrerer Gruppierungen geben. Das erste Element **sollte** dann das federführende Gremium sein.",
+            "description": "{{ Meeting.properties.organization.description }}",
             "references": "Organization",
             "backreference": "meeting",
             "cardinality": "n:m",
@@ -54,7 +54,7 @@
             }
         },
         "participant": {
-            "description": "Personen, die an der Sitzung teilgenommen haben (d.h. nicht nur die eingeladenen Personen, sondern die tatsächlich anwesenden). Diese Eigenschaft kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen.",
+            "description": "{{ Meeting.properties.participant.description }}",
             "references": "Person",
             "cardinality": "n:m",
             "type": "array",
@@ -64,22 +64,22 @@
             }
         },
         "invitation": {
-            "description": "Einladungsdokument zur Sitzung.",
+            "description": "{{ Meeting.properties.invitation.description }}",
             "type": "object",
             "schema": "File.json"
         },
         "resultsProtocol": {
-            "description": "Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nachdem Stattfinden der Sitzung vorkommen.",
+            "description": "{{ Meeting.properties.resultsProtocol.description }}",
             "type": "object",
             "schema": "File.json"
         },
         "verbatimProtocol": {
-            "description": "Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen.",
+            "description": "{{ Meeting.properties.verbatimProtocol.description }}",
             "type": "object",
             "schema": "File.json"
         },
         "auxiliaryFile": {
-            "description": "Dateianhang zur Sitzung. Hiermit sind Dateien gemeint, die üblicherweise mit der Einladung zu einer Sitzung verteilt werden, und die nicht bereits über einzelne Tagesordnungspunkte referenziert sind.",
+            "description": "{{ Meeting.properties.auxiliaryFile.description }}",
             "type": "array",
             "items": {
                 "type": "object",
@@ -87,12 +87,12 @@
             }
         },
         "agendaItem": {
-          "description": "Tagesordnungspunkte der Sitzung. Die Reihenfolge ist relevant. Es kann Sitzungen ohne TOPs geben.",
-          "type": "array",
-          "items": {
-              "type": "object",
-              "schema": "AgendaItem.json"
-          }
+            "description": "{{ Meeting.properties.agendaItem.description }}",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "schema": "AgendaItem.json"
+            }
         },
         "license": {
             "type": "string"

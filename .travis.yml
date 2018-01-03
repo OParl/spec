@@ -3,6 +3,7 @@ language: python
 
 python:
 - '3.5'
+- '3.6'
 
 cache:
   apt: true
@@ -10,11 +11,29 @@ cache:
 addons:
   apt:
     packages:
-    - pandoc
-    - lacheck
+    - etoolbox
+    - ghostscript
+    - lmodern
     - graphviz
+    - make
+    - pandoc
+    - pandoc-citeproc
+    - texlive-fonts-recommended
+    - texlive-generic-recommended
+    - texlive-humanities
+    - texlive-lang-german
+    - texlive-latex-recommended
+    - latex-xcolor
+    - texlive-luatex
+    - texlive-xetex
+    - librsvg2-bin
 
-script: make test
+install:
+- pip install pyaml
+# We use git describe which doesn't work on a shallow clone
+- git fetch --unshallow
+
+script: ./build.py
 
 notifications:
   slack:

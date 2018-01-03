@@ -1,6 +1,6 @@
 {
     "title": "Body",
-    "description": "Der Objekttyp oparl:Body dient dazu, eine Körperschaft zu repräsentieren. Eine Körperschaft ist in den meisten Fällen eine Gemeinde, eine Stadt oder ein Landkreis.\n\nIn der Regel sind auf einem OParl-Server Daten von genau einer Körperschaft gespeichert und es wird daher auch nur ein Body-Objekt ausgegeben. Sind auf dem Server jedoch Daten von mehreren Körperschaften gespeichert, **muss** für jede Körperschaft ein eigenes Body-Objekt ausgegeben werden.",
+    "description": "{{ Body.description }}",
     "type": "object",
     "required": [
         "id",
@@ -22,7 +22,7 @@
             "pattern": "^https\\:\\/\\/schema\\.oparl\\.org\\/1\\.1\\/Body$"
         },
         "system": {
-            "description": "System, zu dem dieses Objekt gehört.",
+            "description": "{{ Body.properties.system.description }}",
             "references": "System",
             "backreference": "bodies",
             "cardinality": "n:1",
@@ -30,43 +30,43 @@
             "format": "url"
         },
         "shortName": {
-            "description": "Kurzer Name der Körperschaft.",
+            "description": "{{ Body.properties.shortName.description }}",
             "type": "string"
         },
         "name": {
-            "description": "Der offizielle lange Name der Körperschaft.",
+            "description": "{{ Body.properties.name.description }}",
             "type": "string"
         },
         "website": {
-            "description": "Allgemeine Website der Körperschaft.",
+            "description": "{{ Body.properties.website.description }}",
             "type": "string",
             "format": "url"
         },
         "license": {
-            "description": "Lizenz, unter der die Daten dieser Körperschaft stehen, sofern nicht am einzelnen Objekt anders angegeben. Siehe [`license`](#eigenschaft_license).",
+            "description": "{{ Body.properties.license.description }}",
             "type": "string",
             "format": "url"
         },
         "licenseValidSince": {
-            "description": "Zeitpunkt, seit dem die unter `license` angegebene Lizenz gilt. _Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen!_",
+            "description": "{{ Body.properties.licenseValidSince.description }}",
             "type": "string",
             "format": "date-time"
         },
         "oparlSince": {
-            "description": "Zeitpunkt, ab dem OParl für dieses Body bereitgestellt wurde. Dies hilft, um die Datenqualität einzuschätzen, denn erst ab der Einrichtung für OParl kann sichergestellt werden, dass sämtliche Werte korrekt in der Original-Quelle vorliegen.",
+            "description": "{{ Body.properties.oparlSince.description }}",
             "type": "string",
             "format": "date-time"
         },
         "ags": {
-            "description": "Der achtstellige Amtliche Gemeindeschlüssel^[Amtliche Gemeindeschlüssel können im [Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes](https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html) eingesehen werden].",
+            "description": "{{ Body.properties.ags.description }}",
             "type": "string"
         },
         "rgs": {
-            "description": "Der zwölfstellige Regionalschlüssel.",
+            "description": "{{ Body.properties.rgs.description }}",
             "type": "string"
         },
         "equivalent": {
-            "description": "Dient der Angabe zusätzlicher URLs, die dieselbe Körperschaft repräsentieren. Hier können beispielsweise der entsprechende Eintrag der gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>], der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden. Body- oder System-Objekte mit anderen OParl-Versionen **dürfen nicht** Teil der Liste sein.",
+            "description": "{{ Body.properties.equivalent.description }}",
             "type": "array",
             "items": {
                 "type": "string",
@@ -74,15 +74,15 @@
             }
         },
         "contactEmail": {
-            "description": "Dient der Angabe einer Kontakt-E-Mail-Adresse. Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und idealerweise das parlamentarische Informationssystem zuständigen Stelle ermöglichen. ",
+            "description": "{{ Body.properties.contactEmail.description }}",
             "type": "string"
         },
         "contactName": {
-            "description": "Name oder Bezeichnung der mit `contactEmail` erreichbaren Stelle.",
+            "description": "{{ Body.properties.contactName.description }}",
             "type": "string"
         },
         "organization": {
-            "description": "Link zur [Objektliste](#objektlisten) mit allen Gruppierungen der Körperschaft.",
+            "description": "{{ Body.properties.organization.description }}",
             "type": "string",
             "format": "url",
             "references": "externalList",
@@ -92,7 +92,7 @@
             }
         },
         "person": {
-            "description": "Link zur [Objektliste](#objektlisten) mit allen Personen der Körperschaft.",
+            "description": "{{ Body.properties.person.description }}",
             "type": "string",
             "format": "url",
             "references": "externalList",
@@ -102,7 +102,7 @@
             }
         },
         "meeting": {
-            "description": "Link zur [Objektliste](#objektlisten) mit allen Sitzungen der Körperschaft.",
+            "description": "{{ Body.properties.meeting.description }}",
             "type": "string",
             "format": "url",
             "references": "externalList",
@@ -112,7 +112,7 @@
             }
         },
         "paper": {
-            "description": "Link zur [Objektliste](#objektlisten) mit allen Drucksachen der Körperschaft.",
+            "description": "{{ Body.properties.paper.description }}",
             "type": "string",
             "format": "url",
             "references": "externalList",
@@ -122,7 +122,7 @@
             }
         },
         "legislativeTerm": {
-            "description": "[Objektliste](#objektlisten) mit den Wahlperioden der Körperschaft.",
+            "description": "{{ Body.properties.legislativeTerm.description }}",
             "type": "array",
             "items": {
                 "type": "object",
@@ -170,11 +170,11 @@
             }
         },
         "classification": {
-            "description": "Art der Körperschaft.",
+            "description": "{{ Body.properties.classification.description }}",
             "type": "string"
         },
         "location": {
-            "description": "Ort, an dem die Körperschaft beheimatet ist.",
+            "description": "{{ Body.properties.location.description }}",
             "type": "object",
             "schema": "Location.json"
         },

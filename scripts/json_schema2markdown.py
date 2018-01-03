@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 # -*- encoding: utf-8 -*-
 
+import argparse
+import collections
+import glob
 import json
 import os
-import sys
-import glob
-import collections
-import argparse
+
 import yaml
+
 
 class OParl:
     # Default properties don't need a description
@@ -57,28 +58,7 @@ def type_to_string(prop):
             else:
                 type = prop["format"]
     elif type == "array":
-        items = prop["items"]
-        subtype = items["type"]
-
-        # Let's do recursion the copy&paste way
-        if items["type"] == "object":
-            # Check for embedded objects
-            if "schema" in items:
-                subtype = subtype + " (" + items["schema"][0:-5] + ")"
-        elif items["type"] == "string":
-            if "format" in items:
-                if "references" in items:
-                    subtype = items["format"] + " (" + items["references"] + ")"
-                elif "references" in prop:
-                    subtype = items["format"] + " (" + prop["references"] + ")"
-                else:
-                    subtype = items["format"]
-        elif type == "boolean":
-            pass
-        elif type == "integer":
-            pass
-        else:
-            raise Exception("Invalid type: " + type)
+        subtype = array_type_to_string(prop, type)
 
         type = type + " of " + subtype
     elif type == "boolean":
@@ -89,6 +69,32 @@ def type_to_string(prop):
         raise Exception("Invalid type: " + type)
 
     return type
+
+
+def array_type_to_string(prop, type):
+    items = prop["items"]
+    subtype = items["type"]
+    # Let's do recursion the copy&paste way
+    if items["type"] == "object":
+        # Check for embedded objects
+        if "schema" in items:
+            subtype = subtype + " (" + items["schema"][0:-5] + ")"
+    elif items["type"] == "string":
+        if "format" in items:
+            if "references" in items:
+                subtype = items["format"] + " (" + items["references"] + ")"
+            elif "references" in prop:
+                subtype = items["format"] + " (" + prop["references"] + ")"
+            else:
+                subtype = items["format"]
+    elif type == "boolean":
+        pass
+    elif type == "integer":
+        pass
+    else:
+        raise Exception("Invalid type: " + type)
+    return subtype
+
 
 def schema_to_md_table(schema, examples_folder):
     # Formatting
@@ -103,12 +109,23 @@ def schema_to_md_table(schema, examples_folder):
     md += schema["description"] + "\n\n"
 
     # Table Header
-    md += "-"*(propspace + typespace + descspace) + "\n"
+    md += "-" * (propspace + typespace + descspace) + "\n"
     md += "Name" + " " * (propspace - len("Name"))
     md += "Typ" + " " * (typespace - len("Typ"))
     md += "Beschreibung" + " " * (descspace - len("Beschreibung")) + "\n"
     md += "-" * (propspace - 1) + " " + "-" * (typespace - 1) + " " + "-" * (descspace) + "\n"
 
+    md = table_body(propspace, schema, typespace)
+
+    # End of Table
+    md += "-" * (propspace + typespace + descspace) + "\n\n"
+
+    md += json_examples_to_md(examples_folder, schema["title"])
+    return md
+
+
+def table_body(propspace, schema, typespace):
+    md = ""
     # A row for each attribute
     for prop_name, prop in schema["properties"].items():
         type = type_to_string(prop)
@@ -124,12 +141,8 @@ def schema_to_md_table(schema, examples_folder):
             description = "**ZWINGEND** " + description
 
         # The actual table row
-        md += "`"+ prop_name + "`" + " " * (propspace - len(prop_name)) + type + " " * (typespace - len(type)) + description + "\n\n"
-
-    # End of Table
-    md += "-" * (propspace + typespace + descspace) + "\n\n"
-
-    md += json_examples_to_md(examples_folder, schema["title"])
+        md += "`" + prop_name + "`" + " " * (propspace - len(prop_name)) + type + " " * (
+            typespace - len(type)) + description + "\n\n"
     return md
 
 
@@ -153,6 +166,7 @@ def json_examples_to_md(examples_folder, name):
 
     return md
 
+
 def localize_schema(language, translations_file, schema_file):
     """
     Replaces the handlebars/django style templates in the schema files with the translations stored in
@@ -171,10 +185,11 @@ def localize_schema(language, translations_file, schema_file):
 
     return json.loads(schema, object_pairs_hook=collections.OrderedDict)
 
+
 def schema_to_markdown(schema_folder, examples_folder, output_file, language, language_file):
     # Avoid missing objects
     # NOTE: the schema folder contains all schema files and the translations strings file
-    assert(len(OParl.objects) == len(os.listdir(schema_folder)) - 1)
+    assert (len(OParl.objects) == len(os.listdir(schema_folder)) - 1)
 
     generated_schema = ""
 
@@ -191,6 +206,7 @@ def schema_to_markdown(schema_folder, examples_folder, output_file, language, la
     with open(output_file, "w", encoding='utf-8') as out:
         out.write(generated_schema)
 
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
@@ -203,5 +219,3 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     schema_to_markdown(args.schema_folder, args.examples_folder, args.output_file, args.language, args.language_file)
-
-

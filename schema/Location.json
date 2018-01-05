@@ -62,7 +62,7 @@
             }
         },
         "persons": {
-            "description": "{{ Location.properties.person.description }}",
+            "description": "{{ Location.properties.persons.description }}",
             "type": "array",
             "items": {
                 "type": "string",

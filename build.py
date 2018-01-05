@@ -138,14 +138,11 @@ def prepare_builddir(filename_base):
 
 
 def prepare_schema(language):
-    language_file = 'schema/strings.yml'
-    if language != 'de':
-        language_file = 'locales/{}/schema/strings.yml'.format(language)
-
     output_file = 'build/src/3-99-schema.md'
+    schema = schema_to_markdown('schema', 'examples')
 
-    schema_to_markdown('schema', 'examples', output_file, language, language_file)
-
+    with open(output_file, 'w+') as f:
+        f.write(schema)
 
 def prepare_markdown(language):
     glob_pattern = 'src/*.md'
@@ -253,7 +250,7 @@ class Action:
     @staticmethod
     def html(tools, options, filename_base):
         args = '--to html5 --css {} --section-divs --self-contained'.format(options.html_style)
-        run_pandoc(tools['pandoc'], filename_base, 'html', extra_args=args, extra_files='resources/lizenz-als-bild.md')
+        run_pandoc(tools['pandoc'], filename_base, 'html', extra_args=args)
 
     @staticmethod
     def pdf(tools, options, filename_base):
@@ -267,11 +264,11 @@ class Action:
 
     @staticmethod
     def odt(tools, _, filename_base):
-        run_pandoc(tools['pandoc'], filename_base, 'odt', extra_files='resources/lizenz-als-text.md')
+        run_pandoc(tools['pandoc'], filename_base, 'odt')
 
     @staticmethod
     def docx(tools, _, filename_base):
-        run_pandoc(tools['pandoc'], filename_base, 'docx', extra_files='resources/lizenz-als-text.md')
+        run_pandoc(tools['pandoc'], filename_base, 'docx')
 
     @staticmethod
     def txt(tools, _, filename_base):

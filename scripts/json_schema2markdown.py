@@ -8,15 +8,9 @@ import codecs
 import collections
 import argparse
 
-parser = argparse.ArgumentParser()
-parser.add_argument("schema_folder")
-parser.add_argument("examples_folder")
-args = parser.parse_args()
 
+global objects
 objects = ["System", "Body", "Organization", "Person", "Meeting", "Paper", "File", "Location"]
-
-sys.stdout = codecs.getwriter('utf8')(sys.stdout)
-sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 
 
 def err(msg):
@@ -25,7 +19,7 @@ def err(msg):
 def missing_property(prop_name, prop):
     err(prop_name + " is missing the " + prop + " property")
 
-def schema_to_md_table(schema, small_heading=False):
+def schema_to_md_table(schema, examples_folder, small_heading=False):
     try:
         name = schema["title"]
     except:
@@ -123,13 +117,13 @@ def schema_to_md_table(schema, small_heading=False):
     for obj in embedded_objects:
         md += schema_to_md_table(obj, small_heading=True)
 
-    md += json_examples_to_md(name)
+    md += json_examples_to_md(name, examples_folder)
     return md
 
 
-def json_examples_to_md(name):
+def json_examples_to_md(name, examples_folder):
     md = ""
-    filepath = os.path.join(args.examples_folder, name)
+    filepath = os.path.join(examples_folder, name)
     examples = glob.glob(filepath + '-[0-9][0-9].json')
     for nr, examplepath in enumerate(examples):
         if len(examples) == 1:
@@ -146,13 +140,24 @@ def json_examples_to_md(name):
 
     return md
 
-
-for obj in objects:
-    filepath = os.path.join(args.schema_folder, obj + ".json")
+def schema_to_markdown(schema_folder, examples_folder):
+    for obj in objects:
+        filepath = os.path.join(schema_folder, obj + ".json")
     try:
-        schema = schema_to_md_table(json.load(codecs.open(filepath, encoding='utf-8'), object_pairs_hook=collections.OrderedDict))
+        schema = schema_to_md_table(json.load(codecs.open(filepath, encoding='utf-8'), object_pairs_hook=collections.OrderedDict), examples_folder)
     except:
         sys.stderr.write(filepath + " errored\n")
         exit(1)
 
-    print schema
+    return schema
+
+sys.stdout = codecs.getwriter('utf8')(sys.stdout)
+sys.stderr = codecs.getwriter('utf8')(sys.stderr)
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("schema_folder")
+    parser.add_argument("examples_folder")
+    args = parser.parse_args()
+    schema = schema_to_markdown(args.schema_folder, args.examples_folder)
+    print(schema)

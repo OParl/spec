@@ -247,8 +247,8 @@ class Action:
 
     @staticmethod
     def live(tools, _, filename_base):
-        args = '--to html5 --section-divs --no-highlight'
-        run_pandoc(tools['pandoc'], filename_base, 'html', extra_args=args, extra_files='resources/lizenz-als-bild.md')
+        args = '--to html5 --section-divs --no-highlight --template=resources/live.html'
+        run_pandoc(tools['pandoc'], filename_base, 'html', extra_args=args)
 
     @staticmethod
     def html(tools, options, filename_base):

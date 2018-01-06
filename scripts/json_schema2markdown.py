@@ -115,7 +115,7 @@ def schema_to_md_table(schema, examples_folder, small_heading=False):
 
     # eingebettete Objekte in einer eigenen Tabelle ausgeben
     for obj in embedded_objects:
-        md += schema_to_md_table(obj, small_heading=True)
+        md += schema_to_md_table(obj, examples_folder, small_heading=True)
 
     md += json_examples_to_md(name, examples_folder)
     return md
@@ -141,18 +141,16 @@ def json_examples_to_md(name, examples_folder):
     return md
 
 def schema_to_markdown(schema_folder, examples_folder):
+    schema = ""
     for obj in objects:
         filepath = os.path.join(schema_folder, obj + ".json")
-    try:
-        schema = schema_to_md_table(json.load(codecs.open(filepath, encoding='utf-8'), object_pairs_hook=collections.OrderedDict), examples_folder)
-    except:
-        sys.stderr.write(filepath + " errored\n")
-        exit(1)
+        try:
+            schema += schema_to_md_table(json.load(codecs.open(filepath, encoding='utf-8'), object_pairs_hook=collections.OrderedDict), examples_folder)
+        except:
+            sys.stderr.write(filepath + " errored\n")
+            exit(1)
 
     return schema
-
-sys.stdout = codecs.getwriter('utf8')(sys.stdout)
-sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

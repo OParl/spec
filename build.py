@@ -141,7 +141,7 @@ def prepare_schema(language):
     output_file = 'build/src/3-99-schema.md'
     schema = schema_to_markdown('schema', 'examples')
 
-    with open(output_file, 'w+') as f:
+    with open(output_file, 'a') as f:
         f.write(schema)
 
 def prepare_markdown(language):
@@ -161,6 +161,9 @@ def prepare_images(tools):
     for f in files:
         convert_command = ''
         filename, extension = os.path.splitext(f)
+        if extension == '.png':
+            # Ignore finished images
+            continue
         fout = path.join('build', 'src', 'images', os.path.basename(filename) + '.png')
 
         shutil.copy2(f, fout)

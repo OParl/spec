@@ -42,7 +42,7 @@ SPECIFICATION_BUILD_TOOLS = [
 
 SPECIFICATION_BUILD_FLAGS = {
     'gs': '-dQUIET -dSAFER -dBATCH -dNOPAUSE -sDisplayHandle=0 -sDEVICE=png16m -r600 -dTextAlphaBits=4',
-    'pandoc': '--from markdown --standalone --table-of-contents --toc-depth=2 --number-sections'
+    'pandoc': '--from markdown --standalone --table-of-contents --toc-depth=3 --number-sections'
 }
 
 

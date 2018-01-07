@@ -20,7 +20,8 @@ Die Dateien, aus denen die Spezifikation erstellt wird, sind auf mehrere Ordner 
  - `examples/`: Die im Text eingebundenen Beispiele
  - `scripts/`: Enthält hauptsächlich die python-skripte, die die json-Dateien in Markdown umwandeln
 
-Durch den Befehl `make` kann aus den Quelldateien die Spezifikation erstellt werden. Dazu müssen pandoc und latex installiert sein. Die fertigen Dokumente finden sich dann im Ordner `out`.
+Durch den Befehl `python3 build.py` kann aus den Quelldateien die Spezifikation erstellt werden. Dazu müssen pandoc und latex installiert sein.
+Die fertigen Dokumente finden sich dann im Ordner `build`.
 
 ## Die Spezifikation in verschiedenen Formaten
 

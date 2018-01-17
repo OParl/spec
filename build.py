@@ -201,6 +201,15 @@ def prepare_images(tools):
             )
 
 
+def create_symlinks(filename_base):
+    """ Allow having stable links when working on the spec """
+    os.makedirs('build/latest')
+    for specfile in os.listdir('build/{}'.format(filename_base)):
+        existing = os.path.abspath('build/{}/{}'.format(filename_base, specfile))
+        new = 'build/latest/oparl{}'.format(os.path.splitext(specfile)[-1])
+        os.symlink(existing, new)
+
+
 def get_pandoc_version(pandoc_bin):
     version_tuple = subprocess.getoutput('{} --version'.format(pandoc_bin)).split('\n')[0].split(' ')[1].split('.')
     return [int(v) for v in version_tuple]
@@ -343,6 +352,8 @@ def main():
 
     # Avoid much boilerplate
     getattr(Action, action)(tools, options, filename_base)
+
+    create_symlinks(filename_base)
 
 
 if __name__ == '__main__':

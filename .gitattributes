@@ -5,3 +5,4 @@
 Makefile linguist-vendored
 *.tex linguist-vendored
 *.css linguist-vendored
+*.html linguist-vendored

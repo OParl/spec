@@ -115,7 +115,7 @@ def schema_to_md_table(schema, examples_folder):
     md += "Beschreibung" + " " * (descspace - len("Beschreibung")) + "\n"
     md += "-" * (propspace - 1) + " " + "-" * (typespace - 1) + " " + "-" * (descspace) + "\n"
 
-    md = table_body(propspace, schema, typespace)
+    md += table_body(propspace, schema, typespace)
 
     # End of Table
     md += "-" * (propspace + typespace + descspace) + "\n\n"

@@ -17,10 +17,7 @@ Wenn ein Objekt gelöscht wird,
 
 Als HTTP-Statuscode **muss** weiterhin 200 verwendet werden.
 
-Die Objekte _LegislativeTerm_, _Membership_, _AgendaItem_ und _Consultation_ können dagegen einfach
-gelöscht werden. Beim Löschen dieser Objekte muss allerdings der
-Wert `modified` aller Objekte aktualisiert werden, in die dieses Objekt
-eingebunden war.
-
-Dies garantiert, dass das gelöschte Objekt beim Updaten eines Client-Datenbestandes
-aktualisiert wird, falls der Client nur seit dem letzten Update aktualisierte Objekte abruft.
+Neu in OParl 1.1: Die Objekte _LegislativeTerm_, _Membership_, _AgendaItem_ und
+_Consultation_ dürfen nicht mehr einfach gelöscht werden. Um Kompatibilität zu
+OParl 1.0 zu gewährleisten muss weiterhin der Wert `modified` aller Objekte
+aktualisiert werden, in die dieses Objekt eingebunden war.

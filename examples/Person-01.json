@@ -12,10 +12,10 @@
     "formOfAddress": "Ratsfrau",
     "gender": "male",
     "email": [
-      "max@mustermann.de"
+        "max@mustermann.de"
     ],
     "phone": [
-      "+493012345678"
+        "+493012345678"
     ],
     "status": [
         "Bezirksbürgermeister"
@@ -27,7 +27,9 @@
             "organization": "https://oparl.example.org/organizations/5",
             "role": "Vorsitzende",
             "votingRight": true,
-            "startDate": "2013-12-03"
+            "startDate": "2013-12-03",
+            "created": "2011-11-11T11:11:00+01:00",
+            "modified": "2012-08-16T14:05:27+02:00"
         },
         {
             "id": "https://oparl.example.org/memberships/693",
@@ -36,7 +38,9 @@
             "role": "Sachkundige Bürgerin",
             "votingRight": false,
             "startDate": "2013-12-03",
-            "endDate": "2014-07-28"
+            "endDate": "2014-07-28",
+            "created": "2011-11-11T11:11:00+01:00",
+            "modified": "2012-08-16T14:05:27+02:00"
         }
     ],
     "created": "2011-11-11T11:11:00+01:00",

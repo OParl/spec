@@ -8,11 +8,16 @@
         "id": "https://oparl.example.org/location/0",
         "type": "https://schema.oparl.org/1.1/Location",
         "description": "Rathaus der Beispielstadt, Ratshausplatz 1, 12345 Beispielstadt",
+        "created": "2012-01-06T12:01:00+01:00",
+        "modified": "2012-01-08T14:05:27+01:00",
         "geojson": {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": [50.1234, 10.4321]
+                "coordinates": [
+                    50.1234,
+                    10.4321
+                ]
             },
             "properties": {
                 "name": "Rathausplatz"
@@ -33,7 +38,8 @@
         "sha1Checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
         "size": 82930,
         "accessUrl": "https://oparl.example.org/files/57739.pdf",
-        "downloadUrl": "https://oparl.example.org/files/download/57739.pdf"
+        "downloadUrl": "https://oparl.example.org/files/download/57739.pdf",
+        "created": "2012-01-06T12:01:00+01:00"
     },
     "resultsProtocol": {
         "id": "https://oparl.example.org/files/57739",
@@ -46,7 +52,8 @@
         "size": 82930,
         "accessUrl": "https://oparl.example.org/files/57739.pdf",
         "downloadUrl": "https://oparl.example.org/files/download/57739.pdf",
-        "modified": "2012-01-08T14:05:27+01:00"
+        "modified": "2012-01-08T14:05:27+01:00",
+        "created": "2012-01-06T12:01:00+01:00"
     },
     "verbatimProtocol": {
         "id": "https://oparl.example.org/files/57739",
@@ -59,7 +66,8 @@
         "size": 82930,
         "accessUrl": "https://oparl.example.org/files/57739.pdf",
         "downloadUrl": "https://oparl.example.org/files/download/57739.pdf",
-        "modified": "2012-01-08T14:05:27+01:00"
+        "modified": "2012-01-08T14:05:27+01:00",
+        "created": "2012-01-08T14:05:27+01:00"
     },
     "auxiliaryFile": [
         {
@@ -73,7 +81,8 @@
             "size": 82930,
             "accessUrl": "https://oparl.example.org/files/57739.pdf",
             "downloadUrl": "https://oparl.example.org/files/download/57739.pdf",
-            "modified": "2012-01-08T14:05:27+01:00"
+            "modified": "2012-01-08T14:05:27+01:00",
+            "created": "2012-01-08T14:05:27+01:00"
         }
     ],
     "agendaItem": [
@@ -86,7 +95,9 @@
             "public": true,
             "consultation": "https://oparl.example.org/consultation/1034",
             "result": "Geändert beschlossen",
-            "resolutionText": "Der Beschluss weicht wie folgt vom Antrag ab: ..."
+            "resolutionText": "Der Beschluss weicht wie folgt vom Antrag ab: ...",
+            "created": "2012-01-06T12:01:00+01:00",
+            "modified": "2012-01-08T14:05:27+01:00"
         }
     ],
     "created": "2012-01-06T12:01:00+01:00",

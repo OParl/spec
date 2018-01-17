@@ -48,6 +48,8 @@
             "id": "https://oparl.example.org/locations/29856",
             "type": "https://schema.oparl.org/1.1/Location",
             "description": "Honschaftsstraße 312, Köln",
+            "created": "2012-01-08T14:05:27+01:00",
+            "modified": "2012-01-08T14:05:27+01:00",
             "geojson": {
                 "type": "Point",
                 "coordinates": [
@@ -72,10 +74,12 @@
             "agendaItem": "https://oparl.example.org/agendaitem/15569",
             "meeting": "https://oparl.example.org/meeting/243",
             "organization": [
-              "https://oparl.example.org/organization/96"
+                "https://oparl.example.org/organization/96"
             ],
             "authoritative": false,
-            "role": "Beschlussfassung"
+            "role": "Beschlussfassung",
+            "created": "2012-01-08T14:05:27+01:00",
+            "modified": "2012-01-08T14:05:27+01:00"
         }
     ],
     "underDirectionOf": [

@@ -16,9 +16,14 @@
     "license": "http://creativecommons.org/licenses/by/4.0/",
     "licenseValidSince": "2014-01-01T00:00:00+02:00",
     "organization": "https://oparl.example.org/body/0/organizations/",
-    "person": "https://oparl.example.org/body/0/people/",
+    "person": "https://oparl.example.org/body/0/persons/",
     "meeting": "https://oparl.example.org/body/0/meetings/",
     "paper": "https://oparl.example.org/body/0/papers/",
+    "agendaItem": "https://oparl.example.org/body/0/agendaItems/",
+    "consultation": "https://oparl.example.org/body/0/consultations/",
+    "file": "https://oparl.example.org/body/0/files/",
+    "locationList": "https://oparl.example.org/body/0/locations/",
+    "membership": "https://oparl.example.org/body/0/memberships/",
     "legislativeTerm": [
         {
             "id": "https://oparl.example.org/term/21",
@@ -26,18 +31,25 @@
             "body": "https://oparl.example.org/body/0",
             "name": "21. Wahlperiode",
             "startDate": "2010-12-03",
-            "endDate": "2013-12-03"
+            "endDate": "2013-12-03",
+            "created": "2014-01-08T14:28:31+01:00",
+            "modified": "2014-01-08T14:28:31+01:00"
         }
     ],
     "location": {
         "id": "https://oparl.example.org/location/0",
         "type": "https://schema.oparl.org/1.1/Location",
         "description": "Rathaus der Beispielstadt, Ratshausplatz 1, 12345 Beispielstadt",
+        "created": "2014-01-08T14:28:31+01:00",
+        "modified": "2014-01-08T14:28:31+01:00",
         "geojson": {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": [50.1234, 10.4321]
+                "coordinates": [
+                    50.1234,
+                    10.4321
+                ]
             },
             "properties": {
                 "name": "Rathausplatz"

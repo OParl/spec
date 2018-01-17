@@ -2,11 +2,16 @@
     "id": "https://oparl.example.org/location/0",
     "type": "https://schema.oparl.org/1.1/Location",
     "description": "Rathaus der Beispielstadt, Ratshausplatz 1, 12345 Beispielstadt",
+    "created": "2014-01-08T14:28:31+01:00",
+    "modified": "2014-01-08T14:28:31+01:00",
     "geojson": {
         "type": "Feature",
         "geometry": {
             "type": "Point",
-            "coordinates": [50.1234, 10.4321]
+            "coordinates": [
+                50.1234,
+                10.4321
+            ]
         },
         "properties": {
             "name": "Rathausplatz"

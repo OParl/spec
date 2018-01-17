@@ -56,7 +56,7 @@ de:
   Person.properties.affix.description: Namenszusatz (z.B. `jun.` oder `MdL.`)
   Person.properties.title.description: Akademische Titel
   Person.properties.gender.description: |
-    Geschlecht. Empfohlene Werte sind `female`, `male` und `other`. Für den Fall, dass
+    Geschlecht. Vorgegebene Werte sind `female` und `male`, weitere werden durch die durchgehend klein geschriebene englische Bezeichnung angegeben. Für den Fall, dass
     das Geschlecht der Person unbekannt ist, **sollte** die Eigenschaft nicht ausgegeben werden.
   Person.properties.phone.description: Telefonnummern der Person.
   Person.properties.email.description: E-Mail-Adressen der Person.

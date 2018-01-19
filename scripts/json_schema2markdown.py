@@ -131,7 +131,7 @@ def table_body(propspace, schema, typespace):
         type = type_to_string(prop)
 
         if "description" in prop.keys():
-            description = prop["description"]
+            description = prop["description"].replace("\n", " ")
         elif prop_name in OParl.default_properties:
             description = ""
         else:

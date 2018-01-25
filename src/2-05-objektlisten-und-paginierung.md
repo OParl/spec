@@ -221,8 +221,10 @@ reservierte Zeichen URL-Kodiert werden müssen. Ein Server muss diese Parameter
 bei allen externen Objektlisten unterstützen.
 
 Die Filter werden vom Client benutzt, indem die gewünschten URL-Parameter an
-die URL der ersten Listenseite angehängt werden. Bei allen weiteren Seiten hat
-der Server sicherzustellen, dass die verwendeten Filter erhalten bleiben.
+die URL der ersten Listenseite angehängt werden. Bei allen weiteren Seiten,
+genauer gesagt bei den Werten von `links`, **muss** der Server sicherzustellen,
+dass die verwendeten Filter erhalten bleiben.
+
 Lautet die URL für eine Liste von Drucksachen wie folgt:
 
     https://oparl.example.org/papers/

@@ -1,6 +1,6 @@
 ## Autoren {#oparl-autoren}
 
-Folgende Personen haben an OParl 1.0 mitgewirkt:
+Folgende Personen haben an OParl 1.1 mitgewirkt:
 
 Jayan Areekadan,
 Jan Erhardt,

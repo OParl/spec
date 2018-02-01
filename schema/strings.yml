@@ -108,6 +108,11 @@ de:
     Der Objekttyp oparl:Body dient dazu, eine Körperschaft zu repräsentieren. Eine Körperschaft ist in den meisten Fällen eine Gemeinde, eine Stadt oder ein Landkreis.
     In der Regel sind auf einem OParl-Server Daten von genau einer Körperschaft gespeichert und es wird daher auch nur ein Body-Objekt ausgegeben. Sind auf dem Server jedoch Daten von mehreren Körperschaften gespeichert, **muss** für jede Körperschaft ein eigenes Body-Objekt ausgegeben werden.
   Body.properties.system.description: System, zu dem dieses Objekt gehört.
+  Body.properties.agendaItem.description: "**ZWINGEND** [Objektliste](#objektlisten) mit allen Tagesordnungspunkten der Körperschaft. Neu in OParl 1.1."
+  Body.properties.consultation.description: "**ZWINGEND** [Objektliste](#objektlisten) mit allen Beratungen der Körperschaft. Neu in OParl 1.1."
+  Body.properties.file.description: "**ZWINGEND** [Objektliste](#objektlisten) mit allen Dateien der Körperschaft. Neu in OParl 1.1."
+  Body.properties.membership.description: "**ZWINGEND** [Objektliste](#objektlisten) mit allen Mitgliedschaften der Körperschaft. Neu in OParl 1.1."
+  Body.properties.locationList.description: "**ZWINGEND** [Objektliste](#objektlisten) mit allen Ortsangaben der Körperschaft. Neu in OParl 1.1."
   Body.properties.shortName.description: Kurzer Name der Körperschaft.
   Body.properties.name.description: Der offizielle lange Name der Körperschaft.
   Body.properties.website.description: Allgemeine Website der Körperschaft.

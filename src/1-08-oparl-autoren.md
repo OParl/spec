@@ -1,15 +1,18 @@
 ## Autoren {#oparl-autoren}
 
-Folgende Personen haben an OParl 1.1 mitgewirkt:
+### Kernteam
+
+Stefan Graupner, Ernesto Ruge, Konstantin Schütze
+
+### OParl 1.0
+
+Folgende Personen haben an OParl 1.0 mitgewirkt:
 
 Jayan Areekadan,
 Jan Erhardt,
-Stefan Graupner,
 Lucas Jacob,
 Jens Klessmann (\*),
 Andreas Kuckartz (\*\*),
-Ernesto Ruge,
-Konstantin Schütze,
 Babett Schalitz,
 Tim Scheuermann,
 Christine Siegfried (\*),
@@ -19,6 +22,15 @@ Bernd Thiem,
 Thomas Tursics,
 Jakob Voss,
 Marianne Wulff(\*)
+
+### OParl 1.1
+
+Folgende Personen haben an OParl 1.1 mitgewirkt:
+
+grindhold
+Medo42
+Sami Mussbach
+
 
 (\*): Initiator(in), (\*\*): bis 4.7.2014
 

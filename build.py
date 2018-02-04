@@ -156,6 +156,10 @@ def prepare_markdown(language):
     for f in files:
         shutil.copy2(f, 'build/src/')
 
+    os.mkdir('build/extra')
+    with open('build/extra/detailed-version.md', 'w') as fp:
+        fp.write("Version {}\n".format(get_git_describe_version()))
+
 
 def prepare_images(tools):
     glob_pattern = 'src/images/*.*'
@@ -222,16 +226,19 @@ def run_pandoc(pandoc_bin, filename_base, output_format, extra_args='', extra_fi
 
     source_files = glob('build/src/*.md')
     source_files.sort(key=lambda file: path.basename(file))
+    # This gets the version into the titlepage of the pdf
+    detailed_version = '-M detailed-version={}'.format(get_git_describe_version())
 
     # NOTE: Once we can safely assume pandoc 2.0, we can use resource-path
     #       for neater include management in the markdown files
     # pandoc_command = '{} {} {} --resource-path=.:build/src -o {} {} {}'.format(
-    pandoc_command = '{} {} {} -o {} {} {}'.format(
+    pandoc_command = '{} {} {} -o {} {} {} {}'.format(
         pandoc_bin,
         SPECIFICATION_BUILD_FLAGS['pandoc'],
         extra_args,
         output_file,
         extra_files,
+        detailed_version,
         ' '.join(source_files)
     )
 
@@ -262,7 +269,8 @@ class Action:
     @staticmethod
     def html(tools, options, filename_base):
         args = '--to html5 --css {} --section-divs --self-contained'.format(options.html_style)
-        run_pandoc(tools['pandoc'], filename_base, 'html', extra_args=args, extra_files='resources/lizenz-als-bild.md')
+        run_pandoc(tools['pandoc'], filename_base, 'html', extra_args=args,
+                   extra_files='build/extra/detailed-version.md resources/lizenz-als-bild.md')
 
     @staticmethod
     def pdf(tools, options, filename_base):
@@ -276,11 +284,13 @@ class Action:
 
     @staticmethod
     def odt(tools, _, filename_base):
-        run_pandoc(tools['pandoc'], filename_base, 'odt', extra_files='resources/lizenz-als-text.md')
+        run_pandoc(tools['pandoc'], filename_base, 'odt',
+                   extra_files='build/extra/detailed-version.md resources/lizenz-als-text.md')
 
     @staticmethod
     def docx(tools, _, filename_base):
-        run_pandoc(tools['pandoc'], filename_base, 'docx', extra_files='resources/lizenz-als-text.md')
+        run_pandoc(tools['pandoc'], filename_base, 'docx',
+                   extra_files='build/extra/detailed-version.md resources/lizenz-als-text.md')
 
     @staticmethod
     def txt(tools, _, filename_base):
@@ -288,7 +298,7 @@ class Action:
 
     @staticmethod
     def epub(tools, _, filename_base):
-        run_pandoc(tools['pandoc'], filename_base, 'epub')
+        run_pandoc(tools['pandoc'], filename_base, 'epub', extra_files='build/extra/detailed-version.md')
 
     @staticmethod
     def all(tools, options, filename_base):

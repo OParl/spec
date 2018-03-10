@@ -223,6 +223,23 @@ beziehen sich auf die entsprechenden Attribute der jeweiligen Objekte, wobei
 reservierte Zeichen URL-Kodiert werden müssen. Ein Server muss diese Parameter
 bei allen externen Objektlisten unterstützen.
 
+Neu in OParl 1.1: Wenn ein Client den Parameter `omit_internal` mit dem Wert
+`true` angibt, dann **soll** der Server auf die Ausgabe von internen Listen
+verzichten, sofern deren Objekte Teil einer der in OParl 1.1 neu eingeführten
+Listen sind. Konkret bedeutet das, dass die folgenden Attribute nicht ausgegeben
+werden müssen:
+
+ - `auxiliaryFile` in `AgendaItem`
+ - `auxiliaryFile` in `Meeting`
+ - `auxiliaryFile` in `Paper`
+ - `location` in `Paper`
+ - `membership` in `Person`
+
+Weiterhin ausgeben werden dagegen:
+
+ - `legislativeTerm` in `Body` (Hier gibt es keine externe Liste)
+ - `agendaItem` in `Meeting` (Hier ist die Reihenfolge der Objekte relevant)
+
 Die Filter werden vom Client benutzt, indem die gewünschten URL-Parameter an
 die URL der ersten Listenseite angehängt werden. Bei allen weiteren Seiten,
 genauer gesagt bei den Werten von `links`, **muss** der Server sicherzustellen,

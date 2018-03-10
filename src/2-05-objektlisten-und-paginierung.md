@@ -45,7 +45,7 @@ Ein Beispiel hierfür ist `meeting` in `Organization`:
 ### Interne Ausgabe von Objekten
 
 Objekte können auch intern ausgegeben werden. Dabei wird das gesamte Objekt als
-Wert eines Attributs angegeben. Ein Beispiel für ein internes  Objekt ist
+Wert eines Attributs angegeben. Ein Beispiel für ein internes Objekt ist
 `location` in `oparl:Body`:
 
 ~~~~~  {#objektlisten_ex3 .json}
@@ -223,7 +223,11 @@ bei allen externen Objektlisten unterstützen.
 Die Filter werden vom Client benutzt, indem die gewünschten URL-Parameter an
 die URL der ersten Listenseite angehängt werden. Bei allen weiteren Seiten,
 genauer gesagt bei den Werten von `links`, **muss** der Server sicherzustellen,
-dass die verwendeten Filter erhalten bleiben.
+dass die verwendeten Filter erhalten bleiben. Neu in OParl 1.1: Ein Server
+**muss** für den im nächsten Abschnitt beschrieben Aktualisierungsmechanismus
+auch die gelöschten Objekte ausgeben, wenn der Parameter `modified_since`
+gesetzt ist (s. [OParl 1.1](#oparl-1-1)). Damit wird vermieden, dass ein Client
+diese Objekte mehrfach herunterlädt.
 
 Lautet die URL für eine Liste von Drucksachen wie folgt:
 
@@ -245,3 +249,27 @@ Des Weiteren kann ein Client die Anzahl der Objekte pro Listenseite durch
 den URL-Parameter `limit` begrenzen, der sich auf das gleichnamige
 Attribut bezieht. Ein Client **darf nicht** erwarten, dass sich ein Server an
 seine `limit`-Anfrage hält.
+
+### Der Aktualisierungsmechanismus {#aktualisierungsmechanismus}
+
+Dieser Abschnitt ist neu in OParl 1.1.
+
+Der Hauptnutzen der Filter ist die Möglichkeit, einen lokalen Datenbestand
+inkrementell zu aktualisieren.
+
+Ein Client könnte z.B. am 1.1.2014 um 2:00 Uhr deutscher Zeit die Liste aller
+Drucksachen herunterladen und in einer Datenbank speichern.
+
+    https://oparl.example.org/papers/
+
+Um den Datenbestand am nächsten Tag zu aktualisieren, ruft der Client die selbe
+URL auf, diesmal jedoch mit dem Parameter `modified_since` mit dem Wert
+`2014-01-01T02:00:00+01:00`.
+
+    https://oparl.example.org/papers/?modified_since=2014-01-01T02%3A00%3A00%2B01%3A00
+
+Diese Liste ist in der Regel deutlich kürzer als die Liste aller Objekte,
+sodass die Aktualisierung bedeutend schneller ist als der erste Abruf. Der
+Client muss außerdem nur noch eine deutlich kleiner Menge an Objekten in die
+Datenbank einfügen, aktualisieren oder löschen, um den gleichen Datenstand wie
+der Server zu haben.

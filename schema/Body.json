@@ -123,9 +123,7 @@
         },
         "legislativeTerm": {
             "description": "{{ Body.properties.legislativeTerm.description }}",
-            "type": "string",
-            "format": "url",
-            "references": "externalList",
+            "type": "array",
             "items": {
                 "type": "object",
                 "schema": "LegislativeTerm.json"

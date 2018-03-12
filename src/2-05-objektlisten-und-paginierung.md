@@ -226,11 +226,15 @@ bei allen externen Objektlisten unterstützen.
 Die Filter werden vom Client benutzt, indem die gewünschten URL-Parameter an
 die URL der ersten Listenseite angehängt werden. Bei allen weiteren Seiten,
 genauer gesagt bei den Werten von `links`, **muss** der Server sicherzustellen,
-dass die verwendeten Filter erhalten bleiben. Neu in OParl 1.1: Ein Server
-**muss** für den im nächsten Abschnitt beschrieben Aktualisierungsmechanismus
-auch die den Filtern entsprechenden gelöschten Objekte ausgeben, wenn der
-Parameter `modified_since` gesetzt ist (s. [OParl 1.1](#oparl-1-1)). Damit wird
-vermieden, dass ein Client diese Objekte mehrfach herunterlädt.
+dass die verwendeten Filter erhalten bleiben.
+
+Neu in OParl 1.1: Ein Server **muss** für den im nächsten Abschnitt beschrieben
+Aktualisierungsmechanismus auch die den Filtern entsprechenden gelöschten
+Objekte ausgeben, wenn der Parameter `modified_since` gesetzt ist
+(s. [OParl 1.1](#oparl-1-1)). Wenn `modified_since` nicht gesetzt ist,
+dann **dürfen** die gelöschten Objekte **nicht** ausgegeben werden.
+Dadurch kann sich ein Client effizient darüber informieren, welche der Objekte
+in seinem lokalen Bestand gelöscht wurden.
 
 Lautet die URL für eine Liste von Drucksachen wie folgt:
 

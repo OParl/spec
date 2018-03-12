@@ -89,6 +89,9 @@ Beispiel des Attributes `membership` in `oparl:Person`.
 }
 ~~~~~
 
+Bei der internen Ausgabe von Objekten **darf** der Server keine gelöschten
+Objekte ausgeben.
+
 ### Externe Objektlisten
 
 Es können auch Referenzen zu sogenannten externen Objektlisten angegeben werden.

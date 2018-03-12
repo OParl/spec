@@ -288,9 +288,9 @@ Drucksachen herunterladen und in einer Datenbank speichern.
 
 Um den Datenbestand am nächsten Tag zu aktualisieren, ruft der Client die selbe
 URL auf, diesmal jedoch mit dem Parameter `modified_since` mit dem Wert
-`2014-01-01T02:00:00+01:00`.
+`2014-01-01T02:00:00+01:00` und mit `omit_internal`.
 
-    https://oparl.example.org/papers/?modified_since=2014-01-01T02%3A00%3A00%2B01%3A00
+    https://oparl.example.org/papers/?modified_since=2014-01-01T02%3A00%3A00%2B01%3A00&omit_internal=true
 
 Diese Liste ist in der Regel deutlich kürzer als die Liste aller Objekte,
 sodass die Aktualisierung bedeutend schneller ist als der erste Abruf. Der

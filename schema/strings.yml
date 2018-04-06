@@ -16,6 +16,10 @@ de:
     wie z. B. "10.", "10.1", "C", "c)" o. ä. Die Reihenfolge wird nicht dadurch,
     sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting`
     festgelegt, **sollte** allerdings zu dieser identisch sein.
+  AgendaItem.properties.order.description: |
+    Neu in OParl 1.1: Die Position des Tagesordnungspunkts in der Sitzung,
+    wenn alle Tagesordnungspunkte von 0 an durchgehend numeriert werden.
+    Diese Nummer entspricht der Position in `Meeting:agendaItem`
   AgendaItem.properties.name.description: Das Thema des Tagesordnungspunktes.
   AgendaItem.properties.public.description: |
     Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher Sitzung

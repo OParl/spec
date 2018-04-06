@@ -4,7 +4,8 @@
     "type": "object",
     "required": [
         "id",
-        "type"
+        "type",
+        "order"
     ],
     "properties": {
         "id": {
@@ -24,6 +25,10 @@
         "number": {
             "description": "{{ AgendaItem.properties.number.description }}",
             "type": "string"
+        },
+        "order": {
+            "description": "{{ AgendaItem.properties.order.description }}",
+            "type": "integer"
         },
         "name": {
             "description": "{{ AgendaItem.properties.name.description }}",

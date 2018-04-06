@@ -234,11 +234,11 @@ werden müssen:
  - `auxiliaryFile` in `Paper`
  - `location` in `Paper`
  - `membership` in `Person`
+ - `agendaItem` in `Meeting`
 
 Weiterhin ausgeben werden dagegen:
 
  - `legislativeTerm` in `Body` (Hier gibt es keine externe Liste)
- - `agendaItem` in `Meeting` (Hier ist die Reihenfolge der Objekte relevant)
 
 Die Filter werden vom Client benutzt, indem die gewünschten URL-Parameter an
 die URL der ersten Listenseite angehängt werden. Bei allen weiteren Seiten,

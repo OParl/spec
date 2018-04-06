@@ -117,6 +117,7 @@ de:
   Body.properties.file.description: "**ZWINGEND** Link zur [Objektliste](#objektlisten) mit allen Dateien der Körperschaft. Neu in OParl 1.1."
   Body.properties.membership.description: "**ZWINGEND** Link zur [Objektliste](#objektlisten) mit allen Mitgliedschaften der Körperschaft. Neu in OParl 1.1."
   Body.properties.locationList.description: "**ZWINGEND** Link zur [Objektliste](#objektlisten) mit allen Ortsangaben der Körperschaft. Neu in OParl 1.1."
+  Body.properties.legislativeTermList.description: "**ZWINGEND** Link zur [Objektliste](#objektlisten) mit allen Legislaturperioden der Körperschaft. Neu in OParl 1.1. Die externe Objektliste enthält die gleichen Objekte wie `legislativeTerm`"
   Body.properties.shortName.description: Kurzer Name der Körperschaft.
   Body.properties.name.description: Der offizielle lange Name der Körperschaft.
   Body.properties.website.description: Allgemeine Website der Körperschaft.

@@ -169,6 +169,16 @@
                 "schema": "Location.json"
             }
         },
+        "legislativeTermList": {
+            "description": "{{ Body.properties.legislativeTermList.description }}",
+            "type": "string",
+            "format": "url",
+            "references": "externalList",
+            "items": {
+                "type": "object",
+                "schema": "LegislativeTerm.json"
+            }
+        },
         "membership": {
             "description": "{{ Body.properties.membership.description }}",
             "type": "string",

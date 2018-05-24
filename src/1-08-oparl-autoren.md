@@ -28,9 +28,9 @@ Marianne Wulff(\*)
 Folgende Personen haben an OParl 1.1 mitgewirkt:
 
 grindhold
-Medo42
+Simeon Maxein
 Sami Mussbach
+Ralf Sternberg
 
 
 (\*): Initiator(in), (\*\*): bis 4.7.2014
-

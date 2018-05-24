@@ -2,7 +2,7 @@
 
 ### Zwingende, empfohlene und optionale Anforderungen  {#muss_sollte_darf}
 
-Dieses Spezifikation nutzt **müssen**, **können** und **sollten**
+Diese Spezifikation nutzt **müssen**, **können** und **sollten**
 in einer eindeutig definierten Art und Weise. Diese ist angelehnt an die
 Definitionen der Begriffe MUST, SHOULD und MAY (bzw. MUST NOT, SHOULD NOT und
 MAY NOT) aus RFC2119.^[RFC2119 <http://tools.ietf.org/html/rfc2119>]

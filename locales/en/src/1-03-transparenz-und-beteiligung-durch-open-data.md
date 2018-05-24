@@ -43,7 +43,7 @@ Einhaltung der technischen Prinzipien, noch der weiteren Open-Data-Prinzipien vo
 garantieren. Viele Bestandteile der OParl-Spezifikation, die einen weitgehend
 barrierearmen Zugang zu Informationen[^1] ermöglichen sollen, sind in der
 vorliegenden Version noch optional (Beispiel: Volltexte von Dokumenten über
-die API abrufbar machen). Andere Bestandteile,die von Interesse wären, sind
+die API abrufbar machen). Andere Bestandteile, die von Interesse wären, sind
 noch gar nicht von OParl abgedeckt (Beispiel: Abstimmungsergebnisse).
 Grund dafür ist, dass sich OParl in einem frühen Stadium befindet und primär am Status Quo der
 parlamentarischen Informationssysteme ausgerichtet ist. Es liegt also auch weiterhin an

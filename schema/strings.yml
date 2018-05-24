@@ -83,7 +83,7 @@ de:
     Objekte vom Typ `oparl:File` können unter anderem mit Drucksachen (`oparl:Paper`) oder Sitzungen (`oparl:Meeting`) in Beziehung stehen.
     Dies wird durch  die Eigenschaft `paper` bzw. `meeting` angezeigt. Mehrere Objekte vom Typ `oparl:File` können mit einander in direkter
     Beziehung stehen, z.B. wenn sie den selben Inhalt in unterschiedlichen technischen Formaten wiedergeben. Hierfür werden die
-    Eigenschaften `masterFile` bzw. `derivativeFile` eingesetzt. Das sgezeigte Beispiel-Objekt repräsentiert eine PDF-Datei
+    Eigenschaften `masterFile` bzw. `derivativeFile` eingesetzt. Das gezeigte Beispiel-Objekt repräsentiert eine PDF-Datei
     (zu erkennen an der Eigenschaft `mimeType`) und zeigt außerdem über die Eigenschaft  `masterFile` an, von welcher anderen Datei es
     abgeleitet wurde. Umgekehrt **kann** über die Eigenschaft `derivativeFile` angezeigt werden, welche Ableitungen einer Datei existieren.
   File.properties.name.description: "Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt. Leerzeichen **dürfen** enthalten sein, Datei-Endungen wie \".pdf\" **sollten nicht** enthalten sein."
@@ -185,7 +185,7 @@ de:
   Organization.properties.website.description: Allgemeine Website der Gruppierung.
   Organization.properties.location.description: Ort, an dem die Organisation beheimatet ist
   Organization.properties.externalBody.description: Externer OParl Body, der dieser Organisation entspricht. Diese Eigenschaft ist dafür gedacht auf eventuelle konkretere OParl-Schnittstellen zu verweisen. Ein Beispiel hierfür wäre eine Stadt, die sowohl ein übergreifendes parlamentarisches Informationssystem, als auch bezirksspezifische Systeme hat.
-  Membership.description: Über Objekte diesen Typs wird die Mitgliedschaft von Personen in Gruppierungen dargestellt. Diese Mitgliedschaften können zeitlich begrenzt sein. Zudem kann abgebildet werden, dass eine Person eine bestimmte Rolle bzw. Position innerhalb der Gruppierung inne hat, beispielsweise den Vorsitz einer Fraktion.
+  Membership.description: Über Objekte dieses Typs wird die Mitgliedschaft von Personen in Gruppierungen dargestellt. Diese Mitgliedschaften können zeitlich begrenzt sein. Zudem kann abgebildet werden, dass eine Person eine bestimmte Rolle bzw. Position innerhalb der Gruppierung innehat, beispielsweise den Vorsitz einer Fraktion.
   Membership.properties.person.description: Rückreferenz auf Person, welches nur dann ausgegeben werden muss, wenn das Membership-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.
   Membership.properties.organization.description: Die Gruppierung, in der die Person Mitglied ist oder war.
   Membership.properties.role.description: Rolle der Person für die Gruppierung. Kann genutzt werden, um verschiedene Arten von Mitgliedschaften zum Beispiel in Gremien zu unterscheiden.

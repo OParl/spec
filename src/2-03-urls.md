@@ -28,7 +28,7 @@ werden, dass sie nur über eine bestimmte Domain erreichbar sind. OParl-Server *
 Wenn ein Server auch durch eine nicht-kanonische URL erreichbar ist, dann
 **sollte** eine entsprechende HTTP-Anfrage mit einer Weiterleitung auf die
 entsprechende kanonische URL und HTTP-Status-Code 301 beantwortet werden.
-Zur überprüfung kann z.B. der `Host`-Header einer HTTP-Anfrage verwendet werden.
+Zur Überprüfung kann z.B. der `Host`-Header einer HTTP-Anfrage verwendet werden.
 
 Beim Pfad-Bestandteil der URL **müssen** Server-Implementierer darüber hinaus
 beachten, dass zur kanonischen Schreibweise auch die Groß- und Kleinschreibung, die Anzahl von Schrägstrichen als Pfad-Trennzeichen und die Anzahl von führenden Nullen vor numerischen URL-Bestandteilen gehört.
@@ -72,7 +72,7 @@ die nicht verändert werden. Ändert sich beispielsweise die Kennung einer
 Drucksache im Verlauf ihrer Existenz, dann scheidet sie für die Bildung
 der URL aus.
 
-Des weiteren sollen Eigenschaften der Implementierung nicht sichtbar sein.
+Des Weiteren sollen Eigenschaften der Implementierung nicht sichtbar sein.
 Ist ein OParl-Server beispielsweise in PHP geschrieben, **sollte** dies
 **nicht** dazu führen, dass im Pfad ein Bestandteil wie "oparl.php/" erscheint.
 

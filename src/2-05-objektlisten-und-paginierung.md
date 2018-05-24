@@ -282,7 +282,7 @@ Drucksachen herunterladen und in einer Datenbank speichern.
 
     https://oparl.example.org/papers/
 
-Um den Datenbestand am nächsten Tag zu aktualisieren, ruft der Client die selbe
+Um den Datenbestand am nächsten Tag zu aktualisieren, ruft der Client dieselbe
 URL auf, diesmal jedoch mit dem Parameter `modified_since` mit dem Wert
 `2014-01-01T02:00:00+01:00` und mit `omit_internal`.
 
@@ -290,6 +290,6 @@ URL auf, diesmal jedoch mit dem Parameter `modified_since` mit dem Wert
 
 Diese Liste ist in der Regel deutlich kürzer als die Liste aller Objekte,
 sodass die Aktualisierung bedeutend schneller ist als der erste Abruf. Der
-Client muss außerdem nur noch eine deutlich kleiner Menge an Objekten in die
+Client muss außerdem nur noch eine deutlich kleinere Menge an Objekten in die
 Datenbank einfügen, aktualisieren oder löschen, um den gleichen Datenstand wie
 der Server zu haben.

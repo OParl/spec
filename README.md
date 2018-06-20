@@ -11,11 +11,20 @@ maschinenlesbaren Informationen aus Ratsinformationssystemen.
 - Weitere Informationen für Entwickler: [https://dev.oparl.org][oparl-dev]
 
 Änderungsvorschläge können über Pull Requests eingebracht werden.
-Hilfe im Umgang mit GitHub findest du [hier][github-help]. 
+Hilfe im Umgang mit GitHub findest du [hier][github-help].
 
 ## Die Spezifikation herunterladen
 
 Die Spezifikation kann in verschiedenen Formaten heruntergeladen werden.
+
+### Version 1.1
+
+* [PDF][spec-1-1-pdf]
+* [HTML][spec-1-1-html]
+* [OpenOffice/LibreOffice][spec-1-1-odt]
+* [Microsoft Word][spec-1-1-docx]
+* [EPub][spec-1-1-epub]
+* [Nur Text][spec-1-1-txt]
 
 ### Version 1.0
 
@@ -76,7 +85,7 @@ die enstprechenden Archivierungsprogramme vorhanden sein.
 
 ### Docker
 
-Für den geneigten Containerfreund gibt es ein Container, der alle Tools enthält. 
+Für den geneigten Containerfreund gibt es ein Container, der alle Tools enthält.
 Auch hier ein Ausgabeformat an den Aufruf angehängt werden kann:
 
 ```
@@ -108,6 +117,13 @@ Die Dateien, aus denen die Spezifikation erstellt wird, sind auf mehrere Ordner 
 [tar]: https://www.gnu.org/software/tar/
 [travis]: https://travis-ci.org/OParl/spec/
 [zip]: http://www.info-zip.org/
+
+[spec-1-1-pdf]: https://dev.oparl.org/downloads/spezifikation-1.1.pdf
+[spec-1-1-html]: https://dev.oparl.org/downloads/spezifikation-1.1.html
+[spec-1-1-odt]: https://dev.oparl.org/downloads/spezifikation-1.1.odt
+[spec-1-1-docx]: https://dev.oparl.org/downloads/spezifikation-1.1.docx
+[spec-1-1-epub]: https://dev.oparl.org/downloads/spezifikation-1.1.epub
+[spec-1-1-txt]: https://dev.oparl.org/downloads/spezifikation-1.1.txt
 
 [spec-1-0-pdf]: https://dev.oparl.org/downloads/spezifikation-1.0.pdf
 [spec-1-0-html]: https://dev.oparl.org/downloads/spezifikation-1.0.html

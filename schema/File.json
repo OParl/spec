@@ -106,6 +106,12 @@
                 "format": "url"
             }
         },
+        "person": {
+            "description": "{{ File.properties.person.description }}",
+            "type": "string",
+            "format": "url",
+            "references": "AgendaItem"
+        },
         "paper": {
             "description": "{{ File.properties.paper.description }}",
             "type": "array",

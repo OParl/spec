@@ -74,11 +74,12 @@ de:
   Person.properties.membership.description: |
     Mitgliedschaften der Person in Gruppierungen, z. B. Gremien und Fraktionen. Es **sollen**
     sowohl aktuelle als auch vergangene Mitgliedschaften angegeben werden
+  Person.properties.image.description: |
+    Ein Bild der Person. Aus Kompatibilitätsgründen wird **empfohlen, nur die Bildformate JPEG und PNG zu verwenden. Es sollten keine Bilder ausgeliefert werden, die nur als Platzhalter gedacht sind.
   Person.properties.life.description: Kurzer Informationstext zur Person. Eine Länge von weniger als 300 Zeichen ist **empfohlen**
   Person.properties.lifeSource.description: Angabe der Quelle, aus der die Informationen für `life` stammen. Bei Angabe von `life` ist diese Eigenschaft **empfohlen**
   File.description: |
-    Ein Objekt vom Typ `oparl:File` repräsentiert eine Datei, beispielsweise eine PDF-Datei, ein RTF- oder ODF-Dokument,
-    und hält Metadaten zu der Datei sowie URLs zum Zugriff auf  die Datei bereit.
+    Ein Objekt vom Typ `oparl:File` repräsentiert eine Datei, beispielsweise eine PDF-Datei, ein RTF-Dokument oder ein Bild.  Es hält Metadaten zu der Datei sowie URLs zum Zugriff auf die Datei bereit.
 
     Objekte vom Typ `oparl:File` können unter anderem mit Drucksachen (`oparl:Paper`) oder Sitzungen (`oparl:Meeting`) in Beziehung stehen.
     Dies wird durch  die Eigenschaft `paper` bzw. `meeting` angezeigt. Mehrere Objekte vom Typ `oparl:File` können mit einander in direkter
@@ -103,6 +104,7 @@ de:
   File.properties.meeting.description: Rückreferenzen auf Meeting-Objekte. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.
   File.properties.agendaItem.description: Rückreferenzen auf AgendaItem-Objekte. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.
   File.properties.paper.description: Rückreferenzen auf Paper-Objekte. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.
+  File.properties.paper.description: Rückreferenz auf die Person, deren Bild die Datei darstellt. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.
   LegislativeTerm.description: Dieser Objekttyp dient der Beschreibung einer Wahlperiode.
   LegislativeTerm.properties.body.description: Rückreferenz auf die Körperschaft, welche nur dann ausgegeben werden muss, wenn das LegislativeTerm-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.
   LegislativeTerm.properties.name.description: Nutzerfreundliche Bezeichnung der Wahlperiode.

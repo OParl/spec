@@ -110,7 +110,7 @@
             "description": "{{ File.properties.person.description }}",
             "type": "string",
             "format": "url",
-            "references": "AgendaItem"
+            "references": "Person"
         },
         "paper": {
             "description": "{{ File.properties.paper.description }}",

@@ -96,6 +96,11 @@
                 "schema": "Membership.json"
             }
         },
+        "image": {
+            "description": "{{ Person.properties.image.description }}",
+            "type": "object",
+            "schema": "File.json"
+        },
         "life": {
             "description": "{{ Person.properties.life.description }}",
             "type": "string"

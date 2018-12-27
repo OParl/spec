@@ -92,6 +92,13 @@ def configure_argument_parser():
     )
 
     parser.add_argument(
+        '--list-actions',
+        help='List available build actions',
+        dest='list_actions',
+        action='store_true'
+    )
+
+    parser.add_argument(
         'action',
         help='Build action to take, available actions are: {}'.format(', '.join(SPECIFICATION_BUILD_ACTIONS)),
         action='store',
@@ -346,6 +353,11 @@ def main():
     if options.print_basename:
         print(filename_base)
         exit(0)
+
+    if options.list_actions:
+        for action in SPECIFICATION_BUILD_ACTIONS:
+            print('- ' + action)
+        exit()
 
     tools = check_available_tools()
 

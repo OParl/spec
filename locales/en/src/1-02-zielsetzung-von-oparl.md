@@ -8,9 +8,7 @@ OParl is aimed at several user groups and stakeholders:
 * scientists
 * Anbieter von Server- und Softwareprodukten im Umfeld von parlamentarischen Informationssystemen und Öffentlichkeitsbeteiligung
 
-Die Gründe, warum Betreiber von parlamentarischen Informationssystemen den
-Zugriff darauf über eine standardisierte Schnittstelle ermöglichen sollten
-oder möchten, können vielfältig und je nach Nutzergruppe unterschiedlich sein.
+Reasons, why an operator of parliamentary information systems should offer access via a standardized interface, can be diverse and differ from user group to user group.
 
 Ein zentrales Argument für Verwaltung und politische Gremien, sei es in
 Gebietskörperschaften oder auf Landes- oder Bundesebene,

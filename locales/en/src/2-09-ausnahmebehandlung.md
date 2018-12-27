@@ -1,20 +1,21 @@
-## Ausnahmebehandlung {#ausnahmebehandlung}
+## Exception Handling
+{#ausnahmebehandlung}
 
-Wenn ein Server eine Anfrage nicht bearbeiten kann, z.B. weil die
-URL ungültig ist oder das angefragte Objekt nicht existiert, dann **sollte** er
-mit dem entsprechenden HTTP-Statuscode antworten.
+If a server can not handle a request, e.g. because the
+URL is invalid or the requested object does not exist, it ** should **
+respond with the appropriate HTTP status code.
 
-Ein Server **sollte** in diesem Fall ein Objekt ausgeben, das die folgenden
-3 Attribute enthält:
+In this case, a server ** should ** return an object containing the following
+3 attributes:
 
- * `type`: Enthält als Wert die URL `https://schema.oparl.org/1.1/Error`
- * `message`: Eine Fehlermeldung, die zur Anzeige für einen Nutzer
- gedacht ist. Die Fehlermeldung sollte deshalb in der Sprache der durch die
- Schnittstelle ausgelieferten Inhalte verfasst sein
- * `debug`: Zusätzliche Informationen über den Fehler
+ * `type`: Contains the URL `https://schema.oparl.org/1.1/Error` as value
+ * `message`: An error message to display for a user
+ . Therefore, the error message should be in the language of the
+ content that is delivered through the interface.
+ * `debug`: Additional information about the bug
 
- Wenn ein Server ein solches Objekt ausgibt, dann **muss** er dazu einen
- HTTP-Statuscode senden, der einen Fehler anzeigt.
+ If a server outputs such an object, then ** it ** must
+ send an HTTP status code indicating an error.
 
- Ein Client **darf nicht** voraussetzen, dass er im Fall eines Fehlers
- verwertbare Informationen wie das oben beschriebene Fehlerobjekt erhält.
+ A client ** may not ** assume that in a case of a mistake, the status code
+ contains useful information such as the error object described above.

@@ -139,12 +139,6 @@ source_file = src/3-01-eigenschaften-mit-verwendung-in-mehreren-objekttypen.md
 file_filter = locales/<lang>/src/3-01-eigenschaften-mit-verwendung-in-mehreren-objekttypen.md
 type = GITHUBMARKDOWN
 
-[spec-1.buildingmd]
-source_lang = de
-source_file = building.md
-file_filter = building.<lang>.md
-type = GITHUBMARKDOWN
-
 [spec-1.schema_stringsyml]
 source_lang = de
 source_file = schema/strings.yml

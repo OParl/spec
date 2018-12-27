@@ -57,8 +57,9 @@ und auf redundante Informationen zu verzichten.
 
 Datum und Uhrzeit der Erstellung des jeweiligen Objekts.
 
-Diese Eigenschaft **muss** in allen Objekttypen angegeben werden, die nicht
-in anderen Objekten intern ausgegeben werden.
+Diese Eigenschaft **muss** in allen Objekttypen angegeben werden. Neu in
+OParl 1.1: Diese Eigenschaft muss auch in Objekten ausgegeben werden, die intern
+ausgegeben werden.
 
 ### `modified` {#eigenschaft-modified}
 
@@ -66,7 +67,8 @@ Diese Eigenschaft kennzeichnet stets Datum und Uhrzeit der letzten Änderung des
 jeweiligen Objekts.
 
 Diese Eigenschaft **muss** - genau wie `created` - in allen Objekttypen angegeben
-werden, die nicht in anderen Objekten intern ausgegeben werden.
+werden. Neu in OParl 1.1: Diese Eigenschaft muss auch in Objekten ausgegeben
+werden, die intern ausgegeben werden.
 
 Es ist **zwingend**, dass bei jeder Änderung eines Objekts der Wert dieses
 Attributs auf die zu diesem Zeitpunkt aktuelle Uhrzeit gesetzt wird, da ein

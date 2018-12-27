@@ -157,7 +157,7 @@ def prepare_schema(language):
 def prepare_markdown(language):
     glob_pattern = 'src/*.md'
     if language != 'de':
-        glob_pattern = 'locales/en/*.md'
+        glob_pattern = 'locales/{}/src/*.md'.format(language)
 
     files = glob(glob_pattern)
     for f in files:

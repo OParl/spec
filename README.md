@@ -44,6 +44,32 @@ Die Spezifikation kann in verschiedenen Formaten heruntergeladen werden.
 * [EPub][spec-master-epub]
 * [Nur Text][spec-master-txt]
 
+## Übersetzen
+
+Da OParl international einzigartig ist würden wir die Spezifikation gerne
+auf Englisch oder auch in weitere Sprachen übersetzen. Dazu benötigen wir
+Helfer mit guten Sprachkenntnissen, die uns bei der Übersetzung helfen.
+
+Zum Übersetzen werden, wie auch bei der sonstigen Textbearbeitung keine
+technischen Fachkenntnisse benötigt. Sowohl die OParl-Spezifikation (dieses
+Repository), als auch die [Entwicklerwebseite][oparl-dev] und [liboparl][oparl-liboparl]
+werden über [Transifex][transifex] lokalisiert. Um daran mitzuarbeiten
+wird nur ein Account benötigt, dann kann den verschiedenen Projekten
+über die [Projektliste][transifex-oparl] beigetreten werden.
+
+Vorang bei der Übersetzung hat vor allem die Spezifikation an sich, da alles
+weitere von der mehrsprachigen Verfügbarkeit des Spezifikationstextes abhängt.
+
+Der Übersetzungsfortschritt wird in regelmäßigen Abständen von Transifex wieder
+zurück in das Repository übertragen, dies passiert derzeit von Hand und kann bei Bedarf
+z.B. durch ein Ticket hier auf GitHub angefragt werden.
+
+### Übersetzungsprojekte
+
+- [Spezifikation][transifex-oparl-spec]
+- [Entwicklerwebseite][transifex-oparl-dev]
+- [liboparl][transifex-oparl-liboparl]
+
 ## Erstellen der Dokumente
 
 Es gibt zwei Möglichkeiten, die Dokumente zu erstellen: Direkt mit `build.py` oder über eine Docker-Container.
@@ -105,6 +131,12 @@ Die Dateien, aus denen die Spezifikation erstellt wird, sind auf mehrere Ordner 
 
 [oparl]: https://oparl.org/
 [oparl-dev]: https://dev.oparl.org/
+[oparl-liboparl]: https://github.com/OParl/liboparl/
+[transifex]: https://www.transifex.com/
+[transifex-oparl]: https://www.transifex.com/oparl/
+[transifex-oparl-spec]: https://www.transifex.com/oparl/spec-1/
+[transifex-oparl-dev-site]: https://www.transifex.com/oparl/dev-website/
+[transifex-oparl-liboparl]: https://www.transifex.com/oparl/liboparl/
 
 [ghostscript]: https://www.ghostscript.com/
 [github-help]: https://help.github.com/

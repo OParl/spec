@@ -135,7 +135,7 @@ Die Dateien, aus denen die Spezifikation erstellt wird, sind auf mehrere Ordner 
 [transifex]: https://www.transifex.com/
 [transifex-oparl]: https://www.transifex.com/oparl/
 [transifex-oparl-spec]: https://www.transifex.com/oparl/spec-1/
-[transifex-oparl-dev-site]: https://www.transifex.com/oparl/dev-website/
+[transifex-oparl-dev]: https://www.transifex.com/oparl/dev-website/
 [transifex-oparl-liboparl]: https://www.transifex.com/oparl/liboparl/
 
 [ghostscript]: https://www.ghostscript.com/

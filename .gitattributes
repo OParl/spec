@@ -3,6 +3,7 @@
 *.sh linguist-vendored
 *.json linguist-vendored
 Makefile linguist-vendored
+Dockerfile linguist-vendored
 *.tex linguist-vendored
 *.css linguist-vendored
 *.html linguist-vendored

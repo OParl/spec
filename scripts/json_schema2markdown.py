@@ -175,7 +175,7 @@ def localize_schema(language, translations_file, schema_file):
     schema = schema_file.read()
 
     with open(translations_file) as f:
-        translations = yaml.load(f)[language]
+        translations = yaml.safe_load(f)[language]
 
     for key in translations.keys():
         pattern = "{{ " + key + " }}"  # Avoid mixing python's and our own template language

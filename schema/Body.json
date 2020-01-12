@@ -198,6 +198,14 @@
             "type": "object",
             "schema": "Location.json"
         },
+        "mainOrganization": {
+            "description": "{{ Body.properties.mainOrganization.description }}",
+            "type": "string",
+            "format": "url",
+            "schema": "Organization",
+            "references": "Organization",
+            "cardinality": "1:1"
+        },
         "keyword": {
             "type": "array",
             "items": {

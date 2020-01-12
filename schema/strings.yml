@@ -138,6 +138,7 @@ de:
   Body.properties.legislativeTerm.description: "[Objektliste](#objektlisten) mit den Wahlperioden der Körperschaft."
   Body.properties.classification.description: Art der Körperschaft.
   Body.properties.location.description: Ort, an dem die Körperschaft beheimatet ist.
+  Body.properties.mainOrganization.description: Das zentrale Gremium einer Körperschaft. Bei einer Stadt wäre das z.B. die Vollversammlung des Stadtrats, beim Bundestag das Plenum.
   Consultation.description: |
     Der Objekttyp `oparl:Consultation` dient dazu, die Beratung einer Drucksache ([`oparl:Paper`](#oparl_paper)) in einer Sitzung abzubilden. Dabei ist es nicht entscheidend, ob diese Beratung in der Vergangenheit stattgefunden hat oder diese für die Zukunft geplant ist.
     Die Gesamtheit aller Objekte des Typs `oparl:Consultation` zu einer bestimmten Drucksache bildet das ab, was in der Praxis als "Beratungsfolge" der Drucksache bezeichnet wird.

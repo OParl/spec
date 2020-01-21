@@ -104,7 +104,7 @@ de:
   File.properties.meeting.description: Rückreferenzen auf Meeting-Objekte. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.
   File.properties.agendaItem.description: Rückreferenzen auf AgendaItem-Objekte. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.
   File.properties.paper.description: Rückreferenzen auf Paper-Objekte. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.
-  File.properties.paper.description: Rückreferenz auf die Person, deren Bild die Datei darstellt. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.
+  File.properties.person.description: Rückreferenz auf die Person, deren Bild die Datei darstellt. Wird nur dann ausgegeben, wenn das File-Objekt nicht als eingebettetes Objekt aufgerufen wird.
   LegislativeTerm.description: Dieser Objekttyp dient der Beschreibung einer Wahlperiode.
   LegislativeTerm.properties.body.description: Rückreferenz auf die Körperschaft, welche nur dann ausgegeben werden muss, wenn das LegislativeTerm-Objekt einzeln abgerufen wird, d.h. nicht Teil einer internen Ausgabe ist.
   LegislativeTerm.properties.name.description: Nutzerfreundliche Bezeichnung der Wahlperiode.

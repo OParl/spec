@@ -5,6 +5,7 @@ build/
 ._*
 .cache
 __pycache__
+*.pyc
 
 en/*-schema.md
 de/*-schema.md

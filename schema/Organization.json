@@ -115,6 +115,14 @@
             "type": "string",
             "format": "url"
         },
+        "memberCount": {
+            "description": "{{ Organization.properties.memberCount.description }}",
+            "type": "integer"
+        },
+        "votingMemberCount": {
+            "description": "{{ Organization.properties.votingMemberCount.description }}",
+            "type": "integer"
+        },
         "license": {
             "type": "string"
         },

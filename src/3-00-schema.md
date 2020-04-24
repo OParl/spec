@@ -9,29 +9,30 @@ einander stehen.
 
 ## Die Objekte {#objekttypen}
 
-OParl nutzt folgenden Objekte:
+OParl nutzt die folgenden Objekte:
 
-* oparl:System
-* oparl:Body
-* oparl:LegislativeTerm
-* oparl:Organization
-* oparl:Person
-* oparl:Membership
-* oparl:Meeting
-* oparl:AgendaItem
-* oparl:Paper
-* oparl:Consultation
-* oparl:File
-* oparl:Location
+* `oparl:System`
+* `oparl:Body`
+* `oparl:LegislativeTerm`
+* `oparl:Organization`
+* `oparl:Person`
+* `oparl:Membership`
+* `oparl:Meeting`
+* `oparl:AgendaItem`
+* `oparl:Paper`
+* `oparl:Consultation`
+* `oparl:File`
+* `oparl:Location`
 
 Einige Objekte werden intern in anderen Objekten ausgegeben:
 
-* oparl:LegislativeTerm wird intern in oparl:Body ausgegeben
-* oparl:Membership wird intern in oparl:Person ausgegeben
-* oparl:AgendaItem wird intern in oparl:Meeting ausgegeben
-* oparl:Consultation wird intern in Paper ausgegeben
-* oparl:File wird intern in oparl:Meeting, oparl:AgendaItem und oparl:Paper ausgegeben
-* oparl:Location wird intern in oparl:Body, oparl:Organization, oparl:Meeting und oparl:Paper ausgegeben
+* `oparl:LegislativeTerm` wird intern in `oparl:Body` ausgegeben
+* `oparl:Membership` wird intern in `oparl:Person` ausgegeben
+* `oparl:AgendaItem` wird intern in `oparl:Meeting` ausgegeben
+* `oparl:Consultation` wird intern in `oparl:Paper` ausgegeben
+* `oparl:File` wird intern in `oparl:Meeting`, `oparl:AgendaItem` und `oparl:Paper` ausgegeben
+* `oparl:Location` wird intern in `oparl:Body`, `oparl:Organization`,
+  `oparl:Meeting` und `oparl:Paper` ausgegeben
 
 Grundsätzlich muss jedes Objekt unter seiner ID abrufbar sein - auch dann, wenn
 das Objekt in anderen Objekten intern ausgegeben wird. Bei der internen Ausgabe

@@ -27,7 +27,6 @@ aktualisiert werden, in die dieses Objekt eingebettet war.
 
 ### Depublizierung von Objekten
 
-Da es sich bei OParl um eine Schnittstelle für öffentliche Daten handelt sind
-Objekte, die der Öffentlichkeit entzogen - also depubliziert - werden im Sinne
-der Schnittstelle als gelöscht zu betrachten und **sollten** wie oben behandelt
-werden.
+Da es sich bei OParl um eine Schnittstelle für öffentliche Daten handelt werden
+depublizierte Objekte im Sinne der Schnittstelle gelöscht und **sollen** wie oben
+behandelt werden.

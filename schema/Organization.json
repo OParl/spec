@@ -46,8 +46,7 @@
             "format": "url",
             "references": "externalList",
             "items": {
-                "type": "object",
-                "schema": "Meeting.json"
+                "$ref": "Meeting.json"
             },
             "backreference": "organization",
             "cardinality": "n:m"
@@ -58,8 +57,7 @@
             "format": "url",
             "references": "externalList",
             "items": {
-                "type": "object",
-                "schema": "Consultation.json"
+                "$ref": "Consultation.json"
             },
             "backreference": "organization",
             "cardinality": "n:m"
@@ -107,8 +105,7 @@
         },
         "location": {
             "description": "{{ Organization.properties.location.description }}",
-            "type": "object",
-            "schema": "Location.json"
+            "$ref": "Location.json"
         },
         "externalBody": {
             "description": "{{ Organization.properties.externalBody.description }}",

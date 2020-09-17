@@ -1,4 +1,5 @@
 {
+    "$schema": "https://schema.oparl.org/1.1/Location",
     "id": "https://oparl.example.org/location/0",
     "type": "https://schema.oparl.org/1.1/Location",
     "description": "Deutscher Bundestag, Platz der Republik 1, 11011 Berlin",

@@ -41,8 +41,7 @@
         },
         "location": {
             "description": "{{ Meeting.properties.location.description }}",
-            "type": "object",
-            "schema": "Location.json"
+            "$ref": "Location.json"
         },
         "organization": {
             "description": "{{ Meeting.properties.organization.description }}",
@@ -67,33 +66,28 @@
         },
         "invitation": {
             "description": "{{ Meeting.properties.invitation.description }}",
-            "type": "object",
-            "schema": "File.json"
+            "$ref": "File.json"
         },
         "resultsProtocol": {
             "description": "{{ Meeting.properties.resultsProtocol.description }}",
-            "type": "object",
-            "schema": "File.json"
+            "$ref": "File.json"
         },
         "verbatimProtocol": {
             "description": "{{ Meeting.properties.verbatimProtocol.description }}",
-            "type": "object",
-            "schema": "File.json"
+            "$ref": "File.json"
         },
         "auxiliaryFile": {
             "description": "{{ Meeting.properties.auxiliaryFile.description }}",
             "type": "array",
             "items": {
-                "type": "object",
-                "schema": "File.json"
+                "$ref": "File.json"
             }
         },
         "agendaItem": {
             "description": "{{ Meeting.properties.agendaItem.description }}",
             "type": "array",
             "items": {
-                "type": "object",
-                "schema": "AgendaItem.json"
+                "$ref": "AgendaItem.json"
             }
         },
         "license": {

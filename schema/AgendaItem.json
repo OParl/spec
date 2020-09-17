@@ -58,15 +58,13 @@
         },
         "resolutionFile": {
             "description": "{{ AgendaItem.properties.resolutionFile.description }}",
-            "type": "object",
-            "schema": "File.json"
+            "$ref": "File.json"
         },
         "auxiliaryFile": {
             "description": "{{ AgendaItem.properties.auxiliaryFile.description }}",
             "type": "array",
             "items": {
-                "type": "object",
-                "schema": "File.json"
+                "$ref": "File.json"
             }
         },
         "start": {

@@ -1,4 +1,5 @@
 {
+    "$schema": "https://schema.oparl.org/1.1/Organization",
     "id": "https://oparl.example.org/organization/34",
     "type": "https://schema.oparl.org/1.1/Organization",
     "body": "https://oparl.example.org/bodies/1",

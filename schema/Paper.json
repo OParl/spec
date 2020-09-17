@@ -74,23 +74,20 @@
         },
         "mainFile": {
             "description": "{{ Paper.properties.mainFile.description }}",
-            "type": "object",
-            "schema": "File.json"
+            "$ref": "File.json"
         },
         "auxiliaryFile": {
             "description": "{{ Paper.properties.auxiliaryFile.description }}",
             "type": "array",
             "items": {
-                "type": "object",
-                "schema": "File.json"
+                "$ref": "File.json"
             }
         },
         "location": {
             "description": "{{ Paper.properties.location.description }}",
             "type": "array",
             "items": {
-                "type": "object",
-                "schema": "Location.json"
+                "$ref": "Location.json"
             }
         },
         "originatorPerson": {
@@ -127,8 +124,7 @@
             "description": "{{ Paper.properties.consultation.description }}",
             "type": "array",
             "items": {
-                "type": "object",
-                "schema": "Consultation.json"
+                "$ref": "Consultation.json"
             }
         },
         "license": {

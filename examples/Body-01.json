@@ -1,4 +1,5 @@
 {
+    "$schema": "https://schema.oparl.org/1.1/Body",
     "id": "https://oparl.example.org/body/0",
     "type": "https://schema.oparl.org/1.1/Body",
     "system": "https://oparl.example.org/",

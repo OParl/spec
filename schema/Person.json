@@ -80,8 +80,7 @@
         },
         "locationObject": {
             "description": "{{ Person.properties.locationObject.description }}",
-            "type": "object",
-            "schema": "Location.json"
+            "$ref": "Location.json"
         },
         "status": {
             "description": "{{ Person.properties.status.description }}",
@@ -94,14 +93,12 @@
             "description": "{{ Person.properties.membership.description }}",
             "type": "array",
             "items": {
-                "type": "object",
-                "schema": "Membership.json"
+                "$ref": "Membership.json"
             }
         },
         "image": {
             "description": "{{ Person.properties.image.description }}",
-            "type": "object",
-            "schema": "File.json"
+            "$ref": "File.json"
         },
         "life": {
             "description": "{{ Person.properties.life.description }}",

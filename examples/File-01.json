@@ -1,4 +1,5 @@
 {
+    "$schema": "https://schema.oparl.org/1.1/File",
     "id": "https://oparl.example.org/files/57737",
     "type": "https://schema.oparl.org/1.1/File",
     "name": "Anlage 1 zur Anfrage",

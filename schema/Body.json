@@ -89,8 +89,7 @@
             "format": "url",
             "references": "externalList",
             "items": {
-                "type": "object",
-                "schema": "Organization.json"
+                "$ref": "Organization.json"
             }
         },
         "person": {
@@ -99,8 +98,7 @@
             "format": "url",
             "references": "externalList",
             "items": {
-                "type": "object",
-                "schema": "Person.json"
+                "$ref": "Person.json"
             }
         },
         "meeting": {
@@ -109,8 +107,7 @@
             "format": "url",
             "references": "externalList",
             "items": {
-                "type": "object",
-                "schema": "Meeting.json"
+                "$ref": "Meeting.json"
             }
         },
         "paper": {
@@ -119,16 +116,14 @@
             "format": "url",
             "references": "externalList",
             "items": {
-                "type": "object",
-                "schema": "Paper.json"
+                "$ref": "Paper.json"
             }
         },
         "legislativeTerm": {
             "description": "{{ Body.properties.legislativeTerm.description }}",
             "type": "array",
             "items": {
-                "type": "object",
-                "schema": "LegislativeTerm.json"
+                "$ref": "LegislativeTerm.json"
             }
         },
         "agendaItem": {
@@ -137,8 +132,7 @@
             "format": "url",
             "references": "externalList",
             "items": {
-                "type": "object",
-                "schema": "AgendaItem.json"
+                "$ref": "AgendaItem.json"
             }
         },
         "consultation": {
@@ -147,8 +141,7 @@
             "format": "url",
             "references": "externalList",
             "items": {
-                "type": "object",
-                "schema": "Consultation.json"
+                "$ref": "Consultation.json"
             }
         },
         "file": {
@@ -157,8 +150,7 @@
             "format": "url",
             "references": "externalList",
             "items": {
-                "type": "object",
-                "schema": "File.json"
+                "$ref": "File.json"
             }
         },
         "locationList": {
@@ -167,8 +159,7 @@
             "format": "url",
             "references": "externalList",
             "items": {
-                "type": "object",
-                "schema": "Location.json"
+                "$ref": "Location.json"
             }
         },
         "legislativeTermList": {
@@ -177,8 +168,7 @@
             "format": "url",
             "references": "externalList",
             "items": {
-                "type": "object",
-                "schema": "LegislativeTerm.json"
+                "$ref": "LegislativeTerm.json"
             }
         },
         "membership": {
@@ -187,8 +177,7 @@
             "format": "url",
             "references": "externalList",
             "items": {
-                "type": "object",
-                "schema": "Membership.json"
+                "$ref": "Membership.json"
             }
         },
         "classification": {
@@ -197,14 +186,13 @@
         },
         "location": {
             "description": "{{ Body.properties.location.description }}",
-            "type": "object",
-            "schema": "Location.json"
+            "$ref": "Location.json"
         },
         "mainOrganization": {
             "description": "{{ Body.properties.mainOrganization.description }}",
             "type": "string",
             "format": "url",
-            "schema": "Organization",
+            "$ref": "Organization",
             "references": "Organization",
             "cardinality": "1:1"
         },

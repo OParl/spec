@@ -1,4 +1,8 @@
 {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://schema.oparl.org/1.1/System",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://schema.oparl.org/1.1/System",
     "title": "System",
     "description": "{{ System.description }}",
     "type": "object",
@@ -15,11 +19,11 @@
         },
         "type": {
             "type": "string",
-            "pattern": "^https\\:\\/\\/schema\\.oparl\\.org\\/1\\.1\\/System$"
+            "const": "https://schema.oparl.org/1.1/System"
         },
         "oparlVersion": {
             "type": "string",
-            "pattern": "^https\\:\\/\\/schema\\.oparl\\.org/1\\.(0|1)\\/$",
+            "enum": ["https://schema.oparl.org/1.0/", "https://schema.oparl.org/1.1/"],
             "description": "{{ System.properties.oparlVersion.description }}"
         },
         "otherOparlVersions": {

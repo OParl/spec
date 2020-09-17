@@ -1,4 +1,6 @@
 {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://schema.oparl.org/1.1/File",
     "title": "File",
     "description": "{{ File.description }}",
     "type": "object",
@@ -14,7 +16,7 @@
         },
         "type": {
             "type": "string",
-            "pattern": "^https\\:\\/\\/schema\\.oparl\\.org\\/1\\.1\\/File$"
+            "const": "https://schema.oparl.org/1.1/File"
         },
         "name": {
             "description": "{{ File.properties.name.description }}",

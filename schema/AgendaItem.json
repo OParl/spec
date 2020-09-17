@@ -1,4 +1,6 @@
 {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://schema.oparl.org/1.1/AgendaItem",
     "title": "AgendaItem",
     "description": "{{ AgendaItem.description }}",
     "type": "object",
@@ -14,7 +16,7 @@
         },
         "type": {
             "type": "string",
-            "pattern": "^https\\:\\/\\/schema\\.oparl\\.org\\/1\\.1\\/AgendaItem$"
+            "const": "https://schema.oparl.org/1.1/AgendaItem"
         },
         "meeting": {
             "description": "{{ AgendaItem.properties.meeting.description }}",

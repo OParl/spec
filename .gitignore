@@ -1,6 +1,7 @@
 out/
 archives/
 build/
+.venv
 
 ._*
 .cache
